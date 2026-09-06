@@ -1,179 +1,116 @@
+
+
 # Gateway Load Balancers
+<a name="gateway-load-balancers"></a>
 
-Use a Gateway Load Balancer to deploy and manage a fleet of virtual appliances that support the GENEVE
-protocol.
+Use a Gateway Load Balancer to deploy and manage a fleet of virtual appliances that support the GENEVE protocol.
 
-A Gateway Load Balancer operates at the third layer of the Open Systems Interconnection (OSI) model. It
-listens for all IP packets across all ports and forwards traffic to the target group that's
-specified in the listener rule, using the GENEVE protocol on port 6081.
+A Gateway Load Balancer operates at the third layer of the Open Systems Interconnection (OSI) model. It listens for all IP packets across all ports and forwards traffic to the target group that's specified in the listener rule, using the GENEVE protocol on port 6081.
 
-You can add or remove targets from your load balancer as your needs change, without
-disrupting the overall flow of requests. Elastic Load Balancing scales your load balancer as traffic to your
-application changes over time. Elastic Load Balancing can scale to the vast majority of workloads
-automatically.
+You can add or remove targets from your load balancer as your needs change, without disrupting the overall flow of requests. Elastic Load Balancing scales your load balancer as traffic to your application changes over time. Elastic Load Balancing can scale to the vast majority of workloads automatically.
 
-###### Contents
-
-- [Load balancer state](#load-balancer-state "#load-balancer-state")
-- [IP address type](#ip-address-type "#ip-address-type")
-- [Availability Zones](#availability-zones "#availability-zones")
-- [Idle timeout](#idle-timeout "#idle-timeout")
-- [Load balancer attributes](#load-balancer-attributes "#load-balancer-attributes")
-- [Network ACLs](#load-balancer-network-acl "#load-balancer-network-acl")
-- [Asymmetric flows](#asymmetric-flows "#asymmetric-flows")
-- [Network maximum transmission unit (MTU)](#mtu "#mtu")
-- [Create a load balancer](create-load-balancer.md "create-load-balancer.md")
-- [Update the IP address type](load-balancer-ip-address-type.md "load-balancer-ip-address-type.md")
-- [Edit load balancer attributes](edit-load-balancer-attributes.md "edit-load-balancer-attributes.md")
-- [Tag a load balancer](tag-load-balancer.md "tag-load-balancer.md")
-- [Delete a load balancer](delete-load-balancer.md "delete-load-balancer.md")
-- [LCU reservations](capacity-unit-reservation.md "capacity-unit-reservation.md")
+**Topics**
++ [Load balancer state](#load-balancer-state)
++ [IP address type](#ip-address-type)
++ [Availability Zones](#availability-zones)
++ [Idle timeout](#idle-timeout)
++ [Load balancer attributes](#load-balancer-attributes)
++ [Network ACLs](#load-balancer-network-acl)
++ [Asymmetric flows](#asymmetric-flows)
++ [Network maximum transmission unit (MTU)](#mtu)
++ [Create a load balancer](create-load-balancer.md)
++ [Update the IP address type](load-balancer-ip-address-type.md)
++ [Edit load balancer attributes](edit-load-balancer-attributes.md)
++ [Tag a load balancer](tag-load-balancer.md)
++ [Delete a load balancer](delete-load-balancer.md)
++ [LCU reservations](capacity-unit-reservation.md)
 
 ## Load balancer state
+<a name="load-balancer-state"></a>
 
 A Gateway Load Balancer can be in one of the following states:
 
-`provisioning`
-
+`provisioning`  
 The Gateway Load Balancer is being set up.
 
-`active`
-
+`active`  
 The Gateway Load Balancer is fully set up and ready to route traffic.
 
-`failed`
-
+`failed`  
 The Gateway Load Balancer could not be set up.
 
 ## IP address type
+<a name="ip-address-type"></a>
 
-You can set the types of IP addresses that the application servers can use to access
-your Gateway Load Balancers.
+You can set the types of IP addresses that the application servers can use to access your Gateway Load Balancers.
 
 Gateway Load Balancers support the following IP address types:
 
-**`ipv4`**
-
+**`ipv4`**  
 Only IPv4 is supported.
 
-**`dualstack`**
+**`dualstack`**  
+Both IPv4 and IPv6 are supported.  
 
-Both IPv4 and IPv6 are supported.
+**Considerations**
++ The virtual private cloud (VPC) and subnets that you specify for the load balancer must have associated IPv6 CIDR blocks.
++ The route tables for the subnets in the service consumer VPC must route IPv6 traffic, and the network ACLs for these subnets must allow IPv6 traffic.
++ A Gateway Load Balancer encapsulates both IPv4 and IPv6 client traffic with an IPv4 GENEVE header and sends it to the appliance. The appliance encapsulates both IPv4 and IPv6 client traffic with an IPv4 GENEVE header and sends it back to the Gateway Load Balancer.
 
-###### Considerations
-
-- The virtual private cloud (VPC) and subnets that you specify for the load
-  balancer must have associated IPv6 CIDR blocks.
-- The route tables for the subnets in the service consumer VPC must route
-  IPv6 traffic, and the network ACLs for these subnets must allow IPv6 traffic.
-- A Gateway Load Balancer encapsulates both IPv4 and IPv6 client traffic with an IPv4 GENEVE header
-  and sends it to the appliance. The appliance encapsulates both IPv4 and IPv6 client
-  traffic with an IPv4 GENEVE header and sends it back to the Gateway Load Balancer.
-
-For more information about IP address types, see [Update the IP address types for your Gateway Load Balancer](load-balancer-ip-address-type.md "load-balancer-ip-address-type.md").
+For more information about IP address types, see [Update the IP address types for your Gateway Load Balancer](load-balancer-ip-address-type.md).
 
 ## Availability Zones
+<a name="availability-zones"></a>
 
-When you create a Gateway Load Balancer, you enable one or more Availability Zones, and specify the
-subnet that corresponds to each zone. When you enable multiple Availability Zones, it
-ensures that the load balancer can continue to route traffic even if an Availability
-Zone becomes unavailable. The subnets that you specify must each have at least 8
-available IP addresses. Subnets cannot be removed after the load balancer is
-created. To remove a subnet, you must create a new load balancer.
+When you create a Gateway Load Balancer, you enable one or more Availability Zones, and specify the subnet that corresponds to each zone. When you enable multiple Availability Zones, it ensures that the load balancer can continue to route traffic even if an Availability Zone becomes unavailable. The subnets that you specify must each have at least 8 available IP addresses. Subnets cannot be removed after the load balancer is created. To remove a subnet, you must create a new load balancer.
 
 ## Idle timeout
+<a name="idle-timeout"></a>
 
-For each TCP request made through a Gateway Load Balancer, the state of that
-connection is tracked. If no data is sent through the connection
-by either the client or target for longer than the idle timeout,
-the connection is closed. After the idle timeout period elapses,
-the load balancer considers the next TCP SYN as a new flow and
-routes it to a new target. However, data packets sent after the
-idle timeout period elapses are dropped.
+For each TCP request made through a Gateway Load Balancer, the state of that connection is tracked. If no data is sent through the connection by either the client or target for longer than the idle timeout, the connection is closed. After the idle timeout period elapses, the load balancer considers the next TCP SYN as a new flow and routes it to a new target. However, data packets sent after the idle timeout period elapses are dropped.
 
-The default idle timeout value for TCP flows is 350 seconds,
-but can be updated to any value between 60-6000 seconds. Clients
-or targets can use TCP keepalive packets to reset the idle timeout.
+The default idle timeout value for TCP flows is 350 seconds, but can be updated to any value between 60-6000 seconds. Clients or targets can use TCP keepalive packets to reset the idle timeout.
 
-###### ENI connection tracking timeout mismatch
+**ENI connection tracking timeout mismatch**  
+If you configure a TCP idle timeout value higher than 350 seconds, ensure that your target instances' ENI connection tracking idle timeout (`TcpEstablishedTimeout`) is set to a value equal to or greater than the Gateway Load Balancer idle timeout. On sixth-generation Nitro instances (Nitro V6\+), the default ENI connection tracking timeout is 350 seconds. If the Gateway Load Balancer idle timeout exceeds the target's connection tracking timeout, the target's network interface may drop the connection tracking entry while the load balancer still considers the connection active, resulting in dropped packets on the connection. You can configure your target's connection tracking timeout using `ModifyNetworkInterfaceAttribute`. For more information, see [Best Practices for TCP Connection Management on EC2](https://aws.amazon.com/blogs/networking-and-content-delivery/best-practices-for-tcp-connection-management-on-ec2/).
 
-If you configure a TCP idle timeout value higher than 350 seconds,
-ensure that your target instances' ENI connection tracking idle timeout
-(`TcpEstablishedTimeout`) is set to a value equal to or
-greater than the Gateway Load Balancer idle timeout. On sixth-generation Nitro
-instances (Nitro V6+), the default ENI connection tracking timeout is
-350 seconds. If the Gateway Load Balancer idle timeout exceeds the target's connection
-tracking timeout, the target's network interface may drop the
-connection tracking entry while the load balancer still considers the
-connection active, resulting in dropped packets on the connection. You
-can configure your target's connection tracking timeout using
-`ModifyNetworkInterfaceAttribute`. For more information, see
-[Best
-Practices for TCP Connection Management on EC2](https://aws.amazon.com/blogs/networking-and-content-delivery/best-practices-for-tcp-connection-management-on-ec2/ "https://aws.amazon.com/blogs/networking-and-content-delivery/best-practices-for-tcp-connection-management-on-ec2/").
+**Stickiness limitation**  
+Your Gateway Load Balancers idle timeout can only be updated when using 5-tuple stickiness. When using 3-tuple or 2-tuple stickness, the default idle timeout value is used. For more information, see [Flow stickiness](edit-target-group-attributes.md#flow-stickiness)
 
-###### Stickiness limitation
+While UDP is connectionless, the load balancer maintains UDP flow state based on the source and destination IP addresses and ports. This ensures that packets that belong to the same flow are consistently sent to the same target. After the idle timeout period elapses, the load balancer considers the incoming UDP packet as a new flow and routes it to a new target. Elastic Load Balancing sets the idle timeout value for UDP flows to 120 seconds. This cannot be changed.
 
-Your Gateway Load Balancers idle timeout can only be updated when using
-5-tuple stickiness. When using 3-tuple or 2-tuple stickness,
-the default idle timeout value is used. For more information,
-see [Flow stickiness](edit-target-group-attributes.md#flow-stickiness "edit-target-group-attributes.md#flow-stickiness")
+EC2 instances must respond to a new request within 30 seconds in order to establish a return path.
 
-While UDP is connectionless, the load balancer maintains UDP
-flow state based on the source and destination IP addresses and
-ports. This ensures that packets that belong to the same flow are
-consistently sent to the same target. After the idle timeout period
-elapses, the load balancer considers the incoming UDP packet as a new
-flow and routes it to a new target. Elastic Load Balancing sets the
-idle timeout value for UDP flows to 120 seconds. This cannot be
-changed.
-
-EC2 instances must respond to a new request within 30 seconds in
-order to establish a return path.
-
-For more information, see [Update idle timeout](update-idle-timeout.md "update-idle-timeout.md").
+For more information, see [Update idle timeout](update-idle-timeout.md).
 
 ## Load balancer attributes
+<a name="load-balancer-attributes"></a>
 
 The following are the load balancer attributes for Gateway Load Balancers:
 
-`deletion_protection.enabled`
+`deletion_protection.enabled`  
+Indicates whether deletion protection is enabled. The default is `false`.
 
-Indicates whether deletion protection is enabled. The default is
-`false`.
+`load_balancing.cross_zone.enabled`  
+Indicates whether cross-zone load balancing is enabled. The default is `false`.
 
-`load_balancing.cross_zone.enabled`
-
-Indicates whether cross-zone load balancing is enabled. The default
-is `false`.
-
-For more information, see [Edit load balancer attributes](edit-load-balancer-attributes.md "edit-load-balancer-attributes.md").
+For more information, see [Edit load balancer attributes](edit-load-balancer-attributes.md).
 
 ## Network ACLs
+<a name="load-balancer-network-acl"></a>
 
-If the application servers and the Gateway Load Balancer endpoint are in the same subnet,
-the NACL rules are evaluated for traffic from the application servers
-to the Gateway Load Balancer endpoint.
+If the application servers and the Gateway Load Balancer endpoint are in the same subnet, the NACL rules are evaluated for traffic from the application servers to the Gateway Load Balancer endpoint.
 
 ## Asymmetric flows
+<a name="asymmetric-flows"></a>
 
-Gateway Load Balancers support asymmetric flows when the load balancer processes the initial flow
-packet and the response flow packet is not routed through the load balancer. Asymmetric
-routing is not recommended, because it can result in reduced network performance. Gateway Load Balancers
-do not support asymmetric flows when the load balancer does not process the initial flow
-packet but the response flow packet is routed through the load balancer.
+Gateway Load Balancers support asymmetric flows when the load balancer processes the initial flow packet and the response flow packet is not routed through the load balancer. Asymmetric routing is not recommended, because it can result in reduced network performance. Gateway Load Balancers do not support asymmetric flows when the load balancer does not process the initial flow packet but the response flow packet is routed through the load balancer.
 
 ## Network maximum transmission unit (MTU)
+<a name="mtu"></a>
 
-The maximum transmission unit (MTU) is the size of the largest data packet that can be
-transmitted through the network. The Gateway Load Balancer interface MTU supports packets up to 8,500
-bytes. Packets with a size larger than 8500 bytes that arrive at the Gateway Load Balancer interface are
-dropped.
+The maximum transmission unit (MTU) is the size of the largest data packet that can be transmitted through the network. The Gateway Load Balancer interface MTU supports packets up to 8,500 bytes. Packets with a size larger than 8500 bytes that arrive at the Gateway Load Balancer interface are dropped.
 
-A Gateway Load Balancer encapsulates IP traffic with a GENEVE header and forwards it to the appliance.
-The GENEVE encapsulation process adds 68 bytes to the original packet. Therefore, to
-support packets up to 8,500 bytes, ensure that the MTU setting of your appliance
-supports packets of at least 8,568 bytes.
+A Gateway Load Balancer encapsulates IP traffic with a GENEVE header and forwards it to the appliance. The GENEVE encapsulation process adds 68 bytes to the original packet. Therefore, to support packets up to 8,500 bytes, ensure that the MTU setting of your appliance supports packets of at least 8,568 bytes.
 
-Gateway Load Balancers do not support IP fragmentation. Additionally, Gateway Load Balancers do not generate
-ICMP message "Destination Unreachable: fragmentation needed and DF set".
-Due to this, Path MTU Discovery (PMTUD) is not supported.
+Gateway Load Balancers do not support IP fragmentation. Additionally, Gateway Load Balancers do not generate ICMP message "Destination Unreachable: fragmentation needed and DF set". Due to this, Path MTU Discovery (PMTUD) is not supported.
