@@ -1,19 +1,13 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # What is my operating model?
+<a name="op-model-aog"></a>
 
-As an AMS customer, your organization has decided to separate application and
-infrastructure operations and use AMS for infrastructure operations. AMS will work
-with your application design and development team along with your infrastructure design
-team to ensure that your infrastructure operations run smoothly. The following graphic
-illustrates this concept:
+As an AMS customer, your organization has decided to separate application and infrastructure operations and use AMS for infrastructure operations. AMS will work with your application design and development team along with your infrastructure design team to ensure that your infrastructure operations run smoothly. The following graphic illustrates this concept:
 
-![Diagram showing service design and operation phases with roles for application and infrastructure layers.](images/Sent-design-ops.png)
-AMS takes responsibility for your AWS infrastructure operations while your
-teams are responsible for your application operations. As the application and infrastructure
-design teams, you must understand who will be operating the application once it has been
-deployed to production in the AMS infrastructure. This guide covers common approaches
-to infrastructure design as it relates to application deployment and maintenance.
+![Diagram showing service design and operation phases with roles for application and infrastructure layers.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/Sent-design-ops.png)
+
+
+AMS takes responsibility for your AWS infrastructure operations while your teams are responsible for your application operations. As the application and infrastructure design teams, you must understand who will be operating the application once it has been deployed to production in the AMS infrastructure. This guide covers common approaches to infrastructure design as it relates to application deployment and maintenance.

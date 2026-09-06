@@ -1,211 +1,187 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Create, Upload, and Deploy the Application
+<a name="gui-ex-create-app"></a>
 
 First, create a WordPress application bundle, and then use the CodeDeploy CTs to create and deploy the application.
 
 1. Download WordPress, extract the files and create a ./scripts directory.
 
-Linux command:
+   Linux command:
 
-```
-wget https://github.com/WordPress/WordPress/archive/master.zip
-```
+   ```
+   wget https://github.com/WordPress/WordPress/archive/master.zip
+   ```
 
-Windows: Paste `https://github.com/WordPress/WordPress/archive/master.zip` into a browser window and download the zip file.
+   Windows: Paste `https://github.com/WordPress/WordPress/archive/master.zip` into a browser window and download the zip file.
 
-Create a temporary directory in which to assemble the package.
+   Create a temporary directory in which to assemble the package.
 
-Linux:
+   Linux:
 
-```
-mkdir /tmp/WordPress
-```
+   ```
+   mkdir /tmp/WordPress
+   ```
 
-Windows: Create a "WordPress" directory, you will use the directory path later. 2. Extract the WordPress source to the "WordPress" directory and create a ./scripts directory.
+   Windows: Create a "WordPress" directory, you will use the directory path later.
 
-Linux:
+1. Extract the WordPress source to the "WordPress" directory and create a ./scripts directory.
 
-```
-unzip master.zip -d /tmp/WordPress_Temp
-cp -paf /tmp/WordPress_Temp/WordPress-master/* /tmp/WordPress
-rm -rf /tmp/WordPress_Temp
-rm -f master
-cd /tmp/WordPress
-mkdir scripts
-```
+   Linux:
 
-Windows: Go to the "WordPress" directory that you created and create a "scripts" directory there.
+   ```
+   unzip master.zip -d /tmp/WordPress_Temp
+   cp -paf /tmp/WordPress_Temp/WordPress-master/* /tmp/WordPress
+   rm -rf /tmp/WordPress_Temp
+   rm -f master
+   cd /tmp/WordPress
+   mkdir scripts
+   ```
 
-If you are in a Windows environment, be sure to set the break type for the script files to Unix (LF). In Notepad ++, this is an option at the bottom
-right of the window. 3. Create the CodeDeploy **appspec.yml** file, in the WordPress directory (if
-copying the example, check the indentation, each space counts). IMPORTANT: Ensure that
-the "source" path is correct for copying the WordPress files (in this case, in your
-WordPress directory) to the expected destination (/var/www/html/WordPress). In the
-example, the appspec.yml file is in the directory with the WordPress files, so only "/"
-is needed. Also, even if you used a RHEL AMI for your Auto Scaling group, leave the "os:
-linux" line as-is. Example appspec.yml file:
+   Windows: Go to the "WordPress" directory that you created and create a "scripts" directory there.
 
-```
-version: 0.0
-os: linux
-files:
-  - source: /
-    destination: /var/www/html/WordPress
-hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies.sh
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: scripts/config_wordpress.sh
-      timeout: 300
-      runas: root
-  ApplicationStart:
-    - location: scripts/start_server.sh
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_server.sh
-      timeout: 300
-      runas: root
-```
+   If you are in a Windows environment, be sure to set the break type for the script files to Unix (LF). In Notepad \+\+, this is an option at the bottom right of the window.
 
-4. Create bash file scripts in the WordPress ./scripts directory.
+1. Create the CodeDeploy **appspec.yml** file, in the WordPress directory (if copying the example, check the indentation, each space counts). IMPORTANT: Ensure that the "source" path is correct for copying the WordPress files (in this case, in your WordPress directory) to the expected destination (/var/www/html/WordPress). In the example, the appspec.yml file is in the directory with the WordPress files, so only "/" is needed. Also, even if you used a RHEL AMI for your Auto Scaling group, leave the "os: linux" line as-is. Example appspec.yml file:
 
-First, create `config_wordpress.sh` with the following content (if you prefer, you can edit the wp-config.php file directly).
+   ```
+   version: 0.0
+   os: linux
+   files:
+     - source: /
+       destination: /var/www/html/WordPress
+   hooks:
+     BeforeInstall:
+       - location: scripts/install_dependencies.sh
+         timeout: 300
+         runas: root
+     AfterInstall:
+       - location: scripts/config_wordpress.sh
+         timeout: 300
+         runas: root
+     ApplicationStart:
+       - location: scripts/start_server.sh
+         timeout: 300
+         runas: root
+     ApplicationStop:
+       - location: scripts/stop_server.sh
+         timeout: 300
+         runas: root
+   ```
 
-###### Note
+1. Create bash file scripts in the WordPress ./scripts directory.
 
-Replace `DBName` with the value given in the HA Stack RFC (for example, `wordpress`).
+   First, create `config_wordpress.sh` with the following content (if you prefer, you can edit the wp-config.php file directly).
+**Note**  
+Replace {{DBName}} with the value given in the HA Stack RFC (for example, `wordpress`).  
+Replace {{DB\_MasterUsername}} with the `MasterUsername` value given in the HA Stack RFC (for example, `admin`).  
+Replace {{DB\_MasterUserPassword}} with the `MasterUserPassword` value given in the HA Stack RFC (for example, `p4ssw0rd`).  
+Replace {{DB\_ENDPOINT}} with the endpoint DNS name in the execution outputs of the HA Stack RFC (for example, `srt1cz23n45sfg.clgvd67uvydk.us-east-1.rds.amazonaws.com`). You can find this with the [GetRfc](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_GetRfc.html) operation (CLI: get-rfc --rfc-id RFC\_ID) or in the AMS Console RFC details page for the HA Stack RFC that you previously submitted.
 
-Replace `DB_MasterUsername` with the `MasterUsername` value given in the HA Stack RFC (for example, `admin`).
+   ```
+   #!/bin/bash
+   chmod -R 755 /var/www/html/WordPress
+   cp /var/www/html/WordPress/wp-config-sample.php /var/www/html/WordPress/wp-config.php
+   cd /var/www/html/WordPress
+   sed -i "s/database_name_here/{{DBName}}/g" wp-config.php
+   sed -i "s/username_here/{{DB_MasterUsername}}/g" wp-config.php
+   sed -i "s/password_here/{{DB_MasterUserPassword}}/g" wp-config.php
+   sed -i "s/localhost/{{DB_ENDPOINT}}/g" wp-config.php
+   ```
 
-Replace `DB_MasterUserPassword` with the `MasterUserPassword` value given in the HA Stack RFC (for example, `p4ssw0rd`).
+1. In the same directory create `install_dependencies.sh` with the following content:
 
-Replace `DB_ENDPOINT` with the endpoint DNS name in the execution outputs of the HA Stack RFC (for example,
-`srt1cz23n45sfg.clgvd67uvydk.us-east-1.rds.amazonaws.com`). You can find this with the [GetRfc](../ApiReference-cm/API_GetRfc.md "../ApiReference-cm/API_GetRfc.md") operation (CLI: get-rfc --rfc-id RFC\_ID) or in the AMS
-Console RFC details page for the HA Stack RFC that you previously submitted.
+   ```
+   #!/bin/bash
+   yum install -y php
+   yum install -y php-mysql
+   yum install -y mysql
+   service httpd restart
+   ```
+**Note**  
+HTTPS is installed as part of the user data at launch in order to allow health checks to work from the start.
 
-```
-#!/bin/bash
-chmod -R 755 /var/www/html/WordPress
-cp /var/www/html/WordPress/wp-config-sample.php /var/www/html/WordPress/wp-config.php
-cd /var/www/html/WordPress
-sed -i "s/database_name_here/`DBName`/g" wp-config.php
-sed -i "s/username_here/`DB_MasterUsername`/g" wp-config.php
-sed -i "s/password_here/`DB_MasterUserPassword`/g" wp-config.php
-sed -i "s/localhost/`DB_ENDPOINT`/g" wp-config.php
-```
+1. In the same directory create `start_server.sh` with the following content:
+   + For Amazon Linux instances, use this:
 
-5. In the same directory create `install_dependencies.sh` with the following content:
+     ```
+     #!/bin/bash
+     service httpd start
+     ```
+   + For RHEL instances, use this (the extra commands are policies that allow SELINUX to accept WordPress):
 
-```
-#!/bin/bash
-yum install -y php
-yum install -y php-mysql
-yum install -y mysql
-service httpd restart
-```
+     ```
+     #!/bin/bash
+     setsebool -P  httpd_can_network_connect_db 1
+     setsebool -P  httpd_can_network_connect 1
+     chcon -t httpd_sys_rw_content_t /var/www/html/WordPress/wp-content -R
+     restorecon -Rv /var/www/html
+     service httpd start
+     ```
 
-###### Note
+1. In the same directory create `stop_server.sh` with the following content:
 
-HTTPS is installed as part of the user data at launch in order to allow health checks to work from the start. 6. In the same directory create `start_server.sh` with the following content:
+   ```
+   #!/bin/bash
+   service httpd stop
+   ```
 
-    * For Amazon Linux instances, use this:
+1. Create the zip bundle.
 
+   Linux:
 
+   ```
+   $ cd /tmp/WordPress
+   $ zip -r wordpress.zip .
+   ```
 
-    ```
-    #!/bin/bash
-    service httpd start
-    ```
-    * For RHEL instances, use this (the extra commands are policies that allow SELINUX to accept WordPress):
-
-
-
-    ```
-    #!/bin/bash
-    setsebool -P  httpd_can_network_connect_db 1
-    setsebool -P  httpd_can_network_connect 1
-    chcon -t httpd_sys_rw_content_t /var/www/html/WordPress/wp-content -R
-    restorecon -Rv /var/www/html
-    service httpd start
-    ```
-
-7. In the same directory create `stop_server.sh` with the following content:
-
-```
-#!/bin/bash
-service httpd stop
-```
-
-8. Create the zip bundle.
-
-Linux:
-
-```
-$ cd /tmp/WordPress
-$ zip -r wordpress.zip .
-```
-
-Windows: Go to your "WordPress" directory and select all of the files and create a zip file, be sure to name it wordpress.zip.
+   Windows: Go to your "WordPress" directory and select all of the files and create a zip file, be sure to name it wordpress.zip.
 
 1. Upload the application bundle to the S3 bucket
 
-The package needs to be in place in order to continue deploying the stack.
+   The package needs to be in place in order to continue deploying the stack.
 
-You automatically have access to any S3 bucket instance that you create. You can access it through your Bastions (see
-[Accessing Instances](../userguide/using-bastions.md "../userguide/using-bastions.md")), or through the S3 console, and upload the
-CodeDeploy package with drag-and-drop, or by browsing to and selecting the file.
+   You automatically have access to any S3 bucket instance that you create. You can access it through your Bastions (see [Accessing Instances](https://docs.aws.amazon.com/managedservices/latest/userguide/using-bastions.html)), or through the S3 console, and upload the CodeDeploy package with drag-and-drop, or by browsing to and selecting the file. 
 
-You can also use the following command in a shell window; be sure that you have the correct path to the zip file:
+   You can also use the following command in a shell window; be sure that you have the correct path to the zip file:
 
-```
-aws s3 cp wordpress/wordpress.zip s3://BUCKET_NAME/
-```
+   ```
+   aws s3 cp wordpress/wordpress.zip s3://BUCKET_NAME/
+   ```
 
-2. Deploy the WordPress CodeDeploy Application Bundle
+1. Deploy the WordPress CodeDeploy Application Bundle
 
-REQUIRED DATA CODEDEPLOY APPLICATION DEPLOYMENT:
+   REQUIRED DATA CODEDEPLOY APPLICATION DEPLOYMENT:
+   + **CodeDeployApplicationName**: The name you gave the CodeDeploy application.
+   + **CodeDeployGroupName**: Since the CodeDeploy application and group were both created from the name you gave the CodeDeploy application in the HA stack RFC, this is the same name as the **CodeDeployApplicationName**.
+   + **S3Bucket**: The name you gave the S3 bucket.
+   + **S3BundleType** and **S3Key**: These are part of the WordPress application bundle you deployed.
+   + **VpcId**: The relevant VPC.
 
-    * **CodeDeployApplicationName**: The name you gave the CodeDeploy application.
-    * **CodeDeployGroupName**: Since the CodeDeploy application and group were both created from the name you gave the CodeDeploy application
-     in the HA stack RFC, this is the same name as the **CodeDeployApplicationName**.
-    * **S3Bucket**: The name you gave the S3 bucket.
-    * **S3BundleType** and **S3Key**: These are part of the WordPress application bundle you deployed.
-    * **VpcId**: The relevant VPC.
-    1. On the **Create RFC** page, select the category **Deployment**,
-     subcategory **Applications**, item **CodeDeploy application**, and operation **Deploy** from the RFC CT
-     pick list.
-    2. Keep the default **Basic** option, and set the values as shown.
+   1. On the **Create RFC** page, select the category **Deployment**, subcategory **Applications**, item **CodeDeploy application**, and operation **Deploy** from the RFC CT pick list.
 
+   1. Keep the default **Basic** option, and set the values as shown.
+**Note**  
+Reference the CodeDeploy application, CodeDeploy deployment group, S3 bucket and bundle previously created.
 
-    ###### Note
+      ```
+      Subject:                                  WP-CD-Deploy-RFC
+      Description:                              DeployWordPress
+      S3Bucket:                                 {{BUCKET_NAME}}
+      S3Key:                                    wordpress.zip   
+      S3BundleType:                             zip
+      CodeDeployApplicationName:                WordPress
+      CodeDeployDeploymentGroupName:            WordPress
+      CodeDeployIgnoreApplicationStopFailures:  false
+      RevisionType:                             S3
+      
+      
+      
+      VpcId:                                    {{VPC_ID}}
+      Name:                                     WP-CD-Deploy-Op
+      TimeoutInMinutes:                         60
+      ```
 
-    Reference the CodeDeploy application, CodeDeploy deployment group, S3 bucket and bundle previously created.
-
-
-
-    ```
-    **Subject**:                                  WP-CD-Deploy-RFC
-    **Description**:                              DeployWordPress
-    **S3Bucket**:                                 `BUCKET_NAME`
-    **S3Key**:                                    wordpress.zip
-    **S3BundleType**:                             zip
-    **CodeDeployApplicationName**:                WordPress
-    **CodeDeployDeploymentGroupName**:            WordPress
-    **CodeDeployIgnoreApplicationStopFailures**:  false
-    **RevisionType**:                             S3
-
-
-
-    **VpcId**:                                    `VPC_ID`
-    **Name**:                                     WP-CD-Deploy-Op
-    **TimeoutInMinutes**:                         60
-
-    ```
-    3. Click **Submit** when finished.
+   1. Click **Submit** when finished.

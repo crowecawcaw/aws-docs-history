@@ -1,194 +1,269 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Working with provisioning change types (CTs)
+<a name="deploy-new-aog"></a>
 
-AMS has responsibility for your managed infrastructure, to make changes you must
-submit an RFC with the correct CT classification (category, subcategory, item, and operation).
-This section describes how to find CTs, determine if any are right for your needs, and request a
-new CT if none are.
+AMS has responsibility for your managed infrastructure, to make changes you must submit an RFC with the correct CT classification (category, subcategory, item, and operation). This section describes how to find CTs, determine if any are right for your needs, and request a new CT if none are.
 
 ## See if an existing CT meets your requirements
+<a name="ct-check-aog"></a>
 
-Once you’ve determined what you want to deploy with AMS, the next step is to study
-the existing CTs and CloudFormation templates to see if a solution already exists.
+Once you’ve determined what you want to deploy with AMS, the next step is to study the existing CTs and CloudFormation templates to see if a solution already exists. 
 
-When creating an RFC, you must specify the CT. You can use the AWS Management Console or the AMS
-API/CLI. Examples of using both are described next.
+When creating an RFC, you must specify the CT. You can use the AWS Management Console or the AMS API/CLI. Examples of using both are described next.
 
-You can use the console or the API/CLI to find a change type ID (CT) or version. There are
-two methods, either a search or choosing the classification. For both selection types,
-You can sort the search by choosing either **Most frequently used**,
-**Most recently used**, or **Alphabetical**.
+You can use the console or the API/CLI to find a change type ID (CT) or version. There are two methods, either a search or choosing the classification. For both selection types, You can sort the search by choosing either **Most frequently used**, **Most recently used**, or **Alphabetical**.
 
-**YouTube Video**:
-[How do I create an RFC using the AWS Managed Services CLI and where can I find the CT Schema?](https://www.youtube.com/watch?v=IluDFwnJJFU&list=PLhr1KZpdzukc_VXASRqOUSM5AJgtHat6-&index=3&t=150s "https://www.youtube.com/watch?v=IluDFwnJJFU&list=PLhr1KZpdzukc_VXASRqOUSM5AJgtHat6-&index=3&t=150s")
+**YouTube Video**: [ How do I create an RFC using the AWS Managed Services CLI and where can I find the CT Schema?](https://www.youtube.com/watch?v=IluDFwnJJFU&list=PLhr1KZpdzukc_VXASRqOUSM5AJgtHat6-&index=3&t=150s) 
 
 In the AMS console, on the **RFCs** -> **Create RFC** page:
++ With **Browse by change type** selected (the default), either:
+  + Use the **Quick create** area to select from AMS's most popular CTs. Click on a label and the **Run RFC** page opens with the **Subject** option auto-filled for you. Complete the remaining options as needed and click **Run** to submit the RFC. 
+  + Or, scroll down to the **All change types** area and start typing a CT name in the option box, you don't have to have the exact or full change type name. You can also search for a CT by change type ID, classification, or execution mode (automated or manual) by entering the relevant words.
 
-- With **Browse by change type** selected (the default), either:
+    With the default **Cards** view selected, matching CT cards appear as you type, select a card and click **Create RFC**. With the **Table** view selected, choose the relevant CT and click **Create RFC**. Both methods open the **Run RFC** page.
++ Alternatively, and to explore change type choices, click **Choose by category** at the top of the page to open a series of drop-down option boxes.
++ Choose **Category**, a **Subcategory**, an **Item**, and an **Operation**. The information box for that change type appears a panel appears at the bottom of the page.
++ When you're ready, press **Enter**, and a list of matching change types appears.
++ Choose a change type from the list. The information box for that change type appears at the bottom of the page.
++ After you have the correct change type, choose **Create RFC**.
+**Note**  
+The AMS CLI must be installed for these commands to work. To install the AMS API or CLI, go to the AMS console **Developers Resources** page. For reference material on the AMS CM API or AMS SKMS API, see the AMS Information Resources section in the User Guide. You may need to add a `--profile` option for authentication; for example, `aws amsskms {{ams-cli-command}} --profile SAML`. You may also need to add the `--region` option as all AMS commands run out of us-east-1; for example `aws amscm {{ams-cli-command}} --region=us-east-1`.
+**Note**  
+The AMS API/CLI (amscm and amsskms) endpoints are in the AWS N. Virginia Region, `us-east-1`. Depending on how your authentication is set, and what AWS Region your account and resources are in, you may need to add `--region us-east-1` when issuing commands. You may also need to add `--profile saml`, if that is your authentication method.
 
-  - Use the **Quick create** area to select from AMS's most popular CTs. Click on a label and the
-    **Run RFC** page opens with the **Subject** option auto-filled for you. Complete the remaining options
-    as needed and click **Run** to submit the RFC.
-  - Or, scroll down to the **All change types** area and start typing a CT name in the option box, you don't
-    have to have the exact or full change type name. You can also search for a CT by change type ID, classification, or execution mode
-    (automated or manual) by entering the relevant words.
+To search for a change type using the AMS CM API (see [ListChangeTypeClassificationSummaries](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_ListChangeTypeClassificationSummaries.html)) or CLI:
 
-  With the default **Cards** view selected, matching CT cards appear as you type, select a card and click
-  **Create RFC**. With the **Table**
-  view selected, choose the relevant CT and click **Create RFC**. Both methods open the **Run RFC** page.
+You can use a filter or query to search. The ListChangeTypeClassificationSummaries operation has [Filters](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_ListChangeTypeClassificationSummaries.html#amscm-ListChangeTypeClassificationSummaries-request-Filters) options for `Category`, `Subcategory`, `Item`, and `Operation`, but the values must match the existing values exactly. For more flexible results when using the CLI, you can use the `--query` option. 
 
-- Alternatively, and to explore change type choices, click **Choose by category** at the top of the page
-  to open a series of drop-down option boxes.
-- Choose **Category**, a **Subcategory**, an **Item**, and an **Operation**. The
-  information box for that change type appears a panel appears at the bottom of the page.
-- When you're ready, press **Enter**, and a list of matching change types appears.
-- Choose a change type from the list. The information box for that change type appears at the bottom of the page.
-- After you have the correct change type, choose **Create RFC**.
 
-###### Note
+**Change type filtering with the AMS CM API/CLI**  
+<a name="ct-filtering-table"></a>
+<table>
+<thead>
+  <tr><th>Attribute</th><th>Valid values</th><th>Valid/Default condition</th><th>Notes</th></tr>
+</thead>
+<tbody>
+  <tr><td>ChangeTypeId</td><td>Any string representing a ChangeTypeId (For ex: ct-abc123xyz7890)</td><td>Equals</td><td>For change type IDs, see the <a href="https://docs.aws.amazon.com/managedservices/latest/ctref/index.html">Change Type Reference</a>.<br />For change type IDs, see Finding a Change Type or CSIO.</td></tr>
+  <tr><td>Category</td><td rowspan="4">Any free-form text</td><td rowspan="4">Contains</td><td rowspan="4">Regular expressions in each individual field are not supported. Case insensitive search</td></tr>
+  <tr><td>Subcategory</td></tr>
+  <tr><td>Item</td></tr>
+  <tr><td>Operation</td></tr>
+</tbody>
+</table>
 
-The AMS CLI must be installed for these commands to work. To install the AMS API or CLI, go to the AMS console **Developers Resources**
-page. For reference material on the AMS CM API or AMS SKMS API, see the AMS Information Resources section in the User Guide. You may need to add a `--profile` option for
-authentication; for example, `aws amsskms `ams-cli-command` --profile SAML`. You may also need to add the `--region` option as all AMS
-commands run out of us-east-1; for example `aws amscm `ams-cli-command` --region=us-east-1`.
-
-###### Note
-
-The AMS API/CLI (amscm and amsskms) endpoints are in the AWS N. Virginia Region, `us-east-1`. Depending on how your
-authentication is set, and what AWS Region your account and resources are in, you may need to add `--region us-east-1`
-when issuing commands. You may also need to add `--profile saml`, if that is your authentication method.
-
-To search for a change type using the AMS CM API (see [ListChangeTypeClassificationSummaries](../ApiReference-cm/API_ListChangeTypeClassificationSummaries.md "../ApiReference-cm/API_ListChangeTypeClassificationSummaries.md")) or CLI:
-
-You can use a filter or query to search. The ListChangeTypeClassificationSummaries operation has
-[Filters](../ApiReference-cm/API_ListChangeTypeClassificationSummaries.md#amscm-ListChangeTypeClassificationSummaries-request-Filters "../ApiReference-cm/API_ListChangeTypeClassificationSummaries.md#amscm-ListChangeTypeClassificationSummaries-request-Filters")
-options for `Category`, `Subcategory`, `Item`, and `Operation`, but the values must match the existing values exactly. For more
-flexible results when using the CLI, you can use the `--query` option.
-
-Change type filtering with the AMS CM API/CLI| Attribute | Valid values | Valid/Default condition | Notes |
-| --- | --- | --- | --- |
-| ChangeTypeId | Any string representing a ChangeTypeId (For ex: ct-abc123xyz7890) | Equals | For change type IDs, see the<br>[Change Type Reference](../ctref/index.md "../ctref/index.md").<br>For change type IDs, see Finding a Change Type or CSIO. |
-| Category | Any free-form text | Contains | Regular expressions in each individual field are not supported.<br>Case insensitive search |
-| Subcategory |
-| Item |
-| Operation |
 
 1. Here are some examples of listing change type classifications:
 
-The following command lists all change type categories.
+   The following command lists all change type categories.
 
-```
-aws amscm list-change-type-categories
-```
+   ```
+   aws amscm list-change-type-categories
+   ```
 
-The following command lists the subcategories belonging to a specified category.
+   The following command lists the subcategories belonging to a specified category.
 
-```
-aws amscm list-change-type-subcategories --category `CATEGORY`
-```
+   ```
+   aws amscm list-change-type-subcategories --category {{CATEGORY}}
+   ```
 
-The following command lists the items belonging to a specified category and subcategory.
+   The following command lists the items belonging to a specified category and subcategory.
 
-```
-aws amscm list-change-type-items --category `CATEGORY` --subcategory `SUBCATEGORY`
-```
+   ```
+   aws amscm list-change-type-items --category {{CATEGORY}} --subcategory {{SUBCATEGORY}}
+   ```
 
-2. Here are some examples of searching for change types with CLI queries:
+1. Here are some examples of searching for change types with CLI queries:
 
-The following command searches CT classification summaries for those that contain "S3" in the Item name and creates output
-of the category, subcategory, item, operation, and change type ID in table form.
+   The following command searches CT classification summaries for those that contain "S3" in the Item name and creates output of the category, subcategory, item, operation, and change type ID in table form. 
 
-```
-aws amscm list-change-type-classification-summaries --query "ChangeTypeClassificationSummaries [?contains(Item, 'S3')].[Category,Subcategory,Item,Operation,ChangeTypeId]" --output table
-```
+   ```
+   aws amscm list-change-type-classification-summaries --query "ChangeTypeClassificationSummaries [?contains(Item, 'S3')].[Category,Subcategory,Item,Operation,ChangeTypeId]" --output table
+   ```
 
-```
-+---------------------------------------------------------------+
-|               ListChangeTypeClassificationSummaries           |
-+----------+-------------------------+--+------+----------------+
-|Deployment|Advanced Stack Components|S3|Create|ct-1a68ck03fn98r|
-+----------+-------------------------+--+------+----------------+
-```
+   ```
+   +---------------------------------------------------------------+
+   |               ListChangeTypeClassificationSummaries           |
+   +----------+-------------------------+--+------+----------------+
+   |Deployment|Advanced Stack Components|S3|Create|ct-1a68ck03fn98r|
+   +----------+-------------------------+--+------+----------------+
+   ```
 
-3. You can then use the change type ID to get the CT schema and examine the parameters. The following command outputs the schema to a JSON
-   file named CreateS3Params.schema.json.
+1. You can then use the change type ID to get the CT schema and examine the parameters. The following command outputs the schema to a JSON file named CreateS3Params.schema.json.
 
-```
-aws amscm get-change-type-version --change-type-id "ct-1a68ck03fn98r" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateS3Params.schema.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-1a68ck03fn98r" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateS3Params.schema.json
+   ```
 
-For information about using CLI queries, see
-[How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter")
-and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html"). 4. After you have the change type ID, we recommend verifying the version for the change type to
-make sure it's the latest version. Use this command to find the version for a specified
-change type:
+   For information about using CLI queries, see [How to Filter the Output with the --query Option](https://docs.aws.amazon.com/cli/latest/userguide/controlling-output.html#controlling-output-filter) and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html).
 
-```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CHANGE_TYPE_ID`
-```
+1. After you have the change type ID, we recommend verifying the version for the change type to make sure it's the latest version. Use this command to find the version for a specified change type:
 
-To find the `AutomationStatus` for a specific change type, run this command:
+   ```
+   aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CHANGE_TYPE_ID}}
+   ```
 
-```
-aws amscm --profile saml get-change-type-version --change-type-id `CHANGE_TYPE_ID` --query "ChangeTypeVersion.{AutomationStatus:AutomationStatus.Name}"
-```
+   To find the `AutomationStatus` for a specific change type, run this command:
 
-To find the `ExpectedExecutionDurationInMinutes` for a specific change type, run this command:
+   ```
+   aws amscm --profile saml get-change-type-version --change-type-id {{CHANGE_TYPE_ID}} --query "ChangeTypeVersion.{AutomationStatus:AutomationStatus.Name}"
+   ```
 
-```
-aws amscm --profile saml get-change-type-version --change-type-id ct-14027q0sjyt1h --query "ChangeTypeVersion.{ExpectedDuration:ExpectedExecutionDurationInMinutes}"
-```
+   To find the `ExpectedExecutionDurationInMinutes` for a specific change type, run this command:
 
-Once you have found a CT that you think is appropriate, look at the execution parameters
-JSON schema associated with it to learn if it addresses your use case.
+   ```
+   aws amscm --profile saml get-change-type-version --change-type-id ct-14027q0sjyt1h --query "ChangeTypeVersion.{ExpectedDuration:ExpectedExecutionDurationInMinutes}"
+   ```
 
-Use this command to output a CT schema to a JSON file named after the CT; this example
-outputs the Create S3 storage schema:
+Once you have found a CT that you think is appropriate, look at the execution parameters JSON schema associated with it to learn if it addresses your use case. 
+
+Use this command to output a CT schema to a JSON file named after the CT; this example outputs the Create S3 storage schema:
 
 `aws amscm get-change-type-version --change-type-id "ct-1a68ck03fn98r" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateBucketParams.json`
 
 Let’s take a close look at what this schema offers.
 
-S3 Bucket Create Schema| `<br>{<br>"$schema": "http://json-schema.org/draft-04/schema#",<br>"name": "Create S3 Storage<br>"description": "Use to create an Amazon Simple Storage Service stack.",<br>"type": "object",<br>"properties": {<br>"Description": {<br>"description": "The description of the stack.",<br>"type": "string",<br>"minLength": 1,<br>"maxLength": 500<br>},<br>"VpcId": {<br>"description": "ID of the VPC to create the S3 Bucket in, in the form vpc-a1b2c3d4e5f67890e.",<br>"type": "string",<br>"pattern": "^vpc-[a-z0-9]{17}$"<br>},<br>"StackTemplateId": {<br>"description": "Required value: stm-s2b72beb000000000.",<br>"type": "string",<br>"enum": ["stm-s2b72beb000000000"]<br>},<br>"Name":{<br>"description": "The name of the stack to create.",<br>"type": "string",<br>"minLength": 1,<br>"maxLength": 255<br>},<br>"Tags": {<br>"description": "Up to seven tags (key/value pairs) for the stack.",<br>"type": "array",<br>"items": {<br>"type": "object",<br>"properties": {<br>"Key": {<br>"type": "string",<br>"minLength": 1,<br>"maxLength": 127<br>},<br>"Value": {<br>"type": "string",<br>"minLength": 1,<br>"maxLength": 255<br>}<br>},<br>"additionalProperties": false,<br>"required": [<br>"Key",<br>"Value"<br>]<br>},<br>"minItems": 1,<br>"maxItems": 7<br>},<br>"TimeoutInMinutes": {<br>"description": "The amount of time, in minutes, to allow for creation of the stack.",<br>"type": "number",<br>"minimum": 0,<br>"maximum": 60<br>},<br>"Parameters": {<br>"description": "Specifications for the stack.",<br>"type": "object",<br>"properties": {<br>"AccessControl": {<br>"description": "The canned (predefined) access control list (ACL) to assign to the bucket.",<br>"type": "string",<br>"enum": [<br>"Private",<br>"PublicRead",<br>"AuthenticatedRead",<br>"BucketOwnerRead"<br>]<br>},<br>"BucketName": {<br>"description": "A name for the bucket. The bucket name must contain only lowercase letters, numbers, periods (.), and hyphens (-).",<br>"type": "string",<br>"pattern": "^[a-z0-9]([-.a-z0-9]+)[a-z0-9]$",<br>"minLength": 3,<br>"maxLength": 63<br>}<br>},<br>"additionalProperties": false,<br>"required": [<br>"AccessControl",<br>"BucketName"<br>]<br>}<br>},<br>"additionalProperties": false,<br>"required": [<br>"Description",<br>"VpcId",<br>"StackTemplateId",<br>"Name",<br>"TimeoutInMinutes",<br>"Parameters"<br>]<br>}<br>` | The schema begins with the CT ("description"), which tells you what<br>the schema is for. In this case, to create an S3 storage stack.<br>Next, you have required and optional properties that you can specify.<br>Default property values are given. The properties that are required are listed at<br>the end of the schema.<br>In the StackTemplateId area, you see that there is one specific stack<br>template for this CT and schema, and its ID is a required property value.<br>The schema allows you to tag the stack you are creating, for internal<br>bookkeeping purposes. Additionally, some options, like backup, require a tag<br>of Key:backup and Value:true. For in-depth information, read<br>[Tagging Your Amazon EC2 Resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md"). |
-| The Parameters section of the CT JSON schema is where you provide<br>the execution parameters.<br>For this schema, only the ACL and BucketName are required execution<br>parameters. |
+
+**S3 Bucket Create Schema**  
+
+
+- ** 
+
+```
+{	
+  "$schema": "http://json-schema.org/draft-04/schema#",
+"name": "Create S3 Storage  
+"description": "Use to create an Amazon Simple Storage Service stack.",
+  "type": "object",
+  "properties": {
+    "Description": {
+      "description": "The description of the stack.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "VpcId": {
+      "description": "ID of the VPC to create the S3 Bucket in, in the form vpc-a1b2c3d4e5f67890e.",
+      "type": "string",
+      "pattern": "^vpc-[a-z0-9]{17}$"
+    },
+    "StackTemplateId": {
+      "description": "Required value: stm-s2b72beb000000000.",
+      "type": "string",
+      "enum": ["stm-s2b72beb000000000"]
+    },
+    "Name":{
+      "description": "The name of the stack to create.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "Tags": {
+      "description": "Up to seven tags (key/value pairs) for the stack.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 127
+          },
+          "Value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Key",
+          "Value"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 7
+    },
+    "TimeoutInMinutes": {
+      "description": "The amount of time, in minutes, to allow for creation of the stack.",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 60
+    },
+    "Parameters": {
+      "description": "Specifications for the stack.",
+      "type": "object",
+      "properties": {
+        "AccessControl": {
+          "description": "The canned (predefined) access control list (ACL) to assign to the bucket.",
+          "type": "string",
+          "enum": [
+            "Private",
+            "PublicRead",
+            "AuthenticatedRead",
+            "BucketOwnerRead"
+          ]
+        },
+        "BucketName": {
+          "description": "A name for the bucket. The bucket name must contain only lowercase letters, numbers, periods (.), and hyphens (-).",
+          "type": "string",
+          "pattern": "^[a-z0-9]([-.a-z0-9]+)[a-z0-9]$",
+          "minLength": 3,
+          "maxLength": 63
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "AccessControl",
+        "BucketName"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "Description",
+    "VpcId",
+    "StackTemplateId",
+    "Name",
+    "TimeoutInMinutes",
+    "Parameters"
+  ]
+}
+``` **
+  - The schema begins with the CT ("description"), which tells you what the schema is for. In this case, to create an S3 storage stack.<br />Next, you have required and optional properties that you can specify. Default property values are given. The properties that are required are listed at the end of the schema.<br />In the StackTemplateId area, you see that there is one specific stack template for this CT and schema, and its ID is a required property value.<br />The schema allows you to tag the stack you are creating, for internal bookkeeping purposes. Additionally, some options, like backup, require a tag of Key:backup and Value:true. For in-depth information, read [ Tagging Your Amazon EC2 Resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html). <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  - The Parameters section of the CT JSON schema is where you provide the execution parameters. <br />For this schema, only the ACL and BucketName are required execution parameters.
+
+
 
 ## Request a new CT
+<a name="request-new-ct-aog"></a>
 
-After examining the schema, you may decide that it does not provide enough parameters
-to create the deployment that you want. If that is the case, examine existing CloudFormation
-templates to find one that is closer to what you want. Once you know what additional parameters
-you need, submit a Management | Other | Other | Create CT.
+After examining the schema, you may decide that it does not provide enough parameters to create the deployment that you want. If that is the case, examine existing CloudFormation templates to find one that is closer to what you want. Once you know what additional parameters you need, submit a Management \| Other \| Other \| Create CT.
 
-###### Note
+**Note**  
+All Other \| Other Create and Update CTs receive the attention of an AMS operator, who will contact you to discuss the new CT.
 
-All Other | Other Create and Update CTs receive the attention of an AMS operator,
-who will contact you to discuss the new CT.
-
-To submit a request for a new CT, access the AMS console through the regular
-[AWS Management Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/") and then follow
-these steps.
+To submit a request for a new CT, access the AMS console through the regular [AWS Management Console](https://aws.amazon.com/console/) and then follow these steps.
 
 1. From the left navigation, click **RFCs**.
 
-The RFCs dashboard page opens. 2. Click **Create**.
+   The RFCs dashboard page opens.
 
-The Create a request for change page opens. 3. Select Management in the **Category** drop-down list, and
-Other for the **Subcategory** and **Item**. For the
-**Operation**, choose Create. The RFC will need approval before it can be implemented. 4. Enter information for why you want the CT, for example: Requesting a modified
-Create S3 storage CT that allows custom ACLs, based on the existing Create S3 storage CT.
-This should result in a new CT: Deployment | Advanced Stack Components | S3 storage | Create S3 custom ACL. This new CT could be public. 5. Click **Submit**.
+1. Click **Create**.
 
-Your RFC displays on the RFC dashboard.
+   The Create a request for change page opens.
+
+1. Select Management in the **Category** drop-down list, and Other for the **Subcategory** and **Item**. For the **Operation**, choose Create. The RFC will need approval before it can be implemented.
+
+1. Enter information for why you want the CT, for example: Requesting a modified Create S3 storage CT that allows custom ACLs, based on the existing Create S3 storage CT. This should result in a new CT: Deployment \| Advanced Stack Components \| S3 storage \| Create S3 custom ACL. This new CT could be public.
+
+1. Click **Submit**.
+
+   Your RFC displays on the RFC dashboard.
 
 ## Test the new CT
+<a name="test-new-ct-aog"></a>
 
-Once AWS Managed Services has created that new CT, you test it by submitting an RFC
-with it. If you worked with AMS to make the new CT pre-approved, then you can simply follow
-a standard RFC submission, and watch for the result (for details on submitting RFCs, see
-[Creating and Submitting an RFC](../userguide/create-rfcs.md "../userguide/create-rfcs.md")). If the
-new CT is not pre-approved (you want to be sure that it is never run without explicit approval),
-then you will need to discuss its implementation with AMS each time you want to run it.
+Once AWS Managed Services has created that new CT, you test it by submitting an RFC with it. If you worked with AMS to make the new CT pre-approved, then you can simply follow a standard RFC submission, and watch for the result (for details on submitting RFCs, see [Creating and Submitting an RFC](https://docs.aws.amazon.com/managedservices/latest/userguide/create-rfcs.html)). If the new CT is not pre-approved (you want to be sure that it is never run without explicit approval), then you will need to discuss its implementation with AMS each time you want to run it.

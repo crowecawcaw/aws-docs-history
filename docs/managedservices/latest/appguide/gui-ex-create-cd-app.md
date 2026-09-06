@@ -1,29 +1,25 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Create a CodeDeploy Application
+<a name="gui-ex-create-cd-app"></a>
 
-The CodeDeploy application is simply a name or container used by AWS CodeDeploy to ensure that the correct revision, deployment configuration, and
-deployment group are referenced during a deployment. The deployment configuration, in this case, is the WordPress bundle that you previously created.
+The CodeDeploy application is simply a name or container used by AWS CodeDeploy to ensure that the correct revision, deployment configuration, and deployment group are referenced during a deployment. The deployment configuration, in this case, is the WordPress bundle that you previously created. 
 
 REQUIRED DATA:
-
-- `VpcId`: The VPC that you are using, this should be the same as the previously used VPC.
-- `CodeDeployApplicationName`: Must be unique in the account. Look at the CodeDeploy Console to check for existing application names.
++ `VpcId`: The VPC that you are using, this should be the same as the previously used VPC.
++ `CodeDeployApplicationName`: Must be unique in the account. Look at the CodeDeploy Console to check for existing application names.
 
 1. Create the CodeDeploy Application for WordPress
 
-On the **Create RFC** page, select the category **Deployment**,
-subcategory **Applications**, item **CodeDeploy application** and operation **Create** from the RFC CT
-pick list. Choose **Basic** and set the values as shown. Click **Submit** when finished.
+   On the **Create RFC** page, select the category **Deployment**, subcategory **Applications**, item **CodeDeploy application** and operation **Create** from the RFC CT pick list. Choose **Basic** and set the values as shown. Click **Submit** when finished.
 
-```
-**Subject**:                      CD-WP-App-RFC
-**CodeDeployApplicationName**:    `WordPress`
-**VpcId**:                        `VPC_ID`
-**Name**:                         WP-CD-App
-```
+   ```
+   Subject:                      CD-WP-App-RFC
+   CodeDeployApplicationName:    {{WordPress}}      
+   VpcId:                        {{VPC_ID}}
+   Name:                         WP-CD-App
+   ```
 
-2. Click **Submit** when finished.
+1. Click **Submit** when finished.
