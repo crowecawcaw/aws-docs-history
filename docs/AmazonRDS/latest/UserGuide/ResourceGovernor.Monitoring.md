@@ -1,17 +1,19 @@
+
+
 # Monitor Microsoft SQL Server resource governor using system views for your RDS for SQL Server instance
+<a name="ResourceGovernor.Monitoring"></a>
 
 Resource Governor statistics are cumulative since the last server restart. If you need to collect statistics starting from a certain time, you can reset statistics using the following Amazon RDS stored procedure:
 
 ```
-EXEC msdb.dbo.rds_alter_resource_governor_configuration
+EXEC msdb.dbo.rds_alter_resource_governor_configuration  
 @reset_statistics = 1;
 ```
 
 ## Resource pool runtime statistics
+<a name="ResourceGovernor.ResourcePoolStats"></a>
 
-For each resource pool, resource governor tracks CPU and memory utilization, out-of-memory events,
-memory grants, I/O, and other statistics. For more information,
-see [sys.dm\_resource\_governor\_resource\_pools](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17 "https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17").
+For each resource pool, resource governor tracks CPU and memory utilization, out-of-memory events, memory grants, I/O, and other statistics. For more information, see [ sys.dm\_resource\_governor\_resource\_pools](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql?view=sql-server-ver17).
 
 The following query returns a subset of available statistics for all resource pools:
 

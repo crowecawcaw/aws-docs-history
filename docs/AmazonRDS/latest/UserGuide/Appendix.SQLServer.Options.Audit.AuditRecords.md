@@ -1,32 +1,28 @@
+
+
 # Viewing audit logs
+<a name="Appendix.SQLServer.Options.Audit.AuditRecords"></a>
 
 Your audit logs are stored in `D:\rdsdbdata\SQLAudit`.
 
-After SQL Server finishes writing to an audit log file—when the file reaches its
-size limit—Amazon RDS uploads the file to your S3 bucket. If retention is enabled,
-Amazon RDS moves the file into the retention folder:
-`D:\rdsdbdata\SQLAudit\transmitted`.
+After SQL Server finishes writing to an audit log file—when the file reaches its size limit—Amazon RDS uploads the file to your S3 bucket. If retention is enabled, Amazon RDS moves the file into the retention folder: `D:\rdsdbdata\SQLAudit\transmitted`. 
 
-For information about configuring retention, see [Adding SQL Server Audit to the DB instance options](Appendix.SQLServer.Options.Audit.Adding.md "Appendix.SQLServer.Options.Audit.Adding.md").
+For information about configuring retention, see [Adding SQL Server Audit to the DB instance options](Appendix.SQLServer.Options.Audit.Adding.md).
 
-Audit records are kept on the DB instance until the audit log file is uploaded. You can
-view the audit records by running the following command.
+Audit records are kept on the DB instance until the audit log file is uploaded. You can view the audit records by running the following command.
 
 ```
-SELECT   *
+SELECT   * 
 	FROM     msdb.dbo.rds_fn_get_audit_file
 	             ('D:\rdsdbdata\SQLAudit\*.sqlaudit'
 	             , default
 	             , default )
 ```
 
-You
-can use the same command to view audit records in your retention folder by changing the filter
-to
-`D:\rdsdbdata\SQLAudit\transmitted\*.sqlaudit`.
+You can use the same command to view audit records in your retention folder by changing the filter to `D:\rdsdbdata\SQLAudit\transmitted\*.sqlaudit`.
 
 ```
-SELECT   *
+SELECT   * 
 	FROM     msdb.dbo.rds_fn_get_audit_file
 	             ('D:\rdsdbdata\SQLAudit\transmitted\*.sqlaudit'
 	             , default
@@ -34,24 +30,25 @@ SELECT   *
 ```
 
 ## Viewing audit log records in CloudWatch
+<a name="Appendix.SQLServer.Options.Audit.AuditRecords.CloudWatch"></a>
 
-If you chose to upload the audit logs to CloudWatch, you can access the log records
-(in JSON format) by following these steps.
+If you chose to upload the audit logs to CloudWatch, you can access the log records (in JSON format) by following these steps.
 
-###### To view audit logs in CloudWatch
+**To view audit logs in CloudWatch**
 
-1. Open the CloudWatch console at
-   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the left navigation pane, choose **Logs**, **Log Management**.
-3. Enter your DB instance name in the **Log Groups** search box.
-4. Choose the appropriate log group.
-5. Under the **Log Streams** tab, choose the log stream.
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
-Alternatively, you can use the AWS CLI to query the log stream. The following example
-extracts audit log events and exports them to a CSV file.
+1. In the left navigation pane, choose **Logs**, **Log Management**.
+
+1. Enter your DB instance name in the **Log Groups** search box.
+
+1. Choose the appropriate log group.
+
+1. Under the **Log Streams** tab, choose the log stream.
+
+Alternatively, you can use the AWS CLI to query the log stream. The following example extracts audit log events and exports them to a CSV file.
 
 ```
-
 # Parameters
 # -----------
 LOG_GROUP="/aws/rds/instance/<your-db-instance-id>/sqlaudit"
@@ -98,5 +95,4 @@ echo "${RESPONSE}" | jq -r '
 # -------------------------
 RECORD_COUNT=$(echo "${RESPONSE}" | jq '.events | length')
 echo "Exported ${RECORD_COUNT} records to ${OUTPUT_FILE}"
-
 ```

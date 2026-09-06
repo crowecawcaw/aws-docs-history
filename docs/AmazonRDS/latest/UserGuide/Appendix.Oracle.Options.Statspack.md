@@ -1,165 +1,135 @@
+
+
 # Oracle Statspack
+<a name="Appendix.Oracle.Options.Statspack"></a>
 
-The Oracle Statspack option installs and enables the Oracle Statspack performance
-statistics feature. Oracle Statspack is a collection of SQL, PL/SQL, and SQL\*Plus
-scripts that collect, store, and display performance data. The Statspack scripts and their
-documentation are installed with the database under
-`$ORACLE_HOME/rdbms/admin` (for example, `spdoc.txt`).
+The Oracle Statspack option installs and enables the Oracle Statspack performance statistics feature. Oracle Statspack is a collection of SQL, PL/SQL, and SQL\*Plus scripts that collect, store, and display performance data. The Statspack scripts and their documentation are installed with the database under `$ORACLE_HOME/rdbms/admin` (for example, `spdoc.txt`).
 
-###### Note
-
-Oracle Statspack is no longer supported by Oracle and has been replaced by the
-more advanced Automatic Workload Repository (AWR). AWR is available only for Oracle
-Enterprise Edition customers who have purchased the Diagnostics Pack. You can use
-Oracle Statspack with any Oracle DB engine on Amazon RDS. You can't run Oracle
-Statspack on Amazon RDS read replicas.
+**Note**  
+Oracle Statspack is no longer supported by Oracle and has been replaced by the more advanced Automatic Workload Repository (AWR). AWR is available only for Oracle Enterprise Edition customers who have purchased the Diagnostics Pack. You can use Oracle Statspack with any Oracle DB engine on Amazon RDS. You can't run Oracle Statspack on Amazon RDS read replicas. 
 
 ## Setting up Oracle Statspack
+<a name="Appendix.Oracle.Options.Statspack.setting-up"></a>
 
 To run Statspack scripts, you must add the Statspack option.
 
-###### To set up Oracle Statspack
+**To set up Oracle Statspack**
 
-1. In a SQL client, log in to the Oracle DB with an administrative
-   account.
-2. Do either of the following actions, depending on whether Statspack is
-   installed:
+1. In a SQL client, log in to the Oracle DB with an administrative account.
 
-   - If Statspack is installed, and the `PERFSTAT` account
-     is associated with Statspack, skip to Step 4.
-   - If Statspack is not installed, and the `PERFSTAT`
-     account exists, drop the account as follows:
+1. Do either of the following actions, depending on whether Statspack is installed:
+   + If Statspack is installed, and the `PERFSTAT` account is associated with Statspack, skip to Step 4.
+   + If Statspack is not installed, and the `PERFSTAT` account exists, drop the account as follows:
 
-   ```
-   DROP USER PERFSTAT CASCADE;
-   ```
+     ```
+     DROP USER PERFSTAT CASCADE;
+     ```
 
-   Otherwise, attempting to add the Statspack option generates an
-   error and `RDS-Event-0058`.
+     Otherwise, attempting to add the Statspack option generates an error and `RDS-Event-0058`.
 
-3. Add the Statspack option to an option group. See [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
+1. Add the Statspack option to an option group. See [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption).
 
-Amazon RDS automatically installs the Statspack scripts on the DB instance and
-then sets up the `PERFSTAT` account. 4. Reset the password using the following SQL statement, replacing _pwd_ with your new password:
+   Amazon RDS automatically installs the Statspack scripts on the DB instance and then sets up the `PERFSTAT` account.
 
-```
-ALTER USER PERFSTAT IDENTIFIED BY *pwd* ACCOUNT UNLOCK;
-```
-
-You can log in using the `PERFSTAT` user account and run the
-Statspack scripts. 5. Grant the `CREATE JOB` privilege to the `PERFSTAT`
-account using the following statement:
-
-```
-GRANT CREATE JOB TO PERFSTAT;
-```
-
-6. Ensure that idle wait events in the `PERFSTAT.STATS$IDLE_EVENT`
-   table are populated.
-
-Because of Oracle Bug 28523746, the idle wait events in
-`PERFSTAT.STATS$IDLE_EVENT` may not be populated. To ensure
-all idle events are available, run the following statement:
-
-```
-INSERT INTO PERFSTAT.STATS$IDLE_EVENT (EVENT)
-SELECT NAME FROM V$EVENT_NAME WHERE WAIT_CLASS='Idle'
-MINUS
-SELECT EVENT FROM PERFSTAT.STATS$IDLE_EVENT;
-COMMIT;
-```
-
-## Generating Statspack reports
-
-A Statspack report compares two snapshots.
-
-###### To generate Statspack reports
-
-1. In a SQL client, log in to the Oracle DB with the `PERFSTAT` account.
-2. Create a snapshot using either of the following techniques:
-
-   - Create a Statspack snapshot manually.
-   - Create a job that takes a Statspack snapshot after a given time interval. For example, the following job creates a Statspack
-     snapshot every hour:
+1. Reset the password using the following SQL statement, replacing *pwd* with your new password:
 
    ```
-   VARIABLE jn NUMBER;
-   exec dbms_job.submit(:jn, 'statspack.snap;',SYSDATE,'TRUNC(SYSDATE+1/24,''HH24'')');
+   ALTER USER PERFSTAT IDENTIFIED BY pwd ACCOUNT UNLOCK;
+   ```
+
+   You can log in using the `PERFSTAT` user account and run the Statspack scripts.
+
+1. Grant the `CREATE JOB` privilege to the `PERFSTAT` account using the following statement:
+
+   ```
+   GRANT CREATE JOB TO PERFSTAT;
+   ```
+
+1. Ensure that idle wait events in the `PERFSTAT.STATS$IDLE_EVENT` table are populated.
+
+   Because of Oracle Bug 28523746, the idle wait events in `PERFSTAT.STATS$IDLE_EVENT` may not be populated. To ensure all idle events are available, run the following statement:
+
+   ```
+   INSERT INTO PERFSTAT.STATS$IDLE_EVENT (EVENT)
+   SELECT NAME FROM V$EVENT_NAME WHERE WAIT_CLASS='Idle'
+   MINUS
+   SELECT EVENT FROM PERFSTAT.STATS$IDLE_EVENT;
    COMMIT;
    ```
 
-3. View the snapshots using the following query:
+## Generating Statspack reports
+<a name="Appendix.Oracle.Options.Statspack.generating-reports"></a>
 
-```
-SELECT SNAP_ID, SNAP_TIME FROM STATS$SNAPSHOT ORDER BY 1;
-```
+A Statspack report compares two snapshots.
 
-4. Run the Amazon RDS procedure `rdsadmin.rds_run_spreport`,
-   replacing _begin\_snap_ and _end\_snap_ with the snapshot IDs:
+**To generate Statspack reports**
 
-```
-exec rdsadmin.rds_run_spreport(*begin\_snap*,*end\_snap*);
-```
+1. In a SQL client, log in to the Oracle DB with the `PERFSTAT` account.
 
-For example, the following command creates a report based on the interval
-between Statspack snapshots 1 and 2:
+1. Create a snapshot using either of the following techniques:
+   + Create a Statspack snapshot manually.
+   + Create a job that takes a Statspack snapshot after a given time interval. For example, the following job creates a Statspack snapshot every hour:
 
-```
-exec rdsadmin.rds_run_spreport(1,2);
-```
+     ```
+     VARIABLE jn NUMBER;
+     exec dbms_job.submit(:jn, 'statspack.snap;',SYSDATE,'TRUNC(SYSDATE+1/24,''HH24'')');
+     COMMIT;
+     ```
 
-The file name of the Statspack report includes the number of the two
-snapshots. For example, a report file created using Statspack snapshots 1
-and 2 would be named `ORCL_spreport_1_2.lst`. 5. Monitor the output for errors.
+1. View the snapshots using the following query:
 
-Oracle Statspack performs checks before running the report. Therefore, you
-could also see error messages in the command output. For example, you might
-try to generate a report based on an invalid range, where the beginning
-Statspack snapshot value is larger than the ending value. In this case, the
-output shows the error message, but the DB engine does not generate an error
-file.
+   ```
+   SELECT SNAP_ID, SNAP_TIME FROM STATS$SNAPSHOT ORDER BY 1;
+   ```
 
-```
-exec rdsadmin.rds_run_spreport(2,1);
-*
-ERROR at line 1:
-ORA-20000: Invalid snapshot IDs. Find valid ones in perfstat.stats$snapshot.
-```
+1. Run the Amazon RDS procedure `rdsadmin.rds_run_spreport`, replacing *begin\_snap* and *end\_snap* with the snapshot IDs:
 
-If you use an invalid number for a Statspack snapshot, the output shows an
-error. For example, if you try to generate a report for snapshots 1 and 50,
-but snapshot 50 doesn't exist, the output shows an error.
+   ```
+   exec rdsadmin.rds_run_spreport(begin_snap,end_snap);
+   ```
 
-```
-exec rdsadmin.rds_run_spreport(1,50);
-*
-ERROR at line 1:
-ORA-20000: Could not find both snapshot IDs
-```
+   For example, the following command creates a report based on the interval between Statspack snapshots 1 and 2:
 
-6. (Optional)
+   ```
+   exec rdsadmin.rds_run_spreport(1,2);
+   ```
 
-To retrieve the report, call the trace file procedures, as explained in
-[Working with Oracle trace files](USER_LogAccess.Concepts.Oracle.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles "USER_LogAccess.Concepts.Oracle.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles").
+   The file name of the Statspack report includes the number of the two snapshots. For example, a report file created using Statspack snapshots 1 and 2 would be named `ORCL_spreport_1_2.lst`.
 
-Alternatively, download the Statspack report from the RDS console. Go to the
-**Log** section of the DB instance details and choose
-**Download**. The following example shows
-`trace/ORCL_spreport_1_2.lst`
+1. Monitor the output for errors.
 
-![Show a list of Oracle log files in the RDS console. The following trace file is circled: trace/ORCL_spreport_1_2.lst.](images/statspack1.png)
+   Oracle Statspack performs checks before running the report. Therefore, you could also see error messages in the command output. For example, you might try to generate a report based on an invalid range, where the beginning Statspack snapshot value is larger than the ending value. In this case, the output shows the error message, but the DB engine does not generate an error file.
 
-If an error occurs while generating a report, the DB engine uses the same
-naming conventions as for a report but with an extension of
-`.err`. For example, if an error occurred while creating
-a report using Statspack snapshots 1 and 7, the report file would be named
-`ORCL_spreport_1_7.err`. You can download the error
-report using the same techniques as for a standard Snapshot report.
+   ```
+   exec rdsadmin.rds_run_spreport(2,1);
+   *
+   ERROR at line 1:
+   ORA-20000: Invalid snapshot IDs. Find valid ones in perfstat.stats$snapshot.
+   ```
+
+   If you use an invalid number for a Statspack snapshot, the output shows an error. For example, if you try to generate a report for snapshots 1 and 50, but snapshot 50 doesn't exist, the output shows an error.
+
+   ```
+   exec rdsadmin.rds_run_spreport(1,50);
+   *
+   ERROR at line 1:
+   ORA-20000: Could not find both snapshot IDs
+   ```
+
+1. (Optional) 
+
+   To retrieve the report, call the trace file procedures, as explained in [Working with Oracle trace files](USER_LogAccess.Concepts.Oracle.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles). 
+
+   Alternatively, download the Statspack report from the RDS console. Go to the **Log** section of the DB instance details and choose **Download**. The following example shows `trace/ORCL_spreport_1_2.lst`  
+![Show a list of Oracle log files in the RDS console. The following trace file is circled: trace/ORCL_spreport_1_2.lst.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/statspack1.png)
+
+   If an error occurs while generating a report, the DB engine uses the same naming conventions as for a report but with an extension of `.err`. For example, if an error occurred while creating a report using Statspack snapshots 1 and 7, the report file would be named `ORCL_spreport_1_7.err`. You can download the error report using the same techniques as for a standard Snapshot report.
 
 ## Removing Statspack snapshots
+<a name="Appendix.Oracle.Options.Statspack.removing-files"></a>
 
 To remove a range of Oracle Statspack snapshots, use the following command:
 
 ```
-exec statspack.purge(*begin snap*, *end snap*);
+exec statspack.purge(begin snap, end snap); 
 ```

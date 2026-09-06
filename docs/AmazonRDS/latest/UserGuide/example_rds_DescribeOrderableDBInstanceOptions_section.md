@@ -1,24 +1,20 @@
+
+
 # Use `DescribeOrderableDBInstanceOptions` with an AWS SDK or CLI
+<a name="example_rds_DescribeOrderableDBInstanceOptions_section"></a>
 
 The following code examples show how to use `DescribeOrderableDBInstanceOptions`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md) 
 
-- [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md "example_rds_Scenario_GetStartedInstances_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples). 
 
 ```
-
     /// <summary>
     /// Get a list of orderable DB instance options for a specific
     /// engine and engine version.
@@ -43,24 +39,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return results;
     }
-
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DescribeOrderableDBInstanceOptions) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -132,29 +118,21 @@ bool AwsDoc::RDS::chooseMicroDBInstanceClass(const Aws::String &engine,
     dbInstanceClass = instanceClasses[choice - 1];
     return true;
 }
+```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To describe orderable DB instance options**  
+The following `describe-orderable-db-instance-options` example retrieves details about the orderable options for a DB instances running the MySQL DB engine.  
 
 ```
-
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To describe orderable DB instance options**
-
-The following `describe-orderable-db-instance-options` example retrieves details about the orderable options for a DB instances running the MySQL DB engine.
-
+aws rds describe-orderable-db-instance-options \
+    --engine {{mysql}}
 ```
-`aws rds describe-orderable-db-instance-options \
- --engine `mysql``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -195,23 +173,15 @@ Output:
     ...some output truncated...
 }
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -252,24 +222,14 @@ func (instances *DbInstances) GetOrderableInstances(ctx context.Context, engine 
 	}
 	return instanceOptions, err
 }
-
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples). 
 
 ```
 class InstanceWrapper:
@@ -317,24 +277,14 @@ class InstanceWrapper:
             raise
         else:
             return inst_opts
-
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples). 
 
 ```
     " iv_engine        = 'mysql'
@@ -346,35 +296,26 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_option_count) = lines( oo_result->get_orderabledbinstoptions( ) ).
         MESSAGE |Retrieved { lv_option_count } orderable DB instance options.| TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples). 
 
 ```
 import AWSRDS
 
     /// Print a list of available database instances with "micro" in the class
     /// name, then return one of them to be used by other code.
-    ///
+    /// 
     /// - Parameters:
     ///   - engine: The database engine for which to list database instance
     ///     classes.
     ///   - engineVersion: The database version for which to list instances.
-    ///
+    /// 
     /// - Returns: An `RDSClientTypes.OrderableDBInstanceOption` describing
     ///   the selected instance type.
     func chooseMicroInstance(engine: String = "mysql", engineVersion: String? = nil) async -> RDSClientTypes.OrderableDBInstanceOption? {
@@ -414,14 +355,9 @@ import AWSRDS
             return nil
         }
     }
-
-
 ```
++  For API details, see [DescribeOrderableDBInstanceOptions](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describeorderabledbinstanceoptions(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DescribeOrderableDBInstanceOptions](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describeorderabledbinstanceoptions(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describeorderabledbinstanceoptions(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

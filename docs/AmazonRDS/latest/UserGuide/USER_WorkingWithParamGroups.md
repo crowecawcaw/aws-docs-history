@@ -1,21 +1,18 @@
+
+
 # Parameter groups for Amazon RDS
+<a name="USER_WorkingWithParamGroups"></a>
 
-_Database parameters_ specify how the database is configured. For example, database parameters can specify
-the amount of resources, such as memory, to allocate to a database.
+*Database parameters* specify how the database is configured. For example, database parameters can specify the amount of resources, such as memory, to allocate to a database.
 
-You manage your database configuration by associating your DB instances and Multi-AZ DB
-clusters with parameter groups. Amazon RDS defines parameter groups with default settings. You
-can also define your own parameter groups with customized settings.
+You manage your database configuration by associating your DB instances and Multi-AZ DB clusters with parameter groups. Amazon RDS defines parameter groups with default settings. You can also define your own parameter groups with customized settings.
 
-###### Note
+**Note**  
+Some DB engines offer additional features that you can add to your database as options in an option group. For information about option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md).
 
-Some DB engines offer additional features that you can add to your database as options in an option group. For information
-about option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
-
-###### Topics
-
-- [Overview of parameter groups](parameter-groups-overview.md "parameter-groups-overview.md")
-- [DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md")
-- [Working with DB cluster parameter groups for Multi-AZ DB clusters](USER_WorkingWithDBClusterParamGroups.md "USER_WorkingWithDBClusterParamGroups.md")
-- [Comparing DB parameter groups](USER_WorkingWithParamGroups.Comparing.md "USER_WorkingWithParamGroups.Comparing.md")
-- [Specifying DB parameters](USER_ParamValuesRef.md "USER_ParamValuesRef.md")
+**Topics**
++ [Overview of parameter groups](parameter-groups-overview.md)
++ [DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md)
++ [Working with DB cluster parameter groups for Multi-AZ DB clusters](USER_WorkingWithDBClusterParamGroups.md)
++ [Comparing DB parameter groups](USER_WorkingWithParamGroups.Comparing.md)
++ [Specifying DB parameters](USER_ParamValuesRef.md)

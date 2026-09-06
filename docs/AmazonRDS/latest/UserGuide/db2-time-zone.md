@@ -1,43 +1,38 @@
+
+
 # Local time zone for Amazon RDS for Db2 DB instances
+<a name="db2-time-zone"></a>
 
-The time zone of an Amazon RDS DB instance running Db2 is set by default. The default is
-UTC. To match the time zone of your applications, you can set
-the time zone of your DB instance to a local time zone instead.
+The time zone of an Amazon RDS DB instance running Db2 is set by default. The default is UTC. To match the time zone of your applications, you can set the time zone of your DB instance to a local time zone instead.
 
-You set the time zone when you first create your DB instance. You can create your DB
-instance by using the AWS Management Console, the RDS API, or the AWS CLI. For more information, see [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating "USER_CreateDBInstance.md#USER_CreateDBInstance.Creating").
+You set the time zone when you first create your DB instance. You can create your DB instance by using the AWS Management Console, the RDS API, or the AWS CLI. For more information, see [Creating a DB instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Creating).
 
-If your DB instance is part of a Multi-AZ deployment, then when it fails over, its time zone remains
-the local time zone that you set.
+If your DB instance is part of a Multi-AZ deployment, then when it fails over, its time zone remains the local time zone that you set.
 
-You can restore your DB instance to a point in time that you specify. The time appears in
-your local time zone. For more information, see [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md").
+You can restore your DB instance to a point in time that you specify. The time appears in your local time zone. For more information, see [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md).
 
 Setting the local time zone on your DB instance has the following limitations:
-
-- You can't modify the time zone of an existing Amazon RDS for Db2 DB instance.
-- You can't restore a snapshot from a DB instance in one time zone to a DB instance in a different time
-  zone.
-- We strongly recommend that you don't restore a backup file from one time zone to a
-  different time zone. If you restore a backup file from one time zone to another,
-  then you must audit your queries and applications for the effects of the time zone
-  change.
++ You can't modify the time zone of an existing Amazon RDS for Db2 DB instance.
++ You can't restore a snapshot from a DB instance in one time zone to a DB instance in a different time zone.
++ We strongly recommend that you don't restore a backup file from one time zone to a different time zone. If you restore a backup file from one time zone to another, then you must audit your queries and applications for the effects of the time zone change.
 
 ## Available time zones
+<a name="db2-time-zone-values"></a>
 
 You can use the following values for the time zone setting.
 
-| Zone      | Time zone                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Africa    | Africa/Cairo, Africa/Casablanca, Africa/Harare, Africa/Lagos,<br>Africa/Luanda, Africa/Monrovia, Africa/Nairobi, Africa/Tripoli,<br>Africa/Windhoek                                                                                                                                                                                                                                                                                                                                                                                        |
-| America   | America/Araguaina, America/Argentina/Buenos\_Aires,<br>America/Asuncion, America/Bogota, America/Caracas, America/Chicago,<br>America/Chihuahua, America/Cuiaba, America/Denver, America/Detroit,<br>America/Fortaleza, America/Godthab, America/Guatemala,<br>America/Halifax, America/Lima, America/Los\_Angeles, America/Manaus,<br>America/Matamoros, America/Mexico\_City, America/Monterrey,<br>America/Montevideo, America/New\_York, America/Phoenix,<br>America/Santiago, America/Sao\_Paulo, America/Tijuana,<br>America/Toronto |
-| Asia      | Asia/Amman, Asia/Ashgabat, Asia/Baghdad, Asia/Baku, Asia/Bangkok,<br>Asia/Beirut, Asia/Calcutta, Asia/Damascus, Asia/Dhaka,<br>Asia/Hong\_Kong, Asia/Irkutsk, Asia/Jakarta, Asia/Jerusalem,<br>Asia/Kabul, Asia/Karachi, Asia/Kathmandu, Asia/Kolkata,<br>Asia/Krasnoyarsk, Asia/Magadan, Asia/Manila, Asia/Muscat,<br>Asia/Novosibirsk, Asia/Rangoon, Asia/Riyadh, Asia/Seoul,<br>Asia/Shanghai, Asia/Singapore, Asia/Taipei, Asia/Tehran, Asia/Tokyo,<br>Asia/Ulaanbaatar, Asia/Vladivostok, Asia/Yakutsk,<br>Asia/Yerevan               |
-| Atlantic  | Atlantic/Azores, Atlantic/Cape\_Verde                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Australia | Australia/Adelaide, Australia/Brisbane, Australia/Darwin,<br>Australia/Eucla, Australia/Hobart, Australia/Lord\_Howe,<br>Australia/Perth, Australia/Sydney                                                                                                                                                                                                                                                                                                                                                                                 |
-| Brazil    | Brazil/DeNoronha, Brazil/East                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Canada    | Canada/Newfoundland, Canada/Saskatchewan                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Etc       | Etc/GMT-3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Europe    | Europe/Amsterdam, Europe/Athens, Europe/Berlin, Europe/Dublin,<br>Europe/Helsinki, Europe/Kaliningrad, Europe/London, Europe/Madrid,<br>Europe/Moscow, Europe/Paris, Europe/Prague, Europe/Rome,<br>Europe/Sarajevo, Europe/Stockholm                                                                                                                                                                                                                                                                                                      |
-| Pacific   | Pacific/Apia, Pacific/Auckland, Pacific/Chatham, Pacific/Fiji,<br>Pacific/Guam, Pacific/Honolulu, Pacific/Kiritimati,<br>Pacific/Marquesas, Pacific/Samoa, Pacific/Tongatapu,<br>Pacific/Wake                                                                                                                                                                                                                                                                                                                                              |
-| US        | US/Alaska, US/Central, US/East-Indiana, US/Eastern,<br>US/Pacific                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| UTC       | UTC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+
+| Zone | Time zone | 
+| --- | --- | 
+| Africa | Africa/Cairo, Africa/Casablanca, Africa/Harare, Africa/Lagos, Africa/Luanda, Africa/Monrovia, Africa/Nairobi, Africa/Tripoli, Africa/Windhoek | 
+| America | America/Araguaina, America/Argentina/Buenos\_Aires, America/Asuncion, America/Bogota, America/Caracas, America/Chicago, America/Chihuahua, America/Cuiaba, America/Denver, America/Detroit, America/Fortaleza, America/Godthab, America/Guatemala, America/Halifax, America/Lima, America/Los\_Angeles, America/Manaus, America/Matamoros, America/Mexico\_City, America/Monterrey, America/Montevideo, America/New\_York, America/Phoenix, America/Santiago, America/Sao\_Paulo, America/Tijuana, America/Toronto | 
+| Asia | Asia/Amman, Asia/Ashgabat, Asia/Baghdad, Asia/Baku, Asia/Bangkok, Asia/Beirut, Asia/Calcutta, Asia/Damascus, Asia/Dhaka, Asia/Hong\_Kong, Asia/Irkutsk, Asia/Jakarta, Asia/Jerusalem, Asia/Kabul, Asia/Karachi, Asia/Kathmandu, Asia/Kolkata, Asia/Krasnoyarsk, Asia/Magadan, Asia/Manila, Asia/Muscat, Asia/Novosibirsk, Asia/Rangoon, Asia/Riyadh, Asia/Seoul, Asia/Shanghai, Asia/Singapore, Asia/Taipei, Asia/Tehran, Asia/Tokyo, Asia/Ulaanbaatar, Asia/Vladivostok, Asia/Yakutsk, Asia/Yerevan | 
+| Atlantic | Atlantic/Azores, Atlantic/Cape\_Verde | 
+| Australia | Australia/Adelaide, Australia/Brisbane, Australia/Darwin, Australia/Eucla, Australia/Hobart, Australia/Lord\_Howe, Australia/Perth, Australia/Sydney | 
+| Brazil | Brazil/DeNoronha, Brazil/East | 
+| Canada | Canada/Newfoundland, Canada/Saskatchewan | 
+| Etc | Etc/GMT-3 | 
+| Europe | Europe/Amsterdam, Europe/Athens, Europe/Berlin, Europe/Dublin, Europe/Helsinki, Europe/Kaliningrad, Europe/London, Europe/Madrid, Europe/Moscow, Europe/Paris, Europe/Prague, Europe/Rome, Europe/Sarajevo, Europe/Stockholm | 
+| Pacific | Pacific/Apia, Pacific/Auckland, Pacific/Chatham, Pacific/Fiji, Pacific/Guam, Pacific/Honolulu, Pacific/Kiritimati, Pacific/Marquesas, Pacific/Samoa, Pacific/Tongatapu, Pacific/Wake | 
+| US | US/Alaska, US/Central, US/East-Indiana, US/Eastern, US/Pacific | 
+| UTC | UTC | 

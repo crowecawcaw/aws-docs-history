@@ -1,77 +1,55 @@
+
+
 # Connecting to your DB instance using IAM authentication and the AWS SDK for Go
+<a name="UsingWithRDS.IAMDBAuth.Connecting.Go"></a>
 
-You can connect to an
-RDS for MariaDB, MySQL, or PostgreSQL DB instance
-with the AWS SDK for Go as described following.
+You can connect to an RDS for MariaDB, MySQL, or PostgreSQL DB instance with the AWS SDK for Go as described following.
 
-###### Prerequisites
-
+**Prerequisites**  
 The following are prerequisites for connecting to your DB instance using IAM authentication:
++ [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md)
++ [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md)
++ [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md)
 
-- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md")
-- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md")
-- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md "UsingWithRDS.IAMDBAuth.DBAccounts.md")
-
-###### Examples
-
-To run these code examples, you need the [AWS SDK for Go](http://aws.amazon.com/sdk-for-go/ "http://aws.amazon.com/sdk-for-go/"),
-found on the AWS site.
+**Examples**  
+To run these code examples, you need the [AWS SDK for Go](http://aws.amazon.com/sdk-for-go/), found on the AWS site.
 
 Modify the values of the following variables as needed:
++ `dbName` – The database that you want to access
++ `dbUser` – The database account that you want to access
++ `dbHost` – The endpoint of the DB instance that you want to access
+**Note**  
+You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
++ `dbPort` – The port number used for connecting to your DB instance
++ `region` – The AWS Region where the DB instance is running
 
-- `dbName` – The database that you want to access
-- `dbUser` – The database account that you
-  want to access
-- `dbHost` – The endpoint of
-  the DB instance that you want to access
+In addition, make sure the imported libraries in the sample code exist on your system.
 
-###### Note
-
-You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication
-token.
-
-- `dbPort` – The port number used for connecting to your DB instance
-- `region` – The AWS Region where the DB
-  instance is running
-  In addition, make sure the imported libraries in the sample code exist on your system.
-
-###### Important
-
-The examples in this section use the following code to provide credentials that access a database
-from a local environment:
-
-`creds := credentials.NewEnvCredentials()`
-
-If you are accessing a database from an AWS service, such as Amazon EC2 or Amazon ECS, you can replace the code
-with the following code:
-
-`sess := session.Must(session.NewSession())`
-
-`creds := sess.Config.Credentials`
-
-If you make this change, make sure you add the following import:
-
+**Important**  
+The examples in this section use the following code to provide credentials that access a database from a local environment:  
+`creds := credentials.NewEnvCredentials()`  
+If you are accessing a database from an AWS service, such as Amazon EC2 or Amazon ECS, you can replace the code with the following code:  
+`sess := session.Must(session.NewSession())`  
+`creds := sess.Config.Credentials`  
+If you make this change, make sure you add the following import:  
 `"github.com/aws/aws-sdk-go/aws/session"`
 
-###### Topics
-
-- [Connecting using IAM authentication and the AWS SDK for Go V2](#UsingWithRDS.IAMDBAuth.Connecting.GoV2 "#UsingWithRDS.IAMDBAuth.Connecting.GoV2")
-- [Connecting using IAM authentication and the AWS SDK for Go V1.](#UsingWithRDS.IAMDBAuth.Connecting.GoV1 "#UsingWithRDS.IAMDBAuth.Connecting.GoV1")
+**Topics**
++ [Connecting using IAM authentication and the AWS SDK for Go V2](#UsingWithRDS.IAMDBAuth.Connecting.GoV2)
++ [Connecting using IAM authentication and the AWS SDK for Go V1.](#UsingWithRDS.IAMDBAuth.Connecting.GoV1)
 
 ## Connecting using IAM authentication and the AWS SDK for Go V2
+<a name="UsingWithRDS.IAMDBAuth.Connecting.GoV2"></a>
 
-You can connect to a DB instance using IAM authentication
-and the AWS SDK for Go V2.
+You can connect to a DB instance using IAM authentication and the AWS SDK for Go V2.
 
-The following code examples show how to generate an authentication token, and
-then use it to connect to a DB
-instance.
+The following code examples show how to generate an authentication token, and then use it to connect to a DB instance. 
 
 This code connects to a MariaDB or MySQL DB instance.
 
 ```
 package main
-
+                
 import (
      "context"
      "database/sql"
@@ -84,12 +62,12 @@ import (
 
 func main() {
 
-     var dbName string = "`DatabaseName`"
-     var dbUser string = "`DatabaseUser`"
-     var dbHost string = "`mysqldb.123456789012.us-east-1.rds.amazonaws.com`"
-     var dbPort int = `3306`
+     var dbName string = "{{DatabaseName}}"
+     var dbUser string = "{{DatabaseUser}}"
+     var dbHost string = "{{mysqldb.123456789012.us-east-1.rds.amazonaws.com}}"
+     var dbPort int = {{3306}}
      var dbEndpoint string = fmt.Sprintf("%s:%d", dbHost, dbPort)
-     var region string = "`us-east-1`"
+     var region string = "{{us-east-1}}"
 
     cfg, err := config.LoadDefaultConfig(context.TODO())
     if err != nil {
@@ -135,12 +113,12 @@ import (
 
 func main() {
 
-     var dbName string = "`DatabaseName`"
-     var dbUser string = "`DatabaseUser`"
-     var dbHost string = "`postgresmydb.123456789012.us-east-1.rds.amazonaws.com`"
-     var dbPort int = `5432`
+     var dbName string = "{{DatabaseName}}"
+     var dbUser string = "{{DatabaseUser}}"
+     var dbHost string = "{{postgresmydb.123456789012.us-east-1.rds.amazonaws.com}}"
+     var dbPort int = {{5432}}
      var dbEndpoint string = fmt.Sprintf("%s:%d", dbHost, dbPort)
-     var region string = "`us-east-1`"
+     var region string = "{{us-east-1}}"
 
     cfg, err := config.LoadDefaultConfig(context.TODO())
     if err != nil {
@@ -169,23 +147,20 @@ func main() {
 }
 ```
 
-If you want to connect to a DB instance
-through a proxy, see [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam "rds-proxy-connecting.md#rds-proxy-connecting-iam").
+If you want to connect to a DB instance through a proxy, see [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam).
 
 ## Connecting using IAM authentication and the AWS SDK for Go V1.
+<a name="UsingWithRDS.IAMDBAuth.Connecting.GoV1"></a>
 
-You can connect to a DB instance using IAM authentication
-and the AWS SDK for Go V1
+You can connect to a DB instance using IAM authentication and the AWS SDK for Go V1
 
-The following code examples show how to generate an authentication token, and
-then use it to connect to a DB
-instance.
+The following code examples show how to generate an authentication token, and then use it to connect to a DB instance. 
 
 This code connects to a MariaDB or MySQL DB instance.
 
 ```
 package main
-
+         
 import (
     "database/sql"
     "fmt"
@@ -197,12 +172,12 @@ import (
 )
 
 func main() {
-    dbName := "`app`"
-    dbUser := "`jane_doe`"
-    dbHost := "`mysqldb.123456789012.us-east-1.rds.amazonaws.com`"
-    dbPort := `3306`
+    dbName := "{{app}}"
+    dbUser := "{{jane_doe}}"
+    dbHost := "{{mysqldb.123456789012.us-east-1.rds.amazonaws.com}}"
+    dbPort := {{3306}}
     dbEndpoint := fmt.Sprintf("%s:%d", dbHost, dbPort)
-    region := "`us-east-1`"
+    region := "{{us-east-1}}"
 
     creds := credentials.NewEnvCredentials()
     authToken, err := rdsutils.BuildAuthToken(dbEndpoint, region, dbUser, creds)
@@ -241,12 +216,12 @@ import (
 )
 
 func main() {
-    dbName := "`app`"
-    dbUser := "`jane_doe`"
-    dbHost := "`postgresmydb.123456789012.us-east-1.rds.amazonaws.com`"
-    dbPort := `5432`
+    dbName := "{{app}}"
+    dbUser := "{{jane_doe}}"
+    dbHost := "{{postgresmydb.123456789012.us-east-1.rds.amazonaws.com}}"
+    dbPort := {{5432}}
     dbEndpoint := fmt.Sprintf("%s:%d", dbHost, dbPort)
-    region := "`us-east-1`"
+    region := "{{us-east-1}}"
 
     creds := credentials.NewEnvCredentials()
     authToken, err := rdsutils.BuildAuthToken(dbEndpoint, region, dbUser, creds)
@@ -270,5 +245,4 @@ func main() {
 }
 ```
 
-If you want to connect to a DB instance
-through a proxy, see [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam "rds-proxy-connecting.md#rds-proxy-connecting-iam").
+If you want to connect to a DB instance through a proxy, see [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam).

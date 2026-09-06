@@ -1,29 +1,25 @@
+
+
 # Audit log contents and examples for database activity streams
+<a name="DBActivityStreams.AuditLog"></a>
 
-Monitored events are represented in the database activity stream as JSON strings. The structure consists of a
-JSON object containing a `DatabaseActivityMonitoringRecord`, which in turn contains a
-`databaseActivityEventList` array of activity events.
+Monitored events are represented in the database activity stream as JSON strings. The structure consists of a JSON object containing a `DatabaseActivityMonitoringRecord`, which in turn contains a `databaseActivityEventList` array of activity events. 
 
-###### Note
-
+**Note**  
 For database activity streams, the `paramList` JSON array doesn't include null values from Hibernate applications.
 
-###### Topics
-
-- [Examples of an audit log for an activity stream](#DBActivityStreams.AuditLog.Examples "#DBActivityStreams.AuditLog.Examples")
-- [DatabaseActivityMonitoringRecords JSON object](#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords "#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords")
-- [databaseActivityEvents JSON Object](#DBActivityStreams.AuditLog.databaseActivityEvents "#DBActivityStreams.AuditLog.databaseActivityEvents")
+**Topics**
++ [Examples of an audit log for an activity stream](#DBActivityStreams.AuditLog.Examples)
++ [DatabaseActivityMonitoringRecords JSON object](#DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords)
++ [databaseActivityEvents JSON Object](#DBActivityStreams.AuditLog.databaseActivityEvents)
 
 ## Examples of an audit log for an activity stream
+<a name="DBActivityStreams.AuditLog.Examples"></a>
 
 Following are sample decrypted JSON audit logs of activity event records.
 
-###### Example Activity event record of a CONNECT SQL statement
-
-The following activity event record shows a login with the use of a
-`CONNECT` SQL statement (`command`) by a JDBC Thin
-Client (`clientApplication`) for your
-Oracle DB.
+**Example Activity event record of a CONNECT SQL statement**  
+The following activity event record shows a login with the use of a `CONNECT` SQL statement (`command`) by a JDBC Thin Client (`clientApplication`) for your Oracle DB.  
 
 ```
 {
@@ -140,9 +136,7 @@ Oracle DB.
     }
 }
 ```
-
-The following activity event record shows a login failure for
-your SQL Server DB.
+The following activity event record shows a login failure for your SQL Server DB.  
 
 ```
 {
@@ -154,7 +148,7 @@ your SQL Server DB.
             "class": "LOGIN",
             "clientApplication": "Microsoft SQL Server Management Studio",
             "command": "LOGIN FAILED",
-            "commandText": "Login failed for user 'test'. Reason: Password did not match that for the login provided. [CLIENT: `local-machine`]",
+            "commandText": "Login failed for user 'test'. Reason: Password did not match that for the login provided. [CLIENT: {{local-machine}}]",
             "databaseName": "",
             "dbProtocol": "SQLSERVER",
             "dbUserName": "test",
@@ -210,16 +204,10 @@ your SQL Server DB.
     ]
 }
 ```
+If a database activity stream isn't enabled, then the last field in the JSON document is `"engineNativeAuditFields": { }`. 
 
-###### Note
-
-If a database activity stream isn't enabled, then the last field in the JSON document is
-`"engineNativeAuditFields": { }`.
-
-###### Example Activity event record of a CREATE TABLE statement
-
-The following example shows a `CREATE TABLE` event for your Oracle
-database.
+**Example Activity event record of a CREATE TABLE statement**  
+The following example shows a `CREATE TABLE` event for your Oracle database.  
 
 ```
 {
@@ -335,9 +323,7 @@ database.
     }
 }
 ```
-
-The following example shows a `CREATE TABLE` event
-for your SQL Server database.
+The following example shows a `CREATE TABLE` event for your SQL Server database.  
 
 ```
 {
@@ -406,9 +392,8 @@ for your SQL Server database.
 }
 ```
 
-###### Example Activity event record of a SELECT statement
-
-The following example shows a `SELECT` event for your Oracle DB.
+**Example Activity event record of a SELECT statement**  
+The following example shows a `SELECT` event for your Oracle DB.  
 
 ```
 {
@@ -524,9 +509,7 @@ The following example shows a `SELECT` event for your Oracle DB.
     }
 }
 ```
-
-The following example shows a `SELECT` event for
-your SQL Server DB.
+The following example shows a `SELECT` event for your SQL Server DB.  
 
 ```
 {
@@ -596,83 +579,77 @@ your SQL Server DB.
 ```
 
 ## DatabaseActivityMonitoringRecords JSON object
+<a name="DBActivityStreams.AuditLog.DatabaseActivityMonitoringRecords"></a>
 
 The database activity event records are in a JSON object that contains the following information.
 
-| JSON Field                                                                                                                        | Data Type | Description                                                                                                                                                                                              |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                                            | string    | The type of JSON record. The value is `DatabaseActivityMonitoringRecords`.                                                                                                                               |
-| `version`                                                                                                                         | string    | The version of the database activity monitoring<br>records. Oracle DB uses version 1.3 and SQL Server<br>uses version 1.4. These engine versions introduce the `engineNativeAuditFields`<br>JSON object. |
-| [databaseActivityEvents](#DBActivityStreams.AuditLog.databaseActivityEvents "#DBActivityStreams.AuditLog.databaseActivityEvents") | string    | A JSON object that contains the activity events.                                                                                                                                                         |
-| key                                                                                                                               | string    | An encryption key that you use to decrypt the [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md "DBActivityStreams.AuditLog.databaseActivityEventList.md")  |
+
+
+| JSON Field | Data Type | Description | 
+| --- | --- | --- | 
+| `type` | string | The type of JSON record. The value is `DatabaseActivityMonitoringRecords`. | 
+| version | string |  The version of the database activity monitoring records. Oracle DB uses version 1.3 and SQL Server uses version 1.4. These engine versions introduce the engineNativeAuditFields JSON object.  | 
+| [databaseActivityEvents](#DBActivityStreams.AuditLog.databaseActivityEvents) | string | A JSON object that contains the activity events. | 
+| key | string | An encryption key that you use to decrypt the [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md)  | 
 
 ## databaseActivityEvents JSON Object
+<a name="DBActivityStreams.AuditLog.databaseActivityEvents"></a>
 
 The `databaseActivityEvents` JSON object contains the following information.
 
 ### Top-level fields in JSON record
+<a name="DBActivityStreams.AuditLog.topLevel"></a>
 
-Each event in the audit log is wrapped inside a record in JSON format.
-This record contains the following fields.
+ Each event in the audit log is wrapped inside a record in JSON format. This record contains the following fields. 
 
-**type**
+**type**  
+ This field always has the value `DatabaseActivityMonitoringRecords`. 
 
-This field always has the value `DatabaseActivityMonitoringRecords`.
+**version**  
+ This field represents the version of the database activity stream data protocol or contract. It defines which fields are available.
 
-**version**
+**databaseActivityEvents**  
+ An encrypted string representing one or more activity events. It's represented as a base64 byte array. When you decrypt the string, the result is a record in JSON format with fields as shown in the examples in this section.
 
-This field represents the version of the database activity stream data
-protocol or contract. It defines which fields are available.
+**key**  
+ The encrypted data key used to encrypt the `databaseActivityEvents` string. This is the same AWS KMS key that you provided when you started the database activity stream.
 
-**databaseActivityEvents**
-
-An encrypted string representing one or more activity events. It's represented as a base64 byte
-array. When you decrypt the string, the result is a record in JSON format with fields as shown in the
-examples in this section.
-
-**key**
-
-The encrypted data key used to encrypt the `databaseActivityEvents` string. This is the
-same AWS KMS key that you provided when you started the database activity
-stream.
-
-The following example shows the format of this record.
+ The following example shows the format of this record.
 
 ```
 {
   "type":"DatabaseActivityMonitoringRecords",
   "version":"1.3",
-  "databaseActivityEvents":"`encrypted audit records`",
-  "key":"`encrypted key`"
+  "databaseActivityEvents":"{{encrypted audit records}}",
+  "key":"{{encrypted key}}"
 }
 ```
 
 ```
-
            "type":"DatabaseActivityMonitoringRecords",
            "version":"1.4",
-           "databaseActivityEvents":"`encrypted audit records`",
-           "key":"`encrypted key`"
-
+           "databaseActivityEvents":"{{encrypted audit records}}",
+           "key":"{{encrypted key}}"
 ```
 
 Take the following steps to decrypt the contents of the `databaseActivityEvents` field:
 
-1. Decrypt the value in the `key` JSON field using the KMS key you provided when starting
-   database activity stream. Doing so returns the data encryption key in clear text.
-2. Base64-decode the value in the `databaseActivityEvents` JSON field to obtain the ciphertext,
-   in binary format, of the audit payload.
-3. Decrypt the binary ciphertext with the data encryption key that you decoded in the first step.
-4. Decompress the decrypted payload.
+1.  Decrypt the value in the `key` JSON field using the KMS key you provided when starting database activity stream. Doing so returns the data encryption key in clear text. 
 
-   - The encrypted payload is in the `databaseActivityEvents` field.
-   - The `databaseActivityEventList` field contains an array of audit records. The
-     `type` fields in the array can be `record` or `heartbeat`.
+1.  Base64-decode the value in the `databaseActivityEvents` JSON field to obtain the ciphertext, in binary format, of the audit payload. 
+
+1.  Decrypt the binary ciphertext with the data encryption key that you decoded in the first step. 
+
+1.  Decompress the decrypted payload. 
+   +  The encrypted payload is in the `databaseActivityEvents` field. 
+   +  The `databaseActivityEventList` field contains an array of audit records. The `type` fields in the array can be `record` or `heartbeat`. 
 
 The audit log activity event record is a JSON object that contains the following information.
 
-| JSON Field                                                                                                                                                | Data Type | Description                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                                                                    | string    | The type of JSON record. The value is `DatabaseActivityMonitoringRecord`.                            |
-| `instanceId`                                                                                                                                              | string    | The DB instance resource identifier. It corresponds to the DB instance attribute<br>`DbiResourceId`. |
-| [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md "DBActivityStreams.AuditLog.databaseActivityEventList.md") | string    | An array of activity audit records or heartbeat messages.                                            |
+
+
+| JSON Field | Data Type | Description | 
+| --- | --- | --- | 
+| `type` | string | The type of JSON record. The value is `DatabaseActivityMonitoringRecord`. | 
+| instanceId | string | The DB instance resource identifier. It corresponds to the DB instance attribute DbiResourceId. | 
+| [databaseActivityEventList JSON array](DBActivityStreams.AuditLog.databaseActivityEventList.md)  | string | An array of activity audit records or heartbeat messages. | 

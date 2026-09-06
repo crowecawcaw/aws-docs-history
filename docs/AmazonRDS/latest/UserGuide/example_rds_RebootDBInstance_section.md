@@ -1,22 +1,22 @@
+
+
 # Use `RebootDBInstance` with an AWS SDK or CLI
+<a name="example_rds_RebootDBInstance_section"></a>
 
 The following code examples show how to use `RebootDBInstance`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To reboot a DB instance**
-
-The following `reboot-db-instance` example starts a reboot of the specified DB instance.
-
-```
-`aws rds reboot-db-instance \
- --db-instance-identifier `test-mysql-instance``
+**AWS CLI**  
+**To reboot a DB instance**  
+The following `reboot-db-instance` example starts a reboot of the specified DB instance.  
 
 ```
-
-Output:
+aws rds reboot-db-instance \
+    --db-instance-identifier {{test-mysql-instance}}
+```
+Output:  
 
 ```
 {
@@ -37,22 +37,14 @@ Output:
     }
 }
 ```
+For more information, see [Rebooting a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html) in the *Amazon RDS User Guide*.  
++  For API details, see [RebootDBInstance](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/reboot-db-instance.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Rebooting a DB Instance](USER_RebootInstance.md "USER_RebootInstance.md") in the _Amazon RDS User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [RebootDBInstance](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/reboot-db-instance.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/reboot-db-instance.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -110,14 +102,9 @@ public class RebootDBInstance {
         }
     }
 }
-
-
 ```
++  For API details, see [RebootDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/RebootDBInstance) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [RebootDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/RebootDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/RebootDBInstance.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

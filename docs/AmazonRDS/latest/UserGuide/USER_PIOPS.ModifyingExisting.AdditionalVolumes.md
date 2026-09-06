@@ -1,80 +1,62 @@
+
+
 # Adding storage volumes
+<a name="USER_PIOPS.ModifyingExisting.AdditionalVolumes"></a>
 
-For RDS for Oracle and RDS for SQL Server DB instances, you can add up to three storage volumes to increase your
-total storage capacity up to 256 TiB per instance. Additional storage volumes allow
-you to use different storage types (gp3 and io2) to optimize costs and performance
-based on your data access patterns.
+For RDS for Oracle and RDS for SQL Server DB instances, you can add up to three storage volumes to increase your total storage capacity up to 256 TiB per instance. Additional storage volumes allow you to use different storage types (gp3 and io2) to optimize costs and performance based on your data access patterns.
 
-###### Note
+**Note**  
+For RDS for Oracle DB instances, you can add a storage volume with the minimum storage size of 200 GiB.
 
-For RDS for Oracle DB instances, you can add a storage volume with the
-minimum storage size of 200 GiB.
-
-You can add, modify, or remove additional storage volumes using the AWS Management
-Console or AWS CLI. You can configure the volumes with different allocated
-storage, IOPS, and throughput settings. For example, you might place
-high-performance data on an io2 volume and historical data on a gp3 volume.
+You can add, modify, or remove additional storage volumes using the AWS Management Console or AWS CLI. You can configure the volumes with different allocated storage, IOPS, and throughput settings. For example, you might place high-performance data on an io2 volume and historical data on a gp3 volume.
 
 The additional volumes must use the volume names shown in the following table.
 
-| RDS for Oracle volume name | RDS for SQL Server volume name |
-| -------------------------- | ------------------------------ |
-| `rdsdbdata2`               | `H:`                           |
-| `rdsdbdata3`               | `I:`                           |
-| `rdsdbdata4`               | `J:`                           |
 
-###### Note
+| RDS for Oracle volume name | RDS for SQL Server volume name | 
+| --- | --- | 
+| rdsdbdata2 | H: | 
+| rdsdbdata3 | I: | 
+| rdsdbdata4 | J: | 
 
-Support for additional storage volumes depends on the DB engine and DB instance
-configuration. Before you add a storage volume, review the engine-specific
-requirements and limitations. For RDS for Oracle, see [Limitations of using additional storage volumes with RDS for Oracle](User_Oracle_AdditionalStorage.md#User_Oracle_AdditionalStorage.limitations "User_Oracle_AdditionalStorage.md#User_Oracle_AdditionalStorage.limitations"). For RDS for SQL Server,
-see [Working with storage in RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.DatabaseStorage.md "Appendix.SQLServer.CommonDBATasks.DatabaseStorage.md").
+**Note**  
+Support for additional storage volumes depends on the DB engine and DB instance configuration. Before you add a storage volume, review the engine-specific requirements and limitations. For RDS for Oracle, see [Limitations of using additional storage volumes with RDS for Oracle](User_Oracle_AdditionalStorage.md#User_Oracle_AdditionalStorage.limitations). For RDS for SQL Server, see [Working with storage in RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.DatabaseStorage.md).
 
-###### To add an additional storage volume to a DB instance
+## Console
+<a name="USER_PIOPS.ModifyingExisting.AdditionalVolumes.console"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose
-   **Databases**.
-3. Choose the DB instance that you want to modify. The details page for the
-   DB instance opens.
-4. Choose the **Configuration** tab.
-5. Choose **Add storage volume**.
-6. Configure the additional storage volume:
+**To add an additional storage volume to a DB instance**
 
-   - **Volume name** – Choose `rdsdbdata2`,
-     `rdsdbdata3`, or
-     `rdsdbdata4`.
-   - **Storage type** – Choose **General Purpose SSD
-     (gp3)** or **Provisioned IOPS SSD
-     (io2)**.
-   - **Allocated storage** – Enter the storage size in GiB (minimum
-     200 GiB).
-   - For io2 storage, configure **Provisioned IOPS**.
-   - For gp3 storage, optionally configure **Storage throughput**.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-7. For **Scheduling**, choose **Apply
-   immediately**, and then choose
-   **Submit**.
+1. In the navigation pane, choose **Databases**.
 
-###### Important
+1. Choose the DB instance that you want to modify. The details page for the DB instance opens.
 
-When you are adding an additional storage volume using the
-`modify-db-instance` operation, the RDS adds the storage
-volume immediately regardless of the `--no-apply-immediately`
-parameter. If you have other modifications in the request, RDS applies
-them based on the schedule modifications. See [Using the schedule modifications setting](USER_ModifyInstance.ApplyImmediately.md "USER_ModifyInstance.ApplyImmediately.md").
+1. Choose the **Configuration** tab.
 
-To add an additional storage volume to a DB instance, use the AWS CLI command [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"). Set the
-`--additional-storage-volumes` as a JSON array specifying the
-additional storage volumes to add or modify.
+1. Choose **Add storage volume**.
 
-The following example adds an additional storage volume named `rdsdbdata2`
-with 5000 GiB of gp3 storage to `mydbinstance`.
+1. Configure the additional storage volume:
+   + **Volume name** – Choose `rdsdbdata2`, `rdsdbdata3`, or `rdsdbdata4`.
+   + **Storage type** – Choose **General Purpose SSD (gp3)** or **Provisioned IOPS SSD (io2)**.
+   + **Allocated storage** – Enter the storage size in GiB (minimum 200 GiB).
+   + For io2 storage, configure **Provisioned IOPS**.
+   + For gp3 storage, optionally configure **Storage throughput**.
 
-When you add an additional storage volume, RDS applies the change
-immediately regardless of the `--no-apply-immediately`
-parameter.
+1. For **Scheduling**, choose **Apply immediately**, and then choose **Submit**.
+
+**Important**  
+When you are adding an additional storage volume using the `modify-db-instance` operation, the RDS adds the storage volume immediately regardless of the `--no-apply-immediately` parameter. If you have other modifications in the request, RDS applies them based on the schedule modifications. See [Using the schedule modifications setting](USER_ModifyInstance.ApplyImmediately.md).
+
+## AWS CLI
+<a name="USER_PIOPS.ModifyingExisting.AdditionalVolumes.cli"></a>
+
+To add an additional storage volume to a DB instance, use the AWS CLI command [`modify-db-instance`](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html). Set the `--additional-storage-volumes` as a JSON array specifying the additional storage volumes to add or modify.
+
+The following example adds an additional storage volume named `rdsdbdata2` with 5000 GiB of gp3 storage to `mydbinstance`. 
+
+When you add an additional storage volume, RDS applies the change immediately regardless of the `--no-apply-immediately` parameter.
 
 ```
 aws rds modify-db-instance \
@@ -89,11 +71,9 @@ aws rds modify-db-instance \
     ]'
 ```
 
-To add an additional storage volume to a DB instance, use the Amazon RDS API operation [`ModifyDBInstance`](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md"). Set the
-`AdditionalStorageVolumes` parameter as an array of
-additional storage volume specifications.
+## RDS API
+<a name="USER_PIOPS.ModifyingExisting.AdditionalVolumes.api"></a>
 
-When you are adding an additional storage volume using the
-ModifyDBInstance API operation, RDS adds the storage volume immediately
-regardless of the `ApplyImmediately` option being True or
-False.
+To add an additional storage volume to a DB instance, use the Amazon RDS API operation [`ModifyDBInstance`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html). Set the `AdditionalStorageVolumes` parameter as an array of additional storage volume specifications.
+
+When you are adding an additional storage volume using the ModifyDBInstance API operation, RDS adds the storage volume immediately regardless of the `ApplyImmediately` option being True or False.

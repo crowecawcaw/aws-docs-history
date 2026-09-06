@@ -1,67 +1,50 @@
+
+
 # Diagnosing problems with RDS for Oracle DB instances
+<a name="Appendix.Oracle.CommonDBATasks.Diagnostics"></a>
 
-Oracle Database includes a fault diagnosability infrastructure that you can use to
-investigate database problems. In Oracle terminology, a _problem_ is
-a critical error such as a code bug or data corruption. An _incident_
-is the occurrence of a problem. If the same error occurs three times, then the
-infrastructure shows three incidents of this problem. For more information, see [Diagnosing and resolving problems](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/diagnosing-and-resolving-problems.html#GUID-8DEB1BE0-8FB9-4FB2-A19A-17CF6F5791C3 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/diagnosing-and-resolving-problems.html#GUID-8DEB1BE0-8FB9-4FB2-A19A-17CF6F5791C3") in the Oracle Database
-documentation.
+Oracle Database includes a fault diagnosability infrastructure that you can use to investigate database problems. In Oracle terminology, a *problem* is a critical error such as a code bug or data corruption. An *incident* is the occurrence of a problem. If the same error occurs three times, then the infrastructure shows three incidents of this problem. For more information, see [Diagnosing and resolving problems](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/diagnosing-and-resolving-problems.html#GUID-8DEB1BE0-8FB9-4FB2-A19A-17CF6F5791C3) in the Oracle Database documentation.
 
-The Automatic Diagnostic Repository Command Interpreter (ADRCI) utility is an Oracle
-command-line tool that you use to manage diagnostic data. For example, you can use this
-tool to investigate problems and package diagnostic data. An _incident
-package_ includes diagnostic data for an incident or all incidents that
-reference a specific problem. You can upload an incident package, which is implemented
-as a .zip file, to Oracle Support.
+The Automatic Diagnostic Repository Command Interpreter (ADRCI) utility is an Oracle command-line tool that you use to manage diagnostic data. For example, you can use this tool to investigate problems and package diagnostic data. An *incident package* includes diagnostic data for an incident or all incidents that reference a specific problem. You can upload an incident package, which is implemented as a .zip file, to Oracle Support.
 
-To deliver a managed service experience, Amazon RDS doesn't provide shell access to ADRCI.
-To perform diagnostic tasks for your RDS for Oracle DB instance, use the Amazon RDS package
-`rdsadmin.rdsadmin_adrci_util`.
+To deliver a managed service experience, Amazon RDS doesn't provide shell access to ADRCI. To perform diagnostic tasks for your RDS for Oracle DB instance, use the Amazon RDS package `rdsadmin.rdsadmin_adrci_util`.
 
-By using the functions in `rdsadmin_adrci_util`, you can list and package
-problems and incidents, and also show trace files. All functions return a task ID. This ID
-forms part of the name of log file that contains the ADRCI output, as in
-`dbtask-`task_id`.log`. The log file resides in
-the BDUMP directory. You can download the log file by following the procedure described in
-[Downloading a database log file](USER_LogAccess.Procedural.Downloading.md "USER_LogAccess.Procedural.Downloading.md").
+By using the functions in `rdsadmin_adrci_util`, you can list and package problems and incidents, and also show trace files. All functions return a task ID. This ID forms part of the name of log file that contains the ADRCI output, as in `dbtask-{{task_id}}.log`. The log file resides in the BDUMP directory. You can download the log file by following the procedure described in [Downloading a database log file](USER_LogAccess.Procedural.Downloading.md).
 
 ## Common parameters for diagnostic procedures
+<a name="Appendix.Oracle.CommonDBATasks.CommonDiagParameters"></a>
 
-To perform diagnostic tasks, use functions in the Amazon RDS package
-`rdsadmin.rdsadmin_adrci_util`. The package has the following common
-parameters.
+To perform diagnostic tasks, use functions in the Amazon RDS package `rdsadmin.rdsadmin_adrci_util`. The package has the following common parameters.
 
-| Parameter name | Data type | Valid values                           | Default | Required | Description                                                                                                                                                          |
-| -------------- | --------- | -------------------------------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `incident_id`  | number    | A valid incident ID or null            | Null    | No       | If the value is null, the function shows all incidents. If the<br>value isn't null and represents a valid incident ID, the<br>function shows the specified incident. |
-| `problem_id`   | number    | A valid problem ID or null             | Null    | No       | If the value is null, the function shows all problems. If the<br>value isn't null and represents a valid problem ID, the<br>function shows the specified problem.    |
-| `last`         | number    | A valid integer greater than 0 or null | Null    | No       | If the value is null, then the function displays at most 50<br>items. If the value isn't null, the function displays the<br>specified number.                        |
+
+
+| Parameter name | Data type | Valid values | Default | Required | Description | 
+| --- | --- | --- | --- | --- | --- | 
+| `incident_id` | number | A valid incident ID or null  | Null | No | If the value is null, the function shows all incidents. If the value isn't null and represents a valid incident ID, the function shows the specified incident.  | 
+| `problem_id` | number | A valid problem ID or null | Null | No | If the value is null, the function shows all problems. If the value isn't null and represents a valid problem ID, the function shows the specified problem. | 
+| `last` | number | A valid integer greater than 0 or null | Null | No | If the value is null, then the function displays at most 50 items. If the value isn't null, the function displays the specified number. | 
 
 ## Listing incidents
+<a name="Appendix.Oracle.CommonDBATasks.Incidents"></a>
 
-To list diagnostic incidents for Oracle, use the Amazon RDS function
-`rdsadmin.rdsadmin_adrci_util.list_adrci_incidents`. You can list
-incidents in either basic or detailed mode. By default, the function lists the 50
-most recent incidents.
+To list diagnostic incidents for Oracle, use the Amazon RDS function `rdsadmin.rdsadmin_adrci_util.list_adrci_incidents`. You can list incidents in either basic or detailed mode. By default, the function lists the 50 most recent incidents.
 
 This function uses the following common parameters:
++  `incident_id`
++  `problem_id`
++  `last`
 
-- `incident_id`
-- `problem_id`
-- `last`
-
-If you specify `incident_id` and `problem_id`, then `incident_id`
-overrides `problem_id`. For more information, see [Common parameters for diagnostic procedures](#Appendix.Oracle.CommonDBATasks.CommonDiagParameters "#Appendix.Oracle.CommonDBATasks.CommonDiagParameters").
+If you specify `incident_id` and `problem_id`, then `incident_id` overrides `problem_id`. For more information, see [Common parameters for diagnostic procedures](#Appendix.Oracle.CommonDBATasks.CommonDiagParameters).
 
 This function uses the following additional parameter.
 
-| Parameter name | Data type | Valid values      | Default | Required | Description                                                                                                           |
-| -------------- | --------- | ----------------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `detail`       | boolean   | `TRUE` or `FALSE` | `FALSE` | No       | If `TRUE`, the function lists incidents in detail<br>mode. If `FALSE`, the function lists incidents in<br>basic mode. |
 
-To list all incidents, query the
-`rdsadmin.rdsadmin_adrci_util.list_adrci_incidents` function without
-any arguments. The query returns the task ID.
+
+| Parameter name | Data type | Valid values | Default | Required | Description | 
+| --- | --- | --- | --- | --- | --- | 
+| `detail` | boolean | TRUE or FALSE | `FALSE` | No | If `TRUE`, the function lists incidents in detail mode. If `FALSE`, the function lists incidents in basic mode. | 
+
+To list all incidents, query the `rdsadmin.rdsadmin_adrci_util.list_adrci_incidents` function without any arguments. The query returns the task ID.
 
 ```
 SQL> SELECT rdsadmin.rdsadmin_adrci_util.list_adrci_incidents AS task_id FROM DUAL;
@@ -71,9 +54,7 @@ TASK_ID
 1590786706158-3126
 ```
 
-Or call the `rdsadmin.rdsadmin_adrci_util.list_adrci_incidents`
-function without any arguments and store the output in a SQL client variable. You
-can use the variable in other statements.
+Or call the `rdsadmin.rdsadmin_adrci_util.list_adrci_incidents` function without any arguments and store the output in a SQL client variable. You can use the variable in other statements.
 
 ```
 SQL> VAR task_id VARCHAR2(80);
@@ -82,9 +63,7 @@ SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.list_adrci_incidents;
 PL/SQL procedure successfully completed.
 ```
 
-To read the log file, call the Amazon RDS procedure
-`rdsadmin.rds_file_util.read_text_file`. Supply the task ID as part
-of the file name. The following output shows three incidents: 53523, 53522, and 53521.
+To read the log file, call the Amazon RDS procedure `rdsadmin.rds_file_util.read_text_file`. Supply the task ID as part of the file name. The following output shows three incidents: 53523, 53522, and 53521.
 
 ```
 SQL> SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||:task_id||'.log'));
@@ -109,9 +88,7 @@ INCIDENT_ID PROBLEM_KEY                                                 CREATE_T
 14 rows selected.
 ```
 
-To list a particular incident, specify its ID using the `incident_id`
-parameter. In the following example, you query the log file for incident 53523
-only.
+To list a particular incident, specify its ID using the `incident_id` parameter. In the following example, you query the log file for incident 53523 only.
 
 ```
 SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.list_adrci_incidents(incident_id=>53523);
@@ -139,18 +116,15 @@ INCIDENT_ID          PROBLEM_KEY                                                
 ```
 
 ## Listing problems
+<a name="Appendix.Oracle.CommonDBATasks.Problems"></a>
 
-To list diagnostic problems for Oracle, use the Amazon RDS function
-`rdsadmin.rdsadmin_adrci_util.list_adrci_problems`.
+To list diagnostic problems for Oracle, use the Amazon RDS function `rdsadmin.rdsadmin_adrci_util.list_adrci_problems`.
 
-By default, the function lists the 50 most recent problems.
+By default, the function lists the 50 most recent problems. 
 
-This function uses the common parameters `problem_id` and `last`. For more
-information, see [Common parameters for diagnostic procedures](#Appendix.Oracle.CommonDBATasks.CommonDiagParameters "#Appendix.Oracle.CommonDBATasks.CommonDiagParameters").
+This function uses the common parameters `problem_id` and `last`. For more information, see [Common parameters for diagnostic procedures](#Appendix.Oracle.CommonDBATasks.CommonDiagParameters).
 
-To get the task ID for all problems, call the
-`rdsadmin.rdsadmin_adrci_util.list_adrci_problems` function without
-any arguments, and store the output in a SQL client variable.
+To get the task ID for all problems, call the `rdsadmin.rdsadmin_adrci_util.list_adrci_problems` function without any arguments, and store the output in a SQL client variable.
 
 ```
 SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.list_adrci_problems;
@@ -158,9 +132,7 @@ SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.list_adrci_problems;
 PL/SQL procedure successfully completed.
 ```
 
-To read the log file, call the `rdsadmin.rds_file_util.read_text_file`
-function, supplying the task ID as part of the file name. In the following output,
-the log file shows three problems: 1, 2, and 3.
+To read the log file, call the `rdsadmin.rds_file_util.read_text_file` function, supplying the task ID as part of the file name. In the following output, the log file shows three problems: 1, 2, and 3.
 
 ```
 SQL> SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||:task_id||'.log'));
@@ -193,9 +165,7 @@ SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.list_adrci_problems(problem_i
 PL/SQL procedure successfully completed.
 ```
 
-To read the log file for problem 3, call
-`rdsadmin.rds_file_util.read_text_file`. Supply the task ID as part
-of the file name.
+To read the log file for problem 3, call `rdsadmin.rds_file_util.read_text_file`. Supply the task ID as part of the file name.
 
 ```
 SQL> SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||:task_id||'.log'));
@@ -219,24 +189,17 @@ PROBLEM_ID PROBLEM_KEY                                                 LAST_INCI
 ```
 
 ## Creating incident packages
+<a name="Appendix.Oracle.CommonDBATasks.IncPackages"></a>
 
-You can create incident packages using the Amazon RDS function
-`rdsadmin.rdsadmin_adrci_util.create_adrci_package`. The output is a
-.zip file that you can supply to Oracle Support.
+You can create incident packages using the Amazon RDS function `rdsadmin.rdsadmin_adrci_util.create_adrci_package`. The output is a .zip file that you can supply to Oracle Support.
 
 This function uses the following common parameters:
++ `problem_id`
++ `incident_id`
 
-- `problem_id`
-- `incident_id`
+Make sure to specify one of the preceding parameters. If you specify both parameters, `incident_id` overrides `problem_id`. For more information, see [Common parameters for diagnostic procedures](#Appendix.Oracle.CommonDBATasks.CommonDiagParameters).
 
-Make sure to specify one of the preceding parameters. If you specify both
-parameters, `incident_id` overrides `problem_id`. For more
-information, see [Common parameters for diagnostic procedures](#Appendix.Oracle.CommonDBATasks.CommonDiagParameters "#Appendix.Oracle.CommonDBATasks.CommonDiagParameters").
-
-To create a package for a specific incident, call the Amazon RDS function
-`rdsadmin.rdsadmin_adrci_util.create_adrci_package` with the
-`incident_id` parameter. The following example creates a package for
-incident 53523.
+To create a package for a specific incident, call the Amazon RDS function `rdsadmin.rdsadmin_adrci_util.create_adrci_package` with the `incident_id` parameter. The following example creates a package for incident 53523.
 
 ```
 SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.create_adrci_package(incident_id=>53523);
@@ -244,10 +207,7 @@ SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.create_adrci_package(incident
 PL/SQL procedure successfully completed.
 ```
 
-To read the log file, call the `rdsadmin.rds_file_util.read_text_file`.
-You can supply the task ID as part of the file name. The output shows that you
-generated incident package
-`ORA700EVE_20200529212043_COM_1.zip`.
+To read the log file, call the `rdsadmin.rds_file_util.read_text_file`. You can supply the task ID as part of the file name. The output shows that you generated incident package `ORA700EVE_20200529212043_COM_1.zip`.
 
 ```
 SQL> SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||:task_id||'.log'));
@@ -260,9 +220,7 @@ TEXT
 2020-05-29 21:20:47.642 UTC [INFO ] The task finished successfully.
 ```
 
-To package diagnostic data for a particular problem, specify its ID using the
-`problem_id` parameter. In the following example, you package data
-for problem 3 only.
+To package diagnostic data for a particular problem, specify its ID using the `problem_id` parameter. In the following example, you package data for problem 3 only.
 
 ```
 SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.create_adrci_package(problem_id=>3);
@@ -270,9 +228,7 @@ SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.create_adrci_package(problem_
 PL/SQL procedure successfully completed.
 ```
 
-To read the task output, call `rdsadmin.rds_file_util.read_text_file`,
-supplying the task ID as part of the file name. The output shows that you generated
-incident package `ORA700EVE_20200529212111_COM_1.zip`.
+To read the task output, call `rdsadmin.rds_file_util.read_text_file`, supplying the task ID as part of the file name. The output shows that you generated incident package `ORA700EVE_20200529212111_COM_1.zip`.
 
 ```
 SQL> SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||:task_id||'.log'));
@@ -285,23 +241,22 @@ TEXT
 2020-05-29 21:21:15.646 UTC [INFO ] The task finished successfully.
 ```
 
-You can also download the log file. For more information, see [Downloading a database log file](USER_LogAccess.Procedural.Downloading.md "USER_LogAccess.Procedural.Downloading.md").
+You can also download the log file. For more information, see [Downloading a database log file](USER_LogAccess.Procedural.Downloading.md).
 
 ## Showing trace files
+<a name="Appendix.Oracle.CommonDBATasks.ShowTrace"></a>
 
-You can use the Amazon RDS function
-`rdsadmin.rdsadmin_adrci_util.show_adrci_tracefile` to list trace
-files under the trace directory and all incident directories under the current ADR
-home. You can also show the contents of trace files and incident trace files.
+You can use the Amazon RDS function `rdsadmin.rdsadmin_adrci_util.show_adrci_tracefile` to list trace files under the trace directory and all incident directories under the current ADR home. You can also show the contents of trace files and incident trace files.
 
 This function uses the following parameter.
 
-| Parameter name | Data type | Valid values            | Default | Required | Description                                                                                                              |
-| -------------- | --------- | ----------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `filename`     | varchar2  | A valid trace file name | Null    | No       | If the value is null, the function shows all trace files. If<br>it isn't null, the function shows the specified<br>file. |
 
-To show the trace file, call the Amazon RDS function
-`rdsadmin.rdsadmin_adrci_util.show_adrci_tracefile`.
+
+| Parameter name | Data type | Valid values | Default | Required | Description | 
+| --- | --- | --- | --- | --- | --- | 
+| `filename` | varchar2 | A valid trace file name | Null | No | If the value is null, the function shows all trace files. If it isn't null, the function shows the specified file. | 
+
+To show the trace file, call the Amazon RDS function `rdsadmin.rdsadmin_adrci_util.show_adrci_tracefile`.
 
 ```
 SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.show_adrci_tracefile;
@@ -309,9 +264,7 @@ SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.show_adrci_tracefile;
 PL/SQL procedure successfully completed.
 ```
 
-To list the trace file names, call the Amazon RDS procedure
-`rdsadmin.rds_file_util.read_text_file`, supplying the task ID as
-part of the file name.
+To list the trace file names, call the Amazon RDS procedure `rdsadmin.rds_file_util.read_text_file`, supplying the task ID as part of the file name.
 
 ```
 SQL> SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||:task_id||'.log')) WHERE TEXT LIKE '%/alert_%';
@@ -331,8 +284,7 @@ TEXT
 9 rows selected.
 ```
 
-In the following example, you generate output for
-`alert_ORCL.log`.
+In the following example, you generate output for `alert_ORCL.log`.
 
 ```
 SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.show_adrci_tracefile('diag/rdbms/orcl_a/ORCL/trace/alert_ORCL.log');
@@ -340,9 +292,7 @@ SQL> EXEC :task_id := rdsadmin.rdsadmin_adrci_util.show_adrci_tracefile('diag/rd
 PL/SQL procedure successfully completed.
 ```
 
-To read the log file, call `rdsadmin.rds_file_util.read_text_file`.
-Supply the task ID as part of the file name. The output shows the first 10 lines of
-alert\_ORCL.log.
+To read the log file, call `rdsadmin.rds_file_util.read_text_file`. Supply the task ID as part of the file name. The output shows the first 10 lines of alert\_ORCL.log.
 
 ```
 SQL> SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||:task_id||'.log')) WHERE ROWNUM <= 10;
@@ -363,4 +313,4 @@ Fri May 29 00:04:10 2020
 10 rows selected.
 ```
 
-You can also download the log file. For more information, see [Downloading a database log file](USER_LogAccess.Procedural.Downloading.md "USER_LogAccess.Procedural.Downloading.md").
+You can also download the log file. For more information, see [Downloading a database log file](USER_LogAccess.Procedural.Downloading.md).

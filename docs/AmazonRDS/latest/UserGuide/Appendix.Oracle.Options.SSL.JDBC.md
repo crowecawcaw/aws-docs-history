@@ -1,66 +1,66 @@
+
+
 # Setting up an SSL connection over JDBC
+<a name="Appendix.Oracle.Options.SSL.JDBC"></a>
 
-To use an SSL connection over JDBC, you must create a keystore, trust the Amazon RDS
-root CA certificate, and use the code snippet specified following.
+To use an SSL connection over JDBC, you must create a keystore, trust the Amazon RDS root CA certificate, and use the code snippet specified following.
 
-For more information about creating the keystore, see the [Creating a keystore](https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/client-side-security.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/client-side-security.html") in the Oracle documentation. For reference information,
-see [keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html "https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html") in the _Java Platform, Standard Edition Tools
-Reference_.
+For more information about creating the keystore, see the [Creating a keystore](https://docs.oracle.com/en/database/oracle/oracle-database/19/jjdbc/client-side-security.html) in the Oracle documentation. For reference information, see [keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html) in the *Java Platform, Standard Edition Tools Reference*.
 
 ```
-keytool -genkey -alias `client` -validity `365` -keyalg `RSA` -keystore `clientkeystore`
+keytool -genkey -alias {{client}} -validity {{365}} -keyalg {{RSA}} -keystore {{clientkeystore}}         
 ```
 
 Take the following steps to trust the Amazon RDS root CA certificate.
 
-###### To trust the Amazon RDS root CA certificate
+**To trust the Amazon RDS root CA certificate**
 
-1. Download the certificate bundle .pem file that works for all AWS Regions
-   and put the file in the ssl\_wallet directory.
+1. Download the certificate bundle .pem file that works for all AWS Regions and put the file in the ssl\_wallet directory.
 
-For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") . 2. Extract each certificate in the .pem file into a separate file using an OS
-utility. 3. Convert each certificate to .der format using a separate
-`openssl` command, replacing
-`certificate-pem-file` with the name of the
-certificate .pem file (without the .pem extension).
+   For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster ](UsingWithRDS.SSL.md).
 
-```
-openssl x509 -outform der -in `certificate-pem-file`.pem -out `certificate-pem-file`.der
-```
+1. Extract each certificate in the .pem file into a separate file using an OS utility.
 
-4. Import each certificate into the keystore using the following
-   command.
+1. Convert each certificate to .der format using a separate `openssl` command, replacing {{certificate-pem-file}} with the name of the certificate .pem file (without the .pem extension).
 
-```
-keytool -import -alias rds-root -keystore `clientkeystore.jks` -file `certificate-pem-file`.der
-```
+   ```
+   openssl x509 -outform der -in {{certificate-pem-file}}.pem -out {{certificate-pem-file}}.der                
+   ```
 
-For more information, see [Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md "UsingWithRDS.SSL-certificate-rotation.md"). 5. Confirm that the key store was created successfully.
+1. Import each certificate into the keystore using the following command.
 
-```
-keytool -list -v -keystore `clientkeystore.jks`
-```
+   ```
+   keytool -import -alias rds-root -keystore {{clientkeystore.jks}} -file {{certificate-pem-file}}.der                
+   ```
 
-Enter the keystore password when you are prompted for it.
-The following code example shows how to set up the SSL connection using
-JDBC.
+   For more information, see [Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md).
+
+1. Confirm that the key store was created successfully.
+
+   ```
+   keytool -list -v -keystore {{clientkeystore.jks}}                                            
+   ```
+
+   Enter the keystore password when you are prompted for it.
+
+The following code example shows how to set up the SSL connection using JDBC.
 
 ```
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-
+ 
 public class OracleSslConnectionTest {
-    private static final String DB_SERVER_NAME = "`dns-name-provided-by-amazon-rds`";
-    private static final String SSL_PORT = "`ssl-option-port-configured-in-option-group`";
-    private static final String DB_SID = "`oracle-sid`";
-    private static final String DB_USER = "`user-name`";
-    private static final String DB_PASSWORD = "`password`";
+    private static final String DB_SERVER_NAME = "{{dns-name-provided-by-amazon-rds}}";
+    private static final String SSL_PORT = "{{ssl-option-port-configured-in-option-group}}";
+    private static final String DB_SID = "{{oracle-sid}}";
+    private static final String DB_USER = "{{user-name}}";
+    private static final String DB_PASSWORD = "{{password}}";
     // This key store has only the prod root ca.
-    private static final String KEY_STORE_FILE_PATH = "`file-path-to-keystore`";
-    private static final String KEY_STORE_PASS = "`keystore-password`";
-
+    private static final String KEY_STORE_FILE_PATH = "{{file-path-to-keystore}}";
+    private static final String KEY_STORE_PASS = "{{keystore-password}}";
+ 
     public static void main(String[] args) throws SQLException {
         final Properties properties = new Properties();
         final String connectionString = String.format(
@@ -78,6 +78,5 @@ public class OracleSslConnectionTest {
 }
 ```
 
-###### Note
-
+**Note**  
 Specify a password other than the prompt shown here as a security best practice.

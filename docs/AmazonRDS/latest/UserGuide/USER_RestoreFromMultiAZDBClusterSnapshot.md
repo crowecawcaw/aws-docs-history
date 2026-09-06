@@ -1,88 +1,83 @@
+
+
 # Restoring from a Multi-AZ DB cluster snapshot to a DB instance
+<a name="USER_RestoreFromMultiAZDBClusterSnapshot"></a>
 
-A _Multi-AZ DB cluster snapshot_ is a storage volume snapshot of your DB cluster,
-backing up the entire DB cluster and not just individual databases. You can restore a Multi-AZ DB cluster
-snapshot to a Single-AZ deployment or Multi-AZ DB instance deployment. For information about Multi-AZ
-deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").
+A *Multi-AZ DB cluster snapshot* is a storage volume snapshot of your DB cluster, backing up the entire DB cluster and not just individual databases. You can restore a Multi-AZ DB cluster snapshot to a Single-AZ deployment or Multi-AZ DB instance deployment. For information about Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md).
 
-###### Note
+**Note**  
+You can also restore a Multi-AZ DB cluster snapshot to a new Multi-AZ DB cluster. For instructions, see [Restoring from a snapshot to a Multi-AZ DB cluster](USER_RestoreFromMultiAZDBClusterSnapshot.Restoring.md).
 
-You can also restore a Multi-AZ DB cluster snapshot to a new Multi-AZ DB cluster. For instructions,
-see [Restoring from a snapshot to a Multi-AZ DB cluster](USER_RestoreFromMultiAZDBClusterSnapshot.Restoring.md "USER_RestoreFromMultiAZDBClusterSnapshot.Restoring.md").
+For information about restoring a Multi-AZ DB cluster with an RDS Extended Support version, see [Restoring a DB instance or a Multi-AZ DB cluster with Amazon RDS Extended Support](extended-support-restoring-db-instance.md).
 
-For information about restoring a Multi-AZ DB cluster with an RDS Extended Support version, see [Restoring a DB instance or a Multi-AZ DB cluster with Amazon RDS Extended Support](extended-support-restoring-db-instance.md "extended-support-restoring-db-instance.md").
+Use the AWS Management Console, the AWS CLI, or the RDS API to restore a Multi-AZ DB cluster snapshot to a Single-AZ deployment or Multi-AZ DB instance deployment.
 
-Use the AWS Management Console, the AWS CLI, or the RDS API to restore a Multi-AZ DB cluster snapshot to a
-Single-AZ deployment or Multi-AZ DB instance deployment.
+## Console
+<a name="USER_RestoreFromMultiAZDBClusterSnapshot.CON"></a>
 
-###### To restore a Multi-AZ DB cluster snapshot to a Single-AZ deployment or Multi-AZ DB instance deployment
+**To restore a Multi-AZ DB cluster snapshot to a Single-AZ deployment or Multi-AZ DB instance deployment**
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Snapshots**.
-3. Choose the Multi-AZ DB cluster snapshot that you want to restore from.
-4. For **Actions**, choose **Restore snapshot**.
-5. On the **Restore snapshot** page, in **Availability and durability**,
-   choose one of the following:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-   - **Single DB instance** – Restores the snapshot to one DB instance
-     with no standby DB instance.
-   - **Multi-AZ DB instance** – Restores the snapshot to a Multi-AZ DB instance deployment with one primary DB instance and one standby DB instance.
+1. In the navigation pane, choose **Snapshots**.
 
-6. For **DB instance identifier**, enter the name for your
-   restored DB instance.
-7. For the remaining sections, specify your DB instance settings. For information about each setting, see
-   [Settings for DB instances](USER_CreateDBInstance.Settings.md "USER_CreateDBInstance.Settings.md").
-8. Choose **Restore DB instance**.
-   To restore a Multi-AZ DB cluster snapshot to a DB instance deployment, use the AWS CLI command [restore-db-instance-from-db-snapshot](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md").
+1. Choose the Multi-AZ DB cluster snapshot that you want to restore from.
 
-In the following example, you restore from a previously created Multi-AZ DB cluster snapshot named
-`myclustersnapshot`. You restore to a new Multi-AZ DB instance deployment
-with a primary DB instance named `mynewdbinstance`. For the
-`--db-cluster-snapshot-identifier` option, specify the name of the
-Multi-AZ DB cluster snapshot.
+1. For **Actions**, choose **Restore snapshot**.
 
-For the `--db-instance-class` option, specify the DB instance class for the new
-DB instance deployment. For more information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+1. On the **Restore snapshot** page, in **Availability and durability**, choose one of the following:
+   + **Single DB instance** – Restores the snapshot to one DB instance with no standby DB instance.
+   + **Multi-AZ DB instance** – Restores the snapshot to a Multi-AZ DB instance deployment with one primary DB instance and one standby DB instance.
+
+1. For **DB instance identifier**, enter the name for your restored DB instance.
+
+1. For the remaining sections, specify your DB instance settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md).
+
+1. Choose **Restore DB instance**.
+
+## AWS CLI
+<a name="USER_RestoreFromMultiAZDBClusterSnapshot.CLI"></a>
+
+To restore a Multi-AZ DB cluster snapshot to a DB instance deployment, use the AWS CLI command [restore-db-instance-from-db-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html).
+
+In the following example, you restore from a previously created Multi-AZ DB cluster snapshot named `myclustersnapshot`. You restore to a new Multi-AZ DB instance deployment with a primary DB instance named `mynewdbinstance`. For the `--db-cluster-snapshot-identifier` option, specify the name of the Multi-AZ DB cluster snapshot.
+
+For the `--db-instance-class` option, specify the DB instance class for the new DB instance deployment. For more information about DB instance classes, see [DB instance classes](Concepts.DBInstanceClass.md).
 
 You can also specify other options.
 
-###### Example
-
-For Linux, macOS, or Unix:
-
-```
-aws rds restore-db-instance-from-db-snapshot \
-    --db-instance-identifier `mynewdbinstance` \
-    --db-cluster-snapshot-identifier `myclustersnapshot` \
-    --engine mysql \
-    --multi-az \
-    --db-instance-class `db.r6g.xlarge`
-```
-
-For Windows:
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
-aws rds restore-db-instance-from-db-snapshot ^
-    --db-instance-identifier `mynewdbinstance` ^
-    --db-cluster-snapshot-identifier `myclustersnapshot` ^
-    --engine mysql ^
-    --multi-az ^
-    --db-instance-class `db.r6g.xlarge`
+1. aws rds restore-db-instance-from-db-snapshot \
+2.     --db-instance-identifier {{mynewdbinstance}} \
+3.     --db-cluster-snapshot-identifier {{myclustersnapshot}} \
+4.     --engine mysql \
+5.     --multi-az \
+6.     --db-instance-class {{db.r6g.xlarge}}
+```
+For Windows:  
+
+```
+1. aws rds restore-db-instance-from-db-snapshot ^
+2.     --db-instance-identifier {{mynewdbinstance}} ^
+3.     --db-cluster-snapshot-identifier {{myclustersnapshot}} ^
+4.     --engine mysql ^
+5.     --multi-az ^
+6.     --db-instance-class {{db.r6g.xlarge}}
 ```
 
-After you restore the DB instance, you can add it to the security group associated with the
-Multi-AZ DB cluster that you used to create the snapshot, if applicable. Completing
-this action provides the same functions of the previous Multi-AZ DB cluster.
+After you restore the DB instance, you can add it to the security group associated with the Multi-AZ DB cluster that you used to create the snapshot, if applicable. Completing this action provides the same functions of the previous Multi-AZ DB cluster.
 
-To restore a Multi-AZ DB cluster snapshot to a DB instance deployment, call the RDS API
-operation [RestoreDBInstanceFromDBSnapshot](../APIReference/API_RestoreDBInstanceFromDBSnapshot.md "../APIReference/API_RestoreDBInstanceFromDBSnapshot.md") with the following parameters:
+## RDS API
+<a name="USER_RestoreFromMultiAZDBClusterSnapshot.API"></a>
 
-- `DBInstanceIdentifier`
-- `DBClusterSnapshotIdentifier`
-- `Engine`
-  You can also specify other optional parameters.
+To restore a Multi-AZ DB cluster snapshot to a DB instance deployment, call the RDS API operation [RestoreDBInstanceFromDBSnapshot](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html) with the following parameters:
++ `DBInstanceIdentifier` 
++ `DBClusterSnapshotIdentifier` 
++ `Engine` 
 
-After you restore the DB instance, you can add it to the security group associated with the
-Multi-AZ DB cluster that you used to create the snapshot, if applicable. Completing
-this action provides the same functions of the previous Multi-AZ DB cluster.
+You can also specify other optional parameters.
+
+After you restore the DB instance, you can add it to the security group associated with the Multi-AZ DB cluster that you used to create the snapshot, if applicable. Completing this action provides the same functions of the previous Multi-AZ DB cluster.

@@ -1,26 +1,22 @@
+
+
 # Learn the basics of Amazon RDS with an AWS SDK
+<a name="example_rds_Scenario_GetStartedInstances_section"></a>
 
 The following code examples show how to:
++ Create a custom DB parameter group and set parameter values.
++ Create a DB instance that's configured to use the parameter group. The DB instance also contains a database.
++ Take a snapshot of the instance.
++ Delete the instance and parameter group.
 
-- Create a custom DB parameter group and set parameter values.
-- Create a DB instance that's configured to use the parameter group. The DB instance also contains a database.
-- Take a snapshot of the instance.
-- Delete the instance and parameter group.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
 /// <summary>
 /// Scenario for RDS DB instance example.
 /// </summary>
@@ -491,14 +487,10 @@ public class RDSInstanceScenario
 
         Console.WriteLine(sepBar);
     }
-
+```
+Wrapper methods used by the scenario for DB instance actions.  
 
 ```
-
-Wrapper methods used by the scenario for DB instance actions.
-
-```
-
 /// <summary>
 /// Wrapper methods to use Amazon Relational Database Service (Amazon RDS) with DB instance operations.
 /// </summary>
@@ -635,15 +627,10 @@ public partial class RDSWrapper
 
         return response.DBInstance;
     }
-
-
+```
+Wrapper methods used by the scenario for DB parameter groups.  
 
 ```
-
-Wrapper methods used by the scenario for DB parameter groups.
-
-```
-
 /// <summary>
 /// Wrapper methods to use Amazon Relational Database Service (Amazon RDS) with parameter groups.
 /// </summary>
@@ -751,15 +738,10 @@ public partial class RDSWrapper
         }
         return results;
     }
-
-
+```
+Wrapper methods used by the scenario for DB snapshot actions.  
 
 ```
-
-Wrapper methods used by the scenario for DB snapshot actions.
-
-```
-
 /// <summary>
 /// Wrapper methods to use Amazon Relational Database Service (Amazon RDS) with snapshots.
 /// </summary>
@@ -807,35 +789,26 @@ public partial class RDSWrapper
         }
         return results;
     }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CreateDBInstance](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/CreateDBInstance)
+  + [CreateDBParameterGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/CreateDBParameterGroup)
+  + [CreateDBSnapshot](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/CreateDBSnapshot)
+  + [DeleteDBInstance](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DeleteDBInstance)
+  + [DeleteDBParameterGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DeleteDBParameterGroup)
+  + [DescribeDBEngineVersions](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DescribeDBInstances)
+  + [DescribeDBParameterGroups](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameterGroups)
+  + [DescribeDBParameters](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameters)
+  + [DescribeDBSnapshots](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DescribeDBSnapshots)
+  + [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DescribeOrderableDBInstanceOptions)
+  + [ModifyDBParameterGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/ModifyDBParameterGroup)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-  - [CreateDBInstance](../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBInstance.md "../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBInstance.md")
-  - [CreateDBParameterGroup](../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBParameterGroup.md "../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBParameterGroup.md")
-  - [CreateDBSnapshot](../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBSnapshot.md")
-  - [DeleteDBInstance](../../../goto/DotNetSDKV3/rds-2014-10-31/DeleteDBInstance.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DeleteDBInstance.md")
-  - [DeleteDBParameterGroup](../../../goto/DotNetSDKV3/rds-2014-10-31/DeleteDBParameterGroup.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DeleteDBParameterGroup.md")
-  - [DescribeDBEngineVersions](../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBEngineVersions.md")
-  - [DescribeDBInstances](../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBInstances.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBInstances.md")
-  - [DescribeDBParameterGroups](../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameterGroups.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameterGroups.md")
-  - [DescribeDBParameters](../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameters.md")
-  - [DescribeDBSnapshots](../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBSnapshots.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBSnapshots.md")
-  - [DescribeOrderableDBInstanceOptions](../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  - [ModifyDBParameterGroup](../../../goto/DotNetSDKV3/rds-2014-10-31/ModifyDBParameterGroup.md "../../../goto/DotNetSDKV3/rds-2014-10-31/ModifyDBParameterGroup.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -1532,39 +1505,29 @@ bool AwsDoc::RDS::cleanUpResources(const Aws::String &parameterGroupName,
 
     return result;
 }
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [CreateDBInstance](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBInstance)
+  + [CreateDBParameterGroup](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBParameterGroup)
+  + [CreateDBSnapshot](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBSnapshot)
+  + [DeleteDBInstance](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DeleteDBInstance)
+  + [DeleteDBParameterGroup](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DeleteDBParameterGroup)
+  + [DescribeDBEngineVersions](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBInstances)
+  + [DescribeDBParameterGroups](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBParameterGroups)
+  + [DescribeDBParameters](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBParameters)
+  + [DescribeDBSnapshots](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBSnapshots)
+  + [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions)
+  + [ModifyDBParameterGroup](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/ModifyDBParameterGroup)
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
-
-  - [CreateDBInstance](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBInstance.md")
-  - [CreateDBParameterGroup](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBParameterGroup.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBParameterGroup.md")
-  - [CreateDBSnapshot](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBSnapshot.md")
-  - [DeleteDBInstance](../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBInstance.md "../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBInstance.md")
-  - [DeleteDBParameterGroup](../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBParameterGroup.md "../../../goto/SdkForCpp/rds-2014-10-31/DeleteDBParameterGroup.md")
-  - [DescribeDBEngineVersions](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBEngineVersions.md")
-  - [DescribeDBInstances](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBInstances.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBInstances.md")
-  - [DescribeDBParameterGroups](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBParameterGroups.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBParameterGroups.md")
-  - [DescribeDBParameters](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBParameters.md")
-  - [DescribeDBSnapshots](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBSnapshots.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBSnapshots.md")
-  - [DescribeOrderableDBInstanceOptions](../../../goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  - [ModifyDBParameterGroup](../../../goto/SdkForCpp/rds-2014-10-31/ModifyDBParameterGroup.md "../../../goto/SdkForCpp/rds-2014-10-31/ModifyDBParameterGroup.md")
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples").
-
-Run an interactive scenario at a command prompt.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -1898,15 +1861,10 @@ func (helper ScenarioHelper) Pause(secs int) {
 func (helper ScenarioHelper) UniqueId() string {
 	return uuid.New().String()
 }
-
-
+```
+Define functions that are called by the scenario to manage Amazon RDS actions.  
 
 ```
-
-Define functions that are called by the scenario to manage Amazon RDS actions.
-
-```
-
 import (
 	"context"
 	"errors"
@@ -2169,37 +2127,27 @@ func (instances *DbInstances) GetOrderableInstances(ctx context.Context, engine 
 	}
 	return instanceOptions, err
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [CreateDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance)
+  + [CreateDBParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBParameterGroup)
+  + [CreateDBSnapshot](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBSnapshot)
+  + [DeleteDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBInstance)
+  + [DeleteDBParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBParameterGroup)
+  + [DescribeDBEngineVersions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBInstances)
+  + [DescribeDBParameterGroups](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameterGroups)
+  + [DescribeDBParameters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameters)
+  + [DescribeDBSnapshots](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBSnapshots)
+  + [DescribeOrderableDBInstanceOptions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions)
+  + [ModifyDBParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBParameterGroup)
 
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-  - [CreateDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance")
-  - [CreateDBParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBParameterGroup "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBParameterGroup")
-  - [CreateDBSnapshot](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBSnapshot "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBSnapshot")
-  - [DeleteDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBInstance "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBInstance")
-  - [DeleteDBParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBParameterGroup "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DeleteDBParameterGroup")
-  - [DescribeDBEngineVersions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBEngineVersions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBEngineVersions")
-  - [DescribeDBInstances](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBInstances "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBInstances")
-  - [DescribeDBParameterGroups](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameterGroups "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameterGroups")
-  - [DescribeDBParameters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameters "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameters")
-  - [DescribeDBSnapshots](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBSnapshots "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBSnapshots")
-  - [DescribeOrderableDBInstanceOptions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeOrderableDBInstanceOptions")
-  - [ModifyDBParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBParameterGroup "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBParameterGroup")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
-
-Run multiple operations.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
+Run multiple operations.  
 
 ```
 import com.google.gson.Gson;
@@ -2765,37 +2713,28 @@ public class RDSScenario {
         }
     }
 }
+```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance)
+  + [CreateDBParameterGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBParameterGroup)
+  + [CreateDBSnapshot](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBSnapshot)
+  + [DeleteDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance)
+  + [DeleteDBParameterGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DeleteDBParameterGroup)
+  + [DescribeDBEngineVersions](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances)
+  + [DescribeDBParameterGroups](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameterGroups)
+  + [DescribeDBParameters](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters)
+  + [DescribeDBSnapshots](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBSnapshots)
+  + [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions)
+  + [ModifyDBParameterGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/ModifyDBParameterGroup)
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [CreateDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md")
-  - [CreateDBParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBParameterGroup.md")
-  - [CreateDBSnapshot](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBSnapshot.md")
-  - [DeleteDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBInstance.md")
-  - [DeleteDBParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DeleteDBParameterGroup.md")
-  - [DescribeDBEngineVersions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBEngineVersions.md")
-  - [DescribeDBInstances](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBInstances.md")
-  - [DescribeDBParameterGroups](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameterGroups.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameterGroups.md")
-  - [DescribeDBParameters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters.md")
-  - [DescribeDBSnapshots](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBSnapshots.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBSnapshots.md")
-  - [DescribeOrderableDBInstanceOptions](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  - [ModifyDBParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBParameterGroup.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples").
-
-```
-
 /**
 Before running this code example, set up your development environment, including your credentials.
 
@@ -2834,11 +2773,11 @@ suspend fun main(args: Array<String>) {
             <dbGroupName> <dbParameterGroupFamily> <dbInstanceIdentifier> <dbName> <dbSnapshotIdentifier><secretName>
 
         Where:
-            dbGroupName - The database group name.
+            dbGroupName - The database group name. 
             dbParameterGroupFamily - The database parameter group name.
-            dbInstanceIdentifier - The database instance identifier.
-            dbName -  The database name.
-            dbSnapshotIdentifier - The snapshot identifier.
+            dbInstanceIdentifier - The database instance identifier. 
+            dbName -  The database name. 
+            dbSnapshotIdentifier - The snapshot identifier. 
             secretName - The name of the AWS Secrets Manager secret that contains the database credentials.
     """
 
@@ -3245,36 +3184,27 @@ suspend fun getSecretValues(secretName: String?): String? {
         return valueResponse.secretString
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CreateDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateDBParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateDBSnapshot](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteDBParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBEngineVersions](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBParameterGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBParameters](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeDBSnapshots](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeOrderableDBInstanceOptions](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ModifyDBParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [CreateDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateDBParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateDBSnapshot](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteDBParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBEngineVersions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBParameterGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBParameters](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeDBSnapshots](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeOrderableDBInstanceOptions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ModifyDBParameterGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class RdsInstanceScenario:
@@ -3534,11 +3464,8 @@ if __name__ == "__main__":
         )
     except Exception:
         logging.exception("Something went wrong with the demo.")
-
-
 ```
-
-Define functions that are called by the scenario to manage Amazon RDS actions.
+Define functions that are called by the scenario to manage Amazon RDS actions.  
 
 ```
 class InstanceWrapper:
@@ -3910,39 +3837,27 @@ class InstanceWrapper:
             raise
         else:
             return db_inst
-
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateDBInstance](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBInstance)
+  + [CreateDBParameterGroup](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBParameterGroup)
+  + [CreateDBSnapshot](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBSnapshot)
+  + [DeleteDBInstance](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DeleteDBInstance)
+  + [DeleteDBParameterGroup](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DeleteDBParameterGroup)
+  + [DescribeDBEngineVersions](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBEngineVersions)
+  + [DescribeDBInstances](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBInstances)
+  + [DescribeDBParameterGroups](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBParameterGroups)
+  + [DescribeDBParameters](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBParameters)
+  + [DescribeDBSnapshots](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBSnapshots)
+  + [DescribeOrderableDBInstanceOptions](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions)
+  + [ModifyDBParameterGroup](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/ModifyDBParameterGroup)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-  - [CreateDBInstance](../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md "../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md")
-  - [CreateDBParameterGroup](../../../goto/boto3/rds-2014-10-31/CreateDBParameterGroup.md "../../../goto/boto3/rds-2014-10-31/CreateDBParameterGroup.md")
-  - [CreateDBSnapshot](../../../goto/boto3/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/boto3/rds-2014-10-31/CreateDBSnapshot.md")
-  - [DeleteDBInstance](../../../goto/boto3/rds-2014-10-31/DeleteDBInstance.md "../../../goto/boto3/rds-2014-10-31/DeleteDBInstance.md")
-  - [DeleteDBParameterGroup](../../../goto/boto3/rds-2014-10-31/DeleteDBParameterGroup.md "../../../goto/boto3/rds-2014-10-31/DeleteDBParameterGroup.md")
-  - [DescribeDBEngineVersions](../../../goto/boto3/rds-2014-10-31/DescribeDBEngineVersions.md "../../../goto/boto3/rds-2014-10-31/DescribeDBEngineVersions.md")
-  - [DescribeDBInstances](../../../goto/boto3/rds-2014-10-31/DescribeDBInstances.md "../../../goto/boto3/rds-2014-10-31/DescribeDBInstances.md")
-  - [DescribeDBParameterGroups](../../../goto/boto3/rds-2014-10-31/DescribeDBParameterGroups.md "../../../goto/boto3/rds-2014-10-31/DescribeDBParameterGroups.md")
-  - [DescribeDBParameters](../../../goto/boto3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBParameters.md")
-  - [DescribeDBSnapshots](../../../goto/boto3/rds-2014-10-31/DescribeDBSnapshots.md "../../../goto/boto3/rds-2014-10-31/DescribeDBSnapshots.md")
-  - [DescribeOrderableDBInstanceOptions](../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md "../../../goto/boto3/rds-2014-10-31/DescribeOrderableDBInstanceOptions.md")
-  - [ModifyDBParameterGroup](../../../goto/boto3/rds-2014-10-31/ModifyDBParameterGroup.md "../../../goto/boto3/rds-2014-10-31/ModifyDBParameterGroup.md")
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples").
-
-The `Package.swift` file.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples). 
+The `Package.swift` file.  
 
 ```
 // swift-tools-version: 5.9
@@ -3983,11 +3898,8 @@ let package = Package(
 
     ]
 )
-
-
 ```
-
-The Swift code file, `entry.swift`.
+The Swift code file, `entry.swift`.  
 
 ```
 // An example that shows how to use the AWS SDK for Swift to perform a variety
@@ -4122,7 +4034,7 @@ class Example {
         //=====================================================================
 
         let parameters = await describeDBParameters(groupName: dbParameterGroupName)
-
+        
         //=====================================================================
         // 5. Parse and display each parameter's name, description, and
         //    allowed values.
@@ -4200,7 +4112,7 @@ class Example {
         // 10. Create an RDS database that contains a MySQL database and uses
         //     the parameter group we created.
         //=====================================================================
-
+        
         print("Creating the database instance...")
 
         guard let instanceClass = dbInstanceClass.dbInstanceClass else {
@@ -4238,7 +4150,7 @@ class Example {
             await cleanUp()
             return
         }
-
+        
         guard let endpointAddress = endpoint.address else {
             print("\nNo endpoint address returned.")
             await cleanUp()
@@ -4276,7 +4188,7 @@ class Example {
         await cleanUp()
     }
 
-    /// Clean up by discarding and closing down all allocated EC2 items.
+    /// Clean up by discarding and closing down all allocated EC2 items. 
     func cleanUp() async {
         print("Deleting the database instance \(dbInstanceIdentifier)...")
         await deleteDBInstance(instanceIdentifier: dbInstanceIdentifier)
@@ -4288,9 +4200,9 @@ class Example {
 
     /// Get all the database engine versions available for the specified
     /// database engine.
-    ///
+    /// 
     /// - Parameter engineName: The name of the database engine to query.
-    ///
+    /// 
     /// - Returns: An array of `RDSClientTypes.DBEngineVersion` structures,
     ///   each describing one supported version of the specified database.
     func getDBEngineVersions(engineName: String) async -> [RDSClientTypes.DBEngineVersion] {
@@ -4308,11 +4220,11 @@ class Example {
     }
 
     /// Create a new database parameter group with the specified name.
-    ///
+    /// 
     /// - Parameters:
     ///   - groupName: The name of the new parameter group.
     ///   - familyName: The name of the parameter group family.
-    /// - Returns:
+    /// - Returns: 
     func createDBParameterGroup(groupName: String, familyName: String) async -> RDSClientTypes.DBParameterGroup? {
         do {
             let output = try await rdsClient.createDBParameterGroup(
@@ -4333,7 +4245,7 @@ class Example {
     /// name.
     ///
     /// - Parameter groupName: The name of the parameter group to describe.
-    ///
+    /// 
     /// - Returns: An array of [RDSClientTypes.DBParameterGroup] objects
     ///   describing the parameter group.
     func describeDBParameterGroups(groupName: String) async -> [RDSClientTypes.DBParameterGroup]? {
@@ -4352,12 +4264,12 @@ class Example {
 
     /// Returns the detailed parameter list for the specified database
     /// parameter group.
-    ///
+    /// 
     /// - Parameters:
     ///   - groupName: The name of the parameter group to return parameters for.
     ///   - source: The types of parameters to return (`user`, `system`, or
     ///     `engine-default`).
-    ///
+    /// 
     /// - Returns: An array of `RdSClientTypes.Parameter` objects, each
     ///   describing one of the group's parameters.
     func describeDBParameters(groupName: String, source: String? = nil) async -> [RDSClientTypes.Parameter] {
@@ -4388,7 +4300,7 @@ class Example {
 
     /// Demonstrates modifying two of the specified database parameter group's
     /// parameters.
-    ///
+    /// 
     /// - Parameter groupName: The name of the parameter group to change
     ///   parameters for.
     func modifyDBParameters(groupName: String) async {
@@ -4421,7 +4333,7 @@ class Example {
 
     /// Output a list of the database engine versions supported by the
     /// specified family.
-    ///
+    /// 
     /// - Parameter family: The family for which to list allowed database
     ///   engines.
     func listAllowedEngines(family: String?) async {
@@ -4450,12 +4362,12 @@ class Example {
 
     /// Print a list of available database instances with "micro" in the class
     /// name, then return one of them to be used by other code.
-    ///
+    /// 
     /// - Parameters:
     ///   - engine: The database engine for which to list database instance
     ///     classes.
     ///   - engineVersion: The database version for which to list instances.
-    ///
+    /// 
     /// - Returns: An `RDSClientTypes.OrderableDBInstanceOption` describing
     ///   the selected instance type.
     func chooseMicroInstance(engine: String = "mysql", engineVersion: String? = nil) async -> RDSClientTypes.OrderableDBInstanceOption? {
@@ -4497,7 +4409,7 @@ class Example {
     }
 
     /// Create a new database instance.
-    ///
+    /// 
     /// - Parameters:
     ///   - name: The name of the database to create.
     ///   - instanceIdentifier: The identifier to give the new database
@@ -4512,7 +4424,7 @@ class Example {
     ///   - username: The admin user's username to establish for the new
     ///     instance.
     ///   - password: The password to use for the specified user's access.
-    ///
+    /// 
     /// - Returns: A string indicating the ARN of the newly created database
     ///   instance, or nil if the instance couldn't be created.
     func createDBInstance(name: String, instanceIdentifier: String, parameterGroupName: String,
@@ -4591,7 +4503,7 @@ class Example {
     }
 
     /// Create a snapshot of the specified name.
-    ///
+    /// 
     /// - Parameters:
     ///   - instanceIdentifier: The identifier of the database instance to
     ///     snapshot.
@@ -4618,7 +4530,7 @@ class Example {
     }
 
     /// Wait until the specified database snapshot is available to use.
-    ///
+    /// 
     /// - Parameters:
     ///   - instanceIdentifier: The identifier of the database for which the
     ///     snapshot was taken.
@@ -4665,7 +4577,7 @@ class Example {
     }
 
     /// Delete the specified database instance.
-    ///
+    /// 
     /// - Parameter instanceIdentifier: The identifier of the database
     ///   instance to delete.
     func deleteDBInstance(instanceIdentifier: String) async {
@@ -4683,7 +4595,7 @@ class Example {
     }
 
     /// Wait until the specified database instance has been deleted.
-    ///
+    /// 
     /// - Parameter instanceIdentifier: The identifier of the database
     ///   instance to wait for.
     func waitUntilDBInstanceDeleted(instanceIdentifier: String) async {
@@ -4728,7 +4640,7 @@ class Example {
     }
 
     /// Delete the specified database parameter group.
-    ///
+    /// 
     /// - Parameter groupName: The name of the parameter group to delete.
     func deleteDBParameterGroup(groupName: String) async {
         do {
@@ -4760,7 +4672,7 @@ class Example {
 
     /// Print a string to standard output without a trailing newline, and
     /// without buffering.
-    ///
+    /// 
     /// - Parameter str: The string to output.
     func putString(_ str: String = "") {
         if str.length >= 1 {
@@ -4785,27 +4697,23 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Swift API reference*.
+  + [CreateDBInstance](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbinstance(input:))
+  + [CreateDBParameterGroup](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbparametergroup(input:))
+  + [CreateDBSnapshot](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbsnapshot(input:))
+  + [DeleteDBInstance](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/deletedbinstance(input:))
+  + [DeleteDBParameterGroup](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/deletedbparametergroup(input:))
+  + [DescribeDBEngineVersions](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbengineversions(input:))
+  + [DescribeDBInstances](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbinstances(input:))
+  + [DescribeDBParameterGroups](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparametergroups(input:))
+  + [DescribeDBParameters](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:))
+  + [DescribeDBSnapshots](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbsnapshots(input:))
+  + [DescribeOrderableDBInstanceOptions](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describeorderabledbinstanceoptions(input:))
+  + [ModifyDBParameterGroup](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/modifydbparametergroup(input:))
 
-- For API details, see the following topics in _AWS SDK for Swift API reference_.
+------
 
-  - [CreateDBInstance](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbinstance(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbinstance(input:)")
-  - [CreateDBParameterGroup](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbparametergroup(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbparametergroup(input:)")
-  - [CreateDBSnapshot](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbsnapshot(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbsnapshot(input:)")
-  - [DeleteDBInstance](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/deletedbinstance(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/deletedbinstance(input:)")
-  - [DeleteDBParameterGroup](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/deletedbparametergroup(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/deletedbparametergroup(input:)")
-  - [DescribeDBEngineVersions](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbengineversions(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbengineversions(input:)")
-  - [DescribeDBInstances](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbinstances(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbinstances(input:)")
-  - [DescribeDBParameterGroups](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparametergroups(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparametergroups(input:)")
-  - [DescribeDBParameters](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:)")
-  - [DescribeDBSnapshots](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbsnapshots(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbsnapshots(input:)")
-  - [DescribeOrderableDBInstanceOptions](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describeorderabledbinstanceoptions(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describeorderabledbinstanceoptions(input:)")
-  - [ModifyDBParameterGroup](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/modifydbparametergroup(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/modifydbparametergroup(input:)")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

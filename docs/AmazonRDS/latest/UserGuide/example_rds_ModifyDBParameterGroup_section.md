@@ -1,24 +1,20 @@
+
+
 # Use `ModifyDBParameterGroup` with an AWS SDK or CLI
+<a name="example_rds_ModifyDBParameterGroup_section"></a>
 
 The following code examples show how to use `ModifyDBParameterGroup`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md) 
 
-- [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md "example_rds_Scenario_GetStartedInstances_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples). 
 
 ```
-
     /// <summary>
     /// Update a DB parameter group. Use the action DescribeDBParameterGroupsAsync
     /// to determine when the DB parameter group is ready to use.
@@ -37,24 +33,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         return response.DBParameterGroupName;
     }
-
-
-
 ```
++  For API details, see [ModifyDBParameterGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/ModifyDBParameterGroup) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ModifyDBParameterGroup](../../../goto/DotNetSDKV3/rds-2014-10-31/ModifyDBParameterGroup.md "../../../goto/DotNetSDKV3/rds-2014-10-31/ModifyDBParameterGroup.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -79,55 +65,38 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << outcome.GetError().GetMessage()
                       << std::endl;
         }
+```
++  For API details, see [ModifyDBParameterGroup](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/ModifyDBParameterGroup) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To modify a DB parameter group**  
+The following `modify-db-parameter-group` example changes the value of the `clr enabled` parameter in a DB parameter group. The `--apply-immediately` parameter causes the DB parameter group to be modified immediately, instead of waiting until the next maintenance window.  
 
 ```
-
-- For API details, see
-  [ModifyDBParameterGroup](../../../goto/SdkForCpp/rds-2014-10-31/ModifyDBParameterGroup.md "../../../goto/SdkForCpp/rds-2014-10-31/ModifyDBParameterGroup.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To modify a DB parameter group**
-
-The following `modify-db-parameter-group` example changes the value of the `clr enabled` parameter in a DB parameter group. The `--apply-immediately` parameter causes the DB parameter group to be modified immediately, instead of waiting until the next maintenance window.
-
+aws rds modify-db-parameter-group \
+    --db-parameter-group-name {{test-sqlserver-se-2017}} \
+    --parameters {{"ParameterName='clr enabled',ParameterValue=1,ApplyMethod=immediate"}}
 ```
-`aws rds modify-db-parameter-group \
- --db-parameter-group-name `test-sqlserver-se-2017` \
- --parameters `"ParameterName='clr enabled',ParameterValue=1,ApplyMethod=immediate"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "DBParameterGroupName": "test-sqlserver-se-2017"
 }
 ```
+For more information, see [Modifying Parameters in a DB Parameter Group](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html#USER_WorkingWithParamGroups.Modifying) in the *Amazon RDS User Guide*.  
++  For API details, see [ModifyDBParameterGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-parameter-group.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Modifying Parameters in a DB Parameter Group](USER_WorkingWithParamGroups.md#USER_WorkingWithParamGroups.Modifying "USER_WorkingWithParamGroups.md#USER_WorkingWithParamGroups.Modifying") in the _Amazon RDS User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [ModifyDBParameterGroup](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-parameter-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-parameter-group.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -158,24 +127,14 @@ func (instances *DbInstances) UpdateParameters(ctx context.Context, parameterGro
 		return nil
 	}
 }
-
-
-
 ```
++  For API details, see [ModifyDBParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBParameterGroup) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ModifyDBParameterGroup](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBParameterGroup "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.ModifyDBParameterGroup")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
     // Modify auto_increment_offset and auto_increment_increment parameters.
@@ -202,23 +161,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [ModifyDBParameterGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/ModifyDBParameterGroup) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ModifyDBParameterGroup](../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBParameterGroup.md "../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBParameterGroup.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples). 
 
 ```
 class InstanceWrapper:
@@ -261,24 +211,14 @@ class InstanceWrapper:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [ModifyDBParameterGroup](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/ModifyDBParameterGroup) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ModifyDBParameterGroup](../../../goto/boto3/rds-2014-10-31/ModifyDBParameterGroup.md "../../../goto/boto3/rds-2014-10-31/ModifyDBParameterGroup.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples). 
 
 ```
     " iv_dbparametergroupname = 'mydbparametergroup'
@@ -296,30 +236,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rdsinvdbprmgrstatef00.
         MESSAGE 'DB parameter group is in an invalid state.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [ModifyDBParameterGroup](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ModifyDBParameterGroup](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples). 
 
 ```
 import AWSRDS
 
     /// Demonstrates modifying two of the specified database parameter group's
     /// parameters.
-    ///
+    /// 
     /// - Parameter groupName: The name of the parameter group to change
     ///   parameters for.
     func modifyDBParameters(groupName: String) async {
@@ -349,14 +280,9 @@ import AWSRDS
             print("*** Error modifying the parameter group \(groupName): \(error.localizedDescription)")
         }
     }
-
-
 ```
++  For API details, see [ModifyDBParameterGroup](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/modifydbparametergroup(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ModifyDBParameterGroup](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/modifydbparametergroup(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/modifydbparametergroup(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,342 +1,324 @@
+
+
 # Detailed Database Metrics
+<a name="USER_PerfInsights_Counters"></a>
 
-Counter metrics are operating system and database performance metrics. These metrics are
-exposed through the Performance Insights API. To help identify and analyze
-performance problems, you can correlate counter metrics with DB load. You must append a statistic
-function to the metric to get the metric values. For example, the supported functions for
-`os.memory.active` metric are `.avg`, `.min`,
-`.max`, `.sum`, and `.sample_count`.
+Counter metrics are operating system and database performance metrics. These metrics are exposed through the Performance Insights API. To help identify and analyze performance problems, you can correlate counter metrics with DB load. You must append a statistic function to the metric to get the metric values. For example, the supported functions for `os.memory.active` metric are `.avg`, `.min`, `.max`, `.sum`, and `.sample_count`. 
 
-The counter metrics are collected one time each minute. The OS metrics collection depends on whether
-Enhanced Monitoring is turned on or off. If Enhanced Monitoring is turned off, the OS metrics are collected one time each minute. If Enhanced Monitoring is turned on, the OS metrics
-are collected for the selected time period. For more information about turning Enhanced Monitoring on or off, see
-[Turning Enhanced Monitoring on and off](USER_Monitoring.OS.Enabling.md#USER_Monitoring.OS.Enabling.Procedure "USER_Monitoring.OS.Enabling.md#USER_Monitoring.OS.Enabling.Procedure").
+The counter metrics are collected one time each minute. The OS metrics collection depends on whether Enhanced Monitoring is turned on or off. If Enhanced Monitoring is turned off, the OS metrics are collected one time each minute. If Enhanced Monitoring is turned on, the OS metrics are collected for the selected time period. For more information about turning Enhanced Monitoring on or off, see [Turning Enhanced Monitoring on and off](USER_Monitoring.OS.Enabling.md#USER_Monitoring.OS.Enabling.Procedure).
 
-###### Topics
-
-- [Operating system counters](#USER_PerfInsights_Counters.OS "#USER_PerfInsights_Counters.OS")
-- [Detailed Database Metrics for Amazon RDS for MariaDB and MySQL](#USER_PerfInsights_Counters.MySQL "#USER_PerfInsights_Counters.MySQL")
-- [Detailed Database Metrics for Amazon RDS for Microsoft SQL Server](#USER_PerfInsights_Counters.SQLServer "#USER_PerfInsights_Counters.SQLServer")
-- [Detailed Database Metrics for Amazon RDS for Oracle](#USER_PerfInsights_Counters.Oracle "#USER_PerfInsights_Counters.Oracle")
-- [Detailed Database Metrics for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL "#USER_PerfInsights_Counters.PostgreSQL")
+**Topics**
++ [Operating system counters](#USER_PerfInsights_Counters.OS)
++ [Detailed Database Metrics for Amazon RDS for MariaDB and MySQL](#USER_PerfInsights_Counters.MySQL)
++ [Detailed Database Metrics for Amazon RDS for Microsoft SQL Server](#USER_PerfInsights_Counters.SQLServer)
++ [Detailed Database Metrics for Amazon RDS for Oracle](#USER_PerfInsights_Counters.Oracle)
++ [Detailed Database Metrics for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL)
 
 ## Operating system counters
+<a name="USER_PerfInsights_Counters.OS"></a>
 
-The following operating system counters, which are prefixed with `os`, are
-available through the Performance Insights API for all RDS engines
-except RDS for SQL Server
-.
+The following operating system counters, which are prefixed with `os`, are available through the Performance Insights API for all RDS engines except RDS for SQL Server .
 
-You can use `ListAvailableResourceMetrics` API
-for the list of available counter metrics for your DB instance. For more information, see
-[ListAvailableResourceMetrics](../../../performance-insights/latest/APIReference/API_ListAvailableResourceMetrics.md "../../../performance-insights/latest/APIReference/API_ListAvailableResourceMetrics.md") in the Amazon RDS Performance Insights API
-Reference guide.
+You can use `ListAvailableResourceMetrics` API for the list of available counter metrics for your DB instance. For more information, see [ ListAvailableResourceMetrics](https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_ListAvailableResourceMetrics) in the Amazon RDS Performance Insights API Reference guide.
 
-| Counter                      | Type                | Unit                    | Metric                                  | Description                                                                                                                     |
-| ---------------------------- | ------------------- | ----------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Active                       | Memory              | Kilobytes               | os.memory.active                        | The amount of assigned memory, in kilobytes.                                                                                    |
-| Buffers                      | Memory              | Kilobytes               | os.memory.buffers                       | The amount of memory used for buffering I/O requests prior to writing to the storage device, in kilobytes.                      |
-| Cached                       | Memory              | Kilobytes               | os.memory.cached                        | The amount of memory used for caching file system–based I/O, in kilobytes.                                                      |
-| DB Cache                     | Memory              | Bytes                   | os.memory.db.cache                      | The amount of memory used for page cache by database process<br>including tmpfs (shmem), in bytes.                              |
-| DB Resident Set Size         | Memory              | Bytes                   | os.memory.db.residentSetSize            | The amount of memory used for anonymous and swap cache by database<br>process not including tmpfs (shmem), in bytes.            |
-| DB Swap                      | Memory              | Bytes                   | os.memory.db.swap                       | The amount of memory used for swap by database process, in<br>bytes.                                                            |
-| Dirty                        | Memory              | Kilobytes               | os.memory.dirty                         | The amount of memory pages in RAM that have been modified but not written to their related data block in storage, in kilobytes. |
-| Free                         | Memory              | Kilobytes               | os.memory.free                          | The amount of unassigned memory, in kilobytes.                                                                                  |
-| Huge Pages Free              | Memory              | Pages                   | os.memory.hugePagesFree                 | The number of free huge pages. Huge pages are a feature of the Linux kernel.                                                    |
-| Huge Pages Rsvd              | Memory              | Pages                   | os.memory.hugePagesRsvd                 | The number of committed huge pages.                                                                                             |
-| Huge Pages Size              | Memory              | Kilobytes               | os.memory.hugePagesSize                 | The size for each huge pages unit, in kilobytes.                                                                                |
-| Huge Pages Surp              | Memory              | Pages                   | os.memory.hugePagesSurp                 | The number of available surplus huge pages over the total.                                                                      |
-| Huge Pages Total             | Memory              | Pages                   | os.memory.hugePagesTotal                | The total number of huge pages.                                                                                                 |
-| Inactive                     | Memory              | Kilobytes               | os.memory.inactive                      | The amount of least-frequently used memory pages, in kilobytes.                                                                 |
-| Mapped                       | Memory              | Kilobytes               | os.memory.mapped                        | The total amount of file-system contents that is memory mapped inside a process address space, in kilobytes.                    |
-| Out of Memory Kill Count     | Memory              | Kills                   | os.memory.outOfMemoryKillCount          | The number of OOM kills that happened over the last collection<br>interval.                                                     |
-| Page Tables                  | Memory              | Kilobytes               | os.memory.pageTables                    | The amount of memory used by page tables, in kilobytes.                                                                         |
-| Slab                         | Memory              | Kilobytes               | os.memory.slab                          | The amount of reusable kernel data structures, in kilobytes.                                                                    |
-| Total                        | Memory              | Kilobytes               | os.memory.total                         | The total amount of memory, in kilobytes.                                                                                       |
-| Writeback                    | Memory              | Kilobytes               | os.memory.writeback                     | The amount of dirty pages in RAM that are still being written to the backing storage, in kilobytes.                             |
-| Guest                        | Cpu Utilization     | Percentage              | os.cpuUtilization.guest                 | The percentage of CPU in use by guest programs.                                                                                 |
-| Idle                         | Cpu Utilization     | Percentage              | os.cpuUtilization.idle                  | The percentage of CPU that is idle.                                                                                             |
-| Irq                          | Cpu Utilization     | Percentage              | os.cpuUtilization.irq                   | The percentage of CPU in use by software interrupts.                                                                            |
-| Nice                         | Cpu Utilization     | Percentage              | os.cpuUtilization.nice                  | The percentage of CPU in use by programs running at lowest priority.                                                            |
-| Steal                        | Cpu Utilization     | Percentage              | os.cpuUtilization.steal                 | The percentage of CPU in use by other virtual machines.                                                                         |
-| System                       | Cpu Utilization     | Percentage              | os.cpuUtilization.system                | The percentage of CPU in use by the kernel.                                                                                     |
-| Total                        | Cpu Utilization     | Percentage              | os.cpuUtilization.total                 | The total percentage of the CPU in use. This value includes the nice value.                                                     |
-| User                         | Cpu Utilization     | Percentage              | os.cpuUtilization.user                  | The percentage of CPU in use by user programs.                                                                                  |
-| Wait                         | Cpu Utilization     | Percentage              | os.cpuUtilization.wait                  | The percentage of CPU unused while waiting for I/O access.                                                                      |
-| Read IOs PS                  | Disk IO             | Requests per second     | os.diskIO.<devicename>.readIOsPS        | The number of read operations per second.                                                                                       |
-| Write IOs PS                 | Disk IO             | Requests per second     | os.diskIO.<devicename>.writeIOsPS       | The number of write operations per second.                                                                                      |
-| Avg Queue Len                | Disk IO             | Requests                | os.diskIO.<devicename>.avgQueueLen      | The number of requests waiting in the I/O device's queue.                                                                       |
-| Avg Req Sz                   | Disk IO             | Requests                | os.diskIO.<devicename>.avgReqSz         | The number of requests waiting in the I/O device's queue.                                                                       |
-| Await                        | Disk IO             | Milliseconds            | os.diskIO.<devicename>.await            | The number of milliseconds required to respond to requests, including queue time and service time.                              |
-| Read IOs PS                  | Disk IO             | Requests                | os.diskIO.<devicename>.readIOsPS        | The number of read operations per second.                                                                                       |
-| Read KB                      | Disk IO             | Kilobytes               | os.diskIO.<devicename>.readKb           | The total number of kilobytes read.                                                                                             |
-| Read KB PS                   | Disk IO             | Kilobytes per second    | os.diskIO.<devicename>.readKbPS         | The number of kilobytes read per second.                                                                                        |
-| Rrqm PS                      | Disk IO             | Requests per second     | os.diskIO.<devicename>.rrqmPS           | The number of merged read requests queued per second.                                                                           |
-| TPS                          | Disk IO             | Transactions per second | os.diskIO.<devicename>.tps              | The number of I/O transactions per second.                                                                                      |
-| Util                         | Disk IO             | Percentage              | os.diskIO.<devicename>.util             | The percentage of CPU time during which requests were issued.                                                                   |
-| Write KB                     | Disk IO             | Kilobytes               | os.diskIO.<devicename>.writeKb          | The total number of kilobytes written.                                                                                          |
-| Write KB PS                  | Disk IO             | Kilobytes per second    | os.diskIO.<devicename>.writeKbPS        | The number of kilobytes written per second.                                                                                     |
-| Wrqm PS                      | Disk IO             | Requests per second     | os.diskIO.<devicename>.wrqmPS           | The number of merged write requests queued per second.                                                                          |
-| Blocked                      | Tasks               | Tasks                   | os.tasks.blocked                        | The number of tasks that are blocked.                                                                                           |
-| Running                      | Tasks               | Tasks                   | os.tasks.running                        | The number of tasks that are running.                                                                                           |
-| Sleeping                     | Tasks               | Tasks                   | os.tasks.sleeping                       | The number of tasks that are sleeping.                                                                                          |
-| Stopped                      | Tasks               | Tasks                   | os.tasks.stopped                        | The number of tasks that are stopped.                                                                                           |
-| Total                        | Tasks               | Tasks                   | os.tasks.total                          | The total number of tasks.                                                                                                      |
-| Zombie                       | Tasks               | Tasks                   | os.tasks.zombie                         | The number of child tasks that are inactive with an active parent task.                                                         |
-| One                          | Load Average Minute | Processes               | os.loadAverageMinute.one                | The number of processes requesting CPU time over the last minute.                                                               |
-| Fifteen                      | Load Average Minute | Processes               | os.loadAverageMinute.fifteen            | The number of processes requesting CPU time over the last 15 minutes.                                                           |
-| Five                         | Load Average Minute | Processes               | os.loadAverageMinute.five               | The number of processes requesting CPU time over the last 5 minutes.                                                            |
-| Cached                       | Swap                | Kilobytes               | os.swap.cached                          | The amount of swap memory, in kilobytes, used as cache memory.                                                                  |
-| Free                         | Swap                | Kilobytes               | os.swap.free                            | The amount of swap memory free, in kilobytes.                                                                                   |
-| In                           | Swap                | Kilobytes               | os.swap.in                              | The amount of memory, in kilobytes, swapped in from disk.                                                                       |
-| Out                          | Swap                | Kilobytes               | os.swap.out                             | The amount of memory, in kilobytes, swapped out to disk.                                                                        |
-| Total                        | Swap                | Kilobytes               | os.swap.total                           | The total amount of swap memory available in kilobytes.                                                                         |
-| Max Files                    | File Sys            | Files                   | os.fileSys.maxFiles                     | The maximum number of files that can be created for the file system across all storage<br>volumes.                              |
-| Used Files                   | File Sys            | Files                   | os.fileSys.usedFiles                    | The number of files in the file system across all storage volumes.                                                              |
-| Used File Percent            | File Sys            | Files                   | os.fileSys.usedFilePercent              | The percentage of available files in use across all storage volumes.                                                            |
-| Used Percent                 | File Sys            | Percentage              | os.fileSys.usedPercent                  | The percentage of the file-system disk space in use across all storage volumes.                                                 |
-| Used                         | File Sys            | Kilobytes               | os.fileSys.used                         | The amount of disk space used by files in the file system across all storage volumes,<br>in kilobytes.                          |
-| Total                        | File Sys            | Kilobytes               | os.fileSys.total                        | The total disk space available for the file system across all storage volumes, in<br>kilobytes.                                 |
-| Max Files                    | File Sys            | Files                   | os.fileSys.<volumeName>.maxFiles        | The maximum number of files that can be created for the storage volume.                                                         |
-| Used Files                   | File Sys            | Files                   | os.fileSys.<volumeName>.usedFiles       | The number of files in the storage volume.                                                                                      |
-| Used File Percent            | File Sys            | Files                   | os.fileSys.<volumeName>.usedFilePercent | The percentage of available files in use in the storage<br>volume.                                                              |
-| Used Percent                 | File Sys            | Percentage              | os.fileSys.<volumeName>.usedPercent     | The percentage of the storage volume disk space in use.                                                                         |
-| Used                         | File Sys            | Kilobytes               | os.fileSys.<volumeName>.used            | The amount of disk space used by files in the storage volume, in<br>kilobytes.                                                  |
-| Total                        | File Sys            | Kilobytes               | os.fileSys.<volumeName>.total           | The total disk space available in the storage volume, in kilobytes.                                                             |
-| Rx                           | Network             | Bytes per second        | os.network.rx                           | The number of bytes received per second.                                                                                        |
-| Tx                           | Network             | Bytes per second        | os.network.tx                           | The number of bytes uploaded per second.                                                                                        |
-| Acu Utilization              | General             | Percentage              | os.general.acuUtilization               | The percentage of current capacity out of the maximum configured<br>capacity.                                                   |
-| Max Configured Acu           | General             | ACUs                    | os.general.maxConfiguredAcu             | The maximum capacity configured by the user, in Aurora capacity units (ACUs).                                                   |
-| Min Configured Acu           | General             | ACUs                    | os.general.minConfiguredAcu             | The minimum capacity configured by the user, in ACUs.                                                                           |
-| Num VCPUs                    | General             | vCPUs                   | os.general.numVCPUs                     | The number of virtual CPUs (vCPUs) for the DB instance.                                                                         |
-| Serverless Database Capacity | General             | ACUs                    | os.general.serverlessDatabaseCapacity   | The current capacity of the instance, in ACUs.                                                                                  |
+
+| Counter | Type | Unit | Metric | Description | 
+| --- | --- | --- | --- | --- | 
+| Active | Memory | Kilobytes | os.memory.active | The amount of assigned memory, in kilobytes. | 
+| Buffers | Memory | Kilobytes | os.memory.buffers | The amount of memory used for buffering I/O requests prior to writing to the storage device, in kilobytes. | 
+| Cached | Memory | Kilobytes | os.memory.cached | The amount of memory used for caching file system–based I/O, in kilobytes. | 
+| DB Cache | Memory | Bytes | os.memory.db.cache | The amount of memory used for page cache by database process including tmpfs (shmem), in bytes. | 
+| DB Resident Set Size | Memory | Bytes | os.memory.db.residentSetSize | The amount of memory used for anonymous and swap cache by database process not including tmpfs (shmem), in bytes. | 
+| DB Swap | Memory | Bytes | os.memory.db.swap |  The amount of memory used for swap by database process, in bytes. | 
+| Dirty | Memory | Kilobytes | os.memory.dirty | The amount of memory pages in RAM that have been modified but not written to their related data block in storage, in kilobytes. | 
+| Free | Memory | Kilobytes | os.memory.free | The amount of unassigned memory, in kilobytes. | 
+| Huge Pages Free | Memory | Pages | os.memory.hugePagesFree | The number of free huge pages. Huge pages are a feature of the Linux kernel. | 
+| Huge Pages Rsvd | Memory | Pages | os.memory.hugePagesRsvd | The number of committed huge pages. | 
+| Huge Pages Size | Memory | Kilobytes | os.memory.hugePagesSize | The size for each huge pages unit, in kilobytes. | 
+| Huge Pages Surp | Memory | Pages | os.memory.hugePagesSurp | The number of available surplus huge pages over the total. | 
+| Huge Pages Total | Memory | Pages | os.memory.hugePagesTotal | The total number of huge pages. | 
+| Inactive | Memory | Kilobytes | os.memory.inactive | The amount of least-frequently used memory pages, in kilobytes. | 
+| Mapped | Memory | Kilobytes | os.memory.mapped | The total amount of file-system contents that is memory mapped inside a process address space, in kilobytes. | 
+| Out of Memory Kill Count | Memory | Kills | os.memory.outOfMemoryKillCount | The number of OOM kills that happened over the last collection interval. | 
+| Page Tables | Memory | Kilobytes | os.memory.pageTables | The amount of memory used by page tables, in kilobytes. | 
+| Slab | Memory | Kilobytes | os.memory.slab | The amount of reusable kernel data structures, in kilobytes. | 
+| Total | Memory | Kilobytes | os.memory.total | The total amount of memory, in kilobytes. | 
+| Writeback | Memory | Kilobytes | os.memory.writeback | The amount of dirty pages in RAM that are still being written to the backing storage, in kilobytes. | 
+| Guest | Cpu Utilization | Percentage | os.cpuUtilization.guest | The percentage of CPU in use by guest programs. | 
+| Idle | Cpu Utilization | Percentage | os.cpuUtilization.idle | The percentage of CPU that is idle. | 
+| Irq | Cpu Utilization | Percentage | os.cpuUtilization.irq | The percentage of CPU in use by software interrupts. | 
+| Nice | Cpu Utilization | Percentage | os.cpuUtilization.nice | The percentage of CPU in use by programs running at lowest priority. | 
+| Steal | Cpu Utilization | Percentage | os.cpuUtilization.steal | The percentage of CPU in use by other virtual machines. | 
+| System | Cpu Utilization | Percentage | os.cpuUtilization.system | The percentage of CPU in use by the kernel. | 
+| Total | Cpu Utilization | Percentage | os.cpuUtilization.total | The total percentage of the CPU in use. This value includes the nice value. | 
+| User | Cpu Utilization | Percentage | os.cpuUtilization.user | The percentage of CPU in use by user programs. | 
+| Wait | Cpu Utilization | Percentage | os.cpuUtilization.wait | The percentage of CPU unused while waiting for I/O access. | 
+| Read IOs PS | Disk IO | Requests per second | os.diskIO.<devicename>.readIOsPS | The number of read operations per second. | 
+| Write IOs PS | Disk IO | Requests per second | os.diskIO.<devicename>.writeIOsPS | The number of write operations per second. | 
+| Avg Queue Len | Disk IO | Requests | os.diskIO.<devicename>.avgQueueLen | The number of requests waiting in the I/O device's queue. | 
+| Avg Req Sz | Disk IO | Requests | os.diskIO.<devicename>.avgReqSz | The number of requests waiting in the I/O device's queue. | 
+| Await | Disk IO | Milliseconds | os.diskIO.<devicename>.await | The number of milliseconds required to respond to requests, including queue time and service time. | 
+| Read IOs PS | Disk IO | Requests | os.diskIO.<devicename>.readIOsPS | The number of read operations per second. | 
+| Read KB | Disk IO | Kilobytes | os.diskIO.<devicename>.readKb | The total number of kilobytes read. | 
+| Read KB PS | Disk IO | Kilobytes per second | os.diskIO.<devicename>.readKbPS | The number of kilobytes read per second. | 
+| Rrqm PS | Disk IO | Requests per second | os.diskIO.<devicename>.rrqmPS | The number of merged read requests queued per second. | 
+| TPS | Disk IO | Transactions per second | os.diskIO.<devicename>.tps | The number of I/O transactions per second. | 
+| Util | Disk IO | Percentage | os.diskIO.<devicename>.util | The percentage of CPU time during which requests were issued. | 
+| Write KB | Disk IO | Kilobytes | os.diskIO.<devicename>.writeKb | The total number of kilobytes written. | 
+| Write KB PS | Disk IO | Kilobytes per second | os.diskIO.<devicename>.writeKbPS | The number of kilobytes written per second. | 
+| Wrqm PS | Disk IO | Requests per second | os.diskIO.<devicename>.wrqmPS | The number of merged write requests queued per second. | 
+| Blocked | Tasks | Tasks | os.tasks.blocked | The number of tasks that are blocked. | 
+| Running | Tasks | Tasks | os.tasks.running | The number of tasks that are running. | 
+| Sleeping | Tasks | Tasks | os.tasks.sleeping | The number of tasks that are sleeping. | 
+| Stopped | Tasks | Tasks | os.tasks.stopped | The number of tasks that are stopped. | 
+| Total | Tasks | Tasks | os.tasks.total | The total number of tasks. | 
+| Zombie | Tasks | Tasks | os.tasks.zombie | The number of child tasks that are inactive with an active parent task. | 
+| One | Load Average Minute | Processes | os.loadAverageMinute.one | The number of processes requesting CPU time over the last minute. | 
+| Fifteen | Load Average Minute | Processes | os.loadAverageMinute.fifteen | The number of processes requesting CPU time over the last 15 minutes. | 
+| Five | Load Average Minute | Processes | os.loadAverageMinute.five | The number of processes requesting CPU time over the last 5 minutes. | 
+| Cached | Swap | Kilobytes | os.swap.cached | The amount of swap memory, in kilobytes, used as cache memory. | 
+| Free | Swap | Kilobytes | os.swap.free | The amount of swap memory free, in kilobytes.  | 
+| In | Swap | Kilobytes | os.swap.in | The amount of memory, in kilobytes, swapped in from disk. | 
+| Out | Swap | Kilobytes | os.swap.out | The amount of memory, in kilobytes, swapped out to disk. | 
+| Total | Swap | Kilobytes | os.swap.total | The total amount of swap memory available in kilobytes. | 
+| Max Files | File Sys | Files | os.fileSys.maxFiles | The maximum number of files that can be created for the file system across all storage volumes. | 
+| Used Files | File Sys | Files | os.fileSys.usedFiles | The number of files in the file system across all storage volumes. | 
+| Used File Percent | File Sys | Files | os.fileSys.usedFilePercent | The percentage of available files in use across all storage volumes. | 
+| Used Percent | File Sys | Percentage | os.fileSys.usedPercent | The percentage of the file-system disk space in use across all storage volumes. | 
+| Used | File Sys | Kilobytes | os.fileSys.used | The amount of disk space used by files in the file system across all storage volumes, in kilobytes. | 
+| Total | File Sys | Kilobytes | os.fileSys.total | The total disk space available for the file system across all storage volumes, in kilobytes. | 
+| Max Files | File Sys | Files | os.fileSys.<volumeName>.maxFiles | The maximum number of files that can be created for the storage volume. | 
+| Used Files | File Sys | Files | os.fileSys.<volumeName>.usedFiles | The number of files in the storage volume. | 
+| Used File Percent | File Sys | Files | os.fileSys.<volumeName>.usedFilePercent | The percentage of available files in use in the storage volume. | 
+| Used Percent | File Sys | Percentage | os.fileSys.<volumeName>.usedPercent | The percentage of the storage volume disk space in use. | 
+| Used | File Sys | Kilobytes | os.fileSys.<volumeName>.used | The amount of disk space used by files in the storage volume, in kilobytes. | 
+| Total | File Sys | Kilobytes | os.fileSys.<volumeName>.total | The total disk space available in the storage volume, in kilobytes. | 
+| Rx | Network | Bytes per second | os.network.rx | The number of bytes received per second. | 
+| Tx | Network | Bytes per second | os.network.tx | The number of bytes uploaded per second. | 
+| Acu Utilization | General | Percentage | os.general.acuUtilization | The percentage of current capacity out of the maximum configured capacity. | 
+| Max Configured Acu | General | ACUs | os.general.maxConfiguredAcu | The maximum capacity configured by the user, in Aurora capacity units (ACUs). | 
+| Min Configured Acu | General | ACUs | os.general.minConfiguredAcu | The minimum capacity configured by the user, in ACUs. | 
+| Num VCPUs | General | vCPUs | os.general.numVCPUs | The number of virtual CPUs (vCPUs) for the DB instance. | 
+| Serverless Database Capacity | General | ACUs | os.general.serverlessDatabaseCapacity | The current capacity of the instance, in ACUs. | 
 
 ## Detailed Database Metrics for Amazon RDS for MariaDB and MySQL
+<a name="USER_PerfInsights_Counters.MySQL"></a>
 
-The following database counters are available through the Performance Insights API for Amazon RDS
-for MariaDB and MySQL.
+The following database counters are available through the Performance Insights API for Amazon RDS for MariaDB and MySQL.
 
-###### Topics
-
-- [Native counters for RDS for MariaDB and RDS for MySQL](#USER_PerfInsights_Counters.MySQL.Native "#USER_PerfInsights_Counters.MySQL.Native")
-- [Non-native counters for Amazon RDS for MariaDB and MySQL](#USER_PerfInsights_Counters.MySQL.NonNative "#USER_PerfInsights_Counters.MySQL.NonNative")
+**Topics**
++ [Native counters for RDS for MariaDB and RDS for MySQL](#USER_PerfInsights_Counters.MySQL.Native)
++ [Non-native counters for Amazon RDS for MariaDB and MySQL](#USER_PerfInsights_Counters.MySQL.NonNative)
 
 ### Native counters for RDS for MariaDB and RDS for MySQL
+<a name="USER_PerfInsights_Counters.MySQL.Native"></a>
 
-Native metrics are defined by the database engine and not by Amazon RDS. For definitions of these native metrics, see [Server Status Variables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html "https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html") (for 8.0) and [Server Status Variables](https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html "https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html") (for 8.4) in the MySQL documentation.
+Native metrics are defined by the database engine and not by Amazon RDS. For definitions of these native metrics, see [Server Status Variables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html) (for 8.0) and [Server Status Variables](https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html) (for 8.4) in the MySQL documentation.
 
-| Counter                              | Type  | Unit                                                                                    | Metric                                        |
-| ------------------------------------ | ----- | --------------------------------------------------------------------------------------- | --------------------------------------------- |
-| Com\_analyze                         | SQL   | Queries per second                                                                      | db.SQL.Com\_analyze                           |
-| Com\_optimize                        | SQL   | Queries per second                                                                      | db.SQL.Com\_optimize                          |
-| Com\_select                          | SQL   | Queries per second                                                                      | db.SQL.Com\_select                            |
-| Connections                          | SQL   | The number of connection attempts per minute (successful or not) to the MySQL<br>server | db.Users.Connections                          |
-| Innodb\_rows\_deleted                | SQL   | Rows per second                                                                         | db.SQL.Innodb\_rows\_deleted                  |
-| Innodb\_rows\_inserted               | SQL   | Rows per second                                                                         | db.SQL.Innodb\_rows\_inserted                 |
-| Innodb\_rows\_read                   | SQL   | Rows per second                                                                         | db.SQL.Innodb\_rows\_read                     |
-| Innodb\_rows\_updated                | SQL   | Rows per second                                                                         | db.SQL.Innodb\_rows\_updated                  |
-| Select\_full\_join                   | SQL   | Queries per second                                                                      | db.SQL.Select\_full\_join                     |
-| Select\_full\_range\_join            | SQL   | Queries per second                                                                      | db.SQL.Select\_full\_range\_join              |
-| Select\_range                        | SQL   | Queries per second                                                                      | db.SQL.Select\_range                          |
-| Select\_range\_check                 | SQL   | Queries per second                                                                      | db.SQL.Select\_range\_check                   |
-| Select\_scan                         | SQL   | Queries per second                                                                      | db.SQL.Select\_scan                           |
-| Slow\_queries                        | SQL   | Queries per second                                                                      | db.SQL.Slow\_queries                          |
-| Sort\_merge\_passes                  | SQL   | Queries per second                                                                      | db.SQL.Sort\_merge\_passes                    |
-| Sort\_range                          | SQL   | Queries per second                                                                      | db.SQL.Sort\_range                            |
-| Sort\_rows                           | SQL   | Queries per second                                                                      | db.SQL.Sort\_rows                             |
-| Sort\_scan                           | SQL   | Queries per second                                                                      | db.SQL.Sort\_scan                             |
-| Questions                            | SQL   | Queries per second                                                                      | db.SQL.Questions                              |
-| Innodb\_row\_lock\_time              | Locks | Milliseconds (average)                                                                  | db.Locks.Innodb\_row\_lock\_time              |
-| Table\_locks\_immediate              | Locks | Requests per second                                                                     | db.Locks.Table\_locks\_immediate              |
-| Table\_locks\_waited                 | Locks | Requests per second                                                                     | db.Locks.Table\_locks\_waited                 |
-| Aborted\_clients                     | Users | Connections                                                                             | db.Users.Aborted\_clients                     |
-| Aborted\_connects                    | Users | Connections                                                                             | db.Users.Aborted\_connects                    |
-| max\_connections                     | Users | Connections                                                                             | db.User.max\_connections                      |
-| Threads\_created                     | Users | Connections                                                                             | db.Users.Threads\_created                     |
-| Threads\_running                     | Users | Connections                                                                             | db.Users.Threads\_running                     |
-| Innodb\_data\_writes                 | I/O   | Operations per second                                                                   | db.IO.Innodb\_data\_writes                    |
-| Innodb\_dblwr\_writes                | I/O   | Operations per second                                                                   | db.IO.Innodb\_dblwr\_writes                   |
-| Innodb\_log\_write\_requests         | I/O   | Operations per second                                                                   | db.IO.Innodb\_log\_write\_requests            |
-| Innodb\_log\_writes                  | I/O   | Operations per second                                                                   | db.IO.Innodb\_log\_writes                     |
-| Innodb\_pages\_written               | I/O   | Pages per second                                                                        | db.IO.Innodb\_pages\_written                  |
-| Created\_tmp\_disk\_tables           | Temp  | Tables per second                                                                       | db.Temp.Created\_tmp\_disk\_tables            |
-| Created\_tmp\_tables                 | Temp  | Tables per second                                                                       | db.Temp.Created\_tmp\_tables                  |
-| Innodb\_buffer\_pool\_pages\_data    | Cache | Pages                                                                                   | db.Cache.Innodb\_buffer\_pool\_pages\_data    |
-| Innodb\_buffer\_pool\_pages\_total   | Cache | Pages                                                                                   | db.Cache.Innodb\_buffer\_pool\_pages\_total   |
-| Innodb\_buffer\_pool\_read\_requests | Cache | Pages per second                                                                        | db.Cache.Innodb\_buffer\_pool\_read\_requests |
-| Innodb\_buffer\_pool\_reads          | Cache | Pages per second                                                                        | db.Cache.Innodb\_buffer\_pool\_reads          |
-| Opened\_tables                       | Cache | Tables                                                                                  | db.Cache.Opened\_tables                       |
-| Opened\_table\_definitions           | Cache | Tables                                                                                  | db.Cache.Opened\_table\_definitions           |
-| Qcache\_hits                         | Cache | Queries                                                                                 | db.Cache.Qcache\_hits                         |
+
+| Counter | Type | Unit | Metric | 
+| --- | --- | --- | --- | 
+| Com\_analyze | SQL | Queries per second | db.SQL.Com\_analyze | 
+| Com\_optimize | SQL | Queries per second | db.SQL.Com\_optimize | 
+| Com\_select | SQL | Queries per second | db.SQL.Com\_select | 
+| Connections | SQL | The number of connection attempts per minute (successful or not) to the MySQL server | db.Users.Connections | 
+| Innodb\_rows\_deleted | SQL | Rows per second | db.SQL.Innodb\_rows\_deleted | 
+| Innodb\_rows\_inserted | SQL | Rows per second | db.SQL.Innodb\_rows\_inserted | 
+| Innodb\_rows\_read | SQL | Rows per second | db.SQL.Innodb\_rows\_read | 
+| Innodb\_rows\_updated | SQL | Rows per second | db.SQL.Innodb\_rows\_updated | 
+| Select\_full\_join | SQL | Queries per second | db.SQL.Select\_full\_join | 
+| Select\_full\_range\_join | SQL | Queries per second | db.SQL.Select\_full\_range\_join | 
+| Select\_range | SQL | Queries per second | db.SQL.Select\_range | 
+| Select\_range\_check | SQL | Queries per second | db.SQL.Select\_range\_check | 
+| Select\_scan | SQL | Queries per second | db.SQL.Select\_scan | 
+| Slow\_queries | SQL | Queries per second | db.SQL.Slow\_queries | 
+| Sort\_merge\_passes | SQL | Queries per second | db.SQL.Sort\_merge\_passes | 
+| Sort\_range | SQL | Queries per second | db.SQL.Sort\_range | 
+| Sort\_rows | SQL | Queries per second | db.SQL.Sort\_rows | 
+| Sort\_scan | SQL | Queries per second | db.SQL.Sort\_scan | 
+| Questions | SQL | Queries per second | db.SQL.Questions | 
+| Innodb\_row\_lock\_time | Locks | Milliseconds (average) | db.Locks.Innodb\_row\_lock\_time | 
+| Table\_locks\_immediate | Locks | Requests per second | db.Locks.Table\_locks\_immediate | 
+| Table\_locks\_waited | Locks | Requests per second | db.Locks.Table\_locks\_waited | 
+| Aborted\_clients | Users | Connections | db.Users.Aborted\_clients | 
+| Aborted\_connects | Users | Connections | db.Users.Aborted\_connects | 
+| max\_connections | Users | Connections | db.User.max\_connections | 
+| Threads\_created | Users | Connections | db.Users.Threads\_created | 
+| Threads\_running | Users | Connections | db.Users.Threads\_running | 
+| Innodb\_data\_writes | I/O | Operations per second | db.IO.Innodb\_data\_writes | 
+| Innodb\_dblwr\_writes | I/O | Operations per second | db.IO.Innodb\_dblwr\_writes | 
+| Innodb\_log\_write\_requests | I/O | Operations per second | db.IO.Innodb\_log\_write\_requests | 
+| Innodb\_log\_writes | I/O | Operations per second | db.IO.Innodb\_log\_writes | 
+| Innodb\_pages\_written | I/O | Pages per second | db.IO.Innodb\_pages\_written | 
+| Created\_tmp\_disk\_tables | Temp | Tables per second | db.Temp.Created\_tmp\_disk\_tables | 
+| Created\_tmp\_tables | Temp | Tables per second | db.Temp.Created\_tmp\_tables | 
+| Innodb\_buffer\_pool\_pages\_data | Cache | Pages | db.Cache.Innodb\_buffer\_pool\_pages\_data | 
+| Innodb\_buffer\_pool\_pages\_total | Cache | Pages | db.Cache.Innodb\_buffer\_pool\_pages\_total | 
+| Innodb\_buffer\_pool\_read\_requests | Cache | Pages per second | db.Cache.Innodb\_buffer\_pool\_read\_requests | 
+| Innodb\_buffer\_pool\_reads | Cache | Pages per second | db.Cache.Innodb\_buffer\_pool\_reads | 
+| Opened\_tables | Cache | Tables | db.Cache.Opened\_tables | 
+| Opened\_table\_definitions | Cache | Tables | db.Cache.Opened\_table\_definitions | 
+| Qcache\_hits | Cache | Queries | db.Cache.Qcache\_hits | 
 
 ### Non-native counters for Amazon RDS for MariaDB and MySQL
+<a name="USER_PerfInsights_Counters.MySQL.NonNative"></a>
 
-Non-native counter metrics are counters defined by Amazon RDS. A non-native metric
-can be a metric that you get with a specific query. A non-native metric also can
-be a derived metric, where two or more native counters are used in calculations
-for ratios, hit rates, or latencies.
+Non-native counter metrics are counters defined by Amazon RDS. A non-native metric can be a metric that you get with a specific query. A non-native metric also can be a derived metric, where two or more native counters are used in calculations for ratios, hit rates, or latencies.
 
-| Counter                            | Type         | Unit         | Metric                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Definition                                                                                                         |
-| ---------------------------------- | ------------ | ------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| innodb\_buffer\_pool\_hits         | Cache        | Reads        | db.Cache.innoDB\_buffer\_pool\_hits      | The number of reads that InnoDB could satisfy from the buffer pool.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `innodb_buffer_pool_read_requests<br>• innodb_buffer_pool_reads`                                                   |
-| innodb\_buffer\_pool\_hit\_rate    | Cache        | Percentage   | db.Cache.innoDB\_buffer\_pool\_hit\_rate | The percentage of reads that InnoDB could satisfy from the buffer pool.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `100<br>• innodb_buffer_pool_read_requests / (innodb_buffer_pool_read_requests +<br>innodb_buffer_pool_reads)`     |
-| innodb\_buffer\_pool\_usage        | Cache        | Percentage   | db.Cache.innoDB\_buffer\_pool\_usage     | The percentage of the InnoDB buffer pool that contains data (pages).<br>NoteWhen using compressed tables, this value can vary. For more information, see the<br>information about `Innodb_buffer_pool_pages_data`<br>and `Innodb_buffer_pool_pages_total` in [Server Status Variables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html "https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html") (for 8.0) and [Server Status Variables](https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html "https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html") (for 8.4) in the MySQL<br>documentation. | `Innodb_buffer_pool_pages_data / Innodb_buffer_pool_pages_total *<br>100.0`                                        |
-| query\_cache\_hit\_rate            | Cache        | Percentage   | db.Cache.query\_cache\_hit\_rate         | MySQL result set cache (query cache) hit ratio.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `Qcache_hits / (QCache_hits + Com_select)<br>• 100`                                                                |
-| innodb\_datafile\_writes\_to\_disk | I/O          | Writes       | db.IO.innoDB\_datafile\_writes\_to\_disk | The number of InnoDB data file writes to disk, excluding double write and redo logging<br>write operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `Innodb_data_writes<br>• Innodb_log_writes<br>• Innodb_dblwr_writes`                                               |
-| innodb\_rows\_changed              | SQL          | Rows         | db.SQL.innodb\_rows\_changed             | The total InnoDB row operations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `db.SQL.Innodb_rows_inserted + db.SQL.Innodb_rows_deleted +<br>db.SQL.Innodb_rows_updated`                         |
-| active\_transactions               | Transactions | Transactions | db.Transactions.active\_transactions     | The total active transactions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `SELECT COUNT(1) AS active_transactions FROM<br>INFORMATION_SCHEMA.INNODB_TRX`                                     |
-| trx\_rseg\_history\_len            | Transactions | None         | db.Transactions.trx\_rseg\_history\_len  | A list of the undo log pages for committed transactions that is maintained by the<br>InnoDB transaction system to implement multi-version concurrency<br>control. For more information about undo log records details, see<br>[InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/8.0/en/innodb-multi-versioning.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-multi-versioning.html") (for 8.0) and [InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html "https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html") (for 8.4) in the MySQL<br>documentation.                                | `SELECT COUNT AS trx_rseg_history_len FROM INFORMATION_SCHEMA.INNODB_METRICS WHERE NAME='trx_rseg_history_len'`    |
-| innodb\_deadlocks                  | Locks        | Locks        | db.Locks.innodb\_deadlocks               | The total number of deadlocks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `SELECT COUNT AS innodb_deadlocks FROM INFORMATION_SCHEMA.INNODB_METRICS WHERE<br>NAME='lock_deadlocks'`           |
-| innodb\_lock\_timeouts             | Locks        | Locks        | db.Locks.innodb\_lock\_timeouts          | The total number of locks that timed out.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `SELECT COUNT AS innodb_lock_timeouts FROM INFORMATION_SCHEMA.INNODB_METRICS WHERE<br>NAME='lock_timeouts'`        |
-| innodb\_row\_lock\_waits           | Locks        | Locks        | db.Locks.innodb\_row\_lock\_waits        | The total number of row locks that resulted in a wait.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `SELECT COUNT AS innodb_row_lock_waits FROM INFORMATION_SCHEMA.INNODB_METRICS WHERE<br>NAME='lock_row_lock_waits'` |
+
+| Counter | Type | Unit | Metric | Description | Definition | 
+| --- | --- | --- | --- | --- | --- | 
+| innodb\_buffer\_pool\_hits | Cache | Reads | db.Cache.innoDB\_buffer\_pool\_hits | The number of reads that InnoDB could satisfy from the buffer pool. | innodb\_buffer\_pool\_read\_requests - innodb\_buffer\_pool\_reads | 
+| innodb\_buffer\_pool\_hit\_rate | Cache | Percentage | db.Cache.innoDB\_buffer\_pool\_hit\_rate | The percentage of reads that InnoDB could satisfy from the buffer pool. | 100 \* innodb\_buffer\_pool\_read\_requests / (innodb\_buffer\_pool\_read\_requests \+ innodb\_buffer\_pool\_reads) | 
+| innodb\_buffer\_pool\_usage | Cache | Percentage | db.Cache.innoDB\_buffer\_pool\_usage | The percentage of the InnoDB buffer pool that contains data (pages). When using compressed tables, this value can vary. For more information, see the information about `Innodb_buffer_pool_pages_data` and `Innodb_buffer_pool_pages_total` in [Server Status Variables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html) (for 8.0) and [Server Status Variables](https://dev.mysql.com/doc/refman/8.4/en/server-status-variables.html) (for 8.4) in the MySQL documentation.  | Innodb\_buffer\_pool\_pages\_data / Innodb\_buffer\_pool\_pages\_total \* 100.0 | 
+| query\_cache\_hit\_rate | Cache | Percentage | db.Cache.query\_cache\_hit\_rate | MySQL result set cache (query cache) hit ratio. | Qcache\_hits / (QCache\_hits \+ Com\_select) \* 100 | 
+| innodb\_datafile\_writes\_to\_disk | I/O | Writes | db.IO.innoDB\_datafile\_writes\_to\_disk | The number of InnoDB data file writes to disk, excluding double write and redo logging write operations. | Innodb\_data\_writes - Innodb\_log\_writes - Innodb\_dblwr\_writes | 
+| innodb\_rows\_changed | SQL | Rows | db.SQL.innodb\_rows\_changed | The total InnoDB row operations. | db.SQL.Innodb\_rows\_inserted \+ db.SQL.Innodb\_rows\_deleted \+ db.SQL.Innodb\_rows\_updated | 
+| active\_transactions | Transactions | Transactions | db.Transactions.active\_transactions | The total active transactions. | SELECT COUNT(1) AS active\_transactions FROM INFORMATION\_SCHEMA.INNODB\_TRX | 
+| trx\_rseg\_history\_len | Transactions | None | db.Transactions.trx\_rseg\_history\_len | A list of the undo log pages for committed transactions that is maintained by the InnoDB transaction system to implement multi-version concurrency control. For more information about undo log records details, see [InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/8.0/en/innodb-multi-versioning.html) (for 8.0) and [InnoDB Multi-Versioning](https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html) (for 8.4) in the MySQL documentation. | SELECT COUNT AS trx\_rseg\_history\_len FROM INFORMATION\_SCHEMA.INNODB\_METRICS WHERE NAME='trx\_rseg\_history\_len'  | 
+| innodb\_deadlocks | Locks | Locks | db.Locks.innodb\_deadlocks | The total number of deadlocks. | SELECT COUNT AS innodb\_deadlocks FROM INFORMATION\_SCHEMA.INNODB\_METRICS WHERE NAME='lock\_deadlocks' | 
+| innodb\_lock\_timeouts | Locks | Locks | db.Locks.innodb\_lock\_timeouts | The total number of locks that timed out. | SELECT COUNT AS innodb\_lock\_timeouts FROM INFORMATION\_SCHEMA.INNODB\_METRICS WHERE NAME='lock\_timeouts' | 
+| innodb\_row\_lock\_waits | Locks | Locks | db.Locks.innodb\_row\_lock\_waits | The total number of row locks that resulted in a wait. | SELECT COUNT AS innodb\_row\_lock\_waits FROM INFORMATION\_SCHEMA.INNODB\_METRICS WHERE NAME='lock\_row\_lock\_waits' | 
 
 ## Detailed Database Metrics for Amazon RDS for Microsoft SQL Server
+<a name="USER_PerfInsights_Counters.SQLServer"></a>
 
-The following database counters are available through the Performance Insights API for RDS
-for Microsoft SQL Server.
+The following database counters are available through the Performance Insights API for RDS for Microsoft SQL Server.
 
 ### Native counters for RDS for Microsoft SQL Server
+<a name="USER_PerfInsights_Counters.SQLServer.Native"></a>
 
-Native metrics are defined by the database engine and not by Amazon RDS. You can find definitions for
-these native metrics in [Use SQL Server Objects](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-2017") in the Microsoft SQL Server documentation.
+Native metrics are defined by the database engine and not by Amazon RDS. You can find definitions for these native metrics in [Use SQL Server Objects](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/use-sql-server-objects?view=sql-server-2017) in the Microsoft SQL Server documentation.
 
-| Counter                | Type                                                                                                                                                                                                                                                                                                    | Unit                       | Metric                                     |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------ |
-| Forwarded Records      | [Access Methods](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-access-methods-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-access-methods-object?view=sql-server-2017")             | Records per second         | db.Access Methods.Forwarded Records        |
-| Page Splits            | [Access Methods](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-access-methods-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-access-methods-object?view=sql-server-2017")             | Splits per second          | db.Access Methods.Page Splits              |
-| Buffer cache hit ratio | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017")             | Ratio                      | db.Buffer Manager.Buffer cache hit ratio   |
-| Page life expectancy   | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017")             | Expectancy in seconds      | db.Buffer Manager.Page life expectancy     |
-| Page lookups           | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017")             | Lookups per second         | db.Buffer Manager.Page lookups             |
-| Page reads             | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017")             | Reads per second           | db.Buffer Manager.Page reads               |
-| Page writes            | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017")             | Writes per second          | db.Buffer Manager.Page writes              |
-| Active Transactions    | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017")                            | Transactions               | db.Databases.Active Transactions (\_Total) |
-| Log Bytes Flushed      | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017")                            | Bytes flushed per second   | db.Databases.Log Bytes Flushed (\_Total)   |
-| Log Flush Waits        | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017")                            | Waits per second           | db.Databases.Log Flush Waits (\_Total)     |
-| Log Flushes            | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017")                            | Flushes per second         | db.Databases.Log Flushes (\_Total)         |
-| Write Transactions     | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017")                            | Transactions per second    | db.Databases.Write Transactions (\_Total)  |
-| Processes blocked      | [General Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-general-statistics-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-general-statistics-object?view=sql-server-2017") | Processes blocked          | db.General Statistics.Processes blocked    |
-| User Connections       | [General Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-general-statistics-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-general-statistics-object?view=sql-server-2017") | Connections                | db.General Statistics.User Connections     |
-| Latch Waits            | [Latches](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-latches-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-latches-object?view=sql-server-2017")                                  | Waits per second           | db.Latches.Latch Waits                     |
-| Number of Deadlocks    | [Locks](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-locks-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-locks-object?view=sql-server-2017")                                        | Deadlocks per second       | db.Locks.Number of Deadlocks (\_Total)     |
-| Memory Grants Pending  | [Memory Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-memory-manager-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-memory-manager-object?view=sql-server-2017")             | Memory grants              | db.Memory Manager.Memory Grants Pending    |
-| Batch Requests         | [SQL Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017")             | Requests per second        | db.SQL Statistics.Batch Requests           |
-| SQL Compilations       | [SQL Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017")             | Compilations per second    | db.SQL Statistics.SQL Compilations         |
-| SQL Re-Compilations    | [SQL Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017")             | Re-compilations per second | db.SQL Statistics.SQL Re-Compilations      |
+
+| Counter | Type | Unit | Metric | 
+| --- | --- | --- | --- | 
+| Forwarded Records | [Access Methods](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-access-methods-object?view=sql-server-2017) | Records per second | db.Access Methods.Forwarded Records | 
+| Page Splits | [Access Methods](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-access-methods-object?view=sql-server-2017) | Splits per second | db.Access Methods.Page Splits | 
+| Buffer cache hit ratio | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017) | Ratio | db.Buffer Manager.Buffer cache hit ratio | 
+| Page life expectancy | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017) | Expectancy in seconds | db.Buffer Manager.Page life expectancy | 
+| Page lookups | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017) | Lookups per second | db.Buffer Manager.Page lookups | 
+| Page reads | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017) | Reads per second | db.Buffer Manager.Page reads | 
+| Page writes | [Buffer Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object?view=sql-server-2017) | Writes per second | db.Buffer Manager.Page writes | 
+| Active Transactions | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017) | Transactions | db.Databases.Active Transactions (\_Total) | 
+| Log Bytes Flushed | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017) | Bytes flushed per second | db.Databases.Log Bytes Flushed (\_Total) | 
+| Log Flush Waits | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017) | Waits per second | db.Databases.Log Flush Waits (\_Total) | 
+| Log Flushes | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017) | Flushes per second | db.Databases.Log Flushes (\_Total) | 
+| Write Transactions | [Databases](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-databases-object?view=sql-server-2017) | Transactions per second | db.Databases.Write Transactions (\_Total) | 
+| Processes blocked | [General Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-general-statistics-object?view=sql-server-2017) | Processes blocked | db.General Statistics.Processes blocked | 
+| User Connections | [General Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-general-statistics-object?view=sql-server-2017) | Connections | db.General Statistics.User Connections | 
+| Latch Waits | [Latches](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-latches-object?view=sql-server-2017) | Waits per second | db.Latches.Latch Waits | 
+| Number of Deadlocks | [Locks](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-locks-object?view=sql-server-2017) | Deadlocks per second | db.Locks.Number of Deadlocks (\_Total) | 
+| Memory Grants Pending | [Memory Manager](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-memory-manager-object?view=sql-server-2017) | Memory grants | db.Memory Manager.Memory Grants Pending | 
+| Batch Requests | [SQL Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017) | Requests per second | db.SQL Statistics.Batch Requests | 
+| SQL Compilations | [SQL Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017) | Compilations per second | db.SQL Statistics.SQL Compilations | 
+| SQL Re-Compilations | [SQL Statistics](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-2017) | Re-compilations per second | db.SQL Statistics.SQL Re-Compilations | 
 
 ## Detailed Database Metrics for Amazon RDS for Oracle
+<a name="USER_PerfInsights_Counters.Oracle"></a>
 
-The following database counters are available through the Performance Insights API for RDS
-for Oracle.
+The following database counters are available through the Performance Insights API for RDS for Oracle.
 
 ### Native counters for RDS for Oracle
+<a name="USER_PerfInsights_Counters.Oracle.Native"></a>
 
-Native metrics are defined by the database engine and not by Amazon RDS. You can find definitions for
-these native metrics in [Statistics Descriptions](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/statistics-descriptions-2.html#GUID-2FBC1B7E-9123-41DD-8178-96176260A639 "https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/statistics-descriptions-2.html#GUID-2FBC1B7E-9123-41DD-8178-96176260A639") in the Oracle documentation.
+Native metrics are defined by the database engine and not by Amazon RDS. You can find definitions for these native metrics in [Statistics Descriptions](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/statistics-descriptions-2.html#GUID-2FBC1B7E-9123-41DD-8178-96176260A639) in the Oracle documentation.
 
-###### Note
+**Note**  
+For the `CPU used by this session` counter metric, the unit has been transformed from the native centiseconds to active sessions to make the value easier to use. For example, CPU send in the DB Load chart represents the demand for CPU. The counter metric `CPU used by this session` represents the amount of CPU used by Oracle sessions. You can compare CPU send to the `CPU used by this session` counter metric. When demand for CPU is higher than CPU used, sessions are waiting for CPU time.
 
-For the `CPU used by this session` counter metric, the unit has
-been transformed from the native centiseconds to active sessions to make the
-value easier to use. For example, CPU send in the DB Load chart represents
-the demand for CPU. The counter metric `CPU used by this session`
-represents the amount of CPU used by Oracle sessions. You can compare CPU
-send to the `CPU used by this session` counter metric. When
-demand for CPU is higher than CPU used, sessions are waiting for CPU
-time.
 
-| Counter                                 | Type  | Unit                   | Metric                                          |
-| --------------------------------------- | ----- | ---------------------- | ----------------------------------------------- |
-| CPU used by this session                | User  | Active sessions        | db.User.CPU used by this session                |
-| SQL\*Net roundtrips to/from client      | User  | Roundtrips per second  | db.User.SQL\*Net roundtrips to/from client      |
-| Bytes received via SQL\*Net from client | User  | Bytes per second       | db.User.bytes received via SQL\*Net from client |
-| User commits                            | User  | Commits per second     | db.User.user commits                            |
-| Logons cumulative                       | User  | Logons per second      | db.User.logons cumulative                       |
-| User calls                              | User  | Calls per second       | db.User.user calls                              |
-| Bytes sent via SQL\*Net to client       | User  | Bytes per second       | db.User.bytes sent via SQL\*Net to client       |
-| User rollbacks                          | User  | Rollbacks per second   | db.User.user rollbacks                          |
-| Redo size                               | Redo  | Bytes per second       | db.Redo.redo size                               |
-| Parse count (total)                     | SQL   | Parses per second      | db.SQL.parse count (total)                      |
-| Parse count (hard)                      | SQL   | Parses per second      | db.SQL.parse count (hard)                       |
-| Table scan rows gotten                  | SQL   | Rows per second        | db.SQL.table scan rows gotten                   |
-| Sorts (memory)                          | SQL   | Sorts per second       | db.SQL.sorts (memory)                           |
-| Sorts (disk)                            | SQL   | Sorts per second       | db.SQL.sorts (disk)                             |
-| Sorts (rows)                            | SQL   | Sorts per second       | db.SQL.sorts (rows)                             |
-| Physical read bytes                     | Cache | Bytes per second       | db.Cache.physical read bytes                    |
-| DB block gets                           | Cache | Blocks per second      | db.Cache.db block gets                          |
-| DBWR checkpoints                        | Cache | Checkpoints per minute | db.Cache.DBWR checkpoints                       |
-| Physical reads                          | Cache | Reads per second       | db.Cache.physical reads                         |
-| Consistent gets from cache              | Cache | Gets per second        | db.Cache.consistent gets from cache             |
-| DB block gets from cache                | Cache | Gets per second        | db.Cache.db block gets from cache               |
-| Consistent gets                         | Cache | Gets per second        | db.Cache.consistent gets                        |
+| Counter | Type | Unit | Metric | 
+| --- | --- | --- | --- | 
+| CPU used by this session | User | Active sessions | db.User.CPU used by this session | 
+| SQL\*Net roundtrips to/from client | User | Roundtrips per second | db.User.SQL\*Net roundtrips to/from client | 
+| Bytes received via SQL\*Net from client | User | Bytes per second | db.User.bytes received via SQL\*Net from client | 
+| User commits | User | Commits per second | db.User.user commits | 
+| Logons cumulative | User | Logons per second | db.User.logons cumulative | 
+| User calls | User | Calls per second | db.User.user calls | 
+| Bytes sent via SQL\*Net to client | User | Bytes per second | db.User.bytes sent via SQL\*Net to client | 
+| User rollbacks | User | Rollbacks per second | db.User.user rollbacks | 
+| Redo size | Redo | Bytes per second | db.Redo.redo size | 
+| Parse count (total) | SQL | Parses per second | db.SQL.parse count (total) | 
+| Parse count (hard) | SQL | Parses per second | db.SQL.parse count (hard) | 
+| Table scan rows gotten | SQL | Rows per second | db.SQL.table scan rows gotten | 
+| Sorts (memory) | SQL | Sorts per second | db.SQL.sorts (memory) | 
+| Sorts (disk) | SQL | Sorts per second | db.SQL.sorts (disk) | 
+| Sorts (rows) | SQL | Sorts per second | db.SQL.sorts (rows) | 
+| Physical read bytes | Cache | Bytes per second | db.Cache.physical read bytes | 
+| DB block gets | Cache | Blocks per second | db.Cache.db block gets | 
+| DBWR checkpoints | Cache | Checkpoints per minute | db.Cache.DBWR checkpoints | 
+| Physical reads | Cache | Reads per second | db.Cache.physical reads | 
+| Consistent gets from cache | Cache | Gets per second | db.Cache.consistent gets from cache | 
+| DB block gets from cache | Cache | Gets per second | db.Cache.db block gets from cache | 
+| Consistent gets | Cache | Gets per second | db.Cache.consistent gets | 
 
 ## Detailed Database Metrics for Amazon RDS for PostgreSQL
+<a name="USER_PerfInsights_Counters.PostgreSQL"></a>
 
-The following database counters are available through the Performance Insights API for Amazon RDS
-for PostgreSQL.
+The following database counters are available through the Performance Insights API for Amazon RDS for PostgreSQL.
 
-###### Topics
-
-- [Native counters for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL.Native "#USER_PerfInsights_Counters.PostgreSQL.Native")
-- [Non-native counters for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL.NonNative "#USER_PerfInsights_Counters.PostgreSQL.NonNative")
+**Topics**
++ [Native counters for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL.Native)
++ [Non-native counters for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL.NonNative)
 
 ### Native counters for Amazon RDS for PostgreSQL
+<a name="USER_PerfInsights_Counters.PostgreSQL.Native"></a>
 
-Native metrics are defined by the database engine and not by Amazon RDS. You can find definitions for
-these native metrics in [Viewing
-Statistics](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-STATS-VIEWS "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-STATS-VIEWS") in the PostgreSQL documentation.
+Native metrics are defined by the database engine and not by Amazon RDS. You can find definitions for these native metrics in [Viewing Statistics](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-STATS-VIEWS) in the PostgreSQL documentation.
 
-| Counter                 | Type                  | Unit                            | Metric                                |
-| ----------------------- | --------------------- | ------------------------------- | ------------------------------------- |
-| blks\_hit               | Cache                 | Blocks per second               | db.Cache.blks\_hit                    |
-| buffers\_alloc          | Cache                 | Blocks per second               | db.Cache.buffers\_alloc               |
-| buffers\_checkpoint     | Checkpoint            | Blocks per second               | db.Checkpoint.buffers\_checkpoint     |
-| checkpoint\_sync\_time  | Checkpoint            | Milliseconds per checkpoint     | db.Checkpoint.checkpoint\_sync\_time  |
-| checkpoint\_write\_time | Checkpoint            | Milliseconds per checkpoint     | db.Checkpoint.checkpoint\_write\_time |
-| checkpoints\_req        | Checkpoint            | Checkpoints per minute          | db.Checkpoint.checkpoints\_req        |
-| checkpoints\_timed      | Checkpoint            | Checkpoints per minute          | db.Checkpoint.checkpoints\_timed      |
-| maxwritten\_clean       | Checkpoint            | Bgwriter clean stops per minute | db.Checkpoint.maxwritten\_clean       |
-| deadlocks               | Concurrency           | Deadlocks per minute            | db.Concurrency.deadlocks              |
-| blk\_read\_time         | I/O                   | Milliseconds                    | db.IO.blk\_read\_time                 |
-| blks\_read              | I/O                   | Blocks per second               | db.IO.blks\_read                      |
-| buffers\_backend        | I/O                   | Blocks per second               | db.IO.buffers\_backend                |
-| buffers\_backend\_fsync | I/O                   | Blocks per second               | db.IO.buffers\_backend\_fsync         |
-| buffers\_clean          | I/O                   | Blocks per second               | db.IO.buffers\_clean                  |
-| tup\_deleted            | SQL                   | Tuples per second               | db.SQL.tup\_deleted                   |
-| tup\_fetched            | SQL                   | Tuples per second               | db.SQL.tup\_fetched                   |
-| tup\_inserted           | SQL                   | Tuples per second               | db.SQL.tup\_inserted                  |
-| tup\_returned           | SQL                   | Tuples per second               | db.SQL.tup\_returned                  |
-| tup\_updated            | SQL                   | Tuples per second               | db.SQL.tup\_updated                   |
-| temp\_bytes             | Temp                  | Bytes per second                | db.Temp.temp\_bytes                   |
-| temp\_files             | Temp                  | Files per minute                | db.Temp.temp\_files                   |
-| xact\_commit            | Transactions          | Commits per second              | db.Transactions.xact\_commit          |
-| xact\_rollback          | Transactions          | Rollbacks per second            | db.Transactions.xact\_rollback        |
-| numbackends             | User                  | Connections                     | db.User.numbackends                   |
-| total\_auth\_attempts   | User                  | Connections per minute          | db.User.total\_auth\_attempts         |
-| archived\_count         | Write-ahead log (WAL) | Files per minute                | db.WAL.archived\_count                |
+
+| Counter | Type | Unit | Metric | 
+| --- | --- | --- | --- | 
+| blks\_hit | Cache | Blocks per second | db.Cache.blks\_hit | 
+| buffers\_alloc | Cache | Blocks per second | db.Cache.buffers\_alloc | 
+| buffers\_checkpoint | Checkpoint | Blocks per second | db.Checkpoint.buffers\_checkpoint | 
+| checkpoint\_sync\_time | Checkpoint | Milliseconds per checkpoint | db.Checkpoint.checkpoint\_sync\_time | 
+| checkpoint\_write\_time | Checkpoint | Milliseconds per checkpoint | db.Checkpoint.checkpoint\_write\_time | 
+| checkpoints\_req | Checkpoint | Checkpoints per minute | db.Checkpoint.checkpoints\_req | 
+| checkpoints\_timed | Checkpoint | Checkpoints per minute | db.Checkpoint.checkpoints\_timed | 
+| maxwritten\_clean | Checkpoint | Bgwriter clean stops per minute  | db.Checkpoint.maxwritten\_clean | 
+| deadlocks | Concurrency | Deadlocks per minute | db.Concurrency.deadlocks | 
+| blk\_read\_time | I/O | Milliseconds | db.IO.blk\_read\_time | 
+| blks\_read | I/O | Blocks per second | db.IO.blks\_read | 
+| buffers\_backend | I/O | Blocks per second | db.IO.buffers\_backend | 
+| buffers\_backend\_fsync | I/O | Blocks per second | db.IO.buffers\_backend\_fsync | 
+| buffers\_clean | I/O | Blocks per second | db.IO.buffers\_clean | 
+| tup\_deleted | SQL | Tuples per second | db.SQL.tup\_deleted | 
+| tup\_fetched | SQL | Tuples per second | db.SQL.tup\_fetched | 
+| tup\_inserted | SQL | Tuples per second | db.SQL.tup\_inserted | 
+| tup\_returned | SQL | Tuples per second | db.SQL.tup\_returned | 
+| tup\_updated | SQL | Tuples per second | db.SQL.tup\_updated | 
+| temp\_bytes | Temp | Bytes per second | db.Temp.temp\_bytes | 
+| temp\_files | Temp | Files per minute | db.Temp.temp\_files | 
+| xact\_commit | Transactions | Commits per second | db.Transactions.xact\_commit | 
+| xact\_rollback | Transactions | Rollbacks per second | db.Transactions.xact\_rollback | 
+| numbackends | User | Connections | db.User.numbackends | 
+| total\_auth\_attempts | User | Connections per minute | db.User.total\_auth\_attempts | 
+| archived\_count | Write-ahead log (WAL) | Files per minute | db.WAL.archived\_count | 
 
 ### Non-native counters for Amazon RDS for PostgreSQL
+<a name="USER_PerfInsights_Counters.PostgreSQL.NonNative"></a>
 
-Non-native counter metrics are counters defined by Amazon RDS. A non-native metric
-can be a metric that you get with a specific query. A non-native metric also can
-be a derived metric, where two or more native counters are used in calculations
-for ratios, hit rates, or latencies.
+Non-native counter metrics are counters defined by Amazon RDS. A non-native metric can be a metric that you get with a specific query. A non-native metric also can be a derived metric, where two or more native counters are used in calculations for ratios, hit rates, or latencies.
 
-| Counter                                                | Type         | Unit                                                                   | Metric                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Description                                                                                                                   | Definition                                                     |
-| ------------------------------------------------------ | ------------ | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| checkpoint\_sync\_latency                              | Checkpoint   | db.Checkpoint.checkpoint\_sync\_latency                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | The total amount of time that has been spent in the portion of checkpoint processing where<br>files are synchronized to disk. | `checkpoint_sync_time / (checkpoints_timed + checkpoints_req)` |
-| checkpoint\_write\_latency                             | Checkpoint   | db.Checkpoint.checkpoint\_write\_latency                               | The total amount of time that has been spent in the portion of checkpoint processing where<br>files are written to disk.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `checkpoint_write_time / (checkpoints_timed + checkpoints_req)`                                                               |
-| read\_latency                                          | I/O          | db.IO.read\_latency                                                    | The time spent reading data file blocks by backends in this instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `blk_read_time / blks_read`                                                                                                   |
-| idle\_in\_transaction\_aborted\_count                  | State        | Sessions                                                               | db.state.idle\_in\_transaction\_aborted\_count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | The number of sessions in the `idle in transaction (aborted)` state.                                                          | Not applicable                                                 |
-| idle\_in\_transaction\_count                           | State        | Sessions                                                               | db.state.idle\_in\_transaction\_count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | The number of sessions in the `idle in transaction` state.                                                                    | Not applicable                                                 |
-| idle\_in\_transaction\_max\_time                       | State        | Seconds                                                                | db.state.idle\_in\_transaction\_max\_time                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | The duration of the longest running transaction in the `idle in transaction` state, in seconds.                               | Not applicable                                                 |
-| active\_transactions                                   | Transactions | Transactions                                                           | db.Transactions.active\_transactions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | The number of active transactions.                                                                                            | Not applicable                                                 |
-| blocked\_transactions                                  | Transactions | Transactions                                                           | db.Transactions.blocked\_transactions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | The number of blocked transactions.                                                                                           | Not applicable                                                 |
-| oldest\_active\_logical\_replication\_slot\_xid\_age   | Transactions | db.Transactions.oldest\_active\_logical\_replication\_slot\_xid\_age   | The age of the oldest transaction in an active logical replication slot.<br>For more information, see [Logical replication slot](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot").                                                                                                                                                                                                                                                                                                                                                                                                             | `–`                                                                                                                           |
-| oldest\_inactive\_logical\_replication\_slot\_xid\_age | Transactions | db.Transactions.oldest\_inactive\_logical\_replication\_slot\_xid\_age | The age of the oldest transaction in an inactive logical replication slot.<br>For more information, see [Logical replication slot](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot").                                                                                                                                                                                                                                                                                                                                                                                                           | `–`                                                                                                                           |
-| oldest\_prepared\_transaction\_xid\_age                | Transactions | db.Transactions.oldest\_prepared\_transaction\_xid\_age                | The age of the oldest prepared transaction.<br>For more information, see [Prepared transaction](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Prepared_transaction "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Prepared_transaction").                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `–`                                                                                                                           |
-| oldest\_running\_transaction\_xid\_age                 | Transactions | db.Transactions.oldest\_running\_transaction\_xid\_age                 | The age of the oldest running transaction.<br>For more information, see [Active statement](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Active_statement "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Active_statement") for the oldest running active transaction and [Idle in transaction](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Idle_in_transaction "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Idle_in_transaction") for the oldest running idle-in-transaction. | `–`                                                                                                                           |
-| oldest\_hot\_standby\_feedback\_xid\_age               | Transactions | db.Transactions.oldest\_hot\_standby\_feedback\_xid\_age               | The age of the oldest running transaction on a read replica with `hot_standby_feedback` enabled.<br>For more information, see [Read replicas](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas").                                                                                                                                                                                                                                                                                                                                                                                                                      | `–`                                                                                                                           |
-| max\_used\_xact\_ids                                   | Transactions | Transactions                                                           | db.Transactions.max\_used\_xact\_ids                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | The number of transactions that haven't been vacuumed.                                                                        | Not applicable                                                 |
-| max\_connections                                       | Users        | Connections                                                            | db.User.max\_connections                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | The maximum number of connections allowed for a DB instance as configured in `max_connections` parameter.                     | Not applicable                                                 |
-| total\_auth\_attempts                                  | Users        | Connections per minute                                                 | db.User.total\_auth\_attempts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | The number of connection attempts to this instance.                                                                           | Not applicable                                                 |
-| archive\_failed\_count                                 | WAL          | Files per minute                                                       | db.WAL.archive\_failed\_count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | The number of failed attempts for archiving WAL files, in files per minute.                                                   | Not applicable                                                 |
+
+| Counter | Type | Unit | Metric | Description | Definition | 
+| --- | --- | --- | --- | --- | --- | 
+| checkpoint\_sync\_latency | Checkpoint | db.Checkpoint.checkpoint\_sync\_latency |  | The total amount of time that has been spent in the portion of checkpoint processing where files are synchronized to disk. | checkpoint\_sync\_time / (checkpoints\_timed \+ checkpoints\_req) | 
+| checkpoint\_write\_latency | Checkpoint | db.Checkpoint.checkpoint\_write\_latency | The total amount of time that has been spent in the portion of checkpoint processing where files are written to disk. | checkpoint\_write\_time / (checkpoints\_timed \+ checkpoints\_req) | 
+| read\_latency | I/O | db.IO.read\_latency | The time spent reading data file blocks by backends in this instance. | blk\_read\_time / blks\_read | 
+| idle\_in\_transaction\_aborted\_count | State | Sessions | db.state.idle\_in\_transaction\_aborted\_count | The number of sessions in the idle in transaction (aborted) state. | Not applicable | 
+| idle\_in\_transaction\_count | State | Sessions | db.state.idle\_in\_transaction\_count | The number of sessions in the idle in transaction state. | Not applicable | 
+| idle\_in\_transaction\_max\_time | State | Seconds | db.state.idle\_in\_transaction\_max\_time | The duration of the longest running transaction in the idle in transaction state, in seconds. | Not applicable | 
+| active\_transactions | Transactions | Transactions | db.Transactions.active\_transactions | The number of active transactions. | Not applicable | 
+| blocked\_transactions | Transactions | Transactions | db.Transactions.blocked\_transactions | The number of blocked transactions. | Not applicable | 
+| oldest\_active\_logical\_replication\_slot\_xid\_age | Transactions | db.Transactions.oldest\_active\_logical\_replication\_slot\_xid\_age | The age of the oldest transaction in an active logical replication slot.<br />For more information, see [Logical replication slot](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot). | – | 
+| oldest\_inactive\_logical\_replication\_slot\_xid\_age | Transactions | db.Transactions.oldest\_inactive\_logical\_replication\_slot\_xid\_age | The age of the oldest transaction in an inactive logical replication slot.<br />For more information, see [Logical replication slot](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot). | – | 
+| oldest\_prepared\_transaction\_xid\_age | Transactions | db.Transactions.oldest\_prepared\_transaction\_xid\_age | The age of the oldest prepared transaction.<br />For more information, see [Prepared transaction](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Prepared_transaction). | – | 
+| oldest\_running\_transaction\_xid\_age | Transactions | db.Transactions.oldest\_running\_transaction\_xid\_age | The age of the oldest running transaction.<br />For more information, see [Active statement](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Active_statement) for the oldest running active transaction and [Idle in transaction](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Idle_in_transaction) for the oldest running idle-in-transaction.  | – | 
+| oldest\_hot\_standby\_feedback\_xid\_age | Transactions | db.Transactions.oldest\_hot\_standby\_feedback\_xid\_age | The age of the oldest running transaction on a read replica with `hot_standby_feedback` enabled.<br />For more information, see [Read replicas](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas). | – | 
+| max\_used\_xact\_ids | Transactions | Transactions | db.Transactions.max\_used\_xact\_ids | The number of transactions that haven't been vacuumed. | Not applicable | 
+| max\_connections | Users | Connections | db.User.max\_connections | The maximum number of connections allowed for a DB instance as configured in max\_connections parameter. | Not applicable | 
+| total\_auth\_attempts | Users | Connections per minute | db.User.total\_auth\_attempts | The number of connection attempts to this instance. | Not applicable | 
+| archive\_failed\_count | WAL | Files per minute | db.WAL.archive\_failed\_count | The number of failed attempts for archiving WAL files, in files per minute. | Not applicable | 

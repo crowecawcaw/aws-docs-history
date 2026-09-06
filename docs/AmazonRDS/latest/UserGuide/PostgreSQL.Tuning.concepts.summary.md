@@ -1,29 +1,31 @@
+
+
 # RDS for PostgreSQL wait events
+<a name="PostgreSQL.Tuning.concepts.summary"></a>
 
-The following table lists the wait events for RDS for PostgreSQL that most commonly
-indicate performance problems, and summarizes the most common causes and corrective
-actions..
+The following table lists the wait events for RDS for PostgreSQL that most commonly indicate performance problems, and summarizes the most common causes and corrective actions..
 
-| Wait event                                                                                                              | Definition                                                                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Client:ClientRead](wait-event.clientread.md "wait-event.clientread.md")                                                | This event occurs when RDS for PostgreSQL is waiting to receive data<br>from the client.                                                                                           |
-| [Client:ClientWrite](wait-event.clientwrite.md "wait-event.clientwrite.md")                                             | This event occurs when RDS for PostgreSQL is waiting to write data to<br>the client.                                                                                               |
-| [CPU](wait-event.cpu.md "wait-event.cpu.md")                                                                            | This event occurs when a thread is active in CPU or is waiting for<br>CPU.                                                                                                         |
-| [IO:BufFileRead and IO:BufFileWrite](wait-event.iobuffile.md "wait-event.iobuffile.md")                                 | These events occur when RDS for PostgreSQL creates temporary<br>files.                                                                                                             |
-| [IO:DataFileRead](wait-event.iodatafileread.md "wait-event.iodatafileread.md")                                          | This event occurs when a connection waits on a backend process to<br>read a required page from storage because the page isn't available<br>in shared memory.                       |
-| [IO:WALWrite](wait-event.iowalwrite.md "wait-event.iowalwrite.md")                                                      | This event occurs when RDS for PostgreSQL is waiting for the write-ahead<br>log (WAL) buffers to be written to a WAL file.                                                         |
-| [IPC:parallel wait events](rpg-ipc-parallel.md "rpg-ipc-parallel.md")                                                   | These wait events indicate that a session is waiting for<br>inter-process communication related to parallel query execution<br>operations.                                         |
-| [IPC:ProcArrayGroupUpdate](apg-rpg-ipcprocarraygroup.md "apg-rpg-ipcprocarraygroup.md")                                 | This event occurs when a session is waiting for the group leader<br>to update the transaction status at the end of the<br>transaction.                                             |
-| [Lock:advisory](wait-event.lockadvisory.md "wait-event.lockadvisory.md")                                                | This event occurs when a PostgreSQL application uses a lock to<br>coordinate activity across multiple sessions.                                                                    |
-| [Lock:extend](wait-event.lockextend.md "wait-event.lockextend.md")                                                      | This event occurs when a backend process is waiting to lock a<br>relation to extend it while another process has a lock on that<br>relation for the same purpose.                  |
-| [Lock:Relation](wait-event.lockrelation.md "wait-event.lockrelation.md")                                                | This event occurs when a query is waiting to acquire a lock on a<br>table or view that's currently locked by another transaction.                                                  |
-| [Lock:transactionid](wait-event.locktransactionid.md "wait-event.locktransactionid.md")                                 | This event occurs when a transaction is waiting for a row-level<br>lock.                                                                                                           |
-| [Lock:tuple](wait-event.locktuple.md "wait-event.locktuple.md")                                                         | This event occurs when a backend process is waiting to acquire a<br>lock on a tuple.                                                                                               |
-| [LWLock:BufferMapping (LWLock:buffer\_mapping)](wait-event.lwl-buffer-mapping.md "wait-event.lwl-buffer-mapping.md")    | This event occurs when a session is waiting to associate a data<br>block with a buffer in the shared buffer pool.                                                                  |
-| [LWLock:BufferIO (IPC:BufferIO)](wait-event.lwlockbufferio.md "wait-event.lwlockbufferio.md")                           | This event occurs when RDS for PostgreSQL is waiting for other<br>processes to finish their input/output (I/O) operations when<br>concurrently trying to access a page.            |
-| [LWLock:buffer\_content (BufferContent)](wait-event.lwlockbuffercontent.md "wait-event.lwlockbuffercontent.md")         | This event occurs when a session is waiting to read or write a<br>data page in memory while another session has that page locked for<br>writing.                                   |
-| [LWLock:lock\_manager (LWLock:lockmanager)](wait-event.lw-lock-manager.md "wait-event.lw-lock-manager.md")              | This event occurs when the RDS for PostgreSQL engine maintains the<br>shared lock's memory area to allocate, check, and deallocate a lock<br>when a fast path lock isn't possible. |
-| [LWLock:SubtransSLRU (LWLock:SubtransControlLock)](wait-event.lwlocksubtransslru.md "wait-event.lwlocksubtransslru.md") | This event occurs when a process is waiting to access the simple<br>least-recently used (SLRU) cache for a subtransaction.                                                         |
-| [LWLock:pg\_stat\_statements](apg-rpg-lwlockpgstat.md "apg-rpg-lwlockpgstat.md")                                        | This event occurs when the `pg_stat_statements`<br>extension takes an exclusive lock on the hash table that tracks SQL<br>statements.                                              |
-| [Timeout:PgSleep](wait-event.timeoutpgsleep.md "wait-event.timeoutpgsleep.md")                                          | This event occurs when a server process has called the<br>`pg_sleep` function and is waiting for the sleep<br>timeout to expire.                                                   |
-| [Timeout:VacuumDelay](wait-event.timeoutvacuumdelay.md "wait-event.timeoutvacuumdelay.md")                              | This event indicates that the vacuum process is sleeping because the<br>estimated cost limit has been reached.                                                                     |
+
+| Wait event | Definition | 
+| --- | --- | 
+| [Client:ClientRead](wait-event.clientread.md) | This event occurs when RDS for PostgreSQL is waiting to receive data from the client. | 
+| [Client:ClientWrite](wait-event.clientwrite.md) | This event occurs when RDS for PostgreSQL is waiting to write data to the client. | 
+| [CPU](wait-event.cpu.md) | This event occurs when a thread is active in CPU or is waiting for CPU.  | 
+| [IO:BufFileRead and IO:BufFileWrite](wait-event.iobuffile.md) | These events occur when RDS for PostgreSQL creates temporary files. | 
+| [IO:DataFileRead](wait-event.iodatafileread.md) | This event occurs when a connection waits on a backend process to read a required page from storage because the page isn't available in shared memory.  | 
+| [IO:WALWrite](wait-event.iowalwrite.md)  | This event occurs when RDS for PostgreSQL is waiting for the write-ahead log (WAL) buffers to be written to a WAL file.  | 
+| [IPC:parallel wait events](rpg-ipc-parallel.md) | These wait events indicate that a session is waiting for inter-process communication related to parallel query execution operations. | 
+| [IPC:ProcArrayGroupUpdate](apg-rpg-ipcprocarraygroup.md) | This event occurs when a session is waiting for the group leader to update the transaction status at the end of the transaction. | 
+| [Lock:advisory](wait-event.lockadvisory.md) | This event occurs when a PostgreSQL application uses a lock to coordinate activity across multiple sessions. | 
+| [Lock:extend](wait-event.lockextend.md) | This event occurs when a backend process is waiting to lock a relation to extend it while another process has a lock on that relation for the same purpose. | 
+| [Lock:Relation](wait-event.lockrelation.md) | This event occurs when a query is waiting to acquire a lock on a table or view that's currently locked by another transaction. | 
+| [Lock:transactionid](wait-event.locktransactionid.md) | This event occurs when a transaction is waiting for a row-level lock. | 
+| [Lock:tuple](wait-event.locktuple.md) | This event occurs when a backend process is waiting to acquire a lock on a tuple. | 
+| [LWLock:BufferMapping (LWLock:buffer\_mapping)](wait-event.lwl-buffer-mapping.md) | This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer pool. | 
+| [LWLock:BufferIO (IPC:BufferIO)](wait-event.lwlockbufferio.md) | This event occurs when RDS for PostgreSQL is waiting for other processes to finish their input/output (I/O) operations when concurrently trying to access a page. | 
+| [LWLock:buffer\_content (BufferContent)](wait-event.lwlockbuffercontent.md) | This event occurs when a session is waiting to read or write a data page in memory while another session has that page locked for writing. | 
+| [LWLock:lock\_manager (LWLock:lockmanager)](wait-event.lw-lock-manager.md) | This event occurs when the RDS for PostgreSQL engine maintains the shared lock's memory area to allocate, check, and deallocate a lock when a fast path lock isn't possible. | 
+| [LWLock:SubtransSLRU (LWLock:SubtransControlLock)](wait-event.lwlocksubtransslru.md) | This event occurs when a process is waiting to access the simple least-recently used (SLRU) cache for a subtransaction. | 
+| [LWLock:pg\_stat\_statements](apg-rpg-lwlockpgstat.md) | This event occurs when the `pg_stat_statements` extension takes an exclusive lock on the hash table that tracks SQL statements. | 
+| [Timeout:PgSleep](wait-event.timeoutpgsleep.md) | This event occurs when a server process has called the `pg_sleep` function and is waiting for the sleep timeout to expire.  | 
+| [Timeout:VacuumDelay](wait-event.timeoutvacuumdelay.md) | This event indicates that the vacuum process is sleeping because the estimated cost limit has been reached.  | 

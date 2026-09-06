@@ -1,84 +1,59 @@
+
+
 # Lock:advisory
+<a name="wait-event.lockadvisory"></a>
 
-The `Lock:advisory` event occurs when a PostgreSQL application uses a lock to
-coordinate activity across multiple sessions.
+The `Lock:advisory` event occurs when a PostgreSQL application uses a lock to coordinate activity across multiple sessions.
 
-###### Topics
-
-- [Relevant engine versions](#wait-event.lockadvisory.context.supported "#wait-event.lockadvisory.context.supported")
-- [Context](#wait-event.lockadvisory.context "#wait-event.lockadvisory.context")
-- [Causes](#wait-event.lockadvisory.causes "#wait-event.lockadvisory.causes")
-- [Actions](#wait-event.lockadvisory.actions "#wait-event.lockadvisory.actions")
+**Topics**
++ [Relevant engine versions](#wait-event.lockadvisory.context.supported)
++ [Context](#wait-event.lockadvisory.context)
++ [Causes](#wait-event.lockadvisory.causes)
++ [Actions](#wait-event.lockadvisory.actions)
 
 ## Relevant engine versions
+<a name="wait-event.lockadvisory.context.supported"></a>
 
 This wait event information is relevant for RDS for PostgreSQL versions 9.6 and higher.
 
 ## Context
+<a name="wait-event.lockadvisory.context"></a>
 
-PostgreSQL advisory locks are application-level, cooperative locks explicitly locked
-and unlocked by the user's application code. An application can use PostgreSQL advisory
-locks to coordinate activity across multiple sessions. Unlike regular, object- or
-row-level locks, the application has full control over the lifetime of the lock. For
-more information, see [Advisory Locks](https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS "https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS") in the PostgreSQL documentation.
+PostgreSQL advisory locks are application-level, cooperative locks explicitly locked and unlocked by the user's application code. An application can use PostgreSQL advisory locks to coordinate activity across multiple sessions. Unlike regular, object- or row-level locks, the application has full control over the lifetime of the lock. For more information, see [Advisory Locks](https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS) in the PostgreSQL documentation.
 
-Advisory locks can be released before a transaction ends or be held by a session across transactions. This isn't true for
-implicit, system-enforced locks, such as an access-exclusive lock on a table acquired by a `CREATE INDEX`
-statement.
+Advisory locks can be released before a transaction ends or be held by a session across transactions. This isn't true for implicit, system-enforced locks, such as an access-exclusive lock on a table acquired by a `CREATE INDEX` statement.
 
-For a description of the functions used to acquire (lock) and release (unlock) advisory locks, see [Advisory Lock Functions](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS "https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS")
-in the PostgreSQL documentation.
+For a description of the functions used to acquire (lock) and release (unlock) advisory locks, see [Advisory Lock Functions](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS) in the PostgreSQL documentation.
 
-Advisory locks are implemented on top of the regular PostgreSQL locking system and are visible in the `pg_locks`
-system view.
+Advisory locks are implemented on top of the regular PostgreSQL locking system and are visible in the `pg_locks` system view.
 
 ## Causes
+<a name="wait-event.lockadvisory.causes"></a>
 
-This lock type is exclusively controlled by an application explicitly using it. Advisory locks that are acquired for each row
-as part of a query can cause a spike in locks or a long-term buildup.
+This lock type is exclusively controlled by an application explicitly using it. Advisory locks that are acquired for each row as part of a query can cause a spike in locks or a long-term buildup.
 
-These effects happen when the query is run in a way that acquires locks on more rows
-than are returned by the query. The application must eventually release every lock, but
-if locks are acquired on rows that aren't returned, the application can't find
-all of the locks.
+These effects happen when the query is run in a way that acquires locks on more rows than are returned by the query. The application must eventually release every lock, but if locks are acquired on rows that aren't returned, the application can't find all of the locks.
 
-The following example is from [Advisory Locks](https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS "https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS") in the PostgreSQL documentation.
+The following example is from [Advisory Locks](https://www.postgresql.org/docs/12/explicit-locking.html#ADVISORY-LOCKS) in the PostgreSQL documentation.
 
 ```
 SELECT pg_advisory_lock(id) FROM foo WHERE id > 12345 LIMIT 100;
 ```
 
-In this example, the `LIMIT` clause can only stop the query's output
-after the rows have already been internally selected and their ID values locked. This
-can happen suddenly when a growing data volume causes the planner to choose a different
-execution plan that wasn't tested during development. The buildup in this case
-happens because the application explicitly calls `pg_advisory_unlock` for
-every ID value that was locked. However, in this case it can't find the set of
-locks acquired on rows that weren't returned. Because the locks are acquired on the
-session level, they aren't released automatically at the end of the
-transaction.
+In this example, the `LIMIT` clause can only stop the query's output after the rows have already been internally selected and their ID values locked. This can happen suddenly when a growing data volume causes the planner to choose a different execution plan that wasn't tested during development. The buildup in this case happens because the application explicitly calls `pg_advisory_unlock` for every ID value that was locked. However, in this case it can't find the set of locks acquired on rows that weren't returned. Because the locks are acquired on the session level, they aren't released automatically at the end of the transaction.
 
-Another possible cause for spikes in blocked lock attempts is unintended conflicts. In
-these conflicts, unrelated parts of the application share the same lock ID space by
-mistake.
+Another possible cause for spikes in blocked lock attempts is unintended conflicts. In these conflicts, unrelated parts of the application share the same lock ID space by mistake.
 
 ## Actions
+<a name="wait-event.lockadvisory.actions"></a>
 
-Review application usage of advisory locks and detail where and when in the application flow each type of advisory lock is
-acquired and released.
+Review application usage of advisory locks and detail where and when in the application flow each type of advisory lock is acquired and released.
 
-Determine whether a session is acquiring too many locks or a long-running session
-isn't releasing locks early enough, leading to a slow buildup of locks. You can
-correct a slow buildup of session-level locks by ending the session using
-`pg_terminate_backend(pid)`.
+Determine whether a session is acquiring too many locks or a long-running session isn't releasing locks early enough, leading to a slow buildup of locks. You can correct a slow buildup of session-level locks by ending the session using `pg_terminate_backend(pid)`. 
 
-A client waiting for an advisory lock appears in `pg_stat_activity` with `wait_event_type=Lock` and
-`wait_event=advisory`. You can obtain specific lock values by querying the `pg_locks` system view for
-the same `pid`, looking for `locktype=advisory` and `granted=f`.
+A client waiting for an advisory lock appears in `pg_stat_activity` with `wait_event_type=Lock` and `wait_event=advisory`. You can obtain specific lock values by querying the `pg_locks` system view for the same `pid`, looking for `locktype=advisory` and `granted=f`.
 
-You can then identify the blocking session by querying `pg_locks` for the
-same advisory lock having `granted=t`, as shown in the following
-example.
+You can then identify the blocking session by querying `pg_locks` for the same advisory lock having `granted=t`, as shown in the following example.
 
 ```
 SELECT blocked_locks.pid AS blocked_pid,
@@ -113,13 +88,8 @@ SELECT blocked_locks.pid AS blocked_pid,
     WHERE NOT blocked_locks.GRANTED;
 ```
 
-All of the advisory lock API functions have two sets of arguments, either one `bigint` argument or two
-`integer` arguments:
+All of the advisory lock API functions have two sets of arguments, either one `bigint` argument or two `integer` arguments:
++ For the API functions with one `bigint` argument, the upper 32 bits are in `pg_locks.classid` and the lower 32 bits are in `pg_locks.objid`.
++ For the API functions with two `integer` arguments, the first argument is `pg_locks.classid` and the second argument is `pg_locks.objid`.
 
-- For the API functions with one `bigint` argument, the upper 32 bits are in `pg_locks.classid`
-  and the lower 32 bits are in `pg_locks.objid`.
-- For the API functions with two `integer` arguments, the first argument is `pg_locks.classid` and
-  the second argument is `pg_locks.objid`.
-
-The `pg_locks.objsubid` value indicates which API form was used: `1` means one `bigint`
-argument; `2` means two `integer` arguments.
+The `pg_locks.objsubid` value indicates which API form was used: `1` means one `bigint` argument; `2` means two `integer` arguments.

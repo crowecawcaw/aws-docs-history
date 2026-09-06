@@ -1,216 +1,169 @@
-# Setting up access to an Amazon S3 bucket
 
-To export data to Amazon S3, give your PostgreSQL DB
-instance
-permission to access the Amazon S3 bucket that the files are to go in.
+
+# Setting up access to an Amazon S3 bucket
+<a name="postgresql-s3-export-access-bucket"></a>
+
+To export data to Amazon S3, give your PostgreSQL DB instance permission to access the Amazon S3 bucket that the files are to go in. 
 
 To do this, use the following procedure.
 
-###### To give a PostgreSQL DB instance access to Amazon S3 through an IAM role
+**To give a PostgreSQL DB instance access to Amazon S3 through an IAM role**
 
-1. Create an IAM policy.
+1. Create an IAM policy. 
 
-This policy provides the bucket and object permissions that allow your PostgreSQL DB
-instance
-to access Amazon S3.
+   This policy provides the bucket and object permissions that allow your PostgreSQL DB instance to access Amazon S3. 
 
-As part of creating this policy, take the following steps:
+   As part of creating this policy, take the following steps:
 
-    1. Include in the policy the following required actions to allow the
-     transfer of files from your PostgreSQL DB instance to
-     an Amazon S3 bucket:
+   1. Include in the policy the following required actions to allow the transfer of files from your PostgreSQL DB instance to an Amazon S3 bucket: 
+      + `s3:PutObject`
+      + `s3:AbortMultipartUpload`
 
+   1. Include the Amazon Resource Name (ARN) that identifies the Amazon S3 bucket and objects in the bucket. The ARN format for accessing Amazon S3 is: `arn:aws:s3:::{{amzn-s3-demo-bucket}}/*`
 
+   For more information on creating an IAM policy for Amazon RDS for PostgreSQL, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md). See also [Tutorial: Create and attach your first customer managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html) in the *IAM User Guide*.
 
+   The following AWS CLI command creates an IAM policy named `rds-s3-export-policy` with these options. It grants access to a bucket named {{amzn-s3-demo-bucket}}. 
+**Warning**  
+We recommend that you set up your database within a private VPC that has endpoint policies configured for accessing specific buckets. For more information, see [ Using endpoint policies for Amazon S3](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html#vpc-endpoints-policies-s3) in the Amazon VPC User Guide.  
+We strongly recommend that you do not create a policy with all-resource access. This access can pose a threat for data security. If you create a policy that gives `S3:PutObject` access to all resources using `"Resource":"*"`, then a user with export privileges can export data to all buckets in your account. In addition, the user can export data to *any publicly writable bucket within your AWS Region*. 
 
-    	* `s3:PutObject`
-    	* `s3:AbortMultipartUpload`
-    2. Include the Amazon Resource Name (ARN) that identifies the Amazon S3 bucket and objects in the bucket. The ARN
-     format for accessing Amazon S3 is: `arn:aws:s3:::`amzn-s3-demo-bucket`/*`For more information on creating an IAM policy for Amazon RDS for
+   After you create the policy, note the Amazon Resource Name (ARN) of the policy. You need the ARN for a subsequent step when you attach the policy to an IAM role. 
 
-PostgreSQL, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md"). See also [Tutorial: Create and
-attach your first customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the
-_IAM User Guide_.
+   ```
+   aws iam create-policy  --policy-name rds-s3-export-policy  --policy-document '{
+        "Version": "2012-10-17",		 	 	 
+        "Statement": [
+          {
+            "Sid": "s3export",
+            "Action": [
+              "s3:PutObject*",
+              "s3:ListBucket",
+              "s3:GetObject*",
+              "s3:DeleteObject*",
+              "s3:GetBucketLocation",
+              "s3:AbortMultipartUpload"
+            ],
+            "Effect": "Allow",
+            "Resource": [
+              "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*"
+            ] 
+          }
+        ] 
+      }'
+   ```
 
-The following AWS CLI command creates an IAM policy named
-`rds-s3-export-policy` with these options. It grants access to a
-bucket named `amzn-s3-demo-bucket`.
+1. Create an IAM role. 
 
-###### Warning
+   You do this so Amazon RDS can assume this IAM role on your behalf to access your Amazon S3 buckets. For more information, see [Creating a role to delegate permissions to an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*.
 
-We recommend that you set up your database within a private VPC that has
-endpoint policies configured for accessing specific buckets. For more
-information, see [Using endpoint policies for Amazon S3](../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-policies-s3 "../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-policies-s3") in the
-Amazon VPC User Guide.
+   We recommend using the `[aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn)` and `[aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount)` global condition context keys in resource-based policies to limit the service's permissions to a specific resource. This is the most effective way to protect against the [confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html). 
 
-We strongly recommend that you do not create a policy with all-resource
-access. This access can pose a threat for data security. If you create a
-policy that gives `S3:PutObject` access to all resources using
-`"Resource":"*"`, then a user with export privileges can
-export data to all buckets in your account. In addition, the user can export
-data to _any publicly writable bucket within your AWS
-Region_.
+   If you use both global condition context keys and the `aws:SourceArn` value contains the account ID, the `aws:SourceAccount` value and the account in the `aws:SourceArn` value must use the same account ID when used in the same policy statement.
+   + Use `aws:SourceArn` if you want cross-service access for a single resource. 
+   + Use `aws:SourceAccount` if you want to allow any resource in that account to be associated with the cross-service use.
 
-After you create the policy, note the Amazon Resource Name (ARN) of the
-policy. You need the ARN for a subsequent step when you attach the policy to an
-IAM role.
+    In the policy, be sure to use the `aws:SourceArn` global condition context key with the full ARN of the resource. The following example shows how to do so using the AWS CLI command to create a role named `rds-s3-export-role`.   
+**Example**  
 
-```
-aws iam create-policy  --policy-name rds-s3-export-policy  --policy-document '{
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Sid": "s3export",
-         "Action": [
-           "s3:PutObject*",
-           "s3:ListBucket",
-           "s3:GetObject*",
-           "s3:DeleteObject*",
-           "s3:GetBucketLocation",
-           "s3:AbortMultipartUpload"
-         ],
-         "Effect": "Allow",
-         "Resource": [
-           "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
-         ]
-       }
-     ]
-   }'
-```
+   For Linux, macOS, or Unix:
 
-2. Create an IAM role.
-
-You do this so Amazon RDS can assume this IAM role on your behalf
-to access your Amazon S3 buckets. For more information, see [Creating a role to
-delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the
-_IAM User Guide_.
-
-We recommend using the `aws:SourceArn` and
-`aws:SourceAccount`
-global condition context keys in resource-based policies to limit the service's permissions to a specific
-resource. This is the most effective way to protect against the [confused
-deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md").
-
-If you use both global condition context keys and the
-`aws:SourceArn` value contains the account ID, the `aws:SourceAccount` value and
-the account in the `aws:SourceArn` value must use the same account ID when used in the
-same policy statement.
-
-    * Use `aws:SourceArn` if you want cross-service access for a single resource.
-    * Use `aws:SourceAccount` if you want to allow any resource in that account to be associated with the cross-service use.
-
-In the policy, be sure to use
-the `aws:SourceArn` global condition context key with the full ARN of the resource.
-The following example shows how to do so using the AWS CLI command to create a role named
-`rds-s3-export-role`.
-
-###### Example
-
-For Linux, macOS, or Unix:
-
-```
-aws iam create-role  \
-    --role-name rds-s3-export-role  \
-    --assume-role-policy-document '{
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-            "Service": "rds.amazonaws.com"
-          },
-         "Action": "sts:AssumeRole",
-         "Condition": {
-             "StringEquals": {
-                "aws:SourceAccount": "`111122223333`",
-                "aws:SourceArn": "`arn:aws:rds:us-east-1:111122223333:db:dbname`"
+   ```
+   aws iam create-role  \
+       --role-name rds-s3-export-role  \
+       --assume-role-policy-document '{
+        "Version": "2012-10-17",		 	 	 
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+               "Service": "rds.amazonaws.com"
+             },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                   "aws:SourceAccount": "{{111122223333}}",
+                   "aws:SourceArn": "{{arn:aws:rds:us-east-1:111122223333:db:dbname}}"
+                   }
                 }
-             }
-       }
-     ]
-   }'
-```
+          }
+        ] 
+      }'
+   ```
 
-For Windows:
+   For Windows:
 
-```
-aws iam create-role  ^
-    --role-name rds-s3-export-role  ^
-    --assume-role-policy-document '{
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-            "Service": "rds.amazonaws.com"
-          },
-         "Action": "sts:AssumeRole",
-         "Condition": {
-             "StringEquals": {
-                "aws:SourceAccount": "`111122223333`",
-                "aws:SourceArn": "`arn:aws:rds:us-east-1:111122223333:db:dbname`"
+   ```
+   aws iam create-role  ^
+       --role-name rds-s3-export-role  ^
+       --assume-role-policy-document '{
+        "Version": "2012-10-17",		 	 	 
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+               "Service": "rds.amazonaws.com"
+             },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                   "aws:SourceAccount": "{{111122223333}}",
+                   "aws:SourceArn": "{{arn:aws:rds:us-east-1:111122223333:db:dbname}}"
+                   }
                 }
-             }
-       }
-     ]
-   }'
-```
+          }
+        ] 
+      }'
+   ```
 
-3. Attach the IAM policy that you created to the IAM role that you
-   created.
+1. Attach the IAM policy that you created to the IAM role that you created.
 
-The following AWS CLI command attaches the policy created earlier to the role
-named `rds-s3-export-role.` Replace
-`your-policy-arn` with the policy
-ARN that you noted in an earlier step.
+   The following AWS CLI command attaches the policy created earlier to the role named `rds-s3-export-role.` Replace `{{your-policy-arn}}` with the policy ARN that you noted in an earlier step. 
 
-```
-aws iam attach-role-policy  --policy-arn `your-policy-arn`  --role-name rds-s3-export-role
-```
+   ```
+   aws iam attach-role-policy  --policy-arn {{your-policy-arn}}  --role-name rds-s3-export-role  
+   ```
 
-4. Add the IAM role to the DB instance. You do so by using the AWS Management Console or
-   AWS CLI, as described following.
+1. Add the IAM role to the DB instance. You do so by using the AWS Management Console or AWS CLI, as described following.
 
-###### To add an IAM role for a PostgreSQL DB instance using the console
+## Console
+<a name="collapsible-section-1"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Choose the PostgreSQL DB
-   instance name to display its
-   details.
-3. On the **Connectivity & security** tab, in the
-   **Manage IAM roles** section, choose the role to
-   add under **Add IAM roles to this instance**.
-4. Under **Feature**, choose
-   **s3Export**.
-5. Choose **Add role**.
+**To add an IAM role for a PostgreSQL DB instance using the console**
 
-###### To add an IAM role for a PostgreSQL DB instance using the CLI
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-- Use the following command to add the role to the PostgreSQL DB
-  instance named `my-db-instance`. Replace
-  `your-role-arn` with the
-  role ARN that you noted in a previous step. Use `s3Export`
-  for the value of the `--feature-name` option.
+1. Choose the PostgreSQL DB instance name to display its details.
 
-###### Example
+1. On the **Connectivity & security** tab, in the **Manage IAM roles **section, choose the role to add under **Add IAM roles to this instance**. 
 
-For Linux, macOS, or Unix:
+1. Under **Feature**, choose **s3Export**.
 
-```
-aws rds add-role-to-db-instance \
-   --db-instance-identifier `my-db-instance` \
-   --feature-name s3Export \
-   --role-arn `your-role-arn`   \
-   --region `your-region`
-```
+1. Choose **Add role**.
 
-For Windows:
+## AWS CLI
+<a name="collapsible-section-2"></a>
 
-```
-aws rds add-role-to-db-instance ^
-   --db-instance-identifier `my-db-instance` ^
-   --feature-name s3Export ^
-   --role-arn `your-role-arn` ^
-   --region `your-region`
-```
+**To add an IAM role for a PostgreSQL DB instance using the CLI**
++ Use the following command to add the role to the PostgreSQL DB instance named `my-db-instance`. Replace {{`your-role-arn`}} with the role ARN that you noted in a previous step. Use `s3Export` for the value of the `--feature-name` option.   
+**Example**  
+
+  For Linux, macOS, or Unix:
+
+  ```
+  aws rds add-role-to-db-instance \
+     --db-instance-identifier {{my-db-instance}} \
+     --feature-name s3Export \
+     --role-arn {{your-role-arn}}   \
+     --region {{your-region}}
+  ```
+
+  For Windows:
+
+  ```
+  aws rds add-role-to-db-instance ^
+     --db-instance-identifier {{my-db-instance}} ^
+     --feature-name s3Export ^
+     --role-arn {{your-role-arn}} ^
+     --region {{your-region}}
+  ```

@@ -1,24 +1,20 @@
+
+
 # Use `CreateDBInstance` with an AWS SDK or CLI
+<a name="example_rds_CreateDBInstance_section"></a>
 
 The following code examples show how to use `CreateDBInstance`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md) 
 
-- [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md "example_rds_Scenario_GetStartedInstances_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples). 
 
 ```
-
     /// <summary>
     /// Create an RDS DB instance with a particular set of properties. Use the action DescribeDBInstancesAsync
     /// to determine when the DB instance is ready to use.
@@ -53,24 +49,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response.DBInstance;
     }
-
-
-
 ```
++  For API details, see [CreateDBInstance](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/CreateDBInstance) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateDBInstance](../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBInstance.md "../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBInstance.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -105,34 +91,26 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
             cleanUpResources(PARAMETER_GROUP_NAME, "", client);
             return false;
         }
+```
++  For API details, see [CreateDBInstance](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBInstance) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create a DB instance**  
+The following `create-db-instance` example uses the required options to launch a new DB instance.  
 
 ```
-
-- For API details, see
-  [CreateDBInstance](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBInstance.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a DB instance**
-
-The following `create-db-instance` example uses the required options to launch a new DB instance.
-
+aws rds create-db-instance \
+    --db-instance-identifier {{test-mysql-instance}} \
+    --db-instance-class {{db.t3.micro}} \
+    --engine {{mysql}} \
+    --master-username {{admin}} \
+    --master-user-password {{secret99}} \
+    --allocated-storage {{20}}
 ```
-`aws rds create-db-instance \
- --db-instance-identifier `test-mysql-instance` \
- --db-instance-class `db.t3.micro` \
- --engine `mysql` \
- --master-username `admin` \
- --master-user-password `secret99` \
- --allocated-storage `20``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -226,25 +204,16 @@ Output:
     }
 }
 ```
+For more information, see [Creating an Amazon RDS DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html) in the *Amazon RDS User Guide*.  
++  For API details, see [CreateDBInstance](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating an Amazon RDS DB Instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md") in the _Amazon RDS User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateDBInstance](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -285,24 +254,14 @@ func (instances *DbInstances) CreateInstance(ctx context.Context, instanceName s
 		return output.DBInstance, nil
 	}
 }
-
-
-
 ```
++  For API details, see [CreateDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateDBInstance](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBInstance")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
 import com.google.gson.Gson;
@@ -450,23 +409,14 @@ public class CreateDBInstance {
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [CreateDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBInstance.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples). 
 
 ```
 suspend fun createDatabaseInstance(
@@ -525,27 +475,16 @@ suspend fun waitForInstanceReady(dbInstanceIdentifierVal: String?) {
         println("Database instance is available!")
     }
 }
+```
++  For API details, see [CreateDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
+------
+#### [ PHP ]
 
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/rds#code-examples). 
 
 ```
-
-- For API details, see
-  [CreateDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/rds#code-examples").
-
-```
-
 require __DIR__ . '/vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -577,24 +516,14 @@ try {
     echo $e->getMessage();
     echo "\n";
 }
-
-
-
 ```
++  For API details, see [CreateDBInstance](https://docs.aws.amazon.com/goto/SdkForPHPV3/rds-2014-10-31/CreateDBInstance) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateDBInstance](../../../goto/SdkForPHPV3/rds-2014-10-31/CreateDBInstance.md "../../../goto/SdkForPHPV3/rds-2014-10-31/CreateDBInstance.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples). 
 
 ```
 class InstanceWrapper:
@@ -667,30 +596,20 @@ class InstanceWrapper:
             raise
         else:
             return db_inst
-
-
-
 ```
++  For API details, see [CreateDBInstance](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBInstance) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateDBInstance](../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md "../../../goto/boto3/rds-2014-10-31/CreateDBInstance.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples). 
 
 ```
 import AWSRDS
 
     /// Create a new database instance.
-    ///
+    /// 
     /// - Parameters:
     ///   - name: The name of the database to create.
     ///   - instanceIdentifier: The identifier to give the new database
@@ -705,7 +624,7 @@ import AWSRDS
     ///   - username: The admin user's username to establish for the new
     ///     instance.
     ///   - password: The password to use for the specified user's access.
-    ///
+    /// 
     /// - Returns: A string indicating the ARN of the newly created database
     ///   instance, or nil if the instance couldn't be created.
     func createDBInstance(name: String, instanceIdentifier: String, parameterGroupName: String,
@@ -738,14 +657,9 @@ import AWSRDS
             return nil
         }
     }
-
-
 ```
++  For API details, see [CreateDBInstance](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbinstance(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateDBInstance](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbinstance(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbinstance(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

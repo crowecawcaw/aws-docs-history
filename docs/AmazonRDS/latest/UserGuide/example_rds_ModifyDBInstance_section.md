@@ -1,25 +1,25 @@
+
+
 # Use `ModifyDBInstance` with an AWS SDK or CLI
+<a name="example_rds_ModifyDBInstance_section"></a>
 
 The following code examples show how to use `ModifyDBInstance`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To modify a DB instance**
-
-The following `modify-db-instance` example associates an option group and a parameter group with a compatible Microsoft SQL Server DB instance. The `--apply-immediately` parameter causes the option and parameter groups to be associated immediately, instead of waiting until the next maintenance window.
-
-```
-`aws rds modify-db-instance \
- --db-instance-identifier `database-2` \
- --option-group-name `test-se-2017` \
- --db-parameter-group-name `test-sqlserver-se-2017` \
- --apply-immediately`
+**AWS CLI**  
+**Example 1: To modify a DB instance**  
+The following `modify-db-instance` example associates an option group and a parameter group with a compatible Microsoft SQL Server DB instance. The `--apply-immediately` parameter causes the option and parameter groups to be associated immediately, instead of waiting until the next maintenance window.  
 
 ```
-
-Output:
+aws rds modify-db-instance \
+    --db-instance-identifier {{database-2}} \
+    --option-group-name {{test-se-2017}} \
+    --db-parameter-group-name {{test-sqlserver-se-2017}} \
+    --apply-immediately
+```
+Output:  
 
 ```
 {
@@ -65,21 +65,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Modifying an Amazon RDS DB Instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md") in the _Amazon RDS User Guide_.
-
-**Example 2: To associate VPC security group with a DB instance**
-
-The following `modify-db-instance` example associates a specific VPC security group and removes DB security groups from a DB instance:
+For more information, see [Modifying an Amazon RDS DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html) in the *Amazon RDS User Guide*.  
+**Example 2: To associate VPC security group with a DB instance**  
+The following `modify-db-instance` example associates a specific VPC security group and removes DB security groups from a DB instance:  
 
 ```
-`aws rds modify-db-instance \
- --db-instance-identifier `dbName` \
- --vpc-security-group-ids `sg-ID``
-
+aws rds modify-db-instance \
+    --db-instance-identifier {{dbName}} \
+    --vpc-security-group-ids {{sg-ID}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -116,22 +111,14 @@ Output:
     }
 }
 ```
+For more information, see [Controlling access with security groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html) in the *Amazon RDS User Guide*.  
++  For API details, see [ModifyDBInstance](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md") in the _Amazon RDS User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ModifyDBInstance](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-db-instance.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -193,23 +180,14 @@ public class ModifyDBInstance {
         }
     }
 }
-
-
 ```
++  For API details, see [ModifyDBInstance](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/ModifyDBInstance) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ModifyDBInstance](../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBInstance.md "../../../goto/SdkForJavaV2/rds-2014-10-31/ModifyDBInstance.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples). 
 
 ```
 suspend fun updateIntance(
@@ -228,14 +206,9 @@ suspend fun updateIntance(
         println("The ARN of the modified database is ${instanceResponse.dbInstance?.dbInstanceArn}")
     }
 }
-
-
 ```
++  For API details, see [ModifyDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ModifyDBInstance](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

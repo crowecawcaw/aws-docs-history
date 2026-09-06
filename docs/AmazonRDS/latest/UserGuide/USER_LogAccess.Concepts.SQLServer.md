@@ -1,179 +1,135 @@
-# Amazon RDS for Microsoft SQL Server database log files
 
-You can access Microsoft SQL Server error logs, agent logs, trace files, and dump files by using the Amazon RDS console,
-AWS CLI, or RDS API. For more information about viewing, downloading, and watching file-based database logs, see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md").
+
+# Amazon RDS for Microsoft SQL Server database log files
+<a name="USER_LogAccess.Concepts.SQLServer"></a>
+
+You can access Microsoft SQL Server error logs, agent logs, trace files, and dump files by using the Amazon RDS console, AWS CLI, or RDS API. For more information about viewing, downloading, and watching file-based database logs, see [Monitoring Amazon RDS log files](USER_LogAccess.md).
 
 ## Retention schedule
+<a name="USER_LogAccess.Concepts.SQLServer.Retention"></a>
 
-Log files are rotated each day and whenever your DB instance is restarted. The
-following is the retention schedule for Microsoft SQL Server logs on Amazon RDS.
+Log files are rotated each day and whenever your DB instance is restarted. The following is the retention schedule for Microsoft SQL Server logs on Amazon RDS. 
 
-| Log type    | Retention schedule                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Error logs  | A maximum of 30 error logs are retained. Amazon RDS might delete error logs older than 7 days.                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Agent logs  | A maximum of 10 agent logs are retained. Amazon RDS might delete agent logs older than 7 days.                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Trace files | Trace files are retained according to the trace file retention<br>period of your DB instance. The default trace file retention period<br>is 7 days. To modify the trace file retention period for your DB<br>instance, see [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles "Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles"). |
-| Dump files  | Dump files are retained according to the dump file retention<br>period of your DB instance. The default dump file retention period<br>is 7 days. To modify the dump file retention period for your DB<br>instance, see [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles "Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles").     |
+
+
+| Log type | Retention schedule | 
+| --- | --- | 
+| Error logs | A maximum of 30 error logs are retained. Amazon RDS might delete error logs older than 7 days.  | 
+| Agent logs | A maximum of 10 agent logs are retained. Amazon RDS might delete agent logs older than 7 days.  | 
+| Trace files | Trace files are retained according to the trace file retention period of your DB instance. The default trace file retention period is 7 days. To modify the trace file retention period for your DB instance, see [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles).  | 
+| Dump files | Dump files are retained according to the dump file retention period of your DB instance. The default dump file retention period is 7 days. To modify the dump file retention period for your DB instance, see [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles).  | 
 
 ## Viewing the SQL Server error log by using the rds\_read\_error\_log procedure
+<a name="USER_LogAccess.Concepts.SQLServer.Proc"></a>
 
-You can use the Amazon RDS stored procedure `rds_read_error_log` to view error
-logs and agent logs. For more information, see [Viewing error and agent logs](Appendix.SQLServer.CommonDBATasks.Logs.md#Appendix.SQLServer.CommonDBATasks.Logs.SP "Appendix.SQLServer.CommonDBATasks.Logs.md#Appendix.SQLServer.CommonDBATasks.Logs.SP").
+You can use the Amazon RDS stored procedure `rds_read_error_log` to view error logs and agent logs. For more information, see [Viewing error and agent logs](Appendix.SQLServer.CommonDBATasks.Logs.md#Appendix.SQLServer.CommonDBATasks.Logs.SP). 
 
 ## Publishing SQL Server logs to Amazon CloudWatch Logs
+<a name="USER_LogAccess.SQLServer.PublishtoCloudWatchLogs"></a>
 
-With Amazon RDS for SQL Server, you can publish error and agent log events directly to
-Amazon CloudWatch Logs. Analyze the log data with CloudWatch Logs, then use CloudWatch to create alarms and view
-metrics.
+With Amazon RDS for SQL Server, you can publish error and agent log events directly to Amazon CloudWatch Logs. Analyze the log data with CloudWatch Logs, then use CloudWatch to create alarms and view metrics.
 
 With CloudWatch Logs, you can do the following:
++ Store logs in highly durable storage space with a retention period that you define.
++ Search and filter log data.
++ Share log data between accounts.
++ Export logs to Amazon S3.
++ Stream data to Amazon OpenSearch Service.
++ Process log data in real time with Amazon Kinesis Data Streams. For more information, see [Working with Amazon CloudWatch Logs](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html) in the *Amazon Managed Service for Apache Flink for SQL Applications Developer Guide*.
 
-- Store logs in highly durable storage space with a retention period that you
-  define.
-- Search and filter log data.
-- Share log data between accounts.
-- Export logs to Amazon S3.
-- Stream data to Amazon OpenSearch Service.
-- Process log data in real time with Amazon Kinesis Data Streams. For more information, see [Working with Amazon CloudWatch Logs](../../../kinesisanalytics/latest/dev/cloudwatch-logs.md "../../../kinesisanalytics/latest/dev/cloudwatch-logs.md") in the _Amazon Managed Service for Apache Flink for
-  SQL Applications Developer Guide_.
+ Amazon RDS publishes each SQL Server database log as a separate database stream in the log group. For example, if you publish the agent logs and error logs, error data is stored in an error log stream in the `/aws/rds/instance/{{my_instance.node1}}/error` log group, and agent log data is stored in the `/aws/rds/instance/{{my_instance.node1}}/agent` log group.
 
-Amazon RDS publishes each SQL Server database log as a separate database stream in the log
-group. For example, if you publish the agent logs and error logs, error data is stored in an error log
-stream in the
-`/aws/rds/instance/`my_instance.node1`/error` log
-group, and agent log data is stored in the `/aws/rds/instance/`my_instance.node1`/agent` log
-group.
+For Multi-AZ DB instances, Amazon RDS publishes the database log as two separate streams in the log group. For example, if you publish the error logs, the error data is stored in the error log streams `/aws/rds/instance/{{my_instance.node1}}/error` and `/aws/rds/instance/{{my_instance.node2}}/error` respectively. The log streams don't change during a failover and the error log stream of each node can contain error logs from primary or secondary instance. With Multi-AZ, a log stream is automatically created for `/aws/rds/instance/{{my_instance}}/rds-events` to store event data such as DB instance failovers.
 
-For Multi-AZ DB instances, Amazon RDS publishes the database log as two separate streams in the log group. For example, if you publish the error logs, the error data
-is stored in the error log streams `/aws/rds/instance/`my_instance.node1`/error` and `/aws/rds/instance/`my_instance.node2`/error`
-respectively. The log streams don't change during a failover and the error log stream of each node can contain error logs from primary or secondary instance. With Multi-AZ,
-a log stream is automatically created for `/aws/rds/instance/`my_instance`/rds-events` to store event data such as DB instance failovers.
+**Note**  
+Publishing SQL Server logs to CloudWatch Logs isn't enabled by default. Publishing trace and dump files isn't supported. Publishing SQL Server logs to CloudWatch Logs is supported in all regions.
 
-###### Note
+### Console
+<a name="USER_LogAccess.SQLServer.PublishtoCloudWatchLogs.console"></a>
 
-Publishing SQL Server logs to CloudWatch Logs isn't enabled by default. Publishing trace and
-dump files isn't supported. Publishing SQL Server logs to CloudWatch Logs is supported in all
-regions.
+**To publish SQL Server DB logs to CloudWatch Logs from the AWS Management Console**
 
-###### To publish SQL Server DB logs to CloudWatch Logs from the AWS Management Console
+1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-1. Open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**, and
-   then choose the DB instance that you want to modify.
-3. Choose **Modify**.
-4. In the **Log exports** section, choose the logs that
-   you want to start publishing to CloudWatch Logs.
+1. In the navigation pane, choose **Databases**, and then choose the DB instance that you want to modify.
 
-You can choose **Agent log**, **Error log**, or both. 5. Choose **Continue**, and then choose **Modify
-DB Instance** on the summary page.
-To publish SQL Server logs, you can use the [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command with the following
-parameters:
+1. Choose **Modify**.
 
-- `--db-instance-identifier`
-- `--cloudwatch-logs-export-configuration`
+1. In the **Log exports** section, choose the logs that you want to start publishing to CloudWatch Logs.
 
-###### Note
+   You can choose **Agent log**, **Error log**, or both.
 
-A change to the `--cloudwatch-logs-export-configuration` option
-is always applied to the DB instance immediately. Therefore, the
-`--apply-immediately` and `--no-apply-immediately`
-options have no effect.
+1. Choose **Continue**, and then choose **Modify DB Instance** on the summary page.
 
-You can also publish SQL Server logs using the following commands:
+### AWS CLI
+<a name="USER_LogAccess.SQLServer.PublishtoCloudWatchLogs.CLI"></a>
 
-- [`create-db-instance`](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md")
-- [`restore-db-instance-from-db-snapshot`](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md")
-- [`restore-db-instance-to-point-in-time`](../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md")
+To publish SQL Server logs, you can use the [`modify-db-instance`](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) command with the following parameters: 
++ `--db-instance-identifier`
++ `--cloudwatch-logs-export-configuration`
 
-###### Example
+**Note**  
+A change to the `--cloudwatch-logs-export-configuration` option is always applied to the DB instance immediately. Therefore, the `--apply-immediately` and `--no-apply-immediately` options have no effect.
 
-The following example creates an SQL Server DB instance with CloudWatch Logs publishing enabled.
-The `--enable-cloudwatch-logs-exports` value is a JSON array of
-strings that can include `error`, `agent`, or
-both.
+You can also publish SQL Server logs using the following commands: 
++ [`create-db-instance`](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html)
++ [`restore-db-instance-from-db-snapshot`](https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html)
++ [`restore-db-instance-to-point-in-time`](https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-to-point-in-time.html)
 
-For Linux, macOS, or Unix:
+**Example**  
+The following example creates an SQL Server DB instance with CloudWatch Logs publishing enabled. The `--enable-cloudwatch-logs-exports` value is a JSON array of strings that can include `error`, `agent`, or both.  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds create-db-instance \
-    --db-instance-identifier `mydbinstance` \
+    --db-instance-identifier {{mydbinstance}} \
     --enable-cloudwatch-logs-exports '["error","agent"]' \
-    --db-instance-class `db.m4.large` \
-    --engine `sqlserver-se`
+    --db-instance-class {{db.m4.large}} \
+    --engine {{sqlserver-se}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds create-db-instance ^
-    --db-instance-identifier `mydbinstance` ^
+    --db-instance-identifier {{mydbinstance}} ^
     --enable-cloudwatch-logs-exports "[\"error\",\"agent\"]" ^
     --db-instance-class db.m4.large ^
     --engine sqlserver-se
 ```
+When using the Windows command prompt, you must escape double quotes (") in JSON code by prefixing them with a backslash (\\).
 
-###### Note
-
-When using the Windows command prompt, you must escape double quotes (") in JSON code by
-prefixing them with a backslash (\).
-
-###### Example
-
-The following example modifies an existing SQL Server DB instance to
-publish log files to CloudWatch Logs. The
-`--cloudwatch-logs-export-configuration` value is a JSON
-object. The key for this object is `EnableLogTypes`, and its
-value is an array of strings that can include `error`,
-`agent`, or both.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following example modifies an existing SQL Server DB instance to publish log files to CloudWatch Logs. The `--cloudwatch-logs-export-configuration` value is a JSON object. The key for this object is `EnableLogTypes`, and its value is an array of strings that can include `error`, `agent`, or both.  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds modify-db-instance \
-    --db-instance-identifier `mydbinstance` \
+    --db-instance-identifier {{mydbinstance}} \
     --cloudwatch-logs-export-configuration '{"EnableLogTypes":["error","agent"]}'
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds modify-db-instance ^
-    --db-instance-identifier `mydbinstance` ^
+    --db-instance-identifier {{mydbinstance}} ^
     --cloudwatch-logs-export-configuration "{\"EnableLogTypes\":[\"error\",\"agent\"]}"
 ```
+When using the Windows command prompt, you must escape double quotes (") in JSON code by prefixing them with a backslash (\\).
 
-###### Note
-
-When using the Windows command prompt, you must escape double quotes (") in JSON code by
-prefixing them with a backslash (\).
-
-###### Example
-
-The following example modifies an existing SQL Server DB instance to
-disable publishing agent log files to CloudWatch Logs. The
-`--cloudwatch-logs-export-configuration` value is a JSON
-object. The key for this object is `DisableLogTypes`, and its
-value is an array of strings that can include `error`,
-`agent`, or both.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following example modifies an existing SQL Server DB instance to disable publishing agent log files to CloudWatch Logs. The `--cloudwatch-logs-export-configuration` value is a JSON object. The key for this object is `DisableLogTypes`, and its value is an array of strings that can include `error`, `agent`, or both.  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds modify-db-instance \
-    --db-instance-identifier `mydbinstance` \
+    --db-instance-identifier {{mydbinstance}} \
     --cloudwatch-logs-export-configuration '{"DisableLogTypes":["agent"]}'
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds modify-db-instance ^
-    --db-instance-identifier `mydbinstance` ^
+    --db-instance-identifier {{mydbinstance}} ^
     --cloudwatch-logs-export-configuration "{\"DisableLogTypes\":[\"agent\"]}"
 ```
-
-###### Note
-
-When using the Windows command prompt, you must escape double quotes (") in JSON code by
-prefixing them with a backslash (\).
+When using the Windows command prompt, you must escape double quotes (") in JSON code by prefixing them with a backslash (\\).

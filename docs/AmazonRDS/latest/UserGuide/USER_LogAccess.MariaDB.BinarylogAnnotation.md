@@ -1,21 +1,13 @@
+
+
 # Enabling MariaDB binary log annotation
+<a name="USER_LogAccess.MariaDB.BinarylogAnnotation"></a>
 
-In a MariaDB DB instance, you can use the `Annotate_rows` event to annotate a
-row event with a copy of the SQL query that caused the row event. This approach
-provides similar functionality to enabling the
-`binlog_rows_query_log_events` parameter on an RDS for MySQL DB instance.
+In a MariaDB DB instance, you can use the `Annotate_rows` event to annotate a row event with a copy of the SQL query that caused the row event. This approach provides similar functionality to enabling the `binlog_rows_query_log_events` parameter on an RDS for MySQL DB instance.
 
-You can enable binary log annotations globally by creating a custom parameter group and
-setting the `binlog_annotate_row_events` parameter to
-`1`. You can also enable annotations at the session level,
-by calling `SET SESSION binlog_annotate_row_events = 1`. Use the
-`replicate_annotate_row_events` to replicate binary log annotations
-to the replica instance if binary logging is enabled on it. No special privileges are
-required to use these settings.
+You can enable binary log annotations globally by creating a custom parameter group and setting the `binlog_annotate_row_events` parameter to **1**. You can also enable annotations at the session level, by calling `SET SESSION binlog_annotate_row_events = 1`. Use the `replicate_annotate_row_events` to replicate binary log annotations to the replica instance if binary logging is enabled on it. No special privileges are required to use these settings.
 
-The following is an example of a row-based transaction in MariaDB. The use of row-based
-logging is triggered by setting the transaction isolation level to
-read-committed.
+The following is an example of a row-based transaction in MariaDB. The use of row-based logging is triggered by setting the transaction isolation level to read-committed.
 
 ```
 CREATE DATABASE IF NOT EXISTS test;
@@ -27,8 +19,7 @@ INSERT INTO square(x, y) VALUES(5, 5 * 5);
 COMMIT;
 ```
 
-Without annotations, the binary log entries for the transaction look like the
-following:
+Without annotations, the binary log entries for the transaction look like the following:
 
 ```
 BEGIN
@@ -46,8 +37,7 @@ BEGIN
 COMMIT/*!*/;
 ```
 
-The following statement enables session-level annotations for this same transaction, and
-disables them after committing the transaction:
+The following statement enables session-level annotations for this same transaction, and disables them after committing the transaction:
 
 ```
 CREATE DATABASE IF NOT EXISTS test;
@@ -61,8 +51,7 @@ COMMIT;
 SET SESSION binlog_annotate_row_events = 0;
 ```
 
-With annotations, the binary log entries for the transaction look like the
-following:
+With annotations, the binary log entries for the transaction look like the following:
 
 ```
 BEGIN

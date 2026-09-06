@@ -1,21 +1,19 @@
+
+
 # Creating a relational database instance
+<a name="example_rds_GettingStarted_036_section"></a>
 
 The following code example shows how to:
++ Set up networking components
++ Create a DB subnet group
++ Create a DB instance
++ Clean up resources
 
-- Set up networking components
-- Create a DB subnet group
-- Create a DB instance
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/036-rds-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/036-rds-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/036-rds-gs) repository. 
 
 ```
 #!/bin/bash
@@ -35,7 +33,7 @@ echo "=============================================="
 check_error() {
     local output=$1
     local cmd=$2
-
+    
     if echo "$output" | grep -i "error" > /dev/null; then
         echo "ERROR: Command failed: $cmd"
         echo "$output"
@@ -47,24 +45,24 @@ check_error() {
 # Function to clean up resources on error
 cleanup_on_error() {
     echo "Error encountered. Attempting to clean up resources..."
-
+    
     if [ -n "$DB_INSTANCE_ID" ]; then
         echo "Deleting DB instance $DB_INSTANCE_ID..."
         aws rds delete-db-instance --db-instance-identifier "$DB_INSTANCE_ID" --skip-final-snapshot
         echo "Waiting for DB instance to be deleted..."
         aws rds wait db-instance-deleted --db-instance-identifier "$DB_INSTANCE_ID"
     fi
-
+    
     if [ -n "$DB_SUBNET_GROUP_NAME" ] && [ "$CREATED_SUBNET_GROUP" = "true" ]; then
         echo "Deleting DB subnet group $DB_SUBNET_GROUP_NAME..."
         aws rds delete-db-subnet-group --db-subnet-group-name "$DB_SUBNET_GROUP_NAME"
     fi
-
+    
     if [ -n "$SECURITY_GROUP_ID" ] && [ "$CREATED_SECURITY_GROUP" = "true" ]; then
         echo "Deleting security group $SECURITY_GROUP_ID..."
         aws ec2 delete-security-group --group-id "$SECURITY_GROUP_ID"
     fi
-
+    
     echo "Cleanup completed."
 }
 
@@ -254,21 +252,21 @@ read -r CLEANUP_CHOICE
 
 if [[ $CLEANUP_CHOICE =~ ^[Yy] ]]; then
     echo "Starting cleanup process..."
-
+    
     echo "Step 1: Deleting DB instance $DB_INSTANCE_ID..."
     aws rds delete-db-instance --db-instance-identifier "$DB_INSTANCE_ID" --skip-final-snapshot
     echo "Waiting for DB instance to be deleted..."
     aws rds wait db-instance-deleted --db-instance-identifier "$DB_INSTANCE_ID"
-
+    
     echo "Step 2: Deleting secret $SECRET_NAME..."
     aws secretsmanager delete-secret --secret-id "$SECRET_NAME" --force-delete-without-recovery
-
+    
     echo "Step 3: Deleting DB subnet group $DB_SUBNET_GROUP_NAME..."
     aws rds delete-db-subnet-group --db-subnet-group-name "$DB_SUBNET_GROUP_NAME"
-
+    
     echo "Step 4: Deleting security group $SECURITY_GROUP_ID..."
     aws ec2 delete-security-group --group-id "$SECURITY_GROUP_ID"
-
+    
     echo "Cleanup completed successfully!"
 else
     echo "Skipping cleanup. Resources will remain in your AWS account."
@@ -276,26 +274,23 @@ else
 fi
 
 echo "Script completed successfully!"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateDbInstance](https://docs.aws.amazon.com/goto/aws-cli/rds-2014-10-31/CreateDbInstance)
+  + [CreateDbSubnetGroup](https://docs.aws.amazon.com/goto/aws-cli/rds-2014-10-31/CreateDbSubnetGroup)
+  + [CreateSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/CreateSecret)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [DeleteDbInstance](https://docs.aws.amazon.com/goto/aws-cli/rds-2014-10-31/DeleteDbInstance)
+  + [DeleteDbSubnetGroup](https://docs.aws.amazon.com/goto/aws-cli/rds-2014-10-31/DeleteDbSubnetGroup)
+  + [DeleteSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DescribeDbInstances](https://docs.aws.amazon.com/goto/aws-cli/rds-2014-10-31/DescribeDbInstances)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [GetSecretValue](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/rds-2014-10-31/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateDbInstance](../../../goto/aws-cli/rds-2014-10-31/CreateDbInstance.md "../../../goto/aws-cli/rds-2014-10-31/CreateDbInstance.md")
-  - [CreateDbSubnetGroup](../../../goto/aws-cli/rds-2014-10-31/CreateDbSubnetGroup.md "../../../goto/aws-cli/rds-2014-10-31/CreateDbSubnetGroup.md")
-  - [CreateSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [DeleteDbInstance](../../../goto/aws-cli/rds-2014-10-31/DeleteDbInstance.md "../../../goto/aws-cli/rds-2014-10-31/DeleteDbInstance.md")
-  - [DeleteDbSubnetGroup](../../../goto/aws-cli/rds-2014-10-31/DeleteDbSubnetGroup.md "../../../goto/aws-cli/rds-2014-10-31/DeleteDbSubnetGroup.md")
-  - [DeleteSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DescribeDbInstances](../../../goto/aws-cli/rds-2014-10-31/DescribeDbInstances.md "../../../goto/aws-cli/rds-2014-10-31/DescribeDbInstances.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [GetSecretValue](../../../goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue.md "../../../goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue.md")
-  - [Wait](../../../goto/aws-cli/rds-2014-10-31/Wait.md "../../../goto/aws-cli/rds-2014-10-31/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

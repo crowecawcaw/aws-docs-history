@@ -1,32 +1,41 @@
-# Integrating BYOM DB Instance with AWS License Manager
 
-To make it easier to monitor SQL Server license usage in the BYOM model, [AWS License Manager](https://aws.amazon.com/license-manager/ "https://aws.amazon.com/license-manager/") integrates with RDS for SQL Server. License Manager supports tracking of RDS for SQL Server engine editions based on virtual cores (vCPUs). You can also use License Manager with AWS Organizations to manage all of your organizational accounts centrally.
+
+# Integrating BYOM DB Instance with AWS License Manager
+<a name="sqlserver-byom-license-manager"></a>
+
+To make it easier to monitor SQL Server license usage in the BYOM model, [AWS License Manager](https://aws.amazon.com/license-manager/) integrates with RDS for SQL Server. License Manager supports tracking of RDS for SQL Server engine editions based on virtual cores (vCPUs). You can also use License Manager with AWS Organizations to manage all of your organizational accounts centrally.
 
 The following table shows the product information filters for RDS for SQL Server.
 
-| Filter         | Name           | Description                        |
-| -------------- | -------------- | ---------------------------------- |
-| Engine Edition | `sqlserver-ee` | SQL Server Enterprise Edition (EE) |
-| Engine Edition | `sqlserver-se` | SQL Server Standard Edition (SE)   |
+
+| Filter | Name | Description | 
+| --- | --- | --- | 
+| Engine Edition | sqlserver-ee | SQL Server Enterprise Edition (EE) | 
+| Engine Edition | sqlserver-se | SQL Server Standard Edition (SE) | 
 
 To track license usage of your SQL Server DB instances, you can create a self-managed license using AWS License Manager. In this case, RDS for SQL Server resources that match the product information filter are automatically associated with the self-managed license. Discovery of SQL Server DB instances can take up to 24 hours. You can also track a license across accounts by using AWS Resource Access Manager.
 
 ## To create a self-managed license in AWS License Manager
+<a name="sqlserver-byom-license-manager.create-console"></a>
 
 To create a self-managed license in AWS License Manager to track the license usage of your RDS for SQL Server DB instances:
 
-1. Go to [https://console.aws.amazon.com/license-manager/](https://console.aws.amazon.com/license-manager/ "https://console.aws.amazon.com/license-manager/").
-2. Choose **Create self-managed license**.
+1. Go to [https://console.aws.amazon.com/license-manager/](https://console.aws.amazon.com/license-manager/).
 
-For instructions, see [Create a self-managed license](../../../license-manager/latest/userguide/create-license-configuration.md "../../../license-manager/latest/userguide/create-license-configuration.md") in the _AWS License Manager User Guide_.
+1. Choose **Create self-managed license**.
 
-Add a rule for an RDS Product Information Filter in the Product Information panel. When selecting the resource type, choose **SQL Server Database**.
+   For instructions, see [Create a self-managed license](https://docs.aws.amazon.com/license-manager/latest/userguide/create-license-configuration.html) in the *AWS License Manager User Guide*.
 
-For more information, see [ProductInformation](../../../license-manager/latest/APIReference/API_ProductInformation.md "../../../license-manager/latest/APIReference/API_ProductInformation.md") in the _AWS License Manager API Reference_. 3. (Cross-account tracking only) Use AWS Resource Access Manager to share your self-managed licenses with any AWS account or through AWS Organizations. For more information, see [Sharing your AWS resources](../../../ram/latest/userguide/getting-started-sharing.md "../../../ram/latest/userguide/getting-started-sharing.md").
+   Add a rule for an RDS Product Information Filter in the Product Information panel. When selecting the resource type, choose **SQL Server Database**.
+
+   For more information, see [ProductInformation](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ProductInformation.html) in the *AWS License Manager API Reference*.
+
+1. (Cross-account tracking only) Use AWS Resource Access Manager to share your self-managed licenses with any AWS account or through AWS Organizations. For more information, see [Sharing your AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html).
 
 ## To create a self-managed license by using the AWS CLI
+<a name="sqlserver-byom-license-manager.create-cli"></a>
 
-To create a self-managed license by using the AWS CLI, call the [`create-license-configuration`](../../../cli/latest/reference/license-manager/create-license-configuration.md "../../../cli/latest/reference/license-manager/create-license-configuration.md") command. Use the `--cli-input-json` or `--cli-input-yaml` parameters to pass the parameters to the command.
+To create a self-managed license by using the AWS CLI, call the [`create-license-configuration`](https://docs.aws.amazon.com/cli/latest/reference/license-manager/create-license-configuration.html) command. Use the `--cli-input-json` or `--cli-input-yaml` parameters to pass the parameters to the command.
 
 **Example**
 
@@ -59,6 +68,6 @@ The following is the sample `rds-sqlserver-ee.json` file used in the example.
 }
 ```
 
-For more information about product information, see [Automated discovery of resource inventory](../../../license-manager/latest/userguide/automated-discovery.md "../../../license-manager/latest/userguide/automated-discovery.md") in the _AWS License Manager User Guide_.
+For more information about product information, see [Automated discovery of resource inventory](https://docs.aws.amazon.com/license-manager/latest/userguide/automated-discovery.html) in the *AWS License Manager User Guide*.
 
-For more information about the `--cli-input` parameter, see [Generating AWS CLI skeleton and input parameters from a JSON or YAML input file](../../../cli/latest/userguide/cli-usage-skeleton.md "../../../cli/latest/userguide/cli-usage-skeleton.md") in the _AWS CLI User Guide_.
+For more information about the `--cli-input` parameter, see [Generating AWS CLI skeleton and input parameters from a JSON or YAML input file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-skeleton.html) in the *AWS CLI User Guide*.

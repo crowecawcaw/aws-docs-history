@@ -1,33 +1,22 @@
+
+
 # Setting and unsetting system diagnostic events
+<a name="Appendix.Oracle.CommonDBATasks.SystemEvents"></a>
 
-To set and unset diagnostic events at the session level, you can use the Oracle SQL statement `ALTER
- SESSION SET EVENTS`. However, to set events at the system level you can't use Oracle SQL. Instead,
-use the system event procedures in the `rdsadmin.rdsadmin_util` package. The system event
-procedures are available in the following engine versions:
+To set and unset diagnostic events at the session level, you can use the Oracle SQL statement `ALTER SESSION SET EVENTS`. However, to set events at the system level you can't use Oracle SQL. Instead, use the system event procedures in the `rdsadmin.rdsadmin_util` package. The system event procedures are available in the following engine versions:
++ All Oracle Database 26ai versions
++ All Oracle Database 21c versions
++ 19.0.0.0.ru-2020-10.rur-2020-10.r1 and higher Oracle Database 19c versions
 
-- All Oracle Database 26ai versions
-- All Oracle Database 21c versions
-- 19.0.0.0.ru-2020-10.rur-2020-10.r1 and higher Oracle Database 19c versions
+  For more information, see [Version 19.0.0.0.ru-2020-10.rur-2020-10.r1](https://docs.aws.amazon.com/AmazonRDS/latest/OracleReleaseNotes/oracle-version-19-0.html#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1) in the *Amazon RDS for Oracle Release Notes*
 
-For more information, see [Version 19.0.0.0.ru-2020-10.rur-2020-10.r1](../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1 "../OracleReleaseNotes/oracle-version-19-0.md#oracle-version-RU-RUR.19.0.0.0.ru-2020-10.rur-2020-10.r1") in the
-_Amazon RDS for Oracle Release Notes_
-
-###### Important
-
-Internally, the `rdsadmin.rdsadmin_util` package sets events by
-using the `ALTER SYSTEM SET EVENTS` statement. This `ALTER
- SYSTEM` statement isn't documented in the Oracle Database
-documentation. Some system diagnostic events can generate large amounts of
-tracing information, cause contention, or affect database availability. We
-recommend that you test specific diagnostic events in your nonproduction
-database, and only set events in your production database under guidance of
-Oracle Support.
+**Important**  
+Internally, the `rdsadmin.rdsadmin_util` package sets events by using the `ALTER SYSTEM SET EVENTS` statement. This `ALTER SYSTEM` statement isn't documented in the Oracle Database documentation. Some system diagnostic events can generate large amounts of tracing information, cause contention, or affect database availability. We recommend that you test specific diagnostic events in your nonproduction database, and only set events in your production database under guidance of Oracle Support.
 
 ## Listing allowed system diagnostic events
+<a name="Appendix.Oracle.CommonDBATasks.SystemEvents.listing"></a>
 
-To list the system events that you can set, use the Amazon RDS procedure
-`rdsadmin.rdsadmin_util.list_allowed_system_events`. This
-procedure accepts no parameters.
+To list the system events that you can set, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.list_allowed_system_events`. This procedure accepts no parameters.
 
 The following example lists all system events that you can set.
 
@@ -36,9 +25,7 @@ SET SERVEROUTPUT ON
 EXEC rdsadmin.rdsadmin_util.list_allowed_system_events;
 ```
 
-The following sample output lists event numbers and their descriptions. Use
-the Amazon RDS procedures `set_system_event` to set these events and
-`unset_system_event` to unset them.
+The following sample output lists event numbers and their descriptions. Use the Amazon RDS procedures `set_system_event` to set these events and `unset_system_event` to unset them.
 
 ```
 604   - error occurred at recursive SQL level
@@ -68,47 +55,27 @@ the Amazon RDS procedures `set_system_event` to set these events and
 31693 - Table data object  failed to load/unload and is being skipped due to error:
 ```
 
-###### Note
-
-The list of the allowed system events can change over time. To make sure
-that you have the most recent list of eligible events, use
-`rdsadmin.rdsadmin_util.list_allowed_system_events`.
+**Note**  
+The list of the allowed system events can change over time. To make sure that you have the most recent list of eligible events, use `rdsadmin.rdsadmin_util.list_allowed_system_events`.
 
 ## Setting system diagnostic events
+<a name="Appendix.Oracle.CommonDBATasks.SystemEvents.setting"></a>
 
-To set a system event, use the Amazon RDS procedure
-`rdsadmin.rdsadmin_util.set_system_event`. You can only set
-events listed in the output of
-`rdsadmin.rdsadmin_util.list_allowed_system_events`. The
-`set_system_event` procedure accepts the following
-parameters.
+To set a system event, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.set_system_event`. You can only set events listed in the output of `rdsadmin.rdsadmin_util.list_allowed_system_events`. The `set_system_event` procedure accepts the following parameters.
 
-| Parameter name | Data type | Default | Required | Description                                                                                                                |
-| -------------- | --------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `p_event`      | number    | —       | Yes      | The system event number. The value must be one of the<br>event numbers reported by<br>`list_allowed_system_events`.        |
-| `p_level`      | number    | —       | Yes      | The event level. See the Oracle Database documentation or<br>Oracle Support for descriptions of different level<br>values. |
 
-The procedure `set_system_event` constructs and runs the required
-`ALTER SYSTEM SET EVENTS` statements according to the following
-principles:
 
-- The event type (`context` or `errorstack`) is
-  determined automatically.
-- A statement in the form `ALTER SYSTEM SET EVENTS
- '`event`LEVEL
-`event_level`'` sets the context
-  events. This notation is equivalent to `ALTER SYSTEM SET EVENTS
- '`event`TRACE NAME CONTEXT FOREVER,
- LEVEL`event_level`'`.
-- A statement in the form `ALTER SYSTEM SET EVENTS
- '`event` ERRORSTACK
- (`event_level`)'` sets the error
-  stack events. This notation is equivalent to `ALTER SYSTEM SET
- EVENTS '`event`TRACE NAME ERRORSTACK LEVEL
-`event_level`'`.
+| Parameter name | Data type | Default | Required | Description | 
+| --- | --- | --- | --- | --- | 
+| `p_event` | number | — | Yes | The system event number. The value must be one of the event numbers reported by `list_allowed_system_events`. | 
+| `p_level` | number | — | Yes | The event level. See the Oracle Database documentation or Oracle Support for descriptions of different level values. | 
 
-The following example sets event 942 at level 3, and event 10442 at level 10.
-Sample output is included.
+The procedure `set_system_event` constructs and runs the required `ALTER SYSTEM SET EVENTS` statements according to the following principles:
++ The event type (`context` or `errorstack`) is determined automatically.
++ A statement in the form `ALTER SYSTEM SET EVENTS '{{event}} LEVEL {{event_level}}'` sets the context events. This notation is equivalent to `ALTER SYSTEM SET EVENTS '{{event}} TRACE NAME CONTEXT FOREVER, LEVEL {{event_level}}'`.
++ A statement in the form `ALTER SYSTEM SET EVENTS '{{event}} ERRORSTACK ({{event_level}})'` sets the error stack events. This notation is equivalent to `ALTER SYSTEM SET EVENTS '{{event}} TRACE NAME ERRORSTACK LEVEL {{event_level}}'`.
+
+The following example sets event 942 at level 3, and event 10442 at level 10. Sample output is included.
 
 ```
 SQL> SET SERVEROUTPUT ON
@@ -124,10 +91,9 @@ PL/SQL procedure successfully completed.
 ```
 
 ## Listing system diagnostic events that are set
+<a name="Appendix.Oracle.CommonDBATasks.SystemEvents.listing-set"></a>
 
-To list the system events that are currently set, use the Amazon RDS procedure
-`rdsadmin.rdsadmin_util.list_set_system_events`. This procedure
-reports only events set at system level by `set_system_event`.
+To list the system events that are currently set, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.list_set_system_events`. This procedure reports only events set at system level by `set_system_event`.
 
 The following example lists the active system events.
 
@@ -136,9 +102,7 @@ SET SERVEROUTPUT ON
 EXEC rdsadmin.rdsadmin_util.list_set_system_events;
 ```
 
-The following sample output shows the list of events, the event type, the
-level at which the events are currently set, and the time when the event was
-set.
+The following sample output shows the list of events, the event type, the level at which the events are currently set, and the time when the event was set.
 
 ```
 942 errorstack (3) - set at 2020-11-03 11:42:27
@@ -148,20 +112,17 @@ PL/SQL procedure successfully completed.
 ```
 
 ## Unsetting system diagnostic events
+<a name="Appendix.Oracle.CommonDBATasks.SystemEvents.unsetting"></a>
 
-To unset a system event, use the Amazon RDS procedure
-`rdsadmin.rdsadmin_util.unset_system_event`. You can only unset
-events listed in the output of
-`rdsadmin.rdsadmin_util.list_allowed_system_events`. The
-`unset_system_event` procedure accepts the following
-parameter.
+To unset a system event, use the Amazon RDS procedure `rdsadmin.rdsadmin_util.unset_system_event`. You can only unset events listed in the output of `rdsadmin.rdsadmin_util.list_allowed_system_events`. The `unset_system_event` procedure accepts the following parameter.
 
-| Parameter name | Data type | Default | Required | Description                                                                                                         |
-| -------------- | --------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| `p_event`      | number    | —       | Yes      | The system event number. The value must be one of the<br>event numbers reported by<br>`list_allowed_system_events`. |
 
-The following example unsets events 942 and 10442. Sample output is
-included.
+
+| Parameter name | Data type | Default | Required | Description | 
+| --- | --- | --- | --- | --- | 
+| `p_event` | number | — | Yes | The system event number. The value must be one of the event numbers reported by `list_allowed_system_events`. | 
+
+The following example unsets events 942 and 10442. Sample output is included.
 
 ```
 SQL> SET SERVEROUTPUT ON

@@ -1,101 +1,93 @@
+
+
 # Determining DB instance class support in AWS Regions
+<a name="Concepts.DBInstanceClass.RegionSupport"></a>
 
-To determine the DB instance classes supported by each DB engine in a specific
-AWS Region, you can take one of several approaches. You can use the AWS Management Console, the [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/") page, or the [describe-orderable-db-instance-options](../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md "../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md") command for the AWS Command Line Interface
-(AWS CLI).
+To determine the DB instance classes supported by each DB engine in a specific AWS Region, you can take one of several approaches. You can use the AWS Management Console, the [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/) page, or the [describe-orderable-db-instance-options](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-orderable-db-instance-options.html) command for the AWS Command Line Interface (AWS CLI).
 
-###### Note
+**Note**  
+When you perform operations with the AWS Management Console, it automatically shows the supported DB instance classes for a specific DB engine, DB engine version, and AWS Region. Examples of the operations that you can perform include creating and modifying a DB instance. 
 
-When you perform operations with the AWS Management Console, it automatically shows the supported DB
-instance classes for a specific DB engine, DB engine version, and AWS Region. Examples
-of the operations that you can perform include creating and modifying a DB instance.
-
-###### Contents
-
-- [Using the Amazon RDS pricing page to determine DB instance class support in AWS Regions](Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.PricingPage "Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.PricingPage")
-- [Using the AWS CLI to determine DB instance class support in AWS Regions](Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.CLI "Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.CLI")
-
-  - [Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region](Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.CLI.Example1 "Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.CLI.Example1")
-  - [Listing the DB engine versions that support a specific DB instance class in an AWS Region](Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.CLI.Example2 "Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.CLI.Example2")
-  - [Listing AWS Regions that support a specific DB engine and instance class](Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.CLI.Example3 "Concepts.DBInstanceClass.RegionSupport.md#Concepts.DBInstanceClass.RegionSupport.CLI.Example3")
+**Contents**
++ [Using the Amazon RDS pricing page to determine DB instance class support in AWS Regions](#Concepts.DBInstanceClass.RegionSupport.PricingPage)
++ [Using the AWS CLI to determine DB instance class support in AWS Regions](#Concepts.DBInstanceClass.RegionSupport.CLI)
+  + [Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region](#Concepts.DBInstanceClass.RegionSupport.CLI.Example1)
+  + [Listing the DB engine versions that support a specific DB instance class in an AWS Region](#Concepts.DBInstanceClass.RegionSupport.CLI.Example2)
+  + [Listing AWS Regions that support a specific DB engine and instance class](#Concepts.DBInstanceClass.RegionSupport.CLI.Example3)
 
 ## Using the Amazon RDS pricing page to determine DB instance class support in AWS Regions
+<a name="Concepts.DBInstanceClass.RegionSupport.PricingPage"></a>
 
-You can use the [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/")
-page to determine the DB instance classes supported by each DB engine in a specific
-AWS Region.
+You can use the [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/) page to determine the DB instance classes supported by each DB engine in a specific AWS Region. 
 
-###### To use the pricing page to determine the DB instance classes supported by each engine in a Region
+**To use the pricing page to determine the DB instance classes supported by each engine in a Region**
 
-1. Go to [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/").
-2. In the **AWS Pricing Calculator for Amazon RDS** section,
-   choose **Create your custom estimate now**.
-3. In **Choose a Region**, choose an AWS Region.
-4. In **Find a Service**, enter `Amazon RDS`.
-5. Choose **Configure** for your configuration option and DB engine.
-6. Use the section for compatible instances to view the supported DB instance classes.
-7. (Optional) Choose other options in the calculator, and then choose **Save and view summary**
-   or **Save and add service**.
+1. Go to [Amazon RDS Pricing](https://aws.amazon.com/rds/pricing/).
+
+1. In the **AWS Pricing Calculator for Amazon RDS** section, choose **Create your custom estimate now**.
+
+1. In **Choose a Region**, choose an AWS Region.
+
+1. In **Find a Service**, enter **Amazon RDS**.
+
+1. Choose **Configure** for your configuration option and DB engine.
+
+1. Use the section for compatible instances to view the supported DB instance classes.
+
+1. (Optional) Choose other options in the calculator, and then choose **Save and view summary** or **Save and add service**.
 
 ## Using the AWS CLI to determine DB instance class support in AWS Regions
+<a name="Concepts.DBInstanceClass.RegionSupport.CLI"></a>
 
-You can use the AWS CLI to determine which DB instance classes are supported for
-specific DB engines and DB engine versions in an AWS Region. The following table shows
-the valid DB engine values.
+You can use the AWS CLI to determine which DB instance classes are supported for specific DB engines and DB engine versions in an AWS Region. The following table shows the valid DB engine values.
 
-| Engine names         | Engine values in CLI commands                                         | More information about versions                                                                                                            |
-| -------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Db2                  | `db2-ae`<br>`db2-ce`<br>`db2-se`                                      | [Db2 on Amazon RDS versions](Db2.Concepts.VersionMgmt.md "Db2.Concepts.VersionMgmt.md")                                                    |
-| MariaDB              | `mariadb`                                                             | [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md "MariaDB.Concepts.VersionMgmt.md")                                        |
-| Microsoft SQL Server | `sqlserver-ee`<br>`sqlserver-se`<br>`sqlserver-ex`<br>`sqlserver-web` | [Microsoft SQL Server versions on Amazon RDS](SQLServer.Concepts.General.VersionSupport.md "SQLServer.Concepts.General.VersionSupport.md") |
-| MySQL                | `mysql`                                                               | [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md")                                              |
-| Oracle               | `oracle-ee`<br>`oracle-se2`                                           | [_Amazon RDS for Oracle Release Notes_](../OracleReleaseNotes/Welcome.md "../OracleReleaseNotes/Welcome.md")                               |
-| PostgreSQL           | `postgres`                                                            | [Available PostgreSQL database versions](PostgreSQL.Concepts.General.DBVersions.md "PostgreSQL.Concepts.General.DBVersions.md")            |
 
-For information about AWS Region names, see [AWS Regions](Concepts.RegionsAndAvailabilityZones.md#Concepts.RegionsAndAvailabilityZones.Regions "Concepts.RegionsAndAvailabilityZones.md#Concepts.RegionsAndAvailabilityZones.Regions").
 
-The following examples demonstrate how to determine DB instance class support in an
-AWS Region using the [describe-orderable-db-instance-options](../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md "../../../cli/latest/reference/rds/describe-orderable-db-instance-options.md") AWS CLI command.
+| Engine names | Engine values in CLI commands | More information about versions | 
+| --- | --- | --- | 
+| Db2 | `db2-ae`<br />`db2-ce`<br />`db2-se` | [Db2 on Amazon RDS versions](Db2.Concepts.VersionMgmt.md) | 
+| MariaDB | `mariadb` | [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md) | 
+| Microsoft SQL Server | `sqlserver-ee`<br />`sqlserver-se`<br />`sqlserver-ex`<br />`sqlserver-web` | [Microsoft SQL Server versions on Amazon RDS](SQLServer.Concepts.General.VersionSupport.md) | 
+| MySQL | `mysql` | [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md) | 
+| Oracle | `oracle-ee`<br />`oracle-se2` | [*Amazon RDS for Oracle Release Notes*](https://docs.aws.amazon.com/AmazonRDS/latest/OracleReleaseNotes/Welcome.html) | 
+| PostgreSQL | `postgres` | [Available PostgreSQL database versions](PostgreSQL.Concepts.General.DBVersions.md) | 
 
-###### Note
+For information about AWS Region names, see [AWS Regions](Concepts.RegionsAndAvailabilityZones.md#Concepts.RegionsAndAvailabilityZones.Regions).
 
-To limit the output, the following examples show results only for the General
-Purpose SSD (`gp2`) storage type. If necessary, you can change the
-storage type to General Purpose SSD (`gp3`), Provisioned IOPS
-(`io1`), Provisioned IOPS Block Express (`io2`), or
-magnetic (`standard`) in the commands.
+The following examples demonstrate how to determine DB instance class support in an AWS Region using the [describe-orderable-db-instance-options](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-orderable-db-instance-options.html) AWS CLI command.
 
-###### Topics
+**Note**  
+To limit the output, the following examples show results only for the General Purpose SSD (`gp2`) storage type. If necessary, you can change the storage type to General Purpose SSD (`gp3`), Provisioned IOPS (`io1`), Provisioned IOPS Block Express (`io2`), or magnetic (`standard`) in the commands.
 
-- [Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region](#Concepts.DBInstanceClass.RegionSupport.CLI.Example1 "#Concepts.DBInstanceClass.RegionSupport.CLI.Example1")
-- [Listing the DB engine versions that support a specific DB instance class in an AWS Region](#Concepts.DBInstanceClass.RegionSupport.CLI.Example2 "#Concepts.DBInstanceClass.RegionSupport.CLI.Example2")
-- [Listing AWS Regions that support a specific DB engine and instance class](#Concepts.DBInstanceClass.RegionSupport.CLI.Example3 "#Concepts.DBInstanceClass.RegionSupport.CLI.Example3")
+**Topics**
++ [Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region](#Concepts.DBInstanceClass.RegionSupport.CLI.Example1)
++ [Listing the DB engine versions that support a specific DB instance class in an AWS Region](#Concepts.DBInstanceClass.RegionSupport.CLI.Example2)
++ [Listing AWS Regions that support a specific DB engine and instance class](#Concepts.DBInstanceClass.RegionSupport.CLI.Example3)
 
 ### Listing the DB instance classes that are supported by a specific DB engine version in an AWS Region
+<a name="Concepts.DBInstanceClass.RegionSupport.CLI.Example1"></a>
 
-To list the DB instance classes that are supported by a specific DB engine version
-in an AWS Region, run the following command.
+To list the DB instance classes that are supported by a specific DB engine version in an AWS Region, run the following command.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds describe-orderable-db-instance-options --engine `engine` --engine-version `version` \
+aws rds describe-orderable-db-instance-options --engine {{engine}} --engine-version {{version}} \
     --query "*[].{DBInstanceClass:DBInstanceClass,StorageType:StorageType}|[?StorageType=='gp2']|[].{DBInstanceClass:DBInstanceClass}" \
     --output text \
-    --region `region`
+    --region {{region}}
 ```
 
 For Windows:
 
 ```
-aws rds describe-orderable-db-instance-options --engine `engine` --engine-version `version` ^
+aws rds describe-orderable-db-instance-options --engine {{engine}} --engine-version {{version}} ^
     --query "*[].{DBInstanceClass:DBInstanceClass,StorageType:StorageType}|[?StorageType=='gp2']|[].{DBInstanceClass:DBInstanceClass}" ^
     --output text ^
-    --region `region`
+    --region {{region}}
 ```
 
-For example, the following command lists the supported DB instance classes for
-version 13.6 of the RDS for PostgreSQL DB engine in US East (N. Virginia).
+For example, the following command lists the supported DB instance classes for version 13.6 of the RDS for PostgreSQL DB engine in US East (N. Virginia).
 
 For Linux, macOS, or Unix:
 
@@ -116,31 +108,29 @@ aws rds describe-orderable-db-instance-options --engine postgres --engine-versio
 ```
 
 ### Listing the DB engine versions that support a specific DB instance class in an AWS Region
+<a name="Concepts.DBInstanceClass.RegionSupport.CLI.Example2"></a>
 
-To list the DB engine versions that support a specific DB instance class in an
-AWS Region, run the following command.
+To list the DB engine versions that support a specific DB instance class in an AWS Region, run the following command.
 
 For Linux, macOS, or Unix:
 
 ```
-aws rds describe-orderable-db-instance-options --engine `engine` --db-instance-class `DB_instance_class` \
+aws rds describe-orderable-db-instance-options --engine {{engine}} --db-instance-class {{DB_instance_class}} \
     --query "*[].{EngineVersion:EngineVersion,StorageType:StorageType}|[?StorageType=='gp2']|[].{EngineVersion:EngineVersion}" \
     --output text \
-    --region `region`
+    --region {{region}}
 ```
 
 For Windows:
 
 ```
-aws rds describe-orderable-db-instance-options --engine `engine` --db-instance-class `DB_instance_class` ^
+aws rds describe-orderable-db-instance-options --engine {{engine}} --db-instance-class {{DB_instance_class}} ^
     --query "*[].{EngineVersion:EngineVersion,StorageType:StorageType}|[?StorageType=='gp2']|[].{EngineVersion:EngineVersion}" ^
     --output text ^
-    --region `region`
+    --region {{region}}
 ```
 
-For example, the following command lists the DB engine versions of the RDS for
-PostgreSQL DB engine that support the db.r5.large DB instance class in
-US East (N. Virginia).
+For example, the following command lists the DB engine versions of the RDS for PostgreSQL DB engine that support the db.r5.large DB instance class in US East (N. Virginia).
 
 For Linux, macOS, or Unix:
 
@@ -161,9 +151,9 @@ aws rds describe-orderable-db-instance-options --engine postgres --db-instance-c
 ```
 
 ### Listing AWS Regions that support a specific DB engine and instance class
+<a name="Concepts.DBInstanceClass.RegionSupport.CLI.Example3"></a>
 
-The following bash script lists all the AWS Regions that support the specified
-combination of DB engine and instance class.
+The following bash script lists all the AWS Regions that support the specified combination of DB engine and instance class.
 
 ```
 #!/usr/bin/env bash
@@ -191,8 +181,7 @@ for region in $REGIONS; do
 done
 ```
 
-The following sample output checks Region support for RDS for MySQL using the
-db.r8g.large instance class.
+The following sample output checks Region support for RDS for MySQL using the db.r8g.large instance class.
 
 ```
 ./check_region_support.sh mysql db.r8g.large

@@ -1,10 +1,9 @@
-# Functions of postgres\_get\_av\_diag() in RDS for PostgreSQL
 
-The `postgres_get_av_diag()` function retrieves diagnostic information about
-autovacuum processes that are blocking or lagging behind in a RDS for PostgreSQL database. The query
-needs to be executed in the database with the oldest transaction ID for accurate results. For
-more information about using the database with the oldest transaction ID, see [Not connected to
-the database with the age of oldest transaction ID](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.NOTICE.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.NOTICE.md")
+
+# Functions of postgres\_get\_av\_diag() in RDS for PostgreSQL
+<a name="Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions"></a>
+
+The `postgres_get_av_diag()` function retrieves diagnostic information about autovacuum processes that are blocking or lagging behind in a RDS for PostgreSQL database. The query needs to be executed in the database with the oldest transaction ID for accurate results. For more information about using the database with the oldest transaction ID, see [Not connected to the database with the age of oldest transaction ID](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.NOTICE.md)
 
 ```
 SELECT
@@ -24,55 +23,34 @@ FROM (
         autovacuum_lagging_by DESC) q;
 ```
 
-The `postgres_get_av_diag()` function returns a table with the following
-information:
+The `postgres_get_av_diag()` function returns a table with the following information:
 
-**blocker**
+**blocker**  
+Specifies the category of database activity that is blocking the vacuum.  
++ [Active statement](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Active_statement)
++ [Idle in transaction](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Idle_in_transaction)
++ [Prepared transaction](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Prepared_transaction)
++ [Logical replication slot](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot)
++ [Read replica with physical replication slot](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas)
++ [Read replica with streaming replication](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas)
++ [Temporary tables](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Temporary_tables)
 
-Specifies the category of database activity that is blocking the vacuum.
+**database**  
+Specifies the name of the database where applicable and supported. This is the database in which the activity is ongoing and blocking or will block the autovacuum. This is the database you are required to connect to and take action.
 
-- [Active statement](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Active_statement "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Active_statement")
-- [Idle in transaction](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Idle_in_transaction "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Idle_in_transaction")
-- [Prepared transaction](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Prepared_transaction "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Prepared_transaction")
-- [Logical replication slot](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Logical_replication_slot")
-- [Read replica with physical replication slot](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas")
-- [Read replica with streaming replication](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Read_replicas")
-- [Temporary tables](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Temporary_tables "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Temporary_tables")
+**blocker\_identifier**  
+Specifies the identifier of the activity that is blocking or will block the autovacuum. The identifier can be a process ID along with a SQL statement, a prepared transaction, an IP address of a read replica, and the name of the replication slot, either logical or physical.
 
-**database**
+**wait\_event**  
+Specifies the [wait event](PostgreSQL.Tuning.md) of the blocking session and is applicable for the following blockers:  
++ Active statement
++ Idle in transaction
 
-Specifies the name of the database where applicable and supported. This is the
-database in which the activity is ongoing and blocking or will block the autovacuum.
-This is the database you are required to connect to and take action.
+**autovacum\_lagging\_by**  
+Specifies the number of transactions that autovacuum is lagging behind in its backlog work per category.
 
-**blocker\_identifier**
+**suggestion**  
+Specifies suggestions to resolve the blocker. These instructions include the name of the database in which the activity exists where applicable, the Process ID (PID) of the session where applicable, and the action to be taken.
 
-Specifies the identifier of the activity that is blocking or will block the
-autovacuum. The identifier can be a process ID along with a SQL statement, a prepared
-transaction, an IP address of a read replica, and the name of the replication slot,
-either logical or physical.
-
-**wait\_event**
-
-Specifies the [wait
-event](PostgreSQL.Tuning.md "PostgreSQL.Tuning.md")
-of the blocking session and is applicable for the following
-blockers:
-
-- Active statement
-- Idle in transaction
-
-**autovacum\_lagging\_by**
-
-Specifies the number of transactions that autovacuum is lagging behind in its
-backlog work per category.
-
-**suggestion**
-
-Specifies suggestions to resolve the blocker. These instructions include the name of
-the database in which the activity exists where applicable, the Process ID (PID) of the
-session where applicable, and the action to be taken.
-
-**suggested\_action**
-
+**suggested\_action**  
 Suggests the action that needs to be taken to resolve the blocker.

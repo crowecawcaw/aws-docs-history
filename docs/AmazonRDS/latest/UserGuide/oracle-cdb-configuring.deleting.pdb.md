@@ -1,80 +1,69 @@
+
+
 # Deleting an RDS for Oracle tenant database from your CDB
+<a name="oracle-cdb-configuring.deleting.pdb"></a>
 
-You can delete a tenant database (PDB) using the AWS Management Console, the AWS CLI, or the RDS API.
-Consider the following prerequisites and limitations:
+You can delete a tenant database (PDB) using the AWS Management Console, the AWS CLI, or the RDS API. Consider the following prerequisites and limitations:
++ The tenant database and DB instance must exist.
++ For the deletion to succeed, one of the following situations must exist:
+  + The tenant database and DB instance are available.
+**Note**  
+You can take a final snapshot, but only if the tenant database and DB instance were in an available state before you issued the `delete-tenant-database` command. This snapshot will only be taken on the primary instance if the DB instance has read replicas.
+  + The tenant database is being created.
+  + The DB instance is modifying the tenant database.
+  + If the DB instance has read replicas these constraints apply to all replicas.
++ You can't delete multiple tenant databases in a single operation.
++ You can't delete a tenant database if it is the only tenant in the CDB.
++ You can't delete a tenant database on a read replica, you can only delete a tenant on the primary DB instance. Replication health is also validated, ensuring the replication lag is less than 5 minutes before the tenant is deleted.
 
-- The tenant database and DB instance must exist.
-- For the deletion to succeed, one of the following situations must
-  exist:
+## Console
+<a name="oracle-cdb-configuring.deleting.pdb.console"></a>
 
-  - The tenant database and DB instance are available.
+**To delete a tenant database**
 
-  ###### Note
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-  You can take a final snapshot, but only if the tenant database and DB instance
-  were in an available state before you issued the
-  `delete-tenant-database` command.
-  This snapshot will only be taken on the primary instance if the DB instance has read replicas.
-  - The tenant database is being created.
-  - The DB instance is modifying the tenant database.
-  - If the DB instance has read replicas these constraints apply to all replicas.
+1. In the navigation pane, choose **Databases**, and then choose the tenant database that you want to delete.
 
-- You can't delete multiple tenant databases in a single operation.
-- You can't delete a tenant database if it is the only tenant in the CDB.
-- You can't delete a tenant database on a read replica,
-  you can only delete a tenant on the primary DB instance.
-  Replication health is also validated, ensuring the replication lag is less than
-  5 minutes before the tenant is deleted.
+1. For **Actions**, choose **Delete**.
 
-###### To delete a tenant database
+1. To create a final DB snapshot for the DB instance, choose **Create final snapshot?**.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**, and
-   then choose the tenant database that you want to delete.
-3. For **Actions**, choose
-   **Delete**.
-4. To create a final DB snapshot for the DB instance, choose **Create final
-   snapshot?**.
-5. If you chose to create a final snapshot, enter the **Final
-   snapshot name**.
-6. Enter `delete me` in the box.
-7. Choose **Delete**.
-   To delete a tenant database using the AWS CLI, call the [delete-tenant-database](../../../cli/latest/reference/rds/delete-tenant-database.md "../../../cli/latest/reference/rds/delete-tenant-database.md") command with the following
-   parameters:
+1. If you chose to create a final snapshot, enter the **Final snapshot name**.
 
-- `--db-instance-identifier
- `value``
-- `--tenant-db-name `value``
-- `[--skip-final-snapshot | --no-skip-final-snapshot]`
-- `[--final-snapshot-identifier
- `value`]`
-  This following example deletes the tenant database named
-  `pdb-test` from the CDB named
-  `my-cdb-inst`. By default, the operation creates a
-  final snapshot.
+1. Enter **delete me** in the box.
 
-###### Example
+1. Choose **Delete**.
 
-For Linux, macOS, or Unix:
+## AWS CLI
+<a name="oracle-cdb-configuring.deleting.pdb.cli"></a>
+
+To delete a tenant database using the AWS CLI, call the [delete-tenant-database](https://docs.aws.amazon.com/cli/latest/reference/rds/delete-tenant-database.html) command with the following parameters:
++ `--db-instance-identifier {{value}}`
++ `--tenant-db-name {{value}}`
++ `[--skip-final-snapshot | --no-skip-final-snapshot]`
++ `[--final-snapshot-identifier {{value}}]`
+
+This following example deletes the tenant database named {{pdb-test}} from the CDB named {{my-cdb-inst}}. By default, the operation creates a final snapshot.
+
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
-aws rds delete-tenant-database --region `us-east-1` \
-    --db-instance-identifier `my-cdb-inst` \
-    --tenant-db-name `pdb-test` \
-    --final-snapshot-identifier `final-snap-pdb-test`
+1. aws rds delete-tenant-database --region {{us-east-1}} \
+2.     --db-instance-identifier {{my-cdb-inst}} \
+3.     --tenant-db-name {{pdb-test}} \
+4.     --final-snapshot-identifier {{final-snap-pdb-test}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
-aws rds delete-tenant-database --region `us-east-1` ^
-    --db-instance-identifier `my-cdb-inst` ^
-    --tenant-db-name `pdb-test` ^
-    --final-snapshot-identifier `final-snap-pdb-test`
+1. aws rds delete-tenant-database --region {{us-east-1}} ^
+2.     --db-instance-identifier {{my-cdb-inst}} ^
+3.     --tenant-db-name {{pdb-test}} ^
+4.     --final-snapshot-identifier {{final-snap-pdb-test}}
 ```
-
-This command produces output similar to the following.
+This command produces output similar to the following.   
 
 ```
 {

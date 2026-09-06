@@ -1,242 +1,188 @@
+
+
 # Create an Amazon RDS DB instance
+<a name="CHAP_Tutorials.WebServerDB.CreateDBInstance"></a>
 
-Create an RDS for MariaDB, RDS for MySQL, or RDS for PostgreSQL DB instance that maintains the data used by a web
-application.
+Create an RDS for MariaDB, RDS for MySQL, or RDS for PostgreSQL DB instance that maintains the data used by a web application. 
 
-RDS for MariaDB
+------
+#### [ RDS for MariaDB ]
 
-###### To create a MariaDB instance
+**To create a MariaDB instance**
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the AWS Management Console, check the
-   AWS Region. It should be the same as the one where you
-   created your EC2 instance.
-3. In the navigation pane, choose
-   **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, choose
-   **Standard create**.
-6. For **Engine options**, choose
-   **MariaDB**.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-![The engine type selection.](images/tutorial-create-mariadb.png) 7. For **Templates**, choose
-**Free tier** or **Sandbox**. **Free tier**
-appears for free plan accounts. **Sandbox** appears for paid plan accounts.
+1. In the AWS Management Console, check the AWS Region. It should be the same as the one where you created your EC2 instance.
 
-![The template selection.](images/tutorial-create-template.png) 8. In the **Availability and durability**
-section, keep the defaults. 9. In the **Settings** section, set these
-values:
+1. In the navigation pane, choose **Databases**.
 
-    * **DB instance identifier**
-     – Type
-     `tutorial-db-instance`.
-    * **Master username** – Type
-     `tutorial_user`.
-    * **Auto generate a password**
-     – Leave the option turned off.
-    * **Master password** – Type
-     a password.
-    * **Confirm password** –
-     Retype the password.
+1. Choose **Create database**.
 
-![Settings sections.](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
-section, set these values:
+1. On the **Create database** page, choose **Standard create**.
 
-    * **Burstable classes (includes t
-     classes)**
-    * **db.t3.micro**
+1. For **Engine options**, choose **MariaDB**.  
+![The engine type selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tutorial-create-mariadb.png)
 
-![Instance configuration section.](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
-defaults. 12. In the **Connectivity** section, set
-these values and keep the other values as their
-defaults:
+1. For **Templates**, choose **Free tier** or **Sandbox**. **Free tier** appears for free plan accounts. **Sandbox** appears for paid plan accounts.  
+![The template selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tutorial-create-template.png)
 
-    * For **Compute resource**, choose
-     **Connect to an EC2 compute
-     resource**.
-    * For **EC2 instance**, choose the
-     EC2 instance you created previously, such as
-     **tutorial-ec2-instance-web-server**.
+1. In the **Availability and durability** section, keep the defaults.
 
-![Connectivity section.](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
-section, make sure **Password
-authentication** is selected. 14. Open the **Additional configuration**
-section, and enter `sample` for
-**Initial database name**. Keep the
-default settings for the other options. 15. To create your MariaDB instance, choose **Create
-database**.
+1. In the **Settings** section, set these values:
+   + **DB instance identifier** – Type **tutorial-db-instance**.
+   + **Master username** – Type **tutorial\_user**.
+   + **Auto generate a password** – Leave the option turned off.
+   + **Master password** – Type a password.
+   + **Confirm password** – Retype the password.  
+![Settings sections.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Settings.png)
 
-Your new DB instance appears in the
-**Databases** list with the status
-**Creating**. 16. Wait for the **Status** of your new DB
-instance to show as **Available**. Then
-choose the DB instance name to show its details. 17. In the **Connectivity & security**
-section, view the **Endpoint** and
-**Port** of the DB instance.
+1. In the **Instance configuration** section, set these values:
+   + **Burstable classes (includes t classes)**
+   + **db.t3.micro**  
+![Instance configuration section.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_DB_instance_micro.png)
 
-![DB instance details.](images/Tutorial_WebServer_Endpoint_Port.png)
+1. In the **Storage** section, keep the defaults.
 
-Note the endpoint and port for your DB instance. You use
-this information to connect your web server to your DB
-instance. 18. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md "CHAP_Tutorials.WebServerDB.CreateWebServer.md").
+1. In the **Connectivity** section, set these values and keep the other values as their defaults:
+   + For **Compute resource**, choose **Connect to an EC2 compute resource**.
+   + For **EC2 instance**, choose the EC2 instance you created previously, such as **tutorial-ec2-instance-web-server**.  
+![Connectivity section.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Connectivity.png)
 
-RDS for MySQL
+1. In the **Database authentication** section, make sure **Password authentication** is selected.
 
-###### To create a MySQL DB instance
+1. Open the **Additional configuration** section, and enter **sample** for **Initial database name**. Keep the default settings for the other options.
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the AWS Management Console, check the
-   AWS Region. It should be the same as the one where you
-   created your EC2 instance.
-3. In the navigation pane, choose
-   **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, choose
-   **Standard create**.
-6. For **Engine options**, choose
-   **MySQL**.
+1. To create your MariaDB instance, choose **Create database**.
 
-![The engine type selection.](images/tutorial-create-mysql.png) 7. For **Templates**, choose **Free
-tier** or **Sandbox**.
-**Free tier** appears for free plan
-accounts. **Sandbox** appears for paid
-plan accounts.
+   Your new DB instance appears in the **Databases** list with the status **Creating**.
 
-![The template selection.](images/tutorial-create-template.png) 8. In the **Availability and durability**
-section, keep the defaults. 9. In the **Settings** section, set these
-values:
+1. Wait for the **Status** of your new DB instance to show as **Available**. Then choose the DB instance name to show its details.
 
-    * **DB instance identifier**
-     – Type
-     `tutorial-db-instance`.
-    * **Master username** – Type
-     `tutorial_user`.
-    * **Auto generate a password**
-     – Leave the option turned off.
-    * **Master password** – Type
-     a password.
-    * **Confirm password** –
-     Retype the password.
+1. In the **Connectivity & security** section, view the **Endpoint** and **Port** of the DB instance.  
+![DB instance details.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Endpoint_Port.png)
 
-![Settings sections.](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
-section, set these values:
+   Note the endpoint and port for your DB instance. You use this information to connect your web server to your DB instance.
 
-    * **Burstable classes (includes t
-     classes)**
-    * **db.t3.micro**
+1. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md).
 
-![Instance configuration section.](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
-defaults. 12. In the **Connectivity** section, set
-these values and keep the other values as their
-defaults:
+------
+#### [ RDS for MySQL ]
 
-    * For **Compute resource**, choose
-     **Connect to an EC2 compute
-     resource**.
-    * For **EC2 instance**, choose the
-     EC2 instance you created previously, such as
-     **tutorial-ec2-instance-web-server**.
+**To create a MySQL DB instance**
 
-![Connectivity section.](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
-section, make sure **Password
-authentication** is selected. 14. Open the **Additional configuration**
-section, and enter `sample` for
-**Initial database name**. Keep the
-default settings for the other options. 15. To create your MySQL DB instance, choose **Create
-database**.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-Your new DB instance appears in the
-**Databases** list with the status
-**Creating**. 16. Wait for the **Status** of your new DB
-instance to show as **Available**. Then
-choose the DB instance name to show its details. 17. In the **Connectivity & security**
-section, view the **Endpoint** and
-**Port** of the DB instance.
+1. In the AWS Management Console, check the AWS Region. It should be the same as the one where you created your EC2 instance.
 
-![DB instance details.](images/Tutorial_WebServer_Endpoint_Port.png)
+1. In the navigation pane, choose **Databases**.
 
-Note the endpoint and port for your DB instance. You use
-this information to connect your web server to your DB
-instance. 18. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md "CHAP_Tutorials.WebServerDB.CreateWebServer.md").
+1. Choose **Create database**.
 
-RDS for PostgreSQL
+1. On the **Create database** page, choose **Standard create**.
 
-###### To create a PostgreSQL DB instance
+1. For **Engine options**, choose **MySQL**.  
+![The engine type selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tutorial-create-mysql.png)
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the AWS Management Console, check the
-   AWS Region. It should be the same as the one where you
-   created your EC2 instance.
-3. In the navigation pane, choose
-   **Databases**.
-4. Choose **Create database**.
-5. On the **Create database** page, choose
-   **Standard create**.
-6. For **Engine options**, choose
-   **PostgreSQL**.
+1. For **Templates**, choose **Free tier** or **Sandbox**. **Free tier** appears for free plan accounts. **Sandbox** appears for paid plan accounts.  
+![The template selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tutorial-create-template.png)
 
-![The engine type selection.](images/tutorial-create-postgres.png) 7. For **Templates**, choose **Free
-tier** or **Sandbox**.
-**Free tier** appears for free plan
-accounts. **Sandbox** appears for paid
-plan accounts.
+1. In the **Availability and durability** section, keep the defaults.
 
-![The template selection.](images/tutorial-create-template.png) 8. In the **Availability and durability**
-section, keep the defaults. 9. In the **Settings** section, set these
-values:
+1. In the **Settings** section, set these values:
+   + **DB instance identifier** – Type **tutorial-db-instance**.
+   + **Master username** – Type **tutorial\_user**.
+   + **Auto generate a password** – Leave the option turned off.
+   + **Master password** – Type a password.
+   + **Confirm password** – Retype the password.  
+![Settings sections.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Settings.png)
 
-    * **DB instance identifier**
-     – Type
-     `tutorial-db-instance`.
-    * **Master username** – Type
-     `tutorial_user`.
-    * **Auto generate a password**
-     – Leave the option turned off.
-    * **Master password** – Type
-     a password.
-    * **Confirm password** –
-     Retype the password.
+1. In the **Instance configuration** section, set these values:
+   + **Burstable classes (includes t classes)**
+   + **db.t3.micro**  
+![Instance configuration section.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_DB_instance_micro.png)
 
-![Settings sections.](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
-section, set these values:
+1. In the **Storage** section, keep the defaults.
 
-    * **Burstable classes (includes t
-     classes)**
-    * **db.t3.micro**
+1. In the **Connectivity** section, set these values and keep the other values as their defaults:
+   + For **Compute resource**, choose **Connect to an EC2 compute resource**.
+   + For **EC2 instance**, choose the EC2 instance you created previously, such as **tutorial-ec2-instance-web-server**.  
+![Connectivity section.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Connectivity.png)
 
-![Instance configuration section.](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
-defaults. 12. In the **Connectivity** section, set
-these values and keep the other values as their
-defaults:
+1. In the **Database authentication** section, make sure **Password authentication** is selected.
 
-    * For **Compute resource**, choose
-     **Connect to an EC2 compute
-     resource**.
-    * For **EC2 instance**, choose the
-     EC2 instance you created previously, such as
-     **tutorial-ec2-instance-web-server**.
+1. Open the **Additional configuration** section, and enter **sample** for **Initial database name**. Keep the default settings for the other options.
 
-![Connectivity section.](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
-section, make sure **Password
-authentication** is selected. 14. Open the **Additional configuration**
-section, and enter `sample` for
-**Initial database name**. Keep the
-default settings for the other options. 15. To create your PostgreSQL DB instance, choose **Create
-database**.
+1. To create your MySQL DB instance, choose **Create database**.
 
-Your new DB instance appears in the
-**Databases** list with the status
-**Creating**. 16. Wait for the **Status** of your new DB
-instance to show as **Available**. Then
-choose the DB instance name to show its details. 17. In the **Connectivity & security**
-section, view the **Endpoint** and
-**Port** of the DB instance.
+   Your new DB instance appears in the **Databases** list with the status **Creating**.
 
-![DB instance details.](images/Tutorial_WebServer_Endpoint_Port_postgres.png)
+1. Wait for the **Status** of your new DB instance to show as **Available**. Then choose the DB instance name to show its details.
 
-Note the endpoint and port for your DB instance. You use
-this information to connect your web server to your DB
-instance. 18. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md "CHAP_Tutorials.WebServerDB.CreateWebServer.md").
+1. In the **Connectivity & security** section, view the **Endpoint** and **Port** of the DB instance.  
+![DB instance details.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Endpoint_Port.png)
+
+   Note the endpoint and port for your DB instance. You use this information to connect your web server to your DB instance.
+
+1. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md).
+
+------
+#### [ RDS for PostgreSQL ]
+
+**To create a PostgreSQL DB instance**
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
+
+1. In the AWS Management Console, check the AWS Region. It should be the same as the one where you created your EC2 instance.
+
+1. In the navigation pane, choose **Databases**.
+
+1. Choose **Create database**.
+
+1. On the **Create database** page, choose **Standard create**.
+
+1. For **Engine options**, choose **PostgreSQL**.  
+![The engine type selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tutorial-create-postgres.png)
+
+1. For **Templates**, choose **Free tier** or **Sandbox**. **Free tier** appears for free plan accounts. **Sandbox** appears for paid plan accounts.  
+![The template selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tutorial-create-template.png)
+
+1. In the **Availability and durability** section, keep the defaults.
+
+1. In the **Settings** section, set these values:
+   + **DB instance identifier** – Type **tutorial-db-instance**.
+   + **Master username** – Type **tutorial\_user**.
+   + **Auto generate a password** – Leave the option turned off.
+   + **Master password** – Type a password.
+   + **Confirm password** – Retype the password.  
+![Settings sections.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Settings.png)
+
+1. In the **Instance configuration** section, set these values:
+   + **Burstable classes (includes t classes)**
+   + **db.t3.micro**  
+![Instance configuration section.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_DB_instance_micro.png)
+
+1. In the **Storage** section, keep the defaults.
+
+1. In the **Connectivity** section, set these values and keep the other values as their defaults:
+   + For **Compute resource**, choose **Connect to an EC2 compute resource**.
+   + For **EC2 instance**, choose the EC2 instance you created previously, such as **tutorial-ec2-instance-web-server**.  
+![Connectivity section.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Connectivity.png)
+
+1. In the **Database authentication** section, make sure **Password authentication** is selected.
+
+1. Open the **Additional configuration** section, and enter **sample** for **Initial database name**. Keep the default settings for the other options.
+
+1. To create your PostgreSQL DB instance, choose **Create database**.
+
+   Your new DB instance appears in the **Databases** list with the status **Creating**.
+
+1. Wait for the **Status** of your new DB instance to show as **Available**. Then choose the DB instance name to show its details.
+
+1. In the **Connectivity & security** section, view the **Endpoint** and **Port** of the DB instance.  
+![DB instance details.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_Endpoint_Port_postgres.png)
+
+   Note the endpoint and port for your DB instance. You use this information to connect your web server to your DB instance.
+
+1. Complete [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.CreateWebServer.md).
+
+------

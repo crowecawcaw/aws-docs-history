@@ -1,26 +1,25 @@
+
+
 # RDS for Oracle limitations
+<a name="Oracle.Concepts.limitations"></a>
 
-In the following sections, you can find important limitations of using RDS for Oracle. For
-limitations specific to CDBs, see [Limitations of RDS for Oracle CDBs](Oracle.Concepts.CDBs.md#Oracle.Concepts.single-tenant-limitations "Oracle.Concepts.CDBs.md#Oracle.Concepts.single-tenant-limitations").
+In the following sections, you can find important limitations of using RDS for Oracle. For limitations specific to CDBs, see [Limitations of RDS for Oracle CDBs](Oracle.Concepts.CDBs.md#Oracle.Concepts.single-tenant-limitations).
 
-###### Note
-
+**Note**  
 This list is not exhaustive.
 
-###### Topics
-
-- [Oracle file size limits in Amazon RDS](#Oracle.Concepts.file-size-limits "#Oracle.Concepts.file-size-limits")
-- [Block size limits in RDS for Oracle](#Oracle.Concepts.block-size-limits "#Oracle.Concepts.block-size-limits")
-- [Public synonyms for Oracle-supplied schemas](#Oracle.Concepts.PublicSynonyms "#Oracle.Concepts.PublicSynonyms")
-- [Schemas for unsupported features in RDS for Oracle](#Oracle.Concepts.unsupported-features "#Oracle.Concepts.unsupported-features")
-- [Limitations for DBA privileges in RDS for Oracle](#Oracle.Concepts.dba-limitations "#Oracle.Concepts.dba-limitations")
-- [Deprecation of TLS 1.0 and 1.1 Transport Layer Security in RDS for Oracle](#Oracle.Concepts.tls "#Oracle.Concepts.tls")
+**Topics**
++ [Oracle file size limits in Amazon RDS](#Oracle.Concepts.file-size-limits)
++ [Block size limits in RDS for Oracle](#Oracle.Concepts.block-size-limits)
++ [Public synonyms for Oracle-supplied schemas](#Oracle.Concepts.PublicSynonyms)
++ [Schemas for unsupported features in RDS for Oracle](#Oracle.Concepts.unsupported-features)
++ [Limitations for DBA privileges in RDS for Oracle](#Oracle.Concepts.dba-limitations)
++ [Deprecation of TLS 1.0 and 1.1 Transport Layer Security in RDS for Oracle](#Oracle.Concepts.tls)
 
 ## Oracle file size limits in Amazon RDS
+<a name="Oracle.Concepts.file-size-limits"></a>
 
-The maximum size of a single file on RDS for Oracle DB instances is 16 TiB (tebibytes). This limit is imposed by the ext4 filesystem
-used by the instance. Thus, Oracle bigfile data files are limited to 16 TiB. If you try to resize a data file in a bigfile
-tablespace to a value over the limit, you receive an error such as the following.
+The maximum size of a single file on RDS for Oracle DB instances is 16 TiB (tebibytes). This limit is imposed by the ext4 filesystem used by the instance. Thus, Oracle bigfile data files are limited to 16 TiB. If you try to resize a data file in a bigfile tablespace to a value over the limit, you receive an error such as the following.
 
 ```
 ORA-01237: cannot extend datafile 6
@@ -31,53 +30,38 @@ Additional information: 2
 ```
 
 ## Block size limits in RDS for Oracle
+<a name="Oracle.Concepts.block-size-limits"></a>
 
-RDS for Oracle DB instances are created with a default database block size (`DB_BLOCK_SIZE`) of 8 KB.
-The default database block size is set at database creation and cannot be changed.
-The `SYSTEM` and temporary tablespaces always use the default database block size. You can create
-additional tablespaces with non-default block sizes by configuring the corresponding `DB_nK_CACHE_SIZE`
-parameter (for example, `DB_16K_CACHE_SIZE`) to allocate a buffer cache for that block size,
-and then specifying the `BLOCKSIZE` clause in your `CREATE TABLESPACE` statement.
+RDS for Oracle DB instances are created with a default database block size (`DB_BLOCK_SIZE`) of 8 KB. The default database block size is set at database creation and cannot be changed. The `SYSTEM` and temporary tablespaces always use the default database block size. You can create additional tablespaces with non-default block sizes by configuring the corresponding `DB_nK_CACHE_SIZE` parameter (for example, `DB_16K_CACHE_SIZE`) to allocate a buffer cache for that block size, and then specifying the `BLOCKSIZE` clause in your `CREATE TABLESPACE` statement.
 
 ## Public synonyms for Oracle-supplied schemas
+<a name="Oracle.Concepts.PublicSynonyms"></a>
 
-Don't create or modify public synonyms for Oracle-supplied schemas, including `SYS`,
-`SYSTEM`, and `RDSADMIN`. Such actions might result in invalidation of core
-database components and affect the availability of your DB instance.
+Don't create or modify public synonyms for Oracle-supplied schemas, including `SYS`, `SYSTEM`, and `RDSADMIN`. Such actions might result in invalidation of core database components and affect the availability of your DB instance.
 
 You can create public synonyms referencing objects in your own schemas.
 
 ## Schemas for unsupported features in RDS for Oracle
+<a name="Oracle.Concepts.unsupported-features"></a>
 
-In general, Amazon RDS doesn't prevent you from creating schemas for unsupported features. However, if you
-create schemas for Oracle features and components that require SYS privileges, you can damage the data
-dictionary and affect your instance availability. Use only supported features and schemas that are available
-in [Adding options to Oracle DB instances](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").
+In general, Amazon RDS doesn't prevent you from creating schemas for unsupported features. However, if you create schemas for Oracle features and components that require SYS privileges, you can damage the data dictionary and affect your instance availability. Use only supported features and schemas that are available in [Adding options to Oracle DB instances](Appendix.Oracle.Options.md).
 
 ## Limitations for DBA privileges in RDS for Oracle
+<a name="Oracle.Concepts.dba-limitations"></a>
 
-In the database, a _role_ is a collection of privileges that you can grant to or
-revoke from a user. An Oracle database uses roles to provide security.
+In the database, a role is a collection of privileges that you can grant to or revoke from a user. An Oracle database uses roles to provide security.
 
-The predefined role `DBA` normally allows all administrative privileges on an Oracle database.
-When you create a DB instance, your master user account gets DBA privileges (with some limitations). To
-deliver a managed experience, an RDS for Oracle database doesn't provide the following privileges for the
-`DBA` role:
+The predefined role `DBA` normally allows all administrative privileges on an Oracle database. When you create a DB instance, your master user account gets DBA privileges (with some limitations). To deliver a managed experience, an RDS for Oracle database doesn't provide the following privileges for the `DBA` role: 
++ `ALTER DATABASE`
++ `ALTER SYSTEM`
++ `CREATE ANY DIRECTORY`
++ `DROP ANY DIRECTORY`
++ `GRANT ANY PRIVILEGE`
++ `GRANT ANY ROLE`
 
-- `ALTER DATABASE`
-- `ALTER SYSTEM`
-- `CREATE ANY DIRECTORY`
-- `DROP ANY DIRECTORY`
-- `GRANT ANY PRIVILEGE`
-- `GRANT ANY ROLE`
-
-Use the master user account for administrative tasks such as creating additional user accounts in the
-database. You can't use `SYS`, `SYSTEM`, and other Oracle-supplied administrative
-accounts.
+Use the master user account for administrative tasks such as creating additional user accounts in the database. You can't use `SYS`, `SYSTEM`, and other Oracle-supplied administrative accounts. 
 
 ## Deprecation of TLS 1.0 and 1.1 Transport Layer Security in RDS for Oracle
+<a name="Oracle.Concepts.tls"></a>
 
-Transport Layer Security protocol versions 1.0 and 1.1 (TLS 1.0 and TLS 1.1) are
-deprecated. In accordance with security best practices, Oracle has deprecated the use of
-TLS 1.0 and TLS 1.1. To meet your security requirements, we strongly recommend that you
-use TLS 1.2 instead.
+Transport Layer Security protocol versions 1.0 and 1.1 (TLS 1.0 and TLS 1.1) are deprecated. In accordance with security best practices, Oracle has deprecated the use of TLS 1.0 and TLS 1.1. To meet your security requirements, we strongly recommend that you use TLS 1.2 instead.

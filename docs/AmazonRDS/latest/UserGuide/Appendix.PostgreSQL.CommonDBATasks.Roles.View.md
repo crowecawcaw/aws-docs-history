@@ -1,9 +1,11 @@
+
+
 # Viewing roles and their privileges
+<a name="Appendix.PostgreSQL.CommonDBATasks.Roles.View"></a>
 
-You can view predefined roles and their privileges in your RDS for PostgreSQL DB instance using
-different commands depending on your PostgreSQL version. To see all predefined roles, you can connect to your RDS for PostgreSQL DB instance and run following commands using the `psql`.
+You can view predefined roles and their privileges in your RDS for PostgreSQL DB instance using different commands depending on your PostgreSQL version. To see all predefined roles, you can connect to your RDS for PostgreSQL DB instance and run following commands using the `psql`.
 
-For `psql` 15 and earlier versions
+**For `psql` 15 and earlier versions**
 
 Connect to your RDS for PostgreSQL DB instance and use the `\du` command in psql:
 
@@ -23,7 +25,7 @@ postgres=> \du
                  | Password valid until infinity                              |
 ```
 
-For `psql` 16 and later versions
+**For `psql` 16 and later versions**
 
 ```
 postgres=> \drg+
@@ -39,8 +41,7 @@ postgres=> \drg+
  rds_superuser | rds_replication             | ADMIN, INHERIT, SET | rdsadmin
 ```
 
-To check role membership without version dependency, you can use the following SQL
-query:
+To check role membership without version dependency, you can use the following SQL query:
 
 ```
 SELECT m.rolname AS "Role name", r.rolname AS "Member of"
@@ -52,9 +53,4 @@ WHERE m.rolname !~ '^pg_'
 ORDER BY 1, 2;
 ```
 
-In the output, you can see that `rds_superuser` isn't a database user
-role (it can't login), but it has the privileges of many other roles. You can also see
-that database user `postgres` is a member of the `rds_superuser` role.
-As mentioned previously, `postgres` is the default value in the Amazon RDS
-console's **Create database** page. If you chose another name, that
-name is shown in the list of roles instead.
+In the output, you can see that `rds_superuser` isn't a database user role (it can't login), but it has the privileges of many other roles. You can also see that database user `postgres` is a member of the `rds_superuser` role. As mentioned previously, `postgres` is the default value in the Amazon RDS console's **Create database** page. If you chose another name, that name is shown in the list of roles instead. 

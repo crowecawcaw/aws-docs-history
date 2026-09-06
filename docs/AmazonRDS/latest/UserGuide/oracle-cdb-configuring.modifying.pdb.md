@@ -1,72 +1,66 @@
+
+
 # Modifying an RDS for Oracle tenant database
+<a name="oracle-cdb-configuring.modifying.pdb"></a>
 
-You can modify only the PDB name and the master user password of a tenant database in
-your CDB. Note the following requirements and limitations:
+You can modify only the PDB name and the master user password of a tenant database in your CDB. Note the following requirements and limitations:
++ To modify the settings of a tenant database in your DB instance, the tenant database must exist. 
++ You can't modify multiple tenant databases in a single operation. You can only modify one tenant database at a time.
++ You can't change the name of a tenant database to `CDB$ROOT` or `PDB$SEED`.
++ If your DB instance has read replicas, you can only modify tenants on the primary DB instance. Replication health is also validated, ensuring the replicas are available and replication lag is less than 5 minutes before the tenant is modified.
 
-- To modify the settings of a tenant database in your DB instance, the tenant database
-  must exist.
-- You can't modify multiple tenant databases in a single operation. You can only
-  modify one tenant database at a time.
-- You can't change the name of a tenant database to `CDB$ROOT` or
-  `PDB$SEED`.
-- If your DB instance has read replicas, you can only modify tenants on the primary DB instance.
-  Replication health is also validated, ensuring the replicas are available and replication lag is less than
-  5 minutes before the tenant is modified.
-  You can modify PDBs using the AWS Management Console, the AWS CLI, or the RDS API.
+You can modify PDBs using the AWS Management Console, the AWS CLI, or the RDS API.
 
-###### To modify the PDB name or master password of a tenant database
+## Console
+<a name="oracle-cdb-configuring.modifying.pdb.console"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the Amazon RDS console, choose the
-   AWS Region in which you want to create the tenant database.
-3. In the navigation pane, choose **Databases**.
-4. Choose the tenant database whose database name or master user password you
-   want to modify.
-5. Choose **Modify**.
-6. For **Tenant database settings**, do any of the
-   following:
+**To modify the PDB name or master password of a tenant database**
 
-   - For **Tenant database name**, enter the new name of
-     your new PDB.
-   - For **Tenant database master password**, enter a
-     new password.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-7. Choose **Modify tenant**.
-   To modify a tenant database using the AWS CLI, call the [modify-tenant-database](../../../cli/latest/reference/rds/modify-tenant-database.md "../../../cli/latest/reference/rds/modify-tenant-database.md") command with the following
-   parameters:
+1. In the Amazon RDS console, choose the AWS Region in which you want to create the tenant database.
 
-- `--db-instance-identifier`
-  `value`
-- `--tenant-db-name `value``
-- `[--new-tenant-db-name
- `value`]`
-- `[--master-user-password
- `value`]`
-  The following example renames tenant database `pdb1` to
-  `pdb-hr` on DB instance `my-cdb-inst`.
+1. In the navigation pane, choose **Databases**.
 
-###### Example
+1. Choose the tenant database whose database name or master user password you want to modify.
 
-For Linux, macOS, or Unix:
+1. Choose **Modify**.
+
+1. For **Tenant database settings**, do any of the following:
+   + For **Tenant database name**, enter the new name of your new PDB.
+   + For **Tenant database master password**, enter a new password.
+
+1. Choose **Modify tenant**.
+
+## AWS CLI
+<a name="oracle-cdb-configuring.modifying.pdb.cli"></a>
+
+To modify a tenant database using the AWS CLI, call the [modify-tenant-database](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-tenant-database.html) command with the following parameters:
++ `--db-instance-identifier` {{value}}
++ `--tenant-db-name {{value}}`
++ `[--new-tenant-db-name {{value}}]`
++ `[--master-user-password {{value}}]`
+
+The following example renames tenant database `pdb1` to `pdb-hr` on DB instance `my-cdb-inst`.
+
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
-aws rds modify-tenant-database --region `us-east-1` \
-    --db-instance-identifier `my-cdb-inst` \
-    --tenant-db-name `pdb1` \
-    --new-tenant-db-name `pdb-hr`
+1. aws rds modify-tenant-database --region {{us-east-1}} \
+2.     --db-instance-identifier {{my-cdb-inst}} \
+3.     --tenant-db-name {{pdb1}} \
+4.     --new-tenant-db-name {{pdb-hr}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
-aws rds modify-tenant-database --region `us-east-1` ^
-    --db-instance-identifier `my-cdb-inst` ^
-    --tenant-db-name `pdb1` ^
-    --new-tenant-db-name `pdb-hr`
+1. aws rds modify-tenant-database --region {{us-east-1}} ^
+2.     --db-instance-identifier {{my-cdb-inst}} ^
+3.     --tenant-db-name {{pdb1}} ^
+4.     --new-tenant-db-name {{pdb-hr}}
 ```
-
-This command produces output similar to the following.
+This command produces output similar to the following.   
 
 ```
 {

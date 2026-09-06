@@ -1,45 +1,33 @@
+
+
 # Connecting to your DB instance using IAM authentication and the AWS SDK for Java
+<a name="UsingWithRDS.IAMDBAuth.Connecting.Java"></a>
 
-You can connect to an
-RDS for MariaDB, MySQL, or PostgreSQL DB instance
-with the AWS SDK for Java as described following.
+You can connect to an RDS for MariaDB, MySQL, or PostgreSQL DB instance with the AWS SDK for Java as described following.
 
-###### Prerequisites
-
+**Prerequisites**  
 The following are prerequisites for connecting to your DB instance using IAM authentication:
++ [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md)
++ [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md)
++ [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md)
++ [Set up the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-install.html)
 
-- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md")
-- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.IAMPolicy.md "UsingWithRDS.IAMDBAuth.IAMPolicy.md")
-- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.DBAccounts.md "UsingWithRDS.IAMDBAuth.DBAccounts.md")
-- [Set up the AWS SDK for Java](../../../sdk-for-java/v1/developer-guide/setup-install.md "../../../sdk-for-java/v1/developer-guide/setup-install.md")
-  For examples on how to use the SDK for Java 2.x, see [Amazon RDS examples using SDK for Java 2.x](../../../sdk-for-java/latest/developer-guide/java_rds_code_examples.md "../../../sdk-for-java/latest/developer-guide/java_rds_code_examples.md").
-  You can also use the AWS Advanced JDBC Wrapper, see
-  [AWS Advanced JDBC Wrapper documentation](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/Documentation.md "https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/Documentation.md").
+For examples on how to use the SDK for Java 2.x, see [Amazon RDS examples using SDK for Java 2.x](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/java_rds_code_examples.html). You can also use the AWS Advanced JDBC Wrapper, see [AWS Advanced JDBC Wrapper documentation](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/Documentation.md).
 
-###### Topics
-
-- [Generating an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken "#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken")
-- [Manually constructing an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken2 "#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken2")
-- [Connecting to a DB instance](#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken.Connect "#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken.Connect")
+**Topics**
++ [Generating an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken)
++ [Manually constructing an IAM authentication token](#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken2)
++ [Connecting to a DB instance](#UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken.Connect)
 
 ## Generating an IAM authentication token
+<a name="UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken"></a>
 
-If you are writing programs using the AWS SDK for Java, you can get a signed
-authentication token using the `RdsIamAuthTokenGenerator` class.
-Using this class requires that you provide AWS credentials. To do this, you
-create an instance of the `DefaultAWSCredentialsProviderChain` class.
-`DefaultAWSCredentialsProviderChain` uses the first AWS access
-key and secret key that it finds in the [default credential provider chain](../../../sdk-for-java/v1/developer-guide/credentials.md#credentials-default "../../../sdk-for-java/v1/developer-guide/credentials.md#credentials-default"). For more information about AWS
-access keys, see [Managing access keys for users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md").
+If you are writing programs using the AWS SDK for Java, you can get a signed authentication token using the `RdsIamAuthTokenGenerator` class. Using this class requires that you provide AWS credentials. To do this, you create an instance of the `DefaultAWSCredentialsProviderChain` class. `DefaultAWSCredentialsProviderChain` uses the first AWS access key and secret key that it finds in the [default credential provider chain](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html#credentials-default). For more information about AWS access keys, see [Managing access keys for users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html).
 
-###### Note
-
+**Note**  
 You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
 
-After you create an instance of `RdsIamAuthTokenGenerator`, you can
-call the `getAuthToken` method to obtain a signed token. Provide the
-AWS Region, host name, port number, and user name. The following code example
-illustrates how to do this.
+After you create an instance of `RdsIamAuthTokenGenerator`, you can call the `getAuthToken` method to obtain a signed token. Provide the AWS Region, host name, port number, and user name. The following code example illustrates how to do this.
 
 ```
 package com.amazonaws.codesamples;
@@ -56,7 +44,7 @@ public class GenerateRDSAuthToken {
 	    String hostname = "rdsmysql.123456789012.us-west-2.rds.amazonaws.com";
 	    String port = "3306";
 	    String username = "jane_doe";
-
+	
 	    System.out.println(generateAuthToken(region, hostname, port, username));
     }
 
@@ -73,24 +61,19 @@ public class GenerateRDSAuthToken {
 		    .port(Integer.parseInt(port))
 		    .userName(username)
 		    .build());
-
+	    
 	    return authToken;
     }
 
 }
-
 ```
 
 ## Manually constructing an IAM authentication token
+<a name="UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken2"></a>
 
-In Java, the easiest way to generate an authentication token is to use
-`RdsIamAuthTokenGenerator`. This class creates an authentication
-token for you, and then signs it using AWS signature version 4. For more
-information, see [Signature
-version 4 signing process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the _AWS General Reference._
+In Java, the easiest way to generate an authentication token is to use `RdsIamAuthTokenGenerator`. This class creates an authentication token for you, and then signs it using AWS signature version 4. For more information, see [Signature version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the *AWS General Reference.*
 
-However, you can also construct and sign an authentication token manually, as
-shown in the following code example.
+However, you can also construct and sign an authentication token manually, as shown in the following code example.
 
 ```
 package com.amazonaws.codesamples;
@@ -130,7 +113,7 @@ public class CreateRDSAuthTokenManually {
         String instanceName = "rdsmysql.123456789012.us-west-2.rds.amazonaws.com";
         String port = "3306";
         String username = "jane_doe";
-
+	
         Date now = new Date();
         String date = new SimpleDateFormat("yyyyMMdd").format(now);
         String dateTimeStamp = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'").format(now);
@@ -138,26 +121,26 @@ public class CreateRDSAuthTokenManually {
 	    String awsAccessKey = creds.getCredentials().getAWSAccessKeyId();
 	    String awsSecretKey = creds.getCredentials().getAWSSecretKey();
         String expiryMinutes = "900";
-
+        
         System.out.println("Step 1:  Create a canonical request:");
         String canonicalString = createCanonicalString(username, awsAccessKey, date, dateTimeStamp, region, expiryMinutes, instanceName, port);
         System.out.println(canonicalString);
         System.out.println();
 
-        System.out.println("Step 2:  Create a string to sign:");
+        System.out.println("Step 2:  Create a string to sign:");        
         String stringToSign = createStringToSign(dateTimeStamp, canonicalString, awsAccessKey, date, region);
         System.out.println(stringToSign);
         System.out.println();
 
-        System.out.println("Step 3:  Calculate the signature:");
+        System.out.println("Step 3:  Calculate the signature:");        
         String signature = BinaryUtils.toHex(calculateSignature(stringToSign, newSigningKey(awsSecretKey, date, region, serviceName)));
         System.out.println(signature);
         System.out.println();
 
-        System.out.println("Step 4:  Add the signing info to the request");
+        System.out.println("Step 4:  Add the signing info to the request");                
         System.out.println(appendSignature(signature));
         System.out.println();
-
+        
     }
 
     //Step 1: Create a canonical request date should be in format YYYYMMDD and dateTime should be in format YYYYMMDDTHHMMSSZ
@@ -258,52 +241,29 @@ public class CreateRDSAuthTokenManually {
         }
     }
 }
-
 ```
 
 ## Connecting to a DB instance
+<a name="UsingWithRDS.IAMDBAuth.Connecting.Java.AuthToken.Connect"></a>
 
-The following code example shows how to generate an authentication token, and
-then use it to connect to
-an instance
-running MariaDB or MySQL.
+The following code example shows how to generate an authentication token, and then use it to connect to an instance running MariaDB or MySQL. 
 
-To run this code example, you need the [AWS SDK for Java](http://aws.amazon.com/sdk-for-java/ "http://aws.amazon.com/sdk-for-java/"),
-found on the AWS site. In addition, you need the following:
+To run this code example, you need the [AWS SDK for Java](http://aws.amazon.com/sdk-for-java/), found on the AWS site. In addition, you need the following:
++ MySQL Connector/J. This code example was tested with `mysql-connector-java-5.1.33-bin.jar`.
++ An intermediate certificate for Amazon RDS that is specific to an AWS Region. (For more information, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster ](UsingWithRDS.SSL.md).) At runtime, the class loader looks for the certificate in the same directory as this Java code example, so that the class loader can find it.
++ Modify the values of the following variables as needed:
+  + `RDS_INSTANCE_HOSTNAME` – The host name of the DB instance that you want to access.
+  + `RDS_INSTANCE_PORT` – The port number used for connecting to your PostgreSQL DB instance.
+  + `REGION_NAME` – The AWS Region where the DB instance is running.
+  + `DB_USER` – The database account that you want to access.
+  + `SSL_CERTIFICATE` – An SSL certificate for Amazon RDS that is specific to an AWS Region.
 
-- MySQL Connector/J. This code example was tested with
-  `mysql-connector-java-5.1.33-bin.jar`.
-- An intermediate certificate for
-  Amazon RDS
-  that is specific to an AWS Region. (For more information, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .) At runtime, the class loader
-  looks for the certificate in the same directory as this Java code
-  example, so that the class loader can find it.
-- Modify the values of the following variables as needed:
+    To download a certificate for your AWS Region, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster ](UsingWithRDS.SSL.md). Place the SSL certificate in the same directory as this Java program file, so that the class loader can find the certificate at runtime.
 
-  - `RDS_INSTANCE_HOSTNAME` – The host name of
-    the DB instance that you want to
-    access.
-  - `RDS_INSTANCE_PORT` – The port number used
-    for connecting to your PostgreSQL DB instance.
-  - `REGION_NAME` – The AWS Region where the DB
-    instance is running.
-  - `DB_USER` – The database account that you
-    want to access.
-  - `SSL_CERTIFICATE` – An SSL certificate for Amazon RDS
-    that is specific to an AWS Region.
+This code example obtains AWS credentials from the [default credential provider chain](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html#credentials-default).
 
-  To download a certificate for your
-  AWS Region, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
-  Place the SSL certificate in the same directory as this Java
-  program file, so that the class loader can find the certificate
-  at runtime.
-
-This code example obtains AWS credentials from the [default credential provider chain](../../../sdk-for-java/v1/developer-guide/credentials.md#credentials-default "../../../sdk-for-java/v1/developer-guide/credentials.md#credentials-default").
-
-###### Note
-
-Specify a password for `DEFAULT_KEY_STORE_PASSWORD` other than
-the prompt shown here as a security best practice.
+**Note**  
+Specify a password for `DEFAULT_KEY_STORE_PASSWORD` other than the prompt shown here as a security best practice.
 
 ```
 package com.amazonaws.samples;
@@ -365,9 +325,9 @@ public class IAMDatabaseAuthenticationTester {
         //close the connection
         stmt.close();
         connection.close();
-
+        
         clearSslProperties();
-
+        
     }
 
     /**
@@ -461,7 +421,7 @@ public class IAMDatabaseAuthenticationTester {
         }
         return keyStoreFile;
     }
-
+    
     /**
      * This method clears the SSL properties.
      * @throws Exception
@@ -469,12 +429,10 @@ public class IAMDatabaseAuthenticationTester {
     private static void clearSslProperties() throws Exception {
            System.clearProperty("javax.net.ssl.trustStore");
            System.clearProperty("javax.net.ssl.trustStoreType");
-           System.clearProperty("javax.net.ssl.trustStorePassword");
+           System.clearProperty("javax.net.ssl.trustStorePassword"); 
     }
-
+    
 }
-
 ```
 
-If you want to connect to a DB instance
-through a proxy, see [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam "rds-proxy-connecting.md#rds-proxy-connecting-iam").
+If you want to connect to a DB instance through a proxy, see [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam).

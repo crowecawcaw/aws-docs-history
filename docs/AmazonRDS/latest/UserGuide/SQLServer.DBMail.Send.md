@@ -1,45 +1,43 @@
-# Sending email messages using Database Mail
 
-You use the [sp\_send\_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure to send email messages using Database Mail.
+
+# Sending email messages using Database Mail
+<a name="SQLServer.DBMail.Send"></a>
+
+You use the [sp\_send\_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) stored procedure to send email messages using Database Mail.
 
 ## Usage
+<a name="SQLServer.DBMail.Send.Usage"></a>
 
 ```
 EXEC msdb.dbo.sp_send_dbmail
-@profile_name = '`profile_name`',
-@recipients = '`recipient1@example.com`[; `recipient2`; ... `recipientn`]',
-@subject = '`subject`',
-@body = '`message_body`',
+@profile_name = '{{profile_name}}',
+@recipients = '{{recipient1@example.com}}[; {{recipient2}}; ... {{recipientn}}]',
+@subject = '{{subject}}',
+@body = '{{message_body}}',
 [@body_format = 'HTML'],
-[@file_attachments = '`file_path1`; `file_path2`; ... `file_pathn`'],
-[@query = '`SQL_query'`],
-[@attach_query_result_as_file = `0|1`]';
+[@file_attachments = '{{file_path1}}; {{file_path2}}; ... {{file_pathn}}'],
+[@query = '{{SQL_query'}}],
+[@attach_query_result_as_file = {{0|1}}]';
 ```
 
 The following parameters are required:
-
-- `@profile_name` – The name of the Database Mail profile from which to send the message.
-- `@recipients` – The semicolon-delimited list of email addresses to which to send the
-  message.
-- `@subject` – The subject of the message.
-- `@body` – The body of the message. You can also use a declared variable as the body.
++ `@profile_name` – The name of the Database Mail profile from which to send the message.
++ `@recipients` – The semicolon-delimited list of email addresses to which to send the message.
++ `@subject` – The subject of the message.
++ `@body` – The body of the message. You can also use a declared variable as the body.
 
 The following parameters are optional:
-
-- `@body_format` – This parameter is used with a declared
-  variable to send email in HTML format.
-- `@file_attachments` – The semicolon-delimited list of message attachments. File paths must be
-  absolute paths.
-- `@query` – A SQL query to run. The query results can be
-  attached as a file or included in the body of the message.
-- `@attach_query_result_as_file` – Whether to attach the query result as a file. Set to 0 for no,
-  1 for yes. The default is 0.
++ `@body_format` – This parameter is used with a declared variable to send email in HTML format.
++ `@file_attachments` – The semicolon-delimited list of message attachments. File paths must be absolute paths.
++ `@query` – A SQL query to run. The query results can be attached as a file or included in the body of the message.
++ `@attach_query_result_as_file` – Whether to attach the query result as a file. Set to 0 for no, 1 for yes. The default is 0.
 
 ## Examples
+<a name="SQLServer.DBMail.Send.Examples"></a>
 
 The following examples demonstrate how to send email messages.
 
-###### Example of sending a message to a single recipient
+**Example of sending a message to a single recipient**  
 
 ```
 USE msdb
@@ -53,7 +51,7 @@ EXEC msdb.dbo.sp_send_dbmail
 GO
 ```
 
-###### Example of sending a message to multiple recipients
+**Example of sending a message to multiple recipients**  
 
 ```
 USE msdb
@@ -67,7 +65,7 @@ EXEC msdb.dbo.sp_send_dbmail
 GO
 ```
 
-###### Example of sending a SQL query result as a file attachment
+**Example of sending a SQL query result as a file attachment**  
 
 ```
 USE msdb
@@ -83,7 +81,7 @@ EXEC msdb.dbo.sp_send_dbmail
 GO
 ```
 
-###### Example of sending a message in HTML format
+**Example of sending a message in HTML format**  
 
 ```
 USE msdb
@@ -100,7 +98,7 @@ EXEC msdb.dbo.sp_send_dbmail
 GO
 ```
 
-###### Example of sending a message using a trigger when a specific event occurs in the database
+**Example of sending a message using a trigger when a specific event occurs in the database**  
 
 ```
 USE AdventureWorks2017

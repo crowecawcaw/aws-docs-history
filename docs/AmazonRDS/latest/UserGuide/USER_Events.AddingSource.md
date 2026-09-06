@@ -1,39 +1,42 @@
+
+
 # Adding a source identifier to an Amazon RDS event notification subscription
+<a name="USER_Events.AddingSource"></a>
 
 You can add a source identifier (the Amazon RDS source generating the event) to an existing subscription.
 
-You can easily add or remove source identifiers using the Amazon RDS console by selecting or deselecting
-them when modifying a subscription. For more information, see [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md "USER_Events.Modifying.md").
+## Console
+<a name="USER_Events.AddingSource.Console"></a>
 
-To add a source identifier to an Amazon RDS event notification subscription, use the AWS CLI [`add-source-identifier-to-subscription`](../../../index.md "../../../index.md") command. Include
-the following required parameters:
+You can easily add or remove source identifiers using the Amazon RDS console by selecting or deselecting them when modifying a subscription. For more information, see [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md).
 
-- `--subscription-name`
-- `--source-identifier`
+## AWS CLI
+<a name="USER_Events.AddingSource.CLI"></a>
 
-###### Example
+To add a source identifier to an Amazon RDS event notification subscription, use the AWS CLI [`add-source-identifier-to-subscription`](https://docs.aws.amazon.com/) command. Include the following required parameters:
++ `--subscription-name`
++ `--source-identifier`
 
-The following example adds the source identifier `mysqldb` to the
-`myrdseventsubscription` subscription.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following example adds the source identifier `mysqldb` to the `myrdseventsubscription` subscription.  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds add-source-identifier-to-subscription \
-    --subscription-name `myrdseventsubscription` \
-    --source-identifier `mysqldb`
+    --subscription-name {{myrdseventsubscription}} \
+    --source-identifier {{mysqldb}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds add-source-identifier-to-subscription ^
-    --subscription-name `myrdseventsubscription` ^
-    --source-identifier `mysqldb`
+    --subscription-name {{myrdseventsubscription}} ^
+    --source-identifier {{mysqldb}}
 ```
 
-To add a source identifier to an Amazon RDS event notification subscription, call the Amazon RDS API [`AddSourceIdentifierToSubscription`](../APIReference/API_AddSourceIdentifierToSubscription.md "../APIReference/API_AddSourceIdentifierToSubscription.md"). Include the following required
-parameters:
+## API
+<a name="USER_Events.AddingSource.API"></a>
 
-- `SubscriptionName`
-- `SourceIdentifier`
+To add a source identifier to an Amazon RDS event notification subscription, call the Amazon RDS API [`AddSourceIdentifierToSubscription`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddSourceIdentifierToSubscription.html). Include the following required parameters:
++ `SubscriptionName`
++ `SourceIdentifier`

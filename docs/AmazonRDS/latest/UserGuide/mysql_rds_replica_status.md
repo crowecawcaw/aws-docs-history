@@ -1,28 +1,30 @@
+
+
 # mysql.rds\_replica\_status
+<a name="mysql_rds_replica_status"></a>
 
 Shows the replication status of a MariaDB read replica.
 
-Call this procedure on the read replica to show status information on essential parameters of
-the replica threads.
+Call this procedure on the read replica to show status information on essential parameters of the replica threads.
 
 ## Syntax
+<a name="mysql_rds_replica_status-syntax"></a>
 
 ```
 CALL mysql.rds_replica_status;
 ```
 
 ## Usage notes
+<a name="mysql_rds_replica_status-usage-notes"></a>
 
 This procedure is only supported for MariaDB DB instances running MariaDB version 10.5 and higher.
 
-This procedure is the equivalent of the `SHOW REPLICA STATUS` command. This command isn't supported
-for MariaDB version 10.5 and higher DB instances.
+This procedure is the equivalent of the `SHOW REPLICA STATUS` command. This command isn't supported for MariaDB version 10.5 and higher DB instances.
 
-In prior versions of MariaDB, the equivalent `SHOW SLAVE STATUS` command required the `REPLICATION SLAVE`
-privilege. In MariaDB version 10.5 and higher, it requires the `REPLICATION REPLICA ADMIN` privilege. To protect the RDS
-management of MariaDB 10.5 and higher DB instances, this new privilege isn't granted to the RDS master user.
+In prior versions of MariaDB, the equivalent `SHOW SLAVE STATUS` command required the `REPLICATION SLAVE` privilege. In MariaDB version 10.5 and higher, it requires the `REPLICATION REPLICA ADMIN` privilege. To protect the RDS management of MariaDB 10.5 and higher DB instances, this new privilege isn't granted to the RDS master user.
 
 ## Examples
+<a name="mysql_rds_replica_status-examples"></a>
 
 The following example shows the status of a MariaDB read replica:
 

@@ -1,24 +1,20 @@
+
+
 # Use `DescribeDBParameters` with an AWS SDK or CLI
+<a name="example_rds_DescribeDBParameters_section"></a>
 
 The following code examples show how to use `DescribeDBParameters`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md) 
 
-- [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md "example_rds_Scenario_GetStartedInstances_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples). 
 
 ```
-
     /// <summary>
     /// Get a list of DB parameters from a specific parameter group.
     /// </summary>
@@ -41,24 +37,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
         return results;
     }
-
-
-
 ```
++  For API details, see [DescribeDBParameters](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameters) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeDBParameters](../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/DotNetSDKV3/rds-2014-10-31/DescribeDBParameters.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -123,29 +109,21 @@ bool AwsDoc::RDS::getDBParameters(const Aws::String &parameterGroupName,
 
     return true;
 }
+```
++  For API details, see [DescribeDBParameters](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/DescribeDBParameters) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To describe the parameters in a DB parameter group**  
+The following `describe-db-parameters` example retrieves the details of the specified DB parameter group.  
 
 ```
-
-- For API details, see
-  [DescribeDBParameters](../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForCpp/rds-2014-10-31/DescribeDBParameters.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To describe the parameters in a DB parameter group**
-
-The following `describe-db-parameters` example retrieves the details of the specified DB parameter group.
-
+aws rds describe-db-parameters \
+    --db-parameter-group-name {{mydbpg}}
 ```
-`aws rds describe-db-parameters \
- --db-parameter-group-name `mydbpg``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -174,25 +152,16 @@ Output:
     ]
 }
 ```
+For more information, see [Working with DB Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.  
++  For API details, see [DescribeDBParameters](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-parameters.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with DB Parameter Groups](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") in the _Amazon RDS User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [DescribeDBParameters](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-parameters.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-parameters.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -232,24 +201,14 @@ func (instances *DbInstances) GetParameters(ctx context.Context, parameterGroupN
 	}
 	return params, err
 }
-
-
-
 ```
++  For API details, see [DescribeDBParameters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameters) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DescribeDBParameters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameters "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.DescribeDBParameters")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
     // Retrieve parameters in the group.
@@ -289,23 +248,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [DescribeDBParameters](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeDBParameters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples). 
 
 ```
 class InstanceWrapper:
@@ -360,24 +310,14 @@ class InstanceWrapper:
             raise
         else:
             return parameters
-
-
-
 ```
++  For API details, see [DescribeDBParameters](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/DescribeDBParameters) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeDBParameters](../../../goto/boto3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBParameters.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples). 
 
 ```
 require 'aws-sdk-rds' # v2: require 'aws-sdk'
@@ -398,23 +338,14 @@ def list_parameter_groups(rds_resource)
 rescue Aws::Errors::ServiceError => e
   puts "Couldn't list parameter groups:\n #{e.message}"
 end
-
-
 ```
++  For API details, see [DescribeDBParameters](https://docs.aws.amazon.com/goto/SdkForRubyV3/rds-2014-10-31/DescribeDBParameters) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DescribeDBParameters](../../../goto/SdkForRubyV3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForRubyV3/rds-2014-10-31/DescribeDBParameters.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rds#code-examples). 
 
 ```
     " iv_dbparametergroupname = 'mydbparametergroup'
@@ -428,35 +359,26 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rdsdbprmgrnotfndfault.
         MESSAGE 'DB parameter group not found.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeDBParameters](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeDBParameters](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples). 
 
 ```
 import AWSRDS
 
     /// Returns the detailed parameter list for the specified database
     /// parameter group.
-    ///
+    /// 
     /// - Parameters:
     ///   - groupName: The name of the parameter group to return parameters for.
     ///   - source: The types of parameters to return (`user`, `system`, or
     ///     `engine-default`).
-    ///
+    /// 
     /// - Returns: An array of `RdSClientTypes.Parameter` objects, each
     ///   describing one of the group's parameters.
     func describeDBParameters(groupName: String, source: String? = nil) async -> [RDSClientTypes.Parameter] {
@@ -484,14 +406,9 @@ import AWSRDS
 
         return parameterList
     }
-
-
 ```
++  For API details, see [DescribeDBParameters](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DescribeDBParameters](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

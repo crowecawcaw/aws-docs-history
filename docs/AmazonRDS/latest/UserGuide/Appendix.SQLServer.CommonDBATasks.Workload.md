@@ -1,46 +1,18 @@
+
+
 # Analyzing your database workload on an Amazon RDS for SQL Server DB instance with Database Engine Tuning Advisor
+<a name="Appendix.SQLServer.CommonDBATasks.Workload"></a>
 
-Database Engine Tuning Advisor is a client application provided by Microsoft that analyzes database workload and recommends an
-optimal set of indexes for your Microsoft SQL Server databases based on the kinds of queries you run. Like SQL Server Management
-Studio, you run Tuning Advisor from a client computer that connects to your Amazon RDS DB instance that is running SQL Server. The
-client computer can be a local computer that you run on premises within your own network or it can be an Amazon EC2 Windows instance
-that is running in the same region as your Amazon RDS DB instance.
+Database Engine Tuning Advisor is a client application provided by Microsoft that analyzes database workload and recommends an optimal set of indexes for your Microsoft SQL Server databases based on the kinds of queries you run. Like SQL Server Management Studio, you run Tuning Advisor from a client computer that connects to your Amazon RDS DB instance that is running SQL Server. The client computer can be a local computer that you run on premises within your own network or it can be an Amazon EC2 Windows instance that is running in the same region as your Amazon RDS DB instance.
 
-This section shows how to capture a workload for Tuning Advisor to analyze. This is the preferred process for capturing a workload
-because Amazon RDS restricts host access to the SQL Server instance. For more information, see [Database Engine
-Tuning Advisor](https://docs.microsoft.com/en-us/sql/relational-databases/performance/database-engine-tuning-advisor "https://docs.microsoft.com/en-us/sql/relational-databases/performance/database-engine-tuning-advisor") in the Microsoft documentation.
+This section shows how to capture a workload for Tuning Advisor to analyze. This is the preferred process for capturing a workload because Amazon RDS restricts host access to the SQL Server instance. For more information, see [Database Engine Tuning Advisor](https://docs.microsoft.com/en-us/sql/relational-databases/performance/database-engine-tuning-advisor) in the Microsoft documentation.
 
-To use Tuning Advisor, you must provide what is called a workload to the advisor. A workload is a set of Transact-SQL statements
-that run against a database or databases that you want to tune. Database Engine Tuning Advisor uses trace files, trace tables,
-Transact-SQL scripts, or XML files as workload input when tuning databases. When working with Amazon RDS, a workload can be a file on
-a client computer or a database table on an Amazon RDS for SQL Server DB accessible to your client computer. The file or the table
-must contain queries against the databases you want to tune in a format suitable for replay.
+To use Tuning Advisor, you must provide what is called a workload to the advisor. A workload is a set of Transact-SQL statements that run against a database or databases that you want to tune. Database Engine Tuning Advisor uses trace files, trace tables, Transact-SQL scripts, or XML files as workload input when tuning databases. When working with Amazon RDS, a workload can be a file on a client computer or a database table on an Amazon RDS for SQL Server DB accessible to your client computer. The file or the table must contain queries against the databases you want to tune in a format suitable for replay.
 
-For Tuning Advisor to be most effective, a workload should be as realistic as
-possible. You can generate a workload file or table by performing a trace against your
-DB instance. While a trace is running, you can either simulate a load on your DB
-instance or run your applications with a normal load.
+For Tuning Advisor to be most effective, a workload should be as realistic as possible. You can generate a workload file or table by performing a trace against your DB instance. While a trace is running, you can either simulate a load on your DB instance or run your applications with a normal load.
 
-There are two types of traces: client-side and server-side. A client-side trace is
-easier to set up and you can watch trace events being captured in real-time in SQL
-Server Profiler. A server-side trace is more complex to set up and requires some
-Transact-SQL scripting. In addition, because the trace is written to a file on the Amazon RDS
-DB instance, storage space is consumed by the trace. It is important to track of how
-much storage space a running server-side trace uses because the DB instance could enter
-a storage-full state and would no longer be available if it runs out of storage
-space.
+There are two types of traces: client-side and server-side. A client-side trace is easier to set up and you can watch trace events being captured in real-time in SQL Server Profiler. A server-side trace is more complex to set up and requires some Transact-SQL scripting. In addition, because the trace is written to a file on the Amazon RDS DB instance, storage space is consumed by the trace. It is important to track of how much storage space a running server-side trace uses because the DB instance could enter a storage-full state and would no longer be available if it runs out of storage space.
 
-For a client-side trace, when a sufficient amount of trace data has been captured in
-the SQL Server Profiler, you can then generate the workload file by saving the trace to
-either a file on your local computer or in a database table on a DB instance that is
-available to your client computer. The main disadvantage of using a client-side trace is
-that the trace may not capture all queries when under heavy loads. This could weaken the
-effectiveness of the analysis performed by the Database Engine Tuning Advisor. If you
-need to run a trace under heavy loads and you want to ensure that it captures every
-query during a trace session, you should use a server-side trace.
+For a client-side trace, when a sufficient amount of trace data has been captured in the SQL Server Profiler, you can then generate the workload file by saving the trace to either a file on your local computer or in a database table on a DB instance that is available to your client computer. The main disadvantage of using a client-side trace is that the trace may not capture all queries when under heavy loads. This could weaken the effectiveness of the analysis performed by the Database Engine Tuning Advisor. If you need to run a trace under heavy loads and you want to ensure that it captures every query during a trace session, you should use a server-side trace.
 
-For a server-side trace, you must get the trace files on the DB instance into a
-suitable workload file or you can save the trace to a table on the DB instance after the
-trace completes. You can use the SQL Server Profiler to save the trace to a file on your
-local computer or have the Tuning Advisor read from the trace table on the DB
-instance.
+For a server-side trace, you must get the trace files on the DB instance into a suitable workload file or you can save the trace to a table on the DB instance after the trace completes. You can use the SQL Server Profiler to save the trace to a file on your local computer or have the Tuning Advisor read from the trace table on the DB instance.

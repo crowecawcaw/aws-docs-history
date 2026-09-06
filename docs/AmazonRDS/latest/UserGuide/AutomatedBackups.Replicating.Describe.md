@@ -1,23 +1,23 @@
+
+
 # Finding information about replicated backups for Amazon RDS
+<a name="AutomatedBackups.Replicating.Describe"></a>
 
 You can use the following CLI commands to find information about replicated backups:
++ [`describe-source-regions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-source-regions.html)
++ [`describe-db-instances`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html)
++ [`describe-db-instance-automated-backups`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instance-automated-backups.html)
 
-- [`describe-source-regions`](../../../cli/latest/reference/rds/describe-source-regions.md "../../../cli/latest/reference/rds/describe-source-regions.md")
-- [`describe-db-instances`](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")
-- [`describe-db-instance-automated-backups`](../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md "../../../cli/latest/reference/rds/describe-db-instance-automated-backups.md")
-  The following `describe-source-regions` example lists the source AWS Regions from which automated backups can be
-  replicated to the US West (Oregon) destination Region.
+The following `describe-source-regions` example lists the source AWS Regions from which automated backups can be replicated to the US West (Oregon) destination Region.
 
-###### To show information about source Regions
+**To show information about source Regions**
++ Run the following command.
 
-- Run the following command.
+  ```
+  aws rds describe-source-regions --region us-west-2
+  ```
 
-```
-aws rds describe-source-regions --region us-west-2
-```
-
-The output shows that backups can be replicated from US East (N. Virginia), but not from US East (Ohio) or
-US West (N. California), into US West (Oregon).
+The output shows that backups can be replicated from US East (N. Virginia), but not from US East (Ohio) or US West (N. California), into US West (Oregon).
 
 ```
 {
@@ -46,23 +46,22 @@ US West (N. California), into US West (Oregon).
 
 The following `describe-db-instances` example shows the automated backups for a DB instance.
 
-###### To show the replicated backups for a DB instance
+**To show the replicated backups for a DB instance**
++ Run one of the following commands.
 
-- Run one of the following commands.
+  For Linux, macOS, or Unix:
 
-For Linux, macOS, or Unix:
+  ```
+  aws rds describe-db-instances \
+  --db-instance-identifier {{mydatabase}}
+  ```
 
-```
-aws rds describe-db-instances \
---db-instance-identifier `mydatabase`
-```
+  For Windows:
 
-For Windows:
-
-```
-aws rds describe-db-instances ^
---db-instance-identifier `mydatabase`
-```
+  ```
+  aws rds describe-db-instances ^
+  --db-instance-identifier {{mydatabase}}
+  ```
 
 The output includes the replicated backups.
 
@@ -83,29 +82,26 @@ The output includes the replicated backups.
 }
 ```
 
-The following `describe-db-instance-automated-backups` example shows the automated backups for a DB
-instance.
+The following `describe-db-instance-automated-backups` example shows the automated backups for a DB instance.
 
-###### To show automated backups for a DB instance
+**To show automated backups for a DB instance**
++ Run one of the following commands.
 
-- Run one of the following commands.
+  For Linux, macOS, or Unix:
 
-For Linux, macOS, or Unix:
+  ```
+  aws rds describe-db-instance-automated-backups \
+  --db-instance-identifier {{mydatabase}}
+  ```
 
-```
-aws rds describe-db-instance-automated-backups \
---db-instance-identifier `mydatabase`
-```
+  For Windows:
 
-For Windows:
+  ```
+  aws rds describe-db-instance-automated-backups ^
+  --db-instance-identifier {{mydatabase}}
+  ```
 
-```
-aws rds describe-db-instance-automated-backups ^
---db-instance-identifier `mydatabase`
-```
-
-The output shows the source DB instance and automated backups in US West (Oregon), with backups replicated to
-US East (N. Virginia).
+The output shows the source DB instance and automated backups in US West (Oregon), with backups replicated to US East (N. Virginia).
 
 ```
 {
@@ -128,26 +124,24 @@ US East (N. Virginia).
 }
 ```
 
-The following `describe-db-instance-automated-backups` example uses the
-`--db-instance-automated-backups-arn` option to show the replicated backups in the destination Region.
+The following `describe-db-instance-automated-backups` example uses the `--db-instance-automated-backups-arn` option to show the replicated backups in the destination Region.
 
-###### To show replicated backups
+**To show replicated backups**
++ Run one of the following commands.
 
-- Run one of the following commands.
+  For Linux, macOS, or Unix:
 
-For Linux, macOS, or Unix:
+  ```
+  aws rds describe-db-instance-automated-backups \
+  --db-instance-automated-backups-arn "arn:aws:rds:us-east-1:{{123456789012}}:auto-backup:{{ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE}}"
+  ```
 
-```
-aws rds describe-db-instance-automated-backups \
---db-instance-automated-backups-arn "arn:aws:rds:us-east-1:`123456789012`:auto-backup:`ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE`"
-```
+  For Windows:
 
-For Windows:
-
-```
-aws rds describe-db-instance-automated-backups ^
---db-instance-automated-backups-arn "arn:aws:rds:us-east-1:`123456789012`:auto-backup:`ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE`"
-```
+  ```
+  aws rds describe-db-instance-automated-backups ^
+  --db-instance-automated-backups-arn "arn:aws:rds:us-east-1:{{123456789012}}:auto-backup:{{ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE}}"
+  ```
 
 The output shows the source DB instance in US West (Oregon), with replicated backups in US East (N. Virginia).
 
@@ -172,5 +166,4 @@ The output shows the source DB instance in US West (Oregon), with replicated bac
         }
     ]
 }
-
 ```

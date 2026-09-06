@@ -1,120 +1,55 @@
+
+
 # Monitoring and tuning the replication process
+<a name="USER_PostgreSQL.Replication.ReadReplicas.Monitor"></a>
 
-We strongly recommend that you routinely monitor your RDS for PostgreSQL DB instance and
-read replicas. You need to ensure that your read replicas are keeping up with changes on
-the source DB instance. Amazon RDS transparently recovers your read replicas when
-interruptions to the replication process occur. However, it's best to avoid needing
-to recover at all. Recovering using replication slots is faster than using the Amazon S3
-archive, but any recovery process can affect read performance.
+We strongly recommend that you routinely monitor your RDS for PostgreSQL DB instance and read replicas. You need to ensure that your read replicas are keeping up with changes on the source DB instance. Amazon RDS transparently recovers your read replicas when interruptions to the replication process occur. However, it's best to avoid needing to recover at all. Recovering using replication slots is faster than using the Amazon S3 archive, but any recovery process can affect read performance. 
 
-To determine how well your read replicas are keeping up with the source DB instance,
-you can do the following:
+To determine how well your read replicas are keeping up with the source DB instance, you can do the following: 
++ **Check the amount of `ReplicaLag` between source DB instance and replicas.** *Replica lag* is the amount of time, in seconds, that a read replica lags behind its source DB instance. This metric reports the result of the following query.
 
-- Check the amount of `ReplicaLag` between
-  source DB instance and replicas.
-  _Replica lag_ is the amount of time, in seconds, that a read
-  replica lags behind its source DB instance. This metric reports the result of
-  the following query.
+  ```
+  SELECT extract(epoch from now() - pg_last_xact_replay_timestamp()) AS "ReplicaLag";
+  ```
 
-```
-SELECT extract(epoch from now() - pg_last_xact_replay_timestamp()) AS "ReplicaLag";
+  Replica lag is an indication of how well a read replica is keeping up with the source DB instance. It's the amount of latency between the source DB instance and a specific read instance. A high value for replica lag can indicate a mismatch between the DB instance classes or storage types (or both) used by the source DB instance and its read replicas. The DB instance class and storage types for DB source instance and all read replicas should be the same. 
 
-```
+  Replica lag can also be the result of intermittent connection issues. You can monitor replication lag in Amazon CloudWatch by viewing the Amazon RDS `ReplicaLag` metric. To learn more about `ReplicaLag` and other metrics for Amazon RDS, see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md).
++ **Check the PostgreSQL log for information you can use to adjust your settings.** At every checkpoint, the PostgreSQL log captures the number of recycled transaction log files, as shown in the following example.
 
-Replica lag is an indication of how well a read replica is keeping up with the
-source DB instance. It's the amount of latency between the source DB
-instance and a specific read instance. A high value for replica lag can indicate
-a mismatch between the DB instance classes or storage types (or both) used by
-the source DB instance and its read replicas. The DB instance class and storage
-types for DB source instance and all read replicas should be the same.
+  ```
+  2014-11-07 19:59:35 UTC::@:[26820]:LOG:  checkpoint complete: wrote 376 buffers (0.2%);
+  0 transaction log file(s) added, 0 removed, 1 recycled; write=35.681 s, sync=0.013 s, total=35.703 s;
+  sync files=10, longest=0.013 s, average=0.001 s
+  ```
 
-Replica lag can also be the result of intermittent connection issues. You can
-monitor replication lag in Amazon CloudWatch by viewing the Amazon RDS `ReplicaLag`
-metric. To learn more about `ReplicaLag` and other metrics for Amazon RDS,
-see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
-
-- Check the PostgreSQL log for information you can use to
-  adjust your settings. At every checkpoint, the PostgreSQL log
-  captures the number of recycled transaction log files, as shown in the following
-  example.
-
-```
-2014-11-07 19:59:35 UTC::@:[26820]:LOG:  checkpoint complete: wrote 376 buffers (0.2%);
-0 transaction log file(s) added, 0 removed, **1 recycled**; write=35.681 s, sync=0.013 s, total=35.703 s;
-sync files=10, longest=0.013 s, average=0.001 s
-```
-
-You can use this information to figure out how many transaction files are
-being recycled in a given time period. You can then change the setting for
-`wal_keep_segments` if necessary. For example, suppose that the
-PostgreSQL log at `checkpoint complete` shows `35
- recycled` for a 5-minute interval. In this case, the
-`wal_keep_segments` default value of 32 isn't sufficient to
-keep pace with the streaming activity, so you should increase the value of this
-parameter.
-
-- Use Amazon CloudWatch to monitor metrics that can predict
-  replication issues. Rather than analyzing the PostgreSQL log
-  directly, you can use Amazon CloudWatch to check metrics that have been collected. For
-  example, you can check the value of the `TransactionLogsGeneration`
-  metric to see how much WAL data is being generated by the source DB instance. In
-  some cases, the workload on your DB instance might generate a large amount of
-  WAL data. If so, you might need to change the DB instance class for your source
-  DB instance and read replicas. Using an instance class with high (10 Gbps)
-  network performance can reduce replica lag.
+  You can use this information to figure out how many transaction files are being recycled in a given time period. You can then change the setting for `wal_keep_segments` if necessary. For example, suppose that the PostgreSQL log at `checkpoint complete` shows `35 recycled` for a 5-minute interval. In this case, the `wal_keep_segments` default value of 32 isn't sufficient to keep pace with the streaming activity, so you should increase the value of this parameter.
++ **Use Amazon CloudWatch to monitor metrics that can predict replication issues.** Rather than analyzing the PostgreSQL log directly, you can use Amazon CloudWatch to check metrics that have been collected. For example, you can check the value of the `TransactionLogsGeneration` metric to see how much WAL data is being generated by the source DB instance. In some cases, the workload on your DB instance might generate a large amount of WAL data. If so, you might need to change the DB instance class for your source DB instance and read replicas. Using an instance class with high (10 Gbps) network performance can reduce replica lag. 
 
 ## Monitoring replication slots for your RDS for PostgreSQL DB instance
+<a name="USER_PostgreSQL.Replication.ReadReplicas.Monitor-monitor-replication-slots"></a>
 
-All versions of RDS for PostgreSQL use replication slots for cross-Region read
-replicas. RDS for PostgreSQL 14.1 and higher versions use replication slots for in-Region
-read replicas. In-region read replicas also use Amazon S3 to archive WAL data. In other
-words, if your DB instance and read replicas are running PostgreSQL 14.1 or higher,
-replication slots and Amazon S3 archives are both available for recovering the read
-replica. Recovering a read replica using its replication slot is faster than
-recovering from Amazon S3 archive. So, we recommend that you monitor the replication
-slots and related metrics.
+All versions of RDS for PostgreSQL use replication slots for cross-Region read replicas. RDS for PostgreSQL 14.1 and higher versions use replication slots for in-Region read replicas. In-region read replicas also use Amazon S3 to archive WAL data. In other words, if your DB instance and read replicas are running PostgreSQL 14.1 or higher, replication slots and Amazon S3 archives are both available for recovering the read replica. Recovering a read replica using its replication slot is faster than recovering from Amazon S3 archive. So, we recommend that you monitor the replication slots and related metrics. 
 
-You can view the replication slots on your RDS for PostgreSQL DB instances by querying
-the `pg_replication_slots` view, as follows.
+You can view the replication slots on your RDS for PostgreSQL DB instances by querying the `pg_replication_slots` view, as follows.
 
 ```
-`postgres=>` `SELECT * FROM pg_replication_slots;`
-`slot_name | plugin | slot_type | datoid | database | temporary | active | active_pid | xmin | catalog_xmin | restart_lsn | confirmed_flush_lsn | wal_status | safe_wal_size | two_phase
+postgres=> SELECT * FROM pg_replication_slots;
+slot_name                  | plugin | slot_type | datoid | database | temporary | active | active_pid | xmin | catalog_xmin | restart_lsn | confirmed_flush_lsn | wal_status | safe_wal_size | two_phase
 ---------------------------+--------+-----------+--------+----------+-----------+--------+------------+------+--------------+-------------+---------------------+------------+---------------+-----------
-rds_us_west_1_db_555555555 | | physical | | | f | t | 13194 | | | 23/D8000060 | | reserved | | f
-(1 row)`
+rds_us_west_1_db_555555555 |        | physical  |        |          | f         | t      |      13194 |      |              | 23/D8000060 |                     | reserved   |               | f
+(1 row)
 ```
 
-The `wal_status` of `reserved` value means that the amount
-of WAL data held by the slot is within the bounds of the `max_wal_size`
-parameter. In other words, the replication slot is properly sized. Other possible
-status values are as follows:
+The `wal_status` of `reserved` value means that the amount of WAL data held by the slot is within the bounds of the `max_wal_size` parameter. In other words, the replication slot is properly sized. Other possible status values are as follows: 
++ `extended` – The slot exceeds the `max_wal_size` setting, but the WAL data is retained.
++ `unreserved` – The slot no longer has the all required WAL data. Some of it will be removed at the next checkpoint.
++ `lost` – Some required WAL data has been removed. The slot is no longer usable.
 
-- `extended` – The slot exceeds the
-  `max_wal_size` setting, but the WAL data is retained.
-- `unreserved` – The slot no longer has the all required
-  WAL data. Some of it will be removed at the next checkpoint.
-- `lost` – Some required WAL data has been removed. The
-  slot is no longer usable.
+The `unreserved` and `lost` states of the `wal_status` are seen only when `max_slot_wal_keep_size` is non-negative.
 
-The `unreserved` and `lost` states of the
-`wal_status` are seen only when `max_slot_wal_keep_size`
-is non-negative.
+The `pg_replication_slots` view shows you the current state of your replication slots. To assess the performance of your replication slots, you can use Amazon CloudWatch and monitor the following metrics:
++ **`OldestReplicationSlotLag`** – Shows the amount of Write-Ahead Log (WAL) data on the source that hasn't been consumed by the most lagging replica.
++ **`TransactionLogsDiskUsage`** – Shows how much storage is being used for WAL data. When a read replica lags significantly, the value of this metric can increase substantially.
 
-The `pg_replication_slots` view shows you the current state of your
-replication slots. To assess the performance of your replication slots, you can use
-Amazon CloudWatch and monitor the following metrics:
-
-- `OldestReplicationSlotLag`
-  – Shows the amount of Write-Ahead Log (WAL) data on the source that
-  hasn't been consumed by the most lagging replica.
-- `TransactionLogsDiskUsage`
-  – Shows how much storage is being used for WAL data. When a read
-  replica lags significantly, the value of this metric can increase
-  substantially.
-
-To learn more about using Amazon CloudWatch and its metrics for RDS for PostgreSQL, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"). For
-more information about monitoring streaming replication on your RDS for PostgreSQL DB
-instances, see [Best
-practices for Amazon RDS PostgreSQL replication](https://aws.amazon.com/blogs/database/best-practices-for-amazon-rds-postgresql-replication/ "https://aws.amazon.com/blogs/database/best-practices-for-amazon-rds-postgresql-replication/") on the _AWS
-Database Blog_.
+To learn more about using Amazon CloudWatch and its metrics for RDS for PostgreSQL, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md). For more information about monitoring streaming replication on your RDS for PostgreSQL DB instances, see [Best practices for Amazon RDS PostgreSQL replication](https://aws.amazon.com/blogs/database/best-practices-for-amazon-rds-postgresql-replication/) on the *AWS Database Blog*. 

@@ -1,482 +1,440 @@
+
+
 # Turning on SSRS or PBIRS
+<a name="SSRS.Enabling"></a>
 
 Use the following process to turn on SSRS or PBIRS for your DB instance:
 
 1. Create a new option group, or choose an existing option group.
-2. Add the `SSRS` option (for SQL Server 2016–2022) or the `PBIRS` option
-   (for SQL Server 2025 and higher) to the option group.
-3. Associate the option group with the DB instance.
-4. Allow inbound access to the virtual private cloud (VPC) security group for the SSRS or PBIRS
-   listener port.
+
+1. Add the `SSRS` option (for SQL Server 2016–2022) or the `PBIRS` option (for SQL Server 2025 and higher) to the option group.
+
+1. Associate the option group with the DB instance.
+
+1. Allow inbound access to the virtual private cloud (VPC) security group for the SSRS or PBIRS listener port.
 
 ## Creating an option group for SSRS or PBIRS
+<a name="SSRS.OptionGroup"></a>
 
-To work with SSRS or PBIRS, create an option group that corresponds to the SQL Server engine and
-version of the DB instance that you plan to use. To do this, use the AWS Management Console or
-the AWS CLI.
+To work with SSRS or PBIRS, create an option group that corresponds to the SQL Server engine and version of the DB instance that you plan to use. To do this, use the AWS Management Console or the AWS CLI. 
 
-###### Note
+**Note**  
+You can also use an existing option group if it's for the correct SQL Server engine and version.
 
-You can also use an existing option group if it's for the correct SQL
-Server engine and version.
+### Console
+<a name="SSRS.OptionGroup.Console"></a>
 
 The following procedure creates an option group for SQL Server Standard Edition 2017. For SQL Server 2025, follow the same steps but choose the appropriate engine version and use the `PBIRS` option.
 
-###### To create the option group
+**To create the option group**
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose **Create group**.
-4. In the **Create option group** pane, do the following:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-   1. For **Name**, enter a name for the option group that is unique within your AWS account, such as
-      `ssrs-se-2017` for SSRS or `pbirs-se-2025` for PBIRS. The name can contain only letters, digits, and
-      hyphens.
-   2. For **Description**, enter a brief description of the option group, such as `SSRS option group for SQL Server SE
-  2017` or `PBIRS option group for SQL Server SE 2025`. The description is used for display purposes.
-   3. For **Engine**, choose **sqlserver-se**.
-   4. For **Major engine version**, choose
-      **14.00** if you are adding the SSRS option, or
-      **17.00** if you are adding the PBIRS option.
+1. In the navigation pane, choose **Option groups**.
 
-5. Choose **Create**.
-   The following procedures create option groups for SQL Server Standard Edition
-   2017 (SSRS) and SQL Server Standard Edition 2025 (PBIRS).
+1. Choose **Create group**.
 
-###### To create the option group for SSRS
+1. In the **Create option group** pane, do the following:
 
-- Run one of the following commands.
+   1. For **Name**, enter a name for the option group that is unique within your AWS account, such as **ssrs-se-2017** for SSRS or **pbirs-se-2025** for PBIRS. The name can contain only letters, digits, and hyphens.
 
-###### Example
+   1. For **Description**, enter a brief description of the option group, such as **SSRS option group for SQL Server SE 2017** or **PBIRS option group for SQL Server SE 2025**. The description is used for display purposes.
 
-For Linux, macOS, or Unix:
+   1. For **Engine**, choose **sqlserver-se**.
 
-```
-aws rds create-option-group \
-    --option-group-name `ssrs-se-2017` \
-    --engine-name `sqlserver-se` \
-    --major-engine-version `14.00` \
-    --option-group-description "`SSRS option group for SQL Server SE 2017`"
-```
+   1. For **Major engine version**, choose **14.00** if you are adding the SSRS option, or **17.00** if you are adding the PBIRS option.
 
-For Windows:
+1. Choose **Create**.
 
-```
-aws rds create-option-group ^
-    --option-group-name `ssrs-se-2017` ^
-    --engine-name `sqlserver-se` ^
-    --major-engine-version `14.00` ^
-    --option-group-description "`SSRS option group for SQL Server SE 2017`"
-```
+### CLI
+<a name="SSRS.OptionGroup.CLI"></a>
 
-###### To create the option group for PBIRS
+The following procedures create option groups for SQL Server Standard Edition 2017 (SSRS) and SQL Server Standard Edition 2025 (PBIRS).
 
-- Run one of the following commands.
+**To create the option group for SSRS**
++ Run one of the following commands.
 
-###### Example
-
-For Linux, macOS, or Unix:
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds create-option-group \
-    --option-group-name `pbirs-se-2025` \
-    --engine-name `sqlserver-se` \
-    --major-engine-version `17.00` \
-    --option-group-description "`PBIRS option group for SQL Server SE 2025`"
+    --option-group-name {{ssrs-se-2017}} \
+    --engine-name {{sqlserver-se}} \
+    --major-engine-version {{14.00}} \
+    --option-group-description "{{SSRS option group for SQL Server SE 2017}}"
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds create-option-group ^
-    --option-group-name `pbirs-se-2025` ^
-    --engine-name `sqlserver-se` ^
-    --major-engine-version `17.00` ^
-    --option-group-description "`PBIRS option group for SQL Server SE 2025`"
+    --option-group-name {{ssrs-se-2017}} ^
+    --engine-name {{sqlserver-se}} ^
+    --major-engine-version {{14.00}} ^
+    --option-group-description "{{SSRS option group for SQL Server SE 2017}}"
+```
+
+**To create the option group for PBIRS**
++ Run one of the following commands.
+
+**Example**  
+For Linux, macOS, or Unix:  
+
+```
+aws rds create-option-group \
+    --option-group-name {{pbirs-se-2025}} \
+    --engine-name {{sqlserver-se}} \
+    --major-engine-version {{17.00}} \
+    --option-group-description "{{PBIRS option group for SQL Server SE 2025}}"
+```
+For Windows:  
+
+```
+aws rds create-option-group ^
+    --option-group-name {{pbirs-se-2025}} ^
+    --engine-name {{sqlserver-se}} ^
+    --major-engine-version {{17.00}} ^
+    --option-group-description "{{PBIRS option group for SQL Server SE 2025}}"
 ```
 
 ## Adding the SSRS or PBIRS option to your option group
+<a name="SSRS.Add"></a>
 
-Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option (for SQL Server
-2016–2022) or the `PBIRS` option (for SQL Server 2025 and higher) to your option group.
+Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option (for SQL Server 2016–2022) or the `PBIRS` option (for SQL Server 2025 and higher) to your option group.
 
-###### To add the SSRS option
+### Console
+<a name="SSRS.Add.CON"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group that you just created, then choose **Add option**.
-4. Under **Option details**, choose **SSRS** for **Option
-   name**.
-5. Under **Option settings**, do the following:
+**To add the SSRS option**
 
-   1. Enter the port for the SSRS service to listen on. The default is 8443. For a list of allowed
-      values, see [Limitations and recommendations](SSRS.Limitations.md "SSRS.Limitations.md").
-   2. Enter a value for **Max memory**.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-   **Max memory** specifies the upper threshold above which no new memory allocation
-   requests are granted to report server applications. The number is a percentage of the total memory
-   of the DB instance. The allowed values are 10–80. 3. For **Security groups**, choose the VPC security group to associate with the
-   option. Use the same security group that is associated with your DB instance.
+1. In the navigation pane, choose **Option groups**.
 
-6. To use SSRS Email to send reports, choose the **Configure email delivery options** check
-   box under **Email delivery in reporting services**, and then do the following:
+1. Choose the option group that you just created, then choose **Add option**.
 
-   1. For **Sender email address**, enter the
-      email address to use in the **From** field
-      of messages sent by SSRS Email.
+1. Under **Option details**, choose **SSRS** for **Option name**.
 
-   Specify a user account that has permission to send mail from the SMTP server. 2. For **SMTP server**, specify the SMTP server or gateway to use.
+1. Under **Option settings**, do the following:
 
-   It can be an IP address, the NetBIOS name of a computer on your corporate intranet, or a fully
-   qualified domain name. 3. For **SMTP port**, enter the port to use to connect to the mail server. The
-   default is 25. 4. To use authentication:
+   1. Enter the port for the SSRS service to listen on. The default is 8443. For a list of allowed values, see [Limitations and recommendations](SSRS.Limitations.md).
 
-        1. Select the **Use authentication** check box.
-        2. For **Secret Amazon Resource Name (ARN)** enter the AWS Secrets Manager ARN for the
-         user credentials.
+   1. Enter a value for **Max memory**.
 
+      **Max memory** specifies the upper threshold above which no new memory allocation requests are granted to report server applications. The number is a percentage of the total memory of the DB instance. The allowed values are 10–80.
 
-        Use the following format:
+   1. For **Security groups**, choose the VPC security group to associate with the option. Use the same security group that is associated with your DB instance.
 
+1. To use SSRS Email to send reports, choose the **Configure email delivery options** check box under **Email delivery in reporting services**, and then do the following:
 
-        `arn:aws:secretsmanager:`Region`:`AccountId`:secret:`SecretName`-`6RandomCharacters``
+   1. For **Sender email address**, enter the email address to use in the **From** field of messages sent by SSRS Email.
 
+      Specify a user account that has permission to send mail from the SMTP server.
 
-        For example:
+   1. For **SMTP server**, specify the SMTP server or gateway to use.
 
+      It can be an IP address, the NetBIOS name of a computer on your corporate intranet, or a fully qualified domain name.
 
-        `arn:aws:secretsmanager:`us-west-2`:`123456789012`:secret:`MySecret-a1b2c3``
+   1. For **SMTP port**, enter the port to use to connect to the mail server. The default is 25.
 
+   1. To use authentication:
 
-        For more information on creating the secret, see [Using reporting services email to send reports](SSRS.Email.md "SSRS.Email.md").
+      1. Select the **Use authentication** check box.
 
-   5. Select the **Use Secure Sockets Layer (SSL)** check box to encrypt email messages
-   using SSL.
+      1. For **Secret Amazon Resource Name (ARN)** enter the AWS Secrets Manager ARN for the user credentials.
 
-7. Under **Scheduling**, choose whether to add the option immediately or at the next
-   maintenance window.
-8. Choose **Add option**.
+         Use the following format:
 
-###### To add the PBIRS option (SQL Server 2025 and higher)
+         **arn:aws:secretsmanager:{{Region}}:{{AccountId}}:secret:{{SecretName}}-{{6RandomCharacters}}**
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group that you just created for PBIRS, then choose **Add option**.
-4. Under **Option details**, choose **PBIRS** for **Option
-   name**.
-5. Under **Option settings**, do the following:
+         For example:
 
-   1. Enter the port for the PBIRS service to listen on. The default is 8443. For a list of allowed
-      values, see [Limitations and recommendations](SSRS.Limitations.md "SSRS.Limitations.md").
-   2. Enter a value for **Max memory**.
+         **arn:aws:secretsmanager:{{us-west-2}}:{{123456789012}}:secret:{{MySecret-a1b2c3}}**
 
-   **Max memory** specifies the upper threshold above which no new memory allocation
-   requests are granted to report server applications. The number is a percentage of the total memory
-   of the DB instance. The allowed values are 10–80. 3. For **Security groups**, choose the VPC security group to associate with the
-   option. Use the same security group that is associated with your DB instance.
+         For more information on creating the secret, see [Using reporting services email to send reports](SSRS.Email.md).
 
-6. To use reporting services email to send reports, choose the **Configure email delivery options** check
-   box under **Email delivery in reporting services**, and then do the following:
+   1. Select the **Use Secure Sockets Layer (SSL)** check box to encrypt email messages using SSL.
 
-   1. For **Sender email address**, enter the
-      email address to use in the **From** field
-      of messages sent by reporting services email.
+1. Under **Scheduling**, choose whether to add the option immediately or at the next maintenance window.
 
-   Specify a user account that has permission to send mail from the SMTP server. 2. For **SMTP server**, specify the SMTP server or gateway to use.
+1. Choose **Add option**.
 
-   It can be an IP address, the NetBIOS name of a computer on your corporate intranet, or a fully
-   qualified domain name. 3. For **SMTP port**, enter the port to use to connect to the mail server. The
-   default is 25. 4. To use authentication:
+**To add the PBIRS option (SQL Server 2025 and higher)**
 
-        1. Select the **Use authentication** check box.
-        2. For **Secret Amazon Resource Name (ARN)** enter the AWS Secrets Manager ARN for the
-         user credentials.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
+1. In the navigation pane, choose **Option groups**.
 
-        Use the following format:
+1. Choose the option group that you just created for PBIRS, then choose **Add option**.
 
+1. Under **Option details**, choose **PBIRS** for **Option name**.
 
-        `arn:aws:secretsmanager:`Region`:`AccountId`:secret:`SecretName`-`6RandomCharacters``
+1. Under **Option settings**, do the following:
 
+   1. Enter the port for the PBIRS service to listen on. The default is 8443. For a list of allowed values, see [Limitations and recommendations](SSRS.Limitations.md).
 
-        For example:
+   1. Enter a value for **Max memory**.
 
+      **Max memory** specifies the upper threshold above which no new memory allocation requests are granted to report server applications. The number is a percentage of the total memory of the DB instance. The allowed values are 10–80.
 
-        `arn:aws:secretsmanager:`us-west-2`:`123456789012`:secret:`MySecret-a1b2c3``
+   1. For **Security groups**, choose the VPC security group to associate with the option. Use the same security group that is associated with your DB instance.
 
+1. To use reporting services email to send reports, choose the **Configure email delivery options** check box under **Email delivery in reporting services**, and then do the following:
 
-        For more information on creating the secret, see [Using reporting services email to send reports](SSRS.Email.md "SSRS.Email.md").
+   1. For **Sender email address**, enter the email address to use in the **From** field of messages sent by reporting services email.
 
-   5. Select the **Use Secure Sockets Layer (SSL)** check box to encrypt email messages
-   using SSL.
+      Specify a user account that has permission to send mail from the SMTP server.
 
-7. Under **Scheduling**, choose whether to add the option immediately or at the next
-   maintenance window.
-8. Choose **Add option**.
+   1. For **SMTP server**, specify the SMTP server or gateway to use.
 
-###### To add the SSRS option
+      It can be an IP address, the NetBIOS name of a computer on your corporate intranet, or a fully qualified domain name.
+
+   1. For **SMTP port**, enter the port to use to connect to the mail server. The default is 25.
+
+   1. To use authentication:
+
+      1. Select the **Use authentication** check box.
+
+      1. For **Secret Amazon Resource Name (ARN)** enter the AWS Secrets Manager ARN for the user credentials.
+
+         Use the following format:
+
+         **arn:aws:secretsmanager:{{Region}}:{{AccountId}}:secret:{{SecretName}}-{{6RandomCharacters}}**
+
+         For example:
+
+         **arn:aws:secretsmanager:{{us-west-2}}:{{123456789012}}:secret:{{MySecret-a1b2c3}}**
+
+         For more information on creating the secret, see [Using reporting services email to send reports](SSRS.Email.md).
+
+   1. Select the **Use Secure Sockets Layer (SSL)** check box to encrypt email messages using SSL.
+
+1. Under **Scheduling**, choose whether to add the option immediately or at the next maintenance window.
+
+1. Choose **Add option**.
+
+### CLI
+<a name="SSRS.Add.CLI"></a>
+
+**To add the SSRS option**
 
 1. Create a JSON file, for example `ssrs-option.json`.
 
    1. Set the following required parameters:
+      + `OptionGroupName` – The name of option group that you created or chose previously (`ssrs-se-2017` in the following example).
+      + `Port` – The port for the SSRS service to listen on. The default is 8443. For a list of allowed values, see [Limitations and recommendations](SSRS.Limitations.md).
+      + `VpcSecurityGroupMemberships` – VPC security group memberships for your RDS DB instance.
+      + `MAX_MEMORY` – The upper threshold above which no new memory allocation requests are granted to report server applications. The number is a percentage of the total memory of the DB instance. The allowed values are 10–80.
 
-      - `OptionGroupName` – The name of option group that you created or chose
-        previously (`ssrs-se-2017` in the following example).
-      - `Port` – The port for the SSRS service to listen on. The default is
-      8443. For a list of allowed values, see [Limitations and recommendations](SSRS.Limitations.md "SSRS.Limitations.md").
-      - `VpcSecurityGroupMemberships` – VPC security group memberships for your
-        RDS DB instance.
-      - `MAX_MEMORY` – The upper threshold above which no new memory allocation
-        requests are granted to report server applications. The number is a percentage of the total
-        memory of the DB instance. The allowed values are 10–80.
+   1. (Optional) Set the following parameters to use SSRS Email:
+      + `SMTP_ENABLE_EMAIL` – Set to `true` to use SSRS Email. The default is `false`.
+      + `SMTP_SENDER_EMAIL_ADDRESS` – The email address to use in the **From** field of messages sent by SSRS Email. Specify a user account that has permission to send mail from the SMTP server.
+      + `SMTP_SERVER` – The SMTP server or gateway to use. It can be an IP address, the NetBIOS name of a computer on your corporate intranet, or a fully qualified domain name.
+      + `SMTP_PORT` – The port to use to connect to the mail server. The default is 25.
+      + `SMTP_USE_SSL` – Set to `true` to encrypt email messages using SSL. The default is `true`.
+      + `SMTP_EMAIL_CREDENTIALS_SECRET_ARN` – The Secrets Manager ARN that holds the user credentials. Use the following format:
 
-   2. (Optional) Set the following parameters to use SSRS Email:
+        **arn:aws:secretsmanager:{{Region}}:{{AccountId}}:secret:{{SecretName}}-{{6RandomCharacters}}**
 
-      - `SMTP_ENABLE_EMAIL` – Set to `true` to use SSRS Email. The
-        default is `false`.
-      - `SMTP_SENDER_EMAIL_ADDRESS` –
-        The email address to use in the
-        **From** field of messages sent
-        by SSRS Email. Specify a user account that has
-        permission to send mail from the SMTP server.
-      - `SMTP_SERVER` – The SMTP server or gateway to use. It can be an IP
-        address, the NetBIOS name of a computer on your corporate intranet, or a fully qualified
-        domain name.
-      - `SMTP_PORT` – The port to use to connect to the mail server. The default
-        is 25.
-      - `SMTP_USE_SSL` – Set to `true` to encrypt email messages
-        using SSL. The default is `true`.
-      - `SMTP_EMAIL_CREDENTIALS_SECRET_ARN` – The Secrets Manager ARN that holds the
-        user credentials. Use the following format:
+        For more information on creating the secret, see [Using reporting services email to send reports](SSRS.Email.md).
+      + `SMTP_USE_ANONYMOUS_AUTHENTICATION` – Set to `true` and don't include `SMTP_EMAIL_CREDENTIALS_SECRET_ARN` if you don't want to use authentication.
 
-      `arn:aws:secretsmanager:`Region`:`AccountId`:secret:`SecretName`-`6RandomCharacters``
+        The default is `false` when `SMTP_ENABLE_EMAIL` is `true`.
 
-      For more information on creating the secret, see [Using reporting services email to send reports](SSRS.Email.md "SSRS.Email.md").
-      - `SMTP_USE_ANONYMOUS_AUTHENTICATION` – Set to `true` and
-        don't include `SMTP_EMAIL_CREDENTIALS_SECRET_ARN` if you don't want to
-        use authentication.
+   The following example includes the SSRS Email parameters, using the secret ARN.
 
-      The default is `false` when `SMTP_ENABLE_EMAIL` is
-      `true`.The following example includes the SSRS Email parameters, using the secret ARN.
+   ```
+   {
+   "OptionGroupName": "{{ssrs-se-2017}}",
+   "OptionsToInclude": [
+   	{
+   	"OptionName": "SSRS",
+   	"Port": {{8443}},
+   	"VpcSecurityGroupMemberships": ["{{sg-0abcdef123}}"],
+   	"OptionSettings": [
+               {"Name": "MAX_MEMORY","Value": "{{60}}"},
+               {"Name": "SMTP_ENABLE_EMAIL","Value": "{{true}}"}
+               {"Name": "SMTP_SENDER_EMAIL_ADDRESS","Value": "{{nobody@example.com}}"},
+               {"Name": "SMTP_SERVER","Value": "email-smtp.{{us-west-2}}.amazonaws.com"},
+               {"Name": "SMTP_PORT","Value": "{{25}}"},
+               {"Name": "SMTP_USE_SSL","Value": "{{true}}"},
+               {"Name": "SMTP_EMAIL_CREDENTIALS_SECRET_ARN","Value": "arn:aws:secretsmanager:{{us-west-2}}:{{123456789012}}:secret:{{MySecret-a1b2c3}}"}
+               ]
+   	}],
+   "ApplyImmediately": true
+   }
+   ```
 
-```
-{
-"OptionGroupName": "`ssrs-se-2017`",
-"OptionsToInclude": [
-	{
-	"OptionName": "SSRS",
-	"Port": `8443`,
-	"VpcSecurityGroupMemberships": ["`sg-0abcdef123`"],
-	"OptionSettings": [
-            {"Name": "MAX_MEMORY","Value": "`60`"},
-            {"Name": "SMTP_ENABLE_EMAIL","Value": "`true`"}
-            {"Name": "SMTP_SENDER_EMAIL_ADDRESS","Value": "`nobody@example.com`"},
-            {"Name": "SMTP_SERVER","Value": "email-smtp.`us-west-2`.amazonaws.com"},
-            {"Name": "SMTP_PORT","Value": "`25`"},
-            {"Name": "SMTP_USE_SSL","Value": "`true`"},
-            {"Name": "SMTP_EMAIL_CREDENTIALS_SECRET_ARN","Value": "arn:aws:secretsmanager:`us-west-2`:`123456789012`:secret:`MySecret-a1b2c3`"}
-            ]
-	}],
-"ApplyImmediately": true
-}
-```
+1. Add the `SSRS` option to the option group.  
+**Example**  
 
-2. Add the `SSRS` option to the option group.
+   For Linux, macOS, or Unix:
 
-###### Example
+   ```
+   aws rds add-option-to-option-group \
+       --cli-input-json file://{{ssrs-option.json}} \
+       --apply-immediately
+   ```
 
-For Linux, macOS, or Unix:
+   For Windows:
 
-```
-aws rds add-option-to-option-group \
-    --cli-input-json file://`ssrs-option.json` \
-    --apply-immediately
-```
+   ```
+   aws rds add-option-to-option-group ^
+       --cli-input-json file://{{ssrs-option.json}} ^
+       --apply-immediately
+   ```
 
-For Windows:
-
-```
-aws rds add-option-to-option-group ^
-    --cli-input-json file://`ssrs-option.json` ^
-    --apply-immediately
-```
-
-###### To add the PBIRS option (SQL Server 2025 and higher)
+**To add the PBIRS option (SQL Server 2025 and higher)**
 
 1. Create a JSON file, for example `pbirs-option.json`.
 
    1. Set the following required parameters:
+      + `OptionGroupName` – The name of the option group that you created or chose previously (`pbirs-se-2025` in the following example).
+      + `Port` – The port for the PBIRS service to listen on. The default is 8443. For a list of allowed values, see [Limitations and recommendations](SSRS.Limitations.md).
+      + `VpcSecurityGroupMemberships` – VPC security group memberships for your RDS DB instance.
+      + `MAX_MEMORY` – The upper threshold above which no new memory allocation requests are granted to report server applications. The number is a percentage of the total memory of the DB instance. The allowed values are 10–80.
 
-      - `OptionGroupName` – The name of the option group that you created or chose
-        previously (`pbirs-se-2025` in the following example).
-      - `Port` – The port for the PBIRS service to listen on. The default is
-      8443. For a list of allowed values, see [Limitations and recommendations](SSRS.Limitations.md "SSRS.Limitations.md").
-      - `VpcSecurityGroupMemberships` – VPC security group memberships for your
-        RDS DB instance.
-      - `MAX_MEMORY` – The upper threshold above which no new memory allocation
-        requests are granted to report server applications. The number is a percentage of the total
-        memory of the DB instance. The allowed values are 10–80.
+   1. (Optional) Set the following parameters to use reporting services email:
+      + `SMTP_ENABLE_EMAIL` – Set to `true` to use reporting services email. The default is `false`.
+      + `SMTP_SENDER_EMAIL_ADDRESS` – The email address to use in the **From** field of messages sent by reporting services email. Specify a user account that has permission to send mail from the SMTP server.
+      + `SMTP_SERVER` – The SMTP server or gateway to use. It can be an IP address, the NetBIOS name of a computer on your corporate intranet, or a fully qualified domain name.
+      + `SMTP_PORT` – The port to use to connect to the mail server. The default is 25.
+      + `SMTP_USE_SSL` – Set to `true` to encrypt email messages using SSL. The default is `true`.
+      + `SMTP_EMAIL_CREDENTIALS_SECRET_ARN` – The Secrets Manager ARN that holds the user credentials. Use the following format:
 
-   2. (Optional) Set the following parameters to use reporting services email:
+        **arn:aws:secretsmanager:{{Region}}:{{AccountId}}:secret:{{SecretName}}-{{6RandomCharacters}}**
 
-      - `SMTP_ENABLE_EMAIL` – Set to `true` to use reporting services email. The
-        default is `false`.
-      - `SMTP_SENDER_EMAIL_ADDRESS` –
-        The email address to use in the
-        **From** field of messages sent
-        by reporting services email. Specify a user account that has
-        permission to send mail from the SMTP server.
-      - `SMTP_SERVER` – The SMTP server or gateway to use. It can be an IP
-        address, the NetBIOS name of a computer on your corporate intranet, or a fully qualified
-        domain name.
-      - `SMTP_PORT` – The port to use to connect to the mail server. The default
-        is 25.
-      - `SMTP_USE_SSL` – Set to `true` to encrypt email messages
-        using SSL. The default is `true`.
-      - `SMTP_EMAIL_CREDENTIALS_SECRET_ARN` – The Secrets Manager ARN that holds the
-        user credentials. Use the following format:
+        For more information on creating the secret, see [Using reporting services email to send reports](SSRS.Email.md).
+      + `SMTP_USE_ANONYMOUS_AUTHENTICATION` – Set to `true` and don't include `SMTP_EMAIL_CREDENTIALS_SECRET_ARN` if you don't want to use authentication.
 
-      `arn:aws:secretsmanager:`Region`:`AccountId`:secret:`SecretName`-`6RandomCharacters``
+        The default is `false` when `SMTP_ENABLE_EMAIL` is `true`.
 
-      For more information on creating the secret, see [Using reporting services email to send reports](SSRS.Email.md "SSRS.Email.md").
-      - `SMTP_USE_ANONYMOUS_AUTHENTICATION` – Set to `true` and
-        don't include `SMTP_EMAIL_CREDENTIALS_SECRET_ARN` if you don't want to
-        use authentication.
+   The following example includes the reporting services email parameters, using the secret ARN.
 
-      The default is `false` when `SMTP_ENABLE_EMAIL` is
-      `true`.The following example includes the reporting services email parameters, using the secret ARN.
+   ```
+   {
+   "OptionGroupName": "{{pbirs-se-2025}}",
+   "OptionsToInclude": [
+   	{
+   	"OptionName": "PBIRS",
+   	"Port": {{8443}},
+   	"VpcSecurityGroupMemberships": ["{{sg-0abcdef123}}"],
+   	"OptionSettings": [
+               {"Name": "MAX_MEMORY","Value": "{{60}}"},
+               {"Name": "SMTP_ENABLE_EMAIL","Value": "{{true}}"},
+               {"Name": "SMTP_SENDER_EMAIL_ADDRESS","Value": "{{nobody@example.com}}"},
+               {"Name": "SMTP_SERVER","Value": "email-smtp.{{us-west-2}}.amazonaws.com"},
+               {"Name": "SMTP_PORT","Value": "{{25}}"},
+               {"Name": "SMTP_USE_SSL","Value": "{{true}}"},
+               {"Name": "SMTP_EMAIL_CREDENTIALS_SECRET_ARN","Value": "arn:aws:secretsmanager:{{us-west-2}}:{{123456789012}}:secret:{{MySecret-a1b2c3}}"}
+               ]
+   	}],
+   "ApplyImmediately": true
+   }
+   ```
 
-```
-{
-"OptionGroupName": "`pbirs-se-2025`",
-"OptionsToInclude": [
-	{
-	"OptionName": "PBIRS",
-	"Port": `8443`,
-	"VpcSecurityGroupMemberships": ["`sg-0abcdef123`"],
-	"OptionSettings": [
-            {"Name": "MAX_MEMORY","Value": "`60`"},
-            {"Name": "SMTP_ENABLE_EMAIL","Value": "`true`"},
-            {"Name": "SMTP_SENDER_EMAIL_ADDRESS","Value": "`nobody@example.com`"},
-            {"Name": "SMTP_SERVER","Value": "email-smtp.`us-west-2`.amazonaws.com"},
-            {"Name": "SMTP_PORT","Value": "`25`"},
-            {"Name": "SMTP_USE_SSL","Value": "`true`"},
-            {"Name": "SMTP_EMAIL_CREDENTIALS_SECRET_ARN","Value": "arn:aws:secretsmanager:`us-west-2`:`123456789012`:secret:`MySecret-a1b2c3`"}
-            ]
-	}],
-"ApplyImmediately": true
-}
-```
+1. Add the `PBIRS` option to the option group.  
+**Example**  
 
-2. Add the `PBIRS` option to the option group.
+   For Linux, macOS, or Unix:
 
-###### Example
+   ```
+   aws rds add-option-to-option-group \
+       --cli-input-json file://{{pbirs-option.json}} \
+       --apply-immediately
+   ```
 
-For Linux, macOS, or Unix:
+   For Windows:
 
-```
-aws rds add-option-to-option-group \
-    --cli-input-json file://`pbirs-option.json` \
-    --apply-immediately
-```
-
-For Windows:
-
-```
-aws rds add-option-to-option-group ^
-    --cli-input-json file://`pbirs-option.json` ^
-    --apply-immediately
-```
+   ```
+   aws rds add-option-to-option-group ^
+       --cli-input-json file://{{pbirs-option.json}} ^
+       --apply-immediately
+   ```
 
 ## Associating your option group with your DB instance
+<a name="SSRS.Apply"></a>
 
 Use the AWS Management Console or the AWS CLI to associate your option group with your DB instance.
 
-###### Note
+**Note**  
+If you use an existing DB instance, it must already have an Active Directory domain and AWS Identity and Access Management (IAM) role associated with it. If you create a new instance, specify an existing Active Directory domain and IAM role. For more information, see [Working with Active Directory with RDS for SQL Server](User.SQLServer.ActiveDirectoryWindowsAuth.md).
 
-If you use an existing DB instance, it must already have an Active Directory domain and
-AWS Identity and Access Management (IAM) role associated with it. If you create a new instance, specify an existing
-Active Directory domain and IAM role. For more information, see [Working with Active Directory with RDS for SQL Server](User.SQLServer.ActiveDirectoryWindowsAuth.md "User.SQLServer.ActiveDirectoryWindowsAuth.md").
+### Console
+<a name="SSRS.Apply.Console"></a>
 
 You can associate your option group with a new or existing DB instance:
++ For a new DB instance, associate the option group when you launch the instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md).
++ For an existing DB instance, modify the instance and associate the new option group. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md).
 
-- For a new DB instance, associate the option group when you launch the instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-- For an existing DB instance, modify the instance and associate the new option group.
-  For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
-  You can associate your option group with a new or existing DB instance.
+### CLI
+<a name="SSRS.Apply.CLI"></a>
 
-###### To create a DB instance that uses your option group
+You can associate your option group with a new or existing DB instance.
 
-- Specify the same DB engine type and major version as you used when
-  creating the option group.
+**To create a DB instance that uses your option group**
++ Specify the same DB engine type and major version as you used when creating the option group.  
+**Example**  
 
-###### Example
+  For Linux, macOS, or Unix:
 
-For Linux, macOS, or Unix:
+  ```
+  aws rds create-db-instance \
+      --db-instance-identifier {{myssrsinstance}} \
+      --db-instance-class {{db.m5.2xlarge}} \
+      --engine {{sqlserver-se}} \
+      --engine-version {{14.00.3223.3.v1}} \
+      --allocated-storage {{100}} \
+      --manage-master-user-password  \
+      --master-username {{admin}} \
+      --storage-type {{gp2}} \
+      --license-model {{li}} \
+      --domain-iam-role-name {{my-directory-iam-role}} \
+      --domain {{my-domain-id}} \
+      --option-group-name {{ssrs-se-2017}}
+  ```
 
-```
-aws rds create-db-instance \
-    --db-instance-identifier `myssrsinstance` \
-    --db-instance-class `db.m5.2xlarge` \
-    --engine `sqlserver-se` \
-    --engine-version `14.00.3223.3.v1` \
-    --allocated-storage `100` \
-    --manage-master-user-password  \
-    --master-username `admin` \
-    --storage-type `gp2` \
-    --license-model `li` \
-    --domain-iam-role-name `my-directory-iam-role` \
-    --domain `my-domain-id` \
-    --option-group-name `ssrs-se-2017`
-```
+  For Windows:
 
-For Windows:
+  ```
+  aws rds create-db-instance ^
+      --db-instance-identifier {{myssrsinstance}} ^
+      --db-instance-class {{db.m5.2xlarge}} ^
+      --engine {{sqlserver-se}} ^
+      --engine-version {{14.00.3223.3.v1}} ^
+      --allocated-storage {{100}} ^
+      --manage-master-user-password ^
+      --master-username {{admin}} ^
+      --storage-type {{gp2}} ^
+      --license-model {{li}} ^
+      --domain-iam-role-name {{my-directory-iam-role}} ^
+      --domain {{my-domain-id}} ^
+      --option-group-name {{ssrs-se-2017}}
+  ```
 
-```
-aws rds create-db-instance ^
-    --db-instance-identifier `myssrsinstance` ^
-    --db-instance-class `db.m5.2xlarge` ^
-    --engine `sqlserver-se` ^
-    --engine-version `14.00.3223.3.v1` ^
-    --allocated-storage `100` ^
-    --manage-master-user-password ^
-    --master-username `admin` ^
-    --storage-type `gp2` ^
-    --license-model `li` ^
-    --domain-iam-role-name `my-directory-iam-role` ^
-    --domain `my-domain-id` ^
-    --option-group-name `ssrs-se-2017`
-```
+**To modify a DB instance to use your option group**
++ Run one of the following commands.  
+**Example**  
 
-###### To modify a DB instance to use your option group
+  For Linux, macOS, or Unix:
 
-- Run one of the following commands.
+  ```
+  aws rds modify-db-instance \
+      --db-instance-identifier {{myssrsinstance}} \
+      --option-group-name {{ssrs-se-2017}} \
+      --apply-immediately
+  ```
 
-###### Example
+  For Windows:
 
-For Linux, macOS, or Unix:
-
-```
-aws rds modify-db-instance \
-    --db-instance-identifier `myssrsinstance` \
-    --option-group-name `ssrs-se-2017` \
-    --apply-immediately
-```
-
-For Windows:
-
-```
-aws rds modify-db-instance ^
-    --db-instance-identifier `myssrsinstance` ^
-    --option-group-name `ssrs-se-2017` ^
-    --apply-immediately
-```
+  ```
+  aws rds modify-db-instance ^
+      --db-instance-identifier {{myssrsinstance}} ^
+      --option-group-name {{ssrs-se-2017}} ^
+      --apply-immediately
+  ```
 
 ## Allowing inbound access to your VPC security group
+<a name="SSRS.Inbound"></a>
 
-To allow inbound access to the VPC security group associated with your DB instance, create
-an inbound rule for the specified SSRS or PBIRS listener port. For more information about
-setting up security groups, see [Provide access to your DB instance in your VPC by creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
+To allow inbound access to the VPC security group associated with your DB instance, create an inbound rule for the specified SSRS or PBIRS listener port. For more information about setting up security groups, see [Provide access to your DB instance in your VPC by creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup).

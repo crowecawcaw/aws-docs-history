@@ -1,21 +1,21 @@
+
+
 # Use `DescribeAccountAttributes` with an AWS SDK or CLI
+<a name="example_rds_DescribeAccountAttributes_section"></a>
 
 The following code examples show how to use `DescribeAccountAttributes`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe account attributes**
-
-The following `describe-account-attributes` example retrieves the attributes for the current AWS account.
-
-```
-`aws rds describe-account-attributes`
+**AWS CLI**  
+**To describe account attributes**  
+The following `describe-account-attributes` example retrieves the attributes for the current AWS account.  
 
 ```
-
-Output:
+aws rds describe-account-attributes
+```
+Output:  
 
 ```
 {
@@ -98,20 +98,13 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeAccountAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-account-attributes.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeAccountAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-account-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-account-attributes.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -155,23 +148,14 @@ public class DescribeAccountAttributes {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeAccountAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/DescribeAccountAttributes) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeAccountAttributes](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeAccountAttributes.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeAccountAttributes.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rds#code-examples). 
 
 ```
 suspend fun getAccountAttributes() {
@@ -184,14 +168,9 @@ suspend fun getAccountAttributes() {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeAccountAttributes](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeAccountAttributes](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

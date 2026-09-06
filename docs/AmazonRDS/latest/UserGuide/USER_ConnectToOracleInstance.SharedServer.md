@@ -1,16 +1,10 @@
+
+
 # Considerations for process architecture
+<a name="USER_ConnectToOracleInstance.SharedServer"></a>
 
-Server processes handle user connections to an Oracle DB instance. By default, the Oracle DB instance uses
-dedicated server processes. With dedicated server processes, each server process services only one user process.
-You can optionally configure shared server processes. With shared server processes, each server process can
-service multiple user processes.
+Server processes handle user connections to an Oracle DB instance. By default, the Oracle DB instance uses dedicated server processes. With dedicated server processes, each server process services only one user process. You can optionally configure shared server processes. With shared server processes, each server process can service multiple user processes.
 
-You might consider using shared server processes when a high number of user sessions are using too much memory
-on the server. You might also consider shared server processes when sessions connect and disconnect very often,
-resulting in performance issues. There are also disadvantages to using shared server processes. For example, they
-can strain CPU resources, and they are more complicated to configure and administer.
+You might consider using shared server processes when a high number of user sessions are using too much memory on the server. You might also consider shared server processes when sessions connect and disconnect very often, resulting in performance issues. There are also disadvantages to using shared server processes. For example, they can strain CPU resources, and they are more complicated to configure and administer.
 
-For more information about dedicated and shared server processes, see [About dedicated and shared server
-processes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-processes.html#GUID-5F72B9E4-E5A5-48DB-B0A7-D08E4A29E8B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-processes.html#GUID-5F72B9E4-E5A5-48DB-B0A7-D08E4A29E8B4") in the Oracle documentation. For more information about configuring shared server processes
-on an RDS for Oracle DB instance, see [How do I configure Amazon RDS for Oracle database to
-work with shared servers?](https://aws.amazon.com/premiumsupport/knowledge-center/oracle-db-shared/ "https://aws.amazon.com/premiumsupport/knowledge-center/oracle-db-shared/") in the Knowledge Center.
+For more information about dedicated and shared server processes, see [About dedicated and shared server processes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-processes.html#GUID-5F72B9E4-E5A5-48DB-B0A7-D08E4A29E8B4) in the Oracle documentation. For more information about configuring shared server processes on an RDS for Oracle DB instance, see [How do I configure Amazon RDS for Oracle database to work with shared servers?](https://aws.amazon.com/premiumsupport/knowledge-center/oracle-db-shared/) in the Knowledge Center.

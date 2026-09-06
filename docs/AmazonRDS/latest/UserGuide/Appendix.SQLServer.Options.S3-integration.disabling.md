@@ -1,46 +1,49 @@
+
+
 # Disabling RDS for SQL Server integration with S3
+<a name="Appendix.SQLServer.Options.S3-integration.disabling"></a>
 
-Following, you can find how to disable Amazon S3 integration with Amazon RDS for SQL Server. Files in
-`D:\S3\` aren't deleted when disabling S3 integration.
+Following, you can find how to disable Amazon S3 integration with Amazon RDS for SQL Server. Files in `D:\S3\` aren't deleted when disabling S3 integration.
 
-###### Note
+**Note**  
+To remove an IAM role from a DB instance, the status of the DB instance must be `available`.
 
-To remove an IAM role from a DB instance, the status of the DB instance must be
-`available`.
+## Console
+<a name="Appendix.SQLServer.Options.S3-integration.disabling.console"></a>
 
-###### To disassociate your IAM role from your DB instance
+**To disassociate your IAM role from your DB instance**
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Choose the RDS for SQL Server DB instance name to display its details.
-3. On the **Connectivity & security** tab, in the **Manage
-   IAM roles** section, choose the IAM role to remove.
-4. Choose **Delete**.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-###### To remove the IAM role from the RDS for SQL Server DB instance
+1. Choose the RDS for SQL Server DB instance name to display its details.
 
-- The following AWS CLI command removes the IAM role from a RDS for SQL Server DB instance
-  named `mydbinstance`.
+1. On the **Connectivity & security** tab, in the **Manage IAM roles** section, choose the IAM role to remove.
 
-###### Example
+1. Choose **Delete**.
 
-For Linux, macOS, or Unix:
+## AWS CLI
+<a name="Appendix.SQLServer.Options.S3-integration.disabling.cli"></a>
 
-```
-aws rds remove-role-from-db-instance \
-	   --db-instance-identifier `mydbinstance` \
-	   --feature-name S3_INTEGRATION \
-	   --role-arn `your-role-arn`
-```
+**To remove the IAM role from the RDS for SQL Server DB instance**
++ The following AWS CLI command removes the IAM role from a RDS for SQL Server DB instance named `{{mydbinstance}}`.  
+**Example**  
 
-For Windows:
+  For Linux, macOS, or Unix:
 
-```
-aws rds remove-role-from-db-instance ^
-	   --db-instance-identifier `mydbinstance` ^
-	   --feature-name S3_INTEGRATION ^
-	   --role-arn `your-role-arn`
-```
+  ```
+  aws rds remove-role-from-db-instance \
+  	   --db-instance-identifier {{mydbinstance}} \
+  	   --feature-name S3_INTEGRATION \
+  	   --role-arn {{your-role-arn}}
+  ```
 
-Replace `your-role-arn` with the appropriate IAM
-role ARN for the `--feature-name` option.
+  For Windows:
+
+  ```
+  aws rds remove-role-from-db-instance ^
+  	   --db-instance-identifier {{mydbinstance}} ^
+  	   --feature-name S3_INTEGRATION ^
+  	   --role-arn {{your-role-arn}}
+  ```
+
+  Replace `{{your-role-arn}}` with the appropriate IAM role ARN for the `--feature-name` option.

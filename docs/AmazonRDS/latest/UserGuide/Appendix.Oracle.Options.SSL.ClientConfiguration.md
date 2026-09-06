@@ -1,108 +1,91 @@
+
+
 # Configuring SQL\*Plus to use SSL with an RDS for Oracle DB instance
+<a name="Appendix.Oracle.Options.SSL.ClientConfiguration"></a>
 
-Before you can connect to an RDS for Oracle DB instance that uses the Oracle SSL option, you
-must configure SQL\*Plus before connecting.
+Before you can connect to an RDS for Oracle DB instance that uses the Oracle SSL option, you must configure SQL\*Plus before connecting.
 
-###### Note
+**Note**  
+To allow access to the DB instance from the appropriate clients, ensure that your security groups are configured correctly. For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md). Also, these instructions are for SQL\*Plus and other clients that directly use an Oracle home. For JDBC connections, see [Setting up an SSL connection over JDBC](Appendix.Oracle.Options.SSL.JDBC.md).
 
-To allow access to the DB instance from the appropriate clients, ensure that your security groups are configured correctly. For more information,
-see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md"). Also, these instructions are for SQL\*Plus and other
-clients that directly use an Oracle home. For JDBC connections, see [Setting up an SSL connection over JDBC](Appendix.Oracle.Options.SSL.JDBC.md "Appendix.Oracle.Options.SSL.JDBC.md").
+**To configure SQL\*Plus to use SSL to connect to an RDS for Oracle DB instance**
 
-###### To configure SQL\*Plus to use SSL to connect to an RDS for Oracle DB instance
+1. Set the `ORACLE_HOME` environment variable to the location of your Oracle home directory.
 
-1. Set the `ORACLE_HOME` environment variable to the location of
-   your Oracle home directory.
+   The path to your Oracle home directory depends on your installation. The following example sets the `ORACLE_HOME` environment variable.
 
-The path to your Oracle home directory depends on your installation. The
-following example sets the `ORACLE_HOME` environment
-variable.
+   ```
+   prompt>export ORACLE_HOME=/home/user/app/user/product/19.0.0/dbhome_1
+   ```
 
-```
-prompt>export ORACLE_HOME=/home/user/app/user/product/19.0.0/dbhome_1
-```
+   For information about setting Oracle environment variables, see [SQL\*Plus environment variables](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/configuring-sql-plus.html) in the Oracle documentation, and also see the Oracle installation guide for your operating system.
 
-For information about setting Oracle environment variables, see [SQL\*Plus environment variables](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/configuring-sql-plus.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/configuring-sql-plus.html") in the Oracle documentation, and
-also see the Oracle installation guide for your operating system. 2. Append `$ORACLE_HOME/lib` to the
-`LD_LIBRARY_PATH` environment variable.
+1. Append `$ORACLE_HOME/lib` to the `LD_LIBRARY_PATH` environment variable.
 
-The following is an example that sets the LD\_LIBRARY\_PATH environment
-variable.
+   The following is an example that sets the LD\_LIBRARY\_PATH environment variable.
 
-```
-prompt>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
-```
+   ```
+   prompt>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib 
+   ```
 
-3. Create a directory for the Oracle wallet at
-   `$ORACLE_HOME/ssl_wallet`.
+1. Create a directory for the Oracle wallet at `$ORACLE_HOME/ssl_wallet`.
 
-The following is an example that creates the Oracle wallet
-directory.
+   The following is an example that creates the Oracle wallet directory.
 
-```
-prompt>mkdir $ORACLE_HOME/ssl_wallet
-```
+   ```
+   prompt>mkdir $ORACLE_HOME/ssl_wallet
+   ```
 
-4. Download the certificate bundle .pem file that works for all AWS Regions and
-   put the file in the ssl\_wallet directory. For information, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.SSL.md "UsingWithRDS.SSL.md") .
-5. In the `$ORACLE_HOME/network/admin` directory, modify
-   or create the `tnsnames.ora` file and include the following
-   entry.
+1. Download the certificate bundle .pem file that works for all AWS Regions and put the file in the ssl\_wallet directory. For information, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster ](UsingWithRDS.SSL.md).
 
-```
-`net_service_name` =
-  (DESCRIPTION =
-    (ADDRESS_LIST =
-      (ADDRESS =
-        (PROTOCOL = TCPS)
-        (HOST = `endpoint`)
-        (PORT = `ssl_port_number`)
-      )
-    )
-    (CONNECT_DATA =
-      (SID = `database_name`)
-    )
-    (SECURITY =
-      (SSL_SERVER_CERT_DN = "C=US,ST=Washington,L=Seattle,O=Amazon.com,OU=RDS,CN=`endpoint`")
-    )
-  )
-```
+1. In the `$ORACLE_HOME/network/admin` directory, modify or create the `tnsnames.ora` file and include the following entry.
 
-6. In the same directory, modify or create the
-   sqlnet.ora file and include the following
-   parameters.
+   ```
+   {{net_service_name}} = 
+     (DESCRIPTION = 
+       (ADDRESS_LIST = 
+         (ADDRESS = 
+           (PROTOCOL = TCPS) 
+           (HOST = {{endpoint}}) 
+           (PORT = {{ssl_port_number}})
+         )
+       )
+       (CONNECT_DATA = 
+         (SID = {{database_name}})
+       )
+       (SECURITY = 
+         (SSL_SERVER_CERT_DN = "C=US,ST=Washington,L=Seattle,O=Amazon.com,OU=RDS,CN={{endpoint}}")
+       )
+     )
+   ```
 
-###### Note
+1. In the same directory, modify or create the sqlnet.ora file and include the following parameters.
+**Note**  
+To communicate with entities over a TLS secured connection, Oracle requires a wallet with the necessary certificates for authentication. You can use Oracle's ORAPKI utility to create and maintain Oracle wallets, as shown in step 7. For more information, see [Setting up Oracle wallet using ORAPKI](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-wallets-and-certificates.html) in the Oracle documentation.
 
-To communicate with entities over a TLS secured connection, Oracle requires a wallet with the necessary certificates for authentication.
-You can use Oracle's ORAPKI utility to create and maintain Oracle wallets, as shown in step 7. For more information, see
-[Setting up Oracle wallet using ORAPKI](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-wallets-and-certificates.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/managing-wallets-and-certificates.html") in the Oracle documentation.
+   ```
+   WALLET_LOCATION = (SOURCE = (METHOD = FILE) (METHOD_DATA = (DIRECTORY = $ORACLE_HOME/ssl_wallet))) 
+   SSL_CLIENT_AUTHENTICATION = FALSE 
+   SSL_VERSION = 1.2 
+   SSL_CIPHER_SUITES = (SSL_RSA_WITH_AES_256_CBC_SHA256) 
+   SSL_SERVER_DN_MATCH = ON
+   ```
+**Note**  
+You can set `SSL_VERSION` to a different value if your DB instance supports it.
 
-```
-WALLET_LOCATION = (SOURCE = (METHOD = FILE) (METHOD_DATA = (DIRECTORY = $ORACLE_HOME/ssl_wallet)))
-SSL_CLIENT_AUTHENTICATION = FALSE
-SSL_VERSION = 1.2
-SSL_CIPHER_SUITES = (SSL_RSA_WITH_AES_256_CBC_SHA256)
-SSL_SERVER_DN_MATCH = ON
-```
+1. Run the following command to create the Oracle wallet.
 
-###### Note
+   ```
+   prompt>orapki wallet create -wallet $ORACLE_HOME/ssl_wallet -auto_login_only
+   ```
 
-You can set `SSL_VERSION` to a different value if your DB instance supports it. 7. Run the following command to create the Oracle wallet.
+1. Extract each certificate in the .pem bundle file into a separate .pem file using an OS utility.
 
-```
-prompt>orapki wallet create -wallet $ORACLE_HOME/ssl_wallet -auto_login_only
-```
+1. Add each certificate to your wallet using separate `orapki` commands, replacing `{{certificate-pem-file}}` with the absolute file name of the .pem file.
 
-8. Extract each certificate in the .pem bundle file into a separate .pem file
-   using an OS utility.
-9. Add each certificate to your wallet using separate `orapki`
-   commands, replacing `certificate-pem-file`
-   with the absolute file name of the .pem file.
+   ```
+   prompt>orapki wallet add -wallet $ORACLE_HOME/ssl_wallet -trusted_cert -cert
+         {{certificate-pem-file}} -auto_login_only
+   ```
 
-```
-prompt>orapki wallet add -wallet $ORACLE_HOME/ssl_wallet -trusted_cert -cert
-      `certificate-pem-file` -auto_login_only
-```
-
-For more information, see [Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md "UsingWithRDS.SSL-certificate-rotation.md").
+   For more information, see [Rotating your SSL/TLS certificate](UsingWithRDS.SSL-certificate-rotation.md).

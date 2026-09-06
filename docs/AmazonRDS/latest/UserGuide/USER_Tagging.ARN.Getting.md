@@ -1,83 +1,92 @@
-# Getting an existing ARN for Amazon RDS
 
-You can get the ARN of an RDS resource by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or RDS API.
+
+# Getting an existing ARN for Amazon RDS
+<a name="USER_Tagging.ARN.Getting"></a>
+
+You can get the ARN of an RDS resource by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or RDS API. 
+
+## Console
+<a name="USER_Tagging.ARN.CON"></a>
 
 To get an ARN from the AWS Management Console, navigate to the resource you want an ARN for, and view the details for that resource.
 
-For example, you can get the ARN for a DB instance from the **Configuration** tab
-of the DB instance details.
+For example, you can get the ARN for a DB instance from the **Configuration** tab of the DB instance details.
 
-![DB instance ARN.](images/DB-instance-arn.png)
-To get an ARN from the AWS CLI for a particular RDS resource, you use the `describe` command for that resource.
-The following table shows each AWS CLI command, and the ARN property used with the command to get an ARN.
+![DB instance ARN.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/DB-instance-arn.png)
 
-| AWS CLI command                                                                                                                                                                               | ARN property               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| [describe-event-subscriptions](../../../cli/latest/reference/rds/describe-event-subscriptions.md "../../../cli/latest/reference/rds/describe-event-subscriptions.md")                         | EventSubscriptionArn       |
-| [describe-certificates](../../../cli/latest/reference/rds/describe-certificates.md "../../../cli/latest/reference/rds/describe-certificates.md")                                              | CertificateArn             |
-| [describe-db-parameter-groups](../../../cli/latest/reference/rds/describe-db-parameter-groups.md "../../../cli/latest/reference/rds/describe-db-parameter-groups.md")                         | DBParameterGroupArn        |
-| [describe-db-cluster-parameter-groups](../../../cli/latest/reference/rds/describe-db-cluster-parameter-groups.md "../../../cli/latest/reference/rds/describe-db-cluster-parameter-groups.md") | DBClusterParameterGroupArn |
-| [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")                                              | DBInstanceArn              |
-| [describe-db-security-groups](../../../cli/latest/reference/rds/describe-db-security-groups.md "../../../cli/latest/reference/rds/describe-db-security-groups.md")                            | DBSecurityGroupArn         |
-| [describe-db-snapshots](../../../cli/latest/reference/rds/describe-db-snapshots.md "../../../cli/latest/reference/rds/describe-db-snapshots.md")                                              | DBSnapshotArn              |
-| [describe-events](../../../cli/latest/reference/rds/describe-events.md "../../../cli/latest/reference/rds/describe-events.md")                                                                | SourceArn                  |
-| [describe-reserved-db-instances](../../../cli/latest/reference/rds/describe-reserved-db-instances.md "../../../cli/latest/reference/rds/describe-reserved-db-instances.md")                   | ReservedDBInstanceArn      |
-| [describe-db-subnet-groups](../../../cli/latest/reference/rds/describe-db-subnet-groups.md "../../../cli/latest/reference/rds/describe-db-subnet-groups.md")                                  | DBSubnetGroupArn           |
-| [describe-option-groups](../../../cli/latest/reference/rds/describe-option-groups.md "../../../cli/latest/reference/rds/describe-option-groups.md")                                           | OptionGroupArn             |
-| [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md")                                                 | DBClusterArn               |
-| [describe-db-cluster-snapshots](../../../cli/latest/reference/rds/describe-db-cluster-snapshots.md "../../../cli/latest/reference/rds/describe-db-cluster-snapshots.md")                      | DBClusterSnapshotArn       |
+
+## AWS CLI
+<a name="USER_Tagging.ARN.CLI"></a>
+
+To get an ARN from the AWS CLI for a particular RDS resource, you use the `describe` command for that resource. The following table shows each AWS CLI command, and the ARN property used with the command to get an ARN. 
+
+
+
+| AWS CLI command | ARN property | 
+| --- | --- | 
+|  [describe-event-subscriptions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-event-subscriptions.html)  | EventSubscriptionArn | 
+|  [describe-certificates](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-certificates.html) | CertificateArn | 
+|  [describe-db-parameter-groups](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameter-groups.html) | DBParameterGroupArn | 
+|  [describe-db-cluster-parameter-groups](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameter-groups.html) | DBClusterParameterGroupArn | 
+|  [describe-db-instances](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html) | DBInstanceArn | 
+|  [describe-db-security-groups](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-security-groups.html) | DBSecurityGroupArn | 
+|  [describe-db-snapshots](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-snapshots.html) | DBSnapshotArn | 
+|  [describe-events](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-events.html) | SourceArn | 
+|  [describe-reserved-db-instances](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-reserved-db-instances.html) | ReservedDBInstanceArn | 
+|  [describe-db-subnet-groups](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-subnet-groups.html) | DBSubnetGroupArn | 
+|  [describe-option-groups](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-option-groups.html) | OptionGroupArn | 
+|  [describe-db-clusters](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-clusters.html) | DBClusterArn | 
+|  [describe-db-cluster-snapshots](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-snapshots.html) | DBClusterSnapshotArn | 
 
 For example, the following AWS CLI command gets the ARN for a DB instance.
 
-###### Example
-
-For Linux, macOS, or Unix:
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds describe-db-instances \
---db-instance-identifier `DBInstanceIdentifier` \
---region `us-west-2` \
+--db-instance-identifier {{DBInstanceIdentifier}} \
+--region {{us-west-2}} \
 --query "*[].{DBInstanceIdentifier:DBInstanceIdentifier,DBInstanceArn:DBInstanceArn}"
-
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds describe-db-instances ^
---db-instance-identifier `DBInstanceIdentifier` ^
---region `us-west-2` ^
+--db-instance-identifier {{DBInstanceIdentifier}} ^
+--region {{us-west-2}} ^
 --query "*[].{DBInstanceIdentifier:DBInstanceIdentifier,DBInstanceArn:DBInstanceArn}"
+```
+The output of that command is like the following:  
 
 ```
-
-The output of that command is like the following:
-
-```
-
 [
     {
-        "DBInstanceArn": "arn:aws:rds:us-west-2:`account_id`:db:`instance_id`",
-        "DBInstanceIdentifier": "`instance_id`"
+        "DBInstanceArn": "arn:aws:rds:us-west-2:{{account_id}}:db:{{instance_id}}", 
+        "DBInstanceIdentifier": "{{instance_id}}"
     }
 ]
-
 ```
+
+## RDS API
+<a name="USER_Tagging.ARN.API"></a>
 
 To get an ARN for a particular RDS resource, you can call the following RDS API operations and use the ARN properties shown following.
 
-| RDS API operation                                                                                                                                     | ARN property               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| [DescribeEventSubscriptions](../APIReference/API_DescribeEventSubscriptions.md "../APIReference/API_DescribeEventSubscriptions.md")                   | EventSubscriptionArn       |
-| [DescribeCertificates](../APIReference/API_DescribeCertificates.md "../APIReference/API_DescribeCertificates.md")                                     | CertificateArn             |
-| [DescribeDBParameterGroups](../APIReference/API_DescribeDBParameterGroups.md "../APIReference/API_DescribeDBParameterGroups.md")                      | DBParameterGroupArn        |
-| [DescribeDBClusterParameterGroups](../APIReference/API_DescribeDBClusterParameterGroups.md "../APIReference/API_DescribeDBClusterParameterGroups.md") | DBClusterParameterGroupArn |
-| [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")                                        | DBInstanceArn              |
-| [DescribeDBSecurityGroups](../APIReference/API_DescribeDBSecurityGroups.md "../APIReference/API_DescribeDBSecurityGroups.md")                         | DBSecurityGroupArn         |
-| [DescribeDBSnapshots](../APIReference/API_DescribeDBSnapshots.md "../APIReference/API_DescribeDBSnapshots.md")                                        | DBSnapshotArn              |
-| [DescribeEvents](../APIReference/API_DescribeEvents.md "../APIReference/API_DescribeEvents.md")                                                       | SourceArn                  |
-| [DescribeReservedDBInstances](../APIReference/API_DescribeReservedDBInstances.md "../APIReference/API_DescribeReservedDBInstances.md")                | ReservedDBInstanceArn      |
-| [DescribeDBSubnetGroups](../APIReference/API_DescribeDBSubnetGroups.md "../APIReference/API_DescribeDBSubnetGroups.md")                               | DBSubnetGroupArn           |
-| [DescribeOptionGroups](../APIReference/API_DescribeOptionGroups.md "../APIReference/API_DescribeOptionGroups.md")                                     | OptionGroupArn             |
-| [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md")                                           | DBClusterArn               |
-| [DescribeDBClusterSnapshots](../APIReference/API_DescribeDBClusterSnapshots.md "../APIReference/API_DescribeDBClusterSnapshots.md")                   | DBClusterSnapshotArn       |
+
+
+| RDS API operation | ARN property | 
+| --- | --- | 
+|  [DescribeEventSubscriptions](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventSubscriptions.html) | EventSubscriptionArn | 
+|  [DescribeCertificates](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeCertificates.html) | CertificateArn | 
+|  [DescribeDBParameterGroups](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html) | DBParameterGroupArn | 
+|  [DescribeDBClusterParameterGroups](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterParameterGroups.html) | DBClusterParameterGroupArn | 
+|  [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) | DBInstanceArn | 
+|  [DescribeDBSecurityGroups](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSecurityGroups.html) | DBSecurityGroupArn | 
+|  [DescribeDBSnapshots](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html) | DBSnapshotArn | 
+|  [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) | SourceArn | 
+|  [DescribeReservedDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstances.html) | ReservedDBInstanceArn | 
+|  [DescribeDBSubnetGroups](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html) | DBSubnetGroupArn | 
+|  [DescribeOptionGroups](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroups.html) | OptionGroupArn | 
+|  [DescribeDBClusters](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) | DBClusterArn | 
+|  [DescribeDBClusterSnapshots](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterSnapshots.html) | DBClusterSnapshotArn | 

@@ -1,112 +1,113 @@
+
+
 # Disabling and deleting SSRS or PBIRS databases
+<a name="SSRS.DisableDelete"></a>
 
 Use the following procedures to disable SSRS or PBIRS and delete their databases:
 
-###### Topics
-
-- [Turning off SSRS or PBIRS](#SSRS.Disable "#SSRS.Disable")
-- [Deleting the SSRS or PBIRS databases](#SSRS.Drop "#SSRS.Drop")
+**Topics**
++ [Turning off SSRS or PBIRS](#SSRS.Disable)
++ [Deleting the SSRS or PBIRS databases](#SSRS.Drop)
 
 ## Turning off SSRS or PBIRS
+<a name="SSRS.Disable"></a>
 
-To turn off SSRS, remove the `SSRS` option from its option group. To turn off PBIRS,
-remove the `PBIRS` option from its option group. Removing the option doesn't
-delete the report server databases. For more information, see [Deleting the SSRS or PBIRS databases](#SSRS.Drop "#SSRS.Drop").
+To turn off SSRS, remove the `SSRS` option from its option group. To turn off PBIRS, remove the `PBIRS` option from its option group. Removing the option doesn't delete the report server databases. For more information, see [Deleting the SSRS or PBIRS databases](#SSRS.Drop).
 
-You can turn SSRS on again by adding back the `SSRS` option, or PBIRS by adding back
-the `PBIRS` option. If you have also deleted the report server databases, adding back
-the option on the same DB instance creates new report server databases.
+You can turn SSRS on again by adding back the `SSRS` option, or PBIRS by adding back the `PBIRS` option. If you have also deleted the report server databases, adding back the option on the same DB instance creates new report server databases.
 
-###### To remove the SSRS option from its option group
+### Console
+<a name="SSRS.Disable.Console"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `SSRS` option (`ssrs-se-2017` in
-   the previous examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **SSRS** for
-   **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it at
-   the next maintenance window.
-7. Choose **Delete**.
+**To remove the SSRS option from its option group**
 
-###### To remove the PBIRS option from its option group
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `PBIRS` option (`pbirs-se-2025` in
-   the previous examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **PBIRS** for
-   **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it at
-   the next maintenance window.
-7. Choose **Delete**.
+1. In the navigation pane, choose **Option groups**.
 
-###### To remove the SSRS option from its option group
+1. Choose the option group with the `SSRS` option (`ssrs-se-2017` in the previous examples).
 
-- Run one of the following commands.
+1. Choose **Delete option**.
 
-###### Example
+1. Under **Deletion options**, choose **SSRS** for **Options to delete**.
 
-For Linux, macOS, or Unix:
+1. Under **Apply immediately**, choose **Yes** to delete the option immediately, or **No** to delete it at the next maintenance window.
 
-```
-aws rds remove-option-from-option-group \
-    --option-group-name `ssrs-se-2017` \
-    --options SSRS \
-    --apply-immediately
-```
+1. Choose **Delete**.
 
-For Windows:
+**To remove the PBIRS option from its option group**
 
-```
-aws rds remove-option-from-option-group ^
-    --option-group-name `ssrs-se-2017` ^
-    --options SSRS ^
-    --apply-immediately
-```
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-###### To remove the PBIRS option from its option group
+1. In the navigation pane, choose **Option groups**.
 
-- Run one of the following commands.
+1. Choose the option group with the `PBIRS` option (`pbirs-se-2025` in the previous examples).
 
-###### Example
+1. Choose **Delete option**.
 
-For Linux, macOS, or Unix:
+1. Under **Deletion options**, choose **PBIRS** for **Options to delete**.
 
-```
-aws rds remove-option-from-option-group \
-    --option-group-name `pbirs-se-2025` \
-    --options PBIRS \
-    --apply-immediately
-```
+1. Under **Apply immediately**, choose **Yes** to delete the option immediately, or **No** to delete it at the next maintenance window.
 
-For Windows:
+1. Choose **Delete**.
 
-```
-aws rds remove-option-from-option-group ^
-    --option-group-name `pbirs-se-2025` ^
-    --options PBIRS ^
-    --apply-immediately
-```
+### CLI
+<a name="SSRS.Disable.CLI"></a>
+
+**To remove the SSRS option from its option group**
++ Run one of the following commands.  
+**Example**  
+
+  For Linux, macOS, or Unix:
+
+  ```
+  aws rds remove-option-from-option-group \
+      --option-group-name {{ssrs-se-2017}} \
+      --options SSRS \
+      --apply-immediately
+  ```
+
+  For Windows:
+
+  ```
+  aws rds remove-option-from-option-group ^
+      --option-group-name {{ssrs-se-2017}} ^
+      --options SSRS ^
+      --apply-immediately
+  ```
+
+**To remove the PBIRS option from its option group**
++ Run one of the following commands.  
+**Example**  
+
+  For Linux, macOS, or Unix:
+
+  ```
+  aws rds remove-option-from-option-group \
+      --option-group-name {{pbirs-se-2025}} \
+      --options PBIRS \
+      --apply-immediately
+  ```
+
+  For Windows:
+
+  ```
+  aws rds remove-option-from-option-group ^
+      --option-group-name {{pbirs-se-2025}} ^
+      --options PBIRS ^
+      --apply-immediately
+  ```
 
 ## Deleting the SSRS or PBIRS databases
+<a name="SSRS.Drop"></a>
 
-Removing the `SSRS` or `PBIRS` option doesn't delete the report
-server databases. To delete them, use the following stored procedure.
+Removing the `SSRS` or `PBIRS` option doesn't delete the report server databases. To delete them, use the following stored procedure.
 
-To delete the report server databases, be sure to remove the `SSRS` or
-`PBIRS` option first.
+To delete the report server databases, be sure to remove the `SSRS` or `PBIRS` option first.
 
-###### To delete the SSRS or PBIRS databases
+**To delete the SSRS or PBIRS databases**
++ Use the following stored procedure. This procedure handles both SSRS and PBIRS databases.
 
-- Use the following stored procedure. This procedure handles both SSRS and PBIRS databases.
-
-```
-exec msdb.dbo.rds_drop_ssrs_databases
-```
+  ```
+  exec msdb.dbo.rds_drop_ssrs_databases
+  ```

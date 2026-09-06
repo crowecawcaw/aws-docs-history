@@ -1,100 +1,81 @@
+
+
 # Setting up your environment for Amazon RDS Custom for Oracle
+<a name="custom-setup-orcl"></a>
 
-###### Note
-
-End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md "RDS-Custom-for-Oracle-end-of-support.md").
+**Note**  
+End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. After March 31, 2027, you will no longer be able to access the RDS Custom for Oracle console or RDS Custom for Oracle resources. For more information, see [RDS Custom for Oracle end of support](RDS-Custom-for-Oracle-end-of-support.md).
 
 Before you create an Amazon RDS Custom for Oracle DB instance, perform the following tasks.
 
-###### Topics
-
-- [Step 1: Create or reuse a symmetric encryption AWS KMS key](#custom-setup-orcl.cmk "#custom-setup-orcl.cmk")
-- [Step 2: Download and install the AWS CLI](#custom-setup-orcl.cli "#custom-setup-orcl.cli")
-- [Step 3: Extract the CloudFormation templates for RDS Custom for Oracle](#custom-setup-orcl.cf.downloading "#custom-setup-orcl.cf.downloading")
-- [Step 4: Configure IAM for RDS Custom for Oracle](#custom-setup-orcl.iam-vpc "#custom-setup-orcl.iam-vpc")
-- [Step 5: Grant required permissions to your IAM user or role](#custom-setup-orcl.iam-user "#custom-setup-orcl.iam-user")
-- [Step 6: Configure your VPC for RDS Custom for Oracle](#custom-setup-orc.vpc-config "#custom-setup-orc.vpc-config")
+**Topics**
++ [Step 1: Create or reuse a symmetric encryption AWS KMS key](#custom-setup-orcl.cmk)
++ [Step 2: Download and install the AWS CLI](#custom-setup-orcl.cli)
++ [Step 3: Extract the CloudFormation templates for RDS Custom for Oracle](#custom-setup-orcl.cf.downloading)
++ [Step 4: Configure IAM for RDS Custom for Oracle](#custom-setup-orcl.iam-vpc)
++ [Step 5: Grant required permissions to your IAM user or role](#custom-setup-orcl.iam-user)
++ [Step 6: Configure your VPC for RDS Custom for Oracle](#custom-setup-orc.vpc-config)
 
 ## Step 1: Create or reuse a symmetric encryption AWS KMS key
+<a name="custom-setup-orcl.cmk"></a>
 
-_Customer managed keys_ are AWS KMS keys in your AWS account
-that you create, own, and manage. A customer managed symmetric encryption KMS key is
-required for RDS Custom. When you create an RDS Custom for Oracle DB instance, you supply the KMS key
-identifier. For more information, see [Configuring a DB instance for Amazon RDS Custom for Oracle](custom-creating.md "custom-creating.md").
+*Customer managed keys* are AWS KMS keys in your AWS account that you create, own, and manage. A customer managed symmetric encryption KMS key is required for RDS Custom. When you create an RDS Custom for Oracle DB instance, you supply the KMS key identifier. For more information, see [Configuring a DB instance for Amazon RDS Custom for Oracle](custom-creating.md).
 
 You have the following options:
++ If you have an existing customer managed KMS key in your AWS account, you can use it with RDS Custom. No further action is necessary.
++ If you already created a customer managed symmetric encryption KMS key for a different RDS Custom engine, you can reuse the same KMS key. No further action is necessary.
++ If you don't have an existing customer managed symmetric encryption KMS key in your account, create a KMS key by following the instructions in [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS Key Management Service Developer Guide*.
++ If you're creating a CEV or RDS Custom DB instance, and your KMS key is in a different AWS account, make sure to use the AWS CLI. You can't use the AWS console with cross-account KMS keys.
 
-- If you have an existing customer managed KMS key in your AWS account, you can
-  use it with RDS Custom. No further action is necessary.
-- If you already created a customer managed symmetric encryption KMS key for a
-  different RDS Custom engine, you can reuse the same KMS key. No further action is
-  necessary.
-- If you don't have an existing customer managed symmetric encryption KMS key in
-  your account, create a KMS key by following the instructions in [Creating
-  keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer Guide_.
-- If you're creating a CEV or RDS Custom DB instance, and your KMS key is in a
-  different AWS account, make sure to use the AWS CLI. You can't use the AWS console
-  with cross-account KMS keys.
-
-###### Important
-
+**Important**  
 RDS Custom doesn't support AWS managed KMS keys.
 
-Make sure that your symmetric encryption key grants access to the `kms:Decrypt`
-and `kms:GenerateDataKey` operations to the AWS Identity and Access Management (IAM) role in your IAM
-instance profile. If you have a new symmetric encryption key in your account, no changes are
-required. Otherwise, make sure that your symmetric encryption key's policy grants access to
-these operations.
+Make sure that your symmetric encryption key grants access to the `kms:Decrypt` and `kms:GenerateDataKey` operations to the AWS Identity and Access Management (IAM) role in your IAM instance profile. If you have a new symmetric encryption key in your account, no changes are required. Otherwise, make sure that your symmetric encryption key's policy grants access to these operations.
 
-For more information, see [Step 4: Configure IAM for RDS Custom for Oracle](#custom-setup-orcl.iam-vpc "#custom-setup-orcl.iam-vpc").
+For more information, see [Step 4: Configure IAM for RDS Custom for Oracle](#custom-setup-orcl.iam-vpc).
 
-For more information about configuring IAM for RDS Custom for Oracle, see [Step 4: Configure IAM for RDS Custom for Oracle](#custom-setup-orcl.iam-vpc "#custom-setup-orcl.iam-vpc").
+For more information about configuring IAM for RDS Custom for Oracle, see [Step 4: Configure IAM for RDS Custom for Oracle](#custom-setup-orcl.iam-vpc).
 
 ## Step 2: Download and install the AWS CLI
+<a name="custom-setup-orcl.cli"></a>
 
-AWS provides you with a command-line interface to use RDS Custom features. You can use either version 1 or version 2 of the
-AWS CLI.
+AWS provides you with a command-line interface to use RDS Custom features. You can use either version 1 or version 2 of the AWS CLI.
 
-For information about downloading and installing the AWS CLI, see [Installing or updating the latest version of the
-AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+For information about downloading and installing the AWS CLI, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
 Skip this step if either of the following is true:
-
-- You plan to access RDS Custom only from the AWS Management Console.
-- You have already downloaded the AWS CLI for Amazon RDS or a different RDS Custom
-  DB engine.
++ You plan to access RDS Custom only from the AWS Management Console.
++ You have already downloaded the AWS CLI for Amazon RDS or a different RDS Custom DB engine.
 
 ## Step 3: Extract the CloudFormation templates for RDS Custom for Oracle
+<a name="custom-setup-orcl.cf.downloading"></a>
 
-To simplify setup, we strongly recommend that you use CloudFormation templates to create
-CloudFormation stacks. If you plan to configure IAM and your VPC manually, skip this
-step.
+To simplify setup, we strongly recommend that you use CloudFormation templates to create CloudFormation stacks. If you plan to configure IAM and your VPC manually, skip this step.
 
-###### Topics
-
-- [Step 3a: Download the CloudFormation template files](#custom-setup-orcl.cf.dl-templates "#custom-setup-orcl.cf.dl-templates")
-- [Step 3b: Extract custom-oracle-iam.json](#custom-setup-orcl.cf.downloading.ca-role "#custom-setup-orcl.cf.downloading.ca-role")
-- [Step 3c: Extract custom-vpc.json](#custom-setup-orcl.cf.downloading.ca-pn "#custom-setup-orcl.cf.downloading.ca-pn")
+**Topics**
++ [Step 3a: Download the CloudFormation template files](#custom-setup-orcl.cf.dl-templates)
++ [Step 3b: Extract custom-oracle-iam.json](#custom-setup-orcl.cf.downloading.ca-role)
++ [Step 3c: Extract custom-vpc.json](#custom-setup-orcl.cf.downloading.ca-pn)
 
 ### Step 3a: Download the CloudFormation template files
+<a name="custom-setup-orcl.cf.dl-templates"></a>
 
-A _CloudFormation template_ is a declaration of the AWS
-resources that make up a stack. The template is stored as a JSON file.
+A CloudFormation template is a declaration of the AWS resources that make up a stack. The template is stored as a JSON file.
 
-###### To download the CloudFormation template files
+**To download the CloudFormation template files**
 
-1. Open the context (right-click) menu for the link [custom-oracle-iam.zip](samples/custom-oracle-iam.zip.md "samples/custom-oracle-iam.zip.md") and
-   choose **Save Link As**.
-2. Save the file to your computer.
-3. Repeat the previous steps for the link [custom-vpc.zip](samples/custom-vpc.zip.md "samples/custom-vpc.zip.md").
+1. Open the context (right-click) menu for the link [custom-oracle-iam.zip](samples/custom-oracle-iam.zip) and choose **Save Link As**.
 
-If you already configured your VPC for RDS Custom, skip this step.
+1. Save the file to your computer.
+
+1. Repeat the previous steps for the link [custom-vpc.zip](samples/custom-vpc.zip).
+
+   If you already configured your VPC for RDS Custom, skip this step.
 
 ### Step 3b: Extract custom-oracle-iam.json
+<a name="custom-setup-orcl.cf.downloading.ca-role"></a>
 
-Open the `custom-oracle-iam.zip` file that you downloaded, and
-then extract the file `custom-oracle-iam.json`. The beginning of
-the file looks like the following.
+Open the `custom-oracle-iam.zip` file that you downloaded, and then extract the file `custom-oracle-iam.json`. The beginning of the file looks like the following.
 
 ```
 {
@@ -112,7 +93,7 @@ the file looks like the following.
       "Properties": {
         "RoleName": { "Fn::Sub": "AWSRDSCustomInstanceRole-${AWS::Region}" },
         "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Action": "sts:AssumeRole",
@@ -126,15 +107,12 @@ the file looks like the following.
 ```
 
 ### Step 3c: Extract custom-vpc.json
+<a name="custom-setup-orcl.cf.downloading.ca-pn"></a>
 
-###### Note
+**Note**  
+If you already configured an existing VPC for RDS Custom for Oracle, skip this step. For more information, see [Configure your VPC manually for RDS Custom for Oracle](#custom-setup-orcl.vpc).
 
-If you already configured an existing VPC for RDS Custom for Oracle, skip this step. For
-more information, see [Configure your VPC manually for RDS Custom for Oracle](#custom-setup-orcl.vpc "#custom-setup-orcl.vpc").
-
-Open the `custom-vpc.zip` ﬁle that you downloaded, and then extract the
-ﬁle `custom-vpc.json`. The beginning of the file looks like the
-following.
+Open the `custom-vpc.zip` ﬁle that you downloaded, and then extract the ﬁle `custom-vpc.json`. The beginning of the file looks like the following.
 
 ```
 {
@@ -168,108 +146,88 @@ following.
 ```
 
 ## Step 4: Configure IAM for RDS Custom for Oracle
+<a name="custom-setup-orcl.iam-vpc"></a>
 
-You use an IAM role or IAM user (known as an _IAM entity_) to
-create an RDS Custom DB instance using the console or AWS CLI. This IAM entity must have the
-necessary permissions for instance creation.
+You use an IAM role or IAM user (known as an IAM entity) to create an RDS Custom DB instance using the console or AWS CLI. This IAM entity must have the necessary permissions for instance creation.
 
 You can configure IAM using either CloudFormation or manual steps.
 
-###### Important
+**Important**  
+We strongly recommend that you configure your RDS Custom for Oracle environment using CloudFormation. This technique is the easiest and least error-prone.
 
-We strongly recommend that you configure your RDS Custom for Oracle environment using CloudFormation.
-This technique is the easiest and least error-prone.
-
-###### Topics
-
-- [Configure IAM using CloudFormation](#custom-setup-orcl.cf.config-iam "#custom-setup-orcl.cf.config-iam")
-- [Create your IAM role and instance profile manually](#custom-setup-orcl.iam "#custom-setup-orcl.iam")
+**Topics**
++ [Configure IAM using CloudFormation](#custom-setup-orcl.cf.config-iam)
++ [Create your IAM role and instance profile manually](#custom-setup-orcl.iam)
 
 ### Configure IAM using CloudFormation
+<a name="custom-setup-orcl.cf.config-iam"></a>
 
-When you use the CloudFormation template for IAM, it creates the following required
-resources:
+When you use the CloudFormation template for IAM, it creates the following required resources:
++ An instance profile named `AWSRDSCustomInstanceProfile-{{region}}`
++ A service role named `AWSRDSCustomInstanceRole-{{region}}`
++ An access policy named `AWSRDSCustomIamRolePolicy` that is attached to the service role
 
-- An instance profile named
-  `AWSRDSCustomInstanceProfile-`region``
-- A service role named
-  `AWSRDSCustomInstanceRole-`region``
-- An access policy named `AWSRDSCustomIamRolePolicy` that is
-  attached to the service role
+**To configure IAM using CloudFormation**
 
-###### To configure IAM using CloudFormation
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Start the Create Stack wizard, and choose **Create
-   Stack**.
-3. On the **Create stack** page, do the following:
+1. Start the Create Stack wizard, and choose **Create Stack**.
 
-   1. For **Prepare template**, choose
-      **Template is ready**.
-   2. For **Template source**, choose **Upload
-      a template file**.
-   3. For **Choose file**, navigate to, then choose
-      **custom-oracle-iam.json**.
-   4. Choose **Next**.
+1. On the **Create stack** page, do the following:
 
-4. On the **Specify stack details** page, do the
-   following:
+   1. For **Prepare template**, choose **Template is ready**.
 
-   1. For **Stack name**, enter
-      `custom-oracle-iam`.
-   2. Choose **Next**.
+   1. For **Template source**, choose **Upload a template file**.
 
-5. On the **Configure stack options page**, choose
-   **Next**.
-6. On the **Review custom-oracle-iam** page, do the
-   following:
+   1. For **Choose file**, navigate to, then choose **custom-oracle-iam.json**.
 
-   1. Select the ****I acknowledge that
-      CloudFormation might create IAM resources with custom
-      names**** check box.
-   2. Choose **Submit**.CloudFormation creates the IAM roles that RDS Custom for Oracle requires. In the left
-      panel, when **custom-oracle-iam** shows
-      **CREATE\_COMPLETE**, proceed to the next step.
+   1. Choose **Next**.
 
-7. In the left panel, choose **custom-oracle-iam**. In the
-   right panel, do the following:
+1. On the **Specify stack details** page, do the following:
 
-   1. Choose **Stack info**. Your stack has an ID in
-      the format
-      **arn:aws:cloudformation:`region`:`account-no`:stack/custom-oracle-iam/`identifier`**.
-   2. Choose **Resources**. You should see the
-      following:
+   1. For **Stack name**, enter **custom-oracle-iam**.
 
-      - An instance profile named
-        **AWSRDSCustomInstanceProfile-`region`**
-      - A service role named
-        **AWSRDSCustomInstanceRole-`region`**
-        When you create your RDS Custom DB instance, you need to supply the instance
-        profile ID.
+   1. Choose **Next**.
+
+1. On the **Configure stack options page**, choose **Next**.
+
+1. On the **Review custom-oracle-iam** page, do the following:
+
+   1. Select the ****I acknowledge that CloudFormation might create IAM resources with custom names**** check box.
+
+   1. Choose **Submit**.
+
+   CloudFormation creates the IAM roles that RDS Custom for Oracle requires. In the left panel, when **custom-oracle-iam** shows **CREATE\_COMPLETE**, proceed to the next step.
+
+1. In the left panel, choose **custom-oracle-iam**. In the right panel, do the following:
+
+   1. Choose **Stack info**. Your stack has an ID in the format **arn:aws:cloudformation:{{region}}:{{account-no}}:stack/custom-oracle-iam/{{identifier}}**.
+
+   1. Choose **Resources**. You should see the following:
+      + An instance profile named **AWSRDSCustomInstanceProfile-{{region}}**
+      + A service role named **AWSRDSCustomInstanceRole-{{region}}**
+
+      When you create your RDS Custom DB instance, you need to supply the instance profile ID.
 
 ### Create your IAM role and instance profile manually
+<a name="custom-setup-orcl.iam"></a>
 
-Configuration is easiest when you use CloudFormation. However, you can also configure
-IAM manually. For manual setup, do the following:
-
-- [Step 1: Create the IAM role AWSRDSCustomInstanceRoleForRdsCustomInstance](#custom-setup-orcl.iam.create-role "#custom-setup-orcl.iam.create-role").
-- [Step 2: Add an access policy to AWSRDSCustomInstanceRoleForRdsCustomInstance](#custom-setup-orcl.iam.add-policy "#custom-setup-orcl.iam.add-policy").
-- [Step 2: Add an access policy to AWSRDSCustomInstanceRoleForRdsCustomInstance](#custom-setup-orcl.iam.create-profile "#custom-setup-orcl.iam.create-profile").
-- [Step 4: Add AWSRDSCustomInstanceRoleForRdsCustomInstance to AWSRDSCustomInstanceProfile](#custom-setup-orcl.iam.add-profile "#custom-setup-orcl.iam.add-profile").
+Configuration is easiest when you use CloudFormation. However, you can also configure IAM manually. For manual setup, do the following:
++ [Step 1: Create the IAM role AWSRDSCustomInstanceRoleForRdsCustomInstance](#custom-setup-orcl.iam.create-role).
++ [Step 2: Add an access policy to AWSRDSCustomInstanceRoleForRdsCustomInstance](#custom-setup-orcl.iam.add-policy).
++ [Step 2: Add an access policy to AWSRDSCustomInstanceRoleForRdsCustomInstance](#custom-setup-orcl.iam.create-profile).
++ [Step 4: Add AWSRDSCustomInstanceRoleForRdsCustomInstance to AWSRDSCustomInstanceProfile](#custom-setup-orcl.iam.add-profile).
 
 #### Step 1: Create the IAM role AWSRDSCustomInstanceRoleForRdsCustomInstance
+<a name="custom-setup-orcl.iam.create-role"></a>
 
-In this step, you create the role using the naming format
-`AWSRDSCustomInstanceRole-`region``.
-Using the trust policy, Amazon EC2 can assume the role. The following example assumes
-that you have set the environment variable `$REGION` to the
-AWS Region in which you want to create your DB instance.
+In this step, you create the role using the naming format `AWSRDSCustomInstanceRole-{{region}}`. Using the trust policy, Amazon EC2 can assume the role. The following example assumes that you have set the environment variable `$REGION` to the AWS Region in which you want to create your DB instance.
 
 ```
 aws iam create-role \
   --role-name AWSRDSCustomInstanceRole-$REGION \
   --assume-role-policy-document '{
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
       "Statement": [
         {
           "Action": "sts:AssumeRole",
@@ -283,40 +241,27 @@ aws iam create-role \
 ```
 
 #### Step 2: Add an access policy to AWSRDSCustomInstanceRoleForRdsCustomInstance
+<a name="custom-setup-orcl.iam.add-policy"></a>
 
-When you embed an inline policy in an IAM role, the inline policy is used as
-part of the role's access (permissions) policy. You create the
-`AWSRDSCustomIamRolePolicy` policy that permits Amazon EC2 to send and
-receive messages and perform various actions.
+When you embed an inline policy in an IAM role, the inline policy is used as part of the role's access (permissions) policy. You create the `AWSRDSCustomIamRolePolicy` policy that permits Amazon EC2 to send and receive messages and perform various actions.
 
-The following example creates the access policy named
-`AWSRDSCustomIamRolePolicy`, and adds it to the IAM role
-`AWSRDSCustomInstanceRole-`region``.
-This example assumes that you have set the following environment
-variables:
+The following example creates the access policy named `AWSRDSCustomIamRolePolicy`, and adds it to the IAM role `AWSRDSCustomInstanceRole-{{region}}`. This example assumes that you have set the following environment variables:
 
-`$REGION`
+`$REGION`  
+Set this variable to the AWS Region in which you plan to create your DB instance.
 
-Set this variable to the AWS Region in which you plan to create
-your DB instance.
-
-`$ACCOUNT_ID`
-
+`$ACCOUNT_ID`  
 Set this variable to your AWS account number.
 
-`$KMS_KEY`
-
-Set this variable to the Amazon Resource Name (ARN) of the
-AWS KMS key that you want to use for your RDS Custom DB instances. To
-specify more than one KMS key, add it to the
-`Resources` section of statement ID (Sid) 11.
+`$KMS_KEY`  
+Set this variable to the Amazon Resource Name (ARN) of the AWS KMS key that you want to use for your RDS Custom DB instances. To specify more than one KMS key, add it to the `Resources` section of statement ID (Sid) 11.
 
 ```
 aws iam put-role-policy \
   --role-name AWSRDSCustomInstanceRole-$REGION \
   --policy-name AWSRDSCustomIamRolePolicy \
   --policy-document '{
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "1",
@@ -506,17 +451,11 @@ aws iam put-role-policy \
 ```
 
 #### Step 3: Create the RDS Custom instance profile AWSRDSCustomInstanceProfile
+<a name="custom-setup-orcl.iam.create-profile"></a>
 
-An instance profile is a container that includes a single IAM role. RDS Custom
-uses the instance profile to pass the role to the instance.
+An instance profile is a container that includes a single IAM role. RDS Custom uses the instance profile to pass the role to the instance.
 
-If you use the CLI to create a role, you create the role and instance profile
-as separate actions, with potentially different names. Create your IAM
-instance profile as follows, naming it using the format
-`AWSRDSCustomInstanceProfile-`region``.
-The following example assumes that you have set the environment variable
-`$REGION` to the AWS Region in which you want to create your
-DB instance.
+If you use the CLI to create a role, you create the role and instance profile as separate actions, with potentially different names. Create your IAM instance profile as follows, naming it using the format `AWSRDSCustomInstanceProfile-{{region}}`. The following example assumes that you have set the environment variable `$REGION` to the AWS Region in which you want to create your DB instance.
 
 ```
 aws iam create-instance-profile \
@@ -524,11 +463,9 @@ aws iam create-instance-profile \
 ```
 
 #### Step 4: Add AWSRDSCustomInstanceRoleForRdsCustomInstance to AWSRDSCustomInstanceProfile
+<a name="custom-setup-orcl.iam.add-profile"></a>
 
-Add your IAM role to the instance profile that you previously created. The
-following example assumes that you have set the environment variable
-`$REGION` to the AWS Region in which you want to create your
-DB instance.
+Add your IAM role to the instance profile that you previously created. The following example assumes that you have set the environment variable `$REGION` to the AWS Region in which you want to create your DB instance.
 
 ```
 aws iam add-role-to-instance-profile \
@@ -537,62 +474,63 @@ aws iam add-role-to-instance-profile \
 ```
 
 ## Step 5: Grant required permissions to your IAM user or role
+<a name="custom-setup-orcl.iam-user"></a>
 
-Make sure that the IAM principal (user or role) that creates the CEV or RDS Custom DB instance
-has either of the following policies:
+Make sure that the IAM principal (user or role) that creates the CEV or RDS Custom DB instance has either of the following policies:
++ The `AdministratorAccess` policy
++ The `AmazonRDSFullAccess` policy with required permissions for Amazon S3 and AWS KMS, CEV creation, and DB instance creation
 
-- The `AdministratorAccess` policy
-- The `AmazonRDSFullAccess` policy with required permissions for Amazon S3
-  and AWS KMS, CEV creation, and DB instance creation
-
-###### Topics
-
-- [IAM permissions required for Amazon S3 and AWS KMS](#custom-setup-orcl.s3-kms "#custom-setup-orcl.s3-kms")
-- [IAM permissions required for creating a CEV](#custom-setup-orcl.cev "#custom-setup-orcl.cev")
-- [IAM permissions required for creating a DB instance from a CEV](#custom-setup-orcl.db "#custom-setup-orcl.db")
+**Topics**
++ [IAM permissions required for Amazon S3 and AWS KMS](#custom-setup-orcl.s3-kms)
++ [IAM permissions required for creating a CEV](#custom-setup-orcl.cev)
++ [IAM permissions required for creating a DB instance from a CEV](#custom-setup-orcl.db)
 
 ### IAM permissions required for Amazon S3 and AWS KMS
+<a name="custom-setup-orcl.s3-kms"></a>
 
-To create CEVs or RDS Custom for Oracle DB instances, your IAM principal needs to access Amazon S3 and
-AWS KMS. The following sample JSON policy grants the required permissions.
+To create CEVs or RDS Custom for Oracle DB instances, your IAM principal needs to access Amazon S3 and AWS KMS. The following sample JSON policy grants the required permissions.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "CreateS3Bucket",
- "Effect": "Allow",
- "Action": [
- "s3:CreateBucket",
- "s3:PutBucketPolicy",
- "s3:PutBucketObjectLockConfiguration",
- "s3:PutBucketVersioning"
- ],
- "Resource": "arn:aws:s3:::do-not-delete-rds-custom-*"
- },
- {
- "Sid": "CreateKmsGrant",
- "Effect": "Allow",
- "Action": [
- "kms:CreateGrant",
- "kms:DescribeKey"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "CreateS3Bucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:CreateBucket",
+                "s3:PutBucketPolicy",
+                "s3:PutBucketObjectLockConfiguration",
+                "s3:PutBucketVersioning"
+            ],
+            "Resource": "arn:aws:s3:::do-not-delete-rds-custom-*"
+        },
+        {
+            "Sid": "CreateKmsGrant",
+            "Effect": "Allow",
+            "Action": [
+                "kms:CreateGrant",
+                "kms:DescribeKey"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-For more information about the `kms:CreateGrant` permission, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").
+------
+
+For more information about the `kms:CreateGrant` permission, see [AWS KMS key management](Overview.Encryption.Keys.md).
 
 ### IAM permissions required for creating a CEV
+<a name="custom-setup-orcl.cev"></a>
 
-To create a CEV, your IAM principal needs the following additional
-permissions:
+To create a CEV, your IAM principal needs the following additional permissions:
 
 ```
 s3:GetObjectAcl
@@ -602,50 +540,51 @@ s3:ListBucket
 mediaimport:CreateDatabaseBinarySnapshot
 ```
 
-The following sample JSON policy grants the additional permissions necessary to
-access bucket `my-custom-installation-files` and its
-contents.
+The following sample JSON policy grants the additional permissions necessary to access bucket {{my-custom-installation-files}} and its contents.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AccessToS3MediaBucket",
- "Effect": "Allow",
- "Action": [
- "s3:GetObjectAcl",
- "s3:GetObject",
- "s3:GetObjectTagging",
- "s3:ListBucket"
- ],
- "Resource": [
- "arn:aws:s3:::`my-custom-installation-files`",
- "arn:aws:s3:::`my-custom-installation-files`/*"
- ]
- },
- {
- "Sid": "PermissionForByom",
- "Effect": "Allow",
- "Action": [
- "mediaimport:CreateDatabaseBinarySnapshot"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AccessToS3MediaBucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObjectAcl",
+                "s3:GetObject",
+                "s3:GetObjectTagging",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::{{my-custom-installation-files}}",
+                "arn:aws:s3:::{{my-custom-installation-files}}/*"
+            ]
+        },
+        {
+            "Sid": "PermissionForByom",
+            "Effect": "Allow",
+            "Action": [
+                "mediaimport:CreateDatabaseBinarySnapshot"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-You can grant similar permissions for Amazon S3 to caller accounts using an S3 bucket
-policy.
+------
+
+You can grant similar permissions for Amazon S3 to caller accounts using an S3 bucket policy.
 
 ### IAM permissions required for creating a DB instance from a CEV
+<a name="custom-setup-orcl.db"></a>
 
-To create an RDS Custom for Oracle DB instance from an existing CEV, the IAM principal needs the
-following additional permissions.
+To create an RDS Custom for Oracle DB instance from an existing CEV, the IAM principal needs the following additional permissions.
 
 ```
 iam:SimulatePrincipalPolicy
@@ -653,179 +592,146 @@ cloudtrail:CreateTrail
 cloudtrail:StartLogging
 ```
 
-The following sample JSON policy grants the permissions necessary to validate an
-IAM role and log information to an AWS CloudTrail.
+The following sample JSON policy grants the permissions necessary to validate an IAM role and log information to an AWS CloudTrail.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ValidateIamRole",
- "Effect": "Allow",
- "Action": "iam:SimulatePrincipalPolicy",
- "Resource": "*"
- },
- {
- "Sid": "CreateCloudTrail",
- "Effect": "Allow",
- "Action": [
- "cloudtrail:CreateTrail",
- "cloudtrail:StartLogging"
- ],
- "Resource": "arn:aws:cloudtrail:*:*:trail/do-not-delete-rds-custom-*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "ValidateIamRole",
+            "Effect": "Allow",
+            "Action": "iam:SimulatePrincipalPolicy",
+            "Resource": "*"
+        },
+        {
+            "Sid": "CreateCloudTrail",
+            "Effect": "Allow",
+            "Action": [
+                "cloudtrail:CreateTrail",
+                "cloudtrail:StartLogging"
+            ],
+            "Resource": "arn:aws:cloudtrail:*:*:trail/do-not-delete-rds-custom-*"
+        }
+    ]
+}
+```
+
+------
 
 ## Step 6: Configure your VPC for RDS Custom for Oracle
+<a name="custom-setup-orc.vpc-config"></a>
 
-Your RDS Custom DB instance is in a virtual private cloud (VPC) based on the Amazon VPC service, just
-like an Amazon EC2 instance or Amazon RDS instance. You provide and configure your own VPC. Unlike
-RDS Custom for SQL Server, RDS Custom for Oracle doesn't create an access control list or security groups. You must
-attach you own security group, subnets, and route tables.
+Your RDS Custom DB instance is in a virtual private cloud (VPC) based on the Amazon VPC service, just like an Amazon EC2 instance or Amazon RDS instance. You provide and configure your own VPC. Unlike RDS Custom for SQL Server, RDS Custom for Oracle doesn't create an access control list or security groups. You must attach you own security group, subnets, and route tables.
 
-You can configure your virtual private cloud (VPC) using either CloudFormation or a manual
-process.
+You can configure your virtual private cloud (VPC) using either CloudFormation or a manual process.
 
-###### Important
+**Important**  
+We strongly recommend that you configure your RDS Custom for Oracle environment using CloudFormation. This technique is the easiest and least error-prone.
 
-We strongly recommend that you configure your RDS Custom for Oracle environment using CloudFormation.
-This technique is the easiest and least error-prone.
-
-###### Topics
-
-- [Configure your VPC using CloudFormation (recommended)](#custom-setup-orcl.cf.config-vpc "#custom-setup-orcl.cf.config-vpc")
-- [Configure your VPC manually for RDS Custom for Oracle](#custom-setup-orcl.vpc "#custom-setup-orcl.vpc")
+**Topics**
++ [Configure your VPC using CloudFormation (recommended)](#custom-setup-orcl.cf.config-vpc)
++ [Configure your VPC manually for RDS Custom for Oracle](#custom-setup-orcl.vpc)
 
 ### Configure your VPC using CloudFormation (recommended)
+<a name="custom-setup-orcl.cf.config-vpc"></a>
 
-If you've already configured your VPC for a different RDS Custom engine, and want to
-reuse the existing VPC, skip this step. This section assumes the following:
+If you've already configured your VPC for a different RDS Custom engine, and want to reuse the existing VPC, skip this step. This section assumes the following:
++ You've already used CloudFormation to create your IAM instance profile and role.
++ You know your route table ID. 
 
-- You've already used CloudFormation to create your IAM instance profile and
-  role.
-- You know your route table ID.
+  For a DB instance to be private, it must be in a private subnet. For a subnet to be private, it must not be associated with a route table that has a default internet gateway. For more information, see [Configure route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
 
-For a DB instance to be private, it must be in a private subnet. For a subnet to be
-private, it must not be associated with a route table that has a default internet
-gateway. For more information, see [Configure route tables](../../../vpc/latest/userguide/VPC_Route_Tables.md "../../../vpc/latest/userguide/VPC_Route_Tables.md")
-in the _Amazon VPC User Guide_.
+When you use the CloudFormation template for your VPC, it creates the following resources:
++ A private VPC
++ A subnet group named `rds-custom-private`
++ The following VPC endpoints, which your DB instance uses to communicate with dependent AWS services:
+  + `com.amazonaws.{{region}}.ec2messages`
+  + `com.amazonaws.{{region}}.events`
+  + `com.amazonaws.{{region}}.logs`
+  + `com.amazonaws.{{region}}.monitoring`
+  + `com.amazonaws.{{region}}.s3`
+  + `com.amazonaws.{{region}}.secretsmanager`
+  + `com.amazonaws.{{region}}.ssm`
+  + `com.amazonaws.{{region}}.ssmmessages`
 
-When you use the CloudFormation template for your VPC, it creates the following
-resources:
+  If you're creating a Multi-AZ deployment:
+  + `com.amazonaws.{{region}}.sqs`
+**Note**  
+For a complex networking setup with existing accounts, we recommend that you configure access to dependent services manually if access doesn't already exist. For more information, see [Make sure your VPC can access dependent AWS services](#custom-setup-orcl.vpc.endpoints).
 
-- A private VPC
-- A subnet group named `rds-custom-private`
-- The following VPC endpoints, which your DB instance uses to communicate with dependent
-  AWS services:
+**To configure your VPC using CloudFormation**
 
-  - `com.amazonaws.`region`.ec2messages`
-  - `com.amazonaws.`region`.events`
-  - `com.amazonaws.`region`.logs`
-  - `com.amazonaws.`region`.monitoring`
-  - `com.amazonaws.`region`.s3`
-  - `com.amazonaws.`region`.secretsmanager`
-  - `com.amazonaws.`region`.ssm`
-  - `com.amazonaws.`region`.ssmmessages`
-    If you're creating a Multi-AZ deployment:
+1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-  - `com.amazonaws.`region`.sqs`
+1. Start the Create Stack wizard, and choose **Create Stack** and then **With new resources (standard)**.
 
-###### Note
+1. On the **Create stack** page, do the following:
 
-For a complex networking setup with existing accounts, we recommend that you
-configure access to dependent services manually if access doesn't already exist.
-For more information, see [Make sure your VPC can access dependent AWS services](#custom-setup-orcl.vpc.endpoints "#custom-setup-orcl.vpc.endpoints").
+   1. For **Prepare template**, choose **Template is ready**.
 
-###### To configure your VPC using CloudFormation
+   1. For **Template source**, choose **Upload a template file**.
 
-1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. Start the Create Stack wizard, and choose **Create Stack** and
-   then **With new resources (standard)**.
-3. On the **Create stack** page, do the following:
+   1. For **Choose file**, navigate to, then choose `custom-vpc.json`.
 
-   1. For **Prepare template**, choose **Template is
-      ready**.
-   2. For **Template source**, choose **Upload a
-      template file**.
-   3. For **Choose file**, navigate to, then choose
-      `custom-vpc.json`.
-   4. Choose **Next**.
+   1. Choose **Next**.
 
-4. On the **Specify stack details** page, do the
-   following:
+1. On the **Specify stack details** page, do the following:
 
-   1. For **Stack name**, enter `custom-vpc`.
-   2. For **Parameters**, choose the private subnets to use for RDS Custom DB instances.
-   3. Choose the private VPC ID to use for RDS Custom DB instances.
-   4. Enter the route table associated with the private subnets.
-   5. Choose **Next**.
+   1. For **Stack name**, enter **custom-vpc**.
 
-5. On the **Configure stack options page**, choose **Next**.
-6. On the **Review custom-vpc** page, choose
-   **Submit**.
+   1. For **Parameters**, choose the private subnets to use for RDS Custom DB instances.
 
-CloudFormation configures your private VPC. In the left panel, when
-**custom-vpc** shows **CREATE\_COMPLETE**,
-proceed to the next step. 7. (Optional) Review the details of your VPC. In the **Stacks**
-pane, choose **custom-vpc**. In the right pane, do the
-following:
+   1. Choose the private VPC ID to use for RDS Custom DB instances.
 
-    1. Choose **Stack info**. Your stack has an ID in the format
-     **arn:aws:cloudformation:`region`:`account-no`:stack/custom-vpc/`identifier`**.
-    2. Choose **Resources**. You should see a subnet group named
-     **rds-custom-private** and several VPC endpoints that
-     use the naming format
-     **vpce-`string`**. Each
-     endpoint corresponds to an AWS service that RDS Custom needs to communicate
-     with. For more information, see [Make sure your VPC can access dependent AWS services](#custom-setup-orcl.vpc.endpoints "#custom-setup-orcl.vpc.endpoints").
-    3. Choose **Parameters**. You should see the private
-     subnets, private VPC, and the route table that you specified when you
-     created the stack. When you create a DB instance, you need to supply the VPC ID
-     and subnet group.
+   1. Enter the route table associated with the private subnets.
+
+   1. Choose **Next**.
+
+1. On the **Configure stack options page**, choose **Next**.
+
+1. On the **Review custom-vpc** page, choose **Submit**.
+
+   CloudFormation configures your private VPC. In the left panel, when **custom-vpc** shows **CREATE\_COMPLETE**, proceed to the next step.
+
+1. (Optional) Review the details of your VPC. In the **Stacks** pane, choose **custom-vpc**. In the right pane, do the following:
+
+   1. Choose **Stack info**. Your stack has an ID in the format **arn:aws:cloudformation:{{region}}:{{account-no}}:stack/custom-vpc/{{identifier}}**.
+
+   1. Choose **Resources**. You should see a subnet group named **rds-custom-private** and several VPC endpoints that use the naming format **vpce-{{string}}**. Each endpoint corresponds to an AWS service that RDS Custom needs to communicate with. For more information, see [Make sure your VPC can access dependent AWS services](#custom-setup-orcl.vpc.endpoints).
+
+   1. Choose **Parameters**. You should see the private subnets, private VPC, and the route table that you specified when you created the stack. When you create a DB instance, you need to supply the VPC ID and subnet group.
 
 ### Configure your VPC manually for RDS Custom for Oracle
+<a name="custom-setup-orcl.vpc"></a>
 
-As an alternative to automating VPC creation with CloudFormation, you can configure your
-VPC manually. This option might be best when you have a complex networking setup
-that uses existing resources.
+As an alternative to automating VPC creation with CloudFormation, you can configure your VPC manually. This option might be best when you have a complex networking setup that uses existing resources.
 
-###### Topics
-
-- [Make sure your VPC can access dependent AWS services](#custom-setup-orcl.vpc.endpoints "#custom-setup-orcl.vpc.endpoints")
-- [Configure the instance metadata service](#custom-setup-orcl.vpc.imds "#custom-setup-orcl.vpc.imds")
+**Topics**
++ [Make sure your VPC can access dependent AWS services](#custom-setup-orcl.vpc.endpoints)
++ [Configure the instance metadata service](#custom-setup-orcl.vpc.imds)
 
 #### Make sure your VPC can access dependent AWS services
+<a name="custom-setup-orcl.vpc.endpoints"></a>
 
-RDS Custom sends communication from your DB instance to other AWS services. Make sure the
-following services are accessible from the subnet in which you create your RDS Custom
-DB instances:
-
-- Amazon CloudWatch
-  (`com.amazonaws.`region`.monitoring`)
-- Amazon CloudWatch Logs
-  (`com.amazonaws.`region`.logs`)
-- Amazon CloudWatch Events
-  (`com.amazonaws.`region`.events`)
-- Amazon EC2 (`com.amazonaws.`region`.ec2` and
-  `com.amazonaws.`region`.ec2messages`)
-- Amazon S3 (`com.amazonaws.`region`.s3`)
-- AWS Secrets Manager
-  (`com.amazonaws.`region`.secretsmanager`)
-- AWS Systems Manager (`com.amazonaws.`region`.ssm` and
-  `com.amazonaws.`region`.ssmmessages`)
+RDS Custom sends communication from your DB instance to other AWS services. Make sure the following services are accessible from the subnet in which you create your RDS Custom DB instances:
++ Amazon CloudWatch (`com.amazonaws.{{region}}.monitoring`)
++ Amazon CloudWatch Logs (`com.amazonaws.{{region}}.logs`)
++ Amazon CloudWatch Events (`com.amazonaws.{{region}}.events`)
++ Amazon EC2 (`com.amazonaws.{{region}}.ec2` and `com.amazonaws.{{region}}.ec2messages`)
++ Amazon S3 (`com.amazonaws.{{region}}.s3`)
++ AWS Secrets Manager (`com.amazonaws.{{region}}.secretsmanager`)
++ AWS Systems Manager (`com.amazonaws.{{region}}.ssm` and `com.amazonaws.{{region}}.ssmmessages`)
 
 If creating Multi-AZ deployments
++ Amazon Simple Queue Service (`com.amazonaws.{{region}}.sqs`)
 
-- Amazon Simple Queue Service (`com.amazonaws.`region`.sqs`)
-
-If RDS Custom can't communicate with the necessary services, it publishes the following
-events:
+If RDS Custom can't communicate with the necessary services, it publishes the following events:
 
 ```
 Database instance in incompatible-network. SSM Agent connection not available. Amazon RDS can't connect to the dependent AWS services.
@@ -835,32 +741,21 @@ Database instance in incompatible-network. SSM Agent connection not available. A
 Database instance in incompatible-network. Amazon RDS can't connect to dependent AWS services. Make sure port 443 (HTTPS) allows outbound connections, and try again. "Failed to connect to the following services: s3 events"
 ```
 
-To avoid `incompatible-network` errors, make sure that VPC components involved
-in communication between your RDS Custom DB instance and AWS services satisfy the following
-requirements:
+To avoid `incompatible-network` errors, make sure that VPC components involved in communication between your RDS Custom DB instance and AWS services satisfy the following requirements:
++ The DB instance can make outbound connections on port 443 to other AWS services.
++ The VPC allows incoming responses to requests originating from your RDS Custom DB instance.
++ RDS Custom can correctly resolve the domain names of endpoints for each AWS service.
 
-- The DB instance can make outbound connections on port 443 to other
-  AWS services.
-- The VPC allows incoming responses to requests originating from your RDS Custom
-  DB instance.
-- RDS Custom can correctly resolve the domain names of endpoints for each
-  AWS service.
-
-If you already configured a VPC for a different RDS Custom DB engine, you can reuse that VPC and
-skip this process.
+If you already configured a VPC for a different RDS Custom DB engine, you can reuse that VPC and skip this process.
 
 #### Configure the instance metadata service
+<a name="custom-setup-orcl.vpc.imds"></a>
 
 Make sure that your instance can do the following:
++ Access the instance metadata service using Instance Metadata Service Version 2 (IMDSv2).
++ Allow outbound communications through port 80 (HTTP) to the IMDS link IP address.
++ Request instance metadata from `http://169.254.169.254`, the IMDSv2 link.
 
-- Access the instance metadata service using Instance Metadata Service
-  Version 2 (IMDSv2).
-- Allow outbound communications through port 80 (HTTP) to the IMDS link IP address.
-- Request instance metadata from `http://169.254.169.254`, the IMDSv2 link.
+For more information, see [Use IMDSv2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) in the *Amazon EC2 User Guide*.
 
-For more information, see [Use IMDSv2](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md") in the _Amazon EC2 User Guide_.
-
-RDS Custom for Oracle automation uses IMDSv2 by default, by setting
-`HttpTokens=enabled` on the underlying Amazon EC2 instance. However,
-you can use IMDSv1 if you want. For more information, see [Configure the instance metadata options](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md") in the
-_Amazon EC2 User Guide_.
+RDS Custom for Oracle automation uses IMDSv2 by default, by setting `HttpTokens=enabled` on the underlying Amazon EC2 instance. However, you can use IMDSv1 if you want. For more information, see [Configure the instance metadata options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.

@@ -1,16 +1,15 @@
-# Monitoring active-active clusters
 
-Monitoring active-active clusters in Amazon RDS for MySQL is crucial for tracking
-performance, replication integrity, and node synchronization. You can monitor your
-active-active cluster by connecting to a DB instance in the cluster, and running the
-following SQL command:
+
+# Monitoring active-active clusters
+<a name="mysql-active-active-clusters-monitoring"></a>
+
+Monitoring active-active clusters in Amazon RDS for MySQL is crucial for tracking performance, replication integrity, and node synchronization. You can monitor your active-active cluster by connecting to a DB instance in the cluster, and running the following SQL command:
 
 ```
 SELECT * FROM performance_schema.replication_group_members;
 ```
 
-Your output should show `ONLINE` for the `MEMBER_STATE` of each DB instance, as in the
-following sample output:
+Your output should show `ONLINE` for the `MEMBER_STATE` of each DB instance, as in the following sample output:
 
 ```
 +---------------------------+--------------------------------------+----------------+-------------+--------------+-------------+----------------+----------------------------+
@@ -23,4 +22,4 @@ following sample output:
 3 rows in set (0.00 sec)
 ```
 
-For information about the possible `MEMBER_STATE` values, see [Group Replication Server States](https://dev.mysql.com/doc/refman/8.0/en/group-replication-server-states.html "https://dev.mysql.com/doc/refman/8.0/en/group-replication-server-states.html") in the MySQL documentation.
+For information about the possible `MEMBER_STATE` values, see [ Group Replication Server States](https://dev.mysql.com/doc/refman/8.0/en/group-replication-server-states.html) in the MySQL documentation.

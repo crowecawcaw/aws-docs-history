@@ -1,24 +1,25 @@
+
+
 # Add, remove, or modify storage volumes with RDS for Oracle
+<a name="User_Oracle_AdditionalStorage.ModifyStorageVolumes"></a>
 
-You can add, modify, and remove additional storage volumes using the AWS Management Console or AWS CLI.
-All operations use the `modify-db-instance` command with the `additional-storage-volumes` parameter.
+You can add, modify, and remove additional storage volumes using the AWS Management Console or AWS CLI. All operations use the `modify-db-instance` command with the `additional-storage-volumes` parameter.
 
-###### Important
+**Important**  
+Adding or removing additional storage volumes creates a backup pending action and a blackout window. The blackout window closes when the backup workflow completes.
 
-Adding or removing additional storage volumes creates a backup pending action and a blackout window.
-The blackout window closes when the backup workflow completes.
+
 
 ## Adding storage volumes
+<a name="User_Oracle_AdditionalStorage.ModifyStorageVolumes.Add"></a>
 
-You can add up to three storage volumes beyond the primary storage volume.
-To add a new storage volume to your RDS for Oracle DB instance, use the `modify-db-instance` command with the
-`additional-storage-volumes` parameter.
+You can add up to three storage volumes beyond the primary storage volume. To add a new storage volume to your RDS for Oracle DB instance, use the `modify-db-instance` command with the `additional-storage-volumes` parameter.
 
 The following code snippet adds a new 5,000 GiB general purpose SSD (gp3) volume with 4000 provision IOPS name `rdsdbdata3`.
 
 ```
 aws rds modify-db-instance \
-  --db-instance-identifier `my-oracle-instance` \
+  --db-instance-identifier {{my-oracle-instance}} \
   --region us-east-1 \
   --additional-storage-volumes '[
         {
@@ -31,23 +32,15 @@ aws rds modify-db-instance \
 ```
 
 ## Modifying storage volumes
+<a name="User_Oracle_AdditionalStorage.ModifyStorageVolumes.Modifying"></a>
 
-You can modify storage type, allocated storage size, IOPS, and storage throughput settings of your
-additional storage volume. The following code snippet modifies the IOPS setting for the `rdsdbdata2`
-volume.
+You can modify storage type, allocated storage size, IOPS, and storage throughput settings of your additional storage volume. The following code snippet modifies the IOPS setting for the `rdsdbdata2` volume.
 
-After you modify an additional storage volume, that specific volume enters the
-storage-optimization phase. To monitor optimization progress on the modified
-volume, inspect the corresponding entry in the
-`AdditionalStorageVolumes` array in the [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")
-response. During optimization, that entry's
-`StorageOperationStatus` is set to `Optimizing` and
-`StorageOperationPercentProgress` reports 0–100. For more
-information, see [Monitoring storage operations per volume](CHAP_Storage.md#Welcome.AdditionalStorageVolumes.Monitoring "CHAP_Storage.md#Welcome.AdditionalStorageVolumes.Monitoring").
+After you modify an additional storage volume, that specific volume enters the storage-optimization phase. To monitor optimization progress on the modified volume, inspect the corresponding entry in the `AdditionalStorageVolumes` array in the [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) response. During optimization, that entry's `StorageOperationStatus` is set to `Optimizing` and `StorageOperationPercentProgress` reports 0–100. For more information, see [Monitoring storage operations per volume](CHAP_Storage.md#Welcome.AdditionalStorageVolumes.Monitoring).
 
 ```
 aws rds modify-db-instance \
-  --db-instance-identifier `my-oracle-instance` \
+  --db-instance-identifier {{my-oracle-instance}} \
   --region us-east-1 \
   --additional-storage-volumes '[
         {
@@ -57,28 +50,22 @@ aws rds modify-db-instance \
   --apply-immediately
 ```
 
-###### Note
-
+**Note**  
 You can’t reduce the storage allocation for an additional storage volume once you’ve added it to the instance.
 
 ## Removing storage volumes
+<a name="User_Oracle_AdditionalStorage.ModifyStorageVolumes.Remove"></a>
 
-You can remove additional storage volumes from RDS for Oracle DB instances when they are no longer needed.
-Before removing a volume, make sure that you have moved all database files from the volume
-and no database objects are referencing it. Verify that the volume status is `Not-in-use`.
-You can remove additional storage volumes, but you can't remove the primary storage volume.
+You can remove additional storage volumes from RDS for Oracle DB instances when they are no longer needed. Before removing a volume, make sure that you have moved all database files from the volume and no database objects are referencing it. Verify that the volume status is `Not-in-use`. You can remove additional storage volumes, but you can't remove the primary storage volume. 
 
-###### Warning
-
-Before you remove an additional storage volume, make sure that no database files
-are stored on the volume. Removing a volume with active database files
-causes database corruption.
+**Warning**  
+Before you remove an additional storage volume, make sure that no database files are stored on the volume. Removing a volume with active database files causes database corruption.
 
 The following example removes the `rdsdbdata2` volume.
 
 ```
 aws rds modify-db-instance \
-  --db-instance-identifier `my-oracle-instance` \
+  --db-instance-identifier {{my-oracle-instance}} \
   --region us-east-1 \
   --additional-storage-volumes '[
         {

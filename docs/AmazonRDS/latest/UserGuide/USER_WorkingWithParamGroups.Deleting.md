@@ -1,33 +1,42 @@
+
+
 # Deleting a DB parameter group in Amazon RDS
+<a name="USER_WorkingWithParamGroups.Deleting"></a>
 
-You can delete a DB parameter group using the AWS Management Console, AWS CLI, or RDS API. A parameter group is
-eligible for deletion only if it isn't associated with a DB instance.
+You can delete a DB parameter group using the AWS Management Console, AWS CLI, or RDS API. A parameter group is eligible for deletion only if it isn't associated with a DB instance.
 
-###### To delete a DB parameter group
+## Console
+<a name="USER_WorkingWithParamGroups.Deleting.CON"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Parameter
-   groups**.
+**To delete a DB parameter group**
 
-The DB parameter groups appear in a list. 3. Choose the name of the parameter groups to be deleted. 4. Choose **Actions** and then
-**Delete**. 5. Review the parameter group names and then choose
-**Delete**.
-To delete a DB parameter group, use the AWS CLI [`delete-db-parameter-group`](../../../cli/latest/reference/rds/delete-db-parameter-group.md "../../../cli/latest/reference/rds/delete-db-parameter-group.md") command with the
-following required parameter.
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-- `--db-parameter-group-name`
+1. In the navigation pane, choose **Parameter groups**.
 
-###### Example
+   The DB parameter groups appear in a list.
 
-The following example deletes a DB parameter group named
-_mydbparametergroup._
+1. Choose the name of the parameter groups to be deleted.
+
+1. Choose **Actions** and then **Delete**.
+
+1. Review the parameter group names and then choose **Delete**.
+
+## AWS CLI
+<a name="USER_WorkingWithParamGroups.Deleting.CLI"></a>
+
+To delete a DB parameter group, use the AWS CLI [`delete-db-parameter-group`](https://docs.aws.amazon.com/cli/latest/reference/rds/delete-db-parameter-group.html) command with the following required parameter.
++ `--db-parameter-group-name`
+
+**Example**  
+The following example deletes a DB parameter group named *mydbparametergroup.*  
 
 ```
-aws rds delete-db-parameter-group --db-parameter-group-name `mydbparametergroup`
+aws rds delete-db-parameter-group --db-parameter-group-name {{mydbparametergroup}}
 ```
 
-To delete a DB parameter group, use the RDS API [`DeleteDBParameterGroup`](../APIReference/API_DeleteDBParameterGroup.md "../APIReference/API_DeleteDBParameterGroup.md") command with the following
-required parameter.
+## RDS API
+<a name="USER_WorkingWithParamGroups.Deleting.API"></a>
 
-- `DBParameterGroupName`
+To delete a DB parameter group, use the RDS API [`DeleteDBParameterGroup`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBParameterGroup.html) command with the following required parameter.
++ `DBParameterGroupName`

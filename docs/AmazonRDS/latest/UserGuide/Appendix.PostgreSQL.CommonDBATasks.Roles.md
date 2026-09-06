@@ -1,28 +1,21 @@
+
+
 # Understanding PostgreSQL roles and permissions
+<a name="Appendix.PostgreSQL.CommonDBATasks.Roles"></a>
 
-When you create an
-RDS for PostgreSQL DB instance using the AWS Management Console, an
-administrator account is created at the same time. By default, its name is
-`postgres`, as shown in the following screenshot:
+When you create an RDS for PostgreSQL DB instance using the AWS Management Console, an administrator account is created at the same time. By default, its name is `postgres`, as shown in the following screenshot:
 
-![The default login identity for Credentials in the Create database page is postgres.](images/default-login-identity-apg-rpg.png)
-You can choose another name rather than accept the default (`postgres`). If you
-do, the name you choose must start with a letter and be between 1 and 16 alphanumeric
-characters. For simplicity's sake, we refer to this main user account by its default value
-(`postgres`) throughout this guide.
+![The default login identity for Credentials in the Create database page is postgres.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/default-login-identity-apg-rpg.png)
 
-If you use the `create-db-instance` AWS CLI rather
-than the AWS Management Console, you create the name by passing it with the `master-username`
-parameter in the command. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 
-Whether you use the AWS Management Console, the AWS CLI, or the Amazon RDS API, and whether you use the default
-`postgres` name or choose a different name, this first database user account is a
-member of the `rds_superuser` group and has `rds_superuser`
-privileges.
+You can choose another name rather than accept the default (`postgres`). If you do, the name you choose must start with a letter and be between 1 and 16 alphanumeric characters. For simplicity's sake, we refer to this main user account by its default value (`postgres`) throughout this guide.
 
-###### Topics
+If you use the `create-db-instance` AWS CLI rather than the AWS Management Console, you create the name by passing it with the `master-username` parameter in the command. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md). 
 
-- [Understanding the rds\_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md "Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md")
-- [Controlling user access to the PostgreSQL database](Appendix.PostgreSQL.CommonDBATasks.Access.md "Appendix.PostgreSQL.CommonDBATasks.Access.md")
-- [Delegating and controlling user password management](Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt.md "Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt.md")
-- [Using SCRAM for PostgreSQL password encryption](PostgreSQL_Password_Encryption_configuration.md "PostgreSQL_Password_Encryption_configuration.md")
+Whether you use the AWS Management Console, the AWS CLI, or the Amazon RDS API, and whether you use the default `postgres` name or choose a different name, this first database user account is a member of the `rds_superuser` group and has `rds_superuser` privileges.
+
+**Topics**
++ [Understanding the rds\_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md)
++ [Controlling user access to the PostgreSQL database](Appendix.PostgreSQL.CommonDBATasks.Access.md)
++ [Delegating and controlling user password management](Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt.md)
++ [Using SCRAM for PostgreSQL password encryption](PostgreSQL_Password_Encryption_configuration.md)

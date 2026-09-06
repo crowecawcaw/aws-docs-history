@@ -1,42 +1,46 @@
+
+
 # Viewing tenant database details
+<a name="oracle-cdb-configuring.describing.pdb"></a>
 
-You can view details about a tenant database in the same way that you can for a
-non-CDB or CDB.
+You can view details about a tenant database in the same way that you can for a non-CDB or CDB.
 
-###### To view details about a tenant database
+## Console
+<a name="oracle-cdb-configuring.describing.pdb.console"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the Amazon RDS console, choose the
-   AWS Region where your DB instance resides.
-3. In the navigation pane, choose **Databases**.
+**To view details about a tenant database**
 
-![View details about a CDB.](images/cdb-list.png)
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
-In the preceding image, the sole tenant database (PDB) appears as a child of
-the DB instance. 4. Choose the name of a tenant database.
+1. In the Amazon RDS console, choose the AWS Region where your DB instance resides.
 
-![View details about a PDB.](images/pdb-details.png)
-To see details about your PDBs, use the AWS CLI command [describe-tenant-databases](../../../cli/latest/reference/rds/describe-tenant-databases.md "../../../cli/latest/reference/rds/describe-tenant-databases.md").
+1. In the navigation pane, choose **Databases**.  
+![View details about a CDB.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cdb-list.png)
 
-This following example describes all tenant databases in the specified
-Region.
+   In the preceding image, the sole tenant database (PDB) appears as a child of the DB instance.
 
-###### Example
+1. Choose the name of a tenant database.  
+![View details about a PDB.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/pdb-details.png)
 
-For Linux, macOS, or Unix:
+## AWS CLI
+<a name="oracle-cdb-configuring.describing.pdb.cli"></a>
 
-```
-aws rds describe-tenant-databases --region `us-east-1`
-```
+To see details about your PDBs, use the AWS CLI command [describe-tenant-databases](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-tenant-databases.html).
 
-For Windows:
+This following example describes all tenant databases in the specified Region.
+
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
-aws rds describe-tenant-databases --region `us-east-1`
+1. aws rds describe-tenant-databases --region {{us-east-1}}
 ```
+For Windows:  
 
-This command produces output similar to the following.
+```
+1. aws rds describe-tenant-databases --region {{us-east-1}}
+```
+This command produces output similar to the following.   
 
 ```
     "TenantDatabases" : [
@@ -76,26 +80,22 @@ This command produces output similar to the following.
          ... other truncated data
 ```
 
-The following example describes the tenant databases on DB instance
-`my-cdb-inst` in the specified Region.
+The following example describes the tenant databases on DB instance `my-cdb-inst` in the specified Region.
 
-###### Example
-
-For Linux, macOS, or Unix:
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
-aws rds describe-tenant-databases --region `us-east-1` \
-    --db-instance-identifier `my-cdb-inst`
+1. aws rds describe-tenant-databases --region {{us-east-1}} \
+2.     --db-instance-identifier {{my-cdb-inst}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
-aws rds describe-tenant-databases --region `us-east-1` ^
-    --db-instance-identifier `my-cdb-inst`
+1. aws rds describe-tenant-databases --region {{us-east-1}} ^
+2.     --db-instance-identifier {{my-cdb-inst}}
 ```
-
-This command produces output similar to the following.
+This command produces output similar to the following.   
 
 ```
 {
@@ -124,28 +124,24 @@ This command produces output similar to the following.
 }
 ```
 
-The following example describes tenant database `pdb1` on DB instance
-`my-cdb-inst` in the US East (N. Virginia) Region.
+The following example describes tenant database `pdb1` on DB instance `my-cdb-inst` in the US East (N. Virginia) Region.
 
-###### Example
-
-For Linux, macOS, or Unix:
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
-aws rds describe-tenant-databases --region `us-east-1` \
---db-instance-identifier `my-cdb-inst` \
---tenant-db-name `pdb1`
+1. aws rds describe-tenant-databases --region {{us-east-1}} \
+2. --db-instance-identifier {{my-cdb-inst}} \
+3. --tenant-db-name {{pdb1}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
-aws rds describe-tenant-databases --region `us-east-1` ^
---db-instance-identifier `my-cdb-inst` ^
---tenant-db-name `pdb1`
+1. aws rds describe-tenant-databases --region {{us-east-1}} ^
+2. --db-instance-identifier {{my-cdb-inst}} ^
+3. --tenant-db-name {{pdb1}}
 ```
-
-This command produces output similar to the following.
+This command produces output similar to the following.   
 
 ```
 {

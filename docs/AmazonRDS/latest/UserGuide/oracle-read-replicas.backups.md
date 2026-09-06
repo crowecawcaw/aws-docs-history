@@ -1,83 +1,81 @@
-# Working with RDS for Oracle replica backups
 
-You can create and restore backups of an RDS for Oracle replica. Both automatic backups and manual snapshots are supported. For more information,
-see [Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md "CHAP_CommonTasks.BackupRestore.md"). The following sections describe the key
-differences between managing backups of a primary and an RDS for Oracle replica.
+
+# Working with RDS for Oracle replica backups
+<a name="oracle-read-replicas.backups"></a>
+
+You can create and restore backups of an RDS for Oracle replica. Both automatic backups and manual snapshots are supported. For more information, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.BackupRestore.md). The following sections describe the key differences between managing backups of a primary and an RDS for Oracle replica.
 
 ## Turning on RDS for Oracle replica backups
+<a name="oracle-read-replicas.backups.turning-on"></a>
 
-An Oracle replica doesn't have automated backups turned on by default. You turn on automated backups by setting the backup retention
-period to a positive nonzero value.
+An Oracle replica doesn't have automated backups turned on by default. You turn on automated backups by setting the backup retention period to a positive nonzero value.
 
-###### To enable automated backups immediately
+### Console
+<a name="USER_WorkingWithAutomatedBackups.Enabling.CON"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**, and then choose
-   the DB instance or Multi-AZ DB cluster that you want to modify.
-3. Choose **Modify**.
-4. For **Backup retention period**, choose a positive nonzero
-   value, for example three days.
-5. Choose **Continue**.
-6. Choose **Apply immediately**.
-7. Choose **Modify DB instance** or **Modify
-   cluster** to save your changes and enable automated
-   backups.
-   To enable automated backups, use the AWS CLI [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") or [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command.
+**To enable automated backups immediately**
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
+
+1. In the navigation pane, choose **Databases**, and then choose the DB instance or Multi-AZ DB cluster that you want to modify.
+
+1. Choose **Modify**.
+
+1. For **Backup retention period**, choose a positive nonzero value, for example three days.
+
+1. Choose **Continue**.
+
+1. Choose **Apply immediately**.
+
+1. Choose **Modify DB instance** or **Modify cluster** to save your changes and enable automated backups.
+
+### AWS CLI
+<a name="USER_WorkingWithAutomatedBackups.Enabling.CLI"></a>
+
+To enable automated backups, use the AWS CLI [modify-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) or [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html) command.
 
 Include the following parameters:
++ `--db-instance-identifier` (or `--db-cluster-identifier` for a Multi-AZ DB cluster)
++ `--backup-retention-period`
++ `--apply-immediately` or `--no-apply-immediately`
 
-- `--db-instance-identifier` (or `--db-cluster-identifier`
-  for a Multi-AZ DB cluster)
-- `--backup-retention-period`
-- `--apply-immediately` or `--no-apply-immediately`
-  In the following example, we enable automated backups by setting the backup retention period to three days. The changes are applied
-  immediately.
+In the following example, we enable automated backups by setting the backup retention period to three days. The changes are applied immediately.
 
-###### Example
-
-For Linux, macOS, or Unix:
+**Example**  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds modify-db-instance \
-    --db-instance-identifier `my_db_instance`  \
-    --backup-retention-period `3` \
-    `--apply-immediately`
+    --db-instance-identifier {{my_db_instance }} \
+    --backup-retention-period {{3}} \
+    {{--apply-immediately}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds modify-db-instance ^
-    --db-instance-identifier `my_db_instance`  ^
-    --backup-retention-period `3` ^
-    `--apply-immediately`
+    --db-instance-identifier {{my_db_instance }} ^
+    --backup-retention-period {{3}} ^
+    {{--apply-immediately}}
 ```
 
-To enable automated backups, use the RDS API [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") or [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md") operation with the following required
-parameters:
+### RDS API
+<a name="USER_WorkingWithAutomatedBackups.Enabling.API"></a>
 
-- `DBInstanceIdentifier` or `DBClusterIdentifier`
-- `BackupRetentionPeriod`
+To enable automated backups, use the RDS API [ModifyDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html) or [ModifyDBCluster](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html) operation with the following required parameters:
++ `DBInstanceIdentifier` or `DBClusterIdentifier`
++ `BackupRetentionPeriod`
 
 ## Restoring an RDS for Oracle replica backup
+<a name="oracle-read-replicas.backups.restoring"></a>
 
-You can restore an Oracle replica backup just as you can restore a backup of the primary instance. For more information, see the
-following:
+You can restore an Oracle replica backup just as you can restore a backup of the primary instance. For more information, see the following:
++ [Restoring to a DB instance](USER_RestoreFromSnapshot.md)
++ [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md)
 
-- [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md")
-- [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md")
+The main consideration when you restore a replica backup is determining the point in time to which you are restoring. The database time refers to the latest applied transaction time of the data in the backup. When you restore a replica backup, you restore to the database time, not the time when the backup completed. The difference is significant because an RDS for Oracle replica can lag behind the primary by minutes or hours. Thus, the database time of a replica backup, and thus the point in time to which you restore it, might be much earlier than the backup creation time.
 
-The main consideration when you restore a replica backup is determining the point in time to which you are restoring. The
-_database time_ refers to the latest applied transaction time of the data in the backup. When you restore a
-replica backup, you restore to the database time, not the time when the backup completed. The difference is significant because an
-RDS for Oracle replica can lag behind the primary by minutes or hours. Thus, the database time of a replica backup, and thus the point in time
-to which you restore it, might be much earlier than the backup creation time.
-
-To find the difference between database time and creation time, use the `describe-db-snapshots` command. Compare the
-`SnapshotDatabaseTime`, which is the database time of the replica backup, and the `OriginalSnapshotCreateTime`
-field, which is the latest applied transaction on the primary database. The following example shows the difference between the two
-times:
+To find the difference between database time and creation time, use the `describe-db-snapshots` command. Compare the `SnapshotDatabaseTime`, which is the database time of the replica backup, and the `OriginalSnapshotCreateTime` field, which is the latest applied transaction on the primary database. The following example shows the difference between the two times:
 
 ```
 aws rds describe-db-snapshots \
@@ -88,10 +86,10 @@ aws rds describe-db-snapshots \
     "DBSnapshots": [
         {
             "DBSnapshotIdentifier": "my-replica-snapshot",
-            "DBInstanceIdentifier": "my-oracle-replica",
-            "SnapshotDatabaseTime": "2022-07-26T**17:49:44Z**",
+            "DBInstanceIdentifier": "my-oracle-replica", 
+            "SnapshotDatabaseTime": "2022-07-26T17:49:44Z",
             ...
-            "OriginalSnapshotCreateTime": "2022-07-26T**19:49:44Z**"
+            "OriginalSnapshotCreateTime": "2022-07-26T19:49:44Z"
         }
     ]
 }

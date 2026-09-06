@@ -1,24 +1,20 @@
+
+
 # Use `CreateDBSnapshot` with an AWS SDK or CLI
+<a name="example_rds_CreateDBSnapshot_section"></a>
 
 The following code examples show how to use `CreateDBSnapshot`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md) 
 
-- [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md "example_rds_Scenario_GetStartedInstances_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/RDS#code-examples). 
 
 ```
-
     /// <summary>
     /// Create a snapshot of a DB instance.
     /// </summary>
@@ -36,24 +32,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return response.DBSnapshot;
     }
-
-
-
 ```
++  For API details, see [CreateDBSnapshot](https://docs.aws.amazon.com/goto/DotNetSDKV3/rds-2014-10-31/CreateDBSnapshot) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateDBSnapshot](../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/DotNetSDKV3/rds-2014-10-31/CreateDBSnapshot.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rds#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -80,30 +66,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                 cleanUpResources(PARAMETER_GROUP_NAME, DB_INSTANCE_IDENTIFIER, client);
                 return false;
             }
+```
++  For API details, see [CreateDBSnapshot](https://docs.aws.amazon.com/goto/SdkForCpp/rds-2014-10-31/CreateDBSnapshot) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create a DB snapshot**  
+The following `create-db-snapshot` example creates a DB snapshot.  
 
 ```
-
-- For API details, see
-  [CreateDBSnapshot](../../../goto/SdkForCpp/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/SdkForCpp/rds-2014-10-31/CreateDBSnapshot.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a DB snapshot**
-
-The following `create-db-snapshot` example creates a DB snapshot.
-
+aws rds create-db-snapshot \
+    --db-instance-identifier {{database-mysql}} \
+    --db-snapshot-identifier {{mydbsnapshot}}
 ```
-`aws rds create-db-snapshot \
- --db-instance-identifier `database-mysql` \
- --db-snapshot-identifier `mydbsnapshot``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -134,25 +112,16 @@ Output:
     }
 }
 ```
+For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html) in the *Amazon RDS User Guide*.  
++  For API details, see [CreateDBSnapshot](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating a DB Snapshot](USER_CreateSnapshot.md "USER_CreateSnapshot.md") in the _Amazon RDS User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateDBSnapshot](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-snapshot.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/rds#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -183,24 +152,14 @@ func (instances *DbInstances) CreateSnapshot(ctx context.Context, instanceName s
 		return output.DBSnapshot, nil
 	}
 }
-
-
-
 ```
++  For API details, see [CreateDBSnapshot](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBSnapshot) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateDBSnapshot](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBSnapshot "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/rds#Client.CreateDBSnapshot")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples). 
 
 ```
     // Create an Amazon RDS snapshot.
@@ -219,26 +178,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
+```
++  For API details, see [CreateDBSnapshot](https://docs.aws.amazon.com/goto/SdkForJavaV2/rds-2014-10-31/CreateDBSnapshot) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ PHP ]
+
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/rds#code-examples). 
 
 ```
-
-- For API details, see
-  [CreateDBSnapshot](../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/SdkForJavaV2/rds-2014-10-31/CreateDBSnapshot.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/rds#code-examples").
-
-```
-
 require __DIR__ . '/vendor/autoload.php';
 
 use Aws\Exception\AwsException;
@@ -262,24 +211,14 @@ try {
     echo $e->getMessage();
     echo "\n";
 }
-
-
-
 ```
++  For API details, see [CreateDBSnapshot](https://docs.aws.amazon.com/goto/SdkForPHPV3/rds-2014-10-31/CreateDBSnapshot) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateDBSnapshot](../../../goto/SdkForPHPV3/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/SdkForPHPV3/rds-2014-10-31/CreateDBSnapshot.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples). 
 
 ```
 class InstanceWrapper:
@@ -323,24 +262,14 @@ class InstanceWrapper:
             raise
         else:
             return snapshot
-
-
-
 ```
++  For API details, see [CreateDBSnapshot](https://docs.aws.amazon.com/goto/boto3/rds-2014-10-31/CreateDBSnapshot) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateDBSnapshot](../../../goto/boto3/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/boto3/rds-2014-10-31/CreateDBSnapshot.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples). 
 
 ```
 require 'aws-sdk-rds' # v2: require 'aws-sdk'
@@ -360,29 +289,20 @@ def create_snapshot(rds_resource, db_instance_name)
 rescue Aws::Errors::ServiceError => e
   puts "Couldn't create DB instance snapshot #{id}:\n #{e.message}"
 end
-
-
 ```
++  For API details, see [CreateDBSnapshot](https://docs.aws.amazon.com/goto/SdkForRubyV3/rds-2014-10-31/CreateDBSnapshot) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateDBSnapshot](../../../goto/SdkForRubyV3/rds-2014-10-31/CreateDBSnapshot.md "../../../goto/SdkForRubyV3/rds-2014-10-31/CreateDBSnapshot.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples). 
 
 ```
 import AWSRDS
 
     /// Create a snapshot of the specified name.
-    ///
+    /// 
     /// - Parameters:
     ///   - instanceIdentifier: The identifier of the database instance to
     ///     snapshot.
@@ -407,14 +327,9 @@ import AWSRDS
             print("*** Unable to create the database snapshot named \(snapshotIdentifier): \(error.localizedDescription)")
         }
     }
-
-
 ```
++  For API details, see [CreateDBSnapshot](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbsnapshot(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateDBSnapshot](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbsnapshot(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/createdbsnapshot(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

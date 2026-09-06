@@ -1,40 +1,42 @@
+
+
 # Removing a source identifier from an Amazon RDS event notification subscription
+<a name="USER_Events.RemovingSource"></a>
 
-You can remove a source identifier (the Amazon RDS source generating the event) from a subscription if you no longer
-want to be notified of events for that source.
+You can remove a source identifier (the Amazon RDS source generating the event) from a subscription if you no longer want to be notified of events for that source. 
 
-You can easily add or remove source identifiers using the Amazon RDS console by selecting or deselecting
-them when modifying a subscription. For more information, see [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md "USER_Events.Modifying.md").
+## Console
+<a name="USER_Events.RemovingSource.Console"></a>
 
-To remove a source identifier from an Amazon RDS event notification subscription, use the AWS CLI [`remove-source-identifier-from-subscription`](../../../cli/latest/reference/rds/remove-source-identifier-from-subscription.md "../../../cli/latest/reference/rds/remove-source-identifier-from-subscription.md") command. Include the following
-required parameters:
+You can easily add or remove source identifiers using the Amazon RDS console by selecting or deselecting them when modifying a subscription. For more information, see [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md).
 
-- `--subscription-name`
-- `--source-identifier`
+## AWS CLI
+<a name="USER_Events.RemovingSource.CLI"></a>
 
-###### Example
+To remove a source identifier from an Amazon RDS event notification subscription, use the AWS CLI [`remove-source-identifier-from-subscription`](https://docs.aws.amazon.com/cli/latest/reference/rds/remove-source-identifier-from-subscription.html) command. Include the following required parameters:
++ `--subscription-name`
++ `--source-identifier`
 
-The following example removes the source identifier `mysqldb` from the
-`myrdseventsubscription` subscription.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following example removes the source identifier `mysqldb` from the `myrdseventsubscription` subscription.  
+For Linux, macOS, or Unix:  
 
 ```
 aws rds remove-source-identifier-from-subscription \
-    --subscription-name `myrdseventsubscription` \
-    --source-identifier `mysqldb`
+    --subscription-name {{myrdseventsubscription}} \
+    --source-identifier {{mysqldb}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws rds remove-source-identifier-from-subscription ^
-    --subscription-name `myrdseventsubscription` ^
-    --source-identifier `mysqldb`
+    --subscription-name {{myrdseventsubscription}} ^
+    --source-identifier {{mysqldb}}
 ```
 
-To remove a source identifier from an Amazon RDS event notification subscription, use the Amazon RDS API [`RemoveSourceIdentifierFromSubscription`](../APIReference/API_RemoveSourceIdentifierFromSubscription.md "../APIReference/API_RemoveSourceIdentifierFromSubscription.md") command. Include the following
-required parameters:
+## API
+<a name="USER_Events.RemovingSource.API"></a>
 
-- `SubscriptionName`
-- `SourceIdentifier`
+To remove a source identifier from an Amazon RDS event notification subscription, use the Amazon RDS API [`RemoveSourceIdentifierFromSubscription`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveSourceIdentifierFromSubscription.html) command. Include the following required parameters:
++ `SubscriptionName`
++ `SourceIdentifier`
