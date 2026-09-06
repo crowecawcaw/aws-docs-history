@@ -1,285 +1,265 @@
-AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+
+
+AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform).
 
 # Replatform SQL on Amazon RDS template
+<a name="replatform-sql-rds"></a>
 
-With **Replatform SQL server on Amazon RDS** template, you can replatform your SQL Server databases on an instance to Amazon RDS using native backup and restore. You can also migrate databases that are encrypted with transparent data encryption. This template migrates User database items, Certificates, Logins and Agent Jobs that are associated with your SQL Server.
+ With **Replatform SQL server on Amazon RDS** template, you can replatform your SQL Server databases on an instance to Amazon RDS using native backup and restore. You can also migrate databases that are encrypted with transparent data encryption. This template migrates User database items, Certificates, Logins and Agent Jobs that are associated with your SQL Server.
 
-###### Topics
-
-- [Prerequisites](#w2aac16c17b7 "#w2aac16c17b7")
-- [Creating the migration workflow](#w2aac16c17b9 "#w2aac16c17b9")
-- [Running the migration workflow](#w2aac16c17c11 "#w2aac16c17c11")
-- [FAQ](#w2aac16c17c13 "#w2aac16c17c13")
+**Topics**
++ [Prerequisites](#w2aac16c17b7)
++ [Creating the migration workflow](#w2aac16c17b9)
++ [Running the migration workflow](#w2aac16c17c11)
++ [FAQ](#w2aac16c17c13)
 
 ## Prerequisites
+<a name="w2aac16c17b7"></a>
 
-You must set up the source environment before creating a migration workflow.
+ You must set up the source environment before creating a migration workflow. 
 
-###### Topics
-
-- [Source environment setup](#w2aac16c17b7b7 "#w2aac16c17b7b7")
+**Topics**
++ [Source environment setup](#w2aac16c17b7b7)
 
 ### Source environment setup
-
-- Ensure that PowerShell is enabled on the server that contains your SQL server instance.
-- Install AWS.Tools on the server that contains your SQL server instance, with the
-  following command.
+<a name="w2aac16c17b7b7"></a>
++  Ensure that PowerShell is enabled on the server that contains your SQL server instance. 
++  Install AWS.Tools on the server that contains your SQL server instance, with the following command. 
 
 ```
 Install-Module -Name AWS.Tools.Installer
-
 ```
-
-- Install the `DBA.Tools` module on your Windows machine, with the
-  following command.
++  Install the `DBA.Tools` module on your Windows machine, with the following command. 
 
 ```
 Cmd: Install-Module dbatools
-
 ```
+
+ 
 
 ## Creating the migration workflow
+<a name="w2aac16c17b9"></a>
++  Go to [https://console.aws.amazon.com/migrationhub/orchestrator/](https://console.aws.amazon.com/migrationhub/orchestrator/) 
++  Select **Create migration workflow**. 
++  On Choose a workflow template page, select **Replatform SQL server on Amazon RDS** template. 
++  Configure and submit your workflow to begin migration. 
 
-- Go to
-  [https://console.aws.amazon.com/migrationhub/orchestrator/](https://console.aws.amazon.com/migrationhub/orchestrator/ "https://console.aws.amazon.com/migrationhub/orchestrator/")
-- Select **Create migration workflow**.
-- On Choose a workflow template page, select **Replatform SQL server
-  on Amazon RDS** template.
-- Configure and submit your workflow to begin migration.
+**Note**  
+You can customize the migration workflow once it has been created. For more information, see [Migration workflows for Migration Hub Orchestrator](migration-workflows.md).
 
-###### Note
-
-You can customize the migration workflow once it has been created. For more information, see
-[Migration workflows for Migration Hub Orchestrator](migration-workflows.md "migration-workflows.md").
-
-###### Topics
-
-- [Application](#w2aac16c17b9b9 "#w2aac16c17b9b9")
-- [ServerId](#w2aac16c17b9c11 "#w2aac16c17b9c11")
-- [Source Environment Configuration](#w2aac16c17b9c13 "#w2aac16c17b9c13")
+**Topics**
++ [Application](#w2aac16c17b9b9)
++ [ServerId](#w2aac16c17b9c11)
++ [Source Environment Configuration](#w2aac16c17b9c13)
 
 ### Application
+<a name="w2aac16c17b9b9"></a>
 
-Select the application you want to migrate. If you do not see the application in the list,
-you must define it in [AWS
-Application Discovery Service](https://console.aws.amazon.com/discovery/home "https://console.aws.amazon.com/discovery/home"). An Application in this context is considered the unit
-of migration, and does not refer to applications running on top of your SQL server.
+ Select the application you want to migrate. If you do not see the application in the list, you must define it in [AWS Application Discovery Service](https://console.aws.amazon.com/discovery/home). An Application in this context is considered the unit of migration, and does not refer to applications running on top of your SQL server. 
 
 ### ServerId
+<a name="w2aac16c17b9c11"></a>
 
-Within the Application you defined in
-the [AWS Application
-Discovery Service](https://console.aws.amazon.com/discovery/home "https://console.aws.amazon.com/discovery/home"), select the serverId of the server which hosts your SQL server.
+ Within the Application you defined in the [AWS Application Discovery Service](https://console.aws.amazon.com/discovery/home), select the serverId of the server which hosts your SQL server. 
 
 ### Source Environment Configuration
+<a name="w2aac16c17b9c13"></a>
 
-The details here help us to identify the details of your source SQL Server.
+ The details here help us to identify the details of your source SQL Server. 
++  **TDE** - Check this checkbox if you have TDE enabled on your Databases. If you select this option, your certificates will be migrated to the target server. 
++  **Migration Mode** - This template offers 3 distinct migrations depending on your use-case.  
++ 
+  +  “*Use only Full backup*” - The template will only create a full backup of your databases and restore it on your target. 
+  +  “*Use Full backup and Differential backup for Cutover*” - A full backup of your databases will be created and restored on the target, after which you can mark the databases readonly, and a differential backup and restore will be used to migrate the remainder of the data.  
+  +  “*Use Full backup, Differential backup for pre-cutover and T-Log backup for cutover*” - A full backup of your databases will be created and restored on the target. When you are getting ready for cutover, a differential backup and restore will be used to migrate the remainder of the data.  Lastly, after you mark your databases readonly, Tail-Log backups will be used to migrate the remainder of the data. 
++  **Allow Migration Without Direct Connect** - This template uploads backup files from your source instance to S3 using the AWS CLI. The database files are transmitted over an HTTPS to AWS S3. However, if you are not comfortable with the backup files travelling over the public Internet, we recommend using AWS Direct Connect with a Public VIF setup. If you are comfortable with this, please select this checkbox. The migration workflow will not create unless you check this checkbox or have the setup mentioned above. 
++  **Source SQL Server database names** - The names of the SQL Databases that you would like to migrate. 
++  **AWS ADS server ID for your application** - See “ServerId” section above. 
++  **Source SQL Server instance name** - The name of your SQL server instance. 
++  **Backup location** - As a part of the migration, this template needs to take backups of your SQL Server. The path specified here is where the backup files will be stored. Please ensure this is an absolute path and has enough space for a Full and Differential backup of your databases. 
 
-- **TDE** - Check this checkbox if you have TDE enabled on
-  your Databases. If you select this option, your certificates will be migrated to the
-  target server.
-- **Migration Mode** - This template offers 3 distinct
-  migrations depending on your use-case.
-- - “_Use only Full backup_” - The template will only create a full
-    backup of your databases and restore it on your target.
-    - “_Use Full backup and Differential backup for Cutover_” - A full
-      backup of your databases will be created and restored on the target, after which you
-      can mark the databases readonly, and a differential backup and restore will be used
-      to migrate the remainder of the data.
-    - “_Use Full backup, Differential backup for pre-cutover and T-Log backup for
-      cutover_” - A full backup of your databases will be created and restored
-      on the target. When you are getting ready for cutover, a differential backup and
-      restore will be used to migrate the remainder of the data.  Lastly, after you mark
-      your databases readonly, Tail-Log backups will be used to migrate the remainder of
-      the data.
-- **Allow Migration Without Direct Connect** - This
-  template uploads backup files from your source instance to S3 using the AWS CLI. The
-  database files are transmitted over an HTTPS to AWS S3. However, if you are not
-  comfortable with the backup files travelling over the public Internet, we recommend
-  using AWS Direct Connect with a Public VIF setup. If you are comfortable with this,
-  please select this checkbox. The migration workflow will not create unless you check
-  this checkbox or have the setup mentioned above.
-- **Source SQL Server database names** - The names of the
-  SQL Databases that you would like to migrate.
-- **AWS ADS server ID for your application** - See
-  “ServerId” section above.
-- **Source SQL Server instance name** - The name of your
-  SQL server instance.
-- **Backup location** - As a part of the migration, this
-  template needs to take backups of your SQL Server. The path specified here is where the
-  backup files will be stored. Please ensure this is an absolute path and has enough space
-  for a Full and Differential backup of your databases.
+ 
 
 ## Running the migration workflow
-
-- When configuring the Migration Hub Orchestrator plugin, ensure that the username that is
-  provided to connect to your Windows machine has the `SYSAdmin` permission
-  on the source SQL server instance.
+<a name="w2aac16c17c11"></a>
++  When configuring the Migration Hub Orchestrator plugin, ensure that the username that is provided to connect to your Windows machine has the `SYSAdmin` permission on the source SQL server instance. 
 
 ### Create AWS Profile on Source Server
+<a name="w2aac16c17c11b5"></a>
++  Create an IAM policy with the following permissions. 
 
-- Create an IAM policy with the following permissions.
+------
+#### [ JSON ]
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "kms:GenerateDataKey",
- "kms:CreateKey"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "kms:GenerateDataKey",
+                "kms:CreateKey"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-- Create an IAM user with the above policy attached.
-- Configure a named profile for AWS Command Line Interface that uses the preceding IAM
-  user. For more information, see
-  [Using
-  AWS credentials](../../../powershell/latest/userguide/specifying-your-aws-credentials.md "../../../powershell/latest/userguide/specifying-your-aws-credentials.md"). The credentials stored in the profile are used to upload your
-  backups to a S3 bucket located in your account. Note the name of this profile and enter
-  it into the step when prompted.
+------
++  Create an IAM user with the above policy attached. 
++  Configure a named profile for AWS Command Line Interface that uses the preceding IAM user. For more information, see [Using AWS credentials](https://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html). The credentials stored in the profile are used to upload your backups to a S3 bucket located in your account. Note the name of this profile and enter it into the step when prompted. 
+
+ 
 
 ### Create your RDS Database
+<a name="w2aac16c17c11b7"></a>
 
-This template does not create your RDS instance for you. 
+ This template does not create your RDS instance for you.  
++  Deploy an Amazon RDS SQL server with the same version as the source SQL server. 
++  Configure the target Amazon RDS SQL server with the same parameter groups as the source SQL server. 
++  Configure the option group for backup/restore and transparent data encryption in Amazon RDS, and attach the following policies to the created IAM role. 
 
-- Deploy an Amazon RDS SQL server with the same version as the source SQL server.
-- Configure the target Amazon RDS SQL server with the same parameter groups as the source
-  SQL server.
-- Configure the option group for backup/restore and transparent data encryption in Amazon
-  RDS, and attach the following policies to the created IAM role.
+------
+#### [ JSON ]
 
-JSON
+****  
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "kms:Decrypt",
- "s3:ListAllMyBuckets",
- "kms:DescribeKey"
- ],
- "Resource": "*"
- },
- {
- "Sid": "VisualEditor1",
- "Effect": "Allow",
- "Action": [
- "s3:ListBucket",
- "s3:GetBucketAcl",
- "s3:GetBucketLocation"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Sid": "VisualEditor2",
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:GetObject",
- "s3:AbortMultipartUpload",
- "s3:ListMultipartUploadParts"
- ],
- "Resource": [
- "*"
- ]
- }
- ]
-}`
+  ```
+  {
+      "Version":"2012-10-17",		 	 	 
+      "Statement": [
+          {
+              "Sid": "VisualEditor0",
+              "Effect": "Allow",
+              "Action": [
+                  "kms:Decrypt",
+                  "s3:ListAllMyBuckets",
+                  "kms:DescribeKey"
+              ],
+              "Resource": "*"
+          },
+          {
+              "Sid": "VisualEditor1",
+              "Effect": "Allow",
+              "Action": [
+                  "s3:ListBucket",
+                  "s3:GetBucketAcl",
+                  "s3:GetBucketLocation"
+              ],
+              "Resource": [
+                  "*"
+              ]
+          },
+          {
+              "Sid": "VisualEditor2",
+              "Effect": "Allow",
+              "Action": [
+                  "s3:PutObject",
+                  "s3:GetObject",
+                  "s3:AbortMultipartUpload",
+                  "s3:ListMultipartUploadParts"
+              ],
+              "Resource": [
+                  "*"
+              ]
+          }
+      ]
+  }
+  ```
 
-```
+------
++  The trust policy for this role should be: 
 
-- The trust policy for this role should be:
+------
+#### [ JSON ]
 
-JSON
+****  
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "rds.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
+  ```
+  {
+      "Version":"2012-10-17",		 	 	 
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "rds.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+          }
+      ]
+  }
+  ```
 
-```
+------
+
+ 
 
 ### Create attached EC2 Instance
+<a name="w2aac16c17c11b9"></a>
++  Deploy an Amazon EC2 instance and create an instance role. 
++ 
+  +  Attach the `AWSMigrationHubOrchestratorInstanceRolePolicy` and `AmazonSSMManagedInstanceCore` managed policies to this role. 
+  +  Add the following permissions to this role. 
 
-- Deploy an Amazon EC2 instance and create an instance role.
-- - Attach the `AWSMigrationHubOrchestratorInstanceRolePolicy` and
-    `AmazonSSMManagedInstanceCore` managed policies to this role.
-    - Add the following permissions to this role.
+------
+#### [ JSON ]
 
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3:ListBucket"
- ],
- "Resource": [
- "arn:aws:s3:::migrationhub-orchestrator-*",
- "arn:aws:s3:::aws-migrationhub-orchestrator-*/*"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::migrationhub-orchestrator-*",
+                "arn:aws:s3:::aws-migrationhub-orchestrator-*/*"
+            ]
+        }
+    ]
+}
+```
 
-- Ensure that your Amazon RDS instance can be reached from the created Amazon EC2
-  instance.
-- This instance is used to connect to your RDS instance and run restore procedures.
+------
++  Ensure that your Amazon RDS instance can be reached from the created Amazon EC2 instance. 
++  This instance is used to connect to your RDS instance and run restore procedures. 
 
-### Create Target SQL Server User
+ 
 
-- Provide credentials in AWS Secrets Manager for the username and password for the admin
-  user for your RDS Server.
+### Create Target SQL Server User 
+<a name="w2aac16c17c11c11"></a>
++  Provide credentials in AWS Secrets Manager for the username and password for the admin user for your RDS Server. 
 
-  1.  Sign in to
-      [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/")
-  2.  On the AWS Secrets Manager page, select **Store a new
-      secret**.
-  3.  For Secret type, select **Other type of secret** and
-      enter the following keys.
-  4.  - `username` - enter your username
-      - `password` - enter your password
-  5.  Select **Next** and enter a name for the key pair
-      beginning with
-      `migrationhub-orchestrator-``secretname123`.
-  6.  - The Secret ID must begin with the prefix
-        `migrationhub-orchestrator-` and must only be followed by an
-        alphanumeric value.
-  7.  Select **Next** and then, select
-      **Store**.
-  8.  Copy the name of this secret and provide it to the workflow step when prompted.
+  1.  Sign in to [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/) 
+
+  1.  On the AWS Secrets Manager page, select **Store a new secret**. 
+
+  1.  For Secret type, select **Other type of secret** and enter the following keys. 
+
+  1. 
+     +  `username` - enter your username 
+     +  `password` - enter your password 
+
+  1.  Select **Next** and enter a name for the key pair beginning with `migrationhub-orchestrator-``secretname123`. 
+
+  1. 
+     +  The Secret ID must begin with the prefix `migrationhub-orchestrator-` and must only be followed by an alphanumeric value. 
+
+  1.  Select **Next** and then, select **Store**. 
+
+  1.  Copy the name of this secret and provide it to the workflow step when prompted. 
 
 ## FAQ
+<a name="w2aac16c17c13"></a>
 
 Q. **What does this template do?**
 
@@ -296,13 +276,9 @@ A. Based on your input, we use either only a full backup, a combination of full 
 Q. **When do I need to put my databases in ‘readonly’ mode?**
 
 A. Based on the type of migration selected there are different points to do this -
-
-- For full backup only migrations set the databases to readonly before begging the migration
-  workflow.
-- For full and differential backup migrations, set the databases to read only when
-  instructed to do so on Step 4.1 in the workflow.
-- For full, differential and tail-log backups, set the databases to read only when
-  instructed to do so on Step 4.4 in the workflow.
++  For full backup only migrations set the databases to readonly before begging the migration workflow. 
++  For full and differential backup migrations, set the databases to read only when instructed to do so on Step 4.1 in the workflow. 
++  For full, differential and tail-log backups, set the databases to read only when instructed to do so on Step 4.4 in the workflow. 
 
 These different configurations help us ensure we capture all the changes in your SQL server when migrating, to create parity between your source and target.
 
@@ -317,26 +293,16 @@ A. The EC2 instance you create is used to run the restore procedures on your RDS
 Q.**What are the limitations of this template?**
 
 A. This template will not do the following:
-
-- This template does not migrate System Databases or SQL Server properties.
-- This template can only migrate SQL logins. Any Windows level logins are not guaranteed to
-  be migrated.
-- This template expects that while the workflow is running, you will not initiate a
-  full-backup of the database yourself. If a full-backup is taken, it breaks the chain of
-  backups used to restore your databases on the target server.
-- This template can only migrate databases that have the “DBO” set as a sql user or AD user.
-  If the database is owner is a Windows level user which is not available in the RDS
-  environment, the database will be inaccessible when restored on RDS.
++  This template does not migrate System Databases or SQL Server properties. 
++  This template can only migrate SQL logins. Any Windows level logins are not guaranteed to be migrated. 
++  This template expects that while the workflow is running, you will not initiate a full-backup of the database yourself. If a full-backup is taken, it breaks the chain of backups used to restore your databases on the target server. 
++  This template can only migrate databases that have the “DBO” set as a sql user or AD user. If the database is owner is a Windows level user which is not available in the RDS environment, the database will be inaccessible when restored on RDS. 
 
 Q. **I ran into an error during a database connection step. What do I do?**
 
 A. An error here indicates a problem with connecting to your SQL Server.
-
-- If this occurs on the source, ensure the user that was given to the plugin to connect to
-  the machine has SYSADMIN permissions on your source SQL server.
-- If this happens on the target, ensure that the EC2 Instance ID provided during workflow
-  creation has connectivity to your RDS Endpoint, and ensure the SQL credentials stored in
-  your Secrets Manager Secret are correct.
++  If this occurs on the source, ensure the user that was given to the plugin to connect to the machine has SYSADMIN permissions on your source SQL server. 
++  If this happens on the target, ensure that the EC2 Instance ID provided during workflow creation has connectivity to your RDS Endpoint, and ensure the SQL credentials stored in your Secrets Manager Secret are correct. 
 
 Q. **I ran into an error during a database validation step. What do I do?**
 
