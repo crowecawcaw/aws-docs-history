@@ -1,18 +1,16 @@
+
+
 # Hello Amazon Rekognition
+<a name="example_rekognition_Hello_section"></a>
 
 The following code example shows how to get started using Amazon Rekognition.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rekognition/hello_rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rekognition/hello_rekognition#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rekognition/hello_rekognition#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -39,10 +37,10 @@ endif ()
 # Find the AWS SDK for C++ package.
 find_package(AWSSDK REQUIRED COMPONENTS ${SERVICE_COMPONENTS})
 
-if (WINDOWS_BUILD AND AWSSDK_INSTALL_AS_SHARED_LIBS)
+if (WINDOWS_BUILD AND AWSSDK_INSTALL_AS_SHARED_LIBS) 
      # Copy relevant AWS SDK for C++ libraries into the current binary directory for running and debugging.
 
-     # set(BIN_SUB_DIR "/Debug") # If you are building from the command line, you may need to uncomment this
+     # set(BIN_SUB_DIR "/Debug") # If you are building from the command line, you may need to uncomment this 
                                     # and set the proper subdirectory to the executables' location.
 
      AWSSDK_CPY_DYN_LIBS(SERVICE_COMPONENTS "" ${CMAKE_CURRENT_BINARY_DIR}${BIN_SUB_DIR})
@@ -53,11 +51,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_rekognition.cpp source file.
+Code for the hello\_rekognition.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -110,14 +105,9 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return 0;
 }
-
-
 ```
++  For API details, see [ListCollections](https://docs.aws.amazon.com/goto/SdkForCpp/rekognition-2016-06-27/ListCollections) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [ListCollections](../../../goto/SdkForCpp/rekognition-2016-06-27/ListCollections.md "../../../goto/SdkForCpp/rekognition-2016-06-27/ListCollections.md")
-  in _AWS SDK for C++ API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

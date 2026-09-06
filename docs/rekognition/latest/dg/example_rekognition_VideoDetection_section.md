@@ -1,22 +1,19 @@
+
+
 # Detect information in videos using Amazon Rekognition and the AWS SDK
+<a name="example_rekognition_VideoDetection_section"></a>
 
 The following code examples show how to:
++ Start Amazon Rekognition jobs to detect elements like people, objects, and text in videos.
++ Check job status until jobs finish.
++ Output the list of elements detected by each job.
 
-- Start Amazon Rekognition jobs to detect elements like people, objects, and text in videos.
-- Check job status until jobs finish.
-- Output the list of elements detected by each job.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples").
-
-Get celebrity results from a video located in an Amazon S3 bucket.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
+Get celebrity results from a video located in an Amazon S3 bucket.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -179,11 +176,8 @@ public class VideoCelebrityDetection {
         }
     }
 }
-
-
 ```
-
-Detect labels in a video by a label detection operation.
+Detect labels in a video by a label detection operation.  
 
 ```
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -442,11 +436,8 @@ public class VideoDetect {
         }
     }
 }
-
-
 ```
-
-Detect faces in a video stored in an Amazon S3 bucket.
+Detect faces in a video stored in an Amazon S3 bucket.  
 
 ```
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -705,11 +696,8 @@ public class VideoDetect {
         }
     }
 }
-
-
 ```
-
-Detect inappropriate or offensive content in a video stored in an Amazon S3 bucket.
+Detect inappropriate or offensive content in a video stored in an Amazon S3 bucket.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -864,11 +852,8 @@ public class VideoDetectInappropriate {
         }
     }
 }
-
-
 ```
-
-Detect technical cue segments and shot detection segments in a video stored in an Amazon S3 bucket.
+Detect technical cue segments and shot detection segments in a video stored in an Amazon S3 bucket.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -1066,11 +1051,8 @@ public class VideoDetectSegment {
         }
     }
 }
-
-
 ```
-
-Detect text in a video stored in a video stored in an Amazon S3 bucket.
+Detect text in a video stored in a video stored in an Amazon S3 bucket.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -1225,11 +1207,8 @@ public class VideoDetectText {
         }
     }
 }
-
-
 ```
-
-Detect people in a video stored in a video stored in an Amazon S3 bucket.
+Detect people in a video stored in a video stored in an Amazon S3 bucket.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -1384,36 +1363,27 @@ public class VideoPersonDetection {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [GetCelebrityRecognition](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/GetCelebrityRecognition)
+  + [GetContentModeration](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/GetContentModeration)
+  + [GetLabelDetection](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/GetLabelDetection)
+  + [GetPersonTracking](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/GetPersonTracking)
+  + [GetSegmentDetection](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/GetSegmentDetection)
+  + [GetTextDetection](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/GetTextDetection)
+  + [StartCelebrityRecognition](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/StartCelebrityRecognition)
+  + [StartContentModeration](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/StartContentModeration)
+  + [StartLabelDetection](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/StartLabelDetection)
+  + [StartPersonTracking](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/StartPersonTracking)
+  + [StartSegmentDetection](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/StartSegmentDetection)
+  + [StartTextDetection](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/StartTextDetection)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-  - [GetCelebrityRecognition](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetCelebrityRecognition.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetCelebrityRecognition.md")
-  - [GetContentModeration](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetContentModeration.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetContentModeration.md")
-  - [GetLabelDetection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetLabelDetection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetLabelDetection.md")
-  - [GetPersonTracking](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetPersonTracking.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetPersonTracking.md")
-  - [GetSegmentDetection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetSegmentDetection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetSegmentDetection.md")
-  - [GetTextDetection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetTextDetection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetTextDetection.md")
-  - [StartCelebrityRecognition](../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartCelebrityRecognition.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartCelebrityRecognition.md")
-  - [StartContentModeration](../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartContentModeration.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartContentModeration.md")
-  - [StartLabelDetection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartLabelDetection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartLabelDetection.md")
-  - [StartPersonTracking](../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartPersonTracking.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartPersonTracking.md")
-  - [StartSegmentDetection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartSegmentDetection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartSegmentDetection.md")
-  - [StartTextDetection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartTextDetection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/StartTextDetection.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples").
-
-Detect faces in a video stored in an Amazon S3 bucket.
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
+Detect faces in a video stored in an Amazon S3 bucket.  
 
 ```
 suspend fun startFaceDetection(
@@ -1488,11 +1458,8 @@ suspend fun getFaceResults() {
         }
     }
 }
-
-
 ```
-
-Detect inappropriate or offensive content in a video stored in an Amazon S3 bucket.
+Detect inappropriate or offensive content in a video stored in an Amazon S3 bucket.  
 
 ```
 suspend fun startModerationDetection(
@@ -1562,25 +1529,21 @@ suspend fun getModResults() {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [GetCelebrityRecognition](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetContentModeration](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetLabelDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetPersonTracking](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetSegmentDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetTextDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartCelebrityRecognition](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartContentModeration](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartLabelDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartPersonTracking](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartSegmentDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartTextDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
 
-  - [GetCelebrityRecognition](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetContentModeration](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetLabelDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetPersonTracking](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetSegmentDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetTextDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartCelebrityRecognition](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartContentModeration](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartLabelDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartPersonTracking](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartSegmentDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartTextDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

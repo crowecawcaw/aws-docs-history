@@ -1,22 +1,20 @@
+
+
 # Detect and display elements in images with Amazon Rekognition using an AWS SDK
+<a name="example_rekognition_Usage_DetectAndDisplayImage_section"></a>
 
 The following code example shows how to:
++ Detect elements in images by using Amazon Rekognition.
++ Display images and draw bounding boxes around detected elements.
 
-- Detect elements in images by using Amazon Rekognition.
-- Display images and draw bounding boxes around detected elements.
-  For more information, see [Displaying bounding boxes](images-displaying-bounding-boxes.md "images-displaying-bounding-boxes.md").
+For more information, see [Displaying bounding boxes](https://docs.aws.amazon.com/rekognition/latest/dg/images-displaying-bounding-boxes.html).
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
-
-Create classes to wrap Amazon Rekognition functions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
+Create classes to wrap Amazon Rekognition functions.  
 
 ```
 import logging
@@ -239,12 +237,8 @@ class RekognitionImage:
             raise
         else:
             return texts
-
-
-
 ```
-
-Create helper functions to draw bounding boxes and polygons.
+Create helper functions to draw bounding boxes and polygons.  
 
 ```
 import io
@@ -294,13 +288,8 @@ def show_polygons(image_bytes, polygons, color):
             outline=color,
         )
     image.show()
-
-
-
-
 ```
-
-Create classes to parse objects returned by Amazon Rekognition.
+Create classes to parse objects returned by Amazon Rekognition.  
 
 ```
 class RekognitionFace:
@@ -554,13 +543,8 @@ class RekognitionText:
         if self.geometry is not None:
             rendering["polygon"] = self.geometry.get("Polygon")
         return rendering
-
-
-
-
 ```
-
-Use the wrapper classes to detect elements in images and display their bounding boxes. The images used in this example can be found on GitHub along with instructions and more code.
+Use the wrapper classes to detect elements in images and display their bounding boxes. The images used in this example can be found on GitHub along with instructions and more code.  
 
 ```
 def usage_demo():
@@ -665,12 +649,8 @@ def usage_demo():
 
     print("Thanks for watching!")
     print("-" * 88)
-
-
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

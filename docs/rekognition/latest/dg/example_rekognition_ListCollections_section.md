@@ -1,18 +1,17 @@
+
+
 # Use `ListCollections` with an AWS SDK or CLI
+<a name="example_rekognition_ListCollections_section"></a>
 
 The following code examples show how to use `ListCollections`.
 
-For more information, see [Listing collections](list-collection-procedure.md "list-collection-procedure.md").
+For more information, see [Listing collections](https://docs.aws.amazon.com/rekognition/latest/dg/list-collection-procedure.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
 ```
     using System;
@@ -57,29 +56,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             while (listCollectionsResponse.NextToken is not null);
         }
     }
+```
++  For API details, see [ListCollections](https://docs.aws.amazon.com/goto/DotNetSDKV3/rekognition-2016-06-27/ListCollections) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list the available collections**  
+The following `list-collections` command lists the available collections in the AWS account.  
 
 ```
-
-- For API details, see
-  [ListCollections](../../../goto/DotNetSDKV3/rekognition-2016-06-27/ListCollections.md "../../../goto/DotNetSDKV3/rekognition-2016-06-27/ListCollections.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the available collections**
-
-The following `list-collections` command lists the available collections in the AWS account.
-
+aws rekognition list-collections
 ```
-`aws rekognition list-collections`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -109,22 +99,14 @@ Output:
     ]
 }
 ```
+For more information, see [Listing Collections](https://docs.aws.amazon.com/rekognition/latest/dg/list-collection-procedure.html) in the *Amazon Rekognition Developer Guide*.  
++  For API details, see [ListCollections](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/list-collections.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Listing Collections](list-collection-procedure.md "list-collection-procedure.md") in the _Amazon Rekognition Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ListCollections](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/list-collections.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/list-collections.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -172,23 +154,14 @@ public class ListCollections {
         }
     }
 }
-
-
 ```
++  For API details, see [ListCollections](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/ListCollections) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListCollections](../../../goto/SdkForJavaV2/rekognition-2016-06-27/ListCollections.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/ListCollections.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
 ```
 suspend fun listAllCollections() {
@@ -204,23 +177,14 @@ suspend fun listAllCollections() {
         }
     }
 }
-
-
 ```
++  For API details, see [ListCollections](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListCollections](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
 ```
 class RekognitionCollectionManager:
@@ -256,25 +220,14 @@ class RekognitionCollectionManager:
             raise
         else:
             return collections
-
-
-
-
 ```
++  For API details, see [ListCollections](https://docs.aws.amazon.com/goto/boto3/rekognition-2016-06-27/ListCollections) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListCollections](../../../goto/boto3/rekognition-2016-06-27/ListCollections.md "../../../goto/boto3/rekognition-2016-06-27/ListCollections.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
 ```
     TRY.
@@ -288,14 +241,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rekinvalidparameterex.
         MESSAGE 'Invalid parameter value.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListCollections](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListCollections](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

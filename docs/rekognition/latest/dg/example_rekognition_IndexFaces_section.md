@@ -1,18 +1,17 @@
+
+
 # Use `IndexFaces` with an AWS SDK or CLI
+<a name="example_rekognition_IndexFaces_section"></a>
 
 The following code examples show how to use `IndexFaces`.
 
-For more information, see [Adding faces to a collection](add-faces-to-collection-procedure.md "add-faces-to-collection-procedure.md").
+For more information, see [Adding faces to a collection](https://docs.aws.amazon.com/rekognition/latest/dg/add-faces-to-collection-procedure.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
 ```
     using System;
@@ -62,35 +61,26 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [IndexFaces](https://docs.aws.amazon.com/goto/DotNetSDKV3/rekognition-2016-06-27/IndexFaces) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To add faces to a collection**  
+The following `index-faces` command adds the faces found in an image to the specified collection.  
 
 ```
-
-- For API details, see
-  [IndexFaces](../../../goto/DotNetSDKV3/rekognition-2016-06-27/IndexFaces.md "../../../goto/DotNetSDKV3/rekognition-2016-06-27/IndexFaces.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To add faces to a collection**
-
-The following `index-faces` command adds the faces found in an image to the specified collection.
-
+aws rekognition index-faces \
+    --image '{{{"S3Object":{"Bucket":"MyVideoS3Bucket","Name":"MyPicture.jpg"}}}}' \
+    --collection-id {{MyCollection}} \
+    --max-faces {{1}} \
+    --quality-filter {{"AUTO"}} \
+    --detection-attributes {{"ALL"}} \
+    --external-image-id {{"MyPicture.jpg"}}
 ```
-`aws rekognition index-faces \
- --image '`{"S3Object":{"Bucket":"MyVideoS3Bucket","Name":"MyPicture.jpg"}}`' \
- --collection-id `MyCollection` \
- --max-faces `1` \
- --quality-filter `"AUTO"` \
- --detection-attributes `"ALL"` \
- --external-image-id `"MyPicture.jpg"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -310,22 +300,14 @@ Output:
     "OrientationCorrection": "ROTATE_0"
 }
 ```
+For more information, see [Adding Faces to a Collection](https://docs.aws.amazon.com/rekognition/latest/dg/add-faces-to-collection-procedure.html) in the *Amazon Rekognition Developer Guide*.  
++  For API details, see [IndexFaces](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/index-faces.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Adding Faces to a Collection](add-faces-to-collection-procedure.md "add-faces-to-collection-procedure.md") in the _Amazon Rekognition Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [IndexFaces](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/index-faces.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/index-faces.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -422,23 +404,14 @@ public class AddFacesToCollection {
         }
     }
 }
-
-
 ```
++  For API details, see [IndexFaces](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/IndexFaces) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [IndexFaces](../../../goto/SdkForJavaV2/rekognition-2016-06-27/IndexFaces.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/IndexFaces.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
 ```
 suspend fun addToCollection(
@@ -481,23 +454,14 @@ suspend fun addToCollection(
         }
     }
 }
-
-
 ```
++  For API details, see [IndexFaces](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [IndexFaces](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
 ```
 class RekognitionCollection:
@@ -573,24 +537,14 @@ class RekognitionCollection:
             raise
         else:
             return indexed_faces, unindexed_faces
-
-
-
 ```
++  For API details, see [IndexFaces](https://docs.aws.amazon.com/goto/boto3/rekognition-2016-06-27/IndexFaces) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [IndexFaces](../../../goto/boto3/rekognition-2016-06-27/IndexFaces.md "../../../goto/boto3/rekognition-2016-06-27/IndexFaces.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
 ```
     TRY.
@@ -621,14 +575,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rekinvalidparameterex.
         MESSAGE 'Invalid parameter value.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [IndexFaces](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [IndexFaces](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

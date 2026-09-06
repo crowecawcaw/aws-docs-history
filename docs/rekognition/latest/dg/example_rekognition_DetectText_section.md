@@ -1,18 +1,17 @@
+
+
 # Use `DetectText` with an AWS SDK or CLI
+<a name="example_rekognition_DetectText_section"></a>
 
 The following code examples show how to use `DetectText`.
 
-For more information, see [Detecting text in an image](text-detecting-text-procedure.md "text-detecting-text-procedure.md").
+For more information, see [Detecting text in an image](https://docs.aws.amazon.com/rekognition/latest/dg/text-detecting-text-procedure.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
 ```
     using System;
@@ -65,30 +64,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [DetectText](https://docs.aws.amazon.com/goto/DotNetSDKV3/rekognition-2016-06-27/DetectText) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To detect text in an image**  
+The following `detect-text` command detects text in the specified image.  
 
 ```
-
-- For API details, see
-  [DetectText](../../../goto/DotNetSDKV3/rekognition-2016-06-27/DetectText.md "../../../goto/DotNetSDKV3/rekognition-2016-06-27/DetectText.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To detect text in an image**
-
-The following `detect-text` command detects text in the specified image.
-
+aws rekognition detect-text \
+    --image '{{{"S3Object":{"Bucket":"MyImageS3Bucket","Name":"ExamplePicture.jpg"}}}}'
 ```
-`aws rekognition detect-text \
- --image '`{"S3Object":{"Bucket":"MyImageS3Bucket","Name":"ExamplePicture.jpg"}}`'`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -259,20 +249,13 @@ Output:
     ]
 }
 ```
++  For API details, see [DetectText](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/detect-text.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DetectText](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/detect-text.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/detect-text.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
 ```
 import software.amazon.awssdk.core.SdkBytes;
@@ -359,23 +342,14 @@ public class DetectText {
         }
     }
 }
-
-
 ```
++  For API details, see [DetectText](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/DetectText) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DetectText](../../../goto/SdkForJavaV2/rekognition-2016-06-27/DetectText.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/DetectText.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
 ```
 suspend fun detectTextLabels(sourceImage: String?) {
@@ -400,23 +374,14 @@ suspend fun detectTextLabels(sourceImage: String?) {
         }
     }
 }
-
-
 ```
++  For API details, see [DetectText](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DetectText](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
 ```
 class RekognitionImage:
@@ -454,24 +419,14 @@ class RekognitionImage:
             raise
         else:
             return texts
-
-
-
 ```
++  For API details, see [DetectText](https://docs.aws.amazon.com/goto/boto3/rekognition-2016-06-27/DetectText) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DetectText](../../../goto/boto3/rekognition-2016-06-27/DetectText.md "../../../goto/boto3/rekognition-2016-06-27/DetectText.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
 ```
     TRY.
@@ -497,14 +452,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rekinvalidparameterex.
         MESSAGE 'Invalid parameter value.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DetectText](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DetectText](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

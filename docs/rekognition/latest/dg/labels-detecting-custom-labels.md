@@ -1,6 +1,6 @@
-# Detecting custom labels
 
-Amazon Rekognition Custom Labels can identify the objects and scenes in images that are
-specific to your business needs, such as logos or engineering machine parts. For more
-information, see [What Is Amazon Rekognition Custom Labels?](../customlabels-dg/what-is.md "../customlabels-dg/what-is.md") in the _Amazon Rekognition Custom
-Labels Developer Guide_.
+
+# Detecting custom labels
+<a name="labels-detecting-custom-labels"></a>
+
+Amazon Rekognition Custom Labels can identify the objects and scenes in images that are specific to your business needs, such as logos or engineering machine parts. For more information, see [What Is Amazon Rekognition Custom Labels?](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html) in the *Amazon Rekognition Custom Labels Developer Guide*.

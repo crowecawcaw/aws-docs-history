@@ -1,44 +1,42 @@
+
+
 # Tagging collections
+<a name="tag-collections"></a>
 
-You can identify, organize, search for, and filter Amazon Rekognition collections by using
-tags. Each tag is a label consisting of a user-defined key and value.
+You can identify, organize, search for, and filter Amazon Rekognition collections by using tags. Each tag is a label consisting of a user-defined key and value.
 
-You can also use tags to control access for a collection by using Identity and Access
-Management (IAM). For more information, see [Controlling access to AWS resources
-using resource tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md").
+You can also use tags to control access for a collection by using Identity and Access Management (IAM). For more information, see [Controlling access to AWS resources using resource tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html).
 
-###### Topics
-
-- [Add tags to a new collection](#add-tag-new-collection "#add-tag-new-collection")
-- [Add tags to an existing collection](#add-tag-existing-collection "#add-tag-existing-collection")
-- [List tags in a collection](#list-tags-collection "#list-tags-collection")
-- [Delete tags from a collection](#delete-tag-collection "#delete-tag-collection")
+**Topics**
++ [Add tags to a new collection](#add-tag-new-collection)
++ [Add tags to an existing collection](#add-tag-existing-collection)
++ [List tags in a collection](#list-tags-collection)
++ [Delete tags from a collection](#delete-tag-collection)
 
 ## Add tags to a new collection
+<a name="add-tag-new-collection"></a>
 
-You can add tags to a collection as you create it using the
-`CreateCollection` operation. Specify one or more tags in the
-`Tags` array input parameter.
+You can add tags to a collection as you create it using the `CreateCollection` operation. Specify one or more tags in the `Tags` array input parameter.
 
-AWS CLI
-Replace the value of `profile_name` with the name of your
-developer profile.
+------
+#### [ AWS CLI ]
+
+ Replace the value of `profile_name` with the name of your developer profile. 
 
 ```
-aws rekognition create-collection --collection-id "collection-name" --tags "{"key1":"value1","key2":"value2"}" --profile profile-name
-
+aws rekognition create-collection --collection-id "collection-name" --tags "{"key1":"value1","key2":"value2"}" --profile profile-name 
 ```
 
 For Windows devices:
 
 ```
 aws rekognition create-collection --collection-id "collection-name" --tags "{\"key1\":\"value1\",\"key2\":\"value2\"}" --profile profile-name
-
 ```
 
-Python
-Replace the value of `profile_name` in the line that
-creates the Rekognition session with the name of your developer profile.
+------
+#### [ Python ]
+
+ Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
 ```
 import boto3
@@ -61,32 +59,32 @@ if __name__ == "__main__":
     main()
 ```
 
+------
+
 ## Add tags to an existing collection
+<a name="add-tag-existing-collection"></a>
 
-To add one or more tags to an existing collection, use the
-`TagResource` operation. Specify the collection's Amazon Resource
-Name (ARN) (`ResourceArn`) and the tags (`Tags`) that you want
-to add. The following example shows how to add two tags.
+To add one or more tags to an existing collection, use the `TagResource` operation. Specify the collection's Amazon Resource Name (ARN) (`ResourceArn`) and the tags (`Tags`) that you want to add. The following example shows how to add two tags.
 
-AWS CLI
-Replace the value of `profile_name` with the name of your
-developer profile.
+------
+#### [ AWS CLI ]
 
-```
-aws rekognition tag-resource --resource-arn collection-arn --tags "{"key1":"value1","key2":"value2"}" --profile profile-name
+ Replace the value of `profile_name` with the name of your developer profile. 
 
 ```
+aws rekognition tag-resource --resource-arn collection-arn --tags "{"key1":"value1","key2":"value2"}" --profile profile-name 
+```
 
-For Windows devices:
+ For Windows devices: 
 
 ```
 aws rekognition tag-resource --resource-arn collection-arn --tags "{\"key1\":\"value1\",\"key2\":\"value2\"}" --profile profile-name
-
 ```
 
-Python
-Replace the value of `profile_name` in the line that
-creates the Rekognition session with the name of your developer profile.
+------
+#### [ Python ]
+
+ Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
 ```
 # Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -113,29 +111,29 @@ if __name__ == "__main__":
     main()
 ```
 
-###### Note
+------
 
-If you do not know the collection's Amazon Resource Name, you can use the
-`DescribeCollection` operation.
+**Note**  
+If you do not know the collection's Amazon Resource Name, you can use the `DescribeCollection` operation.
 
 ## List tags in a collection
+<a name="list-tags-collection"></a>
 
-To list the tags attached to a collection, use the
-`ListTagsForResource` operation and specify the ARN of the collection
-(`ResourceArn`). The response is a map of tag keys and values that
-are attached to the specified collection.
+To list the tags attached to a collection, use the `ListTagsForResource` operation and specify the ARN of the collection (`ResourceArn`). The response is a map of tag keys and values that are attached to the specified collection.
 
-AWS CLI
-Replace the value of `profile_name` with the name of your
-developer profile.
+------
+#### [ AWS CLI ]
+
+ Replace the value of `profile_name` with the name of your developer profile. 
 
 ```
 aws rekognition list-tags-for-resource --resource-arn resource-arn --profile profile-name
 ```
 
-Python
-Replace the value of `profile_name` in the line that
-creates the Rekognition session with the name of your developer profile.
+------
+#### [ Python ]
+
+ Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
 ```
 import boto3
@@ -152,10 +150,11 @@ if __name__ == "__main__":
     main()
 ```
 
+------
+
 The output displays a list of tags attached to the collection:
 
 ```
-
                 {
     "Tags": {
         "Dept": "Engineering",
@@ -163,18 +162,17 @@ The output displays a list of tags attached to the collection:
         "Role": "Developer"
     }
 }
-
 ```
 
 ## Delete tags from a collection
+<a name="delete-tag-collection"></a>
 
-To remove one or more tags from a collection, use the `UntagResource`
-operation. Specify the ARN of the model (`ResourceArn`) and the tag keys
-(`Tag-Keys`) that you want to remove.
+To remove one or more tags from a collection, use the `UntagResource` operation. Specify the ARN of the model (`ResourceArn`) and the tag keys (`Tag-Keys`) that you want to remove.
 
-AWS CLI
-Replace the value of `profile_name` with the name of your
-developer profile.
+------
+#### [ AWS CLI ]
+
+Replace the value of `profile_name` with the name of your developer profile.
 
 ```
 aws rekognition untag-resource --resource-arn resource-arn --profile profile-name --tag-keys "key1" "key2"
@@ -186,9 +184,10 @@ Alternatively, you can specify tag-keys in this format:
 --tag-keys key1,key2
 ```
 
-Python
-Replace the value of `profile_name` in the line that
-creates the Rekognition session with the name of your developer profile.
+------
+#### [ Python ]
+
+ Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
 ```
 import boto3
@@ -204,3 +203,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

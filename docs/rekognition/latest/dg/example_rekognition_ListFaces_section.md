@@ -1,18 +1,17 @@
+
+
 # Use `ListFaces` with an AWS SDK or CLI
+<a name="example_rekognition_ListFaces_section"></a>
 
 The following code examples show how to use `ListFaces`.
 
-For more information, see [Listing faces in a collection](list-faces-in-collection-procedure.md "list-faces-in-collection-procedure.md").
+For more information, see [Listing faces in a collection](https://docs.aws.amazon.com/rekognition/latest/dg/list-faces-in-collection-procedure.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
 ```
     using System;
@@ -54,30 +53,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             while (!string.IsNullOrEmpty(listFacesResponse.NextToken));
         }
     }
+```
++  For API details, see [ListFaces](https://docs.aws.amazon.com/goto/DotNetSDKV3/rekognition-2016-06-27/ListFaces) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list the faces in a collection**  
+The following `list-faces` command lists the faces in the specified collection.  
 
 ```
-
-- For API details, see
-  [ListFaces](../../../goto/DotNetSDKV3/rekognition-2016-06-27/ListFaces.md "../../../goto/DotNetSDKV3/rekognition-2016-06-27/ListFaces.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the faces in a collection**
-
-The following `list-faces` command lists the faces in the specified collection.
-
+aws rekognition list-faces \
+    --collection-id {{MyCollection}}
 ```
-`aws rekognition list-faces \
- --collection-id `MyCollection``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -206,22 +196,14 @@ Output:
     ]
 }
 ```
+For more information, see [Listing Faces in a Collection](https://docs.aws.amazon.com/rekognition/latest/dg/list-faces-in-collection-procedure.html) in the *Amazon Rekognition Developer Guide*.  
++  For API details, see [ListFaces](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/list-faces.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Listing Faces in a Collection](list-faces-in-collection-procedure.md "list-faces-in-collection-procedure.md") in the _Amazon Rekognition Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ListFaces](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/list-faces.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/list-faces.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -286,23 +268,14 @@ public class ListFacesInCollection {
         }
     }
 }
-
-
 ```
++  For API details, see [ListFaces](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/ListFaces) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListFaces](../../../goto/SdkForJavaV2/rekognition-2016-06-27/ListFaces.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/ListFaces.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
 ```
 suspend fun listFacesCollection(collectionIdVal: String?) {
@@ -320,23 +293,14 @@ suspend fun listFacesCollection(collectionIdVal: String?) {
         }
     }
 }
-
-
 ```
++  For API details, see [ListFaces](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListFaces](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
 ```
 class RekognitionCollection:
@@ -397,24 +361,14 @@ class RekognitionCollection:
             raise
         else:
             return faces
-
-
-
 ```
++  For API details, see [ListFaces](https://docs.aws.amazon.com/goto/boto3/rekognition-2016-06-27/ListFaces) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListFaces](../../../goto/boto3/rekognition-2016-06-27/ListFaces.md "../../../goto/boto3/rekognition-2016-06-27/ListFaces.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
 ```
     TRY.
@@ -431,14 +385,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rekinvalidparameterex.
         MESSAGE 'Invalid parameter value.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListFaces](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListFaces](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

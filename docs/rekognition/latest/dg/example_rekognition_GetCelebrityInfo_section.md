@@ -1,16 +1,15 @@
+
+
 # Use `GetCelebrityInfo` with an AWS SDK or CLI
+<a name="example_rekognition_GetCelebrityInfo_section"></a>
 
 The following code examples show how to use `GetCelebrityInfo`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
 ```
     using System;
@@ -48,29 +47,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         }
     }
+```
++  For API details, see [GetCelebrityInfo](https://docs.aws.amazon.com/goto/DotNetSDKV3/rekognition-2016-06-27/GetCelebrityInfo) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To get information about a celebrity**  
+The following `get-celebrity-info` command displays information about the specified celebrity. The `id` parameter comes from a previous call to `recognize-celebrities`.  
 
 ```
-
-- For API details, see
-  [GetCelebrityInfo](../../../goto/DotNetSDKV3/rekognition-2016-06-27/GetCelebrityInfo.md "../../../goto/DotNetSDKV3/rekognition-2016-06-27/GetCelebrityInfo.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get information about a celebrity**
-
-The following `get-celebrity-info` command displays information about the specified celebrity. The `id` parameter comes from a previous call to `recognize-celebrities`.
-
+aws rekognition get-celebrity-info --id {{nnnnnnn}}
 ```
-`aws rekognition get-celebrity-info --id `nnnnnnn``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -80,13 +70,9 @@ Output:
     ]
 }
 ```
+For more information, see [Getting Information About a Celebrity](https://docs.aws.amazon.com/rekognition/latest/dg/get-celebrity-info-procedure.html) in the *Amazon Rekognition Developer Guide*.  
++  For API details, see [GetCelebrityInfo](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/get-celebrity-info.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Getting Information About a Celebrity](get-celebrity-info-procedure.md "get-celebrity-info-procedure.md") in the _Amazon Rekognition Developer Guide_.
+------
 
-- For API details, see
-  [GetCelebrityInfo](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/get-celebrity-info.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/get-celebrity-info.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

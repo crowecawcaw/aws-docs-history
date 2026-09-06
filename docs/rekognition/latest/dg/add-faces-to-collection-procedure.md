@@ -1,449 +1,386 @@
+
+
 # Adding faces to a collection
+<a name="add-faces-to-collection-procedure"></a>
 
-You can use the [IndexFaces](../APIReference/API_IndexFaces.md "../APIReference/API_IndexFaces.md")
-operation to detect faces in an image and add them to a collection. For each face
-detected, Amazon Rekognition extracts facial features and stores the feature information in a
-database. In addition, the command stores metadata for each face that's detected in the
-specified face collection. Amazon Rekognition doesn't store the actual image bytes.
+You can use the [IndexFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html) operation to detect faces in an image and add them to a collection. For each face detected, Amazon Rekognition extracts facial features and stores the feature information in a database. In addition, the command stores metadata for each face that's detected in the specified face collection. Amazon Rekognition doesn't store the actual image bytes.
 
-For information about providing suitable faces for indexing, see [Recommendations for facial comparison input images](recommendations-facial-input-images.md "recommendations-facial-input-images.md").
+For information about providing suitable faces for indexing, see [Recommendations for facial comparison input images](recommendations-facial-input-images.md).
 
-For each face, the `IndexFaces` operation persists the following
-information:
+For each face, the `IndexFaces` operation persists the following information:
++ **Multidimensional facial features** – `IndexFaces` uses facial analysis to extract multidimensional information about the facial features and stores the information in the face collection. You can't access this information directly. However, Amazon Rekognition uses this information when it searches a face collection for face matches.
 
-- **Multidimensional facial features** –
-  `IndexFaces` uses facial analysis to extract multidimensional
-  information about the facial features and stores the information in the face
-  collection. You can't access this information directly. However, Amazon Rekognition uses
-  this information when it searches a face collection for face matches.
-- **Metadata** – The metadata for each face
-  includes a bounding box, confidence level (that the bounding box contains a
-  face), IDs assigned by Amazon Rekognition (face ID and image ID), and an external image
-  ID (if you provided it) in the request. This information is returned to you in
-  response to the `IndexFaces` API call. For an example, see the
-  `face` element in the following example response.
+   
++ **Metadata** – The metadata for each face includes a bounding box, confidence level (that the bounding box contains a face), IDs assigned by Amazon Rekognition (face ID and image ID), and an external image ID (if you provided it) in the request. This information is returned to you in response to the `IndexFaces` API call. For an example, see the `face` element in the following example response.
 
-The service returns this metadata in response to the following API
-calls:
+  The service returns this metadata in response to the following API calls:
 
- 
+   
+  +  `[ListFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html)` 
+  + Search faces operations – The responses for [SearchFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html) and [SearchFacesByImage](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html) return the confidence in the match for each matching face, along with this metadata of the matched face.
 
-    + `ListFaces`
-    + Search faces operations – The responses for [SearchFaces](../APIReference/API_SearchFaces.md "../APIReference/API_SearchFaces.md") and [SearchFacesByImage](../APIReference/API_SearchFacesByImage.md "../APIReference/API_SearchFacesByImage.md") return the confidence in the match for
-     each matching face, along with this metadata of the matched face.
+The number of faces indexed by `IndexFaces` depends on the version of the face detection model that's associated with the input collection. For more information, see [Understanding model versioning](face-detection-model.md). 
 
-The number of faces indexed by `IndexFaces` depends on the version of the
-face detection model that's associated with the input collection. For more information,
-see [Understanding model versioning](face-detection-model.md "face-detection-model.md").
+Information about indexed faces is returned in an array of [FaceRecord](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceRecord.html) objects.
 
-Information about indexed faces is returned in an array of [FaceRecord](../APIReference/API_FaceRecord.md "../APIReference/API_FaceRecord.md")
-objects.
+You might want to associate indexed faces with the image they were detected in. For example, you might want to maintain a client-side index of images and faces in the images. To associate faces with an image, specify an image ID in the `ExternalImageId` request parameter. The image ID can be the file name or another ID that you create.
 
-You might want to associate indexed faces with the image they were detected in. For
-example, you might want to maintain a client-side index of images and faces in the
-images. To associate faces with an image, specify an image ID in the
-`ExternalImageId` request parameter. The image ID can be the file name or
-another ID that you create.
+In addition to the preceding information that the API persists in the face collection, the API also returns face details that aren't persisted in the collection. (See the `faceDetail` element in the following example response). 
 
-In addition to the preceding information that the API persists in the face collection,
-the API also returns face details that aren't persisted in the collection. (See the
-`faceDetail` element in the following example response).
-
-###### Note
-
-`DetectFaces` returns the same information, so you don't need to call
-both `DetectFaces` and `IndexFaces` for the same image.
+**Note**  
+`DetectFaces` returns the same information, so you don't need to call both `DetectFaces` and `IndexFaces` for the same image. 
 
 ## Filtering faces
+<a name="index-faces-filtering"></a>
 
-The IndexFaces operation enables you to filter the faces that are indexed from an
-image. With `IndexFaces` you can specify a maximum number of faces to
-index, or you can choose to only index faces detected with a high quality.
+The IndexFaces operation enables you to filter the faces that are indexed from an image. With `IndexFaces` you can specify a maximum number of faces to index, or you can choose to only index faces detected with a high quality. 
 
-You can specify the maximum number of faces that are indexed by
-`IndexFaces` by using the `MaxFaces` input parameter. This
-is useful when you want to index the largest faces in an image and don't want to
-index smaller faces, such as faces of people standing in the background.
+You can specify the maximum number of faces that are indexed by `IndexFaces` by using the `MaxFaces` input parameter. This is useful when you want to index the largest faces in an image and don't want to index smaller faces, such as faces of people standing in the background.
 
-By default, `IndexFaces` chooses a quality bar that's used to filter
-out faces. You can use the `QualityFilter` input parameter to explicitly
-set the quality bar. The values are:
-
-- `AUTO` — Amazon Rekognition chooses the quality bar that's used
-  to filter out faces (default value).
-- `LOW` — All except the lowest quality faces are
-  indexed.
-- `MEDIUM`
-- `HIGH` — Only the highest quality faces are
-  indexed.
-- `NONE` - No faces are filtered out based on quality.
+By default, `IndexFaces` chooses a quality bar that's used to filter out faces. You can use the `QualityFilter` input parameter to explicitly set the quality bar. The values are:
++ `AUTO` — Amazon Rekognition chooses the quality bar that's used to filter out faces (default value).
++ `LOW` — All except the lowest quality faces are indexed.
++ `MEDIUM`
++ `HIGH` — Only the highest quality faces are indexed.
++ `NONE` - No faces are filtered out based on quality.
 
 `IndexFaces` filters faces for the following reasons:
++ The face is too small compared to the image dimensions.
++ The face is too blurry.
++ The image is too dark.
++ The face has an extreme pose.
++ The face doesn’t have enough detail to be suitable for face search.
 
-- The face is too small compared to the image dimensions.
-- The face is too blurry.
-- The image is too dark.
-- The face has an extreme pose.
-- The face doesn’t have enough detail to be suitable for face search.
+**Note**  
+To use quality filtering, you need a collection that's associated with version 3, or higher, of the face model. To get the version of the face model associated with a collection, call [DescribeCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html). 
 
-###### Note
+Information about faces that aren't indexed by `IndexFaces` is returned in an array of [UnindexedFace](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UnindexedFace.html) objects. The `Reasons` array contains a list of reasons why a face isn't indexed. For example, a value of `EXCEEDS_MAX_FACES` is a face that's not indexed because the number of faces specified by `MaxFaces` has already been detected. 
 
-To use quality filtering, you need a collection that's associated with version
-3, or higher, of the face model. To get the version of the face model associated
-with a collection, call [DescribeCollection](../APIReference/API_DescribeCollection.md "../APIReference/API_DescribeCollection.md").
+For more information, see [Managing faces in a collection](managing-face-collections.md#collections-index-faces). 
 
-Information about faces that aren't indexed by `IndexFaces` is returned
-in an array of [UnindexedFace](../APIReference/API_UnindexedFace.md "../APIReference/API_UnindexedFace.md") objects. The `Reasons` array contains a list
-of reasons why a face isn't indexed. For example, a value of
-`EXCEEDS_MAX_FACES` is a face that's not indexed because the number
-of faces specified by `MaxFaces` has already been detected.
 
-For more information, see [Managing faces in a collection](managing-face-collections.md#collections-index-faces "managing-face-collections.md#collections-index-faces").
 
-###### To add faces to a collection (SDK)
+**To add faces to a collection (SDK)**
 
 1. If you haven't already:
 
-   1. Create or update a user with `AmazonRekognitionFullAccess`
-      and `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
-   2. Install and configure the AWS CLI and the AWS SDKs. For more
-      information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
+   1. Create or update a user with `AmazonRekognitionFullAccess` and `AmazonS3ReadOnlyAccess` permissions. For more information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam).
 
-2. Upload an image (containing one or more faces) to your Amazon S3 bucket.
+   1. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md).
 
-For instructions, see [Uploading Objects into
-Amazon S3](../../../AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.md "../../../AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.md") in the _Amazon Simple Storage Service User Guide_. 3. Use the following examples to call the `IndexFaces`
-operation.
+1. Upload an image (containing one or more faces) to your Amazon S3 bucket. 
 
-Java
-This example displays the face identifiers for faces added to the
-collection.
+   For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*.
 
-Change the value of `collectionId` to the name of the
-collection that you want to add a face to. Replace the values of
-`bucket` and `photo` with the names of the
-Amazon S3 bucket and image that you used in step 2. The
-`.withMaxFaces(1)` parameter restricts the number of
-indexed faces to 1. Remove or change its value to suit your
-needs.
+1. Use the following examples to call the `IndexFaces` operation.
 
-```
-//Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-//PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
+------
+#### [ Java ]
 
-package aws.example.rekognition.image;
+   This example displays the face identifiers for faces added to the collection.
 
-import com.amazonaws.services.rekognition.AmazonRekognition;
-import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder;
-import com.amazonaws.services.rekognition.model.FaceRecord;
-import com.amazonaws.services.rekognition.model.Image;
-import com.amazonaws.services.rekognition.model.IndexFacesRequest;
-import com.amazonaws.services.rekognition.model.IndexFacesResult;
-import com.amazonaws.services.rekognition.model.QualityFilter;
-import com.amazonaws.services.rekognition.model.S3Object;
-import com.amazonaws.services.rekognition.model.UnindexedFace;
-import java.util.List;
+   Change the value of `collectionId` to the name of the collection that you want to add a face to. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in step 2. The `.withMaxFaces(1)` parameter restricts the number of indexed faces to 1. Remove or change its value to suit your needs.
 
-public class AddFacesToCollection {
-    public static final String collectionId = "MyCollection";
-    public static final String bucket = "bucket";
-    public static final String photo = "input.jpg";
+   ```
+   //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
+   
+   package aws.example.rekognition.image;
+   
+   import com.amazonaws.services.rekognition.AmazonRekognition;
+   import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder;
+   import com.amazonaws.services.rekognition.model.FaceRecord;
+   import com.amazonaws.services.rekognition.model.Image;
+   import com.amazonaws.services.rekognition.model.IndexFacesRequest;
+   import com.amazonaws.services.rekognition.model.IndexFacesResult;
+   import com.amazonaws.services.rekognition.model.QualityFilter;
+   import com.amazonaws.services.rekognition.model.S3Object;
+   import com.amazonaws.services.rekognition.model.UnindexedFace;
+   import java.util.List;
+   
+   public class AddFacesToCollection {
+       public static final String collectionId = "MyCollection";
+       public static final String bucket = "bucket";
+       public static final String photo = "input.jpg";
+   
+       public static void main(String[] args) throws Exception {
+   
+           AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
+   
+           Image image = new Image()
+                   .withS3Object(new S3Object()
+                   .withBucket(bucket)
+                   .withName(photo));
+           
+           IndexFacesRequest indexFacesRequest = new IndexFacesRequest()
+                   .withImage(image)
+                   .withQualityFilter(QualityFilter.AUTO)
+                   .withMaxFaces(1)
+                   .withCollectionId(collectionId)
+                   .withExternalImageId(photo)
+                   .withDetectionAttributes("DEFAULT");
+   
+           IndexFacesResult indexFacesResult = rekognitionClient.indexFaces(indexFacesRequest);
+           
+           System.out.println("Results for " + photo);
+           System.out.println("Faces indexed:");
+           List<FaceRecord> faceRecords = indexFacesResult.getFaceRecords();
+           for (FaceRecord faceRecord : faceRecords) {
+               System.out.println("  Face ID: " + faceRecord.getFace().getFaceId());
+               System.out.println("  Location:" + faceRecord.getFaceDetail().getBoundingBox().toString());
+           }
+           
+           List<UnindexedFace> unindexedFaces = indexFacesResult.getUnindexedFaces();
+           System.out.println("Faces not indexed:");
+           for (UnindexedFace unindexedFace : unindexedFaces) {
+               System.out.println("  Location:" + unindexedFace.getFaceDetail().getBoundingBox().toString());
+               System.out.println("  Reasons:");
+               for (String reason : unindexedFace.getReasons()) {
+                   System.out.println("   " + reason);
+               }
+           }
+       }
+   }
+   ```
 
-    public static void main(String[] args) throws Exception {
+------
+#### [ Java V2 ]
 
-        AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
+   This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/AddFacesToCollection.java).
 
-        Image image = new Image()
-                .withS3Object(new S3Object()
-                .withBucket(bucket)
-                .withName(photo));
-
-        IndexFacesRequest indexFacesRequest = new IndexFacesRequest()
-                .withImage(image)
-                .withQualityFilter(QualityFilter.AUTO)
-                .withMaxFaces(1)
-                .withCollectionId(collectionId)
-                .withExternalImageId(photo)
-                .withDetectionAttributes("DEFAULT");
-
-        IndexFacesResult indexFacesResult = rekognitionClient.indexFaces(indexFacesRequest);
-
-        System.out.println("Results for " + photo);
-        System.out.println("Faces indexed:");
-        List<FaceRecord> faceRecords = indexFacesResult.getFaceRecords();
-        for (FaceRecord faceRecord : faceRecords) {
-            System.out.println("  Face ID: " + faceRecord.getFace().getFaceId());
-            System.out.println("  Location:" + faceRecord.getFaceDetail().getBoundingBox().toString());
+   ```
+   //snippet-start:[rekognition.java2.add_faces_collection.import]
+   import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
+   import software.amazon.awssdk.core.SdkBytes;
+   import software.amazon.awssdk.regions.Region;
+   import software.amazon.awssdk.services.rekognition.RekognitionClient;
+   import software.amazon.awssdk.services.rekognition.model.IndexFacesResponse;
+   import software.amazon.awssdk.services.rekognition.model.IndexFacesRequest;
+   import software.amazon.awssdk.services.rekognition.model.Image;
+   import software.amazon.awssdk.services.rekognition.model.QualityFilter;
+   import software.amazon.awssdk.services.rekognition.model.Attribute;
+   import software.amazon.awssdk.services.rekognition.model.FaceRecord;
+   import software.amazon.awssdk.services.rekognition.model.UnindexedFace;
+   import software.amazon.awssdk.services.rekognition.model.RekognitionException;
+   import software.amazon.awssdk.services.rekognition.model.Reason;
+   import java.io.FileInputStream;
+   import java.io.FileNotFoundException;
+   import java.io.InputStream;
+   import java.util.List;
+   //snippet-end:[rekognition.java2.add_faces_collection.import]
+   
+   /**
+   * Before running this Java V2 code example, set up your development environment, including your credentials.
+   *
+   * For more information, see the following documentation topic:
+   *
+   * https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
+   */
+   public class AddFacesToCollection {
+   
+    public static void main(String[] args) {
+   
+        final String usage = "\n" +
+            "Usage: " +
+            "    <collectionId> <sourceImage>\n\n" +
+            "Where:\n" +
+            "    collectionName - The name of the collection.\n" +
+            "    sourceImage - The path to the image (for example, C:\\AWS\\pic1.png). \n\n";
+   
+        if (args.length != 2) {
+            System.out.println(usage);
+            System.exit(1);
         }
-
-        List<UnindexedFace> unindexedFaces = indexFacesResult.getUnindexedFaces();
-        System.out.println("Faces not indexed:");
-        for (UnindexedFace unindexedFace : unindexedFaces) {
-            System.out.println("  Location:" + unindexedFace.getFaceDetail().getBoundingBox().toString());
-            System.out.println("  Reasons:");
-            for (String reason : unindexedFace.getReasons()) {
-                System.out.println("   " + reason);
+   
+        String collectionId = args[0];
+        String sourceImage = args[1];
+        Region region = Region.US_EAST_1;
+        RekognitionClient rekClient = RekognitionClient.builder()
+            .region(region)
+            .credentialsProvider(ProfileCredentialsProvider.create("profile-name"))
+            .build();
+   
+        addToCollection(rekClient, collectionId, sourceImage);
+        rekClient.close();
+    }
+   
+    // snippet-start:[rekognition.java2.add_faces_collection.main]
+    public static void addToCollection(RekognitionClient rekClient, String collectionId, String sourceImage) {
+   
+        try {
+            InputStream sourceStream = new FileInputStream(sourceImage);
+            SdkBytes sourceBytes = SdkBytes.fromInputStream(sourceStream);
+            Image souImage = Image.builder()
+                .bytes(sourceBytes)
+                .build();
+   
+            IndexFacesRequest facesRequest = IndexFacesRequest.builder()
+                .collectionId(collectionId)
+                .image(souImage)
+                .maxFaces(1)
+                .qualityFilter(QualityFilter.AUTO)
+                .detectionAttributes(Attribute.DEFAULT)
+                .build();
+   
+            IndexFacesResponse facesResponse = rekClient.indexFaces(facesRequest);
+            System.out.println("Results for the image");
+            System.out.println("\n Faces indexed:");
+            List<FaceRecord> faceRecords = facesResponse.faceRecords();
+            for (FaceRecord faceRecord : faceRecords) {
+                System.out.println("  Face ID: " + faceRecord.face().faceId());
+                System.out.println("  Location:" + faceRecord.faceDetail().boundingBox().toString());
             }
+   
+            List<UnindexedFace> unindexedFaces = facesResponse.unindexedFaces();
+            System.out.println("Faces not indexed:");
+            for (UnindexedFace unindexedFace : unindexedFaces) {
+                System.out.println("  Location:" + unindexedFace.faceDetail().boundingBox().toString());
+                System.out.println("  Reasons:");
+                for (Reason reason : unindexedFace.reasons()) {
+                    System.out.println("Reason:  " + reason);
+                }
+            }
+   
+        } catch (RekognitionException | FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
         }
     }
-}
-```
+    // snippet-end:[rekognition.java2.add_faces_collection.main]
+   }
+   ```
 
-Java V2
-This code is taken from the AWS Documentation SDK examples
-GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/AddFacesToCollection.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/AddFacesToCollection.java").
+------
+#### [ AWS CLI ]
 
-```
-//snippet-start:[rekognition.java2.add_faces_collection.import]
-import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
-import software.amazon.awssdk.core.SdkBytes;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.rekognition.RekognitionClient;
-import software.amazon.awssdk.services.rekognition.model.IndexFacesResponse;
-import software.amazon.awssdk.services.rekognition.model.IndexFacesRequest;
-import software.amazon.awssdk.services.rekognition.model.Image;
-import software.amazon.awssdk.services.rekognition.model.QualityFilter;
-import software.amazon.awssdk.services.rekognition.model.Attribute;
-import software.amazon.awssdk.services.rekognition.model.FaceRecord;
-import software.amazon.awssdk.services.rekognition.model.UnindexedFace;
-import software.amazon.awssdk.services.rekognition.model.RekognitionException;
-import software.amazon.awssdk.services.rekognition.model.Reason;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.List;
-//snippet-end:[rekognition.java2.add_faces_collection.import]
+   This AWS CLI command displays the JSON output for the `index-faces` CLI operation. 
 
-/**
-* Before running this Java V2 code example, set up your development environment, including your credentials.
-*
-* For more information, see the following documentation topic:
-*
-* https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html
-*/
-public class AddFacesToCollection {
+   Replace the value of `collection-id` with the name of the collection you want the face to be stored in. Replace the values of `Bucket` and `Name` with the Amazon S3 bucket and image file that you used in step 2. The `max-faces` parameter restricts the number of indexed faces to 1. Remove or change its value to suit your needs. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile.
 
- public static void main(String[] args) {
+   ```
+   aws rekognition index-faces --image '{"S3Object":{"Bucket":"bucket-name","Name":"file-name"}}' --collection-id "collection-id" \
+                                   --max-faces 1 --quality-filter "AUTO" --detection-attributes "ALL" \ 
+                                   --external-image-id "example-image.jpg" --profile profile-name
+   ```
 
-     final String usage = "\n" +
-         "Usage: " +
-         "    <collectionId> <sourceImage>\n\n" +
-         "Where:\n" +
-         "    collectionName - The name of the collection.\n" +
-         "    sourceImage - The path to the image (for example, C:\\AWS\\pic1.png). \n\n";
+    If you are accessing the CLI on a Windows device, use double quotes instead of single quotes and escape the inner double quotes by backslash (i.e. \\) to address any parser errors you may encounter. For an example, see the following: 
 
-     if (args.length != 2) {
-         System.out.println(usage);
-         System.exit(1);
-     }
+   ```
+   aws rekognition index-faces --image "{\"S3Object\":{\"Bucket\":\"bucket-name\",\"Name\":\"image-name\"}}" \
+   --collection-id "collection-id" --max-faces 1 --quality-filter "AUTO" --detection-attributes "ALL" \ 
+   --external-image-id "example-image.jpg" --profile profile-name
+   ```
 
-     String collectionId = args[0];
-     String sourceImage = args[1];
-     Region region = Region.US_EAST_1;
-     RekognitionClient rekClient = RekognitionClient.builder()
-         .region(region)
-         .credentialsProvider(ProfileCredentialsProvider.create("profile-name"))
-         .build();
+------
+#### [ Python ]
 
-     addToCollection(rekClient, collectionId, sourceImage);
-     rekClient.close();
- }
+   This example displays the face identifiers for faces added to the collection.
 
- // snippet-start:[rekognition.java2.add_faces_collection.main]
- public static void addToCollection(RekognitionClient rekClient, String collectionId, String sourceImage) {
+   Change the value of `collectionId` to the name of the collection that you want to add a face to. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in step 2. The `MaxFaces` input parameter restricts the number of indexed faces to 1. Remove or change its value to suit your needs. Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile. 
 
-     try {
-         InputStream sourceStream = new FileInputStream(sourceImage);
-         SdkBytes sourceBytes = SdkBytes.fromInputStream(sourceStream);
-         Image souImage = Image.builder()
-             .bytes(sourceBytes)
-             .build();
+   ```
+   # Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   # PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
+   
+   import boto3
+   
+   def add_faces_to_collection(bucket, photo, collection_id):
+   
+       session = boto3.Session(profile_name='profile-name')
+       client = session.client('rekognition')
+   
+       response = client.index_faces(CollectionId=collection_id,
+                                     Image={'S3Object': {'Bucket': bucket, 'Name': photo}},
+                                     ExternalImageId=photo,
+                                     MaxFaces=1,
+                                     QualityFilter="AUTO",
+                                     DetectionAttributes=['ALL'])
+   
+       print('Results for ' + photo)
+       print('Faces indexed:')
+       for faceRecord in response['FaceRecords']:
+           print('  Face ID: ' + faceRecord['Face']['FaceId'])
+           print('  Location: {}'.format(faceRecord['Face']['BoundingBox']))
+   
+       print('Faces not indexed:')
+       for unindexedFace in response['UnindexedFaces']:
+           print(' Location: {}'.format(unindexedFace['FaceDetail']['BoundingBox']))
+           print(' Reasons:')
+           for reason in unindexedFace['Reasons']:
+               print('   ' + reason)
+       return len(response['FaceRecords'])
+   
+   def main():
+       bucket = 'amzn-s3-demo-bucket'
+       collection_id = 'collection-id'
+       photo = 'photo-name'
+   
+       indexed_faces_count = add_faces_to_collection(bucket, photo, collection_id)
+       print("Faces indexed count: " + str(indexed_faces_count))
+   
+   if __name__ == "__main__":
+       main()
+   ```
 
-         IndexFacesRequest facesRequest = IndexFacesRequest.builder()
-             .collectionId(collectionId)
-             .image(souImage)
-             .maxFaces(1)
-             .qualityFilter(QualityFilter.AUTO)
-             .detectionAttributes(Attribute.DEFAULT)
-             .build();
+------
+#### [ .NET ]
 
-         IndexFacesResponse facesResponse = rekClient.indexFaces(facesRequest);
-         System.out.println("Results for the image");
-         System.out.println("\n Faces indexed:");
-         List<FaceRecord> faceRecords = facesResponse.faceRecords();
-         for (FaceRecord faceRecord : faceRecords) {
-             System.out.println("  Face ID: " + faceRecord.face().faceId());
-             System.out.println("  Location:" + faceRecord.faceDetail().boundingBox().toString());
-         }
+   This example displays the face identifiers for faces added to the collection.
 
-         List<UnindexedFace> unindexedFaces = facesResponse.unindexedFaces();
-         System.out.println("Faces not indexed:");
-         for (UnindexedFace unindexedFace : unindexedFaces) {
-             System.out.println("  Location:" + unindexedFace.faceDetail().boundingBox().toString());
-             System.out.println("  Reasons:");
-             for (Reason reason : unindexedFace.reasons()) {
-                 System.out.println("Reason:  " + reason);
-             }
-         }
+   Change the value of `collectionId` to the name of the collection that you want to add a face to. Replace the values of `bucket` and `photo` with the names of the Amazon S3 bucket and image that you used in step 2. 
 
-     } catch (RekognitionException | FileNotFoundException e) {
-         System.out.println(e.getMessage());
-         System.exit(1);
-     }
- }
- // snippet-end:[rekognition.java2.add_faces_collection.main]
-}
-```
+   ```
+   //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+   //PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
+   
+   using System;
+   using System.Collections.Generic;
+   using Amazon.Rekognition;
+   using Amazon.Rekognition.Model;
+   
+   public class AddFaces
+   {
+       public static void Example()
+       {
+           String collectionId = "MyCollection";
+           String bucket = "amzn-s3-demo-bucket";
+           String photo = "input.jpg";
+   
+           AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
+   
+           Image image = new Image()
+           {
+               S3Object = new S3Object()
+               {
+                   Bucket = bucket,
+                   Name = photo
+               }
+           };
+   
+           IndexFacesRequest indexFacesRequest = new IndexFacesRequest()
+           {
+               Image = image,
+               CollectionId = collectionId,
+               ExternalImageId = photo,
+               DetectionAttributes = new List<String>(){ "ALL" }
+           };
+   
+           IndexFacesResponse indexFacesResponse = rekognitionClient.IndexFaces(indexFacesRequest);
+   
+           Console.WriteLine(photo + " added");
+           foreach (FaceRecord faceRecord in indexFacesResponse.FaceRecords)
+               Console.WriteLine("Face detected: Faceid is " +
+                  faceRecord.Face.FaceId);
+       }
+   }
+   ```
 
-AWS CLI
-This AWS CLI command displays the JSON output for the
-`index-faces` CLI operation.
-
-Replace the value of `collection-id` with the name of
-the collection you want the face to be stored in. Replace the values
-of `Bucket` and `Name` with the Amazon S3 bucket
-and image file that you used in step 2. The `max-faces`
-parameter restricts the number of indexed faces to 1. Remove or
-change its value to suit your needs. Replace the value of
-`profile_name` in the line that creates the Rekognition
-session with the name of your developer profile.
-
-```
-aws rekognition index-faces --image '{"S3Object":{"Bucket":"bucket-name","Name":"file-name"}}' --collection-id "collection-id" \
-                                --max-faces 1 --quality-filter "AUTO" --detection-attributes "ALL" \
-                                --external-image-id "example-image.jpg" --profile profile-name
-```
-
-If you are accessing the CLI on a Windows device, use double
-quotes instead of single quotes and escape the inner double quotes
-by backslash (i.e. \) to address any parser errors you may
-encounter. For an example, see the following:
-
-```
-aws rekognition index-faces --image "{\"S3Object\":{\"Bucket\":\"bucket-name\",\"Name\":\"image-name\"}}" \
---collection-id "collection-id" --max-faces 1 --quality-filter "AUTO" --detection-attributes "ALL" \
---external-image-id "example-image.jpg" --profile profile-name
-
-```
-
-Python
-This example displays the face identifiers for faces added to the
-collection.
-
-Change the value of `collectionId` to the name of the
-collection that you want to add a face to. Replace the values of
-`bucket` and `photo` with the names of the
-Amazon S3 bucket and image that you used in step 2. The
-`MaxFaces` input parameter restricts the number of
-indexed faces to 1. Remove or change its value to suit your needs.
-Replace the value of `profile_name` in the line that
-creates the Rekognition session with the name of your developer profile.
-
-```
-# Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
-
-import boto3
-
-def add_faces_to_collection(bucket, photo, collection_id):
-
-    session = boto3.Session(profile_name='profile-name')
-    client = session.client('rekognition')
-
-    response = client.index_faces(CollectionId=collection_id,
-                                  Image={'S3Object': {'Bucket': bucket, 'Name': photo}},
-                                  ExternalImageId=photo,
-                                  MaxFaces=1,
-                                  QualityFilter="AUTO",
-                                  DetectionAttributes=['ALL'])
-
-    print('Results for ' + photo)
-    print('Faces indexed:')
-    for faceRecord in response['FaceRecords']:
-        print('  Face ID: ' + faceRecord['Face']['FaceId'])
-        print('  Location: {}'.format(faceRecord['Face']['BoundingBox']))
-
-    print('Faces not indexed:')
-    for unindexedFace in response['UnindexedFaces']:
-        print(' Location: {}'.format(unindexedFace['FaceDetail']['BoundingBox']))
-        print(' Reasons:')
-        for reason in unindexedFace['Reasons']:
-            print('   ' + reason)
-    return len(response['FaceRecords'])
-
-def main():
-    bucket = 'amzn-s3-demo-bucket'
-    collection_id = 'collection-id'
-    photo = 'photo-name'
-
-    indexed_faces_count = add_faces_to_collection(bucket, photo, collection_id)
-    print("Faces indexed count: " + str(indexed_faces_count))
-
-if __name__ == "__main__":
-    main()
-```
-
-.NET
-This example displays the face identifiers for faces added to the
-collection.
-
-Change the value of `collectionId` to the name of the
-collection that you want to add a face to. Replace the values of
-`bucket` and `photo` with the names of the
-Amazon S3 bucket and image that you used in step 2.
-
-```
-//Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-//PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-developer-guide/blob/master/LICENSE-SAMPLECODE.)
-
-using System;
-using System.Collections.Generic;
-using Amazon.Rekognition;
-using Amazon.Rekognition.Model;
-
-public class AddFaces
-{
-    public static void Example()
-    {
-        String collectionId = "MyCollection";
-        String bucket = "amzn-s3-demo-bucket";
-        String photo = "input.jpg";
-
-        AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
-
-        Image image = new Image()
-        {
-            S3Object = new S3Object()
-            {
-                Bucket = bucket,
-                Name = photo
-            }
-        };
-
-        IndexFacesRequest indexFacesRequest = new IndexFacesRequest()
-        {
-            Image = image,
-            CollectionId = collectionId,
-            ExternalImageId = photo,
-            DetectionAttributes = new List<String>(){ "ALL" }
-        };
-
-        IndexFacesResponse indexFacesResponse = rekognitionClient.IndexFaces(indexFacesRequest);
-
-        Console.WriteLine(photo + " added");
-        foreach (FaceRecord faceRecord in indexFacesResponse.FaceRecords)
-            Console.WriteLine("Face detected: Faceid is " +
-               faceRecord.Face.FaceId);
-    }
-}
-
-```
+------
 
 ## IndexFaces operation request
+<a name="indexfaces-request"></a>
 
-The input to `IndexFaces` is the image to be indexed and the collection
-to add the face or faces to.
+The input to `IndexFaces` is the image to be indexed and the collection to add the face or faces to. 
 
 ```
 {
@@ -464,16 +401,9 @@ to add the face or faces to.
 ```
 
 ## IndexFaces operation response
+<a name="indexfaces-operation-response"></a>
 
-`IndexFaces` returns information about the faces that were detected in
-the image. For example, the following JSON response includes the default detection
-attributes for faces detected in the input image. The example also shows faces not
-indexed because the value of the `MaxFaces` input parameter has been
-exceeded — the `Reasons` array contains
-_EXCEEDS\_MAX\_FACES_. If a face is not indexed for quality
-reasons, `Reasons` contains values such as
-_LOW\_SHARPNESS_ or _LOW\_BRIGHTNESS_. For
-more information, see [UnindexedFace](../APIReference/API_UnindexedFace.md "../APIReference/API_UnindexedFace.md").
+`IndexFaces` returns information about the faces that were detected in the image. For example, the following JSON response includes the default detection attributes for faces detected in the input image. The example also shows faces not indexed because the value of the `MaxFaces` input parameter has been exceeded — the `Reasons` array contains *EXCEEDS\_MAX\_FACES*. If a face is not indexed for quality reasons, `Reasons` contains values such as *LOW\_SHARPNESS* or *LOW\_BRIGHTNESS*. For more information, see [UnindexedFace](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UnindexedFace.html).
 
 ```
 {
@@ -595,29 +525,18 @@ more information, see [UnindexedFace](../APIReference/API_UnindexedFace.md "../A
 }
 ```
 
-To get all facial information, specify 'ALL' for the
-`DetectionAttributes` request parameter. For example, in the
-following example response, note the additional information in the
-`faceDetail` element, which isn't persisted on the server:
+To get all facial information, specify 'ALL' for the `DetectionAttributes` request parameter. For example, in the following example response, note the additional information in the `faceDetail` element, which isn't persisted on the server:
++ 25 facial landmarks (compared to only five in the preceding example)
++ Ten facial attributes (eyeglasses, beard, occlusion, eye gaze direction, and so on) 
++ Emotions (see the `emotion` element)
 
-- 25 facial landmarks (compared to only five in the preceding
-  example)
-- Ten facial attributes (eyeglasses, beard, occlusion, eye gaze direction,
-  and so on)
-- Emotions (see the `emotion` element)
+The `face` element provides metadata that's persisted on the server.
 
-The `face` element provides metadata that's persisted on the
-server.
+ `FaceModelVersion` is the version of the face model that's associated with the collection. For more information, see [Understanding model versioning](face-detection-model.md).
 
-`FaceModelVersion` is the version of the face model that's associated
-with the collection. For more information, see [Understanding model versioning](face-detection-model.md "face-detection-model.md").
+`OrientationCorrection` is the estimated orientation of the image. Orientation correction information is not returned if you are using a version of the face detection model that is greater than version 3. For more information, see [Getting image orientation and bounding box coordinates](images-orientation.md).
 
-`OrientationCorrection` is the estimated orientation of the image.
-Orientation correction information is not returned if you are using a version of the
-face detection model that is greater than version 3. For more information, see [Getting image orientation and bounding box coordinates](images-orientation.md "images-orientation.md").
-
-The following sample response shows the returned JSON when specifying
-["ALL"]:
+The following sample response shows the returned JSON when specifying ["ALL"]:
 
 ```
 {

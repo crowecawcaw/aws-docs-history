@@ -1,20 +1,21 @@
+
+
 # Exercise 1: Detect objects and scenes (Console)
+<a name="detect-labels-console"></a>
 
-This section shows how, at a very high level, Amazon Rekognition's objects and scenes detection
-capability works. When you specify an image as input, the service detects the objects
-and scenes in the image and returns them along with a percent confidence score for each
-object and scene.
+This section shows how, at a very high level, Amazon Rekognition's objects and scenes detection capability works. When you specify an image as input, the service detects the objects and scenes in the image and returns them along with a percent confidence score for each object and scene.
 
-For example, Amazon Rekognition detects the following objects and scenes in the sample image:
-skateboard, sport, person, auto, car and vehicle.
+For example, Amazon Rekognition detects the following objects and scenes in the sample image: skateboard, sport, person, auto, car and vehicle.
 
-![Person doing a stunt on a skateboard in the middle of a city street between parked cars.](images/detect-scenes.png)
-Amazon Rekognition also returns a confidence score for each object detected in the
-sample image, as shown in the following sample response.
+![Person doing a stunt on a skateboard in the middle of a city street between parked cars.](http://docs.aws.amazon.com/rekognition/latest/dg/images/detect-scenes.png)
 
-![Graph displaying scores for labels like Skateboard, Sport, People, Person, Human, and Parking with high confidence values around 99%.](images/labels-confidence-score.png)
-To see all the confidence scores shown in the response, choose **Show more**
-in the **Labels | Confidence** pane.
+
+Amazon Rekognition also returns a confidence score for each object detected in the sample image, as shown in the following sample response. 
+
+![Graph displaying scores for labels like Skateboard, Sport, People, Person, Human, and Parking with high confidence values around 99%.](http://docs.aws.amazon.com/rekognition/latest/dg/images/labels-confidence-score.png)
+
+
+To see all the confidence scores shown in the response, choose **Show more** in the **Labels \| Confidence** pane.
 
 You can also look at the request to the API and the response from the API as a reference.
 
@@ -187,51 +188,48 @@ Response
       }
    ]
 }
-
 ```
 
-For more information, see [How Amazon Rekognition works](how-it-works.md "how-it-works.md").
+For more information, see [How Amazon Rekognition works](how-it-works.md).
 
 ## Detect objects and scenes in an image you provide
+<a name="detect-label-own-image"></a>
 
-You can upload an image that you own or provide the URL to an image as input in
-the Amazon Rekognition console. Amazon Rekognition returns the object and scenes, confidence scores
-for each object, and scene it detects in the image you provide.
+You can upload an image that you own or provide the URL to an image as input in the Amazon Rekognition console. Amazon Rekognition returns the object and scenes, confidence scores for each object, and scene it detects in the image you provide.
 
-###### Note
-
+**Note**  
 The image must be less than 5MB in size and must be of JPEG or PNG format.
 
-###### To detect objects and scenes in an image you provide
+**To detect objects and scenes in an image you provide**
 
-1. Open the Amazon Rekognition console at
-   [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/ "https://console.aws.amazon.com/rekognition/").
-2. Choose **Label detection**.
-3. Do one of the following:
+1. Open the Amazon Rekognition console at [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/).
 
-   - Upload an image – Choose **Upload**, go to the location where you stored your image, and then select the image.
-   - Use a URL – Type the URL in the text box, and then choose **Go**.
+1. Choose **Label detection**.
 
-4. View the confidence score of each label detected in the
-   **Labels | Confidence** pane.
+1. Do one of the following: 
+   + Upload an image – Choose **Upload**, go to the location where you stored your image, and then select the image. 
+   + Use a URL – Type the URL in the text box, and then choose **Go**.
 
-For more image analysis options, see [Working with images](images.md "images.md").
+1. View the confidence score of each label detected in the **Labels \| Confidence** pane.
+
+For more image analysis options, see [Working with images](images.md).
 
 ## Detect objects and people in a video you provide
+<a name="detect-label-video-console"></a>
 
 You can upload a video that you provide as input in the Amazon Rekognition console. Amazon Rekognition returns the people, objects, and labels detected in the video.
 
-###### Note
-
+**Note**  
 The demo video must not be more than a minute long or larger than 30 MB. It must be in MP4 file format and encoded using the H.264 codec.
 
-###### To detect objects and people in a video you provide
+**To detect objects and people in a video you provide**
 
-1. Open the Amazon Rekognition console at
-   [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/ "https://console.aws.amazon.com/rekognition/").
-2. Choose **Stored Video Analysis** from the navigation bar.
-3. Under **Choose a sample or upload your own**, select **Your own
-   video** from the drop-down menu.
-4. Drag and drop your video or select your video from the location where you've stored it.
+1. Open the Amazon Rekognition console at [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/).
 
-For more video analysis options, see [Working with stored video analysis operations](video.md "video.md") or [Working with streaming video events](streaming-video.md "streaming-video.md").
+1. Choose **Stored Video Analysis** from the navigation bar.
+
+1. Under **Choose a sample or upload your own**, select **Your own video** from the drop-down menu.
+
+1. Drag and drop your video or select your video from the location where you've stored it.
+
+ For more video analysis options, see [Working with stored video analysis operations](video.md) or [Working with streaming video events](streaming-video.md).

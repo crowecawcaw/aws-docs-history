@@ -1,24 +1,22 @@
+
+
 # Build an Amazon Rekognition collection and find faces in it using an AWS SDK
+<a name="example_rekognition_Usage_FindFacesInCollection_section"></a>
 
 The following code example shows how to:
++ Create an Amazon Rekognition collection.
++ Add images to the collection and detect faces in it.
++ Search the collection for faces that match a reference image.
++ Delete a collection.
 
-- Create an Amazon Rekognition collection.
-- Add images to the collection and detect faces in it.
-- Search the collection for faces that match a reference image.
-- Delete a collection.
-  For more information, see [Searching faces in a collection](collections.md "collections.md").
+For more information, see [Searching faces in a collection](https://docs.aws.amazon.com/rekognition/latest/dg/collections.html).
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
-
-Create classes that wrap Amazon Rekognition functions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
+Create classes that wrap Amazon Rekognition functions.  
 
 ```
 import logging
@@ -440,13 +438,8 @@ class RekognitionFace:
         if has:
             rendering["has"] = has
         return rendering
-
-
-
-
 ```
-
-Use the wrapper classes to build a collection of faces from a set of images and then search for faces in the collection.
+Use the wrapper classes to build a collection of faces from a set of images and then search for faces in the collection.  
 
 ```
 def usage_demo():
@@ -514,12 +507,8 @@ def usage_demo():
     collection.delete_collection()
     print("Thanks for watching!")
     print("-" * 88)
-
-
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

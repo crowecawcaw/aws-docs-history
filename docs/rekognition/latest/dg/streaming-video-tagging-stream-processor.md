@@ -1,18 +1,15 @@
+
+
 # Add tags to a new stream processor
+<a name="streaming-video-tagging-stream-processor"></a>
 
-###### Note
-
-Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
-[Amazon Rekognition feature availability changes](rekognition-availability-changes.md "rekognition-availability-changes.md").
-
+**Note**  
+Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  
 **This change does not impact the availability of other Amazon Rekognition features.**
 
-You can identify, organize, search for, and filter Amazon Rekognition stream processors by using tags. Each tag is a label consisting of a
-user-defined key and value.
+You can identify, organize, search for, and filter Amazon Rekognition stream processors by using tags. Each tag is a label consisting of a user-defined key and value.
 
-You can add tags to a stream processor as you create it using the `CreateStreamProcessor` operation. Specify one or more tags in the `Tags` array input parameter.
-The following is a JSON
-example for the `CreateStreamProcessor` request with tags.
+You can add tags to a stream processor as you create it using the `CreateStreamProcessor` operation. Specify one or more tags in the `Tags` array input parameter. The following is a JSON example for the `CreateStreamProcessor` request with tags.
 
 ```
 {
@@ -33,11 +30,10 @@ example for the `CreateStreamProcessor` request with tags.
                      "CollectionId": "collection-with-100-faces",
                      "FaceMatchThreshold": 85.5
               },
-              "Tags": {
+              "Tags": { 
       "Dept": "Engineering",
         "Name": "Ana Silva Carolina",
         "Role": "Developer"
        }
 }
-
 ```

@@ -1,18 +1,17 @@
+
+
 # Use `DeleteCollection` with an AWS SDK or CLI
+<a name="example_rekognition_DeleteCollection_section"></a>
 
 The following code examples show how to use `DeleteCollection`.
 
-For more information, see [Deleting a collection](delete-collection-procedure.md "delete-collection-procedure.md").
+For more information, see [Deleting a collection](https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
 ```
     using System;
@@ -41,52 +40,35 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"{collectionId}: {deleteCollectionResponse.StatusCode}");
         }
     }
+```
++  For API details, see [DeleteCollection](https://docs.aws.amazon.com/goto/DotNetSDKV3/rekognition-2016-06-27/DeleteCollection) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To delete a collection**  
+The following `delete-collection` command deletes the specified collection.  
 
 ```
-
-- For API details, see
-  [DeleteCollection](../../../goto/DotNetSDKV3/rekognition-2016-06-27/DeleteCollection.md "../../../goto/DotNetSDKV3/rekognition-2016-06-27/DeleteCollection.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a collection**
-
-The following `delete-collection` command deletes the specified collection.
-
+aws rekognition delete-collection \
+    --collection-id {{MyCollection}}
 ```
-`aws rekognition delete-collection \
- --collection-id `MyCollection``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "StatusCode": 200
 }
 ```
+For more information, see [Deleting a Collection](https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html) in the *Amazon Rekognition Developer Guide*.  
++  For API details, see [DeleteCollection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/delete-collection.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Deleting a Collection](delete-collection-procedure.md "delete-collection-procedure.md") in the _Amazon Rekognition Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DeleteCollection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/delete-collection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/delete-collection.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -149,23 +131,14 @@ public class DeleteCollection {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteCollection](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/DeleteCollection) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteCollection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/DeleteCollection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/DeleteCollection.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
 ```
 suspend fun deleteMyCollection(collectionIdVal: String) {
@@ -179,23 +152,14 @@ suspend fun deleteMyCollection(collectionIdVal: String) {
         println("The collectionId status is ${response.statusCode}")
     }
 }
-
-
 ```
++  For API details, see [DeleteCollection](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteCollection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
 ```
 class RekognitionCollection:
@@ -245,24 +209,14 @@ class RekognitionCollection:
         except ClientError:
             logger.exception("Couldn't delete collection %s.", self.collection_id)
             raise
-
-
-
 ```
++  For API details, see [DeleteCollection](https://docs.aws.amazon.com/goto/boto3/rekognition-2016-06-27/DeleteCollection) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteCollection](../../../goto/boto3/rekognition-2016-06-27/DeleteCollection.md "../../../goto/boto3/rekognition-2016-06-27/DeleteCollection.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
 ```
     TRY.
@@ -274,14 +228,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rekinvalidparameterex.
         MESSAGE 'Invalid parameter value.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteCollection](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteCollection](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

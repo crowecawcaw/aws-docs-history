@@ -1,65 +1,79 @@
-# Using Amazon Rekognition and Lambda to tag assets in an Amazon S3 bucket
 
-In this tutorial, you create an AWS Lambda function that automatically tags digital assets located in an Amazon S3 bucket. The Lambda function reads all objects in a given Amazon S3 bucket.
-For each object in the bucket, it passes the image to the Amazon Rekognition service to geneate a series of labels. Each label is used to create a tag that is applied to the image.
-After you execute the Lambda function, it automatically creates tags based on all images in a given Amazon S3 bucket and applies them to the images.
+
+# Using Amazon Rekognition and Lambda to tag assets in an Amazon S3 bucket
+<a name="images-lambda-s3-tutorial"></a>
+
+In this tutorial, you create an AWS Lambda function that automatically tags digital assets located in an Amazon S3 bucket. The Lambda function reads all objects in a given Amazon S3 bucket. For each object in the bucket, it passes the image to the Amazon Rekognition service to geneate a series of labels. Each label is used to create a tag that is applied to the image. After you execute the Lambda function, it automatically creates tags based on all images in a given Amazon S3 bucket and applies them to the images.
 
 For example, assume you run the Lambda function and you have this image in an Amazon S3 bucket.
 
-![Volcano erupting with molten lava streaming down its sides against a cloudy sky.](images/v2-image-tutorial-picture.png)
+![Volcano erupting with molten lava streaming down its sides against a cloudy sky.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-picture.png)
+
+
 The application then automatically creates tags and applies them to the image.
 
-![Table showing tags for tracking storage costs, including Nature, Volcano, Eruption, Lava, Mountain, and Outdoors with numerical values.](images/v2-image-tutorial-results.png)
+![Table showing tags for tracking storage costs, including Nature, Volcano, Eruption, Lava, Mountain, and Outdoors with numerical values.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-results.png)
 
-###### Note
 
+**Note**  
 The services you use in this tutorial are part of the AWS Free Tier. When you are done with the tutorial, we recommend terminating any resources you created during the tutorial so that you are not charged.
 
-This tutorial uses the AWS SDK for Java version 2. See the [AWS Documentation SDK examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases "https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases") for additional Java V2 tutorials.
+This tutorial uses the AWS SDK for Java version 2. See the [AWS Documentation SDK examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases) for additional Java V2 tutorials.
 
-###### Topics
-
-- [Prerequisites](#lambda-s3-tutorial-prerequisites "#lambda-s3-tutorial-prerequisites")
-- [Configure the IAM Lambda role](#lambda-s3-tutorial-lambda-role "#lambda-s3-tutorial-lambda-role")
-- [Create the project](#lambda-s3-tutorial-pom "#lambda-s3-tutorial-pom")
-- [Write the code](#lambda-s3-tutorial-code "#lambda-s3-tutorial-code")
-- [Package the project](#lambda-s3-tutorial-package "#lambda-s3-tutorial-package")
-- [Deploy the Lambda function](#lambda-s3-tutorial-deploy "#lambda-s3-tutorial-deploy")
-- [Test the Lambda method](#lambda-s3-tutorial-test "#lambda-s3-tutorial-test")
+**Topics**
++ [Prerequisites](#lambda-s3-tutorial-prerequisites)
++ [Configure the IAM Lambda role](#lambda-s3-tutorial-lambda-role)
++ [Create the project](#lambda-s3-tutorial-pom)
++ [Write the code](#lambda-s3-tutorial-code)
++ [Package the project](#lambda-s3-tutorial-package)
++ [Deploy the Lambda function](#lambda-s3-tutorial-deploy)
++ [Test the Lambda method](#lambda-s3-tutorial-test)
 
 ## Prerequisites
+<a name="lambda-s3-tutorial-prerequisites"></a>
 
-Before you begin, you need to complete the steps in [Setting Up the AWS SDK for Java](../../../sdk-for-java/latest/developer-guide/setup.md "../../../sdk-for-java/latest/developer-guide/setup.md").
-Then make sure that you have the following:
-
-- Java 1.8 JDK.
-- Maven 3.6 or higher.
-- An [Amazon S3](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md") bucket with 5-7 nature images in it. These images are read by the Lambda function.
+Before you begin, you need to complete the steps in [Setting Up the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html). Then make sure that you have the following:
++ Java 1.8 JDK.
++ Maven 3.6 or higher.
++ An [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) bucket with 5-7 nature images in it. These images are read by the Lambda function.
 
 ## Configure the IAM Lambda role
+<a name="lambda-s3-tutorial-lambda-role"></a>
 
 This tutorial uses the Amazon Rekognition and Amazon S3 services. Configure the **lambda-support** role to have policies that enable it to invoke these services from a Lambda function.
 
-###### To configure the role
+**To configure the role**
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Roles**, then choose
-   **Create Role**.
-3. Choose **AWS service**, and then choose **Lambda**.
-4. Choose the **Permissions** tab.
-5. Search for **AWSLambdaBasicExecutionRole**.
-6. Choose **Next tags**.
-7. Choose **Review**.
-8. Name the role **lambda-support**.
-9. Choose **Create role**.
-10. Choose **lambda-support** to view the overview page.
-11. Choose **Attach policies**.
-12. Choose _AmazonRekognitionFullAccess_ from the list of
-    policies.
-13. Choose **Attach policy**.
-14. Search for **AmazonS3FullAccess**, and then choose **Attach policy**.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
+
+1. In the navigation pane, choose **Roles**, then choose **Create Role**.
+
+1. Choose **AWS service**, and then choose **Lambda**.
+
+1. Choose the **Permissions** tab.
+
+1. Search for **AWSLambdaBasicExecutionRole**.
+
+1. Choose **Next tags**.
+
+1. Choose **Review**.
+
+1. Name the role **lambda-support**.
+
+1. Choose **Create role**.
+
+1. Choose **lambda-support** to view the overview page.
+
+1. Choose **Attach policies**.
+
+1. Choose *AmazonRekognitionFullAccess* from the list of policies.
+
+1. Choose **Attach policy**.
+
+1. Search for **AmazonS3FullAccess**, and then choose **Attach policy**.
 
 ## Create the project
+<a name="lambda-s3-tutorial-pom"></a>
 
 Create a new Java project, then configure the Maven pom.xml with the required settings and dependencies. Make sure your pom.xml file looks like the following:
 
@@ -181,32 +195,26 @@ Create a new Java project, then configure the Maven pom.xml with the required se
 ```
 
 ## Write the code
+<a name="lambda-s3-tutorial-code"></a>
 
-Use the AWS Lambda runtime Java API to create the Java class that defines the Lambda function. In this example, there is one Java class for the Lambda function
-named **Handler** and additional classes required for this use case. The following figure shows the Java classes in the project. Notice that all Java classes are
-located in a package named **com.example.tags**.
+Use the AWS Lambda runtime Java API to create the Java class that defines the Lambda function. In this example, there is one Java class for the Lambda function named **Handler** and additional classes required for this use case. The following figure shows the Java classes in the project. Notice that all Java classes are located in a package named **com.example.tags**.
 
-![Project structure showing Java classes for workflow tagging assets like AnalyzePhotos, BucketItem, Handler, S3Service, and WorkItem.](images/v2-image-tutorial-files.png)
+![Project structure showing Java classes for workflow tagging assets like AnalyzePhotos, BucketItem, Handler, S3Service, and WorkItem.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-files.png)
+
 
 Create the following Java classes for the code:
-
-- **Handler** uses the Lambda Java run-time API and performs the use case described in this AWS tutorial. The application logic that's executed is located in the handleRequest method.
-- **S3Service** uses the Amazon S3 API to perform S3 operations.
-- **AnalyzePhotos** uses the Amazon Rekognition API to analyze the images.
-- **BucketItem** defines a model that stores Amazon S3 bucket information.
-- **WorkItem** defines a model that stores Amazon Rekognition data.
++ **Handler** uses the Lambda Java run-time API and performs the use case described in this AWS tutorial. The application logic that's executed is located in the handleRequest method.
++ **S3Service** uses the Amazon S3 API to perform S3 operations.
++ **AnalyzePhotos** uses the Amazon Rekognition API to analyze the images.
++ **BucketItem** defines a model that stores Amazon S3 bucket information.
++ **WorkItem** defines a model that stores Amazon Rekognition data.
 
 ### Handler class
+<a name="w2aac52b9c25c11"></a>
 
-This Java code represents the **Handler** class. The class reads a flag that is passed to the Lambda function.
-The **s3Service.ListBucketObjects** method returns a **List** object where each element is a string value that represents
-the object key. If the flag value is true, then tags are applied by iterating through the list and applying tags
-to each object by calling the **s3Service.tagAssets** method. If the flag value is false, then the **s3Service.deleteTagFromObject**
-method is invoked that deletes the tags. Also, notice that you can log messages to Amazon CloudWatch logs by using a
-**LambdaLogger** object.
+This Java code represents the **Handler** class. The class reads a flag that is passed to the Lambda function. The **s3Service.ListBucketObjects** method returns a **List** object where each element is a string value that represents the object key. If the flag value is true, then tags are applied by iterating through the list and applying tags to each object by calling the **s3Service.tagAssets** method. If the flag value is false, then the **s3Service.deleteTagFromObject** method is invoked that deletes the tags. Also, notice that you can log messages to Amazon CloudWatch logs by using a **LambdaLogger** object.
 
-###### Note
-
+**Note**  
 Make sure you assign your bucket name to the **bucketName** variable.
 
 ```
@@ -263,10 +271,9 @@ public String handleRequest(Map<String, String> event, Context context) {
 ```
 
 ### S3Service class
+<a name="w2aac52b9c25c13"></a>
 
-The following class uses the Amazon S3 API to perform S3 operations. For example, the
-**getObjectBytes** method returns a byte array that represents the image. Likewise, the **listBucketObjects** method
-returns a **List** object where each element is a string value that specifies the key name.
+The following class uses the Amazon S3 API to perform S3 operations. For example, the **getObjectBytes** method returns a byte array that represents the image. Likewise, the **listBucketObjects** method returns a **List** object where each element is a string value that specifies the key name.
 
 ```
  package com.example.tags;
@@ -451,6 +458,7 @@ returns a **List** object where each element is a string value that specifies th
 ```
 
 ### AnalyzePhotos class
+<a name="w2aac52b9c25c15"></a>
 
 The following Java code represents the **AnalyzePhotos** class. This class uses the Amazon Rekognition API to analyze the images.
 
@@ -519,6 +527,7 @@ public class AnalyzePhotos {
 ```
 
 ### BucketItem class
+<a name="w2aac52b9c25c17"></a>
 
 The following Java code represents the **BucketItem** class that stores Amazon S3 object data.
 
@@ -568,6 +577,7 @@ public class BucketItem {
 ```
 
 ### WorkItem class
+<a name="w2aac52b9c25c19"></a>
 
 The following Java code represents the **WorkItem** class.
 
@@ -608,6 +618,7 @@ public String getConfidence() {
 ```
 
 ## Package the project
+<a name="lambda-s3-tutorial-package"></a>
 
 Package up the project into a .jar (JAR) file by using the following Maven command.
 
@@ -617,52 +628,56 @@ mvn package
 
 The JAR file is located in the **target** folder (which is a child folder of the project folder).
 
-![File explorer window showing target folder with JAR files like WorkflowTagAssets-1.0-SNAPSHOT.jar and other project files and folders.](images/v2-image-tutorial-folder.png)
+![File explorer window showing target folder with JAR files like WorkflowTagAssets-1.0-SNAPSHOT.jar and other project files and folders.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-folder.png)
 
-###### Note
 
-Notice the use of the **maven-shade-plugin** in the project’s POM file. This plugin is responsible for creating a JAR that contains the required dependencies.
-If you attempt to package up the project without this plugin, the required dependences are not included in the JAR file and you will encounter a **ClassNotFoundException**.
+**Note**  
+Notice the use of the **maven-shade-plugin** in the project’s POM file. This plugin is responsible for creating a JAR that contains the required dependencies. If you attempt to package up the project without this plugin, the required dependences are not included in the JAR file and you will encounter a **ClassNotFoundException**.
 
 ## Deploy the Lambda function
+<a name="lambda-s3-tutorial-deploy"></a>
 
-1. Open the [Lambda console](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home").
-2. Choose **Create Function**.
-3. Choose **Author from scratch**.
-4. In the **Basic information** section, enter **cron** as the name.
-5. In the **Runtime**, choose **Java 8**.
-6. Choose **Use an existing role**, and then choose **lambda-support** (the IAM role that you created).
-7. Choose **Create function**.
-8. For **Code entry type**, choose **Upload a .zip or .jar file**.
-9. Choose **Upload**, and then browse to the JAR file that you created.
-10. For **Handler**, enter the fully qualified name of the function, for example, **com.example.tags.Handler:handleRequest** (**com.example.tags**
-    specifies the package, **Handler** is the class followed by :: and method name).
-11. Choose **Save**.
+1. Open the [Lambda console](https://console.aws.amazon.com/lambda/home).
+
+1. Choose **Create Function**.
+
+1. Choose **Author from scratch**.
+
+1. In the **Basic information** section, enter **cron** as the name.
+
+1. In the **Runtime**, choose **Java 8**.
+
+1. Choose **Use an existing role**, and then choose **lambda-support** (the IAM role that you created).
+
+1. Choose **Create function**.
+
+1. For **Code entry type**, choose **Upload a .zip or .jar file**.
+
+1. Choose **Upload**, and then browse to the JAR file that you created.
+
+1. For **Handler**, enter the fully qualified name of the function, for example, **com.example.tags.Handler:handleRequest** (**com.example.tags** specifies the package, **Handler** is the class followed by :: and method name).
+
+1. Choose **Save**.
 
 ## Test the Lambda method
+<a name="lambda-s3-tutorial-test"></a>
 
 At this point in the tutorial, you can test the Lambda function.
 
 1. In the Lambda console, click the **Test** tab and then enter the following JSON.
 
-```
+   ```
+                    {
+   "flag": "true"
+    }
+   ```  
+![Test event JSON editor with a flag key-value pair, Delete and Format buttons, and Invoke button.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-test.png)
+**Note**  
+Passing **true** tags the digital assets and passing **false** deletes the tags.
 
-                 {
-"flag": "true"
- }
+1. Choose the **Invoke** button. After the Lambda function is invoked, you see a successful message.  
+![Execution result message indicating the operation succeeded, with a Details button.](http://docs.aws.amazon.com/rekognition/latest/dg/images/v2-image-tutorial-success.png)
 
-```
+Congratulations, you have created an AWS Lambda function that automactially applies tags to difital assets located in an Amazon S3 bucket. As stated at the beginning of this tutorial, be sure to terminate all of the resources you created while going through this tutorial to ensure that you’re not charged.
 
-![Test event JSON editor with a flag key-value pair, Delete and Format buttons, and Invoke button.](images/v2-image-tutorial-test.png)
-
-###### Note
-
-Passing **true** tags the digital assets and passing **false** deletes the tags. 2. Choose the **Invoke** button. After the Lambda function is invoked, you see a successful message.
-
-![Execution result message indicating the operation succeeded, with a Details button.](images/v2-image-tutorial-success.png)
-
-Congratulations, you have created an AWS Lambda function that automactially applies tags to difital assets located
-in an Amazon S3 bucket. As stated at the beginning of this tutorial, be sure to terminate all of the resources you created
-while going through this tutorial to ensure that you’re not charged.
-
-For more AWS multiservice examples, see the [AWS Documentation SDK examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases "https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases").
+For more AWS multiservice examples, see the [AWS Documentation SDK examples GitHub repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases).

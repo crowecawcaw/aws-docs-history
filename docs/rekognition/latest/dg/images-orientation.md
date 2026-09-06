@@ -1,99 +1,76 @@
+
+
 # Getting image orientation and bounding box coordinates
+<a name="images-orientation"></a>
 
-Applications that use Amazon Rekognition Image commonly need to display the images that are detected by
-Amazon Rekognition Image operations and the boxes around detected faces. To display an image correctly
-in your application, you need to know the image's orientation. You might need to correct
-this orientation. For some .jpg files, the image's orientation is contained in the
-image's Exchangeable image file format (Exif) metadata.
+Applications that use Amazon Rekognition Image commonly need to display the images that are detected by Amazon Rekognition Image operations and the boxes around detected faces. To display an image correctly in your application, you need to know the image's orientation. You might need to correct this orientation. For some .jpg files, the image's orientation is contained in the image's Exchangeable image file format (Exif) metadata. 
 
-To display a box around a face, you need the coordinates for the face's bounding box. If
-the box isn't oriented correctly, you might need to adjust those coordinates. Amazon Rekognition Image
-face detection operations return bounding box coordinates for each detected face, but it
-doesn't estimate coordinates for .jpg files without Exif metadata.
+To display a box around a face, you need the coordinates for the face's bounding box. If the box isn't oriented correctly, you might need to adjust those coordinates. Amazon Rekognition Image face detection operations return bounding box coordinates for each detected face, but it doesn't estimate coordinates for .jpg files without Exif metadata.
 
-The following examples show how to get the bounding box coordinates for the faces detected
-in an image.
+The following examples show how to get the bounding box coordinates for the faces detected in an image.
 
-Use the information in this example to ensure that your images are oriented correctly
-and that bounding boxes are displayed in the correct location in your application.
+Use the information in this example to ensure that your images are oriented correctly and that bounding boxes are displayed in the correct location in your application. 
 
-Because the code used to rotate and display images and bounding boxes depends on the
-language and environment that you use, we don't explain how to display images and
-bounding boxes in your code, or how to get orientation information from Exif
-metadata.
+Because the code used to rotate and display images and bounding boxes depends on the language and environment that you use, we don't explain how to display images and bounding boxes in your code, or how to get orientation information from Exif metadata.
+
+
 
 ## Finding an image's orientation
+<a name="images-discovering-image-orientation"></a>
 
-To display an image correctly in your application, you might need to rotate it.
-The following image is oriented to 0 degrees and is displayed correctly.
+To display an image correctly in your application, you might need to rotate it. The following image is oriented to 0 degrees and is displayed correctly.
 
-![Generic profile icon representing a user account or profile image.](images/00face.png)
+![Generic profile icon representing a user account or profile image.](http://docs.aws.amazon.com/rekognition/latest/dg/images/00face.png)
 
-However, the following image is rotated 90 degrees counterclockwise. To display it
-correctly, you need to find the orientation of the image and use that information in
-your code to rotate the image to 0 degrees.
 
-![Generic profile icon representing a user account or profile image, rotated 90-degress counterclockwise.](images/90face.png)
+However, the following image is rotated 90 degrees counterclockwise. To display it correctly, you need to find the orientation of the image and use that information in your code to rotate the image to 0 degrees. 
 
-Some images in .jpg format contain orientation information in Exif metadata. If
-available, the Exif metadata for the image contains the orientation. In the Exif
-metadata, you can find the image's orientation in the `orientation`
-field. Although Amazon Rekognition Image identifies the presence of image orientation information in
-Exif metadata, it does not provide access to it. To access the Exif metadata in an
-image, use a third-party library or write your own code. For more information, see
-[Exif Version 2.32](http://cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E "http://cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E").
+![Generic profile icon representing a user account or profile image, rotated 90-degress counterclockwise.](http://docs.aws.amazon.com/rekognition/latest/dg/images/90face.png)
 
-When you know an image's orientation, you can write code to rotate and correctly
-display it.
+
+Some images in .jpg format contain orientation information in Exif metadata. If available, the Exif metadata for the image contains the orientation. In the Exif metadata, you can find the image's orientation in the `orientation` field. Although Amazon Rekognition Image identifies the presence of image orientation information in Exif metadata, it does not provide access to it. To access the Exif metadata in an image, use a third-party library or write your own code. For more information, see [Exif Version 2.32](http://cipa.jp/std/documents/download_e.html?DC-008-Translation-2019-E).
+
+ 
+
+
+
+When you know an image's orientation, you can write code to rotate and correctly display it.
 
 ## Displaying bounding boxes
+<a name="images-bounding-boxes"></a>
 
-The Amazon Rekognition Image operations that analyze faces in an image also return the
-coordinates of the bounding boxes that surround the faces. For more information, see
-[BoundingBox](../APIReference/API_BoundingBox.md "../APIReference/API_BoundingBox.md").
+The Amazon Rekognition Image operations that analyze faces in an image also return the coordinates of the bounding boxes that surround the faces. For more information, see [BoundingBox](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_BoundingBox.html). 
 
-To display a bounding box around a face, similar to the box shown in the following
-image, in your application, use the bounding box coordinates in your code. The
-bounding box coordinates returned by an operation reflect the image's orientation.
-If you have to rotate the image to display it correctly, you might need to translate
-the bounding box coordinates.
+To display a bounding box around a face, similar to the box shown in the following image, in your application, use the bounding box coordinates in your code. The bounding box coordinates returned by an operation reflect the image's orientation. If you have to rotate the image to display it correctly, you might need to translate the bounding box coordinates.
 
-![Profile icon with the face highlighted in red square.](images/00facebounding.png)
+
+
+![Profile icon with the face highlighted in red square.](http://docs.aws.amazon.com/rekognition/latest/dg/images/00facebounding.png)
+
+
+
 
 ### Displaying bounding boxes when orientation information is present in Exif metadata
+<a name="images-exif-metadata"></a>
 
-If an image's orientation is included in Exif metadata, Amazon Rekognition Image operations
-do the following:
-
-- Return null in the orientation correction field in the operation's
-  response. To rotate the image, use the orientation provided in the Exif
-  metadata in your code.
-- Return bounding box coordinates already oriented to 0 degrees. To show
-  the bounding box in the correct position, use the coordinates that were
-  returned. You do not need to translate them.
+If an image's orientation is included in Exif metadata, Amazon Rekognition Image operations do the following:
++ Return null in the orientation correction field in the operation's response. To rotate the image, use the orientation provided in the Exif metadata in your code.
++ Return bounding box coordinates already oriented to 0 degrees. To show the bounding box in the correct position, use the coordinates that were returned. You do not need to translate them.
 
 ## Example: Getting image orientation and bounding box coordinates for an image
+<a name="images-correcting-image-orientation-java"></a>
 
-The following examples show how to use the AWS SDK to get the Exif image orientation
-data and the bounding box coordinates for celebrities detected by the
-`RecognizeCelebrities` operation.
+The following examples show how to use the AWS SDK to get the Exif image orientation data and the bounding box coordinates for celebrities detected by the `RecognizeCelebrities` operation.
 
-###### Note
+**Note**  
+Support for estimating image orientation using the the `OrientationCorrection` field has ceased as of August 2021. Any returned values for this field included in an API response will always be NULL.
 
-Support for estimating image orientation using the the
-`OrientationCorrection` field has ceased as of August 2021. Any
-returned values for this field included in an API response will always be
-NULL.
+------
+#### [ Java ]
 
-Java
-This example loads an image from the local file system, calls the
-`RecognizeCelebrities` operation, determines the height
-and width of the image, and calculates the bounding box coordinates of
-the face for the rotated image. The example does not show how to process
-orientation information that is stored in Exif metadata.
+This example loads an image from the local file system, calls the `RecognizeCelebrities` operation, determines the height and width of the image, and calculates the bounding box coordinates of the face for the rotated image. The example does not show how to process orientation information that is stored in Exif metadata.
 
-In the function `main`, replace the value of `photo` with the name and path of an
-image that is stored locally in either .png or .jpg format.
+In the function `main`, replace the value of `photo` with the name and path of an image that is stored locally in either .png or .jpg format.
 
 ```
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -181,7 +158,7 @@ public static void main(String[] args) throws Exception {
                   width,
                   face.getBoundingBox(),
                   result.getOrientationCorrection());
-
+                 
             System.out.println();
        }
 
@@ -196,7 +173,7 @@ public static void ShowBoundingBoxPositions(int imageHeight, int imageWidth, Bou
 
   float left = 0;
   float top = 0;
-
+   
   if(rotation==null){
       System.out.println("No estimated estimated orientation. Check Exif data.");
       return;
@@ -232,18 +209,14 @@ public static void ShowBoundingBoxPositions(int imageHeight, int imageWidth, Bou
 
   }
 }
-
 ```
 
-Python
-This example uses the PIL/Pillow image library to get the image width
-and height. For more information, see [Pillow](https://pillow.readthedocs.io/en/stable/ "https://pillow.readthedocs.io/en/stable/"). This
-example preserves exif metadata which you might need elsewhere in your
-application.
+------
+#### [ Python ]
 
-In the function `main`, replace the value of
-`photo` with the name and path of an image that is stored
-locally in either .png or .jpg format.
+This example uses the PIL/Pillow image library to get the image width and height. For more information, see [Pillow](https://pillow.readthedocs.io/en/stable/). This example preserves exif metadata which you might need elsewhere in your application.
+
+In the function `main`, replace the value of `photo` with the name and path of an image that is stored locally in either .png or .jpg format.
 
 ```
 #Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -315,9 +288,10 @@ if __name__ == "__main__":
     main()
 ```
 
-Java V2
-This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example
-[here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/RotateImage.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/RotateImage.java").
+------
+#### [ Java V2 ]
+
+This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/RotateImage.java).
 
 ```
 import software.amazon.awssdk.core.SdkBytes;
@@ -446,5 +420,6 @@ public class RotateImage {
         System.out.println("Face Height: " + (int) (imageHeight * box.height()));
     }
 }
-
 ```
+
+------

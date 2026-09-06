@@ -1,37 +1,32 @@
+
+
 # Searching faces in a streaming video
+<a name="rekognition-video-stream-processor-search-faces"></a>
 
-###### Note
-
-Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
-[Amazon Rekognition feature availability changes](rekognition-availability-changes.md "rekognition-availability-changes.md").
-
+**Note**  
+Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  
 **This change does not impact the availability of other Amazon Rekognition features.**
 
-Amazon Rekognition Video can search faces in a collection that match faces that are detected in a
-streaming video. For more information about collections, see [Searching faces in a collection](collections.md "collections.md").
+Amazon Rekognition Video can search faces in a collection that match faces that are detected in a streaming video. For more information about collections, see [Searching faces in a collection](collections.md).
 
-###### Topics
+**Topics**
++ [Creating the Amazon Rekognition Video face search stream processor](#streaming-video-creating-stream-processor)
++ [Starting the Amazon Rekognition Video face search stream processor](#streaming-video-starting-stream-processor)
++ [Using stream processors for face searching (Java V2 example)](#using-stream-processors-v2)
++ [Using stream processors for face searching (Java V1 example)](#using-stream-processors)
++ [Reading streaming video analysis results](streaming-video-kinesis-output.md)
++ [Displaying Rekognition results with Kinesis Video Streams locally](displaying-rekognition-results-locally.md)
++ [Understanding the Kinesis face recognition JSON frame record](streaming-video-kinesis-output-reference.md)
 
-- [Creating the Amazon Rekognition Video face search stream processor](#streaming-video-creating-stream-processor "#streaming-video-creating-stream-processor")
-- [Starting the Amazon Rekognition Video face search stream processor](#streaming-video-starting-stream-processor "#streaming-video-starting-stream-processor")
-- [Using stream processors for face searching (Java V2 example)](#using-stream-processors-v2 "#using-stream-processors-v2")
-- [Using stream processors for face searching (Java V1 example)](#using-stream-processors "#using-stream-processors")
-- [Reading streaming video analysis results](streaming-video-kinesis-output.md "streaming-video-kinesis-output.md")
-- [Displaying Rekognition results with Kinesis Video Streams locally](displaying-rekognition-results-locally.md "displaying-rekognition-results-locally.md")
-- [Understanding the Kinesis face recognition JSON frame record](streaming-video-kinesis-output-reference.md "streaming-video-kinesis-output-reference.md")
-  The following diagram shows how Amazon Rekognition Video detects and recognizes faces in a streaming
-  video.
+The following diagram shows how Amazon Rekognition Video detects and recognizes faces in a streaming video.
 
-![Diagram of workflow for using Amazon Rekognition Video to process video streams from Amazon Kinesis.](images/VideoRekognitionStream.png)
+![Diagram of workflow for using Amazon Rekognition Video to process video streams from Amazon Kinesis.](http://docs.aws.amazon.com/rekognition/latest/dg/images/VideoRekognitionStream.png)
+
 
 ## Creating the Amazon Rekognition Video face search stream processor
+<a name="streaming-video-creating-stream-processor"></a>
 
-Before you can analyze a streaming video, you create an Amazon Rekognition Video stream processor
-([CreateStreamProcessor](../APIReference/API_CreateStreamProcessor.md "../APIReference/API_CreateStreamProcessor.md")). The stream processor contains
-information about the Kinesis data stream and the Kinesis video stream. It also contains the identifier for the
-collection that contains the faces you want to recognize in the input streaming
-video. You also specify a name for the stream processor. The following is a JSON
-example for the `CreateStreamProcessor` request.
+Before you can analyze a streaming video, you create an Amazon Rekognition Video stream processor ([CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html)). The stream processor contains information about the Kinesis data stream and the Kinesis video stream. It also contains the identifier for the collection that contains the faces you want to recognize in the input streaming video. You also specify a name for the stream processor. The following is a JSON example for the `CreateStreamProcessor` request.
 
 ```
 {
@@ -54,46 +49,37 @@ example for the `CreateStreamProcessor` request.
               }
        }
 }
-
 ```
 
-The following is an example response from
-`CreateStreamProcessor`.
+The following is an example response from `CreateStreamProcessor`.
 
 ```
 {
        “StreamProcessorArn”: “arn:aws:rekognition:us-east-1:nnnnnnnnnnnn:streamprocessor/streamProcessorForCam”
 }
-
 ```
 
 ## Starting the Amazon Rekognition Video face search stream processor
+<a name="streaming-video-starting-stream-processor"></a>
 
-You start analyzing streaming video by calling [StartStreamProcessor](../APIReference/API_StartStreamProcessor.md "../APIReference/API_StartStreamProcessor.md") with the stream processor name that you
-specified in `CreateStreamProcessor`. The following is a JSON example for
-the `StartStreamProcessor` request.
+You start analyzing streaming video by calling [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html) with the stream processor name that you specified in `CreateStreamProcessor`. The following is a JSON example for the `StartStreamProcessor` request.
 
 ```
 {
        "Name": "streamProcessorForCam"
 }
-
 ```
 
-If the stream processor successfully starts, an HTTP 200 response is returned,
-along with an empty JSON body.
+If the stream processor successfully starts, an HTTP 200 response is returned, along with an empty JSON body.
 
 ## Using stream processors for face searching (Java V2 example)
+<a name="using-stream-processors-v2"></a>
 
-The following example code shows how to call various stream processor operations,
-such as [CreateStreamProcessor](../APIReference/API_CreateStreamProcessor.md "../APIReference/API_CreateStreamProcessor.md") and
-[StartStreamProcessor](../APIReference/API_StartStreamProcessor.md "../APIReference/API_StartStreamProcessor.md"), using the AWS SDK for Java version 2.
+The following example code shows how to call various stream processor operations, such as [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html) and [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html), using the AWS SDK for Java version 2.
 
-This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example
-[here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/CreateStreamProcessor.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/CreateStreamProcessor.java").
+This code is taken from the AWS Documentation SDK examples GitHub repository. See the full example [here](https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/javav2/example_code/rekognition/src/main/java/com/example/rekognition/CreateStreamProcessor.java).
 
 ```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
 import software.amazon.awssdk.services.rekognition.model.CreateStreamProcessorRequest;
@@ -123,9 +109,9 @@ import software.amazon.awssdk.services.rekognition.model.DescribeStreamProcessor
 public class CreateStreamProcessor {
     public static void main(String[] args) {
         final String usage = """
-
+                
                 Usage:    <role> <kinInputStream> <kinOutputStream> <collectionName> <StreamProcessorName>
-
+                
                 Where:
                    role - The ARN of the AWS Identity and Access Management (IAM) role to use. \s
                    kinInputStream - The ARN of the Kinesis video stream.\s
@@ -259,23 +245,21 @@ public class CreateStreamProcessor {
         System.out.println("Stream Processor " + StreamProcessorName + " deleted.");
     }
 }
-
 ```
 
 ## Using stream processors for face searching (Java V1 example)
+<a name="using-stream-processors"></a>
 
-The following example code shows how to call various stream processor operations,
-such as [CreateStreamProcessor](../APIReference/API_CreateStreamProcessor.md "../APIReference/API_CreateStreamProcessor.md") and
-[StartStreamProcessor](../APIReference/API_StartStreamProcessor.md "../APIReference/API_StartStreamProcessor.md"), using Java V1. The example includes
-a stream processor manager class (StreamManager) that provides methods to call stream processor operations.
-The starter class (Starter) creates a StreamManager object and calls various operations.
+The following example code shows how to call various stream processor operations, such as [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html) and [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html), using Java V1. The example includes a stream processor manager class (StreamManager) that provides methods to call stream processor operations. The starter class (Starter) creates a StreamManager object and calls various operations. 
 
-###### To configure the example:
+**To configure the example:**
 
 1. Set the values of the Starter class member fields to your desired values.
-2. In the Starter class function `main`, uncomment the desired function call.
+
+1. In the Starter class function `main`, uncomment the desired function call.
 
 ### Starter class
+<a name="streaming-started"></a>
 
 ```
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -289,8 +273,8 @@ import com.amazonaws.samples.*;
 public class Starter {
 
 	public static void main(String[] args) {
-
-
+		
+		
     	String streamProcessorName="Stream Processor Name";
     	String kinesisVideoStreamArn="Kinesis Video Stream Arn";
     	String kinesisDataStreamArn="Kinesis Data Stream Arn";
@@ -318,11 +302,10 @@ public class Starter {
 		}
 	}
 }
-
-
 ```
 
 ### StreamManager class
+<a name="streaming-manager"></a>
 
 ```
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -364,7 +347,7 @@ public class StreamManager {
     private float matchThreshold;
 
     private AmazonRekognition rekognitionClient;
-
+    
 
     public StreamManager(String spName,
     		String kvStreamArn,
@@ -379,9 +362,9 @@ public class StreamManager {
     	collectionId=collId;
     	matchThreshold=threshold;
     	rekognitionClient=AmazonRekognitionClientBuilder.defaultClient();
-
+    	
     }
-
+    
     public void createStreamProcessor() {
     	//Setup input parameters
         KinesisVideoStream kinesisVideoStream = new KinesisVideoStream().withArn(kinesisVideoStreamArn);

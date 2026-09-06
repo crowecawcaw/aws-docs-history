@@ -1,53 +1,34 @@
+
+
 # Detecting labels in a video
+<a name="labels-detecting-labels-video"></a>
 
-Amazon Rekognition Video can detect labels (objects and concepts), and the time a label is detected,
-in a video. For an SDK code example, see [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"). For an AWS CLI example, see [Analyzing a video with the AWS Command Line Interface](video-cli-commands.md "video-cli-commands.md").
+Amazon Rekognition Video can detect labels (objects and concepts), and the time a label is detected, in a video. For an SDK code example, see [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md). For an AWS CLI example, see [Analyzing a video with the AWS Command Line Interface](video-cli-commands.md).
 
-Amazon Rekognition Video label detection is an asynchronous operation. To start the detection of
-labels in a video, call [StartLabelDetection](../APIReference/API_StartlabelDetection.md "../APIReference/API_StartlabelDetection.md").
+Amazon Rekognition Video label detection is an asynchronous operation. To start the detection of labels in a video, call [StartLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartlabelDetection.html). 
 
-Amazon Rekognition Video publishes the completion status of the video analysis to an Amazon Simple Notification Service topic.
-If the video analysis is succesful, call [GetLabelDetection](../APIReference/API_GetLabelDetection.md "../APIReference/API_GetLabelDetection.md") to get the detected labels. For information about calling
-the video analysis API operations, see [Calling Amazon Rekognition Video operations](api-video.md "api-video.md").
+Amazon Rekognition Video publishes the completion status of the video analysis to an Amazon Simple Notification Service topic. If the video analysis is succesful, call [GetLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html) to get the detected labels. For information about calling the video analysis API operations, see [Calling Amazon Rekognition Video operations](api-video.md). 
 
 ## StartLabelDetection Request
+<a name="getlabeldetection-operation-request"></a>
 
-The following example is a request for the `StartLabelDetection`
-operation. You provide the `StartLabelDetection` operation with a video
-stored in an Amazon S3 bucket. In the example request JSON, the Amazon S3 bucket and the video
-name are specified, along with `MinConfidence`, `Features`,
-`Settings`, and `NotificationChannel`.
+The following example is a request for the `StartLabelDetection` operation. You provide the `StartLabelDetection` operation with a video stored in an Amazon S3 bucket. In the example request JSON, the Amazon S3 bucket and the video name are specified, along with `MinConfidence`, `Features`, `Settings`, and `NotificationChannel`.
 
-`MinConfidence` is the minimum confidence that Amazon Rekognition Video
-must have in the accuracy of the detected label, or an instance bounding box (if
-detected), for it to be returned in the response.
+`MinConfidence` is the minimum confidence that Amazon Rekognition Video must have in the accuracy of the detected label, or an instance bounding box (if detected), for it to be returned in the response.
 
-With `Features` , you can specify that you want GENERAL\_LABELS returned
-as part of the response.
+With `Features` , you can specify that you want GENERAL\_LABELS returned as part of the response.
 
-With `Settings`, you can filter the returned items for GENERAL\_LABELS.
-For labels you can use inclusive and exclusive filters. You can also filter by label
-specific, individual labels or by label category:
+With `Settings`, you can filter the returned items for GENERAL\_LABELS. For labels you can use inclusive and exclusive filters. You can also filter by label specific, individual labels or by label category: 
++ `LabelInclusionFilters` - Used to specify which labels you want included in the response 
++ `LabelExclusionFilters` - Used to specify which labels you want excluded from the response.
++ `LabelCategoryInclusionFilters` - Used to specify which label categories you want included in the response.
++ `LabelCategoryExclusionFilters` - Used to specify which label categories you want excluded from the response.
 
-- `LabelInclusionFilters` - Used to specify which labels you want
-  included in the response
-- `LabelExclusionFilters` - Used to specify which labels you want
-  excluded from the response.
-- `LabelCategoryInclusionFilters` - Used to specify which label
-  categories you want included in the response.
-- `LabelCategoryExclusionFilters` - Used to specify which label
-  categories you want excluded from the response.
+You can also combine inclusive and exclusive filters according to your needs, excluding some labels or categories and including others.
 
-You can also combine inclusive and exclusive filters according to your needs,
-excluding some labels or categories and including others.
+`NotificationChannel` is the ARN of the Amazon SNS topic you want Amazon Rekognition Video to publish the completion status of the label detection operation to. If you’re using the `AmazonRekognitionServiceRole` permissions policy, then the Amazon SNS topic must have a topic name that begins with Rekognition.
 
-`NotificationChannel` is the ARN of the Amazon SNS topic you want Amazon Rekognition Video
-to publish the completion status of the label detection operation to. If you’re
-using the `AmazonRekognitionServiceRole` permissions policy, then the
-Amazon SNS topic must have a topic name that begins with Rekognition.
-
-The following is a sample `StartLabelDetection` request in JSON form,
-including filters:
+The following is a sample `StartLabelDetection` request in JSON form, including filters:
 
 ```
 {
@@ -56,9 +37,9 @@ including filters:
     "Video": {
         "S3Object": {
             "Bucket": "bucket",
-            "Name": "video.mp4"
-         }
-     },
+            "Name": "video.mp4" 
+         } 
+     }, 
      "Features": ["GENERAL_LABELS"],
      "MinConfidence": 75,
      "Settings": {
@@ -66,7 +47,7 @@ including filters:
              "LabelInclusionFilters": ["Cat", "Dog"],
              "LabelExclusionFilters": ["Tiger"],
              "LabelCategoryInclusionFilters": ["Animals and Pets"],
-             "LabelCategoryExclusionFilters": ["Popular Landmark"]
+             "LabelCategoryExclusionFilters": ["Popular Landmark"] 
          }
      },
      "NotificationChannel": {
@@ -74,65 +55,26 @@ including filters:
          "SNSTopicArn": "arn:aws:sns:us-east-1:012345678910:notification-topic",
      }
 }
-
 ```
 
 ## GetLabelDetection Operation Response
+<a name="getlabeldetection-operation-response"></a>
 
-`GetLabelDetection` returns an array (`Labels`) that
-contains information about the labels detected in the video. The array can be sorted
-either by time or by the label detected when specifying the `SortBy`
-parameter.You can also select how response items are aggregated by using the
-`AggregateBy` parameter.
+`GetLabelDetection` returns an array (`Labels`) that contains information about the labels detected in the video. The array can be sorted either by time or by the label detected when specifying the `SortBy` parameter.You can also select how response items are aggregated by using the `AggregateBy` parameter. 
 
-The following example is the JSON response of the `GetLabelDetection`.
-In the response, note the following:
+The following example is the JSON response of the `GetLabelDetection`. In the response, note the following:
++ **Sort order** – The array of labels returned is sorted by time. To sort by label, specify `NAME` in the `SortBy` input parameter for `GetLabelDetection`. If the label appears multiple times in the video, there will be multiples instances of the ([LabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_LabelDetection.html)) element. The default sort oder is `TIMESTAMP`, while the secondary sort order is `NAME`.
++ **Label information** – The `LabelDetection` array element contains a ([Label](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_Label.html)) object, which in turn contains the label name and the confidence Amazon Rekognition has in the accuracy of the detected label. A `Label` object also includes a hierarchical taxonomy of labels and bounding box information for common labels. `Timestamp` is the time the label was detected, defined as the number of milliseconds elapsed since the start of the video. 
 
-- **Sort order** – The array of labels
-  returned is sorted by time. To sort by label, specify `NAME` in
-  the `SortBy` input parameter for `GetLabelDetection`.
-  If the label appears multiple times in the video, there will be multiples
-  instances of the ([LabelDetection](../APIReference/API_LabelDetection.md "../APIReference/API_LabelDetection.md")) element. The default sort oder is
-  `TIMESTAMP`, while the secondary sort order is
-  `NAME`.
-- **Label information** – The
-  `LabelDetection` array element contains a ([Label](../APIReference/API_Label.md "../APIReference/API_Label.md"))
-  object, which in turn contains the label name and the confidence Amazon Rekognition
-  has in the accuracy of the detected label. A `Label` object also
-  includes a hierarchical taxonomy of labels and bounding box information for
-  common labels. `Timestamp` is the time the label was detected,
-  defined as the number of milliseconds elapsed since the start of the video.
+  Information about any Categories or Aliases associated with a label is also returned. For results aggregated by video `SEGMENTS`, the `StartTimestampMillis`, `EndTimestampMillis`, and `DurationMillis` structures are returned, which define the start time, end time, and duration of a segment respectively.
++ **Aggregation** – Specifies how results are aggregated when returned. The default is to aggregate by `TIMESTAMPS`. You can also choose to aggregate by `SEGMENTS`, which aggregates results over a time window. If aggregating by `SEGMENTS`, information about detected instances with bounding boxes are not returned. Only labels detected during the segments are returned.
++ **Paging information** – The example shows one page of label detection information. You can specify how many `LabelDetection` objects to return in the `MaxResults` input parameter for `GetLabelDetection`. If more results than `MaxResults` exist, `GetLabelDetection` returns a token (`NextToken`) used to get the next page of results. For more information, see [Getting Amazon Rekognition Video analysis results](api-video.md#api-video-get).
++ **Video information** – The response includes information about the video format (`VideoMetadata`) in each page of information returned by `GetLabelDetection`.
 
-Information about any Categories or Aliases associated with a label is
-also returned. For results aggregated by video `SEGMENTS`, the
-`StartTimestampMillis`, `EndTimestampMillis`, and
-`DurationMillis` structures are returned, which define the
-start time, end time, and duration of a segment respectively.
-
-- **Aggregation** – Specifies how results
-  are aggregated when returned. The default is to aggregate by
-  `TIMESTAMPS`. You can also choose to aggregate by
-  `SEGMENTS`, which aggregates results over a time window. If
-  aggregating by `SEGMENTS`, information about detected instances
-  with bounding boxes are not returned. Only labels detected during the
-  segments are returned.
-- **Paging information** – The example
-  shows one page of label detection information. You can specify how many
-  `LabelDetection` objects to return in the
-  `MaxResults` input parameter for
-  `GetLabelDetection`. If more results than
-  `MaxResults` exist, `GetLabelDetection` returns a
-  token (`NextToken`) used to get the next page of results. For
-  more information, see [Getting Amazon Rekognition Video analysis results](api-video.md#api-video-get "api-video.md#api-video-get").
-- **Video information** – The response
-  includes information about the video format (`VideoMetadata`) in
-  each page of information returned by `GetLabelDetection`.
-
-The following is a sample GetLabelDetection response in JSON form with aggregation
-by TIMESTAMPS:
+The following is a sample GetLabelDetection response in JSON form with aggregation by TIMESTAMPS:
 
 ```
-{
+{  
     "JobStatus": "SUCCEEDED",
     "LabelModelVersion": "3.0",
     "Labels": [
@@ -156,16 +98,16 @@ by TIMESTAMPS:
                   }
                 ],
                 "Confidence": 99.9364013671875, // Classification confidence
-                "Instances": [
-                    {
-                        "BoundingBox": {
+                "Instances": [    
+                    {        
+                        "BoundingBox": {            
                             "Width": 0.26779675483703613,
                             "Height": 0.8562285900115967,
                             "Left": 0.3604024350643158,
-                            "Top": 0.09245597571134567
-                        },
-                        "Confidence": 99.9364013671875 // Detection confidence
-                    }
+                            "Top": 0.09245597571134567         
+                        },  
+                        "Confidence": 99.9364013671875 // Detection confidence     
+                    }    
                 ]
             }
         },
@@ -185,16 +127,16 @@ by TIMESTAMPS:
                 ],
                 "Parents": [],
                 "Confidence": 99.9364013671875, // Classification confidence
-                "Instances": [
-                    {
-                        "BoundingBox": {
+                "Instances": [    
+                    {        
+                        "BoundingBox": {            
                             "Width": 0.26779675483703613,
                             "Height": 0.8562285900115967,
                             "Left": 0.3604024350643158,
-                            "Top": 0.09245597571134567
-                        },
-                        "Confidence": 99.9364013671875 // Detection confidence
-                    }
+                            "Top": 0.09245597571134567         
+                        },  
+                        "Confidence": 99.9364013671875 // Detection confidence     
+                    }    
                 ]
             }
         },
@@ -217,17 +159,17 @@ by TIMESTAMPS:
                     "Name": "Mammal"
                   }
                 ],
-                "Confidence": 99.9364013671875,
-                "Instances": [
-                    {
-                        "BoundingBox": {
+                "Confidence": 99.9364013671875,  
+                "Instances": [    
+                    {        
+                        "BoundingBox": {            
                             "Width": 0.26779675483703613,
                             "Height": 0.8562285900115967,
                             "Left": 0.3604024350643158,
                             "Top": 0.09245597571134567,
-                        },
-                        "Confidence": 99.9364013671875
-                    }
+                        },  
+                        "Confidence": 99.9364013671875    
+                    }    
                 ]
             }
         },
@@ -251,16 +193,16 @@ by TIMESTAMPS:
                   }
                 ],
                 "Confidence": 99.9364013671875,
-                "Instances": [
-                    {
-                        "BoundingBox": {
+                "Instances": [    
+                    {        
+                        "BoundingBox": {            
                             "Width": 0.26779675483703613,
                             "Height": 0.8562285900115967,
                             "Left": 0.3604024350643158,
-                            "Top": 0.09245597571134567
-                        },
-                        "Confidence": 99.9364013671875
-                    }
+                            "Top": 0.09245597571134567         
+                        },  
+                        "Confidence": 99.9364013671875     
+                    }    
                 ]
             }
         }
@@ -276,14 +218,13 @@ by TIMESTAMPS:
 }
 ```
 
-The following is a sample GetLabelDetection response in JSON form with aggregation
-by SEGMENTS:
+The following is a sample GetLabelDetection response in JSON form with aggregation by SEGMENTS:
 
 ```
-{
+{  
     "JobStatus": "SUCCEEDED",
     "LabelModelVersion": "3.0",
-    "Labels": [
+    "Labels": [ 
         {
             "StartTimestampMillis": 225,
             "EndTimestampMillis": 3578,
@@ -369,15 +310,13 @@ by SEGMENTS:
 ```
 
 ## Transforming the GetLabelDetection Response
+<a name="getlabeldetection-transform-response"></a>
 
-When retrieving results with the GetLabelDetection API operation, you might need
-the response structure to mimic the older API response structure, where both primary
-labels and aliases were contained in the same list.
+When retrieving results with the GetLabelDetection API operation, you might need the response structure to mimic the older API response structure, where both primary labels and aliases were contained in the same list.
 
-The example JSON response found in the preceding section displays the current form
-of the API response from GetLabelDetection.
+The example JSON response found in the preceding section displays the current form of the API response from GetLabelDetection.
 
-The following example shows the previous response from the GetLabelDetection API:
+The following example shows the previous response from the GetLabelDetection API: 
 
 ```
 {
@@ -429,7 +368,7 @@ The following example shows the previous response from the GetLabelDetection API
             }
         },
         .
-        .
+        .   
         .
 
         {
@@ -445,7 +384,7 @@ The following example shows the previous response from the GetLabelDetection API
                 "Name": "Sleeve"
             }
         }
-
+        
     ],
     "LabelModelVersion": "2.0",
     "JobStatus": "SUCCEEDED",
@@ -460,9 +399,7 @@ The following example shows the previous response from the GetLabelDetection API
 }
 ```
 
-If needed, you can transform the current response to follow the format of the
-older response. You can use the following sample code to transform the latest API
-response to the previous API response structure:
+If needed, you can transform the current response to follow the format of the older response. You can use the following sample code to transform the latest API response to the previous API response structure: 
 
 ```
 from copy import deepcopy

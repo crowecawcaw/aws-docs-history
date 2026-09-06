@@ -1,18 +1,15 @@
+
+
 # Bulk analysis output manifests
+<a name="bulk-analysis-output-manifests"></a>
 
-###### Note
-
-Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see
-[Amazon Rekognition feature availability changes](rekognition-availability-changes.md "rekognition-availability-changes.md").
-
+**Note**  
+Streaming Video and Bulk Image Analysis is no longer available to new customers. For more information, see [Amazon Rekognition feature availability changes](rekognition-availability-changes.md).  
 **This change does not impact the availability of other Amazon Rekognition features.**
 
-The bulk analysis job generates an output manifest file that contains the job results,
-as well as a manifest summary which contains statistics and details on any errors when
-processing the input manifest entries.
+The bulk analysis job generates an output manifest file that contains the job results, as well as a manifest summary which contains statistics and details on any errors when processing the input manifest entries. 
 
-If duplicated entries were included in the input manifest, the job won’t attempt to
-filter out unique inputs, and will instead process all provided entries.
+If duplicated entries were included in the input manifest, the job won’t attempt to filter out unique inputs, and will instead process all provided entries.
 
 The output manifest file is formatted as follows:
 

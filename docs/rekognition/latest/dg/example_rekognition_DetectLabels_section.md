@@ -1,18 +1,17 @@
+
+
 # Use `DetectLabels` with an AWS SDK or CLI
+<a name="example_rekognition_DetectLabels_section"></a>
 
 The following code examples show how to use `DetectLabels`.
 
-For more information, see [Detecting labels in an image](labels-detect-labels-image.md "labels-detect-labels-image.md").
+For more information, see [Detecting labels in an image](https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
 ```
     using System;
@@ -62,12 +61,8 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
-
-
-
 ```
-
-Detect labels in an image file stored on your computer.
+Detect labels in an image file stored on your computer.  
 
 ```
     using System;
@@ -125,24 +120,14 @@ Detect labels in an image file stored on your computer.
             }
         }
     }
-
-
-
 ```
++  For API details, see [DetectLabels](https://docs.aws.amazon.com/goto/DotNetSDKV3/rekognition-2016-06-27/DetectLabels) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DetectLabels](../../../goto/DotNetSDKV3/rekognition-2016-06-27/DetectLabels.md "../../../goto/DotNetSDKV3/rekognition-2016-06-27/DetectLabels.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rekognition#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/rekognition#code-examples). 
 
 ```
 //! Detect instances of real-world entities within an image by using Amazon Rekognition
@@ -186,30 +171,21 @@ bool AwsDoc::Rekognition::detectLabels(const Aws::String &imageBucket,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DetectLabels](https://docs.aws.amazon.com/goto/SdkForCpp/rekognition-2016-06-27/DetectLabels) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To detect a label in an image**  
+The following `detect-labels` example detects scenes and objects in an image stored in an Amazon S3 bucket.  
 
 ```
-
-- For API details, see
-  [DetectLabels](../../../goto/SdkForCpp/rekognition-2016-06-27/DetectLabels.md "../../../goto/SdkForCpp/rekognition-2016-06-27/DetectLabels.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To detect a label in an image**
-
-The following `detect-labels` example detects scenes and objects in an image stored in an Amazon S3 bucket.
-
+aws rekognition detect-labels \
+    --image '{{{"S3Object":{"Bucket":"bucket","Name":"image"}}}}'
 ```
-`aws rekognition detect-labels \
- --image '`{"S3Object":{"Bucket":"bucket","Name":"image"}}`'`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -766,22 +742,14 @@ Output:
     "LabelModelVersion": "2.0"
 }
 ```
+For more information, see [Detecting Labels in an Image](https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html) in the *Amazon Rekognition Developer Guide*.  
++  For API details, see [DetectLabels](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/detect-labels.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Detecting Labels in an Image](labels-detect-labels-image.md "labels-detect-labels-image.md") in the _Amazon Rekognition Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DetectLabels](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/detect-labels.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/detect-labels.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
 ```
 import software.amazon.awssdk.core.SdkBytes;
@@ -864,23 +832,14 @@ public class DetectLabels {
         }
     }
 }
-
-
 ```
++  For API details, see [DetectLabels](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/DetectLabels) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DetectLabels](../../../goto/SdkForJavaV2/rekognition-2016-06-27/DetectLabels.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/DetectLabels.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
 ```
 suspend fun detectImageLabels(sourceImage: String) {
@@ -901,23 +860,14 @@ suspend fun detectImageLabels(sourceImage: String) {
         }
     }
 }
-
-
 ```
++  For API details, see [DetectLabels](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DetectLabels](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
 ```
 class RekognitionImage:
@@ -958,24 +908,14 @@ class RekognitionImage:
             raise
         else:
             return labels
-
-
-
 ```
++  For API details, see [DetectLabels](https://docs.aws.amazon.com/goto/boto3/rekognition-2016-06-27/DetectLabels) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DetectLabels](../../../goto/boto3/rekognition-2016-06-27/DetectLabels.md "../../../goto/boto3/rekognition-2016-06-27/DetectLabels.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
 ```
     TRY.
@@ -1002,14 +942,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rekinvalidparameterex.
         MESSAGE 'Invalid parameter value.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DetectLabels](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DetectLabels](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,18 +1,17 @@
+
+
 # Use `CreateCollection` with an AWS SDK or CLI
+<a name="example_rekognition_CreateCollection_section"></a>
 
 The following code examples show how to use `CreateCollection`.
 
-For more information, see [Creating a collection](create-collection-procedure.md "create-collection-procedure.md").
+For more information, see [Creating a collection](https://docs.aws.amazon.com/rekognition/latest/dg/create-collection-procedure.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Rekognition/#code-examples). 
 
 ```
     using System;
@@ -43,30 +42,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"Status code : {createCollectionResponse.StatusCode}");
         }
     }
+```
++  For API details, see [CreateCollection](https://docs.aws.amazon.com/goto/DotNetSDKV3/rekognition-2016-06-27/CreateCollection) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To create a collection**  
+The following `create-collection` command creates a collection with the specified name.  
 
 ```
-
-- For API details, see
-  [CreateCollection](../../../goto/DotNetSDKV3/rekognition-2016-06-27/CreateCollection.md "../../../goto/DotNetSDKV3/rekognition-2016-06-27/CreateCollection.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a collection**
-
-The following `create-collection` command creates a collection with the specified name.
-
+aws rekognition create-collection \
+    --collection-id {{"MyCollection"}}
 ```
-`aws rekognition create-collection \
- --collection-id `"MyCollection"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -75,22 +65,14 @@ Output:
     "StatusCode": 200
 }
 ```
+For more information, see [Creating a Collection](https://docs.aws.amazon.com/rekognition/latest/dg/create-collection-procedure.html) in the *Amazon Rekognition Developer Guide*.  
++  For API details, see [CreateCollection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/create-collection.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating a Collection](create-collection-procedure.md "create-collection-procedure.md") in the _Amazon Rekognition Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateCollection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/create-collection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rekognition/create-collection.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rekognition/#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -155,23 +137,14 @@ public class CreateCollection {
         }
     }
 }
-
-
 ```
++  For API details, see [CreateCollection](https://docs.aws.amazon.com/goto/SdkForJavaV2/rekognition-2016-06-27/CreateCollection) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateCollection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/CreateCollection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/CreateCollection.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/rekognition#code-examples). 
 
 ```
 suspend fun createMyCollection(collectionIdVal: String) {
@@ -186,23 +159,14 @@ suspend fun createMyCollection(collectionIdVal: String) {
         println("Status code is ${response.statusCode}")
     }
 }
-
-
 ```
++  For API details, see [CreateCollection](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateCollection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rekognition#code-examples). 
 
 ```
 class RekognitionCollectionManager:
@@ -239,24 +203,14 @@ class RekognitionCollectionManager:
             raise
         else:
             return collection
-
-
-
 ```
++  For API details, see [CreateCollection](https://docs.aws.amazon.com/goto/boto3/rekognition-2016-06-27/CreateCollection) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateCollection](../../../goto/boto3/rekognition-2016-06-27/CreateCollection.md "../../../goto/boto3/rekognition-2016-06-27/CreateCollection.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rek#code-examples). 
 
 ```
     TRY.
@@ -268,14 +222,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rekinvalidparameterex.
         MESSAGE 'Invalid parameter value.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateCollection](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateCollection](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Rekognition with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Rekognition with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
