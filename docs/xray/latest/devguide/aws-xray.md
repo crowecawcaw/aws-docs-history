@@ -32,4 +32,4 @@ your front-end service, and backend services that your front-end service calls t
 requests and persist data. Use the trace map to identify bottlenecks, latency spikes, and
 other issues to solve to improve the performance of your applications.
 
-![Trace map shows the client, front-end service, and backend services that your front-end service calls to process requests and persist data](images/scorekeep-gettingstarted-cw-servicemap-simplified.png)
+![Trace map shows the client, front-end service, and backend services that your front-end service calls to process requests and persist data](/images/xray/latest/devguide/images/scorekeep-gettingstarted-cw-servicemap-simplified.png)
