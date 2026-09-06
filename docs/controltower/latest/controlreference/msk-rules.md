@@ -1,54 +1,48 @@
+
+
 # Amazon Managed Streaming for Apache Kafka (Amazon MSK) controls
+<a name="msk-rules"></a>
 
-###### Topics
-
-- [[CT.MSK.PR.1] Require an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster to enforce encryption in transit between cluster broker nodes](#ct-msk-pr-1-description "#ct-msk-pr-1-description")
-- [[CT.MSK.PR.2] Require an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster to be configured with PublicAccess disabled](#ct-msk-pr-2-description "#ct-msk-pr-2-description")
+**Topics**
++ [[CT.MSK.PR.1] Require an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster to enforce encryption in transit between cluster broker nodes](#ct-msk-pr-1-description)
++ [[CT.MSK.PR.2] Require an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster to be configured with PublicAccess disabled](#ct-msk-pr-2-description)
 
 ## [CT.MSK.PR.1] Require an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster to enforce encryption in transit between cluster broker nodes
+<a name="ct-msk-pr-1-description"></a>
 
 This control checks whether an Amazon MSK cluster is configured to encrypt data in transit between broker nodes of the cluster.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::MSK::Cluster`
-- **CloudFormation guard rule:**
-  [CT.MSK.PR.1 rule specification](#ct-msk-pr-1-rule "#ct-msk-pr-1-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::MSK::Cluster`
++ **CloudFormation guard rule: ** [CT.MSK.PR.1 rule specification](#ct-msk-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.MSK.PR.1 rule specification](#ct-msk-pr-1-rule "#ct-msk-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.MSK.PR.1 example templates](#ct-msk-pr-1-templates "#ct-msk-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.MSK.PR.1 rule specification](#ct-msk-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.MSK.PR.1 example templates](#ct-msk-pr-1-templates) 
 
 **Explanation**
 
-Amazon MSK uses TLSv1.2. By default, it encrypts data in transit between the brokers of your Amazon MSK cluster. However, you can override this
-default at the time you create the cluster.
+Amazon MSK uses TLSv1.2. By default, it encrypts data in transit between the brokers of your Amazon MSK cluster. However, you can override this default at the time you create the cluster.
 
-###### Usage considerations
-
-- Although we highly recommend enabling in-transit encryption, it can add additional CPU overhead and a few milliseconds of latency.
-  Most use cases aren't sensitive to these differences, and the magnitude of impact depends on the configuration of your cluster, clients, and usage profile.
+**Usage considerations**  
+Although we highly recommend enabling in-transit encryption, it can add additional CPU overhead and a few milliseconds of latency. Most use cases aren't sensitive to these differences, and the magnitude of impact depends on the configuration of your cluster, clients, and usage profile.
 
 ### Remediation for rule failure
+<a name="ct-msk-pr-1-remediation"></a>
 
 In the EncryptionInfo property, provide an `EncryptionInTransit` configuration and set the value of `InCluster` to true. Otherwise, omit the `InCluster` property to adopt the default value of true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon MSK Cluster - Example
+<a name="ct-msk-pr-1-remediation-1"></a>
 
 An Amazon MSK cluster configured to encrypt data in transit between the broker nodes of the cluster. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "MSKCluster": {
         "Type": "AWS::MSK::Cluster",
@@ -91,13 +85,11 @@ An Amazon MSK cluster configured to encrypt data in transit between the broker n
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 MSKCluster:
   Type: AWS::MSK::Cluster
   Properties:
@@ -118,33 +110,31 @@ MSKCluster:
     EncryptionInfo:
       EncryptionInTransit:
         InCluster: true
-
-
 ```
 
 ### CT.MSK.PR.1 rule specification
+<a name="ct-msk-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   msk_broker_node_tls_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon MSK cluster is configured to encrypt data in transit between broker nodes of the cluster.
-#
+# 
 # Reports on:
 #   AWS::MSK::Cluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -249,18 +239,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.MSK.PR.1 example templates
+<a name="ct-msk-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -342,14 +330,11 @@ Resources:
       EncryptionInfo:
         EncryptionInTransit:
           InCluster: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -431,54 +416,44 @@ Resources:
       EncryptionInfo:
         EncryptionInTransit:
           InCluster: false
-
-
 ```
 
 ## [CT.MSK.PR.2] Require an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster to be configured with PublicAccess disabled
+<a name="ct-msk-pr-2-description"></a>
 
 This control checks whether an Amazon MSK cluster is configured to disallow public access to cluster brokers by means of the PublicAccess property.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::MSK::Cluster`
-- **CloudFormation guard rule:**
-  [CT.MSK.PR.2 rule specification](#ct-msk-pr-2-rule "#ct-msk-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::MSK::Cluster`
++ **CloudFormation guard rule: ** [CT.MSK.PR.2 rule specification](#ct-msk-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.MSK.PR.2 rule specification](#ct-msk-pr-2-rule "#ct-msk-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.MSK.PR.2 example templates](#ct-msk-pr-2-templates "#ct-msk-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.MSK.PR.2 rule specification](#ct-msk-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.MSK.PR.2 example templates](#ct-msk-pr-2-templates) 
 
 **Explanation**
 
-Amazon MSK gives you the option to turn on public access to the brokers of Amazon MSK clusters that run Apache Kafka version 2.6.0 or later.
-For security reasons, you can't turn on public access while creating an Amazon MSK cluster. However, you can update an existing cluster to make it publicly accessible.
+Amazon MSK gives you the option to turn on public access to the brokers of Amazon MSK clusters that run Apache Kafka version 2.6.0 or later. For security reasons, you can't turn on public access while creating an Amazon MSK cluster. However, you can update an existing cluster to make it publicly accessible.
 
-###### Usage considerations
-
-- In addition to configuring the PublicAccess property, other prerequisite conditions are required when you enable public access to Amazon MSK clusters. For more
-  information on configuring Amazon MSK clusters for public access, see [Public Access](../../../msk/latest/developerguide/public-access.md "../../../msk/latest/developerguide/public-access.md") in the _Amazon MSK Developer Guide_.
+**Usage considerations**  
+In addition to configuring the PublicAccess property, other prerequisite conditions are required when you enable public access to Amazon MSK clusters. For more information on configuring Amazon MSK clusters for public access, see [Public Access](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html) in the *Amazon MSK Developer Guide*.
 
 ### Remediation for rule failure
+<a name="ct-msk-pr-2-remediation"></a>
 
 In the parameter BrokerNodeGroupInfo.ConnectivityInfo.PublicAccess, set the value of Type to DISABLED, or to adopt the default value of DISABLED, do not provide a PublicAccess configuration.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon MSK Cluster - Example
+<a name="ct-msk-pr-2-remediation-1"></a>
 
 An Amazon MSK cluster configured to disallow public access to cluster brokers through the PublicAccess property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "MSKCluster": {
         "Type": "AWS::MSK::Cluster",
@@ -533,13 +508,11 @@ An Amazon MSK cluster configured to disallow public access to cluster brokers th
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 MSKCluster:
   Type: AWS::MSK::Cluster
   Properties:
@@ -567,33 +540,31 @@ MSKCluster:
       ConnectivityInfo:
         PublicAccess:
           Type: DISABLED
-
-
 ```
 
 ### CT.MSK.PR.2 rule specification
+<a name="ct-msk-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   msk_public_access_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon MSK cluster is configured to disallow public access to cluster brokers by means of the PublicAccess property.
-#
+# 
 # Reports on:
 #   AWS::MSK::Cluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -711,18 +682,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.MSK.PR.2 example templates
+<a name="ct-msk-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -811,14 +780,11 @@ Resources:
         ConnectivityInfo:
           PublicAccess:
             Type: DISABLED
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -907,6 +873,4 @@ Resources:
         ConnectivityInfo:
           PublicAccess:
             Type: SERVICE_PROVIDED_EIPS
-
-
 ```

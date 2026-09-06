@@ -1,56 +1,52 @@
+
+
 # Amazon API Gateway controls
+<a name="api-gateway-rules"></a>
 
-###### Topics
-
-- [[CT.APIGATEWAY.PR.1] Require an Amazon API Gateway REST and WebSocket API to have logging activated](#ct-apigateway-pr-1-description "#ct-apigateway-pr-1-description")
-- [[CT.APIGATEWAY.PR.2] Require an Amazon API Gateway REST API stage to have AWS X-Ray tracing activated](#ct-apigateway-pr-2-description "#ct-apigateway-pr-2-description")
-- [[CT.APIGATEWAY.PR.3] Require that an Amazon API Gateway REST API stage has encryption at rest configured for cache data](#ct-apigateway-pr-3-description "#ct-apigateway-pr-3-description")
-- [[CT.APIGATEWAY.PR.4] Require an Amazon API Gateway V2 stage to have access logging activated](#ct-apigateway-pr-4-description "#ct-apigateway-pr-4-description")
-- [[CT.APIGATEWAY.PR.5] Require Amazon API Gateway V2 Websocket and HTTP routes to specify an authorization type](#ct-apigateway-pr-5-description "#ct-apigateway-pr-5-description")
-- [[CT.APIGATEWAY.PR.6] Require an Amazon API Gateway REST domain to use a security policy that specifies a minimum TLS protocol version of TLSv1.2](#ct-apigateway-pr-6-description "#ct-apigateway-pr-6-description")
+**Topics**
++ [[CT.APIGATEWAY.PR.1] Require an Amazon API Gateway REST and WebSocket API to have logging activated](#ct-apigateway-pr-1-description)
++ [[CT.APIGATEWAY.PR.2] Require an Amazon API Gateway REST API stage to have AWS X-Ray tracing activated](#ct-apigateway-pr-2-description)
++ [[CT.APIGATEWAY.PR.3] Require that an Amazon API Gateway REST API stage has encryption at rest configured for cache data](#ct-apigateway-pr-3-description)
++ [[CT.APIGATEWAY.PR.4] Require an Amazon API Gateway V2 stage to have access logging activated](#ct-apigateway-pr-4-description)
++ [[CT.APIGATEWAY.PR.5] Require Amazon API Gateway V2 Websocket and HTTP routes to specify an authorization type](#ct-apigateway-pr-5-description)
++ [[CT.APIGATEWAY.PR.6] Require an Amazon API Gateway REST domain to use a security policy that specifies a minimum TLS protocol version of TLSv1.2](#ct-apigateway-pr-6-description)
 
 ## [CT.APIGATEWAY.PR.1] Require an Amazon API Gateway REST and WebSocket API to have logging activated
+<a name="ct-apigateway-pr-1-description"></a>
 
 This control checks whether all methods in Amazon API Gateway stage have execution logging configured.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ApiGateway::Stage`
-- **CloudFormation guard rule:**
-  [CT.APIGATEWAY.PR.1 rule specification](#ct-apigateway-pr-1-rule "#ct-apigateway-pr-1-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ApiGateway::Stage`
++ **CloudFormation guard rule: ** [CT.APIGATEWAY.PR.1 rule specification](#ct-apigateway-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APIGATEWAY.PR.1 rule specification](#ct-apigateway-pr-1-rule "#ct-apigateway-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APIGATEWAY.PR.1 example templates](#ct-apigateway-pr-1-templates "#ct-apigateway-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APIGATEWAY.PR.1 rule specification](#ct-apigateway-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APIGATEWAY.PR.1 example templates](#ct-apigateway-pr-1-templates) 
 
 **Explanation**
 
 Amazon API Gateway REST or WebSocket API stages should have relevant logs enabled. API Gateway REST and WebSocket API execution logging provides detailed records of requests made to API Gateway REST and WebSocket API stages. The stages include API integration backend responses, Lambda authorizer responses, and the `requestId` for AWS integration endpoints.
 
-###### Usage considerations
-
-- This control requires Amazon API Gateway stages to configure execution logging for all methods and resources (`HttpMethod` of `*` and `ResourcePath` of `/*`).
+**Usage considerations**  
+This control requires Amazon API Gateway stages to configure execution logging for all methods and resources (`HttpMethod` of `*` and `ResourcePath` of `/*`).
 
 ### Remediation for rule failure
+<a name="ct-apigateway-pr-1-remediation"></a>
 
 Configure execution logging on Amazon API Gateway stages with a `MethodSetting` that sets `LoggingLevel` to `ERROR` or `INFO` for all methods (`HttpMethod` of `*` and `ResourcePath` of `/*`). Ensure that you do not set `LoggingLevel` to `OFF` for any method setting.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon API Gateway Stage - Example
+<a name="ct-apigateway-pr-1-remediation-1"></a>
 
 Amazon API Gateway stage configured with `error` level execution logging for all methods and resources. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApiGatewayStage": {
         "Type": "AWS::ApiGateway::Stage",
@@ -73,13 +69,11 @@ Amazon API Gateway stage configured with `error` level execution logging for all
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApiGatewayStage:
   Type: AWS::ApiGateway::Stage
   Properties:
@@ -91,33 +85,31 @@ ApiGatewayStage:
       - ResourcePath: /*
         HttpMethod: '*'
         LoggingLevel: ERROR
-
-
 ```
 
 ### CT.APIGATEWAY.PR.1 rule specification
+<a name="ct-apigateway-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   api_gw_v1_execution_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether all methods in Amazon API Gateway stage have execution logging configured.
-#
+# 
 # Reports on:
 #   AWS::ApiGateway::Stage
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -229,18 +221,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.APIGATEWAY.PR.1 example templates
+<a name="ct-apigateway-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   RestApi:
     Type: AWS::ApiGateway::RestApi
@@ -298,14 +288,11 @@ Resources:
       - ResourcePath: "/"
         HttpMethod: GET
         LoggingLevel: INFO
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   RestApi:
     Type: AWS::ApiGateway::RestApi
@@ -356,48 +343,41 @@ Resources:
         Ref: RestApi
       DeploymentId:
         Ref: Deployment
-
-
 ```
 
 ## [CT.APIGATEWAY.PR.2] Require an Amazon API Gateway REST API stage to have AWS X-Ray tracing activated
+<a name="ct-apigateway-pr-2-description"></a>
 
 This control ensures that AWS X-Ray tracing is enabled on Amazon API Gateway REST APIs.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ApiGateway::Stage`
-- **CloudFormation guard rule:**
-  [CT.APIGATEWAY.PR.2 rule specification](#ct-apigateway-pr-2-rule "#ct-apigateway-pr-2-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ApiGateway::Stage`
++ **CloudFormation guard rule: ** [CT.APIGATEWAY.PR.2 rule specification](#ct-apigateway-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APIGATEWAY.PR.2 rule specification](#ct-apigateway-pr-2-rule "#ct-apigateway-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APIGATEWAY.PR.2 example templates](#ct-apigateway-pr-2-templates "#ct-apigateway-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APIGATEWAY.PR.2 rule specification](#ct-apigateway-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APIGATEWAY.PR.2 example templates](#ct-apigateway-pr-2-templates) 
 
 **Explanation**
 
 AWS X-Ray active tracing enables a more rapid response to performance changes in the underlying infrastructure. Changes in performance could result in a lack of availability of the API. X-Ray active tracing provides real-time metrics of user requests that flow through your API Gateway REST API operations and connected services.
 
 ### Remediation for rule failure
+<a name="ct-apigateway-pr-2-remediation"></a>
 
 Set `TracingEnabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon API Gateway Stage - Example
+<a name="ct-apigateway-pr-2-remediation-1"></a>
 
 Amazon API Gateway stage configured with AWS X-Ray tracing enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApiGatewayStage": {
         "Type": "AWS::ApiGateway::Stage",
@@ -414,13 +394,11 @@ Amazon API Gateway stage configured with AWS X-Ray tracing enabled. The example 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApiGatewayStage:
   Type: AWS::ApiGateway::Stage
   Properties:
@@ -429,33 +407,31 @@ ApiGatewayStage:
     TracingEnabled: true
     RestApiId: !Ref 'RestApi'
     DeploymentId: !Ref 'Deployment'
-
-
 ```
 
 ### CT.APIGATEWAY.PR.2 rule specification
+<a name="ct-apigateway-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   api_gw_xray_enabled_check
-#
+# 
 # Description:
 #   This control ensures that AWS X-Ray tracing is enabled on Amazon API Gateway REST APIs.
-#
+# 
 # Reports on:
 #   AWS::ApiGateway::Stage
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -532,18 +508,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.APIGATEWAY.PR.2 example templates
+<a name="ct-apigateway-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   RestApi:
     Type: AWS::ApiGateway::RestApi
@@ -596,14 +570,11 @@ Resources:
         Ref: RestApi
       DeploymentId:
         Ref: Deployment
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   RestApi:
     Type: AWS::ApiGateway::RestApi
@@ -656,70 +627,47 @@ Resources:
         Ref: RestApi
       DeploymentId:
         Ref: Deployment
-
-
 ```
 
 ## [CT.APIGATEWAY.PR.3] Require that an Amazon API Gateway REST API stage has encryption at rest configured for cache data
+<a name="ct-apigateway-pr-3-description"></a>
 
-This control checks whether an
-Amazon API Gateway REST API stage that has caching enabled also encrypts the
-caches.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:**
-  `AWS::ApiGateway::Stage`
-- **CloudFormation guard rule:**
-  [CT.APIGATEWAY.PR.3 rule specification](#ct-apigateway-pr-3-rule "#ct-apigateway-pr-3-rule")
+This control checks whether an Amazon API Gateway REST API stage that has caching enabled also encrypts the caches.
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: ** `AWS::ApiGateway::Stage` 
++ **CloudFormation guard rule: ** [CT.APIGATEWAY.PR.3 rule specification](#ct-apigateway-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APIGATEWAY.PR.3 rule specification](#ct-apigateway-pr-3-rule "#ct-apigateway-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APIGATEWAY.PR.3 example templates](#ct-apigateway-pr-3-templates "#ct-apigateway-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APIGATEWAY.PR.3 rule specification](#ct-apigateway-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APIGATEWAY.PR.3 example templates](#ct-apigateway-pr-3-templates) 
 
 **Explanation**
 
-Encrypting data at rest reduces the risk that data stored on disk may be accessible by a user
-not authenticated to AWS. It adds another set of access controls to limit unauthorized
-users' ability to obtain the data. For example, API permissions are required to decrypt the
-data before it can be read.
+Encrypting data at rest reduces the risk that data stored on disk may be accessible by a user not authenticated to AWS. It adds another set of access controls to limit unauthorized users' ability to obtain the data. For example, API permissions are required to decrypt the data before it can be read.
 
 For an added layer of security, API Gateway REST API caches should be encrypted at rest.
 
-###### Usage considerations
-
-- This control applies only to API Gateway stage resources with cache clustering
-  enabled.
-- Where cache clustering is enabled, this control requires cache encryption to
-  be enabled for all resources and methods by specifying a
-  `MethodSetting` entry with an `HttpMethod` of
-  `*` and `ResourcePath` of `/*`.
+**Usage considerations**  
+This control applies only to API Gateway stage resources with cache clustering enabled.
+Where cache clustering is enabled, this control requires cache encryption to be enabled for all resources and methods by specifying a `MethodSetting` entry with an `HttpMethod` of `*` and `ResourcePath` of `/*`.
 
 ### Remediation for rule failure
+<a name="ct-apigateway-pr-3-remediation"></a>
 
-Configure encryption on API Gateway caches with a `MethodSetting` that sets
-`CacheDataEncrypted` to true for all methods (`HttpMethod` of
-`*` and `ResourcePath` of `/*`). Ensure that you do
-not set `CacheDataEncrypted` to false for any method setting.
+Configure encryption on API Gateway caches with a `MethodSetting` that sets `CacheDataEncrypted` to true for all methods (`HttpMethod` of `*` and `ResourcePath` of `/*`). Ensure that you do not set `CacheDataEncrypted` to false for any method setting.
 
 The examples that follow show how to implement this remediation.
 
 #### API Gateway stage examples
+<a name="ct-apigateway-pr-3-remediation-1"></a>
 
-This example shows the API Gateway stage configured to encrypt cache data for all
-methods (`HttpMethod` of `*` and `ResourcePath` of
-`/*`). The example is shown in JSON and in YAML.
+This example shows the API Gateway stage configured to encrypt cache data for all methods (`HttpMethod` of `*` and `ResourcePath` of `/*`). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApiGatewayStage": {
         "Type": "AWS::ApiGateway::Stage",
@@ -748,13 +696,11 @@ methods (`HttpMethod` of `*` and `ResourcePath` of
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApiGatewayStage:
   Type: AWS::ApiGateway::Stage
   Properties:
@@ -770,33 +716,31 @@ ApiGatewayStage:
         CacheDataEncrypted: true
       - ResourcePath: /
         HttpMethod: POST
-
-
 ```
 
 ### CT.APIGATEWAY.PR.3 rule specification
+<a name="ct-apigateway-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   api_gw_cache_encrypted_check
-#
+# 
 # Description:
 #   This rule checks whether Amazon API Gateway REST API stages that have caching enabled also encrypt the caches.
-#
+# 
 # Reports on:
 #   AWS::ApiGateway::Stage
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -919,18 +863,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.APIGATEWAY.PR.3 example templates
+<a name="ct-apigateway-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   RestApi:
     Type: AWS::ApiGateway::RestApi
@@ -990,14 +932,11 @@ Resources:
         CacheDataEncrypted: true
       - ResourcePath: "/"
         HttpMethod: "POST"
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   RestApi:
     Type: AWS::ApiGateway::RestApi
@@ -1055,48 +994,41 @@ Resources:
       - ResourcePath: "/*"
         HttpMethod: "*"
         CacheDataEncrypted: false
-
-
 ```
 
 ## [CT.APIGATEWAY.PR.4] Require an Amazon API Gateway V2 stage to have access logging activated
+<a name="ct-apigateway-pr-4-description"></a>
 
 This control checks whether Amazon API Gateway V2 stages have access logging enabled. Access logging is supported for HTTP and WebSocket APIs.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ApiGatewayV2::Stage`
-- **CloudFormation guard rule:**
-  [CT.APIGATEWAY.PR.4 rule specification](#ct-apigateway-pr-4-rule "#ct-apigateway-pr-4-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ApiGatewayV2::Stage`
++ **CloudFormation guard rule: ** [CT.APIGATEWAY.PR.4 rule specification](#ct-apigateway-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APIGATEWAY.PR.4 rule specification](#ct-apigateway-pr-4-rule "#ct-apigateway-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APIGATEWAY.PR.4 example templates](#ct-apigateway-pr-4-templates "#ct-apigateway-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APIGATEWAY.PR.4 rule specification](#ct-apigateway-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APIGATEWAY.PR.4 example templates](#ct-apigateway-pr-4-templates) 
 
 **Explanation**
 
 Access logging allows you to log who has called your API and how the caller gained access to the API. You can create your own log group or choose an existing log group that could be managed by API Gateway.
 
 ### Remediation for rule failure
+<a name="ct-apigateway-pr-4-remediation"></a>
 
 Provide an `AccessLogSettings` configuration, setting `DestinationArn` to the ARN of an Amazon CloudWatch log group and `Format` to a single line log format configuration.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon API Gateway HTTP API Stage - Example
+<a name="ct-apigateway-pr-4-remediation-1"></a>
 
 Amazon API Gateway HTTP API stage configured to send API access logs to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "HttpApiStage": {
         "Type": "AWS::ApiGatewayV2::Stage",
@@ -1118,13 +1050,11 @@ Amazon API Gateway HTTP API stage configured to send API access logs to Amazon C
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 HttpApiStage:
   Type: AWS::ApiGatewayV2::Stage
   Properties:
@@ -1135,33 +1065,31 @@ HttpApiStage:
       DestinationArn: !GetAtt 'LogGroup.Arn'
       Format: '{"requestId":"$context.requestId", "ip": "$context.identity.sourceIp",
         "user":"$context.identity.user","requestTime":"$context.requestTime"}'
-
-
 ```
 
 ### CT.APIGATEWAY.PR.4 rule specification
+<a name="ct-apigateway-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   api_gw_v2_access_logs_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon API Gateway V2 stages have access logging enabled. Access logging is supported for HTTP and WebSocket APIs.
-#
+# 
 # Reports on:
 #   AWS::ApiGatewayV2::Stage
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1288,18 +1216,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.APIGATEWAY.PR.4 example templates
+<a name="ct-apigateway-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LogGroup:
     Type: AWS::Logs::LogGroup
@@ -1325,14 +1251,11 @@ Resources:
         Format: >-
           {"requestId":"$context.requestId", "ip": "$context.identity.sourceIp",
           "user":"$context.identity.user","requestTime":"$context.requestTime"}
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   HttpApi:
     Type: AWS::ApiGatewayV2::Api
@@ -1346,53 +1269,45 @@ Resources:
       Description: Example Stage
       ApiId:
         Ref: HttpApi
-
-
 ```
 
 ## [CT.APIGATEWAY.PR.5] Require Amazon API Gateway V2 Websocket and HTTP routes to specify an authorization type
+<a name="ct-apigateway-pr-5-description"></a>
 
 This control checks whether Amazon API Gateway V2 API routes have an authorization type set.
-
-- **Control objective:** Use strong authentication
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ApiGatewayV2::Route`, `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`
-- **CloudFormation guard rule:**
-  [CT.APIGATEWAY.PR.5 rule specification](#ct-apigateway-pr-5-rule "#ct-apigateway-pr-5-rule")
++ **Control objective: **Use strong authentication
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ApiGatewayV2::Route`, `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`
++ **CloudFormation guard rule: ** [CT.APIGATEWAY.PR.5 rule specification](#ct-apigateway-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APIGATEWAY.PR.5 rule specification](#ct-apigateway-pr-5-rule "#ct-apigateway-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APIGATEWAY.PR.5 example templates](#ct-apigateway-pr-5-templates "#ct-apigateway-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APIGATEWAY.PR.5 rule specification](#ct-apigateway-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APIGATEWAY.PR.5 example templates](#ct-apigateway-pr-5-templates) 
 
 **Explanation**
 
 API Gateway supports multiple mechanisms for controlling and managing access to your Websocket or HTTP API. By specifying an authorization type, you can restrict access to your API, to allow only required users or processes.
 
-###### Usage considerations
-
-- This control applies only to routes created by means of the `AWS::ApiGatewayV2::Route` resource, and to managed overrides that apply to HTTP API routes that are created through quick create.
-- This control does not evaluate HTTP API routes imported using the `Body` or `BodyS3Location` properties of `AWS::ApiGatewayV2::API` resources.
+**Usage considerations**  
+This control applies only to routes created by means of the `AWS::ApiGatewayV2::Route` resource, and to managed overrides that apply to HTTP API routes that are created through quick create.
+This control does not evaluate HTTP API routes imported using the `Body` or `BodyS3Location` properties of `AWS::ApiGatewayV2::API` resources.
 
 ### Remediation for rule failure
+<a name="ct-apigateway-pr-5-remediation"></a>
 
 For Amazon API Gateway V2 routes, set `AuthorizationType` to `AWS_IAM`, `JWT` or `CUSTOM`. For Amazon API Gateway V2 managed route overrides with `AuthorizationType`, set `AuthorizationType` to `AWS_IAM`, `JWT` or `CUSTOM`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon API Gateway V2 Route - Example
+<a name="ct-apigateway-pr-5-remediation-1"></a>
 
 Amazon API Gateway V2 route configured with AWS IAM authorization. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApiGatewayV2Route": {
         "Type": "AWS::ApiGatewayV2::Route",
@@ -1405,33 +1320,29 @@ Amazon API Gateway V2 route configured with AWS IAM authorization. The example i
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApiGatewayV2Route:
   Type: AWS::ApiGatewayV2::Route
   Properties:
     ApiId: !Ref 'WebsocketApi'
     RouteKey: $connect
     AuthorizationType: AWS_IAM
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon API Gateway V2 Managed Overrides - Example
+<a name="ct-apigateway-pr-5-remediation-2"></a>
 
 Amazon API Gateway V2 managed overrides configured with AWS IAM authorization. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApiGatewayManagedOverride": {
         "Type": "AWS::ApiGatewayV2::ApiGatewayManagedOverrides",
@@ -1445,46 +1356,42 @@ Amazon API Gateway V2 managed overrides configured with AWS IAM authorization. T
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApiGatewayManagedOverride:
   Type: AWS::ApiGatewayV2::ApiGatewayManagedOverrides
   Properties:
     ApiId: !Ref 'HttpApi'
     Route:
       AuthorizationType: AWS_IAM
-
-
 ```
 
 ### CT.APIGATEWAY.PR.5 rule specification
+<a name="ct-apigateway-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   api_gw_v2_authorization_type_configured_check
-#
+# 
 # Description:
 #   This control checks whether Amazon API Gateway V2 API routes have an authorization type set.
-#
+# 
 # Reports on:
 #   AWS::ApiGatewayV2::Route, AWS::ApiGatewayV2::ApiGatewayManagedOverrides
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1601,18 +1508,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
      %doc.%RESOURCE_TYPE.resourceProperties exists
  }
-
-
 ```
 
 ### CT.APIGATEWAY.PR.5 example templates
+<a name="ct-apigateway-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ApiGatewayV2Route:
     Type: AWS::ApiGatewayV2::Route
@@ -1620,14 +1525,11 @@ Resources:
       ApiId: a1bcdef2gh
       RouteKey: $connect
       AuthorizationType: AWS_IAM
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ApiGatewayManagedOverride:
     Type: AWS::ApiGatewayV2::ApiGatewayManagedOverrides
@@ -1635,14 +1537,11 @@ Resources:
       ApiId: a1bcdef2gh
       Route:
         AuthorizationType: AWS_IAM
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ApiGatewayV2Route:
     Type: AWS::ApiGatewayV2::Route
@@ -1650,14 +1549,11 @@ Resources:
       ApiId: a1bcdef2gh
       RouteKey: $connect
       AuthorizationType: NONE
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ApiGatewayManagedOverride:
     Type: AWS::ApiGatewayV2::ApiGatewayManagedOverrides
@@ -1665,57 +1561,44 @@ Resources:
       ApiId: a1bcdef2gh
       Route:
         AuthorizationType: NONE
-
-
 ```
 
 ## [CT.APIGATEWAY.PR.6] Require an Amazon API Gateway REST domain to use a security policy that specifies a minimum TLS protocol version of TLSv1.2
+<a name="ct-apigateway-pr-6-description"></a>
 
 This control checks whether an Amazon API Gateway REST API domain name requires a minimum Transport Layer Security protocol version of TLSv1.2 by means of its security policy.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ApiGateway::DomainName`
-- **CloudFormation guard rule:**
-  [CT.APIGATEWAY.PR.6 rule specification](#ct-apigateway-pr-6-rule "#ct-apigateway-pr-6-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ApiGateway::DomainName`
++ **CloudFormation guard rule: ** [CT.APIGATEWAY.PR.6 rule specification](#ct-apigateway-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APIGATEWAY.PR.6 rule specification](#ct-apigateway-pr-6-rule "#ct-apigateway-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APIGATEWAY.PR.6 example templates](#ct-apigateway-pr-6-templates "#ct-apigateway-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APIGATEWAY.PR.6 rule specification](#ct-apigateway-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APIGATEWAY.PR.6 example templates](#ct-apigateway-pr-6-templates) 
 
 **Explanation**
 
-The TLS protocol addresses network security problems, such as tampering and eavesdropping between a client and server.
-When your clients establish a TLS handshake to your API through the custom domain, you can choose a minimum
-Transport Layer Security (TLS) protocol version. This version is enforced for your Amazon API Gateway custom domain by setting a security policy,
-which is a predefined combination of minimum TLS version and cipher suite offered by Amazon API Gateway.
+The TLS protocol addresses network security problems, such as tampering and eavesdropping between a client and server. When your clients establish a TLS handshake to your API through the custom domain, you can choose a minimum Transport Layer Security (TLS) protocol version. This version is enforced for your Amazon API Gateway custom domain by setting a security policy, which is a predefined combination of minimum TLS version and cipher suite offered by Amazon API Gateway.
 
-###### Usage considerations
-
-- TLS protocol versions and ciphers used by Amazon API Gateway security policies depend on the type of API Gateway endpoint in use.
-  For more about supported TLS protocol versions and ciphers for each endpoint type, review the Amazon API Gateway documentation.
+**Usage considerations**  
+TLS protocol versions and ciphers used by Amazon API Gateway security policies depend on the type of API Gateway endpoint in use. For more about supported TLS protocol versions and ciphers for each endpoint type, review the Amazon API Gateway documentation.
 
 ### Remediation for rule failure
+<a name="ct-apigateway-pr-6-remediation"></a>
 
 Set the value of SecurityPolicy to TLS\_1\_2, or to adopt the default value, do not provide a value for SecurityPolicy.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon API Gateway Domain Name - Example
+<a name="ct-apigateway-pr-6-remediation-1"></a>
 
-An Amazon API Gateway regional domain name configured with a security policy that requires a minimum of TLSv1.2 for API client connections.
-The example is shown in JSON and in YAML.
+An Amazon API Gateway regional domain name configured with a security policy that requires a minimum of TLSv1.2 for API client connections. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DomainName": {
         "Type": "AWS::ApiGateway::DomainName",
@@ -1733,13 +1616,11 @@ The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DomainName:
   Type: AWS::ApiGateway::DomainName
   Properties:
@@ -1749,33 +1630,31 @@ DomainName:
       Types:
         - REGIONAL
     SecurityPolicy: TLS_1_2
-
-
 ```
 
 ### CT.APIGATEWAY.PR.6 rule specification
+<a name="ct-apigateway-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   api_gw_domain_tls_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon API Gateway REST API domain name requires a minimum Transport Layer Security protocol version of TLSv1.2 by means of its security policy.
-#
+# 
 # Reports on:
 #   AWS::ApiGateway::DomainName
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1855,18 +1734,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.APIGATEWAY.PR.6 example templates
+<a name="ct-apigateway-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DomainName:
     Type: AWS::ApiGateway::DomainName
@@ -1877,14 +1754,11 @@ Resources:
         Types:
         - REGIONAL
       SecurityPolicy: TLS_1_2
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DomainName:
     Type: AWS::ApiGateway::DomainName
@@ -1895,6 +1769,4 @@ Resources:
         Types:
         - REGIONAL
       SecurityPolicy: TLS_1_0
-
-
 ```

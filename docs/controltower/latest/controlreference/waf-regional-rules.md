@@ -1,48 +1,45 @@
+
+
 # AWS WAF regional controls
+<a name="waf-regional-rules"></a>
 
-###### Topics
-
-- [[CT.WAF-REGIONAL.PR.1] Require any AWS WAF regional rule to have a condition](#ct-waf-regional-pr-1-description "#ct-waf-regional-pr-1-description")
-- [[CT.WAF-REGIONAL.PR.2] Require any AWS WAF regional web access control list (ACL) to have a rule or rule group](#ct-waf-regional-pr-2-description "#ct-waf-regional-pr-2-description")
+**Topics**
++ [[CT.WAF-REGIONAL.PR.1] Require any AWS WAF regional rule to have a condition](#ct-waf-regional-pr-1-description)
++ [[CT.WAF-REGIONAL.PR.2] Require any AWS WAF regional web access control list (ACL) to have a rule or rule group](#ct-waf-regional-pr-2-description)
 
 ## [CT.WAF-REGIONAL.PR.1] Require any AWS WAF regional rule to have a condition
+<a name="ct-waf-regional-pr-1-description"></a>
 
 This control checks whether an AWS WAF Classic Regional rule contains any conditions.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::WAFRegional::Rule`
-- **CloudFormation guard rule:**
-  [CT.WAF-REGIONAL.PR.1 rule specification](#ct-waf-regional-pr-1-rule "#ct-waf-regional-pr-1-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::WAFRegional::Rule`
++ **CloudFormation guard rule: ** [CT.WAF-REGIONAL.PR.1 rule specification](#ct-waf-regional-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.WAF-REGIONAL.PR.1 rule specification](#ct-waf-regional-pr-1-rule "#ct-waf-regional-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.WAF-REGIONAL.PR.1 example templates](#ct-waf-regional-pr-1-templates "#ct-waf-regional-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.WAF-REGIONAL.PR.1 rule specification](#ct-waf-regional-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.WAF-REGIONAL.PR.1 example templates](#ct-waf-regional-pr-1-templates)
 
 **Explanation**
 
 An AWS WAF (web application firewall) Regional rule can contain multiple conditions. The rule count's conditions allow for traffic inspection, based on a defined action, such as `allow`, `block`, or `count`. Without any conditions, the traffic passes without inspection. An AWS WAF Regional rule with no conditions, but with a name or tag suggesting `allow`, `block`, or `count`, could lead to the inaccurate assumption that one of those actions is occurring.
 
 ### Remediation for rule failure
+<a name="ct-waf-regional-pr-1-remediation"></a>
 
 Provide one or more AWS WAF rule conditions within the `Predicates` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS WAF Classic Regional Rule - Example
+<a name="ct-waf-regional-pr-1-remediation-1"></a>
 
 AWS WAF Classic Regional rule configured with an IP match predicate. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "WafRegionalRule": {
         "Type": "AWS::WAFRegional::Rule",
@@ -61,13 +58,11 @@ AWS WAF Classic Regional rule configured with an IP match predicate. The example
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 WafRegionalRule:
   Type: AWS::WAFRegional::Rule
   Properties:
@@ -77,33 +72,31 @@ WafRegionalRule:
       - DataId: !Ref 'IPSet'
         Negated: false
         Type: IPMatch
-
-
 ```
 
 ### CT.WAF-REGIONAL.PR.1 rule specification
+<a name="ct-waf-regional-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   waf_regional_rule_not_empty_check
-#
+# 
 # Description:
 #   This control checks whether a AWS WAF Classic Regional rule contains any conditions.
-#
+# 
 # Reports on:
 #   AWS::WAFRegional::Rule
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -181,18 +174,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.WAF-REGIONAL.PR.1 example templates
+<a name="ct-waf-regional-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IPSetDenylist:
     Type: AWS::WAFRegional::IPSet
@@ -211,62 +202,52 @@ Resources:
           Ref: IPSetDenylist
         Negated: false
         Type: "IPMatch"
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   WafRegionalRule:
     Type: AWS::WAFRegional::Rule
     Properties:
       Name: ExampleRule
       MetricName: ExampleRuleMetric
-
-
 ```
 
 ## [CT.WAF-REGIONAL.PR.2] Require any AWS WAF regional web access control list (ACL) to have a rule or rule group
+<a name="ct-waf-regional-pr-2-description"></a>
 
 This control checks whether an AWS WAF Classic Regional web ACL contains any WAF rules or rule groups.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::WAFRegional::WebACL`
-- **CloudFormation guard rule:**
-  [CT.WAF-REGIONAL.PR.2 rule specification](#ct-waf-regional-pr-2-rule "#ct-waf-regional-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::WAFRegional::WebACL`
++ **CloudFormation guard rule: ** [CT.WAF-REGIONAL.PR.2 rule specification](#ct-waf-regional-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.WAF-REGIONAL.PR.2 rule specification](#ct-waf-regional-pr-2-rule "#ct-waf-regional-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.WAF-REGIONAL.PR.2 example templates](#ct-waf-regional-pr-2-templates "#ct-waf-regional-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.WAF-REGIONAL.PR.2 rule specification](#ct-waf-regional-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.WAF-REGIONAL.PR.2 example templates](#ct-waf-regional-pr-2-templates) 
 
 **Explanation**
 
 An AWS WAF Regional web access control list (ACL) can contain a collection of rules and rule groups that inspect and control web requests. If a web ACL is empty, the web traffic can pass without being detected or acted upon by WAF, depending on the default action.
 
 ### Remediation for rule failure
+<a name="ct-waf-regional-pr-2-remediation"></a>
 
 Provide one or more AWS WAF rules within the `Rules` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS WAF Classic Regional web ACL - Example
+<a name="ct-waf-regional-pr-2-remediation-1"></a>
 
 AWS WAF Classic Regional web ACL configured with a rule to block requests based on an IP set match. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "WafRegionalWebAcl": {
         "Type": "AWS::WAFRegional::WebACL",
@@ -290,13 +271,11 @@ AWS WAF Classic Regional web ACL configured with a rule to block requests based 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 WafRegionalWebAcl:
   Type: AWS::WAFRegional::WebACL
   Properties:
@@ -309,33 +288,31 @@ WafRegionalWebAcl:
           Type: BLOCK
         Priority: 1
         RuleId: !Ref 'IPSetRule'
-
-
 ```
 
 ### CT.WAF-REGIONAL.PR.2 rule specification
+<a name="ct-waf-regional-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   waf_regional_webacl_not_empty_check
-#
+# 
 # Description:
 #   This control checks whether an AWS WAF Classic Regional web ACL contains any WAF rules or rule groups.
-#
+# 
 # Reports on:
 #   AWS::WAFRegional::WebACL
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -413,18 +390,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.WAF-REGIONAL.PR.2 example templates
+<a name="ct-waf-regional-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IPSetDenylist:
     Type: "AWS::WAFRegional::IPSet"
@@ -456,14 +431,11 @@ Resources:
         Priority: 1
         RuleId:
           Ref: IPSetRule
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   WafRegionalWebAcl:
     Type: AWS::WAFRegional::WebACL
@@ -472,6 +444,4 @@ Resources:
       DefaultAction:
         Type: ALLOW
       MetricName: ExampleWebACLMetric
-
-
 ```

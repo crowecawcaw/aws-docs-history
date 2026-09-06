@@ -1,29 +1,25 @@
+
+
 # Amazon DocumentDB controls
+<a name="documentdb-rules"></a>
 
-###### Topics
-
-- [[CT.DOCUMENTDB.PR.1] Require an Amazon DocumentDB cluster to be encrypted at rest](#ct-documentdb-pr-1-description "#ct-documentdb-pr-1-description")
-- [[CT.DOCUMENTDB.PR.2] Require an Amazon DocumentDB cluster to have a backup retention period greater than or equal to seven days](#ct-documentdb-pr-2-description "#ct-documentdb-pr-2-description")
+**Topics**
++ [[CT.DOCUMENTDB.PR.1] Require an Amazon DocumentDB cluster to be encrypted at rest](#ct-documentdb-pr-1-description)
++ [[CT.DOCUMENTDB.PR.2] Require an Amazon DocumentDB cluster to have a backup retention period greater than or equal to seven days](#ct-documentdb-pr-2-description)
 
 ## [CT.DOCUMENTDB.PR.1] Require an Amazon DocumentDB cluster to be encrypted at rest
+<a name="ct-documentdb-pr-1-description"></a>
 
 This control checks whether storage encryption is enabled for an Amazon DocumentDB (with MongoDB compatibility) cluster.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::DocDB::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.DOCUMENTDB.PR.1 rule specification](#ct-documentdb-pr-1-rule "#ct-documentdb-pr-1-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::DocDB::DBCluster`
++ **CloudFormation guard rule: ** [CT.DOCUMENTDB.PR.1 rule specification](#ct-documentdb-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.DOCUMENTDB.PR.1 rule specification](#ct-documentdb-pr-1-rule "#ct-documentdb-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.DOCUMENTDB.PR.1 example templates](#ct-documentdb-pr-1-templates "#ct-documentdb-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.DOCUMENTDB.PR.1 rule specification](#ct-documentdb-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.DOCUMENTDB.PR.1 example templates](#ct-documentdb-pr-1-templates) 
 
 **Explanation**
 
@@ -32,19 +28,20 @@ You encrypt data at rest in your Amazon DocumentDB cluster by specifying the sto
 Clusters that you create using AWS CloudFormation have encryption at rest turned off by default. Therefore, you must explicitly enable encryption at rest using the `StorageEncrypted` property.
 
 ### Remediation for rule failure
+<a name="ct-documentdb-pr-1-remediation"></a>
 
 Set the value of the `StorageEncrypted` parameter to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon DocumentDB Cluster - Example
+<a name="ct-documentdb-pr-1-remediation-1"></a>
 
 An Amazon DocumentDB cluster configured with storage encryption enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DocumentDBCluster": {
         "Type": "AWS::DocDB::DBCluster",
@@ -59,46 +56,42 @@ An Amazon DocumentDB cluster configured with storage encryption enabled. The exa
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DocumentDBCluster:
   Type: AWS::DocDB::DBCluster
   Properties:
     MasterUsername: !Sub '{{resolve:secretsmanager:${DocumentDBClusterSecret}::username}}'
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DocumentDBClusterSecret}::password}}'
     StorageEncrypted: true
-
-
 ```
 
 ### CT.DOCUMENTDB.PR.1 rule specification
+<a name="ct-documentdb-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   docdb_cluster_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether storage encryption is enabled for an Amazon DocumentDB (with MongoDB compatibility) cluster.
-#
+# 
 # Reports on:
 #   AWS::DocDB::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -176,18 +169,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.DOCUMENTDB.PR.1 example templates
+<a name="ct-documentdb-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DocumentDBClusterSecret:
     Type: AWS::SecretsManager::Secret
@@ -205,14 +196,11 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DocumentDBClusterSecret}::password}}'
       StorageEncrypted: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DocumentDBClusterSecret:
     Type: AWS::SecretsManager::Secret
@@ -230,48 +218,41 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DocumentDBClusterSecret}::password}}'
       StorageEncrypted: false
-
-
 ```
 
 ## [CT.DOCUMENTDB.PR.2] Require an Amazon DocumentDB cluster to have a backup retention period greater than or equal to seven days
+<a name="ct-documentdb-pr-2-description"></a>
 
 This control checks whether an Amazon DocumentDB cluster retention period is set to seven or more days (>=7). The default retention period is one day.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::DocDB::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.DOCUMENTDB.PR.2 rule specification](#ct-documentdb-pr-2-rule "#ct-documentdb-pr-2-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::DocDB::DBCluster`
++ **CloudFormation guard rule: ** [CT.DOCUMENTDB.PR.2 rule specification](#ct-documentdb-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.DOCUMENTDB.PR.2 rule specification](#ct-documentdb-pr-2-rule "#ct-documentdb-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.DOCUMENTDB.PR.2 example templates](#ct-documentdb-pr-2-templates "#ct-documentdb-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.DOCUMENTDB.PR.2 rule specification](#ct-documentdb-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.DOCUMENTDB.PR.2 example templates](#ct-documentdb-pr-2-templates) 
 
 **Explanation**
 
 Amazon DocumentDB creates daily automatic snapshots of your cluster during your cluster's backup window. Amazon DocumentDB saves the automatic snapshots of your cluster according to the backup retention period that you specify, allowing you to restore to any point within the backup retention period. This daily snapshot strengthens the resilience of your systems, and it can help you recover quickly from a security incident.
 
 ### Remediation for rule failure
+<a name="ct-documentdb-pr-2-remediation"></a>
 
 Set the value of the `BackupRetentionPeriod` parameter to an integer value between 7 and 35 days (inclusive).
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon DocumentDB Cluster - Example
+<a name="ct-documentdb-pr-2-remediation-1"></a>
 
 An Amazon DocumentDB cluster configured with a backup retention period of seven (7) days. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DocumentDBCluster": {
         "Type": "AWS::DocDB::DBCluster",
@@ -286,46 +267,42 @@ An Amazon DocumentDB cluster configured with a backup retention period of seven 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DocumentDBCluster:
   Type: AWS::DocDB::DBCluster
   Properties:
     MasterUsername: !Sub '{{resolve:secretsmanager:${DocumentDBClusterSecret}::username}}'
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DocumentDBClusterSecret}::password}}'
     BackupRetentionPeriod: 7
-
-
 ```
 
 ### CT.DOCUMENTDB.PR.2 rule specification
+<a name="ct-documentdb-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   docdb_cluster_backup_retention_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon DocumentDB cluster retention period is set to seven or more days (>=7).
-#
+# 
 # Reports on:
 #   AWS::DocDB::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -403,18 +380,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.DOCUMENTDB.PR.2 example templates
+<a name="ct-documentdb-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DocumentDBClusterSecret:
     Type: AWS::SecretsManager::Secret
@@ -432,14 +407,11 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DocumentDBClusterSecret}::password}}'
       BackupRetentionPeriod: 7
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DocumentDBClusterSecret:
     Type: AWS::SecretsManager::Secret
@@ -457,6 +429,4 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DocumentDBClusterSecret}::password}}'
       BackupRetentionPeriod: 1
-
-
 ```

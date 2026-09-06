@@ -1,32 +1,28 @@
+
+
 # AWS Identity and Access Management (IAM) controls
+<a name="iam-rules"></a>
 
-###### Topics
-
-- [[CT.IAM.PR.1] Require that an AWS Identity and Access Management (IAM) inline policy does not have a statement that includes "\*" in the Action and Resource elements](#ct-iam-pr-1-description "#ct-iam-pr-1-description")
-- [[CT.IAM.PR.2] Require that AWS Identity and Access Management (IAM) customer-managed policies do not contain a statement that includes "\*" in the Action and Resource elements](#ct-iam-pr-2-description "#ct-iam-pr-2-description")
-- [[CT.IAM.PR.3] Require that AWS Identity and Access Management (IAM) customer-managed policies do not have wildcard service actions](#ct-iam-pr-3-description "#ct-iam-pr-3-description")
-- [[CT.IAM.PR.4] Require that an AWS Identity and Access Management(IAM) user does not have an inline or managed policy attached](#ct-iam-pr-4-description "#ct-iam-pr-4-description")
-- [[CT.IAM.PR.5] Require that AWS Identity and Access Management (IAM) inline policies do not have wildcard service actions](#ct-iam-pr-5-description "#ct-iam-pr-5-description")
+**Topics**
++ [[CT.IAM.PR.1] Require that an AWS Identity and Access Management (IAM) inline policy does not have a statement that includes "\*" in the Action and Resource elements](#ct-iam-pr-1-description)
++ [[CT.IAM.PR.2] Require that AWS Identity and Access Management (IAM) customer-managed policies do not contain a statement that includes "\*" in the Action and Resource elements](#ct-iam-pr-2-description)
++ [[CT.IAM.PR.3] Require that AWS Identity and Access Management (IAM) customer-managed policies do not have wildcard service actions](#ct-iam-pr-3-description)
++ [[CT.IAM.PR.4] Require that an AWS Identity and Access Management(IAM) user does not have an inline or managed policy attached](#ct-iam-pr-4-description)
++ [[CT.IAM.PR.5] Require that AWS Identity and Access Management (IAM) inline policies do not have wildcard service actions](#ct-iam-pr-5-description)
 
 ## [CT.IAM.PR.1] Require that an AWS Identity and Access Management (IAM) inline policy does not have a statement that includes "\*" in the Action and Resource elements
+<a name="ct-iam-pr-1-description"></a>
 
 This control checks that AWS Identity and Access Management (IAM) inline policies do not include `Effect`: `Allow` with `Action`: `*` over `Resource`: `*`.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::IAM::Policy`, `AWS::IAM::Role`, `AWS::IAM::User`, `AWS::IAM::Group`
-- **CloudFormation guard rule:**
-  [CT.IAM.PR.1 rule specification](#ct-iam-pr-1-rule "#ct-iam-pr-1-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::IAM::Policy`, `AWS::IAM::Role`, `AWS::IAM::User`, `AWS::IAM::Group`
++ **CloudFormation guard rule: ** [CT.IAM.PR.1 rule specification](#ct-iam-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.IAM.PR.1 rule specification](#ct-iam-pr-1-rule "#ct-iam-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.IAM.PR.1 example templates](#ct-iam-pr-1-templates "#ct-iam-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.IAM.PR.1 rule specification](#ct-iam-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.IAM.PR.1 example templates](#ct-iam-pr-1-templates) 
 
 **Explanation**
 
@@ -36,24 +32,24 @@ Instead of allowing full administrative privileges, determine the specific actio
 
 Remove IAM policies that have a statement with `Effect`: `Allow` that permit `Action`: `*` over `Resource`: `*`.
 
-###### Usage considerations
-
-- This control applies only to IAM inline policies with statements that contain an `Effect` of `Allow` and that contain both the `Action` and the `Resource` element.
+**Usage considerations**  
+This control applies only to IAM inline policies with statements that contain an `Effect` of `Allow` and that contain both the `Action` and the `Resource` element.
 
 ### Remediation for rule failure
+<a name="ct-iam-pr-1-remediation"></a>
 
 Remove IAM inline policy statements with `Effect`: `Allow` that permit `Action`: `*` over `Resource`: `*`.
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Policy - Example One
+<a name="ct-iam-pr-1-remediation-1"></a>
 
 IAM inline policy configured to allow retrieval of objects from an Amazon S3 bucket. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMPolicy": {
         "Type": "AWS::IAM::Policy",
@@ -65,7 +61,7 @@ IAM inline policy configured to allow retrieval of objects from an Amazon S3 buc
                 }
             ],
             "PolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -81,13 +77,11 @@ IAM inline policy configured to allow retrieval of objects from an Amazon S3 buc
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMPolicy:
   Type: AWS::IAM::Policy
   Properties:
@@ -95,33 +89,31 @@ IAMPolicy:
     Roles:
       - !Ref 'IAMRole'
     PolicyDocument:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Allow
           Action:
             - s3:GetObject
           Resource:
             - arn:aws:s3:::amzn-s3-demo-bucket/*
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Role - Example Two
+<a name="ct-iam-pr-1-remediation-2"></a>
 
 IAM role configured with an inline policy allowing retrieval of objects from an Amazon S3 bucket. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMRole": {
         "Type": "AWS::IAM::Role",
         "Properties": {
             "AssumeRolePolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -140,7 +132,7 @@ IAM role configured with an inline policy allowing retrieval of objects from an 
                 {
                     "PolicyName": "sample-inline-policy",
                     "PolicyDocument": {
-                        "Version": "2012-10-17",
+                        "Version": "2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -158,18 +150,16 @@ IAM role configured with an inline policy allowing retrieval of objects from an 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMRole:
   Type: AWS::IAM::Role
   Properties:
     AssumeRolePolicyDocument:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Allow
           Principal:
@@ -179,40 +169,38 @@ IAMRole:
     Policies:
       - PolicyName: sample-inline-policy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
             - Effect: Allow
               Action:
                 - s3:GetObject
               Resource:
                 - arn:aws:s3:::amzn-s3-demo-bucket/*
-
-
 ```
 
 ### CT.IAM.PR.1 rule specification
+<a name="ct-iam-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Name:
 #   iam_inline_policy_no_statements_with_admin_access_check
-#
+# 
 # Description:
 #   This control checks that AWS Identity and Access Management (IAM) inline policies do not include "Effect": "Allow" with "Action": "*" over "Resource": "*".
-#
+# 
 # Reports on:
 #   AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, AWS::IAM::Group
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -434,24 +422,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.IAM.PR.1 example templates
+<a name="ct-iam-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -467,27 +453,24 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action:
           - s3:GetObject
           Resource:
           - arn:aws:s3:::amzn-s3-demo-bucket/*
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -503,34 +486,26 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action: '*'
           Resource: '*'
-
-
 ```
 
 ## [CT.IAM.PR.2] Require that AWS Identity and Access Management (IAM) customer-managed policies do not contain a statement that includes "\*" in the Action and Resource elements
+<a name="ct-iam-pr-2-description"></a>
 
 This control checks whether AWS Identity and Access Management (IAM) customer managed policies do not include `Effect`: `Allow` with `Action`: `*` over `Resource`: `*`.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::IAM::ManagedPolicy`
-- **CloudFormation guard rule:**
-  [CT.IAM.PR.2 rule specification](#ct-iam-pr-2-rule "#ct-iam-pr-2-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::IAM::ManagedPolicy`
++ **CloudFormation guard rule: ** [CT.IAM.PR.2 rule specification](#ct-iam-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.IAM.PR.2 rule specification](#ct-iam-pr-2-rule "#ct-iam-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.IAM.PR.2 example templates](#ct-iam-pr-2-templates "#ct-iam-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.IAM.PR.2 rule specification](#ct-iam-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.IAM.PR.2 example templates](#ct-iam-pr-2-templates) 
 
 **Explanation**
 
@@ -540,25 +515,25 @@ Instead of allowing full privileges, determine the specific actions that your us
 
 Remove IAM policies that have a statement with `Effect`: `Allow` that permit `Action`: `*` over `Resource`: `*`.
 
-###### Usage considerations
-
-- This control checks IAM customer-managed policies only. It does not check inline and AWS-managed policies.
-- This control applies only to IAM inline policies with statements that contain an `Effect` of `Allow` and that contain both the `Action` and the `Resource` element.
+**Usage considerations**  
+This control checks IAM customer-managed policies only. It does not check inline and AWS-managed policies.
+This control applies only to IAM inline policies with statements that contain an `Effect` of `Allow` and that contain both the `Action` and the `Resource` element.
 
 ### Remediation for rule failure
+<a name="ct-iam-pr-2-remediation"></a>
 
 Remove IAM inline policy statements with `Effect`: `Allow` that permit `Action`: `*` over `Resource`: `*`.
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Managed Policy - Example
+<a name="ct-iam-pr-2-remediation-1"></a>
 
 IAM managed policy configured to allow retrieval of objects from an Amazon S3 bucket. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMManagedPolicy": {
         "Type": "AWS::IAM::ManagedPolicy",
@@ -569,7 +544,7 @@ IAM managed policy configured to allow retrieval of objects from an Amazon S3 bu
                 }
             ],
             "PolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -585,53 +560,49 @@ IAM managed policy configured to allow retrieval of objects from an Amazon S3 bu
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMManagedPolicy:
   Type: AWS::IAM::ManagedPolicy
   Properties:
     Roles:
       - !Ref 'IAMRole'
     PolicyDocument:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Allow
           Action:
             - s3:GetObject
           Resource:
             - arn:aws:s3:::amzn-s3-demo-bucket/*
-
-
 ```
 
 ### CT.IAM.PR.2 rule specification
+<a name="ct-iam-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Name:
 #   iam_managed_policy_no_statements_with_admin_access_check
-#
+# 
 # Description:
 #   This control checks whether AWS Identity and Access Management (IAM) customer managed policies do not include "Effect": "Allow" with "Action": "*" over "Resource": "*".
-#
+# 
 # Reports on:
 #   AWS::IAM::ManagedPolicy
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -767,24 +738,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.IAM.PR.2 example templates
+<a name="ct-iam-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -798,27 +767,24 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action:
           - s3:GetObject
           Resource:
           - arn:aws:s3:::amzn-s3-demo-bucket/*
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -832,58 +798,50 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action: '*'
           Resource: '*'
-
-
 ```
 
 ## [CT.IAM.PR.3] Require that AWS Identity and Access Management (IAM) customer-managed policies do not have wildcard service actions
+<a name="ct-iam-pr-3-description"></a>
 
 This control checks that AWS Identity and Access Management (IAM) customer-managed policies do not contain statements of `Effect`: `Allow` with `Action`: `Service:*` (for example, s3:\*) for individual AWS services, and that the policies do not use the combination of `NotAction` with an `Effect` of `Allow`.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::IAM::ManagedPolicy`
-- **CloudFormation guard rule:**
-  [CT.IAM.PR.3 rule specification](#ct-iam-pr-3-rule "#ct-iam-pr-3-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::IAM::ManagedPolicy`
++ **CloudFormation guard rule: ** [CT.IAM.PR.3 rule specification](#ct-iam-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.IAM.PR.3 rule specification](#ct-iam-pr-3-rule "#ct-iam-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.IAM.PR.3 example templates](#ct-iam-pr-3-templates "#ct-iam-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.IAM.PR.3 rule specification](#ct-iam-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.IAM.PR.3 example templates](#ct-iam-pr-3-templates) 
 
 **Explanation**
 
 When you assign permissions to AWS services, it is important to scope the allowed IAM actions in your IAM policies. We recommend that you provision least-privilege permissions by restricting IAM policies to required actions only. Overly permissive policies can lead to privilege escalation, if the policies are attached to an IAM principal that may not require the permission.
 
-###### Usage considerations
-
-- This control checks IAM customer-managed policies only. It does not check inline and AWS-managed policies.
-- This control applies only to IAM customer-managed policies with statements that contain an `Effect` of `Allow` with an `Action` or `NotAction` element present.
+**Usage considerations**  
+This control checks IAM customer-managed policies only. It does not check inline and AWS-managed policies.
+This control applies only to IAM customer-managed policies with statements that contain an `Effect` of `Allow` with an `Action` or `NotAction` element present.
 
 ### Remediation for rule failure
+<a name="ct-iam-pr-3-remediation"></a>
 
 Remove statements from IAM customer-managed policies with `Effect`: `Allow` and `Action`: `service:*` or `Effect`: `Allow` and `NotAction`.
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Managed Policy - Example
+<a name="ct-iam-pr-3-remediation-1"></a>
 
 IAM managed policy configured to allow the Amazon S3 `ListBucket` action. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMManagedPolicy": {
         "Type": "AWS::IAM::ManagedPolicy",
@@ -894,7 +852,7 @@ IAM managed policy configured to allow the Amazon S3 `ListBucket` action. The ex
                 }
             ],
             "PolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -910,50 +868,46 @@ IAM managed policy configured to allow the Amazon S3 `ListBucket` action. The ex
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMManagedPolicy:
   Type: AWS::IAM::ManagedPolicy
   Properties:
     Roles:
       - !Ref 'IAMRole'
     PolicyDocument:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Allow
           Action:
             - s3:ListBucket
           Resource:
             - '*'
-
-
 ```
 
 ### CT.IAM.PR.3 rule specification
+<a name="ct-iam-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Name:
 #   iam_managed_policy_no_statements_with_full_access_check
-#
+# 
 # Description:
 #   This control checks that AWS Identity and Access Management (IAM) customer-managed policies do not contain statements of "Effect": "Allow" with "Action": "Service:*" (for example, s3:*) for individual AWS services, and that the policies do not use the combination of "NotAction" with an "Effect" of "Allow".
-#
+# 
 # Reports on:
 #   AWS::IAM::ManagedPolicy
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1099,24 +1053,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.IAM.PR.3 example templates
+<a name="ct-iam-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1130,27 +1082,24 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action:
           - s3:ListBucket
           Resource:
           - '*'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1164,87 +1113,76 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action: s3:*
           Resource: '*'
-
-
 ```
 
 ## [CT.IAM.PR.4] Require that an AWS Identity and Access Management(IAM) user does not have an inline or managed policy attached
+<a name="ct-iam-pr-4-description"></a>
 
 This control checks whether your AWS Identity and Access Management (IAM) user has inline or managed (AWS and customer) policies directly attached. Instead, IAM users should inherit permissions from IAM groups or roles.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::IAM::User`, `AWS::IAM::Policy`, `AWS::IAM::ManagedPolicy`
-- **CloudFormation guard rule:**
-  [CT.IAM.PR.4 rule specification](#ct-iam-pr-4-rule "#ct-iam-pr-4-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::IAM::User`, `AWS::IAM::Policy`, `AWS::IAM::ManagedPolicy`
++ **CloudFormation guard rule: ** [CT.IAM.PR.4 rule specification](#ct-iam-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.IAM.PR.4 rule specification](#ct-iam-pr-4-rule "#ct-iam-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.IAM.PR.4 example templates](#ct-iam-pr-4-templates "#ct-iam-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.IAM.PR.4 rule specification](#ct-iam-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.IAM.PR.4 example templates](#ct-iam-pr-4-templates) 
 
 **Explanation**
 
 By default, IAM users, groups, and roles have no access to AWS resources. IAM policies grant privileges to users, groups, or roles. We recommend that you apply IAM policies directly to groups and roles, but not to users. As the number of users grows, assigning privileges at the group or role level reduces the complexity of access management. Reducing access management complexity may in turn reduce the opportunity for a principal to receive or retain excessive privileges inadvertently.
 
 ### Remediation for rule failure
+<a name="ct-iam-pr-4-remediation"></a>
 
 Configure IAM users to inherit permissions from IAM groups.
 
 The examples that follow show how to implement this remediation.
 
 #### IAM User - Example
+<a name="ct-iam-pr-4-remediation-1"></a>
 
 IAM user configured with no IAM policy or managed policy attachments. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMUser": {
         "Type": "AWS::IAM::User"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMUser:
   Type: AWS::IAM::User
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Policy - Example
+<a name="ct-iam-pr-4-remediation-2"></a>
 
 IAM policy configured with no IAM user associations. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMPolicy": {
         "Type": "AWS::IAM::Policy",
         "Properties": {
             "PolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -1264,18 +1202,16 @@ IAM policy configured with no IAM user associations. The example is shown in JSO
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMPolicy:
   Type: AWS::IAM::Policy
   Properties:
     PolicyDocument:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Allow
           Action:
@@ -1284,26 +1220,24 @@ IAMPolicy:
     PolicyName: sample-policy
     Roles:
       - !Ref 'IAMRole'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Managed Policy - Example
+<a name="ct-iam-pr-4-remediation-3"></a>
 
 IAM managed policy configured with no IAM user associations. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMManagedPolicy": {
         "Type": "AWS::IAM::ManagedPolicy",
         "Properties": {
             "PolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -1317,50 +1251,46 @@ IAM managed policy configured with no IAM user associations. The example is show
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMManagedPolicy:
   Type: AWS::IAM::ManagedPolicy
   Properties:
     PolicyDocument:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Allow
           Action:
             - cloudformation:DescribeStacks
           Resource: '*'
-
-
 ```
 
 ### CT.IAM.PR.4 rule specification
+<a name="ct-iam-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   iam_user_no_policies_check
-#
+# 
 # Description:
 #   This control checks whether your AWS Identity and Access Management (IAM) user has inline or managed (AWS and customer) policies directly attached. Instead, IAM users should inherit permissions from IAM groups or roles.
-#
+# 
 # Reports on:
 #   AWS::IAM::User, AWS::IAM::Policy, AWS::IAM::ManagedPolicy
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1499,89 +1429,76 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.IAM.PR.4 example templates
+<a name="ct-iam-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMUser:
     Type: AWS::IAM::User
     Properties: {}
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMUser:
     Type: AWS::IAM::User
     Properties:
       ManagedPolicyArns:
       - arn:aws:iam::aws:policy/AdministratorAccess
-
-
 ```
 
 ## [CT.IAM.PR.5] Require that AWS Identity and Access Management (IAM) inline policies do not have wildcard service actions
+<a name="ct-iam-pr-5-description"></a>
 
 This control checks whether AWS Identity and Access Management (IAM) inline policies do not include `Effect`: `Allow` with `Action`: `Service:*` (e.g. s3:\*) for individual AWS services or use the combination of `NotAction` with an `Effect` of `Allow`.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::IAM::Policy`, `AWS::IAM::Role`, `AWS::IAM::User`, `AWS::IAM::Group`
-- **CloudFormation guard rule:**
-  [CT.IAM.PR.5 rule specification](#ct-iam-pr-5-rule "#ct-iam-pr-5-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::IAM::Policy`, `AWS::IAM::Role`, `AWS::IAM::User`, `AWS::IAM::Group`
++ **CloudFormation guard rule: ** [CT.IAM.PR.5 rule specification](#ct-iam-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.IAM.PR.5 rule specification](#ct-iam-pr-5-rule "#ct-iam-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.IAM.PR.5 example templates](#ct-iam-pr-5-templates "#ct-iam-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.IAM.PR.5 rule specification](#ct-iam-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.IAM.PR.5 example templates](#ct-iam-pr-5-templates) 
 
 **Explanation**
 
 When you assign permissions to AWS services, it is important to scope the allowed IAM actions in your IAM policies. You should restrict IAM actions to only those actions that are needed. This helps you to provision least privilege permissions. Overly permissive policies might lead to privilege escalation if the policies are attached to an IAM principal that might not require the permission.
 
-###### Usage considerations
-
-- This control only applies to IAM inline policies with statements that contain an `Effect` of `Allow` with an `Action` or `NotAction` element present
-- This control only applies to IAM role, user or group resources with one or more inline policies and IAM policy resources with one or more statements configured
+**Usage considerations**  
+This control only applies to IAM inline policies with statements that contain an `Effect` of `Allow` with an `Action` or `NotAction` element present
+This control only applies to IAM role, user or group resources with one or more inline policies and IAM policy resources with one or more statements configured
 
 ### Remediation for rule failure
+<a name="ct-iam-pr-5-remediation"></a>
 
 Remove statements from IAM inline policies with `Effect`: `Allow` and `Action`: `service:*` or `Effect`: `Allow` and `NotAction`.
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Inline Policy - Example One
+<a name="ct-iam-pr-5-remediation-1"></a>
 
 IAM role configured with an inline policy allowing the S3 `ListBucket` action. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMRole": {
         "Type": "AWS::IAM::Role",
         "Properties": {
             "AssumeRolePolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -1599,7 +1516,7 @@ IAM role configured with an inline policy allowing the S3 `ListBucket` action. T
             "Policies": [
                 {
                     "PolicyDocument": {
-                        "Version": "2012-10-17",
+                        "Version": "2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -1618,18 +1535,16 @@ IAM role configured with an inline policy allowing the S3 `ListBucket` action. T
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMRole:
   Type: AWS::IAM::Role
   Properties:
     AssumeRolePolicyDocument:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Allow
           Principal:
@@ -1638,7 +1553,7 @@ IAMRole:
             - sts:AssumeRole
     Policies:
       - PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
             - Effect: Allow
               Action:
@@ -1646,20 +1561,18 @@ IAMRole:
               Resource:
                 - '*'
         PolicyName: sample-policy
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Inline Policy - Example Two
+<a name="ct-iam-pr-5-remediation-2"></a>
 
 IAM user configured with an inline policy allowing the S3 `ListBucket` action. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMUser": {
         "Type": "AWS::IAM::User",
@@ -1667,7 +1580,7 @@ IAM user configured with an inline policy allowing the S3 `ListBucket` action. T
             "Policies": [
                 {
                     "PolicyDocument": {
-                        "Version": "2012-10-17",
+                        "Version": "2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -1686,19 +1599,17 @@ IAM user configured with an inline policy allowing the S3 `ListBucket` action. T
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMUser:
   Type: AWS::IAM::User
   Properties:
     Policies:
       - PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
             - Effect: Allow
               Action:
@@ -1706,20 +1617,18 @@ IAMUser:
               Resource:
                 - '*'
         PolicyName: sample-policy
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Inline Policy - Example Three
+<a name="ct-iam-pr-5-remediation-3"></a>
 
 IAM group configured with an inline policy allowing the S3 `ListBucket` action. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMGroup": {
         "Type": "AWS::IAM::Group",
@@ -1727,7 +1636,7 @@ IAM group configured with an inline policy allowing the S3 `ListBucket` action. 
             "Policies": [
                 {
                     "PolicyDocument": {
-                        "Version": "2012-10-17",
+                        "Version": "2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -1746,19 +1655,17 @@ IAM group configured with an inline policy allowing the S3 `ListBucket` action. 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMGroup:
   Type: AWS::IAM::Group
   Properties:
     Policies:
       - PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
             - Effect: Allow
               Action:
@@ -1766,20 +1673,18 @@ IAMGroup:
               Resource:
                 - '*'
         PolicyName: sample-policy
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### IAM Inline Policy - Example Four
+<a name="ct-iam-pr-5-remediation-4"></a>
 
 IAM policy associated with an IAM role as an inline policy and configured to allow the S3 `ListBucket` action. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "IAMPolicy": {
         "Type": "AWS::IAM::Policy",
@@ -1791,7 +1696,7 @@ IAM policy associated with an IAM role as an inline policy and configured to all
                 }
             ],
             "PolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -1807,13 +1712,11 @@ IAM policy associated with an IAM role as an inline policy and configured to all
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 IAMPolicy:
   Type: AWS::IAM::Policy
   Properties:
@@ -1821,37 +1724,35 @@ IAMPolicy:
     Roles:
       - !Ref 'IAMRole'
     PolicyDocument:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Allow
           Action:
             - s3:ListBucket
           Resource:
             - '*'
-
-
 ```
 
 ### CT.IAM.PR.5 rule specification
+<a name="ct-iam-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Name:
 #   iam_inline_policy_no_statements_with_full_access_check
-#
+# 
 # Description:
 #   This control checks whether AWS Identity and Access Management (IAM) inline policies do not include "Effect": "Allow" with "Action": "Service:*" (e.g. s3:*) for individual AWS services or use the combination of "NotAction" with an "Effect" of "Allow".
-#
+# 
 # Reports on:
 #   AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, AWS::IAM::Group
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2091,24 +1992,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.IAM.PR.5 example templates
+<a name="ct-iam-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -2124,27 +2023,24 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action:
           - s3:ListBucket
           Resource:
           - '*'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -2160,11 +2056,9 @@ Resources:
       Roles:
       - Ref: IAMRole
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action: s3:*
           Resource: '*'
-
-
 ```

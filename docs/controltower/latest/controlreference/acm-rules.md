@@ -1,47 +1,44 @@
+
+
 # AWS Certificate Manager controls
+<a name="acm-rules"></a>
 
-###### Topics
-
-- [[CT.ACM.PR.1] Require an AWS Private CA certificate to have a single domain name](#ct-acm-pr-1-description "#ct-acm-pr-1-description")
+**Topics**
++ [[CT.ACM.PR.1] Require an AWS Private CA certificate to have a single domain name](#ct-acm-pr-1-description)
 
 ## [CT.ACM.PR.1] Require an AWS Private CA certificate to have a single domain name
+<a name="ct-acm-pr-1-description"></a>
 
 This control checks whether any AWS Certificate Manager (ACM) Private CA certificates have wildcard domain names instead of single domain names.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CertificateManager::Certificate`
-- **CloudFormation guard rule:**
-  [CT.ACM.PR.1 rule specification](#ct-acm-pr-1-rule "#ct-acm-pr-1-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CertificateManager::Certificate`
++ **CloudFormation guard rule: ** [CT.ACM.PR.1 rule specification](#ct-acm-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ACM.PR.1 rule specification](#ct-acm-pr-1-rule "#ct-acm-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ACM.PR.1 example templates](#ct-acm-pr-1-templates "#ct-acm-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ACM.PR.1 rule specification](#ct-acm-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ACM.PR.1 example templates](#ct-acm-pr-1-templates) 
 
 **Explanation**
 
-AWS Private CA allows you to use wildcards (\*) in the domain name, so you can protect several sites in the same domain. This type of certificate presents some risk, because if the private key of a certificate is compromised, all domain and subdomains with the compromised certificate are compromised. We recommend that you use single domain name certificates instead of wildcard certificates to reduce these associated risks.
+AWS Private CA allows you to use wildcards (\*) in the domain name, so you can protect several sites in the same domain. This type of certificate presents some risk, because if the private key of a certificate is compromised, all domain and subdomains with the compromised certificate are compromised. We recommend that you use single domain name certificates instead of wildcard certificates to reduce these associated risks. 
 
 ### Remediation for rule failure
+<a name="ct-acm-pr-1-remediation"></a>
 
 Set `DomainName` and each entry within `SubjectAlternativeNames` to a fully qualified domain name (FQDN) that does not contain a wildcard (\*).
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Certificate Manager Private CA Certificate - Example One
+<a name="ct-acm-pr-1-remediation-1"></a>
 
 AWS Certificate Manager Private CA certificate configured with a single domain and no subject alternative names. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Resources": {
         "ACMCertificate": {
@@ -53,33 +50,29 @@ AWS Certificate Manager Private CA certificate configured with a single domain a
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
       CertificateAuthorityArn: arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
       DomainName: example.com
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Certificate Manager Private CA Certificate - Example Two
+<a name="ct-acm-pr-1-remediation-2"></a>
 
 AWS Certificate Manager private CA certificate configured with a single domain and one subject alternative name. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Resources": {
         "ACMCertificate": {
@@ -94,13 +87,11 @@ AWS Certificate Manager private CA certificate configured with a single domain a
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
@@ -109,33 +100,31 @@ Resources:
       DomainName: example.com
       SubjectAlternativeNames:
         - www.example.com
-
-
 ```
 
 ### CT.ACM.PR.1 rule specification
+<a name="ct-acm-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   acm_certificate_domain_name_check
-#
+# 
 # Description:
 #   This control checks whether any AWS Certificate Manager (ACM) Private CA certificates have wildcard domain names instead of single domain names.
-#
+# 
 # Reports on:
 #   AWS::CertificateManager::Certificate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -262,38 +251,31 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ACM.PR.1 example templates
+<a name="ct-acm-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
       CertificateAuthorityArn: arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
       DomainName: example.com
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ACMCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
       CertificateAuthorityArn: arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
       DomainName: '*.example.com'
-
-
 ```

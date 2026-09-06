@@ -1,81 +1,77 @@
+
+
 # Amazon Relational Database Service (Amazon RDS) controls
+<a name="rds-rules"></a>
 
-###### Topics
-
-- [[CT.RDS.PR.1] Require that an Amazon RDS database instance is configured with multiple Availability Zones](#ct-rds-pr-1-description "#ct-rds-pr-1-description")
-- [[CT.RDS.PR.2] Require an Amazon RDS database instance to have enhanced monitoring configured](#ct-rds-pr-2-description "#ct-rds-pr-2-description")
-- [[CT.RDS.PR.3] Require an Amazon RDS cluster to have deletion protection configured](#ct-rds-pr-3-description "#ct-rds-pr-3-description")
-- [[CT.RDS.PR.4] Require an Amazon RDS database cluster to have AWS IAM database authentication configured](#ct-rds-pr-4-description "#ct-rds-pr-4-description")
-- [[CT.RDS.PR.5] Require an Amazon RDS database instance to have minor version upgrades configured](#ct-rds-pr-5-description "#ct-rds-pr-5-description")
-- [[CT.RDS.PR.6] Require an Amazon RDS database cluster to have backtracking configured](#ct-rds-pr-6-description "#ct-rds-pr-6-description")
-- [[CT.RDS.PR.7] Require Amazon RDS database instances to have IAM authentication configured](#ct-rds-pr-7-description "#ct-rds-pr-7-description")
-- [[CT.RDS.PR.8] Require an Amazon RDS database instance to have automatic backups configured](#ct-rds-pr-8-description "#ct-rds-pr-8-description")
-- [[CT.RDS.PR.9] Require an Amazon RDS database cluster to copy tags to snapshots](#ct-rds-pr-9-description "#ct-rds-pr-9-description")
-- [[CT.RDS.PR.10] Require an Amazon RDS database instance to copy tags to snapshots](#ct-rds-pr-10-description "#ct-rds-pr-10-description")
-- [[CT.RDS.PR.11] Require an Amazon RDS database instance to have a VPC configuration](#ct-rds-pr-11-description "#ct-rds-pr-11-description")
-- [[CT.RDS.PR.12] Require an Amazon RDS event subscription to have critical cluster events configured](#ct-rds-pr-12-description "#ct-rds-pr-12-description")
-- [[CT.RDS.PR.13] Require any Amazon RDS instance to have deletion protection configured](#ct-rds-pr-13-description "#ct-rds-pr-13-description")
-- [[CT.RDS.PR.14] Require an Amazon RDS database instance to export logs to Amazon CloudWatch Logs by means of the EnableCloudwatchLogsExports property](#ct-rds-pr-14-description "#ct-rds-pr-14-description")
-- [[CT.RDS.PR.15] Require that an Amazon RDS instance does not create DB security groups](#ct-rds-pr-15-description "#ct-rds-pr-15-description")
-- [[CT.RDS.PR.16] Require an Amazon RDS database cluster to have encryption at rest configured](#ct-rds-pr-16-description "#ct-rds-pr-16-description")
-- [[CT.RDS.PR.17] Require an Amazon RDS event notification subscription to have critical database instance events configured](#ct-rds-pr-17-description "#ct-rds-pr-17-description")
-- [[CT.RDS.PR.18] Require an Amazon RDS event notification subscription to have critical database parameter group events configured](#ct-rds-pr-18-description "#ct-rds-pr-18-description")
-- [[CT.RDS.PR.19] Require an Amazon RDS event notifications subscription to have critical database security group events configured](#ct-rds-pr-19-description "#ct-rds-pr-19-description")
-- [[CT.RDS.PR.20] Require an Amazon RDS database instance not to use a database engine default port](#ct-rds-pr-20-description "#ct-rds-pr-20-description")
-- [[CT.RDS.PR.21] Require an Amazon RDS DB cluster to have a unique administrator username](#ct-rds-pr-21-description "#ct-rds-pr-21-description")
-- [[CT.RDS.PR.22] Require an Amazon RDS database instance to have a unique administrator username](#ct-rds-pr-22-description "#ct-rds-pr-22-description")
-- [[CT.RDS.PR.23] Require an Amazon RDS database instance to not be publicly accessible](#ct-rds-pr-23-description "#ct-rds-pr-23-description")
-- [[CT.RDS.PR.24] Require an Amazon RDS database instance to have encryption at rest configured](#ct-rds-pr-24-description "#ct-rds-pr-24-description")
-- [[CT.RDS.PR.25] Require an Amazon RDS database cluster to export logs to Amazon CloudWatch Logs by means of the EnableCloudwatchLogsExports property](#ct-rds-pr-25-description "#ct-rds-pr-25-description")
-- [[CT.RDS.PR.26] Require an Amazon Relational Database Service DB Proxy to require Transport Layer Security (TLS) connections](#ct-rds-pr-26-description "#ct-rds-pr-26-description")
-- [[CT.RDS.PR.27] Require an Amazon Relational Database Service DB cluster parameter group to require Transport Layer Security (TLS) connections for supported engine types](#ct-rds-pr-27-description "#ct-rds-pr-27-description")
-- [[CT.RDS.PR.28] Require an Amazon Relational Database Service DB parameter group to require Transport Layer Security (TLS) connections for supported engine types](#ct-rds-pr-28-description "#ct-rds-pr-28-description")
-- [[CT.RDS.PR.29] Require an Amazon RDS cluster not be configured to be publicly accessible by means of the 'PubliclyAccessible' property](#ct-rds-pr-29-description "#ct-rds-pr-29-description")
-- [[CT.RDS.PR.30] Require that an Amazon RDS database instance has encryption at rest configured to use a KMS key that you specify for supported engine types](#ct-rds-pr-30-description "#ct-rds-pr-30-description")
+**Topics**
++ [[CT.RDS.PR.1] Require that an Amazon RDS database instance is configured with multiple Availability Zones](#ct-rds-pr-1-description)
++ [[CT.RDS.PR.2] Require an Amazon RDS database instance to have enhanced monitoring configured](#ct-rds-pr-2-description)
++ [[CT.RDS.PR.3] Require an Amazon RDS cluster to have deletion protection configured](#ct-rds-pr-3-description)
++ [[CT.RDS.PR.4] Require an Amazon RDS database cluster to have AWS IAM database authentication configured](#ct-rds-pr-4-description)
++ [[CT.RDS.PR.5] Require an Amazon RDS database instance to have minor version upgrades configured](#ct-rds-pr-5-description)
++ [[CT.RDS.PR.6] Require an Amazon RDS database cluster to have backtracking configured](#ct-rds-pr-6-description)
++ [[`CT.RDS.PR.7`] Require Amazon RDS database instances to have IAM authentication configured](#ct-rds-pr-7-description)
++ [[CT.RDS.PR.8] Require an Amazon RDS database instance to have automatic backups configured](#ct-rds-pr-8-description)
++ [[CT.RDS.PR.9] Require an Amazon RDS database cluster to copy tags to snapshots](#ct-rds-pr-9-description)
++ [[CT.RDS.PR.10] Require an Amazon RDS database instance to copy tags to snapshots](#ct-rds-pr-10-description)
++ [[CT.RDS.PR.11] Require an Amazon RDS database instance to have a VPC configuration](#ct-rds-pr-11-description)
++ [[CT.RDS.PR.12] Require an Amazon RDS event subscription to have critical cluster events configured](#ct-rds-pr-12-description)
++ [[CT.RDS.PR.13] Require any Amazon RDS instance to have deletion protection configured](#ct-rds-pr-13-description)
++ [[CT.RDS.PR.14] Require an Amazon RDS database instance to export logs to Amazon CloudWatch Logs by means of the EnableCloudwatchLogsExports property](#ct-rds-pr-14-description)
++ [[CT.RDS.PR.15] Require that an Amazon RDS instance does not create DB security groups](#ct-rds-pr-15-description)
++ [[CT.RDS.PR.16] Require an Amazon RDS database cluster to have encryption at rest configured](#ct-rds-pr-16-description)
++ [[CT.RDS.PR.17] Require an Amazon RDS event notification subscription to have critical database instance events configured](#ct-rds-pr-17-description)
++ [[CT.RDS.PR.18] Require an Amazon RDS event notification subscription to have critical database parameter group events configured](#ct-rds-pr-18-description)
++ [[CT.RDS.PR.19] Require an Amazon RDS event notifications subscription to have critical database security group events configured](#ct-rds-pr-19-description)
++ [[CT.RDS.PR.20] Require an Amazon RDS database instance not to use a database engine default port](#ct-rds-pr-20-description)
++ [[CT.RDS.PR.21] Require an Amazon RDS DB cluster to have a unique administrator username](#ct-rds-pr-21-description)
++ [[CT.RDS.PR.22] Require an Amazon RDS database instance to have a unique administrator username](#ct-rds-pr-22-description)
++ [[CT.RDS.PR.23] Require an Amazon RDS database instance to not be publicly accessible](#ct-rds-pr-23-description)
++ [[CT.RDS.PR.24] Require an Amazon RDS database instance to have encryption at rest configured](#ct-rds-pr-24-description)
++ [[CT.RDS.PR.25] Require an Amazon RDS database cluster to export logs to Amazon CloudWatch Logs by means of the EnableCloudwatchLogsExports property](#ct-rds-pr-25-description)
++ [[CT.RDS.PR.26] Require an Amazon Relational Database Service DB Proxy to require Transport Layer Security (TLS) connections](#ct-rds-pr-26-description)
++ [[CT.RDS.PR.27] Require an Amazon Relational Database Service DB cluster parameter group to require Transport Layer Security (TLS) connections for supported engine types](#ct-rds-pr-27-description)
++ [[CT.RDS.PR.28] Require an Amazon Relational Database Service DB parameter group to require Transport Layer Security (TLS) connections for supported engine types](#ct-rds-pr-28-description)
++ [[CT.RDS.PR.29] Require an Amazon RDS cluster not be configured to be publicly accessible by means of the 'PubliclyAccessible' property](#ct-rds-pr-29-description)
++ [[CT.RDS.PR.30] Require that an Amazon RDS database instance has encryption at rest configured to use a KMS key that you specify for supported engine types](#ct-rds-pr-30-description)
 
 ## [CT.RDS.PR.1] Require that an Amazon RDS database instance is configured with multiple Availability Zones
+<a name="ct-rds-pr-1-description"></a>
 
 This control checks whether high availability is configured for your Amazon Relational Database Service (RDS) database instances.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.1 rule specification](#ct-rds-pr-1-rule "#ct-rds-pr-1-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.1 rule specification](#ct-rds-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.1 rule specification](#ct-rds-pr-1-rule "#ct-rds-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.1 example templates](#ct-rds-pr-1-templates "#ct-rds-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.1 rule specification](#ct-rds-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.1 example templates](#ct-rds-pr-1-templates) 
 
 **Explanation**
 
 Amazon RDS database (DB) instances should be configured for multiple Availability Zones (AZs). This configuration increases the availability of the stored data. Deployment into multiple Availability Zones allows for automated failover, in case an Availability Zone has an outage, and during regular RDS maintenance.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-1-remediation"></a>
 
 Set `MultiAZ` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-1-remediation-1"></a>
 
 Amazon RDS database instance configured with multiple Availability Zones. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -96,13 +92,11 @@ Amazon RDS database instance configured with multiple Availability Zones. The ex
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -115,33 +109,31 @@ DBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     MultiAZ: true
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.1 rule specification
+<a name="ct-rds-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_multi_az_support_check
-#
+# 
 # Description:
 #   This control checks whether high availability is configured for your Amazon Relational Database Service (RDS) database instances.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -247,18 +239,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.1 example templates
+<a name="ct-rds-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -283,14 +273,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       MultiAZ: true
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -315,29 +302,21 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       MultiAZ: false
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.2] Require an Amazon RDS database instance to have enhanced monitoring configured
+<a name="ct-rds-pr-2-description"></a>
 
 This control checks whether enhanced monitoring is activated for an Amazon Relational Database Service (RDS) instances.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.2 rule specification](#ct-rds-pr-2-rule "#ct-rds-pr-2-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.2 rule specification](#ct-rds-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.2 rule specification](#ct-rds-pr-2-rule "#ct-rds-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.2 example templates](#ct-rds-pr-2-templates "#ct-rds-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.2 rule specification](#ct-rds-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.2 example templates](#ct-rds-pr-2-templates) 
 
 **Explanation**
 
@@ -345,25 +324,25 @@ In Amazon RDS, enhanced monitoring facilitates a more rapid response to performa
 
 Enhanced monitoring metrics are useful when you want to see how different processes or threads on a database (DB) instance use the CPU.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `aurora`, `aurora-mysql`, `aurora-postgresql`, `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`
-- This control applies to a standalone RDS instance and an RDS instance that is part of a DB cluster. Do not enable this control if you want to manage enhanced monitoring on the cluster level instead of requiring it to be specified on each RDS DB instance within the cluster. For more information on configuring enahanced monitoring at the cluster level, refer to [Setting up and enabling Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.Enabling.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.Enabling.md") in the _Amazon Aurora User Guide_.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `aurora`, `aurora-mysql`, `aurora-postgresql`, `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`
+This control applies to a standalone RDS instance and an RDS instance that is part of a DB cluster. Do not enable this control if you want to manage enhanced monitoring on the cluster level instead of requiring it to be specified on each RDS DB instance within the cluster. For more information on configuring enahanced monitoring at the cluster level, refer to [Setting up and enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.Enabling.html) in the *Amazon Aurora User Guide*.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-2-remediation"></a>
 
 Set `MonitoringInterval` to a supported value (1, 5, 10, 15, 30, 60), and set `MonitoringRoleArn` to the ARN of an AWS IAM role.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-2-remediation-1"></a>
 
 Amazon RDS DB instance configured with enhanced monitoring. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -390,13 +369,11 @@ Amazon RDS DB instance configured with enhanced monitoring. The example is shown
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -410,33 +387,31 @@ DBInstance:
     MonitoringInterval: 30
     MonitoringRoleArn: !GetAtt 'MonitoringIAMRole.Arn'
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.2 rule specification
+<a name="ct-rds-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_enhanced_monitoring_enabled_check
-#
+# 
 # Description:
 #   This control checks whether enhanced monitoring is activated for Amazon Relational Database Service (RDS) instances.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -604,24 +579,22 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.RDS.PR.2 example templates
+<a name="ct-rds-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   MonitoringIAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
         - Effect: "Allow"
           Principal:
@@ -657,14 +630,11 @@ Resources:
       MonitoringRoleArn:
         Fn::GetAtt: ["MonitoringIAMRole", "Arn"]
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -689,29 +659,21 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       MonitoringInterval: 0
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.3] Require an Amazon RDS cluster to have deletion protection configured
+<a name="ct-rds-pr-3-description"></a>
 
 This control checks whether your Amazon Relational Database Service (Amazon RDS) cluster has deletion protection activated.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.3 rule specification](#ct-rds-pr-3-rule "#ct-rds-pr-3-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBCluster`
++ **CloudFormation guard rule: ** [CT.RDS.PR.3 rule specification](#ct-rds-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.3 rule specification](#ct-rds-pr-3-rule "#ct-rds-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.3 example templates](#ct-rds-pr-3-templates "#ct-rds-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.3 rule specification](#ct-rds-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.3 example templates](#ct-rds-pr-3-templates) 
 
 **Explanation**
 
@@ -720,19 +682,20 @@ Enabling cluster deletion protection is an additional layer of protection agains
 When deletion protection is enabled, an Amazon RDS cluster cannot be deleted. Before a deletion request can succeed, deletion protection must be deactivated.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-3-remediation"></a>
 
 Set the value of the `DeletionProtection` parameter to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster - Example
+<a name="ct-rds-pr-3-remediation-1"></a>
 
 Amazon RDS DB cluster with deletion protection enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSDBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -751,13 +714,11 @@ Amazon RDS DB cluster with deletion protection enabled. The example is shown in 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSDBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -766,33 +727,31 @@ RDSDBCluster:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${RDSClusterSecret}::password}}'
     DBSubnetGroupName: !Ref 'TestDBSubnetGroup'
     DeletionProtection: true
-
-
 ```
 
 ### CT.RDS.PR.3 rule specification
+<a name="ct-rds-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_cluster_deletion_protection_enabled_check
-#
+# 
 # Description:
 #   Checks if an Amazon Relational Database Service (Amazon RDS) cluster has deletion protection enabled.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #  None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -870,18 +829,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.3 example templates
+<a name="ct-rds-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -936,14 +893,11 @@ Resources:
       DBSubnetGroupName:
         Ref: DBSubnetGroup
       DeletionProtection: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -998,52 +952,44 @@ Resources:
       DBSubnetGroupName:
         Ref: DBSubnetGroup
       DeletionProtection: false
-
-
 ```
 
 ## [CT.RDS.PR.4] Require an Amazon RDS database cluster to have AWS IAM database authentication configured
+<a name="ct-rds-pr-4-description"></a>
 
 This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has AWS IAM database authentication activated.
-
-- **Control objective:** Use strong authentication
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.4 rule specification](#ct-rds-pr-4-rule "#ct-rds-pr-4-rule")
++ **Control objective: **Use strong authentication
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBCluster`
++ **CloudFormation guard rule: ** [CT.RDS.PR.4 rule specification](#ct-rds-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.4 rule specification](#ct-rds-pr-4-rule "#ct-rds-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.4 example templates](#ct-rds-pr-4-templates "#ct-rds-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.4 rule specification](#ct-rds-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.4 example templates](#ct-rds-pr-4-templates) 
 
 **Explanation**
 
 IAM database authentication allows for password-free authentication to database instances. The authentication uses an authentication token. Network traffic to and from the database is encrypted using SSL.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB cluster engine types `aurora`, `aurora-mysql` and `aurora-postgresql`.
+**Usage considerations**  
+This control applies only to Amazon RDS DB cluster engine types `aurora`, `aurora-mysql` and `aurora-postgresql`.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-4-remediation"></a>
 
 Set `EnableIAMDatabaseAuthentication` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster - Example
+<a name="ct-rds-pr-4-remediation-1"></a>
 
 Amazon RDS DB cluster configured with AWS IAM database authentication. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -1062,13 +1008,11 @@ Amazon RDS DB cluster configured with AWS IAM database authentication. The examp
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -1077,33 +1021,31 @@ DBCluster:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
     DBSubnetGroupName: !Ref 'DBSubnetGroup'
     EnableIAMDatabaseAuthentication: true
-
-
 ```
 
 ### CT.RDS.PR.4 rule specification
+<a name="ct-rds-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_cluster_iam_authentication_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has AWS IAM database authentication activated.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation document or CloudFormation hook document
@@ -1199,18 +1141,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.4 example templates
+<a name="ct-rds-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1265,14 +1205,11 @@ Resources:
       DBSubnetGroupName:
         Ref: DBSubnetGroup
       EnableIAMDatabaseAuthentication: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1326,53 +1263,45 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
       DBSubnetGroupName:
         Ref: DBSubnetGroup
-
-
 ```
 
 ## [CT.RDS.PR.5] Require an Amazon RDS database instance to have minor version upgrades configured
+<a name="ct-rds-pr-5-description"></a>
 
 This control checks whether automatic minor version upgrades are enabled for an Amazon Relational Database Service (RDS) database instance.
-
-- **Control objective:** Manage vulnerabilities
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.5 rule specification](#ct-rds-pr-5-rule "#ct-rds-pr-5-rule")
++ **Control objective: **Manage vulnerabilities
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.5 rule specification](#ct-rds-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.5 rule specification](#ct-rds-pr-5-rule "#ct-rds-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.5 example templates](#ct-rds-pr-5-templates "#ct-rds-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.5 rule specification](#ct-rds-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.5 example templates](#ct-rds-pr-5-templates) 
 
 **Explanation**
 
 By activating automatic minor version upgrades, you can ensure that the latest minor version updates to the relational database management system (RDBMS) are installed. These upgrades might include security patches and bug fixes. Keeping up to date with patch installation is an important step in securing systems.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `aurora`, `aurora-mysql`, `aurora-postgresql`, `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `aurora`, `aurora-mysql`, `aurora-postgresql`, `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-5-remediation"></a>
 
 Omit the `AutoMinorVersionUpgrade` property or set it to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example One
+<a name="ct-rds-pr-5-remediation-1"></a>
 
 Amazon RDS DB instance configured with automatic minor version upgrades, enabled by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -1392,13 +1321,11 @@ Amazon RDS DB instance configured with automatic minor version upgrades, enabled
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -1410,20 +1337,18 @@ DBInstance:
     MasterUsername: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::username}}'
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
   DeletionPolicy: Delete
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example Two
+<a name="ct-rds-pr-5-remediation-2"></a>
 
 Amazon RDS DB instance configured with automatic minor version upgrades, enabled by means of the `AutoMinorVersionUpgrade` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -1444,13 +1369,11 @@ Amazon RDS DB instance configured with automatic minor version upgrades, enabled
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -1463,33 +1386,31 @@ DBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     AutoMinorVersionUpgrade: true
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.5 rule specification
+<a name="ct-rds-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_automatic_minor_version_upgrade_enabled_check
-#
+# 
 # Description:
 #   This control checks whether automatic minor version upgrades are enabled for an Amazon Relational Database Service (RDS) database instance.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1604,18 +1525,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.5 example templates
+<a name="ct-rds-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -1639,14 +1558,11 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -1671,53 +1587,45 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       AutoMinorVersionUpgrade: false
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.6] Require an Amazon RDS database cluster to have backtracking configured
+<a name="ct-rds-pr-6-description"></a>
 
 This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has backtracking enabled.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.6 rule specification](#ct-rds-pr-6-rule "#ct-rds-pr-6-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBCluster`
++ **CloudFormation guard rule: ** [CT.RDS.PR.6 rule specification](#ct-rds-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.6 rule specification](#ct-rds-pr-6-rule "#ct-rds-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.6 example templates](#ct-rds-pr-6-templates "#ct-rds-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.6 rule specification](#ct-rds-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.6 example templates](#ct-rds-pr-6-templates) 
 
 **Explanation**
 
 Backups help you to recover more quickly from a security incident. Backups also strengthen the resilience of your systems. Aurora backtracking reduces the time required to recover a database for a specific point in time, and the recovery does not require a database restore.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB cluster engine types `aurora` and `aurora-mysql`, and to DB cluster engine modes `provisioned` and `parallelquery`
-- This control does not apply to Amazon RDS DB clusters that support Aurora Serverless V2 database instances (For example, RDS DB clusters configured with a `ServerlessV2ScalingConfiguration` and Aurora Serverless V2 compatible `EngineVersion`.)
+**Usage considerations**  
+This control applies only to Amazon RDS DB cluster engine types `aurora` and `aurora-mysql`, and to DB cluster engine modes `provisioned` and `parallelquery`
+This control does not apply to Amazon RDS DB clusters that support Aurora Serverless V2 database instances (For example, RDS DB clusters configured with a `ServerlessV2ScalingConfiguration` and Aurora Serverless V2 compatible `EngineVersion`.)
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-6-remediation"></a>
 
 Set `BacktrackWindow` to a number between `1` and `259200`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster - Example
+<a name="ct-rds-pr-6-remediation-1"></a>
 
 Amazon RDS DB cluster configured with a backtrack window of 720 seconds (12 minutes). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -1736,13 +1644,11 @@ Amazon RDS DB cluster configured with a backtrack window of 720 seconds (12 minu
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -1751,33 +1657,31 @@ DBCluster:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
     DBSubnetGroupName: !Ref 'DBSubnetGroup'
     BacktrackWindow: 720
-
-
 ```
 
 ### CT.RDS.PR.6 rule specification
+<a name="ct-rds-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   aurora_cluster_backtracking_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has backtracking enabled.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #    Scenario: 1
 #      Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1901,18 +1805,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.6 example templates
+<a name="ct-rds-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1967,14 +1869,11 @@ Resources:
       DBSubnetGroupName:
         Ref: DBSubnetGroup
       BacktrackWindow: 720
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2029,53 +1928,45 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
       DBSubnetGroupName:
         Ref: DBSubnetGroup
-
-
 ```
 
 ## [`CT.RDS.PR.7`] Require Amazon RDS database instances to have IAM authentication configured
+<a name="ct-rds-pr-7-description"></a>
 
 This control checks whether an Amazon RDS database (DB) instance has AWS Identity and Access Management (IAM) database authentication activated.
-
-- **Control objective:** Use strong authentication
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.7 rule specification](#ct-rds-pr-7-rule "#ct-rds-pr-7-rule")
++ **Control objective: **Use strong authentication
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.7 rule specification](#ct-rds-pr-7-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.7 rule specification](#ct-rds-pr-7-rule "#ct-rds-pr-7-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.7 example templates](#ct-rds-pr-7-templates "#ct-rds-pr-7-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.7 rule specification](#ct-rds-pr-7-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.7 example templates](#ct-rds-pr-7-templates) 
 
 **Explanation**
 
 IAM database authentication allows authentication to database instances with an authentication token instead of a password. Network traffic to and from the database is encrypted with SSL.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql` and `postgres`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql` and `postgres`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-7-remediation"></a>
 
 Set `EnableIAMDatabaseAuthentication` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-7-remediation-1"></a>
 
 Amazon RDS DB instance configured with IAM database authentication. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -2096,13 +1987,11 @@ Amazon RDS DB instance configured with IAM database authentication. The example 
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -2115,33 +2004,31 @@ DBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     EnableIAMDatabaseAuthentication: true
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.7 rule specification
+<a name="ct-rds-pr-7-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_iam_authentication_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon RDS database (DB) instance has AWS Identity and Access Management (IAM) database authentication activated.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2239,18 +2126,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.7 example templates
+<a name="ct-rds-pr-7-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -2275,14 +2160,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       EnableIAMDatabaseAuthentication: true
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -2307,53 +2189,45 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       EnableIAMDatabaseAuthentication: false
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.8] Require an Amazon RDS database instance to have automatic backups configured
+<a name="ct-rds-pr-8-description"></a>
 
 This control checks whether Amazon RDS database (DB) instances have automated backups enabled, and verifies that the backup retention period is greater than or equal to seven (7) days.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.8 rule specification](#ct-rds-pr-8-rule "#ct-rds-pr-8-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.8 rule specification](#ct-rds-pr-8-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.8 rule specification](#ct-rds-pr-8-rule "#ct-rds-pr-8-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.8 example templates](#ct-rds-pr-8-templates "#ct-rds-pr-8-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.8 rule specification](#ct-rds-pr-8-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.8 example templates](#ct-rds-pr-8-templates) 
 
 **Explanation**
 
 Backups help you recover more quickly from a security incident, and they strengthen the resilience of your systems. Amazon RDS provides an easy way to configure daily, full-instance volume snapshots.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-8-remediation"></a>
 
 Set `BackupRetentionPeriod` to an integer value between 7 and 35 days (inclusive).
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-8-remediation-1"></a>
 
 Amazon RDS DB instance configured with automated backups configured and a backup retention period of 14 days. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -2374,13 +2248,11 @@ Amazon RDS DB instance configured with automated backups configured and a backup
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -2393,33 +2265,31 @@ DBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     BackupRetentionPeriod: 14
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.8 rule specification
+<a name="ct-rds-pr-8-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_backup_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon RDS database (DB) instances have automated backups enabled, and verifies that the backup retention period is greater than or equal to seven (7) days.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2533,18 +2403,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.8 example templates
+<a name="ct-rds-pr-8-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -2569,14 +2437,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       BackupRetentionPeriod: 14
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -2601,52 +2466,44 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       BackupRetentionPeriod: 4
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.9] Require an Amazon RDS database cluster to copy tags to snapshots
+<a name="ct-rds-pr-9-description"></a>
 
 This control checks whether an Amazon RDS database (DB) cluster is configured to copy all tags to snapshots created.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.9 rule specification](#ct-rds-pr-9-rule "#ct-rds-pr-9-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBCluster`
++ **CloudFormation guard rule: ** [CT.RDS.PR.9 rule specification](#ct-rds-pr-9-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.9 rule specification](#ct-rds-pr-9-rule "#ct-rds-pr-9-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.9 example templates](#ct-rds-pr-9-templates "#ct-rds-pr-9-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.9 rule specification](#ct-rds-pr-9-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.9 example templates](#ct-rds-pr-9-templates) 
 
 **Explanation**
 
 Identification and inventory of your infrastructure assets is a crucial aspect of governance and security. With visibility into all your Amazon RDS DB clusters, you can assess their security posture and take action on potential areas of weakness. We recommend that you tag snapshots in the same way as their parent RDS database clusters. Activating this setting ensures that snapshots inherit the tags of their parent database clusters.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB cluster engine types `aurora`, `aurora-mysql`, and `aurora-postgresql`.
+**Usage considerations**  
+This control applies only to Amazon RDS DB cluster engine types `aurora`, `aurora-mysql`, and `aurora-postgresql`.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-9-remediation"></a>
 
 Set `CopyTagsToSnapshot` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster - Example
+<a name="ct-rds-pr-9-remediation-1"></a>
 
 Amazon RDS DB cluster configured to copy tags to snapshots. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -2665,13 +2522,11 @@ Amazon RDS DB cluster configured to copy tags to snapshots. The example is shown
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -2680,33 +2535,31 @@ DBCluster:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
     DBSubnetGroupName: !Ref 'DBSubnetGroup'
     CopyTagsToSnapshot: true
-
-
 ```
 
 ### CT.RDS.PR.9 rule specification
+<a name="ct-rds-pr-9-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_cluster_copy_tags_to_snapshots_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon RDS DB cluster is configured to copy all tags to snapshots created.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2802,18 +2655,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.9 example templates
+<a name="ct-rds-pr-9-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2868,14 +2719,11 @@ Resources:
       DBSubnetGroupName:
         Ref: DBSubnetGroup
       CopyTagsToSnapshot: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2929,53 +2777,45 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
       DBSubnetGroupName:
         Ref: DBSubnetGroup
-
-
 ```
 
 ## [CT.RDS.PR.10] Require an Amazon RDS database instance to copy tags to snapshots
+<a name="ct-rds-pr-10-description"></a>
 
 This control checks whether Amazon RDS database (DB) instances are configured to copy all tags to snapshots created.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.10 rule specification](#ct-rds-pr-10-rule "#ct-rds-pr-10-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.10 rule specification](#ct-rds-pr-10-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.10 rule specification](#ct-rds-pr-10-rule "#ct-rds-pr-10-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.10 example templates](#ct-rds-pr-10-templates "#ct-rds-pr-10-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.10 rule specification](#ct-rds-pr-10-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.10 example templates](#ct-rds-pr-10-templates) 
 
 **Explanation**
 
 Identification and inventory of your IT assets is a crucial aspect of governance and security. With visibility of all your RDS DB instances, you can assess their security posture and take action on potential areas of weakness. Snapshots should be tagged to match their parent RDS database instances. Enabling this setting ensures that snapshots inherit the tags from their parent database instances.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-10-remediation"></a>
 
 Set `CopyTagsToSnapshot` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-10-remediation-1"></a>
 
 Amazon RDS DB instance configured to copy all tags to snapshots created. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -2996,13 +2836,11 @@ Amazon RDS DB instance configured to copy all tags to snapshots created. The exa
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -3015,33 +2853,31 @@ DBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     CopyTagsToSnapshot: true
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.10 rule specification
+<a name="ct-rds-pr-10-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_copy_tags_to_snapshots_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon RDS database (DB) instances are configured to copy all tags to snapshots created.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3147,18 +2983,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.10 example templates
+<a name="ct-rds-pr-10-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -3183,14 +3017,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       CopyTagsToSnapshot: true
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -3215,53 +3046,45 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       CopyTagsToSnapshot: false
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.11] Require an Amazon RDS database instance to have a VPC configuration
+<a name="ct-rds-pr-11-description"></a>
 
 This control checks whether an Amazon RDS database (DB) instance is deployed in a VPC (that is, with an EC2-VPC instance).
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.11 rule specification](#ct-rds-pr-11-rule "#ct-rds-pr-11-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.11 rule specification](#ct-rds-pr-11-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.11 rule specification](#ct-rds-pr-11-rule "#ct-rds-pr-11-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.11 example templates](#ct-rds-pr-11-templates "#ct-rds-pr-11-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.11 rule specification](#ct-rds-pr-11-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.11 example templates](#ct-rds-pr-11-templates) 
 
 **Explanation**
 
 Amazon Virtual Private Cloud (Amazon VPC) provides a number of network controls to create secure access to RDS resources. These controls include VPC endpoints, network ACLs, and security groups. To take advantage of these controls, create your Amazon RDS instances as EC2 VPC instances.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-11-remediation"></a>
 
 Set a `DBSubnetGroupName`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-11-remediation-1"></a>
 
 Amazon RDS DB instance configured to deploy in an Amazon VPC with an RDS DB subnet group. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -3284,13 +3107,11 @@ Amazon RDS DB instance configured to deploy in an Amazon VPC with an RDS DB subn
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -3303,33 +3124,31 @@ DBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     DBSubnetGroupName: !Ref 'DBSubnetGroup'
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.11 rule specification
+<a name="ct-rds-pr-11-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_deployed_in_vpc_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon RDS database (DB) instance is deployed in a VPC (that is, an EC2 VPC instance).
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3470,18 +3289,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.RDS.PR.11 example templates
+<a name="ct-rds-pr-11-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3540,14 +3357,11 @@ Resources:
       DBSubnetGroupName:
         Ref: DBSubnetGroup
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -3571,52 +3385,44 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.12] Require an Amazon RDS event subscription to have critical cluster events configured
+<a name="ct-rds-pr-12-description"></a>
 
 This control checks whether your Amazon RDS event subscriptions for RDS clusters are configured to notify on event categories of `maintenance` and `failure.`
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::EventSubscription`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.12 rule specification](#ct-rds-pr-12-rule "#ct-rds-pr-12-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::EventSubscription`
++ **CloudFormation guard rule: ** [CT.RDS.PR.12 rule specification](#ct-rds-pr-12-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.12 rule specification](#ct-rds-pr-12-rule "#ct-rds-pr-12-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.12 example templates](#ct-rds-pr-12-templates "#ct-rds-pr-12-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.12 rule specification](#ct-rds-pr-12-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.12 example templates](#ct-rds-pr-12-templates) 
 
 **Explanation**
 
 Amazon RDS event notifications uses Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for rapid response.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS event subscriptions for RDS clusters (`SourceType` of `db-cluster`).
+**Usage considerations**  
+This control applies only to Amazon RDS event subscriptions for RDS clusters (`SourceType` of `db-cluster`).
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-12-remediation"></a>
 
 When `SourceType` is set to `db-cluster`, set `Enabled` to true and ensure that `EventCategories` contains both `maintenance` and `failure` values.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS Event Subscription - Example One
+<a name="ct-rds-pr-12-remediation-1"></a>
 
 Amazon RDS event subscription for RDS clusters configured to notify on all event categories. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSEventSubscription": {
         "Type": "AWS::RDS::EventSubscription",
@@ -3629,33 +3435,29 @@ Amazon RDS event subscription for RDS clusters configured to notify on all event
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSEventSubscription:
   Type: AWS::RDS::EventSubscription
   Properties:
     SnsTopicArn: !Ref 'SnsTopic'
     SourceType: db-cluster
     Enabled: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS Event Subscription - Example Two
+<a name="ct-rds-pr-12-remediation-2"></a>
 
 Amazon RDS event subscription for RDS clusters configured to notify on `maintenance` and `failure` event categories. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSEventSubscription": {
         "Type": "AWS::RDS::EventSubscription",
@@ -3672,13 +3474,11 @@ Amazon RDS event subscription for RDS clusters configured to notify on `maintena
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSEventSubscription:
   Type: AWS::RDS::EventSubscription
   Properties:
@@ -3688,33 +3488,31 @@ RDSEventSubscription:
       - failure
     SourceType: db-cluster
     Enabled: true
-
-
 ```
 
 ### CT.RDS.PR.12 rule specification
+<a name="ct-rds-pr-12-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_cluster_event_notifications_configured_check
-#
+# 
 # Description:
 #   Checks whether an Amazon RDS event subscriptions for RDS clusters is configured to notify on event categories of "maintenance" and "failure".
-#
+# 
 # Reports on:
 #   AWS::RDS::EventSubscription
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3823,18 +3621,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.12 example templates
+<a name="ct-rds-pr-12-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SNSTopic:
     Type: AWS::SNS::Topic
@@ -3846,14 +3642,11 @@ Resources:
         Ref: SNSTopic
       SourceType: db-cluster
       Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SNSTopic:
     Type: AWS::SNS::Topic
@@ -3868,29 +3661,21 @@ Resources:
       - deletion
       SourceType: db-cluster
       Enabled: true
-
-
 ```
 
 ## [CT.RDS.PR.13] Require any Amazon RDS instance to have deletion protection configured
+<a name="ct-rds-pr-13-description"></a>
 
 This control checks whether an Amazon Relational Database Service (Amazon RDS) instance has deletion protection activated.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.13 rule specification](#ct-rds-pr-13-rule "#ct-rds-pr-13-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.13 rule specification](#ct-rds-pr-13-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.13 rule specification](#ct-rds-pr-13-rule "#ct-rds-pr-13-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.13 example templates](#ct-rds-pr-13-templates "#ct-rds-pr-13-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.13 rule specification](#ct-rds-pr-13-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.13 example templates](#ct-rds-pr-13-templates) 
 
 **Explanation**
 
@@ -3898,25 +3683,25 @@ When active, instance deletion protection provides an additional layer of protec
 
 While deletion protection is active, an RDS DB instance cannot be deleted. Before a deletion request can succeed, deletion protection must be turned off.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-13-remediation"></a>
 
 Set `DeletionProtection` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB instance - Example
+<a name="ct-rds-pr-13-remediation-1"></a>
 
 Amazon RDS DB instance configured with deletion protection active. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -3938,13 +3723,11 @@ Amazon RDS DB instance configured with deletion protection active. The example i
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -3958,33 +3741,31 @@ DBInstance:
     StorageEncrypted: true
     DeletionProtection: true
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.13 rule specification
+<a name="ct-rds-pr-13-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_deletion_protection_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Relational Database Service (Amazon RDS) instance has deletion protection activated.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4091,18 +3872,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.13 example templates
+<a name="ct-rds-pr-13-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -4127,14 +3906,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       DeletionProtection: true
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -4159,56 +3935,46 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       DeletionProtection: false
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.14] Require an Amazon RDS database instance to export logs to Amazon CloudWatch Logs by means of the EnableCloudwatchLogsExports property
+<a name="ct-rds-pr-14-description"></a>
 
 This rule checks whether Amazon Relational Database Service (RDS) instances have all available log types configured for export to Amazon CloudWatch Logs.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.14 rule specification](#ct-rds-pr-14-rule "#ct-rds-pr-14-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.14 rule specification](#ct-rds-pr-14-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.14 rule specification](#ct-rds-pr-14-rule "#ct-rds-pr-14-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.14 example templates](#ct-rds-pr-14-templates "#ct-rds-pr-14-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.14 rule specification](#ct-rds-pr-14-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.14 example templates](#ct-rds-pr-14-templates) 
 
 **Explanation**
 
 AWS Control Tower recommends that you enable th export of relevant logs for all Amazon RDS databases to Amazon CloudWatch Logs. Database logging provides detailed records of requests made to RDS. Database logs can assist with security and access audits, and they can help you diagnose availability issues.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex`, `sqlserver-web`, `oracle-ee`, `oracle-se2`, `oracle-se1`, and `oracle-se`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
-- Additional prerequisites may exist for enabling logging based on your selected database engine type. Refer to
-  [Monitoring Amazon RDS log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.md")
-  in the _Amazon RDS User Guide_ for more information.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex`, `sqlserver-web`, `oracle-ee`, `oracle-se2`, `oracle-se1`, and `oracle-se`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+Additional prerequisites may exist for enabling logging based on your selected database engine type. Refer to [Monitoring Amazon RDS log files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html) in the *Amazon RDS User Guide* for more information.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-14-remediation"></a>
 
 Specify `EnableCloudwatchLogsExports` with a list of all supported log types for the Amazon RDS database instance engine.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example One
+<a name="ct-rds-pr-14-remediation-1"></a>
 
 Amazon RDS DB instance configured with an engine type of `mysql` and all supported log types, for the `mysql` engine type. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -4235,13 +4001,11 @@ Amazon RDS DB instance configured with an engine type of `mysql` and all support
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -4259,20 +4023,18 @@ DBInstance:
       - slowquery
       - audit
   DeletionPolicy: Delete
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example Two
+<a name="ct-rds-pr-14-remediation-2"></a>
 
 Amazon RDS DB instance configured with an engine type of `postgres` and all supported log types, for the `postgres` engine type. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -4296,13 +4058,11 @@ Amazon RDS DB instance configured with an engine type of `postgres` and all supp
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -4317,33 +4077,31 @@ DBInstance:
       - postgresql
       - upgrade
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.14 rule specification
+<a name="ct-rds-pr-14-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_logging_enabled_check
-#
+# 
 # Description:
 #   This rules checks whether Amazon Relational Database Service (RDS) instances have all available log types configured for export to Amazon CloudWatch Logs.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4526,18 +4284,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.14 example templates
+<a name="ct-rds-pr-14-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -4567,14 +4323,11 @@ Resources:
       - slowquery
       - audit
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -4603,48 +4356,41 @@ Resources:
       - general
       - slowquery
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.15] Require that an Amazon RDS instance does not create DB security groups
+<a name="ct-rds-pr-15-description"></a>
 
 This control checks whether any Amazon Relational Database Service (RDS) database (DB) security groups are created by, or associated to, an RDS DB instance, because DB security groups are intended for the EC2-Classic platform only.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`, `AWS::RDS::DBSecurityGroup`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.15 rule specification](#ct-rds-pr-15-rule "#ct-rds-pr-15-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`, `AWS::RDS::DBSecurityGroup`
++ **CloudFormation guard rule: ** [CT.RDS.PR.15 rule specification](#ct-rds-pr-15-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.15 rule specification](#ct-rds-pr-15-rule "#ct-rds-pr-15-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.15 example templates](#ct-rds-pr-15-templates "#ct-rds-pr-15-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.15 rule specification](#ct-rds-pr-15-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.15 example templates](#ct-rds-pr-15-templates) 
 
 **Explanation**
 
 We recommend that all Amazon Relational Database Service (RDS) databases use Amazon VPC security groups to secure their access. Amazon DB security groups are for the EC2-Classic platform only, and they are not recommended for use.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-15-remediation"></a>
 
 Omit the `DBSecurityGroups` property. Instead, configure Amazon VPC security groups by means of the `VPCSecurityGroups` property.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-15-remediation-1"></a>
 
 Amazon RDS DB instance configured with an Amazon VPC security group. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -4673,13 +4419,11 @@ Amazon RDS DB instance configured with an Amazon VPC security group. The example
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -4695,33 +4439,31 @@ DBInstance:
     DBSubnetGroupName: !Ref 'DBSubnetGroup'
     VPCSecurityGroups:
       - !Ref 'SecurityGroup'
-
-
 ```
 
 ### CT.RDS.PR.15 rule specification
+<a name="ct-rds-pr-15-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_db_security_group_not_allowed_check
-#
+# 
 # Description:
 #   This control checks whether any Amazon Relational Database Service (RDS) database (DB) security groups are created by, or associated to, an RDS DB instance, because DB security groups are intended for the EC2-Classic platform only.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBSecurityGroup, AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #      Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4831,18 +4573,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.15 example templates
+<a name="ct-rds-pr-15-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -4916,14 +4656,11 @@ Resources:
       VPCSecurityGroups:
       - Ref: SecurityGroup
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBSecurityGroup:
     Type: AWS::RDS::DBSecurityGroup
@@ -4931,29 +4668,21 @@ Resources:
       DBSecurityGroupIngress:
       - CIDRIP: "0.0.0.0/0"
       GroupDescription: "Ingress for Amazon EC2 security group"
-
-
 ```
 
 ## [CT.RDS.PR.16] Require an Amazon RDS database cluster to have encryption at rest configured
+<a name="ct-rds-pr-16-description"></a>
 
 This control checks whether the storage encryption is configured on Amazon Relational Database Service (RDS) database (DB) clusters that are not being restored from an existing cluster.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.16 rule specification](#ct-rds-pr-16-rule "#ct-rds-pr-16-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBCluster`
++ **CloudFormation guard rule: ** [CT.RDS.PR.16 rule specification](#ct-rds-pr-16-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.16 rule specification](#ct-rds-pr-16-rule "#ct-rds-pr-16-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.16 example templates](#ct-rds-pr-16-templates "#ct-rds-pr-16-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.16 rule specification](#ct-rds-pr-16-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.16 example templates](#ct-rds-pr-16-templates) 
 
 **Explanation**
 
@@ -4961,24 +4690,24 @@ We recommend that you configure your Amazon RDS DB clusters to be encrypted at r
 
 Encrypted RDS DB clusters use the open standard AES-256 encryption algorithm to encrypt your data on the server that hosts the clusters. After your data is encrypted, Amazon RDS handles authentication of access and decryption of your data with a minimal impact on performance. You do not need to modify your database client applications to use encryption.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB clusters that are not being restored from an existing cluster or created as a read replica. (For example, when `SourceDBClusterIdentifier` or `ReplicationSourceIdentifier` properties have been provided.)
+**Usage considerations**  
+This control applies only to Amazon RDS DB clusters that are not being restored from an existing cluster or created as a read replica. (For example, when `SourceDBClusterIdentifier` or `ReplicationSourceIdentifier` properties have been provided.)
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-16-remediation"></a>
 
 Set `StorageEncrypted` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster - Example
+<a name="ct-rds-pr-16-remediation-1"></a>
 
 Amazon RDS DB cluster configured with storage encryption enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -4994,13 +4723,11 @@ Amazon RDS DB cluster configured with storage encryption enabled. The example is
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -5008,33 +4735,31 @@ DBCluster:
     MasterUsername: !Sub '{{resolve:secretsmanager:${DBClusterSecret}::username}}'
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
     StorageEncrypted: true
-
-
 ```
 
 ### CT.RDS.PR.16 rule specification
+<a name="ct-rds-pr-16-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_cluster_storage_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether the storage encryption is configured on Amazon Relational Database Service (RDS) database (DB) clusters that are not being restored from an existing cluster.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #      Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5213,18 +4938,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.RDS.PR.16 example templates
+<a name="ct-rds-pr-16-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBClusterSecret:
     Type: AWS::SecretsManager::Secret
@@ -5244,14 +4967,11 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
       StorageEncrypted: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBClusterSecret:
     Type: AWS::SecretsManager::Secret
@@ -5271,52 +4991,44 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
       StorageEncrypted: false
-
-
 ```
 
 ## [CT.RDS.PR.17] Require an Amazon RDS event notification subscription to have critical database instance events configured
+<a name="ct-rds-pr-17-description"></a>
 
 This control checks whether your Amazon RDS event subscriptions for RDS instances are configured to notify on event categories of `maintenance`, `failure`, and `configuration change`.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::EventSubscription`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.17 rule specification](#ct-rds-pr-17-rule "#ct-rds-pr-17-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::EventSubscription`
++ **CloudFormation guard rule: ** [CT.RDS.PR.17 rule specification](#ct-rds-pr-17-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.17 rule specification](#ct-rds-pr-17-rule "#ct-rds-pr-17-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.17 example templates](#ct-rds-pr-17-templates "#ct-rds-pr-17-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.17 rule specification](#ct-rds-pr-17-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.17 example templates](#ct-rds-pr-17-templates) 
 
 **Explanation**
 
 Amazon RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for rapid response.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS Event Subscriptions for RDS instances (`SourceType` of `db-instance`).
+**Usage considerations**  
+This control applies only to Amazon RDS Event Subscriptions for RDS instances (`SourceType` of `db-instance`).
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-17-remediation"></a>
 
 When `SourceType` is set to `db-instance`, set `Enabled` to true and ensure that the parameter `EventCategories` contains `maintenance`, `failure`, and `configuration change` values.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS Event Subscription - Example One
+<a name="ct-rds-pr-17-remediation-1"></a>
 
 Amazon RDS Event Subscription for RDS instances configured to notify on all event categories. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSEventSubscription": {
         "Type": "AWS::RDS::EventSubscription",
@@ -5329,33 +5041,29 @@ Amazon RDS Event Subscription for RDS instances configured to notify on all even
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSEventSubscription:
   Type: AWS::RDS::EventSubscription
   Properties:
     SnsTopicArn: !Ref 'SnsTopic'
     SourceType: db-instance
     Enabled: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS Event Subscription - Example Two
+<a name="ct-rds-pr-17-remediation-2"></a>
 
 Amazon RDS Event Subscription for RDS instances configured to notify on `maintenance`, `failure`, and `configuration change` event categories. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSEventSubscription": {
         "Type": "AWS::RDS::EventSubscription",
@@ -5373,13 +5081,11 @@ Amazon RDS Event Subscription for RDS instances configured to notify on `mainten
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSEventSubscription:
   Type: AWS::RDS::EventSubscription
   Properties:
@@ -5390,33 +5096,31 @@ RDSEventSubscription:
       - configuration change
     SourceType: db-instance
     Enabled: true
-
-
 ```
 
 ### CT.RDS.PR.17 rule specification
+<a name="ct-rds-pr-17-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_event_notifications_configured_check
-#
+# 
 # Description:
 #   Checks whether Amazon RDS event subscriptions for RDS instances are configured to notify on event categories of 'maintenance', 'failure', and 'configuration change'.
-#
+# 
 # Reports on:
 #   AWS::RDS::EventSubscription
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5525,18 +5229,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.17 example templates
+<a name="ct-rds-pr-17-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SNSTopic:
     Type: AWS::SNS::Topic
@@ -5548,14 +5250,11 @@ Resources:
         Ref: SNSTopic
       SourceType: db-instance
       Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SNSTopic:
     Type: AWS::SNS::Topic
@@ -5570,52 +5269,44 @@ Resources:
       - failure
       SourceType: db-instance
       Enabled: true
-
-
 ```
 
 ## [CT.RDS.PR.18] Require an Amazon RDS event notification subscription to have critical database parameter group events configured
+<a name="ct-rds-pr-18-description"></a>
 
 This control checks whether your Amazon RDS event subscriptions for RDS parameter groups are configured to notify on event categories of `configuration change.`
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::EventSubscription`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.18 rule specification](#ct-rds-pr-18-rule "#ct-rds-pr-18-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::EventSubscription`
++ **CloudFormation guard rule: ** [CT.RDS.PR.18 rule specification](#ct-rds-pr-18-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.18 rule specification](#ct-rds-pr-18-rule "#ct-rds-pr-18-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.18 example templates](#ct-rds-pr-18-templates "#ct-rds-pr-18-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.18 rule specification](#ct-rds-pr-18-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.18 example templates](#ct-rds-pr-18-templates) 
 
 **Explanation**
 
 Amazon RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for rapid response.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS event subscriptions for RDS parameter groups (`SourceType` of `db-parameter-group`).
+**Usage considerations**  
+This control applies only to Amazon RDS event subscriptions for RDS parameter groups (`SourceType` of `db-parameter-group`).
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-18-remediation"></a>
 
 When `SourceType` is set to `db-parameter-group`, set `Enabled` to true and ensure that the parameter `EventCategories` contains `configuration change` as a value.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS Event Subscription - Example One
+<a name="ct-rds-pr-18-remediation-1"></a>
 
 Amazon RDS event subscription for RDS parameter groups configured to notify on all event categories. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSEventSubscription": {
         "Type": "AWS::RDS::EventSubscription",
@@ -5628,33 +5319,29 @@ Amazon RDS event subscription for RDS parameter groups configured to notify on a
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSEventSubscription:
   Type: AWS::RDS::EventSubscription
   Properties:
     SnsTopicArn: !Ref 'SnsTopic'
     SourceType: db-parameter-group
     Enabled: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS Event Subscription - Example Two
+<a name="ct-rds-pr-18-remediation-2"></a>
 
 Amazon RDS event subscription for RDS parameter groups configured to notify on the `configuration change` event category. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSEventSubscription": {
         "Type": "AWS::RDS::EventSubscription",
@@ -5670,13 +5357,11 @@ Amazon RDS event subscription for RDS parameter groups configured to notify on t
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSEventSubscription:
   Type: AWS::RDS::EventSubscription
   Properties:
@@ -5685,33 +5370,31 @@ RDSEventSubscription:
       - configuration change
     SourceType: db-parameter-group
     Enabled: true
-
-
 ```
 
 ### CT.RDS.PR.18 rule specification
+<a name="ct-rds-pr-18-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_pg_event_notifications_configured_check
-#
+# 
 # Description:
 #   Checks whether Amazon RDS event subscriptions for RDS parameter groups are configured to notify on event categories of 'configuration change'.
-#
+# 
 # Reports on:
 #   AWS::RDS::EventSubscription
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5820,18 +5503,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.18 example templates
+<a name="ct-rds-pr-18-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SNSTopic:
     Type: AWS::SNS::Topic
@@ -5843,14 +5524,11 @@ Resources:
         Ref: SNSTopic
       SourceType: db-parameter-group
       Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SNSTopic:
     Type: AWS::SNS::Topic
@@ -5862,52 +5540,44 @@ Resources:
         Ref: SNSTopic
       Enabled: false
       SourceType: db-parameter-group
-
-
 ```
 
 ## [CT.RDS.PR.19] Require an Amazon RDS event notifications subscription to have critical database security group events configured
+<a name="ct-rds-pr-19-description"></a>
 
 This control checks whether your Amazon RDS event subscriptions for RDS security groups are configured to notify on event categories of `failure` and `configuration change`
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::EventSubscription`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.19 rule specification](#ct-rds-pr-19-rule "#ct-rds-pr-19-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::EventSubscription`
++ **CloudFormation guard rule: ** [CT.RDS.PR.19 rule specification](#ct-rds-pr-19-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.19 rule specification](#ct-rds-pr-19-rule "#ct-rds-pr-19-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.19 example templates](#ct-rds-pr-19-templates "#ct-rds-pr-19-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.19 rule specification](#ct-rds-pr-19-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.19 example templates](#ct-rds-pr-19-templates) 
 
 **Explanation**
 
 Amazon RDS event notifications use Amazon SNS to make you aware of changes in the availability or configuration of your RDS resources. These notifications allow for a rapid response.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS Event Subscriptions for RDS security groups (`SourceType` of `db-security-group`)
+**Usage considerations**  
+This control applies only to Amazon RDS Event Subscriptions for RDS security groups (`SourceType` of `db-security-group`)
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-19-remediation"></a>
 
 When `SourceType` is set to `db-security-group`, set `Enabled` to `true` and ensure that the parameter `EventCategories` contains both `failure` and `configuration change` values.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS Event Subscription - Example One
+<a name="ct-rds-pr-19-remediation-1"></a>
 
 Amazon RDS Event Subscription for RDS security groups configured to notify on all event categories. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSEventSubscription": {
         "Type": "AWS::RDS::EventSubscription",
@@ -5920,33 +5590,29 @@ Amazon RDS Event Subscription for RDS security groups configured to notify on al
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSEventSubscription:
   Type: AWS::RDS::EventSubscription
   Properties:
     SnsTopicArn: !Ref 'SnsTopic'
     SourceType: db-security-group
     Enabled: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS Event Subscription - Example Two
+<a name="ct-rds-pr-19-remediation-2"></a>
 
 Amazon RDS Event Subscription for RDS security groups configured to notify on `failure` and `configuration change` event categories. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSEventSubscription": {
         "Type": "AWS::RDS::EventSubscription",
@@ -5963,13 +5629,11 @@ Amazon RDS Event Subscription for RDS security groups configured to notify on `f
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSEventSubscription:
   Type: AWS::RDS::EventSubscription
   Properties:
@@ -5979,33 +5643,31 @@ RDSEventSubscription:
       - configuration change
     SourceType: db-security-group
     Enabled: true
-
-
 ```
 
 ### CT.RDS.PR.19 rule specification
+<a name="ct-rds-pr-19-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_sg_event_notifications_configured_check
-#
+# 
 # Description:
 #   Checks whether an Amazon RDS event subscription for RDS security groups are configured to notify on event categories of 'failure' and 'configuration change'.
-#
+# 
 # Reports on:
 #   AWS::RDS::EventSubscription
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -6114,18 +5776,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.19 example templates
+<a name="ct-rds-pr-19-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SNSTopic:
     Type: AWS::SNS::Topic
@@ -6137,14 +5797,11 @@ Resources:
         Ref: SNSTopic
       SourceType: db-security-group
       Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SNSTopic:
     Type: AWS::SNS::Topic
@@ -6158,29 +5815,21 @@ Resources:
       - failure
       SourceType: db-security-group
       Enabled: true
-
-
 ```
 
 ## [CT.RDS.PR.20] Require an Amazon RDS database instance not to use a database engine default port
+<a name="ct-rds-pr-20-description"></a>
 
 This control checks whether Amazon Relational Database Service (RDS) database instances are configured for default database port for their specific engine types.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.20 rule specification](#ct-rds-pr-20-rule "#ct-rds-pr-20-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.20 rule specification](#ct-rds-pr-20-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.20 rule specification](#ct-rds-pr-20-rule "#ct-rds-pr-20-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.20 example templates](#ct-rds-pr-20-templates "#ct-rds-pr-20-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.20 rule specification](#ct-rds-pr-20-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.20 example templates](#ct-rds-pr-20-templates) 
 
 **Explanation**
 
@@ -6188,25 +5837,25 @@ If you use a known port to deploy an Amazon RDS cluster or instance, an attacker
 
 When you change the port, you must also update the existing connection strings that were used to connect to the old port. You also should check the security group of the DB instance to ensure that it includes an ingress rule that allows connectivity on the new port.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-se2`, `oracle-ee-cdb`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-se2`, `oracle-ee-cdb`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`.
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-20-remediation"></a>
 
 Set a value for `Port` that is different than the default value for the Amazon RDS DB instance engine type.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example One
+<a name="ct-rds-pr-20-remediation-1"></a>
 
 Amazon RDS DB instance configured with a port that's different than the `mysql` engine default port. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -6228,13 +5877,11 @@ Amazon RDS DB instance configured with a port that's different than the `mysql` 
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -6248,20 +5895,18 @@ DBInstance:
     StorageEncrypted: true
     Port: 6733
   DeletionPolicy: Delete
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example Two
+<a name="ct-rds-pr-20-remediation-2"></a>
 
 Amazon RDS DB instance configured with a port that's different than the `postgres` engine default port. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -6282,13 +5927,11 @@ Amazon RDS DB instance configured with a port that's different than the `postgre
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -6301,33 +5944,31 @@ DBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     Port: 5723
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.20 rule specification
+<a name="ct-rds-pr-20-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_no_default_ports_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Relational Database Service (RDS) database instances are configured for default database port for their specific engine types.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -6476,18 +6117,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.20 example templates
+<a name="ct-rds-pr-20-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -6512,14 +6151,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       Port: 6733
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -6544,52 +6180,44 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       Port: 3306
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.21] Require an Amazon RDS DB cluster to have a unique administrator username
+<a name="ct-rds-pr-21-description"></a>
 
 This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has changed the administrator username from its default value.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.21 rule specification](#ct-rds-pr-21-rule "#ct-rds-pr-21-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBCluster`
++ **CloudFormation guard rule: ** [CT.RDS.PR.21 rule specification](#ct-rds-pr-21-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.21 rule specification](#ct-rds-pr-21-rule "#ct-rds-pr-21-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.21 example templates](#ct-rds-pr-21-templates "#ct-rds-pr-21-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.21 rule specification](#ct-rds-pr-21-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.21 example templates](#ct-rds-pr-21-templates) 
 
 **Explanation**
 
 When you create an Amazon RDS database, we recommend that you change the default administrator username to a unique value. Default user names are public knowledge, and they should be changed, because changing these user names reduces the risk of unintended access.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB clusters that set the `MasterUsername` property.
+**Usage considerations**  
+This control applies only to Amazon RDS DB clusters that set the `MasterUsername` property.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-21-remediation"></a>
 
 Set `MasterUsername` to a value other than `admin` or `postgres`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster - Example
+<a name="ct-rds-pr-21-remediation-1"></a>
 
 Amazon RDS DB cluster configured with a unique administrator username. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -6605,13 +6233,11 @@ Amazon RDS DB cluster configured with a unique administrator username. The examp
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -6619,33 +6245,31 @@ DBCluster:
     MasterUsername: samplemasteruser
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${RDSClusterSecret}::password}}'
     DBSubnetGroupName: !Ref 'DBSubnetGroup'
-
-
 ```
 
 ### CT.RDS.PR.21 rule specification
+<a name="ct-rds-pr-21-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_cluster_default_admin_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Relational Database Service (RDS) database (DB) cluster has changed the administrator username from its default value.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -6729,18 +6353,16 @@ rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 
 }
-
-
 ```
 
 ### CT.RDS.PR.21 example templates
+<a name="ct-rds-pr-21-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -6793,14 +6415,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
       DBSubnetGroupName:
         Ref: DBSubnetGroup
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -6853,52 +6472,44 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBClusterSecret}::password}}'
       DBSubnetGroupName:
         Ref: DBSubnetGroup
-
-
 ```
 
 ## [CT.RDS.PR.22] Require an Amazon RDS database instance to have a unique administrator username
+<a name="ct-rds-pr-22-description"></a>
 
 This control checks whether an Amazon Relational Database Service (RDS) database has changed the adminstrator username from its default value.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.22 rule specification](#ct-rds-pr-22-rule "#ct-rds-pr-22-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.22 rule specification](#ct-rds-pr-22-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.22 rule specification](#ct-rds-pr-22-rule "#ct-rds-pr-22-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.22 example templates](#ct-rds-pr-22-templates "#ct-rds-pr-22-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.22 rule specification](#ct-rds-pr-22-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.22 example templates](#ct-rds-pr-22-templates) 
 
 **Explanation**
 
 Default administrative usernames on Amazon RDS databases are public knowledge. When creating an Amazon RDS database, you should change the default administrative username to a unique value, thereby reducing the risk of unintended access.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex`, and `sqlserver-web`.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex`, and `sqlserver-web`.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-22-remediation"></a>
 
 Set `MasterUsername` to a value other than `postgres` or `admin`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-22-remediation-1"></a>
 
 Amazon RDS DB instance configured with a custom administrator username. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -6916,13 +6527,11 @@ Amazon RDS DB instance configured with a custom administrator username. The exam
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -6934,33 +6543,31 @@ DBInstance:
     MasterUsername: testUser
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.22 rule specification
+<a name="ct-rds-pr-22-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_default_admin_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Relational Database Service (RDS) database has changed the adminstrator username from its default value.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -7057,18 +6664,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.22 example templates
+<a name="ct-rds-pr-22-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -7091,14 +6696,11 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -7121,29 +6723,21 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.23] Require an Amazon RDS database instance to not be publicly accessible
+<a name="ct-rds-pr-23-description"></a>
 
 This rule checks whether Amazon Relational Database Service (RDS) database (DB) instances are publicly accessible, as determined by checking the `PubliclyAccessible` configuration property.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.23 rule specification](#ct-rds-pr-23-rule "#ct-rds-pr-23-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.23 rule specification](#ct-rds-pr-23-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.23 rule specification](#ct-rds-pr-23-rule "#ct-rds-pr-23-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.23 example templates](#ct-rds-pr-23-templates "#ct-rds-pr-23-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.23 rule specification](#ct-rds-pr-23-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.23 example templates](#ct-rds-pr-23-templates) 
 
 **Explanation**
 
@@ -7152,19 +6746,20 @@ The `PubliclyAccessible` property in the RDS instance CloudFormation resource in
 Unless you intend for your RDS instance to be publicly accessible, do not configure the RDS instance with the `PubliclyAccessible` value set to `true`, because this configuration may allow unwanted traffic to your database instance.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-23-remediation"></a>
 
 Set the value of `PubliclyAccessible` to `false`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Instance - Example
+<a name="ct-rds-pr-23-remediation-1"></a>
 
 Amazon RDS DB instance configured as an internal instance, by mmeans of a publicly accessible configuration. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -7185,13 +6780,11 @@ Amazon RDS DB instance configured as an internal instance, by mmeans of a public
         "DeletionPolicy": "Delete"
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -7204,33 +6797,31 @@ DBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     PubliclyAccessible: false
   DeletionPolicy: Delete
-
-
 ```
 
 ### CT.RDS.PR.23 rule specification
+<a name="ct-rds-pr-23-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_public_access_check
-#
+# 
 # Description:
 #   This rule checks whether Amazon Relational Database Service (RDS) database (DB) instances are publicly accessible, as determined by checking the 'PubliclyAccessible' configuration property.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #      Given: The input document is an CloudFormation or CloudFormation hook document
@@ -7309,18 +6900,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.23 example templates
+<a name="ct-rds-pr-23-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -7345,14 +6934,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       PubliclyAccessible: false
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -7377,29 +6963,21 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       PubliclyAccessible: true
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.24] Require an Amazon RDS database instance to have encryption at rest configured
+<a name="ct-rds-pr-24-description"></a>
 
 This control checks whether storage encryption is enabled for your Amazon RDS database (DB) instance.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.24 rule specification](#ct-rds-pr-24-rule "#ct-rds-pr-24-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.24 rule specification](#ct-rds-pr-24-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.24 rule specification](#ct-rds-pr-24-rule "#ct-rds-pr-24-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.24 example templates](#ct-rds-pr-24-templates "#ct-rds-pr-24-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.24 rule specification](#ct-rds-pr-24-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.24 example templates](#ct-rds-pr-24-templates) 
 
 **Explanation**
 
@@ -7409,25 +6987,25 @@ Encrypted Amazon RDS DB instances use the open standard AES-256 encryption algor
 
 Amazon RDS encryption currently is available for all database engines and storage types. Amazon RDS encryption is available for most DB instance classes.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, `sqlserver-ex` and `sqlserver-web`
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-24-remediation"></a>
 
 The parameter `StorageEncrypted` must be set to true for RDS DB Instances.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB instance - Example
+<a name="ct-rds-pr-24-remediation-1"></a>
 
 Amazon RDS DB instance with storage encryption enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSDBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -7447,13 +7025,11 @@ Amazon RDS DB instance with storage encryption enabled. The example is shown in 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSDBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -7465,33 +7041,31 @@ RDSDBInstance:
     MasterUsername: !Sub '{{resolve:secretsmanager:${RDSDBInstanceSecret}::username}}'
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${RDSDBInstanceSecret}::password}}'
     StorageEncrypted: true
-
-
 ```
 
 ### CT.RDS.PR.24 rule specification
+<a name="ct-rds-pr-24-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_instance_storage_encrypted_check
-#
+# 
 # Description:
 #   Checks whether storage encryption is enabled for your Amazon RDS DB instances.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -7595,18 +7169,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.24 example templates
+<a name="ct-rds-pr-24-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -7631,14 +7203,11 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       StorageEncrypted: true
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -7663,55 +7232,45 @@ Resources:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
       StorageEncrypted: false
     DeletionPolicy: Delete
-
-
 ```
 
 ## [CT.RDS.PR.25] Require an Amazon RDS database cluster to export logs to Amazon CloudWatch Logs by means of the EnableCloudwatchLogsExports property
+<a name="ct-rds-pr-25-description"></a>
 
 This control checks whether Amazon RDS database clusters have all available log types enabled for export to Amazon CloudWatch Logs.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.25 rule specification](#ct-rds-pr-25-rule "#ct-rds-pr-25-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBCluster`
++ **CloudFormation guard rule: ** [CT.RDS.PR.25 rule specification](#ct-rds-pr-25-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.25 rule specification](#ct-rds-pr-25-rule "#ct-rds-pr-25-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.25 example templates](#ct-rds-pr-25-templates "#ct-rds-pr-25-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.25 rule specification](#ct-rds-pr-25-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.25 example templates](#ct-rds-pr-25-templates) 
 
 **Explanation**
 
 AWS Control Tower recommends that you enable the export of relevant logs for all Amazon RDS database clusters to Amazon CloudWatch Logs. Database logging provides detailed records of requests made to RDS. Database logs can assist with security and access audits, and they can help you diagnose availability issues.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB cluster engine types `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql` and `postgres`.
-- Additional prerequisites may exist for enabling logging based on your selected database engine type. Refer to
-  [Monitoring Amazon Aurora log files](../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.md")
-  in the _Amazon Aurora User Guide_ for more information.
+**Usage considerations**  
+This control applies only to Amazon RDS DB cluster engine types `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql` and `postgres`.
+Additional prerequisites may exist for enabling logging based on your selected database engine type. Refer to [Monitoring Amazon Aurora log files](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html) in the *Amazon Aurora User Guide* for more information.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-25-remediation"></a>
 
 Specify `EnableCloudwatchLogsExports` with a list of all supported log types for the Amazon RDS database cluster engine.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS database (DB) Cluster - Example One
+<a name="ct-rds-pr-25-remediation-1"></a>
 
 Amazon RDS Aurora DB cluster configured with all available log types enabled for export to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -7735,13 +7294,11 @@ Amazon RDS Aurora DB cluster configured with all available log types enabled for
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -7754,20 +7311,18 @@ DBCluster:
       - error
       - general
       - slowquery
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster - Example Two
+<a name="ct-rds-pr-25-remediation-2"></a>
 
 Amazon RDS Multi-AZ Postgres DB cluster configured with all available log types enabled for export to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -7791,13 +7346,11 @@ Amazon RDS Multi-AZ Postgres DB cluster configured with all available log types 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -7810,33 +7363,31 @@ DBCluster:
       - error
       - general
       - slowquery
-
-
 ```
 
 ### CT.RDS.PR.25 rule specification
+<a name="ct-rds-pr-25-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_cluster_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon RDS database clusters have all available log types enabled for export to Amazon CloudWatch Logs.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -7991,18 +7542,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.25 example templates
+<a name="ct-rds-pr-25-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBCluster:
     Type: AWS::RDS::DBCluster
@@ -8016,14 +7565,11 @@ Resources:
         - error
         - general
         - slowquery
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBCluster:
     Type: AWS::RDS::DBCluster
@@ -8039,14 +7585,11 @@ Resources:
       EnableCloudwatchLogsExports:
         - postgresql
         - upgrade
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBCluster:
     Type: AWS::RDS::DBCluster
@@ -8055,56 +7598,44 @@ Resources:
       MasterUserPassword: example-password
       DBSubnetGroupName: example-db-subnet-group
       Engine: aurora
-
-
 ```
 
 ## [CT.RDS.PR.26] Require an Amazon Relational Database Service DB Proxy to require Transport Layer Security (TLS) connections
+<a name="ct-rds-pr-26-description"></a>
 
 This control checks whether an Amazon Relational Database Service DB Proxy is configured to require Transport Layer Security (TLS) for connections to the proxy.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBProxy`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.26 rule specification](#ct-rds-pr-26-rule "#ct-rds-pr-26-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBProxy`
++ **CloudFormation guard rule: ** [CT.RDS.PR.26 rule specification](#ct-rds-pr-26-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.26 rule specification](#ct-rds-pr-26-rule "#ct-rds-pr-26-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.26 example templates](#ct-rds-pr-26-templates "#ct-rds-pr-26-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.26 rule specification](#ct-rds-pr-26-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.26 example templates](#ct-rds-pr-26-templates) 
 
 **Explanation**
 
-Amazon RDS Proxy can act as an additional layer of security between client applications and the underlying database. For example, you can connect to the proxy
-using TLS 1.2, even if the underlying DB instance supports an older version of TLS. You can connect to the proxy using an IAM role, even if the proxy
-connects to the database with the native user and password authentication method. With this technique, you can enforce strong authentication requirements
-for database applications without a costly migration effort for the DB instances themselves.
+Amazon RDS Proxy can act as an additional layer of security between client applications and the underlying database. For example, you can connect to the proxy using TLS 1.2, even if the underlying DB instance supports an older version of TLS. You can connect to the proxy using an IAM role, even if the proxy connects to the database with the native user and password authentication method. With this technique, you can enforce strong authentication requirements for database applications without a costly migration effort for the DB instances themselves.
 
-###### Usage considerations
-
-- For general information about Amazon RDS proxy limitations, see [Quotas and limitations for RDS Proxy](../../../AmazonRDS/latest/UserGuide/rds-proxy.md#rds-proxy.limitations "../../../AmazonRDS/latest/UserGuide/rds-proxy.md#rds-proxy.limitations")
-  in the _Amazon Relational Database Service User Guide_.
+**Usage considerations**  
+For general information about Amazon RDS proxy limitations, see [Quotas and limitations for RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy.limitations) in the *Amazon Relational Database Service User Guide*.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-26-remediation"></a>
 
 Set the value of the RequireTLS property to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Proxy - Example
+<a name="ct-rds-pr-26-remediation-1"></a>
 
 An Amazon RDS DB Proxy configured to require TLS connections to the proxy. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBProxy": {
         "Type": "AWS::RDS::DBProxy",
@@ -8136,13 +7667,11 @@ An Amazon RDS DB Proxy configured to require TLS connections to the proxy. The e
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBProxy:
   Type: AWS::RDS::DBProxy
   Properties:
@@ -8158,33 +7687,31 @@ DBProxy:
       - !Ref 'SubnetOne'
       - !Ref 'SubnetTwo'
     RequireTLS: true
-
-
 ```
 
 ### CT.RDS.PR.26 rule specification
+<a name="ct-rds-pr-26-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_proxy_tls_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon RDS DB Proxy is configured to require Transport Layer Security (TLS) for connections to the proxy.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBProxy
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -8262,18 +7789,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.26 example templates
+<a name="ct-rds-pr-26-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -8314,7 +7839,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -8323,7 +7848,7 @@ Resources:
       Policies:
       - PolicyName: SecretAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -8359,14 +7884,11 @@ Resources:
       - Ref: SubnetOne
       - Ref: SubnetTwo
       RequireTLS: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -8407,7 +7929,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -8416,7 +7938,7 @@ Resources:
       Policies:
       - PolicyName: SecretAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -8452,54 +7974,44 @@ Resources:
       - Ref: SubnetOne
       - Ref: SubnetTwo
       RequireTLS: false
-
-
 ```
 
 ## [CT.RDS.PR.27] Require an Amazon Relational Database Service DB cluster parameter group to require Transport Layer Security (TLS) connections for supported engine types
+<a name="ct-rds-pr-27-description"></a>
 
 This control checks whether an Amazon Relational Database Service DB cluster parameter group requires Transport Layer Security (TLS) connections for supported engine types.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBClusterParameterGroup`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.27 rule specification](#ct-rds-pr-27-rule "#ct-rds-pr-27-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBClusterParameterGroup`
++ **CloudFormation guard rule: ** [CT.RDS.PR.27 rule specification](#ct-rds-pr-27-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.27 rule specification](#ct-rds-pr-27-rule "#ct-rds-pr-27-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.27 example templates](#ct-rds-pr-27-templates "#ct-rds-pr-27-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.27 rule specification](#ct-rds-pr-27-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.27 example templates](#ct-rds-pr-27-templates) 
 
 **Explanation**
 
-You can use Secure Socket Layer (SSL) or Transport Layer Security (TLS) from your application to encrypt a connection to a DB cluster running Aurora MySQL, Aurora PostgreSQL, MySQL, or PostgreSQL.
-SSL/TLS connections provide a layer of security by encrypting data that moves between your client and DB cluster.
+You can use Secure Socket Layer (SSL) or Transport Layer Security (TLS) from your application to encrypt a connection to a DB cluster running Aurora MySQL, Aurora PostgreSQL, MySQL, or PostgreSQL. SSL/TLS connections provide a layer of security by encrypting data that moves between your client and DB cluster.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB cluster parameter groups with families `aurora-mysql`, `aurora-postgresql`, `postgres`, or `mysql`.
+**Usage considerations**  
+This control applies only to Amazon RDS DB cluster parameter groups with families `aurora-mysql`, `aurora-postgresql`, `postgres`, or `mysql`.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-27-remediation"></a>
 
-For Amazon RDS DB cluster parameter groups with `aurora-mysql` and `mysql` families, in the Parameters property, set the value of `require_secure_transport` to true.
-For Amazon RDS DB cluster parameter groups with `aurora-postgresql` amd `postgres` families, in the Parameters property, set the value of `rds.force_ssl` to true.
+For Amazon RDS DB cluster parameter groups with `aurora-mysql` and `mysql` families, in the Parameters property, set the value of `require_secure_transport` to true. For Amazon RDS DB cluster parameter groups with `aurora-postgresql` amd `postgres` families, in the Parameters property, set the value of `rds.force_ssl` to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster Parameter Group - Example One
+<a name="ct-rds-pr-27-remediation-1"></a>
 
 An Amazon RDS DB cluster parameter group configured to require TLS/SSL for all connections to Aurora MySQL DB clusters. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSDBClusterParameterGroup": {
         "Type": "AWS::RDS::DBClusterParameterGroup",
@@ -8512,13 +8024,11 @@ An Amazon RDS DB cluster parameter group configured to require TLS/SSL for all c
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSDBClusterParameterGroup:
   Type: AWS::RDS::DBClusterParameterGroup
   Properties:
@@ -8526,20 +8036,18 @@ RDSDBClusterParameterGroup:
     Family: aurora-mysql5.7
     Parameters:
       require_secure_transport: 'ON'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster Parameter Group - Example Two
+<a name="ct-rds-pr-27-remediation-2"></a>
 
 An Amazon RDS DB cluster parameter group configured to require TLS/SSL for all connections to PostgreSQL DB clusters. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSDBClusterParameterGroup": {
         "Type": "AWS::RDS::DBClusterParameterGroup",
@@ -8552,13 +8060,11 @@ An Amazon RDS DB cluster parameter group configured to require TLS/SSL for all c
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSDBClusterParameterGroup:
   Type: AWS::RDS::DBClusterParameterGroup
   Properties:
@@ -8566,33 +8072,31 @@ RDSDBClusterParameterGroup:
     Family: postgres14
     Parameters:
       rds.force_ssl: true
-
-
 ```
 
 ### CT.RDS.PR.27 rule specification
+<a name="ct-rds-pr-27-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_db_cluster_parameter_group_tls_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon RDS DB cluster parameter group requires Transport Layer Security (TLS) connections for supported engine types.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBClusterParameterGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -8783,18 +8287,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.27 example templates
+<a name="ct-rds-pr-27-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   RDSDBClusterParameterGroup:
     Type: AWS::RDS::DBClusterParameterGroup
@@ -8804,14 +8306,11 @@ Resources:
       Family: aurora-mysql5.7
       Parameters:
         require_secure_transport: 'ON'
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   RDSDBClusterParameterGroup:
     Type: AWS::RDS::DBClusterParameterGroup
@@ -8821,14 +8320,11 @@ Resources:
       Family: postgres14
       Parameters:
         rds.force_ssl: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   RDSDBClusterParameterGroup:
     Type: AWS::RDS::DBClusterParameterGroup
@@ -8838,14 +8334,11 @@ Resources:
       Family: aurora-mysql5.7
       Parameters:
         require_secure_transport: 'OFF'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   RDSDBClusterParameterGroup:
     Type: AWS::RDS::DBClusterParameterGroup
@@ -8855,14 +8348,11 @@ Resources:
       Family: mysql8.0
       Parameters:
         require_secure_transport: 0
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   RDSDBClusterParameterGroup:
     Type: AWS::RDS::DBClusterParameterGroup
@@ -8872,55 +8362,44 @@ Resources:
       Family: postgres15
       Parameters:
         rds.force_ssl: false
-
-
 ```
 
 ## [CT.RDS.PR.28] Require an Amazon Relational Database Service DB parameter group to require Transport Layer Security (TLS) connections for supported engine types
+<a name="ct-rds-pr-28-description"></a>
 
 This control checks whether an Amazon Relational Database Service DB parameter group requires Transport Layer Security (TLS) connections, for supported engine types.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBParameterGroup`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.28 rule specification](#ct-rds-pr-28-rule "#ct-rds-pr-28-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBParameterGroup`
++ **CloudFormation guard rule: ** [CT.RDS.PR.28 rule specification](#ct-rds-pr-28-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.28 rule specification](#ct-rds-pr-28-rule "#ct-rds-pr-28-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.28 example templates](#ct-rds-pr-28-templates "#ct-rds-pr-28-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.28 rule specification](#ct-rds-pr-28-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.28 example templates](#ct-rds-pr-28-templates) 
 
 **Explanation**
 
-You can use Secure Socket Layer (SSL) or Transport Layer Security (TLS) from your application to encrypt a connection to a DB instance running MariaDB,
-Microsoft SQL Server, MySQL, Oracle, or PostgreSQL. SSL/TLS connections provide a layer of security by encrypting data that moves
-between your client and DB instance.
+You can use Secure Socket Layer (SSL) or Transport Layer Security (TLS) from your application to encrypt a connection to a DB instance running MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL. SSL/TLS connections provide a layer of security by encrypting data that moves between your client and DB instance.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB parameter groups with families `postgres`, `sqlserver`, `mariadb` (excluding `mariadb10.0` to `mariadb10.4`), and `mysql` (excluding `mysql5.5` to `mysql5.6`)
+**Usage considerations**  
+This control applies only to Amazon RDS DB parameter groups with families `postgres`, `sqlserver`, `mariadb` (excluding `mariadb10.0` to `mariadb10.4`), and `mysql` (excluding `mysql5.5` to `mysql5.6`)
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-28-remediation"></a>
 
-For Amazon RDS DB instance parameter groups with `mysql` and `mariadb` families, in `Parameters`, set `require_secure_transport` to `true`.
-For Amazon RDS DB instance parameter groups with `postgres` and `sqlserver` families, in `Parameters`, set `rds.force_ssl` to `true`.
+For Amazon RDS DB instance parameter groups with `mysql` and `mariadb` families, in `Parameters`, set `require_secure_transport` to `true`. For Amazon RDS DB instance parameter groups with `postgres` and `sqlserver` families, in `Parameters`, set `rds.force_ssl` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Parameter Group - Example One
+<a name="ct-rds-pr-28-remediation-1"></a>
 
 An Amazon RDS DB parameter group configured to require TLS/SSL for all connections to MariaDB DB instances. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSDBParameterGroup": {
         "Type": "AWS::RDS::DBParameterGroup",
@@ -8933,13 +8412,11 @@ An Amazon RDS DB parameter group configured to require TLS/SSL for all connectio
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSDBParameterGroup:
   Type: AWS::RDS::DBParameterGroup
   Properties:
@@ -8947,20 +8424,18 @@ RDSDBParameterGroup:
     Family: mariadb10.6
     Parameters:
       require_secure_transport: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Parameter Group - Example Two
+<a name="ct-rds-pr-28-remediation-2"></a>
 
 An Amazon RDS DB parameter group configured to require TLS/SSL for all connections to PostgreSQL DB instances. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSDBParameterGroup": {
         "Type": "AWS::RDS::DBParameterGroup",
@@ -8973,13 +8448,11 @@ An Amazon RDS DB parameter group configured to require TLS/SSL for all connectio
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSDBParameterGroup:
   Type: AWS::RDS::DBParameterGroup
   Properties:
@@ -8987,33 +8460,31 @@ RDSDBParameterGroup:
     Family: postgres14
     Parameters:
       rds.force_ssl: true
-
-
 ```
 
 ### CT.RDS.PR.28 rule specification
+<a name="ct-rds-pr-28-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_db_parameter_group_tls_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon RDS DB parameter group requires Transport Layer Security (TLS) connections, for supported engine types.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBParameterGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -9193,18 +8664,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.28 example templates
+<a name="ct-rds-pr-28-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   RDSDBParameterGroup:
     Type: AWS::RDS::DBParameterGroup
@@ -9214,14 +8683,11 @@ Resources:
       Family: mariadb10.6
       Parameters:
         require_secure_transport: true
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   RDSDBParameterGroup:
     Type: AWS::RDS::DBParameterGroup
@@ -9231,14 +8697,11 @@ Resources:
       Family: postgres14
       Parameters:
         rds.force_ssl: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   RDSDBParameterGroup:
     Type: AWS::RDS::DBParameterGroup
@@ -9248,14 +8711,11 @@ Resources:
       Family: mariadb10.6
       Parameters:
         require_secure_transport: false
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   RDSDBParameterGroup:
     Type: AWS::RDS::DBParameterGroup
@@ -9265,53 +8725,43 @@ Resources:
       Family: postgres15
       Parameters:
         rds.force_ssl: false
-
-
 ```
 
 ## [CT.RDS.PR.29] Require an Amazon RDS cluster not be configured to be publicly accessible by means of the 'PubliclyAccessible' property
+<a name="ct-rds-pr-29-description"></a>
 
 This control checks whether an Amazon Relational Database Service database cluster is configured to be publicly accessible, or not, as determined by the setting of the PubliclyAccessible property.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBCluster`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.29 rule specification](#ct-rds-pr-29-rule "#ct-rds-pr-29-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBCluster`
++ **CloudFormation guard rule: ** [CT.RDS.PR.29 rule specification](#ct-rds-pr-29-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.29 rule specification](#ct-rds-pr-29-rule "#ct-rds-pr-29-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.29 example templates](#ct-rds-pr-29-templates "#ct-rds-pr-29-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.29 rule specification](#ct-rds-pr-29-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.29 example templates](#ct-rds-pr-29-templates) 
 
 **Explanation**
 
-The PubliclyAccessible property in the Amazon RDS DB cluster CloudFormation resource indicates whether the DB cluster is publicly accessible. When the DB instance is configured with the
-PubliclyAccessible property set to true, its Domain Name System (DNS) endpoint resolves to the public IP address from outside of the DB cluster's virtual private cloud (VPC), and it also resolves to the private
-IP address from within the DB cluster's VPC.
+The PubliclyAccessible property in the Amazon RDS DB cluster CloudFormation resource indicates whether the DB cluster is publicly accessible. When the DB instance is configured with the PubliclyAccessible property set to true, its Domain Name System (DNS) endpoint resolves to the public IP address from outside of the DB cluster's virtual private cloud (VPC), and it also resolves to the private IP address from within the DB cluster's VPC. 
 
-Unless you intend for your Amazon RDS DB cluster to be publicly accessible, do not configure the Amazon RDS DB cluster with the
-PubliclyAccessible value set to true, because this configuration may allow unwanted traffic to your database instance.
+Unless you intend for your Amazon RDS DB cluster to be publicly accessible, do not configure the Amazon RDS DB cluster with the PubliclyAccessible value set to true, because this configuration may allow unwanted traffic to your database instance.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-29-remediation"></a>
 
 Set the value of the PubliclyAccessible property to false.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB Cluster - Example
+<a name="ct-rds-pr-29-remediation-1"></a>
 
 An Amazon RDS Multi-AZ Postgres DB cluster configured not to be publicly accessible. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DBCluster": {
         "Type": "AWS::RDS::DBCluster",
@@ -9334,13 +8784,11 @@ An Amazon RDS Multi-AZ Postgres DB cluster configured not to be publicly accessi
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DBCluster:
   Type: AWS::RDS::DBCluster
   Properties:
@@ -9353,33 +8801,31 @@ DBCluster:
     StorageType: io1
     Iops: 3000
     PubliclyAccessible: false
-
-
 ```
 
 ### CT.RDS.PR.29 rule specification
+<a name="ct-rds-pr-29-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_cluster_public_access_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon RDS database cluster is configured to be publicly accessible, or not, as determined by the setting of the PubliclyAccessible property.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -9481,18 +8927,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.RDS.PR.29 example templates
+<a name="ct-rds-pr-29-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DBClusterSecret:
     Type: AWS::SecretsManager::Secret
@@ -9517,14 +8961,11 @@ Resources:
       StorageType: io1
       Iops: 1000
       PubliclyAccessible: false
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBClusterSecret:
     Type: AWS::SecretsManager::Secret
@@ -9549,30 +8990,21 @@ Resources:
       StorageType: io1
       Iops: 1000
       PubliclyAccessible: true
-
-
 ```
 
 ## [CT.RDS.PR.30] Require that an Amazon RDS database instance has encryption at rest configured to use a KMS key that you specify for supported engine types
+<a name="ct-rds-pr-30-description"></a>
 
-This control checks whether storage encryption is enabled for your Amazon RDS database (DB) instance, and that the encryption uses a KMS key that you specify for supported
-engine types.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::RDS::DBInstance`
-- **CloudFormation guard rule:**
-  [CT.RDS.PR.30 rule specification](#ct-rds-pr-30-rule "#ct-rds-pr-30-rule")
+This control checks whether storage encryption is enabled for your Amazon RDS database (DB) instance, and that the encryption uses a KMS key that you specify for supported engine types.
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::RDS::DBInstance`
++ **CloudFormation guard rule: ** [CT.RDS.PR.30 rule specification](#ct-rds-pr-30-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.RDS.PR.30 rule specification](#ct-rds-pr-30-rule "#ct-rds-pr-30-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.RDS.PR.30 example templates](#ct-rds-pr-30-templates "#ct-rds-pr-30-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.RDS.PR.30 rule specification](#ct-rds-pr-30-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.RDS.PR.30 example templates](#ct-rds-pr-30-templates) 
 
 **Explanation**
 
@@ -9582,31 +9014,27 @@ Amazon RDS-encrypted DB instances use the open standard AES-256 encryption algor
 
 Amazon RDS encryption is available for all database engines and storage types. Amazon RDS encryption is available for most DB instance classes.
 
-###### Usage considerations
-
-- This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, and `sqlserver-web`
-- This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
-- This control requires that a KMS key is specified for Amazon RDS DB instance resources. It does not check the properties of the KMS key used,
-  such as whether the KMS key is customer-managed or service-managed.
-- Consider using a customer-managed key if you want full control over the KMS key,
-  which includes establishing and maintaining the key's policies, IAM policies, and grants, as well as enabling and disabling the key,
-  rotating its cryptographic material, adding tags, creating aliases that refer to the KMS key, and scheduling the KMS key
-  for deletion.
+**Usage considerations**  
+This control applies only to Amazon RDS DB engine types `mariadb`, `mysql`, `oracle-ee`, `oracle-ee-cdb`, `oracle-se2`, `oracle-se2-cdb`, `postgres`, `sqlserver-ee`, `sqlserver-se`, and `sqlserver-web`
+This control applies only when the `Engine` property is provided. It does not apply when restoring from a DB snapshot or cluster snapshot where an `Engine` has not been set explicitly.
+This control requires that a KMS key is specified for Amazon RDS DB instance resources. It does not check the properties of the KMS key used, such as whether the KMS key is customer-managed or service-managed.
+Consider using a customer-managed key if you want full control over the KMS key, which includes establishing and maintaining the key's policies, IAM policies, and grants, as well as enabling and disabling the key, rotating its cryptographic material, adding tags, creating aliases that refer to the KMS key, and scheduling the KMS key for deletion.
 
 ### Remediation for rule failure
+<a name="ct-rds-pr-30-remediation"></a>
 
 Set the KmsKeyId property to the ARN of an AWS KMS key that is configured to grant key usage permissions to Amazon RDS.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon RDS DB instance - Example
+<a name="ct-rds-pr-30-remediation-1"></a>
 
 An Amazon RDS DB instance with storage encryption enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "RDSDBInstance": {
         "Type": "AWS::RDS::DBInstance",
@@ -9629,13 +9057,11 @@ An Amazon RDS DB instance with storage encryption enabled. The example is shown 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 RDSDBInstance:
   Type: AWS::RDS::DBInstance
   Properties:
@@ -9648,33 +9074,31 @@ RDSDBInstance:
     MasterUserPassword: !Sub '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     StorageEncrypted: true
     KmsKeyId: !Ref 'KMSKey'
-
-
 ```
 
 ### CT.RDS.PR.30 rule specification
+<a name="ct-rds-pr-30-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   rds_storage_encrypted_kms_key_check
-#
+# 
 # Description:
 #   This control checks whether storage encryption is enabled for your Amazon RDS database (DB) instance, and that the encryption uses a KMS key that you specify for supported engine types.
-#
+# 
 # Reports on:
 #   AWS::RDS::DBInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation Hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -9816,24 +9240,22 @@ rule query_for_resource(doc, resource_key, referenced_RESOURCE_TYPE) {
         Type == %referenced_RESOURCE_TYPE
     }
 }
-
-
 ```
 
 ### CT.RDS.PR.30 example templates
+<a name="ct-rds-pr-30-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   KMSKey:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -9870,14 +9292,11 @@ Resources:
       KmsKeyId:
         Ref: KMSKey
     DeletionPolicy: Delete
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DBInstanceSecret:
     Type: AWS::SecretsManager::Secret
@@ -9901,6 +9320,4 @@ Resources:
       MasterUserPassword:
         Fn::Sub: '{{resolve:secretsmanager:${DBInstanceSecret}::password}}'
     DeletionPolicy: Delete
-
-
 ```

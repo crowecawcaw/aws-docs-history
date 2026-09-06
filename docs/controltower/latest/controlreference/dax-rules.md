@@ -1,59 +1,49 @@
+
+
 # DynamoDB Accelerator controls
+<a name="dax-rules"></a>
 
-###### Topics
-
-- [[CT.DAX.PR.1] Require encryption at rest for all Amazon DynamoDB Accelerator (DAX) clusters](#ct-dax-pr-1-description "#ct-dax-pr-1-description")
-- [[CT.DAX.PR.2] Require an Amazon DAX cluster to deploy nodes to at least three Availability Zones](#ct-dax-pr-2-description "#ct-dax-pr-2-description")
-- [[CT.DAX.PR.3] Require an Amazon DAX cluster to encrypt data in transit with Transport Layer Security (TLS)](#ct-dax-pr-3-description "#ct-dax-pr-3-description")
+**Topics**
++ [[CT.DAX.PR.1] Require encryption at rest for all Amazon DynamoDB Accelerator (DAX) clusters](#ct-dax-pr-1-description)
++ [[CT.DAX.PR.2] Require an Amazon DAX cluster to deploy nodes to at least three Availability Zones](#ct-dax-pr-2-description)
++ [[CT.DAX.PR.3] Require an Amazon DAX cluster to encrypt data in transit with Transport Layer Security (TLS)](#ct-dax-pr-3-description)
 
 ## [CT.DAX.PR.1] Require encryption at rest for all Amazon DynamoDB Accelerator (DAX) clusters
+<a name="ct-dax-pr-1-description"></a>
 
 This control checks whether Amazon DynamoDB Accelerator (DAX) clusters are encrypted at rest.
 
-###### Note
-
-The control CT.DAX.PR.1 cannot be activated from home Regions
-Canada (Central) Region, Europe (Stockholm) Region, and Asia Pacific (Seoul) Region, because the
-`AWS::DAX::Cluster` resource type is not available in those Regions. If
-your home Region is not one of these three, you can activate the control for these three
-Regions from another home Region, if these three Regions are governed by AWS Control Tower in
-your landing zone. For example, if your home Region is US West (Oregon) Region, you can deploy
-the control to Canada (Central) Region, if Canada (Central) Region is governed by AWS Control Tower.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::DAX::Cluster`
-- **CloudFormation guard rule:**
-  [CT.DAX.PR.1 rule specification](#ct-dax-pr-1-rule "#ct-dax-pr-1-rule")
+**Note**  
+The control CT.DAX.PR.1 cannot be activated from home Regions Canada (Central) Region, Europe (Stockholm) Region, and Asia Pacific (Seoul) Region, because the `AWS::DAX::Cluster` resource type is not available in those Regions. If your home Region is not one of these three, you can activate the control for these three Regions from another home Region, if these three Regions are governed by AWS Control Tower in your landing zone. For example, if your home Region is US West (Oregon) Region, you can deploy the control to Canada (Central) Region, if Canada (Central) Region is governed by AWS Control Tower.
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::DAX::Cluster`
++ **CloudFormation guard rule: ** [CT.DAX.PR.1 rule specification](#ct-dax-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.DAX.PR.1 rule specification](#ct-dax-pr-1-rule "#ct-dax-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.DAX.PR.1 example templates](#ct-dax-pr-1-templates "#ct-dax-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.DAX.PR.1 rule specification](#ct-dax-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.DAX.PR.1 example templates](#ct-dax-pr-1-templates) 
 
 **Explanation**
 
 Encrypting data at rest reduces the risk that data stored on disk may be accessible to a user who is not authenticated to AWS. Encryption adds another set of access controls, which limits the ability of unauthorized users to gain access to the data. For example, API permissions must decrypt the data before it can be read.
 
 ### Remediation for rule failure
+<a name="ct-dax-pr-1-remediation"></a>
 
 Provide an `SSESpecification` configuration with `SSEEnabled` set to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon DAX Cluster - Example
+<a name="ct-dax-pr-1-remediation-1"></a>
 
 Amazon DAX cluster configured with server-side encryption enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DAXCluster": {
         "Type": "AWS::DAX::Cluster",
@@ -72,13 +62,11 @@ Amazon DAX cluster configured with server-side encryption enabled. The example i
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DAXCluster:
   Type: AWS::DAX::Cluster
   Properties:
@@ -87,33 +75,31 @@ DAXCluster:
     ReplicationFactor: 1
     SSESpecification:
       SSEEnabled: true
-
-
 ```
 
 ### CT.DAX.PR.1 rule specification
+<a name="ct-dax-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   dax_cluster_encryption_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon DynamoDB Accelerator (DAX) clusters are encrypted at rest.
-#
+# 
 # Reports on:
 #   AWS::DAX::Cluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -198,24 +184,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.DAX.PR.1 example templates
+<a name="ct-dax-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DAXServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -225,7 +209,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -250,20 +234,17 @@ Resources:
       ReplicationFactor: 1
       SSESpecification:
         SSEEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DAXServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -273,7 +254,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -298,48 +279,41 @@ Resources:
       ReplicationFactor: 1
       SSESpecification:
         SSEEnabled: false
-
-
 ```
 
 ## [CT.DAX.PR.2] Require an Amazon DAX cluster to deploy nodes to at least three Availability Zones
+<a name="ct-dax-pr-2-description"></a>
 
 This control checks whether an Amazon DAX cluster is configured to deploy cluster nodes to at least three Availability Zones.
-
-- **Control objective:** Improve resiliency, Improve availability
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::DAX::Cluster`
-- **CloudFormation guard rule:**
-  [CT.DAX.PR.2 rule specification](#ct-dax-pr-2-rule "#ct-dax-pr-2-rule")
++ **Control objective: **Improve resiliency, Improve availability
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::DAX::Cluster`
++ **CloudFormation guard rule: ** [CT.DAX.PR.2 rule specification](#ct-dax-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.DAX.PR.2 rule specification](#ct-dax-pr-2-rule "#ct-dax-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.DAX.PR.2 example templates](#ct-dax-pr-2-templates "#ct-dax-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.DAX.PR.2 rule specification](#ct-dax-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.DAX.PR.2 example templates](#ct-dax-pr-2-templates) 
 
 **Explanation**
 
 AWS Control Tower recommends that you deploy your Amazon DAX clusters in multiple Availability Zones. This deployment technique allows you to design and operate applications and databases that fail over between Availability Zones automatically, without interruption. For production usage, we strongly recommend that you deploy DAX across at least three nodes, with each node placed into a different Availability Zone.
 
 ### Remediation for rule failure
+<a name="ct-dax-pr-2-remediation"></a>
 
 Set the `ReplicationFactor` parameter to an integer value greater than or equal to three (>= 3), and set the `AvailabilityZones` parameter to a list containing three unique Availability Zone entries.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon DAX cluster - Example
+<a name="ct-dax-pr-2-remediation-1"></a>
 
 Amazon DAX cluster configured with three nodes and three distinct Availability Zones. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DaxCluster": {
         "Type": "AWS::DAX::Cluster",
@@ -381,13 +355,11 @@ Amazon DAX cluster configured with three nodes and three distinct Availability Z
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DaxCluster:
   Type: AWS::DAX::Cluster
   Properties:
@@ -404,33 +376,31 @@ DaxCluster:
       - !Select
         - 2
         - !GetAZs ''
-
-
 ```
 
 ### CT.DAX.PR.2 rule specification
+<a name="ct-dax-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   dax_cluster_multi_az_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon DAX cluster is configured to deploy cluster nodes to at least three Availability Zones.
-#
+# 
 # Reports on:
 #   AWS::DAX::Cluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -545,24 +515,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.DAX.PR.2 example templates
+<a name="ct-dax-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DaxDynamoAccessRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -572,7 +540,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -607,20 +575,17 @@ Resources:
       - Fn::Select:
         - 2
         - Fn::GetAZs: ''
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DaxDynamoAccessRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -630,7 +595,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -655,60 +620,45 @@ Resources:
         - Arn
       NodeType: dax.t3.small
       ReplicationFactor: 3
-
-
 ```
 
 ## [CT.DAX.PR.3] Require an Amazon DAX cluster to encrypt data in transit with Transport Layer Security (TLS)
+<a name="ct-dax-pr-3-description"></a>
 
 This control checks whether an Amazon DynamoDB Accelerator (DAX) cluster endpoint is configured to encrypt data in transit with Transport Layer Security (TLS).
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::DAX::Cluster`
-- **CloudFormation guard rule:**
-  [CT.DAX.PR.3 rule specification](#ct-dax-pr-3-rule "#ct-dax-pr-3-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::DAX::Cluster`
++ **CloudFormation guard rule: ** [CT.DAX.PR.3 rule specification](#ct-dax-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.DAX.PR.3 rule specification](#ct-dax-pr-3-rule "#ct-dax-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.DAX.PR.3 example templates](#ct-dax-pr-3-templates "#ct-dax-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.DAX.PR.3 rule specification](#ct-dax-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.DAX.PR.3 example templates](#ct-dax-pr-3-templates) 
 
 **Explanation**
 
-Amazon DynamoDB Accelerator (DAX) supports encryption in transit of data between your application and your DAX cluster,
-so that you can use DAX in applications with stringent encryption requirements. DAX encryption in transit ensures
-that all requests and responses between the application and the cluster are encrypted by transport level security (TLS),
-and that connections to the cluster can be authenticated by verification of a cluster x509 certificate.
+Amazon DynamoDB Accelerator (DAX) supports encryption in transit of data between your application and your DAX cluster, so that you can use DAX in applications with stringent encryption requirements. DAX encryption in transit ensures that all requests and responses between the application and the cluster are encrypted by transport level security (TLS), and that connections to the cluster can be authenticated by verification of a cluster x509 certificate.
 
-###### Usage considerations
-
-- To enable encryption in transit between your application and DAX cluster, be sure to use a
-  recent version of any of the DAX clients that support TLS in your application.
-
-Encryption in transit cannot be enabled on an existing DAX cluster. To use encryption in transit in an existing DAX
-application, create a new cluster with encryption in transit enabled, shift your application's traffic to it, then
-delete the old cluster.
+**Usage considerations**  
+To enable encryption in transit between your application and DAX cluster, be sure to use a recent version of any of the DAX clients that support TLS in your application.  
+Encryption in transit cannot be enabled on an existing DAX cluster. To use encryption in transit in an existing DAX application, create a new cluster with encryption in transit enabled, shift your application's traffic to it, then delete the old cluster.
 
 ### Remediation for rule failure
+<a name="ct-dax-pr-3-remediation"></a>
 
 Set the value of the ClusterEndpointEncryptionType property to TLS.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon DAX Cluster - Example
+<a name="ct-dax-pr-3-remediation-1"></a>
 
 An Amazon DAX cluster configured to encrypt data in transit. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DaxCluster": {
         "Type": "AWS::DAX::Cluster",
@@ -725,13 +675,11 @@ An Amazon DAX cluster configured to encrypt data in transit. The example is show
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DaxCluster:
   Type: AWS::DAX::Cluster
   Properties:
@@ -739,33 +687,31 @@ DaxCluster:
     NodeType: dax.t3.small
     ReplicationFactor: 3
     ClusterEndpointEncryptionType: TLS
-
-
 ```
 
 ### CT.DAX.PR.3 rule specification
+<a name="ct-dax-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   dax_tls_endpoint_encryption_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon DAX cluster endpoint is configured to encrypt data in transit with Transport Layer Security (TLS).
-#
+# 
 # Reports on:
 #   AWS::DAX::Cluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -845,24 +791,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.DAX.PR.3 example templates
+<a name="ct-dax-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DaxDynamoAccessRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -872,7 +816,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -898,20 +842,17 @@ Resources:
       NodeType: dax.t3.small
       ReplicationFactor: 3
       ClusterEndpointEncryptionType: TLS
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DaxDynamoAccessRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -921,7 +862,7 @@ Resources:
       Policies:
       - PolicyName: DynamoAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -947,6 +888,4 @@ Resources:
       NodeType: dax.t3.small
       ReplicationFactor: 3
       ClusterEndpointEncryptionType: NONE
-
-
 ```

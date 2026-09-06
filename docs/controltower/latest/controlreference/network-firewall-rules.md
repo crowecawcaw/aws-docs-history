@@ -1,51 +1,48 @@
+
+
 # AWS Network Firewall controls
+<a name="network-firewall-rules"></a>
 
-###### Topics
-
-- [[CT.NETWORK-FIREWALL.PR.1] Require any AWS Network Firewall firewall policy to have an associated rule group](#ct-network-firewall-pr-1-description "#ct-network-firewall-pr-1-description")
-- [[CT.NETWORK-FIREWALL.PR.2] Require any AWS Network Firewall firewall policy to drop or forward stateless full packets by default when they do not match a rule](#ct-network-firewall-pr-2-description "#ct-network-firewall-pr-2-description")
-- [[CT.NETWORK-FIREWALL.PR.3] Require any AWS Network Firewall firewall policy to drop or forward fragmented packets by default when they do not match a stateless rule](#ct-network-firewall-pr-3-description "#ct-network-firewall-pr-3-description")
-- [[CT.NETWORK-FIREWALL.PR.4] Require any AWS Network Firewall rule group to contain at least one rule](#ct-network-firewall-pr-4-description "#ct-network-firewall-pr-4-description")
-- [[CT.NETWORK-FIREWALL.PR.5] Require an AWS Network Firewall firewall to be deployed across multiple Availability Zones](#ct-network-firewall-pr-5-description "#ct-network-firewall-pr-5-description")
+**Topics**
++ [[CT.NETWORK-FIREWALL.PR.1] Require any AWS Network Firewall firewall policy to have an associated rule group](#ct-network-firewall-pr-1-description)
++ [[CT.NETWORK-FIREWALL.PR.2] Require any AWS Network Firewall firewall policy to drop or forward stateless full packets by default when they do not match a rule](#ct-network-firewall-pr-2-description)
++ [[CT.NETWORK-FIREWALL.PR.3] Require any AWS Network Firewall firewall policy to drop or forward fragmented packets by default when they do not match a stateless rule](#ct-network-firewall-pr-3-description)
++ [[CT.NETWORK-FIREWALL.PR.4] Require any AWS Network Firewall rule group to contain at least one rule](#ct-network-firewall-pr-4-description)
++ [[CT.NETWORK-FIREWALL.PR.5] Require an AWS Network Firewall firewall to be deployed across multiple Availability Zones](#ct-network-firewall-pr-5-description)
 
 ## [CT.NETWORK-FIREWALL.PR.1] Require any AWS Network Firewall firewall policy to have an associated rule group
+<a name="ct-network-firewall-pr-1-description"></a>
 
 This control checks whether there is at least one stateful or stateless rule group associated with an AWS Network Firewall firewall policy.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::NetworkFirewall::FirewallPolicy`
-- **CloudFormation guard rule:**
-  [CT.NETWORK-FIREWALL.PR.1 rule specification](#ct-network-firewall-pr-1-rule "#ct-network-firewall-pr-1-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::NetworkFirewall::FirewallPolicy`
++ **CloudFormation guard rule: ** [CT.NETWORK-FIREWALL.PR.1 rule specification](#ct-network-firewall-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.NETWORK-FIREWALL.PR.1 rule specification](#ct-network-firewall-pr-1-rule "#ct-network-firewall-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.NETWORK-FIREWALL.PR.1 example templates](#ct-network-firewall-pr-1-templates "#ct-network-firewall-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.NETWORK-FIREWALL.PR.1 rule specification](#ct-network-firewall-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.NETWORK-FIREWALL.PR.1 example templates](#ct-network-firewall-pr-1-templates) 
 
 **Explanation**
 
 A firewall policy defines how your firewall monitors and handles traffic in Amazon Virtual Private Cloud (Amazon VPC). Configuration of stateless and stateful rule groups helps to filter packets and traffic flows, and to define the default traffic handling settings.
 
 ### Remediation for rule failure
+<a name="ct-network-firewall-pr-1-remediation"></a>
 
 Within the `FirewallPolicy` definition, refer to one or more rule groups in `StatefulRuleGroupReferences` or `StatelessRuleGroupReferences`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Network Firewall Firewall Policy - Example
+<a name="ct-network-firewall-pr-1-remediation-1"></a>
 
 AWS Network Firewall firewall policy configured with stateful and stateless rule group associations. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "FirewallPolicy": {
         "Type": "AWS::NetworkFirewall::FirewallPolicy",
@@ -77,13 +74,11 @@ AWS Network Firewall firewall policy configured with stateful and stateless rule
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 FirewallPolicy:
   Type: AWS::NetworkFirewall::FirewallPolicy
   Properties:
@@ -98,33 +93,31 @@ FirewallPolicy:
       StatelessRuleGroupReferences:
         - ResourceArn: !Ref 'StatelessRuleGroup'
           Priority: 100
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.1 rule specification
+<a name="ct-network-firewall-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   netfw_policy_rule_group_associated_check
-#
+# 
 # Description:
 #   This control checks whether there is at least one stateful or stateless rule group associated with an AWS Network Firewall firewall policy.
-#
+# 
 # Reports on:
 #   AWS::NetworkFirewall::FirewallPolicy
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -232,18 +225,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.1 example templates
+<a name="ct-network-firewall-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   StatefulRuleGroup:
     Type: AWS::NetworkFirewall::RuleGroup
@@ -283,14 +274,11 @@ Resources:
         - ResourceArn:
             Ref: StatelessRuleGroup
           Priority: 100
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   FirewallPolicy:
     Type: AWS::NetworkFirewall::FirewallPolicy
@@ -302,48 +290,41 @@ Resources:
         - aws:forward_to_sfe
         StatelessFragmentDefaultActions:
         - aws:drop
-
-
 ```
 
 ## [CT.NETWORK-FIREWALL.PR.2] Require any AWS Network Firewall firewall policy to drop or forward stateless full packets by default when they do not match a rule
+<a name="ct-network-firewall-pr-2-description"></a>
 
 This control checks whether an AWS Network Firewall firewall policy is configured with a user-defined stateless default action for full packets.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::NetworkFirewall::FirewallPolicy`
-- **CloudFormation guard rule:**
-  [CT.NETWORK-FIREWALL.PR.2 rule specification](#ct-network-firewall-pr-2-rule "#ct-network-firewall-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::NetworkFirewall::FirewallPolicy`
++ **CloudFormation guard rule: ** [CT.NETWORK-FIREWALL.PR.2 rule specification](#ct-network-firewall-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.NETWORK-FIREWALL.PR.2 rule specification](#ct-network-firewall-pr-2-rule "#ct-network-firewall-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.NETWORK-FIREWALL.PR.2 example templates](#ct-network-firewall-pr-2-templates "#ct-network-firewall-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.NETWORK-FIREWALL.PR.2 rule specification](#ct-network-firewall-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.NETWORK-FIREWALL.PR.2 example templates](#ct-network-firewall-pr-2-templates) 
 
 **Explanation**
 
 A firewall policy defines how your firewall monitors and handles traffic in Amazon VPC. You configure stateless and stateful rule groups to filter packets and traffic flows. Defaulting to `Pass` can allow unintended traffic.
 
 ### Remediation for rule failure
+<a name="ct-network-firewall-pr-2-remediation"></a>
 
 Within `FirewallPolicy`, include one of `aws:drop` or `aws:forward_to_sfe` in `StatelessDefaultActions`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Network Firewall Firewall Policy - Example One
+<a name="ct-network-firewall-pr-2-remediation-1"></a>
 
 AWS Network Firewall firewall policy configured with a stateless default action to drop full packets. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "FirewallPolicy": {
         "Type": "AWS::NetworkFirewall::FirewallPolicy",
@@ -362,13 +343,11 @@ AWS Network Firewall firewall policy configured with a stateless default action 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 FirewallPolicy:
   Type: AWS::NetworkFirewall::FirewallPolicy
   Properties:
@@ -378,20 +357,18 @@ FirewallPolicy:
         - aws:forward_to_sfe
       StatelessDefaultActions:
         - aws:drop
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Network Firewall Firewall Policy - Example Two
+<a name="ct-network-firewall-pr-2-remediation-2"></a>
 
 AWS Network Firewall firewall policy configured with a stateless default action to forward full packets to the stateful rule engine for further inspection. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "FirewallPolicy": {
         "Type": "AWS::NetworkFirewall::FirewallPolicy",
@@ -410,13 +387,11 @@ AWS Network Firewall firewall policy configured with a stateless default action 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 FirewallPolicy:
   Type: AWS::NetworkFirewall::FirewallPolicy
   Properties:
@@ -426,33 +401,31 @@ FirewallPolicy:
         - aws:forward_to_sfe
       StatelessDefaultActions:
         - aws:forward_to_sfe
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.2 rule specification
+<a name="ct-network-firewall-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   netfw_policy_default_action_full_packets_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Network Firewall firewall policy is configured with a user-defined stateless default action for full packets.
-#
+# 
 # Reports on:
 #   AWS::NetworkFirewall::FirewallPolicy
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -550,18 +523,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.2 example templates
+<a name="ct-network-firewall-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   FirewallPolicy:
     Type: AWS::NetworkFirewall::FirewallPolicy
@@ -573,14 +544,11 @@ Resources:
         - aws:forward_to_sfe
         StatelessDefaultActions:
         - aws:drop
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   FirewallPolicy:
     Type: AWS::NetworkFirewall::FirewallPolicy
@@ -592,48 +560,41 @@ Resources:
         - aws:pass
         StatelessDefaultActions:
         - aws:pass
-
-
 ```
 
 ## [CT.NETWORK-FIREWALL.PR.3] Require any AWS Network Firewall firewall policy to drop or forward fragmented packets by default when they do not match a stateless rule
+<a name="ct-network-firewall-pr-3-description"></a>
 
 This control checks whether an AWS Network Firewall firewall policy is configured with a default action to drop or forward fragmented packets, when the packets do not match a stateless rule.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::NetworkFirewall::FirewallPolicy`
-- **CloudFormation guard rule:**
-  [CT.NETWORK-FIREWALL.PR.3 rule specification](#ct-network-firewall-pr-3-rule "#ct-network-firewall-pr-3-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::NetworkFirewall::FirewallPolicy`
++ **CloudFormation guard rule: ** [CT.NETWORK-FIREWALL.PR.3 rule specification](#ct-network-firewall-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.NETWORK-FIREWALL.PR.3 rule specification](#ct-network-firewall-pr-3-rule "#ct-network-firewall-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.NETWORK-FIREWALL.PR.3 example templates](#ct-network-firewall-pr-3-templates "#ct-network-firewall-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.NETWORK-FIREWALL.PR.3 rule specification](#ct-network-firewall-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.NETWORK-FIREWALL.PR.3 example templates](#ct-network-firewall-pr-3-templates) 
 
 **Explanation**
 
 A firewall policy defines how your firewall monitors and handles traffic in Amazon VPC. You configure stateless and stateful rule groups to filter packets and traffic flows. Defaulting to `Pass` can allow unintended traffic.
 
 ### Remediation for rule failure
+<a name="ct-network-firewall-pr-3-remediation"></a>
 
 Within `FirewallPolicy`, include one of `aws:drop` or `aws:forward_to_sfe` in `StatelessFragmentDefaultActions`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Network Firewall Firewall Policy - Example One
+<a name="ct-network-firewall-pr-3-remediation-1"></a>
 
 AWS Network Firewall firewall policy configured with a stateless default action to drop fragmented packets. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "FirewallPolicy": {
         "Type": "AWS::NetworkFirewall::FirewallPolicy",
@@ -652,13 +613,11 @@ AWS Network Firewall firewall policy configured with a stateless default action 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 FirewallPolicy:
   Type: AWS::NetworkFirewall::FirewallPolicy
   Properties:
@@ -668,20 +627,18 @@ FirewallPolicy:
         - aws:forward_to_sfe
       StatelessFragmentDefaultActions:
         - aws:drop
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Network Firewall Firewall Policy - Example Two
+<a name="ct-network-firewall-pr-3-remediation-2"></a>
 
 AWS Network Firewall firewall policy configured with a stateless default action to forward fragmented packets to the stateful rule engine for further inspection. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "FirewallPolicy": {
         "Type": "AWS::NetworkFirewall::FirewallPolicy",
@@ -700,13 +657,11 @@ AWS Network Firewall firewall policy configured with a stateless default action 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 FirewallPolicy:
   Type: AWS::NetworkFirewall::FirewallPolicy
   Properties:
@@ -716,33 +671,31 @@ FirewallPolicy:
         - aws:forward_to_sfe
       StatelessFragmentDefaultActions:
         - aws:forward_to_sfe
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.3 rule specification
+<a name="ct-network-firewall-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   netfw_policy_default_action_fragment_packets_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Network Firewall firewall policy is configured with a default action to drop or forward fragmented packets, when the packets do not match a stateless rule.
-#
+# 
 # Reports on:
 #   AWS::NetworkFirewall::FirewallPolicy
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -840,18 +793,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.3 example templates
+<a name="ct-network-firewall-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   FirewallPolicy:
     Type: AWS::NetworkFirewall::FirewallPolicy
@@ -863,14 +814,11 @@ Resources:
         - aws:forward_to_sfe
         StatelessFragmentDefaultActions:
         - aws:drop
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   FirewallPolicy:
     Type: AWS::NetworkFirewall::FirewallPolicy
@@ -882,52 +830,44 @@ Resources:
         - aws:pass
         StatelessFragmentDefaultActions:
         - aws:pass
-
-
 ```
 
 ## [CT.NETWORK-FIREWALL.PR.4] Require any AWS Network Firewall rule group to contain at least one rule
+<a name="ct-network-firewall-pr-4-description"></a>
 
 This control checks whether an AWS Network Firewall stateless rule group contains rules.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::NetworkFirewall::RuleGroup`
-- **CloudFormation guard rule:**
-  [CT.NETWORK-FIREWALL.PR.4 rule specification](#ct-network-firewall-pr-4-rule "#ct-network-firewall-pr-4-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::NetworkFirewall::RuleGroup`
++ **CloudFormation guard rule: ** [CT.NETWORK-FIREWALL.PR.4 rule specification](#ct-network-firewall-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.NETWORK-FIREWALL.PR.4 rule specification](#ct-network-firewall-pr-4-rule "#ct-network-firewall-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.NETWORK-FIREWALL.PR.4 example templates](#ct-network-firewall-pr-4-templates "#ct-network-firewall-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.NETWORK-FIREWALL.PR.4 rule specification](#ct-network-firewall-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.NETWORK-FIREWALL.PR.4 example templates](#ct-network-firewall-pr-4-templates) 
 
 **Explanation**
 
 A rule group contains rules that define how your firewall processes traffic in your VPC. An empty, stateless rule group, when present in a firewall policy, might give the impression that the rule group will process traffic. However, when the stateless rule group is empty, it does not process traffic.
 
-###### Usage considerations
-
-- This control applies only to AWS Network Firewall stateless rule groups.
+**Usage considerations**  
+This control applies only to AWS Network Firewall stateless rule groups.
 
 ### Remediation for rule failure
+<a name="ct-network-firewall-pr-4-remediation"></a>
 
 Provide one or more AWS Network Firewall stateless rules within the `RuleGroup.RulesSource.StatelessRulesAndCustomActions.StatelessRules` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Network Firewall Rule Group - Example
+<a name="ct-network-firewall-pr-4-remediation-1"></a>
 
 AWS Network Firewall rule group configured with a stateless rule. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "NetworkFirewallRuleGroup": {
         "Type": "AWS::NetworkFirewall::RuleGroup",
@@ -984,13 +924,11 @@ AWS Network Firewall rule group configured with a stateless rule. The example is
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 NetworkFirewallRuleGroup:
   Type: AWS::NetworkFirewall::RuleGroup
   Properties:
@@ -1019,33 +957,31 @@ NetworkFirewallRuleGroup:
                 Actions:
                   - aws:forward_to_sfe
               Priority: 1
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.4 rule specification
+<a name="ct-network-firewall-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   netfw_stateless_rule_group_not_empty_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Network Firewall stateless rule group contains rules.
-#
+# 
 # Reports on:
 #   AWS::NetworkFirewall::RuleGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1151,18 +1087,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.4 example templates
+<a name="ct-network-firewall-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   NetworkFirewallRuleGroup:
     Type: AWS::NetworkFirewall::RuleGroup
@@ -1193,14 +1127,11 @@ Resources:
                 Actions:
                 - aws:forward_to_sfe
               Priority: 1
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   NetworkFirewallRuleGroup:
     Type: AWS::NetworkFirewall::RuleGroup
@@ -1214,51 +1145,41 @@ Resources:
         RulesSource:
           StatelessRulesAndCustomActions:
             StatelessRules: []
-
-
 ```
 
 ## [CT.NETWORK-FIREWALL.PR.5] Require an AWS Network Firewall firewall to be deployed across multiple Availability Zones
+<a name="ct-network-firewall-pr-5-description"></a>
 
 This control checks whether an AWS Network Firewall firewall is deployed across multiple Availability Zones (AZs), to permit automatic failover between AZs.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::NetworkFirewall::Firewall`
-- **CloudFormation guard rule:**
-  [CT.NETWORK-FIREWALL.PR.5 rule specification](#ct-network-firewall-pr-5-rule "#ct-network-firewall-pr-5-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::NetworkFirewall::Firewall`
++ **CloudFormation guard rule: ** [CT.NETWORK-FIREWALL.PR.5 rule specification](#ct-network-firewall-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.NETWORK-FIREWALL.PR.5 rule specification](#ct-network-firewall-pr-5-rule "#ct-network-firewall-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.NETWORK-FIREWALL.PR.5 example templates](#ct-network-firewall-pr-5-templates "#ct-network-firewall-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.NETWORK-FIREWALL.PR.5 rule specification](#ct-network-firewall-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.NETWORK-FIREWALL.PR.5 example templates](#ct-network-firewall-pr-5-templates) 
 
 **Explanation**
 
-The AWS global infrastructure is built around AWS Regions and Availability Zones. AWS Regions provide multiple
-Availability Zones (AZs), physically separated and isolated. These AZs are connected by low-latency, high-throughput, and
-highly redundant networking. You can design and operate applications and databases that fail over between Availability Zones without interruption, automatically.
-Availability Zones are more highly available, fault tolerant, and scalable than traditional single- or multiple-datacenter infrastructures.
+The AWS global infrastructure is built around AWS Regions and Availability Zones. AWS Regions provide multiple Availability Zones (AZs), physically separated and isolated. These AZs are connected by low-latency, high-throughput, and highly redundant networking. You can design and operate applications and databases that fail over between Availability Zones without interruption, automatically. Availability Zones are more highly available, fault tolerant, and scalable than traditional single- or multiple-datacenter infrastructures.
 
 ### Remediation for rule failure
+<a name="ct-network-firewall-pr-5-remediation"></a>
 
 In the SubnetMappings parameter, provide at least two entries that refer to subnets in different Availability Zones.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Network Firewall Firewall - Example
+<a name="ct-network-firewall-pr-5-remediation-1"></a>
 
 An AWS Network Firewall firewall configured to deploy across two subnets in different Availability Zones. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Firewall": {
         "Type": "AWS::NetworkFirewall::Firewall",
@@ -1286,13 +1207,11 @@ An AWS Network Firewall firewall configured to deploy across two subnets in diff
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Firewall:
   Type: AWS::NetworkFirewall::Firewall
   Properties:
@@ -1303,33 +1222,31 @@ Firewall:
     SubnetMappings:
       - SubnetId: !Ref 'SubnetOne'
       - SubnetId: !Ref 'SubnetTwo'
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.5 rule specification
+<a name="ct-network-firewall-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   netfw_multi_az_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Network Firewall firewall is deployed across multiple Availability Zones (AZs), to permit automatic failover between AZs.
-#
+# 
 # Reports on:
 #   AWS::NetworkFirewall::Firewall
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1413,18 +1330,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.NETWORK-FIREWALL.PR.5 example templates
+<a name="ct-network-firewall-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1476,14 +1391,11 @@ Resources:
           Ref: SubnetOne
       - SubnetId:
           Ref: SubnetTwo
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1523,6 +1435,4 @@ Resources:
       SubnetMappings:
       - SubnetId:
           Ref: SubnetOne
-
-
 ```

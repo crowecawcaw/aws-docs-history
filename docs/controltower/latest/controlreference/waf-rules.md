@@ -1,48 +1,45 @@
+
+
 # AWS WAF controls
+<a name="waf-rules"></a>
 
-###### Topics
-
-- [[CT.WAF.PR.1] Require any AWS WAF global rule to have a condition](#ct-waf-pr-1-description "#ct-waf-pr-1-description")
-- [[CT.WAF.PR.2] Require any AWS WAF global web ACL to have a rule or rule group](#ct-waf-pr-2-description "#ct-waf-pr-2-description")
+**Topics**
++ [[CT.WAF.PR.1] Require any AWS WAF global rule to have a condition](#ct-waf-pr-1-description)
++ [[CT.WAF.PR.2] Require any AWS WAF global web ACL to have a rule or rule group](#ct-waf-pr-2-description)
 
 ## [CT.WAF.PR.1] Require any AWS WAF global rule to have a condition
+<a name="ct-waf-pr-1-description"></a>
 
 This control checks whether an AWS WAF Classic global rule contains any conditions.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::WAF::Rule`
-- **CloudFormation guard rule:**
-  [CT.WAF.PR.1 rule specification](#ct-waf-pr-1-rule "#ct-waf-pr-1-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::WAF::Rule`
++ **CloudFormation guard rule: ** [CT.WAF.PR.1 rule specification](#ct-waf-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.WAF.PR.1 rule specification](#ct-waf-pr-1-rule "#ct-waf-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.WAF.PR.1 example templates](#ct-waf-pr-1-templates "#ct-waf-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.WAF.PR.1 rule specification](#ct-waf-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.WAF.PR.1 example templates](#ct-waf-pr-1-templates)
 
 **Explanation**
 
 A WAF global rule can contain multiple conditions. A rule's conditions allow for traffic inspection and take a defined action (allow, block, or count). Without any conditions, the traffic passes without inspection. A WAF global rule with no conditions, but with a name or tag suggesting allow, block, or count, could lead to the wrong assumption that one of those actions is occurring.
 
 ### Remediation for rule failure
+<a name="ct-waf-pr-1-remediation"></a>
 
 Provide one or more AWS WAF rule conditions within the `Predicates` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS WAF Classic Global Rule - Example
+<a name="ct-waf-pr-1-remediation-1"></a>
 
 AWS WAF Classic global rule configured with an IP match predicate. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "WAFRule": {
         "Type": "AWS::WAF::Rule",
@@ -61,13 +58,11 @@ AWS WAF Classic global rule configured with an IP match predicate. The example i
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 WAFRule:
   Type: AWS::WAF::Rule
   Properties:
@@ -77,33 +72,31 @@ WAFRule:
       - DataId: !Ref 'IPSet'
         Negated: false
         Type: IPMatch
-
-
 ```
 
 ### CT.WAF.PR.1 rule specification
+<a name="ct-waf-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   waf_global_rule_not_empty_check
-#
+# 
 # Description:
 #   This control checks whether an AWS WAF Classic global rule contains any conditions.
-#
+# 
 # Reports on:
 #   AWS::WAF::Rule
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation Hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -181,18 +174,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.WAF.PR.1 example templates
+<a name="ct-waf-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IPSetDenylist:
     Type: AWS::WAF::IPSet
@@ -211,62 +202,52 @@ Resources:
           Ref: IPSetDenylist
         Negated: false
         Type: "IPMatch"
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   WafGlobalRule:
     Type: AWS::WAF::Rule
     Properties:
       Name: ExampleWAFRule
       MetricName: ExampleWAFRuleMetric
-
-
 ```
 
 ## [CT.WAF.PR.2] Require any AWS WAF global web ACL to have a rule or rule group
+<a name="ct-waf-pr-2-description"></a>
 
 This control checks whether an AWS WAF Classic global web ACL contains any WAF rules or rule groups.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::WAF::WebACL`
-- **CloudFormation guard rule:**
-  [CT.WAF.PR.2 rule specification](#ct-waf-pr-2-rule "#ct-waf-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::WAF::WebACL`
++ **CloudFormation guard rule: ** [CT.WAF.PR.2 rule specification](#ct-waf-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.WAF.PR.2 rule specification](#ct-waf-pr-2-rule "#ct-waf-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.WAF.PR.2 example templates](#ct-waf-pr-2-templates "#ct-waf-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.WAF.PR.2 rule specification](#ct-waf-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.WAF.PR.2 example templates](#ct-waf-pr-2-templates) 
 
 **Explanation**
 
 A WAF global web ACL can contain a collection of rules and rule groups that inspect and control web requests. If a web ACL is empty, the web traffic can pass without being detected or acted upon by WAF depending on the default action.
 
 ### Remediation for rule failure
+<a name="ct-waf-pr-2-remediation"></a>
 
 Provide one or more AWS WAF rules within the `Rules` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS WAF Classic Global Web ACL - Example
+<a name="ct-waf-pr-2-remediation-1"></a>
 
 AWS WAF Classic global web ACL configured with a rule to block requests based on an IP set match. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "WafGlobalWebAcl": {
         "Type": "AWS::WAF::WebACL",
@@ -290,13 +271,11 @@ AWS WAF Classic global web ACL configured with a rule to block requests based on
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 WafGlobalWebAcl:
   Type: AWS::WAF::WebACL
   Properties:
@@ -309,33 +288,31 @@ WafGlobalWebAcl:
           Type: BLOCK
         Priority: 1
         RuleId: !Ref 'IPSetRule'
-
-
 ```
 
 ### CT.WAF.PR.2 rule specification
+<a name="ct-waf-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   waf_global_webacl_not_empty_check
-#
+# 
 # Description:
 #   This control checks whether an AWS WAF Classic global web ACL contains any WAF rules or rule groups.
-#
+# 
 # Reports on:
 #   AWS::WAF::WebACL
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -413,18 +390,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.WAF.PR.2 example templates
+<a name="ct-waf-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IPSetDenylist:
     Type: "AWS::WAF::IPSet"
@@ -456,14 +431,11 @@ Resources:
         Priority: 1
         RuleId:
           Ref: IPSetRule
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   WafGlobalWebAcl:
     Type: AWS::WAF::WebACL
@@ -472,6 +444,4 @@ Resources:
       DefaultAction:
         Type: ALLOW
       MetricName: ExampleWebACLMetric
-
-
 ```

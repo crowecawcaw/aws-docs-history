@@ -1,47 +1,43 @@
+
+
 # Amazon Elastic Compute Cloud (Amazon EC2) controls
+<a name="ec2-rules"></a>
 
-###### Topics
-
-- [[CT.EC2.PR.1] Require an Amazon EC2 launch template to have IMDSv2 configured](#ct-ec2-pr-1-description "#ct-ec2-pr-1-description")
-- [[CT.EC2.PR.2] Require that Amazon EC2 launch templates restrict the token hop limit to a maximum of one](#ct-ec2-pr-2-description "#ct-ec2-pr-2-description")
-- [[CT.EC2.PR.3] Require that any Amazon EC2 security group rule does not use the source IP range 0.0.0.0/0 or ::/0 for ports other than 80 and 443](#ct-ec2-pr-3-description "#ct-ec2-pr-3-description")
-- [[CT.EC2.PR.4] Require that any Amazon EC2 security group rule does not use the source IP range 0.0.0.0/0 or ::/0 for specific high-risk ports](#ct-ec2-pr-4-description "#ct-ec2-pr-4-description")
-- [[CT.EC2.PR.5] Require any Amazon EC2 network ACL to prevent ingress from 0.0.0.0/0 to port 22 or port 3389](#ct-ec2-pr-5-description "#ct-ec2-pr-5-description")
-- [[CT.EC2.PR.6] Require that Amazon EC2 transit gateways refuse automatic Amazon VPC attachment requests](#ct-ec2-pr-6-description "#ct-ec2-pr-6-description")
-- [[CT.EC2.PR.7] Require an Amazon EBS volume resource to be encrypted at rest when defined by means of the AWS::EC2::Instance BlockDeviceMappings property or AWS::EC2::Volume resource type](#ct-ec2-pr-7-description "#ct-ec2-pr-7-description")
-- [[CT.EC2.PR.8] Require an Amazon EC2 instance to set AssociatePublicIpAddress to false on a new network interface created by means of the NetworkInterfaces property in the AWS::EC2::Instance resource](#ct-ec2-pr-8-description "#ct-ec2-pr-8-description")
-- [[CT.EC2.PR.9] Require any Amazon EC2 launch template not to auto-assign public IP addresses to network interfaces](#ct-ec2-pr-9-description "#ct-ec2-pr-9-description")
-- [[CT.EC2.PR.10] Require Amazon EC2 launch templates to have Amazon CloudWatch detailed monitoring activated](#ct-ec2-pr-10-description "#ct-ec2-pr-10-description")
-- [[CT.EC2.PR.11] Require that an Amazon EC2 subnet does not automatically assign public IP addresses](#ct-ec2-pr-11-description "#ct-ec2-pr-11-description")
-- [[CT.EC2.PR.12] Require an Amazon EC2 instance to specify at most one network interface by means of the NetworkInterfaces property in the AWS::EC2::Instance resource](#ct-ec2-pr-12-description "#ct-ec2-pr-12-description")
-- [[CT.EC2.PR.13] Require an Amazon EC2 instance to have detailed monitoring enabled](#ct-ec2-pr-13-description "#ct-ec2-pr-13-description")
-- [[CT.EC2.PR.14] Require an Amazon EBS volume configured through an Amazon EC2 launch template to encrypt data at rest](#ct-ec2-pr-14-description "#ct-ec2-pr-14-description")
-- [[CT.EC2.PR.15] Require an Amazon EC2 instance to use an AWS Nitro instance type when creating from the 'AWS::EC2::LaunchTemplate' resource type](#ct-ec2-pr-15-description "#ct-ec2-pr-15-description")
-- [[CT.EC2.PR.16] Require an Amazon EC2 instance to use an AWS Nitro instance type when created using the 'AWS::EC2::Instance' resource type](#ct-ec2-pr-16-description "#ct-ec2-pr-16-description")
-- [[CT.EC2.PR.17] Require an Amazon EC2 dedicated host to use an AWS Nitro instance type](#ct-ec2-pr-17-description "#ct-ec2-pr-17-description")
-- [[CT.EC2.PR.18] Require an Amazon EC2 fleet to override only those launch templates with AWS Nitro instance types](#ct-ec2-pr-18-description "#ct-ec2-pr-18-description")
-- [[CT.EC2.PR.19] Require an Amazon EC2 instance to use an AWS Nitro instance type that supports encryption in-transit between instances when created using the AWS::EC2::Instance resource type](#ct-ec2-pr-19-description "#ct-ec2-pr-19-description")
-- [[CT.EC2.PR.20] Require an Amazon EC2 fleet to override only those launch templates with AWS Nitro instance types that support encryption in transit between instances](#ct-ec2-pr-20-description "#ct-ec2-pr-20-description")
+**Topics**
++ [[CT.EC2.PR.1] Require an Amazon EC2 launch template to have IMDSv2 configured](#ct-ec2-pr-1-description)
++ [[CT.EC2.PR.2] Require that Amazon EC2 launch templates restrict the token hop limit to a maximum of one](#ct-ec2-pr-2-description)
++ [[CT.EC2.PR.3] Require that any Amazon EC2 security group rule does not use the source IP range `0.0.0.0/0` or `::/0` for ports other than 80 and 443](#ct-ec2-pr-3-description)
++ [[CT.EC2.PR.4] Require that any Amazon EC2 security group rule does not use the source IP range `0.0.0.0/0` or `::/0` for specific high-risk ports](#ct-ec2-pr-4-description)
++ [[CT.EC2.PR.5] Require any Amazon EC2 network ACL to prevent ingress from 0.0.0.0/0 to port 22 or port 3389](#ct-ec2-pr-5-description)
++ [[CT.EC2.PR.6] Require that Amazon EC2 transit gateways refuse automatic Amazon VPC attachment requests](#ct-ec2-pr-6-description)
++ [[CT.EC2.PR.7] Require an Amazon EBS volume resource to be encrypted at rest when defined by means of the **AWS::EC2::Instance BlockDeviceMappings** property or **AWS::EC2::Volume** resource type](#ct-ec2-pr-7-description)
++ [[CT.EC2.PR.8] Require an Amazon EC2 instance to set **AssociatePublicIpAddress** to **false** on a new network interface created by means of the **NetworkInterfaces** property in the **AWS::EC2::Instance** resource](#ct-ec2-pr-8-description)
++ [[CT.EC2.PR.9] Require any Amazon EC2 launch template not to auto-assign public IP addresses to network interfaces](#ct-ec2-pr-9-description)
++ [[CT.EC2.PR.10] Require Amazon EC2 launch templates to have Amazon CloudWatch detailed monitoring activated](#ct-ec2-pr-10-description)
++ [[CT.EC2.PR.11] Require that an Amazon EC2 subnet does not automatically assign public IP addresses](#ct-ec2-pr-11-description)
++ [[CT.EC2.PR.12] Require an Amazon EC2 instance to specify at most one network interface by means of the **NetworkInterfaces** property in the **AWS::EC2::Instance** resource](#ct-ec2-pr-12-description)
++ [[CT.EC2.PR.13] Require an Amazon EC2 instance to have detailed monitoring enabled](#ct-ec2-pr-13-description)
++ [[CT.EC2.PR.14] Require an Amazon EBS volume configured through an Amazon EC2 launch template to encrypt data at rest](#ct-ec2-pr-14-description)
++ [[CT.EC2.PR.15] Require an Amazon EC2 instance to use an AWS Nitro instance type when creating from the 'AWS::EC2::LaunchTemplate' resource type](#ct-ec2-pr-15-description)
++ [[CT.EC2.PR.16] Require an Amazon EC2 instance to use an AWS Nitro instance type when created using the 'AWS::EC2::Instance' resource type](#ct-ec2-pr-16-description)
++ [[CT.EC2.PR.17] Require an Amazon EC2 dedicated host to use an AWS Nitro instance type](#ct-ec2-pr-17-description)
++ [[CT.EC2.PR.18] Require an Amazon EC2 fleet to override only those launch templates with AWS Nitro instance types](#ct-ec2-pr-18-description)
++ [[CT.EC2.PR.19] Require an Amazon EC2 instance to use an AWS Nitro instance type that supports encryption in-transit between instances when created using the AWS::EC2::Instance resource type](#ct-ec2-pr-19-description)
++ [[CT.EC2.PR.20] Require an Amazon EC2 fleet to override only those launch templates with AWS Nitro instance types that support encryption in transit between instances](#ct-ec2-pr-20-description)
 
 ## [CT.EC2.PR.1] Require an Amazon EC2 launch template to have IMDSv2 configured
+<a name="ct-ec2-pr-1-description"></a>
 
 This control checks whether your Amazon EC2 launch templates are configured with Instance Metadata Service Version 2 (IMDSv2).
-
-- **Control objective:** Enforce least privilege, Protect configurations
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::LaunchTemplate`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.1 rule specification](#ct-ec2-pr-1-rule "#ct-ec2-pr-1-rule")
++ **Control objective: **Enforce least privilege, Protect configurations
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::LaunchTemplate`
++ **CloudFormation guard rule: ** [CT.EC2.PR.1 rule specification](#ct-ec2-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.1 rule specification](#ct-ec2-pr-1-rule "#ct-ec2-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.1 example templates](#ct-ec2-pr-1-templates "#ct-ec2-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.1 rule specification](#ct-ec2-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.1 example templates](#ct-ec2-pr-1-templates) 
 
 **Explanation**
 
@@ -51,24 +47,24 @@ Version 2 of the IMDS adds protections for vulnerabilities that can be used to g
 
 AWS Control Tower recommends that you configure your EC2 instances with IMDSv2.
 
-###### Usage considerations
-
-- This control applies only to Amazon EC2 launch templates that allow access to instance metadata.
+**Usage considerations**  
+This control applies only to Amazon EC2 launch templates that allow access to instance metadata.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-1-remediation"></a>
 
 Within the `LaunchTemplateData` property, provide a `MetadataOptions` configuration and set the value of `HttpTokens` to `required`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Launch Template - Example
+<a name="ct-ec2-pr-1-remediation-1"></a>
 
 Amazon EC2 launch template configured with IMDSv2 activated. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2LaunchTemplate": {
         "Type": "AWS::EC2::LaunchTemplate",
@@ -85,13 +81,11 @@ Amazon EC2 launch template configured with IMDSv2 activated. The example is show
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2LaunchTemplate:
   Type: AWS::EC2::LaunchTemplate
   Properties:
@@ -100,33 +94,31 @@ EC2LaunchTemplate:
       ImageId: !Ref 'LatestAmiId'
       MetadataOptions:
         HttpTokens: required
-
-
 ```
 
 ### CT.EC2.PR.1 rule specification
+<a name="ct-ec2-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_launch_template_imdsv2_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon EC2 launch templates are configured with Instance Metadata Service Version 2 (IMDSv2).
-#
+# 
 # Reports on:
 #   AWS::EC2::LaunchTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -251,18 +243,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.1 example templates
+<a name="ct-ec2-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -278,14 +268,11 @@ Resources:
           Ref: LatestAmiId
         MetadataOptions:
           HttpTokens: required
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -301,29 +288,21 @@ Resources:
           Ref: LatestAmiId
         MetadataOptions:
           HttpTokens: optional
-
-
 ```
 
 ## [CT.EC2.PR.2] Require that Amazon EC2 launch templates restrict the token hop limit to a maximum of one
+<a name="ct-ec2-pr-2-description"></a>
 
 This control checks whether an Amazon EC2 launch template has a metadata token hop limit set to `1`.
-
-- **Control objective:** Enforce least privilege, Protect configurations
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::LaunchTemplate`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.2 rule specification](#ct-ec2-pr-2-rule "#ct-ec2-pr-2-rule")
++ **Control objective: **Enforce least privilege, Protect configurations
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::LaunchTemplate`
++ **CloudFormation guard rule: ** [CT.EC2.PR.2 rule specification](#ct-ec2-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.2 rule specification](#ct-ec2-pr-2-rule "#ct-ec2-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.2 example templates](#ct-ec2-pr-2-templates "#ct-ec2-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.2 rule specification](#ct-ec2-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.2 example templates](#ct-ec2-pr-2-templates) 
 
 **Explanation**
 
@@ -331,25 +310,25 @@ The Amazon Instance Metadata Service (IMDS) provides metadata information about 
 
 The Time To Live (TTL) field in the IP packet is reduced by one on every hop. This reduction can be used to ensure that the packet does not travel outside EC2. IMDSv2 protects EC2 instances that may have been misconfigured as open routers, layer 3 firewalls, VPNs, tunnels, or NAT devices, which prevents unauthorized users from retrieving metadata. With IMDSv2, the PUT response that contains the secret token cannot travel outside the instance, because the default metadata response hop limit is set to 1. However, if this value is greater than 1, the token can leave the EC2 instance.
 
-###### Usage considerations
-
-- This control applies only to Amazon EC2 launch templates that allow access to instance metadata.
-- This control is incompatible with Amazon EC2 launch templates that require a token hop limit of 2.
+**Usage considerations**  
+This control applies only to Amazon EC2 launch templates that allow access to instance metadata.
+This control is incompatible with Amazon EC2 launch templates that require a token hop limit of 2.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-2-remediation"></a>
 
 Within the `LaunchTemplateData` property, provide a `MetadataOptions` configuration with the value of `HttpPutResponseLimit` set to `1`, or omit the `HttpPutResponseLimit` property to adopt the CloudFormation default value of `1`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Launch Template - Example One
+<a name="ct-ec2-pr-2-remediation-1"></a>
 
 Amazon EC2 launch template configured with access to instance metadata enabled and a token hop limit of `1`, set by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2LaunchTemplate": {
         "Type": "AWS::EC2::LaunchTemplate",
@@ -362,33 +341,29 @@ Amazon EC2 launch template configured with access to instance metadata enabled a
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2LaunchTemplate:
   Type: AWS::EC2::LaunchTemplate
   Properties:
     LaunchTemplateData:
       MetadataOptions:
         HttpEndpoint: enabled
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Launch Template - Example Two
+<a name="ct-ec2-pr-2-remediation-2"></a>
 
 Amazon EC2 launch template configured with access to instance metadata enabled and a token hop limit of `1`, set by means of the `MetadataOptions` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2LaunchTemplate": {
         "Type": "AWS::EC2::LaunchTemplate",
@@ -402,13 +377,11 @@ Amazon EC2 launch template configured with access to instance metadata enabled a
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2LaunchTemplate:
   Type: AWS::EC2::LaunchTemplate
   Properties:
@@ -416,33 +389,31 @@ EC2LaunchTemplate:
       MetadataOptions:
         HttpEndpoint: enabled
         HttpPutResponseHopLimit: 1
-
-
 ```
 
 ### CT.EC2.PR.2 rule specification
+<a name="ct-ec2-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_launch_template_token_hop_limit_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EC2 launch template has a metadata token hop limit set to '1'.
-#
+# 
 # Reports on:
 #   AWS::EC2::LaunchTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #      Given: The input document is an CloudFormation or CloudFormation hook document
@@ -570,18 +541,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.2 example templates
+<a name="ct-ec2-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -595,14 +564,11 @@ Resources:
         InstanceType: t3.micro
         ImageId:
           Ref: LatestAmiId
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   EC2LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
@@ -610,30 +576,21 @@ Resources:
       LaunchTemplateData:
         MetadataOptions:
           HttpPutResponseHopLimit: 2
-
-
 ```
 
 ## [CT.EC2.PR.3] Require that any Amazon EC2 security group rule does not use the source IP range `0.0.0.0/0` or `::/0` for ports other than 80 and 443
+<a name="ct-ec2-pr-3-description"></a>
 
-This control checks whether an Amazon EC2 security group rule contains the string `0.0.0.0/0` or `::/0` as a
-source IP range. This control is not triggered if a rule allows connection to port 80 or 443 with TCP, UDP, ICMP, or ICMPv6. The use of managed prefix lists is not supported.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::SecurityGroup`, `AWS::EC2::SecurityGroupIngress`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.3 rule specification](#ct-ec2-pr-3-rule "#ct-ec2-pr-3-rule")
+This control checks whether an Amazon EC2 security group rule contains the string `0.0.0.0/0` or `::/0` as a source IP range. This control is not triggered if a rule allows connection to port 80 or 443 with TCP, UDP, ICMP, or ICMPv6. The use of managed prefix lists is not supported.
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::SecurityGroup`, `AWS::EC2::SecurityGroupIngress`
++ **CloudFormation guard rule: ** [CT.EC2.PR.3 rule specification](#ct-ec2-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.3 rule specification](#ct-ec2-pr-3-rule "#ct-ec2-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.3 example templates](#ct-ec2-pr-3-templates "#ct-ec2-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.3 rule specification](#ct-ec2-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.3 example templates](#ct-ec2-pr-3-templates) 
 
 **Explanation**
 
@@ -641,12 +598,12 @@ Security groups provide stateful filtering of ingress and egress network traffic
 
 AWS recommends a layered approach, to ensure that network access is provided only as necessary for your business requirements. Security group rules should follow the principle of least privileged access. Unrestricted access increases the opportunity for malicious activity. Unless a port is specifically allowed, the port should deny unrestricted access (any IP address with a `/0` suffix).
 
-###### Usage considerations
-
-- This control applies only to Amazon EC2 security group and EC2 security group ingress resources with ingress rules that allow inbound traffic from `0.0.0.0/0` or `::/0`
-- This control does not allow use of the `SourcePrefixListId` property on Amazon EC2 Security Group and Amazon EC2 Security Group Ingress resources.
+**Usage considerations**  
+This control applies only to Amazon EC2 security group and EC2 security group ingress resources with ingress rules that allow inbound traffic from `0.0.0.0/0` or `::/0`
+This control does not allow use of the `SourcePrefixListId` property on Amazon EC2 Security Group and Amazon EC2 Security Group Ingress resources.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-3-remediation"></a>
 
 Ensure that security groups with ingress rules that allow TCP or UDP traffic from `0.0.0.0/0` or `::/0` allow traffic from ports `80` or `443` only.
 
@@ -655,13 +612,13 @@ The use of managed prefix lists is not supported.
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Security Group - Example One
+<a name="ct-ec2-pr-3-remediation-1"></a>
 
 Amazon EC2 Security Group allowing inbound TCP traffic from `0.0.0.0/0` on port `80`. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SecurityGroup": {
         "Type": "AWS::EC2::SecurityGroup",
@@ -680,13 +637,11 @@ Amazon EC2 Security Group allowing inbound TCP traffic from `0.0.0.0/0` on port 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SecurityGroup:
   Type: AWS::EC2::SecurityGroup
   Properties:
@@ -696,20 +651,18 @@ SecurityGroup:
         CidrIp: '0.0.0.0/0'
         FromPort: 80
         ToPort: 80
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Security Group - Example Two
+<a name="ct-ec2-pr-3-remediation-2"></a>
 
 Amazon EC2 Security Group allowing inbound TCP traffic from `0.0.0.0/0` on port `443`. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SecurityGroup": {
         "Type": "AWS::EC2::SecurityGroup",
@@ -728,13 +681,11 @@ Amazon EC2 Security Group allowing inbound TCP traffic from `0.0.0.0/0` on port 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SecurityGroup:
   Type: AWS::EC2::SecurityGroup
   Properties:
@@ -744,34 +695,32 @@ SecurityGroup:
         CidrIp: '0.0.0.0/0'
         FromPort: 443
         ToPort: 443
-
-
 ```
 
 ### CT.EC2.PR.3 rule specification
+<a name="ct-ec2-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   vpc_sg_open_only_to_authorized_ports_check
-#
+# 
 # Description:
-#    This control checks whether the Amazon EC2 security group contains the string '0.0.0.0/0' or '::/0' as a source IP range.
+#    This control checks whether the Amazon EC2 security group contains the string '0.0.0.0/0' or '::/0' as a source IP range. 
 #    This control is not triggered if a rule allows connection to port 80 or 443 with TCP, UDP, ICMP, or ICMPv6.
-#
+# 
 # Reports on:
 #   AWS::EC2::SecurityGroup, AWS::EC2::SecurityGroupIngress
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -889,7 +838,7 @@ rule check_security_group(security_group) {
 
 rule check_ingress_rule(ingress_rule) {
     %ingress_rule[ CidrIp in %UNRESTRICTED_IPV4_RANGES or
-                   CidrIpv6 in %UNRESTRICTED_IPV6_RANGES or
+                   CidrIpv6 in %UNRESTRICTED_IPV6_RANGES or 
                    SourcePrefixListId exists ] {
         # Scenario 3
         IpProtocol exists
@@ -923,18 +872,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.3 example templates
+<a name="ct-ec2-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -946,14 +893,11 @@ Resources:
         CidrIp: 0.0.0.0/0
         FromPort: 80
         ToPort: 80
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   PrefixList:
     Type: AWS::EC2::PrefixList
@@ -978,14 +922,11 @@ Resources:
       IpProtocol: -1
       SourcePrefixListId:
         Ref: PrefixList
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -1001,29 +942,21 @@ Resources:
       CidrIp: 0.0.0.0/0
       FromPort: 80
       ToPort: 90
-
-
 ```
 
 ## [CT.EC2.PR.4] Require that any Amazon EC2 security group rule does not use the source IP range `0.0.0.0/0` or `::/0` for specific high-risk ports
+<a name="ct-ec2-pr-4-description"></a>
 
-This control checks whether an Amazon EC2 security group rule that contains the strings `0.0.0.0/0` or `::/0` as a source IP range does not allow incoming TCP, UDP, ICMP, or ICMPv6 traffic to the following ports: `3389`, `20`, `23`, `110`, `143`, `3306`, `8080`, `1433`, `9200`, `9300`, `25`, `445`, `135`, `21`, `1434`, `4333`, `5432`, `5500`, `5601`, `22`, `3000`, `5000`, `8088`, `8888`. The use of managed prefix lists is not supported.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::SecurityGroup`, `AWS::EC2::SecurityGroupIngress`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.4 rule specification](#ct-ec2-pr-4-rule "#ct-ec2-pr-4-rule")
+This control checks whether an Amazon EC2 security group rule that contains the strings `0.0.0.0/0` or `::/0` as a source IP range does not allow incoming TCP, UDP, ICMP, or ICMPv6 traffic to the following ports: `3389`, `20`, `23`, `110`, `143`, `3306`, `8080`, `1433`, `9200`, `9300`, `25`, `445`, `135`, `21`, `1434`, `4333`, `5432`, `5500`, `5601`, `22`, `3000`, `5000`, `8088`, `8888`. The use of managed prefix lists is not supported. 
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::SecurityGroup`, `AWS::EC2::SecurityGroupIngress`
++ **CloudFormation guard rule: ** [CT.EC2.PR.4 rule specification](#ct-ec2-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.4 rule specification](#ct-ec2-pr-4-rule "#ct-ec2-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.4 example templates](#ct-ec2-pr-4-templates "#ct-ec2-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.4 rule specification](#ct-ec2-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.4 example templates](#ct-ec2-pr-4-templates) 
 
 **Explanation**
 
@@ -1035,12 +968,12 @@ AWS recommends a layered approach, to ensure that network access is provided onl
 
 Unrestricted access (0.0.0.0/0) increases opportunities for malicious activity, such as hacking, denial-of-service attacks, and loss of data.
 
-###### Usage considerations
-
-- This control applies only to Amazon EC2 security group and security group ingress resources with ingress rules that allow inbound traffic from `0.0.0.0/0` or `::/0`.
-- This control does not allow use of the `SourcePrefixListId` property on Amazon EC2 Security Group and Amazon EC2 Security Group Ingress resources.
+**Usage considerations**  
+This control applies only to Amazon EC2 security group and security group ingress resources with ingress rules that allow inbound traffic from `0.0.0.0/0` or `::/0`.
+This control does not allow use of the `SourcePrefixListId` property on Amazon EC2 Security Group and Amazon EC2 Security Group Ingress resources.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-4-remediation"></a>
 
 Remove Amazon EC2 security group ingress rules that allow traffic from `0.0.0.0/0` or `::/0` to high-risk ports: `3389`, `20`, `23`, `110`, `143`, `3306`, `8080`, `1433`, `9200`, `9300`, `25`, `445`, `135`, `21`, `1434`, `4333`, `5432`, `5500`, `5601`, `22`, `3000`, `5000`, `8088`, `8888`.
 
@@ -1049,13 +982,13 @@ The use of managed prefix lists is not supported.
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Security Group - Example
+<a name="ct-ec2-pr-4-remediation-1"></a>
 
 Amazon EC2 security group configured to allow traffic from the source IP range `0.0.0.0/0` or `::/0` on a port range that does not include a high-risk port. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SecurityGroup": {
         "Type": "AWS::EC2::SecurityGroup",
@@ -1072,13 +1005,11 @@ Amazon EC2 security group configured to allow traffic from the source IP range `
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SecurityGroup:
   Type: AWS::EC2::SecurityGroup
   Properties:
@@ -1088,13 +1019,12 @@ SecurityGroup:
         CidrIp: '0.0.0.0/0'
         FromPort: 80
         ToPort: 80
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Security Group Ingress Rule - Example
+<a name="ct-ec2-pr-4-remediation-2"></a>
 
 Amazon EC2 security group ingress rule configured to allow traffic from the source IP range `0.0.0.0/0` or `::/0` on a port range that does not include a high-risk port. The example is shown in JSON and in YAML.
 
@@ -1118,13 +1048,11 @@ Amazon EC2 security group ingress rule configured to allow traffic from the sour
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SecurityGroupIngress:
   Type: AWS::EC2::SecurityGroupIngress
   Properties:
@@ -1133,35 +1061,34 @@ SecurityGroupIngress:
     CidrIp: '0.0.0.0/0'
     FromPort: 80
     ToPort: 90
-
 ```
 
 ### CT.EC2.PR.4 rule specification
+<a name="ct-ec2-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   vpc_sg_restricted_common_ports_check
-#
+# 
 # Description:
-#   This control checks whether an Amazon EC2 security group rule that contains the strings '0.0.0.0/0' or '::/0' as a source IP range
+#   This control checks whether an Amazon EC2 security group rule that contains the strings '0.0.0.0/0' or '::/0' as a source IP range 
 #   does not allow incoming TCP, UDP, ICMP, ICMPv6 traffic to the following ports: '3389', '20', '23', '110', '143',
 #   '3306', '8080', '1433', '9200', '9300', '25', '445', '135', '21', '1434', '4333', '5432', '5500', '5601', '22', '3000', '5000',
 #   '8088', '8888'.
-#
+# 
 # Reports on:
 #   AWS::EC2::SecurityGroup, AWS::EC2::SecurityGroupIngress
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation Hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1280,7 +1207,7 @@ rule check_security_group(security_group) {
 
 rule check_ingress_rule(ingress_rule) {
     %ingress_rule[ CidrIp in %UNRESTRICTED_IPV4_RANGES or
-                   CidrIpv6 in %UNRESTRICTED_IPV6_RANGES or
+                   CidrIpv6 in %UNRESTRICTED_IPV6_RANGES or 
                    SourcePrefixListId exists ] {
         # Scenario 3
         IpProtocol exists
@@ -1317,18 +1244,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.4 example templates
+<a name="ct-ec2-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -1340,14 +1265,11 @@ Resources:
         CidrIp: 0.0.0.0/0
         FromPort: 80
         ToPort: 80
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   PrefixList:
     Type: AWS::EC2::PrefixList
@@ -1366,17 +1288,13 @@ Resources:
         Fn::Sub: ${AWS::StackName}-example
       SecurityGroupIngress:
       - IpProtocol: -1
-        SourcePrefixListId:
+        SourcePrefixListId: 
           Ref: PrefixList
-
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -1388,52 +1306,44 @@ Resources:
         CidrIp: 0.0.0.0/0
         FromPort: 22
         ToPort: 22
-
-
 ```
 
 ## [CT.EC2.PR.5] Require any Amazon EC2 network ACL to prevent ingress from 0.0.0.0/0 to port 22 or port 3389
+<a name="ct-ec2-pr-5-description"></a>
 
 This control checks whether the Amazon EC2 network ACL inbound entry allows unrestricted incoming traffic (`0.0.0.0/0` or `::/0`) for SSH or RDP.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::NetworkAclEntry`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.5 rule specification](#ct-ec2-pr-5-rule "#ct-ec2-pr-5-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::NetworkAclEntry`
++ **CloudFormation guard rule: ** [CT.EC2.PR.5 rule specification](#ct-ec2-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.5 rule specification](#ct-ec2-pr-5-rule "#ct-ec2-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.5 example templates](#ct-ec2-pr-5-templates "#ct-ec2-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.5 rule specification](#ct-ec2-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.5 example templates](#ct-ec2-pr-5-templates) 
 
 **Explanation**
 
 Access to remote server administration ports, such as port 22 (SSH) and port 3389 (RDP), should not be publicly accessible, because these ports may allow unintended access to resources within your VPC.
 
-###### Usage considerations
-
-- This control only applies to Amazon EC2 network ACL entry resources that allow unrestricted inbound traffic.
+**Usage considerations**  
+This control only applies to Amazon EC2 network ACL entry resources that allow unrestricted inbound traffic.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-5-remediation"></a>
 
 For Amazon EC2 network ACL entries that allow inbound connectivity on port 22 or port 3389, provide a CIDR range in `CidrBlock` or `Ipv6CidrBlock` that does not allow traffic from all sources.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Network ACL Entry - Example One
+<a name="ct-ec2-pr-5-remediation-1"></a>
 
 Amazon EC2 network ACL entry configured to allow unrestricted inbound IPv4 TCP traffic in a port range excluding port 22 (SSH) and port 3389 (RDP). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "NetworkAclEntry": {
         "Type": "AWS::EC2::NetworkAclEntry",
@@ -1453,13 +1363,11 @@ Amazon EC2 network ACL entry configured to allow unrestricted inbound IPv4 TCP t
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 NetworkAclEntry:
   Type: AWS::EC2::NetworkAclEntry
   Properties:
@@ -1472,20 +1380,18 @@ NetworkAclEntry:
       To: 2005
     RuleAction: allow
     RuleNumber: 100
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Network ACL Entry - Example Two
+<a name="ct-ec2-pr-5-remediation-2"></a>
 
 Amazon EC2 network ACL entry configured to allow unrestricted inbound IPv6 UDP traffic in a port range excluding port 3389 (RDP). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "NetworkAclEntry": {
         "Type": "AWS::EC2::NetworkAclEntry",
@@ -1505,13 +1411,11 @@ Amazon EC2 network ACL entry configured to allow unrestricted inbound IPv6 UDP t
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 NetworkAclEntry:
   Type: AWS::EC2::NetworkAclEntry
   Properties:
@@ -1524,33 +1428,31 @@ NetworkAclEntry:
       To: 200
     RuleAction: allow
     RuleNumber: 100
-
-
 ```
 
 ### CT.EC2.PR.5 rule specification
+<a name="ct-ec2-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   nacl_no_unrestricted_ssh_rdp_check
-#
+# 
 # Description:
 #   This control checks whether the Amazon EC2 network ACL inbound entry allows unrestricted incoming traffic ('0.0.0.0/0' or '::/0') for SSH or RDP.
-#
+# 
 # Reports on:
 #   AWS::EC2::NetworkAclEntry
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1717,18 +1619,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, NETWORK_ACL_TYPE) {
     %doc.%NETWORK_ACL_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.5 example templates
+<a name="ct-ec2-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1752,14 +1652,11 @@ Resources:
         To: 2005
       RuleAction: allow
       RuleNumber: 100
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1783,48 +1680,41 @@ Resources:
         To: 3500
       RuleAction: allow
       RuleNumber: 100
-
-
 ```
 
 ## [CT.EC2.PR.6] Require that Amazon EC2 transit gateways refuse automatic Amazon VPC attachment requests
+<a name="ct-ec2-pr-6-description"></a>
 
 This control checks whether Amazon EC2 transit gateways are configured to accept Amazon VPC attachment requests automatically.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::TransitGateway`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.6 rule specification](#ct-ec2-pr-6-rule "#ct-ec2-pr-6-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::TransitGateway`
++ **CloudFormation guard rule: ** [CT.EC2.PR.6 rule specification](#ct-ec2-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.6 rule specification](#ct-ec2-pr-6-rule "#ct-ec2-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.6 example templates](#ct-ec2-pr-6-templates "#ct-ec2-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.6 rule specification](#ct-ec2-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.6 example templates](#ct-ec2-pr-6-templates) 
 
 **Explanation**
 
 Turning on the `AutoAcceptSharedAttachments` property configures a transit gateway to accept cross-account VPC attachment requests automatically, without verifying the request or the account from which the attachment is originating. In alignment with the best practices of authorization and authentication, we recommended turning off this feature, to ensure that only authorized VPC attachment requests are accepted.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-6-remediation"></a>
 
 Omit the `AutoAcceptSharedAttachments` property or set the property to `disable`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Transit Gateway - Example
+<a name="ct-ec2-pr-6-remediation-1"></a>
 
 AWS Transit Gateway configured to deactivate auto-acceptance of cross-account Amazon VPC attachments. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "TransitGateway": {
         "Type": "AWS::EC2::TransitGateway",
@@ -1833,44 +1723,40 @@ AWS Transit Gateway configured to deactivate auto-acceptance of cross-account Am
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 TransitGateway:
   Type: AWS::EC2::TransitGateway
   Properties:
     AutoAcceptSharedAttachments: disable
-
-
 ```
 
 ### CT.EC2.PR.6 rule specification
+<a name="ct-ec2-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_transit_gateway_auto_vpc_attach_disabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon EC2 transit gateways are configured to accept Amazon VPC attachment requests automatically.
-#
+# 
 # Reports on:
 #   AWS::EC2::TransitGateway
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1948,98 +1834,73 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.6 example templates
+<a name="ct-ec2-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   TransitGateway:
     Type: AWS::EC2::TransitGateway
     Properties:
       AutoAcceptSharedAttachments: disable
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   TransitGateway:
     Type: AWS::EC2::TransitGateway
     Properties:
       AutoAcceptSharedAttachments: enable
-
-
 ```
 
 ## [CT.EC2.PR.7] Require an Amazon EBS volume resource to be encrypted at rest when defined by means of the **AWS::EC2::Instance BlockDeviceMappings** property or **AWS::EC2::Volume** resource type
+<a name="ct-ec2-pr-7-description"></a>
 
-This control checks whether your standalone Amazon EC2 EBS volume and Amazon Elastic Block Store (EBS)
-volume created through EC2 instance Block Device Mappings are encrypted at rest.
-Specifically, it checks that the **Encrypted** property is set to
-**true** in either the EBS volume resource definition or an EC2
-instance resource definition’s **BlockDeviceMappings** property.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::Instance`,
-  `AWS::EC2::Volume`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.7 rule specification](#ct-ec2-pr-7-rule "#ct-ec2-pr-7-rule")
+This control checks whether your standalone Amazon EC2 EBS volume and Amazon Elastic Block Store (EBS) volume created through EC2 instance Block Device Mappings are encrypted at rest. Specifically, it checks that the **Encrypted** property is set to **true** in either the EBS volume resource definition or an EC2 instance resource definition’s **BlockDeviceMappings** property.
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::Instance`, `AWS::EC2::Volume`
++ **CloudFormation guard rule: ** [CT.EC2.PR.7 rule specification](#ct-ec2-pr-7-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with this control,
-  see the: [CT.EC2.PR.7 rule specification](#ct-ec2-pr-7-rule "#ct-ec2-pr-7-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to this control,
-  see: [CT.EC2.PR.7 example templates](#ct-ec2-pr-7-templates "#ct-ec2-pr-7-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.7 rule specification](#ct-ec2-pr-7-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.7 example templates](#ct-ec2-pr-7-templates) 
 
 **Explanation**
 
-For an added layer of security of your sensitive data in Amazon EC2 EBS volumes, you should
-enable EBS encryption at rest. Amazon EBS encryption offers a straightforward encryption solution
-for your EBS resources that doesn't require you to build, maintain, and secure your own key
-management infrastructure. It uses KMS keys when creating encrypted volumes and
-snapshots.
+For an added layer of security of your sensitive data in Amazon EC2 EBS volumes, you should enable EBS encryption at rest. Amazon EBS encryption offers a straightforward encryption solution for your EBS resources that doesn't require you to build, maintain, and secure your own key management infrastructure. It uses KMS keys when creating encrypted volumes and snapshots.
 
 Amazon Elastic Block Store (EBS) volumes can be inherited from:
++ The Amazon Machine Image (AMI) specified with the `ImageId` property
++ The Launch Template specified with the `LaunchTemplateId` property
 
-- The Amazon Machine Image (AMI) specified with the `ImageId` property
-- The Launch Template specified with the `LaunchTemplateId`
-  property
-
-###### Usage considerations
-
-- For Amazon EC2 instance block device mappings, this control does not check any
-  block device mappings created by means of an EC2 launch template or inherited
-  through the AMI from which the instance is launched.
+**Usage considerations**  
+For Amazon EC2 instance block device mappings, this control does not check any block device mappings created by means of an EC2 launch template or inherited through the AMI from which the instance is launched.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-7-remediation"></a>
 
 Set `Encryption` to true on Amazon EC2 EBS Volumes.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Instance - Example
+<a name="ct-ec2-pr-7-remediation-1"></a>
 
-Amazon EC2 instance with an encrypted EBS volume. The example is shown in JSON and in
-YAML.
+Amazon EC2 instance with an encrypted EBS volume. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Instance": {
         "Type": "AWS::EC2::Instance",
@@ -2072,13 +1933,11 @@ YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Instance:
   Type: AWS::EC2::Instance
   Properties:
@@ -2096,21 +1955,18 @@ EC2Instance:
           Encrypted: true
           DeleteOnTermination: true
           VolumeSize: 20
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EBS Volume - Example
+<a name="ct-ec2-pr-7-remediation-2"></a>
 
-Amazon EBS Volume with encryption configured. The example is shown in JSON and in
-YAML.
+Amazon EBS Volume with encryption configured. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EBSVolume": {
         "Type": "AWS::EC2::Volume",
@@ -2128,13 +1984,11 @@ YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EBSVolume:
   Type: AWS::EC2::Volume
   Properties:
@@ -2143,34 +1997,32 @@ EBSVolume:
       - 0
       - !GetAZs ''
     Encrypted: true
-
-
 ```
 
 ### CT.EC2.PR.7 rule specification
+<a name="ct-ec2-pr-7-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_encrypted_volumes_check
-#
+# 
 # Description:
 #   Checks whether standalone Amazon EC2 EBS volumes and new EC2 EBS volumes created through EC2 instance
 #   Block Device Mappings are encrypted at rest.
-#
+# 
 # Reports on:
 #   AWS::EC2::Instance, AWS::EC2::Volume
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2315,18 +2167,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.7 example templates
+<a name="ct-ec2-pr-7-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -2368,14 +2218,11 @@ Resources:
           Encrypted: true
           DeleteOnTermination: true
           VolumeSize: 20
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -2417,34 +2264,24 @@ Resources:
           Encrypted: false
           DeleteOnTermination: true
           VolumeSize: 20
-
-
 ```
 
 ## [CT.EC2.PR.8] Require an Amazon EC2 instance to set **AssociatePublicIpAddress** to **false** on a new network interface created by means of the **NetworkInterfaces** property in the **AWS::EC2::Instance** resource
+<a name="ct-ec2-pr-8-description"></a>
 
 This control checks whether your Amazon EC2 instance is configured **not** to associate a public IP address by default. In particular, this control requires configuring the **AssociatePublicIpAddress** parameter to **false** on a new network interface created by means of the **NetworkInterfaces** property.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::Instance`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.8 rule specification](#ct-ec2-pr-8-rule "#ct-ec2-pr-8-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::Instance`
++ **CloudFormation guard rule: ** [CT.EC2.PR.8 rule specification](#ct-ec2-pr-8-rule) 
 
 **Details and examples**
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.8 rule specification](#ct-ec2-pr-8-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.8 example templates](#ct-ec2-pr-8-templates) 
 
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.8 rule specification](#ct-ec2-pr-8-rule "#ct-ec2-pr-8-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-
-this control, see:
-[CT.EC2.PR.8 example templates](#ct-ec2-pr-8-templates "#ct-ec2-pr-8-templates")
-
-###### This control is incompatible with AWS Cloud9
-
-A compatibility issue exists with AWS Cloud9 and this AWS Control Tower proactive control, [CT.EC2.PR.8] Require an Amazon EC2 instance to set AssociatePublicIpAddress to false on a new network interface created by means of the NetworkInterfaces property in the AWS::EC2::Instance resource. If this control is enabled, you cannot create an Amazon EC2 environment in AWS Cloud9. For more information, see [Troubleshooting AWS Cloud9](../../../cloud9/latest/user-guide/troubleshooting.md#control-tower-rule "../../../cloud9/latest/user-guide/troubleshooting.md#control-tower-rule").
+**This control is incompatible with AWS Cloud9**  
+A compatibility issue exists with AWS Cloud9 and this AWS Control Tower proactive control, [[CT.EC2.PR.8] Require an Amazon EC2 instance to set **AssociatePublicIpAddress** to **false** on a new network interface created by means of the **NetworkInterfaces** property in the **AWS::EC2::Instance** resource](#ct-ec2-pr-8-description). If this control is enabled, you cannot create an Amazon EC2 environment in AWS Cloud9. For more information, see [Troubleshooting AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/troubleshooting.html#control-tower-rule).
 
 **Explanation**
 
@@ -2454,27 +2291,27 @@ IPv6 addresses are globally unique, and therefore are reachable from the interne
 
 The network interface settings can be inherited from the Launch Template specified with the **LaunchTemplateId** property.
 
-###### Usage considerations
-
-- This control applies only to a new network interface created by means of the **NetworkInterfaces** property, where a **NetworkInterfaceId** has not been specified.
-- This control requires subnet information to be specified within a `NetworkInterfaces` configuration instead of the root level `SubnetId` property.
-- This control does not check a network interface that may be created in an Amazon EC2 launch template that may be referenced by the **LaunchTemplateId** property.
-- A compatibility issue exists with AWS Cloud9 and this AWS Control Tower proactive control. If this control is enabled, you cannot create an Amazon EC2 environment in AWS Cloud9.
+**Usage considerations**  
+This control applies only to a new network interface created by means of the **NetworkInterfaces** property, where a **NetworkInterfaceId** has not been specified.
+This control requires subnet information to be specified within a `NetworkInterfaces` configuration instead of the root level `SubnetId` property.
+This control does not check a network interface that may be created in an Amazon EC2 launch template that may be referenced by the **LaunchTemplateId** property.
+ A compatibility issue exists with AWS Cloud9 and this AWS Control Tower proactive control. If this control is enabled, you cannot create an Amazon EC2 environment in AWS Cloud9.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-8-remediation"></a>
 
 Specify network interfaces using the `NetworkInterfaces` property instead of the root level `SubnetId` property. Set `AssociatePublicIpAddress` to false within each `NetworkInterfaces` configuration.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Instance - Example
+<a name="ct-ec2-pr-8-remediation-1"></a>
 
 Amazon EC2 instance configured with a new interface that disables public IP address association on creation. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Instance": {
         "Type": "AWS::EC2::Instance",
@@ -2495,13 +2332,11 @@ Amazon EC2 instance configured with a new interface that disables public IP addr
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Instance:
   Type: AWS::EC2::Instance
   Properties:
@@ -2511,33 +2346,31 @@ EC2Instance:
       - DeviceIndex: 0
         SubnetId: !Ref 'Subnet'
         AssociatePublicIpAddress: false
-
-
 ```
 
 ### CT.EC2.PR.8 rule specification
+<a name="ct-ec2-pr-8-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_instance_no_public_ip_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon EC2 instance is configured to associate a public IP address.
-#
+# 
 # Reports on:
 #   AWS::EC2::Instance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2702,18 +2535,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.8 example templates
+<a name="ct-ec2-pr-8-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -2747,14 +2578,11 @@ Resources:
         SubnetId:
           Ref: Subnet
         AssociatePublicIpAddress: false
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -2785,53 +2613,45 @@ Resources:
         Ref: LatestAmiId
       SubnetId:
         Ref: Subnet
-
-
 ```
 
 ## [CT.EC2.PR.9] Require any Amazon EC2 launch template not to auto-assign public IP addresses to network interfaces
+<a name="ct-ec2-pr-9-description"></a>
 
 This control checks whether your Amazon EC2 launch templates are configured to assign public IP addresses to network interfaces.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::LaunchTemplate`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.9 rule specification](#ct-ec2-pr-9-rule "#ct-ec2-pr-9-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::LaunchTemplate`
++ **CloudFormation guard rule: ** [CT.EC2.PR.9 rule specification](#ct-ec2-pr-9-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.9 rule specification](#ct-ec2-pr-9-rule "#ct-ec2-pr-9-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.9 example templates](#ct-ec2-pr-9-templates "#ct-ec2-pr-9-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.9 rule specification](#ct-ec2-pr-9-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.9 example templates](#ct-ec2-pr-9-templates) 
 
 **Explanation**
 
 A public IP address is an IP address that is reachable from the internet. If you configure your network interfaces with a public IP address, then the resources associated to those network interfaces are reachable from the internet. EC2 resources should not be publicly accessible, because this may allow unintended access to your application servers.
 
-###### Usage considerations
-
-- This control applies only to new network interfaces created by means of the `NetworkInterfaceId` property in `LaunchTemplateData` (`NetworkInterfaces` configurations where a `NetworkInterfaceId` has not been specified).
-- This control requires setting `AssociatePublicIpAddress` to `false` on new network interfaces created by means of the `NetworkInterfaces` property in `LaunchTemplateData`.
+**Usage considerations**  
+This control applies only to new network interfaces created by means of the `NetworkInterfaceId` property in `LaunchTemplateData` (`NetworkInterfaces` configurations where a `NetworkInterfaceId` has not been specified).
+This control requires setting `AssociatePublicIpAddress` to `false` on new network interfaces created by means of the `NetworkInterfaces` property in `LaunchTemplateData`.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-9-remediation"></a>
 
 Set `AssociatePublicIpAddress` to `false` within each `NetworkInterfaces` configuration in `LaunchTemplateData`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Launch Template - Example
+<a name="ct-ec2-pr-9-remediation-1"></a>
 
 Amazon EC2 launch template configured with a network interface that disables public IP address association. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2LaunchTemplate": {
         "Type": "AWS::EC2::LaunchTemplate",
@@ -2850,13 +2670,11 @@ Amazon EC2 launch template configured with a network interface that disables pub
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2LaunchTemplate:
   Type: AWS::EC2::LaunchTemplate
   Properties:
@@ -2865,33 +2683,31 @@ EC2LaunchTemplate:
         - DeviceIndex: 0
           SubnetId: !Ref 'Subnet'
           AssociatePublicIpAddress: false
-
-
 ```
 
 ### CT.EC2.PR.9 rule specification
+<a name="ct-ec2-pr-9-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_launch_template_public_ip_disabled_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon EC2 launch templates are configured to assign public IP addresses to network interfaces.
-#
+# 
 # Reports on:
 #   AWS::EC2::LaunchTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3055,18 +2871,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.EC2.PR.9 example templates
+<a name="ct-ec2-pr-9-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3093,14 +2907,11 @@ Resources:
           SubnetId:
             Ref: Subnet
           AssociatePublicIpAddress: false
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3127,48 +2938,41 @@ Resources:
           SubnetId:
             Ref: Subnet
           AssociatePublicIpAddress: true
-
-
 ```
 
 ## [CT.EC2.PR.10] Require Amazon EC2 launch templates to have Amazon CloudWatch detailed monitoring activated
+<a name="ct-ec2-pr-10-description"></a>
 
 This control checks whether the Amazon EC2 launch template has detailed monitoring enabled.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::LaunchTemplate`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.10 rule specification](#ct-ec2-pr-10-rule "#ct-ec2-pr-10-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::LaunchTemplate`
++ **CloudFormation guard rule: ** [CT.EC2.PR.10 rule specification](#ct-ec2-pr-10-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.10 rule specification](#ct-ec2-pr-10-rule "#ct-ec2-pr-10-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.10 example templates](#ct-ec2-pr-10-templates "#ct-ec2-pr-10-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.10 rule specification](#ct-ec2-pr-10-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.10 example templates](#ct-ec2-pr-10-templates) 
 
 **Explanation**
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of your AWS solutions. You should collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs. From a security perspective, logging is also an important feature to enable for future forensics efforts in the case of any security incidents.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-10-remediation"></a>
 
 In `LaunchTemplateData`, provide a `Monitoring` configuration with `Enabled` set to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Launch Template - Example
+<a name="ct-ec2-pr-10-remediation-1"></a>
 
 Amazon EC2 launch template configured with detailed monitoring enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2LaunchTemplate": {
         "Type": "AWS::EC2::LaunchTemplate",
@@ -3181,46 +2985,42 @@ Amazon EC2 launch template configured with detailed monitoring enabled. The exam
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2LaunchTemplate:
   Type: AWS::EC2::LaunchTemplate
   Properties:
     LaunchTemplateData:
       Monitoring:
         Enabled: true
-
-
 ```
 
 ### CT.EC2.PR.10 rule specification
+<a name="ct-ec2-pr-10-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_launch_template_monitoring_enabled_check
-#
+# 
 # Description:
 #   This control checks whether the Amazon EC2 launch template has detailed monitoring enabled.
-#
+# 
 # Reports on:
 #   AWS::EC2::LaunchTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #      Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3311,18 +3111,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.10 example templates
+<a name="ct-ec2-pr-10-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   EC2LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
@@ -3330,14 +3128,11 @@ Resources:
       LaunchTemplateData:
         Monitoring:
           Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   EC2LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
@@ -3345,53 +3140,45 @@ Resources:
       LaunchTemplateData:
         Monitoring:
           Enabled: false
-
-
 ```
 
 ## [CT.EC2.PR.11] Require that an Amazon EC2 subnet does not automatically assign public IP addresses
+<a name="ct-ec2-pr-11-description"></a>
 
 This control checks whether your Amazon VPC subnets assign public IP addresses automatically.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::Subnet`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.11 rule specification](#ct-ec2-pr-11-rule "#ct-ec2-pr-11-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::Subnet`
++ **CloudFormation guard rule: ** [CT.EC2.PR.11 rule specification](#ct-ec2-pr-11-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.11 rule specification](#ct-ec2-pr-11-rule "#ct-ec2-pr-11-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.11 example templates](#ct-ec2-pr-11-templates "#ct-ec2-pr-11-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.11 rule specification](#ct-ec2-pr-11-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.11 example templates](#ct-ec2-pr-11-templates) 
 
 **Explanation**
 
 All subnets have an attribute that determines whether a network interface created in the subnet automatically receives a public IPv4 address. When launched into subnets that have this attribute enabled, instances receive a public IP address assigned to their primary network interface.
 
-###### Usage considerations
-
-- This control deactivates automatic assignment of public IP addresses for new network interfaces in Amazon VPC subnets.
-- When this control is in operation, public IP addresses can be assigned to network interfaces by means of resource-level settings. (For example, assignment of a public IP address can be made at EC2 instance launch time.)
+**Usage considerations**  
+This control deactivates automatic assignment of public IP addresses for new network interfaces in Amazon VPC subnets.
+When this control is in operation, public IP addresses can be assigned to network interfaces by means of resource-level settings. (For example, assignment of a public IP address can be made at EC2 instance launch time.)
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-11-remediation"></a>
 
 Omit the `MapPublicIpOnLaunch` property to use the default configuration, or set the `MapPublicIpOnLaunch` property to `false`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon VPC Subnet - Example One
+<a name="ct-ec2-pr-11-remediation-1"></a>
 
 Amazon VPC subnet configured to deactivate automatic assignment of public IP addresses by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Subnet": {
         "Type": "AWS::EC2::Subnet",
@@ -3411,13 +3198,11 @@ Amazon VPC subnet configured to deactivate automatic assignment of public IP add
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Subnet:
   Type: AWS::EC2::Subnet
   Properties:
@@ -3426,20 +3211,18 @@ Subnet:
     AvailabilityZone: !Select
       - 0
       - !GetAZs ''
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon VPC Subnet - Example Two
+<a name="ct-ec2-pr-11-remediation-2"></a>
 
 Amazon VPC subnet configured to deactivate automatic assignment of public IP addresses by means of the `MapPublicIpOnLaunch` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Subnet": {
         "Type": "AWS::EC2::Subnet",
@@ -3460,13 +3243,11 @@ Amazon VPC subnet configured to deactivate automatic assignment of public IP add
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Subnet:
   Type: AWS::EC2::Subnet
   Properties:
@@ -3476,34 +3257,32 @@ Subnet:
       - 0
       - !GetAZs ''
     MapPublicIpOnLaunch: false
-
-
 ```
 
 ### CT.EC2.PR.11 rule specification
+<a name="ct-ec2-pr-11-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
-#
+# 
+# 
 # Rule Identifier:
 #   subnet_auto_assign_public_ip_disabled_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon VPC subnets automatically assign public IP addresses.
-#
+# 
 # Reports on:
 #   AWS::EC2::Subnet
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3581,18 +3360,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.11 example templates
+<a name="ct-ec2-pr-11-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3608,14 +3385,11 @@ Resources:
         Fn::Select:
         - 0
         - Fn::GetAZs: ''
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3632,29 +3406,21 @@ Resources:
         - 0
         - Fn::GetAZs: ''
       MapPublicIpOnLaunch: true
-
-
 ```
 
 ## [CT.EC2.PR.12] Require an Amazon EC2 instance to specify at most one network interface by means of the **NetworkInterfaces** property in the **AWS::EC2::Instance** resource
+<a name="ct-ec2-pr-12-description"></a>
 
 This control checks whether your Amazon Elastic Compute Cloud (Amazon EC2) instance uses multiple ENIs (Elastic Network Interfaces). Specifically, it checks whether an **AWS::EC2::Instance** resource specifies multiple ENIs in the **NetworkInterfaces** property.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::Instance`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.12 rule specification](#ct-ec2-pr-12-rule "#ct-ec2-pr-12-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::Instance`
++ **CloudFormation guard rule: ** [CT.EC2.PR.12 rule specification](#ct-ec2-pr-12-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.12 rule specification](#ct-ec2-pr-12-rule "#ct-ec2-pr-12-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.EC2.PR.12 example templates](#ct-ec2-pr-12-templates "#ct-ec2-pr-12-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.12 rule specification](#ct-ec2-pr-12-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.EC2.PR.12 example templates](#ct-ec2-pr-12-templates) 
 
 **Explanation**
 
@@ -3662,25 +3428,25 @@ Multiple ENIs can cause dual-homed instances, meaning instances that have multip
 
 The network interface settings can be inherited from the Launch Template specified with the **LaunchTemplateId** property.
 
-###### Usage considerations
-
-- This control does not check a network interface that may be specified in an Amazon EC2 launch template and referenced by the **LaunchTemplateId** property.
-- This rule is incompatible with scenarios in which the **NetworkInterfaces** property must be used to specify multiple ENIs. For example, this control may fail if an Amazon EC2 instance that belongs to an Amazon EKS cluster specifies more than one ENI by means of the **NetworkInterfaces** property.
+**Usage considerations**  
+This control does not check a network interface that may be specified in an Amazon EC2 launch template and referenced by the **LaunchTemplateId** property.
+This rule is incompatible with scenarios in which the **NetworkInterfaces** property must be used to specify multiple ENIs. For example, this control may fail if an Amazon EC2 instance that belongs to an Amazon EKS cluster specifies more than one ENI by means of the **NetworkInterfaces** property.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-12-remediation"></a>
 
 Configure Amazon EC2 instances with only one ENI.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Instance - Example
+<a name="ct-ec2-pr-12-remediation-1"></a>
 
 EC2 Instance with a single network interface. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Instance": {
         "Type": "AWS::EC2::Instance",
@@ -3699,13 +3465,11 @@ EC2 Instance with a single network interface. The example is shown in JSON and i
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Instance:
   Type: AWS::EC2::Instance
   Properties:
@@ -3713,34 +3477,32 @@ EC2Instance:
     NetworkInterfaces:
       - SubnetId: !Ref 'TestSubnet'
         DeviceIndex: 0
-
-
 ```
 
 ### CT.EC2.PR.12 rule specification
+<a name="ct-ec2-pr-12-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_instance_multiple_eni_check
-#
+# 
 # Description:
 #   Checks whether Amazon Elastic Compute Cloud (Amazon EC2) instances use multiple ENIs (Elastic Network Interfaces)
 #   or Elastic Fabric Adapters (EFAs).
-#
+# 
 # Reports on:
 #   AWS::EC2::Instance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3824,18 +3586,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.12 example templates
+<a name="ct-ec2-pr-12-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -3864,14 +3624,11 @@ Resources:
       - SubnetId:
           Ref: Subnet
         DeviceIndex: 0
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -3903,52 +3660,44 @@ Resources:
       - SubnetId:
           Ref: Subnet
         DeviceIndex: 1
-
-
 ```
 
 ## [CT.EC2.PR.13] Require an Amazon EC2 instance to have detailed monitoring enabled
+<a name="ct-ec2-pr-13-description"></a>
 
 This control checks whether an Amazon EC2 instance has detailed monitoring enabled.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::Instance`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.13 rule specification](#ct-ec2-pr-13-rule "#ct-ec2-pr-13-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::Instance`
++ **CloudFormation guard rule: ** [CT.EC2.PR.13 rule specification](#ct-ec2-pr-13-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.13 rule specification](#ct-ec2-pr-13-rule "#ct-ec2-pr-13-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.EC2.PR.13 example templates](#ct-ec2-pr-13-templates "#ct-ec2-pr-13-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.13 rule specification](#ct-ec2-pr-13-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.EC2.PR.13 example templates](#ct-ec2-pr-13-templates) 
 
 **Explanation**
 
 By default, all Amazon EC2 instances are created with basic monitoring that sends host-level logs to Amazon CloudWatch every five (5) minutes. With detailed monitoring, host-level logs are collected every one (1) minute instead, leading to faster detection of possible malicious or anomalous activity.
 
-###### Usage considerations
-
-- When you enable detailed monitoring, you are charged per metric that is sent to CloudWatch. You are not charged for data storage. For more information, see the Amazon CloudWatch pricing page.
+**Usage considerations**  
+When you enable detailed monitoring, you are charged per metric that is sent to CloudWatch. You are not charged for data storage. For more information, see the Amazon CloudWatch pricing page.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-13-remediation"></a>
 
 Set `Monitoring` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### EC2 Instance - Example
+<a name="ct-ec2-pr-13-remediation-1"></a>
 
 An EC2 Instance with detailed monitoring enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Parameters": {
         "LatestAmiId": {
@@ -3995,13 +3744,11 @@ An EC2 Instance with detailed monitoring enabled. The example is shown in JSON a
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -4028,33 +3775,31 @@ Resources:
         - SubnetId: !Ref 'Subnet'
           DeviceIndex: 0
       Monitoring: true
-
-
 ```
 
 ### CT.EC2.PR.13 rule specification
+<a name="ct-ec2-pr-13-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_instance_detailed_monitoring_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EC2 instance has detailed monitoring enabled.
-#
+# 
 # Reports on:
 #   AWS::EC2::Instance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4133,18 +3878,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.13 example templates
+<a name="ct-ec2-pr-13-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -4174,14 +3917,11 @@ Resources:
           Ref: Subnet
         DeviceIndex: 0
       Monitoring: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -4211,53 +3951,45 @@ Resources:
           Ref: Subnet
         DeviceIndex: 0
       Monitoring: false
-
-
 ```
 
 ## [CT.EC2.PR.14] Require an Amazon EBS volume configured through an Amazon EC2 launch template to encrypt data at rest
+<a name="ct-ec2-pr-14-description"></a>
 
 This control checks whether an Amazon EC2 launch template with EBS volume block device mappings is configured to enable EBS volume encryption.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::LaunchTemplate`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.14 rule specification](#ct-ec2-pr-14-rule "#ct-ec2-pr-14-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::LaunchTemplate`
++ **CloudFormation guard rule: ** [CT.EC2.PR.14 rule specification](#ct-ec2-pr-14-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.14 rule specification](#ct-ec2-pr-14-rule "#ct-ec2-pr-14-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.14 example templates](#ct-ec2-pr-14-templates "#ct-ec2-pr-14-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.14 rule specification](#ct-ec2-pr-14-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.14 example templates](#ct-ec2-pr-14-templates) 
 
 **Explanation**
 
 For an added layer of security of your sensitive data in an EBS volume, you should enable EBS encryption at rest. Amazon EBS encryption offers a straightforward encryption solution for your EBS resources. It doesn't require you to build, maintain, and secure your own key management infrastructure, and it uses KMS keys when creating encrypted volumes and snapshots.
 
-###### Usage considerations
-
-- This control applies only to an EC2 launch template that specifies EBS block device mappings.
-- When you launch an instance using a launch template, you can override parameters that are specified in the launch template. To ensure that encryption is enabled for EBS block device mappings when you launch an instance with a launch template by means of the `AWS::EC2::Instance` resource, use this control in conjunction with `CT.EC2.PR.7`.
+**Usage considerations**  
+This control applies only to an EC2 launch template that specifies EBS block device mappings.
+When you launch an instance using a launch template, you can override parameters that are specified in the launch template. To ensure that encryption is enabled for EBS block device mappings when you launch an instance with a launch template by means of the `AWS::EC2::Instance` resource, use this control in conjunction with `CT.EC2.PR.7`.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-14-remediation"></a>
 
 For every entry in the `BlockDeviceMappings` parameter with an `Ebs` configuration, set `Encryption` to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 launch template - Example
+<a name="ct-ec2-pr-14-remediation-1"></a>
 
 An Amazon EC2 launch template configured with an EBS block device mapping that has volume encyrption enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LaunchTemplate": {
         "Type": "AWS::EC2::LaunchTemplate",
@@ -4275,13 +4007,11 @@ An Amazon EC2 launch template configured with an EBS block device mapping that h
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LaunchTemplate:
   Type: AWS::EC2::LaunchTemplate
   Properties:
@@ -4290,33 +4020,31 @@ LaunchTemplate:
         - DeviceName: /dev/sdc
           Ebs:
             Encrypted: true
-
-
 ```
 
 ### CT.EC2.PR.14 rule specification
+<a name="ct-ec2-pr-14-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_launch_template_encrypted_volumes_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EC2 launch template with EBS volume block device mappings is configured to enable EBS volume encryption.
-#
+# 
 # Reports on:
 #   AWS::EC2::LaunchTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4436,18 +4164,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.14 example templates
+<a name="ct-ec2-pr-14-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
@@ -4457,14 +4183,11 @@ Resources:
         - DeviceName: /dev/sdc
           Ebs:
             Encrypted: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
@@ -4474,61 +4197,47 @@ Resources:
         - DeviceName: /dev/sdc
           Ebs:
             Encrypted: false
-
-
 ```
 
 ## [CT.EC2.PR.15] Require an Amazon EC2 instance to use an AWS Nitro instance type when creating from the 'AWS::EC2::LaunchTemplate' resource type
+<a name="ct-ec2-pr-15-description"></a>
 
 This control checks whether Amazon EC2 launch templates that specify an Amazon EC2 instance type or use attribute based instance selection, specify only AWS Nitro instance types.
-
-- **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::LaunchTemplate`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.15 rule specification](#ct-ec2-pr-15-rule "#ct-ec2-pr-15-rule")
++ **Control objective: **Protect data integrity, Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::LaunchTemplate`
++ **CloudFormation guard rule: ** [CT.EC2.PR.15 rule specification](#ct-ec2-pr-15-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.15 rule specification](#ct-ec2-pr-15-rule "#ct-ec2-pr-15-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.15 example templates](#ct-ec2-pr-15-templates "#ct-ec2-pr-15-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.15 rule specification](#ct-ec2-pr-15-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.15 example templates](#ct-ec2-pr-15-templates) 
 
 **Explanation**
 
-The AWS Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security.
-The Nitro System provides enhanced security that continuously monitors, protects, and verifies the instance hardware and firmware. AWS Nitro offloads
-virtualization resources to dedicated hardware and software, which minimizes the attack surface. Finally, the Nitro System has a locked down security model to prohibit administrative access,
-eliminating the possibility of human error and tampering.
+The AWS Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security. The Nitro System provides enhanced security that continuously monitors, protects, and verifies the instance hardware and firmware. AWS Nitro offloads virtualization resources to dedicated hardware and software, which minimizes the attack surface. Finally, the Nitro System has a locked down security model to prohibit administrative access, eliminating the possibility of human error and tampering.
 
-For information about Nitro instance types, see [Instances built on the Nitro System](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances") in the _Amazon EC2 User Guide for Linux Instances_.
+For information about Nitro instance types, see [Instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances) in the *Amazon EC2 User Guide for Linux Instances*.
 
-###### Usage considerations
-
-- This control applies only to launch templates that specify an Amazon EC2 instance type by means of the InstanceType property or use attribute based instance selection by means of the
-  InstanceRequirements property.
-- When you launch an instance using a launch template, you can override parameters that are specified in the launch template.
-  To launch instances with a Nitro instance type when using a launch template, use this control in conjunction with related proactive controls.
+**Usage considerations**  
+This control applies only to launch templates that specify an Amazon EC2 instance type by means of the InstanceType property or use attribute based instance selection by means of the InstanceRequirements property.
+When you launch an instance using a launch template, you can override parameters that are specified in the launch template. To launch instances with a Nitro instance type when using a launch template, use this control in conjunction with related proactive controls.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-15-remediation"></a>
 
-When InstanceType in LaunchTemplateData has been provided, set InstanceType to an Amazon EC2 instance type that is based on the AWS Nitro system.
-When InstanceRequirements in LaunchTemplateData has been provided, set AllowedInstanceTypes to a list of Amazon EC2 instance types based on the AWS Nitro system.
+When InstanceType in LaunchTemplateData has been provided, set InstanceType to an Amazon EC2 instance type that is based on the AWS Nitro system. When InstanceRequirements in LaunchTemplateData has been provided, set AllowedInstanceTypes to a list of Amazon EC2 instance types based on the AWS Nitro system.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Launch Template - Example One
+<a name="ct-ec2-pr-15-remediation-1"></a>
 
 An Amazon EC2 launch template configured with an instance type based on the AWS Nitro system. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LaunchTemplate": {
         "Type": "AWS::EC2::LaunchTemplate",
@@ -4539,32 +4248,28 @@ An Amazon EC2 launch template configured with an instance type based on the AWS 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LaunchTemplate:
   Type: AWS::EC2::LaunchTemplate
   Properties:
     LaunchTemplateData:
       InstanceType: t3.micro
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Launch Template - Example Two
+<a name="ct-ec2-pr-15-remediation-2"></a>
 
 An Amazon EC2 launch template configured with an instance requirements configuration that includes allowed instances based on the AWS Nitro system. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LaunchTemplate": {
         "Type": "AWS::EC2::LaunchTemplate",
@@ -4588,13 +4293,11 @@ An Amazon EC2 launch template configured with an instance requirements configura
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LaunchTemplate:
   Type: AWS::EC2::LaunchTemplate
   Properties:
@@ -4609,33 +4312,31 @@ LaunchTemplate:
         MemoryMiB:
           Min: 1024
           Max: 17000
-
-
 ```
 
 ### CT.EC2.PR.15 rule specification
+<a name="ct-ec2-pr-15-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_launch_template_nitro_instance_type_check
-#
+# 
 # Description:
 #   This control checks whether Amazon EC2 launch templates that specify an Amazon EC2 instance type or use attribute based instance selection, specify only AWS Nitro instance types.
-#
+# 
 # Reports on:
 #   AWS::EC2::LaunchTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4731,7 +4432,7 @@ rule ec2_launch_template_nitro_instance_type_check when is_cfn_template(%INPUT_D
     check(%ec2_launch_templates.Properties)
         <<
         [CT.EC2.PR.15]: Require an Amazon EC2 instance to use an AWS Nitro instance type when creating from the 'AWS::EC2::LaunchTemplate' resource type
-        [FIX]: When InstanceType in LaunchTemplateData has been provided, set InstanceType to an Amazon EC2 instance type that is based on the AWS Nitro system.
+        [FIX]: When InstanceType in LaunchTemplateData has been provided, set InstanceType to an Amazon EC2 instance type that is based on the AWS Nitro system. 
         When InstanceRequirements in LaunchTemplateData has been provided, set AllowedInstanceTypes to a list of Amazon EC2 instance types based on the AWS Nitro system.
         >>
 }
@@ -4740,7 +4441,7 @@ rule ec2_launch_template_nitro_instance_type_check when is_cfn_hook(%INPUT_DOCUM
     check(%INPUT_DOCUMENT.%EC2_LAUNCH_TEMPLATE_TYPE.resourceProperties)
         <<
         [CT.EC2.PR.15]: Require an Amazon EC2 instance to use an AWS Nitro instance type when creating from the 'AWS::EC2::LaunchTemplate' resource type
-        [FIX]: When InstanceType in LaunchTemplateData has been provided, set InstanceType to an Amazon EC2 instance type that is based on the AWS Nitro system. When InstanceRequirements in LaunchTemplateData has been provided,
+        [FIX]: When InstanceType in LaunchTemplateData has been provided, set InstanceType to an Amazon EC2 instance type that is based on the AWS Nitro system. When InstanceRequirements in LaunchTemplateData has been provided, 
         set AllowedInstanceTypes to a list of Amazon EC2 instance types based on the AWS Nitro system.
         >>
 }
@@ -4812,32 +4513,27 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.15 example templates
+<a name="ct-ec2-pr-15-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
     Properties:
       LaunchTemplateData:
         InstanceType: t3.micro
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
@@ -4853,28 +4549,22 @@ Resources:
           MemoryMiB:
             Min: 1024
             Max: 17000
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
     Properties:
       LaunchTemplateData:
         InstanceType: t2.micro
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
@@ -4889,56 +4579,44 @@ Resources:
           MemoryMiB:
             Min: 1024
             Max: 17000
-
-
 ```
 
 ## [CT.EC2.PR.16] Require an Amazon EC2 instance to use an AWS Nitro instance type when created using the 'AWS::EC2::Instance' resource type
+<a name="ct-ec2-pr-16-description"></a>
 
 This control checks whether an Amazon EC2 instance is configured to run using an AWS Nitro instance type.
-
-- **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::Instance`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.16 rule specification](#ct-ec2-pr-16-rule "#ct-ec2-pr-16-rule")
++ **Control objective: **Protect data integrity, Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::Instance`
++ **CloudFormation guard rule: ** [CT.EC2.PR.16 rule specification](#ct-ec2-pr-16-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.16 rule specification](#ct-ec2-pr-16-rule "#ct-ec2-pr-16-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.16 example templates](#ct-ec2-pr-16-templates "#ct-ec2-pr-16-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.16 rule specification](#ct-ec2-pr-16-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.16 example templates](#ct-ec2-pr-16-templates) 
 
 **Explanation**
 
-The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and
-high security. The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware.
-Virtualization resources are offloaded to dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to
-prohibit administrative access, reducing the possibility of human error and tampering.
+The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security. The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware. Virtualization resources are offloaded to dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to prohibit administrative access, reducing the possibility of human error and tampering.
 
-###### Usage considerations
-
-- This control requires that the InstanceType property is provided and set to a Nitro instance type. This setting prevents you from inheriting an instance type,
-  by way of an Amazon EC2 launch template.
+**Usage considerations**  
+This control requires that the InstanceType property is provided and set to a Nitro instance type. This setting prevents you from inheriting an instance type, by way of an Amazon EC2 launch template.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-16-remediation"></a>
 
 Set the value of the InstanceType property to an Amazon EC2 instance type based on the AWS Nitro system.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Instance - Example
+<a name="ct-ec2-pr-16-remediation-1"></a>
 
 An Amazon EC2 instance configured with an instance type based on the AWS Nitro system. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Instance": {
         "Type": "AWS::EC2::Instance",
@@ -4950,45 +4628,41 @@ An Amazon EC2 instance configured with an instance type based on the AWS Nitro s
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Instance:
   Type: AWS::EC2::Instance
   Properties:
     ImageId: !Ref 'LatestAmiId'
     InstanceType: t3.micro
-
-
 ```
 
 ### CT.EC2.PR.16 rule specification
+<a name="ct-ec2-pr-16-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_instance_nitro_instance_type_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EC2 instance is configured to run using an AWS Nitro instance type.
-#
+# 
 # Reports on:
 #   AWS::EC2::Instance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5098,18 +4772,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.16 example templates
+<a name="ct-ec2-pr-16-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -5122,14 +4794,11 @@ Resources:
       ImageId:
         Ref: LatestAmiId
       InstanceType: t3.micro
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -5142,59 +4811,44 @@ Resources:
       ImageId:
         Ref: LatestAmiId
       InstanceType: t2.micro
-
-
 ```
 
 ## [CT.EC2.PR.17] Require an Amazon EC2 dedicated host to use an AWS Nitro instance type
+<a name="ct-ec2-pr-17-description"></a>
 
 This control checks whether an Amazon EC2 dedicated host is configured to run using an AWS Nitro instance type or family.
-
-- **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::Host`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.17 rule specification](#ct-ec2-pr-17-rule "#ct-ec2-pr-17-rule")
++ **Control objective: **Protect data integrity, Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::Host`
++ **CloudFormation guard rule: ** [CT.EC2.PR.17 rule specification](#ct-ec2-pr-17-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.17 rule specification](#ct-ec2-pr-17-rule "#ct-ec2-pr-17-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.17 example templates](#ct-ec2-pr-17-templates "#ct-ec2-pr-17-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.17 rule specification](#ct-ec2-pr-17-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.17 example templates](#ct-ec2-pr-17-templates) 
 
 **Explanation**
 
-The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security.
-The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware.
-Virtualization resources are offloaded to dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to
-prohibit administrative access, reducing the possibility of human error and tampering.
+The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security. The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware. Virtualization resources are offloaded to dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to prohibit administrative access, reducing the possibility of human error and tampering.
 
-###### Usage considerations
-
-- When you allocate a dedicated host in your account, you can choose a configuration that supports either a single instance type, or multiple instance types within the same instance family.
-  The number of instances that you can run on a host depends on the configuration you choose. See [Instance capacity configurations](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md#dedicated-hosts-limits "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md#dedicated-hosts-limits")
-  in the _Amazon EC2 User Guide for Linux Instances_ for information about support for single instance types and multiple instance types.
+**Usage considerations**  
+When you allocate a dedicated host in your account, you can choose a configuration that supports either a single instance type, or multiple instance types within the same instance family. The number of instances that you can run on a host depends on the configuration you choose. See [Instance capacity configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html#dedicated-hosts-limits) in the *Amazon EC2 User Guide for Linux Instances* for information about support for single instance types and multiple instance types.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-17-remediation"></a>
 
-Set the value of the InstanceType property to an Amazon EC2 instance type that is based on the AWS Nitro system, and that supports dedicated hosts, or set the value of the
-InstanceFamily property to an Amazon EC2 instance family that is based on the AWS Nitro system, and that supports dedicated hosts and multiple instance types.
+Set the value of the InstanceType property to an Amazon EC2 instance type that is based on the AWS Nitro system, and that supports dedicated hosts, or set the value of the InstanceFamily property to an Amazon EC2 instance family that is based on the AWS Nitro system, and that supports dedicated hosts and multiple instance types.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Host - Example One
+<a name="ct-ec2-pr-17-remediation-1"></a>
 
-An Amazon EC2 dedicated host configured with an instance family that is based on the AWS Nitro system, and that
-supports dedicated hosts and multiple instance types. The example is shown in JSON and in YAML.
+An Amazon EC2 dedicated host configured with an instance family that is based on the AWS Nitro system, and that supports dedicated hosts and multiple instance types. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DedicatedHost": {
         "Type": "AWS::EC2::Host",
@@ -5212,13 +4866,11 @@ supports dedicated hosts and multiple instance types. The example is shown in JS
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DedicatedHost:
   Type: AWS::EC2::Host
   Properties:
@@ -5227,21 +4879,18 @@ DedicatedHost:
       - 0
       - !GetAZs ''
     InstanceFamily: m5
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Host - Example Two
+<a name="ct-ec2-pr-17-remediation-2"></a>
 
-An Amazon EC2 dedicated host configured with an instance type that is based on the AWS Nitro system, and that supports dedicated hosts.
-The example is shown in JSON and in YAML.
+An Amazon EC2 dedicated host configured with an instance type that is based on the AWS Nitro system, and that supports dedicated hosts. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DedicatedHost": {
         "Type": "AWS::EC2::Host",
@@ -5259,13 +4908,11 @@ The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DedicatedHost:
   Type: AWS::EC2::Host
   Properties:
@@ -5274,33 +4921,31 @@ DedicatedHost:
       - 0
       - !GetAZs ''
     InstanceType: m6a.large
-
-
 ```
 
 ### CT.EC2.PR.17 rule specification
+<a name="ct-ec2-pr-17-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_host_nitro_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EC2 dedicated host is configured to run using an AWS Nitro instance type or family.
-#
+# 
 # Reports on:
 #   AWS::EC2::Host
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5410,8 +5055,8 @@ rule ec2_host_nitro_check when is_cfn_template(%INPUT_DOCUMENT)
     check(%ec2_dedicated_hosts.Properties)
         <<
         [CT.EC2.PR.17]: Require an Amazon EC2 dedicated host to use an AWS Nitro instance type
-        [FIX]: Set the value of the InstanceType property to an Amazon EC2 instance type that is based on the AWS Nitro system, and
-        that supports dedicated hosts, or set the value of the InstanceFamily property to an Amazon EC2 instance family that is
+        [FIX]: Set the value of the InstanceType property to an Amazon EC2 instance type that is based on the AWS Nitro system, and 
+        that supports dedicated hosts, or set the value of the InstanceFamily property to an Amazon EC2 instance family that is 
         based on the AWS Nitro system, and that supports dedicated hosts and multiple instance types.
         >>
 }
@@ -5420,8 +5065,8 @@ rule ec2_host_nitro_check when is_cfn_hook(%INPUT_DOCUMENT, %EC2_DEDICATED_HOST_
     check(%INPUT_DOCUMENT.%EC2_DEDICATED_HOST_TYPE.resourceProperties)
         <<
         [CT.EC2.PR.17]: Require an Amazon EC2 dedicated host to use an AWS Nitro instance type
-        [FIX]: Set the value of the InstanceType property to an Amazon EC2 instance type that is based on the AWS Nitro system, and
-        that supports dedicated hosts, or set the value of the InstanceFamily property to an Amazon EC2 instance family that is based
+        [FIX]: Set the value of the InstanceType property to an Amazon EC2 instance type that is based on the AWS Nitro system, and 
+        that supports dedicated hosts, or set the value of the InstanceFamily property to an Amazon EC2 instance family that is based 
         on the AWS Nitro system, and that supports dedicated hosts and multiple instance types.
         >>
 }
@@ -5463,18 +5108,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.17 example templates
+<a name="ct-ec2-pr-17-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DedicatedHost:
     Type: AWS::EC2::Host
@@ -5485,14 +5128,11 @@ Resources:
         - 0
         - Fn::GetAZs: ''
       InstanceFamily: m5
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DedicatedHost:
     Type: AWS::EC2::Host
@@ -5503,14 +5143,11 @@ Resources:
         - 0
         - Fn::GetAZs: ''
       InstanceType: m6a.large
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DedicatedHost:
     Type: AWS::EC2::Host
@@ -5521,60 +5158,45 @@ Resources:
         - 0
         - Fn::GetAZs: ''
       InstanceType: c4.large
-
-
 ```
 
 ## [CT.EC2.PR.18] Require an Amazon EC2 fleet to override only those launch templates with AWS Nitro instance types
+<a name="ct-ec2-pr-18-description"></a>
 
 This control checks that Amazon EC2 fleets only override launch templates with AWS Nitro instance types.
-
-- **Control objective:** Protect data integrity, Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::EC2Fleet`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.18 rule specification](#ct-ec2-pr-18-rule "#ct-ec2-pr-18-rule")
++ **Control objective: **Protect data integrity, Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::EC2Fleet`
++ **CloudFormation guard rule: ** [CT.EC2.PR.18 rule specification](#ct-ec2-pr-18-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.18 rule specification](#ct-ec2-pr-18-rule "#ct-ec2-pr-18-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.18 example templates](#ct-ec2-pr-18-templates "#ct-ec2-pr-18-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.18 rule specification](#ct-ec2-pr-18-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.18 example templates](#ct-ec2-pr-18-templates) 
 
 **Explanation**
 
-The Nitro System is a collection of hardware and software components built by AWS to enable high performance,
-high availability, and high security. The Nitro System provides enhanced security because it continuously monitors,
-protects, and verifies the instance's hardware and firmware. Virtualization resources are offloaded to dedicated
-hardware and software, minimizing the attack surface. The Nitro System security model is locked down to prohibit
-administrative access, reducing the possibility of human error and tampering.
+The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security. The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware. Virtualization resources are offloaded to dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to prohibit administrative access, reducing the possibility of human error and tampering.
 
-###### Usage considerations
-
-- This control applies only when launch template overrides have been provided, specifically, entries in `LaunchTemplateConfigs` specifying one or
-  more `Overrides` that also include values for `InstanceType` or `InstanceRequirements` properties.
-- This control does not check the instance type configured on a launch template. To ensure that launch templates use
-  Nitro instances types, use this control in conjunction with related controls that check launch templates for Nitro instance types.
+**Usage considerations**  
+This control applies only when launch template overrides have been provided, specifically, entries in `LaunchTemplateConfigs` specifying one or more `Overrides` that also include values for `InstanceType` or `InstanceRequirements` properties.
+This control does not check the instance type configured on a launch template. To ensure that launch templates use Nitro instances types, use this control in conjunction with related controls that check launch templates for Nitro instance types.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-18-remediation"></a>
 
 For any entry in the LaunchTemplateConfigs parameter, if it has one or more Overrides properties that also include `InstanceType` or `InstanceRequirements` fields, set the value of the `InstanceType` field to an EC2 instance type based on the AWS Nitro system, or set the value of the `AllowedInstanceTypes` field in the InstanceRequirements property to one or more EC2 instance types that are based on the AWS Nitro system.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Fleet - Example One
+<a name="ct-ec2-pr-18-remediation-1"></a>
 
-An Amazon EC2 fleet configured with a launch template override and instance type based on the AWS Nitro system.
-The example is shown in JSON and in YAML.
+An Amazon EC2 fleet configured with a launch template override and instance type based on the AWS Nitro system. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Fleet": {
         "Type": "AWS::EC2::EC2Fleet",
@@ -5606,13 +5228,11 @@ The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Fleet:
   Type: AWS::EC2::EC2Fleet
   Properties:
@@ -5625,21 +5245,18 @@ EC2Fleet:
           Version: !GetAtt 'LaunchTemplate.LatestVersionNumber'
         Overrides:
           - InstanceType: t3.micro
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Fleet - Example Two
+<a name="ct-ec2-pr-18-remediation-2"></a>
 
-An Amazon EC2 fleet configured with a launch template override and instance requirements that specify a list of allowed instances based on the AWS Nitro system.
-The example is shown in JSON and in YAML.
+An Amazon EC2 fleet configured with a launch template override and instance requirements that specify a list of allowed instances based on the AWS Nitro system. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Fleet": {
         "Type": "AWS::EC2::EC2Fleet",
@@ -5684,13 +5301,11 @@ The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Fleet:
   Type: AWS::EC2::EC2Fleet
   Properties:
@@ -5712,33 +5327,31 @@ EC2Fleet:
               AllowedInstanceTypes:
                 - m5.*
                 - c5.*
-
-
 ```
 
 ### CT.EC2.PR.18 rule specification
+<a name="ct-ec2-pr-18-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_fleet_nitro_instance_override_check
-#
+# 
 # Description:
 #   This control checks that Amazon EC2 fleets only override launch templates with AWS Nitro instance types.
-#
+# 
 # Reports on:
 #   AWS::EC2::EC2Fleet
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5917,18 +5530,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.18 example templates
+<a name="ct-ec2-pr-18-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -5955,14 +5566,11 @@ Resources:
             Fn::GetAtt: [LaunchTemplate, LatestVersionNumber]
         Overrides:
         - InstanceType: t3.micro
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -5998,14 +5606,11 @@ Resources:
             AllowedInstanceTypes:
             - m5.*
             - c5.*
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -6032,14 +5637,11 @@ Resources:
             Fn::GetAtt: [LaunchTemplate, LatestVersionNumber]
         Overrides:
         - InstanceType: t2.micro
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -6074,62 +5676,47 @@ Resources:
               Max: 4000
             AllowedInstanceTypes:
             - c4.large
-
-
 ```
 
 ## [CT.EC2.PR.19] Require an Amazon EC2 instance to use an AWS Nitro instance type that supports encryption in-transit between instances when created using the AWS::EC2::Instance resource type
+<a name="ct-ec2-pr-19-description"></a>
 
 This control checks whether an Amazon EC2 instance has been configured to run using a Nitro instance type that supports encryption in-transit between instances.
-
-- **Control objective:** Encrypt data in transit, Protect data integrity, Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::Instance`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.19 rule specification](#ct-ec2-pr-19-rule "#ct-ec2-pr-19-rule")
++ **Control objective: **Encrypt data in transit, Protect data integrity, Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::Instance`
++ **CloudFormation guard rule: ** [CT.EC2.PR.19 rule specification](#ct-ec2-pr-19-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.19 rule specification](#ct-ec2-pr-19-rule "#ct-ec2-pr-19-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.19 example templates](#ct-ec2-pr-19-templates "#ct-ec2-pr-19-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.19 rule specification](#ct-ec2-pr-19-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.19 example templates](#ct-ec2-pr-19-templates) 
 
 **Explanation**
 
-The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security.
-The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware. Virtualization resources are offloaded to
-dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to prohibit administrative access, reducing the possibility of
-human error and tampering.
+The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security. The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware. Virtualization resources are offloaded to dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to prohibit administrative access, reducing the possibility of human error and tampering.
 
-AWS provides secure and private connectivity between Amazon EC2 instances of all types. In addition, some instance types utilize the offload capabilities of the underlying
-Nitro System hardware to encrypt in-transit traffic between instances, automatically. This encryption process uses
-Authenticated Encryption with Associated Data (AEAD) algorithms, with 256-bit encryption. It has no impact on network performance.
+AWS provides secure and private connectivity between Amazon EC2 instances of all types. In addition, some instance types utilize the offload capabilities of the underlying Nitro System hardware to encrypt in-transit traffic between instances, automatically. This encryption process uses Authenticated Encryption with Associated Data (AEAD) algorithms, with 256-bit encryption. It has no impact on network performance.
 
-###### Usage considerations
-
-- This control requires that the InstanceType property is provided and set to a Nitro instance type that supports encryption in transit between instances. This setting prevents you from inheriting an instance type by way of an Amazon EC2 launch template.
-- To support in-transit traffic encryption between instances, in addition to using one of the Amazon EC2 instance types required by this control, the instances must be in the same Region, and they must be in the same VPC or group of peered VPCs,
-  in which traffic does not pass through a virtual network device or service, such as a load balancer or a transit gateway.
+**Usage considerations**  
+This control requires that the InstanceType property is provided and set to a Nitro instance type that supports encryption in transit between instances. This setting prevents you from inheriting an instance type by way of an Amazon EC2 launch template.
+To support in-transit traffic encryption between instances, in addition to using one of the Amazon EC2 instance types required by this control, the instances must be in the same Region, and they must be in the same VPC or group of peered VPCs, in which traffic does not pass through a virtual network device or service, such as a load balancer or a transit gateway.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-19-remediation"></a>
 
 Set `InstanceType` to an Amazon EC2 instance type based on the AWS Nitro system that supports encryption in-transit between instances.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Instance - Example
+<a name="ct-ec2-pr-19-remediation-1"></a>
 
-An Amazon EC2 instance configured with an instance type based on the AWS Nitro system, and that supports
-encryption in transit between instances. The example is shown in JSON and in YAML.
+An Amazon EC2 instance configured with an instance type based on the AWS Nitro system, and that supports encryption in transit between instances. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Instance": {
         "Type": "AWS::EC2::Instance",
@@ -6141,45 +5728,41 @@ encryption in transit between instances. The example is shown in JSON and in YAM
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Instance:
   Type: AWS::EC2::Instance
   Properties:
     ImageId: !Ref 'LatestAmiId'
     InstanceType: c5a.large
-
-
 ```
 
 ### CT.EC2.PR.19 rule specification
+<a name="ct-ec2-pr-19-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_instance_nitro_encryption_in_transit_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EC2 instance has been configured to run using a Nitro instance type that supports encryption in-transit between instances.
-#
+# 
 # Reports on:
 #   AWS::EC2::Instance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -6285,18 +5868,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.19 example templates
+<a name="ct-ec2-pr-19-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -6309,14 +5890,11 @@ Resources:
       ImageId:
         Ref: LatestAmiId
       InstanceType: c5a.large
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -6329,66 +5907,48 @@ Resources:
       ImageId:
         Ref: LatestAmiId
       InstanceType: t2.micro
-
-
 ```
 
 ## [CT.EC2.PR.20] Require an Amazon EC2 fleet to override only those launch templates with AWS Nitro instance types that support encryption in transit between instances
+<a name="ct-ec2-pr-20-description"></a>
 
 This control checks whether an Amazon EC2 fleet overrides only the launch templates based upon AWS Nitro instance types that support encryption in transit between instances.
-
-- **Control objective:** Encrypt data in transit, Protect data integrity, Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EC2::EC2Fleet`
-- **CloudFormation guard rule:**
-  [CT.EC2.PR.20 rule specification](#ct-ec2-pr-20-rule "#ct-ec2-pr-20-rule")
++ **Control objective: **Encrypt data in transit, Protect data integrity, Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EC2::EC2Fleet`
++ **CloudFormation guard rule: ** [CT.EC2.PR.20 rule specification](#ct-ec2-pr-20-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EC2.PR.20 rule specification](#ct-ec2-pr-20-rule "#ct-ec2-pr-20-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EC2.PR.20 example templates](#ct-ec2-pr-20-templates "#ct-ec2-pr-20-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EC2.PR.20 rule specification](#ct-ec2-pr-20-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EC2.PR.20 example templates](#ct-ec2-pr-20-templates) 
 
 **Explanation**
 
-The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security.
-The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware. Virtualization
-resources are offloaded to dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to prohibit
-administrative access, reducing the possibility of human error and tampering.
+The Nitro System is a collection of hardware and software components built by AWS to enable high performance, high availability, and high security. The Nitro System provides enhanced security because it continuously monitors, protects, and verifies the instance's hardware and firmware. Virtualization resources are offloaded to dedicated hardware and software, minimizing the attack surface. The Nitro System security model is locked down to prohibit administrative access, reducing the possibility of human error and tampering.
 
-AWS provides secure and private connectivity between Amazon EC2 instances of all types. In addition, some instance types utilize the offload
-capabilities of the underlying Nitro System hardware to encrypt in-transit traffic between instances, automatically. This encryption process uses Authenticated Encryption with
-Associated Data (AEAD) algorithms, with 256-bit encryption. It has no impact on network performance.
+AWS provides secure and private connectivity between Amazon EC2 instances of all types. In addition, some instance types utilize the offload capabilities of the underlying Nitro System hardware to encrypt in-transit traffic between instances, automatically. This encryption process uses Authenticated Encryption with Associated Data (AEAD) algorithms, with 256-bit encryption. It has no impact on network performance.
 
-###### Usage considerations
-
-- This control applies only when launch template overrides have been provided, specifically, entries in `LaunchTemplateConfigs` specifying one or more `Overrides` that also include values for `InstanceType` or `InstanceRequirements` properties.
-- This control does not check the instance type configured on a launch template. To ensure that launch templates use Nitro instances types that support encryption in-transit between instances,
-  use this control in conjunction with related controls that check launch templates for Nitro instance types, and that the Nitro instance types support encryption in transit between instances.
-- To support in-transit traffic encryption between instances, in addition to using one of the EC2 instance types required by this control, the instances must be in the same AWS Region, and they must be in the same VPC or group of
-  peered VPCs, in which traffic does not pass through a virtual network device or service, such as a load balancer or a transit gateway.
+**Usage considerations**  
+This control applies only when launch template overrides have been provided, specifically, entries in `LaunchTemplateConfigs` specifying one or more `Overrides` that also include values for `InstanceType` or `InstanceRequirements` properties.
+This control does not check the instance type configured on a launch template. To ensure that launch templates use Nitro instances types that support encryption in-transit between instances, use this control in conjunction with related controls that check launch templates for Nitro instance types, and that the Nitro instance types support encryption in transit between instances.
+To support in-transit traffic encryption between instances, in addition to using one of the EC2 instance types required by this control, the instances must be in the same AWS Region, and they must be in the same VPC or group of peered VPCs, in which traffic does not pass through a virtual network device or service, such as a load balancer or a transit gateway.
 
 ### Remediation for rule failure
+<a name="ct-ec2-pr-20-remediation"></a>
 
-For any entry in the LaunchTemplateConfigs parameter, if it has one or more Overrides properties that also include `InstanceType` or `InstanceRequirements` fields, set the value of the InstanceType field to an Amazon EC2 instance type that's based on the
-AWS Nitro system, and that supports encryption in transit between instances, or set the value of the AllowedInstanceTypes field in the InstanceRequirements property to one or more Amazon EC2 instance types that are based on the
-AWS Nitro system, and that support encryption in transit between instances.
+For any entry in the LaunchTemplateConfigs parameter, if it has one or more Overrides properties that also include `InstanceType` or `InstanceRequirements` fields, set the value of the InstanceType field to an Amazon EC2 instance type that's based on the AWS Nitro system, and that supports encryption in transit between instances, or set the value of the AllowedInstanceTypes field in the InstanceRequirements property to one or more Amazon EC2 instance types that are based on the AWS Nitro system, and that support encryption in transit between instances.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Fleet - Example One
+<a name="ct-ec2-pr-20-remediation-1"></a>
 
-An Amazon EC2 fleet configured with a launch template override and instance type that is based on the AWS Nitro system, and that
-supports encryption in transit between instances. The example is shown in JSON and in YAML.
+An Amazon EC2 fleet configured with a launch template override and instance type that is based on the AWS Nitro system, and that supports encryption in transit between instances. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Fleet": {
         "Type": "AWS::EC2::EC2Fleet",
@@ -6420,13 +5980,11 @@ supports encryption in transit between instances. The example is shown in JSON a
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Fleet:
   Type: AWS::EC2::EC2Fleet
   Properties:
@@ -6439,21 +5997,18 @@ EC2Fleet:
           Version: !GetAtt 'LaunchTemplate.LatestVersionNumber'
         Overrides:
           - InstanceType: c5a.large
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EC2 Fleet - Example Two
+<a name="ct-ec2-pr-20-remediation-2"></a>
 
-An Amazon EC2 fleet configured with a launch template override and instance requirements that specify a list of allowed instances, that
-are based on the AWS Nitro system, and that support encryption in transit between instances. The example is shown in JSON and in YAML.
+An Amazon EC2 fleet configured with a launch template override and instance requirements that specify a list of allowed instances, that are based on the AWS Nitro system, and that support encryption in transit between instances. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EC2Fleet": {
         "Type": "AWS::EC2::EC2Fleet",
@@ -6498,13 +6053,11 @@ are based on the AWS Nitro system, and that support encryption in transit betwee
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EC2Fleet:
   Type: AWS::EC2::EC2Fleet
   Properties:
@@ -6526,33 +6079,31 @@ EC2Fleet:
               AllowedInstanceTypes:
                 - m6a.*
                 - c5a.*
-
-
 ```
 
 ### CT.EC2.PR.20 rule specification
+<a name="ct-ec2-pr-20-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ec2_fleet_nitro_encryption_in_transit_override_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EC2 fleet overrides only the launch templates based upon AWS Nitro instance types that support encryption in transit between instances.
-#
+# 
 # Reports on:
 #   AWS::EC2::EC2Fleet
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -6664,8 +6215,8 @@ rule ec2_fleet_nitro_encryption_in_transit_override_check when is_cfn_hook(%INPU
     check(%INPUT_DOCUMENT.%EC2_FLEET_TYPE.resourceProperties)
         <<
         [CT.EC2.PR.20]: Require an Amazon EC2 fleet to override only those launch templates with AWS Nitro instance types that support encryption in transit between instances
-        [FIX]: For any entry in the LaunchTemplateConfigs parameter, if it has one or more Overrides properties that also include 'InstanceType' or 'InstanceRequirements' fields,
-        set the value of the InstanceType field to an Amazon EC2 instance type that's based on the AWS Nitro system, and that supports encryption in transit between instances, or
+        [FIX]: For any entry in the LaunchTemplateConfigs parameter, if it has one or more Overrides properties that also include 'InstanceType' or 'InstanceRequirements' fields, 
+        set the value of the InstanceType field to an Amazon EC2 instance type that's based on the AWS Nitro system, and that supports encryption in transit between instances, or 
         set the value of the AllowedInstanceTypes field in the InstanceRequirements property to one or more Amazon EC2 instance types that are based on the AWS Nitro system, and that support encryption in transit between instances.
         >>
 }
@@ -6729,18 +6280,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EC2.PR.20 example templates
+<a name="ct-ec2-pr-20-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -6767,14 +6316,11 @@ Resources:
             Fn::GetAtt: [LaunchTemplate, LatestVersionNumber]
         Overrides:
         - InstanceType: c5a.large
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -6810,14 +6356,11 @@ Resources:
             AllowedInstanceTypes:
             - m6a.*
             - c5a.*
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -6844,14 +6387,11 @@ Resources:
             Fn::GetAtt: [LaunchTemplate, LatestVersionNumber]
         Overrides:
         - InstanceType: t2.micro
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Parameters:
   LatestAmiId:
     Description: Region specific latest AMI ID from the Parameter Store
@@ -6886,6 +6426,4 @@ Resources:
               Max: 4000
             AllowedInstanceTypes:
             - c4.large
-
-
 ```

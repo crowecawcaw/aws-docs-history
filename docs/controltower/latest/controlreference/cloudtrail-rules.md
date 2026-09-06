@@ -1,50 +1,47 @@
+
+
 # AWS CloudTrail controls
+<a name="cloudtrail-rules"></a>
 
-###### Topics
-
-- [[CT.CLOUDTRAIL.PR.1] Require an AWS CloudTrail trail to have encryption at rest activated](#ct-cloudtrail-pr-1-description "#ct-cloudtrail-pr-1-description")
-- [[CT.CLOUDTRAIL.PR.2] Require an AWS CloudTrail trail to have log file validation activated](#ct-cloudtrail-pr-2-description "#ct-cloudtrail-pr-2-description")
-- [[CT.CLOUDTRAIL.PR.3] Require an AWS CloudTrail trail to have an Amazon CloudWatch Logs log group configuration](#ct-cloudtrail-pr-3-description "#ct-cloudtrail-pr-3-description")
-- [[CT.CLOUDTRAIL.PR.4] Require an AWS CloudTrail Lake event data store to enable encryption at rest with an AWS KMS key](#ct-cloudtrail-pr-4-description "#ct-cloudtrail-pr-4-description")
+**Topics**
++ [[CT.CLOUDTRAIL.PR.1] Require an AWS CloudTrail trail to have encryption at rest activated](#ct-cloudtrail-pr-1-description)
++ [[CT.CLOUDTRAIL.PR.2] Require an AWS CloudTrail trail to have log file validation activated](#ct-cloudtrail-pr-2-description)
++ [[CT.CLOUDTRAIL.PR.3] Require an AWS CloudTrail trail to have an Amazon CloudWatch Logs log group configuration](#ct-cloudtrail-pr-3-description)
++ [[CT.CLOUDTRAIL.PR.4] Require an AWS CloudTrail Lake event data store to enable encryption at rest with an AWS KMS key](#ct-cloudtrail-pr-4-description)
 
 ## [CT.CLOUDTRAIL.PR.1] Require an AWS CloudTrail trail to have encryption at rest activated
+<a name="ct-cloudtrail-pr-1-description"></a>
 
 This control checks whether your AWS CloudTrail is configured to use the server-side encryption (SSE) AWS KMS key encryption.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudTrail::Trail`
-- **CloudFormation guard rule:**
-  [CT.CLOUDTRAIL.PR.1 rule specification](#ct-cloudtrail-pr-1-rule "#ct-cloudtrail-pr-1-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudTrail::Trail`
++ **CloudFormation guard rule: ** [CT.CLOUDTRAIL.PR.1 rule specification](#ct-cloudtrail-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDTRAIL.PR.1 rule specification](#ct-cloudtrail-pr-1-rule "#ct-cloudtrail-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDTRAIL.PR.1 example templates](#ct-cloudtrail-pr-1-templates "#ct-cloudtrail-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDTRAIL.PR.1 rule specification](#ct-cloudtrail-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDTRAIL.PR.1 example templates](#ct-cloudtrail-pr-1-templates) 
 
 **Explanation**
 
 For an added layer of security for your sensitive CloudTrail log files, you should use server-side encryption with AWS KMS keys (SSE-KMS) for your CloudTrail log files for encryption at rest. Note that by default, the log files delivered by CloudTrail to your buckets are encrypted by Amazon server-side encryption with Amazon S3-managed encryption keys (SSE-S3).
 
 ### Remediation for rule failure
+<a name="ct-cloudtrail-pr-1-remediation"></a>
 
 Set the `KMSKeyId` property to a valid KMS key.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CloudTrail trail - Example
+<a name="ct-cloudtrail-pr-1-remediation-1"></a>
 
 AWS CloudTrail Trail configured to use server-side encryption with AWS KMS keys (SSE-KMS). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudTrail": {
         "Type": "AWS::CloudTrail::Trail",
@@ -59,46 +56,42 @@ AWS CloudTrail Trail configured to use server-side encryption with AWS KMS keys 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudTrail:
   Type: AWS::CloudTrail::Trail
   Properties:
     IsLogging: true
     KMSKeyId: !Ref 'KMSKey'
     S3BucketName: !Ref 'LoggingBucket'
-
-
 ```
 
 ### CT.CLOUDTRAIL.PR.1 rule specification
+<a name="ct-cloudtrail-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloud_trail_encryption_enabled_check
-#
+# 
 # Description:
 #   This rule checks whether AWS CloudTrail is configured to use the server-side encryption (SSE) AWS KMS key encryption.
-#
+# 
 # Reports on:
 #   AWS::CloudTrail::Trail
-#
+# 
 # Evaluates:
 #   AWS CloudFormation, AWS CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
@@ -212,24 +205,22 @@ rule query_for_resource(doc, resource_key, referenced_RESOURCE_TYPE) {
         Type == %referenced_RESOURCE_TYPE
     }
 }
-
-
 ```
 
 ### CT.CLOUDTRAIL.PR.1 example templates
+<a name="ct-cloudtrail-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   KMSKey:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-cloudtrail-key-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -251,7 +242,7 @@ Resources:
                 Fn::Sub: "arn:aws:cloudtrail:*:${AWS::AccountId}:trail/*"
               ]
             StringEquals:
-              "aws:SourceArn":
+              "aws:SourceArn": 
                 Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
         - Sid: Allow CloudTrail to describe key
           Effect: Allow
@@ -268,7 +259,7 @@ Resources:
            - "kms:ReEncryptFrom"
           Resource: "*"
           Condition:
-            StringEquals:
+            StringEquals: 
               "kms:CallerAccount":
                 Ref: AWS::AccountId
               "kms:EncryptionContext:aws:cloudtrail:arn":
@@ -281,7 +272,7 @@ Resources:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetBucketAcl'
@@ -295,7 +286,7 @@ Resources:
               Service: "cloudtrail.amazonaws.com"
             Condition:
               StringEquals:
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
           - Action:
               - 's3:PutObject'
@@ -313,7 +304,7 @@ Resources:
             Condition:
               StringEquals:
                 's3:x-amz-acl': 'bucket-owner-full-control'
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
   CloudTrail:
     Type: AWS::CloudTrail::Trail
@@ -325,14 +316,11 @@ Resources:
         Ref: KMSKey
       S3BucketName:
         Ref: LoggingBucket
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LoggingBucket:
     Type: AWS::S3::Bucket
@@ -342,7 +330,7 @@ Resources:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetBucketAcl'
@@ -356,7 +344,7 @@ Resources:
               Service: "cloudtrail.amazonaws.com"
             Condition:
               StringEquals:
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
           - Action:
               - 's3:PutObject'
@@ -374,7 +362,7 @@ Resources:
             Condition:
               StringEquals:
                 's3:x-amz-acl': 'bucket-owner-full-control'
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
   CloudTrail:
     Type: AWS::CloudTrail::Trail
@@ -384,29 +372,21 @@ Resources:
         Fn::Sub: ${AWS::StackName}-example-trail
       S3BucketName:
         Ref: LoggingBucket
-
-
 ```
 
 ## [CT.CLOUDTRAIL.PR.2] Require an AWS CloudTrail trail to have log file validation activated
+<a name="ct-cloudtrail-pr-2-description"></a>
 
 This control checks whether log file integrity validation is enabled on an AWS CloudTrail trail.
-
-- **Control objective:** Manage secrets
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudTrail::Trail`
-- **CloudFormation guard rule:**
-  [CT.CLOUDTRAIL.PR.2 rule specification](#ct-cloudtrail-pr-2-rule "#ct-cloudtrail-pr-2-rule")
++ **Control objective: **Manage secrets
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudTrail::Trail`
++ **CloudFormation guard rule: ** [CT.CLOUDTRAIL.PR.2 rule specification](#ct-cloudtrail-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDTRAIL.PR.2 rule specification](#ct-cloudtrail-pr-2-rule "#ct-cloudtrail-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDTRAIL.PR.2 example templates](#ct-cloudtrail-pr-2-templates "#ct-cloudtrail-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDTRAIL.PR.2 rule specification](#ct-cloudtrail-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDTRAIL.PR.2 example templates](#ct-cloudtrail-pr-2-templates) 
 
 **Explanation**
 
@@ -415,19 +395,20 @@ CloudTrail log file validation creates a digitally-signed digest file that conta
 AWS Control Tower recommends that you enable file validation on all trails. Log file validation provides additional integrity checks of CloudTrail logs.
 
 ### Remediation for rule failure
+<a name="ct-cloudtrail-pr-2-remediation"></a>
 
 Set the CloudTrail resource `EnableLogFileValidation` property to true.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CloudTrail trail - Example
+<a name="ct-cloudtrail-pr-2-remediation-1"></a>
 
 AWS CloudTrail trail configured with log file validation. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudTrail": {
         "Type": "AWS::CloudTrail::Trail",
@@ -443,13 +424,11 @@ AWS CloudTrail trail configured with log file validation. The example is shown i
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudTrail:
   Type: AWS::CloudTrail::Trail
   Properties:
@@ -457,33 +436,31 @@ CloudTrail:
     S3BucketName: !Ref 'LoggingBucket'
     KMSKeyId: !Ref 'KMSKey'
     EnableLogFileValidation: true
-
-
 ```
 
 ### CT.CLOUDTRAIL.PR.2 rule specification
+<a name="ct-cloudtrail-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloud_trail_log_file_validation_enabled_check
-#
+# 
 # Description:
 #   This control checks whether log file integrity validation is enabled on an AWS CloudTrail trail.
-#
+# 
 # Reports on:
 #   AWS::CloudTrail::Trail
-#
+# 
 # Evaluates:
 #   AWS CloudFormation, AWS CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
@@ -561,18 +538,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDTRAIL.PR.2 example templates
+<a name="ct-cloudtrail-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LoggingBucket:
     Type: AWS::S3::Bucket
@@ -582,7 +557,7 @@ Resources:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetBucketAcl'
@@ -596,7 +571,7 @@ Resources:
               Service: "cloudtrail.amazonaws.com"
             Condition:
               StringEquals:
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
           - Action:
               - 's3:PutObject'
@@ -614,7 +589,7 @@ Resources:
             Condition:
               StringEquals:
                 's3:x-amz-acl': 'bucket-owner-full-control'
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
   CloudTrail:
     Type: AWS::CloudTrail::Trail
@@ -625,14 +600,11 @@ Resources:
       S3BucketName:
         Ref: LoggingBucket
       EnableLogFileValidation: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LoggingBucket:
     Type: AWS::S3::Bucket
@@ -642,7 +614,7 @@ Resources:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetBucketAcl'
@@ -656,7 +628,7 @@ Resources:
               Service: "cloudtrail.amazonaws.com"
             Condition:
               StringEquals:
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
           - Action:
               - 's3:PutObject'
@@ -674,7 +646,7 @@ Resources:
             Condition:
               StringEquals:
                 's3:x-amz-acl': 'bucket-owner-full-control'
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
   CloudTrail:
     Type: AWS::CloudTrail::Trail
@@ -685,29 +657,21 @@ Resources:
       S3BucketName:
         Ref: LoggingBucket
       EnableLogFileValidation: false
-
-
 ```
 
 ## [CT.CLOUDTRAIL.PR.3] Require an AWS CloudTrail trail to have an Amazon CloudWatch Logs log group configuration
+<a name="ct-cloudtrail-pr-3-description"></a>
 
 This control checks whether your AWS CloudTrail trail is configured to send logs to Amazon CloudWatch Logs Logs.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudTrail::Trail`
-- **CloudFormation guard rule:**
-  [CT.CLOUDTRAIL.PR.3 rule specification](#ct-cloudtrail-pr-3-rule "#ct-cloudtrail-pr-3-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudTrail::Trail`
++ **CloudFormation guard rule: ** [CT.CLOUDTRAIL.PR.3 rule specification](#ct-cloudtrail-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDTRAIL.PR.3 rule specification](#ct-cloudtrail-pr-3-rule "#ct-cloudtrail-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDTRAIL.PR.3 example templates](#ct-cloudtrail-pr-3-templates "#ct-cloudtrail-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDTRAIL.PR.3 rule specification](#ct-cloudtrail-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDTRAIL.PR.3 example templates](#ct-cloudtrail-pr-3-templates) 
 
 **Explanation**
 
@@ -722,19 +686,20 @@ AWS CloudTrail recommends that you send CloudTrail logs to CloudWatch Logs. Note
 Sending CloudTrail logs to CloudWatch Logs facilitates real-time and historic activity logging based on user, API, resource, and IP address. You can use this approach to establish alarms and notifications for anomalous or sensitivity account activity.
 
 ### Remediation for rule failure
+<a name="ct-cloudtrail-pr-3-remediation"></a>
 
 Set the `CloudWatchLogsLogGroupArn` and `CloudWatchLogsRoleArn` properties.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CloudTrail trail - Example
+<a name="ct-cloudtrail-pr-3-remediation-1"></a>
 
 AWS CloudTrail trail configured to send events to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudTrail": {
         "Type": "AWS::CloudTrail::Trail",
@@ -758,13 +723,11 @@ AWS CloudTrail trail configured to send events to Amazon CloudWatch Logs. The ex
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudTrail:
   Type: AWS::CloudTrail::Trail
   Properties:
@@ -772,33 +735,31 @@ CloudTrail:
     S3BucketName: !Ref 'LoggingBucket'
     CloudWatchLogsRoleArn: !GetAtt 'LogRole.Arn'
     CloudWatchLogsLogGroupArn: !GetAtt 'LogGroup.Arn'
-
-
 ```
 
 ### CT.CLOUDTRAIL.PR.3 rule specification
+<a name="ct-cloudtrail-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloud_trail_cloud_watch_logs_enabled_check
-#
+# 
 # Description:
 #   This rule checks whether AWS CloudTrail trails are configured to send logs to Amazon CloudWatch Logs.
-#
+# 
 # Reports on:
 #   AWS::CloudTrail::Trail
-#
+# 
 # Evaluates:
 #   AWS CloudFormation, AWS CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an AWS CloudFormation or CloudFormation hook document
@@ -928,18 +889,16 @@ rule query_for_resource(doc, resource_key, referenced_RESOURCE_TYPE) {
         Type == %referenced_RESOURCE_TYPE
     }
 }
-
-
 ```
 
 ### CT.CLOUDTRAIL.PR.3 example templates
+<a name="ct-cloudtrail-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LoggingBucket:
     Type: AWS::S3::Bucket
@@ -949,7 +908,7 @@ Resources:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetBucketAcl'
@@ -963,7 +922,7 @@ Resources:
               Service: "cloudtrail.amazonaws.com"
             Condition:
               StringEquals:
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
           - Action:
               - 's3:PutObject'
@@ -981,13 +940,13 @@ Resources:
             Condition:
               StringEquals:
                 's3:x-amz-acl': 'bucket-owner-full-control'
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
   CloudWatchLogsRole:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Sid: AssumeRole
           Effect: Allow
@@ -997,13 +956,13 @@ Resources:
       Policies:
       - PolicyName: 'cloudtrail-policy'
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
             - 'logs:CreateLogStream'
             - 'logs:PutLogEvents'
-            Resource:
+            Resource: 
               Fn::GetAtt: [LogGroup, Arn]
   LogGroup:
     Type: AWS::Logs::LogGroup
@@ -1024,14 +983,11 @@ Resources:
         Fn::GetAtt:
         - LogGroup
         - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LoggingBucket:
     Type: AWS::S3::Bucket
@@ -1041,7 +997,7 @@ Resources:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetBucketAcl'
@@ -1055,7 +1011,7 @@ Resources:
               Service: "cloudtrail.amazonaws.com"
             Condition:
               StringEquals:
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
           - Action:
               - 's3:PutObject'
@@ -1073,7 +1029,7 @@ Resources:
             Condition:
               StringEquals:
                 's3:x-amz-acl': 'bucket-owner-full-control'
-                "aws:SourceArn":
+                "aws:SourceArn": 
                   Fn::Sub: "arn:aws:cloudtrail:${AWS::Region}:${AWS::AccountId}:trail/${AWS::StackName}-example-trail"
   CloudTrail:
     Type: AWS::CloudTrail::Trail
@@ -1083,52 +1039,44 @@ Resources:
         Fn::Sub: ${AWS::StackName}-example-trail
       S3BucketName:
         Ref: LoggingBucket
-
-
 ```
 
 ## [CT.CLOUDTRAIL.PR.4] Require an AWS CloudTrail Lake event data store to enable encryption at rest with an AWS KMS key
+<a name="ct-cloudtrail-pr-4-description"></a>
 
 This control checks whether a CloudTrail Lake event data store is encrypted at rest with a KMS key.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudTrail::EventDataStore`
-- **CloudFormation guard rule:**
-  [CT.CLOUDTRAIL.PR.4 rule specification](#ct-cloudtrail-pr-4-rule "#ct-cloudtrail-pr-4-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudTrail::EventDataStore`
++ **CloudFormation guard rule: ** [CT.CLOUDTRAIL.PR.4 rule specification](#ct-cloudtrail-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDTRAIL.PR.4 rule specification](#ct-cloudtrail-pr-4-rule "#ct-cloudtrail-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDTRAIL.PR.4 example templates](#ct-cloudtrail-pr-4-templates "#ct-cloudtrail-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDTRAIL.PR.4 rule specification](#ct-cloudtrail-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDTRAIL.PR.4 example templates](#ct-cloudtrail-pr-4-templates) 
 
 **Explanation**
 
 Encrypting data at rest reduces the risk that a user not authenticated to AWS may obtain access to data stored on disk. For added control over encryption keys, you can use customer-managed keys from AWS KMS. You have full control over these KMS keys. You can establish and maintain their key policies, IAM policies, and grants, enable and disable the keys, rotate their cryptographic material, add tags, create aliases that refer to the KMS keys, and schedule the KMS keys for deletion.
 
-###### Usage considerations
-
-- All events in an AWS CloudTrail Lake event data store are encrypted by CloudTrail using a KMS key that AWS owns and manages for you. For added control over encryption keys, you can use customer-managed keys from AWS KMS. For more information, see [AWS KMS Concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS KMS Developer Guide_.
+**Usage considerations**  
+All events in an AWS CloudTrail Lake event data store are encrypted by CloudTrail using a KMS key that AWS owns and manages for you. For added control over encryption keys, you can use customer-managed keys from AWS KMS. For more information, see [AWS KMS Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS KMS Developer Guide*.
 
 ### Remediation for rule failure
+<a name="ct-cloudtrail-pr-4-remediation"></a>
 
 Set the `KmsKeyId` parameter to the ARN of an AWS KMS customer-managed key, configured with permissions that allow the CloudTrail service principal to use the key.
 
 The examples that follow show how to implement this remediation.
 
 #### CloudTrail Lake event data store - Example
+<a name="ct-cloudtrail-pr-4-remediation-1"></a>
 
 CloudTrail Lake event data store configured to encrypt data at rest with an AWS KMS key. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudTrailEventDataStore": {
         "Type": "AWS::CloudTrail::EventDataStore",
@@ -1146,46 +1094,42 @@ CloudTrail Lake event data store configured to encrypt data at rest with an AWS 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudTrailEventDataStore:
   Type: AWS::CloudTrail::EventDataStore
   Properties:
     Name: !Sub '${AWS::StackName}-example'
     TerminationProtectionEnabled: false
     KmsKeyId: !GetAtt 'KMSKey.Arn'
-
-
 ```
 
 ### CT.CLOUDTRAIL.PR.4 rule specification
+<a name="ct-cloudtrail-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloud_trail_event_datastore_encrypted_at_rest_kms_check
-#
+# 
 # Description:
 #   This control checks whether a CloudTrail Lake event data store is encrypted at rest with a KMS key.
-#
+# 
 # Reports on:
 #   AWS::CloudTrail::EventDataStore
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1295,24 +1239,22 @@ rule query_for_resource(doc, resource_key, referenced_RESOURCE_TYPE) {
         Type == %referenced_RESOURCE_TYPE
     }
 }
-
-
 ```
 
 ### CT.CLOUDTRAIL.PR.4 example templates
+<a name="ct-cloudtrail-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   KMSKey:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -1343,14 +1285,11 @@ Resources:
         Fn::GetAtt:
         - KMSKey
         - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CloudTrailEventDataStore:
     Type: AWS::CloudTrail::EventDataStore
@@ -1359,6 +1298,4 @@ Resources:
         Fn::Sub: ${AWS::StackName}-example
       TerminationProtectionEnabled: false
       MultiRegionEnabled: false
-
-
 ```

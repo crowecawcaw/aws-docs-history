@@ -1,48 +1,45 @@
+
+
 # AWS Step Functions controls
+<a name="stepfunctions-rules"></a>
 
-###### Topics
-
-- [[CT.STEPFUNCTIONS.PR.1] Require an AWS Step Functions state machine to have logging activated](#ct-stepfunctions-pr-1-description "#ct-stepfunctions-pr-1-description")
-- [[CT.STEPFUNCTIONS.PR.2] Require an AWS Step Functions state machine to have AWS X-Ray tracing activated](#ct-stepfunctions-pr-2-description "#ct-stepfunctions-pr-2-description")
+**Topics**
++ [[CT.STEPFUNCTIONS.PR.1] Require an AWS Step Functions state machine to have logging activated](#ct-stepfunctions-pr-1-description)
++ [[CT.STEPFUNCTIONS.PR.2] Require an AWS Step Functions state machine to have AWS X-Ray tracing activated](#ct-stepfunctions-pr-2-description)
 
 ## [CT.STEPFUNCTIONS.PR.1] Require an AWS Step Functions state machine to have logging activated
+<a name="ct-stepfunctions-pr-1-description"></a>
 
 This control checks whether an AWS Step Functions state machine has logging enabled.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::StepFunctions::StateMachine`
-- **CloudFormation guard rule:**
-  [CT.STEPFUNCTIONS.PR.1 rule specification](#ct-stepfunctions-pr-1-rule "#ct-stepfunctions-pr-1-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::StepFunctions::StateMachine`
++ **CloudFormation guard rule: ** [CT.STEPFUNCTIONS.PR.1 rule specification](#ct-stepfunctions-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.STEPFUNCTIONS.PR.1 rule specification](#ct-stepfunctions-pr-1-rule "#ct-stepfunctions-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.STEPFUNCTIONS.PR.1 example templates](#ct-stepfunctions-pr-1-templates "#ct-stepfunctions-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.STEPFUNCTIONS.PR.1 rule specification](#ct-stepfunctions-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.STEPFUNCTIONS.PR.1 example templates](#ct-stepfunctions-pr-1-templates) 
 
 **Explanation**
 
 Defining a logging configuration for your state machines allows you to track their execution history and results. This configuration allows you to track failed events that occur on a state machine, and this insight into errors can assist you when you're troubleshooting issues.
 
 ### Remediation for rule failure
+<a name="ct-stepfunctions-pr-1-remediation"></a>
 
 In `LoggingConfiguration`, set `Level` to `ERROR` or `ALL`, and set `Destinations` to a list with one or more valid Amazon CloudWatch Logs log group ARNs.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Step Functions State Machine - Example
+<a name="ct-stepfunctions-pr-1-remediation-1"></a>
 
 AWS Step Functions state machine configured to send logs to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "StateMachine": {
         "Type": "AWS::StepFunctions::StateMachine",
@@ -73,13 +70,11 @@ AWS Step Functions state machine configured to send logs to Amazon CloudWatch Lo
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 StateMachine:
   Type: AWS::StepFunctions::StateMachine
   Properties:
@@ -93,33 +88,31 @@ StateMachine:
       Destinations:
         - CloudWatchLogsLogGroup:
             LogGroupArn: !GetAtt 'LogGroup.Arn'
-
-
 ```
 
 ### CT.STEPFUNCTIONS.PR.1 rule specification
+<a name="ct-stepfunctions-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   step_functions_state_machine_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Step Functions state machine has logging enabled.
-#
+# 
 # Reports on:
 #   AWS::StepFunctions::StateMachine
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -268,24 +261,22 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.STEPFUNCTIONS.PR.1 example templates
+<a name="ct-stepfunctions-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   StepFunctionExecutionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -304,7 +295,7 @@ Resources:
       Policies:
       - PolicyName: StepFunctionLoggingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -339,20 +330,17 @@ Resources:
               Fn::GetAtt:
               - LogGroup
               - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   StepFunctionExecutionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -371,7 +359,7 @@ Resources:
       Policies:
       - PolicyName: StepFunctionLoggingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -395,20 +383,17 @@ Resources:
         Fn::GetAtt:
         - StepFunctionExecutionRole
         - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   StepFunctionExecutionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -427,7 +412,7 @@ Resources:
       Policies:
       - PolicyName: StepFunctionLoggingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -453,48 +438,41 @@ Resources:
         - Arn
       LoggingConfiguration:
         Level: 'OFF'
-
-
 ```
 
 ## [CT.STEPFUNCTIONS.PR.2] Require an AWS Step Functions state machine to have AWS X-Ray tracing activated
+<a name="ct-stepfunctions-pr-2-description"></a>
 
 This control checks whether an AWS Step Functions state machine has AWS X-Ray tracing enabled.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::StepFunctions::StateMachine`
-- **CloudFormation guard rule:**
-  [CT.STEPFUNCTIONS.PR.2 rule specification](#ct-stepfunctions-pr-2-rule "#ct-stepfunctions-pr-2-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::StepFunctions::StateMachine`
++ **CloudFormation guard rule: ** [CT.STEPFUNCTIONS.PR.2 rule specification](#ct-stepfunctions-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.STEPFUNCTIONS.PR.2 rule specification](#ct-stepfunctions-pr-2-rule "#ct-stepfunctions-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.STEPFUNCTIONS.PR.2 example templates](#ct-stepfunctions-pr-2-templates "#ct-stepfunctions-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.STEPFUNCTIONS.PR.2 rule specification](#ct-stepfunctions-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.STEPFUNCTIONS.PR.2 example templates](#ct-stepfunctions-pr-2-templates) 
 
 **Explanation**
 
 A tracing configuration allows your state machine to send tracing data to AWS X-Ray, so you can visualize the components of your state machine, identify performance bottlenecks, and troubleshoot requests that resulted in errors.
 
 ### Remediation for rule failure
+<a name="ct-stepfunctions-pr-2-remediation"></a>
 
 In the `TracingConfiguration` property, set the value of `Enabled` to true.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Step Functions State Machine - Example
+<a name="ct-stepfunctions-pr-2-remediation-1"></a>
 
 An AWS Step Functions state machine configured to send trace data to AWS X-Ray. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "StateMachine": {
         "Type": "AWS::StepFunctions::StateMachine",
@@ -528,13 +506,11 @@ An AWS Step Functions state machine configured to send trace data to AWS X-Ray. 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 StateMachine:
   Type: AWS::StepFunctions::StateMachine
   Properties:
@@ -550,33 +526,31 @@ StateMachine:
             LogGroupArn: !GetAtt 'LogGroup.Arn'
     TracingConfiguration:
       Enabled: true
-
-
 ```
 
 ### CT.STEPFUNCTIONS.PR.2 rule specification
+<a name="ct-stepfunctions-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   step_functions_state_machine_tracing_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Step Functions state machine has AWS X-Ray tracing enabled.
-#
+# 
 # Reports on:
 #   AWS::StepFunctions::StateMachine
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -659,24 +633,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.STEPFUNCTIONS.PR.2 example templates
+<a name="ct-stepfunctions-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   StepFunctionExecutionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -695,7 +667,7 @@ Resources:
       Policies:
       - PolicyName: StepFunctionLoggingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -711,7 +683,7 @@ Resources:
             Resource: '*'
       - PolicyName: StepFunctionTracingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -745,20 +717,17 @@ Resources:
               - Arn
       TracingConfiguration:
         Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   StepFunctionExecutionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -777,7 +746,7 @@ Resources:
       Policies:
       - PolicyName: StepFunctionLoggingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -793,7 +762,7 @@ Resources:
             Resource: '*'
       - PolicyName: StepFunctionTracingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -827,6 +796,4 @@ Resources:
               - Arn
       TracingConfiguration:
         Enabled: false
-
-
 ```

@@ -1,30 +1,26 @@
+
+
 # AWS Elastic Beanstalk controls
+<a name="ebs-rules"></a>
 
-###### Topics
-
-- [[CT.ELASTICBEANSTALK.PR.1] Require AWS Elastic Beanstalk environments to have enhanced health reporting enabled](#ct-elasticbeanstalk-pr-1-description "#ct-elasticbeanstalk-pr-1-description")
-- [[CT.ELASTICBEANSTALK.PR.2] Require an AWS Elastic Beanstalk environment to have managed platform updates configured](#ct-elasticbeanstalk-pr-2-description "#ct-elasticbeanstalk-pr-2-description")
-- [[CT.ELASTICBEANSTALK.PR.3] Require an AWS Elastic Beanstalk environment to have a logging configuration](#ct-elasticbeanstalk-pr-3-description "#ct-elasticbeanstalk-pr-3-description")
+**Topics**
++ [[CT.ELASTICBEANSTALK.PR.1] Require AWS Elastic Beanstalk environments to have enhanced health reporting enabled](#ct-elasticbeanstalk-pr-1-description)
++ [[CT.ELASTICBEANSTALK.PR.2] Require an AWS Elastic Beanstalk environment to have managed platform updates configured](#ct-elasticbeanstalk-pr-2-description)
++ [[CT.ELASTICBEANSTALK.PR.3] Require an AWS Elastic Beanstalk environment to have a logging configuration](#ct-elasticbeanstalk-pr-3-description)
 
 ## [CT.ELASTICBEANSTALK.PR.1] Require AWS Elastic Beanstalk environments to have enhanced health reporting enabled
+<a name="ct-elasticbeanstalk-pr-1-description"></a>
 
 This control checks whether AWS Elastic Beanstalk environments and configuration templates are configured for `enhanced` health reporting.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
-- **CloudFormation guard rule:**
-  [CT.ELASTICBEANSTALK.PR.1 rule specification](#ct-elasticbeanstalk-pr-1-rule "#ct-elasticbeanstalk-pr-1-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
++ **CloudFormation guard rule: ** [CT.ELASTICBEANSTALK.PR.1 rule specification](#ct-elasticbeanstalk-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICBEANSTALK.PR.1 rule specification](#ct-elasticbeanstalk-pr-1-rule "#ct-elasticbeanstalk-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICBEANSTALK.PR.1 example templates](#ct-elasticbeanstalk-pr-1-templates "#ct-elasticbeanstalk-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICBEANSTALK.PR.1 rule specification](#ct-elasticbeanstalk-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICBEANSTALK.PR.1 example templates](#ct-elasticbeanstalk-pr-1-templates) 
 
 **Explanation**
 
@@ -33,19 +29,20 @@ Elastic Beanstalk enhanced health reporting enables a more rapid response to cha
 Elastic Beanstalk enhanced health reporting provides a status descriptor to gauge the severity of the identified issues and identify possible causes to investigate. The Elastic Beanstalk health agent, included in supported Amazon Machine Images (AMIs), evaluates logs and metrics of environment EC2 instances.
 
 ### Remediation for rule failure
+<a name="ct-elasticbeanstalk-pr-1-remediation"></a>
 
 For AWS Elastic Beanstalk environments, configure an `OptionSetting` with `Namespace` set to `aws:elasticbeanstalk:healthreporting:system`, `OptionName` set to `SystemType`, and `Value` set to `enhanced`. For AWS Elastic Beanstalk configuration templates, configure an `OptionSetting` with `Namespace` set to `aws:elasticbeanstalk:healthreporting:system`, `OptionName` set to `SystemType`, and `Value` set to `enhanced`. Omit this setting to adopt the default value of `enhanced`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Environment - Example
+<a name="ct-elasticbeanstalk-pr-1-remediation-1"></a>
 
 AWS Elastic Beanstalk environment configured with enhanced health reporting enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticBeanstalkEnvironment": {
         "Type": "AWS::ElasticBeanstalk::Environment",
@@ -71,13 +68,11 @@ AWS Elastic Beanstalk environment configured with enhanced health reporting enab
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticBeanstalkEnvironment:
   Type: AWS::ElasticBeanstalk::Environment
   Properties:
@@ -90,20 +85,18 @@ ElasticBeanstalkEnvironment:
       - Namespace: aws:autoscaling:launchconfiguration
         OptionName: IamInstanceProfile
         Value: !Ref 'InstanceProfile'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Configuration Template - Example One
+<a name="ct-elasticbeanstalk-pr-1-remediation-2"></a>
 
 AWS Elastic Beanstalk configuration template configured with enhanced health reporting, enabled by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticBeanstalkConfigurationTemplate": {
         "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
@@ -124,13 +117,11 @@ AWS Elastic Beanstalk configuration template configured with enhanced health rep
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticBeanstalkConfigurationTemplate:
   Type: AWS::ElasticBeanstalk::ConfigurationTemplate
   Properties:
@@ -140,20 +131,18 @@ ElasticBeanstalkConfigurationTemplate:
       - Namespace: aws:autoscaling:launchconfiguration
         OptionName: IamInstanceProfile
         Value: !Ref 'InstanceProfile'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Configuration Template - Example Two
+<a name="ct-elasticbeanstalk-pr-1-remediation-3"></a>
 
 AWS Elastic Beanstalk configuration template configured with enhanced health reporting, enabled by means of an entry in the `OptionSettings` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticBeanstalkConfigurationTemplate": {
         "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
@@ -172,13 +161,11 @@ AWS Elastic Beanstalk configuration template configured with enhanced health rep
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticBeanstalkConfigurationTemplate:
   Type: AWS::ElasticBeanstalk::ConfigurationTemplate
   Properties:
@@ -188,33 +175,31 @@ ElasticBeanstalkConfigurationTemplate:
       - Namespace: aws:elasticbeanstalk:healthreporting:system
         OptionName: SystemType
         Value: enhanced
-
-
 ```
 
 ### CT.ELASTICBEANSTALK.PR.1 rule specification
+<a name="ct-elasticbeanstalk-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elastic_beanstalk_enhanced_health_reporting_enabled_check
-#
+# 
 # Description:
 #   This control checks whether AWS Elastic Beanstalk environments and configuration templates are configured for 'enhanced' health reporting.
-#
+# 
 # Reports on:
 #   AWS::ElasticBeanstalk::Environment, AWS::ElasticBeanstalk::ConfigurationTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -445,24 +430,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICBEANSTALK.PR.1 example templates
+<a name="ct-elasticbeanstalk-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
         - Effect: Allow
           Principal:
@@ -488,20 +471,17 @@ Resources:
         OptionName: IamInstanceProfile
         Value:
           Ref: InstanceProfile
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
         - Effect: Allow
           Principal:
@@ -530,54 +510,46 @@ Resources:
       - Namespace: aws:elasticbeanstalk:healthreporting:system
         OptionName: SystemType
         Value: basic
-
-
 ```
 
 ## [CT.ELASTICBEANSTALK.PR.2] Require an AWS Elastic Beanstalk environment to have managed platform updates configured
+<a name="ct-elasticbeanstalk-pr-2-description"></a>
 
 This control checks whether managed platform updates in AWS Elastic Beanstalk environments and configuration templates are activated.
-
-- **Control objective:** Manage vulnerabilities
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
-- **CloudFormation guard rule:**
-  [CT.ELASTICBEANSTALK.PR.2 rule specification](#ct-elasticbeanstalk-pr-2-rule "#ct-elasticbeanstalk-pr-2-rule")
++ **Control objective: **Manage vulnerabilities
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
++ **CloudFormation guard rule: ** [CT.ELASTICBEANSTALK.PR.2 rule specification](#ct-elasticbeanstalk-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICBEANSTALK.PR.2 rule specification](#ct-elasticbeanstalk-pr-2-rule "#ct-elasticbeanstalk-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICBEANSTALK.PR.2 example templates](#ct-elasticbeanstalk-pr-2-templates "#ct-elasticbeanstalk-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICBEANSTALK.PR.2 rule specification](#ct-elasticbeanstalk-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICBEANSTALK.PR.2 example templates](#ct-elasticbeanstalk-pr-2-templates) 
 
 **Explanation**
 
 Managed platform updates ensure that the most recent platform fixes, updates, and features for the environment are installed. Keeping patch installations up to date is an important step in securing systems.
 
-###### Usage considerations
-
-- When you set up managed actions on AWS Elastic Beanstalk environments and configuration templates, you must provide `PreferredStartTime` and `UpdateLevel` option settings also.
-- This control allows you to set up managed actions on AWS Elastic Beanstalk environments only, because environment-level settings take precedence over settings that are defined in configuration templates.
-- This control does not allow you to deactivate managed actions on AWS Elastic Beanstalk configuration templates.
+**Usage considerations**  
+When you set up managed actions on AWS Elastic Beanstalk environments and configuration templates, you must provide `PreferredStartTime` and `UpdateLevel` option settings also.
+This control allows you to set up managed actions on AWS Elastic Beanstalk environments only, because environment-level settings take precedence over settings that are defined in configuration templates.
+This control does not allow you to deactivate managed actions on AWS Elastic Beanstalk configuration templates.
 
 ### Remediation for rule failure
+<a name="ct-elasticbeanstalk-pr-2-remediation"></a>
 
 For AWS Elastic Beanstalk environments, create an `OptionSetting` with a `Namespace` value set to `aws:elasticbeanstalk:managedactions`, `OptionName` set to `ManagedActionsEnabled`, and `Value` set to `true`. For Elastic Beanstalk configuration templates, create an `OptionSetting` with a `Namespace` value set to `aws:elasticbeanstalk:managedactions`, `OptionName` set to `ManagedActionsEnabled`, and `Value` set to `true`, or omit this setting to adopt the default value of `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Environment - Example
+<a name="ct-elasticbeanstalk-pr-2-remediation-1"></a>
 
 AWS Elastic Beanstalk environment configured with managed platform updates activated. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticBeanstalkEnvironment": {
         "Type": "AWS::ElasticBeanstalk::Environment",
@@ -618,13 +590,11 @@ AWS Elastic Beanstalk environment configured with managed platform updates activ
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticBeanstalkEnvironment:
   Type: AWS::ElasticBeanstalk::Environment
   Properties:
@@ -646,20 +616,18 @@ ElasticBeanstalkEnvironment:
       - Namespace: aws:elasticbeanstalk:managedactions:platformupdate
         OptionName: UpdateLevel
         Value: patch
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Configuration Template - Example One
+<a name="ct-elasticbeanstalk-pr-2-remediation-2"></a>
 
 AWS Elastic Beanstalk configuration template configured with managed platform updates enabled, by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticBeanstalkConfigurationTemplate": {
         "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
@@ -680,13 +648,11 @@ AWS Elastic Beanstalk configuration template configured with managed platform up
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticBeanstalkConfigurationTemplate:
   Type: AWS::ElasticBeanstalk::ConfigurationTemplate
   Properties:
@@ -696,20 +662,18 @@ ElasticBeanstalkConfigurationTemplate:
       - Namespace: aws:autoscaling:launchconfiguration
         OptionName: IamInstanceProfile
         Value: !Ref 'InstanceProfile'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Configuration Template - Example Two
+<a name="ct-elasticbeanstalk-pr-2-remediation-3"></a>
 
 AWS Elastic Beanstalk configuration template configured with managed platform updates enabled, by means of an entry in the `OptionSettings` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticBeanstalkConfigurationTemplate": {
         "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
@@ -738,13 +702,11 @@ AWS Elastic Beanstalk configuration template configured with managed platform up
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticBeanstalkConfigurationTemplate:
   Type: AWS::ElasticBeanstalk::ConfigurationTemplate
   Properties:
@@ -760,33 +722,31 @@ ElasticBeanstalkConfigurationTemplate:
       - Namespace: aws:elasticbeanstalk:managedactions:platformupdate
         OptionName: UpdateLevel
         Value: minor
-
-
 ```
 
 ### CT.ELASTICBEANSTALK.PR.2 rule specification
+<a name="ct-elasticbeanstalk-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elastic_beanstalk_managed_updates_enabled_check
-#
+# 
 # Description:
 #   This control checks whether managed platform updates in AWS Elastic Beanstalk environments and configuration templates are activated.
-#
+# 
 # Reports on:
 #   AWS::ElasticBeanstalk::Environment, AWS::ElasticBeanstalk::ConfigurationTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1014,24 +974,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICBEANSTALK.PR.2 example templates
+<a name="ct-elasticbeanstalk-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
         - Effect: Allow
           Principal:
@@ -1057,20 +1015,17 @@ Resources:
         OptionName: IamInstanceProfile
         Value:
           Ref: InstanceProfile
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
         - Effect: Allow
           Principal:
@@ -1099,53 +1054,45 @@ Resources:
       - Namespace: aws:elasticbeanstalk:managedactions
         OptionName: ManagedActionsEnabled
         Value: false
-
-
 ```
 
 ## [CT.ELASTICBEANSTALK.PR.3] Require an AWS Elastic Beanstalk environment to have a logging configuration
+<a name="ct-elasticbeanstalk-pr-3-description"></a>
 
 This control checks whether an AWS Elastic Beanstalk environment is configured to send logs to Amazon CloudWatch Logs.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
-- **CloudFormation guard rule:**
-  [CT.ELASTICBEANSTALK.PR.3 rule specification](#ct-elasticbeanstalk-pr-3-rule "#ct-elasticbeanstalk-pr-3-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticBeanstalk::Environment`, `AWS::ElasticBeanstalk::ConfigurationTemplate`
++ **CloudFormation guard rule: ** [CT.ELASTICBEANSTALK.PR.3 rule specification](#ct-elasticbeanstalk-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICBEANSTALK.PR.3 rule specification](#ct-elasticbeanstalk-pr-3-rule "#ct-elasticbeanstalk-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.ELASTICBEANSTALK.PR.3 example templates](#ct-elasticbeanstalk-pr-3-templates "#ct-elasticbeanstalk-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICBEANSTALK.PR.3 rule specification](#ct-elasticbeanstalk-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.ELASTICBEANSTALK.PR.3 example templates](#ct-elasticbeanstalk-pr-3-templates) 
 
 **Explanation**
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of your AWS solutions. We recommend that you collect monitoring data from all of the parts of your AWS solution, so that you can debug a multi-point failure, if one occurs. From a security perspective, logging is an important feature to enable for future forensics efforts in the case of a security incident.
 
-###### Usage considerations
-
-- This control requires only enabling logging to Amazon CloudWatch Logs on AWS Elastic Beanstalk environments, because environment level settings take precedence over settings defined in configuration templates.
-- This control does not allow explicitly disabling logging to Amazon CloudWatch Logs on AWS Elastic Beanstalk configuration templates.
+**Usage considerations**  
+This control requires only enabling logging to Amazon CloudWatch Logs on AWS Elastic Beanstalk environments, because environment level settings take precedence over settings defined in configuration templates.
+This control does not allow explicitly disabling logging to Amazon CloudWatch Logs on AWS Elastic Beanstalk configuration templates.
 
 ### Remediation for rule failure
+<a name="ct-elasticbeanstalk-pr-3-remediation"></a>
 
 For AWS Elastic Beanstalk environments, establish an `OptionSetting` with a `Namespace` set to `aws:elasticbeanstalk:cloudwatch:logs`, `OptionName` set to `StreamLogs`, and `Value` set to `true`. For Elastic Beanstalk configuration templates, establish an `OptionSetting` with a `Namespace` set to `aws:elasticbeanstalk:cloudwatch:logs`, `OptionName` set to `StreamLogs`, and `Value` set to `true`, or omit this `OptionSetting`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Environment - Example
+<a name="ct-elasticbeanstalk-pr-3-remediation-1"></a>
 
 An AWS Elastic Beanstalk environment configured to stream logs to Amazon CloudWatch Logs by means of an entry in the `OptionSettings` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticBeanstalkEnvironment": {
         "Type": "AWS::ElasticBeanstalk::Environment",
@@ -1171,13 +1118,11 @@ An AWS Elastic Beanstalk environment configured to stream logs to Amazon CloudWa
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticBeanstalkEnvironment:
   Type: AWS::ElasticBeanstalk::Environment
   Properties:
@@ -1190,20 +1135,18 @@ ElasticBeanstalkEnvironment:
       - Namespace: aws:elasticbeanstalk:cloudwatch:logs
         OptionName: StreamLogs
         Value: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Elastic Beanstalk Configuration Template - Example
+<a name="ct-elasticbeanstalk-pr-3-remediation-2"></a>
 
 AWS Elastic Beanstalk configuration template configured to stream logs to Amazon CloudWatch Logs by means of an entry in the `OptionSettings` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticBeanstalkConfigurationTemplate": {
         "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
@@ -1229,13 +1172,11 @@ AWS Elastic Beanstalk configuration template configured to stream logs to Amazon
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticBeanstalkConfigurationTemplate:
   Type: AWS::ElasticBeanstalk::ConfigurationTemplate
   Properties:
@@ -1248,33 +1189,31 @@ ElasticBeanstalkConfigurationTemplate:
       - Namespace: aws:elasticbeanstalk:cloudwatch:logs
         OptionName: StreamLogs
         Value: true
-
-
 ```
 
 ### CT.ELASTICBEANSTALK.PR.3 rule specification
+<a name="ct-elasticbeanstalk-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elastic_beanstalk_logs_to_cloudwatch_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Elastic Beanstalk environment is configured to send logs to Amazon CloudWatch Logs.
-#
+# 
 # Reports on:
 #   AWS::ElasticBeanstalk::Environment, AWS::ElasticBeanstalk::ConfigurationTemplate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1501,24 +1440,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICBEANSTALK.PR.3 example templates
+<a name="ct-elasticbeanstalk-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1548,20 +1485,17 @@ Resources:
       - Namespace: aws:elasticbeanstalk:cloudwatch:logs
         OptionName: StreamLogs
         Value: true
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1591,20 +1525,17 @@ Resources:
       - Namespace: aws:elasticbeanstalk:cloudwatch:logs
         OptionName: StreamLogs
         Value: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1631,20 +1562,17 @@ Resources:
         OptionName: IamInstanceProfile
         Value:
           Ref: InstanceProfile
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   InstanceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1674,6 +1602,4 @@ Resources:
       - Namespace: aws:elasticbeanstalk:cloudwatch:logs
         OptionName: StreamLogs
         Value: false
-
-
 ```

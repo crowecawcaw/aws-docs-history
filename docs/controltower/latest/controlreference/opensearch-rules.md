@@ -1,63 +1,59 @@
+
+
 # Amazon OpenSearch controls
+<a name="opensearch-rules"></a>
 
-###### Topics
-
-- [[CT.OPENSEARCH.PR.1] Require an Elasticsearch domain to encrypt data at rest](#ct-opensearch-pr-1-description "#ct-opensearch-pr-1-description")
-- [[CT.OPENSEARCH.PR.2] Require an Elasticsearch domain to be created in a user-specified Amazon VPC](#ct-opensearch-pr-2-description "#ct-opensearch-pr-2-description")
-- [[CT.OPENSEARCH.PR.3] Require an Elasticsearch domain to encrypt data sent between nodes](#ct-opensearch-pr-3-description "#ct-opensearch-pr-3-description")
-- [[CT.OPENSEARCH.PR.4] Require an Elasticsearch domain to send error logs to Amazon CloudWatch Logs](#ct-opensearch-pr-4-description "#ct-opensearch-pr-4-description")
-- [[CT.OPENSEARCH.PR.5] Require an Elasticsearch domain to send audit logs to Amazon CloudWatch Logs](#ct-opensearch-pr-5-description "#ct-opensearch-pr-5-description")
-- [[CT.OPENSEARCH.PR.6] Require an Elasticsearch domain to have zone awareness and at least three data nodes](#ct-opensearch-pr-6-description "#ct-opensearch-pr-6-description")
-- [[CT.OPENSEARCH.PR.7] Require an Elasticsearch domain to have at least three dedicated master nodes](#ct-opensearch-pr-7-description "#ct-opensearch-pr-7-description")
-- [[CT.OPENSEARCH.PR.8] Require an Elasticsearch Service domain to use TLSv1.2](#ct-opensearch-pr-8-description "#ct-opensearch-pr-8-description")
-- [[CT.OPENSEARCH.PR.9] Require an Amazon OpenSearch Service domain to encrypt data at rest](#ct-opensearch-pr-9-description "#ct-opensearch-pr-9-description")
-- [[CT.OPENSEARCH.PR.10] Require an Amazon OpenSearch Service domain to be created in a user-specified Amazon VPC](#ct-opensearch-pr-10-description "#ct-opensearch-pr-10-description")
-- [[CT.OPENSEARCH.PR.11] Require an Amazon OpenSearch Service domain to encrypt data sent between nodes](#ct-opensearch-pr-11-description "#ct-opensearch-pr-11-description")
-- [[CT.OPENSEARCH.PR.12] Require an Amazon OpenSearch Service domain to send error logs to Amazon CloudWatch Logs](#ct-opensearch-pr-12-description "#ct-opensearch-pr-12-description")
-- [[CT.OPENSEARCH.PR.13] Require an Amazon OpenSearch Service domain to send audit logs to Amazon CloudWatch Logs](#ct-opensearch-pr-13-description "#ct-opensearch-pr-13-description")
-- [[CT.OPENSEARCH.PR.14] Require an Amazon OpenSearch Service domain to have zone awareness and at least three data nodes](#ct-opensearch-pr-14-description "#ct-opensearch-pr-14-description")
-- [[CT.OPENSEARCH.PR.15] Require an Amazon OpenSearch Service domain to use fine-grained access control](#ct-opensearch-pr-15-description "#ct-opensearch-pr-15-description")
-- [[CT.OPENSEARCH.PR.16] Require an Amazon OpenSearch Service domain to use TLSv1.2](#ct-opensearch-pr-16-description "#ct-opensearch-pr-16-description")
+**Topics**
++ [[CT.OPENSEARCH.PR.1] Require an Elasticsearch domain to encrypt data at rest](#ct-opensearch-pr-1-description)
++ [[CT.OPENSEARCH.PR.2] Require an Elasticsearch domain to be created in a user-specified Amazon VPC](#ct-opensearch-pr-2-description)
++ [[CT.OPENSEARCH.PR.3] Require an Elasticsearch domain to encrypt data sent between nodes](#ct-opensearch-pr-3-description)
++ [[CT.OPENSEARCH.PR.4] Require an Elasticsearch domain to send error logs to Amazon CloudWatch Logs](#ct-opensearch-pr-4-description)
++ [[CT.OPENSEARCH.PR.5] Require an Elasticsearch domain to send audit logs to Amazon CloudWatch Logs](#ct-opensearch-pr-5-description)
++ [[CT.OPENSEARCH.PR.6] Require an Elasticsearch domain to have zone awareness and at least three data nodes](#ct-opensearch-pr-6-description)
++ [[CT.OPENSEARCH.PR.7] Require an Elasticsearch domain to have at least three dedicated master nodes](#ct-opensearch-pr-7-description)
++ [[CT.OPENSEARCH.PR.8] Require an Elasticsearch Service domain to use TLSv1.2](#ct-opensearch-pr-8-description)
++ [[CT.OPENSEARCH.PR.9] Require an Amazon OpenSearch Service domain to encrypt data at rest](#ct-opensearch-pr-9-description)
++ [[CT.OPENSEARCH.PR.10] Require an Amazon OpenSearch Service domain to be created in a user-specified Amazon VPC](#ct-opensearch-pr-10-description)
++ [[CT.OPENSEARCH.PR.11] Require an Amazon OpenSearch Service domain to encrypt data sent between nodes](#ct-opensearch-pr-11-description)
++ [[CT.OPENSEARCH.PR.12] Require an Amazon OpenSearch Service domain to send error logs to Amazon CloudWatch Logs](#ct-opensearch-pr-12-description)
++ [[CT.OPENSEARCH.PR.13] Require an Amazon OpenSearch Service domain to send audit logs to Amazon CloudWatch Logs](#ct-opensearch-pr-13-description)
++ [[CT.OPENSEARCH.PR.14] Require an Amazon OpenSearch Service domain to have zone awareness and at least three data nodes](#ct-opensearch-pr-14-description)
++ [[CT.OPENSEARCH.PR.15] Require an Amazon OpenSearch Service domain to use fine-grained access control](#ct-opensearch-pr-15-description)
++ [[CT.OPENSEARCH.PR.16] Require an Amazon OpenSearch Service domain to use TLSv1.2](#ct-opensearch-pr-16-description)
 
 ## [CT.OPENSEARCH.PR.1] Require an Elasticsearch domain to encrypt data at rest
+<a name="ct-opensearch-pr-1-description"></a>
 
 This control checks whether Elasticsearch domains have encryption-at-rest enabled.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Elasticsearch::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.1 rule specification](#ct-opensearch-pr-1-rule "#ct-opensearch-pr-1-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Elasticsearch::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.1 rule specification](#ct-opensearch-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.1 rule specification](#ct-opensearch-pr-1-rule "#ct-opensearch-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-
-[CT.OPENSEARCH.PR.1 example templates](#ct-opensearch-pr-1-templates "#ct-opensearch-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.1 rule specification](#ct-opensearch-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.1 example templates](#ct-opensearch-pr-1-templates) 
 
 **Explanation**
 
 For an added layer of security for your sensitive data in OpenSearch, you should configure your OpenSearch to be encrypted at rest. Elasticsearch domains offer encryption of data at rest. The feature uses AWS KMS to store and manage your encryption keys. To perform the encryption, it uses the Advanced Encryption Standard algorithm with 256-bit keys (AES-256).
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-1-remediation"></a>
 
 Within `EncryptionAtRestOptions`, set `Enabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example
+<a name="ct-opensearch-pr-1-remediation-1"></a>
 
 An Elasticsearch domain configured with encryption-at-rest enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -74,7 +70,7 @@ An Elasticsearch domain configured with encryption-at-rest enabled. The example 
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -92,13 +88,11 @@ An Elasticsearch domain configured with encryption-at-rest enabled. The example 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -112,7 +106,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -121,33 +115,31 @@ ElasticsearchDomain:
           Resource: '*'
     EncryptionAtRestOptions:
       Enabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.1 rule specification
+<a name="ct-opensearch-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticsearch_encrypted_at_rest_check
-#
+# 
 # Description:
 #   This control checks whether Elasticsearch domains have encryption-at-rest enabled.
-#
+# 
 # Reports on:
 #   AWS::Elasticsearch::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -233,18 +225,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.1 example templates
+<a name="ct-opensearch-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -259,7 +249,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -268,14 +258,11 @@ Resources:
           Resource: '*'
       EncryptionAtRestOptions:
         Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -290,7 +277,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -299,48 +286,41 @@ Resources:
           Resource: '*'
       EncryptionAtRestOptions:
         Enabled: false
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.2] Require an Elasticsearch domain to be created in a user-specified Amazon VPC
+<a name="ct-opensearch-pr-2-description"></a>
 
 This control checks whether Elasticsearch domains are configured with VPC option settings that specify a target Amazon VPC.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Elasticsearch::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.2 rule specification](#ct-opensearch-pr-2-rule "#ct-opensearch-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Elasticsearch::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.2 rule specification](#ct-opensearch-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.2 rule specification](#ct-opensearch-pr-2-rule "#ct-opensearch-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.2 example templates](#ct-opensearch-pr-2-templates "#ct-opensearch-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.2 rule specification](#ct-opensearch-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.2 example templates](#ct-opensearch-pr-2-templates) 
 
 **Explanation**
 
 Elasticsearch domains deployed within a VPC can communicate with VPC resources over the private AWS network, without the need to traverse the public internet. This configuration increases the security posture by limiting access to the data in transit. VPCs provide a number of network controls that help create secure access to Elasticsearch domains, including network ACLs and security groups. Security Hub CSPM recommends that you migrate public Elasticsearch domains to VPCs to take advantage of these controls.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-2-remediation"></a>
 
 Within `VPCOptions`, set `SubnetIds` to a list with one or more Amazon EC2 subnet IDs.
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example
+<a name="ct-opensearch-pr-2-remediation-1"></a>
 
 An Elasticsearch domain configured to deploy within an Amazon VPC by means of VPC option settings. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -357,7 +337,7 @@ An Elasticsearch domain configured to deploy within an Amazon VPC by means of VP
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -379,13 +359,11 @@ An Elasticsearch domain configured to deploy within an Amazon VPC by means of VP
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -399,7 +377,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -409,33 +387,31 @@ ElasticsearchDomain:
     VPCOptions:
       SubnetIds:
         - !Ref 'Subnet'
-
-
 ```
 
 ### CT.OPENSEARCH.PR.2 rule specification
+<a name="ct-opensearch-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticsearch_in_vpc_only_check
-#
+# 
 # Description:
 #   This control checks whether Elasticsearch domains are configured with VPC option settings that specify a target Amazon VPC.
-#
+# 
 # Reports on:
 #   AWS::Elasticsearch::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -522,18 +498,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.2 example templates
+<a name="ct-opensearch-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -562,7 +536,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -572,14 +546,11 @@ Resources:
       VPCOptions:
         SubnetIds:
         - Ref: Subnet
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -594,59 +565,51 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
             AWS: '*'
           Action: es:*
           Resource: '*'
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.3] Require an Elasticsearch domain to encrypt data sent between nodes
+<a name="ct-opensearch-pr-3-description"></a>
 
 This control checks whether Elasticsearch domains have node-to-node encryption enabled.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Elasticsearch::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.3 rule specification](#ct-opensearch-pr-3-rule "#ct-opensearch-pr-3-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Elasticsearch::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.3 rule specification](#ct-opensearch-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.3 rule specification](#ct-opensearch-pr-3-rule "#ct-opensearch-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.3 example templates](#ct-opensearch-pr-3-templates "#ct-opensearch-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.3 rule specification](#ct-opensearch-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.3 example templates](#ct-opensearch-pr-3-templates) 
 
 **Explanation**
 
 HTTPS (TLS) can help prevent potential attackers from eavesdropping on or manipulating network traffic using person-in-the-middle, or similar, attacks. Only encrypted connections over HTTPS (TLS) should be allowed. Enabling node-to-node encryption for Elasticsearch domains ensures that intra-cluster communications are encrypted in transit.
 
-###### Usage considerations
-
-- A performance penalty may be associated with this configuration. You should be aware of and test the performance trade-offs before enabling this option.
+**Usage considerations**  
+A performance penalty may be associated with this configuration. You should be aware of and test the performance trade-offs before enabling this option.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-3-remediation"></a>
 
 Within `NodeToNodeEncryptionOptions`, set `Enabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example
+<a name="ct-opensearch-pr-3-remediation-1"></a>
 
 An Elasticsearch domain configured with node-to-node encryption enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -663,7 +626,7 @@ An Elasticsearch domain configured with node-to-node encryption enabled. The exa
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -681,13 +644,11 @@ An Elasticsearch domain configured with node-to-node encryption enabled. The exa
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -701,7 +662,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -710,33 +671,31 @@ ElasticsearchDomain:
           Resource: '*'
     NodeToNodeEncryptionOptions:
       Enabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.3 rule specification
+<a name="ct-opensearch-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticsearch_node_to_node_encryption_check
-#
+# 
 # Description:
 #   This control checks whether Elasticsearch domains have node-to-node encryption enabled.
-#
+# 
 # Reports on:
 #   AWS::Elasticsearch::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -823,18 +782,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.3 example templates
+<a name="ct-opensearch-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -849,7 +806,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -858,14 +815,11 @@ Resources:
           Resource: '*'
       NodeToNodeEncryptionOptions:
         Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -880,7 +834,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -888,48 +842,41 @@ Resources:
           Action: es:*
           Resource: '*'
       NodeToNodeEncryptionOptions: {}
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.4] Require an Elasticsearch domain to send error logs to Amazon CloudWatch Logs
+<a name="ct-opensearch-pr-4-description"></a>
 
 This control checks whether Elasticsearch domains are configured to send error logs to an Amazon CloudWatch Logs log group.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Elasticsearch::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.4 rule specification](#ct-opensearch-pr-4-rule "#ct-opensearch-pr-4-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Elasticsearch::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.4 rule specification](#ct-opensearch-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.4 rule specification](#ct-opensearch-pr-4-rule "#ct-opensearch-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.4 example templates](#ct-opensearch-pr-4-templates "#ct-opensearch-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.4 rule specification](#ct-opensearch-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.4 example templates](#ct-opensearch-pr-4-templates) 
 
 **Explanation**
 
 Enable error logs (ES\_APPLICATION\_LOGS) for Elasticsearch domains and send those logs to CloudWatch Logs for retention and response. Domain error logs can assist with security and access audits, and can help to diagnose availability issues.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-4-remediation"></a>
 
 Within `LogPublishingOptions`, provide an `ES_APPLICATION_LOGS` configuration, set `Enabled` to `true`, and set `CloudWatchLogsLogGroupArn` to the ARN of a valid Amazon CloudWatch Logs log group.
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example
+<a name="ct-opensearch-pr-4-remediation-1"></a>
 
 An Elasticsearch domain configured to send error logs to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -946,7 +893,7 @@ An Elasticsearch domain configured to send error logs to Amazon CloudWatch Logs.
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -972,13 +919,11 @@ An Elasticsearch domain configured to send error logs to Amazon CloudWatch Logs.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -992,7 +937,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -1003,33 +948,31 @@ ElasticsearchDomain:
       ES_APPLICATION_LOGS:
         CloudWatchLogsLogGroupArn: !GetAtt 'LogGroup.Arn'
         Enabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.4 rule specification
+<a name="ct-opensearch-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticsearch_application_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Elasticsearch domains are configured to send error logs to an Amazon CloudWatch Logs log group.
-#
+# 
 # Reports on:
 #   AWS::Elasticsearch::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1183,18 +1126,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.4 example templates
+<a name="ct-opensearch-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -1210,7 +1151,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -1233,18 +1174,14 @@ Resources:
         Fn::Sub: ${AWS::StackName}-AllowES
       PolicyDocument:
         Fn::Sub:
-        - '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
+        - '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
         - LogGroupArn:
             Fn::GetAtt: [ LogGroup, Arn ]
-
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -1259,21 +1196,18 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
             AWS: '*'
           Action: es:*
           Resource: '*'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -1288,7 +1222,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -1298,53 +1232,45 @@ Resources:
       LogPublishingOptions:
         ES_APPLICATION_LOGS:
           Enabled: false
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.5] Require an Elasticsearch domain to send audit logs to Amazon CloudWatch Logs
+<a name="ct-opensearch-pr-5-description"></a>
 
 This control checks whether Elasticsearch domains are configured to send audit logs to an Amazon CloudWatch Logs log group.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Elasticsearch::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.5 rule specification](#ct-opensearch-pr-5-rule "#ct-opensearch-pr-5-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Elasticsearch::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.5 rule specification](#ct-opensearch-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.5 rule specification](#ct-opensearch-pr-5-rule "#ct-opensearch-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.5 example templates](#ct-opensearch-pr-5-templates "#ct-opensearch-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.5 rule specification](#ct-opensearch-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.5 example templates](#ct-opensearch-pr-5-templates) 
 
 **Explanation**
 
 Audit logs are highly customizable. They allow you to track user activity on your Elasticsearch clusters, including authentication successes and failures, requests to OpenSearch, index changes, and incoming search queries.
 
-###### Usage considerations
-
-- This control requires that Elasticsearch domains must have advanced security options configured.
-- To enable advanced security options on an Elasticsearch domain through the `AdvancedSecurityOptions` property, you must enable encryption of data at rest (by means of `EncryptionAtRestOptions`), node-to-node encryption (by means of `NodeToNodeEncryptionOptions`), and enforce HTTPS connections (by means of `DomainEndpointOptions`).
+**Usage considerations**  
+This control requires that Elasticsearch domains must have advanced security options configured.
+To enable advanced security options on an Elasticsearch domain through the `AdvancedSecurityOptions` property, you must enable encryption of data at rest (by means of `EncryptionAtRestOptions`), node-to-node encryption (by means of `NodeToNodeEncryptionOptions`), and enforce HTTPS connections (by means of `DomainEndpointOptions`).
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-5-remediation"></a>
 
 Within `LogPublishingOptions`, provide an `AUDIT_LOGS` configuration, set `Enabled` to `true`, and set `CloudWatchLogsLogGroupArn` to the ARN of a valid Amazon CloudWatch Logs log group.
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example
+<a name="ct-opensearch-pr-5-remediation-1"></a>
 
 An Elasticsearch domain configured to send audit logs to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -1361,7 +1287,7 @@ An Elasticsearch domain configured to send audit logs to Amazon CloudWatch Logs.
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -1408,13 +1334,11 @@ An Elasticsearch domain configured to send audit logs to Amazon CloudWatch Logs.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -1428,7 +1352,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -1450,33 +1374,31 @@ ElasticsearchDomain:
       AUDIT_LOGS:
         CloudWatchLogsLogGroupArn: !GetAtt 'LogGroup.Arn'
         Enabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.5 rule specification
+<a name="ct-opensearch-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticsearch_audit_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Elasticsearch domains are configured to send audit logs to an Amazon CloudWatch Logs log group.
-#
+# 
 # Reports on:
 #   AWS::Elasticsearch::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1630,24 +1552,22 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.5 example templates
+<a name="ct-opensearch-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1668,7 +1588,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -1704,23 +1624,20 @@ Resources:
       PolicyName: AllowES
       PolicyDocument:
         Fn::Sub:
-        - '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
+        - '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
         - LogGroupArn:
             Fn::GetAtt: [ LogGroup, Arn ]
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1740,7 +1657,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -1761,20 +1678,17 @@ Resources:
             Fn::GetAtt:
             - IAMRole
             - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1794,7 +1708,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -1818,48 +1732,41 @@ Resources:
       LogPublishingOptions:
         AUDIT_LOGS:
           Enabled: false
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.6] Require an Elasticsearch domain to have zone awareness and at least three data nodes
+<a name="ct-opensearch-pr-6-description"></a>
 
 This control checks whether ElasticSearch domains are configured with at least three data nodes and zone awareness enabled.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Elasticsearch::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.6 rule specification](#ct-opensearch-pr-6-rule "#ct-opensearch-pr-6-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Elasticsearch::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.6 rule specification](#ct-opensearch-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.6 rule specification](#ct-opensearch-pr-6-rule "#ct-opensearch-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.6 example templates](#ct-opensearch-pr-6-templates "#ct-opensearch-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.6 rule specification](#ct-opensearch-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.6 example templates](#ct-opensearch-pr-6-templates) 
 
 **Explanation**
 
 An Elasticsearch domain requires at least three data nodes for high availability and fault-tolerance. Deploying an Elasticsearch domain with at least three data nodes ensures that cluster operations can continue if a node fails.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-6-remediation"></a>
 
 Within `ElasticsearchClusterConfig`, set `ZoneAwarenessEnabled` to `true`, and set `InstanceCount` to an integer value greater than or equal to three.
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example
+<a name="ct-opensearch-pr-6-remediation-1"></a>
 
 An Elasticsearch domain configured with three data nodes and zone awareness enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -1872,7 +1779,7 @@ An Elasticsearch domain configured with three data nodes and zone awareness enab
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -1895,13 +1802,11 @@ An Elasticsearch domain configured with three data nodes and zone awareness enab
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -1912,7 +1817,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -1925,33 +1830,31 @@ ElasticsearchDomain:
       ZoneAwarenessEnabled: true
       ZoneAwarenessConfig:
         AvailabilityZoneCount: 3
-
-
 ```
 
 ### CT.OPENSEARCH.PR.6 rule specification
+<a name="ct-opensearch-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticsearch_data_node_fault_tolerance_check
-#
+# 
 # Description:
 #   This control checks whether Elasticsearch domains are configured with at least three data nodes and zone awareness enabled.
-#
+# 
 # Reports on:
 #   AWS::Elasticsearch::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2063,18 +1966,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.6 example templates
+<a name="ct-opensearch-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -2086,7 +1987,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -2099,14 +2000,11 @@ Resources:
         ZoneAwarenessEnabled: true
         ZoneAwarenessConfig:
           AvailabilityZoneCount: 3
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -2118,7 +2016,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -2129,48 +2027,41 @@ Resources:
         InstanceType: t3.small.elasticsearch
         ZoneAwarenessEnabled: false
         InstanceCount: 2
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.7] Require an Elasticsearch domain to have at least three dedicated master nodes
+<a name="ct-opensearch-pr-7-description"></a>
 
 This control checks whether Elasticsearch domains are configured with at least three dedicated master nodes.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Elasticsearch::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.7rule specification](#ct-opensearch-pr-7-rule "#ct-opensearch-pr-7-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Elasticsearch::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.7rule specification](#ct-opensearch-pr-7-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.7rule specification](#ct-opensearch-pr-7-rule "#ct-opensearch-pr-7-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.7 example templates](#ct-opensearch-pr-7-templates "#ct-opensearch-pr-7-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.7rule specification](#ct-opensearch-pr-7-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.7 example templates](#ct-opensearch-pr-7-templates) 
 
 **Explanation**
 
 An Elasticsearch domain requires at least three dedicated master nodes for high availability and fault-tolerance. Dedicated master node resources can be strained during data node blue/green deployments, because additional nodes must be managed. Deploying an Elasticsearch domain with at least three dedicated master nodes ensures that sufficient master node resource capacity exists, and that cluster operations can continue if a node fails.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-7-remediation"></a>
 
 Within `ElasticsearchClusterConfig`, set `DedicatedMasterEnabled` to `true`, and set `DedicatedMasterCount` to an integer value greater than or equal to three, or omit the `DedicatedMasterCount` property to adopt the default value of three.
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example One
+<a name="ct-opensearch-pr-7-remediation-1"></a>
 
 An Elasticsearch domain configured with three dedicated master nodes by means of the `DedicatedMasterCount` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -2183,7 +2074,7 @@ An Elasticsearch domain configured with three dedicated master nodes by means of
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -2203,13 +2094,11 @@ An Elasticsearch domain configured with three dedicated master nodes by means of
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -2220,7 +2109,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -2231,20 +2120,18 @@ ElasticsearchDomain:
       InstanceType: t3.small.elasticsearch
       DedicatedMasterEnabled: true
       DedicatedMasterCount: 3
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example Two
+<a name="ct-opensearch-pr-7-remediation-2"></a>
 
 An Elasticsearch domain configured with three dedicated master nodes by means of the AWS CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -2257,7 +2144,7 @@ An Elasticsearch domain configured with three dedicated master nodes by means of
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -2276,13 +2163,11 @@ An Elasticsearch domain configured with three dedicated master nodes by means of
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -2293,7 +2178,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -2303,33 +2188,31 @@ ElasticsearchDomain:
     ElasticsearchClusterConfig:
       InstanceType: t3.small.elasticsearch
       DedicatedMasterEnabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.7rule specification
+<a name="ct-opensearch-pr-7-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticsearch_primary_node_fault_tolerance_check
-#
+# 
 # Description:
 #   This control checks whether Elasticsearch domains are configured with at least three dedicated master nodes.
-#
+# 
 # Reports on:
 #   AWS::Elasticsearch::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2449,18 +2332,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.7 example templates
+<a name="ct-opensearch-pr-7-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -2475,21 +2356,18 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
             AWS: '*'
           Action: es:*
           Resource: '*'
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -2505,21 +2383,18 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
             AWS: '*'
           Action: es:*
           Resource: '*'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -2534,55 +2409,48 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
             AWS: '*'
           Action: es:*
           Resource: '*'
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.8] Require an Elasticsearch Service domain to use TLSv1.2
+<a name="ct-opensearch-pr-8-description"></a>
 
 This control checks whether Elasticsearch Service domains are configured to require HTTPS with a minimum TLS version of TLSv1.2.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Elasticsearch::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.8rule specification](#ct-opensearch-pr-8-rule "#ct-opensearch-pr-8-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Elasticsearch::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.8rule specification](#ct-opensearch-pr-8-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.8rule specification](#ct-opensearch-pr-8-rule "#ct-opensearch-pr-8-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.8 example templates](#ct-opensearch-pr-8-templates "#ct-opensearch-pr-8-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.8rule specification](#ct-opensearch-pr-8-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.8 example templates](#ct-opensearch-pr-8-templates) 
 
 **Explanation**
 
 HTTPS (TLS) can help prevent potential attackers from using person-in-the-middle, or similar attacks, to eavesdrop on or manipulate network traffic. Only encrypted connections over HTTPS (TLS) should be allowed. Encrypting data in transit can affect performance. You should test your application with this feature to understand the performance profile and the effects of TLS. TLS 1.2 provides several security enhancements over previous versions of TLS.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-8-remediation"></a>
 
 Within `DomainEndpointOptions`, set `EnforceHTTPS` to `true` and set `TLSSecurityPolicy` to `Policy-Min-TLS-1-2-2019-07`.
 
 The examples that follow show how to implement this remediation.
 
 #### Elasticsearch Domain - Example
+<a name="ct-opensearch-pr-8-remediation-1"></a>
 
 An Elasticsearch domain configured to require that all traffic to the domain arrives over HTTPS with a minimum TLS version of TLSv1.2. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticsearchDomain": {
         "Type": "AWS::Elasticsearch::Domain",
@@ -2599,7 +2467,7 @@ An Elasticsearch domain configured to require that all traffic to the domain arr
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -2618,13 +2486,11 @@ An Elasticsearch domain configured to require that all traffic to the domain arr
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticsearchDomain:
   Type: AWS::Elasticsearch::Domain
   Properties:
@@ -2638,7 +2504,7 @@ ElasticsearchDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -2648,33 +2514,31 @@ ElasticsearchDomain:
     DomainEndpointOptions:
       EnforceHTTPS: true
       TLSSecurityPolicy: Policy-Min-TLS-1-2-2019-07
-
-
 ```
 
 ### CT.OPENSEARCH.PR.8rule specification
+<a name="ct-opensearch-pr-8-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticsearch_https_required_check
-#
+# 
 # Description:
 #   This control checks whether Elasticsearch domains are configured to require HTTPS with a minimum TLS version of TLSv1.2.
-#
+# 
 # Reports on:
 #   AWS::Elasticsearch::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2785,18 +2649,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.8 example templates
+<a name="ct-opensearch-pr-8-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -2811,7 +2673,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -2821,14 +2683,11 @@ Resources:
       DomainEndpointOptions:
         EnforceHTTPS: true
         TLSSecurityPolicy: Policy-Min-TLS-1-2-2019-07
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ElasticsearchDomain:
     Type: AWS::Elasticsearch::Domain
@@ -2843,7 +2702,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -2853,48 +2712,41 @@ Resources:
       DomainEndpointOptions:
         EnforceHTTPS: true
         TLSSecurityPolicy: Policy-Min-TLS-1-0-2019-07
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.9] Require an Amazon OpenSearch Service domain to encrypt data at rest
+<a name="ct-opensearch-pr-9-description"></a>
 
 This control checks whether Amazon OpenSearch Service domains have encryption-at-rest enabled.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::OpenSearchService::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.9 rule specification](#ct-opensearch-pr-9-rule "#ct-opensearch-pr-9-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::OpenSearchService::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.9 rule specification](#ct-opensearch-pr-9-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.9 rule specification](#ct-opensearch-pr-9-rule "#ct-opensearch-pr-9-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.9 example templates](#ct-opensearch-pr-9-templates "#ct-opensearch-pr-9-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.9 rule specification](#ct-opensearch-pr-9-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.9 example templates](#ct-opensearch-pr-9-templates) 
 
 **Explanation**
 
 For an added layer of security for sensitive data, you should configure your OpenSearch Service domain to be encrypted at rest. When you configure encryption of data at rest, AWS KMS stores and manages your encryption keys. To perform the encryption, AWS KMS uses the Advanced Encryption Standard algorithm with 256-bit keys (AES-256).
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-9-remediation"></a>
 
 Within `EncryptionAtRestOptions`, set `Enabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon OpenSearch Service Domain - Example
+<a name="ct-opensearch-pr-9-remediation-1"></a>
 
 An Amazon OpenSearch Service domain configured with encryption-at-rest enabled The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "OpenSearchServiceDomain": {
         "Type": "AWS::OpenSearchService::Domain",
@@ -2911,7 +2763,7 @@ An Amazon OpenSearch Service domain configured with encryption-at-rest enabled T
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -2929,13 +2781,11 @@ An Amazon OpenSearch Service domain configured with encryption-at-rest enabled T
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 OpenSearchServiceDomain:
   Type: AWS::OpenSearchService::Domain
   Properties:
@@ -2949,7 +2799,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -2958,33 +2808,31 @@ OpenSearchServiceDomain:
           Resource: '*'
     EncryptionAtRestOptions:
       Enabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.9 rule specification
+<a name="ct-opensearch-pr-9-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   opensearch_encrypted_at_rest_check
-#
+# 
 # Description:
 #   This control checks whether Amazon OpenSearch Service domains have encryption-at-rest enabled.
-#
+# 
 # Reports on:
 #   AWS::OpenSearchService::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3070,18 +2918,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.9 example templates
+<a name="ct-opensearch-pr-9-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -3096,7 +2942,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -3105,14 +2951,11 @@ Resources:
           Resource: '*'
       EncryptionAtRestOptions:
         Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -3127,7 +2970,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -3136,29 +2979,21 @@ Resources:
           Resource: '*'
       EncryptionAtRestOptions:
         Enabled: false
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.10] Require an Amazon OpenSearch Service domain to be created in a user-specified Amazon VPC
+<a name="ct-opensearch-pr-10-description"></a>
 
 This control checks whether Amazon OpenSearch Service domains are configured with VPC option settings that specify a target Amazon VPC.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::OpenSearchService::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.10 rule specification](#ct-opensearch-pr-10-rule "#ct-opensearch-pr-10-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::OpenSearchService::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.10 rule specification](#ct-opensearch-pr-10-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.10 rule specification](#ct-opensearch-pr-10-rule "#ct-opensearch-pr-10-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.10 example templates](#ct-opensearch-pr-10-templates "#ct-opensearch-pr-10-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.10 rule specification](#ct-opensearch-pr-10-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.10 example templates](#ct-opensearch-pr-10-templates) 
 
 **Explanation**
 
@@ -3167,19 +3002,20 @@ Ensure that OpenSearch domains are not attached to public subnets. See `Resource
 OpenSearch domains deployed within a VPC can communicate with VPC resources over the private AWS network, without the need to traverse the public internet. This configuration increases the security posture by limiting access to the data in transit. VPCs provide a number of network controls to secure access to OpenSearch domains, including network ACL and security groups. AWS Control Tower recommends that you migrate public OpenSearch domains to VPCs to take advantage of these controls.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-10-remediation"></a>
 
 Within `VPCOptions`, set `SubnetIds` to a list with one or more AAmazon EC2 subnet IDs.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon OpenSearch Service Domain - Example
+<a name="ct-opensearch-pr-10-remediation-1"></a>
 
 An Amazon OpenSearch Service domain configured to deploy within an Amazon VPC by means of VPC option settings. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "OpenSearchServiceDomain": {
         "Type": "AWS::OpenSearchService::Domain",
@@ -3196,7 +3032,7 @@ An Amazon OpenSearch Service domain configured to deploy within an Amazon VPC by
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -3218,13 +3054,11 @@ An Amazon OpenSearch Service domain configured to deploy within an Amazon VPC by
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 OpenSearchServiceDomain:
   Type: AWS::OpenSearchService::Domain
   Properties:
@@ -3238,7 +3072,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -3248,33 +3082,31 @@ OpenSearchServiceDomain:
     VPCOptions:
       SubnetIds:
         - !Ref 'Subnet'
-
-
 ```
 
 ### CT.OPENSEARCH.PR.10 rule specification
+<a name="ct-opensearch-pr-10-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   opensearch_in_vpc_only_check
-#
+# 
 # Description:
 #   This control checks whether Amazon OpenSearch Service domains are configured with VPC option settings that specify a target Amazon VPC.
-#
+# 
 # Reports on:
 #   AWS::OpenSearchService::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3361,18 +3193,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.10 example templates
+<a name="ct-opensearch-pr-10-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: 'AWS::EC2::VPC'
@@ -3401,7 +3231,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -3411,14 +3241,11 @@ Resources:
       VPCOptions:
         SubnetIds:
         - Ref: Subnet
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -3433,59 +3260,51 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
             AWS: '*'
           Action: es:*
           Resource: '*'
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.11] Require an Amazon OpenSearch Service domain to encrypt data sent between nodes
+<a name="ct-opensearch-pr-11-description"></a>
 
 This control checks whether Amazon OpenSearch Service domains have node-to-node encryption enabled.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::OpenSearchService::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.11 rule specification](#ct-opensearch-pr-11-rule "#ct-opensearch-pr-11-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::OpenSearchService::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.11 rule specification](#ct-opensearch-pr-11-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.11 rule specification](#ct-opensearch-pr-11-rule "#ct-opensearch-pr-11-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.11 example templates](#ct-opensearch-pr-11-templates "#ct-opensearch-pr-11-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.11 rule specification](#ct-opensearch-pr-11-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.11 example templates](#ct-opensearch-pr-11-templates) 
 
 **Explanation**
 
 HTTPS (TLS) can help prevent potential attackers from eavesdropping on or manipulating network traffic using person-in-the-middle, or similar, attacks. Only encrypted connections over HTTPS (TLS) should be allowed. Enabling node-to-node encryption for OpenSearch domains ensures that intra-cluster communications are encrypted in transit.
 
-###### Usage considerations
-
-- A performance penalty may be associated with this configuration. You should be aware of the performance trade-offs and test them before enabling this option.
+**Usage considerations**  
+A performance penalty may be associated with this configuration. You should be aware of the performance trade-offs and test them before enabling this option.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-11-remediation"></a>
 
 Within `NodeToNodeEncryptionOptions`, set `Enabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon OpenSearch Service Domain - Example
+<a name="ct-opensearch-pr-11-remediation-1"></a>
 
 An Amazon OpenSearch Service domain configured with node-to-node encryption enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "OpenSearchServiceDomain": {
         "Type": "AWS::OpenSearchService::Domain",
@@ -3502,7 +3321,7 @@ An Amazon OpenSearch Service domain configured with node-to-node encryption enab
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -3520,13 +3339,11 @@ An Amazon OpenSearch Service domain configured with node-to-node encryption enab
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 OpenSearchServiceDomain:
   Type: AWS::OpenSearchService::Domain
   Properties:
@@ -3540,7 +3357,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -3549,33 +3366,31 @@ OpenSearchServiceDomain:
           Resource: '*'
     NodeToNodeEncryptionOptions:
       Enabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.11 rule specification
+<a name="ct-opensearch-pr-11-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   opensearch_node_to_node_encryption_check
-#
+# 
 # Description:
 #   This control checks whether Amazon OpenSearch Service domains have node-to-node encryption enabled.
-#
+# 
 # Reports on:
 #   AWS::OpenSearchService::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3662,18 +3477,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.11 example templates
+<a name="ct-opensearch-pr-11-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -3688,7 +3501,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -3697,14 +3510,11 @@ Resources:
           Resource: '*'
       NodeToNodeEncryptionOptions:
         Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -3719,7 +3529,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -3727,48 +3537,41 @@ Resources:
           Action: es:*
           Resource: '*'
       NodeToNodeEncryptionOptions: {}
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.12] Require an Amazon OpenSearch Service domain to send error logs to Amazon CloudWatch Logs
+<a name="ct-opensearch-pr-12-description"></a>
 
 This control checks whether Amazon OpenSearch Service domains are configured to send error logs to an Amazon CloudWatch Logs log group.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::OpenSearchService::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.12 rule specification](#ct-opensearch-pr-12-rule "#ct-opensearch-pr-12-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::OpenSearchService::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.12 rule specification](#ct-opensearch-pr-12-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.12 rule specification](#ct-opensearch-pr-12-rule "#ct-opensearch-pr-12-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.12 example templates](#ct-opensearch-pr-12-templates "#ct-opensearch-pr-12-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.12 rule specification](#ct-opensearch-pr-12-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.12 example templates](#ct-opensearch-pr-12-templates) 
 
 **Explanation**
 
 Enable error logs (ES\_APPLICATION\_LOGS) for OpenSearch Service domains and send those logs to Amazon CloudWatch Logs for retention and response. Domain error logs can assist with security and access audits, and can help to diagnose availability issues.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-12-remediation"></a>
 
 Within `LogPublishingOptions`, provide an `ES_APPLICATION_LOGS` configuration, set `Enabled` to `true`, and set `CloudWatchLogsLogGroupArn` to the ARN of a valid Amazon CloudWatch Logs log group.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon OpenSearch Service Domain - Example
+<a name="ct-opensearch-pr-12-remediation-1"></a>
 
 An Amazon OpenSearch Service domain configured to send error logs to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "OpenSearchServiceDomain": {
         "Type": "AWS::OpenSearchService::Domain",
@@ -3785,7 +3588,7 @@ An Amazon OpenSearch Service domain configured to send error logs to Amazon Clou
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -3811,13 +3614,11 @@ An Amazon OpenSearch Service domain configured to send error logs to Amazon Clou
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 OpenSearchServiceDomain:
   Type: AWS::OpenSearchService::Domain
   Properties:
@@ -3831,7 +3632,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -3842,33 +3643,31 @@ OpenSearchServiceDomain:
       ES_APPLICATION_LOGS:
         CloudWatchLogsLogGroupArn: !GetAtt 'LogGroup.Arn'
         Enabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.12 rule specification
+<a name="ct-opensearch-pr-12-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   opensearch_application_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon OpenSearch Service domains are configured to send error logs to an Amazon CloudWatch Logs log group.
-#
+# 
 # Reports on:
 #   AWS::OpenSearchService::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4022,18 +3821,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.12 example templates
+<a name="ct-opensearch-pr-12-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -4049,7 +3846,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -4072,17 +3869,14 @@ Resources:
         Fn::Sub: ${AWS::StackName}-AllowOS
       PolicyDocument:
         Fn::Sub:
-        - '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{"aws:SourceAccount": "${AWS::AccountId}"}}}]}'
+        - '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{"aws:SourceAccount": "${AWS::AccountId}"}}}]}'
         - LogGroupArn:
             Fn::GetAtt: [LogGroup, Arn]
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -4097,21 +3891,18 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
             AWS: '*'
           Action: es:*
           Resource: '*'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -4126,7 +3917,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -4136,53 +3927,45 @@ Resources:
       LogPublishingOptions:
         ES_APPLICATION_LOGS:
           Enabled: false
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.13] Require an Amazon OpenSearch Service domain to send audit logs to Amazon CloudWatch Logs
+<a name="ct-opensearch-pr-13-description"></a>
 
 This control checks whether Amazon OpenSearch Service domains are configured to send audit logs to an Amazon CloudWatch Logs log group.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::OpenSearchService::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.13 rule specification](#ct-opensearch-pr-13-rule "#ct-opensearch-pr-13-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::OpenSearchService::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.13 rule specification](#ct-opensearch-pr-13-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.13 rule specification](#ct-opensearch-pr-13-rule "#ct-opensearch-pr-13-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.13 example templates](#ct-opensearch-pr-13-templates "#ct-opensearch-pr-13-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.13 rule specification](#ct-opensearch-pr-13-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.13 example templates](#ct-opensearch-pr-13-templates) 
 
 **Explanation**
 
 Audit logs are highly customizable. They allow you to track user activity on your OpenSearch clusters, including authentication successes and failures, requests to OpenSearch, index changes, and incoming search queries.
 
-###### Usage considerations
-
-- Audit log publishing requires advanced security options to be enabled on Amazon OpenSearch Service domains.
-- To enable advanced security options on an Amazon OpenSearch Service domain, you must enable encryption of data at rest by means of the `EncryptionAtRestOptions` property, node-to-node encryption by means of the `NodeToNodeEncryptionOptions` property, and enforce HTTPS connections by means of the `EnforceHTTPS` property within `DomainEndpointOptions`.
+**Usage considerations**  
+Audit log publishing requires advanced security options to be enabled on Amazon OpenSearch Service domains.
+To enable advanced security options on an Amazon OpenSearch Service domain, you must enable encryption of data at rest by means of the `EncryptionAtRestOptions` property, node-to-node encryption by means of the `NodeToNodeEncryptionOptions` property, and enforce HTTPS connections by means of the `EnforceHTTPS` property within `DomainEndpointOptions`.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-13-remediation"></a>
 
 Within `LogPublishingOptions`, provide an `AUDIT_LOGS` configuration, set `Enabled` to `true` and `CloudWatchLogsLogGroupArn` to the ARN of a valid Amazon CloudWatch Logs log group.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon OpenSearch Service Domain - Example
+<a name="ct-opensearch-pr-13-remediation-1"></a>
 
 An Amazon OpenSearch Service domain configured to send audit logs to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "OpenSearchServiceDomain": {
         "Type": "AWS::OpenSearchService::Domain",
@@ -4200,7 +3983,7 @@ An Amazon OpenSearch Service domain configured to send audit logs to Amazon Clou
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -4247,13 +4030,11 @@ An Amazon OpenSearch Service domain configured to send audit logs to Amazon Clou
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 OpenSearchServiceDomain:
   Type: AWS::OpenSearchService::Domain
   DependsOn: LogGroupPolicy
@@ -4268,7 +4049,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -4290,33 +4071,31 @@ OpenSearchServiceDomain:
       AUDIT_LOGS:
         CloudWatchLogsLogGroupArn: !GetAtt 'LogGroup.Arn'
         Enabled: true
-
-
 ```
 
 ### CT.OPENSEARCH.PR.13 rule specification
+<a name="ct-opensearch-pr-13-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   opensearch_audit_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon OpenSearch Service domains are configured to send audit logs to an Amazon CloudWatch Logs log group.
-#
+# 
 # Reports on:
 #   AWS::OpenSearchService::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4470,24 +4249,22 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.13 example templates
+<a name="ct-opensearch-pr-13-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -4508,7 +4285,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -4544,23 +4321,20 @@ Resources:
       PolicyName: AllowES
       PolicyDocument:
         Fn::Sub:
-        - '{"Version": "2012-10-17","Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
+        - '{"Version": "2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal": {"Service": ["es.amazonaws.com"]},"Action":["logs:PutLogEvents","logs:CreateLogStream"],"Resource":"${LogGroupArn}","Condition":{"StringEquals":{ "aws:SourceAccount": "${AWS::AccountId}"}}}]}'
         - LogGroupArn:
             Fn::GetAtt: [ LogGroup, Arn ]
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -4580,7 +4354,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -4601,20 +4375,17 @@ Resources:
             Fn::GetAtt:
             - IAMRole
             - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -4634,7 +4405,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -4658,48 +4429,41 @@ Resources:
       LogPublishingOptions:
         AUDIT_LOGS:
           Enabled: false
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.14] Require an Amazon OpenSearch Service domain to have zone awareness and at least three data nodes
+<a name="ct-opensearch-pr-14-description"></a>
 
 This control checks whether Amazon OpenSearch Service domains are configured with at least three data nodes and zone awareness enabled.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::OpenSearchService::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.14 rule specification](#ct-opensearch-pr-14-rule "#ct-opensearch-pr-14-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::OpenSearchService::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.14 rule specification](#ct-opensearch-pr-14-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.14 rule specification](#ct-opensearch-pr-14-rule "#ct-opensearch-pr-14-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.14 example templates](#ct-opensearch-pr-14-templates "#ct-opensearch-pr-14-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.14 rule specification](#ct-opensearch-pr-14-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.14 example templates](#ct-opensearch-pr-14-templates) 
 
 **Explanation**
 
 An OpenSearch domain requires at least three data nodes for high availability and fault-tolerance. Deploying an OpenSearch domain with at least three data nodes ensures that the cluster can remain operative if a node fails.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-14-remediation"></a>
 
 Within `ClusterConfig`, set `ZoneAwarenessEnabled` to `true` and `InstanceCount` to an integer value greater than or equal to three.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon OpenSearch Service Domain - Example
+<a name="ct-opensearch-pr-14-remediation-1"></a>
 
 An Amazon OpenSearch Service domain configured with three data nodes and zone awareness enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "OpenSearchServiceDomain": {
         "Type": "AWS::OpenSearchService::Domain",
@@ -4712,7 +4476,7 @@ An Amazon OpenSearch Service domain configured with three data nodes and zone aw
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -4735,13 +4499,11 @@ An Amazon OpenSearch Service domain configured with three data nodes and zone aw
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 OpenSearchServiceDomain:
   Type: AWS::OpenSearchService::Domain
   Properties:
@@ -4752,7 +4514,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -4765,33 +4527,31 @@ OpenSearchServiceDomain:
       ZoneAwarenessEnabled: true
       ZoneAwarenessConfig:
         AvailabilityZoneCount: 3
-
-
 ```
 
 ### CT.OPENSEARCH.PR.14 rule specification
+<a name="ct-opensearch-pr-14-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   opensearch_data_node_fault_tolerance_check
-#
+# 
 # Description:
-#   This control checks whether Amazon OpenSearch Service domains are configured with at least three data nodes and zone awareness enabled.
-#
+#   This control checks whether Amazon OpenSearch Service domains are configured with at least three data nodes and zone awareness enabled. 
+# 
 # Reports on:
 #   AWS::OpenSearchService::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4903,18 +4663,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.14 example templates
+<a name="ct-opensearch-pr-14-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -4926,7 +4684,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -4939,14 +4697,11 @@ Resources:
         ZoneAwarenessEnabled: true
         ZoneAwarenessConfig:
           AvailabilityZoneCount: 3
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -4962,60 +4717,52 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
             AWS: '*'
           Action: es:*
           Resource: '*'
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.15] Require an Amazon OpenSearch Service domain to use fine-grained access control
+<a name="ct-opensearch-pr-15-description"></a>
 
 This control checks whether Amazon OpenSearch Service domains have fine-grained access control enabled.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::OpenSearchService::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.15 rule specification](#ct-opensearch-pr-15-rule "#ct-opensearch-pr-15-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::OpenSearchService::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.15 rule specification](#ct-opensearch-pr-15-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.15 rule specification](#ct-opensearch-pr-15-rule "#ct-opensearch-pr-15-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.15 example templates](#ct-opensearch-pr-15-templates "#ct-opensearch-pr-15-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.15 rule specification](#ct-opensearch-pr-15-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.15 example templates](#ct-opensearch-pr-15-templates) 
 
 **Explanation**
 
 Fine-grained access control offers additional ways of controlling access to your data on Amazon OpenSearch Service.
 
-###### Usage considerations
-
-- Fine-grained access control requires that advanced security options must be enabled on Amazon OpenSearch Service domains.
-- To enable advanced security options on an Amazon OpenSearch Service domain, you must enable encryption of data at rest by means of the `EncryptionAtRestOptions` property, node-to-node encryption by means of the `NodeToNodeEncryptionOptions` property, and enforce HTTPS connections by means of the `EnforceHTTPS` property within `DomainEndpointOptions`.
+**Usage considerations**  
+Fine-grained access control requires that advanced security options must be enabled on Amazon OpenSearch Service domains.
+To enable advanced security options on an Amazon OpenSearch Service domain, you must enable encryption of data at rest by means of the `EncryptionAtRestOptions` property, node-to-node encryption by means of the `NodeToNodeEncryptionOptions` property, and enforce HTTPS connections by means of the `EnforceHTTPS` property within `DomainEndpointOptions`.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-15-remediation"></a>
 
 Within `AdvancedSecurityOptions`, set `Enabled` to `true`, set `InternalUserDatabaseEnabled` to `true` or `false`, and set `MasterUserOptions` with an options configuration for your master user.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon OpenSearch Service Domain - Example
+<a name="ct-opensearch-pr-15-remediation-1"></a>
 
 An Amazon OpenSearch Service domain configured with fine-grained access control. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "OpenSearchServiceDomain": {
         "Type": "AWS::OpenSearchService::Domain",
@@ -5032,7 +4779,7 @@ An Amazon OpenSearch Service domain configured with fine-grained access control.
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -5068,13 +4815,11 @@ An Amazon OpenSearch Service domain configured with fine-grained access control.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 OpenSearchServiceDomain:
   Type: AWS::OpenSearchService::Domain
   Properties:
@@ -5088,7 +4833,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -5106,33 +4851,31 @@ OpenSearchServiceDomain:
       InternalUserDatabaseEnabled: false
       MasterUserOptions:
         MasterUserARN: !GetAtt 'IAMRole.Arn'
-
-
 ```
 
 ### CT.OPENSEARCH.PR.15 rule specification
+<a name="ct-opensearch-pr-15-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   opensearch_fine_grained_access_control_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon OpenSearch Service domains have fine-grained access control enabled.
-#
+# 
 # Reports on:
 #   AWS::OpenSearchService::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5260,24 +5003,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.15 example templates
+<a name="ct-opensearch-pr-15-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -5298,7 +5039,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -5317,14 +5058,11 @@ Resources:
         MasterUserOptions:
           MasterUserARN:
             Fn::GetAtt: [IAMRole, Arn]
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -5339,7 +5077,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -5354,48 +5092,41 @@ Resources:
         EnforceHTTPS: true
       AdvancedSecurityOptions:
         Enabled: false
-
-
 ```
 
 ## [CT.OPENSEARCH.PR.16] Require an Amazon OpenSearch Service domain to use TLSv1.2
+<a name="ct-opensearch-pr-16-description"></a>
 
 This control checks whether Amazon OpenSearch Service domains are configured to require HTTPS with a minimum TLS version of TLSv1.2.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::OpenSearchService::Domain`
-- **CloudFormation guard rule:**
-  [CT.OPENSEARCH.PR.16 rule specification](#ct-opensearch-pr-16-rule "#ct-opensearch-pr-16-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::OpenSearchService::Domain`
++ **CloudFormation guard rule: ** [CT.OPENSEARCH.PR.16 rule specification](#ct-opensearch-pr-16-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.OPENSEARCH.PR.16 rule specification](#ct-opensearch-pr-16-rule "#ct-opensearch-pr-16-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.OPENSEARCH.PR.16 example templates](#ct-opensearch-pr-16-templates "#ct-opensearch-pr-16-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.OPENSEARCH.PR.16 rule specification](#ct-opensearch-pr-16-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.OPENSEARCH.PR.16 example templates](#ct-opensearch-pr-16-templates) 
 
 **Explanation**
 
 HTTPS (TLS) can help prevent potential attackers from using person-in-the-middle, or similar attacks, to eavesdrop on or manipulate network traffic. Only encrypted connections over HTTPS (TLS) should be allowed. Encrypting data in transit can affect performance. You should test your application with this feature to understand the performance profile and the effects of TLS. TLS 1.2 provides several security enhancements over previous versions of TLS.
 
 ### Remediation for rule failure
+<a name="ct-opensearch-pr-16-remediation"></a>
 
 Within `DomainEndpointOptions`, set `EnforceHTTPS` to `true` and set `TLSSecurityPolicy` to `Policy-Min-TLS-1-2-2019-07`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon OpenSearch Service Domain - Example
+<a name="ct-opensearch-pr-16-remediation-1"></a>
 
 An Amazon OpenSearch Service domain configured to require all traffic to the domain arrive over HTTPS with a minimum TLS version of TLSv1.2. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "OpenSearchServiceDomain": {
         "Type": "AWS::OpenSearchService::Domain",
@@ -5412,7 +5143,7 @@ An Amazon OpenSearch Service domain configured to require all traffic to the dom
                 "VolumeType": "gp3"
             },
             "AccessPolicies": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -5431,13 +5162,11 @@ An Amazon OpenSearch Service domain configured to require all traffic to the dom
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 OpenSearchServiceDomain:
   Type: AWS::OpenSearchService::Domain
   Properties:
@@ -5451,7 +5180,7 @@ OpenSearchServiceDomain:
       VolumeSize: '10'
       VolumeType: gp3
     AccessPolicies:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Effect: Deny
           Principal:
@@ -5461,33 +5190,31 @@ OpenSearchServiceDomain:
     DomainEndpointOptions:
       EnforceHTTPS: true
       TLSSecurityPolicy: Policy-Min-TLS-1-2-2019-07
-
-
 ```
 
 ### CT.OPENSEARCH.PR.16 rule specification
+<a name="ct-opensearch-pr-16-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   opensearch_https_required_check
-#
+# 
 # Description:
 #   This control checks whether Amazon OpenSearch Service domains are configured to require HTTPS with a minimum TLS version of TLSv1.2.
-#
+# 
 # Reports on:
 #   AWS::OpenSearchService::Domain
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5598,18 +5325,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.OPENSEARCH.PR.16 example templates
+<a name="ct-opensearch-pr-16-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -5624,7 +5349,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -5634,14 +5359,11 @@ Resources:
       DomainEndpointOptions:
         EnforceHTTPS: true
         TLSSecurityPolicy: Policy-Min-TLS-1-2-2019-07
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   OpenSearchServiceDomain:
     Type: AWS::OpenSearchService::Domain
@@ -5656,7 +5378,7 @@ Resources:
         VolumeSize: '10'
         VolumeType: gp3
       AccessPolicies:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Deny
           Principal:
@@ -5666,6 +5388,4 @@ Resources:
       DomainEndpointOptions:
         EnforceHTTPS: true
         TLSSecurityPolicy: Policy-Min-TLS-1-0-2019-07
-
-
 ```

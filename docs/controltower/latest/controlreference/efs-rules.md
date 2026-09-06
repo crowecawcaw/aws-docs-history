@@ -1,55 +1,51 @@
+
+
 # Amazon Elastic File System controls
+<a name="efs-rules"></a>
 
-###### Topics
-
-- [[CT.ELASTICFILESYSTEM.PR.1] Require an Amazon EFS file system to encrypt file data at rest using AWS KMS](#ct-elasticfilesystem-pr-1-description "#ct-elasticfilesystem-pr-1-description")
-- [[CT.ELASTICFILESYSTEM.PR.2] Require an Amazon EFS volume to have an automated backup plan](#ct-elasticfilesystem-pr-2-description "#ct-elasticfilesystem-pr-2-description")
-- [[CT.ELASTICFILESYSTEM.PR.3] Require Amazon EFS access points to have a root directory](#ct-elasticfilesystem-pr-3-description "#ct-elasticfilesystem-pr-3-description")
-- [[CT.ELASTICFILESYSTEM.PR.4] Require Amazon EFS access points to enforce a user identity](#ct-elasticfilesystem-pr-4-description "#ct-elasticfilesystem-pr-4-description")
+**Topics**
++ [[CT.ELASTICFILESYSTEM.PR.1] Require an Amazon EFS file system to encrypt file data at rest using AWS KMS](#ct-elasticfilesystem-pr-1-description)
++ [[CT.ELASTICFILESYSTEM.PR.2] Require an Amazon EFS volume to have an automated backup plan](#ct-elasticfilesystem-pr-2-description)
++ [[CT.ELASTICFILESYSTEM.PR.3] Require Amazon EFS access points to have a root directory](#ct-elasticfilesystem-pr-3-description)
++ [[CT.ELASTICFILESYSTEM.PR.4] Require Amazon EFS access points to enforce a user identity](#ct-elasticfilesystem-pr-4-description)
 
 ## [CT.ELASTICFILESYSTEM.PR.1] Require an Amazon EFS file system to encrypt file data at rest using AWS KMS
+<a name="ct-elasticfilesystem-pr-1-description"></a>
 
 This control checks whether an Amazon Elastic File System (Amazon EFS) file system is configured to encrypt file data using AWS KMS.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EFS::FileSystem`
-- **CloudFormation guard rule:**
-  [CT.ELASTICFILESYSTEM.PR.1 rule specification](#ct-elasticfilesystem-pr-1-rule "#ct-elasticfilesystem-pr-1-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EFS::FileSystem`
++ **CloudFormation guard rule: ** [CT.ELASTICFILESYSTEM.PR.1 rule specification](#ct-elasticfilesystem-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICFILESYSTEM.PR.1 rule specification](#ct-elasticfilesystem-pr-1-rule "#ct-elasticfilesystem-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICFILESYSTEM.PR.1 example templates](#ct-elasticfilesystem-pr-1-templates "#ct-elasticfilesystem-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICFILESYSTEM.PR.1 rule specification](#ct-elasticfilesystem-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICFILESYSTEM.PR.1 example templates](#ct-elasticfilesystem-pr-1-templates) 
 
 **Explanation**
 
 For an added layer of security for your sensitive data in Amazon EFS, you should create encrypted file systems. Amazon EFS supports encryption for file systems at rest. You can enable encryption of data at rest when you create an Amazon EFS file system.
 
-###### Usage considerations
-
-- This control requires only the `Encrypted` property to be set to `true`, and it does not require the `KmsKeyId` property to be provided.
-- If the `KmsKeyId` property is not provided, the default AWS KMS key for Amazon EFS, `/aws/elasticfilesystem`, is used to protect the encrypted file system.
+**Usage considerations**  
+This control requires only the `Encrypted` property to be set to `true`, and it does not require the `KmsKeyId` property to be provided.
+If the `KmsKeyId` property is not provided, the default AWS KMS key for Amazon EFS, `/aws/elasticfilesystem`, is used to protect the encrypted file system.
 
 ### Remediation for rule failure
+<a name="ct-elasticfilesystem-pr-1-remediation"></a>
 
 Set `Encrypted` to `true` and optionally set `KmsKeyId` to a valid AWS KMS key identifier.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EFS File System - Example One
+<a name="ct-elasticfilesystem-pr-1-remediation-1"></a>
 
 Amazon EFS file system configured with encryption enabled, by means of the default AWS KMS key for Amazon EFS. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EFSFileSystem": {
         "Type": "AWS::EFS::FileSystem",
@@ -58,31 +54,27 @@ Amazon EFS file system configured with encryption enabled, by means of the defau
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EFSFileSystem:
   Type: AWS::EFS::FileSystem
   Properties:
     Encrypted: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EFS File System - Example Two
+<a name="ct-elasticfilesystem-pr-1-remediation-2"></a>
 
 Amazon EFS file system configured with encryption enabled, by means of a customer-managed AWS KMS key. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EFSFileSystem": {
         "Type": "AWS::EFS::FileSystem",
@@ -94,44 +86,40 @@ Amazon EFS file system configured with encryption enabled, by means of a custome
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EFSFileSystem:
   Type: AWS::EFS::FileSystem
   Properties:
     Encrypted: true
     KmsKeyId: !Ref 'KMSKey'
-
-
 ```
 
 ### CT.ELASTICFILESYSTEM.PR.1 rule specification
+<a name="ct-elasticfilesystem-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
 # Rule Identifier:
 #   efs_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Elastic File System (Amazon EFS) file system is configured to encrypt file data using AWS KMS.
-#
+# 
 # Reports on:
 #   AWS::EFS::FileSystem
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -209,78 +197,66 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICFILESYSTEM.PR.1 example templates
+<a name="ct-elasticfilesystem-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   EFSFileSystem:
     Type: AWS::EFS::FileSystem
     Properties:
       Encrypted: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   EFSFileSystem:
     Type: AWS::EFS::FileSystem
     Properties:
       Encrypted: false
-
-
 ```
 
 ## [CT.ELASTICFILESYSTEM.PR.2] Require an Amazon EFS volume to have an automated backup plan
+<a name="ct-elasticfilesystem-pr-2-description"></a>
 
 This control checks whether your Amazon Elastic File System (Amazon EFS) file system has been configured with automatic backups through AWS Backup.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EFS::FileSystem`
-- **CloudFormation guard rule:**
-  [CT.ELASTICFILESYSTEM.PR.2 rule specification](#ct-elasticfilesystem-pr-2-rule "#ct-elasticfilesystem-pr-2-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EFS::FileSystem`
++ **CloudFormation guard rule: ** [CT.ELASTICFILESYSTEM.PR.2 rule specification](#ct-elasticfilesystem-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICFILESYSTEM.PR.2 rule specification](#ct-elasticfilesystem-pr-2-rule "#ct-elasticfilesystem-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICFILESYSTEM.PR.2 example templates](#ct-elasticfilesystem-pr-2-templates "#ct-elasticfilesystem-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICFILESYSTEM.PR.2 rule specification](#ct-elasticfilesystem-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICFILESYSTEM.PR.2 example templates](#ct-elasticfilesystem-pr-2-templates) 
 
 **Explanation**
 
 Including Amazon EFS file systems in the backup plans helps you to protect your data from deletion and data loss.
 
 ### Remediation for rule failure
+<a name="ct-elasticfilesystem-pr-2-remediation"></a>
 
 Enable automatic backups by setting `BackupPolicy.Status` to `ENABLED`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EFS File System - Example
+<a name="ct-elasticfilesystem-pr-2-remediation-1"></a>
 
 Amazon EFS file system configured with automatic backups enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EFSFileSystem": {
         "Type": "AWS::EFS::FileSystem",
@@ -291,45 +267,41 @@ Amazon EFS file system configured with automatic backups enabled. The example is
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EFSFileSystem:
   Type: AWS::EFS::FileSystem
   Properties:
     BackupPolicy:
       Status: ENABLED
-
-
 ```
 
 ### CT.ELASTICFILESYSTEM.PR.2 rule specification
+<a name="ct-elasticfilesystem-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   efs_automatic_backups_enabled_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon Elastic File System (Amazon EFS) file system has been configured with automatic backups through AWS Backup.
-#
+# 
 # Reports on:
 #   AWS::EFS::FileSystem
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -412,80 +384,68 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICFILESYSTEM.PR.2 example templates
+<a name="ct-elasticfilesystem-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   EFSFileSystem:
     Type: AWS::EFS::FileSystem
     Properties:
       BackupPolicy:
         Status: ENABLED
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   EFSFileSystem:
     Type: AWS::EFS::FileSystem
     Properties:
       BackupPolicy:
         Status: DISABLED
-
-
 ```
 
 ## [CT.ELASTICFILESYSTEM.PR.3] Require Amazon EFS access points to have a root directory
+<a name="ct-elasticfilesystem-pr-3-description"></a>
 
 This control checks whether your Amazon Elastic File System (Amazon EFS) access points are configured to enforce a root directory.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EFS::AccessPoint`
-- **CloudFormation guard rule:**
-  [CT.ELASTICFILESYSTEM.PR.3 rule specification](#ct-elasticfilesystem-pr-3-rule "#ct-elasticfilesystem-pr-3-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EFS::AccessPoint`
++ **CloudFormation guard rule: ** [CT.ELASTICFILESYSTEM.PR.3 rule specification](#ct-elasticfilesystem-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICFILESYSTEM.PR.3 rule specification](#ct-elasticfilesystem-pr-3-rule "#ct-elasticfilesystem-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICFILESYSTEM.PR.3 example templates](#ct-elasticfilesystem-pr-3-templates "#ct-elasticfilesystem-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICFILESYSTEM.PR.3 rule specification](#ct-elasticfilesystem-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICFILESYSTEM.PR.3 example templates](#ct-elasticfilesystem-pr-3-templates) 
 
 **Explanation**
 
 When you enforce a root directory, the NFS client at the access point uses the root directory configured on the access point, instead of the file system's root directory. Enforcing a root directory for an access point helps restrict data access by ensuring that users of the access point can reach only the files of the specified subdirectory.
 
 ### Remediation for rule failure
+<a name="ct-elasticfilesystem-pr-3-remediation"></a>
 
 Provide a `RootDirectory.Path` configuration with a value for `Path` that does not equal `/`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EFS Access Point - Example
+<a name="ct-elasticfilesystem-pr-3-remediation-1"></a>
 
 Amazon EFS access point configured with a root directory set to a specific subdirectory. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EFSAccessPoint": {
         "Type": "AWS::EFS::AccessPoint",
@@ -499,46 +459,42 @@ Amazon EFS access point configured with a root directory set to a specific subdi
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EFSAccessPoint:
   Type: AWS::EFS::AccessPoint
   Properties:
     FileSystemId: !Ref 'EFSFileSystem'
     RootDirectory:
       Path: /dir1/child1
-
-
 ```
 
 ### CT.ELASTICFILESYSTEM.PR.3 rule specification
+<a name="ct-elasticfilesystem-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   efs_access_point_enforce_root_directory_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon Elastic File System (Amazon EFS) access points are configured to enforce a root directory.
-#
+# 
 # Reports on:
 #   AWS::EFS::AccessPoint
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -635,18 +591,16 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.ELASTICFILESYSTEM.PR.3 example templates
+<a name="ct-elasticfilesystem-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   EFSAccessPoint:
     Type: AWS::EFS::AccessPoint
@@ -658,14 +612,11 @@ Resources:
   EFSFileSystem:
     Type: AWS::EFS::FileSystem
     Properties: {}
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   EFSAccessPoint:
     Type: AWS::EFS::AccessPoint
@@ -677,48 +628,41 @@ Resources:
   EFSFileSystem:
     Type: AWS::EFS::FileSystem
     Properties: {}
-
-
 ```
 
 ## [CT.ELASTICFILESYSTEM.PR.4] Require Amazon EFS access points to enforce a user identity
+<a name="ct-elasticfilesystem-pr-4-description"></a>
 
 This control checks whether your Amazon Elastic File System (Amazon EFS) access points are configured to enforce a user identity.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EFS::AccessPoint`
-- **CloudFormation guard rule:**
-  [CT.ELASTICFILESYSTEM.PR.4 rule specification](#ct-elasticfilesystem-pr-4-rule "#ct-elasticfilesystem-pr-4-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EFS::AccessPoint`
++ **CloudFormation guard rule: ** [CT.ELASTICFILESYSTEM.PR.4 rule specification](#ct-elasticfilesystem-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICFILESYSTEM.PR.4 rule specification](#ct-elasticfilesystem-pr-4-rule "#ct-elasticfilesystem-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICFILESYSTEM.PR.4 example templates](#ct-elasticfilesystem-pr-4-templates "#ct-elasticfilesystem-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICFILESYSTEM.PR.4 rule specification](#ct-elasticfilesystem-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICFILESYSTEM.PR.4 example templates](#ct-elasticfilesystem-pr-4-templates) 
 
 **Explanation**
 
 Amazon EFS access points are application-specific entry points into an Amazon EFS file system that make it easier to manage application access to shared datasets. Access points can enforce a user identity, including the user's POSIX groups, for all file system requests that are made through the access point. Access points also can enforce a different root directory for the file system, so that clients gain access only to data in the specified directory or its subdirectories.
 
 ### Remediation for rule failure
+<a name="ct-elasticfilesystem-pr-4-remediation"></a>
 
 Provide a `PosixUser` configuration with a POSIX user ID (`Uid`) and POSIX group ID (`Gid`).
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EFS Access Point - Example
+<a name="ct-elasticfilesystem-pr-4-remediation-1"></a>
 
 Amazon EFS access point configured to enforce a user identity for all file system requests made through the access point. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EFSAccessPoint": {
         "Type": "AWS::EFS::AccessPoint",
@@ -733,13 +677,11 @@ Amazon EFS access point configured to enforce a user identity for all file syste
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EFSAccessPoint:
   Type: AWS::EFS::AccessPoint
   Properties:
@@ -747,32 +689,30 @@ EFSAccessPoint:
     PosixUser:
       Uid: '111'
       Gid: '222'
-
-
 ```
 
 ### CT.ELASTICFILESYSTEM.PR.4 rule specification
+<a name="ct-elasticfilesystem-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
 # Rule Identifier:
 #   efs_access_point_enforce_user_identity_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon Elastic File System (Amazon EFS) access points are configured to enforce a user identity.
-#
+# 
 # Reports on:
 #   AWS::EFS::AccessPoint
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -866,18 +806,16 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.ELASTICFILESYSTEM.PR.4 example templates
+<a name="ct-elasticfilesystem-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   EFSAccessPoint:
     Type: AWS::EFS::AccessPoint
@@ -890,14 +828,11 @@ Resources:
   EFSFileSystem:
     Type: AWS::EFS::FileSystem
     Properties: {}
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   EFSAccessPoint:
     Type: AWS::EFS::AccessPoint
@@ -907,6 +842,4 @@ Resources:
   EFSFileSystem:
     Type: AWS::EFS::FileSystem
     Properties: {}
-
-
 ```

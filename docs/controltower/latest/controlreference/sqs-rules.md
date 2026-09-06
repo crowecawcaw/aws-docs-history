@@ -1,52 +1,48 @@
+
+
 # Amazon Simple Queue Service (Amazon SQS) controls
+<a name="sqs-rules"></a>
 
-###### Topics
-
-- [[CT.SQS.PR.1] Require any Amazon SQS queue to have a dead-letter queue configured](#ct-sqs-pr-1-description "#ct-sqs-pr-1-description")
-- [[CT.SQS.PR.2] Require any Amazon SQS queue to have encryption at rest configured](#ct-sqs-pr-2-description "#ct-sqs-pr-2-description")
+**Topics**
++ [[CT.SQS.PR.1] Require any Amazon SQS queue to have a dead-letter queue configured](#ct-sqs-pr-1-description)
++ [[CT.SQS.PR.2] Require any Amazon SQS queue to have encryption at rest configured](#ct-sqs-pr-2-description)
 
 ## [CT.SQS.PR.1] Require any Amazon SQS queue to have a dead-letter queue configured
+<a name="ct-sqs-pr-1-description"></a>
 
 This control checks whether an Amazon SQS queue is configured with a dead-letter queue.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::SQS::Queue`
-- **CloudFormation guard rule:**
-  [CT.SQS.PR.1 rule specification](#ct-sqs-pr-1-rule "#ct-sqs-pr-1-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::SQS::Queue`
++ **CloudFormation guard rule: ** [CT.SQS.PR.1 rule specification](#ct-sqs-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.SQS.PR.1 rule specification](#ct-sqs-pr-1-rule "#ct-sqs-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.SQS.PR.1 example templates](#ct-sqs-pr-1-templates "#ct-sqs-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.SQS.PR.1 rule specification](#ct-sqs-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.SQS.PR.1 example templates](#ct-sqs-pr-1-templates) 
 
 **Explanation**
 
 The main task of a dead-letter queue is to handle the lifecycle of unconsumed messages. A dead-letter queue lets you set aside and isolate messages that can`t be processed correctly, so you can determine why their processing didn`t succeed.
 
-###### Usage considerations
-
-- This control applies only to Amazon SQS queues that are not configured as a dead-letter queue with a `RedriveAllowPolicy` property.
+**Usage considerations**  
+This control applies only to Amazon SQS queues that are not configured as a dead-letter queue with a `RedriveAllowPolicy` property.
 
 ### Remediation for rule failure
+<a name="ct-sqs-pr-1-remediation"></a>
 
-Create a `RedrivePolicy` with a `deadLetterTargetArn` value that`s set to the ARN of an Amazon SQS dead-letter queue. For Amazon SQS dead-letter queues, instead provide a redrive configuration in the` RedriveAllowPolicy' property.
+Create a `RedrivePolicy` with a `deadLetterTargetArn` value that`s set to the ARN of an Amazon SQS dead-letter queue. For Amazon SQS dead-letter queues, instead provide a redrive configuration in the `RedriveAllowPolicy' property.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon SQS Queue - Example
+<a name="ct-sqs-pr-1-remediation-1"></a>
 
 Amazon SQS queue configured to send messages to a dead-letter queue, if the messages can't be processed (consumed) successfully. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SQSQueue": {
         "Type": "AWS::SQS::Queue",
@@ -63,46 +59,42 @@ Amazon SQS queue configured to send messages to a dead-letter queue, if the mess
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SQSQueue:
   Type: AWS::SQS::Queue
   Properties:
     RedrivePolicy:
       deadLetterTargetArn: !GetAtt 'DLQQueue.Arn'
       maxReceiveCount: 3
-
-
 ```
 
 ### CT.SQS.PR.1 rule specification
+<a name="ct-sqs-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #    sqs_dlq_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon SQS queue is configured with a dead-letter queue.
-#
+# 
 # Reports on:
 #    AWS::SQS::Queue
-#
+# 
 # Evaluates:
 #    CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #     None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -245,18 +237,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.SQS.PR.1 example templates
+<a name="ct-sqs-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SQSQueue:
     Type: AWS::SQS::Queue
@@ -270,60 +260,50 @@ Resources:
     Properties:
       RedriveAllowPolicy:
         redrivePermission: allowAll
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SQSQueue:
     Type: AWS::SQS::Queue
     Properties: {}
-
-
 ```
 
 ## [CT.SQS.PR.2] Require any Amazon SQS queue to have encryption at rest configured
+<a name="ct-sqs-pr-2-description"></a>
 
 This control checks whether an Amazon SQS queue is encrypted at rest.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::SQS::Queue`
-- **CloudFormation guard rule:**
-  [CT.SQS.PR.2 rule specification](#ct-sqs-pr-2-rule "#ct-sqs-pr-2-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::SQS::Queue`
++ **CloudFormation guard rule: ** [CT.SQS.PR.2 rule specification](#ct-sqs-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.SQS.PR.2 rule specification](#ct-sqs-pr-2-rule "#ct-sqs-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.SQS.PR.2 example templates](#ct-sqs-pr-2-templates "#ct-sqs-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.SQS.PR.2 rule specification](#ct-sqs-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.SQS.PR.2 example templates](#ct-sqs-pr-2-templates) 
 
 **Explanation**
 
 Server-side encryption (SSE) allows you to transmit sensitive data in encrypted queues. To protect the content of messages in queues, SSE uses KMS keys.
 
 ### Remediation for rule failure
+<a name="ct-sqs-pr-2-remediation"></a>
 
 Set `SqsManagedSseEnabled` to `true` or set an AWS KMS key identifier in the `KmsMasterKeyId` property.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon SQS Queue - Example One
+<a name="ct-sqs-pr-2-remediation-1"></a>
 
 Amazon SQS queue configured to encrypt data at rest with server-side encryption enabled, by means of SQS managed encryption keys (SSE-SQS). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SQSQueue": {
         "Type": "AWS::SQS::Queue",
@@ -332,31 +312,27 @@ Amazon SQS queue configured to encrypt data at rest with server-side encryption 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SQSQueue:
   Type: AWS::SQS::Queue
   Properties:
     SqsManagedSseEnabled: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon SQS Queue - Example Two
+<a name="ct-sqs-pr-2-remediation-2"></a>
 
 Amazon SQS queue configured to encrypt data at rest with server-side encryption enabled, by means of AWS KMS (SSE-KMS). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SQSQueue": {
         "Type": "AWS::SQS::Queue",
@@ -367,44 +343,40 @@ Amazon SQS queue configured to encrypt data at rest with server-side encryption 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SQSQueue:
   Type: AWS::SQS::Queue
   Properties:
     KmsMasterKeyId: !Ref 'KMSKey'
-
-
 ```
 
 ### CT.SQS.PR.2 rule specification
+<a name="ct-sqs-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #    sqs_queue_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon SQS queue is encrypted at rest.
-#
+# 
 # Reports on:
 #    AWS::SQS::Queue
-#
+# 
 # Evaluates:
 #    CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #     None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -542,24 +514,22 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.SQS.PR.2 example templates
+<a name="ct-sqs-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   KMSKey:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: key-default-1
         Statement:
         - Sid: Enable IAM User Permissions
@@ -573,18 +543,13 @@ Resources:
     Properties:
       KmsMasterKeyId:
         Ref: KMSKey
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SQSQueue:
     Type: AWS::SQS::Queue
     Properties: {}
-
-
 ```

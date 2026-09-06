@@ -1,48 +1,45 @@
+
+
 # AWS WAFV2 controls
+<a name="wafv2-rules"></a>
 
-###### Topics
-
-- [[CT.WAFV2.PR.1] Require an AWS WAFV2 web ACL to be non-empty](#ct-wafv2-pr-1-description "#ct-wafv2-pr-1-description")
-- [[CT.WAFV2.PR.2] Require an AWS WAFV2 rule group to be non-empty](#ct-wafv2-pr-2-description "#ct-wafv2-pr-2-description")
+**Topics**
++ [[CT.WAFV2.PR.1] Require an AWS WAFV2 web ACL to be non-empty](#ct-wafv2-pr-1-description)
++ [[CT.WAFV2.PR.2] Require an AWS WAFV2 rule group to be non-empty](#ct-wafv2-pr-2-description)
 
 ## [CT.WAFV2.PR.1] Require an AWS WAFV2 web ACL to be non-empty
+<a name="ct-wafv2-pr-1-description"></a>
 
 This control checks whether an AWS WAFV2 web ACL contains any WAF rules or WAF rule groups.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::WAFv2::WebACL`
-- **CloudFormation guard rule:**
-  [CT.WAFV2.PR.1 rule specification](#ct-wafv2-pr-1-rule "#ct-wafv2-pr-1-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::WAFv2::WebACL`
++ **CloudFormation guard rule: ** [CT.WAFV2.PR.1 rule specification](#ct-wafv2-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.WAFV2.PR.1 rule specification](#ct-wafv2-pr-1-rule "#ct-wafv2-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.WAFV2.PR.1 example templates](#ct-wafv2-pr-1-templates "#ct-wafv2-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.WAFV2.PR.1 rule specification](#ct-wafv2-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.WAFV2.PR.1 example templates](#ct-wafv2-pr-1-templates) 
 
 **Explanation**
 
 A web access control list (ACL) attached to WAFv2 can contain a collection of rules and rule groups. The rules are designed to inspect and control web requests. If a web ACL is empty, the web traffic passes without being detected or acted upon by the web application firewall (WAF).
 
 ### Remediation for rule failure
+<a name="ct-wafv2-pr-1-remediation"></a>
 
 Provide one or more AWS WAFV2 rules within the `Rules` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS WAFV2 web ACL - Example
+<a name="ct-wafv2-pr-1-remediation-1"></a>
 
 AWS WAFV2 web ACL configured with a rule to block requests based on a cross-site scripting (XSS) match. statement. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "WAFv2WebACL": {
         "Type": "AWS::WAFv2::WebACL",
@@ -87,13 +84,11 @@ AWS WAFV2 web ACL configured with a rule to block requests based on a cross-site
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 WAFv2WebACL:
   Type: AWS::WAFv2::WebACL
   Properties:
@@ -121,33 +116,31 @@ WAFv2WebACL:
             TextTransformations:
               - Priority: 1
                 Type: NONE
-
-
 ```
 
 ### CT.WAFV2.PR.1 rule specification
+<a name="ct-wafv2-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   wafv2_webacl_not_empty_check
-#
+# 
 # Description:
 #   This control checks whether an AWS WAFV2 web ACL contains any WAF rules or WAF rule groups.
-#
+# 
 # Reports on:
 #   AWS::WAFv2::WebACL
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -225,18 +218,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.WAFV2.PR.1 example templates
+<a name="ct-wafv2-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   WAFv2WebACL:
     Type: AWS::WAFv2::WebACL
@@ -265,14 +256,11 @@ Resources:
             TextTransformations:
             - Priority: 1
               Type: NONE
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   WAFv2WebACL:
     Type: AWS::WAFv2::WebACL
@@ -285,48 +273,41 @@ Resources:
         SampledRequestsEnabled: true
         CloudWatchMetricsEnabled: true
         MetricName: ExampleWebACLMetric
-
-
 ```
 
 ## [CT.WAFV2.PR.2] Require an AWS WAFV2 rule group to be non-empty
+<a name="ct-wafv2-pr-2-description"></a>
 
 This control checks whether AWS WAFV2 rule groups contain rules.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::WAFv2::RuleGroup`
-- **CloudFormation guard rule:**
-  [CT.WAFV2.PR.2 rule specification](#ct-wafv2-pr-2-rule "#ct-wafv2-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::WAFv2::RuleGroup`
++ **CloudFormation guard rule: ** [CT.WAFV2.PR.2 rule specification](#ct-wafv2-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.WAFV2.PR.2 rule specification](#ct-wafv2-pr-2-rule "#ct-wafv2-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.WAFV2.PR.2 example templates](#ct-wafv2-pr-2-templates "#ct-wafv2-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.WAFV2.PR.2 rule specification](#ct-wafv2-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.WAFV2.PR.2 example templates](#ct-wafv2-pr-2-templates) 
 
 **Explanation**
 
 An AWS WAFV2 rule group can contain multiple rules. The rules are designed to inspect and control web requests. When an empty AWS WAFV2 rule group is associated with a web ACL, and the web ACL is not associated with any other rules or rule groups, the web traffic passes without being detected or acted upon by the web application firewall (WAF).
 
 ### Remediation for rule failure
+<a name="ct-wafv2-pr-2-remediation"></a>
 
 Provide one or more AWS WAFV2 rules within the `Rules` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS WAFV2 Rule Group - Example
+<a name="ct-wafv2-pr-2-remediation-1"></a>
 
 AWS WAFV2 rule group configured with a rule to block requests based on a cross-site scripting (XSS) match. statement. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "WAFv2RuleGroup": {
         "Type": "AWS::WAFv2::RuleGroup",
@@ -369,13 +350,11 @@ AWS WAFV2 rule group configured with a rule to block requests based on a cross-s
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 WAFv2RuleGroup:
   Type: AWS::WAFv2::RuleGroup
   Properties:
@@ -402,33 +381,31 @@ WAFv2RuleGroup:
             TextTransformations:
               - Priority: 1
                 Type: NONE
-
-
 ```
 
 ### CT.WAFV2.PR.2 rule specification
+<a name="ct-wafv2-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   wafv2_rulegroup_not_empty_check
-#
+# 
 # Description:
 #   This control checks whether AWS WAFV2 rule groups contain rules.
-#
+# 
 # Reports on:
 #   AWS::WAFv2::RuleGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -506,18 +483,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.WAFV2.PR.2 example templates
+<a name="ct-wafv2-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   WAFv2RuleGroup:
     Type: AWS::WAFv2::RuleGroup
@@ -545,14 +520,11 @@ Resources:
             TextTransformations:
             - Priority: 1
               Type: NONE
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   WAFv2RuleGroup:
     Type: AWS::WAFv2::RuleGroup
@@ -565,6 +537,4 @@ Resources:
         MetricName: ExampleRuleGroupMetric
       Capacity: 1000
       Rules: []
-
-
 ```

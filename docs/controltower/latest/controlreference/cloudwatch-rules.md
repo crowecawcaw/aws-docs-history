@@ -1,50 +1,47 @@
+
+
 # Amazon CloudWatch controls
+<a name="cloudwatch-rules"></a>
 
-###### Topics
-
-- [[CT.CLOUDWATCH.PR.1] Require an Amazon CloudWatch alarm to have an action configured for the alarm state](#ct-cloudwatch-pr-1-description "#ct-cloudwatch-pr-1-description")
-- [[CT.CLOUDWATCH.PR.2] Require an Amazon CloudWatch log group to be retained for at least one year](#ct-cloudwatch-pr-2-description "#ct-cloudwatch-pr-2-description")
-- [[CT.CLOUDWATCH.PR.3] Require an Amazon CloudWatch log group to be encrypted at rest with an AWS KMS key](#ct-cloudwatch-pr-3-description "#ct-cloudwatch-pr-3-description")
-- [[CT.CLOUDWATCH.PR.4] Require an Amazon CloudWatch alarm to have actions activated](#ct-cloudwatch-pr-4-description "#ct-cloudwatch-pr-4-description")
+**Topics**
++ [[CT.CLOUDWATCH.PR.1] Require an Amazon CloudWatch alarm to have an action configured for the alarm state](#ct-cloudwatch-pr-1-description)
++ [[CT.CLOUDWATCH.PR.2] Require an Amazon CloudWatch log group to be retained for at least one year](#ct-cloudwatch-pr-2-description)
++ [[CT.CLOUDWATCH.PR.3] Require an Amazon CloudWatch log group to be encrypted at rest with an AWS KMS key](#ct-cloudwatch-pr-3-description)
++ [[CT.CLOUDWATCH.PR.4] Require an Amazon CloudWatch alarm to have actions activated](#ct-cloudwatch-pr-4-description)
 
 ## [CT.CLOUDWATCH.PR.1] Require an Amazon CloudWatch alarm to have an action configured for the alarm state
+<a name="ct-cloudwatch-pr-1-description"></a>
 
 This control checks whether an Amazon CloudWatch alarm has at least one action configured for the alarm state.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudWatch::Alarm`
-- **CloudFormation guard rule:**
-  [CT.CLOUDWATCH.PR.1 rule specification](#ct-cloudwatch-pr-1-rule "#ct-cloudwatch-pr-1-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudWatch::Alarm`
++ **CloudFormation guard rule: ** [CT.CLOUDWATCH.PR.1 rule specification](#ct-cloudwatch-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDWATCH.PR.1 rule specification](#ct-cloudwatch-pr-1-rule "#ct-cloudwatch-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.CLOUDWATCH.PR.1 example templates](#ct-cloudwatch-pr-1-templates "#ct-cloudwatch-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDWATCH.PR.1 rule specification](#ct-cloudwatch-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.CLOUDWATCH.PR.1 example templates](#ct-cloudwatch-pr-1-templates) 
 
 **Explanation**
 
 AWS Control Tower recommends configuring actions for alarms to alert you automatically when an alarm is in the alarm state and the monitored metric is outside the defined threshold. This configuration ensures that alarms are monitored, and that necessary actions are taken when the alarm is triggered. Monitoring alarms help you identify unusual activities and respond quickly to security and operational issues. You can specify the actions an alarm should take when it goes into OK, ALARM, and INSUFFICIENT\_DATA states. The most common CloudWatch alarm action in the alarm state is to notify one or more users by sending a message to an Amazon Simple Notification Service (Amazon SNS) topic.
 
 ### Remediation for rule failure
+<a name="ct-cloudwatch-pr-1-remediation"></a>
 
 Set `AlarmActions` to a list with one or more alarm action values.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudWatch Alarm - Example
+<a name="ct-cloudwatch-pr-1-remediation-1"></a>
 
 An Amazon CloudWatch alarm configured to notify an SNS topic when the CloudWatch alarm is in the alarm state. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Alarm": {
         "Type": "AWS::CloudWatch::Alarm",
@@ -67,13 +64,11 @@ An Amazon CloudWatch alarm configured to notify an SNS topic when the CloudWatch
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Alarm:
   Type: AWS::CloudWatch::Alarm
   Properties:
@@ -89,33 +84,31 @@ Alarm:
     ActionsEnabled: true
     AlarmActions:
       - !Ref 'Topic'
-
-
 ```
 
 ### CT.CLOUDWATCH.PR.1 rule specification
+<a name="ct-cloudwatch-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudwatch_alarm_action_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon CloudWatch alarm has at least one action configured for the alarm state.
-#
+# 
 # Reports on:
 #   AWS::CloudWatch::Alarm
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -194,18 +187,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDWATCH.PR.1 example templates
+<a name="ct-cloudwatch-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Topic:
     Type: AWS::SNS::Topic
@@ -225,14 +216,11 @@ Resources:
       ActionsEnabled: true
       AlarmActions:
       - Ref: Topic
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Alarm:
     Type: AWS::CloudWatch::Alarm
@@ -247,48 +235,41 @@ Resources:
       Statistic: Sum
       DatapointsToAlarm: 1
       ActionsEnabled: true
-
-
 ```
 
 ## [CT.CLOUDWATCH.PR.2] Require an Amazon CloudWatch log group to be retained for at least one year
+<a name="ct-cloudwatch-pr-2-description"></a>
 
 This control checks whether an Amazon CloudWatch Log Group retention period is set to a value greater than or equal to 365 days.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Logs::LogGroup`
-- **CloudFormation guard rule:**
-  [CT.CLOUDWATCH.PR.2 rule specification](#ct-cloudwatch-pr-2-rule "#ct-cloudwatch-pr-2-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Logs::LogGroup`
++ **CloudFormation guard rule: ** [CT.CLOUDWATCH.PR.2 rule specification](#ct-cloudwatch-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDWATCH.PR.2 rule specification](#ct-cloudwatch-pr-2-rule "#ct-cloudwatch-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.CLOUDWATCH.PR.2 example templates](#ct-cloudwatch-pr-2-templates "#ct-cloudwatch-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDWATCH.PR.2 rule specification](#ct-cloudwatch-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.CLOUDWATCH.PR.2 example templates](#ct-cloudwatch-pr-2-templates) 
 
 **Explanation**
 
 Amazon CloudWatch Logs centralizes the logs from all of your systems, applications, and AWS services in a single, highly scalable service. You can use Amazon CloudWatch Logs to monitor, store, and retrieve your log files from Amazon EC2 instances, CloudTrail, Route 53, and other sources. Retaining your logs for at least one year can help you comply with log retention standards.
 
 ### Remediation for rule failure
+<a name="ct-cloudwatch-pr-2-remediation"></a>
 
 Omit the field value of `RetentionInDays` to adopt the default retention setting of `Never expire`, or set `RetentionInDays` to an integer value greater than or equal to 365.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudWatch Log Group - Example
+<a name="ct-cloudwatch-pr-2-remediation-1"></a>
 
 An Amazon CloudWatch log group configured to retain logs for one year (365 days). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LogGroup": {
         "Type": "AWS::Logs::LogGroup",
@@ -297,44 +278,40 @@ An Amazon CloudWatch log group configured to retain logs for one year (365 days)
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LogGroup:
   Type: AWS::Logs::LogGroup
   Properties:
     RetentionInDays: 365
-
-
 ```
 
 ### CT.CLOUDWATCH.PR.2 rule specification
+<a name="ct-cloudwatch-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudwatch_log_group_retention_period_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon CloudWatch Log Group retention period is set to a value greater than or equal to 365 days.
-#
+# 
 # Reports on:
 #   AWS::Logs::LogGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -415,78 +392,66 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDWATCH.PR.2 example templates
+<a name="ct-cloudwatch-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
       RetentionInDays: 365
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
       RetentionInDays: 1
-
-
 ```
 
 ## [CT.CLOUDWATCH.PR.3] Require an Amazon CloudWatch log group to be encrypted at rest with an AWS KMS key
+<a name="ct-cloudwatch-pr-3-description"></a>
 
 This control checks whether an Amazon CloudWatch Logs log group is encrypted at rest with an AWS KMS key
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Logs::LogGroup`
-- **CloudFormation guard rule:**
-  [CT.CLOUDWATCH.PR.3 rule specification](#ct-cloudwatch-pr-3-rule "#ct-cloudwatch-pr-3-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Logs::LogGroup`
++ **CloudFormation guard rule: ** [CT.CLOUDWATCH.PR.3 rule specification](#ct-cloudwatch-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDWATCH.PR.3 rule specification](#ct-cloudwatch-pr-3-rule "#ct-cloudwatch-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.CLOUDWATCH.PR.3 example templates](#ct-cloudwatch-pr-3-templates "#ct-cloudwatch-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDWATCH.PR.3 rule specification](#ct-cloudwatch-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.CLOUDWATCH.PR.3 example templates](#ct-cloudwatch-pr-3-templates) 
 
 **Explanation**
 
 Amazon CloudWatch Logs log groups are encrypted by default using server-side encryption. For added control over encryption keys, you can use customer-managed keys from AWS KMS. You have full control over these KMS keys, including establishing and maintaining their key policies, IAM policies, and grants, enabling and disabling the keys, rotating their cryptographic material, adding tags, creating aliases that refer to the KMS keys, and scheduling the KMS keys for deletion.
 
 ### Remediation for rule failure
+<a name="ct-cloudwatch-pr-3-remediation"></a>
 
 Set `KmsKeyId` to the ARN of an AWS KMS customer-managed key configured with permissions that allow the CloudWatch service principal to use the key.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudWatch Logs Group - Example
+<a name="ct-cloudwatch-pr-3-remediation-1"></a>
 
 An Amazon CloudWatch log group configured to encrypt logs with an AWS KMS customer-managed key. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LogGroup": {
         "Type": "AWS::Logs::LogGroup",
@@ -500,44 +465,40 @@ An Amazon CloudWatch log group configured to encrypt logs with an AWS KMS custom
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LogGroup:
   Type: AWS::Logs::LogGroup
   Properties:
     KmsKeyId: !GetAtt 'KMSKey.Arn'
-
-
 ```
 
 ### CT.CLOUDWATCH.PR.3 rule specification
+<a name="ct-cloudwatch-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudwatch_log_group_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon CloudWatch log group is encrypted at rest with an AWS KMS key
-#
+# 
 # Reports on:
 #   AWS::Logs::LogGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -643,24 +604,22 @@ rule query_for_resource(doc, resource_key, resource_type) {
         Type == %resource_type
     }
 }
-
-
 ```
 
 ### CT.CLOUDWATCH.PR.3 example templates
+<a name="ct-cloudwatch-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   KMSKey:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-cloudwatch-logs-key-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -693,60 +652,50 @@ Resources:
         Fn::GetAtt:
         - KMSKey
         - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LogGroup:
     Type: AWS::Logs::LogGroup
     Properties: {}
-
-
 ```
 
 ## [CT.CLOUDWATCH.PR.4] Require an Amazon CloudWatch alarm to have actions activated
+<a name="ct-cloudwatch-pr-4-description"></a>
 
 This control checks whether an Amazon CloudWatch alarm has actions enabled.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudWatch::Alarm`
-- **CloudFormation guard rule:**
-  [CT.CLOUDWATCH.PR.4 rule specification](#ct-cloudwatch-pr-4-rule "#ct-cloudwatch-pr-4-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudWatch::Alarm`
++ **CloudFormation guard rule: ** [CT.CLOUDWATCH.PR.4 rule specification](#ct-cloudwatch-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDWATCH.PR.4 rule specification](#ct-cloudwatch-pr-4-rule "#ct-cloudwatch-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.CLOUDWATCH.PR.4 example templates](#ct-cloudwatch-pr-4-templates "#ct-cloudwatch-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDWATCH.PR.4 rule specification](#ct-cloudwatch-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.CLOUDWATCH.PR.4 example templates](#ct-cloudwatch-pr-4-templates) 
 
 **Explanation**
 
 Alarm actions automatically alert you when a monitored metric is outside the defined threshold. If the alarm action is deactivated, no actions are executed when the alarm changes state, so you won't be alerted to changes in monitored metrics. AWS Control Tower recommends activating CloudWatch alarm actions to help you respond quickly to security and operational issues.
 
 ### Remediation for rule failure
+<a name="ct-cloudwatch-pr-4-remediation"></a>
 
 Set `ActionsEnabled` to `true` or do not provide the `ActionsEnabled` property.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudWatch Alarm - Example
+<a name="ct-cloudwatch-pr-4-remediation-1"></a>
 
 An Amazon CloudWatch alarm configured with alarm actions enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Alarm": {
         "Type": "AWS::CloudWatch::Alarm",
@@ -769,13 +718,11 @@ An Amazon CloudWatch alarm configured with alarm actions enabled. The example is
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Alarm:
   Type: AWS::CloudWatch::Alarm
   Properties:
@@ -791,33 +738,31 @@ Alarm:
     Statistic: Sum
     DatapointsToAlarm: 1
     ActionsEnabled: true
-
-
 ```
 
 ### CT.CLOUDWATCH.PR.4 rule specification
+<a name="ct-cloudwatch-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudwatch_alarm_action_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon CloudWatch alarm has actions enabled.
-#
+# 
 # Reports on:
 #   AWS::CloudWatch::Alarm
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -895,18 +840,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDWATCH.PR.4 example templates
+<a name="ct-cloudwatch-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Topic:
     Type: AWS::SNS::Topic
@@ -926,14 +869,11 @@ Resources:
       Statistic: Sum
       DatapointsToAlarm: 1
       ActionsEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Topic:
     Type: AWS::SNS::Topic
@@ -953,6 +893,4 @@ Resources:
       Statistic: Sum
       DatapointsToAlarm: 1
       ActionsEnabled: false
-
-
 ```

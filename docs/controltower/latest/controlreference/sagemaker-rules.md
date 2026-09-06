@@ -1,30 +1,26 @@
+
+
 # Amazon SageMaker AI controls
+<a name="sagemaker-rules"></a>
 
-###### Topics
-
-- [[CT.SAGEMAKER.PR.1] Require an Amazon SageMaker AI notebook instance to prevent direct internet access](#ct-sagemaker-pr-1-description "#ct-sagemaker-pr-1-description")
-- [[CT.SAGEMAKER.PR.2] Require Amazon SageMaker AI notebook instances to be deployed within a custom Amazon VPC](#ct-sagemaker-pr-2-description "#ct-sagemaker-pr-2-description")
-- [[CT.SAGEMAKER.PR.3] Require Amazon SageMaker AI notebook instances to have root access disallowed](#ct-sagemaker-pr-3-description "#ct-sagemaker-pr-3-description")
+**Topics**
++ [[CT.SAGEMAKER.PR.1] Require an Amazon SageMaker AI notebook instance to prevent direct internet access](#ct-sagemaker-pr-1-description)
++ [[CT.SAGEMAKER.PR.2] Require Amazon SageMaker AI notebook instances to be deployed within a custom Amazon VPC](#ct-sagemaker-pr-2-description)
++ [[CT.SAGEMAKER.PR.3] Require Amazon SageMaker AI notebook instances to have root access disallowed](#ct-sagemaker-pr-3-description)
 
 ## [CT.SAGEMAKER.PR.1] Require an Amazon SageMaker AI notebook instance to prevent direct internet access
+<a name="ct-sagemaker-pr-1-description"></a>
 
 This control checks that direct internet access is not allowed for an Amazon SageMaker AI notebook instance.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::SageMaker::NotebookInstance`
-- **CloudFormation guard rule:**
-  [CT.SAGEMAKER.PR.1 rule specification](#ct-sagemaker-pr-1-rule "#ct-sagemaker-pr-1-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::SageMaker::NotebookInstance`
++ **CloudFormation guard rule: ** [CT.SAGEMAKER.PR.1 rule specification](#ct-sagemaker-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.SAGEMAKER.PR.1 rule specification](#ct-sagemaker-pr-1-rule "#ct-sagemaker-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.SAGEMAKER.PR.1 example templates](#ct-sagemaker-pr-1-templates "#ct-sagemaker-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.SAGEMAKER.PR.1 rule specification](#ct-sagemaker-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.SAGEMAKER.PR.1 example templates](#ct-sagemaker-pr-1-templates) 
 
 **Explanation**
 
@@ -34,24 +30,24 @@ To train or host models from a notebook, you require internet access. To set up 
 
 Ensure that access to your SageMaker configuration is limited to authorized users. Restrict users' IAM permissions for modifying SageMaker settings and resources.
 
-###### Usage considerations
-
-- To set up outbound internet access for Amazon SageMaker AI notebook instances when this control is activated - First, associate the notebook instance with a private subnet that has access to the internet, through a default route to a NAT gateway instance. Also, be sure that the security groups assigned to the notebook instance, and the network access control list (NACL) of the private subnet, allow outbound traffic to the internet.
+**Usage considerations**  
+To set up outbound internet access for Amazon SageMaker AI notebook instances when this control is activated - First, associate the notebook instance with a private subnet that has access to the internet, through a default route to a NAT gateway instance. Also, be sure that the security groups assigned to the notebook instance, and the network access control list (NACL) of the private subnet, allow outbound traffic to the internet.
 
 ### Remediation for rule failure
+<a name="ct-sagemaker-pr-1-remediation"></a>
 
 Set `DirectInternetAccess` to `Disabled` and provide a `SubnetId` and one or more `SecurityGroupIds`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon SageMaker AI Notebook Instance - Example
+<a name="ct-sagemaker-pr-1-remediation-1"></a>
 
 Amazon SageMaker AI notebook instance configured with direct internet access deactivated. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SageMakerNoteBookInstance": {
         "Type": "AWS::SageMaker::NotebookInstance",
@@ -78,13 +74,11 @@ Amazon SageMaker AI notebook instance configured with direct internet access dea
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SageMakerNoteBookInstance:
   Type: AWS::SageMaker::NotebookInstance
   Properties:
@@ -94,33 +88,31 @@ SageMakerNoteBookInstance:
     SubnetId: !Ref 'Subnet'
     SecurityGroupIds:
       - !GetAtt 'SecurityGroup.GroupId'
-
-
 ```
 
 ### CT.SAGEMAKER.PR.1 rule specification
+<a name="ct-sagemaker-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   sagemaker_notebook_no_direct_internet_access_check
-#
+# 
 # Description:
 #   This control checks that direct internet access is not allowed for an Amazon SageMaker AI notebook instance.
-#
+# 
 # Reports on:
 #   AWS::SageMaker::NotebookInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -261,18 +253,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.SAGEMAKER.PR.1 example templates
+<a name="ct-sagemaker-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -300,7 +290,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -328,20 +318,17 @@ Resources:
       - Fn::GetAtt:
         - SecurityGroup
         - GroupId
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ExecutionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -361,48 +348,41 @@ Resources:
         - ExecutionRole
         - Arn
       DirectInternetAccess: Enabled
-
-
 ```
 
 ## [CT.SAGEMAKER.PR.2] Require Amazon SageMaker AI notebook instances to be deployed within a custom Amazon VPC
+<a name="ct-sagemaker-pr-2-description"></a>
 
 This control checks whether an Amazon SageMaker AI notebook instance is configured to launch within a custom Amazon VPC.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::SageMaker::NotebookInstance`
-- **CloudFormation guard rule:**
-  [CT.SAGEMAKER.PR.2 rule specification](#ct-sagemaker-pr-2-rule "#ct-sagemaker-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::SageMaker::NotebookInstance`
++ **CloudFormation guard rule: ** [CT.SAGEMAKER.PR.2 rule specification](#ct-sagemaker-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.SAGEMAKER.PR.2 rule specification](#ct-sagemaker-pr-2-rule "#ct-sagemaker-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.SAGEMAKER.PR.2 example templates](#ct-sagemaker-pr-2-templates "#ct-sagemaker-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.SAGEMAKER.PR.2 rule specification](#ct-sagemaker-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.SAGEMAKER.PR.2 example templates](#ct-sagemaker-pr-2-templates) 
 
 **Explanation**
 
 As a best practice, we recommend that you keep your resources contained inside a VPC whenever possible, to ensure the secure network protection of your infrastructure.
 
 ### Remediation for rule failure
+<a name="ct-sagemaker-pr-2-remediation"></a>
 
 Set `SubnetId` to the identifier of an Amazon EC2 subnet and set `SecurityGroupIds` to a list containing one or more EC2 security group identifiers.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon SageMaker AI Notebook Instance - Example
+<a name="ct-sagemaker-pr-2-remediation-1"></a>
 
 Amazon SageMaker AI notebook instance configured with Amazon VPC connectivity. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "NotebookInstance": {
         "Type": "AWS::SageMaker::NotebookInstance",
@@ -431,13 +411,11 @@ Amazon SageMaker AI notebook instance configured with Amazon VPC connectivity. T
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 NotebookInstance:
   Type: AWS::SageMaker::NotebookInstance
   Properties:
@@ -446,30 +424,28 @@ NotebookInstance:
     SubnetId: !GetAtt 'Subnet.SubnetId'
     SecurityGroupIds:
       - !GetAtt 'SecurityGroup.GroupId'
-
-
 ```
 
 ### CT.SAGEMAKER.PR.2 rule specification
+<a name="ct-sagemaker-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   sagemaker_notebook_instance_inside_vpc_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon SageMaker AI notebook instance is configured to launch within a custom Amazon VPC.
-#
+# 
 # Reports on:
 #   AWS::SageMaker::NotebookInstance
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -595,18 +571,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.SAGEMAKER.PR.2 example templates
+<a name="ct-sagemaker-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   NotebookInstance:
     Type: AWS::SageMaker::NotebookInstance
@@ -616,66 +590,55 @@ Resources:
       SubnetId: example-subnet-id
       SecurityGroupIds:
         - example-sg-id
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   NotebookInstance:
     Type: AWS::SageMaker::NotebookInstance
     Properties:
       InstanceType: ml.t2.large
       RoleArn: example-role-arn
-
-
 ```
 
 ## [CT.SAGEMAKER.PR.3] Require Amazon SageMaker AI notebook instances to have root access disallowed
+<a name="ct-sagemaker-pr-3-description"></a>
 
 This control checks whether Amazon SageMaker AI notebook instances allow root access.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::SageMaker::NotebookInstance`
-- **CloudFormation guard rule:**
-  [CT.SAGEMAKER.PR.3 rule specification](#ct-sagemaker-pr-3-rule "#ct-sagemaker-pr-3-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::SageMaker::NotebookInstance`
++ **CloudFormation guard rule: ** [CT.SAGEMAKER.PR.3 rule specification](#ct-sagemaker-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.SAGEMAKER.PR.3 rule specification](#ct-sagemaker-pr-3-rule "#ct-sagemaker-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.SAGEMAKER.PR.3 example templates](#ct-sagemaker-pr-3-templates "#ct-sagemaker-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.SAGEMAKER.PR.3 rule specification](#ct-sagemaker-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.SAGEMAKER.PR.3 example templates](#ct-sagemaker-pr-3-templates) 
 
 **Explanation**
 
 By default, when you create a notebook instance, users that log into that notebook instance have root access. Because users with root access have administrator privileges, users have access to edit all files on a notebook instance with root access enabled. In adherence to the principle of least privilege, for security reasons, we recommend that you restrict root access to instance resources whenever possible, to avoid unintentional over-provisioning of permissions.
 
-###### Usage considerations
-
-- Lifecycle configurations associated with an Amazon SageMaker AI notebook instance always run with root access, even if you turn off root access for users.
+**Usage considerations**  
+Lifecycle configurations associated with an Amazon SageMaker AI notebook instance always run with root access, even if you turn off root access for users.
 
 ### Remediation for rule failure
+<a name="ct-sagemaker-pr-3-remediation"></a>
 
 Set `RootAccess` to `Disabled`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon SageMaker AI Notebook Instance - Example
+<a name="ct-sagemaker-pr-3-remediation-1"></a>
 
 Amazon SageMaker AI notebook instance configured with root access turned off. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "NotebookInstance": {
         "Type": "AWS::SageMaker::NotebookInstance",
@@ -691,46 +654,42 @@ Amazon SageMaker AI notebook instance configured with root access turned off. Th
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 NotebookInstance:
   Type: AWS::SageMaker::NotebookInstance
   Properties:
     InstanceType: ml.t2.large
     RoleArn: !GetAtt 'ExecutionRole.Arn'
     RootAccess: Disabled
-
-
 ```
 
 ### CT.SAGEMAKER.PR.3 rule specification
+<a name="ct-sagemaker-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   sagemaker_notebook_instance_root_access_check
-#
+# 
 # Description:
 #   This control checks whether Amazon SageMaker AI notebook instances allow root access.
-#
+# 
 # Reports on:
 #   AWS::SageMaker::NotebookInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -804,18 +763,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.SAGEMAKER.PR.3 example templates
+<a name="ct-sagemaker-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   NotebookInstance:
     Type: AWS::SageMaker::NotebookInstance
@@ -823,14 +780,11 @@ Resources:
       InstanceType: ml.t2.large
       RoleArn: example-role-arn
       RootAccess: Disabled
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   NotebookInstance:
     Type: AWS::SageMaker::NotebookInstance
@@ -838,6 +792,4 @@ Resources:
       InstanceType: ml.t2.large
       RoleArn: example-role-arn
       RootAccess: Enabled
-
-
 ```

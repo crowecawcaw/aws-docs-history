@@ -1,62 +1,58 @@
+
+
 # Amazon Elastic Container Service controls
+<a name="ecs-rules"></a>
 
-###### Topics
-
-- [[CT.ECS.PR.1] Require Amazon ECS Fargate Services to run on the latest Fargate platform version](#ct-ecs-pr-1-description "#ct-ecs-pr-1-description")
-- [[CT.ECS.PR.2] Require any Amazon ECS cluster to have container insights activated](#ct-ecs-pr-2-description "#ct-ecs-pr-2-description")
-- [[CT.ECS.PR.3] Require any Amazon ECS task definition to specify a user that is not the root](#ct-ecs-pr-3-description "#ct-ecs-pr-3-description")
-- [[CT.ECS.PR.4] Require Amazon ECS tasks to use 'awsvpc' networking mode](#ct-ecs-pr-4-description "#ct-ecs-pr-4-description")
-- [[CT.ECS.PR.5] Require an active Amazon ECS task definition to have a logging configuration](#ct-ecs-pr-5-description "#ct-ecs-pr-5-description")
-- [[CT.ECS.PR.6] Require Amazon ECS containers to allow read-only access to the root filesystem](#ct-ecs-pr-6-description "#ct-ecs-pr-6-description")
-- [[CT.ECS.PR.7] Require an Amazon ECS task definition to have a specific memory usage limit](#ct-ecs-pr-7-description "#ct-ecs-pr-7-description")
-- [[CT.ECS.PR.8] Require Amazon ECS task definitions to have secure networking modes and user definitions](#ct-ecs-pr-8-description "#ct-ecs-pr-8-description")
-- [[CT.ECS.PR.9] Require Amazon ECS services not to assign public IP addresses automatically](#ct-ecs-pr-9-description "#ct-ecs-pr-9-description")
-- [[CT.ECS.PR.10] Require that Amazon ECS task definitions do not share the host's process namespace](#ct-ecs-pr-10-description "#ct-ecs-pr-10-description")
-- [[CT.ECS.PR.11] Require an Amazon ECS container to run as non-privileged](#ct-ecs-pr-11-description "#ct-ecs-pr-11-description")
-- [[CT.ECS.PR.12] Require that Amazon ECS task definitions do not pass secrets as container environment variables](#ct-ecs-pr-12-description "#ct-ecs-pr-12-description")
+**Topics**
++ [[CT.ECS.PR.1] Require Amazon ECS Fargate Services to run on the latest Fargate platform version](#ct-ecs-pr-1-description)
++ [[CT.ECS.PR.2] Require any Amazon ECS cluster to have container insights activated](#ct-ecs-pr-2-description)
++ [[CT.ECS.PR.3] Require any Amazon ECS task definition to specify a user that is not the root](#ct-ecs-pr-3-description)
++ [[CT.ECS.PR.4] Require Amazon ECS tasks to use 'awsvpc' networking mode](#ct-ecs-pr-4-description)
++ [[CT.ECS.PR.5] Require an active Amazon ECS task definition to have a logging configuration](#ct-ecs-pr-5-description)
++ [[CT.ECS.PR.6] Require Amazon ECS containers to allow read-only access to the root filesystem](#ct-ecs-pr-6-description)
++ [[CT.ECS.PR.7] Require an Amazon ECS task definition to have a specific memory usage limit](#ct-ecs-pr-7-description)
++ [[CT.ECS.PR.8] Require Amazon ECS task definitions to have secure networking modes and user definitions](#ct-ecs-pr-8-description)
++ [[CT.ECS.PR.9] Require Amazon ECS services not to assign public IP addresses automatically](#ct-ecs-pr-9-description)
++ [[CT.ECS.PR.10] Require that Amazon ECS task definitions do not share the host's process namespace](#ct-ecs-pr-10-description)
++ [[CT.ECS.PR.11] Require an Amazon ECS container to run as non-privileged](#ct-ecs-pr-11-description)
++ [[CT.ECS.PR.12] Require that Amazon ECS task definitions do not pass secrets as container environment variables](#ct-ecs-pr-12-description)
 
 ## [CT.ECS.PR.1] Require Amazon ECS Fargate Services to run on the latest Fargate platform version
+<a name="ct-ecs-pr-1-description"></a>
 
 This control checks whether Amazon Elastic Container Service (Amazon ECS) Fargate services are configured to deploy using the `LATEST` platform version rather than a specified version number.
-
-- **Control objective:** Manage vulnerabilities
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::Service`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.1 rule specification](#ct-ecs-pr-1-rule "#ct-ecs-pr-1-rule")
++ **Control objective: **Manage vulnerabilities
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::Service`
++ **CloudFormation guard rule: ** [CT.ECS.PR.1 rule specification](#ct-ecs-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.1 rule specification](#ct-ecs-pr-1-rule "#ct-ecs-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.1 example templates](#ct-ecs-pr-1-templates "#ct-ecs-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.1 rule specification](#ct-ecs-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.1 example templates](#ct-ecs-pr-1-templates) 
 
 **Explanation**
 
 AWS Fargate platform versions refer to a specific runtime environment for Fargate task infrastructure, which is a combination of kernel and container runtime versions. New platform versions are released as the runtime environment evolves. For example, a new version may be released for kernel or operating system updates, new features, bug fixes, or security updates. Security updates and patches are deployed automatically for your Fargate tasks. If a security issue is found that affects a platform version, AWS patches the platform version.
 
-###### Usage considerations
-
-- This control only applies to Amazon ECS services with a `LaunchType` of `FARGATE`
+**Usage considerations**  
+This control only applies to Amazon ECS services with a `LaunchType` of `FARGATE`
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-1-remediation"></a>
 
 When `LaunchType` is set to `FARGATE`, set the `PlatformVersion` property to `LATEST` or omit the `PlatformVersion` property (default: `LATEST`).
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Service - Example One
+<a name="ct-ecs-pr-1-remediation-1"></a>
 
 Amazon ECS service configured to deploy using the `LATEST` platform version by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSService": {
         "Type": "AWS::ECS::Service",
@@ -85,13 +81,11 @@ Amazon ECS service configured to deploy using the `LATEST` platform version by m
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSService:
   Type: AWS::ECS::Service
   Properties:
@@ -105,20 +99,18 @@ ECSService:
           - !Ref 'SubnetOne'
           - !Ref 'SubnetTwo'
     LaunchType: FARGATE
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Service - Example Two
+<a name="ct-ecs-pr-1-remediation-2"></a>
 
 Amazon ECS service configured to deploy using the `LATEST` platform version by means of the `PlatformVersion` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSService": {
         "Type": "AWS::ECS::Service",
@@ -148,13 +140,11 @@ Amazon ECS service configured to deploy using the `LATEST` platform version by m
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSService:
   Type: AWS::ECS::Service
   Properties:
@@ -169,33 +159,31 @@ ECSService:
           - !Ref 'SubnetTwo'
     LaunchType: FARGATE
     PlatformVersion: LATEST
-
-
 ```
 
 ### CT.ECS.PR.1 rule specification
+<a name="ct-ecs-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_fargate_latest_platform_version_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Container Service (Amazon ECS) Fargate services are configured to deploy using the 'LATEST' platform version rather than a specified version number.
-#
+# 
 # Reports on:
 #   AWS::ECS::Service
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation document or CloudFormation hook document
@@ -305,18 +293,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.1 example templates
+<a name="ct-ecs-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -376,14 +362,11 @@ Resources:
            - Ref: SubnetOne
            - Ref: SubnetTwo
       LaunchType: FARGATE
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -444,48 +427,41 @@ Resources:
            - Ref: SubnetTwo
       LaunchType: FARGATE
       PlatformVersion: 1.4.0
-
-
 ```
 
 ## [CT.ECS.PR.2] Require any Amazon ECS cluster to have container insights activated
+<a name="ct-ecs-pr-2-description"></a>
 
 This control checks whether your Amazon Elastic Container Service (Amazon ECS) clusters have container insights enabled.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::Cluster`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.2 rule specification](#ct-ecs-pr-2-rule "#ct-ecs-pr-2-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::Cluster`
++ **CloudFormation guard rule: ** [CT.ECS.PR.2 rule specification](#ct-ecs-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.2 rule specification](#ct-ecs-pr-2-rule "#ct-ecs-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.2 example templates](#ct-ecs-pr-2-templates "#ct-ecs-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.2 rule specification](#ct-ecs-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.2 example templates](#ct-ecs-pr-2-templates) 
 
 **Explanation**
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon ECS clusters. Use CloudWatch container insights to collect, aggregate, and summarize metrics and logs from your containerized applications and microservices. CloudWatch automatically collects metrics for many resources, such as CPU, memory, disk, and network. The container insights capability also provides diagnostic information, such as container restart failures, which helps you isolate issues and resolve them quickly. You can set CloudWatch alarms on the metrics that container insights collects.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-2-remediation"></a>
 
 Enable container insights on Amazon ECS clusters with an entry in `ClusterSettings` that has `Name` set to `containerInsights` and `Value` set to `enabled`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Cluster - Example
+<a name="ct-ecs-pr-2-remediation-1"></a>
 
 Amazon ECS cluster configured with container insights enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSCluster": {
         "Type": "AWS::ECS::Cluster",
@@ -499,46 +475,42 @@ Amazon ECS cluster configured with container insights enabled. The example is sh
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSCluster:
   Type: AWS::ECS::Cluster
   Properties:
     ClusterSettings:
       - Name: containerInsights
         Value: enabled
-
-
 ```
 
 ### CT.ECS.PR.2 rule specification
+<a name="ct-ecs-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_container_insights_enabled_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon Elastic Container Service (Amazon ECS) clusters have container insights enabled.
-#
+# 
 # Reports on:
 #   AWS::ECS::Cluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation document or CloudFormation hook document
@@ -638,18 +610,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.2 example templates
+<a name="ct-ecs-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECSCluster:
     Type: AWS::ECS::Cluster
@@ -657,14 +627,11 @@ Resources:
       ClusterSettings:
       - Name: containerInsights
         Value: enabled
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECSCluster:
     Type: AWS::ECS::Cluster
@@ -672,52 +639,44 @@ Resources:
       ClusterSettings:
       - Name: containerInsights
         Value: disabled
-
-
 ```
 
 ## [CT.ECS.PR.3] Require any Amazon ECS task definition to specify a user that is not the root
+<a name="ct-ecs-pr-3-description"></a>
 
 This control checks whether Amazon Elastic Container Service (ECS) task definitions run as a non-root user user within Amazon ECS containers.
-
-- **Control objective:** Enforce least privilege, Manage vulnerabilities
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.3 rule specification](#ct-ecs-pr-3-rule "#ct-ecs-pr-3-rule")
++ **Control objective: **Enforce least privilege, Manage vulnerabilities
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.3 rule specification](#ct-ecs-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.3 rule specification](#ct-ecs-pr-3-rule "#ct-ecs-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.3 example templates](#ct-ecs-pr-3-templates "#ct-ecs-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.3 rule specification](#ct-ecs-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.3 example templates](#ct-ecs-pr-3-templates) 
 
 **Explanation**
 
 It is a best practice to run containers as a non-root user user. By default, containers run as the root user user, unless the `User` directive is included in your Dockerfile. The default Linux capabilities that are assigned by Docker restrict the actions that can be run as the root user user, but only marginally. For example, a container running as the root user user does not have access to devices.
 
-###### Usage considerations
-
-- This control applies only to Amazon ECS task definitions that are configured with container definitions.
+**Usage considerations**  
+This control applies only to Amazon ECS task definitions that are configured with container definitions.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-3-remediation"></a>
 
 Set the `User` property to a non-root user user.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example
+<a name="ct-ecs-pr-3-remediation-1"></a>
 
 Amazon ECS task definition configured with a container definition and a non-root user user. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSTaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -735,13 +694,11 @@ Amazon ECS task definition configured with a container definition and a non-root
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSTaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -752,33 +709,31 @@ ECSTaskDefinition:
         Name: SampleContainerA
         User: sampleuser
         Memory: 256
-
-
 ```
 
 ### CT.ECS.PR.3 rule specification
+<a name="ct-ecs-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_task_definition_nonroot_user_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Container Service (ECS) task definitions run as a non-root user within Amazon ECS containers.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation document or CloudFormation hook document
@@ -881,18 +836,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.3 example templates
+<a name="ct-ecs-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -907,14 +860,11 @@ Resources:
       - Name: ExampleContainerB
         Image: alpine:latest
         User: exampleuser
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -929,52 +879,44 @@ Resources:
       - Name: ExampleContainerB
         Image: alpine:latest
         User: root
-
-
 ```
 
 ## [CT.ECS.PR.4] Require Amazon ECS tasks to use 'awsvpc' networking mode
+<a name="ct-ecs-pr-4-description"></a>
 
 This control checks whether the networking mode for Amazon Elastic Container Service (ECS) task definitions is set to `awsvpc`.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.4 rule specification](#ct-ecs-pr-4-rule "#ct-ecs-pr-4-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.4 rule specification](#ct-ecs-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.4 rule specification](#ct-ecs-pr-4-rule "#ct-ecs-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.4 example templates](#ct-ecs-pr-4-templates "#ct-ecs-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.4 rule specification](#ct-ecs-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.4 example templates](#ct-ecs-pr-4-templates) 
 
 **Explanation**
 
 Amazon ECS recommends using the `awsvpc` network mode, unless you have a specific reason to use a different network mode. The `awsvpc` network mode simplifies container networking, and it gives you control over the ways that containerized applications communicate with each other, or with other services, within your VPCs. The `awsvpc` network mode provides improved security for your containers, because it empowers you to use security groups and network monitoring tools at a detailed level within your tasks. Each task has its own elastic network interface (ENI); therefore, you can include other Amazon EC2 networking features, such as VPC Flow Logs, which help you monitor traffic among your tasks.
 
-###### Usage considerations
-
-- This control applies only to Amazon ECS task definitions for launch types of `EC2` and `Fargate`.
+**Usage considerations**  
+This control applies only to Amazon ECS task definitions for launch types of `EC2` and `Fargate`.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-4-remediation"></a>
 
 Set `NetworkMode` to `awsvpc` for Amazon ECS tasks that deploy to Amazon EC2 or AWS Fargate.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example
+<a name="ct-ecs-pr-4-remediation-1"></a>
 
 Amazon ECS task definition configured with `awsvpc` networking mode. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Resources": {
         "ECSTaskDefinition": {
@@ -993,13 +935,11 @@ Amazon ECS task definition configured with `awsvpc` networking mode. The example
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -1010,33 +950,31 @@ Resources:
           Name: SampleContainer
       Memory: 512
       NetworkMode: awsvpc
-
-
 ```
 
 ### CT.ECS.PR.4 rule specification
+<a name="ct-ecs-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_awsvpc_networking_enabled_check
-#
+# 
 # Description:
 #   This control checks whether the networking mode for Amazon Elastic Container Service (ECS) task definitions is set to 'awsvpc'.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation document or CloudFormation hook document
@@ -1147,18 +1085,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.4 example templates
+<a name="ct-ecs-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -1169,14 +1105,11 @@ Resources:
         Name: ExampleContainer
       Memory: 512
       NetworkMode: awsvpc
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -1186,52 +1119,44 @@ Resources:
         Image: nginx:latest
         Name: ExampleContainer
       Memory: 512
-
-
 ```
 
 ## [CT.ECS.PR.5] Require an active Amazon ECS task definition to have a logging configuration
+<a name="ct-ecs-pr-5-description"></a>
 
 This control checks whether Amazon Elastic Container Service (ECS) task definitions have a logging configuration specified.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.5 rule specification](#ct-ecs-pr-5-rule "#ct-ecs-pr-5-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.5 rule specification](#ct-ecs-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.5 rule specification](#ct-ecs-pr-5-rule "#ct-ecs-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.5 example templates](#ct-ecs-pr-5-templates "#ct-ecs-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.5 rule specification](#ct-ecs-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.5 example templates](#ct-ecs-pr-5-templates) 
 
 **Explanation**
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon Elastic Container Service (ECS) and your AWS environments. We recommend that you collect monitoring data from all parts of your AWS environment, because this data can help you debug a multi-point failure, if such a failure occurs.
 
-###### Usage considerations
-
-- This control applies only to Amazon ECS task definitions that are configured with container definitions.
+**Usage considerations**  
+This control applies only to Amazon ECS task definitions that are configured with container definitions.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-5-remediation"></a>
 
 For each container definition, within `LogConfiguration` set the `LogDriver` property to a supported log driver.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example
+<a name="ct-ecs-pr-5-remediation-1"></a>
 
 Amazon ECS task definition configured to send log information to Amazon CloudWatch Logs for each container definition. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSTaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -1275,13 +1200,11 @@ Amazon ECS task definition configured to send log information to Amazon CloudWat
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSTaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -1304,33 +1227,31 @@ ECSTaskDefinition:
             awslogs-group: !Ref 'LogGroup'
             awslogs-stream-prefix: Container-B-LogStream
             awslogs-region: !Ref 'AWS::Region'
-
-
 ```
 
 ### CT.ECS.PR.5 rule specification
+<a name="ct-ecs-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_task_definition_log_configuration_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Container Service (ECS) task definitions have a logging configuration specified.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation document or CloudFormation hook document
@@ -1445,18 +1366,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.5 example templates
+<a name="ct-ecs-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LogGroup:
     Type: AWS::Logs::LogGroup
@@ -1488,14 +1407,11 @@ Resources:
             awslogs-region:
               Ref: AWS::Region
         Image: nginx:latest
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LogGroup:
     Type: AWS::Logs::LogGroup
@@ -1519,52 +1435,44 @@ Resources:
             awslogs-stream-prefix: Container-B-LogStream
             awslogs-region:
               Ref: AWS::Region
-
-
 ```
 
 ## [CT.ECS.PR.6] Require Amazon ECS containers to allow read-only access to the root filesystem
+<a name="ct-ecs-pr-6-description"></a>
 
 This control checks whether Amazon Elastic Container Service (Amazon ECS) task definitions have been configured to require read-only access to container root filesystems.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.6 rule specification](#ct-ecs-pr-6-rule "#ct-ecs-pr-6-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.6 rule specification](#ct-ecs-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.6 rule specification](#ct-ecs-pr-6-rule "#ct-ecs-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.6 example templates](#ct-ecs-pr-6-templates "#ct-ecs-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.6 rule specification](#ct-ecs-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.6 example templates](#ct-ecs-pr-6-templates) 
 
 **Explanation**
 
 Enabling this option reduces security attack vectors. When it is enabled, the container instance's filesystem cannot be tampered with or written to unless it has explicitly granted read-write permissions on its filesystem folder and directories. This control adheres to the principle of least privilege.
 
-###### Usage considerations
-
-- This control is incompatible with Amazon ECS task definitions that use Windows containers.
+**Usage considerations**  
+This control is incompatible with Amazon ECS task definitions that use Windows containers.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-6-remediation"></a>
 
 Set the `ReadonlyRootFilesystem` property to `true` for all `ContainerDefinitions`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example
+<a name="ct-ecs-pr-6-remediation-1"></a>
 
 Amazon ECS task definition with read-only access to container root filesystems. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSTaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -1586,13 +1494,11 @@ Amazon ECS task definition with read-only access to container root filesystems. 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSTaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -1605,32 +1511,30 @@ ECSTaskDefinition:
         Name: SampleContainerB
         ReadonlyRootFilesystem: true
     Memory: '512'
-
-
 ```
 
 ### CT.ECS.PR.6 rule specification
+<a name="ct-ecs-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
 # Rule Identifier:
 #   ecs_containers_readonly_access_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Container Service (Amazon ECS) task definitions have been configured to require read-only access to container root filesystems.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 # Scenario: 1
 #   Given: The input document is an CloudFormation document or CloudFormation hook document
@@ -1730,18 +1634,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.6 example templates
+<a name="ct-ecs-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -1755,14 +1657,11 @@ Resources:
         Name: SampleContainerB
         ReadonlyRootFilesystem: true
       Memory: '512'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -1776,52 +1675,44 @@ Resources:
         Name: SampleContainerB
         ReadonlyRootFilesystem: false
       Memory: '512'
-
-
 ```
 
 ## [CT.ECS.PR.7] Require an Amazon ECS task definition to have a specific memory usage limit
+<a name="ct-ecs-pr-7-description"></a>
 
 This control checks whether Amazon Elastic Container Service (ECS) task definitions have specified a memory limit for container definitions.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.7 rule specification](#ct-ecs-pr-7-rule "#ct-ecs-pr-7-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.7 rule specification](#ct-ecs-pr-7-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.7 rule specification](#ct-ecs-pr-7-rule "#ct-ecs-pr-7-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.7 example templates](#ct-ecs-pr-7-templates "#ct-ecs-pr-7-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.7 rule specification](#ct-ecs-pr-7-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.7 example templates](#ct-ecs-pr-7-templates) 
 
 **Explanation**
 
 We recommend that you specify the maximum memory available to your containers, because this limit protects your resources in the event of malicious access to your containers.
 
-###### Usage considerations
-
-- This control applies only to Amazon ECS task definitions that are configured with container definitions.
+**Usage considerations**  
+This control applies only to Amazon ECS task definitions that are configured with container definitions.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-7-remediation"></a>
 
 Set the `Memory` property in `ContainerDefinitions` for Amazon ECS task definitions.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example
+<a name="ct-ecs-pr-7-remediation-1"></a>
 
 Amazon ECS task definition configured with a specified memory limit for container definitions. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSTaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -1837,13 +1728,11 @@ Amazon ECS task definition configured with a specified memory limit for containe
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSTaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -1852,33 +1741,31 @@ ECSTaskDefinition:
         Image: nginx:latest
         Name: SampleContainer
         Memory: 256
-
-
 ```
 
 ### CT.ECS.PR.7 rule specification
+<a name="ct-ecs-pr-7-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_task_definition_memory_hard_limit_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Container Service (ECS) task definitions have specified a memory limit for container definitions.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation document or CloudFormation hook document
@@ -1978,18 +1865,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.7 example templates
+<a name="ct-ecs-pr-7-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -2002,14 +1887,11 @@ Resources:
       - Image: alpine:latest
         Name: ExampleContainerB
         Memory: 512
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -2023,53 +1905,45 @@ Resources:
       - Image: alpine:latest
         Name: ExampleContainerB
         Memory: 3
-
-
 ```
 
 ## [CT.ECS.PR.8] Require Amazon ECS task definitions to have secure networking modes and user definitions
+<a name="ct-ecs-pr-8-description"></a>
 
 This control checks whether Amazon Elastic Container Service (ECS) task definitions that use `host` networking mode have a privileged container definition, and whether they specify a non-root user definition.
-
-- **Control objective:** Manage vulnerabilities
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.8 rule specification](#ct-ecs-pr-8-rule "#ct-ecs-pr-8-rule")
++ **Control objective: **Manage vulnerabilities
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.8 rule specification](#ct-ecs-pr-8-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.8 rule specification](#ct-ecs-pr-8-rule "#ct-ecs-pr-8-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.8 example templates](#ct-ecs-pr-8-templates "#ct-ecs-pr-8-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.8 rule specification](#ct-ecs-pr-8-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.8 example templates](#ct-ecs-pr-8-templates) 
 
 **Explanation**
 
 If a task definition has elevated privileges, it implies that a customer has specifically chosen that configuration. This control checks for unexpected privilege escalation, which occurs when a task definition enables host networking, but a customer has not opted into elevated privileges.
 
-###### Usage considerations
-
-- This control applies only to Amazon ECS task definitions that include `host` networking mode and one or more container definitions.
-- This control is incompatible with Amazon ECS task definitions that use Windows containers.
+**Usage considerations**  
+This control applies only to Amazon ECS task definitions that include `host` networking mode and one or more container definitions.
+This control is incompatible with Amazon ECS task definitions that use Windows containers.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-8-remediation"></a>
 
 For Amazon ECS task definitions that use `host` networking mode, your container definitions must set the `User` property to a non-root user. Also, to opt into elevated privileges, configure containers to run in privileged mode by setting the `Privileged` property to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example One
+<a name="ct-ecs-pr-8-remediation-1"></a>
 
 Amazon ECS task definition with host networking mode configured for privileged container definitions. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSTaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -2094,13 +1968,11 @@ Amazon ECS task definition with host networking mode configured for privileged c
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSTaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -2116,20 +1988,18 @@ ECSTaskDefinition:
         User: root
         Privileged: true
         Image: alpine:latest
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example Two
+<a name="ct-ecs-pr-8-remediation-2"></a>
 
 Amazon ECS task definition with host networking mode configured for non-root user container definitions and privileged mode deactivated, by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSTaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -2154,13 +2024,11 @@ Amazon ECS task definition with host networking mode configured for non-root use
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSTaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -2176,33 +2044,31 @@ ECSTaskDefinition:
         User: root
         Privileged: true
         Image: alpine:latest
-
-
 ```
 
 ### CT.ECS.PR.8 rule specification
+<a name="ct-ecs-pr-8-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_task_definition_user_for_host_mode_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Container Service (ECS) task definitions that use 'host' networking mode have a privileged container definition, and whether they specify a non-root user definition.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2326,18 +2192,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.8 example templates
+<a name="ct-ecs-pr-8-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -2354,14 +2218,11 @@ Resources:
         User: root
         Privileged: true
         Image: alpine:latest
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -2377,48 +2238,41 @@ Resources:
       - Name: ExampleContainerB
         Image: alpine:latest
         User: root
-
-
 ```
 
 ## [CT.ECS.PR.9] Require Amazon ECS services not to assign public IP addresses automatically
+<a name="ct-ecs-pr-9-description"></a>
 
 This control checks whether your Amazon Elastic Container Service (Amazon ECS) service resources are configured to assign public IP addresses automatically.
-
-- **Control objective:** Limit network access, Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::Service`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.9 rule specification](#ct-ecs-pr-9-rule "#ct-ecs-pr-9-rule")
++ **Control objective: **Limit network access, Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::Service`
++ **CloudFormation guard rule: ** [CT.ECS.PR.9 rule specification](#ct-ecs-pr-9-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.9 rule specification](#ct-ecs-pr-9-rule "#ct-ecs-pr-9-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.9 example templates](#ct-ecs-pr-9-templates "#ct-ecs-pr-9-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.9 rule specification](#ct-ecs-pr-9-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.9 example templates](#ct-ecs-pr-9-templates) 
 
 **Explanation**
 
 A public IP address is an IP address that is reachable from the internet. If you launch your Amazon ECS instances with a public IP address, then your Amazon ECS instances are reachable from the internet. Amazon ECS services should not be publicly accessible, because it may allow unintended access to your container application servers.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-9-remediation"></a>
 
 Set `AssignPublicIp` in `NetworkConfiguration.AwsvpcConfiguration` to `DISABLED`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Service - Example One
+<a name="ct-ecs-pr-9-remediation-1"></a>
 
 Amazon ECS service configured to disallow automatic public IP address assignment, by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSService": {
         "Type": "AWS::ECS::Service",
@@ -2446,13 +2300,11 @@ Amazon ECS service configured to disallow automatic public IP address assignment
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSService:
   Type: AWS::ECS::Service
   Properties:
@@ -2465,20 +2317,18 @@ ECSService:
         Subnets:
           - !Ref 'SubnetOne'
           - !Ref 'SubnetTwo'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Service - Example Two
+<a name="ct-ecs-pr-9-remediation-2"></a>
 
 Amazon ECS service configured to disallow automatic public IP address assignment, by means of the `AssignPublicIp` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSService": {
         "Type": "AWS::ECS::Service",
@@ -2507,13 +2357,11 @@ Amazon ECS service configured to disallow automatic public IP address assignment
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSService:
   Type: AWS::ECS::Service
   Properties:
@@ -2527,33 +2375,31 @@ ECSService:
         Subnets:
           - !Ref 'SubnetOne'
           - !Ref 'SubnetTwo'
-
-
 ```
 
 ### CT.ECS.PR.9 rule specification
+<a name="ct-ecs-pr-9-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_service_assign_public_ip_disabled_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon Elastic Container Service (Amazon ECS) service resources are configured to assign public IP addresses automatically.
-#
+# 
 # Reports on:
 #   AWS::ECS::Service
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2670,18 +2516,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.9 example templates
+<a name="ct-ecs-pr-9-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2740,14 +2584,11 @@ Resources:
            - Ref: SubnetOne
            - Ref: SubnetTwo
       LaunchType: FARGATE
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2807,53 +2648,45 @@ Resources:
            - Ref: SubnetOne
            - Ref: SubnetTwo
       LaunchType: FARGATE
-
-
 ```
 
 ## [CT.ECS.PR.10] Require that Amazon ECS task definitions do not share the host's process namespace
+<a name="ct-ecs-pr-10-description"></a>
 
 This control checks whether Amazon Elastic Container Service (ECS) task definitions are configured to share a host's process namespace with its containers.
-
-- **Control objective:** Protect configurations, Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.10 rule specification](#ct-ecs-pr-10-rule "#ct-ecs-pr-10-rule")
++ **Control objective: **Protect configurations, Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.10 rule specification](#ct-ecs-pr-10-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.10 rule specification](#ct-ecs-pr-10-rule "#ct-ecs-pr-10-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.10 example templates](#ct-ecs-pr-10-templates "#ct-ecs-pr-10-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.10 rule specification](#ct-ecs-pr-10-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.10 example templates](#ct-ecs-pr-10-templates) 
 
 **Explanation**
 
 A process ID (PID) namespace provides separation between processes. It prevents system processes from being visible to other processes, and it allows PIDs to be reused, including PID 1. If the host`s PID namespace is shared with containers, those containers can see all of the processes on the host system. Process visibility reduces the benefit of process-level isolation between the host and the containers. Reduced isolation can allow unauthorized access to processes on the host itself, including the ability to manipulate and terminate the host`s processes. As a best practice, do not share the host's process namespace with containers running on the host.
 
-###### Usage considerations
-
-- This control applies only to Amazon ECS task definitions that are configured with container definitions.
-- This control is not compatible with Amazon ECS task definitions that are configured to run on AWS Fargate, or definitions that use Windows containers.
+**Usage considerations**  
+This control applies only to Amazon ECS task definitions that are configured with container definitions.
+This control is not compatible with Amazon ECS task definitions that are configured to run on AWS Fargate, or definitions that use Windows containers.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-10-remediation"></a>
 
 Omit the `PidMode` property, or set `PidMode` to `task`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example One
+<a name="ct-ecs-pr-10-remediation-1"></a>
 
 Amazon ECS task definition configured with a task-level process namespace, by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "TaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -2869,13 +2702,11 @@ Amazon ECS task definition configured with a task-level process namespace, by me
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 TaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -2884,20 +2715,18 @@ TaskDefinition:
       - Essential: true
         Image: nginx:latest
         Name: SampleContainer
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example Two
+<a name="ct-ecs-pr-10-remediation-2"></a>
 
 Amazon ECS task definition configured with a task-level process namespace, by means of the `PidMode` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "TaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -2914,13 +2743,11 @@ Amazon ECS task definition configured with a task-level process namespace, by me
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 TaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -2930,33 +2757,31 @@ TaskDefinition:
         Image: nginx:latest
         Name: SampleContainer
     PidMode: task
-
-
 ```
 
 ### CT.ECS.PR.10 rule specification
+<a name="ct-ecs-pr-10-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_task_definition_pid_mode_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Container Service (ECS) task definitions are configured to share a host's process namespace with its containers.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3054,18 +2879,16 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.ECS.PR.10 example templates
+<a name="ct-ecs-pr-10-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -3076,14 +2899,11 @@ Resources:
         Image: nginx:latest
         Name: ExampleContainer
       PidMode: task
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -3094,53 +2914,45 @@ Resources:
         Image: nginx:latest
         Name: ExampleContainer
       PidMode: host
-
-
 ```
 
 ## [CT.ECS.PR.11] Require an Amazon ECS container to run as non-privileged
+<a name="ct-ecs-pr-11-description"></a>
 
 This control checks whether container definitions in Amazon Elastic Container Service (ECS) task definitions are configured with elevated privileges.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.11 rule specification](#ct-ecs-pr-11-rule "#ct-ecs-pr-11-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.11 rule specification](#ct-ecs-pr-11-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.11 rule specification](#ct-ecs-pr-11-rule "#ct-ecs-pr-11-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.11 example templates](#ct-ecs-pr-11-templates "#ct-ecs-pr-11-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.11 rule specification](#ct-ecs-pr-11-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.11 example templates](#ct-ecs-pr-11-templates) 
 
 **Explanation**
 
 We recommend that you remove elevated privileges from your Amazon ECS task definitions. When the privilege parameter is `true`, the container can operate with elevated privileges on the host container instance. These privileges are similar to the root user privileges.
 
-###### Usage considerations
-
-- This control applies only to Amazon ECS task definitions that are configured with container definitions.
-- This control is incompatible with Amazon ECS task definitions that use Windows containers.
+**Usage considerations**  
+This control applies only to Amazon ECS task definitions that are configured with container definitions.
+This control is incompatible with Amazon ECS task definitions that use Windows containers.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-11-remediation"></a>
 
 Be sure that all containers defined in `ContainerDefinitions` either omit the `Privileged` property, or that they set `Privileged` to `false`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example
+<a name="ct-ecs-pr-11-remediation-1"></a>
 
 Amazon ECS task definition configured with privileged mode deactivated for container definitions. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSTaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -3161,13 +2973,11 @@ Amazon ECS task definition configured with privileged mode deactivated for conta
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSTaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -3179,33 +2989,31 @@ ECSTaskDefinition:
         Name: SampleContainerB
         Privileged: false
     Memory: '512'
-
-
 ```
 
 ### CT.ECS.PR.11 rule specification
+<a name="ct-ecs-pr-11-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_containers_nonprivileged_check
-#
+# 
 # Description:
 #   This control checks whether container definitions in Amazon Elastic Container Service (ECS) task definitions are configured with elevated privileges.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3300,18 +3108,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.11 example templates
+<a name="ct-ecs-pr-11-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -3324,14 +3130,11 @@ Resources:
         Name: ExampleContainerB
         Privileged: false
       Memory: '512'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -3348,53 +3151,45 @@ Resources:
         Name: ExampleContainerC
         Privileged: true
       Memory: '512'
-
-
 ```
 
 ## [CT.ECS.PR.12] Require that Amazon ECS task definitions do not pass secrets as container environment variables
+<a name="ct-ecs-pr-12-description"></a>
 
 This control checks whether Amazon Elastic Container Service (ECS) task definition container definitions include environment variables named `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, or `ECS_ENGINE_AUTH_DATA`.
-
-- **Control objective:** Use strong authentication
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECS::TaskDefinition`
-- **CloudFormation guard rule:**
-  [CT.ECS.PR.12 rule specification](#ct-ecs-pr-12-rule "#ct-ecs-pr-12-rule")
++ **Control objective: **Use strong authentication
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECS::TaskDefinition`
++ **CloudFormation guard rule: ** [CT.ECS.PR.12 rule specification](#ct-ecs-pr-12-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECS.PR.12 rule specification](#ct-ecs-pr-12-rule "#ct-ecs-pr-12-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECS.PR.12 example templates](#ct-ecs-pr-12-templates "#ct-ecs-pr-12-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECS.PR.12 rule specification](#ct-ecs-pr-12-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECS.PR.12 example templates](#ct-ecs-pr-12-templates) 
 
 **Explanation**
 
 AWS Systems Manager Parameter Store can help you improve the security posture of your organization. We recommend the Parameter Store as a way to store secrets and credentials, instead of passing them into your container instances or entering them into your source code.
 
-###### Usage considerations
-
-- This control applies only to Amazon ECS task definitions that are configured with container definitions.
-- This control evaluates plaintext environment variables configured directly on container definitions.
+**Usage considerations**  
+This control applies only to Amazon ECS task definitions that are configured with container definitions.
+This control evaluates plaintext environment variables configured directly on container definitions.
 
 ### Remediation for rule failure
+<a name="ct-ecs-pr-12-remediation"></a>
 
 Omit environment variables with `Name` set to `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` or `ECS_ENGINE_AUTH_DATA` from container definitions.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECS Task Definition - Example
+<a name="ct-ecs-pr-12-remediation-1"></a>
 
 Amazon ECS task definition configured to inject sensitive data into a container as an environment variable. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECSTaskDefinition": {
         "Type": "AWS::ECS::TaskDefinition",
@@ -3428,13 +3223,11 @@ Amazon ECS task definition configured to inject sensitive data into a container 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECSTaskDefinition:
   Type: AWS::ECS::TaskDefinition
   Properties:
@@ -3450,33 +3243,31 @@ ECSTaskDefinition:
         Secrets:
           - Name: SAMPLE_SENSITIVE_ENV_VAR
             ValueFrom: arn:aws:ssm:us-east-1:123456789012:parameter/sample_parameter
-
-
 ```
 
 ### CT.ECS.PR.12 rule specification
+<a name="ct-ecs-pr-12-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecs_no_environment_secrets_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Container Service (ECS) task definition container definitions include environment variables named 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', or 'ECS_ENGINE_AUTH_DATA'.
-#
+# 
 # Reports on:
 #   AWS::ECS::TaskDefinition
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 # Scenario: 1
 #   Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3591,24 +3382,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECS.PR.12 example templates
+<a name="ct-ecs-pr-12-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskExecutionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -3622,7 +3411,7 @@ Resources:
       Policies:
       - PolicyName: ECSTaskPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -3644,15 +3433,11 @@ Resources:
         Secrets:
         - Name: EXAMPLE_SENSITIVE_ENV_VAR
           ValueFrom: arn:aws:ssm:us-east-1:123456789012:parameter/example_parameter
-
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECSTaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -3669,6 +3454,4 @@ Resources:
           Value: exampleSecretKey
       - Image: alpine:latest
         Name: ExampleContainerB
-
-
 ```

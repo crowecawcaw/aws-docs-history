@@ -1,47 +1,44 @@
+
+
 # Amazon Kinesis controls
+<a name="kinesis-rules"></a>
 
-###### Topics
-
-- [[CT.KINESIS.PR.1] Require any Amazon Kinesis data stream to have encryption at rest configured](#ct-kinesis-pr-1-description "#ct-kinesis-pr-1-description")
+**Topics**
++ [[CT.KINESIS.PR.1] Require any Amazon Kinesis data stream to have encryption at rest configured](#ct-kinesis-pr-1-description)
 
 ## [CT.KINESIS.PR.1] Require any Amazon Kinesis data stream to have encryption at rest configured
+<a name="ct-kinesis-pr-1-description"></a>
 
 This control checks whether Amazon Kinesis data streams are encrypted at rest with server-side encryption.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Kinesis::Stream`
-- **CloudFormation guard rule:**
-  [CT.KINESIS.PR.1 rule specification](#ct-kinesis-pr-1-rule "#ct-kinesis-pr-1-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Kinesis::Stream`
++ **CloudFormation guard rule: ** [CT.KINESIS.PR.1 rule specification](#ct-kinesis-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.KINESIS.PR.1 rule specification](#ct-kinesis-pr-1-rule "#ct-kinesis-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.KINESIS.PR.1 example templates](#ct-kinesis-pr-1-templates "#ct-kinesis-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.KINESIS.PR.1 rule specification](#ct-kinesis-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.KINESIS.PR.1 example templates](#ct-kinesis-pr-1-templates) 
 
 **Explanation**
 
 Server-side encryption is a feature in Amazon Kinesis data streams that encrypts data automatically, before the data is at rest, by using an AWS KMS key. Data is encrypted before it is written to the Kinesis stream storage layer, and decrypted after it is retrieved from storage. As a result, your data is encrypted at rest within the Amazon Kinesis data stream service.
 
 ### Remediation for rule failure
+<a name="ct-kinesis-pr-1-remediation"></a>
 
 Specify a `StreamEncryption` configuration, with `EncryptionType` set to `KMS` and `KeyId` set to an AWS KMS key identifier.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon Kinesis Data Stream - Example
+<a name="ct-kinesis-pr-1-remediation-1"></a>
 
 Amazon Kinesis data stream configured to encrypt data at rest with server-side encryption, using an AWS KMS key. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "KinesisStream": {
         "Type": "AWS::Kinesis::Stream",
@@ -57,13 +54,11 @@ Amazon Kinesis data stream configured to encrypt data at rest with server-side e
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 KinesisStream:
   Type: AWS::Kinesis::Stream
   Properties:
@@ -72,33 +67,31 @@ KinesisStream:
     StreamEncryption:
       EncryptionType: KMS
       KeyId: !Ref 'KMSKey'
-
-
 ```
 
 ### CT.KINESIS.PR.1 rule specification
+<a name="ct-kinesis-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   kinesis_stream_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Kinesis data streams are encrypted at rest with server-side encryption.
-#
+# 
 # Reports on:
 #   AWS::Kinesis::Stream
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -232,25 +225,23 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.KINESIS.PR.1 example templates
+<a name="ct-kinesis-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   KMSKey:
     Type: AWS::KMS::Key
     Properties:
       PendingWindowInDays: 7
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-key-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -270,20 +261,15 @@ Resources:
         EncryptionType: KMS
         KeyId:
           Ref: KMSKey
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   KinesisStream:
     Type: AWS::Kinesis::Stream
     Properties:
       RetentionPeriodHours: 168
       ShardCount: 3
-
-
 ```

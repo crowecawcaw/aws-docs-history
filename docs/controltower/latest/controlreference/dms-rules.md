@@ -1,48 +1,45 @@
+
+
 # AWS Database Migration Service (AWS DMS) controls
+<a name="dms-rules"></a>
 
-###### Topics
-
-- [[CT.DMS.PR.1] Require that a public AWS DMS replication instance is not public](#ct-dms-pr-1-description "#ct-dms-pr-1-description")
-- [[CT.DMS.PR.2] Require an AWS Database Migration Service (DMS) Endpoint to encrypt connections for source and target endpoints](#ct-dms-pr-2-description "#ct-dms-pr-2-description")
+**Topics**
++ [[CT.DMS.PR.1] Require that a public AWS DMS replication instance is not public](#ct-dms-pr-1-description)
++ [[CT.DMS.PR.2] Require an AWS Database Migration Service (DMS) Endpoint to encrypt connections for source and target endpoints](#ct-dms-pr-2-description)
 
 ## [CT.DMS.PR.1] Require that a public AWS DMS replication instance is not public
+<a name="ct-dms-pr-1-description"></a>
 
 This control checks whether your AWS DMS replication instance is public.
-
-- **Control objective:** Limit network access, Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::DMS::ReplicationInstance`
-- **CloudFormation guard rule:**
-  [CT.DMS.PR.1 rule specification](#ct-dms-pr-1-rule "#ct-dms-pr-1-rule")
++ **Control objective: **Limit network access, Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::DMS::ReplicationInstance`
++ **CloudFormation guard rule: ** [CT.DMS.PR.1 rule specification](#ct-dms-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.DMS.PR.1 rule specification](#ct-dms-pr-1-rule "#ct-dms-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.DMS.PR.1 example templates](#ct-dms-pr-1-templates "#ct-dms-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.DMS.PR.1 rule specification](#ct-dms-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.DMS.PR.1 example templates](#ct-dms-pr-1-templates) 
 
 **Explanation**
 
 A private replication instance has a private IP address that you cannot access outside of the replication network. You use a private instance when both source and target databases are in the same network that is connected to the replication instance's VPC. The network can be connected to the VPC by using a VPN, AWS Direct Connect, or VPC peering.
 
 ### Remediation for rule failure
+<a name="ct-dms-pr-1-remediation"></a>
 
 Set `PubliclyAccessible` to `false`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS DMS Replication Instance - Example
+<a name="ct-dms-pr-1-remediation-1"></a>
 
 AWS DMS replication instance configured with public access disabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "DMSReplicationInstance": {
         "Type": "AWS::DMS::ReplicationInstance",
@@ -52,44 +49,40 @@ AWS DMS replication instance configured with public access disabled. The example
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 DMSReplicationInstance:
   Type: AWS::DMS::ReplicationInstance
   Properties:
     ReplicationInstanceClass: dms.t3.micro
     PubliclyAccessible: false
-
-
 ```
 
 ### CT.DMS.PR.1 rule specification
+<a name="ct-dms-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
 # Rule Identifier:
 #   dms_replication_instance_not_public_check
-#
+# 
 # Description:
 #   This control checks whether your AWS DMS replication instance is public.
-#
+# 
 # Reports on:
 #   AWS::DMS::ReplicationInstance
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -169,88 +162,72 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.DMS.PR.1 example templates
+<a name="ct-dms-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DMSReplicationInstance:
     Type: AWS::DMS::ReplicationInstance
     Properties:
       ReplicationInstanceClass: dms.t3.micro
       PubliclyAccessible: false
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DMSReplicationInstance:
     Type: AWS::DMS::ReplicationInstance
     Properties:
       ReplicationInstanceClass: dms.t3.micro
       PubliclyAccessible: true
-
-
 ```
 
 ## [CT.DMS.PR.2] Require an AWS Database Migration Service (DMS) Endpoint to encrypt connections for source and target endpoints
+<a name="ct-dms-pr-2-description"></a>
 
-This control checks whether an AWS Database Migration Service (AWS DMS) Endpoint is configured to encrypt connections for source and target endpoints by
-using Secure Sockets Layer (SSL).
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::DMS::Endpoint`
-- **CloudFormation guard rule:**
-  [CT.DMS.PR.2 rule specification](#ct-dms-pr-2-rule "#ct-dms-pr-2-rule")
+This control checks whether an AWS Database Migration Service (AWS DMS) Endpoint is configured to encrypt connections for source and target endpoints by using Secure Sockets Layer (SSL).
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::DMS::Endpoint`
++ **CloudFormation guard rule: ** [CT.DMS.PR.2 rule specification](#ct-dms-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.DMS.PR.2 rule specification](#ct-dms-pr-2-rule "#ct-dms-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.DMS.PR.2 example templates](#ct-dms-pr-2-templates "#ct-dms-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.DMS.PR.2 rule specification](#ct-dms-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.DMS.PR.2 example templates](#ct-dms-pr-2-templates) 
 
 **Explanation**
 
-You can encrypt connections for source and target endpoints by using Secure Sockets Layer (SSL). By enabling encryption
-in-transit with SSL, you can protect the confidentiality of data during AWS DMS data migrations.
+You can encrypt connections for source and target endpoints by using Secure Sockets Layer (SSL). By enabling encryption in-transit with SSL, you can protect the confidentiality of data during AWS DMS data migrations.
 
-###### Usage considerations
-
-- This control applies only to AWS DMS endpoints with an EngineName property of `mysql`, `oracle`, `postgres`, `mariadb`, `aurora`, `aurora-postgresql`, `db2,` sybase`,` mongodb`,` docdb`, or` sqlserver'.
-- Not all SSL modes work with all database endpoints. See [Using SSL with AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Security.SSL.md "../../../dms/latest/userguide/CHAP_Security.SSL.md") in the
-  _AWS Database Migration Service User Guide_ for information on which SSL modes are supported for each database engine, and limitations of using SSL with AWS DMS.
+**Usage considerations**  
+This control applies only to AWS DMS endpoints with an EngineName property of `mysql`, `oracle`, `postgres`, `mariadb`, `aurora`, `aurora-postgresql`, `db2, `sybase`, `mongodb`, `docdb`, or `sqlserver'.
+Not all SSL modes work with all database endpoints. See [Using SSL with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.SSL) in the *AWS Database Migration Service User Guide* for information on which SSL modes are supported for each database engine, and limitations of using SSL with AWS DMS.
 
 ### Remediation for rule failure
+<a name="ct-dms-pr-2-remediation"></a>
 
 Set the value of the SslMode property to a supported encryption mode for the endpoint engine (one of require, verify-ca, or verify-full).
 
 The examples that follow show how to implement this remediation.
 
 #### AWS DMS Endpoint - Example
+<a name="ct-dms-pr-2-remediation-1"></a>
 
 An AWS DMS endpoint configured with a `postgres` database target and connection encryption using SSL (TLS). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Endpoint": {
         "Type": "AWS::DMS::Endpoint",
@@ -270,13 +247,11 @@ An AWS DMS endpoint configured with a `postgres` database target and connection 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Endpoint:
   Type: AWS::DMS::Endpoint
   Properties:
@@ -288,34 +263,32 @@ Endpoint:
     ServerName: server.db.example.com
     EngineName: postgres
     SslMode: require
-
-
 ```
 
 ### CT.DMS.PR.2 rule specification
+<a name="ct-dms-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   dms_endpoint_ssl_configured_check
-#
+# 
 # Description:
-#   This control checks whether an AWS Database Migration Service (AWS DMS) Endpoint is configured to encrypt connections for source and target endpoints by using
+#   This control checks whether an AWS Database Migration Service (AWS DMS) Endpoint is configured to encrypt connections for source and target endpoints by using 
 #   Secure Sockets Layer (SSL).
-#
+# 
 # Reports on:
 #   AWS::DMS::Endpoint
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -431,18 +404,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.DMS.PR.2 example templates
+<a name="ct-dms-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   DMSEndpointSecret:
     Type: AWS::SecretsManager::Secret
@@ -466,14 +437,11 @@ Resources:
       ServerName: server.db.example.com
       EngineName: postgres
       SslMode: require
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   DMSEndpointSecret:
     Type: AWS::SecretsManager::Secret
@@ -496,6 +464,4 @@ Resources:
       Port: 1234
       ServerName: server.db.example.com
       EngineName: postgres
-
-
 ```

@@ -1,55 +1,51 @@
+
+
 # AWS CodeBuild controls
+<a name="codebuild-rules"></a>
 
-###### Topics
-
-- [[CT.CODEBUILD.PR.1] Require OAuth on GitHub or Bitbucket source repository URLs for AWS CodeBuild projects](#ct-codebuild-pr-1-description "#ct-codebuild-pr-1-description")
-- [[CT.CODEBUILD.PR.2] Require any AWS CodeBuild project environment variable to encrypt credentials in environment variables](#ct-codebuild-pr-2-description "#ct-codebuild-pr-2-description")
-- [[CT.CODEBUILD.PR.3] Require any AWS CodeBuild project environment to have logging configured](#ct-codebuild-pr-3-description "#ct-codebuild-pr-3-description")
-- [[CT.CODEBUILD.PR.5] Require encryption on all AWS CodeBuild project artifacts](#ct-codebuild-pr-5-description "#ct-codebuild-pr-5-description")
-- [[CT.CODEBUILD.PR.6] Require encryption on all Amazon S3 logs for AWS CodeBuild projects](#ct-codebuild-pr-6-description "#ct-codebuild-pr-6-description")
+**Topics**
++ [[CT.CODEBUILD.PR.1] Require OAuth on GitHub or Bitbucket source repository URLs for AWS CodeBuild projects](#ct-codebuild-pr-1-description)
++ [[CT.CODEBUILD.PR.2] Require any AWS CodeBuild project environment variable to encrypt credentials in environment variables](#ct-codebuild-pr-2-description)
++ [[CT.CODEBUILD.PR.3] Require any AWS CodeBuild project environment to have logging configured](#ct-codebuild-pr-3-description)
++ [[CT.CODEBUILD.PR.5] Require encryption on all AWS CodeBuild project artifacts](#ct-codebuild-pr-5-description)
++ [[CT.CODEBUILD.PR.6] Require encryption on all Amazon S3 logs for AWS CodeBuild projects](#ct-codebuild-pr-6-description)
 
 ## [CT.CODEBUILD.PR.1] Require OAuth on GitHub or Bitbucket source repository URLs for AWS CodeBuild projects
+<a name="ct-codebuild-pr-1-description"></a>
 
 This control checks whether the GitHub or Bitbucket source repository URL contains either personal access tokens or a user name and password.
-
-- **Control objective:** Use strong authentication
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CodeBuild::Project`
-- **CloudFormation guard rule:**
-  [CT.CODEBUILD.PR.1 rule specification](#ct-codebuild-pr-1-rule "#ct-codebuild-pr-1-rule")
++ **Control objective: **Use strong authentication
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CodeBuild::Project`
++ **CloudFormation guard rule: ** [CT.CODEBUILD.PR.1 rule specification](#ct-codebuild-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CODEBUILD.PR.1 rule specification](#ct-codebuild-pr-1-rule "#ct-codebuild-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CODEBUILD.PR.1 example templates](#ct-codebuild-pr-1-templates "#ct-codebuild-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CODEBUILD.PR.1 rule specification](#ct-codebuild-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CODEBUILD.PR.1 example templates](#ct-codebuild-pr-1-templates) 
 
 **Explanation**
 
 Authentication credentials should never be stored or transmitted in clear text or appear in the repository URL. Instead of personal access tokens or username and password, you should use OAuth to grant authorization for accessing GitHub or Bitbucket repositories. Using personal access tokens or a username and password could expose your credentials to unintended data exposure and unauthorized access.
 
-###### Usage considerations
-
-- This control applies only to AWS CodeBuild projects with a primary or secondary source type of `GitHub` or `Bitbucket`.
+**Usage considerations**  
+This control applies only to AWS CodeBuild projects with a primary or secondary source type of `GitHub` or `Bitbucket`.
 
 ### Remediation for rule failure
+<a name="ct-codebuild-pr-1-remediation"></a>
 
 Remove any embedded credentials from repository URLs in AWS CodeBuild project source configurations. Instead, connect your CodeBuild projects to `GitHub` or `Bitbucket` repositories by configuring `GitHub Access Token` or `Bitbucket App Password` credentials in the AWS Management Console or AWS CLI.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example One
+<a name="ct-codebuild-pr-1-remediation-1"></a>
 
 AWS CodeBuild project configured with a GitHub primary source location that does not contain a personal access token. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -76,13 +72,11 @@ AWS CodeBuild project configured with a GitHub primary source location that does
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -108,20 +102,18 @@ CodeBuildProject:
             - '**/*'
       Type: GITHUB
       Location: https://github.com/username/repo.git
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example Two
+<a name="ct-codebuild-pr-1-remediation-2"></a>
 
 AWS CodeBuild project configured with primary and secondary source locations that do not contain credentials or personal access tokens. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -155,13 +147,11 @@ AWS CodeBuild project configured with primary and secondary source locations tha
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -191,33 +181,31 @@ CodeBuildProject:
       - Type: GITHUB
         Location: https://github.com/username/repo.git
         SourceIdentifier: GitHubSource
-
-
 ```
 
 ### CT.CODEBUILD.PR.1 rule specification
+<a name="ct-codebuild-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   codebuild_project_source_repo_url_check
-#
+# 
 # Description:
 #   This control checks whether the GitHub or Bitbucket source repository URL contains either personal access tokens or a username and password.
-#
+# 
 # Reports on:
 #   AWS::CodeBuild::Project
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -380,24 +368,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CODEBUILD.PR.1 example templates
+<a name="ct-codebuild-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -431,20 +417,17 @@ Resources:
               - '**/*'
         Type: GITHUB
         Location: https://github.com/username/repo.git
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -478,52 +461,44 @@ Resources:
               - '**/*'
         Type: BITBUCKET
         Location: https://username:password@bitbucket.org/user/repo.git
-
-
 ```
 
 ## [CT.CODEBUILD.PR.2] Require any AWS CodeBuild project environment variable to encrypt credentials in environment variables
+<a name="ct-codebuild-pr-2-description"></a>
 
 This control checks whether AWS CodeBuild projects contain environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` stored as `PLAINTEXT`.
-
-- **Control objective:** Use strong authentication
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CodeBuild::Project`
-- **CloudFormation guard rule:**
-  [CT.CODEBUILD.PR.2 rule specification](#ct-codebuild-pr-2-rule "#ct-codebuild-pr-2-rule")
++ **Control objective: **Use strong authentication
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CodeBuild::Project`
++ **CloudFormation guard rule: ** [CT.CODEBUILD.PR.2 rule specification](#ct-codebuild-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CODEBUILD.PR.2 rule specification](#ct-codebuild-pr-2-rule "#ct-codebuild-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CODEBUILD.PR.2 example templates](#ct-codebuild-pr-2-templates "#ct-codebuild-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CODEBUILD.PR.2 rule specification](#ct-codebuild-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CODEBUILD.PR.2 example templates](#ct-codebuild-pr-2-templates) 
 
 **Explanation**
 
 Authentication credentials AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY should never be stored in clear text, as this could lead to unintended data exposure and unauthorized access.
 
-###### Usage considerations
-
-- This control only applies to AWS CodeBuild projects configured with `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables
+**Usage considerations**  
+This control only applies to AWS CodeBuild projects configured with `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables
 
 ### Remediation for rule failure
+<a name="ct-codebuild-pr-2-remediation"></a>
 
 Use `PARAMETER_STORE` or `SECRETS_MANAGER` to store values for environment variables named `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example
+<a name="ct-codebuild-pr-2-remediation-1"></a>
 
 AWS CodeBuild project configured to use credentials stored in AWS Secrets Manager. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -561,13 +536,11 @@ AWS CodeBuild project configured to use credentials stored in AWS Secrets Manage
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -599,33 +572,31 @@ CodeBuildProject:
         artifacts:
           files:
             - '**/*'
-
-
 ```
 
 ### CT.CODEBUILD.PR.2 rule specification
+<a name="ct-codebuild-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   codebuild_project_envvar_awscred_check
-#
+# 
 # Description:
 #   This control checks whether AWS CodeBuild projects contain environment variables 'AWS_ACCESS_KEY_ID' and 'AWS_SECRET_ACCESS_KEY' stored as 'PLAINTEXT'.
-#
+# 
 # Reports on:
 #   AWS::CodeBuild::Project
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation Hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -761,24 +732,22 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.CODEBUILD.PR.2 example templates
+<a name="ct-codebuild-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -821,20 +790,17 @@ Resources:
           artifacts:
             files:
               - '**/*'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -874,48 +840,41 @@ Resources:
           artifacts:
             files:
               - '**/*'
-
-
 ```
 
 ## [CT.CODEBUILD.PR.3] Require any AWS CodeBuild project environment to have logging configured
+<a name="ct-codebuild-pr-3-description"></a>
 
 This control checks whether AWS CodeBuild projects environment has at least one logging option enabled.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CodeBuild::Project`
-- **CloudFormation guard rule:**
-  [CT.CODEBUILD.PR.3 rule specification](#ct-codebuild-pr-3-rule "#ct-codebuild-pr-3-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CodeBuild::Project`
++ **CloudFormation guard rule: ** [CT.CODEBUILD.PR.3 rule specification](#ct-codebuild-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CODEBUILD.PR.3 rule specification](#ct-codebuild-pr-3-rule "#ct-codebuild-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CODEBUILD.PR.3 example templates](#ct-codebuild-pr-3-templates "#ct-codebuild-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CODEBUILD.PR.3 rule specification](#ct-codebuild-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CODEBUILD.PR.3 example templates](#ct-codebuild-pr-3-templates) 
 
 **Explanation**
 
 From a security perspective, logging is an important feature to enable, to assist future forensics efforts in case of a security incident. Correlating anomalies in CodeBuild projects with threat detections can increase confidence in the accuracy of those threat detections.
 
 ### Remediation for rule failure
+<a name="ct-codebuild-pr-3-remediation"></a>
 
 Set `LogsConfig` with a `CloudWatchLogs` or `S3Logs` configuration.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example One
+<a name="ct-codebuild-pr-3-remediation-1"></a>
 
 AWS CodeBuild project configured to enable logging, by means of Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -946,13 +905,11 @@ AWS CodeBuild project configured to enable logging, by means of Amazon CloudWatc
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -970,20 +927,18 @@ CodeBuildProject:
     LogsConfig:
       CloudWatchLogs:
         Status: ENABLED
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example Two
+<a name="ct-codebuild-pr-3-remediation-2"></a>
 
 AWS CodeBuild project configured to enable logging, by means of Amazon S3. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -1025,13 +980,11 @@ AWS CodeBuild project configured to enable logging, by means of Amazon S3. The e
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -1053,33 +1006,31 @@ CodeBuildProject:
           - /
           - - !Ref 'S3Bucket'
             - path/to/directory
-
-
 ```
 
 ### CT.CODEBUILD.PR.3 rule specification
+<a name="ct-codebuild-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   codebuild_project_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether AWS CodeBuild projects environment has at least one logging option enabled.
-#
+# 
 # Reports on:
 #   AWS::CodeBuild::Project
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1283,24 +1234,22 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.CODEBUILD.PR.3 example templates
+<a name="ct-codebuild-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1310,7 +1259,7 @@ Resources:
       Policies:
       - PolicyName: CodeBuildProjectPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -1345,20 +1294,17 @@ Resources:
       LogsConfig:
         CloudWatchLogs:
           Status: ENABLED
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1393,52 +1339,44 @@ Resources:
           Status: DISABLED
         CloudWatchLogs:
           Status: DISABLED
-
-
 ```
 
 ## [CT.CODEBUILD.PR.5] Require encryption on all AWS CodeBuild project artifacts
+<a name="ct-codebuild-pr-5-description"></a>
 
 This control checks whether AWS CodeBuild projects are configured to encrypt artifacts.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CodeBuild::Project`
-- **CloudFormation guard rule:**
-  [CT.CODEBUILD.PR.5 rule specification](#ct-codebuild-pr-5-rule "#ct-codebuild-pr-5-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CodeBuild::Project`
++ **CloudFormation guard rule: ** [CT.CODEBUILD.PR.5 rule specification](#ct-codebuild-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CODEBUILD.PR.5 rule specification](#ct-codebuild-pr-5-rule "#ct-codebuild-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CODEBUILD.PR.5 example templates](#ct-codebuild-pr-5-templates "#ct-codebuild-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CODEBUILD.PR.5 rule specification](#ct-codebuild-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CODEBUILD.PR.5 example templates](#ct-codebuild-pr-5-templates) 
 
 **Explanation**
 
 Encryption of data at rest is a recommended best practice. It adds a layer of access management around your data. In case of a compromise to your CodeBuild artifacts, encryption at rest ensures that your data is protected from unintended access.
 
-###### Usage considerations
-
-- This control applies only to AWS CodeBuild projects configured to return primary or secondary artifacts as output.
+**Usage considerations**  
+This control applies only to AWS CodeBuild projects configured to return primary or secondary artifacts as output.
 
 ### Remediation for rule failure
+<a name="ct-codebuild-pr-5-remediation"></a>
 
 Set the `EncryptionDisabled` property in `Artifacts` and any `SecondaryArtifacts` to `false`, or omit the `EncryptionDisabled` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example One
+<a name="ct-codebuild-pr-5-remediation-1"></a>
 
 AWS CodeBuild project configured to return primary artifacts as output with artifact encryption enabled, by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -1467,13 +1405,11 @@ AWS CodeBuild project configured to return primary artifacts as output with arti
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -1499,20 +1435,18 @@ CodeBuildProject:
     Artifacts:
       Type: S3
       Location: !Ref 'S3Bucket'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example Two
+<a name="ct-codebuild-pr-5-remediation-2"></a>
 
 AWS CodeBuild project configured to return primary and secondary artifacts as output with artifact encryption enabled, by means of the `EncryptionDisabled` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -1552,13 +1486,11 @@ AWS CodeBuild project configured to return primary and secondary artifacts as ou
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -1594,33 +1526,31 @@ CodeBuildProject:
         EncryptionDisabled: false
         ArtifactIdentifier: secondaryArtifact
         Location: !Ref 'S3Bucket'
-
-
 ```
 
 ### CT.CODEBUILD.PR.5 rule specification
+<a name="ct-codebuild-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   codebuild_project_artifact_encryption_check
-#
+# 
 # Description:
 #   This control checks whether AWS CodeBuild projects are configured to encrypt artifacts.
-#
+# 
 # Reports on:
 #   AWS::CodeBuild::Project
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario 1:
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1768,24 +1698,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CODEBUILD.PR.5 example templates
+<a name="ct-codebuild-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1795,7 +1723,7 @@ Resources:
       Policies:
       - PolicyName: CodeBuildProjectPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -1850,21 +1778,17 @@ Resources:
         Type: S3
         Location:
           Ref: S3Bucket
-
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1874,7 +1798,7 @@ Resources:
       Policies:
       - PolicyName: CodeBuildProjectPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -1930,52 +1854,44 @@ Resources:
         EncryptionDisabled: true
         Location:
           Ref: S3Bucket
-
-
 ```
 
 ## [CT.CODEBUILD.PR.6] Require encryption on all Amazon S3 logs for AWS CodeBuild projects
+<a name="ct-codebuild-pr-6-description"></a>
 
 This control checks whether AWS CodeBuild projects configured with Amazon S3 logs have encryption enabled.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CodeBuild::Project`
-- **CloudFormation guard rule:**
-  [CT.CODEBUILD.PR.6 rule specification](#ct-codebuild-pr-6-rule "#ct-codebuild-pr-6-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CodeBuild::Project`
++ **CloudFormation guard rule: ** [CT.CODEBUILD.PR.6 rule specification](#ct-codebuild-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CODEBUILD.PR.6 rule specification](#ct-codebuild-pr-6-rule "#ct-codebuild-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CODEBUILD.PR.6 example templates](#ct-codebuild-pr-6-templates "#ct-codebuild-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CODEBUILD.PR.6 rule specification](#ct-codebuild-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CODEBUILD.PR.6 example templates](#ct-codebuild-pr-6-templates) 
 
 **Explanation**
 
 Encryption of data at rest is a recommended best practice. It adds a layer of access management around your data. In case of a compromise to your CodeBuild artifacts, encryption at rest ensures that your data is protected from unintended access.
 
-###### Usage considerations
-
-- This control applies only to AWS CodeBuild projects with log delivery to Amazon S3 enabled.
+**Usage considerations**  
+This control applies only to AWS CodeBuild projects with log delivery to Amazon S3 enabled.
 
 ### Remediation for rule failure
+<a name="ct-codebuild-pr-6-remediation"></a>
 
 Set `EncryptionDisabled` in `S3Logs` to `false`, or do not specify the `EncryptionDisabled` property.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example One
+<a name="ct-codebuild-pr-6-remediation-1"></a>
 
 AWS CodeBuild project configured to encrypt logs delivered to an Amazon S3 logging destination, by means of CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -2009,13 +1925,11 @@ AWS CodeBuild project configured to encrypt logs delivered to an Amazon S3 loggi
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -2044,20 +1958,18 @@ CodeBuildProject:
       S3Logs:
         Status: ENABLED
         Location: !Ref 'S3Bucket'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS CodeBuild Project - Example Two
+<a name="ct-codebuild-pr-6-remediation-2"></a>
 
 AWS CodeBuild project configured to encrypt logs delivered to an Amazon S3 logging destination, by means of the `EncryptionDisabled` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CodeBuildProject": {
         "Type": "AWS::CodeBuild::Project",
@@ -2092,13 +2004,11 @@ AWS CodeBuild project configured to encrypt logs delivered to an Amazon S3 loggi
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
@@ -2128,33 +2038,31 @@ CodeBuildProject:
         Status: ENABLED
         Location: !Ref 'S3Bucket'
         EncryptionDisabled: false
-
-
 ```
 
 ### CT.CODEBUILD.PR.6 rule specification
+<a name="ct-codebuild-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   codebuild_project_s3_logs_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether AWS CodeBuild projects configured with Amazon S3 logs have encryption enabled.
-#
+# 
 # Reports on:
 #   AWS::CodeBuild::Project
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario 1:
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2269,24 +2177,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CODEBUILD.PR.6 example templates
+<a name="ct-codebuild-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -2296,7 +2202,7 @@ Resources:
       Policies:
       - PolicyName: CodeBuildProjectPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -2354,20 +2260,17 @@ Resources:
           Status: ENABLED
           Location:
             Ref: S3Bucket
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CodeBuildServiceRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -2377,7 +2280,7 @@ Resources:
       Policies:
       - PolicyName: CodeBuildProjectPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -2436,6 +2339,4 @@ Resources:
           Location:
             Ref: S3Bucket
           EncryptionDisabled: true
-
-
 ```

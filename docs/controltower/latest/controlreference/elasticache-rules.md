@@ -1,58 +1,54 @@
+
+
 # Amazon ElastiCache controls
+<a name="elasticache-rules"></a>
 
-###### Topics
-
-- [[CT.ELASTICACHE.PR.1] Require an Amazon ElastiCache (Redis OSS) cluster to have automatic backups activated](#ct-elasticache-pr-1-description "#ct-elasticache-pr-1-description")
-- [[CT.ELASTICACHE.PR.2] Require an Amazon ElastiCache (Redis OSS) cluster to have automatic minor version upgrades activated](#ct-elasticache-pr-2-description "#ct-elasticache-pr-2-description")
-- [[CT.ELASTICACHE.PR.3] Require an Amazon ElastiCache (Redis OSS) replication group to have automatic failover activated](#ct-elasticache-pr-3-description "#ct-elasticache-pr-3-description")
-- [[CT.ELASTICACHE.PR.4] Require an Amazon ElastiCache (Redis OSS) replication group to have encryption at rest activated](#ct-elasticache-pr-4-description "#ct-elasticache-pr-4-description")
-- [[CT.ELASTICACHE.PR.5] Require an Amazon ElastiCache (Redis OSS) replication group to have encryption in transit activated](#ct-elasticache-pr-5-description "#ct-elasticache-pr-5-description")
-- [[CT.ELASTICACHE.PR.6] Require an Amazon ElastiCache cache cluster to use a custom subnet group](#ct-elasticache-pr-6-description "#ct-elasticache-pr-6-description")
-- [[CT.ELASTICACHE.PR.7] Require an Amazon ElastiCache replication group of earlier Redis OSS versions to have Redis OSS AUTH activated](#ct-elasticache-pr-7-description "#ct-elasticache-pr-7-description")
-- [[CT.ELASTICACHE.PR.8] Require an Amazon ElastiCache replication group of later Redis OSS versions to have RBAC authentication activated](#ct-elasticache-pr-8-description "#ct-elasticache-pr-8-description")
+**Topics**
++ [[CT.ELASTICACHE.PR.1] Require an Amazon ElastiCache (Redis OSS) cluster to have automatic backups activated](#ct-elasticache-pr-1-description)
++ [[CT.ELASTICACHE.PR.2] Require an Amazon ElastiCache (Redis OSS) cluster to have automatic minor version upgrades activated](#ct-elasticache-pr-2-description)
++ [[CT.ELASTICACHE.PR.3] Require an Amazon ElastiCache (Redis OSS) replication group to have automatic failover activated](#ct-elasticache-pr-3-description)
++ [[CT.ELASTICACHE.PR.4] Require an Amazon ElastiCache (Redis OSS) replication group to have encryption at rest activated](#ct-elasticache-pr-4-description)
++ [[CT.ELASTICACHE.PR.5] Require an Amazon ElastiCache (Redis OSS) replication group to have encryption in transit activated](#ct-elasticache-pr-5-description)
++ [[CT.ELASTICACHE.PR.6] Require an Amazon ElastiCache cache cluster to use a custom subnet group](#ct-elasticache-pr-6-description)
++ [[CT.ELASTICACHE.PR.7] Require an Amazon ElastiCache replication group of earlier Redis OSS versions to have Redis OSS AUTH activated](#ct-elasticache-pr-7-description)
++ [[CT.ELASTICACHE.PR.8] Require an Amazon ElastiCache replication group of later Redis OSS versions to have RBAC authentication activated](#ct-elasticache-pr-8-description)
 
 ## [CT.ELASTICACHE.PR.1] Require an Amazon ElastiCache (Redis OSS) cluster to have automatic backups activated
+<a name="ct-elasticache-pr-1-description"></a>
 
 This control checks whether an Amazon ElastiCache (Redis OSS) cluster has automatic backups enabled.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElastiCache::CacheCluster`
-- **CloudFormation guard rule:**
-  [CT.ELASTICACHE.PR.1 rule specification](#ct-elasticache-pr-1-rule "#ct-elasticache-pr-1-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElastiCache::CacheCluster`
++ **CloudFormation guard rule: ** [CT.ELASTICACHE.PR.1 rule specification](#ct-elasticache-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICACHE.PR.1 rule specification](#ct-elasticache-pr-1-rule "#ct-elasticache-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.ELASTICACHE.PR.1 example templates](#ct-elasticache-pr-1-templates "#ct-elasticache-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICACHE.PR.1 rule specification](#ct-elasticache-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.ELASTICACHE.PR.1 example templates](#ct-elasticache-pr-1-templates) 
 
 **Explanation**
 
 When automatic backups are enabled, Amazon ElastiCache creates a backup of the cluster on a daily basis. There is no impact on the cluster, and the change is immediate. Automatic backups can help guard against data loss. In the event of a failure, you can create a new cluster, and restore your data from the most recent backup.
 
-###### Usage considerations
-
-- This control applies only to Amazon ElastiCache cache clusters with an engine type of `redis`
+**Usage considerations**  
+This control applies only to Amazon ElastiCache cache clusters with an engine type of `redis`
 
 ### Remediation for rule failure
+<a name="ct-elasticache-pr-1-remediation"></a>
 
 Set the value of the `SnapshotRetentionLimit` parameter to an integer value greater than 0.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ElastiCache Cache Cluster - Example
+<a name="ct-elasticache-pr-1-remediation-1"></a>
 
 An Amazon ElastiCache cache cluster configured with automatic backups enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CacheCluster": {
         "Type": "AWS::ElastiCache::CacheCluster",
@@ -72,13 +68,11 @@ An Amazon ElastiCache cache cluster configured with automatic backups enabled. T
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CacheCluster:
   Type: AWS::ElastiCache::CacheCluster
   Properties:
@@ -89,33 +83,31 @@ CacheCluster:
       - !Ref 'SecurityGroup'
     CacheSubnetGroupName: !Ref 'SubnetGroup'
     SnapshotRetentionLimit: 5
-
-
 ```
 
 ### CT.ELASTICACHE.PR.1 rule specification
+<a name="ct-elasticache-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticache_redis_cluster_auto_backup_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon ElastiCache (Redis OSS) cluster has automatic backups enabled.
-#
+# 
 # Reports on:
 #   AWS::ElastiCache::CacheCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -205,18 +197,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICACHE.PR.1 example templates
+<a name="ct-elasticache-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -260,14 +250,11 @@ Resources:
       CacheSubnetGroupName:
         Ref: SubnetGroup
       SnapshotRetentionLimit: 5
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -311,56 +298,44 @@ Resources:
       CacheSubnetGroupName:
         Ref: SubnetGroup
       SnapshotRetentionLimit: 0
-
-
 ```
 
 ## [CT.ELASTICACHE.PR.2] Require an Amazon ElastiCache (Redis OSS) cluster to have automatic minor version upgrades activated
+<a name="ct-elasticache-pr-2-description"></a>
 
 This control checks whether an Amazon ElastiCache (Redis OSS) cluster has automatic minor version upgrades enabled.
-
-- **Control objective:** Manage vulnerabilities
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElastiCache::CacheCluster`
-- **CloudFormation guard rule:**
-  [CT.ELASTICACHE.PR.2 rule specification](#ct-elasticache-pr-2-rule "#ct-elasticache-pr-2-rule")
++ **Control objective: **Manage vulnerabilities
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElastiCache::CacheCluster`
++ **CloudFormation guard rule: ** [CT.ELASTICACHE.PR.2 rule specification](#ct-elasticache-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICACHE.PR.2 rule specification](#ct-elasticache-pr-2-rule "#ct-elasticache-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-
-[CT.ELASTICACHE.PR.2 example templates](#ct-elasticache-pr-2-templates "#ct-elasticache-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICACHE.PR.2 rule specification](#ct-elasticache-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.ELASTICACHE.PR.2 example templates](#ct-elasticache-pr-2-templates) 
 
 **Explanation**
 
-By enabling automatic minor version upgrades, you ensure that the latest minor version updates to Amazon ElastiCache cache clusters are installed.
-These upgrades may include security patches and bug fixes. Keeping up to date with patch installation is an important step in securing
-systems.
+By enabling automatic minor version upgrades, you ensure that the latest minor version updates to Amazon ElastiCache cache clusters are installed. These upgrades may include security patches and bug fixes. Keeping up to date with patch installation is an important step in securing systems.
 
-###### Usage considerations
-
-- This control applies only to Amazon ElastiCache cache clusters with an engine type of `redis` and an engine version of
-  6.0 or later.
+**Usage considerations**  
+This control applies only to Amazon ElastiCache cache clusters with an engine type of `redis` and an engine version of 6.0 or later.
 
 ### Remediation for rule failure
+<a name="ct-elasticache-pr-2-remediation"></a>
 
 Set the value of the `AutoMinorVersionUpgrade` parameter to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ElastiCache Cache Cluster - Example
+<a name="ct-elasticache-pr-2-remediation-1"></a>
 
 An Amazon ElastiCache cache cluster configured with automatic minor version upgrades enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElastCacheCacheCluster": {
         "Type": "AWS::ElastiCache::CacheCluster",
@@ -381,13 +356,11 @@ An Amazon ElastiCache cache cluster configured with automatic minor version upgr
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElastCacheCacheCluster:
   Type: AWS::ElastiCache::CacheCluster
   Properties:
@@ -398,33 +371,31 @@ ElastCacheCacheCluster:
     Engine: redis
     EngineVersion: 6.0
     AutoMinorVersionUpgrade: true
-
-
 ```
 
 ### CT.ELASTICACHE.PR.2 rule specification
+<a name="ct-elasticache-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticache_auto_minor_version_upgrade_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon ElastiCache (Redis OSS) cluster has automatic minor version upgrades enabled.
-#
+# 
 # Reports on:
 #   AWS::ElastiCache::CacheCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -536,18 +507,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICACHE.PR.2 example templates
+<a name="ct-elasticache-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -569,14 +538,11 @@ Resources:
         - GroupId
       Engine: redis
       AutoMinorVersionUpgrade: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -598,48 +564,41 @@ Resources:
         - GroupId
       Engine: redis
       AutoMinorVersionUpgrade: false
-
-
 ```
 
 ## [CT.ELASTICACHE.PR.3] Require an Amazon ElastiCache (Redis OSS) replication group to have automatic failover activated
+<a name="ct-elasticache-pr-3-description"></a>
 
 This control checks whether an Amazon ElastiCache (Redis OSS) replication group has automatic failover enabled.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **CloudFormation guard rule:**
-  [CT.ELASTICACHE.PR.3 rule specification](#ct-elasticache-pr-3-rule "#ct-elasticache-pr-3-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElastiCache::ReplicationGroup`
++ **CloudFormation guard rule: ** [CT.ELASTICACHE.PR.3 rule specification](#ct-elasticache-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICACHE.PR.3 rule specification](#ct-elasticache-pr-3-rule "#ct-elasticache-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.ELASTICACHE.PR.3 example templates](#ct-elasticache-pr-3-templates "#ct-elasticache-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICACHE.PR.3 rule specification](#ct-elasticache-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.ELASTICACHE.PR.3 example templates](#ct-elasticache-pr-3-templates) 
 
 **Explanation**
 
 When automatic failover is enabled for a replication group, the role of primary node will fail over to one of the read replicas, automatically. This failover and replica promotion ensure that you can resume writing to the new primary as soon as promotion is complete, thereby reducing overall downtime in case of failure.
 
 ### Remediation for rule failure
+<a name="ct-elasticache-pr-3-remediation"></a>
 
 Set the value of the `AutomaticFailoverEnabled` parameter to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ElastiCache Replication Group - Example
+<a name="ct-elasticache-pr-3-remediation-1"></a>
 
 An Amazon ElastiCache replication group configured with automatic failover enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ReplicationGroup": {
         "Type": "AWS::ElastiCache::ReplicationGroup",
@@ -660,13 +619,11 @@ An Amazon ElastiCache replication group configured with automatic failover enabl
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ReplicationGroup:
   Type: AWS::ElastiCache::ReplicationGroup
   Properties:
@@ -678,33 +635,31 @@ ReplicationGroup:
     NumCacheClusters: 2
     Engine: redis
     AutomaticFailoverEnabled: true
-
-
 ```
 
 ### CT.ELASTICACHE.PR.3 rule specification
+<a name="ct-elasticache-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticache_repl_grp_backup_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon ElastiCache (Redis OSS) replication group has automatic failover enabled.
-#
+# 
 # Reports on:
 #   AWS::ElastiCache::ReplicationGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -794,18 +749,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICACHE.PR.3 example templates
+<a name="ct-elasticache-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -851,14 +804,11 @@ Resources:
       NumCacheClusters: 2
       Engine: redis
       AutomaticFailoverEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -904,52 +854,44 @@ Resources:
       NumCacheClusters: 2
       Engine: redis
       AutomaticFailoverEnabled: false
-
-
 ```
 
 ## [CT.ELASTICACHE.PR.4] Require an Amazon ElastiCache (Redis OSS) replication group to have encryption at rest activated
+<a name="ct-elasticache-pr-4-description"></a>
 
 This control checks whether an Amazon ElastiCache (Redis OSS) replication group has the encryption-at-rest setting enabled.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **CloudFormation guard rule:**
-  [CT.ELASTICACHE.PR.4 rule specification](#ct-elasticache-pr-4-rule "#ct-elasticache-pr-4-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElastiCache::ReplicationGroup`
++ **CloudFormation guard rule: ** [CT.ELASTICACHE.PR.4 rule specification](#ct-elasticache-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICACHE.PR.4 rule specification](#ct-elasticache-pr-4-rule "#ct-elasticache-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.ELASTICACHE.PR.4 example templates](#ct-elasticache-pr-4-templates "#ct-elasticache-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICACHE.PR.4 rule specification](#ct-elasticache-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.ELASTICACHE.PR.4 example templates](#ct-elasticache-pr-4-templates) 
 
 **Explanation**
 
 Encryption of data at rest is a recommended best practice that adds a layer of access management around your data. In case of any compromise to your Amazon ElastiCache replica nodes, this encryption-at-rest setting ensures that your data is protected from unintended access.
 
-###### Usage considerations
-
-- This control requires the use of encryption at rest, which is supported only for replication groups with Redis OSS engine versions of 3.2.6 or above.
+**Usage considerations**  
+This control requires the use of encryption at rest, which is supported only for replication groups with Redis OSS engine versions of 3.2.6 or above.
 
 ### Remediation for rule failure
+<a name="ct-elasticache-pr-4-remediation"></a>
 
 Set the value of the `AtRestEncryptionEnabled` parameter to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ElastiCache Replication Group - Example
+<a name="ct-elasticache-pr-4-remediation-1"></a>
 
 Amazon ElastiCache replication group configured with encryption at rest enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElastiCacheReplicationGroup": {
         "Type": "AWS::ElastiCache::ReplicationGroup",
@@ -965,13 +907,11 @@ Amazon ElastiCache replication group configured with encryption at rest enabled.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElastiCacheReplicationGroup:
   Type: AWS::ElastiCache::ReplicationGroup
   Properties:
@@ -981,33 +921,31 @@ ElastiCacheReplicationGroup:
     Engine: redis
     ReplicationGroupDescription: Sample replication group
     AtRestEncryptionEnabled: true
-
-
 ```
 
 ### CT.ELASTICACHE.PR.4 rule specification
+<a name="ct-elasticache-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticache_repl_grp_encrypted_at_rest_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon ElastiCache replication group has the encryption-at-rest setting enabled.
-#
+# 
 # Reports on:
 #   AWS::ElastiCache::ReplicationGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #  Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1104,18 +1042,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICACHE.PR.4 example templates
+<a name="ct-elasticache-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1149,14 +1085,11 @@ Resources:
       Engine: redis
       ReplicationGroupDescription: Example replication group
       AtRestEncryptionEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1190,53 +1123,45 @@ Resources:
       Engine: redis
       ReplicationGroupDescription: Example replication group
       AtRestEncryptionEnabled: false
-
-
 ```
 
 ## [CT.ELASTICACHE.PR.5] Require an Amazon ElastiCache (Redis OSS) replication group to have encryption in transit activated
+<a name="ct-elasticache-pr-5-description"></a>
 
 This control checks whether an Amazon ElastiCache replication group has encryption-in-transit enabled.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **CloudFormation guard rule:**
-  [CT.ELASTICACHE.PR.5 rule specification](#ct-elasticache-pr-5-rule "#ct-elasticache-pr-5-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElastiCache::ReplicationGroup`
++ **CloudFormation guard rule: ** [CT.ELASTICACHE.PR.5 rule specification](#ct-elasticache-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICACHE.PR.5 rule specification](#ct-elasticache-pr-5-rule "#ct-elasticache-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.ELASTICACHE.PR.5 example templates](#ct-elasticache-pr-5-templates "#ct-elasticache-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICACHE.PR.5 rule specification](#ct-elasticache-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.ELASTICACHE.PR.5 example templates](#ct-elasticache-pr-5-templates) 
 
 **Explanation**
 
 TLS can be used to help prevent potential attackers from eavesdropping on or manipulating network traffic using person-in-the-middle or similar attacks. Amazon ElastiCache in-transit encryption is an optional feature that you can use to help protect your data when it is moving from one location to another.
 
-###### Usage considerations
-
-- Encryption-in-transit is supported on Amazon ElastiCache (Redis OSS) replication groups running versions 3.2.6, 4.0.10 and later.
-- Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in-transit encryption can reduce performance. We recommend that you benchmark in-transit encryption, compared to no encryption, on your own data, to determine the impact of encryption-in-transit on performance for your implementation.
+**Usage considerations**  
+Encryption-in-transit is supported on Amazon ElastiCache (Redis OSS) replication groups running versions 3.2.6, 4.0.10 and later.
+Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in-transit encryption can reduce performance. We recommend that you benchmark in-transit encryption, compared to no encryption, on your own data, to determine the impact of encryption-in-transit on performance for your implementation.
 
 ### Remediation for rule failure
+<a name="ct-elasticache-pr-5-remediation"></a>
 
 Set the value of the `TransitEncryptionEnabled` parameter to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ElastiCache Replication Group - Example
+<a name="ct-elasticache-pr-5-remediation-1"></a>
 
 Amazon ElastiCache replication group configured with encryption-in-transit enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ReplicationGroup": {
         "Type": "AWS::ElastiCache::ReplicationGroup",
@@ -1257,13 +1182,11 @@ Amazon ElastiCache replication group configured with encryption-in-transit enabl
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ReplicationGroup:
   Type: AWS::ElastiCache::ReplicationGroup
   Properties:
@@ -1275,33 +1198,31 @@ ReplicationGroup:
     NumCacheClusters: 2
     Engine: redis
     TransitEncryptionEnabled: true
-
-
 ```
 
 ### CT.ELASTICACHE.PR.5 rule specification
+<a name="ct-elasticache-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticache_repl_grp_encrypted_in_transit_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon ElastiCache replication group has encryption-in-transit enabled.
-#
+# 
 # Reports on:
 #   AWS::ElastiCache::ReplicationGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1391,18 +1312,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICACHE.PR.5 example templates
+<a name="ct-elasticache-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1448,14 +1367,11 @@ Resources:
       NumCacheClusters: 2
       Engine: redis
       TransitEncryptionEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1501,53 +1417,45 @@ Resources:
       NumCacheClusters: 2
       Engine: redis
       TransitEncryptionEnabled: false
-
-
 ```
 
 ## [CT.ELASTICACHE.PR.6] Require an Amazon ElastiCache cache cluster to use a custom subnet group
+<a name="ct-elasticache-pr-6-description"></a>
 
 This control checks whether an Amazon ElastiCache cache cluster is configured with a custom subnet group.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElastiCache::CacheCluster`
-- **CloudFormation guard rule:**
-  [CT.ELASTICACHE.PR.6 rule specification](#ct-elasticache-pr-6-rule "#ct-elasticache-pr-6-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElastiCache::CacheCluster`
++ **CloudFormation guard rule: ** [CT.ELASTICACHE.PR.6 rule specification](#ct-elasticache-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICACHE.PR.6 rule specification](#ct-elasticache-pr-6-rule "#ct-elasticache-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.ELASTICACHE.PR.6 example templates](#ct-elasticache-pr-6-templates "#ct-elasticache-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICACHE.PR.6 rule specification](#ct-elasticache-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.ELASTICACHE.PR.6 example templates](#ct-elasticache-pr-6-templates) 
 
 **Explanation**
 
 When you launch an ElastiCache cluster, AWS creates a default subnet group if none exists already. The default group utilizes subnets from the default VPC. Using custom subnet groups allows you to be more restrictive about network access to ElastiCache clusters.
 
-###### Usage considerations
-
-- This rule evaluates whether an Amazon ElastiCache cache cluster has been configured with a custom subnet group.
-- Custom subnet groups may contain subnets that reside in the default Amazon VPC.
+**Usage considerations**  
+This rule evaluates whether an Amazon ElastiCache cache cluster has been configured with a custom subnet group.
+Custom subnet groups may contain subnets that reside in the default Amazon VPC.
 
 ### Remediation for rule failure
+<a name="ct-elasticache-pr-6-remediation"></a>
 
 Set the `CacheSubnetGroupName` parameter to the name of a custom Amazon ElastiCache cache subnet group.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ElastiCache Cache Cluster - Example
+<a name="ct-elasticache-pr-6-remediation-1"></a>
 
 An Amazon ElastiCache cache cluster configured with a custom subnet group. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ElasticacheCluster": {
         "Type": "AWS::ElastiCache::CacheCluster",
@@ -1569,13 +1477,11 @@ An Amazon ElastiCache cache cluster configured with a custom subnet group. The e
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ElasticacheCluster:
   Type: AWS::ElastiCache::CacheCluster
   Properties:
@@ -1585,33 +1491,31 @@ ElasticacheCluster:
     CacheSubnetGroupName: !Ref 'SubnetGroup'
     VpcSecurityGroupIds:
       - !GetAtt 'SecurityGroup.GroupId'
-
-
 ```
 
 ### CT.ELASTICACHE.PR.6 rule specification
+<a name="ct-elasticache-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticache_subnet_group_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon ElastiCache cache cluster is configured with a custom subnet group.
-#
+# 
 # Reports on:
 #   AWS::ElastiCache::CacheCluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1730,18 +1634,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.ELASTICACHE.PR.6 example templates
+<a name="ct-elasticache-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1786,14 +1688,11 @@ Resources:
         Ref: SubnetGroup
       VpcSecurityGroupIds:
       - Fn::GetAtt: [SecurityGroup, GroupId]
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -1812,14 +1711,11 @@ Resources:
       NumCacheNodes: '1'
       VpcSecurityGroupIds:
       - Fn::GetAtt: [SecurityGroup, GroupId]
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -1839,53 +1735,45 @@ Resources:
       CacheSubnetGroupName: default
       VpcSecurityGroupIds:
       - Fn::GetAtt: [SecurityGroup, GroupId]
-
-
 ```
 
 ## [CT.ELASTICACHE.PR.7] Require an Amazon ElastiCache replication group of earlier Redis OSS versions to have Redis OSS AUTH activated
+<a name="ct-elasticache-pr-7-description"></a>
 
 This control checks whether an Amazon ElastiCache replication group with an engine version earlier than 6.0 has Redis OSS AUTH enabled.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **CloudFormation guard rule:**
-  [CT.ELASTICACHE.PR.7 rule specification](#ct-elasticache-pr-7-rule "#ct-elasticache-pr-7-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElastiCache::ReplicationGroup`
++ **CloudFormation guard rule: ** [CT.ELASTICACHE.PR.7 rule specification](#ct-elasticache-pr-7-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICACHE.PR.7 rule specification](#ct-elasticache-pr-7-rule "#ct-elasticache-pr-7-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.ELASTICACHE.PR.7 example templates](#ct-elasticache-pr-7-templates "#ct-elasticache-pr-7-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICACHE.PR.7 rule specification](#ct-elasticache-pr-7-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.ELASTICACHE.PR.7 example templates](#ct-elasticache-pr-7-templates) 
 
 **Explanation**
 
 Redis authentication tokens, or passwords, enable Redis to require a password before allowing clients to run commands, thereby improving data security.
 
-###### Usage considerations
-
-- This control applies only to Amazon ElastiCache replication groups of Redis OSS engine versions earlier than six (6).
-- This control requires encryption-in-transit to be enabled on replication groups by means of the `TransitEncryptionEnabled` property.
+**Usage considerations**  
+This control applies only to Amazon ElastiCache replication groups of Redis OSS engine versions earlier than six (6).
+This control requires encryption-in-transit to be enabled on replication groups by means of the `TransitEncryptionEnabled` property.
 
 ### Remediation for rule failure
+<a name="ct-elasticache-pr-7-remediation"></a>
 
-Set the value of the `AuthToken` parameter to a string between 16 characters and 128 characters in length, which contains only printable ASCII characters and does not contain non-alphanumeric characters outside of the set (!, &,
+Set the value of the `AuthToken` parameter to a string between 16 characters and 128 characters in length, which contains only printable ASCII characters and does not contain non-alphanumeric characters outside of the set (\!, &,
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ElastiCache Replication Group - Example
+<a name="ct-elasticache-pr-7-remediation-1"></a>
 
 An Amazon ElastiCache replication group configured with Redis AUTH authentication enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ReplicationGroup": {
         "Type": "AWS::ElastiCache::ReplicationGroup",
@@ -1910,13 +1798,11 @@ An Amazon ElastiCache replication group configured with Redis AUTH authenticatio
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ReplicationGroup:
   Type: AWS::ElastiCache::ReplicationGroup
   Properties:
@@ -1930,33 +1816,31 @@ ReplicationGroup:
     EngineVersion: 5.0.6
     TransitEncryptionEnabled: true
     AuthToken: !Sub '{{resolve:secretsmanager:${ReplicationGroupSecret}::password}}'
-
-
 ```
 
 ### CT.ELASTICACHE.PR.7 rule specification
+<a name="ct-elasticache-pr-7-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticache_repl_grp_redis_auth_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon ElastiCache replication group with an engine version earlier than 6.0 has Redis OSS AUTH enabled.
-#
+# 
 # Reports on:
 #   AWS::ElastiCache::ReplicationGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2065,18 +1949,16 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.ELASTICACHE.PR.7 example templates
+<a name="ct-elasticache-pr-7-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2134,14 +2016,11 @@ Resources:
       TransitEncryptionEnabled: true
       AuthToken:
         Fn::Sub: '{{resolve:secretsmanager:${ReplicationGroupSecret}::password}}'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2188,56 +2067,45 @@ Resources:
       Engine: redis
       EngineVersion: 3.2.6
       TransitEncryptionEnabled: true
-
-
 ```
 
 ## [CT.ELASTICACHE.PR.8] Require an Amazon ElastiCache replication group of later Redis OSS versions to have RBAC authentication activated
+<a name="ct-elasticache-pr-8-description"></a>
 
 This control checks whether Amazon ElastiCache replication groups with an engine version greater than or equal to 6.0 have RBAC authentication enabled.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElastiCache::ReplicationGroup`
-- **CloudFormation guard rule:**
-  [CT.ELASTICACHE.PR.8 rule specification](#ct-elasticache-pr-8-rule "#ct-elasticache-pr-8-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElastiCache::ReplicationGroup`
++ **CloudFormation guard rule: ** [CT.ELASTICACHE.PR.8 rule specification](#ct-elasticache-pr-8-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICACHE.PR.8 rule specification](#ct-elasticache-pr-8-rule "#ct-elasticache-pr-8-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICACHE.PR.8 example templates](#ct-elasticache-pr-8-templates "#ct-elasticache-pr-8-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICACHE.PR.8 rule specification](#ct-elasticache-pr-8-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICACHE.PR.8 example templates](#ct-elasticache-pr-8-templates) 
 
 **Explanation**
 
-Role-Based Access Control (RBAC) helps you create users and assign specific permissions to them, by using an access string.
-You assign the users to user groups aligned with a specific role, such as administrators, or human resources. The roles are deployed to Amazon ElastiCache (Redis OSS) (Redis OSS) replication groups.
-This technique establishes security boundaries between clients using the same Redis OSS replication groups, and it prevents clients from having access to other clients' data.
-If you use RBAC authentication over Redis OSS AUTH, it reduces the number of credentials required for authenticated access to an Amazon ElastiCache replication group.
+Role-Based Access Control (RBAC) helps you create users and assign specific permissions to them, by using an access string. You assign the users to user groups aligned with a specific role, such as administrators, or human resources. The roles are deployed to Amazon ElastiCache (Redis OSS) (Redis OSS) replication groups. This technique establishes security boundaries between clients using the same Redis OSS replication groups, and it prevents clients from having access to other clients' data. If you use RBAC authentication over Redis OSS AUTH, it reduces the number of credentials required for authenticated access to an Amazon ElastiCache replication group.
 
-###### Usage considerations
-
-- This control applies only to Amazon ElastiCache replication groups of Redis OSS engine versions greater than or equal to 6.0
-- This control requires encryption in transit to be enabled on replication groups by means of the **TransitEncryptionEnabled** property
+**Usage considerations**  
+This control applies only to Amazon ElastiCache replication groups of Redis OSS engine versions greater than or equal to 6.0
+This control requires encryption in transit to be enabled on replication groups by means of the **TransitEncryptionEnabled** property
 
 ### Remediation for rule failure
+<a name="ct-elasticache-pr-8-remediation"></a>
 
 Set the value of the UserGroupIds property to a list that contains at least one Amazon ElastiCache user group identifier.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ElastiCache Replication Group - Example
+<a name="ct-elasticache-pr-8-remediation-1"></a>
 
 An Amazon ElastiCache replication group configured with RBAC authentication enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ReplicationGroup": {
         "Type": "AWS::ElastiCache::ReplicationGroup",
@@ -2264,13 +2132,11 @@ An Amazon ElastiCache replication group configured with RBAC authentication enab
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ReplicationGroup:
   Type: AWS::ElastiCache::ReplicationGroup
   Properties:
@@ -2285,33 +2151,31 @@ ReplicationGroup:
     TransitEncryptionEnabled: true
     UserGroupIds:
       - !Ref 'UserGroup'
-
-
 ```
 
 ### CT.ELASTICACHE.PR.8 rule specification
+<a name="ct-elasticache-pr-8-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elasticache_repl_grp_rbac_auth_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon ElastiCache replication groups with an engine version greater than or equal to 6.0 have RBAC authentication enabled.
-#
+# 
 # Reports on:
 #   AWS::ElastiCache::ReplicationGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2447,18 +2311,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.ELASTICACHE.PR.8 example templates
+<a name="ct-elasticache-pr-8-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2513,14 +2375,11 @@ Resources:
       Engine: redis
       UserGroupIds:
       - Ref: UserGroup
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2565,6 +2424,4 @@ Resources:
         Ref: SubnetGroup
       NumCacheClusters: 2
       Engine: redis
-
-
 ```

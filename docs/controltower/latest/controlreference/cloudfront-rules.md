@@ -1,57 +1,54 @@
+
+
 # Amazon CloudFront controls
+<a name="cloudfront-rules"></a>
 
-###### Topics
-
-- [[CT.CLOUDFRONT.PR.1] Require an Amazon CloudFront distribution to have a default root object configured](#ct-cloudfront-pr-1-description "#ct-cloudfront-pr-1-description")
-- [[CT.CLOUDFRONT.PR.2] Require any Amazon CloudFront distributions with Amazon S3 backed origins to have an origin access identity configured](#ct-cloudfront-pr-2-description "#ct-cloudfront-pr-2-description")
-- [[CT.CLOUDFRONT.PR.3] Require an Amazon CloudFront distribution to have encryption in transit configured](#ct-cloudfront-pr-3-description "#ct-cloudfront-pr-3-description")
-- [[CT.CLOUDFRONT.PR.4] Require an Amazon CloudFront distribution to have origin failover configured](#ct-cloudfront-pr-4-description "#ct-cloudfront-pr-4-description")
-- [[CT.CLOUDFRONT.PR.5] Require any Amazon CloudFront distribution to have logging enabled](#ct-cloudfront-pr-5-description "#ct-cloudfront-pr-5-description")
-- [[CT.CLOUDFRONT.PR.6] Require an Amazon CloudFront distribution to use custom SSL/TLS certificates](#ct-cloudfront-pr-6-description "#ct-cloudfront-pr-6-description")
-- [[CT.CLOUDFRONT.PR.7] Require an Amazon CloudFront distribution to use SNI to serve HTTPS requests](#ct-cloudfront-pr-7-description "#ct-cloudfront-pr-7-description")
-- [[CT.CLOUDFRONT.PR.8] Require an Amazon CloudFront distribution to encrypt traffic to custom origins](#ct-cloudfront-pr-8-description "#ct-cloudfront-pr-8-description")
-- [[CT.CLOUDFRONT.PR.9] Require an Amazon CloudFront distribution to have a security policy of TLSv1.2 as a minimum](#ct-cloudfront-pr-9-description "#ct-cloudfront-pr-9-description")
-- [[CT.CLOUDFRONT.PR.10] Require any Amazon CloudFrontdistributions with Amazon S3 backed origins to have origin access control configured](#ct-cloudfront-pr-10-description "#ct-cloudfront-pr-10-description")
-- [[CT.CLOUDFRONT.PR.11] Require an Amazon CloudFront distribution to use updated SSL protocols between edge locations and custom origins](#ct-cloudfront-pr-11-description "#ct-cloudfront-pr-11-description")
+**Topics**
++ [[CT.CLOUDFRONT.PR.1] Require an Amazon CloudFront distribution to have a default root object configured](#ct-cloudfront-pr-1-description)
++ [[CT.CLOUDFRONT.PR.2] Require any Amazon CloudFront distributions with Amazon S3 backed origins to have an origin access identity configured](#ct-cloudfront-pr-2-description)
++ [[CT.CLOUDFRONT.PR.3] Require an Amazon CloudFront distribution to have encryption in transit configured](#ct-cloudfront-pr-3-description)
++ [[CT.CLOUDFRONT.PR.4] Require an Amazon CloudFront distribution to have origin failover configured](#ct-cloudfront-pr-4-description)
++ [[CT.CLOUDFRONT.PR.5] Require any Amazon CloudFront distribution to have logging enabled](#ct-cloudfront-pr-5-description)
++ [[CT.CLOUDFRONT.PR.6] Require an Amazon CloudFront distribution to use custom SSL/TLS certificates](#ct-cloudfront-pr-6-description)
++ [[CT.CLOUDFRONT.PR.7] Require an Amazon CloudFront distribution to use SNI to serve HTTPS requests](#ct-cloudfront-pr-7-description)
++ [[CT.CLOUDFRONT.PR.8] Require an Amazon CloudFront distribution to encrypt traffic to custom origins](#ct-cloudfront-pr-8-description)
++ [[CT.CLOUDFRONT.PR.9] Require an Amazon CloudFront distribution to have a security policy of TLSv1.2 as a minimum](#ct-cloudfront-pr-9-description)
++ [[CT.CLOUDFRONT.PR.10] Require any Amazon CloudFrontdistributions with Amazon S3 backed origins to have origin access control configured](#ct-cloudfront-pr-10-description)
++ [[CT.CLOUDFRONT.PR.11] Require an Amazon CloudFront distribution to use updated SSL protocols between edge locations and custom origins](#ct-cloudfront-pr-11-description)
 
 ## [CT.CLOUDFRONT.PR.1] Require an Amazon CloudFront distribution to have a default root object configured
+<a name="ct-cloudfront-pr-1-description"></a>
 
 This control checks whether an Amazon CloudFront distribution is configured to return a specific object that is the default root object.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.1 rule specification](#ct-cloudfront-pr-1-rule "#ct-cloudfront-pr-1-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.1 rule specification](#ct-cloudfront-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.1 rule specification](#ct-cloudfront-pr-1-rule "#ct-cloudfront-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.1 example templates](#ct-cloudfront-pr-1-templates "#ct-cloudfront-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.1 rule specification](#ct-cloudfront-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.1 example templates](#ct-cloudfront-pr-1-templates) 
 
 **Explanation**
 
 A user could possibly request a distribution's root URL instead of an object in the distribution. In this situation, specifying a default root object can help you to avoid exposing the contents of your web distribution.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-1-remediation"></a>
 
 Specify a default root object in the `DefaultRootObject` property.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example
+<a name="ct-cloudfront-pr-1-remediation-1"></a>
 
 Amazon CloudFront distribution configured with a default root object. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -79,13 +76,11 @@ Amazon CloudFront distribution configured with a default root object. The exampl
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -101,33 +96,31 @@ CloudFrontDistribution:
         TargetOriginId: sampleOrigin
         CachePolicyId: !Ref 'CachePolicy'
       DefaultRootObject: index.html
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.1 rule specification
+<a name="ct-cloudfront-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_default_root_object_configured_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon CloudFront distribution is configured to return a specific object that is the default root object.
-#
+# 
 # Reports on:
 #    AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #    CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -213,18 +206,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.1 example templates
+<a name="ct-cloudfront-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -259,14 +250,11 @@ Resources:
           CachePolicyId:
             Ref: CachePolicy
         DefaultRootObject: index.html
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -300,52 +288,44 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleOrigin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.2] Require any Amazon CloudFront distributions with Amazon S3 backed origins to have an origin access identity configured
+<a name="ct-cloudfront-pr-2-description"></a>
 
-This control checks whether Amazon CloudFront distributions backed by Amazon S3 are
-configured with an origin access identity.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:** [CT.CLOUDFRONT.PR.2 rule specification](#ct-cloudfront-pr-2-rule "#ct-cloudfront-pr-2-rule")
+This control checks whether Amazon CloudFront distributions backed by Amazon S3 are configured with an origin access identity.
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: **[CT.CLOUDFRONT.PR.2 rule specification](#ct-cloudfront-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see:
-  [CT.CLOUDFRONT.PR.2 rule specification](#ct-cloudfront-pr-2-rule "#ct-cloudfront-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.2 example templates](#ct-cloudfront-pr-2-templates "#ct-cloudfront-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see: [CT.CLOUDFRONT.PR.2 rule specification](#ct-cloudfront-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.2 example templates](#ct-cloudfront-pr-2-templates) 
 
 **Explanation**
 
 CloudFront OAI prevents users from gaining direct access to Amazon S3 bucket content. With direct access to an Amazon S3 bucket, a user bypasses the CloudFront distribution and any permissions that are applied to the underlying S3 bucket content.
 
-###### Usage considerations
-
-- This control applies only to Amazon CloudFront distributions that are configured with one or more origins that are backed by Amazon S3.
+**Usage considerations**  
+This control applies only to Amazon CloudFront distributions that are configured with one or more origins that are backed by Amazon S3.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-2-remediation"></a>
 
 Configure Amazon S3 backed origins by means of the `Origins` property. For each origin backed by Amazon S3, configure an origin access identity by means of the `OriginAccessIdentity` property within an `S3OriginConfig` configuration.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example
+<a name="ct-cloudfront-pr-2-remediation-1"></a>
 
 Amazon CloudFront distribution with an Amazon S3 bucket origin and origin access identity. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -387,13 +367,11 @@ Amazon CloudFront distribution with an Amazon S3 bucket origin and origin access
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -411,33 +389,31 @@ CloudFrontDistribution:
         ViewerProtocolPolicy: https-only
         TargetOriginId: sampleS3Origin
         CachePolicyId: !Ref 'CachePolicy'
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.2 rule specification
+<a name="ct-cloudfront-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_origin_access_identity_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon CloudFront distributions backed by Amazon S3 are configured with an origin access identity.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -637,18 +613,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.2 example templates
+<a name="ct-cloudfront-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -681,7 +655,7 @@ ParametersInCacheKeyAndForwardedToOrigin:
       Bucket:
         Ref: OriginBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetObject'
@@ -720,14 +694,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleS3Origin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -760,48 +731,41 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleS3Origin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.3] Require an Amazon CloudFront distribution to have encryption in transit configured
+<a name="ct-cloudfront-pr-3-description"></a>
 
 This control checks whether your Amazon CloudFront distributions use HTTPS, either directly or through a redirection.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.3 rule specification](#ct-cloudfront-pr-3-rule "#ct-cloudfront-pr-3-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.3 rule specification](#ct-cloudfront-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.3 rule specification](#ct-cloudfront-pr-3-rule "#ct-cloudfront-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.3 example templates](#ct-cloudfront-pr-3-templates "#ct-cloudfront-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.3 rule specification](#ct-cloudfront-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.3 example templates](#ct-cloudfront-pr-3-templates) 
 
 **Explanation**
 
 HTTPS (TLS) can help prevent potential attackers from attempting person-in-the-middle or similar attacks, which can eavesdrop on or manipulate network traffic. Only encrypted connections over HTTPS (TLS) should be allowed. Encrypting data in transit can affect performance. We recommend that you test your application with this feature to understand the performance profile and the impact of TLS.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-3-remediation"></a>
 
 Set `ViewerProtocolPolicy` in `DefaultCacheBehavior` and `CacheBehavior` to `https-only` or `redirect-to-https`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example One
+<a name="ct-cloudfront-pr-3-remediation-1"></a>
 
 Amazon CloudFront distribution configured with a default cache behavior that requires viewer connections to use HTTPS. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -828,13 +792,11 @@ Amazon CloudFront distribution configured with a default cache behavior that req
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -849,20 +811,18 @@ CloudFrontDistribution:
         ViewerProtocolPolicy: https-only
         TargetOriginId: sampleOrigin
         CachePolicyId: !Ref 'CachePolicy'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example Two
+<a name="ct-cloudfront-pr-3-remediation-2"></a>
 
 Amazon CloudFront distribution configured with a cache behavior that redirects viewer HTTP connections to HTTPS. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -896,13 +856,11 @@ Amazon CloudFront distribution configured with a cache behavior that redirects v
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -921,33 +879,31 @@ CloudFrontDistribution:
         - ViewerProtocolPolicy: redirect-to-https
           TargetOriginId: sampleOrigin
           PathPattern: '*'
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.3 rule specification
+<a name="ct-cloudfront-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_viewer_policy_https_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon CloudFront distributions use HTTPS, either directly or through a redirection.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1067,18 +1023,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.3 example templates
+<a name="ct-cloudfront-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -1112,14 +1066,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleOrigin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -1153,48 +1104,41 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleOrigin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.4] Require an Amazon CloudFront distribution to have origin failover configured
+<a name="ct-cloudfront-pr-4-description"></a>
 
 This control checks whether your Amazon CloudFront distribution is configured with an origin group that contains two origin group members.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.4 rule specification](#ct-cloudfront-pr-4-rule "#ct-cloudfront-pr-4-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.4 rule specification](#ct-cloudfront-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.4 rule specification](#ct-cloudfront-pr-4-rule "#ct-cloudfront-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.4 example templates](#ct-cloudfront-pr-4-templates "#ct-cloudfront-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.4 rule specification](#ct-cloudfront-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.4 example templates](#ct-cloudfront-pr-4-templates) 
 
 **Explanation**
 
 CloudFront origin failover can increase availability. Origin failover automatically redirects traffic to a secondary origin if the primary origin is unavailable or if it returns specific HTTP response status codes.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-4-remediation"></a>
 
 Configure an origin group on the Amazon CloudFront Distribution with two origin group members.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example One
+<a name="ct-cloudfront-pr-4-remediation-1"></a>
 
 Amazon CloudFront distribution configured with an origin group that contains two origin group members. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -1255,13 +1199,11 @@ Amazon CloudFront distribution configured with an origin group that contains two
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -1294,33 +1236,31 @@ CloudFrontDistribution:
               Items:
                 - OriginId: sampleOrigin
                 - OriginId: sampleOrigin2
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.4 rule specification
+<a name="ct-cloudfront-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_origin_failover_enabled_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon CloudFront distribution is configured with an origin group that contains two origin group members.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1431,18 +1371,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.4 example templates
+<a name="ct-cloudfront-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -1494,14 +1432,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
               Items:
               - OriginId: exampleOrigin
               - OriginId: exampleOrigin2
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -1535,29 +1470,21 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleOrigin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.5] Require any Amazon CloudFront distribution to have logging enabled
+<a name="ct-cloudfront-pr-5-description"></a>
 
 This control checks whether Amazon CloudFront distributions are configured with access logging.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.5 rule specification](#ct-cloudfront-pr-5-rule "#ct-cloudfront-pr-5-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.5 rule specification](#ct-cloudfront-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.5 rule specification](#ct-cloudfront-pr-5-rule "#ct-cloudfront-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.5 example templates](#ct-cloudfront-pr-5-templates "#ct-cloudfront-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.5 rule specification](#ct-cloudfront-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.5 example templates](#ct-cloudfront-pr-5-templates) 
 
 **Explanation**
 
@@ -1566,19 +1493,20 @@ CloudFront access logs provide detailed information about every user request tha
 These access logs are useful for applications such as security and access audits, and in forensic investigation.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-5-remediation"></a>
 
 Set `Bucket` in `DistributionConfig.Logging` to an Amazon S3 bucket that has been configured to receive Amazon CloudFront distribution access logs.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example
+<a name="ct-cloudfront-pr-5-remediation-1"></a>
 
 Amazon CloudFront distribution configured with access logging enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -1613,13 +1541,11 @@ Amazon CloudFront distribution configured with access logging enabled. The examp
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -1636,33 +1562,31 @@ CloudFrontDistribution:
         CachePolicyId: !Ref 'CachePolicy'
       Logging:
         Bucket: !GetAtt 'LoggingBucket.RegionalDomainName'
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.5 rule specification
+<a name="ct-cloudfront-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_access_logs_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon CloudFront distributions are configured with access logging.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1783,18 +1707,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.5 example templates
+<a name="ct-cloudfront-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -1822,7 +1744,7 @@ ParametersInCacheKeyAndForwardedToOrigin:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetBucketAcl'
@@ -1856,14 +1778,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
             Fn::GetAtt:
             - LoggingBucket
             - RegionalDomainName
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -1897,52 +1816,44 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleOrigin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.6] Require an Amazon CloudFront distribution to use custom SSL/TLS certificates
+<a name="ct-cloudfront-pr-6-description"></a>
 
 This control checks whether the certificate associated with an Amazon CloudFront distribution is a custom SSL/TLS certificate.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.6 rule specification](#ct-cloudfront-pr-6-rule "#ct-cloudfront-pr-6-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.6 rule specification](#ct-cloudfront-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.6 rule specification](#ct-cloudfront-pr-6-rule "#ct-cloudfront-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.6 example templates](#ct-cloudfront-pr-6-templates "#ct-cloudfront-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.6 rule specification](#ct-cloudfront-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.6 example templates](#ct-cloudfront-pr-6-templates) 
 
 **Explanation**
 
 Custom SSL/TLS certificates give your users access to content by using alternate domain names. You can store custom certificates in AWS Certificate Manager (recommended), or in IAM.
 
-###### Usage considerations
-
-- This control requires a viewer certificate configuration compatible only with Amazon CloudFront distributions that use `Aliases`, also known as alternate domain names or CNAMEs.
+**Usage considerations**  
+This control requires a viewer certificate configuration compatible only with Amazon CloudFront distributions that use `Aliases`, also known as alternate domain names or CNAMEs.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-6-remediation"></a>
 
 Provide a `ViewerCertificate` configuration with values for `AcmCertificateArn`, `MinimumProtocolVersion`, and `SslSupportMethod`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example
+<a name="ct-cloudfront-pr-6-remediation-1"></a>
 
 Amazon CloudFront distribution configured with an AWS Certificate Manager SSL certificate. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -1976,13 +1887,11 @@ Amazon CloudFront distribution configured with an AWS Certificate Manager SSL ce
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -2001,33 +1910,31 @@ CloudFrontDistribution:
         AcmCertificateArn: !Ref 'ACMCertificate'
         MinimumProtocolVersion: TLSv1.2_2021
         SslSupportMethod: sni-only
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.6 rule specification
+<a name="ct-cloudfront-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_custom_ssl_certificate_check
-#
+# 
 # Description:
 #   This control checks whether the certificate associated with an Amazon CloudFront distribution is a custom SSL/TLS certificate.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2176,18 +2083,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.6 example templates
+<a name="ct-cloudfront-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -2234,14 +2139,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
             Ref: ACMCertificate
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -2277,52 +2179,44 @@ ParametersInCacheKeyAndForwardedToOrigin:
             Ref: CachePolicy
         ViewerCertificate:
           CloudFrontDefaultCertificate: true
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.7] Require an Amazon CloudFront distribution to use SNI to serve HTTPS requests
+<a name="ct-cloudfront-pr-7-description"></a>
 
 This control checks whether your Amazon CloudFront distributions are configured to use SNI to serve HTTPS requests.
-
-- **Control objective:** Encrypt data in transit, Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.7 rule specification](#ct-cloudfront-pr-7-rule "#ct-cloudfront-pr-7-rule")
++ **Control objective: **Encrypt data in transit, Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.7 rule specification](#ct-cloudfront-pr-7-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.7 rule specification](#ct-cloudfront-pr-7-rule "#ct-cloudfront-pr-7-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.7 example templates](#ct-cloudfront-pr-7-templates "#ct-cloudfront-pr-7-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.7 rule specification](#ct-cloudfront-pr-7-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.7 example templates](#ct-cloudfront-pr-7-templates) 
 
 **Explanation**
 
 Server Name Indication (SNI) is an extension to the TLS protocol. It is supported by browsers and clients released after 2010. If you configure CloudFront to serve HTTPS requests using SNI, CloudFront associates your alternate domain name with an IP address for each edge location. When a viewer submits an HTTPS request for your content, DNS routes the request to the IP address for the correct edge location. The IP address for your domain name is determined during the SSL/TLS handshake negotiation; the IP address isn't dedicated to your distribution.
 
-###### Usage considerations
-
-- This control requires a viewer certificate configuration which is only compatible with Amazon CloudFront distributions that use `Aliases` (also known as alternate domain names or CNAMEs)
+**Usage considerations**  
+This control requires a viewer certificate configuration which is only compatible with Amazon CloudFront distributions that use `Aliases` (also known as alternate domain names or CNAMEs)
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-7-remediation"></a>
 
 Within `ViewerCertificate`, set `SslSupportMethod` to `sni-only`, `MinimumProtocolVersion` to a protocol that supports SNI (`TLSv1` or greater), and `AcmCertificateArn` to the ARN of an AWS ACM certificate.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example
+<a name="ct-cloudfront-pr-7-remediation-1"></a>
 
 Amazon CloudFront distribution configured to use SNI to serve HTTPS requests. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -2356,13 +2250,11 @@ Amazon CloudFront distribution configured to use SNI to serve HTTPS requests. Th
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -2381,33 +2273,31 @@ CloudFrontDistribution:
         AcmCertificateArn: !Ref 'ACMCertificate'
         MinimumProtocolVersion: TLSv1.2_2021
         SslSupportMethod: sni-only
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.7 rule specification
+<a name="ct-cloudfront-pr-7-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_sni_enabled_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon CloudFront distributions are configured to use SNI to serve HTTPS requests.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2567,18 +2457,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.7 example templates
+<a name="ct-cloudfront-pr-7-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -2625,14 +2513,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
             Ref: ACMCertificate
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -2679,52 +2564,44 @@ ParametersInCacheKeyAndForwardedToOrigin:
             Ref: ACMCertificate
           MinimumProtocolVersion: TLSv1
           SslSupportMethod: vip
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.8] Require an Amazon CloudFront distribution to encrypt traffic to custom origins
+<a name="ct-cloudfront-pr-8-description"></a>
 
 This control checks whether your Amazon CloudFront distributions are encrypting traffic to custom origins.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.8 rule specification](#ct-cloudfront-pr-8-rule "#ct-cloudfront-pr-8-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.8 rule specification](#ct-cloudfront-pr-8-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.8 rule specification](#ct-cloudfront-pr-8-rule "#ct-cloudfront-pr-8-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.8 example templates](#ct-cloudfront-pr-8-templates "#ct-cloudfront-pr-8-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.8 rule specification](#ct-cloudfront-pr-8-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.8 example templates](#ct-cloudfront-pr-8-templates) 
 
 **Explanation**
 
 HTTPS (TLS) can help prevent eavesdropping or manipulation of network traffic. Only encrypted connections over HTTPS (TLS) should be allowed.
 
-###### Usage considerations
-
-- This control applies only to Amazon CloudFront distributions that have one or more origins configured.
+**Usage considerations**  
+This control applies only to Amazon CloudFront distributions that have one or more origins configured.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-8-remediation"></a>
 
-For Amazon CloudFront custom origins, set `OriginProtocolPolicy` to `https-only` or match-viewer`. When setting` OriginProtocolPolicy `to` match-viewer`, do not set` ViewerProtocolPolicy `to` allow-all' for any cache behaviors.
+For Amazon CloudFront custom origins, set `OriginProtocolPolicy` to `https-only` or match-viewer`. When setting `OriginProtocolPolicy` to `match-viewer`, do not set `ViewerProtocolPolicy` to `allow-all' for any cache behaviors.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example One
+<a name="ct-cloudfront-pr-8-remediation-1"></a>
 
 Amazon CloudFront distribution configured to require HTTPS connections to custom origins, by means of an origin protocol policy of `https-only`. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -2761,13 +2638,11 @@ Amazon CloudFront distribution configured to require HTTPS connections to custom
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -2787,20 +2662,18 @@ CloudFrontDistribution:
           DomainName: example.com
           CustomOriginConfig:
             OriginProtocolPolicy: https-only
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example Two
+<a name="ct-cloudfront-pr-8-remediation-2"></a>
 
 Amazon CloudFront distribution configured to require HTTPS connections to custom origins, by means of an origin protocol policy of `match-viewer`. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -2837,13 +2710,11 @@ Amazon CloudFront distribution configured to require HTTPS connections to custom
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -2863,33 +2734,31 @@ CloudFrontDistribution:
           DomainName: example.com
           CustomOriginConfig:
             OriginProtocolPolicy: match-viewer
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.8 rule specification
+<a name="ct-cloudfront-pr-8-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_traffic_to_origin_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon CloudFront distributions are encrypting traffic to custom origins.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3083,18 +2952,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.8 example templates
+<a name="ct-cloudfront-pr-8-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -3134,14 +3001,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
           DomainName: example.com
           CustomOriginConfig:
             OriginProtocolPolicy: https-only
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -3175,29 +3039,21 @@ ParametersInCacheKeyAndForwardedToOrigin:
           DomainName: example.com
           CustomOriginConfig:
             OriginProtocolPolicy: match-viewer
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.9] Require an Amazon CloudFront distribution to have a security policy of TLSv1.2 as a minimum
+<a name="ct-cloudfront-pr-9-description"></a>
 
 This control checks whether your Amazon CloudFront distributions are using a minimum security policy and cipher suite of TLSv1.2 or greater for viewer connections.
-
-- **Control objective:** Manage vulnerabilities
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.9 rule specification](#ct-cloudfront-pr-9-rule "#ct-cloudfront-pr-9-rule")
++ **Control objective: **Manage vulnerabilities
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.9 rule specification](#ct-cloudfront-pr-9-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.9 rule specification](#ct-cloudfront-pr-9-rule "#ct-cloudfront-pr-9-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.9 example templates](#ct-cloudfront-pr-9-templates "#ct-cloudfront-pr-9-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.9 rule specification](#ct-cloudfront-pr-9-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.9 example templates](#ct-cloudfront-pr-9-templates) 
 
 **Explanation**
 
@@ -3205,24 +3061,24 @@ AWS Control Tower recommends that you use SSL/TLS to communicate with AWS resour
 
 You can specify the security policy CloudFront will use for HTTPS connections with viewers. The security policy determines two settings: 1) the minimum SSL/TLS protocol that CloudFront can use to communicate with viewers, and 2) the ciphers that CloudFront can use to encrypt the content that it returns to viewers.
 
-###### Usage considerations
-
-- This control requires a viewer certificate configuration compatible only with Amazon CloudFront distributions that use `Aliases`, also known as alternate domain names or CNAMEs.
+**Usage considerations**  
+This control requires a viewer certificate configuration compatible only with Amazon CloudFront distributions that use `Aliases`, also known as alternate domain names or CNAMEs.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-9-remediation"></a>
 
 Provide a `ViewerCertificate` configuration with `MinimumProtocolVersion` set to TLSv1.2 or higher.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example
+<a name="ct-cloudfront-pr-9-remediation-1"></a>
 
 Amazon CloudFront distribution configured to use TLS version 1.2 for viewer HTTPS connections. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -3256,13 +3112,11 @@ Amazon CloudFront distribution configured to use TLS version 1.2 for viewer HTTP
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -3281,33 +3135,31 @@ CloudFrontDistribution:
         MinimumProtocolVersion: TLSv1.2_2018
         AcmCertificateArn: !Ref 'ACMCertificate'
         SslSupportMethod: vip
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.9 rule specification
+<a name="ct-cloudfront-pr-9-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_security_policy_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon CloudFront distributions are using a minimum security policy and cipher suite of TLSv1.2 or greater for viewer connections.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3428,18 +3280,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.9 example templates
+<a name="ct-cloudfront-pr-9-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -3486,14 +3336,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
           AcmCertificateArn:
             Ref: ACMCertificate
           SslSupportMethod: sni-only
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -3540,52 +3387,44 @@ ParametersInCacheKeyAndForwardedToOrigin:
           AcmCertificateArn:
             Ref: ACMCertificate
           SslSupportMethod: vip
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.10] Require any Amazon CloudFrontdistributions with Amazon S3 backed origins to have origin access control configured
+<a name="ct-cloudfront-pr-10-description"></a>
 
 This control checks whether your Amazon CloudFront distributions backed by Amazon S3 are configured to use an origin access control.
-
-- **Control objective:** Enforce least privilege, Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.10 rule specification](#ct-cloudfront-pr-10-rule "#ct-cloudfront-pr-10-rule")
++ **Control objective: **Enforce least privilege, Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.10 rule specification](#ct-cloudfront-pr-10-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.10 rule specification](#ct-cloudfront-pr-10-rule "#ct-cloudfront-pr-10-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.10 example templates](#ct-cloudfront-pr-10-templates "#ct-cloudfront-pr-10-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.10 rule specification](#ct-cloudfront-pr-10-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.10 example templates](#ct-cloudfront-pr-10-templates) 
 
 **Explanation**
 
 CloudFront OAC prevents users from gaining direct access to an Amazon S3 bucket's content. Direct access an S3 bucket bypasses the CloudFront distribution and any permissions that are applied to the underlying S3 bucket content.
 
-###### Usage considerations
-
-- This control applies only to Amazon CloudFront distributions that have one or more origins backed by Amazon S3 configured.
+**Usage considerations**  
+This control applies only to Amazon CloudFront distributions that have one or more origins backed by Amazon S3 configured.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-10-remediation"></a>
 
 The `Origins` property configures origins backed by Amazon S3. For each origin backed by Amazon S3, configure an origin access control identifier using the `OriginAccessControlId` property.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example
+<a name="ct-cloudfront-pr-10-remediation-1"></a>
 
 Amazon CloudFront distribution with an Amazon S3 bucket origin, configured with an origin access control. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -3618,13 +3457,11 @@ Amazon CloudFront distribution with an Amazon S3 bucket origin, configured with 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -3639,33 +3476,31 @@ CloudFrontDistribution:
         ViewerProtocolPolicy: https-only
         TargetOriginId: sampleOrigin
         CachePolicyId: !Ref 'CachePolicy'
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.10 rule specification
+<a name="ct-cloudfront-pr-10-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_origin_access_control_enabled_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon CloudFront distributions backed by Amazon S3 are configured to use an origin access control.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3837,18 +3672,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.10 example templates
+<a name="ct-cloudfront-pr-10-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -3884,7 +3717,7 @@ ParametersInCacheKeyAndForwardedToOrigin:
       Bucket:
         Ref: OriginBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetObject'
@@ -3925,14 +3758,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleOrigin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -3965,7 +3795,7 @@ ParametersInCacheKeyAndForwardedToOrigin:
       Bucket:
         Ref: OriginBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:GetObject'
@@ -4001,52 +3831,44 @@ ParametersInCacheKeyAndForwardedToOrigin:
           TargetOriginId: exampleS3Origin
           CachePolicyId:
             Ref: CachePolicy
-
-
 ```
 
 ## [CT.CLOUDFRONT.PR.11] Require an Amazon CloudFront distribution to use updated SSL protocols between edge locations and custom origins
+<a name="ct-cloudfront-pr-11-description"></a>
 
 This control checks whether your Amazon CloudFront distributions are using deprecated SSL protocols for HTTPS communication between CloudFront edge locations and custom origins.
-
-- **Control objective:** Manage vulnerabilities
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::CloudFront::Distribution`
-- **CloudFormation guard rule:**
-  [CT.CLOUDFRONT.PR.11 rule specification](#ct-cloudfront-pr-11-rule "#ct-cloudfront-pr-11-rule")
++ **Control objective: **Manage vulnerabilities
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::CloudFront::Distribution`
++ **CloudFormation guard rule: ** [CT.CLOUDFRONT.PR.11 rule specification](#ct-cloudfront-pr-11-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.CLOUDFRONT.PR.11 rule specification](#ct-cloudfront-pr-11-rule "#ct-cloudfront-pr-11-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.CLOUDFRONT.PR.11 example templates](#ct-cloudfront-pr-11-templates "#ct-cloudfront-pr-11-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.CLOUDFRONT.PR.11 rule specification](#ct-cloudfront-pr-11-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.CLOUDFRONT.PR.11 example templates](#ct-cloudfront-pr-11-templates) 
 
 **Explanation**
 
 In 2015, the Internet Engineering Task Force (IETF) officially announced that SSL 3.0 should be deprecated, because the protocol is insufficiently secure. We recommend that you use TLSv1.2 or later for HTTPS communication to your custom origins.
 
-###### Usage considerations
-
-- This control applies only to Amazon CloudFront distributions that have one or more custom origins configured.
+**Usage considerations**  
+This control applies only to Amazon CloudFront distributions that have one or more custom origins configured.
 
 ### Remediation for rule failure
+<a name="ct-cloudfront-pr-11-remediation"></a>
 
 Remove deprecated SSL protocols from `OriginSSLProtocols` in `Origins` that have `CustomOriginConfig` configurations.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon CloudFront Distribution - Example
+<a name="ct-cloudfront-pr-11-remediation-1"></a>
 
 Amazon CloudFront distribution configured to use TLS v1.2 as an origin SSL protocol. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "CloudFrontDistribution": {
         "Type": "AWS::CloudFront::Distribution",
@@ -4076,13 +3898,11 @@ Amazon CloudFront distribution configured to use TLS v1.2 as an origin SSL proto
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 CloudFrontDistribution:
   Type: AWS::CloudFront::Distribution
   Properties:
@@ -4099,33 +3919,31 @@ CloudFrontDistribution:
             OriginProtocolPolicy: https-only
             OriginSSLProtocols:
               - TLSv1.2
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.11 rule specification
+<a name="ct-cloudfront-pr-11-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   cloudfront_no_deprecated_ssl_protocols_check
-#
+# 
 # Description:
 #   This control checks whether your Amazon CloudFront distributions are using deprecated SSL protocols for HTTPS communication between CloudFront edge locations and custom origins.
-#
+# 
 # Reports on:
 #   AWS::CloudFront::Distribution
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4293,18 +4111,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.CLOUDFRONT.PR.11 example templates
+<a name="ct-cloudfront-pr-11-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -4340,14 +4156,11 @@ ParametersInCacheKeyAndForwardedToOrigin:
             OriginProtocolPolicy: https-only
             OriginSSLProtocols:
             - TLSv1
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   CachePolicy:
     Type: AWS::CloudFront::CachePolicy
@@ -4383,6 +4196,4 @@ ParametersInCacheKeyAndForwardedToOrigin:
             OriginProtocolPolicy: https-only
             OriginSSLProtocols:
             - SSLv3
-
-
 ```

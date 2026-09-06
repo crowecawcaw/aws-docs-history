@@ -1,48 +1,45 @@
+
+
 # Amazon Elastic Kubernetes Service (EKS) controls
+<a name="eks-rules"></a>
 
-###### Topics
-
-- [[CT.EKS.PR.1] Require an Amazon EKS cluster to be configured with public access disabled to the cluster Kubernetes API server endpoint](#ct-eks-pr-1-description "#ct-eks-pr-1-description")
-- [[CT.EKS.PR.2] Require an Amazon EKS cluster to be configured with secret encryption using AWS Key Management Service (KMS) keys](#ct-eks-pr-2-description "#ct-eks-pr-2-description")
+**Topics**
++ [[CT.EKS.PR.1] Require an Amazon EKS cluster to be configured with public access disabled to the cluster Kubernetes API server endpoint](#ct-eks-pr-1-description)
++ [[CT.EKS.PR.2] Require an Amazon EKS cluster to be configured with secret encryption using AWS Key Management Service (KMS) keys](#ct-eks-pr-2-description)
 
 ## [CT.EKS.PR.1] Require an Amazon EKS cluster to be configured with public access disabled to the cluster Kubernetes API server endpoint
+<a name="ct-eks-pr-1-description"></a>
 
 This control checks whether an Amazon Elastic Kubernetes Service (EKS) cluster endpoint disallows public access to the cluster Kubernetes API server endpoint.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EKS::Cluster`
-- **CloudFormation guard rule:**
-  [CT.EKS.PR.1 rule specification](#ct-eks-pr-1-rule "#ct-eks-pr-1-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EKS::Cluster`
++ **CloudFormation guard rule: ** [CT.EKS.PR.1 rule specification](#ct-eks-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EKS.PR.1 rule specification](#ct-eks-pr-1-rule "#ct-eks-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.EKS.PR.1 example templates](#ct-eks-pr-1-templates "#ct-eks-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EKS.PR.1 rule specification](#ct-eks-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.EKS.PR.1 example templates](#ct-eks-pr-1-templates) 
 
 **Explanation**
 
 When you create a new cluster, Amazon Elastic Kubernetes Service (EKS) creates an endpoint for the managed Kubernetes API server, which you can use to communicate with your cluster using Kubernetes management tools, such as `kubectl`. By default, this API server endpoint is public to the internet, and access to the API server is secured using a combination of AWS Identity and Access Management (IAM) along with native Kubernetes Role-Based Access Control (RBAC). Enabling private access to the Kubernetes API server ensures that all communication between your nodes and the API server stays within your VPC. You can limit the IP addresses that have access to your API server from the internet, or you can completely disallow internet access to the API server.
 
 ### Remediation for rule failure
+<a name="ct-eks-pr-1-remediation"></a>
 
 Set the value of the `EndpointPublicAccess` parameter to false and the value of the `EndpointPrivateAccess` parameter to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EKS Cluster - Example
+<a name="ct-eks-pr-1-remediation-1"></a>
 
 An Amazon EKS cluster configured with public access disabled to the cluster's Kubernetes API server endpoint. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EKSCluster": {
         "Type": "AWS::EKS::Cluster",
@@ -65,13 +62,11 @@ An Amazon EKS cluster configured with public access disabled to the cluster's Ku
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EKSCluster:
   Type: AWS::EKS::Cluster
   Properties:
@@ -82,33 +77,31 @@ EKSCluster:
         - !Ref 'SubnetTwo'
       EndpointPublicAccess: false
       EndpointPrivateAccess: true
-
-
 ```
 
 ### CT.EKS.PR.1 rule specification
+<a name="ct-eks-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   eks_endpoint_no_public_access_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Elastic Kubernetes Service (EKS) cluster endpoint disallows public access to the cluster Kubernetes API server endpoint.
-#
+# 
 # Reports on:
 #   AWS::EKS::Cluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -203,18 +196,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EKS.PR.1 example templates
+<a name="ct-eks-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -246,7 +237,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -266,14 +257,11 @@ Resources:
         - Ref: SubnetTwo
         EndpointPublicAccess: false
         EndpointPrivateAccess: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -305,7 +293,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -325,52 +313,44 @@ Resources:
         - Ref: SubnetTwo
         EndpointPublicAccess: true
         EndpointPrivateAccess: false
-
-
 ```
 
 ## [CT.EKS.PR.2] Require an Amazon EKS cluster to be configured with secret encryption using AWS Key Management Service (KMS) keys
+<a name="ct-eks-pr-2-description"></a>
 
 This control checks whether Amazon Elastic Kubernetes Service (Amazon EKS) clusters are configured to use Kubernetes secrets encrypted with AWS Key Management Service (KMS) keys.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EKS::Cluster`
-- **CloudFormation guard rule:**
-  [CT.EKS.PR.2 rule specification](#ct-eks-pr-2-rule "#ct-eks-pr-2-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EKS::Cluster`
++ **CloudFormation guard rule: ** [CT.EKS.PR.2 rule specification](#ct-eks-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EKS.PR.2 rule specification](#ct-eks-pr-2-rule "#ct-eks-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EKS.PR.2 example templates](#ct-eks-pr-2-templates "#ct-eks-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EKS.PR.2 rule specification](#ct-eks-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EKS.PR.2 example templates](#ct-eks-pr-2-templates) 
 
 **Explanation**
 
 Kubernetes secrets store sensitive information, such as user certificates, passwords, or API keys. Encrypting Kubernetes secrets at rest bolsters the security of your EKS clusters.
 
-###### Usage considerations
-
-- For a cluster that uses KMS Envelope Encryption, `kms:CreateGrant` permissions are required. The condition `kms:GrantIsForAWSResource` is not supported for the CreateCluster action, and this condition should not be given in KMS policies to control `kms:CreateGrant` permissions for users performing CreateCluster operations.
+**Usage considerations**  
+For a cluster that uses KMS Envelope Encryption, `kms:CreateGrant` permissions are required. The condition `kms:GrantIsForAWSResource` is not supported for the CreateCluster action, and this condition should not be given in KMS policies to control `kms:CreateGrant` permissions for users performing CreateCluster operations.
 
 ### Remediation for rule failure
+<a name="ct-eks-pr-2-remediation"></a>
 
 Provide an `EncryptionConfig` configuration with a list of `Resources` that contains `secrets` and a `Provider` configuration containing a `KeyArn`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EKS cluster - Example
+<a name="ct-eks-pr-2-remediation-1"></a>
 
 Amazon EKS cluster configured to have Kubernetes secrets encrypted using Amazon Elastic Kubernetes Service (KMS) keys. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "EKSCluster": {
         "Type": "AWS::EKS::Cluster",
@@ -432,13 +412,11 @@ Amazon EKS cluster configured to have Kubernetes secrets encrypted using Amazon 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 EKSCluster:
   Type: AWS::EKS::Cluster
   Properties:
@@ -462,33 +440,31 @@ EKSCluster:
           - secrets
         Provider:
           KeyArn: !GetAtt 'KMSKey.Arn'
-
-
 ```
 
 ### CT.EKS.PR.2 rule specification
+<a name="ct-eks-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   eks_secrets_encrypted_check
-#
+# 
 # Description:
 #   This control checks whether Amazon Elastic Kubernetes Service (Amazon EKS) clusters are configured to use Kubernetes secrets encrypted with AWS Key Management Service (KMS) keys.
-#
+# 
 # Reports on:
 #   AWS::EKS::Cluster
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -618,18 +594,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.EKS.PR.2 example templates
+<a name="ct-eks-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -661,7 +635,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -675,7 +649,7 @@ Resources:
     Properties:
       PendingWindowInDays: 7
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-key-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -713,14 +687,11 @@ Resources:
         Provider:
           KeyArn:
             Fn::GetAtt: [KMSKey, Arn]
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -752,7 +723,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -782,6 +753,4 @@ Resources:
           - Type: authenticator
           - Type: controllerManager
           - Type: scheduler
-
-
 ```

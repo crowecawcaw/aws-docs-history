@@ -1,38 +1,34 @@
+
+
 # Amazon Simple Storage Service (Amazon S3) controls
+<a name="s3-rules"></a>
 
-###### Topics
-
-- [[CT.S3.PR.1] Require an Amazon S3 bucket to have block public access settings configured](#ct-s3-pr-1-description "#ct-s3-pr-1-description")
-- [[CT.S3.PR.2] Require an Amazon S3 bucket to have server access logging configured](#ct-s3-pr-2-description "#ct-s3-pr-2-description")
-- [[CT.S3.PR.3] Require an Amazon S3 buckets to have versioning configured and a lifecycle policy](#ct-s3-pr-3-description "#ct-s3-pr-3-description")
-- [[CT.S3.PR.4] Require an Amazon S3 bucket to have event notifications configured](#ct-s3-pr-4-description "#ct-s3-pr-4-description")
-- [[CT.S3.PR.5] Require that an Amazon S3 bucket does not manage user access with an access control list (ACL)](#ct-s3-pr-5-description "#ct-s3-pr-5-description")
-- [[CT.S3.PR.6] Require an Amazon S3 bucket to have lifecycle policies configured](#ct-s3-pr-6-description "#ct-s3-pr-6-description")
-- [[CT.S3.PR.8] Require that Amazon S3 bucket requests use Secure Socket Layer](#ct-s3-pr-8-description "#ct-s3-pr-8-description")
-- [[CT.S3.PR.9] Require that an Amazon S3 bucket has S3 Object Lock activated](#ct-s3-pr-9-description "#ct-s3-pr-9-description")
-- [[CT.S3.PR.10] Require an Amazon S3 bucket to have server-side encryption configured using an AWS KMS key](#ct-s3-pr-10-description "#ct-s3-pr-10-description")
-- [[CT.S3.PR.11] Require an Amazon S3 bucket to have versioning enabled](#ct-s3-pr-11-description "#ct-s3-pr-11-description")
-- [[CT.S3.PR.12] Require an Amazon S3 access point to have a Block Public Access (BPA) configuration with all options set to true](#ct-s3-pr-12-description "#ct-s3-pr-12-description")
+**Topics**
++ [[CT.S3.PR.1] Require an Amazon S3 bucket to have block public access settings configured](#ct-s3-pr-1-description)
++ [[CT.S3.PR.2] Require an Amazon S3 bucket to have server access logging configured](#ct-s3-pr-2-description)
++ [[CT.S3.PR.3] Require an Amazon S3 buckets to have versioning configured and a lifecycle policy](#ct-s3-pr-3-description)
++ [[CT.S3.PR.4] Require an Amazon S3 bucket to have event notifications configured](#ct-s3-pr-4-description)
++ [[CT.S3.PR.5] Require that an Amazon S3 bucket does not manage user access with an access control list (ACL)](#ct-s3-pr-5-description)
++ [[CT.S3.PR.6] Require an Amazon S3 bucket to have lifecycle policies configured](#ct-s3-pr-6-description)
++ [[CT.S3.PR.8] Require that Amazon S3 bucket requests use Secure Socket Layer](#ct-s3-pr-8-description)
++ [[CT.S3.PR.9] Require that an Amazon S3 bucket has S3 Object Lock activated](#ct-s3-pr-9-description)
++ [[CT.S3.PR.10] Require an Amazon S3 bucket to have server-side encryption configured using an AWS KMS key](#ct-s3-pr-10-description)
++ [[CT.S3.PR.11] Require an Amazon S3 bucket to have versioning enabled](#ct-s3-pr-11-description)
++ [[CT.S3.PR.12] Require an Amazon S3 access point to have a Block Public Access (BPA) configuration with all options set to true](#ct-s3-pr-12-description)
 
 ## [CT.S3.PR.1] Require an Amazon S3 bucket to have block public access settings configured
+<a name="ct-s3-pr-1-description"></a>
 
 This control checks whether your Amazon Simple Storage Service (Amazon S3) bucket has a bucket-level Block Public Access (BPA) configuration.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.1 rule specification](#ct-s3-pr-1-rule "#ct-s3-pr-1-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.1 rule specification](#ct-s3-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.1 rule specification](#ct-s3-pr-1-rule "#ct-s3-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.S3.PR.1 example templates](#ct-s3-pr-1-templates "#ct-s3-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.1 rule specification](#ct-s3-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.S3.PR.1 example templates](#ct-s3-pr-1-templates) 
 
 **Explanation**
 
@@ -40,24 +36,24 @@ Block Public Access at the Amazon S3 bucket level provides controls to ensure th
 
 Unless you intend to have your S3 buckets publicly accessible, you should configure the bucket level Amazon S3 Block Public Access feature.
 
-###### Usage considerations
-
-- This control is incompatible with Amazon S3 buckets that require a public access configuration.
+**Usage considerations**  
+This control is incompatible with Amazon S3 buckets that require a public access configuration.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-1-remediation"></a>
 
 The parameters `BlockPublicAcls`, `BlockPublicPolicy`, `IgnorePublicAcls`, `RestrictPublicBuckets` must be set to true under the bucket-level `PublicAccessBlockConfiguration`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Bucket - Example
+<a name="ct-s3-pr-1-remediation-1"></a>
 
 Amazon S3 bucket with a bucket level Block Public Access configuration that ensures objects never have public access. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -71,13 +67,11 @@ Amazon S3 bucket with a bucket level Block Public Access configuration that ensu
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3Bucket:
   Type: AWS::S3::Bucket
   Properties:
@@ -86,34 +80,32 @@ S3Bucket:
       BlockPublicPolicy: true
       IgnorePublicAcls: true
       RestrictPublicBuckets: true
-
-
 ```
 
 ### CT.S3.PR.1 rule specification
+<a name="ct-s3-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_bucket_level_public_access_prohibited_check
-#
+# 
 # Description:
 #   Checks whether Amazon Simple Storage Service (Amazon S3) buckets have a bucket-level Block Public Access (BPA)
 #   configuration.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -215,18 +207,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.1 example templates
+<a name="ct-s3-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -236,14 +226,11 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -253,48 +240,41 @@ Resources:
         BlockPublicPolicy: false
         IgnorePublicAcls: false
         RestrictPublicBuckets: false
-
-
 ```
 
 ## [CT.S3.PR.2] Require an Amazon S3 bucket to have server access logging configured
+<a name="ct-s3-pr-2-description"></a>
 
 This control checks whether server access logging is enabled for your Amazon S3 bucket.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.2 rule specification](#ct-s3-pr-2-rule "#ct-s3-pr-2-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.2 rule specification](#ct-s3-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.2 rule specification](#ct-s3-pr-2-rule "#ct-s3-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.S3.PR.2 example templates](#ct-s3-pr-2-templates "#ct-s3-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.2 rule specification](#ct-s3-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.S3.PR.2 example templates](#ct-s3-pr-2-templates) 
 
 **Explanation**
 
 Server access logging provides detailed records of requests made to a bucket. Server access logs can assist in security and access audits.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-2-remediation"></a>
 
 Set a `LoggingConfiguration` on the S3 bucket and optionally set `DestinationBucketName` to an S3 bucket configured to receive S3 Access Logs.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Bucket - Example
+<a name="ct-s3-pr-2-remediation-1"></a>
 
 Amazon S3 bucket with a server access logging configuration. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -307,45 +287,41 @@ Amazon S3 bucket with a server access logging configuration. The example is show
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3Bucket:
   Type: AWS::S3::Bucket
   Properties:
     LoggingConfiguration:
       DestinationBucketName: !Ref 'LoggingBucket'
-
-
 ```
 
 ### CT.S3.PR.2 rule specification
+<a name="ct-s3-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_bucket_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether server access logging is enabled for Amazon S3 buckets.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -467,81 +443,68 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.S3.PR.2 example templates
+<a name="ct-s3-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
       LoggingConfiguration: {}
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties: {}
-
-
 ```
 
 ## [CT.S3.PR.3] Require an Amazon S3 buckets to have versioning configured and a lifecycle policy
+<a name="ct-s3-pr-3-description"></a>
 
 This control checks whether your Amazon Simple Storage Service (Amazon S3) version-enabled bucket has a lifecycle policy configured.
-
-- **Control objective:** Optimize costs
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.3 rule specification](#ct-s3-pr-3-rule "#ct-s3-pr-3-rule")
++ **Control objective: **Optimize costs
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.3 rule specification](#ct-s3-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.3 rule specification](#ct-s3-pr-3-rule "#ct-s3-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.S3.PR.3 example templates](#ct-s3-pr-3-templates "#ct-s3-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.3 rule specification](#ct-s3-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.S3.PR.3 example templates](#ct-s3-pr-3-templates) 
 
 **Explanation**
 
 We recommend that you configure lifecycle rules on your Amazon S3 bucket, because these rules help you define actions that you want Amazon S3 to take during an object's lifetime.
 
-###### Usage considerations
-
-- This control applies only to Amazon S3 buckets with versioning enabled.
+**Usage considerations**  
+This control applies only to Amazon S3 buckets with versioning enabled.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-3-remediation"></a>
 
 Configure versioning-enabled buckets with at least one active lifecycle rule.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Bucket - Example One
+<a name="ct-s3-pr-3-remediation-1"></a>
 
 Amazon S3 bucket with versioning enabled and an active lifecycle rule. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -561,13 +524,11 @@ Amazon S3 bucket with versioning enabled and an active lifecycle rule. The examp
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3Bucket:
   Type: AWS::S3::Bucket
   Properties:
@@ -578,33 +539,31 @@ S3Bucket:
         - Status: Enabled
           ExpirationInDays: 1
           Id: FirstRule
-
-
 ```
 
 ### CT.S3.PR.3 rule specification
+<a name="ct-s3-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_version_lifecycle_policy_check
-#
+# 
 # Description:
 #   Checks whether Amazon Simple Storage Service (Amazon S3) version-enabled buckets have lifecycle policy configured.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -712,18 +671,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.3 example templates
+<a name="ct-s3-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
@@ -735,14 +692,11 @@ Resources:
         - Status: Enabled
           ExpirationInDays: 1
           Id: FirstRule
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
@@ -754,48 +708,41 @@ Resources:
         - Status: Disabled
           ExpirationInDays: 1
           Id: FirstRule
-
-
 ```
 
 ## [CT.S3.PR.4] Require an Amazon S3 bucket to have event notifications configured
+<a name="ct-s3-pr-4-description"></a>
 
 This control checks whether Amazon S3 events notifications are enabled on your Amazon S3 bucket.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.4 rule specification](#ct-s3-pr-4-rule "#ct-s3-pr-4-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.4 rule specification](#ct-s3-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.4 rule specification](#ct-s3-pr-4-rule "#ct-s3-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.S3.PR.4 example templates](#ct-s3-pr-4-templates "#ct-s3-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.4 rule specification](#ct-s3-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.S3.PR.4 example templates](#ct-s3-pr-4-templates) 
 
 **Explanation**
 
 By enabling event notifications, you receive alerts on your Amazon S3 buckets when specific events occur. For example, you can be notified of object creation, object removal, and object restoration. These notifications can alert relevant teams to accidental or intentional modifications that may lead to unauthorized data access.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-4-remediation"></a>
 
 Set a `NotificationConfiguration` parameter on your bucket with one of `EventBridgeConfiguration`, `LambdaConfigurations`, `QueueConfigurations` or `TopicConfigurations.`
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Bucket - Example One
+<a name="ct-s3-pr-4-remediation-1"></a>
 
 Amazon S3 bucket with Amazon EventBridge notifications configured. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -808,33 +755,29 @@ Amazon S3 bucket with Amazon EventBridge notifications configured. The example i
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3Bucket:
   Type: AWS::S3::Bucket
   Properties:
     NotificationConfiguration:
       EventBridgeConfiguration:
         EventBridgeEnabled: true
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Bucket - Example Two
+<a name="ct-s3-pr-4-remediation-2"></a>
 
 Amazon S3 bucket with SNS topic notifications configured. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -852,13 +795,11 @@ Amazon S3 bucket with SNS topic notifications configured. The example is shown i
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3Bucket:
   Type: AWS::S3::Bucket
   Properties:
@@ -866,33 +807,31 @@ S3Bucket:
       TopicConfigurations:
         - Topic: !Ref 'SnsTopic'
           Event: s3:ReducedRedundancyLostObject
-
-
 ```
 
 ### CT.S3.PR.4 rule specification
+<a name="ct-s3-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_event_notifications_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Amazon S3 event notifications are enabled on an S3 bucket.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1000,18 +939,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.4 example templates
+<a name="ct-s3-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
@@ -1019,104 +956,90 @@ Resources:
       NotificationConfiguration:
         EventBridgeConfiguration:
           EventBridgeEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
       NotificationConfiguration: {}
-
-
 ```
 
 ## [CT.S3.PR.5] Require that an Amazon S3 bucket does not manage user access with an access control list (ACL)
+<a name="ct-s3-pr-5-description"></a>
 
 This control checks whether your Amazon Simple Storage Service (Amazon S3) bucket allows user permissions through access control lists.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.5 rule specification](#ct-s3-pr-5-rule "#ct-s3-pr-5-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.5 rule specification](#ct-s3-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.5 rule specification](#ct-s3-pr-5-rule "#ct-s3-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.S3.PR.5 example templates](#ct-s3-pr-5-templates "#ct-s3-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.5 rule specification](#ct-s3-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.S3.PR.5 example templates](#ct-s3-pr-5-templates) 
 
 **Explanation**
 
 ACLs are legacy access control mechanisms that predate IAM. Instead of ACLs, we recommend using IAM policies or Amazon S3 bucket policies to more easily manage access to your S3 buckets.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-5-remediation"></a>
 
 Manage access to Amazon S3 buckets with bucket resource policies and IAM identity policies instead.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Bucket - Example
+<a name="ct-s3-pr-5-remediation-1"></a>
 
 Amazon S3 bucket that does not allow user permissions through access control lists by omitting the `AccessControl` property. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3Bucket": {
         "Type": "AWS::S3::Bucket",
         "Properties": {}
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3Bucket:
   Type: AWS::S3::Bucket
   Properties: {}
-
-
 ```
 
 ### CT.S3.PR.5 rule specification
+<a name="ct-s3-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_bucket_acl_prohibited_check
-#
+# 
 # Description:
 #   Checks whether Amazon Simple Storage Service (Amazon S3) buckets allow user permissions through access control lists.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1187,77 +1110,65 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.5 example templates
+<a name="ct-s3-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties: {}
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
-
-
 ```
 
 ## [CT.S3.PR.6] Require an Amazon S3 bucket to have lifecycle policies configured
+<a name="ct-s3-pr-6-description"></a>
 
 This control checks whether a lifecycle rule is configured for Amazon S3 buckets.
-
-- **Control objective:** Optimize costs, Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.6 rule specification](#ct-s3-pr-6-rule "#ct-s3-pr-6-rule")
++ **Control objective: **Optimize costs, Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.6 rule specification](#ct-s3-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.6 rule specification](#ct-s3-pr-6-rule "#ct-s3-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.S3.PR.6 example templates](#ct-s3-pr-6-templates "#ct-s3-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.6 rule specification](#ct-s3-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.S3.PR.6 example templates](#ct-s3-pr-6-templates) 
 
 **Explanation**
 
 Configuring lifecycle rules on your Amazon S3 bucket defines actions that you want S3 to take during an object's lifetime. For example, you can transition objects to another storage class, archive them, or delete them after a specified period of time.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-6-remediation"></a>
 
 Configure at least one active lifecycle rule in `LifecycleConfiguration.Rules` by setting `Status` on a rule to `Enabled`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Bucket - Example
+<a name="ct-s3-pr-6-remediation-1"></a>
 
 Amazon S3 bucket configured with an active lifecycle rule. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -1274,13 +1185,11 @@ Amazon S3 bucket configured with an active lifecycle rule. The example is shown 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3Bucket:
   Type: AWS::S3::Bucket
   Properties:
@@ -1289,33 +1198,31 @@ S3Bucket:
         - Status: Enabled
           ExpirationInDays: 1
           Id: FirstRule
-
-
 ```
 
 ### CT.S3.PR.6 rule specification
+<a name="ct-s3-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_lifecycle_policy_check
-#
+# 
 # Description:
 #   This control checks whether a lifecycle rule is configured for Amazon S3 buckets.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1409,18 +1316,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.6 example templates
+<a name="ct-s3-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -1430,14 +1335,11 @@ Resources:
         - Status: Enabled
           ExpirationInDays: 1
           Id: FirstRule
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -1447,48 +1349,41 @@ Resources:
         - Status: Disabled
           ExpirationInDays: 1
           Id: FirstRule
-
-
 ```
 
 ## [CT.S3.PR.8] Require that Amazon S3 bucket requests use Secure Socket Layer
+<a name="ct-s3-pr-8-description"></a>
 
 This control checks whether Amazon S3 bucket policies require requests to use Secure Socket Layer (SSL).
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::BucketPolicy`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.8 rule specification](#ct-s3-pr-8-rule "#ct-s3-pr-8-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::BucketPolicy`
++ **CloudFormation guard rule: ** [CT.S3.PR.8 rule specification](#ct-s3-pr-8-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.8 rule specification](#ct-s3-pr-8-rule "#ct-s3-pr-8-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.S3.PR.8 example templates](#ct-s3-pr-8-templates "#ct-s3-pr-8-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.8 rule specification](#ct-s3-pr-8-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.S3.PR.8 example templates](#ct-s3-pr-8-templates) 
 
 **Explanation**
 
 Amazon S3 buckets should have policies that require all requests (`Action: S3:*`) to accept transmission of data over HTTPS in the S3 resource policy only, as indicated by the condition key `aws:SecureTransport`.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-8-remediation"></a>
 
 Configure an Amazon S3 bucket policy statement that denies access to all principals and actions for the S3 bucket and bucket objects when a secure transport protocol is not in use.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Bucket Policy - Example
+<a name="ct-s3-pr-8-remediation-1"></a>
 
 Amazon S3 bucket policy configured to deny all access to the bucket and bucket objects when transmission of data is not over HTTPS. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3BucketPolicy": {
         "Type": "AWS::S3::BucketPolicy",
@@ -1497,7 +1392,7 @@ Amazon S3 bucket policy configured to deny all access to the bucket and bucket o
                 "Ref": "S3Bucket"
             },
             "PolicyDocument": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Deny",
@@ -1536,19 +1431,17 @@ Amazon S3 bucket policy configured to deny all access to the bucket and bucket o
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3BucketPolicy:
   Type: AWS::S3::BucketPolicy
   Properties:
     Bucket: !Ref 'S3Bucket'
     PolicyDocument:
-      Version: 2012-10-17
+      Version: 2012-10-17		 	 	 
       Statement:
         - Effect: Deny
           Action: s3:*
@@ -1562,33 +1455,31 @@ S3BucketPolicy:
           Condition:
             Bool:
               aws:SecureTransport: 'false'
-
-
 ```
 
 ### CT.S3.PR.8 rule specification
+<a name="ct-s3-pr-8-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_bucket_policy_ssl_requests_only_check
-#
+# 
 # Description:
 #   This control checks whether Amazon S3 bucket policies require requests to use Secure Socket Layer (SSL).
-#
+# 
 # Reports on:
 #   AWS::S3::BucketPolicy
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1783,18 +1674,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.S3.PR.8 example templates
+<a name="ct-s3-pr-8-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -1810,7 +1699,7 @@ Resources:
       Bucket:
         Ref: S3Bucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
         - Effect: Deny
           Action: s3:*
@@ -1828,14 +1717,11 @@ Resources:
           Condition:
             Bool:
               aws:SecureTransport: 'false'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -1851,7 +1737,7 @@ Resources:
       Bucket:
         Ref: S3Bucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
         - Effect: Allow
           Action: s3:*
@@ -1871,52 +1757,44 @@ Resources:
           Condition:
             Bool:
               aws:SecureTransport: 'false'
-
-
 ```
 
 ## [CT.S3.PR.9] Require that an Amazon S3 bucket has S3 Object Lock activated
+<a name="ct-s3-pr-9-description"></a>
 
 This control checks whether an Amazon Simple Storage Service (Amazon S3) bucket has been configured to use S3 Object Lock.
-
-- **Control objective:** Protect data integrity
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.9 rule specification](#ct-s3-pr-9-rule "#ct-s3-pr-9-rule")
++ **Control objective: **Protect data integrity
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.9 rule specification](#ct-s3-pr-9-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.9 rule specification](#ct-s3-pr-9-rule "#ct-s3-pr-9-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.S3.PR.9 example templates](#ct-s3-pr-9-templates "#ct-s3-pr-9-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.9 rule specification](#ct-s3-pr-9-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.S3.PR.9 example templates](#ct-s3-pr-9-templates) 
 
 **Explanation**
 
 S3 Object Lock allows you to store objects using a write-once-read-many (WORM) model. Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time, or indefinitely. You can use S3 Object Lock to meet regulatory requirements that require WORM storage, or to add an extra layer of protection against object changes and deletion.
 
-###### Usage considerations
-
-- When you create an Amazon S3 bucket with object lock activated, S3 automatically enables versioning for the bucket.
+**Usage considerations**  
+When you create an Amazon S3 bucket with object lock activated, S3 automatically enables versioning for the bucket.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-9-remediation"></a>
 
 Set `ObjectLockEnabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### S3 bucket - Example
+<a name="ct-s3-pr-9-remediation-1"></a>
 
 An Amazon S3 bucket configured with S3 object lock enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -1925,44 +1803,40 @@ An Amazon S3 bucket configured with S3 object lock enabled. The example is shown
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Bucket:
   Type: AWS::S3::Bucket
   Properties:
     ObjectLockEnabled: true
-
-
 ```
 
 ### CT.S3.PR.9 rule specification
+<a name="ct-s3-pr-9-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_bucket_object_lock_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Simple Storage Service (Amazon S3) bucket has been configured to use S3 Object Lock.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2040,78 +1914,66 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.9 example templates
+<a name="ct-s3-pr-9-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
       ObjectLockEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
       ObjectLockEnabled: false
-
-
 ```
 
 ## [CT.S3.PR.10] Require an Amazon S3 bucket to have server-side encryption configured using an AWS KMS key
+<a name="ct-s3-pr-10-description"></a>
 
 This control checks whether default server-side encryption is enabled on an Amazon S3 bucket using AWS KMS.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.10 rule specification](#ct-s3-pr-10-rule "#ct-s3-pr-10-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.10 rule specification](#ct-s3-pr-10-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.10 rule specification](#ct-s3-pr-10-rule "#ct-s3-pr-10-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.S3.PR.10 example templates](#ct-s3-pr-10-templates "#ct-s3-pr-10-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.10 rule specification](#ct-s3-pr-10-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.S3.PR.10 example templates](#ct-s3-pr-10-templates) 
 
 **Explanation**
 
 Server-side encryption (SSE) is the encryption of data at its destination by the application or service that receives the data. Unless you specify otherwise, Amazon S3 buckets use SSE-S3 by default to encrypt objects. However, for added control, you can choose to configure buckets to use server-side encryption with AWS KMS keys (SSE-KMS) instead. Amazon S3 encrypts your data at the object level as it writes data to disks in AWS data centers, and then decrypts the data for you, when you require access to it.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-10-remediation"></a>
 
 Set an encryption rule in `BucketEncryption.ServerSideEncryptionConfiguration` with a `ServerSideEncryptionByDefault.SSEAlgorithm` configuration of `aws:kms` or `aws:kms:dsse`
 
 The examples that follow show how to implement this remediation.
 
 #### S3 Bucket - Example
+<a name="ct-s3-pr-10-remediation-1"></a>
 
 An Amazon S3 bucket configured with AWS Key Management Service (AWS KMS) (SSE-KMS) default server-side encryption. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -2128,13 +1990,11 @@ An Amazon S3 bucket configured with AWS Key Management Service (AWS KMS) (SSE-KM
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3Bucket:
   Type: AWS::S3::Bucket
   Properties:
@@ -2142,33 +2002,31 @@ S3Bucket:
       ServerSideEncryptionConfiguration:
         - ServerSideEncryptionByDefault:
             SSEAlgorithm: aws:kms
-
-
 ```
 
 ### CT.S3.PR.10 rule specification
+<a name="ct-s3-pr-10-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_bucket_default_encryption_kms_check
-#
+# 
 # Description:
 #   This control checks whether default server-side encryption is enabled on an Amazon S3 bucket using AWS KMS.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2196,7 +2054,7 @@ S3Bucket:
 #       And: 'ServerSideEncryptionConfiguration' in 'BucketEncryption' contains an encryption
 #            rule with a 'ServerSideEncryptionByDefault' configuration
 #       And: For an encryption rule, 'SSEAlgorithm' in 'ServerSideEncryptionByDefault' is not
-#            not provided or has been provided and set to an SSE Algorithm other than 'aws:kms'
+#            not provided or has been provided and set to an SSE Algorithm other than 'aws:kms' 
 #            or 'aws:kms:dsse'
 #      Then: FAIL
 #   Scenario: 5
@@ -2283,18 +2141,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.10 example templates
+<a name="ct-s3-pr-10-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
@@ -2303,64 +2159,53 @@ Resources:
         ServerSideEncryptionConfiguration:
         - ServerSideEncryptionByDefault:
             SSEAlgorithm: aws:kms
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties: {}
-
-
 ```
 
 ## [CT.S3.PR.11] Require an Amazon S3 bucket to have versioning enabled
+<a name="ct-s3-pr-11-description"></a>
 
 This control checks whether an Amazon Simple Storage Service (Amazon S3) bucket has versioning enabled.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::Bucket`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.11 rule specification](#ct-s3-pr-11-rule "#ct-s3-pr-11-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::Bucket`
++ **CloudFormation guard rule: ** [CT.S3.PR.11 rule specification](#ct-s3-pr-11-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.11 rule specification](#ct-s3-pr-11-rule "#ct-s3-pr-11-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.S3.PR.11 example templates](#ct-s3-pr-11-templates "#ct-s3-pr-11-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.11 rule specification](#ct-s3-pr-11-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.S3.PR.11 example templates](#ct-s3-pr-11-templates) 
 
 **Explanation**
 
 Versioning keeps multiple variants of an object in the same Amazon S3 bucket. You can use versioning to preserve, retrieve, and restore every version of every object stored in your S3 bucket. With versioning, you can recover more easily from unintended user actions and application failures.
 
-###### Usage considerations
-
-- If you have an unversioned bucket with an object expiration lifecycle configuration, and if you want to maintain the same permanent delete behavior when you enable versioning, you must set an expiration configuration for noncurrent objects. The noncurrent expiration configuration lifecycle manages deletion of noncurrent object versions in the version-enabled bucket. (A version-enabled bucket maintains one current, and zero or more noncurrent, object versions.)
+**Usage considerations**  
+If you have an unversioned bucket with an object expiration lifecycle configuration, and if you want to maintain the same permanent delete behavior when you enable versioning, you must set an expiration configuration for noncurrent objects. The noncurrent expiration configuration lifecycle manages deletion of noncurrent object versions in the version-enabled bucket. (A version-enabled bucket maintains one current, and zero or more noncurrent, object versions.)
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-11-remediation"></a>
 
 Set the `Status` in `VersioningConfiguration` to Enabled.
 
 The examples that follow show how to implement this remediation.
 
 #### S3 Bucket - Example One
+<a name="ct-s3-pr-11-remediation-1"></a>
 
 An Amazon S3 bucket with versioning enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Bucket": {
         "Type": "AWS::S3::Bucket",
@@ -2371,45 +2216,41 @@ An Amazon S3 bucket with versioning enabled. The example is shown in JSON and in
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Bucket:
   Type: AWS::S3::Bucket
   Properties:
     VersioningConfiguration:
       Status: Enabled
-
-
 ```
 
 ### CT.S3.PR.11 rule specification
+<a name="ct-s3-pr-11-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_bucket_versioning_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Simple Storage Service (Amazon S3) bucket has versioning enabled.
-#
+# 
 # Reports on:
 #   AWS::S3::Bucket
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2495,91 +2336,71 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.11 example templates
+<a name="ct-s3-pr-11-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
       VersioningConfiguration:
         Status: Enabled
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties: {}
-
-
 ```
 
 ## [CT.S3.PR.12] Require an Amazon S3 access point to have a Block Public Access (BPA) configuration with all options set to true
+<a name="ct-s3-pr-12-description"></a>
 
 This control checks whether an Amazon S3 access point has been configured with a Block Public Access (BPA) configuration that has all options set to true.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::S3::AccessPoint`
-- **CloudFormation guard rule:**
-  [CT.S3.PR.12 rule specification](#ct-s3-pr-12-rule "#ct-s3-pr-12-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::S3::AccessPoint`
++ **CloudFormation guard rule: ** [CT.S3.PR.12 rule specification](#ct-s3-pr-12-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.S3.PR.12 rule specification](#ct-s3-pr-12-rule "#ct-s3-pr-12-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.S3.PR.12 example templates](#ct-s3-pr-12-templates "#ct-s3-pr-12-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.S3.PR.12 rule specification](#ct-s3-pr-12-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.S3.PR.12 example templates](#ct-s3-pr-12-templates) 
 
 **Explanation**
 
-Amazon S3 access points support independent access settings that allow each access point to block public access. When you create an access point,
-you can specify block public access settings that apply to that access point. For any request made through an access point, Amazon S3 evaluates the block
-public access settings for that access point, the underlying bucket, and the bucket owner's account. If any of these settings indicate that the
-request should be blocked, Amazon S3 rejects the request.
+Amazon S3 access points support independent access settings that allow each access point to block public access. When you create an access point, you can specify block public access settings that apply to that access point. For any request made through an access point, Amazon S3 evaluates the block public access settings for that access point, the underlying bucket, and the bucket owner's account. If any of these settings indicate that the request should be blocked, Amazon S3 rejects the request.
 
-###### Usage considerations
-
-- This control is incompatible with Amazon S3 access points that require a public access configuration.
-- Amazon S3 currently doesn`t support changing an access point`s block public access settings after the access point is created.
-- Adding an Amazon S3 access point to a bucket doesn't change the bucket's behavior when you access the bucket directly through the bucket's name
-  or Amazon Resource Name (ARN). See [Configuring IAM policies for using access points](../../../AmazonS3/latest/userguide/access-points-policies.md "../../../AmazonS3/latest/userguide/access-points-policies.md")
-  in the _Amazon S3 User Guide_ for informaiton on options to configure the underlying bucket's policy for use with Amazon S3 access points.
+**Usage considerations**  
+This control is incompatible with Amazon S3 access points that require a public access configuration.
+Amazon S3 currently doesn`t support changing an access point`s block public access settings after the access point is created.
+Adding an Amazon S3 access point to a bucket doesn't change the bucket's behavior when you access the bucket directly through the bucket's name or Amazon Resource Name (ARN). See [Configuring IAM policies for using access points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html) in the *Amazon S3 User Guide* for informaiton on options to configure the underlying bucket's policy for use with Amazon S3 access points.
 
 ### Remediation for rule failure
+<a name="ct-s3-pr-12-remediation"></a>
 
-In the PublicAccessBlockConfiguration field, set the values of BlockPublicAcls, BlockPublicPolicy, IgnorePublicAcls, and RestrictPublicBuckets to true, or
-omit the PublicAccessBlockConfiguration field to adopt the default value of true for these properties.
+In the PublicAccessBlockConfiguration field, set the values of BlockPublicAcls, BlockPublicPolicy, IgnorePublicAcls, and RestrictPublicBuckets to true, or omit the PublicAccessBlockConfiguration field to adopt the default value of true for these properties.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon S3 Access Point - Example
+<a name="ct-s3-pr-12-remediation-1"></a>
 
-An Amazon S3 access point with a Block Public Access configuration that ensures public access requests by means of the access point are rejected.
-The example is shown in JSON and in YAML.
+An Amazon S3 access point with a Block Public Access configuration that ensures public access requests by means of the access point are rejected. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "S3AccessPoint": {
         "Type": "AWS::S3::AccessPoint",
@@ -2587,7 +2408,7 @@ The example is shown in JSON and in YAML.
             "Bucket": "sample-bucket",
             "Name": "sample-access-point",
             "Policy": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Action": [
@@ -2615,20 +2436,18 @@ The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 S3AccessPoint:
   Type: AWS::S3::AccessPoint
   Properties:
     Bucket: sample-bucket
     Name: sample-access-point
     Policy:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Statement:
         - Action:
             - s3:GetObject
@@ -2643,33 +2462,31 @@ S3AccessPoint:
       BlockPublicPolicy: true
       IgnorePublicAcls: true
       RestrictPublicBuckets: true
-
-
 ```
 
 ### CT.S3.PR.12 rule specification
+<a name="ct-s3-pr-12-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   s3_access_point_public_access_prohibited_check
-#
+# 
 # Description:
 #   This control checks whether an S3Amazon S3access point has been configured with a Block Public Access (BPA) configuration that has all options set to true.
-#
+# 
 # Reports on:
 #   AWS::S3::AccessPoint
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2721,7 +2538,7 @@ rule s3_access_point_public_access_prohibited_check when is_cfn_template(%INPUT_
     check(%s3_access_points.Properties)
         <<
         [CT.S3.PR.12]: Require an Amazon S3 access point to have a Block Public Access (BPA) configuration with all options set to true
-        [FIX]: In the PublicAccessBlockConfiguration field, set the values of BlockPublicAcls, BlockPublicPolicy, IgnorePublicAcls, and RestrictPublicBuckets to true, or
+        [FIX]: In the PublicAccessBlockConfiguration field, set the values of BlockPublicAcls, BlockPublicPolicy, IgnorePublicAcls, and RestrictPublicBuckets to true, or 
         omit the PublicAccessBlockConfiguration field to adopt the default value of true for these properties.
         >>
 }
@@ -2778,18 +2595,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.S3.PR.12 example templates
+<a name="ct-s3-pr-12-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -2799,7 +2614,7 @@ Resources:
       Bucket:
         Ref: S3Bucket
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Action: '*'
           Effect: Allow
@@ -2823,7 +2638,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -2834,7 +2649,7 @@ Resources:
       Policies:
       - PolicyName: GetObjectPermissions
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -2848,7 +2663,7 @@ Resources:
         Ref: S3Bucket
       Name: example-access-point
       Policy:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Action:
           - s3:GetObject
@@ -2866,14 +2681,11 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -2883,7 +2695,7 @@ Resources:
       Bucket:
         Ref: S3Bucket
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Action: '*'
           Effect: Allow
@@ -2907,7 +2719,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -2918,7 +2730,7 @@ Resources:
       Policies:
       - PolicyName: GetObjectPermissions
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -2932,7 +2744,7 @@ Resources:
         Ref: S3Bucket
       Name: example-access-point
       Policy:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Action:
           - s3:GetObject
@@ -2950,6 +2762,4 @@ Resources:
         BlockPublicPolicy: false
         IgnorePublicAcls: false
         RestrictPublicBuckets: false
-
-
 ```

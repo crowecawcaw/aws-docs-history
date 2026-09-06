@@ -1,28 +1,24 @@
+
+
 # Amazon GuardDuty controls
+<a name="guard-duty-rules"></a>
 
-###### Topics
-
-- [[CT.GUARDDUTY.PR.1] Require an Amazon GuardDuty detector to have Amazon S3 protection activated](#ct-guardduty-pr-1-description "#ct-guardduty-pr-1-description")
+**Topics**
++ [[CT.GUARDDUTY.PR.1] Require an Amazon GuardDuty detector to have Amazon S3 protection activated](#ct-guardduty-pr-1-description)
 
 ## [CT.GUARDDUTY.PR.1] Require an Amazon GuardDuty detector to have Amazon S3 protection activated
+<a name="ct-guardduty-pr-1-description"></a>
 
 This control checks whether Amazon S3 protection is enabled on an Amazon GuardDuty detector.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::GuardDuty::Detector`
-- **CloudFormation guard rule:**
-  [CT.GUARDDUTY.PR.1 rule specification](#ct-guardduty-pr-1-rule "#ct-guardduty-pr-1-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::GuardDuty::Detector`
++ **CloudFormation guard rule: ** [CT.GUARDDUTY.PR.1 rule specification](#ct-guardduty-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.GUARDDUTY.PR.1 rule specification](#ct-guardduty-pr-1-rule "#ct-guardduty-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.GUARDDUTY.PR.1 example templates](#ct-guardduty-pr-1-templates "#ct-guardduty-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.GUARDDUTY.PR.1 rule specification](#ct-guardduty-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.GUARDDUTY.PR.1 example templates](#ct-guardduty-pr-1-templates) 
 
 **Explanation**
 
@@ -33,19 +29,20 @@ Amazon GuardDuty monitoring of AWS CloudTrail management events is on by default
 AWS Control Tower recommends that you enable Amazon S3 protection in GuardDuty. If the feature is not enabled, GuardDuty cannot fully monitor or generate findings for suspicious access to data stored in your Amazon S3 buckets.
 
 ### Remediation for rule failure
+<a name="ct-guardduty-pr-1-remediation"></a>
 
 Set `DataSources.S3Logs` to true.
 
 The examples that follow show how to implement this remediation.
 
 #### GuardDuty Detector - Example
+<a name="ct-guardduty-pr-1-remediation-1"></a>
 
 Amazon GuardDuty detector with Amazon S3 protection enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "GuardDutyDetector": {
         "Type": "AWS::GuardDuty::Detector",
@@ -59,13 +56,11 @@ Amazon GuardDuty detector with Amazon S3 protection enabled. The example is show
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 GuardDutyDetector:
   Type: AWS::GuardDuty::Detector
   Properties:
@@ -73,33 +68,31 @@ GuardDutyDetector:
     DataSources:
       S3Logs:
         Enable: true
-
-
 ```
 
 ### CT.GUARDDUTY.PR.1 rule specification
+<a name="ct-guardduty-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   guardduty_s3_protection_enabled_check
-#
+# 
 # Description:
 #   Checks if Amazon S3 protection is enabled on an Amazon GuardDuty detector.
-#
+# 
 # Reports on:
 #   AWS::GuardDuty::Detector
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #      Given: The input document is an CloudFormation or CloudFormation hook document
@@ -198,18 +191,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.GUARDDUTY.PR.1 example templates
+<a name="ct-guardduty-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   GuardDutyDetector:
     Type: AWS::GuardDuty::Detector
@@ -218,14 +209,11 @@ Resources:
       DataSources:
         S3Logs:
           Enable: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   GuardDutyDetector:
     Type: AWS::GuardDuty::Detector
@@ -234,6 +222,4 @@ Resources:
       DataSources:
         S3Logs:
           Enable: false
-
-
 ```

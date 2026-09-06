@@ -1,65 +1,61 @@
+
+
 # Elastic Load Balancing controls
+<a name="elb-rules"></a>
 
-###### Topics
-
-- [[CT.ELASTICLOADBALANCING.PR.1] Require any application load balancer listener default actions to redirect all HTTP requests to HTTPS](#ct-elasticloadbalancing-pr-1-description "#ct-elasticloadbalancing-pr-1-description")
-- [[CT.ELASTICLOADBALANCING.PR.2] Require any Amazon ELB application or network load balancer to have an AWS Certificate Manager certificate](#ct-elasticloadbalancing-pr-2-description "#ct-elasticloadbalancing-pr-2-description")
-- [[CT.ELASTICLOADBALANCING.PR.3] Require any application load balancer to have defensive or strictest desync mitigation mode activated](#ct-elasticloadbalancing-pr-3-description "#ct-elasticloadbalancing-pr-3-description")
-- [[CT.ELASTICLOADBALANCING.PR.4] Require that any application load balancer must be configured to drop HTTP headers](#ct-elasticloadbalancing-pr-4-description "#ct-elasticloadbalancing-pr-4-description")
-- [[CT.ELASTICLOADBALANCING.PR.5] Require that application load balancer deletion protection is activated](#ct-elasticloadbalancing-pr-5-description "#ct-elasticloadbalancing-pr-5-description")
-- [[CT.ELASTICLOADBALANCING.PR.6] Require that application and network load balancer access logging is activated](#ct-elasticloadbalancing-pr-6-description "#ct-elasticloadbalancing-pr-6-description")
-- [[CT.ELASTICLOADBALANCING.PR.7] Require any classic load balancer to have multiple Availability Zones configured](#ct-elasticloadbalancing-pr-7-description "#ct-elasticloadbalancing-pr-7-description")
-- [[CT.ELASTICLOADBALANCING.PR.8] Require any classic load balancer SSL/HTTPS listener to have a certificate provided by AWS Certificate Manager](#ct-elasticloadbalancing-pr-8-description "#ct-elasticloadbalancing-pr-8-description")
-- [[CT.ELASTICLOADBALANCING.PR.9] Require that an AWS ELB Application or Classic Load Balancer listener is configured with HTTPS or TLS termination](#ct-elasticloadbalancing-pr-9-description "#ct-elasticloadbalancing-pr-9-description")
-- [[CT.ELASTICLOADBALANCING.PR.10] Require an ELB application or classic load balancer to have logging activated](#ct-elasticloadbalancing-pr-10-description "#ct-elasticloadbalancing-pr-10-description")
-- [[CT.ELASTICLOADBALANCING.PR.11] Require any ELB classic load balancer to have connection draining activated](#ct-elasticloadbalancing-pr-11-description "#ct-elasticloadbalancing-pr-11-description")
-- [[CT.ELASTICLOADBALANCING.PR.12] Require any ELB classic load balancer SSL/HTTPS listener to have a predefined security policy with a strong configuration](#ct-elasticloadbalancing-pr-12-description "#ct-elasticloadbalancing-pr-12-description")
-- [[CT.ELASTICLOADBALANCING.PR.13] Require any ELB classic load balancer to have cross-zone load balancing activated](#ct-elasticloadbalancing-pr-13-description "#ct-elasticloadbalancing-pr-13-description")
-- [[CT.ELASTICLOADBALANCING.PR.14] Require a Network Load Balancer to have cross-zone load balancing activated](#ct-elasticloadbalancing-pr-14-description "#ct-elasticloadbalancing-pr-14-description")
-- [[CT.ELASTICLOADBALANCING.PR.15] Require that an Elastic Load Balancing v2 target group does not explicitly disable cross-zone load balancing](#ct-elasticloadbalancing-pr-15-description "#ct-elasticloadbalancing-pr-15-description")
+**Topics**
++ [[CT.ELASTICLOADBALANCING.PR.1] Require any application load balancer listener default actions to redirect all HTTP requests to HTTPS](#ct-elasticloadbalancing-pr-1-description)
++ [[CT.ELASTICLOADBALANCING.PR.2] Require any Amazon ELB application or network load balancer to have an AWS Certificate Manager certificate](#ct-elasticloadbalancing-pr-2-description)
++ [[CT.ELASTICLOADBALANCING.PR.3] Require any application load balancer to have defensive or strictest desync mitigation mode activated](#ct-elasticloadbalancing-pr-3-description)
++ [[CT.ELASTICLOADBALANCING.PR.4] Require that any application load balancer must be configured to drop HTTP headers](#ct-elasticloadbalancing-pr-4-description)
++ [[CT.ELASTICLOADBALANCING.PR.5] Require that application load balancer deletion protection is activated](#ct-elasticloadbalancing-pr-5-description)
++ [[CT.ELASTICLOADBALANCING.PR.6] Require that application and network load balancer access logging is activated](#ct-elasticloadbalancing-pr-6-description)
++ [[CT.ELASTICLOADBALANCING.PR.7] Require any classic load balancer to have multiple Availability Zones configured](#ct-elasticloadbalancing-pr-7-description)
++ [[CT.ELASTICLOADBALANCING.PR.8] Require any classic load balancer SSL/HTTPS listener to have a certificate provided by AWS Certificate Manager](#ct-elasticloadbalancing-pr-8-description)
++ [[CT.ELASTICLOADBALANCING.PR.9] Require that an AWS ELB Application or Classic Load Balancer listener is configured with HTTPS or TLS termination](#ct-elasticloadbalancing-pr-9-description)
++ [[CT.ELASTICLOADBALANCING.PR.10] Require an ELB application or classic load balancer to have logging activated](#ct-elasticloadbalancing-pr-10-description)
++ [[CT.ELASTICLOADBALANCING.PR.11] Require any ELB classic load balancer to have connection draining activated](#ct-elasticloadbalancing-pr-11-description)
++ [[CT.ELASTICLOADBALANCING.PR.12] Require any ELB classic load balancer SSL/HTTPS listener to have a predefined security policy with a strong configuration](#ct-elasticloadbalancing-pr-12-description)
++ [[CT.ELASTICLOADBALANCING.PR.13] Require any ELB classic load balancer to have cross-zone load balancing activated](#ct-elasticloadbalancing-pr-13-description)
++ [[CT.ELASTICLOADBALANCING.PR.14] Require a Network Load Balancer to have cross-zone load balancing activated](#ct-elasticloadbalancing-pr-14-description)
++ [[CT.ELASTICLOADBALANCING.PR.15] Require that an Elastic Load Balancing v2 target group does not explicitly disable cross-zone load balancing](#ct-elasticloadbalancing-pr-15-description)
 
 ## [CT.ELASTICLOADBALANCING.PR.1] Require any application load balancer listener default actions to redirect all HTTP requests to HTTPS
+<a name="ct-elasticloadbalancing-pr-1-description"></a>
 
 This control checks whether HTTP to HTTPS redirection is configured as a default action on HTTP listeners of Application Load Balancers.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancingV2::Listener`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.1 rule specification](#ct-elasticloadbalancing-pr-1-rule "#ct-elasticloadbalancing-pr-1-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancingV2::Listener`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.1 rule specification](#ct-elasticloadbalancing-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.1 rule specification](#ct-elasticloadbalancing-pr-1-rule "#ct-elasticloadbalancing-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.1 example templates](#ct-elasticloadbalancing-pr-1-templates "#ct-elasticloadbalancing-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.1 rule specification](#ct-elasticloadbalancing-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.1 example templates](#ct-elasticloadbalancing-pr-1-templates) 
 
 **Explanation**
 
 Before you start to use your Application Load Balancer, you must add one or more listeners. A listener is a process that uses the configured protocol and port to check for connection requests. Listeners support HTTP and HTTPS protocols. You can use an HTTPS listener to offload the work of encryption and decryption to your Application Load Balancer. You should utilize redirect actions with Application Load Balancer to redirect any client HTTP request to an HTTPS request on port 443, to enforce encryption in transit.
 
-###### Usage considerations
-
-- This control evaluates only the default actions on Application Load Balancer listeners.
+**Usage considerations**  
+This control evaluates only the default actions on Application Load Balancer listeners.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-1-remediation"></a>
 
 Configure a default HTTPS redirect action on Application Load Balancer HTTP listeners.
 
 The examples that follow show how to implement this remediation.
 
 #### Application Load Balancer Listener - Example
+<a name="ct-elasticloadbalancing-pr-1-remediation-1"></a>
 
 Application load balancer listener configured with a default action that redirects HTTP requests on port 80 to HTTPS requests on port 443, retaining the original host name, path, and query string. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Listener": {
         "Type": "AWS::ElasticLoadBalancingV2::Listener",
@@ -85,13 +81,11 @@ Application load balancer listener configured with a default action that redirec
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Listener:
   Type: AWS::ElasticLoadBalancingV2::Listener
   Properties:
@@ -107,33 +101,31 @@ Listener:
           Path: /#{path}
           Query: '#{query}'
           StatusCode: HTTP_301
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.1 rule specification
+<a name="ct-elasticloadbalancing-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   alb_http_to_https_redirection_check
-#
+# 
 # Description:
 #   This control checks whether HTTP to HTTPS redirection is configured as a default action on HTTP listeners of Application Load Balancers.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::Listener
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -242,18 +234,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.1 example templates
+<a name="ct-elasticloadbalancing-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -305,14 +295,11 @@ Resources:
           Path: "/#{path}"
           Query: "#{query}"
           StatusCode: "HTTP_301"
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -364,29 +351,21 @@ Resources:
           Path: "/#{path}"
           Query: "#{query}"
           StatusCode: "HTTP_301"
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.2] Require any Amazon ELB application or network load balancer to have an AWS Certificate Manager certificate
+<a name="ct-elasticloadbalancing-pr-2-description"></a>
 
 This control checks whether your Elastic Load Balancing (ELB) application and network load balancers use certificates provided by AWS Certificate Manager (ACM).
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancingV2::Listener`, `AWS::ElasticLoadBalancingV2::ListenerCertificate`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.2 rule specification](#ct-elasticloadbalancing-pr-2-rule "#ct-elasticloadbalancing-pr-2-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancingV2::Listener`, `AWS::ElasticLoadBalancingV2::ListenerCertificate`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.2 rule specification](#ct-elasticloadbalancing-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.2 rule specification](#ct-elasticloadbalancing-pr-2-rule "#ct-elasticloadbalancing-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.2 example templates](#ct-elasticloadbalancing-pr-2-templates "#ct-elasticloadbalancing-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.2 rule specification](#ct-elasticloadbalancing-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.2 example templates](#ct-elasticloadbalancing-pr-2-templates) 
 
 **Explanation**
 
@@ -394,24 +373,24 @@ To create a certificate, use AWS Certificate Manager (ACM) or another tool that 
 
 AWS Certificate Manager integrates with Amazon ELB application load balancers and network load balancers, so that you can deploy the certificate on your load balancer. We also recommend that you automatically renew these certificates.
 
-###### Usage considerations
-
-- This control applies only to `HTTPS` and `TLS` Amazon ELB listeners and ELB listener certificate resources that have one or more certificates configured.
+**Usage considerations**  
+This control applies only to `HTTPS` and `TLS` Amazon ELB listeners and ELB listener certificate resources that have one or more certificates configured.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-2-remediation"></a>
 
 Configure the `Certificates` property to use certificates provided by AWS Certificate Manager.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ELB Listener - Example
+<a name="ct-elasticloadbalancing-pr-2-remediation-1"></a>
 
 Amazon ELB HTTPS listener configured with an AWS Certificate Manager SSL certificate. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ELBListener": {
         "Type": "AWS::ElasticLoadBalancingV2::Listener",
@@ -439,13 +418,11 @@ Amazon ELB HTTPS listener configured with an AWS Certificate Manager SSL certifi
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ELBListener:
   Type: AWS::ElasticLoadBalancingV2::Listener
   Properties:
@@ -457,20 +434,18 @@ ELBListener:
     Certificates:
       - CertificateArn: !Ref 'ACMCertificate'
     Port: 443
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ELB Listener Certificate - Example
+<a name="ct-elasticloadbalancing-pr-2-remediation-2"></a>
 
 Amazon ELB listener certificate configured with an AWS Certificate Manager SSL certificate. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ELBListenerCertificate": {
         "Type": "AWS::ElasticLoadBalancingV2::ListenerCertificate",
@@ -488,46 +463,42 @@ Amazon ELB listener certificate configured with an AWS Certificate Manager SSL c
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ELBListenerCertificate:
   Type: AWS::ElasticLoadBalancingV2::ListenerCertificate
   Properties:
     ListenerArn: !Ref 'Listener'
     Certificates:
       - CertificateArn: !Ref 'ACMCertificate'
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.2 rule specification
+<a name="ct-elasticloadbalancing-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elbv2_acm_certificate_required_check
-#
+# 
 # Description:
 #   This control checks whether your Elastic Load Balancing (ELB) application and network load balancers use certificates provided by AWS Certificate Manager (ACM).
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::Listener, AWS::ElasticLoadBalancingV2::ListenerCertificate
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -696,18 +667,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.2 example templates
+<a name="ct-elasticloadbalancing-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -772,14 +741,11 @@ Resources:
       - CertificateArn:
           Ref: ACMCertificate
       Port: 443
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -835,48 +801,41 @@ Resources:
       Certificates:
       - CertificateArn: arn:aws:iam::123456789012:server-certificate/example-certificate
       Port: 443
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.3] Require any application load balancer to have defensive or strictest desync mitigation mode activated
+<a name="ct-elasticloadbalancing-pr-3-description"></a>
 
 This control checks to ensure that an Application Load Balancer is configured with `defensive` or `strictest` desync mitigation mode.
-
-- **Control objective:** Protect data integrity
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.3 rule specification](#ct-elasticloadbalancing-pr-3-rule "#ct-elasticloadbalancing-pr-3-rule")
++ **Control objective: **Protect data integrity
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancingV2::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.3 rule specification](#ct-elasticloadbalancing-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.3 rule specification](#ct-elasticloadbalancing-pr-3-rule "#ct-elasticloadbalancing-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.3 example templates](#ct-elasticloadbalancing-pr-3-templates "#ct-elasticloadbalancing-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.3 rule specification](#ct-elasticloadbalancing-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.3 example templates](#ct-elasticloadbalancing-pr-3-templates) 
 
 **Explanation**
 
 HTTP desynchronization (desync) issues can lead to request smuggling and make applications vulnerable to request queue or cache poisoning. In turn, these vulnerabilities can lead to credential stuffing or execution of unauthorized commands. When configured with defensive or strictest desync mitigation mode, Application Load Balancers can protect your application from security issues that may be caused by HTTP desync.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-3-remediation"></a>
 
 Omit the load balancer attribute `routing.http.desync_mitigation_mode` or set the attribute to one of `defensive` or `strictest`.
 
 The examples that follow show how to implement this remediation.
 
 #### Application Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-3-remediation-1"></a>
 
 Application Load Balancer configured with `defensive` desync mitigation mode, by means of AWS CloudFormation defaults. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApplicationLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -895,13 +854,11 @@ Application Load Balancer configured with `defensive` desync mitigation mode, by
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApplicationLoadBalancer:
   Type: AWS::ElasticLoadBalancingV2::LoadBalancer
   Properties:
@@ -911,20 +868,18 @@ ApplicationLoadBalancer:
       - !Ref 'SubnetTwo'
     IpAddressType: ipv4
     Type: application
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Application Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-3-remediation-2"></a>
 
 Application Load Balancer configured with `strictest` desync mitigation mode, by meand of the `routing.http.desync_mitigation_mode` load balancer attribute. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApplicationLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -949,13 +904,11 @@ Application Load Balancer configured with `strictest` desync mitigation mode, by
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApplicationLoadBalancer:
   Type: AWS::ElasticLoadBalancingV2::LoadBalancer
   Properties:
@@ -968,33 +921,31 @@ ApplicationLoadBalancer:
     LoadBalancerAttributes:
       - Key: routing.http.desync_mitigation_mode
         Value: strictest
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.3 rule specification
+<a name="ct-elasticloadbalancing-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   alb_desync_mode_check
-#
+# 
 # Description:
 #   This control checks to ensure that an Application Load Balancer is configured with 'defensive' or 'strictest' desync mitigation mode.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1115,18 +1066,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.3 example templates
+<a name="ct-elasticloadbalancing-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1166,14 +1115,11 @@ Resources:
       LoadBalancerAttributes:
       - Key: routing.http.desync_mitigation_mode
         Value: strictest
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1213,48 +1159,41 @@ Resources:
       LoadBalancerAttributes:
       - Key: routing.http.desync_mitigation_mode
         Value: monitor
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.4] Require that any application load balancer must be configured to drop HTTP headers
+<a name="ct-elasticloadbalancing-pr-4-description"></a>
 
 This control checks whether Application Load Balancers are configured to drop non-valid HTTP headers.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.4 rule specification](#ct-elasticloadbalancing-pr-4-rule "#ct-elasticloadbalancing-pr-4-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancingV2::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.4 rule specification](#ct-elasticloadbalancing-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.4 rule specification](#ct-elasticloadbalancing-pr-4-rule "#ct-elasticloadbalancing-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.4 example templates](#ct-elasticloadbalancing-pr-4-templates "#ct-elasticloadbalancing-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.4 rule specification](#ct-elasticloadbalancing-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.4 example templates](#ct-elasticloadbalancing-pr-4-templates) 
 
 **Explanation**
 
 By default, Application Load Balancers are not configured to drop non-valid HTTP header values. Removing these header values prevents HTTP desync attacks.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-4-remediation"></a>
 
 Set the load balancer attribute `routing.http.drop_invalid_header_fields.enabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Application Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-4-remediation-1"></a>
 
 Application Load Balancer configured to drop non-valid HTTP headers. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApplicationLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -1279,13 +1218,11 @@ Application Load Balancer configured to drop non-valid HTTP headers. The example
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApplicationLoadBalancer:
   Type: AWS::ElasticLoadBalancingV2::LoadBalancer
   Properties:
@@ -1298,33 +1235,31 @@ ApplicationLoadBalancer:
     LoadBalancerAttributes:
       - Key: routing.http.drop_invalid_header_fields.enabled
         Value: 'true'
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.4 rule specification
+<a name="ct-elasticloadbalancing-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   alb_http_drop_invalid_header_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Application Load Balancers are configured to drop non-valid HTTP headers.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1432,18 +1367,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.4 example templates
+<a name="ct-elasticloadbalancing-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1483,14 +1416,11 @@ Resources:
       LoadBalancerAttributes:
       - Key: routing.http.drop_invalid_header_fields.enabled
         Value: "true"
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1530,48 +1460,41 @@ Resources:
       LoadBalancerAttributes:
       - Key: routing.http.drop_invalid_header_fields.enabled
         Value: "false"
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.5] Require that application load balancer deletion protection is activated
+<a name="ct-elasticloadbalancing-pr-5-description"></a>
 
 Checks whether Elastic Load Balancing (ELB) has deletion protection activated.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.5 rule specification](#ct-elasticloadbalancing-pr-5-rule "#ct-elasticloadbalancing-pr-5-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancingV2::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.5 rule specification](#ct-elasticloadbalancing-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.5 rule specification](#ct-elasticloadbalancing-pr-5-rule "#ct-elasticloadbalancing-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.5 example templates](#ct-elasticloadbalancing-pr-5-templates "#ct-elasticloadbalancing-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.5 rule specification](#ct-elasticloadbalancing-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.5 example templates](#ct-elasticloadbalancing-pr-5-templates) 
 
 **Explanation**
 
 Activate deletion protection to protect your Application Load Balancer from deletion.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-5-remediation"></a>
 
 Set the load balancer attribute `deletion_protection.enabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Application Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-5-remediation-1"></a>
 
 Application Load Balancer configured with deletion protection active. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Elb": {
         "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -1596,13 +1519,11 @@ Application Load Balancer configured with deletion protection active. The exampl
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Elb:
   Type: AWS::ElasticLoadBalancingV2::LoadBalancer
   Properties:
@@ -1615,33 +1536,31 @@ Elb:
     LoadBalancerAttributes:
       - Key: deletion_protection.enabled
         Value: 'true'
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.5 rule specification
+<a name="ct-elasticloadbalancing-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elbv2_deletion_protection_enabled_check
-#
+# 
 # Description:
 #   Checks whether Elastic Load Balancing (ELB) has deletion protection activated.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1738,18 +1657,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.5 example templates
+<a name="ct-elasticloadbalancing-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1789,14 +1706,11 @@ Resources:
       LoadBalancerAttributes:
       - Key: deletion_protection.enabled
         Value: "true"
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -1836,52 +1750,44 @@ Resources:
       LoadBalancerAttributes:
       - Key: deletion_protection.enabled
         Value: "false"
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.6] Require that application and network load balancer access logging is activated
+<a name="ct-elasticloadbalancing-pr-6-description"></a>
 
 This control checks whether your Elastic Load Balancing (ELB) application and network load balancers have logging activated.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.6 rule specification](#ct-elasticloadbalancing-pr-6-rule "#ct-elasticloadbalancing-pr-6-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancingV2::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.6 rule specification](#ct-elasticloadbalancing-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.6 rule specification](#ct-elasticloadbalancing-pr-6-rule "#ct-elasticloadbalancing-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.6 example templates](#ct-elasticloadbalancing-pr-6-templates "#ct-elasticloadbalancing-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.6 rule specification](#ct-elasticloadbalancing-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.6 example templates](#ct-elasticloadbalancing-pr-6-templates) 
 
 **Explanation**
 
 Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
 
-###### Usage considerations
-
-- This control applies only to ELB load balancer types of `application` and `network`.
+**Usage considerations**  
+This control applies only to ELB load balancer types of `application` and `network`.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-6-remediation"></a>
 
 Set the load balancer attribute `access_logs.s3.enabled` to `true`, and set `access_logs.s3.bucket` to reach an S3 bucket that's configured to receive application load balancer or network load balancer access logs.
 
 The examples that follow show how to implement this remediation.
 
 #### Application Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-6-remediation-1"></a>
 
 Application Load Balancer configured with access logging activated. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ApplicationLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -1912,13 +1818,11 @@ Application Load Balancer configured with access logging activated. The example 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ApplicationLoadBalancer:
   Type: AWS::ElasticLoadBalancingV2::LoadBalancer
   Properties:
@@ -1933,20 +1837,18 @@ ApplicationLoadBalancer:
         Value: true
       - Key: access_logs.s3.bucket
         Value: !Ref 'LoggingBucket'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Network Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-6-remediation-2"></a>
 
 Network Load Balancer configured with access logging activated. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "NetworkLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -1977,13 +1879,11 @@ Network Load Balancer configured with access logging activated. The example is s
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 NetworkLoadBalancer:
   Type: AWS::ElasticLoadBalancingV2::LoadBalancer
   Properties:
@@ -1998,33 +1898,31 @@ NetworkLoadBalancer:
         Value: true
       - Key: access_logs.s3.bucket
         Value: !Ref 'LoggingBucket'
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.6 rule specification
+<a name="ct-elasticloadbalancing-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elbv2_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether your Elastic Load Balancing (ELB) application and network load balancers have logging activated.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2175,18 +2073,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.6 example templates
+<a name="ct-elasticloadbalancing-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Mappings:
   RegionToELBAccountId:
     us-east-1:
@@ -2321,7 +2217,7 @@ Resources:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:PutObject'
@@ -2336,7 +2232,7 @@ Resources:
                   - Ref: AWS::AccountId
                   - /*
             Principal:
-              AWS:
+              AWS: 
                 Fn::FindInMap: [RegionToELBAccountId, !Ref 'AWS::Region', AccountId]
   ApplicationLoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -2353,14 +2249,11 @@ Resources:
       - Key: access_logs.s3.bucket
         Value:
           Ref: LoggingBucket
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2397,48 +2290,41 @@ Resources:
       - Ref: SubnetTwo
       IpAddressType: ipv4
       Type: application
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.7] Require any classic load balancer to have multiple Availability Zones configured
+<a name="ct-elasticloadbalancing-pr-7-description"></a>
 
 This control checks whether an Elastic Load Balancing (ELB) classic load balancer has been configured with multiple Availability Zones.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.7 rule specification](#ct-elasticloadbalancing-pr-7-rule "#ct-elasticloadbalancing-pr-7-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancing::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.7 rule specification](#ct-elasticloadbalancing-pr-7-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.7 rule specification](#ct-elasticloadbalancing-pr-7-rule "#ct-elasticloadbalancing-pr-7-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.7 example templates](#ct-elasticloadbalancing-pr-7-templates "#ct-elasticloadbalancing-pr-7-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.7 rule specification](#ct-elasticloadbalancing-pr-7-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.7 example templates](#ct-elasticloadbalancing-pr-7-templates) 
 
 **Explanation**
 
 A Classic Load Balancer can be set up to distribute incoming requests across Amazon EC2 instances in a single Availability Zone or multiple Availability Zones. A Classic Load Balancer that does not span multiple Availability Zones is unable to redirect traffic to targets in another Availability Zone, in case the sole configured Availability Zone becomes unavailable.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-7-remediation"></a>
 
 Configure Classic Load Balancers with two or more subnets or Availability Zones.
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example One
+<a name="ct-elasticloadbalancing-pr-7-remediation-1"></a>
 
 Classic Load Balancer configured with two Availability Zones. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ClassicLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -2491,13 +2377,11 @@ Classic Load Balancer configured with two Availability Zones. The example is sho
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ClassicLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -2523,20 +2407,18 @@ ClassicLoadBalancer:
       - !Select
         - 1
         - !GetAZs ''
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example Two
+<a name="ct-elasticloadbalancing-pr-7-remediation-2"></a>
 
 Classic Load Balancer configured with two subnets. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ClassicLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -2589,13 +2471,11 @@ Classic Load Balancer configured with two subnets. The example is shown in JSON 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ClassicLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -2621,33 +2501,31 @@ ClassicLoadBalancer:
       - !Select
         - 1
         - !GetAZs ''
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.7 rule specification
+<a name="ct-elasticloadbalancing-pr-7-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elb_multiple_az_check
-#
+# 
 # Description:
 #   This control checks whether an Elastic Load Balancing (ELB) Classic Load Balancer has been configured with multiple Availability Zones.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -2761,18 +2639,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.7 example templates
+<a name="ct-elasticloadbalancing-pr-7-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ACMCertificate:
     Type: "AWS::CertificateManager::Certificate"
@@ -2808,14 +2684,11 @@ Resources:
       - Fn::Select:
         - 1
         - Fn::GetAZs: ''
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -2843,29 +2716,21 @@ Resources:
         LoadBalancerPort: 80
       Subnets:
       - Ref: Subnet
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.8] Require any classic load balancer SSL/HTTPS listener to have a certificate provided by AWS Certificate Manager
+<a name="ct-elasticloadbalancing-pr-8-description"></a>
 
 This control checks whether classic load balancers use HTTPS/SSL certificates provided by AWS Certificate Manager.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.8 rule specification](#ct-elasticloadbalancing-pr-8-rule "#ct-elasticloadbalancing-pr-8-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancing::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.8 rule specification](#ct-elasticloadbalancing-pr-8-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.8 rule specification](#ct-elasticloadbalancing-pr-8-rule "#ct-elasticloadbalancing-pr-8-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.8 example templates](#ct-elasticloadbalancing-pr-8-templates "#ct-elasticloadbalancing-pr-8-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.8 rule specification](#ct-elasticloadbalancing-pr-8-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.8 example templates](#ct-elasticloadbalancing-pr-8-templates) 
 
 **Explanation**
 
@@ -2873,24 +2738,24 @@ To create a certificate, you can use either ACM or a tool that supports the SSL 
 
 ACM integrates with Classic Load Balancers, so that you can deploy the certificate on your load balancer. You also should renew these certificates automatically.
 
-###### Usage considerations
-
-- This control applies only to Classic Load Balancers configured with HTTPS or SSL listeners.
+**Usage considerations**  
+This control applies only to Classic Load Balancers configured with HTTPS or SSL listeners.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-8-remediation"></a>
 
 Configure Classic Load Balancers to use certificates provided by AWS Certificate Manager (ACM).
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-8-remediation-1"></a>
 
 Classic Load Balancer configured with an HTTPS listener and AWS Certificate Manager SSL certificate. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ClassicLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -2933,13 +2798,11 @@ Classic Load Balancer configured with an HTTPS listener and AWS Certificate Mana
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ClassicLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -2961,33 +2824,31 @@ ClassicLoadBalancer:
         PolicyNames:
           - Example-SSLNegotiation-Policy
         SSLCertificateId: !Ref 'ACMCertificate'
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.8 rule specification
+<a name="ct-elasticloadbalancing-pr-8-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elb_acm_certificate_required_check
-#
+# 
 # Description:
 #   This control checks whether Classic Load Balancers use HTTPS/SSL certificates provided by AWS Certificate Manager.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3112,18 +2973,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.8 example templates
+<a name="ct-elasticloadbalancing-pr-8-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3181,14 +3040,11 @@ Resources:
         - Example-SSLNegotiation-Policy
         SSLCertificateId:
           Ref: ACMCertificate
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3237,48 +3093,41 @@ Resources:
         PolicyNames:
         - Example-SSLNegotiation-Policy
         SSLCertificateId: arn:aws:iam::123456789012:server-certificate/example-certificate
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.9] Require that an AWS ELB Application or Classic Load Balancer listener is configured with HTTPS or TLS termination
+<a name="ct-elasticloadbalancing-pr-9-description"></a>
 
 This control checks whether your Elastic Load Balancing (ELB) Classic Load Balancer front-end listeners are configured with HTTPS or SSL protocols.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.9 rule specification](#ct-elasticloadbalancing-pr-9-rule "#ct-elasticloadbalancing-pr-9-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancing::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.9 rule specification](#ct-elasticloadbalancing-pr-9-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.9 rule specification](#ct-elasticloadbalancing-pr-9-rule "#ct-elasticloadbalancing-pr-9-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.9 example templates](#ct-elasticloadbalancing-pr-9-templates "#ct-elasticloadbalancing-pr-9-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.9 rule specification](#ct-elasticloadbalancing-pr-9-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.9 example templates](#ct-elasticloadbalancing-pr-9-templates) 
 
 **Explanation**
 
 Before you start to use a load balancer, you must add one or more listeners. A listener is a process that uses the configured protocol and port to check for connection requests. Listeners can support HTTP and HTTPS/TLS protocols. You should always use an HTTPS or TLS listener, so that the load balancer does the work of encryption and decryption in transit.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-9-remediation"></a>
 
 Configure Classic Load Balancer front-end listeners with HTTPS or SSL protocols.
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example One
+<a name="ct-elasticloadbalancing-pr-9-remediation-1"></a>
 
 Classic Load Balancer configured with an HTTPS Listener. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -3302,13 +3151,11 @@ Classic Load Balancer configured with an HTTPS Listener. The example is shown in
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -3320,20 +3167,18 @@ LoadBalancer:
         SSLCertificateId: !Ref 'ACMCertificate'
         InstancePort: 80
         LoadBalancerPort: 443
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example Two
+<a name="ct-elasticloadbalancing-pr-9-remediation-2"></a>
 
 Classic Load Balancer configured with an SSL Listener. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -3357,13 +3202,11 @@ Classic Load Balancer configured with an SSL Listener. The example is shown in J
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -3375,33 +3218,31 @@ LoadBalancer:
         SSLCertificateId: !Ref 'ACMCertificate'
         InstancePort: 80
         LoadBalancerPort: 443
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.9 rule specification
+<a name="ct-elasticloadbalancing-pr-9-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elb_tls_https_listeners_only_check
-#
+# 
 # Description:
 #   Checks whether Classic Load Balancer front-end listeners are configured with HTTPS or SSL protocols.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3487,18 +3328,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.9 example templates
+<a name="ct-elasticloadbalancing-pr-9-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3538,14 +3377,11 @@ Resources:
         SSLCertificateId: arn:aws:acm:us-east-1:123456789012:certificate/12345678-12ab-34cd-56ef-12345678
         InstancePort: 80
         LoadBalancerPort: 443
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -3584,48 +3420,41 @@ Resources:
       - Protocol: HTTP
         InstancePort: 80
         LoadBalancerPort: 80
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.10] Require an ELB application or classic load balancer to have logging activated
+<a name="ct-elasticloadbalancing-pr-10-description"></a>
 
 This control checks whether Classic Load Balancers have logging enabled.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.10 rule specification](#ct-elasticloadbalancing-pr-10-rule "#ct-elasticloadbalancing-pr-10-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancing::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.10 rule specification](#ct-elasticloadbalancing-pr-10-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.10 rule specification](#ct-elasticloadbalancing-pr-10-rule "#ct-elasticloadbalancing-pr-10-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.10 example templates](#ct-elasticloadbalancing-pr-10-templates "#ct-elasticloadbalancing-pr-10-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.10 rule specification](#ct-elasticloadbalancing-pr-10-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.10 example templates](#ct-elasticloadbalancing-pr-10-templates) 
 
 **Explanation**
 
 Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and to troubleshoot issues.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-10-remediation"></a>
 
 Set an `AccessLoggingPolicy` and provide an `S3BucketName` with an Amazon S3 bucket configured to receive classic load balancer access logs.
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-10-remediation-1"></a>
 
 Classic Load Balancer configured with an HTTPS listener and access logging. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ClassicLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -3652,13 +3481,11 @@ Classic Load Balancer configured with an HTTPS listener and access logging. The 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ClassicLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -3672,33 +3499,31 @@ ClassicLoadBalancer:
     AccessLoggingPolicy:
       Enabled: true
       S3BucketName: !Ref 'LoggingBucket'
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.10 rule specification
+<a name="ct-elasticloadbalancing-pr-10-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elb_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Classic Load Balancers have logging enabled.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -3818,18 +3643,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.10 example templates
+<a name="ct-elasticloadbalancing-pr-10-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Mappings:
   RegionToELBAccountId:
     us-east-1:
@@ -3964,7 +3787,7 @@ Resources:
       Bucket:
         Ref: LoggingBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Action:
               - 's3:PutObject'
@@ -3979,7 +3802,7 @@ Resources:
                   - Ref: AWS::AccountId
                   - /*
             Principal:
-              AWS:
+              AWS: 
                 Fn::FindInMap: [RegionToELBAccountId, !Ref 'AWS::Region', AccountId]
   ClassicLoadBalancer:
     Type: AWS::ElasticLoadBalancing::LoadBalancer
@@ -3996,14 +3819,11 @@ Resources:
         Enabled: true
         S3BucketName:
           Ref: LoggingBucket
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -4042,48 +3862,41 @@ Resources:
       Subnets:
       - Ref: SubnetOne
       - Ref: SubnetTwo
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.11] Require any ELB classic load balancer to have connection draining activated
+<a name="ct-elasticloadbalancing-pr-11-description"></a>
 
 This control checks whether Elastic Load Balancing (ELB) Classic Load Balancers have connection draining configured.
-
-- **Control objective:** Improve resiliency
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.11 rule specification](#ct-elasticloadbalancing-pr-11-rule "#ct-elasticloadbalancing-pr-11-rule")
++ **Control objective: **Improve resiliency
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancing::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.11 rule specification](#ct-elasticloadbalancing-pr-11-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.11 rule specification](#ct-elasticloadbalancing-pr-11-rule "#ct-elasticloadbalancing-pr-11-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.11 example templates](#ct-elasticloadbalancing-pr-11-templates "#ct-elasticloadbalancing-pr-11-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.11 rule specification](#ct-elasticloadbalancing-pr-11-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.11 example templates](#ct-elasticloadbalancing-pr-11-templates) 
 
 **Explanation**
 
 Activating connection draining on Classic Load Balancers ensures that the load balancer stops sending requests to instances that are de-registering or unhealthy. It keeps the existing connections open. This configuration is particularly useful for instances in Auto Scaling groups, to ensure that connections aren't severed abruptly.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-11-remediation"></a>
 
 Configure a `ConnectionDrainingPolicy` on Elastic Load Balancing Classic Load Balancers.
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-11-remediation-1"></a>
 
 Classic Load Balancer configured with connection draining active. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ClassicLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -4129,13 +3942,11 @@ Classic Load Balancer configured with connection draining active. The example is
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ClassicLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -4159,33 +3970,31 @@ ClassicLoadBalancer:
       - !Ref 'SubnetTwo'
     ConnectionDrainingPolicy:
       Enabled: true
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.11 rule specification
+<a name="ct-elasticloadbalancing-pr-11-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elb_connection_draining_enabled_check
-#
+# 
 # Description:
 #   This control checks whether Elastic Load Balancing (ELB) Classic Load Balancers have connection draining configured.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4271,18 +4080,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.11 example templates
+<a name="ct-elasticloadbalancing-pr-11-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -4342,14 +4149,11 @@ Resources:
       - Ref: SubnetTwo
       ConnectionDrainingPolicy:
         Enabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -4388,29 +4192,21 @@ Resources:
       Subnets:
       - Ref: SubnetOne
       - Ref: SubnetTwo
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.12] Require any ELB classic load balancer SSL/HTTPS listener to have a predefined security policy with a strong configuration
+<a name="ct-elasticloadbalancing-pr-12-description"></a>
 
 This control checks whether Elastic Load Balancing (ELB) Classic Load Balancer HTTPS/SSL listeners use the predefined security policy `ELBSecurityPolicy-TLS-1-2-2017-01`.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.12 rule specification](#ct-elasticloadbalancing-pr-12-rule "#ct-elasticloadbalancing-pr-12-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancing::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.12 rule specification](#ct-elasticloadbalancing-pr-12-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.12 rule specification](#ct-elasticloadbalancing-pr-12-rule "#ct-elasticloadbalancing-pr-12-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.12 example templates](#ct-elasticloadbalancing-pr-12-templates "#ct-elasticloadbalancing-pr-12-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.12 rule specification](#ct-elasticloadbalancing-pr-12-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.12 example templates](#ct-elasticloadbalancing-pr-12-templates) 
 
 **Explanation**
 
@@ -4418,24 +4214,24 @@ A security policy is a combination of SSL protocols, ciphers, and the server ord
 
 Using `ELBSecurityPolicy-TLS-1-2-2017-01` can help you to meet compliance and security standards that require you to turn off specific versions of SSL and TLS.
 
-###### Usage considerations
-
-- This control applies only to Elastic Load Balancing Classic Load Balancers configured with HTTPS or SSL listeners.
+**Usage considerations**  
+This control applies only to Elastic Load Balancing Classic Load Balancers configured with HTTPS or SSL listeners.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-12-remediation"></a>
 
 Configure Classic Load Balancer HTTPS/SSL listeners to use the predefined security policy called `ELBSecurityPolicy-TLS-1-2-2017-01`.
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-12-remediation-1"></a>
 
 Classic Load Balancer configured with an HTTPS listener and SSL negotiation policy that references the `ELBSecurityPolicy-TLS-1-2-2017-01` predefined security policy for classic load balancers. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ClassicLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -4478,13 +4274,11 @@ Classic Load Balancer configured with an HTTPS listener and SSL negotiation poli
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ClassicLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -4506,33 +4300,31 @@ ClassicLoadBalancer:
         SSLCertificateId: !Ref 'ACMCertificate'
         PolicyNames:
           - Example-SSLNegotiation-Policy
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.12 rule specification
+<a name="ct-elasticloadbalancing-pr-12-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elb_predefined_security_policy_ssl_check
-#
+# 
 # Description:
 #   This control checks whether Elastic Load Balancing (ELB) Classic Load Balancer HTTPS/SSL listeners use the predefined security policy 'ELBSecurityPolicy-TLS-1-2-2017-01'.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4653,18 +4445,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.12 example templates
+<a name="ct-elasticloadbalancing-pr-12-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -4722,14 +4512,11 @@ Resources:
           Ref: ACMCertificate
         PolicyNames:
         - Example-SSLNegotiation-Policy
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -4778,48 +4565,41 @@ Resources:
         SSLCertificateId: arn:aws:iam::123456789012:server-certificate/example-certificate
         PolicyNames:
         - Example-SSLNegotiation-Policy
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.13] Require any ELB classic load balancer to have cross-zone load balancing activated
+<a name="ct-elasticloadbalancing-pr-13-description"></a>
 
 This control checks whether cross-zone load balancing is configured for your Classic Load Balancer.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancing::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.13 rule specification](#ct-elasticloadbalancing-pr-13-rule "#ct-elasticloadbalancing-pr-13-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancing::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.13 rule specification](#ct-elasticloadbalancing-pr-13-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.13 rule specification](#ct-elasticloadbalancing-pr-13-rule "#ct-elasticloadbalancing-pr-13-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.13 example templates](#ct-elasticloadbalancing-pr-13-templates "#ct-elasticloadbalancing-pr-13-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.13 rule specification](#ct-elasticloadbalancing-pr-13-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.13 example templates](#ct-elasticloadbalancing-pr-13-templates) 
 
 **Explanation**
 
 A load balancer node distributes traffic across the registered targets in its Availability Zone. When cross-zone load balancing is turned off, each load balancer node distributes traffic only across the registered targets in its own Availability Zone. If the number of registered targets is not same across the Availability Zones, traffic is not distributed evenly, so the instances in one zone may become over-utilized, when compared to the instances in another zone. With cross-zone load balancing activated, each load balancer node for your classic load balancer distributes requests evenly across the registered instances in all enabled Availability Zones.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-13-remediation"></a>
 
 Set `CrossZone` to `true` on Classic Load Balancers.
 
 The examples that follow show how to implement this remediation.
 
 #### Classic Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-13-remediation-1"></a>
 
 Classic Load Balancer configured with cross-zone load balancing active. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ClassicLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -4863,13 +4643,11 @@ Classic Load Balancer configured with cross-zone load balancing active. The exam
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ClassicLoadBalancer:
   Type: AWS::ElasticLoadBalancing::LoadBalancer
   Properties:
@@ -4892,33 +4670,31 @@ ClassicLoadBalancer:
       - !Ref 'SubnetOne'
       - !Ref 'SubnetTwo'
     CrossZone: true
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.13 rule specification
+<a name="ct-elasticloadbalancing-pr-13-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elb_cross_zone_load_balancing_enabled_check
-#
+# 
 # Description:
 #   This control checks whether cross-zone load balancing is configured for your Classic Load Balancer.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancing::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -4997,18 +4773,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.13 example templates
+<a name="ct-elasticloadbalancing-pr-13-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -5067,14 +4841,11 @@ Resources:
       - Ref: SubnetOne
       - Ref: SubnetTwo
       CrossZone: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -5114,53 +4885,45 @@ Resources:
       - Ref: SubnetOne
       - Ref: SubnetTwo
       CrossZone: false
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.14] Require a Network Load Balancer to have cross-zone load balancing activated
+<a name="ct-elasticloadbalancing-pr-14-description"></a>
 
 This control checks whether a Network Load Balancer (NLB) is configured with cross-zone load balancing.
-
-- **Control objective:** Improve resiliency, Improve availability
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancingV2::LoadBalancer`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.14 rule specification](#ct-elasticloadbalancing-pr-14-rule "#ct-elasticloadbalancing-pr-14-rule")
++ **Control objective: **Improve resiliency, Improve availability
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancingV2::LoadBalancer`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.14 rule specification](#ct-elasticloadbalancing-pr-14-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.14 rule specification](#ct-elasticloadbalancing-pr-14-rule "#ct-elasticloadbalancing-pr-14-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.14 example templates](#ct-elasticloadbalancing-pr-14-templates "#ct-elasticloadbalancing-pr-14-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.14 rule specification](#ct-elasticloadbalancing-pr-14-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.14 example templates](#ct-elasticloadbalancing-pr-14-templates) 
 
 **Explanation**
 
 The nodes for your load balancer distribute requests from clients to registered targets. When cross-zone load balancing is enabled, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones. When cross-zone load balancing is not enabled, each load balancer node distributes traffic only across the registered targets in its own Availability Zone.
 
-###### Usage considerations
-
-- This control applies only to a Network Load Balancer (`Type` of `network`).
-- With a Network Load Balancer, cross-zone load balancing is off by default at the load-balancer level. You can turn it on at any time. For target groups, the default is to use the load balancer setting, but you can override the default by turning cross-zone load balancing on or off explicitly, at the target group level. To ensure that cross-zone load balancing is configured on target groups, use this control in conjunction with `CT.ELASTICLOADBALANCING.PR.15`.
+**Usage considerations**  
+This control applies only to a Network Load Balancer (`Type` of `network`).
+With a Network Load Balancer, cross-zone load balancing is off by default at the load-balancer level. You can turn it on at any time. For target groups, the default is to use the load balancer setting, but you can override the default by turning cross-zone load balancing on or off explicitly, at the target group level. To ensure that cross-zone load balancing is configured on target groups, use this control in conjunction with `CT.ELASTICLOADBALANCING.PR.15`.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-14-remediation"></a>
 
 Set the load balancer attribute `load_balancing.cross_zone.enabled` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Network Load Balancer - Example
+<a name="ct-elasticloadbalancing-pr-14-remediation-1"></a>
 
 Network Load Balancer configured with cross-zone load balancing enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "NetworkLoadBalancer": {
         "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -5185,13 +4948,11 @@ Network Load Balancer configured with cross-zone load balancing enabled. The exa
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 NetworkLoadBalancer:
   Type: AWS::ElasticLoadBalancingV2::LoadBalancer
   Properties:
@@ -5204,33 +4965,31 @@ NetworkLoadBalancer:
     LoadBalancerAttributes:
       - Key: load_balancing.cross_zone.enabled
         Value: true
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.14 rule specification
+<a name="ct-elasticloadbalancing-pr-14-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   nlb_cross_zone_load_balancing_enabled_check
-#
+# 
 # Description:
 #   This control checks whether a Network Load Balancer (NLB) is configured with cross-zone load balancing.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::LoadBalancer
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5338,18 +5097,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.14 example templates
+<a name="ct-elasticloadbalancing-pr-14-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Vpc:
     Type: AWS::EC2::VPC
@@ -5389,14 +5146,11 @@ Resources:
       LoadBalancerAttributes:
       - Key: load_balancing.cross_zone.enabled
         Value: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Vpc:
     Type: AWS::EC2::VPC
@@ -5433,29 +5187,21 @@ Resources:
       - Ref: SubnetOne
       - Ref: SubnetTwo
       IpAddressType: ipv4
-
-
 ```
 
 ## [CT.ELASTICLOADBALANCING.PR.15] Require that an Elastic Load Balancing v2 target group does not explicitly disable cross-zone load balancing
+<a name="ct-elasticloadbalancing-pr-15-description"></a>
 
 This control checks whether an Elastic Load Balancing v2 target group is configured so that it does not explicitly turn off cross-zone load balancing.
-
-- **Control objective:** Improve availability
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ElasticLoadBalancingV2::TargetGroup`
-- **CloudFormation guard rule:**
-  [CT.ELASTICLOADBALANCING.PR.15 rule specification](#ct-elasticloadbalancing-pr-15-rule "#ct-elasticloadbalancing-pr-15-rule")
++ **Control objective: **Improve availability
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ElasticLoadBalancingV2::TargetGroup`
++ **CloudFormation guard rule: ** [CT.ELASTICLOADBALANCING.PR.15 rule specification](#ct-elasticloadbalancing-pr-15-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ELASTICLOADBALANCING.PR.15 rule specification](#ct-elasticloadbalancing-pr-15-rule "#ct-elasticloadbalancing-pr-15-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ELASTICLOADBALANCING.PR.15 example templates](#ct-elasticloadbalancing-pr-15-templates "#ct-elasticloadbalancing-pr-15-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ELASTICLOADBALANCING.PR.15 rule specification](#ct-elasticloadbalancing-pr-15-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ELASTICLOADBALANCING.PR.15 example templates](#ct-elasticloadbalancing-pr-15-templates) 
 
 **Explanation**
 
@@ -5463,25 +5209,25 @@ The nodes for your load balancer distribute requests from clients to registered 
 
 The target group's cross-zone load balancing setting determines the load balancing behavior for the entire target group. For example, if cross-zone load balancing is enabled at the load balancer level, but not enabled at the target group level, traffic sent to the target group is not routed across Availability Zones.
 
-###### Usage considerations
-
-- This control checks only to ensure that cross-zone load balancing has not been explicitly turned off on an ELB target group. To ensure that cross-zone load balancing is enabled, be sure to enable this control in conjunction with related proactive controls that check load balancers directly.
-- If you turn on cross-zone load balancing, you can't start a zonal shift. For more information, see [Resources supported for zonal shifts] (https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
+**Usage considerations**  
+This control checks only to ensure that cross-zone load balancing has not been explicitly turned off on an ELB target group. To ensure that cross-zone load balancing is enabled, be sure to enable this control in conjunction with related proactive controls that check load balancers directly.
+If you turn on cross-zone load balancing, you can't start a zonal shift. For more information, see [Resources supported for zonal shifts] (https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.html) in the Amazon Route 53 Application Recovery Controller Developer Guide.
 
 ### Remediation for rule failure
+<a name="ct-elasticloadbalancing-pr-15-remediation"></a>
 
 Do not set the load balancer attribute `load_balancing.cross_zone.enabled` to adopt the default value of `use_load_balancer_configuration`. Do not explicitly set the attribute to true, nor to the value `use_load_balancer_configuration`.
 
 The examples that follow show how to implement this remediation.
 
 #### Elastic Load Balancer target group - Example
+<a name="ct-elasticloadbalancing-pr-15-remediation-1"></a>
 
 Elastic Load Balancer target group configured to enable cross-zone load balancing. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "TargetGroup": {
         "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
@@ -5500,13 +5246,11 @@ Elastic Load Balancer target group configured to enable cross-zone load balancin
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 TargetGroup:
   Type: AWS::ElasticLoadBalancingV2::TargetGroup
   Properties:
@@ -5516,33 +5260,31 @@ TargetGroup:
     TargetGroupAttributes:
       - Key: load_balancing.cross_zone.enabled
         Value: true
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.15 rule specification
+<a name="ct-elasticloadbalancing-pr-15-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   elbv2_target_group_cross_zone_check
-#
+# 
 # Description:
 #   This control checks whether an Elastic Load Balancing v2 target group is configured so that it does not explicitly turn off cross-zone load balancing.
-#
+# 
 # Reports on:
 #   AWS::ElasticLoadBalancingV2::TargetGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -5642,18 +5384,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ELASTICLOADBALANCING.PR.15 example templates
+<a name="ct-elasticloadbalancing-pr-15-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -5671,14 +5411,11 @@ Resources:
       TargetGroupAttributes:
       - Key: load_balancing.cross_zone.enabled
         Value: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -5696,6 +5433,4 @@ Resources:
       TargetGroupAttributes:
       - Key: load_balancing.cross_zone.enabled
         Value: false
-
-
 ```

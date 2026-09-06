@@ -1,51 +1,48 @@
+
+
 # AWS Lambda controls
+<a name="lambda-rules"></a>
 
-###### Topics
-
-- [[CT.LAMBDA.PR.2] Require AWS Lambda function policies to prohibit public access](#ct-lambda-pr-2-description "#ct-lambda-pr-2-description")
-- [[CT.LAMBDA.PR.3] Require an AWS Lambda function to be in a customer-managed Amazon Virtual Private Cloud (VPC)](#ct-lambda-pr-3-description "#ct-lambda-pr-3-description")
-- [[CT.LAMBDA.PR.4] Require an AWS Lambda layer permission to grant access to an AWS organization or specific AWS account](#ct-lambda-pr-4-description "#ct-lambda-pr-4-description")
-- [[CT.LAMBDA.PR.5] Require an AWS Lambda function URL to use AWS IAM-based authentication](#ct-lambda-pr-5-description "#ct-lambda-pr-5-description")
-- [[CT.LAMBDA.PR.6] Require an AWS Lambda function URL CORS policy to restrict access to specific origins](#ct-lambda-pr-6-description "#ct-lambda-pr-6-description")
+**Topics**
++ [[CT.LAMBDA.PR.2] Require AWS Lambda function policies to prohibit public access](#ct-lambda-pr-2-description)
++ [[CT.LAMBDA.PR.3] Require an AWS Lambda function to be in a customer-managed Amazon Virtual Private Cloud (VPC)](#ct-lambda-pr-3-description)
++ [[CT.LAMBDA.PR.4] Require an AWS Lambda layer permission to grant access to an AWS organization or specific AWS account](#ct-lambda-pr-4-description)
++ [[CT.LAMBDA.PR.5] Require an AWS Lambda function URL to use AWS IAM-based authentication](#ct-lambda-pr-5-description)
++ [[CT.LAMBDA.PR.6] Require an AWS Lambda function URL CORS policy to restrict access to specific origins](#ct-lambda-pr-6-description)
 
 ## [CT.LAMBDA.PR.2] Require AWS Lambda function policies to prohibit public access
+<a name="ct-lambda-pr-2-description"></a>
 
 This control checks whether an AWS Lambda function resource-based policy prohibits public access.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Lambda::Permission`
-- **CloudFormation guard rule:**
-  [CT.LAMBDA.PR.2 rule specification](#ct-lambda-pr-2-rule "#ct-lambda-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Lambda::Permission`
++ **CloudFormation guard rule: ** [CT.LAMBDA.PR.2 rule specification](#ct-lambda-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.LAMBDA.PR.2 rule specification](#ct-lambda-pr-2-rule "#ct-lambda-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.LAMBDA.PR.2 example templates](#ct-lambda-pr-2-templates "#ct-lambda-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.LAMBDA.PR.2 rule specification](#ct-lambda-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.LAMBDA.PR.2 example templates](#ct-lambda-pr-2-templates) 
 
 **Explanation**
 
 The Lambda function should not be publicly accessible, because it may permit unintended access to your code stored in the function.
 
 ### Remediation for rule failure
+<a name="ct-lambda-pr-2-remediation"></a>
 
 When setting `Principal` to `*`, provide one of `SourceAccount`, `SourceArn`, or `PrincipalOrgID`. When setting `Principal` to a service principal (for example, s3.amazonaws.com), provide one of `SourceAccount` or `SourceArn`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Lambda Function Policy - Example One
+<a name="ct-lambda-pr-2-remediation-1"></a>
 
 AWS Lambda function policy configured with an AWS account ID principal. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LambdaPermission": {
         "Type": "AWS::Lambda::Permission",
@@ -60,33 +57,29 @@ AWS Lambda function policy configured with an AWS account ID principal. The exam
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LambdaPermission:
   Type: AWS::Lambda::Permission
   Properties:
     Action: lambda:InvokeFunction
     FunctionName: !Ref 'LambdaFunction'
     Principal: !Ref 'AWS::AccountId'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Lambda Function Policy - Example Two
+<a name="ct-lambda-pr-2-remediation-2"></a>
 
 AWS Lambda function policy configured with a wildcard principal and source account condition. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LambdaPermission": {
         "Type": "AWS::Lambda::Permission",
@@ -102,13 +95,11 @@ AWS Lambda function policy configured with a wildcard principal and source accou
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LambdaPermission:
   Type: AWS::Lambda::Permission
   Properties:
@@ -116,20 +107,18 @@ LambdaPermission:
     FunctionName: !Ref 'LambdaFunction'
     Principal: '*'
     SourceAccount: !Ref 'AWS::AccountId'
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Lambda Function Policy - Example Three
+<a name="ct-lambda-pr-2-remediation-3"></a>
 
 AWS Lambda function policy configured with a service principal and source ARN condition. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LambdaPermission": {
         "Type": "AWS::Lambda::Permission",
@@ -148,13 +137,11 @@ AWS Lambda function policy configured with a service principal and source ARN co
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LambdaPermission:
   Type: AWS::Lambda::Permission
   Properties:
@@ -162,33 +149,31 @@ LambdaPermission:
     FunctionName: !Ref 'LambdaFunction'
     Principal: s3.amazonaws.com
     SourceArn: !GetAtt 'S3Bucket.Arn'
-
-
 ```
 
 ### CT.LAMBDA.PR.2 rule specification
+<a name="ct-lambda-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   lambda_function_public_access_prohibited_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Lambda function resource-based policy prohibits public access.
-#
+# 
 # Reports on:
 #   AWS::Lambda::Permission
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -352,24 +337,22 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.LAMBDA.PR.2 example templates
+<a name="ct-lambda-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LambdaFunctionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -381,7 +364,7 @@ Resources:
       Policies:
       - PolicyName: LambdaFunctionPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -407,20 +390,17 @@ Resources:
         Ref: LambdaFunction
       Principal:
         Ref: AWS::AccountId
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LambdaFunctionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -432,7 +412,7 @@ Resources:
       Policies:
       - PolicyName: LambdaFunctionPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -457,54 +437,46 @@ Resources:
       FunctionName:
         Ref: LambdaFunction
       Principal: '*'
-
-
 ```
 
 ## [CT.LAMBDA.PR.3] Require an AWS Lambda function to be in a customer-managed Amazon Virtual Private Cloud (VPC)
+<a name="ct-lambda-pr-3-description"></a>
 
 This control checks whether an AWS Lambda function has been configured with access to resources in a customer-managed Amazon Virtual Private Cloud (VPC).
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Lambda::Function`
-- **CloudFormation guard rule:**
-  [CT.LAMBDA.PR.3 rule specification](#ct-lambda-pr-3-rule "#ct-lambda-pr-3-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Lambda::Function`
++ **CloudFormation guard rule: ** [CT.LAMBDA.PR.3 rule specification](#ct-lambda-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.LAMBDA.PR.3 rule specification](#ct-lambda-pr-3-rule "#ct-lambda-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.LAMBDA.PR.3 example templates](#ct-lambda-pr-3-templates "#ct-lambda-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.LAMBDA.PR.3 rule specification](#ct-lambda-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.LAMBDA.PR.3 example templates](#ct-lambda-pr-3-templates) 
 
 **Explanation**
 
 AWS Lambda functions can be linked to private subnets within a virtual private cloud (VPC) in your AWS account to connect to resources such as databases, cache instances, or internal services. Ensure that the subnets and security groups used allow access to the necessary resources.
 
-###### Usage considerations
-
-- This control does not evaluate the VPC subnet routing configuration to determine public reachability.
-- This control does not support AWS Lambda@Edge Functions. Lambda@Edge does not support functions that are configured with access to resources inside your VPC.
-- Lambda functions can't connect directly to a VPC with dedicated instance tenancy. To connect to resources in a dedicated VPC, peer it to a second VPC with default tenancy.
+**Usage considerations**  
+This control does not evaluate the VPC subnet routing configuration to determine public reachability.
+This control does not support AWS Lambda@Edge Functions. Lambda@Edge does not support functions that are configured with access to resources inside your VPC.
+Lambda functions can't connect directly to a VPC with dedicated instance tenancy. To connect to resources in a dedicated VPC, peer it to a second VPC with default tenancy.
 
 ### Remediation for rule failure
+<a name="ct-lambda-pr-3-remediation"></a>
 
 In `VpcConfig`, provide the `SubnetIds` property with one or more Subnet IDs, and provide the `SecurityGroupIds` property with one or more Security Group IDs.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Lambda Function - Example
+<a name="ct-lambda-pr-3-remediation-1"></a>
 
 AWS Lambda function configured to access resources in a VPC. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LambdaFunction": {
         "Type": "AWS::Lambda::Function",
@@ -544,13 +516,11 @@ AWS Lambda function configured to access resources in a VPC. The example is show
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LambdaFunction:
   Type: AWS::Lambda::Function
   Properties:
@@ -565,33 +535,31 @@ LambdaFunction:
         - !GetAtt 'SubnetTwo.SubnetId'
       SecurityGroupIds:
         - !GetAtt 'SecurityGroup.GroupId'
-
-
 ```
 
 ### CT.LAMBDA.PR.3 rule specification
+<a name="ct-lambda-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   lambda_inside_vpc_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Lambda function has been configured with access to resources in a customer-managed Amazon Virtual Private Cloud (VPC).
-#
+# 
 # Reports on:
 #   AWS::Lambda::Function
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -729,18 +697,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.LAMBDA.PR.3 example templates
+<a name="ct-lambda-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   VPC:
     Type: AWS::EC2::VPC
@@ -779,7 +745,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -791,7 +757,7 @@ Resources:
       Policies:
       - PolicyName: LambdaFunctionPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -825,20 +791,17 @@ Resources:
         - Fn::GetAtt:
           - SecurityGroup1
           - GroupId
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LambdaFunctionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -850,7 +813,7 @@ Resources:
       Policies:
       - PolicyName: LambdaFunctionPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -872,57 +835,43 @@ Resources:
           def handler(event, context):
               print("example")
       Runtime: python3.9
-
-
 ```
 
 ## [CT.LAMBDA.PR.4] Require an AWS Lambda layer permission to grant access to an AWS organization or specific AWS account
+<a name="ct-lambda-pr-4-description"></a>
 
-This control checks whether an AWS Lambda layer permission has been configured to grant
-access to an AWS organization or to a specific AWS account only, by ensuring that public access
-from all AWS accounts has not been granted to a layer.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Lambda::LayerVersionPermission`
-- **CloudFormation guard rule:**
-  [CT.LAMBDA.PR.4 rule specification](#ct-lambda-pr-4-rule "#ct-lambda-pr-4-rule")
+This control checks whether an AWS Lambda layer permission has been configured to grant access to an AWS organization or to a specific AWS account only, by ensuring that public access from all AWS accounts has not been granted to a layer.
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Lambda::LayerVersionPermission`
++ **CloudFormation guard rule: ** [CT.LAMBDA.PR.4 rule specification](#ct-lambda-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.LAMBDA.PR.4 rule specification](#ct-lambda-pr-4-rule "#ct-lambda-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.LAMBDA.PR.4 example templates](#ct-lambda-pr-4-templates "#ct-lambda-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.LAMBDA.PR.4 rule specification](#ct-lambda-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.LAMBDA.PR.4 example templates](#ct-lambda-pr-4-templates) 
 
 **Explanation**
 
-By default, a layer that you create is **private** to your AWS account. However, you can
-share the layer with other accounts or make it public, optionally.
+By default, a layer that you create is **private** to your AWS account. However, you can share the layer with other accounts or make it public, optionally.
 
-A **public** layer may allow unintended access to your
-source code and applications. A public Lambda layer can expose valuable information
-about your account, resources, and internal processes.
+A **public** layer may allow unintended access to your source code and applications. A public Lambda layer can expose valuable information about your account, resources, and internal processes.
 
 ### Remediation for rule failure
+<a name="ct-lambda-pr-4-remediation"></a>
 
-Set the `OrganizationId` parameter to the ID of an AWS organization, or
-set the `Principal` parameter to an AWS account ID.
+Set the `OrganizationId` parameter to the ID of an AWS organization, or set the `Principal` parameter to an AWS account ID. 
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Lambda layer permission - Example one
+<a name="ct-lambda-pr-4-remediation-1"></a>
 
-An AWS Lambda version permission URL configured to grant layer usage permission
-to all accounts in an organization. The example is shown in JSON and in YAML.
+An AWS Lambda version permission URL configured to grant layer usage permission to all accounts in an organization. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LayerVersionPermission": {
         "Type": "AWS::Lambda::LayerVersionPermission",
@@ -935,34 +884,29 @@ to all accounts in an organization. The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LayerVersionPermission:
   Type: AWS::Lambda::LayerVersionPermission
   Properties:
     Action: lambda:GetLayerVersion
     LayerVersionArn: !Ref 'LayerVersion'
     OrganizationId: o-abc123defg
-
-
 ```
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Lambda layer permission - Example two
+<a name="ct-lambda-pr-4-remediation-2"></a>
 
-An AWS Lambda version permission URL configured to grant layer usage permission
-for an AWS account. The example is shown in JSON and in YAML.
+An AWS Lambda version permission URL configured to grant layer usage permission for an AWS account. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "LayerVersionPermission": {
         "Type": "AWS::Lambda::LayerVersionPermission",
@@ -975,46 +919,42 @@ for an AWS account. The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 LayerVersionPermission:
   Type: AWS::Lambda::LayerVersionPermission
   Properties:
     Action: lambda:GetLayerVersion
     LayerVersionArn: !Ref 'LayerVersion'
     Principal: '123456789012'
-
-
 ```
 
 ### CT.LAMBDA.PR.4 rule specification
+<a name="ct-lambda-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   lambda_layer_public_access_prohibited_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Lambda layer permission has been configured to grant access to an AWS organization or to a specific AWS account only, by ensuring that public access from all AWS accounts has not been granted to a layer.
-#
+# 
 # Reports on:
 #   AWS::Lambda::LayerVersionPermission
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1109,18 +1049,16 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.LAMBDA.PR.4 example templates
+<a name="ct-lambda-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LayerVersion:
     Type: AWS::Lambda::LayerVersion
@@ -1141,14 +1079,11 @@ Resources:
         Ref: LayerVersion
       OrganizationId: o-abc123defg
       Principal: "*"
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LayerVersion:
     Type: AWS::Lambda::LayerVersion
@@ -1168,59 +1103,43 @@ Resources:
       LayerVersionArn:
         Ref: LayerVersion
       Principal: "*"
-
-
 ```
 
 ## [CT.LAMBDA.PR.5] Require an AWS Lambda function URL to use AWS IAM-based authentication
+<a name="ct-lambda-pr-5-description"></a>
 
-This control checks whether an AWS Lambda function URL is configured to use authentication that's
-based on IAM.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Lambda::Url`
-- **CloudFormation guard rule:**
-  [CT.LAMBDA.PR.5 rule specification](#ct-lambda-pr-5-rule "#ct-lambda-pr-5-rule")
+This control checks whether an AWS Lambda function URL is configured to use authentication that's based on IAM.
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Lambda::Url`
++ **CloudFormation guard rule: ** [CT.LAMBDA.PR.5 rule specification](#ct-lambda-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.LAMBDA.PR.5 rule specification](#ct-lambda-pr-5-rule "#ct-lambda-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.LAMBDA.PR.5 example templates](#ct-lambda-pr-5-templates "#ct-lambda-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.LAMBDA.PR.5 rule specification](#ct-lambda-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.LAMBDA.PR.5 example templates](#ct-lambda-pr-5-templates) 
 
 **Explanation**
 
-You can control access to a Lambda function URL using the `AuthType` parameter,
-combined with resource-based policies that are attached to your specific function. The
-configuration of these two components determines who can invoke or perform other administrative
-actions on your function URL.
+You can control access to a Lambda function URL using the `AuthType` parameter, combined with resource-based policies that are attached to your specific function. The configuration of these two components determines who can invoke or perform other administrative actions on your function URL.
 
-The `AuthType` parameter determines how Lambda authenticates or authorizes
-requests to your Lambda function URL (endpoint). Setting `AuthType` to
-`NONE` means that Lambda does not perform any authentication before it invokes your function.
-However, your function's resource-based policy is always in effect, and the policy must grant
-public access before your Lambda function URL (endpoint) can receive requests.
+The `AuthType` parameter determines how Lambda authenticates or authorizes requests to your Lambda function URL (endpoint). Setting `AuthType` to `NONE` means that Lambda does not perform any authentication before it invokes your function. However, your function's resource-based policy is always in effect, and the policy must grant public access before your Lambda function URL (endpoint) can receive requests.
 
 ### Remediation for rule failure
+<a name="ct-lambda-pr-5-remediation"></a>
 
 Set the `AuthType` parameter to `AWS_IAM`
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Lambda function URL - Example
+<a name="ct-lambda-pr-5-remediation-1"></a>
 
-An AWS Lambda function URL (endpoint) configured with AWS IAM-based authentication.
-The example is shown in JSON and in YAML.
+An AWS Lambda function URL (endpoint) configured with AWS IAM-based authentication. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "FunctionUrl": {
         "Type": "AWS::Lambda::Url",
@@ -1235,46 +1154,42 @@ The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 FunctionUrl:
   Type: AWS::Lambda::Url
   Properties:
     TargetFunctionArn: !GetAtt 'LambdaFunction.Arn'
     AuthType: AWS_IAM
-
-
 ```
 
 ### CT.LAMBDA.PR.5 rule specification
+<a name="ct-lambda-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   lambda_function_url_auth_check
-#
+# 
 # Description:
-#   This control checks whether an AWS Lambda function URL is configured to use authentication that's
+#   This control checks whether an AWS Lambda function URL is configured to use authentication that's 
 #   based on AWS IAM.
-#
+# 
 # Reports on:
 #   AWS::Lambda::Url
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1353,24 +1268,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.LAMBDA.PR.5 example templates
+<a name="ct-lambda-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LambdaFunctionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1382,7 +1295,7 @@ Resources:
       Policies:
       - PolicyName: LambdaFunctionPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -1407,20 +1320,17 @@ Resources:
         - LambdaFunction
         - Arn
       AuthType: AWS_IAM
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LambdaFunctionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1432,7 +1342,7 @@ Resources:
       Policies:
       - PolicyName: LambdaFunctionPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -1457,56 +1367,43 @@ Resources:
         - LambdaFunction
         - Arn
       AuthType: NONE
-
-
 ```
 
 ## [CT.LAMBDA.PR.6] Require an AWS Lambda function URL CORS policy to restrict access to specific origins
+<a name="ct-lambda-pr-6-description"></a>
 
-This control checks whether an AWS Lambda function URL is configured with a cross-origin resource sharing
-(CORS) policy that does not grant access to all origins.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Lambda::Url`
-- **CloudFormation guard rule:**
-  [CT.LAMBDA.PR.6 rule specification](#ct-lambda-pr-6-rule "#ct-lambda-pr-6-rule")
+This control checks whether an AWS Lambda function URL is configured with a cross-origin resource sharing (CORS) policy that does not grant access to all origins.
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Lambda::Url`
++ **CloudFormation guard rule: ** [CT.LAMBDA.PR.6 rule specification](#ct-lambda-pr-6-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.LAMBDA.PR.6 rule specification](#ct-lambda-pr-6-rule "#ct-lambda-pr-6-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.LAMBDA.PR.6 example templates](#ct-lambda-pr-6-templates "#ct-lambda-pr-6-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.LAMBDA.PR.6 rule specification](#ct-lambda-pr-6-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.LAMBDA.PR.6 example templates](#ct-lambda-pr-6-templates) 
 
 **Explanation**
 
-Cross-Origin Resource Sharing (CORS) is a mechanism based on an HTTP-header, which allows a server to
-indicate any origins (domain, scheme, or port) other than its own, from which a browser should permit
-loading resources.
+Cross-Origin Resource Sharing (CORS) is a mechanism based on an HTTP-header, which allows a server to indicate any origins (domain, scheme, or port) other than its own, from which a browser should permit loading resources.
 
-If you set a wildcard origin (`*`) in a CORS policy, you allow code running in browsers
-from any origin to gain access to your function URL.
+If you set a wildcard origin (`*`) in a CORS policy, you allow code running in browsers from any origin to gain access to your function URL.
 
 ### Remediation for rule failure
+<a name="ct-lambda-pr-6-remediation"></a>
 
-In the `Cors` parameter, ensure that the value of `AllowOrigins` does not
-contain wildcard origins (`*`, `http://*` and `https://*`)
+In the `Cors` parameter, ensure that the value of `AllowOrigins` does not contain wildcard origins (`*`, `http://*` and `https://*`)
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Lambda Function URL - Example
+<a name="ct-lambda-pr-6-remediation-1"></a>
 
-AWS Lambda function URL configured with a cross-origin resource sharing (CORS) policy that restricts access to a
-specific origin. The example is shown in JSON and in YAML.
+AWS Lambda function URL configured with a cross-origin resource sharing (CORS) policy that restricts access to a specific origin. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "FunctionUrl": {
         "Type": "AWS::Lambda::Url",
@@ -1526,13 +1423,11 @@ specific origin. The example is shown in JSON and in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 FunctionUrl:
   Type: AWS::Lambda::Url
   Properties:
@@ -1541,33 +1436,31 @@ FunctionUrl:
     Cors:
       AllowOrigins:
         - https://example.com
-
-
 ```
 
 ### CT.LAMBDA.PR.6 rule specification
+<a name="ct-lambda-pr-6-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   lambda_function_url_cors_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Lambda function URL is configured with a cross-origin resource sharing (CORS) policy that does not grant access to all origins.
-#
+# 
 # Reports on:
 #   AWS::Lambda::Url
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation Hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1665,24 +1558,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.LAMBDA.PR.6 example templates
+<a name="ct-lambda-pr-6-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   LambdaFunctionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1694,7 +1585,7 @@ Resources:
       Policies:
       - PolicyName: LambdaFunctionPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -1722,20 +1613,17 @@ Resources:
       Cors:
         AllowOrigins:
         - https://example.com
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   LambdaFunctionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -1747,7 +1635,7 @@ Resources:
       Policies:
       - PolicyName: LambdaFunctionPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -1775,6 +1663,4 @@ Resources:
       Cors:
         AllowOrigins:
         - '*'
-
-
 ```

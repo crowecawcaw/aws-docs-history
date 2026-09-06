@@ -1,49 +1,44 @@
+
+
 # AWS Glue controls
+<a name="glue-rules"></a>
 
-###### Topics
-
-- [[CT.GLUE.PR.1] Require an AWS Glue job to have an associated security configuration](#ct-glue-pr-1-description "#ct-glue-pr-1-description")
+**Topics**
++ [[CT.GLUE.PR.1] Require an AWS Glue job to have an associated security configuration](#ct-glue-pr-1-description)
 
 ## [CT.GLUE.PR.1] Require an AWS Glue job to have an associated security configuration
+<a name="ct-glue-pr-1-description"></a>
 
 This control checks whether an AWS Glue job has an associated security configuration.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Glue::Job`
-- **CloudFormation guard rule:**
-  [CT.GLUE.PR.1 rule specification](#ct-glue-pr-1-rule "#ct-glue-pr-1-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Glue::Job`
++ **CloudFormation guard rule: ** [CT.GLUE.PR.1 rule specification](#ct-glue-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.GLUE.PR.1 rule specification](#ct-glue-pr-1-rule "#ct-glue-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.GLUE.PR.1 example templates](#ct-glue-pr-1-templates "#ct-glue-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.GLUE.PR.1 rule specification](#ct-glue-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.GLUE.PR.1 example templates](#ct-glue-pr-1-templates) 
 
 **Explanation**
 
-In AWS Glue, a security configuration contains the properties that are needed when you write
-encrypted data. Security configurations for an AWS Glue job must be configured to specify how the data is encrypted at the Amazon S3 target.
-Encryption helps protect the data from unauthorized access and exposure.
+In AWS Glue, a security configuration contains the properties that are needed when you write encrypted data. Security configurations for an AWS Glue job must be configured to specify how the data is encrypted at the Amazon S3 target. Encryption helps protect the data from unauthorized access and exposure.
 
 ### Remediation for rule failure
+<a name="ct-glue-pr-1-remediation"></a>
 
 Set the `SecurityConfiguration` parameter to the name of an AWS Glue security configuration.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS Glue job - Example
+<a name="ct-glue-pr-1-remediation-1"></a>
 
 An AWS Glue job configured with an associated security configuration. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "GlueJob": {
         "Type": "AWS::Glue::Job",
@@ -63,13 +58,11 @@ An AWS Glue job configured with an associated security configuration. The exampl
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 GlueJob:
   Type: AWS::Glue::Job
   Properties:
@@ -80,33 +73,31 @@ GlueJob:
     Role: !Ref 'IAMRole'
     GlueVersion: '2.0'
     SecurityConfiguration: !Ref 'GlueSecurityConfig'
-
-
 ```
 
 ### CT.GLUE.PR.1 rule specification
+<a name="ct-glue-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   glue_job_security_config_check
-#
+# 
 # Description:
 #   This control checks whether an AWS Glue job has an associated security configuration.
-#
+# 
 # Reports on:
 #   AWS::Glue::Job
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -214,24 +205,22 @@ rule query_for_resource(doc, resource_key, referenced_RESOURCE_TYPE) {
         Type == %referenced_RESOURCE_TYPE
     }
 }
-
-
 ```
 
 ### CT.GLUE.PR.1 example templates
+<a name="ct-glue-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
         - Effect: "Allow"
           Principal:
@@ -244,7 +233,7 @@ Resources:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -279,20 +268,17 @@ Resources:
       GlueVersion: "2.0"
       SecurityConfiguration:
         Ref: GlueSecurityConfig
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   IAMRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
         - Effect: "Allow"
           Principal:
@@ -312,6 +298,4 @@ Resources:
       Role:
         Ref: IAMRole
       GlueVersion: "2.0"
-
-
 ```

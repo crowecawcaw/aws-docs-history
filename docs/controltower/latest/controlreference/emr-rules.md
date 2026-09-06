@@ -1,50 +1,47 @@
+
+
 # Amazon Elastic Map Reduce (Amazon EMR) controls
+<a name="emr-rules"></a>
 
-###### Topics
-
-- [[CT.EMR.PR.1] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data at rest in Amazon S3](#ct-emr-pr-1-description "#ct-emr-pr-1-description")
-- [[CT.EMR.PR.2] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data at rest in Amazon S3 with an AWS KMS key](#ct-emr-pr-2-description "#ct-emr-pr-2-description")
-- [[CT.EMR.PR.3] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured with EBS volume local disk encryption using an AWS KMS key](#ct-emr-pr-3-description "#ct-emr-pr-3-description")
-- [[CT.EMR.PR.4] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data in transit](#ct-emr-pr-4-description "#ct-emr-pr-4-description")
+**Topics**
++ [[CT.EMR.PR.1] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data at rest in Amazon S3](#ct-emr-pr-1-description)
++ [[CT.EMR.PR.2] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data at rest in Amazon S3 with an AWS KMS key](#ct-emr-pr-2-description)
++ [[CT.EMR.PR.3] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured with EBS volume local disk encryption using an AWS KMS key](#ct-emr-pr-3-description)
++ [[CT.EMR.PR.4] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data in transit](#ct-emr-pr-4-description)
 
 ## [CT.EMR.PR.1] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data at rest in Amazon S3
+<a name="ct-emr-pr-1-description"></a>
 
 This control checks whether an Amazon EMR security configuration is configured to encrypt EMR File System (EMRFS) objects at rest in Amazon S3.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EMR::SecurityConfiguration`
-- **CloudFormation guard rule:**
-  [CT.EMR.PR.1 rule specification](#ct-emr-pr-1-rule "#ct-emr-pr-1-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EMR::SecurityConfiguration`
++ **CloudFormation guard rule: ** [CT.EMR.PR.1 rule specification](#ct-emr-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EMR.PR.1 rule specification](#ct-emr-pr-1-rule "#ct-emr-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EMR.PR.1 example templates](#ct-emr-pr-1-templates "#ct-emr-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EMR.PR.1 rule specification](#ct-emr-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EMR.PR.1 example templates](#ct-emr-pr-1-templates) 
 
 **Explanation**
 
 Amazon S3 encryption works with EMR File System (EMRFS) objects that are read from and written to Amazon S3. When you enable encryption at rest, you specify Amazon S3 server-side encryption (SSE) or client-side encryption (CSE) as the default encryption mode. Optionally, you can specify different encryption methods for individual buckets by using per bucket encryption overrides.
 
 ### Remediation for rule failure
+<a name="ct-emr-pr-1-remediation"></a>
 
 In the `EncryptionConfiguration` parameter, set the value of `EnableAtRestEncryption` to true, and provide an `AtRestEncryptionConfiguration` configuration.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EMR security configuration - Example
+<a name="ct-emr-pr-1-remediation-1"></a>
 
 An Amazon EMR security configuration configured to encrypt EMR File System (EMRFS) objects at rest in Amazon S3. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SecurityConfiguration": {
         "Type": "AWS::EMR::SecurityConfiguration",
@@ -63,13 +60,11 @@ An Amazon EMR security configuration configured to encrypt EMR File System (EMRF
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SecurityConfiguration:
   Type: AWS::EMR::SecurityConfiguration
   Properties:
@@ -80,33 +75,31 @@ SecurityConfiguration:
         AtRestEncryptionConfiguration:
           S3EncryptionConfiguration:
             EncryptionMode: SSE-S3
-
-
 ```
 
 ### CT.EMR.PR.1 rule specification
+<a name="ct-emr-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   emr_sec_config_encryption_at_rest_s3_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EMR security configuration is configured to encrypt EMR File System (EMRFS) objects at rest in Amazon S3.
-#
+# 
 # Reports on:
 #   AWS::EMR::SecurityConfiguration
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1`
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -241,18 +234,16 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.EMR.PR.1 example templates
+<a name="ct-emr-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SecurityConfiguration:
     Type: AWS::EMR::SecurityConfiguration
@@ -264,14 +255,11 @@ Resources:
           AtRestEncryptionConfiguration:
             S3EncryptionConfiguration:
               EncryptionMode: SSE-S3
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityConfiguration:
     Type: AWS::EMR::SecurityConfiguration
@@ -280,48 +268,41 @@ Resources:
         EncryptionConfiguration:
           EnableAtRestEncryption: false
           EnableInTransitEncryption: false
-
-
 ```
 
 ## [CT.EMR.PR.2] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data at rest in Amazon S3 with an AWS KMS key
+<a name="ct-emr-pr-2-description"></a>
 
 This control checks whether an Amazon EMR security configuration is configured to encrypt EMR File System (EMRFS) objects at rest in Amazon S3 with an AWS KMS key.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EMR::SecurityConfiguration`
-- **CloudFormation guard rule:**
-  [CT.EMR.PR.2 rule specification](#ct-emr-pr-2-rule "#ct-emr-pr-2-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EMR::SecurityConfiguration`
++ **CloudFormation guard rule: ** [CT.EMR.PR.2 rule specification](#ct-emr-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EMR.PR.2 rule specification](#ct-emr-pr-2-rule "#ct-emr-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EMR.PR.2 example templates](#ct-emr-pr-2-templates "#ct-emr-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EMR.PR.2 rule specification](#ct-emr-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EMR.PR.2 example templates](#ct-emr-pr-2-templates) 
 
 **Explanation**
 
 Amazon S3 encryption works with EMR File System (EMRFS) objects that are read from and written to Amazon S3. When you enable encyption at rest, you specify Amazon S3 server-side encryption (SSE) or client-side encryption (CSE) as the default encryption mode. Optionally, you can specify different encryption methods for individual buckets using per bucket encryption overrides.
 
 ### Remediation for rule failure
+<a name="ct-emr-pr-2-remediation"></a>
 
 In the `EncryptionConfiguration` parameter, set `EnableAtRestEncryption` to true, and provide an `AtRestEncryptionConfiguration` configuration, with `EncryptionMode` set to `SSE-KMS` or `CSE-KMS`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EMR security configuration - Example
+<a name="ct-emr-pr-2-remediation-1"></a>
 
 An Amazon EMR security configuration configured to encrypt EMR File System (EMRFS) objects at rest in Amazon S3 with AWS KMS. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SecurityConfiguration": {
         "Type": "AWS::EMR::SecurityConfiguration",
@@ -346,13 +327,11 @@ An Amazon EMR security configuration configured to encrypt EMR File System (EMRF
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SecurityConfiguration:
   Type: AWS::EMR::SecurityConfiguration
   Properties:
@@ -364,33 +343,31 @@ SecurityConfiguration:
           S3EncryptionConfiguration:
             EncryptionMode: SSE-KMS
             AwsKmsKey: !GetAtt 'KmsKey.Arn'
-
-
 ```
 
 ### CT.EMR.PR.2 rule specification
+<a name="ct-emr-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   emr_sec_config_encryption_at_rest_s3_kms_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EMR security configuration is configured to encrypt EMR File System (EMRFS) objects at rest in Amazon S3 with an AWS KMS key.
-#
+# 
 # Reports on:
 #   AWS::EMR::SecurityConfiguration
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -555,24 +532,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EMR.PR.2 example templates
+<a name="ct-emr-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   KmsKey:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-key-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -596,14 +571,11 @@ Resources:
                 Fn::GetAtt:
                 - KmsKey
                 - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityConfiguration:
     Type: AWS::EMR::SecurityConfiguration
@@ -612,53 +584,45 @@ Resources:
         EncryptionConfiguration:
           EnableInTransitEncryption: false
           EnableAtRestEncryption: false
-
-
 ```
 
 ## [CT.EMR.PR.3] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured with EBS volume local disk encryption using an AWS KMS key
+<a name="ct-emr-pr-3-description"></a>
 
 This control checks whether Amazon EMR security configurations are configured with local disk encryption enabled, using EBS volume encryption and AWS KMS.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EMR::SecurityConfiguration`
-- **CloudFormation guard rule:**
-  [CT.EMR.PR.3 rule specification](#ct-emr-pr-3-rule "#ct-emr-pr-3-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EMR::SecurityConfiguration`
++ **CloudFormation guard rule: ** [CT.EMR.PR.3 rule specification](#ct-emr-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EMR.PR.3 rule specification](#ct-emr-pr-3-rule "#ct-emr-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EMR.PR.3 example templates](#ct-emr-pr-3-templates "#ct-emr-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EMR.PR.3 rule specification](#ct-emr-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EMR.PR.3 example templates](#ct-emr-pr-3-templates) 
 
 **Explanation**
 
 For data at rest, EMR provides the option to encrypt local disk storage. The local storage consists of EC2 instance store volumes and the attached Amazon Elastic Block Store (EBS) storage, which are provisioned with your cluster. The EBS encryption option encrypts the EBS root device volume and its attached storage volumes. The EBS encryption option is available only when you specify AWS Key Management Service as your key provider. AWS Control Tower recommends using EBS encryption.
 
-###### Usage considerations
-
-- If you create a cluster in a Region where Amazon EC2 encryption of EBS volumes is enabled by default for your account, an EBS volume is encrypted even when local disk encryption is not enabled.
-- With local disk encryption enabled in a security configuration, the Amazon EMR settings take precedence over the Amazon EC2 encryption-by-default settings for cluster EC2 instances.
+**Usage considerations**  
+If you create a cluster in a Region where Amazon EC2 encryption of EBS volumes is enabled by default for your account, an EBS volume is encrypted even when local disk encryption is not enabled.
+With local disk encryption enabled in a security configuration, the Amazon EMR settings take precedence over the Amazon EC2 encryption-by-default settings for cluster EC2 instances.
 
 ### Remediation for rule failure
+<a name="ct-emr-pr-3-remediation"></a>
 
 In the `EncryptionConfiguration` parameter, set the value of `EnableAtRestEncryption` to true, and provide an `AtRestEncryptionConfiguration` configuration, containing an `LocalDiskEncryptionConfiguration` configuration that sets `EnableEbsEncryption` to true.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EMR security configuration - Example
+<a name="ct-emr-pr-3-remediation-1"></a>
 
 An Amazon EMR security configuration configured with EBS encryption using AWS KMS. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SecurityConfiguration": {
         "Type": "AWS::EMR::SecurityConfiguration",
@@ -679,13 +643,11 @@ An Amazon EMR security configuration configured with EBS encryption using AWS KM
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SecurityConfiguration:
   Type: AWS::EMR::SecurityConfiguration
   Properties:
@@ -698,33 +660,31 @@ SecurityConfiguration:
             EnableEbsEncryption: true
             EncryptionKeyProviderType: AwsKms
             AwsKmsKey: arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab
-
-
 ```
 
 ### CT.EMR.PR.3 rule specification
+<a name="ct-emr-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   emr_sec_config_ebs_encryption_check
-#
+# 
 # Description:
 #   This control checks whether Amazon EMR security configurations are configured with local disk encryption enabled, using EBS volume encryption and AWS KMS.
-#
+# 
 # Reports on:
 #   AWS::EMR::SecurityConfiguration
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -852,24 +812,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.EMR.PR.3 example templates
+<a name="ct-emr-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   KmsKey:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-key-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -894,14 +852,11 @@ Resources:
                 Fn::GetAtt:
                 - KmsKey
                 - Arn
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityConfiguration:
     Type: AWS::EMR::SecurityConfiguration
@@ -910,52 +865,44 @@ Resources:
         EncryptionConfiguration:
           EnableInTransitEncryption: false
           EnableAtRestEncryption: false
-
-
 ```
 
 ## [CT.EMR.PR.4] Require that an Amazon Elastic MapReduce (EMR) security configuration is configured to encrypt data in transit
+<a name="ct-emr-pr-4-description"></a>
 
 This control checks whether an Amazon EMR security configuration is configured to require encryption in transit.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::EMR::SecurityConfiguration`
-- **CloudFormation guard rule:**
-  [CT.EMR.PR.4 rule specification](#ct-emr-pr-4-rule "#ct-emr-pr-4-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::EMR::SecurityConfiguration`
++ **CloudFormation guard rule: ** [CT.EMR.PR.4 rule specification](#ct-emr-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.EMR.PR.4 rule specification](#ct-emr-pr-4-rule "#ct-emr-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.EMR.PR.4 example templates](#ct-emr-pr-4-templates "#ct-emr-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.EMR.PR.4 rule specification](#ct-emr-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.EMR.PR.4 example templates](#ct-emr-pr-4-templates) 
 
 **Explanation**
 
 For data in transit, EMR security configurations provide you two options. You can create PEM certificates, zip them in a file, and reference them from Amazon S3, or you can implement a certificate custom provider in Java and specify the S3 path to the JAR. In either case, EMR downloads artifacts to each node in the cluster automatically, and later uses them to implement open-source, in-transit encryption features. For more information on how these certificates are used with different big data technologies, see Amazon EMR documentation.
 
-###### Usage considerations
-
-- Several encryption mechanisms are associated with in-transit encryption. These mechanisms are open-source features, they are application-specific, and they may vary by Amazon EMR release. For more information, see [Encryption in transit](../../../emr/latest/ManagementGuide/emr-data-encryption-options.md#emr-encryption-intransit "../../../emr/latest/ManagementGuide/emr-data-encryption-options.md#emr-encryption-intransit") in the _Amazon EMR Management Guide_.
+**Usage considerations**  
+Several encryption mechanisms are associated with in-transit encryption. These mechanisms are open-source features, they are application-specific, and they may vary by Amazon EMR release. For more information, see [Encryption in transit](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html#emr-encryption-intransit) in the *Amazon EMR Management Guide*.
 
 ### Remediation for rule failure
+<a name="ct-emr-pr-4-remediation"></a>
 
 In the `EncryptionConfiguration` parameter, set the `EnableInTransitEncryption` parameter to true, and provide an `InTransitEncryptionConfiguration` configuration.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon EMR security configuration - Example
+<a name="ct-emr-pr-4-remediation-1"></a>
 
 An Amazon EMR security configuration configured to require encryption of data in transit. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "SecurityConfiguration": {
         "Type": "AWS::EMR::SecurityConfiguration",
@@ -975,13 +922,11 @@ An Amazon EMR security configuration configured to require encryption of data in
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 SecurityConfiguration:
   Type: AWS::EMR::SecurityConfiguration
   Properties:
@@ -993,33 +938,31 @@ SecurityConfiguration:
           TLSCertificateConfiguration:
             CertificateProviderType: PEM
             S3Object: s3://MyConfigStore/artifacts/MyCerts.zip
-
-
 ```
 
 ### CT.EMR.PR.4 rule specification
+<a name="ct-emr-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   emr_sec_config_encryption_in_transit_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon EMR security configuration is configured to require encryption in transit.
-#
+# 
 # Reports on:
 #   AWS::EMR::SecurityConfiguration
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1154,18 +1097,16 @@ rule check_is_string_and_not_empty(value) {
         this != /\A\s*\z/
     }
 }
-
-
 ```
 
 ### CT.EMR.PR.4 example templates
+<a name="ct-emr-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   SecurityConfiguration:
     Type: AWS::EMR::SecurityConfiguration
@@ -1178,14 +1119,11 @@ Resources:
             TLSCertificateConfiguration:
               CertificateProviderType: PEM
               S3Object: s3://MyConfigStore/artifacts/MyCerts.zip
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   SecurityConfiguration:
     Type: AWS::EMR::SecurityConfiguration
@@ -1194,6 +1132,4 @@ Resources:
         EncryptionConfiguration:
           EnableInTransitEncryption: false
           EnableAtRestEncryption: false
-
-
 ```

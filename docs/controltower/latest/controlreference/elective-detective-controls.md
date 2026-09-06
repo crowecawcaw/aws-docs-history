@@ -1,21 +1,19 @@
+
+
 # Elective controls with detective behavior
+<a name="elective-detective-controls"></a>
 
 The following elective controls have detective behavior.
 
-###### Topics
-
-- [Detect Whether MFA is Enabled for AWS IAM Users](#disallow-access-mfa "#disallow-access-mfa")
-- [Detect Whether MFA is Enabled for AWS IAM Users of the AWS Console](#disallow-console-access-mfa "#disallow-console-access-mfa")
-- [Detect Whether Versioning for Amazon S3 Buckets is Enabled](#disallow-s3-no-versioning "#disallow-s3-no-versioning")
+**Topics**
++ [Detect Whether MFA is Enabled for AWS IAM Users](#disallow-access-mfa)
++ [Detect Whether MFA is Enabled for AWS IAM Users of the AWS Console](#disallow-console-access-mfa)
++ [Detect Whether Versioning for Amazon S3 Buckets is Enabled](#disallow-s3-no-versioning)
 
 ## Detect Whether MFA is Enabled for AWS IAM Users
+<a name="disallow-access-mfa"></a>
 
-This control detects whether MFA is enabled for AWS IAM users. You can
-protect your account by requiring MFA for all AWS users in the account.
-MFA requires an additional authentication code after the user name and
-password are successful. This control does not change the status of the
-account. This is a detective control with elective guidance. By default,
-this control is not enabled.
+This control detects whether MFA is enabled for AWS IAM users. You can protect your account by requiring MFA for all AWS users in the account. MFA requires an additional authentication code after the user name and password are successful. This control does not change the status of the account. This is a detective control with elective guidance. By default, this control is not enabled.
 
 The artifact for this control is the following AWS Config rule.
 
@@ -58,17 +56,12 @@ Resources:
           - Settings
           - FrequencyMap
           - !Ref MaximumExecutionFrequency
-
 ```
 
 ## Detect Whether MFA is Enabled for AWS IAM Users of the AWS Console
+<a name="disallow-console-access-mfa"></a>
 
-Protects your account by requiring MFA for all AWS IAM users in the
-console. MFA reduces vulnerability risks from weak authentication by
-requiring an additional authentication code after the user name and password
-are successful. This control detects whether MFA is enabled. This control
-does not change the status of the account. This is a detective control with
-elective guidance. By default, this control is not enabled.
+Protects your account by requiring MFA for all AWS IAM users in the console. MFA reduces vulnerability risks from weak authentication by requiring an additional authentication code after the user name and password are successful. This control detects whether MFA is enabled. This control does not change the status of the account. This is a detective control with elective guidance. By default, this control is not enabled.
 
 The artifact for this control is the following AWS Config rule.
 
@@ -111,16 +104,12 @@ Resources:
           - Settings
           - FrequencyMap
           - !Ref MaximumExecutionFrequency
-
 ```
 
 ## Detect Whether Versioning for Amazon S3 Buckets is Enabled
+<a name="disallow-s3-no-versioning"></a>
 
-Detects whether your Amazon S3 buckets are enabled for versioning. Versioning
-allows you to recover objects from accidental deletion or overwrite. This
-control does not change the status of the account. This is a detective
-control with elective guidance. By default, this control is not
-enabled.
+Detects whether your Amazon S3 buckets are enabled for versioning. Versioning allows you to recover objects from accidental deletion or overwrite. This control does not change the status of the account. This is a detective control with elective guidance. By default, this control is not enabled.
 
 The artifact for this control is the following AWS Config rule.
 
@@ -143,5 +132,4 @@ Resources:
       Scope:
         ComplianceResourceTypes:
           - AWS::S3::Bucket
-
 ```

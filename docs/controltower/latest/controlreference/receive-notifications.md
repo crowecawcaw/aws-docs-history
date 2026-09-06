@@ -1,66 +1,39 @@
+
+
 # Compliance notifications by SNS in the audit account
+<a name="receive-notifications"></a>
 
-###### Note
+**Note**  
+AWS Control Tower will no longer be sending drift notifications to SNS topic for all customers on LZ4.0\+. For customers on LZ4.0\+ follow the [EventBridge Notification setup](https://docs.aws.amazon.com/controltower/latest/userguide/governance-drift.html#eventbridge-creation).
 
-AWS Control Tower will no longer be sending drift notifications to SNS topic for all customers on
-LZ4.0+. For customers on LZ4.0+ follow the [EventBridge Notification setup](../userguide/governance-drift.md#eventbridge-creation "../userguide/governance-drift.md#eventbridge-creation").
+To receive compliance change notifications in email sent to your audit account, subscribe to this Amazon SNS topic:
 
-To receive compliance change notifications in email sent to your audit account,
-subscribe to this Amazon SNS topic:
+`arn:aws:sns:{{AWSRegion}}:{{AuditAccount}}:aws-controltower-AggregateSecurityNotifications` 
 
-`arn:aws:sns:`AWSRegion`:`AuditAccount`:aws-controltower-AggregateSecurityNotifications`
+When subscribing, substitute your actual AWS Control Tower home Region and audit account information into the topic name shown. You can subscribe to SNS topics that receive notifications about each supported AWS Region in which you run AWS Control Tower.
 
-When subscribing, substitute your actual AWS Control Tower home Region and audit account
-information into the topic name shown. You can subscribe to SNS topics that receive
-notifications about each supported AWS Region in which you run AWS Control Tower.
+**SNS topics and notifications you can receive**
++ The `aws-controltower-AllConfigNotifications` topic:
 
-###### SNS topics and notifications you can receive
+  It receives notifications from AWS Config regarding compliance, noncompliance, and change. It also receives notification from AWS CloudTrail on log file delivery.
++ The `aws-controltower-SecurityNotifications` topic:
 
-- The `aws-controltower-AllConfigNotifications` topic:
+  One of these topics exists for each supported AWS Region. It receives compliance, noncompliance, and change notifications from AWS Config in that Region. It forwards all incoming notifications to `aws-controltower-AggregateSecurityNotifications`
++ The `aws-controltower-AggregateSecurityNotifications` topic:
 
-It receives notifications from AWS Config regarding compliance, noncompliance, and
-change. It also receives notification from AWS CloudTrail on log file delivery.
+  This topic exists in each supported AWS Region. It receives compliance change notifications from the region-specific `aws-controltower-SecurityNotifications` topics. Additionally, in the home Region, it also receives drift notifications.
 
-- The `aws-controltower-SecurityNotifications` topic:
-
-One of these topics exists for each supported AWS Region. It receives
-compliance, noncompliance, and change notifications from AWS Config in that
-Region. It forwards all incoming notifications to
-`aws-controltower-AggregateSecurityNotifications`
-
-- The `aws-controltower-AggregateSecurityNotifications` topic:
-
-This topic exists in each supported AWS Region. It receives compliance change
-notifications from the region-specific
-`aws-controltower-SecurityNotifications` topics. Additionally, in
-the home Region, it also receives drift notifications.
-
-###### Other considerations about SNS topics:
-
-- All of these topics exist and receive notifications in the Audit
-  account.
-- By default, the Audit account email address is subscribed to the
-  `aws-controltower-AggregateSecurityNotifications` SNS
-  topic.
-- SNS topics in AWS Control Tower are extremely noisy, by design. For example, AWS Config sends
-  a notification every time AWS Config discovers a new resource.
-- Administrators who wish to filter out specific types of notifications from an
-  SNS topic can create an AWS Lambda function and subscribe it to the SNS topic.
-  Alternatively, you can set up an EventBridge rule to filter notifications, as
-  described in this support article, [How
-  can I be notified when an AWS resource is non-compliant using AWS
-  Config?](https://aws.amazon.com/premiumsupport/knowledge-center/config-resource-non-compliant/ "https://aws.amazon.com/premiumsupport/knowledge-center/config-resource-non-compliant/")
-- You can apply an Amazon SNS subscription filter policy to reduce the volume of
-  notifications that a subscription receives. The filter policy also applies to the
-  default Audit account email subscription. The filter policy controls which
-  messages Amazon SNS delivers to the subscription from that topic. For more information
-  about filtering messages, see [Amazon SNS message
-  filtering](../../../sns/latest/dg/sns-message-filtering.md "../../../sns/latest/dg/sns-message-filtering.md") in the _Amazon Simple Notification Service Developer
-  Guide_.
-- AWS Config notifications contain a JSON object.
-- AWS Control Tower drift notifications appear in plain text.
+**Other considerations about SNS topics:**
++ All of these topics exist and receive notifications in the Audit account.
++  By default, the Audit account email address is subscribed to the `aws-controltower-AggregateSecurityNotifications` SNS topic.
++ SNS topics in AWS Control Tower are extremely noisy, by design. For example, AWS Config sends a notification every time AWS Config discovers a new resource.
++ Administrators who wish to filter out specific types of notifications from an SNS topic can create an AWS Lambda function and subscribe it to the SNS topic. Alternatively, you can set up an EventBridge rule to filter notifications, as described in this support article, [How can I be notified when an AWS resource is non-compliant using AWS Config?](https://aws.amazon.com/premiumsupport/knowledge-center/config-resource-non-compliant/)
++ You can apply an Amazon SNS subscription filter policy to reduce the volume of notifications that a subscription receives. The filter policy also applies to the default Audit account email subscription. The filter policy controls which messages Amazon SNS delivers to the subscription from that topic. For more information about filtering messages, see [Amazon SNS message filtering](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html) in the *Amazon Simple Notification Service Developer Guide*.
++ AWS Config notifications contain a JSON object.
++ AWS Control Tower drift notifications appear in plain text.
 
 ## The AWS Config SNS topic policy
+<a name="config-sns-policy"></a>
 
 The AWS Config SNS topic policy contains the `aws:SourceOrgID` condition key. The policy is shown in the following example.
 
@@ -80,7 +53,7 @@ The AWS Config SNS topic policy contains the `aws:SourceOrgID` condition key. Th
             Principal:
               Service:
                 - cloudtrail.amazonaws.com
-                - config.amazonaws.com
+                - config.amazonaws.com            
             Condition:
               StringEquals:
                 aws:SourceOrgID: !Ref OrganizationId

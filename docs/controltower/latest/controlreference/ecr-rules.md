@@ -1,49 +1,46 @@
+
+
 # Amazon Elastic Container Registry controls
+<a name="ecr-rules"></a>
 
-###### Topics
-
-- [[CT.ECR.PR.1] Require Amazon ECR repositories to have a lifecycle policy configured](#ct-ecr-pr-1-description "#ct-ecr-pr-1-description")
-- [[CT.ECR.PR.2] Require Amazon ECR private repositories to have image scanning enabled](#ct-ecr-pr-2-description "#ct-ecr-pr-2-description")
-- [[CT.ECR.PR.3] Require Amazon ECR private repositories to have tag immutability enabled](#ct-ecr-pr-3-description "#ct-ecr-pr-3-description")
+**Topics**
++ [[CT.ECR.PR.1] Require Amazon ECR repositories to have a lifecycle policy configured](#ct-ecr-pr-1-description)
++ [[CT.ECR.PR.2] Require Amazon ECR private repositories to have image scanning enabled](#ct-ecr-pr-2-description)
++ [[CT.ECR.PR.3] Require Amazon ECR private repositories to have tag immutability enabled](#ct-ecr-pr-3-description)
 
 ## [CT.ECR.PR.1] Require Amazon ECR repositories to have a lifecycle policy configured
+<a name="ct-ecr-pr-1-description"></a>
 
 This control checks whether a private Amazon Elastic Container Registry (Amazon ECR) repository has at least one lifecycle policy configured.
-
-- **Control objective:** Manage vulnerabilities, Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECR::Repository`
-- **CloudFormation guard rule:**
-  [CT.ECR.PR.1 rule specification](#ct-ecr-pr-1-rule "#ct-ecr-pr-1-rule")
++ **Control objective: **Manage vulnerabilities, Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECR::Repository`
++ **CloudFormation guard rule: ** [CT.ECR.PR.1 rule specification](#ct-ecr-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECR.PR.1 rule specification](#ct-ecr-pr-1-rule "#ct-ecr-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECR.PR.1 example templates](#ct-ecr-pr-1-templates "#ct-ecr-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECR.PR.1 rule specification](#ct-ecr-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECR.PR.1 example templates](#ct-ecr-pr-1-templates) 
 
 **Explanation**
 
 Amazon ECR lifecycle policies specify the lifecycle management of images in a repository. By configuring lifecycle policies, you can automate the cleanup of unused images and the expiration of images, based on age or count. Automating these tasks can help you to avoid unintentionally using outdated images in your repository.
 
 ### Remediation for rule failure
+<a name="ct-ecr-pr-1-remediation"></a>
 
 Provide a `LifecyclePolicy` configuration and set `LifecyclePolicyText` to an Amazon ECR repository lifecycle policy.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECR Repository - Example
+<a name="ct-ecr-pr-1-remediation-1"></a>
 
 Amazon ECR repository configured with a lifecycle policy. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECRRepository": {
         "Type": "AWS::ECR::Repository",
@@ -54,13 +51,11 @@ Amazon ECR repository configured with a lifecycle policy. The example is shown i
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECRRepository:
   Type: AWS::ECR::Repository
   Properties:
@@ -83,33 +78,31 @@ ECRRepository:
             }
           ]
         }
-
-
 ```
 
 ### CT.ECR.PR.1 rule specification
+<a name="ct-ecr-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #    ecr_private_lifecycle_policy_configured_check
-#
+# 
 # Description:
 #   This control checks whether a private Amazon Elastic Container Registry (ECR) repository has at least one lifecycle policy configured.
-#
+# 
 # Reports on:
 #    AWS::ECR::Repository
-#
+# 
 # Evaluates:
 #    CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #    None
-#
+# 
 # Scenarios:
 #  Scenario: 1
 #    Given: The input document is an CloudFormation or CloudFormation hook document
@@ -201,18 +194,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECR.PR.1 example templates
+<a name="ct-ecr-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECRRepository:
     Type: AWS::ECR::Repository
@@ -236,60 +227,50 @@ Resources:
               }
             ]
           }
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECRRepository:
     Type: AWS::ECR::Repository
     Properties: {}
-
-
 ```
 
 ## [CT.ECR.PR.2] Require Amazon ECR private repositories to have image scanning enabled
+<a name="ct-ecr-pr-2-description"></a>
 
 This control checks whether a private Amazon Elastic Container Registry (Amazon ECR) repository has image scanning enabled.
-
-- **Control objective:** Manage vulnerabilities
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECR::Repository`
-- **CloudFormation guard rule:**
-  [CT.ECR.PR.2 rule specification](#ct-ecr-pr-2-rule "#ct-ecr-pr-2-rule")
++ **Control objective: **Manage vulnerabilities
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECR::Repository`
++ **CloudFormation guard rule: ** [CT.ECR.PR.2 rule specification](#ct-ecr-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECR.PR.2 rule specification](#ct-ecr-pr-2-rule "#ct-ecr-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECR.PR.2 example templates](#ct-ecr-pr-2-templates "#ct-ecr-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECR.PR.2 rule specification](#ct-ecr-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECR.PR.2 example templates](#ct-ecr-pr-2-templates) 
 
 **Explanation**
 
 Amazon ECR image scanning helps with identifying software vulnerabilities in your container images. Amazon ECR uses the Common Vulnerabilities and Exposures (CVEs) database from the open-source Clair project, and it provides a list of scan findings. Enabling image scanning on Amazon ECR repositories adds a layer of verification regarding the integrity and safety of the images being stored.
 
 ### Remediation for rule failure
+<a name="ct-ecr-pr-2-remediation"></a>
 
 Set `ScanOnPush` in `ImageScanningConfiguration` to `true`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECR Repository - Example
+<a name="ct-ecr-pr-2-remediation-1"></a>
 
 Amazon ECR repository with image scanning enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECRRepository": {
         "Type": "AWS::ECR::Repository",
@@ -300,45 +281,41 @@ Amazon ECR repository with image scanning enabled. The example is shown in JSON 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECRRepository:
   Type: AWS::ECR::Repository
   Properties:
     ImageScanningConfiguration:
       ScanOnPush: true
-
-
 ```
 
 ### CT.ECR.PR.2 rule specification
+<a name="ct-ecr-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecr_private_image_scanning_enabled_check
-#
+# 
 # Description:
 #   This control checks whether a private Amazon Elastic Container Registry (Amazon ECR) repository has image scanning enabled.
-#
+# 
 # Reports on:
 #   AWS::ECR::Repository
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -421,80 +398,68 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECR.PR.2 example templates
+<a name="ct-ecr-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECRRepository:
     Type: AWS::ECR::Repository
     Properties:
       ImageScanningConfiguration:
         ScanOnPush: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECRRepository:
     Type: AWS::ECR::Repository
     Properties:
       ImageScanningConfiguration:
         ScanOnPush: false
-
-
 ```
 
 ## [CT.ECR.PR.3] Require Amazon ECR private repositories to have tag immutability enabled
+<a name="ct-ecr-pr-3-description"></a>
 
 This control checks whether a private Amazon Elastic Container Registry (Amazon ECR) repository has tag immutability enabled.
-
-- **Control objective:** Protect configurations
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::ECR::Repository`
-- **CloudFormation guard rule:**
-  [CT.ECR.PR.3 rule specification](#ct-ecr-pr-3-rule "#ct-ecr-pr-3-rule")
++ **Control objective: **Protect configurations
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::ECR::Repository`
++ **CloudFormation guard rule: ** [CT.ECR.PR.3 rule specification](#ct-ecr-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ECR.PR.3 rule specification](#ct-ecr-pr-3-rule "#ct-ecr-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ECR.PR.3 example templates](#ct-ecr-pr-3-templates "#ct-ecr-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ECR.PR.3 rule specification](#ct-ecr-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ECR.PR.3 example templates](#ct-ecr-pr-3-templates) 
 
 **Explanation**
 
 Amazon ECR tag immutability enables customers to rely on the descriptive tags of an image as a reliable mechanism that tracks and uniquely identifies images. An immutable tag is static, which means that each tag refers to a unique image. This tagging improves reliability and scalability, because the use of a static tag always results in the same image being deployed. When configured, tag immutability prevents the tags from being overridden, which reduces the attack surface.
 
 ### Remediation for rule failure
+<a name="ct-ecr-pr-3-remediation"></a>
 
 Set `ImageTagMutability` to `IMMUTABLE`.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon ECR Repository - Example
+<a name="ct-ecr-pr-3-remediation-1"></a>
 
 Amazon ECR repository configured with immutable tags. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "ECRRepository": {
         "Type": "AWS::ECR::Repository",
@@ -503,44 +468,40 @@ Amazon ECR repository configured with immutable tags. The example is shown in JS
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 ECRRepository:
   Type: AWS::ECR::Repository
   Properties:
     ImageTagMutability: IMMUTABLE
-
-
 ```
 
 ### CT.ECR.PR.3 rule specification
+<a name="ct-ecr-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   ecr_private_tag_immutability_enabled_check
-#
+# 
 # Description:
 #   This control checks whether a private Amazon Elastic Container Registry (Amazon ECR) repository has tag immutability enabled.
-#
+# 
 # Reports on:
 #   AWS::ECR::Repository
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -617,36 +578,29 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.ECR.PR.3 example templates
+<a name="ct-ecr-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   ECRRepository:
     Type: AWS::ECR::Repository
     Properties:
       ImageTagMutability: IMMUTABLE
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   ECRRepository:
     Type: AWS::ECR::Repository
     Properties:
       ImageTagMutability: MUTABLE
-
-
 ```

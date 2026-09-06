@@ -1,60 +1,56 @@
+
+
 # AWS Key Management Service (AWS KMS) controls
+<a name="kms-rules"></a>
 
-###### Topics
-
-- [[CT.KMS.PR.1] Require any AWS KMS key to have rotation configured](#ct-kms-pr-1-description "#ct-kms-pr-1-description")
-- [[CT.KMS.PR.2] Require that an AWS Key Management Service asymmetric key with RSA key material used for encryption has a key length greater than 2048 bits](#ct-kms-pr-2-description "#ct-kms-pr-2-description")
-- [[CT.KMS.PR.3] Require an AWS Key Management Service key policy to have a statement that limits creation of AWS KMS grants to AWS services](#ct-kms-pr-3-description "#ct-kms-pr-3-description")
+**Topics**
++ [[CT.KMS.PR.1] Require any AWS KMS key to have rotation configured](#ct-kms-pr-1-description)
++ [[CT.KMS.PR.2] Require that an AWS Key Management Service asymmetric key with RSA key material used for encryption has a key length greater than 2048 bits](#ct-kms-pr-2-description)
++ [[CT.KMS.PR.3] Require an AWS Key Management Service key policy to have a statement that limits creation of AWS KMS grants to AWS services](#ct-kms-pr-3-description)
 
 ## [CT.KMS.PR.1] Require any AWS KMS key to have rotation configured
+<a name="ct-kms-pr-1-description"></a>
 
 This control checks whether key rotation is enabled for AWS KMS customer managed keys.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation Guard Rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::KMS::Key`
-- **CloudFormation guard rule:**
-  [CT.KMS.PR.1 rule specification](#ct-kms-pr-1-rule "#ct-kms-pr-1-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation Guard Rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::KMS::Key`
++ **CloudFormation guard rule: ** [CT.KMS.PR.1 rule specification](#ct-kms-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.KMS.PR.1 rule specification](#ct-kms-pr-1-rule "#ct-kms-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.KMS.PR.1 example templates](#ct-kms-pr-1-templates "#ct-kms-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.KMS.PR.1 rule specification](#ct-kms-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.KMS.PR.1 example templates](#ct-kms-pr-1-templates) 
 
 **Explanation**
 
 Key rotation minimizes the possibility of key exposure to malicious users. Cryptographic best practices discourage extensive reuse of encryption keys. Rotation of keys on regular basis helps you meet organizational security and compliance requirements.
 
-###### Usage considerations
-
-- This control applies only to AWS KMS symmetric-encryption, customer managed keys.
+**Usage considerations**  
+This control applies only to AWS KMS symmetric-encryption, customer managed keys.
 
 ### Remediation for rule failure
+<a name="ct-kms-pr-1-remediation"></a>
 
 Set `EnableKeyRotation` to `true` for AWS KMS symmetric-encryption keys.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS KMS key - Example
+<a name="ct-kms-pr-1-remediation-1"></a>
 
 AWS KMS customer managed key configured with key rotation activated. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "KMSKey": {
         "Type": "AWS::KMS::Key",
         "Properties": {
             "PendingWindowInDays": 7,
             "KeyPolicy": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Id": "sample-policy",
                 "Statement": [
                     {
@@ -74,19 +70,17 @@ AWS KMS customer managed key configured with key rotation activated. The example
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 KMSKey:
   Type: AWS::KMS::Key
   Properties:
     PendingWindowInDays: 7
     KeyPolicy:
-      Version: 2012-10-17
+      Version: 2012-10-17		 	 	 
       Id: sample-policy
       Statement:
         - Sid: Enable IAM User Permissions
@@ -96,33 +90,31 @@ KMSKey:
           Action: kms:*
           Resource: '*'
     EnableKeyRotation: true
-
-
 ```
 
 ### CT.KMS.PR.1 rule specification
+<a name="ct-kms-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   kms_key_rotation_enabled_check
-#
+# 
 # Description:
 #   This control checks whether key rotation is enabled for AWS KMS customer managed keys.
-#
+# 
 # Reports on:
 #   AWS::KMS::Key
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -217,25 +209,23 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.KMS.PR.1 example templates
+<a name="ct-kms-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Key:
     Type: AWS::KMS::Key
     Properties:
       PendingWindowInDays: 7
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -246,21 +236,18 @@ Resources:
           Action: kms:*
           Resource: '*'
       EnableKeyRotation: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Key:
     Type: AWS::KMS::Key
     Properties:
       PendingWindowInDays: 7
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -271,61 +258,50 @@ Resources:
           Action: kms:*
           Resource: '*'
       EnableKeyRotation: false
-
-
 ```
 
 ## [CT.KMS.PR.2] Require that an AWS Key Management Service asymmetric key with RSA key material used for encryption has a key length greater than 2048 bits
+<a name="ct-kms-pr-2-description"></a>
 
 This control checks whether an AWS KMS asymmetric key with RSA key material, which is used for encryption and decryption, to use a key spec with a key length greater than 2048 bits (that is, a key spec other than `RSA_2048`).
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::KMS::Key`
-- **CloudFormation guard rule:**
-  [CT.KMS.PR.2 rule specification](#ct-kms-pr-2-rule "#ct-kms-pr-2-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::KMS::Key`
++ **CloudFormation guard rule: ** [CT.KMS.PR.2 rule specification](#ct-kms-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.KMS.PR.2 rule specification](#ct-kms-pr-2-rule "#ct-kms-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.KMS.PR.2 example templates](#ct-kms-pr-2-templates "#ct-kms-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.KMS.PR.2 rule specification](#ct-kms-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.KMS.PR.2 example templates](#ct-kms-pr-2-templates) 
 
 **Explanation**
 
-AWS Control Tower recommends using an RSA key spec with a key length greater than 2048 bits, when you are using such keys for encryption and decryption. The key spec determines whether the KMS key is symmetric or asymmetric.
-It also determines the type of key material, and the algorithms it supports. AWS KMS supports asymmetric KMS keys that represent a mathematically-related RSA or elliptic curve (ECC)
-public and private key pair. A KMS key with an RSA key pair can be used for encryption and decryption, or for signing and verification (but not both). AWS KMS supports several key
-lengths for different security requirements.
+AWS Control Tower recommends using an RSA key spec with a key length greater than 2048 bits, when you are using such keys for encryption and decryption. The key spec determines whether the KMS key is symmetric or asymmetric. It also determines the type of key material, and the algorithms it supports. AWS KMS supports asymmetric KMS keys that represent a mathematically-related RSA or elliptic curve (ECC) public and private key pair. A KMS key with an RSA key pair can be used for encryption and decryption, or for signing and verification (but not both). AWS KMS supports several key lengths for different security requirements.
 
-###### Usage considerations
-
-- This control applies only to a KMS key with an RSA key spec, which is configured for encryption and decryption.
+**Usage considerations**  
+This control applies only to a KMS key with an RSA key spec, which is configured for encryption and decryption.
 
 ### Remediation for rule failure
+<a name="ct-kms-pr-2-remediation"></a>
 
 For KMS keys with an RSA keyspec, which are configured for encryption and decryption (`KeyUsage` of `ENCRYPT_DECRYPT`), set the `KeySpec` parameter to a key spec other than `RSA_2048`.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS KMS key - Example
+<a name="ct-kms-pr-2-remediation-1"></a>
 
 An AWS KMS asymmetric key configured for encryption and decryption, with an `RSA_4096` key spec. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Key": {
         "Type": "AWS::KMS::Key",
         "Properties": {
             "KeyPolicy": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Id": "example-policy",
                 "Statement": [
                     {
@@ -346,18 +322,16 @@ An AWS KMS asymmetric key configured for encryption and decryption, with an `RSA
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Key:
   Type: AWS::KMS::Key
   Properties:
     KeyPolicy:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Id: example-policy
       Statement:
         - Sid: Enable IAM User Permissions
@@ -368,33 +342,31 @@ Key:
           Resource: '*'
     KeyUsage: ENCRYPT_DECRYPT
     KeySpec: RSA_4096
-
-
 ```
 
 ### CT.KMS.PR.2 rule specification
+<a name="ct-kms-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Name:
 #   kms_asymmetric_rsa_keyspec_check
-#
+# 
 # Description:
 #   This control checks whether an AWS KMS asymmetric key with RSA key material, which is used for encryption and decryption, to use a key spec with a key length greater than 2048 bits (that is, a key spec other than 'RSA_2048').
-#
+# 
 # Reports on:
 #   AWS::KMS::Key
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -498,24 +470,22 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.KMS.PR.2 example templates
+<a name="ct-kms-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Key:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -527,20 +497,17 @@ Resources:
           Resource: '*'
       KeyUsage: ENCRYPT_DECRYPT
       KeySpec: RSA_4096
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Key:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -552,30 +519,21 @@ Resources:
           Resource: '*'
       KeyUsage: ENCRYPT_DECRYPT
       KeySpec: RSA_2048
-
-
 ```
 
 ## [CT.KMS.PR.3] Require an AWS Key Management Service key policy to have a statement that limits creation of AWS KMS grants to AWS services
+<a name="ct-kms-pr-3-description"></a>
 
-This control checks whether an AWS KMS key has an associated key policy statement that limits creation of
-AWS KMS grants to AWS services only.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::KMS::Key`
-- **CloudFormation guard rule:**
-  [CT.KMS.PR.3 rule specification](#ct-kms-pr-3-rule "#ct-kms-pr-3-rule")
+This control checks whether an AWS KMS key has an associated key policy statement that limits creation of AWS KMS grants to AWS services only.
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::KMS::Key`
++ **CloudFormation guard rule: ** [CT.KMS.PR.3 rule specification](#ct-kms-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.KMS.PR.3 rule specification](#ct-kms-pr-3-rule "#ct-kms-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.KMS.PR.3 example templates](#ct-kms-pr-3-templates "#ct-kms-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.KMS.PR.3 rule specification](#ct-kms-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.KMS.PR.3 example templates](#ct-kms-pr-3-templates) 
 
 **Explanation**
 
@@ -583,26 +541,24 @@ Users with permission to create grants for a KMS key (`kms:CreateGrant`) can use
 
 By denying creation of AWS KMS grants unless the request originates from an AWS service, you prevent grants from being assigned directly to principals other than AWS service principals, and you reduce the opportunities for grant misuse. The `kms:GrantIsForAWSResource` condition helps check whether the `CreateGrant` operation is being called by an AWS service integrated with AWS KMS, on behalf of another principal. The `aws:PrincipalIsAWSService` condition helps check whether the `CreateGrant` operation is being called directly by an AWS service principal.
 
-###### Usage considerations
-
-- If you must use additional conditions on your grants, or if you must issue AWS KMS grants directly to your IAM principals for a customer-managed key, **do not** enable this control.
-  This control requires a policy statement that denies the creation of AWS KMS grants for your customer-managed KMS keys, if the request does not originate from an AWS service that's integrated with AWS KMS,
-  or from an AWS service principal.
+**Usage considerations**  
+If you must use additional conditions on your grants, or if you must issue AWS KMS grants directly to your IAM principals for a customer-managed key, **do not** enable this control. This control requires a policy statement that denies the creation of AWS KMS grants for your customer-managed KMS keys, if the request does not originate from an AWS service that's integrated with AWS KMS, or from an AWS service principal. 
 
 ### Remediation for rule failure
+<a name="ct-kms-pr-3-remediation"></a>
 
 Configure an AWS KMS policy statement that denies access to the `kms:CreateGrant` operation for all principals when the `kms:GrantIsForAWSResource` and `aws:PrincipalIsAWSService` conditions are both false, using the `BoolIfExists` condition operator.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS KMS key - Example
+<a name="ct-kms-pr-3-remediation-1"></a>
 
 An AWS KMS key, configured to deny creation of AWS KMS grants where the `CreateGrant` request does not originate from an AWS service principal. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "Key": {
         "Type": "AWS::KMS::Key",
@@ -610,7 +566,7 @@ An AWS KMS key, configured to deny creation of AWS KMS grants where the `CreateG
             "KeyUsage": "ENCRYPT_DECRYPT",
             "KeySpec": "SYMMETRIC_DEFAULT",
             "KeyPolicy": {
-                "Version": "2012-10-17",
+                "Version": "2012-10-17",		 	 	 
                 "Id": "sample-policy",
                 "Statement": [
                     {
@@ -641,20 +597,18 @@ An AWS KMS key, configured to deny creation of AWS KMS grants where the `CreateG
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 Key:
   Type: AWS::KMS::Key
   Properties:
     KeyUsage: ENCRYPT_DECRYPT
     KeySpec: SYMMETRIC_DEFAULT
     KeyPolicy:
-      Version: '2012-10-17'
+      Version: '2012-10-17		 	 	 '
       Id: sample-policy
       Statement:
         - Sid: Enable IAM User Permissions
@@ -671,33 +625,31 @@ Key:
             BoolIfExists:
               kms:GrantIsForAWSResource: 'false'
               aws:PrincipalIsAWSService: 'false'
-
-
 ```
 
 ### CT.KMS.PR.3 rule specification
+<a name="ct-kms-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Name:
 #   kms_create_grant_aws_service_check
-#
+# 
 # Description:
 #   This control checks whether an AWS KMS key has an associated key policy statement that limits creation of AWS KMS grants to AWS services only.
-#
+# 
 # Reports on:
 #   AWS::KMS::Key
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -849,18 +801,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.KMS.PR.3 example templates
+<a name="ct-kms-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Key:
     Type: AWS::KMS::Key
@@ -868,7 +818,7 @@ Resources:
       KeyUsage: ENCRYPT_DECRYPT
       KeySpec: SYMMETRIC_DEFAULT
       KeyPolicy:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -886,14 +836,11 @@ Resources:
             BoolIfExists:
               kms:GrantIsForAWSResource: 'false'
               aws:PrincipalIsAWSService: 'false'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   Key:
     Type: AWS::KMS::Key
@@ -901,7 +848,7 @@ Resources:
       KeyUsage: ENCRYPT_DECRYPT
       KeySpec: SYMMETRIC_DEFAULT
       KeyPolicy:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Id: example-policy
         Statement:
         - Sid: Enable IAM User Permissions
@@ -911,6 +858,4 @@ Resources:
               Fn::Sub: arn:${AWS::Partition}:iam::${AWS::AccountId}:root
           Action: kms:*
           Resource: '*'
-
-
 ```

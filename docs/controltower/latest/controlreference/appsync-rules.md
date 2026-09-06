@@ -1,51 +1,48 @@
+
+
 # AWS AppSync controls
+<a name="appsync-rules"></a>
 
-###### Topics
-
-- [[CT.APPSYNC.PR.1] Require an AWS AppSync GraphQL API to have logging enabled](#ct-appsync-pr-1-description "#ct-appsync-pr-1-description")
-- [[CT.APPSYNC.PR.2] Require an AWS AppSync GraphQL API to be configured with private visibility](#ct-appsync-pr-2-description "#ct-appsync-pr-2-description")
-- [[CT.APPSYNC.PR.3] Require that an AWS AppSync GraphQL API is not authenticated with API keys](#ct-appsync-pr-3-description "#ct-appsync-pr-3-description")
-- [[CT.APPSYNC.PR.4] Require an AWS AppSync GraphQL API cache to have encryption in transit enabled.](#ct-appsync-pr-4-description "#ct-appsync-pr-4-description")
-- [[CT.APPSYNC.PR.5] Require an AWS AppSync GraphQL API cache to have encryption at rest enabled.](#ct-appsync-pr-5-description "#ct-appsync-pr-5-description")
+**Topics**
++ [[CT.APPSYNC.PR.1] Require an AWS AppSync GraphQL API to have logging enabled](#ct-appsync-pr-1-description)
++ [[CT.APPSYNC.PR.2] Require an AWS AppSync GraphQL API to be configured with private visibility](#ct-appsync-pr-2-description)
++ [[CT.APPSYNC.PR.3] Require that an AWS AppSync GraphQL API is not authenticated with API keys](#ct-appsync-pr-3-description)
++ [[CT.APPSYNC.PR.4] Require an AWS AppSync GraphQL API cache to have encryption in transit enabled.](#ct-appsync-pr-4-description)
++ [[CT.APPSYNC.PR.5] Require an AWS AppSync GraphQL API cache to have encryption at rest enabled.](#ct-appsync-pr-5-description)
 
 ## [CT.APPSYNC.PR.1] Require an AWS AppSync GraphQL API to have logging enabled
+<a name="ct-appsync-pr-1-description"></a>
 
 This control checks whether an AWS AppSync GraphQL API has been configured to send request-level and field-level logs to Amazon CloudWatch Logs.
-
-- **Control objective:** Establish logging and monitoring
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::AppSync::GraphQLApi`
-- **CloudFormation guard rule:**
-  [CT.APPSYNC.PR.1 rule specification](#ct-appsync-pr-1-rule "#ct-appsync-pr-1-rule")
++ **Control objective: **Establish logging and monitoring
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::AppSync::GraphQLApi`
++ **CloudFormation guard rule: ** [CT.APPSYNC.PR.1 rule specification](#ct-appsync-pr-1-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APPSYNC.PR.1 rule specification](#ct-appsync-pr-1-rule "#ct-appsync-pr-1-rule")
-- For examples of PASS and FAIL CloudFormation templates related to
-  this control, see:
-  [CT.APPSYNC.PR.1 example templates](#ct-appsync-pr-1-templates "#ct-appsync-pr-1-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APPSYNC.PR.1 rule specification](#ct-appsync-pr-1-rule) 
++ For examples of PASS and FAIL CloudFormation templates related to this control, see: [CT.APPSYNC.PR.1 example templates](#ct-appsync-pr-1-templates) 
 
 **Explanation**
 
 AppSync logs are useful for debugging issues related to requests.
 
 ### Remediation for rule failure
+<a name="ct-appsync-pr-1-remediation"></a>
 
 Within `LogConfig`, set `FieldLogLevel` to `ERROR`, `INFO`, `DEBUG`, or `ALL` and set `CloudWatchLogsRoleArn` to the ARN of an AWS IAM role configured to allow AWS AppSync to send logs to Amazon CloudWatch Logs.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS AppSync GraphQL API - Example
+<a name="ct-appsync-pr-1-remediation-1"></a>
 
 An AWS AppSync GraphQL API configured to send GraphQL operations and tracing to Amazon CloudWatch Logs. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "GraphQLApi": {
         "Type": "AWS::AppSync::GraphQLApi",
@@ -64,13 +61,11 @@ An AWS AppSync GraphQL API configured to send GraphQL operations and tracing to 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 GraphQLApi:
   Type: AWS::AppSync::GraphQLApi
   Properties:
@@ -79,33 +74,31 @@ GraphQLApi:
     LogConfig:
       FieldLogLevel: ALL
       CloudWatchLogsRoleArn: !GetAtt 'AppSyncLoggingRole.Arn'
-
-
 ```
 
 ### CT.APPSYNC.PR.1 rule specification
+<a name="ct-appsync-pr-1-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   appsync_logging_enabled_check
-#
+# 
 # Description:
 #   This control checks whether an AWS AppSync GraphQL API has been configured to send request-level and field-level logs to Amazon CloudWatch Logs.
-#
+# 
 # Reports on:
 #   AWS::AppSync::GraphQLApi
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -244,18 +237,16 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.APPSYNC.PR.1 example templates
+<a name="ct-appsync-pr-1-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -273,7 +264,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -285,7 +276,7 @@ Resources:
       Policies:
       - PolicyName: AppSyncLoggingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -293,14 +284,11 @@ Resources:
             - logs:CreateLogStream
             - logs:PutLogEvents
             Resource: '*'
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -318,7 +306,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -330,7 +318,7 @@ Resources:
       Policies:
       - PolicyName: AppSyncLoggingPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Effect: Allow
             Action:
@@ -338,56 +326,44 @@ Resources:
             - logs:CreateLogStream
             - logs:PutLogEvents
             Resource: '*'
-
-
 ```
 
 ## [CT.APPSYNC.PR.2] Require an AWS AppSync GraphQL API to be configured with private visibility
+<a name="ct-appsync-pr-2-description"></a>
 
 This control checks whether an AWS AppSync GraphQL API has been configured with private visibility.
-
-- **Control objective:** Limit network access
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::AppSync::GraphQLApi`
-- **CloudFormation guard rule:**
-  [CT.APPSYNC.PR.2 rule specification](#ct-appsync-pr-2-rule "#ct-appsync-pr-2-rule")
++ **Control objective: **Limit network access
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::AppSync::GraphQLApi`
++ **CloudFormation guard rule: ** [CT.APPSYNC.PR.2 rule specification](#ct-appsync-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APPSYNC.PR.2 rule specification](#ct-appsync-pr-2-rule "#ct-appsync-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APPSYNC.PR.2 example templates](#ct-appsync-pr-2-templates "#ct-appsync-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APPSYNC.PR.2 rule specification](#ct-appsync-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APPSYNC.PR.2 example templates](#ct-appsync-pr-2-templates) 
 
 **Explanation**
 
-If you use Amazon Virtual Private Cloud (Amazon VPC), you can create AWS AppSync Private APIs, which are APIs that are accessible only from a Amazon VPC.
-With a Private API, you can restrict API access to your internal applications and connect to your GraphQL and Realtime endpoints without
-exposing data publicly.
+If you use Amazon Virtual Private Cloud (Amazon VPC), you can create AWS AppSync Private APIs, which are APIs that are accessible only from a Amazon VPC. With a Private API, you can restrict API access to your internal applications and connect to your GraphQL and Realtime endpoints without exposing data publicly.
 
-###### Usage considerations
-
-- This control requires AWS AppSync GraphQL APIs to be configured with private API features, so that they are accessible
-  only from a Amazon VPC. If you require your AWS AppSync GraphQL APIs to be accessible from an AWS AppSync public endpoint,
-  do not enable this control.
+**Usage considerations**  
+This control requires AWS AppSync GraphQL APIs to be configured with private API features, so that they are accessible only from a Amazon VPC. If you require your AWS AppSync GraphQL APIs to be accessible from an AWS AppSync public endpoint, do not enable this control.
 
 ### Remediation for rule failure
+<a name="ct-appsync-pr-2-remediation"></a>
 
 Set the Visibility property to PRIVATE.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS AppSync Private API - Example
+<a name="ct-appsync-pr-2-remediation-1"></a>
 
 An AWS AppSync GraphQL API configured with private visibility. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "GraphQLApi": {
         "Type": "AWS::AppSync::GraphQLApi",
@@ -398,46 +374,42 @@ An AWS AppSync GraphQL API configured with private visibility. The example is sh
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 GraphQLApi:
   Type: AWS::AppSync::GraphQLApi
   Properties:
     Name: SampleApi
     AuthenticationType: AWS_IAM
     Visibility: PRIVATE
-
-
 ```
 
 ### CT.APPSYNC.PR.2 rule specification
+<a name="ct-appsync-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   appsync_api_private_visibility_check
-#
+# 
 # Description:
 #   This control checks whether an AWS AppSync GraphQL API has been configured with private visibility.
-#
+# 
 # Reports on:
 #   AWS::AppSync::GraphQLApi
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -516,18 +488,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.APPSYNC.PR.2 example templates
+<a name="ct-appsync-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -536,14 +506,11 @@ Resources:
         Fn::Sub: ${AWS::StackName}-example
       AuthenticationType: AWS_IAM
       Visibility: PRIVATE
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -552,51 +519,41 @@ Resources:
         Fn::Sub: ${AWS::StackName}-example
       AuthenticationType: AWS_IAM
       Visibility: GLOBAL
-
-
 ```
 
 ## [CT.APPSYNC.PR.3] Require that an AWS AppSync GraphQL API is not authenticated with API keys
+<a name="ct-appsync-pr-3-description"></a>
 
 This control checks that an AWS AppSync GraphQL API has been configured with an authentication type other than API\_KEY authentication.
-
-- **Control objective:** Enforce least privilege
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::AppSync::GraphQLApi`
-- **CloudFormation guard rule:**
-  [CT.APPSYNC.PR.3 rule specification](#ct-appsync-pr-3-rule "#ct-appsync-pr-3-rule")
++ **Control objective: **Enforce least privilege
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::AppSync::GraphQLApi`
++ **CloudFormation guard rule: ** [CT.APPSYNC.PR.3 rule specification](#ct-appsync-pr-3-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APPSYNC.PR.3 rule specification](#ct-appsync-pr-3-rule "#ct-appsync-pr-3-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APPSYNC.PR.3 example templates](#ct-appsync-pr-3-templates "#ct-appsync-pr-3-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APPSYNC.PR.3 rule specification](#ct-appsync-pr-3-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APPSYNC.PR.3 example templates](#ct-appsync-pr-3-templates) 
 
 **Explanation**
 
-One way to control throttling for unauthenticated GraphQL endpoints is through the use of API keys.
-API keys are recommended only for development purposes, or in scenarios where it is safe to expose a public API.
-If static API keys are stolen, an API can become vulnerable to replay attacks.
+One way to control throttling for unauthenticated GraphQL endpoints is through the use of API keys. API keys are recommended only for development purposes, or in scenarios where it is safe to expose a public API. If static API keys are stolen, an API can become vulnerable to replay attacks.
 
 ### Remediation for rule failure
+<a name="ct-appsync-pr-3-remediation"></a>
 
 Set the AuthenticationType property to a value other than API\_KEY, and ensure no entry in the AdditionalAuthenticationProviders property has an AuthenticationType value of API\_KEY.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS AppSync GraphQL API - Example
+<a name="ct-appsync-pr-3-remediation-1"></a>
 
-An AWS AppSync GraphQL API configured with IAM authorization. The example is shown in JSON and
-in YAML.
+An AWS AppSync GraphQL API configured with IAM authorization. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "GraphQLApi": {
         "Type": "AWS::AppSync::GraphQLApi",
@@ -606,45 +563,41 @@ in YAML.
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 GraphQLApi:
   Type: AWS::AppSync::GraphQLApi
   Properties:
     Name: SampleApi
     AuthenticationType: AWS_IAM
-
-
 ```
 
 ### CT.APPSYNC.PR.3 rule specification
+<a name="ct-appsync-pr-3-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   appsync_authorization_check
-#
+# 
 # Description:
 #   This control checks that an AWS AppSync GraphQL API has been configured with an authentication type other than API_KEY authentication.
-#
+# 
 # Reports on:
 #   AWS::AppSync::GraphQLApi
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -755,18 +708,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.APPSYNC.PR.3 example templates
+<a name="ct-appsync-pr-3-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -774,14 +725,11 @@ Resources:
       Name:
         Fn::Sub: ${AWS::StackName}-example
       AuthenticationType: AWS_IAM
-
-
 ```
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -793,14 +741,11 @@ Resources:
       - AuthenticationType: OPENID_CONNECT
         OpenIDConnectConfig:
           Issuer: https://example.com/
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -808,50 +753,41 @@ Resources:
       Name:
         Fn::Sub: ${AWS::StackName}-example
       AuthenticationType: API_KEY
-
-
 ```
 
 ## [CT.APPSYNC.PR.4] Require an AWS AppSync GraphQL API cache to have encryption in transit enabled.
+<a name="ct-appsync-pr-4-description"></a>
 
 This control checks whether an AWS AppSync API cache has encryption in transit enabled.
-
-- **Control objective:** Encrypt data in transit
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::AppSync::ApiCache`
-- **CloudFormation guard rule:**
-  [CT.APPSYNC.PR.4 rule specification](#ct-appsync-pr-4-rule "#ct-appsync-pr-4-rule")
++ **Control objective: **Encrypt data in transit
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::AppSync::ApiCache`
++ **CloudFormation guard rule: ** [CT.APPSYNC.PR.4 rule specification](#ct-appsync-pr-4-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APPSYNC.PR.4 rule specification](#ct-appsync-pr-4-rule "#ct-appsync-pr-4-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APPSYNC.PR.4 example templates](#ct-appsync-pr-4-templates "#ct-appsync-pr-4-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APPSYNC.PR.4 rule specification](#ct-appsync-pr-4-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APPSYNC.PR.4 example templates](#ct-appsync-pr-4-templates) 
 
 **Explanation**
 
-Enabling this feature ensures that requests between AWS AppSync, the cache, and the data sources (except insecure HTTP data sources)
-are encrypted at the network level. Because some processing is needed to encrypt and decrypt the data at the endpoints,
-in-transit encryption can affect performance.
+Enabling this feature ensures that requests between AWS AppSync, the cache, and the data sources (except insecure HTTP data sources) are encrypted at the network level. Because some processing is needed to encrypt and decrypt the data at the endpoints, in-transit encryption can affect performance.
 
 ### Remediation for rule failure
+<a name="ct-appsync-pr-4-remediation"></a>
 
 Set the value of the TransitEncryptionEnabled property to true.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS AppSync GraphQL API Cache - Example
+<a name="ct-appsync-pr-4-remediation-1"></a>
 
 An AWS AppSync GraphQL API cache configured with encryption in transit enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "GraphQLApiCache": {
         "Type": "AWS::AppSync::ApiCache",
@@ -866,13 +802,11 @@ An AWS AppSync GraphQL API cache configured with encryption in transit enabled. 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 GraphQLApiCache:
   Type: AWS::AppSync::ApiCache
   Properties:
@@ -881,33 +815,31 @@ GraphQLApiCache:
     ApiCachingBehavior: FULL_REQUEST_CACHING
     Ttl: 1200
     TransitEncryptionEnabled: true
-
-
 ```
 
 ### CT.APPSYNC.PR.4 rule specification
+<a name="ct-appsync-pr-4-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   appsync_cache_encryption_in_transit_check
-#
+# 
 # Description:
 #   This control checks whether an AWS AppSync API cache has encryption in transit enabled.
-#
+# 
 # Reports on:
 #   AWS::AppSync::ApiCache
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -985,18 +917,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.APPSYNC.PR.4 example templates
+<a name="ct-appsync-pr-4-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -1013,14 +943,11 @@ Resources:
       ApiCachingBehavior: FULL_REQUEST_CACHING
       Ttl: 1200
       TransitEncryptionEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -1037,49 +964,41 @@ Resources:
       ApiCachingBehavior: FULL_REQUEST_CACHING
       Ttl: 1200
       TransitEncryptionEnabled: false
-
-
 ```
 
 ## [CT.APPSYNC.PR.5] Require an AWS AppSync GraphQL API cache to have encryption at rest enabled.
+<a name="ct-appsync-pr-5-description"></a>
 
 This control checks whether an AWS AppSync API cache has encryption at rest enabled.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::AppSync::ApiCache`
-- **CloudFormation guard rule:**
-  [CT.APPSYNC.PR.5 rule specification](#ct-appsync-pr-5-rule "#ct-appsync-pr-5-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::AppSync::ApiCache`
++ **CloudFormation guard rule: ** [CT.APPSYNC.PR.5 rule specification](#ct-appsync-pr-5-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.APPSYNC.PR.5 rule specification](#ct-appsync-pr-5-rule "#ct-appsync-pr-5-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.APPSYNC.PR.5 example templates](#ct-appsync-pr-5-templates "#ct-appsync-pr-5-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.APPSYNC.PR.5 rule specification](#ct-appsync-pr-5-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.APPSYNC.PR.5 example templates](#ct-appsync-pr-5-templates) 
 
 **Explanation**
 
-Data saved to disk from memory during swap operations is encrypted at the cache instance. Protecting data at rest is an important
-security best practice. It can mitigate the risk associated with unintended data exposure.
+Data saved to disk from memory during swap operations is encrypted at the cache instance. Protecting data at rest is an important security best practice. It can mitigate the risk associated with unintended data exposure.
 
 ### Remediation for rule failure
+<a name="ct-appsync-pr-5-remediation"></a>
 
 Set the value of the AtRestEncryptionEnabled property to true.
 
 The examples that follow show how to implement this remediation.
 
 #### AWS AppSync GraphQL API Cache - Example
+<a name="ct-appsync-pr-5-remediation-1"></a>
 
 An AWS AppSync GraphQL API cache configured with encryption at rest enabled. The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "GraphQLApiCache": {
         "Type": "AWS::AppSync::ApiCache",
@@ -1094,13 +1013,11 @@ An AWS AppSync GraphQL API cache configured with encryption at rest enabled. The
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 GraphQLApiCache:
   Type: AWS::AppSync::ApiCache
   Properties:
@@ -1109,33 +1026,31 @@ GraphQLApiCache:
     ApiCachingBehavior: FULL_REQUEST_CACHING
     Ttl: 1200
     AtRestEncryptionEnabled: true
-
-
 ```
 
 ### CT.APPSYNC.PR.5 rule specification
+<a name="ct-appsync-pr-5-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   appsync_cache_encryption_at_rest_check
-#
+# 
 # Description:
 #   This control checks whether an AWS AppSync API cache has encryption at rest enabled.
-#
+# 
 # Reports on:
 #   AWS::AppSync::ApiCache
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -1213,18 +1128,16 @@ rule is_cfn_template(doc) {
 rule is_cfn_hook(doc, RESOURCE_TYPE) {
     %doc.%RESOURCE_TYPE.resourceProperties exists
 }
-
-
 ```
 
 ### CT.APPSYNC.PR.5 example templates
+<a name="ct-appsync-pr-5-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -1241,14 +1154,11 @@ Resources:
       ApiCachingBehavior: FULL_REQUEST_CACHING
       Ttl: 1200
       AtRestEncryptionEnabled: true
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   GraphQLApi:
     Type: AWS::AppSync::GraphQLApi
@@ -1265,6 +1175,4 @@ Resources:
       ApiCachingBehavior: FULL_REQUEST_CACHING
       Ttl: 1200
       AtRestEncryptionEnabled: false
-
-
 ```

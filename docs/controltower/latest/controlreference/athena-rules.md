@@ -1,51 +1,47 @@
+
+
 # Amazon Athena controls
+<a name="athena-rules"></a>
 
-###### Topics
-
-- [[CT.ATHENA.PR.2] Require an Amazon Athena workgroup to encrypt Athena query results at rest with an AWS Key Management Service (KMS) key](#ct-athena-pr-2-description "#ct-athena-pr-2-description")
+**Topics**
++ [[CT.ATHENA.PR.2] Require an Amazon Athena workgroup to encrypt Athena query results at rest with an AWS Key Management Service (KMS) key](#ct-athena-pr-2-description)
 
 ## [CT.ATHENA.PR.2] Require an Amazon Athena workgroup to encrypt Athena query results at rest with an AWS Key Management Service (KMS) key
+<a name="ct-athena-pr-2-description"></a>
 
 This control checks whether an Amazon Athena workgroup is configured to encrypt query results at rest with an AWS KMS key.
-
-- **Control objective:** Encrypt data at rest
-- **Implementation:** CloudFormation guard rule
-- **Control behavior:** Proactive
-- **Resource types:** `AWS::Athena::WorkGroup`
-- **CloudFormation guard rule:**
-  [CT.ATHENA.PR.2 rule specification](#ct-athena-pr-2-rule "#ct-athena-pr-2-rule")
++ **Control objective: **Encrypt data at rest
++ **Implementation: **CloudFormation guard rule
++ **Control behavior: **Proactive
++ **Resource types: **`AWS::Athena::WorkGroup`
++ **CloudFormation guard rule: ** [CT.ATHENA.PR.2 rule specification](#ct-athena-pr-2-rule) 
 
 **Details and examples**
-
-- For details about the PASS, FAIL, and SKIP behaviors associated with
-  this control, see the:
-  [CT.ATHENA.PR.2 rule specification](#ct-athena-pr-2-rule "#ct-athena-pr-2-rule")
-- For examples of PASS and FAIL CloudFormation Templates related to
-  this control, see:
-  [CT.ATHENA.PR.2 example templates](#ct-athena-pr-2-templates "#ct-athena-pr-2-templates")
++ For details about the PASS, FAIL, and SKIP behaviors associated with this control, see the: [CT.ATHENA.PR.2 rule specification](#ct-athena-pr-2-rule) 
++ For examples of PASS and FAIL CloudFormation Templates related to this control, see: [CT.ATHENA.PR.2 example templates](#ct-athena-pr-2-templates) 
 
 **Explanation**
 
 For an added layer of security, you can encrypt the results of Athena queries in the workgroup with AWS Key Management Service (KMS).
 
-###### Usage considerations
-
-- This control requires an Athena workgroup to override client settings by requiring the `EnforceWorkGroupConfiguration` property to be provided and set to true, or omitted to adopt the default value of true.
+**Usage considerations**  
+This control requires an Athena workgroup to override client settings by requiring the `EnforceWorkGroupConfiguration` property to be provided and set to true, or omitted to adopt the default value of true.
 
 ### Remediation for rule failure
+<a name="ct-athena-pr-2-remediation"></a>
 
 In the `WorkGroupConfiguration.ResultConfiguration` parameter, provide an `EncryptionConfiguration` configuration with an `EncryptionOption` set to a KMS-based encryption option, and with `KmsKey` set to the identifier or ARN of an AWS KMS key, or the name of an AWS KMS key alias.
 
 The examples that follow show how to implement this remediation.
 
 #### Amazon Athena workgroup - Example
+<a name="ct-athena-pr-2-remediation-1"></a>
 
 Amazon Athena workgroup configured to encrypt Athena query results with AWS KMS (SSE\_KMS). The example is shown in JSON and in YAML.
 
 **JSON example**
 
 ```
-
 {
     "AthenaWorkGroup": {
         "Type": "AWS::Athena::WorkGroup",
@@ -69,13 +65,11 @@ Amazon Athena workgroup configured to encrypt Athena query results with AWS KMS 
         }
     }
 }
-
 ```
 
 **YAML example**
 
 ```
-
 AthenaWorkGroup:
   Type: AWS::Athena::WorkGroup
   Properties:
@@ -88,33 +82,31 @@ AthenaWorkGroup:
         EncryptionConfiguration:
           KmsKey: !Ref 'Key'
           EncryptionOption: SSE_KMS
-
-
 ```
 
 ### CT.ATHENA.PR.2 rule specification
+<a name="ct-athena-pr-2-rule"></a>
 
 ```
-
 # ###################################
 ##       Rule Specification        ##
 #####################################
-#
+# 
 # Rule Identifier:
 #   athena_workgroup_results_encrypted_at_rest_kms_check
-#
+# 
 # Description:
 #   This control checks whether an Amazon Athena workgroup is configured to encrypt query results at rest with an AWS KMS key.
-#
+# 
 # Reports on:
 #   AWS::Athena::WorkGroup
-#
+# 
 # Evaluates:
 #   CloudFormation, CloudFormation hook
-#
+# 
 # Rule Parameters:
 #   None
-#
+# 
 # Scenarios:
 #   Scenario: 1
 #     Given: The input document is an CloudFormation or CloudFormation hook document
@@ -280,24 +272,22 @@ rule query_for_resource(doc, resource_key, referenced_resource_type) {
         Type == %referenced_resource_type
     }
 }
-
-
 ```
 
 ### CT.ATHENA.PR.2 example templates
+<a name="ct-athena-pr-2-templates"></a>
 
 You can view examples of the PASS and FAIL test artifacts for the AWS Control Tower proactive controls.
 
 PASS Example - Use this template to verify a compliant resource creation.
 
 ```
-
 Resources:
   Key:
     Type: AWS::KMS::Key
     Properties:
       KeyPolicy:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Id: example-policy
         Statement:
         - Sid: Enable IAM user permissions
@@ -322,14 +312,11 @@ Resources:
             KmsKey:
               Ref: Key
             EncryptionOption: SSE_KMS
-
-
 ```
 
 FAIL Example - Use this template to verify that the control prevents non-compliant resource creation.
 
 ```
-
 Resources:
   AthenaWorkGroup:
     Type: AWS::Athena::WorkGroup
@@ -342,6 +329,4 @@ Resources:
         ResultConfiguration:
           EncryptionConfiguration:
             EncryptionOption: SSE_S3
-
-
 ```
