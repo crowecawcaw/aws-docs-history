@@ -1,31 +1,16 @@
-As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
+
+
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # How Amazon CodeGuru Reviewer works
+<a name="how-codeguru-reviewer-works"></a>
 
-Amazon CodeGuru Reviewer uses program analysis combined with machine learning models trained on millions of
-lines of Java and Python code from the Amazon code base and other sources. When you [associate CodeGuru Reviewer with a repository](getting-started-associate-repository.md "getting-started-associate-repository.md"), CodeGuru Reviewer can find and flag code defects and suggest
-recommendations to improve your code. CodeGuru Reviewer provides actionable recommendations with a low rate
-of false positives and might improve its ability to analyze code over time based on user
-feedback.
+Amazon CodeGuru Reviewer uses program analysis combined with machine learning models trained on millions of lines of Java and Python code from the Amazon code base and other sources. When you [associate CodeGuru Reviewer with a repository](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html), CodeGuru Reviewer can find and flag code defects and suggest recommendations to improve your code. CodeGuru Reviewer provides actionable recommendations with a low rate of false positives and might improve its ability to analyze code over time based on user feedback.
 
-You can associate CodeGuru Reviewer with a repository to allow CodeGuru Reviewer to provide recommendations. After
-you associate a repository with CodeGuru Reviewer, CodeGuru Reviewer automatically analyzes pull requests that you make,
-and you can choose to run repository analyses on the code in your branch to analyze all the code
-at any time.
+You can associate CodeGuru Reviewer with a repository to allow CodeGuru Reviewer to provide recommendations. After you associate a repository with CodeGuru Reviewer, CodeGuru Reviewer automatically analyzes pull requests that you make, and you can choose to run repository analyses on the code in your branch to analyze all the code at any time. 
 
-If you want to suppress recommendations from CodeGuru Reviewer, you can create and add to the root
-directory of your repository an `aws-codeguru-reviewer.yml` file that lists files and
-directories to exclude from analysis. For more information, see [Suppress
-recommendations](recommendation-suppression.md "recommendation-suppression.md").
+If you want to suppress recommendations from CodeGuru Reviewer, you can create and add to the root directory of your repository an `aws-codeguru-reviewer.yml` file that lists files and directories to exclude from analysis. For more information, see [Suppress recommendations](recommendation-suppression.md). 
 
-You can view recommendations from incremental code reviews and full repository analysis code
-reviews directly in the CodeGuru Reviewer console. You can also view recommendations from incremental code
-reviews as pull request comments in your repository. These recommendations address instances in
-which the code doesn't adhere to AWS SDK best practices, operations on concurrent data
-structures might not be thread safe, or resource closure might not be handled properly, among
-other things.
+You can view recommendations from incremental code reviews and full repository analysis code reviews directly in the CodeGuru Reviewer console. You can also view recommendations from incremental code reviews as pull request comments in your repository. These recommendations address instances in which the code doesn't adhere to AWS SDK best practices, operations on concurrent data structures might not be thread safe, or resource closure might not be handled properly, among other things.
 
-Developers can decide how to incorporate the recommendations from CodeGuru Reviewer and [provide feedback](provide-feedback.md "provide-feedback.md") to CodeGuru Reviewer about whether the recommendations
-were useful. This helps your team ensure code quality and improve their code practices in an
-organic, interactive way. At the same time, it improves the quality of recommendations CodeGuru Reviewer
-provides for your code, making CodeGuru Reviewer increasingly effective in future analyses.
+Developers can decide how to incorporate the recommendations from CodeGuru Reviewer and [provide feedback](provide-feedback.md) to CodeGuru Reviewer about whether the recommendations were useful. This helps your team ensure code quality and improve their code practices in an organic, interactive way. At the same time, it improves the quality of recommendations CodeGuru Reviewer provides for your code, making CodeGuru Reviewer increasingly effective in future analyses.

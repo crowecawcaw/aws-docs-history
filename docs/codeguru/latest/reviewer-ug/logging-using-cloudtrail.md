@@ -1,76 +1,52 @@
-As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
+
+
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Logging CodeGuru Reviewer API calls with AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Amazon CodeGuru Reviewer is integrated with AWS CloudTrail, a service that provides a record of actions taken by
-a user, role, or an AWS service in CodeGuru Reviewer. CloudTrail captures API calls for CodeGuru Reviewer as events. The
-calls captured include calls from the CodeGuru Reviewer console, the CodeGuru Reviewer AWS CLI, and code calls to the
-CodeGuru Reviewer API operations.
+Amazon CodeGuru Reviewer is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in CodeGuru Reviewer. CloudTrail captures API calls for CodeGuru Reviewer as events. The calls captured include calls from the CodeGuru Reviewer console, the CodeGuru Reviewer AWS CLI, and code calls to the CodeGuru Reviewer API operations. 
 
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket,
-including events for CodeGuru Reviewer. If you don't configure a trail, you can still view the most recent
-events in the CloudTrail console in **Event history**. Using the information
-collected by CloudTrail, you can determine the request that was made to CodeGuru Reviewer, the IP address from
-which the request was made, who made the request, when it was made, and additional details.
+If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for CodeGuru Reviewer. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to CodeGuru Reviewer, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
-To learn more about CloudTrail, including how to configure and enable it, see [What is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") in the _AWS CloudTrail User Guide_.
+To learn more about CloudTrail, including how to configure and enable it, see [What is AWS CloudTrail?](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) in the *AWS CloudTrail User Guide*.
 
 ## CodeGuru Reviewer information in CloudTrail
+<a name="codeguru-reviewer-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When supported event
-activity occurs in CodeGuru Reviewer, that activity is recorded in a CloudTrail event with other AWS service
-events in **Event history**. You can view, search, and download recent events
-in your AWS account. For more information, see [Viewing events with CloudTrail
-Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
+CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in CodeGuru Reviewer, that activity is recorded in a CloudTrail event with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. 
 
-For an ongoing record of events in your AWS account, including events for CodeGuru Reviewer, create
-a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you
-create a trail in the console, the trail applies to all AWS Regions. The trail logs events
-from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you
-specify. Additionally, you can configure other AWS services to further analyze and act on
-the event data collected in CloudTrail logs. For more information, see the following articles in the _AWS CloudTrail User Guide_:
-
-- [Creating
-  a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS service integrations with CloudTrail Logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+For an ongoing record of events in your AWS account, including events for CodeGuru Reviewer, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act on the event data collected in CloudTrail logs. For more information, see the following articles in the *AWS CloudTrail User Guide*: 
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [AWS service integrations with CloudTrail Logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
 CodeGuru Reviewer supports logging the following actions as events in CloudTrail log files:
++ [AssociateRepository](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_AssociateRepository.html)
++ [DescribeCodeReview](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeCodeReview.html)
++ [DescribeRecommendationFeedback](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeRecommendationFeedback.html)
++ [DescribeRepositoryAssociation](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeRepositoryAssociation.html)
++ [DisassociateRepository](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DisassociateRepository.html)
++ [ListCodeReviews](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListCodeReviews.html)
++ [ListRecommendationFeedback](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRecommendationFeedback.html)
++ [ListRecommendations](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRecommendations.html)
++ [ListRepositoryAssociations](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html)
++ [PutRecommendationFeedback](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_PutRecommendationFeedback.html)
 
-- [AssociateRepository](../reviewer-api/API_AssociateRepository.md "../reviewer-api/API_AssociateRepository.md")
-- [DescribeCodeReview](../reviewer-api/API_DescribeCodeReview.md "../reviewer-api/API_DescribeCodeReview.md")
-- [DescribeRecommendationFeedback](../reviewer-api/API_DescribeRecommendationFeedback.md "../reviewer-api/API_DescribeRecommendationFeedback.md")
-- [DescribeRepositoryAssociation](../reviewer-api/API_DescribeRepositoryAssociation.md "../reviewer-api/API_DescribeRepositoryAssociation.md")
-- [DisassociateRepository](../reviewer-api/API_DisassociateRepository.md "../reviewer-api/API_DisassociateRepository.md")
-- [ListCodeReviews](../reviewer-api/API_ListCodeReviews.md "../reviewer-api/API_ListCodeReviews.md")
-- [ListRecommendationFeedback](../reviewer-api/API_ListRecommendationFeedback.md "../reviewer-api/API_ListRecommendationFeedback.md")
-- [ListRecommendations](../reviewer-api/API_ListRecommendations.md "../reviewer-api/API_ListRecommendations.md")
-- [ListRepositoryAssociations](../reviewer-api/API_ListRepositoryAssociations.md "../reviewer-api/API_ListRepositoryAssociations.md")
-- [PutRecommendationFeedback](../reviewer-api/API_PutRecommendationFeedback.md "../reviewer-api/API_PutRecommendationFeedback.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or user credentials
++ Whether the request was made with temporary security credentials for a role or federated user
++ Whether the request was made by another AWS service
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or user credentials
-- Whether the request was made with temporary security credentials for a role or
-  federated user
-- Whether the request was made by another AWS service
-
-For more information, see the [CloudTrail
-userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide_.
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide*.
 
 ## Example: CodeGuru Reviewer log file entries
+<a name="understanding-codeguru-reviewer-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`AssociateRepository` action.
+The following example shows a CloudTrail log entry that demonstrates the `AssociateRepository` action.
 
 ```
 {
@@ -78,8 +54,8 @@ The following example shows a CloudTrail log entry that demonstrates the
     "userIdentity": {
         "type": "AssumedRole",
         "principalId": "AAAAAAAAAEXAMPLE:TestSession",
-        "arn": "arn:aws:sts::`123456789012`:assumed-role/TestRole/TestSession",
-        "accountId": "`123456789012`",
+        "arn": "arn:aws:sts::{{123456789012}}:assumed-role/TestRole/TestSession",
+        "accountId": "{{123456789012}}",
         "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "sessionContext": {
             "attributes": {
@@ -89,8 +65,8 @@ The following example shows a CloudTrail log entry that demonstrates the
             "sessionIssuer": {
                 "type": "Role",
                 "principalId": "AIDACKCEVSQ6C2EXAMPLE",
-                "arn": "arn:aws:iam::`123456789012`:role/TestRole",
-                "accountId": "`123456789012`",
+                "arn": "arn:aws:iam::{{123456789012}}:role/TestRole",
+                "accountId": "{{123456789012}}",
                 "userName": "TestRole"
             }
         }
@@ -105,18 +81,18 @@ The following example shows a CloudTrail log entry that demonstrates the
         "ClientRequestToken": "7485aa2f-ce15-4bc6-a6cc-2a76d702f15f",
         "Repository": {
             "CodeCommit": {
-                "Name": "`repository-name`"
+                "Name": "{{repository-name}}"
             }
         }
     },
     "responseElements": {
         "RepositoryAssociation": {
-            "AssociationArn": "arn:aws:codeguru-reviewer:us-west-2:`123456789012`:association:6eda8e7a-319a-4750-bca8-7f73a816fadc",
+            "AssociationArn": "arn:aws:codeguru-reviewer:us-west-2:{{123456789012}}:association:6eda8e7a-319a-4750-bca8-7f73a816fadc",
             "AssociationId": "6eda8e7a-319a-4750-bca8-7f73a816fadc",
             "CreatedTimeStamp": 1574826395.662,
             "LastUpdatedTimeStamp": 1574826395.662,
             "Name": "TestRepository",
-            "Owner": "`123456789012`",
+            "Owner": "{{123456789012}}",
             "ProviderType": "CodeCommit",
             "State": "Associating",
             "StateReason": "Pending Repository Association"
@@ -126,6 +102,6 @@ The following example shows a CloudTrail log entry that demonstrates the
     "eventID": "e3c6f4ce-EXAMPLE",
     "readOnly": false,
     "eventType": "AwsApiCall",
-    "recipientAccountId": "`123456789012`"
+    "recipientAccountId": "{{123456789012}}"
 }
 ```

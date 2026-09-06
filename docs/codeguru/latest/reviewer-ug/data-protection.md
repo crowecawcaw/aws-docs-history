@@ -1,103 +1,55 @@
-As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
+
+
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # Data protection for CodeGuru Reviewer
+<a name="data-protection"></a>
 
-The AWS
-[shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon CodeGuru Reviewer. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
-applies to data protection in Amazon CodeGuru Reviewer.
+For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
++ Use multi-factor authentication (MFA) with each account.
++ Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
++ Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html) in the *AWS CloudTrail User Guide*.
++ Use AWS encryption solutions, along with all default security controls within AWS services.
++ Use advanced managed security services such as Amazon Macie, which assists in discovering and securing sensitive data that is stored in Amazon S3.
++ If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
 
-As described in this model, AWS is
-responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
-responsible for maintaining control over your content that is hosted on this infrastructure.
-You are also responsible for the security configuration and management tasks for the AWS services
-that you use.
+We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with CodeGuru Reviewer or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
 
-For more information about data privacy, see
-[Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
-
-For information about data protection in Europe, see the
-[General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/").
-
-For data protection purposes, we recommend that you protect AWS account
-credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
-
-- Use multi-factor authentication (MFA) with each account.
-- Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
-- Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](../../../awscloudtrail/latest/userguide/cloudtrail-trails.md "../../../awscloudtrail/latest/userguide/cloudtrail-trails.md") in the _AWS CloudTrail User Guide_.
-- Use AWS encryption solutions, along with all default security controls within AWS services.
-- Use advanced managed security services such as Amazon Macie, which assists in discovering
-  and securing sensitive data that is stored in Amazon S3.
-- If you require FIPS 140-3 validated cryptographic modules when accessing AWS through
-  a command line interface or an API, use a FIPS endpoint. For more information about the
-  available FIPS endpoints, see [Federal
-  Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
-  We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with CodeGuru Reviewer or other AWS services
-  using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
-  tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
-  provide a URL to an external server, we strongly recommend that you do not include credentials
-  information in the URL to validate your request to that server.
-
-###### Topics
-
-- [Captured data in CodeGuru Reviewer](#data-captured "#data-captured")
-- [Data retention in CodeGuru Reviewer](#data-retention "#data-retention")
-- [Data encryption in CodeGuru Reviewer](#data-encryption "#data-encryption")
-- [Traffic privacy](#security-traffic-privacy "#security-traffic-privacy")
+**Topics**
++ [Captured data in CodeGuru Reviewer](#data-captured)
++ [Data retention in CodeGuru Reviewer](#data-retention)
++ [Data encryption in CodeGuru Reviewer](#data-encryption)
++ [Traffic privacy](#security-traffic-privacy)
 
 ## Captured data in CodeGuru Reviewer
+<a name="data-captured"></a>
 
 CodeGuru Reviewer stores the following to create code reviews:
-
-- Repository metadata, such as the name and owner of a repository
-- Recommendations generated by CodeGuru Reviewer
-- Pull request metadata, such as the author and branch of a pull request
-- Feedback submitted by customers about code reviews
-- The OAuth token created after you connect to your GitHub account. This does not apply
-  to GitHub Enterprise Server or GitHub Enterprise Cloud associated repositories.
-- Source code is transiently stored in memory until its code review is complete. This
-  typically lasts a few hours. When the code review is complete, it is flushed from memory,
-  encrypted and stored in an Amazon S3 bucket for up to 10 days, and then deleted.
++ Repository metadata, such as the name and owner of a repository
++ Recommendations generated by CodeGuru Reviewer
++ Pull request metadata, such as the author and branch of a pull request
++ Feedback submitted by customers about code reviews
++ The OAuth token created after you connect to your GitHub account. This does not apply to GitHub Enterprise Server or GitHub Enterprise Cloud associated repositories.
++ Source code is transiently stored in memory until its code review is complete. This typically lasts a few hours. When the code review is complete, it is flushed from memory, encrypted and stored in an Amazon S3 bucket for up to 10 days, and then deleted.
 
 ## Data retention in CodeGuru Reviewer
+<a name="data-retention"></a>
 
-CodeGuru Reviewer stores associated repository metadata (for example, the name and owner of the
-repository) until the associated repository is disassociated. When you connect to a GitHub
-account, CodeGuru Reviewer creates an OAuth token and retains the OAuth token forever.
+CodeGuru Reviewer stores associated repository metadata (for example, the name and owner of the repository) until the associated repository is disassociated. When you connect to a GitHub account, CodeGuru Reviewer creates an OAuth token and retains the OAuth token forever.
 
-After an associated repository is disassociated, you can no longer see its
-recommendations. Recommendations and pull request metadata (for example, the branch name) are
-retained for one year, and then deleted. Feedback provided to help CodeGuru Reviewer improve future
-recommendations is retained forever.
+After an associated repository is disassociated, you can no longer see its recommendations. Recommendations and pull request metadata (for example, the branch name) are retained for one year, and then deleted. Feedback provided to help CodeGuru Reviewer improve future recommendations is retained forever. 
 
 ## Data encryption in CodeGuru Reviewer
+<a name="data-encryption"></a>
 
-Encryption is an important part of CodeGuru Reviewer security. Data in transit and at rest is
-encrypted by default and doesn't require you to do anything.
-
-- Encryption of data at rest – Data collected by
-  CodeGuru Reviewer is stored using Amazon Simple Storage Service and Amazon DynamoDB. The data is encrypted using their
-  data-at-rest encryption capabilities.
-- Encryption of data in transit – All
-  communication between customers and CodeGuru Reviewer and between CodeGuru Reviewer and its downstream
-  dependencies is protected using TLS connections that are signed using the Signature
-  Version 4 signing process. All CodeGuru Reviewer endpoints use SHA-256 certificates that are managed
-  by AWS Private Certificate Authority. For more information, see [Signature Version 4 signing
-  process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the _Amazon Web Services General Reference_ and [What is AWS Private CA?](../../../acm-pca/latest/userguide/PcaWelcome.md "../../../acm-pca/latest/userguide/PcaWelcome.md") in the
-  _AWS Private Certificate Authority User Guide_.
-- **Associated repository and code review encryption**
-  – Associated repositories and code reviews are encrypted by default using a key
-  that AWS owns and manages. If you don't want to use a key managed by AWS, you must
-  create an AWS Key Management Service key. For more information, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") and [AWS KMS
-  concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS Key Management Service Developer Guide_ and [Encrypting a repository association in Amazon CodeGuru Reviewer](encrypt-repository-association.md "encrypt-repository-association.md").
+Encryption is an important part of CodeGuru Reviewer security. Data in transit and at rest is encrypted by default and doesn't require you to do anything. 
++ **Encryption of data at rest** – Data collected by CodeGuru Reviewer is stored using Amazon Simple Storage Service and Amazon DynamoDB. The data is encrypted using their data-at-rest encryption capabilities. 
++ **Encryption of data in transit** – All communication between customers and CodeGuru Reviewer and between CodeGuru Reviewer and its downstream dependencies is protected using TLS connections that are signed using the Signature Version 4 signing process. All CodeGuru Reviewer endpoints use SHA-256 certificates that are managed by AWS Private Certificate Authority. For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the *Amazon Web Services General Reference* and [What is AWS Private CA?](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html) in the *AWS Private Certificate Authority User Guide*. 
++ **Associated repository and code review encryption** – Associated repositories and code reviews are encrypted by default using a key that AWS owns and manages. If you don't want to use a key managed by AWS, you must create an AWS Key Management Service key. For more information, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) and [AWS KMS concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide* and [Encrypting a repository association in Amazon CodeGuru Reviewer](encrypt-repository-association.md). 
 
 ## Traffic privacy
+<a name="security-traffic-privacy"></a>
 
-You can improve the security of associated repositories and code reviews by configuring
-CodeGuru Reviewer to use an interface VPC endpoint. To do this, you don't need an internet gateway, NAT
-device, or virtual private gateway. It also is not required to configure AWS PrivateLink, though
-it is recommended. For more information, see [CodeGuru Reviewer and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md"). For more information about AWS PrivateLink and VPC
-endpoints, see [What is AWS PrivateLink?](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") in the
-_AWS PrivateLink Guide_ and [Connect your VPC to services
-using AWS PrivateLink](../../../vpc/latest/userguide/endpoint-services-overview.md "../../../vpc/latest/userguide/endpoint-services-overview.md") in the _Amazon VPC User Guide_.
+You can improve the security of associated repositories and code reviews by configuring CodeGuru Reviewer to use an interface VPC endpoint. To do this, you don't need an internet gateway, NAT device, or virtual private gateway. It also is not required to configure AWS PrivateLink, though it is recommended. For more information, see [CodeGuru Reviewer and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md). For more information about AWS PrivateLink and VPC endpoints, see [What is AWS PrivateLink?](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html) in the *AWS PrivateLink Guide* and [Connect your VPC to services using AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html) in the *Amazon VPC User Guide*. 

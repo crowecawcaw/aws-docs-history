@@ -1,36 +1,28 @@
-As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
+
+
+As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/codeguru-reviewer-availability-change.html).
 
 # View all code reviews
+<a name="view-all-code-reviews"></a>
 
-You can view all code reviews from the past 90 days and their statuses on the
-**Code reviews** page in the Amazon CodeGuru Reviewer console. There is an
-**incremental code review** tab to view code reviews done on incremental
-code reviews and a **Full repository analysis** tab to view code reviews
-requested for full repository analyses.
+You can view all code reviews from the past 90 days and their statuses on the **Code reviews** page in the Amazon CodeGuru Reviewer console. There is an **incremental code review** tab to view code reviews done on incremental code reviews and a **Full repository analysis** tab to view code reviews requested for full repository analyses.
 
-To learn about the types of recommendations, see [Amazon CodeGuru Reviewer Detector
-Library](../../detector-library/index.md "../../detector-library/index.md").
+To learn about the types of recommendations, see [Amazon CodeGuru Reviewer Detector Library](https://docs.aws.amazon.com/codeguru/detector-library/index.html).
 
 ## Code reviews page
+<a name="about-viewing-code-reviews"></a>
 
-To view this page, in the navigation pane, choose **Reviewer**,
-**Code reviews**.
+To view this page, in the navigation pane, choose **Reviewer**, **Code reviews**.
 
-![The Code review page in the CodeGuru Reviewer console](images/codereview_repo_analysis.png)
+![The Code review page in the CodeGuru Reviewer console](http://docs.aws.amazon.com/codeguru/latest/reviewer-ug/images/codereview_repo_analysis.png)
 
-###### Note
 
-After 90 days have passed since a code review was done, you can't view that code
-review in the Amazon CodeGuru Reviewer console. But you might be able to view the recommendations from
-incremental code reviews in the repository source provider.
+**Note**  
+After 90 days have passed since a code review was done, you can't view that code review in the Amazon CodeGuru Reviewer console. But you might be able to view the recommendations from incremental code reviews in the repository source provider.
 
-To view code reviews with the AWS CLI or the AWS SDK, call `ListCodeReviews`.
-You can filter using `ProviderType`, `RepositoryName`, or
-`State`. For more information, see the [Amazon CodeGuru Reviewer API Reference](../reviewer-api/Welcome.md "../reviewer-api/Welcome.md").
+To view code reviews with the AWS CLI or the AWS SDK, call `ListCodeReviews`. You can filter using `ProviderType`, `RepositoryName`, or `State`. For more information, see the [Amazon CodeGuru Reviewer API Reference](https://docs.aws.amazon.com/codeguru/latest/reviewer-api/Welcome.html).
 
 ## Navigate to repositories and pull requests
+<a name="go-to-repository-and-request"></a>
 
-From the **Code reviews** page, you can navigate to the repository or
-the pull request that CodeGuru Reviewer scanned. On either the **Incremental code
-review** or **Full repository analysis** tab, choose
-a name under the **Repository** column.
+From the **Code reviews** page, you can navigate to the repository or the pull request that CodeGuru Reviewer scanned. On either the **Incremental code review** or **Full repository analysis** tab, choose a name under the **Repository** column. 
