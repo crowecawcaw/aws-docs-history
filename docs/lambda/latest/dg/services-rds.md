@@ -1,150 +1,143 @@
+
+
 # Using AWS Lambda with Amazon RDS
+<a name="services-rds"></a>
 
-You can connect a Lambda function to an Amazon Relational Database Service (Amazon RDS) database directly and through
-an Amazon RDS Proxy. Direct connections are useful in simple scenarios, and proxies are recommended
-for production. A database proxy manages a pool of shared database connections which enables
-your function to reach high concurrency levels without exhausting database connections.
+You can connect a Lambda function to an Amazon Relational Database Service (Amazon RDS) database directly and through an Amazon RDS Proxy. Direct connections are useful in simple scenarios, and proxies are recommended for production. A database proxy manages a pool of shared database connections which enables your function to reach high concurrency levels without exhausting database connections.
 
-To help determine whether to use Amazon RDS or DynamoDB for your workload, see [Select a database service for your Lambda-based applications](ddb-rds-database-decision.md "ddb-rds-database-decision.md").
+To help determine whether to use Amazon RDS or DynamoDB for your workload, see [Select a database service for your Lambda-based applications](ddb-rds-database-decision.md).
 
-We recommend using Amazon RDS Proxy for Lambda functions that make frequent short database
-connections, or open and close large numbers of database connections. For more information,
-see [Automatically connecting a Lambda function and a DB instance](../../../AmazonRDS/latest/UserGuide/lambda-rds-connect.md "../../../AmazonRDS/latest/UserGuide/lambda-rds-connect.md") in the Amazon Relational Database Service Developer Guide.
+We recommend using Amazon RDS Proxy for Lambda functions that make frequent short database connections, or open and close large numbers of database connections. For more information, see [ Automatically connecting a Lambda function and a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/lambda-rds-connect.html) in the Amazon Relational Database Service Developer Guide.
 
-###### Tip
-
-To quickly connect a Lambda function to an Amazon RDS database, you can use the in-console guided wizard. To open the wizard, do the following:
-
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Select the function you want to connect a database to.
-3. On the **Configuration** tab, select **RDS databases**.
-4. Choose **Connect to RDS database**.
-   After you've connected your function to a database, you can create a proxy by choosing **Add proxy**.
+**Tip**  
+To quickly connect a Lambda function to an Amazon RDS database, you can use the in-console guided wizard. To open the wizard, do the following:  
+Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+Select the function you want to connect a database to.
+On the **Configuration** tab, select **RDS databases**.
+Choose **Connect to RDS database**.
+After you've connected your function to a database, you can create a proxy by choosing **Add proxy**.
 
 ## Configuring your function to work with RDS resources
+<a name="rds-configuration"></a>
 
-In the Lambda console, you can provision, and configure, Amazon RDS database instances and
-proxy resources. You can do this by navigating to **RDS databases** under
-the **Configuration** tab. Alternatively, you can also create and configure
-connections to Lambda functions in the Amazon RDS console. When configuring an RDS database
-instance to use with Lambda, note the following criteria:
+In the Lambda console, you can provision, and configure, Amazon RDS database instances and proxy resources. You can do this by navigating to **RDS databases** under the **Configuration** tab. Alternatively, you can also create and configure connections to Lambda functions in the Amazon RDS console. When configuring an RDS database instance to use with Lambda, note the following criteria:
++ To connect to a database, your function must be in the same Amazon VPC where your database runs.
++ You can use Amazon RDS databases with MySQL, MariaDB, PostgreSQL, or Microsoft SQL Server engines.
++ You can also use Aurora DB clusters with MySQL or PostgreSQL engines.
++ You need to provide a Secrets Manager secret for database authentication.
++ An IAM role must provide permission to use the secret, and a trust policy must allow Amazon RDS to assume the role.
++  The IAM principal that uses the console to configure the Amazon RDS resource, and connect it to your function must have the following permissions:
 
-- To connect to a database, your function must be in the same Amazon VPC where your
-  database runs.
-- You can use Amazon RDS databases with MySQL, MariaDB, PostgreSQL, or Microsoft SQL Server
-  engines.
-- You can also use Aurora DB clusters with MySQL or PostgreSQL engines.
-- You need to provide a Secrets Manager secret for database authentication.
-- An IAM role must provide permission to use the secret, and a trust policy must
-  allow Amazon RDS to assume the role.
-- The IAM principal that uses the console to configure the Amazon RDS resource, and connect
-  it to your function must have the following permissions:
+### Example permissions policy
+<a name="rds-lambda-permissions"></a>
 
-###### Note
+**Note**  
+ You need the Amazon RDS Proxy permissions only if you configure an Amazon RDS Proxy to manage a pool of your database connections. 
 
-You need the Amazon RDS Proxy permissions only if you configure an Amazon RDS Proxy to
-manage a pool of your database connections.
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ec2:CreateSecurityGroup",
- "ec2:DescribeSecurityGroups",
- "ec2:DescribeSubnets",
- "ec2:DescribeVpcs",
- "ec2:AuthorizeSecurityGroupIngress",
- "ec2:AuthorizeSecurityGroupEgress",
- "ec2:RevokeSecurityGroupEgress",
- "ec2:CreateNetworkInterface",
- "ec2:DeleteNetworkInterface",
- "ec2:DescribeNetworkInterfaces"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "rds-db:connect",
- "rds:CreateDBProxy",
- "rds:CreateDBInstance",
- "rds:CreateDBSubnetGroup",
- "rds:DescribeDBClusters",
- "rds:DescribeDBInstances",
- "rds:DescribeDBSubnetGroups",
- "rds:DescribeDBProxies",
- "rds:DescribeDBProxyTargets",
- "rds:DescribeDBProxyTargetGroups",
- "rds:RegisterDBProxyTargets",
- "rds:ModifyDBInstance",
- "rds:ModifyDBProxy"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "lambda:CreateFunction",
- "lambda:ListFunctions",
- "lambda:UpdateFunctionConfiguration"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:AttachRolePolicy",
- "iam:CreateRole",
- "iam:CreatePolicy"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "secretsmanager:GetResourcePolicy",
- "secretsmanager:GetSecretValue",
- "secretsmanager:DescribeSecret",
- "secretsmanager:ListSecretVersionIds",
- "secretsmanager:CreateSecret"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:CreateNetworkInterface",
+        "ec2:DeleteNetworkInterface",
+        "ec2:DescribeNetworkInterfaces"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "rds-db:connect",
+        "rds:CreateDBProxy",
+        "rds:CreateDBInstance",
+        "rds:CreateDBSubnetGroup",
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBInstances",
+        "rds:DescribeDBSubnetGroups",
+        "rds:DescribeDBProxies",
+        "rds:DescribeDBProxyTargets",
+        "rds:DescribeDBProxyTargetGroups",
+        "rds:RegisterDBProxyTargets",
+        "rds:ModifyDBInstance",
+        "rds:ModifyDBProxy"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "lambda:CreateFunction",
+        "lambda:ListFunctions",
+        "lambda:UpdateFunctionConfiguration"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:AttachRolePolicy",
+        "iam:CreateRole",
+        "iam:CreatePolicy"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetResourcePolicy",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:ListSecretVersionIds",
+        "secretsmanager:CreateSecret"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
 ```
 
-Amazon RDS charges an hourly rate for proxies based on the database instance size, see [RDS Proxy pricing](https://aws.amazon.com/rds/proxy/pricing/ "https://aws.amazon.com/rds/proxy/pricing/") for details.
-For more information on proxy connections in general, see [Using Amazon RDS Proxy](../../../AmazonRDS/latest/UserGuide/rds-proxy.md "../../../AmazonRDS/latest/UserGuide/rds-proxy.md") in the Amazon RDS User Guide.
+------
+
+Amazon RDS charges an hourly rate for proxies based on the database instance size, see [RDS Proxy pricing](https://aws.amazon.com/rds/proxy/pricing/) for details. For more information on proxy connections in general, see [Using Amazon RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html) in the Amazon RDS User Guide.
 
 ### SSL/TLS requirements for Amazon RDS connections
+<a name="rds-lambda-certificates"></a>
 
 To make secure SSL/TLS connections to an Amazon RDS database instance, your Lambda function must verify the database server's identity using a trusted certificate. Lambda handles these certificates differently depending on your deployment package type:
++ [.zip file archives](configuration-function-zip.md): Certificate handling varies by runtime:
+  + **Node.js 18 and earlier**: Lambda automatically includes CA certificates and RDS certificates.
+  + **Node.js 20 and later**: Lambda no longer loads additional CA certificates by default. Set the `NODE_EXTRA_CA_CERTS` environment variable to `/var/runtime/ca-cert.pem`.
 
-- [.zip file archives](configuration-function-zip.md "configuration-function-zip.md"): Certificate handling varies by runtime:
+  It might take up to 4 weeks for Amazon RDS certificates for new AWS Regions to be added to the Lambda managed runtimes.
++ [Container images](images-create.md): AWS base images include only CA certificates. If your function connects to an Amazon RDS database instance, you must include the appropriate certificates in your container image. In your Dockerfile, download the [certificate bundle that corresponds with the AWS Region where you host your database.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.CertificatesDownload) Example:
 
-  - **Node.js 18 and earlier**: Lambda automatically includes CA certificates and RDS certificates.
-  - **Node.js 20 and later**: Lambda no longer loads additional CA certificates by default. Set the `NODE_EXTRA_CA_CERTS` environment variable to `/var/runtime/ca-cert.pem`.
-    It might take up to 4 weeks for Amazon RDS certificates for new AWS Regions to be added to the Lambda managed runtimes.
-
-- [Container images](images-create.md "images-create.md"): AWS base images include only CA certificates. If your function connects to an Amazon RDS database instance, you must include the appropriate certificates in your container image. In your Dockerfile, download the [certificate bundle that corresponds with the AWS Region where you host your database.](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.md#UsingWithRDS.SSL.CertificatesDownload") Example:
-
-```
-RUN curl `https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem` -o `/us-east-1-bundle.pem`
-```
+  ```
+  RUN curl {{https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem}} -o {{/us-east-1-bundle.pem}}
+  ```
 
 This command downloads the Amazon RDS certificate bundle and saves it at the absolute path `/us-east-1-bundle.pem` in your container's root directory. When configuring the database connection in your function code, you must reference this exact path. Example:
 
-Node.js
+------
+#### [ Node.js ]
+
 The `readFileSync` function is required because Node.js database clients need the actual certificate content in memory, not just the path to the certificate file. Without `readFileSync`, the client interprets the path string as certificate content, resulting in a "self-signed certificate in certificate chain" error.
 
-###### Example Node.js connection config for OCI function
+**Example Node.js connection config for OCI function**  
 
 ```
 import { readFileSync } from 'fs';
@@ -156,15 +149,16 @@ let connectionConfig = {
     user: process.env.DBUserName,
     password: token,
     database: process.env.DBName,
-    `ssl: {
- ca: readFileSync('/us-east-1-bundle.pem')` // Load RDS certificate content from file into memory
+    {{ssl: {
+        ca: readFileSync('/us-east-1-bundle.pem')}} // Load RDS certificate content from file into memory
     }
 };
 ```
 
-Python
+------
+#### [ Python ]
 
-###### Example Python connection config for OCI function
+**Example Python connection config for OCI function**  
 
 ```
 connection = pymysql.connect(
@@ -173,45 +167,49 @@ connection = pymysql.connect(
     password=token,
     db=db_name,
     port=port,
-    `ssl={'ca': '/us-east-1-bundle.pem'}`  #Path to the certificate in container
+    {{ssl={'ca': '/us-east-1-bundle.pem'}}}  #Path to the certificate in container
 )
 ```
 
-Java
+------
+#### [ Java ]
+
 For Java functions using JDBC connections, the connection string must include:
++ `useSSL=true`
++ `requireSSL=true`
++ An `sslCA` parameter that points to the location of the Amazon RDS certificate in the container image
 
-- `useSSL=true`
-- `requireSSL=true`
-- An `sslCA` parameter that points to the location of the Amazon RDS certificate in the container image
-
-###### Example Java connection string for OCI function
+**Example Java connection string for OCI function**  
 
 ```
 // Define connection string
-String connectionString = String.format("jdbc:`mysql://%s:%s/%s?useSSL=true&requireSSL=true&sslCA=/us-east-1-bundle.pem`", // Path to the certificate in container
+String connectionString = String.format("jdbc:{{mysql://%s:%s/%s?useSSL=true&requireSSL=true&sslCA=/us-east-1-bundle.pem}}", // Path to the certificate in container
         System.getenv("ProxyHostName"),
         System.getenv("Port"),
         System.getenv("DBName"));
 ```
 
-.NET
+------
+#### [ .NET ]
 
-###### Example.NET connection string for MySQL connection in OCI function
+**Example .NET connection string for MySQL connection in OCI function**  
 
 ```
-/// Build the Connection String with the Token
+/// Build the Connection String with the Token 
 string connectionString = $"Server={Environment.GetEnvironmentVariable("RDS_ENDPOINT")};" +
                          $"Port={Environment.GetEnvironmentVariable("RDS_PORT")};" +
                          $"Uid={Environment.GetEnvironmentVariable("RDS_USERNAME")};" +
                          $"Pwd={authToken};" +
-                         `"SslMode=Required;" +
- "SslCa=/us-east-1-bundle.pem";`  // Path to the certificate in container
+                         {{"SslMode=Required;" +
+                         "SslCa=/us-east-1-bundle.pem";}}  // Path to the certificate in container
 ```
 
-Go
+------
+#### [ Go ]
+
 For Go functions using MySQL connections, load the Amazon RDS certificate into a certificate pool and register it with the MySQL driver. The connection string must then reference this configuration using the `tls` parameter.
 
-###### Example Go code for MySQL connection in OCI function
+**Example Go code for MySQL connection in OCI function**  
 
 ```
 import (
@@ -225,7 +223,7 @@ import (
 
 // Create certificate pool and register TLS config
 rootCertPool := x509.NewCertPool()
-pem, err := os.ReadFile("`/us-east-1-bundle.pem`")  // Path to the certificate in container
+pem, err := os.ReadFile("{{/us-east-1-bundle.pem}}")  // Path to the certificate in container
 if err != nil {
     panic("failed to read certificate file: " + err.Error())
 }
@@ -233,18 +231,19 @@ if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
     panic("failed to append PEM")
 }
 
-mysql.RegisterTLSConfig("`custom`", &tls.Config{
+mysql.RegisterTLSConfig("{{custom}}", &tls.Config{
     RootCAs: rootCertPool,
 })
 
-dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?allowCleartextPasswords=true&`tls=custom`",
+dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?allowCleartextPasswords=true&{{tls=custom}}",
     dbUser, authenticationToken, dbEndpoint, dbName,
 )
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-###### Example Ruby connection config for OCI function
+**Example Ruby connection config for OCI function**  
 
 ```
 conn = Mysql2::Client.new(
@@ -253,31 +252,27 @@ conn = Mysql2::Client.new(
     password: token,
     port: port,
     database: db_name,
-    `sslca: '/us-east-1-bundle.pem'`,  # Path to the certificate in container
-    `sslverify: true`
+    {{sslca: '/us-east-1-bundle.pem'}},  # Path to the certificate in container
+    {{sslverify: true}}
 )
 ```
 
+------
+
 ## Connecting to an Amazon RDS database in a Lambda function
+<a name="rds-connection"></a>
 
-The following code examples shows how to implement a Lambda function that connects
-to an Amazon RDS database. The function makes a simple database request and returns the result.
+The following code examples shows how to implement a Lambda function that connects to an Amazon RDS database. The function makes a simple database request and returns the result.
 
-###### Note
+**Note**  
+These code examples are valid for [.zip deployment packages](configuration-function-zip.md) only. If you're deploying your function using a [container image,](images-create.md) you must specify the Amazon RDS certificate file in your function code, as explained in the [preceding section](#oci-certificate).
 
-These code examples are valid for [.zip deployment packages](configuration-function-zip.md "configuration-function-zip.md") only. If you're deploying your function using a [container image,](images-create.md "images-create.md") you must specify the Amazon RDS certificate file in your function code, as explained in the [preceding section](#oci-certificate "#oci-certificate").
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using .NET.  
 
 ```
 using System.Data;
@@ -318,7 +313,7 @@ public class Function
             Environment.GetEnvironmentVariable("RDS_USERNAME")
         );
 
-        /// Build the Connection String with the Token
+        /// Build the Connection String with the Token 
         string connectionString = $"Server={Environment.GetEnvironmentVariable("RDS_ENDPOINT")};" +
                                   $"Port={Environment.GetEnvironmentVariable("RDS_PORT")};" +
                                   $"Uid={Environment.GetEnvironmentVariable("RDS_USERNAME")};" +
@@ -362,21 +357,14 @@ public class Function
         };
     }
 }
-
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Go.  
 
 ```
 /*
@@ -457,21 +445,14 @@ func HandleRequest(event *MyEvent) (map[string]interface{}, error) {
 func main() {
 	lambda.Start(HandleRequest)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Java.  
 
 ```
 import com.amazonaws.services.lambda.runtime.Context;
@@ -552,26 +533,19 @@ public class RdsLambdaHandler implements RequestHandler<APIGatewayProxyRequestEv
         return tokenField.stringValue();
     }
 }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using JavaScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-/*
+/* 
 Node.js code here.
 */
 // ES6+ example
@@ -626,14 +600,10 @@ export const handler = async (event) => {
     body: JSON.stringify("The selected sum is: " + result[0].sum)
   }
 };
-
+```
+Connecting to an Amazon RDS database in a Lambda function using TypeScript.  
 
 ```
-
-Connecting to an Amazon RDS database in a Lambda function using TypeScript.
-
-```
-
 import { Signer } from "@aws-sdk/rds-signer";
 import mysql from 'mysql2/promise';
 
@@ -698,20 +668,14 @@ export const lambdaHandler = async (event: any): Promise<{ statusCode: number; b
         body: JSON.stringify(`The selected sum is: ${result[0].sum}`)
     };
 };
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using PHP.  
 
 ```
 <?php
@@ -807,20 +771,14 @@ class Handler implements StdHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Python.  
 
 ```
 import json
@@ -858,30 +816,23 @@ def lambda_handler(event, context):
             port=port,
             ssl={'ca': 'Amazon RDS'}  # Ensure you have the CA bundle for SSL connection
         )
-
+        
         with connection.cursor() as cursor:
             cursor.execute('SELECT %s + %s AS sum', (3, 2))
             result = cursor.fetchone()
 
         return result
-
+        
     except Exception as e:
         return (f"Error: {str(e)}")  # Return an error message if an exception occurs
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Ruby.  
 
 ```
 # Ruby code here.
@@ -903,7 +854,7 @@ def lambda_handler(event:, context:)
     ENV['AWS_SESSION_TOKEN']
   )
   rds_client = Aws::RDS::AuthTokenGenerator.new(
-    region: region,
+    region: region, 
     credentials: credentials
   )
 
@@ -920,7 +871,7 @@ def lambda_handler(event:, context:)
       password: token,
       port: port,
       database: db_name,
-      sslca: '/var/task/global-bundle.pem',
+      sslca: '/var/task/global-bundle.pem', 
       sslverify: true,
       enable_cleartext_plugin: true
     )
@@ -937,20 +888,14 @@ def lambda_handler(event:, context:)
     puts "Database connection failed due to #{e}"
   end
 end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Rust.  
 
 ```
 use aws_config::BehaviorVersion;
@@ -1062,21 +1007,18 @@ async fn handler(_event: LambdaEvent<Value>) -> Result<Value, Error> {
         "body": format!("The selected sum is: {result}")
     }))
 }
-
-
 ```
 
+------
+
 ## Processing event notifications from Amazon RDS
+<a name="rds-events"></a>
 
-You can use Lambda to process event notifications from an Amazon RDS database. Amazon RDS sends
-notifications to an Amazon Simple Notification Service (Amazon SNS) topic, which you can configure to invoke a Lambda function.
-Amazon SNS wraps the message from Amazon RDS in its own event document and sends it to your function.
+You can use Lambda to process event notifications from an Amazon RDS database. Amazon RDS sends notifications to an Amazon Simple Notification Service (Amazon SNS) topic, which you can configure to invoke a Lambda function. Amazon SNS wraps the message from Amazon RDS in its own event document and sends it to your function.
 
-For more information about configuring an Amazon RDS database to send notifications, see
-[Using Amazon RDS
-event notifications](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../../AmazonRDS/latest/UserGuide/USER_Events.md").
+For more information about configuring an Amazon RDS database to send notifications, see [Using Amazon RDS event notifications](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html). 
 
-###### Example Amazon RDS message in an Amazon SNS event
+**Example Amazon RDS message in an Amazon SNS event**  
 
 ```
 {
@@ -1091,7 +1033,7 @@ event notifications](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../.
               "Signature": "tcc6faL2yUC6dgZdmrwh1Y4cGa/ebXEkAi6RibDsvpi+tE/1+82j...65r==",
               "SigningCertUrl": "https://sns.us-east-2.amazonaws.com/SimpleNotificationService-ac565b8b1a6c5d002d285f9598aa1d9b.pem",
               "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e",
-              "Message": `"{\"Event Source\":\"db-instance\",\"Event Time\":\"2023-01-02 12:45:06.000\",\"Identifier Link\":\"https://console.aws.amazon.com/rds/home?region=eu-west-1#dbinstance:id=dbinstanceid\",\"Source ID\":\"dbinstanceid\",\"Event ID\":\"http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/USER_Events.html#RDS-EVENT-0002\",\"Event Message\":\"Finished DB Instance backup\"}",`
+              "Message": "{\"Event Source\":\"db-instance\",\"Event Time\":\"2023-01-02 12:45:06.000\",\"Identifier Link\":\"https://console.aws.amazon.com/rds/home?region=eu-west-1#dbinstance:id=dbinstanceid\",\"Source ID\":\"dbinstanceid\",\"Event ID\":\"http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/USER_Events.html#RDS-EVENT-0002\",\"Event Message\":\"Finished DB Instance backup\"}",
               "MessageAttributes": {},
               "Type": "Notification",
               "UnsubscribeUrl": "https://sns.us-east-2.amazonaws.com/?Action=Unsubscribe&amp;SubscriptionArn=arn:aws:sns:us-east-2:123456789012:test-lambda:21be56ed-a058-49f5-8c98-aedd2564c486",
@@ -1104,8 +1046,5 @@ event notifications](../../../AmazonRDS/latest/UserGuide/USER_Events.md "../../.
 ```
 
 ## Complete Lambda and Amazon RDS tutorial
-
-- [Using a Lambda function to access an Amazon RDS database](../../../AmazonRDS/latest/UserGuide/rds-lambda-tutorial.md "../../../AmazonRDS/latest/UserGuide/rds-lambda-tutorial.md") –
-  From the Amazon RDS User Guide, learn how to use a Lambda function to write data to an Amazon RDS
-  database through an Amazon RDS Proxy. Your Lambda function reads records from an Amazon SQS
-  queue and write new items to a table in your database whenever a message is added.
+<a name="rds-database-samples"></a>
++ [ Using a Lambda function to access an Amazon RDS database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-lambda-tutorial.html) – From the Amazon RDS User Guide, learn how to use a Lambda function to write data to an Amazon RDS database through an Amazon RDS Proxy. Your Lambda function reads records from an Amazon SQS queue and write new items to a table in your database whenever a message is added.

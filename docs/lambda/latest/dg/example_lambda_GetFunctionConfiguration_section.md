@@ -1,27 +1,25 @@
+
+
 # Use `GetFunctionConfiguration` with a CLI
+<a name="example_lambda_GetFunctionConfiguration_section"></a>
 
 The following code examples show how to use `GetFunctionConfiguration`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Creating your first serverless function](example_lambda_GettingStarted_019_section.md) 
 
-- [Creating your first serverless function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To retrieve the version-specific settings of a Lambda function**
-
-The following `get-function-configuration` example displays the settings for version 2 of the `my-function` function.
+**AWS CLI**  
+**To retrieve the version-specific settings of a Lambda function**  
+The following `get-function-configuration` example displays the settings for version 2 of the `my-function` function.  
 
 ```
-`aws lambda get-function-configuration \
- --function-name `my-function:2``
-
+aws lambda get-function-configuration \
+    --function-name  {{my-function:2}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -48,25 +46,19 @@ Output:
     "Handler": "index.handler"
 }
 ```
+For more information, see [AWS Lambda Function Configuration](https://docs.aws.amazon.com/lambda/latest/dg/resource-model.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [GetFunctionConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-function-configuration.html) in *AWS CLI Command Reference*. 
 
-For more information, see [AWS Lambda Function Configuration](resource-model.md "resource-model.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetFunctionConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-function-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-function-configuration.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns the version specific configuration of a Lambda Function.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns the version specific configuration of a Lambda Function.**  
 
 ```
 Get-LMFunctionConfiguration -FunctionName "MylambdaFunction123" -Qualifier "PowershellAlias"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CodeSha256                 : uWOW0R7z+f0VyLuUg7+/D08hkMFsq0SF4seuyUZJ/R8=
@@ -78,40 +70,34 @@ FunctionArn                : arn:aws:lambda:us-east-1:123456789012:function:Myla
                              :PowershellAlias
 FunctionName               : MylambdaFunction123
 Handler                    : lambda_function.launch_instance
-KMSKeyArn                  :
+KMSKeyArn                  : 
 LastModified               : 2019-12-25T09:52:59.872+0000
 LastUpdateStatus           : Successful
-LastUpdateStatusReason     :
-LastUpdateStatusReasonCode :
+LastUpdateStatusReason     : 
+LastUpdateStatusReasonCode : 
 Layers                     : {}
-MasterArn                  :
+MasterArn                  : 
 MemorySize                 : 128
 RevisionId                 : 5d7de38b-87f2-4260-8f8a-e87280e10c33
 Role                       : arn:aws:iam::123456789012:role/service-role/lambda
 Runtime                    : python3.8
 State                      : Active
-StateReason                :
-StateReasonCode            :
+StateReason                : 
+StateReasonCode            : 
 Timeout                    : 600
 TracingConfig              : Amazon.Lambda.Model.TracingConfigResponse
 Version                    : 4
 VpcConfig                  : Amazon.Lambda.Model.VpcConfigDetail
 ```
++  For API details, see [GetFunctionConfiguration](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetFunctionConfiguration](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns the version specific configuration of a Lambda Function.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns the version specific configuration of a Lambda Function.**  
 
 ```
 Get-LMFunctionConfiguration -FunctionName "MylambdaFunction123" -Qualifier "PowershellAlias"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CodeSha256                 : uWOW0R7z+f0VyLuUg7+/D08hkMFsq0SF4seuyUZJ/R8=
@@ -123,30 +109,27 @@ FunctionArn                : arn:aws:lambda:us-east-1:123456789012:function:Myla
                              :PowershellAlias
 FunctionName               : MylambdaFunction123
 Handler                    : lambda_function.launch_instance
-KMSKeyArn                  :
+KMSKeyArn                  : 
 LastModified               : 2019-12-25T09:52:59.872+0000
 LastUpdateStatus           : Successful
-LastUpdateStatusReason     :
-LastUpdateStatusReasonCode :
+LastUpdateStatusReason     : 
+LastUpdateStatusReasonCode : 
 Layers                     : {}
-MasterArn                  :
+MasterArn                  : 
 MemorySize                 : 128
 RevisionId                 : 5d7de38b-87f2-4260-8f8a-e87280e10c33
 Role                       : arn:aws:iam::123456789012:role/service-role/lambda
 Runtime                    : python3.8
 State                      : Active
-StateReason                :
-StateReasonCode            :
+StateReason                : 
+StateReasonCode            : 
 Timeout                    : 600
 TracingConfig              : Amazon.Lambda.Model.TracingConfigResponse
 Version                    : 4
 VpcConfig                  : Amazon.Lambda.Model.VpcConfigDetail
 ```
++  For API details, see [GetFunctionConfiguration](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetFunctionConfiguration](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

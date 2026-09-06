@@ -1,22 +1,19 @@
+
+
 # Use `ListFunctions` with an AWS SDK or CLI
+<a name="example_lambda_ListFunctions_section"></a>
 
 The following code examples show how to use `ListFunctions`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md) 
 
-- [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
-- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
 ```
     /// <summary>
@@ -36,24 +33,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return functionList;
     }
-
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListFunctions](../../../goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -97,28 +84,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << std::endl;
         }
     } while (!marker.empty());
+```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/ListFunctions) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To retrieve a list of Lambda functions**  
+The following `list-functions` example displays a list of all of the functions for the current user.  
 
 ```
-
-- For API details, see
-  [ListFunctions](../../../goto/SdkForCpp/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForCpp/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve a list of Lambda functions**
-
-The following `list-functions` example displays a list of all of the functions for the current user.
-
+aws lambda list-functions
 ```
-`aws lambda list-functions`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -200,25 +179,16 @@ Output:
     ]
 }
 ```
+For more information, see [Configure Lambda function memory](https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [ListFunctions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/list-functions.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Configure Lambda function memory](configuration-memory.md "configuration-memory.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [ListFunctions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/list-functions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/list-functions.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -256,24 +226,14 @@ func (wrapper FunctionWrapper) ListFunctions(ctx context.Context, maxItems int) 
 	}
 	return functions
 }
-
-
-
 ```
++  For API details, see [ListFunctions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListFunctions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
 ```
 const listFunctions = () => {
@@ -282,23 +242,14 @@ const listFunctions = () => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListFunctions](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
 ```
     public function listFunctions($maxItems = 50, $marker = null)
@@ -314,26 +265,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             'MaxItems' => $maxItems,
         ]);
     }
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/ListFunctions) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ListFunctions](../../../goto/SdkForPHPV3/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This sample displays all the Lambda functions with sorted code size**
+**Tools for PowerShell V4**  
+**Example 1: This sample displays all the Lambda functions with sorted code size**  
 
 ```
 Get-LMFunctionList | Sort-Object -Property CodeSize | Select-Object FunctionName, RunTime, Timeout, CodeSize
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 FunctionName                                                 Runtime   Timeout CodeSize
@@ -342,21 +286,15 @@ test                                                         python2.7       3  
 MylambdaFunction123                                          python3.8     600      659
 myfuncpython1                                                python3.8     303      675
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListFunctions](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This sample displays all the Lambda functions with sorted code size**
+**Tools for PowerShell V5**  
+**Example 1: This sample displays all the Lambda functions with sorted code size**  
 
 ```
 Get-LMFunctionList | Sort-Object -Property CodeSize | Select-Object FunctionName, RunTime, Timeout, CodeSize
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 FunctionName                                                 Runtime   Timeout CodeSize
@@ -365,20 +303,13 @@ test                                                         python2.7       3  
 MylambdaFunction123                                          python3.8     600      659
 myfuncpython1                                                python3.8     303      675
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListFunctions](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper:
@@ -407,24 +338,14 @@ class LambdaWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/ListFunctions) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListFunctions](../../../goto/boto3/lambda-2015-03-31/ListFunctions.md "../../../goto/boto3/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper
@@ -450,23 +371,14 @@ class LambdaWrapper
   rescue Aws::Lambda::Errors::ServiceException => e
     @logger.error("There was an error listing functions:\n #{e.message}")
   end
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListFunctions](../../../goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
 ```
     /** List all Lambda functions in the current Region. */
@@ -478,23 +390,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .await
             .map_err(anyhow::Error::from)
     }
-
-
 ```
++  For API details, see [ListFunctions](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.list_functions) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListFunctions](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.list_functions "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.list_functions")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
 ```
     TRY.
@@ -508,23 +411,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_lmdtoomanyrequestsex.
         MESSAGE 'The maximum request throughput was reached.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListFunctions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
 ```
 import AWSClientRuntime
@@ -558,14 +452,9 @@ import Foundation
 
         return functionNames
     }
-
-
 ```
++  For API details, see [ListFunctions](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/listfunctions(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListFunctions](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/listfunctions(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/listfunctions(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

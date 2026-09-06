@@ -1,33 +1,36 @@
+
+
 # Security and permissions for Lambda durable functions
+<a name="durable-security"></a>
 
 AWS Lambda durable functions require specific IAM permissions to run and manage durable executions. Follow the principle of least privilege by granting only the permissions each principal needs.
 
 ## IAM permissions for durable functions
+<a name="durable-iam-permissions"></a>
 
 For most durable execution API actions, Lambda authorizes the request against the durable execution ARN, not the function ARN. A durable execution is a sub-resource of a function version, and its ARN extends the function ARN:
 
-`arn:aws:lambda:`region`:`account-id`:function:`function-name`:`qualifier`/durable-execution/`execution-name`/`execution-id``
+`arn:aws:lambda:{{region}}:{{account-id}}:function:{{function-name}}:{{qualifier}}/durable-execution/{{execution-name}}/{{execution-id}}`
 
 The qualifier in a durable execution ARN is always `$LATEST` or a version number.
 
 If your policy specifies an unqualified function ARN in the Resource element, Lambda denies the request because an unqualified ARN never matches a durable execution ARN. To grant access, append a qualifier pattern to the function ARN:
-
-- `arn:aws:lambda:us-east-1:123456789012:function:my-function:*` – Matches durable executions of every version.
-- `arn:aws:lambda:us-east-1:123456789012:function:my-function:1/durable-execution/*` – Matches durable executions of version 1 only.
++ `arn:aws:lambda:us-east-1:123456789012:function:my-function:*` – Matches durable executions of every version.
++ `arn:aws:lambda:us-east-1:123456789012:function:my-function:1/durable-execution/*` – Matches durable executions of version 1 only.
 
 Most policies use the `:*` form because version numbers can change with each deployment.
 
-###### Aliases do not apply to durable execution permissions
-
+**Aliases do not apply to durable execution permissions**  
 You can invoke a durable function through an alias, but the resulting execution's ARN contains the resolved version number.
 
 ### Execution role permissions
+<a name="durable-execution-role"></a>
 
 Your durable function's execution role must have permissions to create checkpoints and retrieve execution state. The following policy shows the minimum required permissions:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -47,7 +50,7 @@ For Lambda to assume your execution role, the role's trust policy must specify t
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -60,15 +63,14 @@ For Lambda to assume your execution role, the role's trust policy must specify t
 }
 ```
 
-###### Least privilege principle
-
+**Least privilege principle**  
 Scope the `Resource` element to specific function ARNs instead of using wildcards. This limits the execution role to checkpoint operations for only the functions that need them.
 
-###### Example Scoped permissions for multiple functions
+**Example Scoped permissions for multiple functions**  
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -88,21 +90,21 @@ Scope the `Resource` element to specific function ARNs instead of using wildcard
 Alternatively, you can use the AWS managed policy `AWSLambdaBasicDurableExecutionRolePolicy` which includes the required durable execution permissions along with basic Lambda execution permissions for Amazon CloudWatch Logs.
 
 ### Permissions for managing durable executions
+<a name="durable-manage-permissions"></a>
 
 Lambda authorizes the `lambda:GetDurableExecution`, `lambda:GetDurableExecutionHistory`, and `lambda:StopDurableExecution` actions against the durable execution ARN.
 
 To list the durable executions of a function, use `lambda:ListDurableExecutionsByFunction`. Lambda authorizes this action against the function ARN from the request. The following rules apply to ARN matching:
++ A policy that grants the unqualified function ARN matches only requests that use the unqualified function name.
++ A policy that grants a qualified ARN matches only requests that use a qualified function name.
 
-- A policy that grants the unqualified function ARN matches only requests that use the unqualified function name.
-- A policy that grants a qualified ARN matches only requests that use a qualified function name.
-
-For more information, see [Referencing functions in the Resource section of policies](lambda-api-permissions-ref.md#function-resources "lambda-api-permissions-ref.md#function-resources").
+For more information, see [Referencing functions in the Resource section of policies](lambda-api-permissions-ref.md#function-resources).
 
 To match requests made with either form of the function name, include both the unqualified and the qualified function ARN, as the following policy shows:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "ManageDurableExecutions",
@@ -128,12 +130,13 @@ To match requests made with either form of the function name, include both the u
 ```
 
 ### Permissions for sending callbacks
+<a name="durable-callback-permissions"></a>
 
 The external system that sends a callback result uses the `lambda:SendDurableExecutionCallbackSuccess`, `lambda:SendDurableExecutionCallbackFailure`, and `lambda:SendDurableExecutionCallbackHeartbeat` actions.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "SendCallbacks",
@@ -152,38 +155,38 @@ The external system that sends a callback result uses the `lambda:SendDurableExe
 Lambda authorizes callback requests against the ARN of the durable execution that created the callback.
 
 ## State encryption
+<a name="durable-state-encryption"></a>
 
-Lambda durable functions encrypt execution data at rest. Each function execution maintains isolated state that other executions cannot access. You can configure a customer managed key to encrypt durable execution data. For more information, see [Encrypting AWS Lambda durable execution data](durable-encryption.md "durable-encryption.md").
+Lambda durable functions encrypt execution data at rest. Each function execution maintains isolated state that other executions cannot access. You can configure a customer managed key to encrypt durable execution data. For more information, see [Encrypting AWS Lambda durable execution data](durable-encryption.md).
 
 Checkpoint data includes:
++ Step results and errors
++ Chained invoke inputs
 
-- Step results and errors
-- Chained invoke inputs
-
-For the complete list of durable execution data encrypted at rest, see [What is encrypted](durable-encryption.md#durable-encryption-what-is-encrypted "durable-encryption.md#durable-encryption-what-is-encrypted").
+For the complete list of durable execution data encrypted at rest, see [What is encrypted](durable-encryption.md#durable-encryption-what-is-encrypted).
 
 All data is encrypted in transit using TLS when Lambda reads or writes checkpoint data.
 
 ### Custom encryption with custom serializers and deserializers
+<a name="durable-custom-encryption"></a>
 
 For critical security requirements, you can implement your own encryption and decryption mechanism using custom serializers and deserializers (SerDer) using durable SDK. This approach gives you full control over the encryption keys and algorithms used to protect checkpoint data.
 
-###### Important
-
+**Important**  
 When you use custom encryption, you lose visibility of operation results in the Lambda console and API responses. Checkpoint data appears encrypted in execution history and cannot be inspected without decryption.
 
 Your function's execution role needs `kms:Encrypt` and `kms:Decrypt` permissions for the AWS KMS key used in the custom SerDer implementation.
 
 ## CloudTrail logging
+<a name="durable-cloudtrail-logging"></a>
 
 Lambda logs checkpoint operations as data events in AWS CloudTrail. You can use CloudTrail to audit when checkpoints are created, track execution state changes, and monitor access to durable execution data.
 
 Checkpoint operations appear in CloudTrail logs with the following event names:
++ `CheckpointDurableExecution` - Logged when a step completes and creates a checkpoint
++ `GetDurableExecutionState` - Logged when Lambda retrieves execution state during replay
 
-- `CheckpointDurableExecution` - Logged when a step completes and creates a checkpoint
-- `GetDurableExecutionState` - Logged when Lambda retrieves execution state during replay
-
-To enable data event logging for durable functions, configure a CloudTrail trail to log Lambda data events. For more information, see [Logging data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the CloudTrail User Guide.
+To enable data event logging for durable functions, configure a CloudTrail trail to log Lambda data events. For more information, see [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the CloudTrail User Guide.
 
 **Example: CloudTrail log entry for checkpoint operation**
 
@@ -204,13 +207,15 @@ To enable data event logging for durable functions, configure a CloudTrail trail
 ```
 
 ## Cross-account considerations
+<a name="durable-cross-account-access"></a>
 
 If you invoke durable functions across AWS accounts, the calling account needs `lambda:InvokeFunction` permission, but checkpoint operations always use the execution role in the function's account. The calling account cannot access checkpoint data or execution state directly.
 
 This isolation ensures that checkpoint data remains secure within the function's account, even when invoked from external accounts.
 
 ## Inherited Lambda security features
+<a name="durable-inherited-security"></a>
 
 Durable functions inherit all security, governance, and compliance features from Lambda. These include VPC connectivity, environment variable encryption, dead letter queues, reserved concurrency, function URLs, code signing, and compliance certifications such as SOC, PCI DSS, and HIPAA.
 
-For detailed information about Lambda security features, see [Security in AWS Lambda](lambda-security.md "lambda-security.md") in the Lambda Developer Guide. The only additional security considerations for durable functions are the IAM permissions documented in this guide.
+For detailed information about Lambda security features, see [Security in AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html) in the Lambda Developer Guide. The only additional security considerations for durable functions are the IAM permissions documented in this guide.

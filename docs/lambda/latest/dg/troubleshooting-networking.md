@@ -1,103 +1,73 @@
+
+
 # Troubleshoot networking issues in Lambda
+<a name="troubleshooting-networking"></a>
 
-By default, Lambda runs your functions in an internal virtual private cloud (VPC) with connectivity to AWS
-services and the internet. To access local network resources, you can [configure
-your function to connect to a VPC in your account](configuration-vpc.md "configuration-vpc.md"). When you use this feature, you manage the function's
-internet access and network connectivity with Amazon Virtual Private Cloud (Amazon VPC) resources.
+By default, Lambda runs your functions in an internal virtual private cloud (VPC) with connectivity to AWS services and the internet. To access local network resources, you can [configure your function to connect to a VPC in your account](configuration-vpc.md). When you use this feature, you manage the function's internet access and network connectivity with Amazon Virtual Private Cloud (Amazon VPC) resources.
 
-Network connectivity errors can result from issues with your VPC's routing configuration, security group
-rules, AWS Identity and Access Management (IAM) role permissions, or network address translation (NAT), or from the availability of
-resources such as IP addresses or network interfaces. Depending on the issue, you might see a specific error or
-timeout if a request can't reach its destination.
+Network connectivity errors can result from issues with your VPC's routing configuration, security group rules, AWS Identity and Access Management (IAM) role permissions, or network address translation (NAT), or from the availability of resources such as IP addresses or network interfaces. Depending on the issue, you might see a specific error or timeout if a request can't reach its destination.
 
-###### Topics
-
-- [VPC: Function loses internet access or times out](#troubleshooting-networking-cfn "#troubleshooting-networking-cfn")
-- [VPC: TCP or UDP connection intermittently fails](#troubleshooting-networking-tcp-udp "#troubleshooting-networking-tcp-udp")
-- [VPC: Function needs access to AWS services without using the internet](#troubleshooting-networking-access "#troubleshooting-networking-access")
-- [VPC: Elastic network interface limit reached](#troubleshooting-networking-limit "#troubleshooting-networking-limit")
-- [EC2: Elastic network interface with type of "lambda"](#troubleshooting-networking-eni "#troubleshooting-networking-eni")
-- [DNS: Fail to connect to hosts with UNKNOWNHOSTEXCEPTION](#troubleshooting-networking-dns-tcp "#troubleshooting-networking-dns-tcp")
+**Topics**
++ [VPC: Function loses internet access or times out](#troubleshooting-networking-cfn)
++ [VPC: TCP or UDP connection intermittently fails](#troubleshooting-networking-tcp-udp)
++ [VPC: Function needs access to AWS services without using the internet](#troubleshooting-networking-access)
++ [VPC: Elastic network interface limit reached](#troubleshooting-networking-limit)
++ [EC2: Elastic network interface with type of "lambda"](#troubleshooting-networking-eni)
++ [DNS: Fail to connect to hosts with UNKNOWNHOSTEXCEPTION](#troubleshooting-networking-dns-tcp)
 
 ## VPC: Function loses internet access or times out
+<a name="troubleshooting-networking-cfn"></a>
 
-**Issue:**
-_Your Lambda function loses internet access after connecting to a VPC._
+**Issue:** *Your Lambda function loses internet access after connecting to a VPC.*
 
-**Error:**
-_Error: connect ETIMEDOUT 176.32.98.189:443_
+**Error:** *Error: connect ETIMEDOUT 176.32.98.189:443*
 
-**Error:**
-_Error: Task timed out after 10.00 seconds_
+**Error:** *Error: Task timed out after 10.00 seconds*
 
-**Error:**
-_ReadTimeoutError: Read timed out. (read timeout=15)_
+**Error:** *ReadTimeoutError: Read timed out. (read timeout=15)*
 
-When you connect a function to a VPC, all outbound requests go through the VPC. To connect to the internet,
-configure your VPC to send outbound traffic from the function's subnet to a NAT gateway in a public subnet. For
-more information and sample VPC configurations, see [Enable internet access for VPC-connected Lambda functions](configuration-vpc-internet.md "configuration-vpc-internet.md").
+When you connect a function to a VPC, all outbound requests go through the VPC. To connect to the internet, configure your VPC to send outbound traffic from the function's subnet to a NAT gateway in a public subnet. For more information and sample VPC configurations, see [Enable internet access for VPC-connected Lambda functions](configuration-vpc-internet.md).
 
-If some of your TCP connections are timing out, see [VPC: TCP or UDP connection intermittently fails](#troubleshooting-networking-tcp-udp "#troubleshooting-networking-tcp-udp") if
-your subnet is using a network access control list (NACL). Otherwise, this is likely due to packet fragmentation.
-Lambda functions cannot handle incoming fragmented TCP requests, since Lambda does not support IP fragmentation
-for TCP or ICMP.
+If some of your TCP connections are timing out, see [VPC: TCP or UDP connection intermittently fails](#troubleshooting-networking-tcp-udp) if your subnet is using a network access control list (NACL). Otherwise, this is likely due to packet fragmentation. Lambda functions cannot handle incoming fragmented TCP requests, since Lambda does not support IP fragmentation for TCP or ICMP.
 
 ## VPC: TCP or UDP connection intermittently fails
+<a name="troubleshooting-networking-tcp-udp"></a>
 
-###### Note
+**Note**  
+This issue applies only if your subnet uses a [network access control list (ACL)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-basics). Network ACLs aren't required for Lambda to connect to your subnets.
 
-This issue applies only if your subnet uses a [network access control list (ACL)](../../../vpc/latest/userguide/vpc-network-acls.md#nacl-basics "../../../vpc/latest/userguide/vpc-network-acls.md#nacl-basics").
-Network ACLs aren't required for Lambda to connect to your subnets.
+**Issue:** *Lambda intermittently loses connection to your VPC subnets, which you have configured a network access control list (ACL) for.*
 
-**Issue:**
-_Lambda intermittently loses connection to your VPC subnets, which you have configured a
-network access control list (ACL) for._
-
-For VPC-enabled Lambda functions, AWS creates [hyperplane ENIs](configuration-vpc.md#configuration-vpc-enis "configuration-vpc.md#configuration-vpc-enis")
-in the customer's account, and uses ephemeral ports `1024` to `65535` to connect Lambda
-to the customer's VPC. If you use network ACLs in the target subnet, you must allow the port range
-`1024` to `65535` for both TCP and UDP. Not allowing this full port range can cause
-intermittent connection failures.
+For VPC-enabled Lambda functions, AWS creates [hyperplane ENIs](configuration-vpc.md#configuration-vpc-enis) in the customer's account, and uses ephemeral ports `1024` to `65535` to connect Lambda to the customer's VPC. If you use network ACLs in the target subnet, you must allow the port range `1024` to `65535` for both TCP and UDP. Not allowing this full port range can cause intermittent connection failures.
 
 ## VPC: Function needs access to AWS services without using the internet
+<a name="troubleshooting-networking-access"></a>
 
-**Issue:**
-_Your Lambda function needs access to AWS services without using the internet._
+**Issue:** *Your Lambda function needs access to AWS services without using the internet.*
 
 To connect a function to AWS services from a private subnet with no internet access, use VPC endpoints.
 
 ## VPC: Elastic network interface limit reached
+<a name="troubleshooting-networking-limit"></a>
 
-**Error:**
-_ENILimitReachedException: The elastic network interface limit was reached for the function's
-VPC._
+**Error:** *ENILimitReachedException: The elastic network interface limit was reached for the function's VPC.*
 
-When you connect a Lambda function to a VPC, Lambda creates an elastic network interface for each combination of
-subnet and security group attached to the function. The default service quota is 250 network interfaces per VPC.
-To request a quota increase, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/lambda/quotas/L-9FEE3D26 "https://console.aws.amazon.com/servicequotas/home/services/lambda/quotas/L-9FEE3D26").
+When you connect a Lambda function to a VPC, Lambda creates an elastic network interface for each combination of subnet and security group attached to the function. The default service quota is 250 network interfaces per VPC. To request a quota increase, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/lambda/quotas/L-9FEE3D26).
 
 ## EC2: Elastic network interface with type of "lambda"
+<a name="troubleshooting-networking-eni"></a>
 
-**Error Code:**
-_Client.OperationNotPermitted_
+ **Error Code:** *Client.OperationNotPermitted*
 
-**Error message:**
-_The security group can not be modified for this type of interface_
+ **Error message:** *The security group can not be modified for this type of interface*
 
 You receive this error if you attempt to modify an elastic network interface (ENI) that is managed by Lambda. The `ModifyNetworkInterfaceAttribute` is not included in the Lambda API for update operations on elastic network interfaces created by Lambda.
 
 ## DNS: Fail to connect to hosts with UNKNOWNHOSTEXCEPTION
+<a name="troubleshooting-networking-dns-tcp"></a>
 
-**Error Message:**
-_UNKNOWNHOSTEXCEPTION_
+ **Error Message:** *UNKNOWNHOSTEXCEPTION*
 
-Lambda functions support a maximum of 20 concurrent TCP connections for DNS resolution. Your function might be
-exhausting that limit. Most common DNS requests are done over UDP. If your function is only making UDP DNS
-connections, this is unlikely to be your issue. This error is commonly thrown due to misconfiguration or degraded
-infrastructure, so before examining your DNS traffic in depth, confirm that your DNS infrastructure is properly
-configured and healthy and that your Lambda function is referring to a host specified in DNS.
+Lambda functions support a maximum of 20 concurrent TCP connections for DNS resolution. Your function might be exhausting that limit. Most common DNS requests are done over UDP. If your function is only making UDP DNS connections, this is unlikely to be your issue. This error is commonly thrown due to misconfiguration or degraded infrastructure, so before examining your DNS traffic in depth, confirm that your DNS infrastructure is properly configured and healthy and that your Lambda function is referring to a host specified in DNS.
 
-If you diagnose your issue as related to the TCP connection maximum, note that you cannot request an increase
-to this limit. If your Lambda function is falling back to TCP DNS because of large DNS payloads, confirm that your
-solution is using libraries that support EDNS. For more information about EDNS, see [the RFC 6891 standard](https://datatracker.ietf.org/doc/html/rfc6891 "https://datatracker.ietf.org/doc/html/rfc6891"). If your DNS payloads
-consistently exceed EDNS max sizes, your solution might still exhaust the TCP DNS limit.
+If you diagnose your issue as related to the TCP connection maximum, note that you cannot request an increase to this limit. If your Lambda function is falling back to TCP DNS because of large DNS payloads, confirm that your solution is using libraries that support EDNS. For more information about EDNS, see [the RFC 6891 standard](https://datatracker.ietf.org/doc/html/rfc6891). If your DNS payloads consistently exceed EDNS max sizes, your solution might still exhaust the TCP DNS limit.

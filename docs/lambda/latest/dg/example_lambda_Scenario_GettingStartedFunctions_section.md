@@ -1,25 +1,23 @@
+
+
 # Learn the basics of Lambda with an AWS SDK
+<a name="example_lambda_Scenario_GettingStartedFunctions_section"></a>
 
 The following code examples show how to:
++ Create an IAM role and Lambda function, then upload handler code.
++ Invoke the function with a single parameter and get results.
++ Update the function code and configure with an environment variable.
++ Invoke the function with new parameters and get results. Display the returned execution log.
++ List the functions for your account, then clean up resources.
 
-- Create an IAM role and Lambda function, then upload handler code.
-- Invoke the function with a single parameter and get results.
-- Update the function code and configure with an environment variable.
-- Invoke the function with new parameters and get results. Display the returned execution log.
-- List the functions for your account, then clean up resources.
-  For more information, see [Create a Lambda function with the console](getting-started-create-function.md "getting-started-create-function.md").
+For more information, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples").
-
-Create methods that perform Lambda actions.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
+Create methods that perform Lambda actions.  
 
 ```
 namespace LambdaActions;
@@ -225,12 +223,8 @@ public class LambdaWrapper
 
 
 }
-
-
-
 ```
-
-Create a function that runs the scenario.
+Create a function that runs the scenario.  
 
 ```
 global using System.Threading.Tasks;
@@ -660,12 +654,8 @@ public class UIWrapper
         PressEnter();
     }
 }
-
-
-
 ```
-
-Define a Lambda handler that increments a number.
+Define a Lambda handler that increments a number.  
 
 ```
 using Amazon.Lambda.Core;
@@ -699,12 +689,8 @@ public class Function
         }
     }
 }
-
-
-
 ```
-
-Define a second Lambda handler that performs arithmetic operations.
+Define a second Lambda handler that performs arithmetic operations.  
 
 ```
 using Amazon.Lambda.Core;
@@ -760,30 +746,21 @@ public class Function
         return result;
     }
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CreateFunction](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/CreateFunction)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/DeleteFunction)
+  + [GetFunction](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/GetFunction)
+  + [Invoke](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/Invoke)
+  + [ListFunctions](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions)
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionCode)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionConfiguration)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-  - [CreateFunction](../../../goto/DotNetSDKV3/lambda-2015-03-31/CreateFunction.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/CreateFunction.md")
-  - [DeleteFunction](../../../goto/DotNetSDKV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/DeleteFunction.md")
-  - [GetFunction](../../../goto/DotNetSDKV3/lambda-2015-03-31/GetFunction.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/GetFunction.md")
-  - [Invoke](../../../goto/DotNetSDKV3/lambda-2015-03-31/Invoke.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/Invoke.md")
-  - [ListFunctions](../../../goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions.md")
-  - [UpdateFunctionCode](../../../goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionCode.md")
-  - [UpdateFunctionConfiguration](../../../goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionConfiguration.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionConfiguration.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
 ```
 //! Get started with functions scenario.
@@ -1199,34 +1176,24 @@ AwsDoc::Lambda::invokeLambdaFunction(const Aws::Utils::Json::JsonValue &jsonPayl
 
     return result;
 }
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [CreateFunction](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/CreateFunction)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/DeleteFunction)
+  + [GetFunction](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/GetFunction)
+  + [Invoke](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/Invoke)
+  + [ListFunctions](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/ListFunctions)
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionCode)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionConfiguration)
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
+Create an interactive scenario that shows you how to get started with Lambda functions.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
-
-  - [CreateFunction](../../../goto/SdkForCpp/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForCpp/lambda-2015-03-31/CreateFunction.md")
-  - [DeleteFunction](../../../goto/SdkForCpp/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForCpp/lambda-2015-03-31/DeleteFunction.md")
-  - [GetFunction](../../../goto/SdkForCpp/lambda-2015-03-31/GetFunction.md "../../../goto/SdkForCpp/lambda-2015-03-31/GetFunction.md")
-  - [Invoke](../../../goto/SdkForCpp/lambda-2015-03-31/Invoke.md "../../../goto/SdkForCpp/lambda-2015-03-31/Invoke.md")
-  - [ListFunctions](../../../goto/SdkForCpp/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForCpp/lambda-2015-03-31/ListFunctions.md")
-  - [UpdateFunctionCode](../../../goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionCode.md")
-  - [UpdateFunctionConfiguration](../../../goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionConfiguration.md "../../../goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionConfiguration.md")
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples").
-
-Create an interactive scenario that shows you how to get started with Lambda functions.
-
-```
-
 import (
 	"archive/zip"
 	"bytes"
@@ -1552,15 +1519,10 @@ func (helper *ScenarioHelper) CreateDeploymentPackage(sourceFile string, destina
 	}
 	return buffer
 }
-
-
+```
+Create a struct that wraps individual Lambda actions.  
 
 ```
-
-Create a struct that wraps individual Lambda actions.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -1756,12 +1718,8 @@ type LambdaResultInt struct {
 type LambdaResultFloat struct {
 	Result float32 `json:"result"`
 }
-
-
-
 ```
-
-Define a Lambda handler that increments a number.
+Define a Lambda handler that increments a number.  
 
 ```
 import logging
@@ -1790,13 +1748,8 @@ def lambda_handler(event, context):
 
     response = {"result": result}
     return response
-
-
-
-
 ```
-
-Define a second Lambda handler that performs arithmetic operations.
+Define a second Lambda handler that performs arithmetic operations.  
 
 ```
 import logging
@@ -1844,31 +1797,21 @@ def lambda_handler(event, context):
 
     response = {"result": result}
     return response
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [CreateFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.CreateFunction)
+  + [DeleteFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.DeleteFunction)
+  + [GetFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.GetFunction)
+  + [Invoke](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.Invoke)
+  + [ListFunctions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions)
+  + [UpdateFunctionCode](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionCode)
+  + [UpdateFunctionConfiguration](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionConfiguration)
 
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-  - [CreateFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.CreateFunction "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.CreateFunction")
-  - [DeleteFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.DeleteFunction "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.DeleteFunction")
-  - [GetFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.GetFunction "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.GetFunction")
-  - [Invoke](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.Invoke "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.Invoke")
-  - [ListFunctions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions")
-  - [UpdateFunctionCode](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionCode "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionCode")
-  - [UpdateFunctionConfiguration](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionConfiguration "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionConfiguration")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
 ```
 /*
@@ -2181,31 +2124,22 @@ public class LambdaScenario {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateFunction](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction)
+  + [GetFunction](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/GetFunction)
+  + [Invoke](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/Invoke)
+  + [ListFunctions](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/ListFunctions)
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionCode)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionConfiguration)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [CreateFunction](../../../goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction.md")
-  - [DeleteFunction](../../../goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction.md")
-  - [GetFunction](../../../goto/SdkForJavaV2/lambda-2015-03-31/GetFunction.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/GetFunction.md")
-  - [Invoke](../../../goto/SdkForJavaV2/lambda-2015-03-31/Invoke.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/Invoke.md")
-  - [ListFunctions](../../../goto/SdkForJavaV2/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/ListFunctions.md")
-  - [UpdateFunctionCode](../../../goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionCode.md")
-  - [UpdateFunctionConfiguration](../../../goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionConfiguration.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionConfiguration.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda/scenarios/basic#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda/scenarios/basic#code-examples").
-
-Create an AWS Identity and Access Management (IAM) role that grants Lambda permission to write to logs.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda/scenarios/basic#code-examples). 
+Create an AWS Identity and Access Management (IAM) role that grants Lambda permission to write to logs.  
 
 ```
     logger.log(`Creating role (${NAME_ROLE_LAMBDA})...`);
@@ -2228,11 +2162,8 @@ export const attachRolePolicy = (policyArn, roleName) => {
 
   return client.send(command);
 };
-
-
 ```
-
-Create a Lambda function and upload handler code.
+Create a Lambda function and upload handler code.  
 
 ```
 const createFunction = async (funcName, roleArn) => {
@@ -2251,11 +2182,8 @@ const createFunction = async (funcName, roleArn) => {
 
   return client.send(command);
 };
-
-
 ```
-
-Invoke the function with a single parameter and get results.
+Invoke the function with a single parameter and get results.  
 
 ```
 const invoke = async (funcName, payload) => {
@@ -2271,11 +2199,8 @@ const invoke = async (funcName, payload) => {
   const logs = Buffer.from(LogResult, "base64").toString();
   return { logs, result };
 };
-
-
 ```
-
-Update the function code and configure its Lambda environment with an environment variable.
+Update the function code and configure its Lambda environment with an environment variable.  
 
 ```
 const updateFunctionCode = async (funcName, newFunc) => {
@@ -2304,11 +2229,8 @@ const updateFunctionConfiguration = async (funcName) => {
   await waitForFunctionUpdated({ FunctionName: funcName });
   return result;
 };
-
-
 ```
-
-List the functions for your account.
+List the functions for your account.  
 
 ```
 const listFunctions = () => {
@@ -2317,11 +2239,8 @@ const listFunctions = () => {
 
   return client.send(command);
 };
-
-
 ```
-
-Delete the IAM role and the Lambda function.
+Delete the IAM role and the Lambda function.  
 
 ```
 import { DeleteRoleCommand, IAMClient } from "@aws-sdk/client-iam";
@@ -2345,42 +2264,34 @@ const deleteFunction = (funcName) => {
   const command = new DeleteFunctionCommand({ FunctionName: funcName });
   return client.send(command);
 };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [CreateFunction](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/CreateFunctionCommand)
+  + [DeleteFunction](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/DeleteFunctionCommand)
+  + [GetFunction](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/GetFunctionCommand)
+  + [Invoke](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/InvokeCommand)
+  + [ListFunctions](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand)
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionCodeCommand)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionConfigurationCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-  - [CreateFunction](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/CreateFunctionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/CreateFunctionCommand.md")
-  - [DeleteFunction](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/DeleteFunctionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/DeleteFunctionCommand.md")
-  - [GetFunction](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/GetFunctionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/GetFunctionCommand.md")
-  - [Invoke](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/InvokeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/InvokeCommand.md")
-  - [ListFunctions](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand.md")
-  - [UpdateFunctionCode](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionCodeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionCodeCommand.md")
-  - [UpdateFunctionConfiguration](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionConfigurationCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionConfigurationCommand.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples). 
 
 ```
 suspend fun main(args: Array<String>) {
     val usage = """
         Usage:
-            <functionName> <role> <handler> <bucketName> <updatedBucketName> <key>
+            <functionName> <role> <handler> <bucketName> <updatedBucketName> <key> 
 
         Where:
-            functionName - The name of the AWS Lambda function.
-            role - The AWS Identity and Access Management (IAM) service role that has AWS Lambda permissions.
-            handler - The fully qualified method name (for example, example.Handler::handleRequest).
+            functionName - The name of the AWS Lambda function. 
+            role - The AWS Identity and Access Management (IAM) service role that has AWS Lambda permissions. 
+            handler - The fully qualified method name (for example, example.Handler::handleRequest). 
             bucketName - The Amazon Simple Storage Service (Amazon S3) bucket name that contains the ZIP or JAR used for the Lambda function's code.
-            updatedBucketName - The Amazon S3 bucket name that contains the .zip or .jar used to update the Lambda function's code.
+            updatedBucketName - The Amazon S3 bucket name that contains the .zip or .jar used to update the Lambda function's code. 
             key - The Amazon S3 key name that represents the .zip or .jar file (for example, LambdaHello-1.0-SNAPSHOT.jar).
             """
 
@@ -2552,29 +2463,21 @@ suspend fun delFunction(myFunctionName: String) {
         println("$myFunctionName was deleted")
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CreateFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [Invoke](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListFunctions](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [UpdateFunctionCode](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [UpdateFunctionConfiguration](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-  - [CreateFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [Invoke](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListFunctions](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [UpdateFunctionCode](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [UpdateFunctionConfiguration](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
 ```
 namespace Lambda;
@@ -2748,31 +2651,22 @@ class GettingStartedWithLambda
         echo "Deleted the bucket.\n";
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for PHP API Reference*.
+  + [CreateFunction](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/CreateFunction)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/DeleteFunction)
+  + [GetFunction](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/GetFunction)
+  + [Invoke](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/Invoke)
+  + [ListFunctions](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/ListFunctions)
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionCode)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionConfiguration)
 
-- For API details, see the following topics in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-  - [CreateFunction](../../../goto/SdkForPHPV3/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/CreateFunction.md")
-  - [DeleteFunction](../../../goto/SdkForPHPV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/DeleteFunction.md")
-  - [GetFunction](../../../goto/SdkForPHPV3/lambda-2015-03-31/GetFunction.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/GetFunction.md")
-  - [Invoke](../../../goto/SdkForPHPV3/lambda-2015-03-31/Invoke.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/Invoke.md")
-  - [ListFunctions](../../../goto/SdkForPHPV3/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/ListFunctions.md")
-  - [UpdateFunctionCode](../../../goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionCode.md")
-  - [UpdateFunctionConfiguration](../../../goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionConfiguration.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionConfiguration.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples").
-
-Define a Lambda handler that increments a number.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
+Define a Lambda handler that increments a number.  
 
 ```
 import logging
@@ -2801,13 +2695,8 @@ def lambda_handler(event, context):
 
     response = {"result": result}
     return response
-
-
-
-
 ```
-
-Define a second Lambda handler that performs arithmetic operations.
+Define a second Lambda handler that performs arithmetic operations.  
 
 ```
 import logging
@@ -2855,13 +2744,8 @@ def lambda_handler(event, context):
 
     response = {"result": result}
     return response
-
-
-
-
 ```
-
-Create functions that wrap Lambda actions.
+Create functions that wrap Lambda actions.  
 
 ```
 class LambdaWrapper:
@@ -2926,7 +2810,7 @@ class LambdaWrapper:
             return role, False
 
         lambda_assume_role_policy = {
-            "Version":"2012-10-17",
+            "Version":"2012-10-17",		 	 	 
             "Statement": [
                 {
                     "Effect": "Allow",
@@ -3129,14 +3013,8 @@ class LambdaWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
-
 ```
-
-Create a function that runs the scenario.
+Create a function that runs the scenario.  
 
 ```
 class UpdateFunctionWaiter(CustomWaiter):
@@ -3280,31 +3158,22 @@ if __name__ == "__main__":
         )
     except Exception:
         logging.exception("Something went wrong with the demo!")
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateFunction](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/CreateFunction)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/DeleteFunction)
+  + [GetFunction](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/GetFunction)
+  + [Invoke](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/Invoke)
+  + [ListFunctions](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/ListFunctions)
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/UpdateFunctionCode)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/UpdateFunctionConfiguration)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-  - [CreateFunction](../../../goto/boto3/lambda-2015-03-31/CreateFunction.md "../../../goto/boto3/lambda-2015-03-31/CreateFunction.md")
-  - [DeleteFunction](../../../goto/boto3/lambda-2015-03-31/DeleteFunction.md "../../../goto/boto3/lambda-2015-03-31/DeleteFunction.md")
-  - [GetFunction](../../../goto/boto3/lambda-2015-03-31/GetFunction.md "../../../goto/boto3/lambda-2015-03-31/GetFunction.md")
-  - [Invoke](../../../goto/boto3/lambda-2015-03-31/Invoke.md "../../../goto/boto3/lambda-2015-03-31/Invoke.md")
-  - [ListFunctions](../../../goto/boto3/lambda-2015-03-31/ListFunctions.md "../../../goto/boto3/lambda-2015-03-31/ListFunctions.md")
-  - [UpdateFunctionCode](../../../goto/boto3/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/boto3/lambda-2015-03-31/UpdateFunctionCode.md")
-  - [UpdateFunctionConfiguration](../../../goto/boto3/lambda-2015-03-31/UpdateFunctionConfiguration.md "../../../goto/boto3/lambda-2015-03-31/UpdateFunctionConfiguration.md")
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples").
-
-Set up pre-requisite IAM permissions for a Lambda function capable of writing logs.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
+Set up pre-requisite IAM permissions for a Lambda function capable of writing logs.  
 
 ```
   # Get an AWS Identity and Access Management (IAM) role.
@@ -3369,11 +3238,8 @@ Set up pre-requisite IAM permissions for a Lambda function capable of writing lo
       w.delay = 5
     end
   end
-
-
 ```
-
-Define a Lambda handler that increments a number provided as an invocation parameter.
+Define a Lambda handler that increments a number provided as an invocation parameter.  
 
 ```
 require 'logger'
@@ -3403,11 +3269,8 @@ def lambda_handler(event:, context:)
   logger.info("You provided #{number.round} and it was incremented to #{incremented_number.round}")
   incremented_number.round.to_s
 end
-
-
 ```
-
-Zip your Lambda function into a deployment package.
+Zip your Lambda function into a deployment package.  
 
 ```
   # Creates a Lambda deployment package in .zip format.
@@ -3428,11 +3291,8 @@ Zip your Lambda function into a deployment package.
   rescue StandardError => e
     @logger.error("There was an error creating deployment package:\n #{e.message}")
   end
-
-
 ```
-
-Create a new Lambda function.
+Create a new Lambda function.  
 
 ```
   # Deploys a Lambda function.
@@ -3467,11 +3327,8 @@ Create a new Lambda function.
   rescue Aws::Waiters::Errors::WaiterFailed => e
     @logger.error("Failed waiting for #{function_name} to activate:\n #{e.message}")
   end
-
-
 ```
-
-Invoke your Lambda function with optional runtime parameters.
+Invoke your Lambda function with optional runtime parameters.  
 
 ```
   # Invokes a Lambda function.
@@ -3485,11 +3342,8 @@ Invoke your Lambda function with optional runtime parameters.
   rescue Aws::Lambda::Errors::ServiceException => e
     @logger.error("There was an error executing #{function_name}:\n #{e.message}")
   end
-
-
 ```
-
-Update your Lambda function's configuration to inject a new environment variable.
+Update your Lambda function's configuration to inject a new environment variable.  
 
 ```
   # Updates the environment variables for a Lambda function.
@@ -3514,11 +3368,8 @@ Update your Lambda function's configuration to inject a new environment variable
   rescue Aws::Waiters::Errors::WaiterFailed => e
     @logger.error("Failed waiting for #{function_name} to activate:\n #{e.message}")
   end
-
-
 ```
-
-Update your Lambda function's code with a different deployment package containing different code.
+Update your Lambda function's code with a different deployment package containing different code.  
 
 ```
   # Updates the code for a Lambda function by submitting a .zip archive that contains
@@ -3543,11 +3394,8 @@ Update your Lambda function's code with a different deployment package containin
   rescue Aws::Waiters::Errors::WaiterFailed => e
     @logger.error("Failed waiting for #{function_name} to update:\n #{e.message}")
   end
-
-
 ```
-
-List all existing Lambda functions using the built-in paginator.
+List all existing Lambda functions using the built-in paginator.  
 
 ```
   # Lists the Lambda functions for the current account.
@@ -3562,11 +3410,8 @@ List all existing Lambda functions using the built-in paginator.
   rescue Aws::Lambda::Errors::ServiceException => e
     @logger.error("There was an error listing functions:\n #{e.message}")
   end
-
-
 ```
-
-Delete a specific Lambda function.
+Delete a specific Lambda function.  
 
 ```
   # Deletes a Lambda function.
@@ -3580,31 +3425,22 @@ Delete a specific Lambda function.
   rescue Aws::Lambda::Errors::ServiceException => e
     @logger.error("There was an error deleting #{function_name}:\n #{e.message}")
   end
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Ruby API Reference*.
+  + [CreateFunction](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/CreateFunction)
+  + [DeleteFunction](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/DeleteFunction)
+  + [GetFunction](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/GetFunction)
+  + [Invoke](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/Invoke)
+  + [ListFunctions](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions)
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionCode)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionConfiguration)
 
-- For API details, see the following topics in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-  - [CreateFunction](../../../goto/SdkForRubyV3/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/CreateFunction.md")
-  - [DeleteFunction](../../../goto/SdkForRubyV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/DeleteFunction.md")
-  - [GetFunction](../../../goto/SdkForRubyV3/lambda-2015-03-31/GetFunction.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/GetFunction.md")
-  - [Invoke](../../../goto/SdkForRubyV3/lambda-2015-03-31/Invoke.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/Invoke.md")
-  - [ListFunctions](../../../goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions.md")
-  - [UpdateFunctionCode](../../../goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionCode.md")
-  - [UpdateFunctionConfiguration](../../../goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionConfiguration.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionConfiguration.md")
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples").
-
-The Cargo.toml with dependencies used in this scenario.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
+The Cargo.toml with dependencies used in this scenario.  
 
 ```
 [package]
@@ -3631,14 +3467,10 @@ anyhow = "1.0.71"
 uuid = { version = "1.3.3", features = ["v4"] }
 lambda_runtime = "0.8.0"
 serde = "1.0.164"
-
+```
+A collection of utilities that streamline calling Lambda for this scenario. This file is src/ations.rs in the crate.  
 
 ```
-
-A collection of utilities that streamline calling Lambda for this scenario. This file is src/ations.rs in the crate.
-
-```
-
 use anyhow::anyhow;
 use aws_sdk_iam::operation::{create_role::CreateRoleError, delete_role::DeleteRoleOutput};
 use aws_sdk_lambda::{
@@ -3731,7 +3563,7 @@ impl Serialize for InvokeArgs {
 
 /** A policy document allowing Lambda to execute this function on the account's behalf. */
 const ROLE_POLICY_DOCUMENT: &str = r#"{
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -4198,14 +4030,10 @@ mod test {
         );
     }
 }
-
+```
+A binary to run the scenario from front to end, using command line flags to control some behavior. This file is src/bin/scenario.rs in the crate.  
 
 ```
-
-A binary to run the scenario from front to end, using command line flags to control some behavior. This file is src/bin/scenario.rs in the crate.
-
-```
-
 /*
 ## Service actions
 
@@ -4422,36 +4250,27 @@ async fn main() {
         info!(?delete, "Deleted function & cleaned up resources");
     }
 }
+```
++ For API details, see the following topics in *AWS SDK for Rust API reference*.
+  + [CreateFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.create_function)
+  + [DeleteFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.delete_function)
+  + [GetFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.get_function)
+  + [Invoke](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.invoke)
+  + [ListFunctions](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.list_functions)
+  + [UpdateFunctionCode](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_code)
+  + [UpdateFunctionConfiguration](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_configuration)
 
+------
+#### [ SAP ABAP ]
+
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Rust API reference_.
-
-  - [CreateFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.create_function "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.create_function")
-  - [DeleteFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.delete_function "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.delete_function")
-  - [GetFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.get_function "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.get_function")
-  - [Invoke](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.invoke "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.invoke")
-  - [ListFunctions](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.list_functions "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.list_functions")
-  - [UpdateFunctionCode](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_code "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_code")
-  - [UpdateFunctionConfiguration](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_configuration "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_configuration")
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples").
-
-```
-
     TRY.
         "Create an AWS Identity and Access Management (IAM) role that grants AWS Lambda permission to write to logs."
         DATA(lv_policy_document) = `{` &&
-            `"Version":"2012-10-17",` &&
+            `"Version":"2012-10-17",		 	 	 ` &&
                   `"Statement": [` &&
                     `{` &&
                       `"Effect": "Allow",` &&
@@ -4660,31 +4479,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = lo_exception->get_longtext( ).
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++ For API details, see the following topics in *AWS SDK for SAP ABAP API reference*.
+  + [CreateFunction](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [DeleteFunction](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [GetFunction](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [Invoke](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [ListFunctions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-  - [CreateFunction](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [DeleteFunction](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [GetFunction](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [Invoke](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [ListFunctions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [UpdateFunctionCode](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [UpdateFunctionConfiguration](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples").
-
-Define the first Lambda function, which simply increments the specified value.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
+Define the first Lambda function, which simply increments the specified value.  
 
 ```
 // swift-tools-version: 5.9
@@ -4772,11 +4582,8 @@ let incrementLambdaRuntime = LambdaRuntime {
 // Run the Lambda runtime code.
 
 try await incrementLambdaRuntime.run()
-
-
 ```
-
-Define the second Lambda function, which performs an arithmetic operation on two numbers.
+Define the second Lambda function, which performs an arithmetic operation on two numbers.  
 
 ```
 // swift-tools-version: 5.9
@@ -4892,11 +4699,8 @@ let calculatorLambdaRuntime = LambdaRuntime {
 }
 
 try await calculatorLambdaRuntime.run()
-
-
 ```
-
-Define the main program that will invoke the two Lambda functions.
+Define the main program that will invoke the two Lambda functions.  
 
 ```
 // swift-tools-version: 5.9
@@ -5001,7 +4805,7 @@ struct ExampleCommand: ParsableCommand {
     )
 
     /// Returns the specified IAM role object.
-    ///
+    /// 
     /// - Parameters:
     ///   - iamClient: `IAMClient` to use when looking for the role.
     ///   - roleName: The name of the role to check.
@@ -5026,7 +4830,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Create the AWS IAM role that will be used to access AWS Lambda.
-    ///
+    /// 
     /// - Parameters:
     ///   - iamClient: The AWS `IAMClient` to use.
     ///   - roleName: The name of the AWS IAM role to use for Lambda.
@@ -5040,7 +4844,7 @@ struct ExampleCommand: ParsableCommand {
                 assumeRolePolicyDocument:
                 """
                 {
-                    "Version":"2012-10-17",
+                    "Version":"2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect": "Allow",
@@ -5093,13 +4897,13 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Create the specified AWS Lambda function.
-    ///
+    /// 
     /// - Parameters:
     ///   - lambdaClient: The `LambdaClient` to use.
     ///   - functionName: The name of the AWS Lambda function to create.
     ///   - roleArn: The ARN of the role to apply to the function.
     ///   - path: The path of the Zip archive containing the function.
-    ///
+    /// 
     /// - Returns: `true` if the AWS Lambda was successfully created; `false`
     ///   if it wasn't.
     func createFunction(lambdaClient: LambdaClient, functionName: String,
@@ -5150,7 +4954,7 @@ struct ExampleCommand: ParsableCommand {
 
     /// Update the AWS Lambda function with new code to run when the function
     /// is invoked.
-    ///
+    /// 
     /// - Parameters:
     ///   - lambdaClient: The `LambdaClient` to use.
     ///   - functionName: The name of the AWS Lambda function to update.
@@ -5284,7 +5088,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Invoke the Lambda function to increment a value.
-    ///
+    /// 
     /// - Parameters:
     ///   - lambdaClient: The `IAMClient` to use.
     ///   - number: The number to increment.
@@ -5319,7 +5123,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Invoke the calculator Lambda function.
-    ///
+    /// 
     /// - Parameters:
     ///   - lambdaClient: The `IAMClient` to use.
     ///   - action: Which arithmetic operation to perform: "plus", "minus",
@@ -5345,7 +5149,7 @@ struct ExampleCommand: ParsableCommand {
             )
 
             let response = try! JSONDecoder().decode(Response.self, from:invokeOutput.payload!)
-
+            
             guard let answer = response.answer else {
                 throw ExampleError.noAnswerReceived
             }
@@ -5369,7 +5173,7 @@ struct ExampleCommand: ParsableCommand {
 
         /// The IAM role to use for the example.
         var iamRole: IAMClientTypes.Role
-
+        
         // Look for the specified role. If it already exists, use it. If not,
         // create it and attach the desired policy to it.
 
@@ -5378,7 +5182,7 @@ struct ExampleCommand: ParsableCommand {
         } catch ExampleError.roleNotFound {
             // The role wasn't found, so create it and attach the needed
             // policy.
-
+            
             iamRole = try await createRoleForLambda(iamClient: iamClient, roleName: role)
 
             do {
@@ -5405,7 +5209,7 @@ struct ExampleCommand: ParsableCommand {
         // function.
 
         print("Creating the increment Lambda function...")
-        if try await createFunction(lambdaClient: lambdaClient, functionName: basicsFunctionName,
+        if try await createFunction(lambdaClient: lambdaClient, functionName: basicsFunctionName, 
                                   roleArn: iamRole.arn, path: incpath) {
             print("Running increment function calls...")
             for number in 0...4 {
@@ -5419,7 +5223,7 @@ struct ExampleCommand: ParsableCommand {
         } else {
             print("*** Failed to create the increment function.")
         }
-
+        
         // Enable debug logging.
 
         print("\nEnabling debug logging...")
@@ -5430,7 +5234,7 @@ struct ExampleCommand: ParsableCommand {
 
         print("\nReplacing the Lambda function with a calculator...")
 
-        if try await updateFunctionCode(lambdaClient: lambdaClient, functionName: basicsFunctionName,
+        if try await updateFunctionCode(lambdaClient: lambdaClient, functionName: basicsFunctionName, 
                                     path: calcpath) {
             print("Running calculator function calls...")
             for x in [6, 10] {
@@ -5461,7 +5265,7 @@ struct ExampleCommand: ParsableCommand {
         // Delete the lambda function.
 
         print("Deleting lambda function...")
-
+        
         do {
             _ = try await lambdaClient.deleteFunction(
                 input: DeleteFunctionInput(
@@ -5471,7 +5275,7 @@ struct ExampleCommand: ParsableCommand {
         } catch {
             print("Error: Unable to delete the function.")
         }
-
+        
         // Detach the role from the policy, then delete the role.
 
         print("Deleting the AWS IAM role...")
@@ -5508,7 +5312,7 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
 
 
@@ -5586,20 +5390,16 @@ enum ExampleError: Error {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Swift API reference*.
+  + [CreateFunction](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/createfunction(input:))
+  + [DeleteFunction](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/deletefunction(input:))
+  + [GetFunction](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/getfunction(input:))
+  + [Invoke](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/invoke(input:))
+  + [ListFunctions](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/listfunctions(input:))
+  + [UpdateFunctionCode](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctioncode(input:))
+  + [UpdateFunctionConfiguration](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctionconfiguration(input:))
 
-- For API details, see the following topics in _AWS SDK for Swift API reference_.
+------
 
-  - [CreateFunction](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/createfunction(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/createfunction(input:)")
-  - [DeleteFunction](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/deletefunction(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/deletefunction(input:)")
-  - [GetFunction](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/getfunction(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/getfunction(input:)")
-  - [Invoke](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/invoke(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/invoke(input:)")
-  - [ListFunctions](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/listfunctions(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/listfunctions(input:)")
-  - [UpdateFunctionCode](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctioncode(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctioncode(input:)")
-  - [UpdateFunctionConfiguration](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctionconfiguration(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctionconfiguration(input:)")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

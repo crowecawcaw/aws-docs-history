@@ -1,27 +1,23 @@
+
+
 # Write custom activity data with a Lambda function after Amazon Cognito user authentication using an AWS SDK
+<a name="example_cross_CognitoCustomActivityLog_section"></a>
 
 The following code example shows how to write custom activity data with a Lambda function after Amazon Cognito user authentication.
++ Use administrator functions to add a user to a user pool.
++ Configure a user pool to call a Lambda function for the `PostAuthentication` trigger.
++ Sign the new user in to Amazon Cognito.
++ The Lambda function writes custom information to CloudWatch Logs and to an DynamoDB table.
++ Get and display custom data from the DynamoDB table, then clean up resources.
 
-- Use administrator functions to add a user to a user pool.
-- Configure a user pool to call a Lambda function for the `PostAuthentication` trigger.
-- Sign the new user in to Amazon Cognito.
-- The Lambda function writes custom information to CloudWatch Logs and to an DynamoDB table.
-- Get and display custom data from the DynamoDB table, then clean up resources.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/user_pools_and_lambda_triggers#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/user_pools_and_lambda_triggers#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/user_pools_and_lambda_triggers#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -174,15 +170,10 @@ func (runner *ActivityLog) Run(ctx context.Context, stackName string) {
 	log.Println("Thanks for watching!")
 	log.Println(strings.Repeat("-", 88))
 }
-
-
+```
+Handle the `PostAuthentication` trigger with a Lambda function.  
 
 ```
-
-Handle the `PostAuthentication` trigger with a Lambda function.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -277,15 +268,10 @@ func main() {
 	}
 	lambda.Start(h.HandleRequest)
 }
-
-
+```
+Create a struct that performs common tasks.  
 
 ```
-
-Create a struct that performs common tasks.
-
-```
-
 import (
 	"context"
 	"log"
@@ -389,15 +375,10 @@ func (helper ScenarioHelper) ListRecentLogEvents(ctx context.Context, functionNa
 	}
 	log.Println(strings.Repeat("-", 88))
 }
-
-
+```
+Create a struct that wraps Amazon Cognito actions.  
 
 ```
-
-Create a struct that wraps Amazon Cognito actions.
-
-```
-
 import (
 	"context"
 	"errors"
@@ -601,15 +582,10 @@ func (actor CognitoActions) AdminSetUserPassword(ctx context.Context, userPoolId
 	}
 	return err
 }
-
-
+```
+Create a struct that wraps DynamoDB actions.  
 
 ```
-
-Create a struct that wraps DynamoDB actions.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -709,15 +685,10 @@ func (actor DynamoActions) AddUser(ctx context.Context, tableName string, user U
 	}
 	return err
 }
-
-
+```
+Create a struct that wraps CloudWatch Logs actions.  
 
 ```
-
-Create a struct that wraps CloudWatch Logs actions.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -767,15 +738,10 @@ func (actor CloudWatchLogsActions) GetLogEvents(ctx context.Context, functionNam
 	}
 	return events, err
 }
-
-
+```
+Create a struct that wraps CloudFormation actions.  
 
 ```
-
-Create a struct that wraps CloudFormation actions.
-
-```
-
 import (
 	"context"
 	"log"
@@ -805,15 +771,10 @@ func (actor CloudFormationActions) GetOutputs(ctx context.Context, stackName str
 	}
 	return stackOutputs
 }
-
-
+```
+Clean up resources.  
 
 ```
-
-Clean up resources.
-
-```
-
 import (
 	"context"
 	"log"
@@ -875,19 +836,14 @@ func (resources *Resources) Cleanup(ctx context.Context) {
 		log.Println("Be sure to remove resources when you're done with them to avoid unexpected charges!")
 	}
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [AdminCreateUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminCreateUser)
+  + [AdminSetUserPassword](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminSetUserPassword)
+  + [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.DeleteUser)
+  + [InitiateAuth](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.InitiateAuth)
+  + [UpdateUserPool](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.UpdateUserPool)
 
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
+------
 
-  - [AdminCreateUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminCreateUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminCreateUser")
-  - [AdminSetUserPassword](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminSetUserPassword "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.AdminSetUserPassword")
-  - [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.DeleteUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.DeleteUser")
-  - [InitiateAuth](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.InitiateAuth "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.InitiateAuth")
-  - [UpdateUserPool](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.UpdateUserPool "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.UpdateUserPool")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

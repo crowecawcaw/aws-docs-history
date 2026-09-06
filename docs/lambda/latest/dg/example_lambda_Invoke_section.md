@@ -1,24 +1,21 @@
+
+
 # Use `Invoke` with an AWS SDK or CLI
+<a name="example_lambda_Invoke_section"></a>
 
 The following code examples show how to use `Invoke`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md) 
++  [Creating your first serverless function](example_lambda_GettingStarted_019_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md) 
 
-- [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
-- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
-- [Creating your first serverless function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
 ```
     /// <summary>
@@ -44,24 +41,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         string returnValue = System.Text.Encoding.UTF8.GetString(stream.ToArray());
         return returnValue;
     }
-
-
-
 ```
++  For API details, see [Invoke](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/Invoke) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [Invoke](../../../goto/DotNetSDKV3/lambda-2015-03-31/Invoke.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/Invoke.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -92,32 +79,24 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << std::endl;
             break;
         }
+```
++  For API details, see [Invoke](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/Invoke) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To invoke a Lambda function synchronously**  
+The following `invoke` example invokes the `my-function` function synchronously. The `cli-binary-format` option is required if you're using AWS CLI version 2. For more information, see [AWS CLI supported global command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html#cli-configure-options-list) in the *AWS Command Line Interface User Guide*.  
 
 ```
-
-- For API details, see
-  [Invoke](../../../goto/SdkForCpp/lambda-2015-03-31/Invoke.md "../../../goto/SdkForCpp/lambda-2015-03-31/Invoke.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To invoke a Lambda function synchronously**
-
-The following `invoke` example invokes the `my-function` function synchronously. The `cli-binary-format` option is required if you're using AWS CLI version 2. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide_.
-
+aws lambda invoke \
+    --function-name {{my-function}} \
+    --cli-binary-format {{raw-in-base64-out}} \
+    --payload '{{{ "name": "Bob" }}}' \
+    {{response.json}}
 ```
-`aws lambda invoke \
- --function-name `my-function` \
- --cli-binary-format `raw-in-base64-out` \
- --payload '`{ "name": "Bob" }`' \
- `response.json``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -125,49 +104,35 @@ Output:
     "StatusCode": 200
 }
 ```
-
-For more information, see [Invoke a Lambda function synchronously](invocation-sync.md "invocation-sync.md") in the _AWS Lambda Developer Guide_.
-
-**Example 2: To invoke a Lambda function asynchronously**
-
-The following `invoke` example invokes the `my-function` function asynchronously. The `cli-binary-format` option is required if you're using AWS CLI version 2. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide_.
+For more information, see [Invoke a Lambda function synchronously](https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html) in the *AWS Lambda Developer Guide*.  
+**Example 2: To invoke a Lambda function asynchronously**  
+The following `invoke` example invokes the `my-function` function asynchronously. The `cli-binary-format` option is required if you're using AWS CLI version 2. For more information, see [AWS CLI supported global command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html#cli-configure-options-list) in the *AWS Command Line Interface User Guide*.  
 
 ```
-`aws lambda invoke \
- --function-name `my-function` \
- --invocation-type `Event` \
- --cli-binary-format `raw-in-base64-out` \
- --payload '`{ "name": "Bob" }`' \
- `response.json``
-
+aws lambda invoke \
+    --function-name {{my-function}} \
+    --invocation-type {{Event}} \
+    --cli-binary-format {{raw-in-base64-out}} \
+    --payload '{{{ "name": "Bob" }}}' \
+    {{response.json}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "StatusCode": 202
 }
 ```
+For more information, see [Invoking a Lambda function asynchronously](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [Invoke](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/invoke.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Invoking a Lambda function asynchronously](invocation-async.md "invocation-async.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [Invoke](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/invoke.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/invoke.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -211,24 +176,14 @@ func (wrapper FunctionWrapper) Invoke(ctx context.Context, functionName string, 
 	}
 	return invokeOutput
 }
-
-
-
 ```
++  For API details, see [Invoke](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.Invoke) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [Invoke](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.Invoke "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.Invoke")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
 ```
     /**
@@ -260,23 +215,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [Invoke](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/Invoke) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Invoke](../../../goto/SdkForJavaV2/lambda-2015-03-31/Invoke.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/Invoke.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
 ```
 const invoke = async (funcName, payload) => {
@@ -292,23 +238,14 @@ const invoke = async (funcName, payload) => {
   const logs = Buffer.from(LogResult, "base64").toString();
   return { logs, result };
 };
-
-
 ```
++  For API details, see [Invoke](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/InvokeCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Invoke](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/InvokeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/InvokeCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples). 
 
 ```
 suspend fun invokeFunction(functionNameVal: String) {
@@ -327,23 +264,14 @@ suspend fun invokeFunction(functionNameVal: String) {
         println("The log result is ${res.logResult}")
     }
 }
-
-
 ```
++  For API details, see [Invoke](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [Invoke](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
 ```
     public function invoke($functionName, $params, $logType = 'None')
@@ -354,23 +282,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             'LogType' => $logType,
         ]);
     }
-
-
 ```
++  For API details, see [Invoke](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/Invoke) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [Invoke](../../../goto/SdkForPHPV3/lambda-2015-03-31/Invoke.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/Invoke.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper:
@@ -401,24 +320,14 @@ class LambdaWrapper:
             logger.exception("Couldn't invoke function %s.", function_name)
             raise
         return response
-
-
-
 ```
++  For API details, see [Invoke](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/Invoke) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Invoke](../../../goto/boto3/lambda-2015-03-31/Invoke.md "../../../goto/boto3/lambda-2015-03-31/Invoke.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper
@@ -443,23 +352,14 @@ class LambdaWrapper
   rescue Aws::Lambda::Errors::ServiceException => e
     @logger.error("There was an error executing #{function_name}:\n #{e.message}")
   end
-
-
 ```
++  For API details, see [Invoke](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/Invoke) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [Invoke](../../../goto/SdkForRubyV3/lambda-2015-03-31/Invoke.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/Invoke.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
 ```
     /** Invoke the lambda function using calculator InvokeArgs. */
@@ -489,23 +389,14 @@ fn log_invoke_output(invoke: &InvokeOutput, message: &str) {
         debug!("Invoked function had no logs")
     }
 }
-
-
 ```
++  For API details, see [Invoke](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.invoke) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [Invoke](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.invoke "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.invoke")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
 ```
     TRY.
@@ -537,23 +428,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_lmdunsuppedmediatyp00.
         MESSAGE 'Invoke request body does not have JSON as its content type.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [Invoke](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [Invoke](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
 ```
 import AWSClientRuntime
@@ -561,7 +443,7 @@ import AWSLambda
 import Foundation
 
     /// Invoke the Lambda function to increment a value.
-    ///
+    /// 
     /// - Parameters:
     ///   - lambdaClient: The `IAMClient` to use.
     ///   - number: The number to increment.
@@ -594,14 +476,9 @@ import Foundation
             throw ExampleError.invokeError
         }
     }
-
-
 ```
++  For API details, see [Invoke](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/invoke(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [Invoke](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/invoke(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/invoke(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

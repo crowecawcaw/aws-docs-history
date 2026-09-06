@@ -1,23 +1,23 @@
-# Using event filtering with a Kinesis event source
 
-You can use event filtering to control which records from a stream or queue Lambda sends to your function.
-For general information about how event filtering works, see [Control which events Lambda sends to your function](invocation-eventfiltering.md "invocation-eventfiltering.md").
+
+# Using event filtering with a Kinesis event source
+<a name="with-kinesis-filtering"></a>
+
+You can use event filtering to control which records from a stream or queue Lambda sends to your function. For general information about how event filtering works, see [Control which events Lambda sends to your function](invocation-eventfiltering.md).
 
 This section focuses on event filtering for Kinesis event sources.
 
-###### Note
-
+**Note**  
 Kinesis event source mappings only support filtering on the `data` key.
 
-###### Topics
-
-- [Kinesis event filtering basics](#filtering-kinesis "#filtering-kinesis")
-- [Filtering Kinesis aggregated records](#filtering-kinesis-efo "#filtering-kinesis-efo")
+**Topics**
++ [Kinesis event filtering basics](#filtering-kinesis)
++ [Filtering Kinesis aggregated records](#filtering-kinesis-efo)
 
 ## Kinesis event filtering basics
+<a name="filtering-kinesis"></a>
 
-Suppose a producer is putting JSON formatted data into your Kinesis data stream. An example record would look like the following, with the
-JSON data converted to a Base64 encoded string in the `data` field.
+Suppose a producer is putting JSON formatted data into your Kinesis data stream. An example record would look like the following, with the JSON data converted to a Base64 encoded string in the `data` field.
 
 ```
 {
@@ -38,8 +38,7 @@ JSON data converted to a Base64 encoded string in the `data` field.
 }
 ```
 
-As long as the data the producer puts into the stream is valid JSON, you can use event filtering to filter records using the `data`
-key. Suppose a producer is putting records into your Kinesis stream in the following JSON format.
+As long as the data the producer puts into the stream is valid JSON, you can use event filtering to filter records using the `data` key. Suppose a producer is putting records into your Kinesis stream in the following JSON format.
 
 ```
 {
@@ -64,7 +63,7 @@ To filter only those records where the order type is "buy," the `FilterCriteria`
 }
 ```
 
-For added clarity, here is the value of the filter's `Pattern` expanded in plain JSON.
+For added clarity, here is the value of the filter's `Pattern` expanded in plain JSON. 
 
 ```
 {
@@ -78,22 +77,24 @@ For added clarity, here is the value of the filter's `Pattern` expanded in plain
 
 You can add your filter using the console, AWS CLI or an AWS SAM template.
 
-Console
-To add this filter using the console, follow the instructions in [Attaching filter criteria to an event source mapping (console)](invocation-eventfiltering.md#filtering-console "invocation-eventfiltering.md#filtering-console") and enter the following
-string for the **Filter criteria**.
+------
+#### [ Console ]
+
+To add this filter using the console, follow the instructions in [Attaching filter criteria to an event source mapping (console)](invocation-eventfiltering.md#filtering-console) and enter the following string for the **Filter criteria**.
 
 ```
 { "data" : { "order" : { "type" : [ "buy" ] } } }
 ```
 
-AWS CLI
-To create a new event source mapping with these filter criteria using the AWS Command Line Interface (AWS CLI), run the following
-command.
+------
+#### [ AWS CLI ]
+
+To create a new event source mapping with these filter criteria using the AWS Command Line Interface (AWS CLI), run the following command.
 
 ```
 aws lambda create-event-source-mapping \
-    --function-name `my-function` \
-    --event-source-arn `arn:aws:kinesis:us-east-2:123456789012:stream/my-stream` \
+    --function-name {{my-function}} \
+    --event-source-arn {{arn:aws:kinesis:us-east-2:123456789012:stream/my-stream}} \
     --filter-criteria '{"Filters": [{"Pattern": "{ \"data\" : { \"order\" : { \"type\" : [ \"buy\" ] } } }"}]}'
 ```
 
@@ -101,11 +102,13 @@ To add these filter criteria to an existing event source mapping, run the follow
 
 ```
 aws lambda update-event-source-mapping \
-    --uuid `"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"` \
+    --uuid {{"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"}} \
     --filter-criteria '{"Filters": [{"Pattern": "{ \"data\" : { \"order\" : { \"type\" : [ \"buy\" ] } } }"}]}'
 ```
 
-AWS SAM
+------
+#### [ AWS SAM ]
+
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
 ```
@@ -114,26 +117,23 @@ FilterCriteria:
     - Pattern: '{ "data" : { "order" : { "type" : [ "buy" ] } } }'
 ```
 
-To properly filter events from Kinesis sources, both the data field and your filter criteria for the data field must be in valid JSON format.
-If either field isn't in a valid JSON format, Lambda drops the message or throws an exception. The following table summarizes the specific behavior:
+------
 
-| Incoming data format | Filter pattern format for data properties | Resulting action                                                                                                                                                 |
-| -------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Valid JSON           | Valid JSON                                | Lambda filters based on your filter criteria.                                                                                                                    |
-| Valid JSON           | No filter pattern for data properties     | Lambda filters (on the other metadata properties only) based on your filter criteria.                                                                            |
-| Valid JSON           | Non-JSON                                  | Lambda throws an exception at the time of the event source mapping creation or update. The filter pattern<br>for data properties must be in a valid JSON format. |
-| Non-JSON             | Valid JSON                                | Lambda drops the record.                                                                                                                                         |
-| Non-JSON             | No filter pattern for data properties     | Lambda filters (on the other metadata properties only) based on your filter criteria.                                                                            |
-| Non-JSON             | Non-JSON                                  | Lambda throws an exception at the time of the event source mapping creation or update. The filter pattern<br>for data properties must be in a valid JSON format. |
+To properly filter events from Kinesis sources, both the data field and your filter criteria for the data field must be in valid JSON format. If either field isn't in a valid JSON format, Lambda drops the message or throws an exception. The following table summarizes the specific behavior: 
+
+
+| Incoming data format | Filter pattern format for data properties | Resulting action | 
+| --- | --- | --- | 
+| Valid JSON | Valid JSON | Lambda filters based on your filter criteria. | 
+| Valid JSON | No filter pattern for data properties | Lambda filters (on the other metadata properties only) based on your filter criteria. | 
+| Valid JSON | Non-JSON | Lambda throws an exception at the time of the event source mapping creation or update. The filter pattern for data properties must be in a valid JSON format. | 
+| Non-JSON | Valid JSON | Lambda drops the record. | 
+| Non-JSON | No filter pattern for data properties | Lambda filters (on the other metadata properties only) based on your filter criteria. | 
+| Non-JSON | Non-JSON | Lambda throws an exception at the time of the event source mapping creation or update. The filter pattern for data properties must be in a valid JSON format. | 
 
 ## Filtering Kinesis aggregated records
+<a name="filtering-kinesis-efo"></a>
 
-With Kinesis, you can aggregate multiple records into a single Kinesis Data Streams record to increase your data throughput. Lambda can only apply
-filter criteria to aggregated records when you use Kinesis [enhanced fan-out](../../../streams/latest/dev/enhanced-consumers.md "../../../streams/latest/dev/enhanced-consumers.md").
-Filtering aggregated records with standard Kinesis isn't supported. When using enhanced fan-out, you configure a Kinesis dedicated-throughput consumer
-to act as the trigger for your Lambda function. Lambda then filters the aggregated records and passes only those records that meet your filter criteria.
+With Kinesis, you can aggregate multiple records into a single Kinesis Data Streams record to increase your data throughput. Lambda can only apply filter criteria to aggregated records when you use Kinesis [enhanced fan-out](https://docs.aws.amazon.com/streams/latest/dev/enhanced-consumers.html). Filtering aggregated records with standard Kinesis isn't supported. When using enhanced fan-out, you configure a Kinesis dedicated-throughput consumer to act as the trigger for your Lambda function. Lambda then filters the aggregated records and passes only those records that meet your filter criteria.
 
-To learn more about Kinesis record aggregation, refer to the [Aggregation](../../../streams/latest/dev/kinesis-kpl-concepts.md#kinesis-kpl-concepts-aggretation "../../../streams/latest/dev/kinesis-kpl-concepts.md#kinesis-kpl-concepts-aggretation")
-section on the Kinesis Producer Library (KPL) Key Concepts page. To Learn more about using Lambda with Kinesis enhanced fan-out, see
-[Increasing real-time stream processing performance with Amazon Kinesis Data Streams enhanced fan-out and AWS Lambda](https://aws.amazon.com/blogs/compute/increasing-real-time-stream-processing-performance-with-amazon-kinesis-data-streams-enhanced-fan-out-and-aws-lambda/ "https://aws.amazon.com/blogs/compute/increasing-real-time-stream-processing-performance-with-amazon-kinesis-data-streams-enhanced-fan-out-and-aws-lambda/")
-on the AWS compute blog.
+To learn more about Kinesis record aggregation, refer to the [Aggregation](https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html#kinesis-kpl-concepts-aggretation) section on the Kinesis Producer Library (KPL) Key Concepts page. To Learn more about using Lambda with Kinesis enhanced fan-out, see [Increasing real-time stream processing performance with Amazon Kinesis Data Streams enhanced fan-out and AWS Lambda](https://aws.amazon.com/blogs/compute/increasing-real-time-stream-processing-performance-with-amazon-kinesis-data-streams-enhanced-fan-out-and-aws-lambda/) on the AWS compute blog.

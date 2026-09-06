@@ -1,12 +1,11 @@
+
+
 # Using AWS CloudFormation with layers
+<a name="layers-cfn"></a>
 
-You can use CloudFormation to create a layer and associate the layer with your Lambda function.
-The following example template creates a layer named `my-lambda-layer` and
-attaches the layer to the Lambda function using the **Layers**
-property.
+You can use CloudFormation to create a layer and associate the layer with your Lambda function. The following example template creates a layer named `my-lambda-layer` and attaches the layer to the Lambda function using the **Layers** property.
 
-In this example, the template specifies the Amazon Resource Name (ARN) of an existing IAM [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
-You can also create a new execution role in the template using the CloudFormation [AWS::IAM::Role](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md") resource.
+In this example, the template specifies the Amazon Resource Name (ARN) of an existing IAM [execution role](lambda-intro-execution-role.md). You can also create a new execution role in the template using the CloudFormation [AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html) resource.
 
 Your function doesn't need any special permissions to use layers.
 
@@ -34,9 +33,9 @@ Resources:
       Runtime: python3.9
       Handler: index.handler
       Timeout: 10
-      Role: arn:aws:iam::`111122223333`:role/`my_lambda_role`
+      Role: arn:aws:iam::{{111122223333}}:role/{{my_lambda_role}}
       Layers:
         - !Ref MyLambdaLayer
 ```
 
-You can also use AWS Serverless Application Model to manage layers. For more information, see [Using AWS SAM with layers](layers-sam.md "layers-sam.md").
+You can also use AWS Serverless Application Model to manage layers. For more information, see [Using AWS SAM with layers](layers-sam.md).

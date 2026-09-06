@@ -1,18 +1,16 @@
+
+
 # Invoke a Lambda function from an Amazon S3 trigger
+<a name="example_serverless_S3_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that receives an event triggered by uploading an object to an S3 bucket. The function retrieves the S3 bucket name and object key from the event parameter and calls the Amazon S3 API to retrieve and log the content type of the object.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda")
-repository.
-
-Consuming an S3 event with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda) repository. 
+Consuming an S3 event with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -71,20 +69,14 @@ namespace S3Integration
         }
     }
 }
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda")
-repository.
-
-Consuming an S3 event with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda) repository. 
+Consuming an S3 event with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -129,21 +121,14 @@ func handler(ctx context.Context, s3Event events.S3Event) error {
 func main() {
 	lambda.Start(handler)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda")
-repository.
-
-Consuming an S3 event with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda) repository. 
+Consuming an S3 event with Lambda using Java.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -190,20 +175,14 @@ public class Handler implements RequestHandler<S3Event, String> {
         return s3Client.headObject(headObjectRequest);
     }
 }
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda")
-repository.
-
-Consuming an S3 event with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda) repository. 
+Consuming an S3 event with Lambda using JavaScript.  
 
 ```
 import { S3Client, HeadObjectCommand } from "@aws-sdk/client-s3";
@@ -232,11 +211,8 @@ export const handler = async (event, context) => {
         throw new Error(message);
     }
 };
-
-
 ```
-
-Consuming an S3 event with Lambda using TypeScript.
+Consuming an S3 event with Lambda using TypeScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -265,20 +241,14 @@ export const handler = async (event: S3Event): Promise<string | undefined> => {
     throw new Error(message);
   }
 };
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda")
-repository.
-
-Consuming an S3 event with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda) repository. 
+Consuming an S3 event with Lambda using PHP.  
 
 ```
 <?php
@@ -291,22 +261,22 @@ use Bref\Logger\StderrLogger;
 require __DIR__ . '/vendor/autoload.php';
 
 
-class Handler extends S3Handler
+class Handler extends S3Handler 
 {
     private StderrLogger $logger;
     public function __construct(StderrLogger $logger)
     {
         $this->logger = $logger;
     }
-
+    
     public function handleS3(S3Event $event, Context $context) : void
     {
         $this->logger->info("Processing S3 records");
 
         // Get the object from the event and show its content type
         $records = $event->getRecords();
-
-        foreach ($records as $record)
+        
+        foreach ($records as $record) 
         {
             $bucket = $record->getBucket()->getName();
             $key = urldecode($record->getObject()->getKey());
@@ -326,21 +296,14 @@ class Handler extends S3Handler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda")
-repository.
-
-Consuming an S3 event with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda) repository. 
+Consuming an S3 event with Lambda using Python.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -368,21 +331,14 @@ def lambda_handler(event, context):
         print(e)
         print('Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.'.format(key, bucket))
         raise e
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda")
-repository.
-
-Consuming an S3 event with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda) repository. 
+Consuming an S3 event with Lambda using Ruby.  
 
 ```
 require 'json'
@@ -408,21 +364,14 @@ def lambda_handler(event:, context:)
     raise e
   end
 end
-
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda")
-repository.
-
-Consuming an S3 event with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-s3-to-lambda) repository. 
+Consuming an S3 event with Lambda using Rust.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -481,9 +430,8 @@ async fn function_handler(
 
     Ok(())
 }
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

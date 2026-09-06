@@ -1,25 +1,22 @@
+
+
 # Use `CreateFunction` with an AWS SDK or CLI
+<a name="example_lambda_CreateFunction_section"></a>
 
 The following code examples show how to use `CreateFunction`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md) 
++  [Create a rest API with function proxy integration](example_api_gateway_GettingStarted_087_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md) 
++  [Creating your first serverless function](example_lambda_GettingStarted_019_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md) 
 
-- [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
-- [Create a rest API with function proxy integration](example_api_gateway_GettingStarted_087_section.md "example_api_gateway_GettingStarted_087_section.md")
-- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
-- [Creating your first serverless function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
 ```
     /// <summary>
@@ -64,24 +61,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var reponse = await _lambdaService.CreateFunctionAsync(createFunctionRequest);
         return reponse.FunctionArn;
     }
-
-
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/CreateFunction) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateFunction](../../../goto/DotNetSDKV3/lambda-2015-03-31/CreateFunction.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/CreateFunction.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -151,39 +138,30 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
             deleteIamRole(clientConfig);
             return false;
         }
+```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/CreateFunction) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create a Lambda function**  
+The following `create-function` example creates a Lambda function named `my-function`.  
 
 ```
-
-- For API details, see
-  [CreateFunction](../../../goto/SdkForCpp/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForCpp/lambda-2015-03-31/CreateFunction.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a Lambda function**
-
-The following `create-function` example creates a Lambda function named `my-function`.
-
+aws lambda create-function \
+    --function-name {{my-function}} \
+    --runtime {{nodejs22.x}} \
+    --zip-file {{fileb://my-function.zip}} \
+    --handler {{my-function.handler}} \
+    --role {{arn:aws:iam::123456789012:role/service-role/MyTestFunction-role-tges6bf4}}
 ```
-`aws lambda create-function \
- --function-name `my-function` \
- --runtime `nodejs22.x` \
- --zip-file `fileb://my-function.zip` \
- --handler `my-function.handler` \
- --role `arn:aws:iam::123456789012:role/service-role/MyTestFunction-role-tges6bf4``
-
-```
-
-Contents of `my-function.zip`:
+Contents of `my-function.zip`:  
 
 ```
 This file is a deployment package that contains your function code and any dependencies.
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -205,25 +183,16 @@ Output:
     "Description": ""
 }
 ```
+For more information, see [Configure Lambda function memory](https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [CreateFunction](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Configure Lambda function memory](configuration-memory.md "configuration-memory.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateFunction](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -283,24 +252,14 @@ func (wrapper FunctionWrapper) CreateFunction(ctx context.Context, functionName 
 	}
 	return state
 }
-
-
-
 ```
++  For API details, see [CreateFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.CreateFunction) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.CreateFunction "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.CreateFunction")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
 ```
     /**
@@ -352,23 +311,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         }
         return "";
     }
-
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateFunction](../../../goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
 ```
 const createFunction = async (funcName, roleArn) => {
@@ -387,23 +337,14 @@ const createFunction = async (funcName, roleArn) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/CreateFunctionCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateFunction](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/CreateFunctionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/CreateFunctionCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples). 
 
 ```
 suspend fun createNewFunction(
@@ -437,23 +378,14 @@ suspend fun createNewFunction(
         return functionResponse.functionArn
     }
 }
-
-
 ```
++  For API details, see [CreateFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
 ```
     public function createFunction($functionName, $role, $bucketName, $handler)
@@ -472,19 +404,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             ]);
         });
     }
-
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/CreateFunction) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateFunction](../../../goto/SdkForPHPV3/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/CreateFunction.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new C# (dotnetcore1.0 runtime) function named MyFunction in AWS Lambda, providing the compiled binaries for the function from a zip file on the local file system (relative or absolute paths may be used). C# Lambda functions specify the handler for the function using the designation AssemblyName::Namespace.ClassName::MethodName. You should replace the assembly name (without .dll suffix), namespace, class name and method name parts of the handler spec appropriately. The new function will have environment variables 'envvar1' and 'envvar2' set up from the provided values.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new C\# (dotnetcore1.0 runtime) function named MyFunction in AWS Lambda, providing the compiled binaries for the function from a zip file on the local file system (relative or absolute paths may be used). C\# Lambda functions specify the handler for the function using the designation AssemblyName::Namespace.ClassName::MethodName. You should replace the assembly name (without .dll suffix), namespace, class name and method name parts of the handler spec appropriately. The new function will have environment variables 'envvar1' and 'envvar2' set up from the provided values.**  
 
 ```
 Publish-LMFunction -Description "My C# Lambda Function" `
@@ -494,10 +421,8 @@ Publish-LMFunction -Description "My C# Lambda Function" `
         -Role "arn:aws:iam::123456789012:role/LambdaFullExecRole" `
         -Runtime dotnetcore1.0 `
         -Environment_Variable @{ "envvar1"="value";"envvar2"="value" }
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CodeSha256       : /NgBMd...gq71I=
@@ -517,11 +442,10 @@ Timeout          : 3
 Version          : $LATEST
 VpcConfig        :
 ```
-
-**Example 2: This example is similar to the previous one except the function binaries are first uploaded to an Amazon S3 bucket (which must be in the same region as the intended Lambda function) and the resulting S3 object is then referenced when creating the function.**
+**Example 2: This example is similar to the previous one except the function binaries are first uploaded to an Amazon S3 bucket (which must be in the same region as the intended Lambda function) and the resulting S3 object is then referenced when creating the function.**  
 
 ```
-Write-S3Object -BucketName amzn-s3-demo-bucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip
+Write-S3Object -BucketName amzn-s3-demo-bucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip    
 Publish-LMFunction -Description "My C# Lambda Function" `
         -FunctionName MyFunction `
         -BucketName amzn-s3-demo-bucket `
@@ -530,16 +454,11 @@ Publish-LMFunction -Description "My C# Lambda Function" `
         -Role "arn:aws:iam::123456789012:role/LambdaFullExecRole" `
         -Runtime dotnetcore1.0 `
         -Environment_Variable @{ "envvar1"="value";"envvar2"="value" }
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateFunction](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new C# (dotnetcore1.0 runtime) function named MyFunction in AWS Lambda, providing the compiled binaries for the function from a zip file on the local file system (relative or absolute paths may be used). C# Lambda functions specify the handler for the function using the designation AssemblyName::Namespace.ClassName::MethodName. You should replace the assembly name (without .dll suffix), namespace, class name and method name parts of the handler spec appropriately. The new function will have environment variables 'envvar1' and 'envvar2' set up from the provided values.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new C\# (dotnetcore1.0 runtime) function named MyFunction in AWS Lambda, providing the compiled binaries for the function from a zip file on the local file system (relative or absolute paths may be used). C\# Lambda functions specify the handler for the function using the designation AssemblyName::Namespace.ClassName::MethodName. You should replace the assembly name (without .dll suffix), namespace, class name and method name parts of the handler spec appropriately. The new function will have environment variables 'envvar1' and 'envvar2' set up from the provided values.**  
 
 ```
 Publish-LMFunction -Description "My C# Lambda Function" `
@@ -549,10 +468,8 @@ Publish-LMFunction -Description "My C# Lambda Function" `
         -Role "arn:aws:iam::123456789012:role/LambdaFullExecRole" `
         -Runtime dotnetcore1.0 `
         -Environment_Variable @{ "envvar1"="value";"envvar2"="value" }
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CodeSha256       : /NgBMd...gq71I=
@@ -572,11 +489,10 @@ Timeout          : 3
 Version          : $LATEST
 VpcConfig        :
 ```
-
-**Example 2: This example is similar to the previous one except the function binaries are first uploaded to an Amazon S3 bucket (which must be in the same region as the intended Lambda function) and the resulting S3 object is then referenced when creating the function.**
+**Example 2: This example is similar to the previous one except the function binaries are first uploaded to an Amazon S3 bucket (which must be in the same region as the intended Lambda function) and the resulting S3 object is then referenced when creating the function.**  
 
 ```
-Write-S3Object -BucketName amzn-s3-demo-bucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip
+Write-S3Object -BucketName amzn-s3-demo-bucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip    
 Publish-LMFunction -Description "My C# Lambda Function" `
         -FunctionName MyFunction `
         -BucketName amzn-s3-demo-bucket `
@@ -585,22 +501,14 @@ Publish-LMFunction -Description "My C# Lambda Function" `
         -Role "arn:aws:iam::123456789012:role/LambdaFullExecRole" `
         -Runtime dotnetcore1.0 `
         -Environment_Variable @{ "envvar1"="value";"envvar2"="value" }
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateFunction](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper:
@@ -646,24 +554,14 @@ class LambdaWrapper:
             raise
         else:
             return function_arn
-
-
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/CreateFunction) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateFunction](../../../goto/boto3/lambda-2015-03-31/CreateFunction.md "../../../goto/boto3/lambda-2015-03-31/CreateFunction.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper
@@ -709,23 +607,14 @@ class LambdaWrapper
   rescue Aws::Waiters::Errors::WaiterFailed => e
     @logger.error("Failed waiting for #{function_name} to activate:\n #{e.message}")
   end
-
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/CreateFunction) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateFunction](../../../goto/SdkForRubyV3/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/CreateFunction.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
 ```
     /**
@@ -794,23 +683,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .s3_key(key)
             .build())
     }
-
-
 ```
++  For API details, see [CreateFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.create_function) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.create_function "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.create_function")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
 ```
     TRY.
@@ -841,23 +721,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_lmdtoomanyrequestsex.
         MESSAGE 'The maximum request throughput was reached.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateFunction](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateFunction](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
 ```
 import AWSClientRuntime
@@ -888,14 +759,9 @@ import Foundation
             dump(error)
             return false
         }
-
-
 ```
++  For API details, see [CreateFunction](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/createfunction(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateFunction](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/createfunction(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/createfunction(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

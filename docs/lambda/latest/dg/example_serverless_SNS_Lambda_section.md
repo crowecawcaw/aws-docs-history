@@ -1,18 +1,16 @@
+
+
 # Invoke a Lambda function from an Amazon SNS trigger
+<a name="example_serverless_SNS_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that receives an event triggered by receiving messages from an SNS topic. The function retrieves the messages from the event parameter and logs the content of each message.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda")
-repository.
-
-Consuming an SNS event with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
+Consuming an SNS event with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -54,20 +52,14 @@ public class Function
         }
     }
 }
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda")
-repository.
-
-Consuming an SNS event with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
+Consuming an SNS event with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -98,21 +90,14 @@ func processMessage(record events.SNSEventRecord) {
 func main() {
 	lambda.Start(handler)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda")
-repository.
-
-Consuming an SNS event with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
+Consuming an SNS event with Lambda using Java.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -155,24 +140,14 @@ public class SNSEventHandler implements RequestHandler<SNSEvent, Boolean> {
     }
 
 }
-
-
-
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-sns-to-lambda "https://github.com/aws-samples/serverless-snippets/blob/main/integration-sns-to-lambda")
-repository.
-
-Consuming an SNS event with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-sns-to-lambda) repository. 
+Consuming an SNS event with Lambda using JavaScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -194,11 +169,8 @@ async function processMessageAsync(record) {
     throw err;
   }
 }
-
-
 ```
-
-Consuming an SNS event with Lambda using TypeScript.
+Consuming an SNS event with Lambda using TypeScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -225,32 +197,25 @@ async function processMessageAsync(record: SNSEventRecord): Promise<any> {
     throw err;
   }
 }
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda")
-repository.
-
-Consuming an SNS event with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
+Consuming an SNS event with Lambda using PHP.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 <?php
 
-/*
+/* 
 Since native PHP support for AWS Lambda is not available, we are utilizing Bref's PHP functions runtime for AWS Lambda.
 For more information on Bref's PHP runtime for Lambda, refer to: https://bref.sh/docs/runtimes/function
 
-Another approach would be to create a custom runtime.
+Another approach would be to create a custom runtime. 
 A practical example can be found here: https://aws.amazon.com/blogs/apn/aws-lambda-custom-runtime-for-php-a-practical-example/
 */
 
@@ -277,21 +242,14 @@ class Handler extends SnsHandler
 }
 
 return new Handler();
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda")
-repository.
-
-Consuming an SNS event with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
+Consuming an SNS event with Lambda using Python.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -306,25 +264,18 @@ def process_message(record):
         message = record['Sns']['Message']
         print(f"Processed message {message}")
         # TODO; Process your record here
-
+        
     except Exception as e:
         print("An error occurred")
         raise e
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda")
-repository.
-
-Consuming an SNS event with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
+Consuming an SNS event with Lambda using Ruby.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -340,21 +291,14 @@ rescue StandardError => e
   puts("Error processing message: #{e}")
   raise
 end
-
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda")
-repository.
-
-Consuming an SNS event with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sns-to-lambda) repository. 
+Consuming an SNS event with Lambda using Rust.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -375,7 +319,7 @@ async fn function_handler(event: LambdaEvent<SnsEvent>) -> Result<(), Error> {
     for event in event.payload.records {
         process_record(&event)?;
     }
-
+    
     Ok(())
 }
 
@@ -397,9 +341,8 @@ async fn main() -> Result<(), Error> {
 
     run(service_fn(function_handler)).await
 }
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

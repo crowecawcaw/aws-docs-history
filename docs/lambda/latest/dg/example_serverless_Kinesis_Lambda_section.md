@@ -1,18 +1,16 @@
+
+
 # Invoke a Lambda function from a Kinesis trigger
+<a name="example_serverless_Kinesis_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that receives an event triggered by receiving records from a Kinesis stream. The function retrieves the Kinesis payload, decodes from Base64, and logs the record contents.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -66,20 +64,14 @@ public class Function
         return data;
     }
 }
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -114,21 +106,14 @@ func handler(ctx context.Context, kinesisEvent events.KinesisEvent) error {
 func main() {
 	lambda.Start(handler)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using Java.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -165,21 +150,14 @@ public class Handler implements RequestHandler<KinesisEvent, Void> {
     }
 
 }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using JavaScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -204,11 +182,8 @@ async function getRecordDataAsync(payload) {
   await Promise.resolve(1); //Placeholder for actual async work
   return data;
 }
-
-
 ```
-
-Consuming a Kinesis event with Lambda using TypeScript.
+Consuming a Kinesis event with Lambda using TypeScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -252,21 +227,14 @@ async function getRecordDataAsync(
   await Promise.resolve(1); //Placeholder for actual async work
   return data;
 }
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming an Kinesis event with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming an Kinesis event with Lambda using PHP.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -312,21 +280,14 @@ class Handler extends KinesisHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using Python.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -344,21 +305,14 @@ def lambda_handler(event, context):
             print(f"An error occurred {e}")
             raise e
     print(f"Successfully processed {len(event['Records'])} records.")
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming an Kinesis event with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming an Kinesis event with Lambda using Ruby.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -386,20 +340,14 @@ def get_record_data_async(payload)
   # You can use Ruby's asynchronous programming tools like async/await or fibers here.
   return data
 end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming an Kinesis event with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming an Kinesis event with Lambda using Rust.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -449,9 +397,8 @@ async fn main() -> Result<(), Error> {
 
     run(service_fn(function_handler)).await
 }
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

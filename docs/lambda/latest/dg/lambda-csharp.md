@@ -1,51 +1,54 @@
-# Building Lambda functions with C#
 
-You can run your .NET application in Lambda using the managed .NET 8 runtime, a custom runtime, or a container image. After your application
-code is compiled, you can deploy it to Lambda either as a .zip file or a container image. Lambda provides the following runtimes for .NET languages:
 
-For information about using .NET layers, see [Working with layers for .NET Lambda functions](dotnet-layers.md "dotnet-layers.md").
-For guidance on testing your C# functions, see [AWS Lambda function testing in C#](dotnet-csharp-testing.md "dotnet-csharp-testing.md").
+# Building Lambda functions with C\#
+<a name="lambda-csharp"></a>
 
-| Name                    | Identifier | Operating system  | Deprecation date | Block function create | Block function update |
-| ----------------------- | ---------- | ----------------- | ---------------- | --------------------- | --------------------- |
-| .NET 10                 | `dotnet10` | Amazon Linux 2023 | Nov 14, 2028     | Dec 14, 2028          | Jan 15, 2029          |
-| .NET 9 (container only) | `dotnet9`  | Amazon Linux 2023 | Nov 10, 2026     | Not scheduled         | Not scheduled         |
-| .NET 8                  | `dotnet8`  | Amazon Linux 2023 | Nov 10, 2026     | Feb 1, 2027           | Mar 3, 2027           |
+You can run your .NET application in Lambda using the managed .NET 8 runtime, a custom runtime, or a container image. After your application code is compiled, you can deploy it to Lambda either as a .zip file or a container image. Lambda provides the following runtimes for .NET languages:
+
+For information about using .NET layers, see [Working with layers for .NET Lambda functions](dotnet-layers.md). For guidance on testing your C\# functions, see [AWS Lambda function testing in C\#](dotnet-csharp-testing.md).
+
+
+| Name | Identifier | Operating system | Deprecation date | Block function create | Block function update | 
+| --- | --- | --- | --- | --- | --- | 
+| .NET 10 | `dotnet10` | Amazon Linux 2023 |  Nov 14, 2028  |  Dec 14, 2028  |  Jan 15, 2029  | 
+| .NET 9 (container only) | `dotnet9` | Amazon Linux 2023 |  Nov 10, 2026  |  Not scheduled  |  Not scheduled  | 
+| .NET 8 | `dotnet8` | Amazon Linux 2023 |  Nov 10, 2026  |  Feb 1, 2027  |  Mar 3, 2027  | 
 
 ## Setting up your .NET development environment
+<a name="csharp-dev-env"></a>
 
-To develop and build your Lambda functions, you can use any of the commonly available .NET integrated development environments (IDEs),
-including Microsoft Visual Studio, Visual Studio Code, and JetBrains Rider. To simplify your development experience, AWS provides a set of
-.NET project templates, as well as the `Amazon.Lambda.Tools` command line interface (CLI).
+To develop and build your Lambda functions, you can use any of the commonly available .NET integrated development environments (IDEs), including Microsoft Visual Studio, Visual Studio Code, and JetBrains Rider. To simplify your development experience, AWS provides a set of .NET project templates, as well as the `Amazon.Lambda.Tools` command line interface (CLI).
 
 Run the following .NET CLI commands to install these project templates and command line tools.
 
 ### Installing the .NET project templates
+<a name="csharp-dev-env-templates"></a>
 
 To install the project templates, run the following command:
 
 ```
-`dotnet new install Amazon.Lambda.Templates`
+dotnet new install Amazon.Lambda.Templates
 ```
 
 ### Installing and updating the CLI tools
+<a name="csharp-dev-env-cli-tools"></a>
 
 Run the following commands to install, update, and uninstall the `Amazon.Lambda.Tools` CLI.
 
 To install the command line tools:
 
 ```
-`dotnet tool install -g Amazon.Lambda.Tools`
+dotnet tool install -g Amazon.Lambda.Tools
 ```
 
 To update the command line tools:
 
 ```
-`dotnet tool update -g Amazon.Lambda.Tools`
+dotnet tool update -g Amazon.Lambda.Tools
 ```
 
 To uninstall the command line tools:
 
 ```
-`dotnet tool uninstall -g Amazon.Lambda.Tools`
+dotnet tool uninstall -g Amazon.Lambda.Tools
 ```

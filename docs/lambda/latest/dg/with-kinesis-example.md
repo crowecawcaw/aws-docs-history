@@ -1,64 +1,60 @@
-# Tutorial: Using Lambda with Kinesis Data Streams
 
-In this tutorial, you create a Lambda function to consume events from a Amazon Kinesis data stream.
+
+# Tutorial: Using Lambda with Kinesis Data Streams
+<a name="with-kinesis-example"></a>
+
+In this tutorial, you create a Lambda function to consume events from a Amazon Kinesis data stream. 
 
 1. Custom app writes records to the stream.
-2. AWS Lambda polls the stream and, when it detects new records in the stream, invokes your Lambda
-   function.
-3. AWS Lambda runs the Lambda function by assuming the execution role you specified at the time you created
-   the Lambda function.
+
+1. AWS Lambda polls the stream and, when it detects new records in the stream, invokes your Lambda function.
+
+1. AWS Lambda runs the Lambda function by assuming the execution role you specified at the time you created the Lambda function.
 
 ## Prerequisites
+<a name="with-kinesis-prepare"></a>
 
-If you have not yet installed the AWS Command Line Interface, follow the steps at [Installing or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
-to install it.
+### Install the AWS Command Line Interface
+<a name="install_aws_cli"></a>
+
+If you have not yet installed the AWS Command Line Interface, follow the steps at [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install it.
 
 The tutorial requires a command line terminal or shell to run commands. In Linux and macOS, use your preferred shell and package manager.
 
-###### Note
-
-In Windows, some Bash CLI commands that you commonly use with Lambda (such as `zip`) are not supported by the operating system's built-in terminals.
-To get a Windows-integrated version of Ubuntu and Bash, [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "https://docs.microsoft.com/en-us/windows/wsl/install-win10").
+**Note**  
+In Windows, some Bash CLI commands that you commonly use with Lambda (such as `zip`) are not supported by the operating system's built-in terminals. To get a Windows-integrated version of Ubuntu and Bash, [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). 
 
 ## Create the execution role
+<a name="with-kinesis-example-create-iam-role"></a>
 
-Create the [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") that gives your function
-permission to access AWS resources.
+Create the [execution role](lambda-intro-execution-role.md) that gives your function permission to access AWS resources.
 
-###### To create an execution role
+**To create an execution role**
 
-1. Open the [roles page](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") in the IAM console.
-2. Choose **Create role**.
-3. Create a role with the following properties.
+1. Open the [roles page](https://console.aws.amazon.com/iam/home#/roles) in the IAM console.
 
-   - **Trusted entity** – **AWS Lambda**.
-   - **Permissions** – **AWSLambdaKinesisExecutionRole**.
-   - **Role name** – `lambda-kinesis-role`.
+1. Choose **Create role**.
 
-The **AWSLambdaKinesisExecutionRole** policy has the permissions that the function needs to
-read items from Kinesis and write logs to CloudWatch Logs.
+1. Create a role with the following properties.
+   + **Trusted entity** – **AWS Lambda**.
+   + **Permissions** – **AWSLambdaKinesisExecutionRole**.
+   + **Role name** – **lambda-kinesis-role**.
+
+The **AWSLambdaKinesisExecutionRole** policy has the permissions that the function needs to read items from Kinesis and write logs to CloudWatch Logs.
 
 ## Create the function
+<a name="with-kinesis-example-create-function"></a>
 
-Create a Lambda function that processes your Kinesis messages. The function code logs the event ID
-and event data of the Kinesis record to CloudWatch Logs.
+Create a Lambda function that processes your Kinesis messages. The function code logs the event ID and event data of the Kinesis record to CloudWatch Logs.
 
-This tutorial uses the Node.js 24 runtime, but we've also provided example code in other runtime
-languages. You can select the tab in the following box to see code for the runtime you're interested in.
-The JavaScript code you'll use in this step is in the first example shown in the
-**JavaScript** tab.
+This tutorial uses the Node.js 24 runtime, but we've also provided example code in other runtime languages. You can select the tab in the following box to see code for the runtime you're interested in. The JavaScript code you'll use in this step is in the first example shown in the **JavaScript** tab.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -112,20 +108,14 @@ public class Function
         return data;
     }
 }
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -160,21 +150,14 @@ func handler(ctx context.Context, kinesisEvent events.KinesisEvent) error {
 func main() {
 	lambda.Start(handler)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using Java.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -211,21 +194,14 @@ public class Handler implements RequestHandler<KinesisEvent, Void> {
     }
 
 }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using JavaScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -250,11 +226,8 @@ async function getRecordDataAsync(payload) {
   await Promise.resolve(1); //Placeholder for actual async work
   return data;
 }
-
-
 ```
-
-Consuming a Kinesis event with Lambda using TypeScript.
+Consuming a Kinesis event with Lambda using TypeScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -298,21 +271,14 @@ async function getRecordDataAsync(
   await Promise.resolve(1); //Placeholder for actual async work
   return data;
 }
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming an Kinesis event with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming an Kinesis event with Lambda using PHP.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -358,21 +324,14 @@ class Handler extends KinesisHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming a Kinesis event with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming a Kinesis event with Lambda using Python.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -390,21 +349,14 @@ def lambda_handler(event, context):
             print(f"An error occurred {e}")
             raise e
     print(f"Successfully processed {len(event['Records'])} records.")
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming an Kinesis event with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming an Kinesis event with Lambda using Ruby.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -432,20 +384,14 @@ def get_record_data_async(payload)
   # You can use Ruby's asynchronous programming tools like async/await or fibers here.
   return data
 end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda")
-repository.
-
-Consuming an Kinesis event with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda) repository. 
+Consuming an Kinesis event with Lambda using Rust.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -495,89 +441,92 @@ async fn main() -> Result<(), Error> {
 
     run(service_fn(function_handler)).await
 }
-
 ```
 
-###### To create the function
+------
+
+**To create the function**
 
 1. Create a directory for the project, and then switch to that directory.
 
-```
-mkdir kinesis-tutorial
-cd kinesis-tutorial
-```
+   ```
+   mkdir kinesis-tutorial
+   cd kinesis-tutorial
+   ```
 
-2. Copy the sample JavaScript code into a new file named `index.js`.
-3. Create a deployment package.
+1. Copy the sample JavaScript code into a new file named `index.js`.
 
-```
-`zip function.zip index.js`
-```
+1. Create a deployment package.
 
-4. Create a Lambda function with the `create-function` command.
+   ```
+   zip function.zip index.js
+   ```
 
-```
-`aws lambda create-function --function-name ProcessKinesisRecords \
---zip-file fileb://function.zip --handler index.handler --runtime nodejs24.x \
---role arn:aws:iam::`111122223333`:role/lambda-kinesis-role`
-```
+1. Create a Lambda function with the `create-function` command.
+
+   ```
+   aws lambda create-function --function-name ProcessKinesisRecords \
+   --zip-file fileb://function.zip --handler index.handler --runtime nodejs24.x \
+   --role arn:aws:iam::{{111122223333}}:role/lambda-kinesis-role
+   ```
 
 ## Test the Lambda function
+<a name="walkthrough-kinesis-events-adminuser-create-test-function-upload-zip-test-manual-invoke"></a>
 
-Invoke your Lambda function manually using the `invoke` AWS Lambda CLI command and a sample Kinesis
-event.
+Invoke your Lambda function manually using the `invoke` AWS Lambda CLI command and a sample Kinesis event.
 
-###### To test the Lambda function
+**To test the Lambda function**
 
-1. Copy the following JSON into a file and save it as `input.txt`.
+1. Copy the following JSON into a file and save it as `input.txt`. 
 
-```
-{
-    "Records": [
-        {
-            "kinesis": {
-                "kinesisSchemaVersion": "1.0",
-                "partitionKey": "1",
-                "sequenceNumber": "49590338271490256608559692538361571095921575989136588898",
-                "data": "SGVsbG8sIHRoaXMgaXMgYSB0ZXN0Lg==",
-                "approximateArrivalTimestamp": 1545084650.987
-            },
-            "eventSource": "aws:kinesis",
-            "eventVersion": "1.0",
-            "eventID": "shardId-000000000006:49590338271490256608559692538361571095921575989136588898",
-            "eventName": "aws:kinesis:record",
-            "invokeIdentityArn": "arn:aws:iam::111122223333:role/lambda-kinesis-role",
-            "awsRegion": "us-east-2",
-            "eventSourceARN": "arn:aws:kinesis:us-east-2:111122223333:stream/lambda-stream"
-        }
-    ]
-}
-```
+   ```
+   {
+       "Records": [
+           {
+               "kinesis": {
+                   "kinesisSchemaVersion": "1.0",
+                   "partitionKey": "1",
+                   "sequenceNumber": "49590338271490256608559692538361571095921575989136588898",
+                   "data": "SGVsbG8sIHRoaXMgaXMgYSB0ZXN0Lg==",
+                   "approximateArrivalTimestamp": 1545084650.987
+               },
+               "eventSource": "aws:kinesis",
+               "eventVersion": "1.0",
+               "eventID": "shardId-000000000006:49590338271490256608559692538361571095921575989136588898",
+               "eventName": "aws:kinesis:record",
+               "invokeIdentityArn": "arn:aws:iam::111122223333:role/lambda-kinesis-role",
+               "awsRegion": "us-east-2",
+               "eventSourceARN": "arn:aws:kinesis:us-east-2:111122223333:stream/lambda-stream"
+           }
+       ]
+   }
+   ```
 
-2. Use the `invoke` command to send the event to the function.
+1. Use the `invoke` command to send the event to the function.
 
-```
-`aws lambda invoke --function-name ProcessKinesisRecords \
---cli-binary-format raw-in-base64-out \
---payload file://input.txt outputfile.txt`
-```
+   ```
+   aws lambda invoke --function-name ProcessKinesisRecords \
+   --cli-binary-format raw-in-base64-out \
+   --payload file://input.txt outputfile.txt
+   ```
 
-The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide for Version 2_.
+   The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html#cli-configure-options-list) in the *AWS Command Line Interface User Guide for Version 2*.
 
-The response is saved to `out.txt`.
+   The response is saved to `out.txt`.
 
 ## Create a Kinesis stream
+<a name="with-kinesis-example-configure-event-source-create"></a>
 
-Use the `create-stream` command to create a stream.
+Use the `create-stream ` command to create a stream.
 
 ```
-`aws kinesis create-stream --stream-name lambda-stream --shard-count 1`
+aws kinesis create-stream --stream-name lambda-stream --shard-count 1
 ```
 
 Run the following `describe-stream` command to get the stream ARN.
 
 ```
-`aws kinesis describe-stream --stream-name lambda-stream`
+aws kinesis describe-stream --stream-name lambda-stream
 ```
 
 You should see the following output:
@@ -616,64 +565,70 @@ You should see the following output:
 You use the stream ARN in the next step to associate the stream with your Lambda function.
 
 ## Add an event source in AWS Lambda
+<a name="with-kinesis-example-configure-event-source-add-event-source"></a>
 
 Run the following AWS CLI `add-event-source` command.
 
 ```
-`aws lambda create-event-source-mapping --function-name ProcessKinesisRecords \
---event-source arn:aws:kinesis:us-east-1:111122223333:stream/lambda-stream \
---batch-size 100 --starting-position LATEST`
+aws lambda create-event-source-mapping --function-name ProcessKinesisRecords \
+--event-source  arn:aws:kinesis:us-east-1:111122223333:stream/lambda-stream \
+--batch-size 100 --starting-position LATEST
 ```
 
-Note the mapping ID for later use. You can get a list of event source mappings by running the
-`list-event-source-mappings` command.
+Note the mapping ID for later use. You can get a list of event source mappings by running the `list-event-source-mappings` command.
 
 ```
-`aws lambda list-event-source-mappings --function-name ProcessKinesisRecords \
---event-source arn:aws:kinesis:us-east-1:111122223333:stream/lambda-stream`
+aws lambda list-event-source-mappings --function-name ProcessKinesisRecords \
+--event-source arn:aws:kinesis:us-east-1:111122223333:stream/lambda-stream
 ```
 
-In the response, you can verify the status value is `enabled`. Event source mappings can be
-disabled to pause polling temporarily without losing any records.
+In the response, you can verify the status value is `enabled`. Event source mappings can be disabled to pause polling temporarily without losing any records.
 
 ## Test the setup
+<a name="with-kinesis-example-configure-event-source-test-end-to-end"></a>
 
-To test the event source mapping, add event records to your Kinesis stream. The `--data` value is a
-string that the CLI encodes to base64 before sending it to Kinesis. You can run the same command more than once to
-add multiple records to the stream.
+To test the event source mapping, add event records to your Kinesis stream. The `--data` value is a string that the CLI encodes to base64 before sending it to Kinesis. You can run the same command more than once to add multiple records to the stream.
 
 ```
-`aws kinesis put-record --stream-name lambda-stream --partition-key 1 \
---data "Hello, this is a test."`
+aws kinesis put-record --stream-name lambda-stream --partition-key 1 \
+--data "Hello, this is a test."
 ```
 
-Lambda uses the execution role to read records from the stream. Then it invokes your Lambda function, passing in
-batches of records. The function decodes data from each record and logs it, sending the output to CloudWatch Logs. View the
-logs in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
+Lambda uses the execution role to read records from the stream. Then it invokes your Lambda function, passing in batches of records. The function decodes data from each record and logs it, sending the output to CloudWatch Logs. View the logs in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch).
 
 ## Clean up your resources
+<a name="cleanup"></a>
 
 You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you're no longer using, you prevent unnecessary charges to your AWS account.
 
-###### To delete the execution role
+**To delete the execution role**
 
-1. Open the [Roles page](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") of the IAM console.
-2. Select the execution role that you created.
-3. Choose **Delete**.
-4. Enter the name of the role in the text input field and choose **Delete**.
+1. Open the [Roles page](https://console.aws.amazon.com/iam/home#/roles) of the IAM console.
 
-###### To delete the Lambda function
+1. Select the execution role that you created.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Select the function that you created.
-3. Choose **Actions**, **Delete**.
-4. Type `confirm` in the text input field and choose **Delete**.
+1. Choose **Delete**.
 
-###### To delete the Kinesis stream
+1. Enter the name of the role in the text input field and choose **Delete**.
 
-1. Sign in to the AWS Management Console and open the Kinesis console at
-   [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
-2. Select the stream you created.
-3. Choose **Actions**, **Delete**.
-4. Enter `delete` in the text input field.
-5. Choose **Delete**.
+**To delete the Lambda function**
+
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+
+1. Select the function that you created.
+
+1. Choose **Actions**, **Delete**.
+
+1. Type **confirm** in the text input field and choose **Delete**.
+
+**To delete the Kinesis stream**
+
+1. Sign in to the AWS Management Console and open the Kinesis console at [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis).
+
+1. Select the stream you created.
+
+1. Choose **Actions**, **Delete**.
+
+1. Enter **delete** in the text input field.
+
+1. Choose **Delete**.

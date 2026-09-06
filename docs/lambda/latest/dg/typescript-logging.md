@@ -1,115 +1,111 @@
+
+
 # Log and monitor TypeScript Lambda functions
+<a name="typescript-logging"></a>
 
-AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function
-comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment
-sends details about each invocation and other output from your function's
-code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md "monitoring-cloudwatchlogs.md").
+AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
-To output logs from your function code, you can use methods on the [console object](https://nodejs.org/docs/latest-v18.x/api/console.html "https://nodejs.org/docs/latest-v18.x/api/console.html"). For more detailed logging, you can use any logging library that writes to `stdout` or `stderr`.
+To output logs from your function code, you can use methods on the [console object](https://nodejs.org/docs/latest-v18.x/api/console.html). For more detailed logging, you can use any logging library that writes to `stdout` or `stderr`.
 
-###### Sections
-
-- [Using logging tools and libraries](#typescript-tools-libraries "#typescript-tools-libraries")
-- [Using Powertools for AWS Lambda (TypeScript) and AWS SAM for structured logging](#typescript-logging-sam "#typescript-logging-sam")
-- [Using Powertools for AWS Lambda (TypeScript) and the AWS CDK for structured logging](#typescript-logging-cdk "#typescript-logging-cdk")
-- [Viewing logs in the Lambda console](#typescript-logging-console "#typescript-logging-console")
-- [Viewing logs in the CloudWatch console](#typescript-logging-cwconsole "#typescript-logging-cwconsole")
+**Topics**
++ [Using logging tools and libraries](#typescript-tools-libraries)
++ [Using Powertools for AWS Lambda (TypeScript) and AWS SAM for structured logging](#typescript-logging-sam)
++ [Using Powertools for AWS Lambda (TypeScript) and the AWS CDK for structured logging](#typescript-logging-cdk)
++ [Viewing logs in the Lambda console](#typescript-logging-console)
++ [Viewing logs in the CloudWatch console](#typescript-logging-cwconsole)
 
 ## Using logging tools and libraries
+<a name="typescript-tools-libraries"></a>
 
-[Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") is a developer toolkit to implement Serverless best practices and increase developer velocity. The [Logger utility](../../../powertools/typescript/latest/features/logger.md "../../../powertools/typescript/latest/features/logger.md") provides a Lambda optimized logger which includes additional information about function context across all your functions with output structured as JSON. Use this utility to do the following:
-
-- Capture key fields from the Lambda context, cold start and structures logging output as JSON
-- Log Lambda invocation events when instructed (disabled by default)
-- Print all the logs only for a percentage of invocations via log sampling (disabled by default)
-- Append additional keys to structured log at any point in time
-- Use a custom log formatter (Bring Your Own Formatter) to output logs in a structure compatible with your organization’s Logging RFC
+[Powertools for AWS Lambda (TypeScript)](https://docs.aws.amazon.com/powertools/typescript/) is a developer toolkit to implement Serverless best practices and increase developer velocity. The [Logger utility](https://docs.aws.amazon.com/powertools/typescript/latest/features/logger/) provides a Lambda optimized logger which includes additional information about function context across all your functions with output structured as JSON. Use this utility to do the following:
++ Capture key fields from the Lambda context, cold start and structures logging output as JSON
++ Log Lambda invocation events when instructed (disabled by default)
++ Print all the logs only for a percentage of invocations via log sampling (disabled by default)
++ Append additional keys to structured log at any point in time
++ Use a custom log formatter (Bring Your Own Formatter) to output logs in a structure compatible with your organization’s Logging RFC
 
 ## Using Powertools for AWS Lambda (TypeScript) and AWS SAM for structured logging
+<a name="typescript-logging-sam"></a>
 
-Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") modules using the AWS SAM. This application implements a
-basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
-When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
-sends traces to AWS X-Ray. The function returns a `hello world` message.
+Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](https://docs.aws.amazon.com/powertools/typescript) modules using the AWS SAM. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message.
 
-###### Prerequisites
+**Prerequisites**
 
 To complete the steps in this section, you must have the following:
++ Node.js 20 or later
++ [AWS CLI version 2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
++ [AWS SAM CLI version 1.75 or later](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html). If you have an older version of the AWS SAM CLI, see [Upgrading the AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/manage-sam-cli-versions.html#manage-sam-cli-versions-upgrade).
 
-- Node.js 20 or later
-- [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
-- [AWS SAM CLI version 1.75 or later](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md"). If you have an older version of the AWS SAM CLI, see [Upgrading the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade "../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade").
-
-###### Deploy a sample AWS SAM application
+**Deploy a sample AWS SAM application**
 
 1. Initialize the application using the Hello World TypeScript template.
 
-```
-sam init --app-template hello-world-powertools-typescript --name sam-app --package-type Zip --runtime nodejs24.x
-```
+   ```
+   sam init --app-template hello-world-powertools-typescript --name sam-app --package-type Zip --runtime nodejs24.x
+   ```
 
-2. Build the app.
+1. Build the app.
 
-```
-cd sam-app && sam build
-```
+   ```
+   cd sam-app && sam build
+   ```
 
-3. Deploy the app.
+1. Deploy the app.
 
-```
-sam deploy --guided
-```
+   ```
+   sam deploy --guided
+   ```
 
-4. Follow the on-screen prompts. To accept the default options provided in the interactive experience, press `Enter`.
+1. Follow the on-screen prompts. To accept the default options provided in the interactive experience, press `Enter`.
+**Note**  
+For **HelloWorldFunction may not have authorization defined, Is this okay?**, make sure to enter `y`.
 
-###### Note
+1. Get the URL of the deployed application:
 
-For **HelloWorldFunction may not have authorization defined, Is this okay?**, make sure to enter `y`. 5. Get the URL of the deployed application:
+   ```
+   aws cloudformation describe-stacks --stack-name sam-app --query 'Stacks[0].Outputs[?OutputKey==`HelloWorldApi`].OutputValue' --output text
+   ```
 
-```
-aws cloudformation describe-stacks --stack-name sam-app --query 'Stacks[0].Outputs[?OutputKey==`HelloWorldApi`].OutputValue' --output text
-```
+1. Invoke the API endpoint:
 
-6. Invoke the API endpoint:
+   ```
+   curl {{<URL_FROM_PREVIOUS_STEP>}}
+   ```
 
-```
-curl `<URL_FROM_PREVIOUS_STEP>`
-```
+   If successful, you'll see this response:
 
-If successful, you'll see this response:
+   ```
+   {"message":"hello world"}
+   ```
 
-```
-{"message":"hello world"}
-```
+1. To get the logs for the function, run [sam logs](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.html). For more information, see [Working with logs](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html) in the *AWS Serverless Application Model Developer Guide*.
 
-7. To get the logs for the function, run [sam logs](../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.md "../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.md"). For more information, see [Working with logs](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-logging.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-logging.md") in the _AWS Serverless Application Model Developer Guide_.
+   ```
+   sam logs --stack-name sam-app
+   ```
 
-```
-sam logs --stack-name sam-app
-```
+   The log output looks like this:
 
-The log output looks like this:
+   ```
+   2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.552000 START RequestId: 70693159-7e94-4102-a2af-98a6343fb8fb Version: $LATEST
+   2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.594000 2025-08-31T09:33:10.557Z 70693159-7e94-4102-a2af-98a6343fb8fb INFO {"_aws":{"Timestamp":1661938390556,"CloudWatchMetrics":[{"Namespace":"sam-app","Dimensions":[["service"]],"Metrics":[{"Name":"ColdStart","Unit":"Count"}]}]},"service":"helloWorld","ColdStart":1}
+   2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.595000 2025-08-31T09:33:10.595Z 70693159-7e94-4102-a2af-98a6343fb8fb INFO {"level":"INFO","message":"This is an INFO log - sending HTTP 200 - hello world response","service":"helloWorld","timestamp":"2025-08-31T09:33:10.594Z"}
+   2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.655000 2025-08-31T09:33:10.655Z 70693159-7e94-4102-a2af-98a6343fb8fb INFO {"_aws":{"Timestamp":1661938390655,"CloudWatchMetrics":[{"Namespace":"sam-app","Dimensions":[["service"]],"Metrics":[]}]},"service":"helloWorld"}
+   2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.754000 END RequestId: 70693159-7e94-4102-a2af-98a6343fb8fb
+   2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.754000 REPORT RequestId: 70693159-7e94-4102-a2af-98a6343fb8fb Duration: 201.55 ms Billed Duration: 202 ms Memory Size: 128 MB Max Memory Used: 66 MB Init Duration: 252.42 ms
+   XRAY TraceId: 1-630f2ad5-1de22b6d29a658a466e7ecf5 SegmentId: 567c116658fbf11a Sampled: true
+   ```
 
-```
-2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.552000 START RequestId: 70693159-7e94-4102-a2af-98a6343fb8fb Version: $LATEST
-2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.594000 2025-08-31T09:33:10.557Z 70693159-7e94-4102-a2af-98a6343fb8fb INFO {"_aws":{"Timestamp":1661938390556,"CloudWatchMetrics":[{"Namespace":"sam-app","Dimensions":[["service"]],"Metrics":[{"Name":"ColdStart","Unit":"Count"}]}]},"service":"helloWorld","ColdStart":1}
-2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.595000 2025-08-31T09:33:10.595Z 70693159-7e94-4102-a2af-98a6343fb8fb INFO {"level":"INFO","message":"This is an INFO log - sending HTTP 200 - hello world response","service":"helloWorld","timestamp":"2025-08-31T09:33:10.594Z"}
-2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.655000 2025-08-31T09:33:10.655Z 70693159-7e94-4102-a2af-98a6343fb8fb INFO {"_aws":{"Timestamp":1661938390655,"CloudWatchMetrics":[{"Namespace":"sam-app","Dimensions":[["service"]],"Metrics":[]}]},"service":"helloWorld"}
-2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.754000 END RequestId: 70693159-7e94-4102-a2af-98a6343fb8fb
-2025/01/31/[$LATEST]4d53e8d279824834a1ccd35511a4949c 2025-08-31T09:33:10.754000 REPORT RequestId: 70693159-7e94-4102-a2af-98a6343fb8fb Duration: 201.55 ms Billed Duration: 202 ms Memory Size: 128 MB Max Memory Used: 66 MB Init Duration: 252.42 ms
-XRAY TraceId: 1-630f2ad5-1de22b6d29a658a466e7ecf5 SegmentId: 567c116658fbf11a Sampled: true
-```
+1. This is a public API endpoint that is accessible over the internet. We recommend that you delete the endpoint after testing.
 
-8. This is a public API endpoint that is accessible over the internet. We recommend that you delete the endpoint after testing.
-
-```
-sam delete
-```
+   ```
+   sam delete
+   ```
 
 ### Managing log retention
+<a name="typescript-log-retention"></a>
 
-Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete
-the log group, or configure a retention period after which CloudWatch automatically deletes the logs. To set up log retention, add the following to your AWS SAM template:
+Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete the log group, or configure a retention period after which CloudWatch automatically deletes the logs. To set up log retention, add the following to your AWS SAM template:
 
 ```
 Resources:
@@ -117,7 +113,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
     # Omitting other properties
-
+  
   LogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
@@ -126,183 +122,185 @@ Resources:
 ```
 
 ## Using Powertools for AWS Lambda (TypeScript) and the AWS CDK for structured logging
+<a name="typescript-logging-cdk"></a>
 
-Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](../../../powertools/typescript.md "../../../powertools/typescript.md") modules using the AWS CDK. This application implements a
-basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
-When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
-sends traces to AWS X-Ray. The function returns a `hello world` message.
+Follow the steps below to download, build, and deploy a sample Hello World TypeScript application with integrated [Powertools for AWS Lambda (TypeScript)](https://docs.aws.amazon.com/powertools/typescript) modules using the AWS CDK. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message.
 
-###### Prerequisites
+**Prerequisites**
 
 To complete the steps in this section, you must have the following:
++ Node.js 20 or later
++ [AWS CLI version 2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
++ [AWS CDK version 2](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_prerequisites)
++ [AWS SAM CLI version 1.75 or later](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html). If you have an older version of the AWS SAM CLI, see [Upgrading the AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/manage-sam-cli-versions.html#manage-sam-cli-versions-upgrade).
 
-- Node.js 20 or later
-- [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
-- [AWS CDK version 2](../../../cdk/v2/guide/getting_started.md#getting_started_prerequisites "../../../cdk/v2/guide/getting_started.md#getting_started_prerequisites")
-- [AWS SAM CLI version 1.75 or later](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md"). If you have an older version of the AWS SAM CLI, see [Upgrading the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade "../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade").
-
-###### Deploy a sample AWS CDK application
+**Deploy a sample AWS CDK application**
 
 1. Create a project directory for your new application.
 
-```
-mkdir hello-world
-cd hello-world
-```
+   ```
+   mkdir hello-world
+   cd hello-world
+   ```
 
-2. Initialize the app.
+1. Initialize the app.
 
-```
-cdk init app --language typescript
-```
+   ```
+   cdk init app --language typescript
+   ```
 
-3. Add the [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda "https://www.npmjs.com/package/@types/aws-lambda") package as a development dependency.
+1. Add the [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda) package as a development dependency.
 
-```
-npm install -D @types/aws-lambda
-```
+   ```
+   npm install -D @types/aws-lambda
+   ```
 
-4. Install the Powertools [Logger utility](../../../powertools/typescript/latest/features/logger.md "../../../powertools/typescript/latest/features/logger.md").
+1. Install the Powertools [Logger utility](https://docs.aws.amazon.com/powertools/typescript/latest/features/logger/).
 
-```
-npm install @aws-lambda-powertools/logger
-```
+   ```
+   npm install @aws-lambda-powertools/logger
+   ```
 
-5. Open the **lib** directory. You should see a file called **hello-world-stack.ts**. Create new two new files in this directory: **hello-world.function.ts** and **hello-world.ts**.
-6. Open **hello-world.function.ts** and add the following code to the file. This is the code for the Lambda function.
+1. Open the **lib** directory. You should see a file called **hello-world-stack.ts**. Create new two new files in this directory: **hello-world.function.ts** and **hello-world.ts**.
 
-```
-import { APIGatewayEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
-import { Logger } from '@aws-lambda-powertools/logger';
-const logger = new Logger();
+1. Open **hello-world.function.ts** and add the following code to the file. This is the code for the Lambda function.
 
-export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
-  logger.info('This is an INFO log - sending HTTP 200 - hello world response');
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'hello world',
-    }),
-  };
-};
-```
+   ```
+   import { APIGatewayEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
+   import { Logger } from '@aws-lambda-powertools/logger';
+   const logger = new Logger();
+     
+   export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
+     logger.info('This is an INFO log - sending HTTP 200 - hello world response');
+     return {
+       statusCode: 200,
+       body: JSON.stringify({
+         message: 'hello world',
+       }),
+     };
+   };
+   ```
 
-7. Open **hello-world.ts** and add the following code to the file. This contains the [NodejsFunction construct](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.md"), which creates the Lambda function, configures environment variables for Powertools, and sets log retention to one week. It also includes the [LambdaRestApi construct](../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.LambdaRestApi.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.LambdaRestApi.md"), which creates the REST API.
+1. Open **hello-world.ts** and add the following code to the file. This contains the [NodejsFunction construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs-readme.html), which creates the Lambda function, configures environment variables for Powertools, and sets log retention to one week. It also includes the [LambdaRestApi construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.LambdaRestApi.html), which creates the REST API.
 
-```
-import { Construct } from 'constructs';
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
-import { LambdaRestApi } from 'aws-cdk-lib/aws-apigateway';
-import { RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { CfnOutput } from 'aws-cdk-lib';
+   ```
+   import { Construct } from 'constructs';
+   import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
+   import { LambdaRestApi } from 'aws-cdk-lib/aws-apigateway';
+   import { RetentionDays } from 'aws-cdk-lib/aws-logs';
+   import { CfnOutput } from 'aws-cdk-lib';
+     
+   export class HelloWorld extends Construct {
+     constructor(scope: Construct, id: string) {
+       super(scope, id);
+       const helloFunction = new NodejsFunction(this, 'function', {
+         environment: {
+           Powertools_SERVICE_NAME: 'helloWorld',
+           LOG_LEVEL: 'INFO',
+         },
+         logRetention: RetentionDays.ONE_WEEK,
+       });
+       const api = new LambdaRestApi(this, 'apigw', {
+         handler: helloFunction,
+       });
+       new CfnOutput(this, 'apiUrl', {
+         exportName: 'apiUrl',
+         value: api.url,
+       });
+     }
+   }
+   ```
 
-export class HelloWorld extends Construct {
-  constructor(scope: Construct, id: string) {
-    super(scope, id);
-    const helloFunction = new NodejsFunction(this, 'function', {
-      environment: {
-        Powertools_SERVICE_NAME: 'helloWorld',
-        LOG_LEVEL: 'INFO',
-      },
-      logRetention: RetentionDays.ONE_WEEK,
-    });
-    const api = new LambdaRestApi(this, 'apigw', {
-      handler: helloFunction,
-    });
-    new CfnOutput(this, 'apiUrl', {
-      exportName: 'apiUrl',
-      value: api.url,
-    });
-  }
-}
-```
+1. Open **hello-world-stack.ts**. This is the code that defines your [AWS CDK stack](https://docs.aws.amazon.com/cdk/v2/guide/stacks.html). Replace the code with the following:
 
-8. Open **hello-world-stack.ts**. This is the code that defines your [AWS CDK stack](../../../cdk/v2/guide/stacks.md "../../../cdk/v2/guide/stacks.md"). Replace the code with the following:
+   ```
+   import { Stack, StackProps } from 'aws-cdk-lib';
+   import { Construct } from 'constructs';
+   import { HelloWorld } from './hello-world';
+       
+   export class HelloWorldStack extends Stack {
+     constructor(scope: Construct, id: string, props?: StackProps) {
+       super(scope, id, props);
+       new HelloWorld(this, 'hello-world');
+     }
+   }
+   ```
 
-```
-import { Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-import { HelloWorld } from './hello-world';
+1. Go back to the project directory.
 
-export class HelloWorldStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
-    super(scope, id, props);
-    new HelloWorld(this, 'hello-world');
-  }
-}
-```
+   ```
+   cd hello-world
+   ```
 
-9. Go back to the project directory.
+1. Deploy your application.
 
-```
-cd hello-world
-```
+   ```
+   cdk deploy
+   ```
 
-10. Deploy your application.
+1. Get the URL of the deployed application:
 
-```
-cdk deploy
-```
+   ```
+   aws cloudformation describe-stacks --stack-name HelloWorldStack --query 'Stacks[0].Outputs[?ExportName==`apiUrl`].OutputValue' --output text
+   ```
 
-11. Get the URL of the deployed application:
+1. Invoke the API endpoint:
 
-```
-aws cloudformation describe-stacks --stack-name HelloWorldStack --query 'Stacks[0].Outputs[?ExportName==`apiUrl`].OutputValue' --output text
-```
+   ```
+   curl {{<URL_FROM_PREVIOUS_STEP>}}
+   ```
 
-12. Invoke the API endpoint:
+   If successful, you'll see this response:
 
-```
-curl `<URL_FROM_PREVIOUS_STEP>`
-```
+   ```
+   {"message":"hello world"}
+   ```
 
-If successful, you'll see this response:
+1. To get the logs for the function, run [sam logs](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.html). For more information, see [Working with logs](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html) in the *AWS Serverless Application Model Developer Guide*.
 
-```
-{"message":"hello world"}
-```
+   ```
+   sam logs --stack-name HelloWorldStack
+   ```
 
-13. To get the logs for the function, run [sam logs](../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.md "../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.md"). For more information, see [Working with logs](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-logging.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-logging.md") in the _AWS Serverless Application Model Developer Guide_.
+   The log output looks like this:
 
-```
-sam logs --stack-name HelloWorldStack
-```
+   ```
+   2025/01/31/[$LATEST]2ca67f180dcd4d3e88b5d68576740c8e 2025-08-31T14:48:37.047000 START RequestId: 19ad1007-ff67-40ce-9afe-0af0a9eb512c Version: $LATEST
+   2025/01/31/[$LATEST]2ca67f180dcd4d3e88b5d68576740c8e 2025-08-31T14:48:37.050000 {
+   "level": "INFO",
+   "message": "This is an INFO log - sending HTTP 200 - hello world response",
+   "service": "helloWorld",
+   "timestamp": "2025-08-31T14:48:37.048Z",
+   "xray_trace_id": "1-630f74c4-2b080cf77680a04f2362bcf2"
+   }
+   2025/01/31/[$LATEST]2ca67f180dcd4d3e88b5d68576740c8e 2025-08-31T14:48:37.082000 END RequestId: 19ad1007-ff67-40ce-9afe-0af0a9eb512c
+   2025/01/31/[$LATEST]2ca67f180dcd4d3e88b5d68576740c8e 2025-08-31T14:48:37.082000 REPORT RequestId: 19ad1007-ff67-40ce-9afe-0af0a9eb512c Duration: 34.60 ms Billed Duration: 35 ms Memory Size: 128 MB Max Memory Used: 57 MB Init Duration: 173.48 ms
+   ```
 
-The log output looks like this:
+1. This is a public API endpoint that is accessible over the internet. We recommend that you delete the endpoint after testing.
 
-```
-2025/01/31/[$LATEST]2ca67f180dcd4d3e88b5d68576740c8e 2025-08-31T14:48:37.047000 START RequestId: 19ad1007-ff67-40ce-9afe-0af0a9eb512c Version: $LATEST
-2025/01/31/[$LATEST]2ca67f180dcd4d3e88b5d68576740c8e 2025-08-31T14:48:37.050000 {
-"level": "INFO",
-"message": "This is an INFO log - sending HTTP 200 - hello world response",
-"service": "helloWorld",
-"timestamp": "2025-08-31T14:48:37.048Z",
-"xray_trace_id": "1-630f74c4-2b080cf77680a04f2362bcf2"
-}
-2025/01/31/[$LATEST]2ca67f180dcd4d3e88b5d68576740c8e 2025-08-31T14:48:37.082000 END RequestId: 19ad1007-ff67-40ce-9afe-0af0a9eb512c
-2025/01/31/[$LATEST]2ca67f180dcd4d3e88b5d68576740c8e 2025-08-31T14:48:37.082000 REPORT RequestId: 19ad1007-ff67-40ce-9afe-0af0a9eb512c Duration: 34.60 ms Billed Duration: 35 ms Memory Size: 128 MB Max Memory Used: 57 MB Init Duration: 173.48 ms
-```
-
-14. This is a public API endpoint that is accessible over the internet. We recommend that you delete the endpoint after testing.
-
-```
-cdk destroy
-```
+   ```
+   cdk destroy
+   ```
 
 ## Viewing logs in the Lambda console
+<a name="typescript-logging-console"></a>
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
 If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
+<a name="typescript-logging-cwconsole"></a>
 
 You can use the Amazon CloudWatch console to view logs for all Lambda function invocations.
 
-###### To view logs on the CloudWatch console
+**To view logs on the CloudWatch console**
 
-1. Open the [Log groups page](https://console.aws.amazon.com/cloudwatch/home?#logs: "https://console.aws.amazon.com/cloudwatch/home?#logs:") on the CloudWatch console.
-2. Choose the log group for your function (**/aws/lambda/`your-function-name`**).
-3. Choose a log stream.
+1. Open the [Log groups page](https://console.aws.amazon.com/cloudwatch/home?#logs:) on the CloudWatch console.
 
-Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md "lambda-runtime-environment.md"). A log stream appears when you update your Lambda function, and when additional instances are created to handle concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.
+1. Choose the log group for your function (**/aws/lambda/{{your-function-name}}**).
+
+1. Choose a log stream.
+
+Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md). A log stream appears when you update your Lambda function, and when additional instances are created to handle concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.

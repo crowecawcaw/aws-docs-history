@@ -1,16 +1,20 @@
+
+
 # Deploy Lambda durable functions with Infrastructure as Code
+<a name="durable-getting-started-iac"></a>
 
 You can deploy Lambda durable functions using Infrastructure as Code (IaC) tools like AWS CloudFormation, AWS CDK, AWS Serverless Application Model, or Terraform. These tools let you define your function, execution role, and permissions in code, making deployments repeatable and version-controlled.
 
 All three tools require you to:
-
-- Enable durable execution on the function
-- Grant checkpoint permissions to the execution role
-- Publish a version or create an alias (durable functions require qualified ARNs)
++ Enable durable execution on the function
++ Grant checkpoint permissions to the execution role
++ Publish a version or create an alias (durable functions require qualified ARNs)
 
 ## Durable functions from a ZIP
+<a name="durable-iac-zip"></a>
 
 ### AWS CloudFormation
+<a name="durable-iac-cloudformation"></a>
 
 Use CloudFormation to define your durable function in a template. The following example creates a durable function with the required permissions.
 
@@ -23,7 +27,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17'		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -81,10 +85,12 @@ aws cloudformation deploy \
 ```
 
 ### AWS CDK
+<a name="durable-iac-cdk"></a>
 
 With AWS CDK, you can define infrastructure using programming languages. The following examples show how to create a durable function using TypeScript and Python.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 import * as cdk from 'aws-cdk-lib';
@@ -121,7 +127,8 @@ export class DurableFunctionStack extends cdk.Stack {
 }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 from aws_cdk import (
@@ -167,6 +174,8 @@ class DurableFunctionStack(Stack):
         )
 ```
 
+------
+
 **To deploy the CDK stack**
 
 ```
@@ -174,6 +183,7 @@ cdk deploy
 ```
 
 ### AWS Serverless Application Model
+<a name="durable-iac-sam"></a>
 
 AWS SAM simplifies CloudFormation templates for serverless applications. The following template creates a durable function with AWS SAM.
 
@@ -214,6 +224,7 @@ sam deploy --guided
 ```
 
 ### Terraform
+<a name="durable-iac-terraform"></a>
 
 Terraform is a popular open-source IaC tool that supports AWS resources. The following example creates a durable function with Terraform using the AWS provider version 6.25.0 or later.
 
@@ -296,15 +307,16 @@ terraform plan
 terraform apply
 ```
 
-###### Note
-
+**Note**  
 Terraform support for Lambda durable functions requires AWS provider version 6.25.0 or later. Update your provider version if you're using an older version.
 
 ## Durable functions from an OCI container image
+<a name="durable-iac-oci"></a>
 
-You can also create Durable functions based off of container images. For instructions on how to build a container image, see [Supported runtimes for durable functions](durable-supported-runtimes.md "durable-supported-runtimes.md").
+You can also create Durable functions based off of container images. For instructions on how to build a container image, see [Supported runtimes for durable functions](durable-supported-runtimes.md).
 
 ### AWS CDK
+<a name="durable-iac-oci-cdk"></a>
 
 With AWS CDK, you can define infrastructure using programming languages. The following examples show how to create a durable function using TypeScript from a container image.
 
@@ -352,6 +364,7 @@ cdk deploy
 ```
 
 ### AWS Serverless Application Model
+<a name="durable-iac-oci-sam"></a>
 
 AWS SAM simplifies CloudFormation templates for serverless applications. The following template creates a durable function with AWS SAM.
 
@@ -395,36 +408,32 @@ sam deploy --guided
 ```
 
 ## Common configuration patterns
+<a name="durable-iac-common-patterns"></a>
 
 Regardless of which IaC tool you use, follow these patterns for durable functions:
 
-###### Enable durable execution
-
+**Enable durable execution**  
 Set the `DurableConfig` property on your function to enable durable execution. This property is only available when creating the function. You cannot enable durable execution on existing functions.
 
-###### Grant checkpoint permissions
-
+**Grant checkpoint permissions**  
 Attach the `AWSLambdaBasicDurableExecutionRolePolicy` managed policy to the execution role. This policy includes the required `lambda:CheckpointDurableExecution` and `lambda:GetDurableExecutionState` permissions.
 
-###### Use qualified ARNs
-
+**Use qualified ARNs**  
 Create a version or alias for your function. Durable functions require qualified ARNs (with version or alias) for invocation. Use `AutoPublishAlias` in AWS SAM or create explicit versions in CloudFormation, AWS CDK, and Terraform.
 
-###### Package dependencies
-
+**Package dependencies**  
 Include the durable execution SDK in your deployment package. For Node.js, install `@aws/durable-execution-sdk-js`. For Python, install `aws-durable-execution-sdk-python`.
 
 ## Next steps
+<a name="durable-iac-next-steps"></a>
 
 After deploying your durable function:
-
-- Test your function using the qualified ARN (version or alias)
-- Monitor execution progress in the Lambda console under the Durable executions tab
-- View checkpoint operations in AWS CloudTrail data events
-- Review CloudWatch Logs for function output and replay behavior
++ Test your function using the qualified ARN (version or alias)
++ Monitor execution progress in the Lambda console under the Durable executions tab
++ View checkpoint operations in AWS CloudTrail data events
++ Review CloudWatch Logs for function output and replay behavior
 
 For more information about deploying Lambda functions with IaC tools, see:
-
-- [CloudFormation AWS::Lambda::Function reference](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
-- [AWS CDK Lambda module documentation](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md")
-- [AWS SAM Developer Guide](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md")
++ [CloudFormation AWS::Lambda::Function reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html)
++ [AWS CDK Lambda module documentation](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.html)
++ [AWS SAM Developer Guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html)

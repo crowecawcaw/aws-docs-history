@@ -1,28 +1,29 @@
-# Filter events from an Amazon MQ event source
 
-You can use event filtering to control which records from a stream or queue Lambda sends to your function.
-For general information about how event filtering works, see [Control which events Lambda sends to your function](invocation-eventfiltering.md "invocation-eventfiltering.md").
+
+# Filter events from an Amazon MQ event source
+<a name="with-mq-filtering"></a>
+
+You can use event filtering to control which records from a stream or queue Lambda sends to your function. For general information about how event filtering works, see [Control which events Lambda sends to your function](invocation-eventfiltering.md).
 
 This section focuses on event filtering for Amazon MQ event sources.
 
-###### Note
-
+**Note**  
 Amazon MQ event source mappings only support filtering on the `data` key.
 
-###### Topics
-
-- [Amazon MQ event filtering basics](#filtering-AMQ "#filtering-AMQ")
+**Topics**
++ [Amazon MQ event filtering basics](#filtering-AMQ)
 
 ## Amazon MQ event filtering basics
+<a name="filtering-AMQ"></a>
 
-Suppose your Amazon MQ message queue contains messages either in valid JSON format or as plain strings. An example record would look like the
-following, with the data converted to a Base64 encoded string in the `data` field.
+Suppose your Amazon MQ message queue contains messages either in valid JSON format or as plain strings. An example record would look like the following, with the data converted to a Base64 encoded string in the `data` field.
 
-ActiveMQ
+------
+#### [ ActiveMQ ]
 
 ```
-{
-    "messageID": "ID:b-9bcfa592-423a-4942-879d-eb284b418fc8-1.mq.us-east-2.amazonaws.com-37557-1234520418293-4:1:1:1:1",
+{ 
+    "messageID": "ID:b-9bcfa592-423a-4942-879d-eb284b418fc8-1.mq.us-east-2.amazonaws.com-37557-1234520418293-4:1:1:1:1", 
     "messageType": "jms/text-message",
     "deliveryMode": 1,
     "replyTo": null,
@@ -31,13 +32,13 @@ ActiveMQ
     "priority": 1,
     "correlationId": "myJMSCoID",
     "redelivered": false,
-    "destination": {
-      "physicalName": "testQueue"
+    "destination": { 
+      "physicalName": "testQueue" 
     },
     "data":"QUJDOkFBQUE=",
     "timestamp": 1598827811958,
-    "brokerInTime": 1598827811958,
-    "brokerOutTime": 1598827811959,
+    "brokerInTime": 1598827811958, 
+    "brokerOutTime": 1598827811959, 
     "properties": {
       "index": "1",
       "doAlarm": "false",
@@ -46,7 +47,8 @@ ActiveMQ
 }
 ```
 
-RabbitMQ
+------
+#### [ RabbitMQ ]
 
 ```
 {
@@ -94,8 +96,9 @@ RabbitMQ
 }
 ```
 
-For both Active MQ and Rabbit MQ brokers, you can use event filtering to filter records using the `data` key. Suppose your
-Amazon MQ queue contains messages in the following JSON format.
+------
+
+For both Active MQ and Rabbit MQ brokers, you can use event filtering to filter records using the `data` key. Suppose your Amazon MQ queue contains messages in the following JSON format.
 
 ```
 {
@@ -104,8 +107,7 @@ Amazon MQ queue contains messages in the following JSON format.
 }
 ```
 
-To filter only those records where the `timeout` field is greater than 0, the `FilterCriteria` object would be
-as follows.
+To filter only those records where the `timeout` field is greater than 0, the `FilterCriteria` object would be as follows.
 
 ```
 {
@@ -129,22 +131,24 @@ For added clarity, here is the value of the filter's `Pattern` expanded in plain
 
 You can add your filter using the console, AWS CLI or an AWS SAM template.
 
-Console
-to add this filter using the console, follow the instructions in [Attaching filter criteria to an event source mapping (console)](invocation-eventfiltering.md#filtering-console "invocation-eventfiltering.md#filtering-console") and enter the following
-string for the **Filter criteria**.
+------
+#### [ Console ]
+
+to add this filter using the console, follow the instructions in [Attaching filter criteria to an event source mapping (console)](invocation-eventfiltering.md#filtering-console) and enter the following string for the **Filter criteria**.
 
 ```
 { "data" : { "timeout" : [ { "numeric": [ ">", 0 ] } ] } }
 ```
 
-AWS CLI
-To create a new event source mapping with these filter criteria using the AWS Command Line Interface (AWS CLI), run the following
-command.
+------
+#### [ AWS CLI ]
+
+To create a new event source mapping with these filter criteria using the AWS Command Line Interface (AWS CLI), run the following command.
 
 ```
 aws lambda create-event-source-mapping \
-    --function-name `my-function` \
-    --event-source-arn `arn:aws:mq:us-east-2:123456789012:broker:my-broker:b-8ac7cc01-5898-482d-be2f-a6b596050ea8` \
+    --function-name {{my-function}} \
+    --event-source-arn {{arn:aws:mq:us-east-2:123456789012:broker:my-broker:b-8ac7cc01-5898-482d-be2f-a6b596050ea8}} \
     --filter-criteria '{"Filters": [{"Pattern": "{ \"data\" : { \"timeout\" : [ { \"numeric\": [ \">\", 0 ] } ] } }"}]}'
 ```
 
@@ -152,7 +156,7 @@ To add these filter criteria to an existing event source mapping, run the follow
 
 ```
 aws lambda update-event-source-mapping \
-    --uuid `"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"` \
+    --uuid {{"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"}} \
     --filter-criteria '{"Filters": [{"Pattern": "{ \"data\" : { \"timeout\" : [ { \"numeric\": [ \">\", 0 ] } ] } }"}]}'
 ```
 
@@ -160,11 +164,13 @@ To add these filter criteria to an existing event source mapping, run the follow
 
 ```
 aws lambda update-event-source-mapping \
-    --uuid `"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"` \
+    --uuid {{"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"}} \
     --filter-criteria '{"Filters": [{"Pattern": "{ \"data\" : { \"timeout\" : [ { \"numeric\": [ \">\", 0 ] } ] } }"}]}'
 ```
 
-AWS SAM
+------
+#### [ AWS SAM ]
+
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
 ```
@@ -173,8 +179,9 @@ FilterCriteria:
     - Pattern: '{ "data" : { "timeout" : [ { "numeric": [ ">", 0 ] } ] } }'
 ```
 
-With Amazon MQ, you can also filter records where the message is a plain string. Suppose you want to process only records where the
-message begins with "Result: ". The `FilterCriteria` object would look as follows.
+------
+
+With Amazon MQ, you can also filter records where the message is a plain string. Suppose you want to process only records where the message begins with "Result: ". The `FilterCriteria` object would look as follows.
 
 ```
 {
@@ -200,22 +207,24 @@ For added clarity, here is the value of the filter's `Pattern` expanded in plain
 
 You can add your filter using the console, AWS CLI or an AWS SAM template.
 
-Console
-To add this filter using the console, follow the instructions in [Attaching filter criteria to an event source mapping (console)](invocation-eventfiltering.md#filtering-console "invocation-eventfiltering.md#filtering-console") and enter the following
-string for the **Filter criteria**.
+------
+#### [ Console ]
+
+To add this filter using the console, follow the instructions in [Attaching filter criteria to an event source mapping (console)](invocation-eventfiltering.md#filtering-console) and enter the following string for the **Filter criteria**.
 
 ```
 { "data" : [ { "prefix": "Result: " } ] }
 ```
 
-AWS CLI
-To create a new event source mapping with these filter criteria using the AWS Command Line Interface (AWS CLI), run the following
-command.
+------
+#### [ AWS CLI ]
+
+To create a new event source mapping with these filter criteria using the AWS Command Line Interface (AWS CLI), run the following command.
 
 ```
 aws lambda create-event-source-mapping \
-    --function-name `my-function` \
-    --event-source-arn `arn:aws:mq:us-east-2:123456789012:broker:my-broker:b-8ac7cc01-5898-482d-be2f-a6b596050ea8` \
+    --function-name {{my-function}} \
+    --event-source-arn {{arn:aws:mq:us-east-2:123456789012:broker:my-broker:b-8ac7cc01-5898-482d-be2f-a6b596050ea8}} \
     --filter-criteria '{"Filters": [{"Pattern": "{ \"data\" : [ { \"prefix\": \"Result: \" } ] }"}]}'
 ```
 
@@ -223,11 +232,13 @@ To add these filter criteria to an existing event source mapping, run the follow
 
 ```
 aws lambda update-event-source-mapping \
-    --uuid `"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"` \
+    --uuid {{"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"}} \
     --filter-criteria '{"Filters": [{"Pattern": "{ \"data\" : [ { \"prefix\": \"Result: \" } ] }"}]}'
 ```
 
-AWS SAM
+------
+#### [ AWS SAM ]
+
 To add this filter using AWS SAM, add the following snippet to the YAML template for your event source.
 
 ```
@@ -236,16 +247,17 @@ FilterCriteria:
     - Pattern: '{ "data" : [ { "prefix": "Result " } ] }'
 ```
 
-Amazon MQ messages must be UTF-8 encoded strings, either plain strings or in JSON format. That's because Lambda decodes Amazon MQ byte arrays into UTF-8 before
-applying filter criteria. If your messages use another encoding, such as UTF-16 or ASCII, or if the message format doesn't match the
-`FilterCriteria` format, Lambda processes metadata filters only. The following table summarizes the specific behavior:
+------
 
-| Incoming message format  | Filter pattern format for message properties | Resulting action                                                                      |
-| ------------------------ | -------------------------------------------- | ------------------------------------------------------------------------------------- |
-| Plain string             | Plain string                                 | Lambda filters based on your filter criteria.                                         |
-| Plain string             | No filter pattern for data properties        | Lambda filters (on the other metadata properties only) based on your filter criteria. |
-| Plain string             | Valid JSON                                   | Lambda filters (on the other metadata properties only) based on your filter criteria. |
-| Valid JSON               | Plain string                                 | Lambda filters (on the other metadata properties only) based on your filter criteria. |
-| Valid JSON               | No filter pattern for data properties        | Lambda filters (on the other metadata properties only) based on your filter criteria. |
-| Valid JSON               | Valid JSON                                   | Lambda filters based on your filter criteria.                                         |
-| Non-UTF-8 encoded string | JSON, plain string, or no pattern            | Lambda filters (on the other metadata properties only) based on your filter criteria. |
+Amazon MQ messages must be UTF-8 encoded strings, either plain strings or in JSON format. That's because Lambda decodes Amazon MQ byte arrays into UTF-8 before applying filter criteria. If your messages use another encoding, such as UTF-16 or ASCII, or if the message format doesn't match the `FilterCriteria` format, Lambda processes metadata filters only. The following table summarizes the specific behavior:
+
+
+| Incoming message format | Filter pattern format for message properties | Resulting action | 
+| --- | --- | --- | 
+| Plain string | Plain string | Lambda filters based on your filter criteria. | 
+| Plain string | No filter pattern for data properties | Lambda filters (on the other metadata properties only) based on your filter criteria. | 
+| Plain string | Valid JSON | Lambda filters (on the other metadata properties only) based on your filter criteria. | 
+| Valid JSON | Plain string | Lambda filters (on the other metadata properties only) based on your filter criteria. | 
+| Valid JSON | No filter pattern for data properties | Lambda filters (on the other metadata properties only) based on your filter criteria. | 
+| Valid JSON | Valid JSON | Lambda filters based on your filter criteria. | 
+| Non-UTF-8 encoded string | JSON, plain string, or no pattern | Lambda filters (on the other metadata properties only) based on your filter criteria. | 

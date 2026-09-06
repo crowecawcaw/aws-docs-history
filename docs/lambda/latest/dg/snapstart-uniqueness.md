@@ -1,22 +1,23 @@
+
+
 # Handling uniqueness with Lambda SnapStart
+<a name="snapstart-uniqueness"></a>
 
 When invocations scale up on a SnapStart function, Lambda uses a single initialized snapshot to resume multiple execution environments. If your initialization code generates unique content that is included in the snapshot, then the content might not be unique when it is reused across execution environments. To maintain uniqueness when using SnapStart, you must generate unique content after initialization. This includes unique IDs, unique secrets, and entropy that's used to generate pseudorandomness.
 
-We recommend the following best practices to help you maintain uniqueness in your code. For Java functions, Lambda also provides an
-open-source [SnapStart scanning tool](#snapstart-scanning "#snapstart-scanning") to help check for code that assumes
-uniqueness. If you generate unique data during the initialization phase, then you can use a [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md") to restore uniqueness. With runtime
-hooks, you can run specific
-code immediately before Lambda takes a snapshot or immediately after Lambda resumes a function from a snapshot.
+We recommend the following best practices to help you maintain uniqueness in your code. For Java functions, Lambda also provides an open-source [SnapStart scanning tool](#snapstart-scanning) to help check for code that assumes uniqueness. If you generate unique data during the initialization phase, then you can use a [runtime hook](snapstart-runtime-hooks.md) to restore uniqueness. With runtime hooks, you can run specific code immediately before Lambda takes a snapshot or immediately after Lambda resumes a function from a snapshot.
 
 ## Avoid saving state that depends on uniqueness during initialization
+<a name="snapstart-caching-unique"></a>
 
-During the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib") of your function, avoid caching data that's intended to be unique, such as generating a unique ID for logging or setting seeds for random functions. Instead, we recommend that you generate unique data or set seeds for random functions inside your function handler—or use a [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md").
+During the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib) of your function, avoid caching data that's intended to be unique, such as generating a unique ID for logging or setting seeds for random functions. Instead, we recommend that you generate unique data or set seeds for random functions inside your function handler—or use a [runtime hook](snapstart-runtime-hooks.md).
 
 The following examples demonstrate how to generate a UUID in the function handler.
 
-Java
+------
+#### [ Java ]
 
-###### Example– Generating a unique ID in function handler
+**Example – Generating a unique ID in function handler**  
 
 ```
 import java.util.UUID;
@@ -24,17 +25,18 @@ import java.util.UUID;
     private static UUID uniqueSandboxId = null;
     @Override
     public String handleRequest(String event, Context context) {
-      `if (uniqueSandboxId == null)
- uniqueSandboxId = UUID.randomUUID();`
+      if (uniqueSandboxId == null)
+        uniqueSandboxId = UUID.randomUUID();
       System.out.println("Unique Sandbox Id: " + uniqueSandboxId);
       return "Hello, World!";
     }
   }
 ```
 
-Python
+------
+#### [ Python ]
 
-###### Example– Generating a unique ID in function handler
+**Example – Generating a unique ID in function handler**  
 
 ```
 import json
@@ -44,20 +46,21 @@ import time
 unique_number = None
 
 def lambda_handler(event, context):
-    seed = int(time.time() * 1000)
+    seed = int(time.time() * 1000) 
     random.seed(seed)
     global unique_number
-    `if not unique_number:
- unique_number = random.randint(1, 10000)`
-
+    if not unique_number:
+        unique_number = random.randint(1, 10000)
+        
     print("Unique number: ", unique_number)
-
+    
     return "Hello, World!"
 ```
 
-.NET
+------
+#### [ .NET ]
 
-###### Example– Generating a unique ID in function handler
+**Example – Generating a unique ID in function handler**  
 
 ```
 namespace Example;
@@ -86,80 +89,62 @@ public class SnapstartExample
 }
 ```
 
+------
+
 ## Use cryptographically secure pseudorandom number generators (CSPRNGs)
+<a name="snapstart-csprng"></a>
 
-When SnapStart is enabled, Lambda takes a snapshot of your function's execution environment including all
-application and system memory. This means the internal state of every random number generator (RNG) is preserved
-exactly as it was at snapshot time, along with any random bytes that your application or its dependencies have
-already generated and stored in memory buffers.
+When SnapStart is enabled, Lambda takes a snapshot of your function's execution environment including all application and system memory. This means the internal state of every random number generator (RNG) is preserved exactly as it was at snapshot time, along with any random bytes that your application or its dependencies have already generated and stored in memory buffers.
 
-When Lambda restores an execution environment from a snapshot, it reseeds the kernel random number generator
-from `/dev/random` and `/dev/urandom` with fresh entropy. Software that reads random numbers
-directly from these devices maintains randomness with SnapStart.
+When Lambda restores an execution environment from a snapshot, it reseeds the kernel random number generator from `/dev/random` and `/dev/urandom` with fresh entropy. Software that reads random numbers directly from these devices maintains randomness with SnapStart.
 
-If your application depends on randomness, we recommend that you use cryptographically secure random number
-generators (CSPRNGs). In addition to the AL provided OpenSSL, the Lambda managed runtimes that support SnapStart
-(Java version 11+, Python version 3.12+, and .NET version 8+), include the following built-in CSPRNGs:
+If your application depends on randomness, we recommend that you use cryptographically secure random number generators (CSPRNGs). In addition to the AL provided OpenSSL, the Lambda managed runtimes that support SnapStart (Java version 11\+, Python version 3.12\+, and .NET version 8\+), include the following built-in CSPRNGs:
++ **Java:** `java.security.SecureRandom`
++ **Python:** `random.SystemRandom`
++ **.NET:** `System.Security.Cryptography.RandomNumberGenerator`
 
-- **Java:** `java.security.SecureRandom`
-- **Python:** `random.SystemRandom`
-- **.NET:** `System.Security.Cryptography.RandomNumberGenerator`
+**Note**  
+For [Go Lambda runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-golang.html) no changes are required if your functions use the standard library's `crypto/rand`, which is snapstart-compatible by default.
 
-###### Note
-
-For [Go Lambda runtime](lambda-golang.md "lambda-golang.md") no
-changes are required if your functions use the standard library's `crypto/rand`, which is
-snapstart-compatible by default.
-
-When you package your function as a container image, your base image determines uniqueness compatibility with
-SnapStart:
-
-- **A Lambda base image for a managed runtime** (Java version 11+, Python
-  version 3.12+, and .NET version 8+) – Compatible with SnapStart as described above.
-- **The provided.al2023 base image** – Compatible if your programming
-  language runtime obtains entropy from `/dev/random`, `/dev/urandom`, or the
-  SnapStart-compatible build of OpenSSL (openssl-snapsafe-libs) listed in the
-  [Amazon Linux 2023 package list](../../../linux/al2023/release-notes/all-packages.md "../../../linux/al2023/release-notes/all-packages.md").
-  If your runtime relies on other entropy sources, follow the steps described in the "Your own base image"
-  section below.
-- **Your own base image** – Audit your cryptographic libraries and use a post-restore
-  [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md") to
-  discard any cached random number generator (RNG) state or buffered random bytes, ensuring the library reads
-  fresh entropy from the system after restore. For example, Rust functions that use
-  `rand::rngs::ThreadRng` must call `reseed()` after restore. We recommend that you build
-  using a Lambda base image whenever possible. In particular, if your base image includes its own version of
-  OpenSSL or an OpenSSL fork (such as BoringSSL or LibreSSL), either switch to the provided.al2023 base image,
-  which includes a SnapStart-compatible build of OpenSSL (openssl-snapsafe-libs), or use
-  [AWS libcrypto (AWS-LC)](#snapstart-csprng-minimum-versions "#snapstart-csprng-minimum-versions").
+When you package your function as a container image, your base image determines uniqueness compatibility with SnapStart:
++ **A Lambda base image for a managed runtime** (Java version 11\+, Python version 3.12\+, and .NET version 8\+) – Compatible with SnapStart as described above.
++ **The provided.al2023 base image** – Compatible if your programming language runtime obtains entropy from `/dev/random`, `/dev/urandom`, or the SnapStart-compatible build of OpenSSL (openssl-snapsafe-libs) listed in the [Amazon Linux 2023 package list](https://docs.aws.amazon.com/linux/al2023/release-notes/all-packages.html). If your runtime relies on other entropy sources, follow the steps described in the "Your own base image" section below.
++ **Your own base image** – Audit your cryptographic libraries and use a post-restore [runtime hook](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html) to discard any cached random number generator (RNG) state or buffered random bytes, ensuring the library reads fresh entropy from the system after restore. For example, Rust functions that use `rand::rngs::ThreadRng` must call `reseed()` after restore. We recommend that you build using a Lambda base image whenever possible. In particular, if your base image includes its own version of OpenSSL or an OpenSSL fork (such as BoringSSL or LibreSSL), either switch to the provided.al2023 base image, which includes a SnapStart-compatible build of OpenSSL (openssl-snapsafe-libs), or use [AWS libcrypto (AWS-LC)](#snapstart-csprng-minimum-versions).
 
 ### Minimum supported library versions
+<a name="snapstart-csprng-minimum-versions"></a>
 
 AWS cryptography libraries automatically maintain randomness with SnapStart beginning with the minimum versions specified in the following table. If you use these libraries with your Lambda functions, make sure that you use the following minimum versions or later versions:
 
-| Library                | Minimum supported version (x86) | Minimum supported version (ARM) |
-| ---------------------- | ------------------------------- | ------------------------------- |
-| AWS libcrypto (AWS-LC) | 1.16.0                          | 1.30.0                          |
-| AWS libcrypto FIPS     | 2.0.13                          | 2.0.13                          |
+
+
+| Library | Minimum supported version (x86) | Minimum supported version (ARM) | 
+| --- | --- | --- | 
+| AWS libcrypto (AWS-LC) | 1.16.0 | 1.30.0 | 
+| AWS libcrypto FIPS | 2.0.13 | 2.0.13 | 
 
 If you package the preceding cryptographic libraries with your Lambda functions as transitive dependencies through the following libraries, make sure that you use the following minimum versions or later versions:
 
-| Library                              | Minimum supported version (x86) | Minimum supported version (ARM) |
-| ------------------------------------ | ------------------------------- | ------------------------------- |
-| AWS SDK for Java 2.x                 | 2.23.20                         | 2.26.12                         |
-| AWS Common Runtime for Java          | 0.29.8                          | 0.29.25                         |
-| Amazon Corretto Crypto Provider      | 2.4.1                           | 2.4.1                           |
-| Amazon Corretto Crypto Provider FIPS | 2.4.1                           | 2.4.1                           |
+
+
+| Library | Minimum supported version (x86) | Minimum supported version (ARM) | 
+| --- | --- | --- | 
+| AWS SDK for Java 2.x | 2.23.20 | 2.26.12 | 
+| AWS Common Runtime for Java | 0.29.8 | 0.29.25 | 
+| Amazon Corretto Crypto Provider | 2.4.1 | 2.4.1 | 
+| Amazon Corretto Crypto Provider FIPS | 2.4.1 | 2.4.1 | 
 
 The following examples demonstrate how to use CSPRNGs to guarantee unique number sequences even when the function is restored from a snapshot.
 
-Java
+------
+#### [ Java ]
 
-###### Example– java.security.SecureRandom
+**Example – java.security.SecureRandom**  
 
 ```
 import java.security.SecureRandom;
   public class Handler implements RequestHandler<String, String> {
-    `private static SecureRandom rng = new SecureRandom();`
+    private static SecureRandom rng = new SecureRandom();
     @Override
     public String handleRequest(String event, Context context) {
       for (int i = 0; i < 10; i++) {
@@ -170,28 +155,30 @@ import java.security.SecureRandom;
   }
 ```
 
-Python
+------
+#### [ Python ]
 
-###### Example– random.SystemRandom
+**Example – random.SystemRandom**  
 
 ```
 import json
 import random
 
-`secure_rng = random.SystemRandom()`
+secure_rng = random.SystemRandom()
 
 def lambda_handler(event, context):
-    `random_numbers = [secure_rng.random() for _ in range(10)]`
-
+    random_numbers = [secure_rng.random() for _ in range(10)]
+    
     for number in random_numbers:
         print(number)
-
+    
     return "Hello, World!"
 ```
 
-.NET
+------
+#### [ .NET ]
 
-###### Example– RandomNumberGenerator
+**Example – RandomNumberGenerator**  
 
 ```
 using Amazon.Lambda.Core;
@@ -204,7 +191,7 @@ public class Function
 {
     public string FunctionHandler()
     {
-        `using (RandomNumberGenerator rng = RandomNumberGenerator.Create())`
+        using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
         {
             byte[] randomUnsignedInteger32Bytes = new byte[4];
             for (int i = 0; i < 10; i++)
@@ -219,12 +206,11 @@ public class Function
 }
 ```
 
+------
+
 ## SnapStart scanning tool (Java only)
+<a name="snapstart-scanning"></a>
 
-Lambda provides a scanning tool for Java to help you check for code that assumes uniqueness. The SnapStart scanning
-tool is an open-source [SpotBugs](https://spotbugs.github.io/ "https://spotbugs.github.io/") plugin that runs a static
-analysis against a set of rules. The scanning tool helps identify potential code implementations that might break
-assumptions regarding uniqueness. For installation instructions and a list of checks that the scanning tool
-performs, see the [aws-lambda-snapstart-java-rules](https://github.com/aws/aws-lambda-snapstart-java-rules "https://github.com/aws/aws-lambda-snapstart-java-rules") repository on GitHub.
+Lambda provides a scanning tool for Java to help you check for code that assumes uniqueness. The SnapStart scanning tool is an open-source [SpotBugs](https://spotbugs.github.io/) plugin that runs a static analysis against a set of rules. The scanning tool helps identify potential code implementations that might break assumptions regarding uniqueness. For installation instructions and a list of checks that the scanning tool performs, see the [aws-lambda-snapstart-java-rules](https://github.com/aws/aws-lambda-snapstart-java-rules) repository on GitHub.
 
-To learn more about handling uniqueness with SnapStart, see [Starting up faster with AWS Lambda SnapStart](https://aws.amazon.com/blogs/compute/starting-up-faster-with-aws-lambda-snapstart/ "https://aws.amazon.com/blogs/compute/starting-up-faster-with-aws-lambda-snapstart/") on the AWS Compute Blog.
+To learn more about handling uniqueness with SnapStart, see [Starting up faster with AWS Lambda SnapStart](https://aws.amazon.com/blogs/compute/starting-up-faster-with-aws-lambda-snapstart/) on the AWS Compute Blog.

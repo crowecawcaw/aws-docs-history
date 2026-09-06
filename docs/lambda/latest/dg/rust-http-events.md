@@ -1,19 +1,14 @@
+
+
 # Processing HTTP events with Rust
+<a name="rust-http-events"></a>
 
-Amazon API Gateway APIs, Application Load Balancers, and [Lambda function URLs](urls-configuration.md "urls-configuration.md") can send HTTP events to Lambda. You can use
-the [aws\_lambda\_events](https://crates.io/crates/aws_lambda_events "https://crates.io/crates/aws_lambda_events") crate
-from crates.io to process events from these sources.
+Amazon API Gateway APIs, Application Load Balancers, and [Lambda function URLs](urls-configuration.md) can send HTTP events to Lambda. You can use the [aws\_lambda\_events](https://crates.io/crates/aws_lambda_events) crate from crates.io to process events from these sources.
 
-###### Example— Handle API Gateway proxy request
-
-Note the following:
-
-- `use aws_lambda_events::apigw::{ApiGatewayProxyRequest, ApiGatewayProxyResponse}`:
-  The [aws\_lambda\_events](https://crates.io/crates/aws-lambda-events "https://crates.io/crates/aws-lambda-events") crate
-  includes many Lambda events. To reduce compilation time, use feature flags to activate the
-  events you need. Example:
-  `aws_lambda_events = { version = "0.8.3", default-features = false, features = ["apigw"] }`.
-- `use http::HeaderMap`: This import requires you to add the [http](https://crates.io/crates/http "https://crates.io/crates/http") crate to your dependencies.
+**Example — Handle API Gateway proxy request**  
+Note the following:  
++ `use aws_lambda_events::apigw::{ApiGatewayProxyRequest, ApiGatewayProxyResponse}`: The [aws\_lambda\_events](https://crates.io/crates/aws-lambda-events) crate includes many Lambda events. To reduce compilation time, use feature flags to activate the events you need. Example: `aws_lambda_events = { version = "0.8.3", default-features = false, features = ["apigw"] }`.
++ `use http::HeaderMap`: This import requires you to add the [http](https://crates.io/crates/http) crate to your dependencies.
 
 ```
 use aws_lambda_events::apigw::{ApiGatewayProxyRequest, ApiGatewayProxyResponse};
@@ -41,17 +36,12 @@ async fn main() -> Result<(), Error> {
 }
 ```
 
-The [Rust runtime client for Lambda](https://github.com/aws/aws-lambda-rust-runtime "https://github.com/aws/aws-lambda-rust-runtime") also provides an abstraction over these event types that
-you can work with native HTTP types, regardless of which service sends the events. The
-following code is equivalent to the previous example, and it works out of the box with Lambda
-function URLs, Application Load Balancers, and API Gateway.
+The [Rust runtime client for Lambda](https://github.com/aws/aws-lambda-rust-runtime) also provides an abstraction over these event types that you can work with native HTTP types, regardless of which service sends the events. The following code is equivalent to the previous example, and it works out of the box with Lambda function URLs, Application Load Balancers, and API Gateway.
 
-###### Note
+**Note**  
+The [lambda\_http](https://crates.io/crates/lambda_http) crate uses the [lambda\_runtime](https://crates.io/crates/lambda_runtime) crate underneath. You don't have to import `lambda_runtime` separately.
 
-The [lambda\_http](https://crates.io/crates/lambda_http "https://crates.io/crates/lambda_http") crate uses the [lambda\_runtime](https://crates.io/crates/lambda_runtime "https://crates.io/crates/lambda_runtime") crate
-underneath. You don't have to import `lambda_runtime` separately.
-
-###### Example— Handle HTTP requests
+**Example — Handle HTTP requests**  
 
 ```
 use lambda_http::{service_fn, Error, IntoResponse, Request, RequestExt, Response};
@@ -69,19 +59,11 @@ async fn handler(event: Request) -> Result<impl IntoResponse, Error> {
 async fn main() -> Result<(), Error> {
     lambda_http::run(service_fn(handler)).await
 }
-
 ```
 
-For another example of how to use `lambda_http`, see
-the [http-axum code sample](https://github.com/aws/aws-lambda-rust-runtime/blob/main/examples/http-axum/src/main.rs "https://github.com/aws/aws-lambda-rust-runtime/blob/main/examples/http-axum/src/main.rs") on the AWS Labs GitHub repository.
+For another example of how to use `lambda_http`, see the [http-axum code sample](https://github.com/aws/aws-lambda-rust-runtime/blob/main/examples/http-axum/src/main.rs) on the AWS Labs GitHub repository.
 
-###### Sample HTTP Lambda events for Rust
-
-- [Lambda HTTP events](https://github.com/aws/aws-lambda-rust-runtime/tree/main/examples/http-basic-lambda "https://github.com/aws/aws-lambda-rust-runtime/tree/main/examples/http-basic-lambda"): A Rust function that handles HTTP
-  events.
-- [Lambda
-  HTTP events with CORS headers](https://github.com/aws/aws-lambda-rust-runtime/blob/main/examples/http-cors "https://github.com/aws/aws-lambda-rust-runtime/blob/main/examples/http-cors"): A Rust function that uses Tower to inject CORS
-  headers.
-- [Lambda
-  HTTP events with shared resources](https://github.com/aws/aws-lambda-rust-runtime/tree/main/examples/basic-shared-resource "https://github.com/aws/aws-lambda-rust-runtime/tree/main/examples/basic-shared-resource"): A Rust function that uses shared resources
-  initialized before the function handler is created.
+**Sample HTTP Lambda events for Rust**
++ [Lambda HTTP events](https://github.com/aws/aws-lambda-rust-runtime/tree/main/examples/http-basic-lambda): A Rust function that handles HTTP events.
++ [Lambda HTTP events with CORS headers](https://github.com/aws/aws-lambda-rust-runtime/blob/main/examples/http-cors): A Rust function that uses Tower to inject CORS headers.
++ [Lambda HTTP events with shared resources](https://github.com/aws/aws-lambda-rust-runtime/tree/main/examples/basic-shared-resource): A Rust function that uses shared resources initialized before the function handler is created.

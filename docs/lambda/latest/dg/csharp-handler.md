@@ -1,55 +1,38 @@
-# Define Lambda function handler in C#
 
-The Lambda function _handler_ is the method in your function code that processes events. When your function is
-invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in C# to work with the .NET managed
-runtime, including options for project setup, naming conventions, and best practices. This page also
-includes an example of a C# Lambda function that takes in information about an order, produces a text
-file receipt, and puts this file in an Amazon Simple Storage Service (S3) bucket. For information about how to deploy your
-function after writing it, see [Build and deploy C# Lambda functions with .zip file archives](csharp-package.md "csharp-package.md") or [Deploy .NET Lambda functions with container images](csharp-image.md "csharp-image.md").
+# Define Lambda function handler in C\#
+<a name="csharp-handler"></a>
 
-###### Topics
+The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-- [Setting up your C# handler project](#csharp-handler-setup "#csharp-handler-setup")
-- [Example C# Lambda function code](#csharp-example-code "#csharp-example-code")
-- [Class library handlers](#csharp-class-library-handlers "#csharp-class-library-handlers")
-- [Executable assembly handlers](#csharp-executable-assembly-handlers "#csharp-executable-assembly-handlers")
-- [Valid handler signatures for C# functions](#csharp-handler-signatures "#csharp-handler-signatures")
-- [Handler naming conventions](#csharp-handler-naming "#csharp-handler-naming")
-- [Serialization in C# Lambda functions](#csharp-handler-serializer "#csharp-handler-serializer")
-- [File-based functions](#csharp-file-based-functions "#csharp-file-based-functions")
-- [Accessing and using the Lambda context object](#csharp-example-context "#csharp-example-context")
-- [Using the SDK for .NET v3 in your handler](#csharp-example-sdk-usage "#csharp-example-sdk-usage")
-- [Accessing environment variables](#csharp-example-envvars "#csharp-example-envvars")
-- [Using global state](#csharp-handler-state "#csharp-handler-state")
-- [Simplify function code with the Lambda Annotations framework](#csharp-handler-annotations "#csharp-handler-annotations")
-- [Code best practices for C# Lambda functions](#csharp-best-practices "#csharp-best-practices")
+This page describes how to work with Lambda function handlers in C\# to work with the .NET managed runtime, including options for project setup, naming conventions, and best practices. This page also includes an example of a C\# Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (S3) bucket. For information about how to deploy your function after writing it, see [Build and deploy C\# Lambda functions with .zip file archives](csharp-package.md) or [Deploy .NET Lambda functions with container images](csharp-image.md).
 
-## Setting up your C# handler project
+**Topics**
++ [Setting up your C\# handler project](#csharp-handler-setup)
++ [Example C\# Lambda function code](#csharp-example-code)
++ [Class library handlers](#csharp-class-library-handlers)
++ [Executable assembly handlers](#csharp-executable-assembly-handlers)
++ [Valid handler signatures for C\# functions](#csharp-handler-signatures)
++ [Handler naming conventions](#csharp-handler-naming)
++ [Serialization in C\# Lambda functions](#csharp-handler-serializer)
++ [File-based functions](#csharp-file-based-functions)
++ [Accessing and using the Lambda context object](#csharp-example-context)
++ [Using the SDK for .NET v3 in your handler](#csharp-example-sdk-usage)
++ [Accessing environment variables](#csharp-example-envvars)
++ [Using global state](#csharp-handler-state)
++ [Simplify function code with the Lambda Annotations framework](#csharp-handler-annotations)
++ [Code best practices for C\# Lambda functions](#csharp-best-practices)
 
-When working with Lambda functions in C#, the process involves writing your code, then deploying
-your code to Lambda. There are two different execution models for deploying Lambda functions in .NET:
-the class library approach and the executable assembly approach.
+## Setting up your C\# handler project
+<a name="csharp-handler-setup"></a>
 
-In the class library approach, you package your function code as a .NET assembly (`.dll`)
-and deploy it to Lambda with the .NET managed runtime (`dotnet8`). For the handler name,
-Lambda expects a string in the format `AssemblyName::Namespace.Classname::Methodname`.
-During the function's initialization phase, your function's class is initialized, and any code in
-the constructor is run.
+When working with Lambda functions in C\#, the process involves writing your code, then deploying your code to Lambda. There are two different execution models for deploying Lambda functions in .NET: the class library approach and the executable assembly approach.
 
-In the executable assembly approach, you use the
-[top-level
-statements feature](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/top-level-statements "https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/top-level-statements") that was first introduced in C# 9. This approach generates an executable
-assembly which Lambda runs whenever it receives an invoke command for your function. In this
-approach, you also use the .NET managed runtime (`dotnet8`). For the handler name, you
-provide Lambda with the name of the executable assembly to run.
+In the class library approach, you package your function code as a .NET assembly (`.dll`) and deploy it to Lambda with the .NET managed runtime (`dotnet8`). For the handler name, Lambda expects a string in the format `AssemblyName::Namespace.Classname::Methodname`. During the function's initialization phase, your function's class is initialized, and any code in the constructor is run.
 
-The main example on this page illustrates the class library approach. You can initialize your
-C# Lambda project in various ways, but the easiest way is to use the .NET CLI with the
-`Amazon.Lambda.Tools` CLI. Set up the `Amazon.Lambda.Tools` CLI by following
-the steps in [Setting up your .NET development environment](lambda-csharp.md#csharp-dev-env "lambda-csharp.md#csharp-dev-env"). Then, initialize your project with the following
-command:
+In the executable assembly approach, you use the [top-level statements feature](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/top-level-statements) that was first introduced in C\# 9. This approach generates an executable assembly which Lambda runs whenever it receives an invoke command for your function. In this approach, you also use the .NET managed runtime (`dotnet8`). For the handler name, you provide Lambda with the name of the executable assembly to run.
+
+The main example on this page illustrates the class library approach. You can initialize your C\# Lambda project in various ways, but the easiest way is to use the .NET CLI with the `Amazon.Lambda.Tools` CLI. Set up the `Amazon.Lambda.Tools` CLI by following the steps in [Setting up your .NET development environment](lambda-csharp.md#csharp-dev-env). Then, initialize your project with the following command:
 
 ```
 dotnet new lambda.EmptyFunction --name ExampleCS
@@ -58,28 +41,27 @@ dotnet new lambda.EmptyFunction --name ExampleCS
 This command generates the following file structure:
 
 ```
-/project-root
+/project-root 
     └ src
         └ ExampleCS
             └ Function.cs (contains main handler)
             └ Readme.md
             └ aws-lambda-tools-defaults.json
-            └ ExampleCS.csproj
+            └ ExampleCS.csproj          
     └ test
          └ ExampleCS.Tests
             └ FunctionTest.cs (contains main handler)
             └ ExampleCS.Tests.csproj
 ```
 
-In this file structure, the main handler logic for your function resides in the
-`Function.cs` file.
+In this file structure, the main handler logic for your function resides in the `Function.cs` file.
 
-## Example C# Lambda function code
+## Example C\# Lambda function code
+<a name="csharp-example-code"></a>
 
-The following example C# Lambda function code takes in information about an order, produces a
-text file receipt, and puts this file in an Amazon S3 bucket.
+The following example C\# Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket.
 
-###### Example `Function.cs` Lambda function
+**Example `Function.cs` Lambda function**  
 
 ```
 using System;
@@ -153,38 +135,25 @@ public class OrderHandler
 ```
 
 This `Function.cs` file contains the following sections of code:
++ `using` statements: Use these to import C\# classes that your Lambda function requires.
++ `[assembly: LambdaSerializer(...)]`: `LambdaSerializer` is an assembly attribute that tells Lambda to automatically convert JSON event payloads into C\# objects before passing them to your function.
++ `namespace ExampleLambda`: This defines the namespace. In C\#, the namespace name doesn't have to match the filename.
++ `public class Order {...}`: This defines the shape of the expected input event.
++ `public class OrderHandler {...}`: This defines your C\# class. Within it, you'll define the main handler method and any other helper methods.
++ `private static readonly AmazonS3Client s3Client = new();`: This initializes an Amazon S3 client with the default credential provider chain, outside of the main handler method. This causes Lambda to run this code during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib).
++ `public async ... HandleRequest (Order order, ILambdaContext context)`: This is the **main handler method**, which contains your main application logic.
++ `private async Task UploadReceiptToS3(...) {}`: This is a helper method that's referenced by the main `handleRequest` handler method.
 
-- `using` statements: Use these to import C# classes that your Lambda function requires.
-- `[assembly: LambdaSerializer(...)]`: `LambdaSerializer` is an assembly
-  attribute that tells Lambda to automatically convert JSON event payloads into C# objects before
-  passing them to your function.
-- `namespace ExampleLambda`: This defines the namespace. In C#, the namespace name
-  doesn't have to match the filename.
-- `public class Order {...}`: This defines the shape of the expected input event.
-- `public class OrderHandler {...}`: This defines your C# class. Within it, you'll
-  define the main handler method and any other helper methods.
-- `private static readonly AmazonS3Client s3Client = new();`: This initializes an Amazon S3
-  client with the default credential provider chain, outside of the main handler method. This causes
-  Lambda to run this code during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib").
-- `public async ... HandleRequest (Order order, ILambdaContext context)`: This is the
-  **main handler method**, which contains your main application logic.
-- `private async Task UploadReceiptToS3(...) {}`: This is a helper method that's
-  referenced by the main `handleRequest` handler method.
-
-Because this function requires an Amazon S3 SDK client, you must add it to your project's dependencies.
-You can do so by navigating to `src/ExampleCS` and running the following command:
+Because this function requires an Amazon S3 SDK client, you must add it to your project's dependencies. You can do so by navigating to `src/ExampleCS` and running the following command:
 
 ```
 dotnet add package AWSSDK.S3
 ```
 
-By default, the generated `aws-lambda-tools-defaults.json` file doesn't contain
-`profile` or `region` information for your function. In addition, update
-the `function-handler` string to the correct value
-(`ExampleCS::ExampleLambda.OrderHandler::HandleRequest`). You can manually make this
-update and add the necessary metadata to use a specific credentials profile and region for your
-function. For example, your `aws-lambda-tools-defaults.json` file should look
-similar to this:
+### Add metadata information to aws-lambda-tools-defaults.json
+<a name="csharp-metadata-example"></a>
+
+By default, the generated `aws-lambda-tools-defaults.json` file doesn't contain `profile` or `region` information for your function. In addition, update the `function-handler` string to the correct value (`ExampleCS::ExampleLambda.OrderHandler::HandleRequest`). You can manually make this update and add the necessary metadata to use a specific credentials profile and region for your function. For example, your `aws-lambda-tools-defaults.json` file should look similar to this:
 
 ```
 {
@@ -205,14 +174,12 @@ similar to this:
 }
 ```
 
-For this function to work properly, its [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md")
-must allow the `s3:PutObject` action. Also, ensure that you define the `RECEIPT_BUCKET`
-environment variable. After a successful invocation, the Amazon S3 bucket should contain a receipt file.
+For this function to work properly, its [execution role](lambda-intro-execution-role.md) must allow the `s3:PutObject` action. Also, ensure that you define the `RECEIPT_BUCKET` environment variable. After a successful invocation, the Amazon S3 bucket should contain a receipt file.
 
 ## Class library handlers
+<a name="csharp-class-library-handlers"></a>
 
-The main [example code](#csharp-example-code "#csharp-example-code") on this page illustrates a
-class library handler. Class library handlers have the following structure:
+The main [example code](#csharp-example-code) on this page illustrates a class library handler. Class library handlers have the following structure:
 
 ```
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
@@ -228,32 +195,19 @@ public class CLASSNAME {
 }
 ```
 
-When you create a Lambda function, you need to provide Lambda with information about your function's
-handler in the form of a string in the [Handler field](../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler "../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler").
-This tells Lambda which method in your code to run when your function is invoked. In C#, for class library
-handlers, the format of the handler string is `ASSEMBLY::TYPE::METHOD`, where:
+When you create a Lambda function, you need to provide Lambda with information about your function's handler in the form of a string in the [Handler field](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html#lambda-CreateFunction-request-Handler). This tells Lambda which method in your code to run when your function is invoked. In C\#, for class library handlers, the format of the handler string is `ASSEMBLY::TYPE::METHOD`, where:
++ `ASSEMBLY` is the name of the .NET assembly file for your application. If you're using the `Amazon.Lambda.Tools` CLI to build your application and you don't set the assembly name using the `AssemblyName` property in the `.csproj` file, then `ASSEMBLY` is simply the name of your `.csproj` file.
++ `TYPE` is the full name of the handler type, which is `NAMESPACE.CLASSNAME`.
++ `METHOD` is the name of the main handler method in your code, which is `METHODNAME`.
 
-- `ASSEMBLY` is the name of the .NET assembly file for your application. If you're
-  using the `Amazon.Lambda.Tools` CLI to build your application and you don't set the
-  assembly name using the `AssemblyName` property in the `.csproj` file,
-  then `ASSEMBLY` is simply the name of your `.csproj` file.
-- `TYPE` is the full name of the handler type, which is `NAMESPACE.CLASSNAME`.
-- `METHOD` is the name of the main handler method in your code, which is
-  `METHODNAME`.
-
-For the main example code on this page, if the assembly is named `ExampleCS`, then
-the full handler string is `ExampleCS::ExampleLambda.OrderHandler::HandleRequest`.
+For the main example code on this page, if the assembly is named `ExampleCS`, then the full handler string is `ExampleCS::ExampleLambda.OrderHandler::HandleRequest`.
 
 ## Executable assembly handlers
+<a name="csharp-executable-assembly-handlers"></a>
 
-You can also define Lambda functions in C# as an executable assembly. Executable assembly handlers
-use C#'s top-level statements feature, in which the compiler generates the `Main()`
-method and puts your function code within it. When using executable assemblies, the Lambda runtime
-must be bootstrapped.
+You can also define Lambda functions in C\# as an executable assembly. Executable assembly handlers use C\#'s top-level statements feature, in which the compiler generates the `Main()` method and puts your function code within it. When using executable assemblies, the Lambda runtime must be bootstrapped.
 
-To do this, use the `LambdaBootstrapBuilder.Create` method in your
-code. The inputs to this method are the main handler function as well as the Lambda serializer to use.
-The following shows an example of an executable assembly handler in C#:
+To do this, use the `LambdaBootstrapBuilder.Create` method in your code. The inputs to this method are the main handler function as well as the Lambda serializer to use. The following shows an example of an executable assembly handler in C\#:
 
 ```
 namespace GetProductHandler;
@@ -268,8 +222,8 @@ async Task<APIGatewayProxyResponse> Handler(APIGatewayProxyRequest apigProxyEven
 {
     var id = apigProxyEvent.PathParameters["id"];
     var databaseRecord = await this.repo.GetById(id);
-
-    return new APIGatewayProxyResponse
+    
+    return new APIGatewayProxyResponse 
     {
         StatusCode = (int)HttpStatusCode.OK,
         Body = JsonSerializer.Serialize(databaseRecord)
@@ -277,58 +231,39 @@ async Task<APIGatewayProxyResponse> Handler(APIGatewayProxyRequest apigProxyEven
 };
 ```
 
-In the [Handler field](../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler "../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler")
-for executable assembly handlers, the handler string that tells Lambda how to run your code is the name
-of the assembly. In this example, that's `GetProductHandler`.
+In the [Handler field](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html#lambda-CreateFunction-request-Handler) for executable assembly handlers, the handler string that tells Lambda how to run your code is the name of the assembly. In this example, that's `GetProductHandler`.
 
-## Valid handler signatures for C# functions
+## Valid handler signatures for C\# functions
+<a name="csharp-handler-signatures"></a>
 
-In C#, valid Lambda handler signatures take between 0 and 2 arguments. Typically, your handler
-signature has two arguments, as shown in the main example:
+In C\#, valid Lambda handler signatures take between 0 and 2 arguments. Typically, your handler signature has two arguments, as shown in the main example:
 
 ```
 public async Task<string> HandleRequest(Order order, ILambdaContext context)
 ```
 
-When providing two arguments, the first argument must be the event input, and the second
-argument must be the Lambda context object. Both arguments are optional. For example, the following
-are also valid Lambda handler signatures in C#:
-
-- `public async Task<string> HandleRequest()`
-- `public async Task<string> HandleRequest(Order order)`
-- `public async Task<string> HandleRequest(ILambdaContext context)`
+When providing two arguments, the first argument must be the event input, and the second argument must be the Lambda context object. Both arguments are optional. For example, the following are also valid Lambda handler signatures in C\#:
++ `public async Task<string> HandleRequest()`
++ `public async Task<string> HandleRequest(Order order)`
++ `public async Task<string> HandleRequest(ILambdaContext context)`
 
 Apart from the base syntax of the handler signature, there are some additional restrictions:
-
-- You cannot use the `unsafe` keyword in the handler signature. However, you can use
-  the `unsafe` context inside the handler method and its dependencies. For more information,
-  see [unsafe (C# reference)](https://msdn.microsoft.com/en-us/library/chfa2zb8.aspx "https://msdn.microsoft.com/en-us/library/chfa2zb8.aspx")
-  on the Microsoft documentation website.
-- The handler can't use the `params` keyword, or use `ArgIterator` as an
-  input or return parameter. These keywords support a variable number of parameters. The maximum
-  number of arguments your handler can accept is two.
-- The handler can't be a generic method. In other words, it can't use generic type parameters
-  such as `<T>`.
-- Lambda doesn't support async handlers with `async void` in the signature.
++ You cannot use the `unsafe` keyword in the handler signature. However, you can use the `unsafe` context inside the handler method and its dependencies. For more information, see [unsafe (C\# reference)](https://msdn.microsoft.com/en-us/library/chfa2zb8.aspx) on the Microsoft documentation website.
++ The handler can't use the `params` keyword, or use `ArgIterator` as an input or return parameter. These keywords support a variable number of parameters. The maximum number of arguments your handler can accept is two.
++ The handler can't be a generic method. In other words, it can't use generic type parameters such as `<T>`.
++ Lambda doesn't support async handlers with `async void` in the signature.
 
 ## Handler naming conventions
+<a name="csharp-handler-naming"></a>
 
-Lambda handlers in C# don't have strict naming restrictions. However, you must ensure that you
-provide the correct handler string to Lambda when you deploy your function. The right handler string
-depends on if you're deploying a [class library
-handler](#csharp-class-library-handlers "#csharp-class-library-handlers") or an [executable assembly
-handler](#csharp-executable-assembly-handlers "#csharp-executable-assembly-handlers").
+Lambda handlers in C\# don't have strict naming restrictions. However, you must ensure that you provide the correct handler string to Lambda when you deploy your function. The right handler string depends on if you're deploying a [class library handler](#csharp-class-library-handlers) or an [executable assembly handler](#csharp-executable-assembly-handlers).
 
-Although you can use any name for your handler, function names in C# are generally in
-PascalCase. Also, although the file name doesn't need to match the class name or handler name,
-it's generally a best practice to use a filename like `OrderHandler.cs` if your class
-name is `OrderHandler`. For example, you can modify the file name in this example
-from `Function.cs` to `OrderHandler.cs`.
+Although you can use any name for your handler, function names in C\# are generally in PascalCase. Also, although the file name doesn't need to match the class name or handler name, it's generally a best practice to use a filename like `OrderHandler.cs` if your class name is `OrderHandler`. For example, you can modify the file name in this example from `Function.cs` to `OrderHandler.cs`.
 
-## Serialization in C# Lambda functions
+## Serialization in C\# Lambda functions
+<a name="csharp-handler-serializer"></a>
 
-JSON is the most common and standard input format for Lambda functions. In this example,
-the function expects an input similar to the following:
+JSON is the most common and standard input format for Lambda functions. In this example, the function expects an input similar to the following:
 
 ```
 {
@@ -338,8 +273,7 @@ the function expects an input similar to the following:
 }
 ```
 
-In C#, you can define the shape of the expected input event in a class. In this example, we
-define the `Order` class to model this input:
+In C\#, you can define the shape of the expected input event in a class. In this example, we define the `Order` class to model this input:
 
 ```
 public class Order
@@ -350,56 +284,34 @@ public class Order
 }
 ```
 
-If your Lambda function uses input or output types other than a `Stream` object, you
-must add a serialization library to your application. You can then convert the JSON input into an
-instance of the class that you defined. There are two methods of serialization for C# functions in
-Lambda: reflection-based serialization and source-generated serialization.
+If your Lambda function uses input or output types other than a `Stream` object, you must add a serialization library to your application. You can then convert the JSON input into an instance of the class that you defined. There are two methods of serialization for C\# functions in Lambda: reflection-based serialization and source-generated serialization.
 
 ### Reflection-based serialization
+<a name="csharp-reflection-based-serialization"></a>
 
-AWS provides pre-built libraries that you can quickly add to your application. These
-libraries implement serialization using
-[reflection](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/ "https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/"). Use one of the following packages to implement reflection-based serialization:
+AWS provides pre-built libraries that you can quickly add to your application. These libraries implement serialization using [ reflection](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/reflection-and-attributes/). Use one of the following packages to implement reflection-based serialization:
++ `Amazon.Lambda.Serialization.SystemTextJson` – In the backend, this package uses `System.Text.Json` to perform serialization tasks.
++ `Amazon.Lambda.Serialization.Json` – In the backend, this package uses `Newtonsoft.Json` to perform serialization tasks.
 
-- `Amazon.Lambda.Serialization.SystemTextJson` – In the backend, this
-  package uses `System.Text.Json` to perform serialization tasks.
-- `Amazon.Lambda.Serialization.Json` – In the backend, this package uses
-  `Newtonsoft.Json` to perform serialization tasks.
+You can also create your own serialization library by implementing the `ILambdaSerializer` interface, which is available as part of the `Amazon.Lambda.Core` library. This interface defines two methods:
++ `T Deserialize<T>(Stream requestStream);`
 
-You can also create your own serialization library by implementing the `ILambdaSerializer`
-interface, which is available as part of the `Amazon.Lambda.Core` library. This interface
-defines two methods:
+  You implement this method to deserialize the request payload from the `Invoke` API into the object that is passed to your Lambda function handler.
++ `T Serialize<T>(T response, Stream responseStream);`
 
-- `T Deserialize<T>(Stream requestStream);`
+  You implement this method to serialize the result returned from your Lambda function handler into the response payload that the `Invoke` API operation returns.
 
-You implement this method to deserialize the request payload from the `Invoke` API
-into the object that is passed to your Lambda function handler.
-
-- `T Serialize<T>(T response, Stream responseStream);`
-
-You implement this method to serialize the result returned from your Lambda function handler into
-the response payload that the `Invoke` API operation returns.
-
-The main example on this page uses reflection-based serialization. Reflection-based serialization
-works out of the box with AWS Lambda and requires no additional setup, making it a good choice for
-simplicity. However, it does require more function memory usage. You might also see higher function
-latencies due to runtime reflection.
+The main example on this page uses reflection-based serialization. Reflection-based serialization works out of the box with AWS Lambda and requires no additional setup, making it a good choice for simplicity. However, it does require more function memory usage. You might also see higher function latencies due to runtime reflection.
 
 ### Source-generated serialization
+<a name="csharp-source-generated-serialization"></a>
 
-With source-generated serialization, serialization code is generated at compile time. This removes
-the need for reflection and can improve the performance of your function. To use source-generated
-serialization in your function, you must do the following:
+With source-generated serialization, serialization code is generated at compile time. This removes the need for reflection and can improve the performance of your function. To use source-generated serialization in your function, you must do the following:
++ Create a new partial class that inherits from `JsonSerializerContext`, adding `JsonSerializable` attributes for all types that require serialization or deserialization.
++ Configure the `LambdaSerializer` to use a `SourceGeneratorLambdaJsonSerializer<T>`.
++ Update any manual serialization and deserialization in your application code to use the newly created class.
 
-- Create a new partial class that inherits from `JsonSerializerContext`, adding
-  `JsonSerializable` attributes for all types that require serialization or deserialization.
-- Configure the `LambdaSerializer` to use a
-  `SourceGeneratorLambdaJsonSerializer<T>`.
-- Update any manual serialization and deserialization in your application code to use the newly
-  created class.
-
-The following example shows how you can modify the main example on this page, which uses
-reflection-based serialization, to use source-generated serialization instead.
+The following example shows how you can modify the main example on this page, which uses reflection-based serialization, to use source-generated serialization instead.
 
 ```
 using System.Text.Json;
@@ -424,51 +336,46 @@ public class OrderHandler
 
     public async Task<string> HandleRequest(string input, ILambdaContext context)
     {
-
+    
     var order = JsonSerializer.Deserialize(input, OrderJsonContext.Default.Order);
-
+    
     ...
-
+    
     }
 
 }
 ```
 
-Source-generated serialization requires more setup than reflection-based serialization.
-However, functions using source-generated tend to use less memory and have better performance
-due to compile-time code generation. To help eliminate function [cold starts](lambda-runtime-environment.md#cold-start-latency "lambda-runtime-environment.md#cold-start-latency"), consider switching to source-generated serialization.
+Source-generated serialization requires more setup than reflection-based serialization. However, functions using source-generated tend to use less memory and have better performance due to compile-time code generation. To help eliminate function [ cold starts](lambda-runtime-environment.md#cold-start-latency), consider switching to source-generated serialization.
 
-###### Note
-
-If you want to use native [ahead-of-time compilation (AOT)](dotnet-native-aot.md "dotnet-native-aot.md")
-with Lambda, you must use source-generated serialization.
+**Note**  
+If you want to use native [ahead-of-time compilation (AOT)](dotnet-native-aot.md) with Lambda, you must use source-generated serialization.
 
 ## File-based functions
+<a name="csharp-file-based-functions"></a>
 
-Introduced in .NET 10, file-based apps enable you to build .NET applications from a single `.cs` file, without a `.csproj` file or directory structure. Lambda supports file-based functions, starting with .NET 10. They offer a streamlined, lightweight way to build Lambda functions in C#.
+Introduced in .NET 10, file-based apps enable you to build .NET applications from a single `.cs` file, without a `.csproj` file or directory structure. Lambda supports file-based functions, starting with .NET 10. They offer a streamlined, lightweight way to build Lambda functions in C\#.
 
-The fastest way to get started creating a C# file-based Lambda function is to use the `Amazon.Lambda.Templates` package. To install the package, run the following command:
+The fastest way to get started creating a C\# file-based Lambda function is to use the `Amazon.Lambda.Templates` package. To install the package, run the following command:
 
 ```
 dotnet new install Amazon.Lambda.Templates
 ```
 
-Next, create a C# file-based Lambda example function:
+Next, create a C\# file-based Lambda example function:
 
 ```
 dotnet new lambda.FileBased -n MyLambdaFunction
 ```
 
-File-based functions use [executable assembly handlers](#csharp-executable-assembly-handlers "#csharp-executable-assembly-handlers"). You must therefore include the `Amazon.Lambda.RuntimeSupport` NuGet package and use the `LambdaBootstrapBuilder.Create` method to register the .NET handler function for the event type and start the .NET Lambda runtime client.
+File-based functions use [executable assembly handlers](#csharp-executable-assembly-handlers). You must therefore include the `Amazon.Lambda.RuntimeSupport` NuGet package and use the `LambdaBootstrapBuilder.Create` method to register the .NET handler function for the event type and start the .NET Lambda runtime client.
 
-File-based functions use .NET Native AOT by default, which requires source-generated serialization. You can disable Native AOT by specifying `#:property PublishAot=false` in your source file. For more information on using Native AOT in Lambda, see [Compile .NET Lambda function code to a native runtime format](dotnet-native-aot.md "dotnet-native-aot.md").
+File-based functions use .NET Native AOT by default, which requires source-generated serialization. You can disable Native AOT by specifying `#:property PublishAot=false` in your source file. For more information on using Native AOT in Lambda, see [Compile .NET Lambda function code to a native runtime format](dotnet-native-aot.md).
 
 ## Accessing and using the Lambda context object
+<a name="csharp-example-context"></a>
 
-The Lambda [context object](csharp-context.md "csharp-context.md") contains information about
-the invocation, function, and execution environment. In this example, the context object is of type
-`Amazon.Lambda.Core.ILambdaContext`, and is the second argument of the main handler
-function.
+The Lambda [context object](csharp-context.md) contains information about the invocation, function, and execution environment. In this example, the context object is of type `Amazon.Lambda.Core.ILambdaContext`, and is the second argument of the main handler function.
 
 ```
 public async Task<string> HandleRequest(Order order, ILambdaContext context) {
@@ -476,68 +383,56 @@ public async Task<string> HandleRequest(Order order, ILambdaContext context) {
 }
 ```
 
-The context object is an optional input. For more information about valid accepted handler
-signatures, see [Valid handler signatures for C# functions](#csharp-handler-signatures "#csharp-handler-signatures").
+The context object is an optional input. For more information about valid accepted handler signatures, see [Valid handler signatures for C\# functions](#csharp-handler-signatures).
 
-The context object is useful for producing function logs to Amazon CloudWatch. You can use the
-`context.getLogger()` method to get a `LambdaLogger` object for logging.
-In this example, we can use the logger to log an error message if processing fails for any reason:
+The context object is useful for producing function logs to Amazon CloudWatch. You can use the `context.getLogger()` method to get a `LambdaLogger` object for logging. In this example, we can use the logger to log an error message if processing fails for any reason:
 
 ```
 context.Logger.LogError($"Failed to process order: {ex.Message}");
 ```
 
-Outside of logging, you can also use the context object for function monitoring. For more
-information about the context object, see [Using the Lambda context object to retrieve C# function information](csharp-context.md "csharp-context.md").
+Outside of logging, you can also use the context object for function monitoring. For more information about the context object, see [Using the Lambda context object to retrieve C\# function information](csharp-context.md).
 
 ## Using the SDK for .NET v3 in your handler
+<a name="csharp-example-sdk-usage"></a>
 
-Often, you'll use Lambda functions to interact with or make updates to other AWS resources.
-The simplest way to interface with these resources is to use the SDK for .NET v3.
+Often, you'll use Lambda functions to interact with or make updates to other AWS resources. The simplest way to interface with these resources is to use the SDK for .NET v3.
 
-###### Note
-
+**Note**  
 The SDK for .NET (v2) is deprecated. We recommend that you use only the SDK for .NET v3.
 
-You can add SDK dependencies to your project using the following `Amazon.Lambda.Tools`
-command:
+You can add SDK dependencies to your project using the following `Amazon.Lambda.Tools` command:
 
 ```
-dotnet add package `<package_name>`
+dotnet add package {{<package_name>}}
 ```
 
-For example, in the main example on this page, we need to use the Amazon S3 API to upload a
-receipt to S3. We can import the Amazon S3 SDK client with the following command:
+For example, in the main example on this page, we need to use the Amazon S3 API to upload a receipt to S3. We can import the Amazon S3 SDK client with the following command:
 
 ```
 dotnet add package AWSSDK.S3
 ```
 
-This command adds the dependency to your project. You should also see a line similar to the
-following in your project's `.csproj` file:
+This command adds the dependency to your project. You should also see a line similar to the following in your project's `.csproj` file:
 
 ```
 <PackageReference Include="AWSSDK.S3" Version="3.7.2.18" />
 ```
 
-Then, import the dependencies directly in your C# code:
+Then, import the dependencies directly in your C\# code:
 
 ```
 using Amazon.S3;
 using Amazon.S3.Model;
 ```
 
-The example code then initializes an Amazon S3 client (using the [default credential provider chain](../../../sdkref/latest/guide/standardized-credentials.md "../../../sdkref/latest/guide/standardized-credentials.md"))
-as follows:
+The example code then initializes an Amazon S3 client (using the [default credential provider chain](https://docs.aws.amazon.com/sdkref/latest/guide/standardized-credentials.html)) as follows:
 
 ```
 private static readonly AmazonS3Client s3Client = new();
 ```
 
-In this example, we initialized our Amazon S3 client outside of the main handler function to avoid
-having to initialize it every time we invoke our function. After you initialize your SDK client,
-you can then use it to interact with other AWS services. The example code calls the Amazon S3
-`PutObject` API as follows:
+In this example, we initialized our Amazon S3 client outside of the main handler function to avoid having to initialize it every time we invoke our function. After you initialize your SDK client, you can then use it to interact with other AWS services. The example code calls the Amazon S3 `PutObject` API as follows:
 
 ```
 var putRequest = new PutObjectRequest
@@ -552,11 +447,9 @@ await s3Client.PutObjectAsync(putRequest);
 ```
 
 ## Accessing environment variables
+<a name="csharp-example-envvars"></a>
 
-In your handler code, you can reference any [environment
-variables](configuration-envvars.md "configuration-envvars.md") by using the `System.Environment.GetEnvironmentVariable` method. In this
-example, we reference the defined `RECEIPT_BUCKET` environment variable using the following
-lines of code:
+In your handler code, you can reference any [environment variables](configuration-envvars.md) by using the `System.Environment.GetEnvironmentVariable` method. In this example, we reference the defined `RECEIPT_BUCKET` environment variable using the following lines of code:
 
 ```
 string? bucketName = Environment.GetEnvironmentVariable("RECEIPT_BUCKET");
@@ -567,38 +460,23 @@ if (string.IsNullOrWhiteSpace(bucketName))
 ```
 
 ## Using global state
+<a name="csharp-handler-state"></a>
 
-Lambda runs your static code and the class constructor during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib") before invoking your function for the first time. Resources created during
-initialization stay in memory between invocations, so you can avoid having to create them every time you
-invoke your function.
+Lambda runs your static code and the class constructor during the [ initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib) before invoking your function for the first time. Resources created during initialization stay in memory between invocations, so you can avoid having to create them every time you invoke your function.
 
-In the example code, the S3 client initialization code is outside the main handler method. The runtime
-initializes the client before the function handles its first event, which can lead to longer processing
-times. Subsequent events are much faster because Lambda doesn't need to initialize the client again.
+In the example code, the S3 client initialization code is outside the main handler method. The runtime initializes the client before the function handles its first event, which can lead to longer processing times. Subsequent events are much faster because Lambda doesn't need to initialize the client again.
 
 ## Simplify function code with the Lambda Annotations framework
+<a name="csharp-handler-annotations"></a>
 
-[Lambda Annotations](https://www.nuget.org/packages/Amazon.Lambda.Annotations "https://www.nuget.org/packages/Amazon.Lambda.Annotations") is a
-framework for .NET 8 which simplifies writing Lambda functions using C#. The Annotations framework uses
-[source
-generators](https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/source-generators-overview "https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/source-generators-overview") to generate code that translates from the Lambda programming model to the simplified code.
-With the Annotations framework, you can replace much of the code in a Lambda function written using the
-regular programming model. Code written using the framework uses simpler expressions that allow you to
-focus on your business logic. See
-[Amazon.Lambda.Annotations](https://www.nuget.org/packages/Amazon.Lambda.Annotations "https://www.nuget.org/packages/Amazon.Lambda.Annotations")
-in the nuget documentation for examples.
+[Lambda Annotations](https://www.nuget.org/packages/Amazon.Lambda.Annotations) is a framework for .NET 8 which simplifies writing Lambda functions using C\#. The Annotations framework uses [source generators](https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/source-generators-overview) to generate code that translates from the Lambda programming model to the simplified code. With the Annotations framework, you can replace much of the code in a Lambda function written using the regular programming model. Code written using the framework uses simpler expressions that allow you to focus on your business logic. See [Amazon.Lambda.Annotations](https://www.nuget.org/packages/Amazon.Lambda.Annotations) in the nuget documentation for examples.
 
-For an example of a full application using Lambda Annotations, see the
-[PhotoAssetManager](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/PhotoAssetManager "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/PhotoAssetManager") example in the `awsdocs/aws-doc-sdk-examples` GitHub repository. The
-main `Function.cs` file in the `PamApiAnnotations` directory uses
-Lambda Annotations. For comparison, the `PamApi` directory has equivalent files written
-using the regular Lambda programming model.
+For an example of a full application using Lambda Annotations, see the [ PhotoAssetManager](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/PhotoAssetManager) example in the `awsdocs/aws-doc-sdk-examples` GitHub repository. The main `Function.cs` file in the `PamApiAnnotations` directory uses Lambda Annotations. For comparison, the `PamApi` directory has equivalent files written using the regular Lambda programming model.
 
 ### Dependency injection with Lambda Annotations framework
+<a name="csharp-handler-annotations-injection"></a>
 
-You can also use the Lambda Annotations framework to add dependency injection to your Lambda functions using syntax you are familiar with.
-When you add a `[LambdaStartup]` attribute to a `Startup.cs` file, the Lambda Annotations framework
-generates the required code at compile time.
+You can also use the Lambda Annotations framework to add dependency injection to your Lambda functions using syntax you are familiar with. When you add a `[LambdaStartup]` attribute to a `Startup.cs` file, the Lambda Annotations framework generates the required code at compile time.
 
 ```
 [LambdaStartup]
@@ -611,11 +489,9 @@ public class Startup
 }
 ```
 
-Your Lambda function can inject services using either constructor injection or by injecting into individual methods using the
-`[FromServices]` attribute.
+Your Lambda function can inject services using either constructor injection or by injecting into individual methods using the `[FromServices]` attribute.
 
 ```
-
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
 namespace GetProductHandler;
@@ -623,12 +499,12 @@ namespace GetProductHandler;
 public class Function
 {
     private readonly IDatabaseRepository _repo;
-
+    
     public Function(IDatabaseRepository repo)
     {
         this._repo = repo;
     }
-
+    
     [LambdaFunction]
     [HttpApi(LambdaHttpMethod.Get, "/product/{id}")]
     public async Task<Product> FunctionHandler([FromServices] IDatabaseRepository repository, string id)
@@ -638,60 +514,25 @@ public class Function
 }
 ```
 
-## Code best practices for C# Lambda functions
+## Code best practices for C\# Lambda functions
+<a name="csharp-best-practices"></a>
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
++ **Separate the Lambda handler from your core logic.** With this approach, you can make a more unit-testable function.
++ **Control the dependencies in your function's deployment package. ** The AWS Lambda execution environment contains a number of libraries. To enable the latest set of features and security updates, Lambda periodically updates these libraries. These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the dependencies your function uses, package all of your dependencies with your deployment package. 
++ **Minimize the complexity of your dependencies.** Prefer simpler frameworks that load quickly on [execution environment](lambda-runtime-environment.md) startup.
++ **Minimize your deployment package size to its runtime necessities. ** This reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead of invocation. For functions authored in .NET, avoid uploading the entire AWS SDK library as part of your deployment package. Instead, selectively depend on the modules which pick up components of the SDK you need (for example, DynamoDB, Amazon S3 SDK modules and Lambda core libraries). 
 
-- **Separate the Lambda handler from your core logic.** With this approach, you can make
-  a more unit-testable function.
-- **Control the dependencies in your function's deployment package.** The
-  AWS Lambda execution environment contains a number of libraries.
-  To enable the latest set of features and security updates, Lambda periodically updates these libraries.
-  These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the
-  dependencies your function uses, package all of your dependencies with your deployment package.
-- **Minimize the complexity of your dependencies.** Prefer simpler frameworks
-  that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup.
-- **Minimize your deployment package size to its runtime necessities.** This
-  reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
-  of invocation. For functions authored in .NET, avoid uploading the entire AWS SDK library as part
-  of your deployment package. Instead, selectively depend on the modules which pick up components of the SDK you
-  need (for example, DynamoDB, Amazon S3 SDK modules and Lambda core
-  libraries).
+**Take advantage of execution environment reuse to improve the performance of your function.** Initialize SDK clients and database connections outside of the function handler, and cache static assets locally in the `/tmp` directory. Subsequent invocations processed by the same instance of your function can reuse these resources. This saves cost by reducing function run time.
 
-**Take advantage of execution environment reuse to improve the performance of your
-function.** Initialize SDK clients and database connections outside of the function handler, and
-cache static assets locally in the `/tmp` directory. Subsequent invocations processed by
-the same instance of your function can reuse these resources. This saves cost by reducing function run time.
+To avoid potential data leaks across invocations, don’t use the execution environment to store user data, events, or other information with security implications. If your function relies on a mutable state that can’t be stored in memory within the handler, consider creating a separate function or separate versions of a function for each user.
 
-To avoid potential data leaks across invocations, don’t use the execution environment to store user data,
-events, or other information with security implications. If your function relies on a mutable state that can’t
-be stored in memory within the handler, consider creating a separate function or separate versions of a
-function for each user.
+**Use a keep-alive directive to maintain persistent connections.** Lambda purges idle connections over time. Attempting to reuse an idle connection when invoking a function will result in a connection error. To maintain your persistent connection, use the keep-alive directive associated with your runtime. For an example, see [Reusing Connections with Keep-Alive in Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/node-reusing-connections.html).
 
-**Use a keep-alive directive to maintain persistent connections.** Lambda purges idle connections over time.
-Attempting to reuse an idle connection when invoking a function will result in a connection error. To maintain your persistent connection, use the
-keep-alive directive associated with your runtime.
-For an example, see [Reusing Connections with Keep-Alive in Node.js](../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md "../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md").
+**Use [environment variables](configuration-envvars.md) to pass operational parameters to your function.** For example, if you are writing to an Amazon S3 bucket, instead of hard-coding the bucket name you are writing to, configure the bucket name as an environment variable.
 
-**Use [environment variables](configuration-envvars.md "configuration-envvars.md") to pass operational parameters to your function.** For example, if
-you are writing to an Amazon S3 bucket, instead of hard-coding the bucket name you are writing to, configure the
-bucket name as an environment variable.
+**Avoid using recursive invocations** in your Lambda function, where the function invokes itself or initiates a process that may invoke the function again. This could lead to unintended volume of function invocations and escalated costs. If you see an unintended volume of invocations, set the function reserved concurrency to `0` immediately to throttle all invocations to the function, while you update the code.
 
-**Avoid using recursive invocations** in your Lambda function, where the function
-invokes itself or initiates a process that may invoke the function again. This could lead to unintended volume of
-function invocations and escalated costs. If you see an unintended volume of invocations, set the function reserved concurrency
-to `0` immediately to throttle all invocations to the function, while you update the
-code.
+**Do not use non-documented, non-public APIs** in your Lambda function code. For AWS Lambda managed runtimes, Lambda periodically applies security and functional updates to Lambda's internal APIs. These internal API updates may be backwards-incompatible, leading to unintended consequences such as invocation failures if your function has a dependency on these non-public APIs. See [the API reference](https://docs.aws.amazon.com/lambda/latest/api/welcome.html) for a list of publicly available APIs.
 
-**Do not use non-documented, non-public APIs** in your Lambda function code.
-For AWS Lambda managed runtimes, Lambda periodically applies security and functional updates to Lambda's internal APIs.
-These internal API updates may be backwards-incompatible, leading to unintended consequences such as invocation
-failures if your function has a dependency on these non-public APIs. See
-[the API reference](../api/welcome.md "../api/welcome.md") for a list of
-publicly available APIs.
-
-**Write idempotent code.** Writing idempotent code for your functions ensures that
-duplicate events are handled the same way. Your code should properly validate events and gracefully handle
-duplicate events. For more information, see
-[How do I make
-my Lambda function idempotent?](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/").
+**Write idempotent code.** Writing idempotent code for your functions ensures that duplicate events are handled the same way. Your code should properly validate events and gracefully handle duplicate events. For more information, see [How do I make my Lambda function idempotent?](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/).

@@ -1,15 +1,16 @@
+
+
 # Log and monitor Rust Lambda functions
+<a name="rust-logging"></a>
 
 AWS Lambda automatically monitors Lambda functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code.
 
-For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md "monitoring-cloudwatchlogs.md"). For information about configuring log formats, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md"). This page describes how to produce log output from your Lambda function's code.
+For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md). For information about configuring log formats, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md). This page describes how to produce log output from your Lambda function's code.
 
 ## Creating a function that writes logs
+<a name="rust-logging-function"></a>
 
-To output logs from your function code, you can use any logging function that writes
-to `stdout` or `stderr`, such as
-the `println!` macro. The following example uses `println!` to
-print a message when the function handler starts and before it finishes.
+To output logs from your function code, you can use any logging function that writes to `stdout` or `stderr`, such as the `println!` macro. The following example uses `println!` to print a message when the function handler starts and before it finishes.
 
 ```
 use lambda_runtime::{service_fn, LambdaEvent, Error};
@@ -26,30 +27,18 @@ async fn handler(event: LambdaEvent<Value>) -> Result<Value, Error> {
 async fn main() -> Result<(), Error> {
     lambda_runtime::run(service_fn(handler)).await
 }
-
 ```
 
 ## Implementing advanced logging with the Tracing crate
+<a name="rust-logging-tracing"></a>
 
-[Tracing](https://crates.io/crates/tracing "https://crates.io/crates/tracing") is a framework for
-instrumenting Rust programs to collect structured, event-based diagnostic information. This framework provides utilities to customize logging output levels and formats, like creating
-structured JSON log messages. To use this framework, you must initialize
-a `subscriber` before implementing the function handler. Then, you can use
-tracing macros like `debug`, `info`, and `error`, to specify the level of logging that you want for each scenario.
+[Tracing](https://crates.io/crates/tracing) is a framework for instrumenting Rust programs to collect structured, event-based diagnostic information. This framework provides utilities to customize logging output levels and formats, like creating structured JSON log messages. To use this framework, you must initialize a `subscriber` before implementing the function handler. Then, you can use tracing macros like `debug`, `info`, and `error`, to specify the level of logging that you want for each scenario.
 
-###### Example— Using the Tracing crate
-
-Note the following:
-
-- `tracing_subscriber::fmt().json()`: When this option is included, logs are
-  formatted in JSON. To use this option, you must include the `json` feature
-  in the `tracing-subscriber` dependency (for
-  example,`tracing-subscriber = { version = "0.3.11", features = ["json"] }`).
-- `#[tracing::instrument(skip(event), fields(req_id = %event.context.request_id))]`:
-  This annotation generates a span every time the handler is invoked. The span adds the
-  request ID to each log line.
-- `{ %first_name }`: This construct adds the `first_name` field to the log line where it's used. The value for this
-  field corresponds to the variable with the same name.
+**Example — Using the Tracing crate**  
+Note the following:  
++ `tracing_subscriber::fmt().json()`: When this option is included, logs are formatted in JSON. To use this option, you must include the `json` feature in the `tracing-subscriber` dependency (for example,`tracing-subscriber = { version = "0.3.11", features = ["json"] }`).
++ `#[tracing::instrument(skip(event), fields(req_id = %event.context.request_id))]`: This annotation generates a span every time the handler is invoked. The span adds the request ID to each log line.
++ `{ %first_name }`: This construct adds the `first_name` field to the log line where it's used. The value for this field corresponds to the variable with the same name.
 
 ```
 use lambda_runtime::{service_fn, Error, LambdaEvent};
@@ -79,7 +68,6 @@ async fn main() -> Result<(), Error> {
         .init();
     lambda_runtime::run(service_fn(handler)).await
 }
-
 ```
 
 When this Rust function is invoked, it prints two log lines similar to the following:

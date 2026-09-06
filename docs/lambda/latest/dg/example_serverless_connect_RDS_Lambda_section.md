@@ -1,18 +1,16 @@
+
+
 # Connecting to an Amazon RDS database in a Lambda function
+<a name="example_serverless_connect_RDS_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that connects to an RDS database. The function makes a simple database request and returns the result.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using .NET.  
 
 ```
 using System.Data;
@@ -53,7 +51,7 @@ public class Function
             Environment.GetEnvironmentVariable("RDS_USERNAME")
         );
 
-        /// Build the Connection String with the Token
+        /// Build the Connection String with the Token 
         string connectionString = $"Server={Environment.GetEnvironmentVariable("RDS_ENDPOINT")};" +
                                   $"Port={Environment.GetEnvironmentVariable("RDS_PORT")};" +
                                   $"Uid={Environment.GetEnvironmentVariable("RDS_USERNAME")};" +
@@ -97,21 +95,14 @@ public class Function
         };
     }
 }
-
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Go.  
 
 ```
 /*
@@ -192,21 +183,14 @@ func HandleRequest(event *MyEvent) (map[string]interface{}, error) {
 func main() {
 	lambda.Start(HandleRequest)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Java.  
 
 ```
 import com.amazonaws.services.lambda.runtime.Context;
@@ -287,26 +271,19 @@ public class RdsLambdaHandler implements RequestHandler<APIGatewayProxyRequestEv
         return tokenField.stringValue();
     }
 }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using JavaScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-/*
+/* 
 Node.js code here.
 */
 // ES6+ example
@@ -361,14 +338,10 @@ export const handler = async (event) => {
     body: JSON.stringify("The selected sum is: " + result[0].sum)
   }
 };
-
+```
+Connecting to an Amazon RDS database in a Lambda function using TypeScript.  
 
 ```
-
-Connecting to an Amazon RDS database in a Lambda function using TypeScript.
-
-```
-
 import { Signer } from "@aws-sdk/rds-signer";
 import mysql from 'mysql2/promise';
 
@@ -433,20 +406,14 @@ export const lambdaHandler = async (event: any): Promise<{ statusCode: number; b
         body: JSON.stringify(`The selected sum is: ${result[0].sum}`)
     };
 };
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using PHP.  
 
 ```
 <?php
@@ -542,20 +509,14 @@ class Handler implements StdHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Python.  
 
 ```
 import json
@@ -593,30 +554,23 @@ def lambda_handler(event, context):
             port=port,
             ssl={'ca': 'Amazon RDS'}  # Ensure you have the CA bundle for SSL connection
         )
-
+        
         with connection.cursor() as cursor:
             cursor.execute('SELECT %s + %s AS sum', (3, 2))
             result = cursor.fetchone()
 
         return result
-
+        
     except Exception as e:
         return (f"Error: {str(e)}")  # Return an error message if an exception occurs
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Ruby.  
 
 ```
 # Ruby code here.
@@ -638,7 +592,7 @@ def lambda_handler(event:, context:)
     ENV['AWS_SESSION_TOKEN']
   )
   rds_client = Aws::RDS::AuthTokenGenerator.new(
-    region: region,
+    region: region, 
     credentials: credentials
   )
 
@@ -655,7 +609,7 @@ def lambda_handler(event:, context:)
       password: token,
       port: port,
       database: db_name,
-      sslca: '/var/task/global-bundle.pem',
+      sslca: '/var/task/global-bundle.pem', 
       sslverify: true,
       enable_cleartext_plugin: true
     )
@@ -672,20 +626,14 @@ def lambda_handler(event:, context:)
     puts "Database connection failed due to #{e}"
   end
 end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam "https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam")
-repository.
-
-Connecting to an Amazon RDS database in a Lambda function using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/lambda-function-connect-rds-iam) repository. 
+Connecting to an Amazon RDS database in a Lambda function using Rust.  
 
 ```
 use aws_config::BehaviorVersion;
@@ -797,10 +745,8 @@ async fn handler(_event: LambdaEvent<Value>) -> Result<Value, Error> {
         "body": format!("The selected sum is: {result}")
     }))
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

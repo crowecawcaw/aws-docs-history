@@ -1,40 +1,27 @@
+
+
 # Lambda function states
+<a name="functions-states"></a>
 
-Lambda includes a [State](../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State "../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State") field in the function configuration for all
-functions to indicate when your function is ready to invoke. `State` provides information about the current status of the function, including whether you can successfully invoke the function. Function
-states do not change the behavior of function invocations or how your function runs the code.
+Lambda includes a [State](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionConfiguration.html#lambda-GetFunctionConfiguration-response-State) field in the function configuration for all functions to indicate when your function is ready to invoke. `State` provides information about the current status of the function, including whether you can successfully invoke the function. Function states do not change the behavior of function invocations or how your function runs the code.
 
-###### Note
+**Note**  
+Function state definitions differ slightly for [SnapStart](snapstart.md) functions. For more information, see [Lambda SnapStart and function states](snapstart-activate.md#snapstart-function-states).
 
-Function state definitions differ slightly for [SnapStart](snapstart.md "snapstart.md") functions. For more information, see [Lambda SnapStart and function states](snapstart-activate.md#snapstart-function-states "snapstart-activate.md#snapstart-function-states").
-
-In many cases, a DynamoDB table is an ideal way to retain state between invocations since it provides low-latency data access and can scale
-with the Lambda service. You can also store data in
-[Amazon EFS for Lambda](https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/ "https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/") if you are using this service, and this provides low-latency access to file system storage.
+In many cases, a DynamoDB table is an ideal way to retain state between invocations since it provides low-latency data access and can scale with the Lambda service. You can also store data in [ Amazon EFS for Lambda](https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/) if you are using this service, and this provides low-latency access to file system storage.
 
 Function states include:
++ `Pending` – After Lambda creates the function, it sets the state to pending. While in pending state, Lambda attempts to create or configure resources for the function, such as VPC or EFS resources. Lambda does not invoke a function during pending state. Any invocations or other API actions that operate on the function fail.
++ `Active` – Your function transitions to active state after Lambda completes resource configuration and provisioning. Functions can only be successfully invoked while active.
++ `Failed` – Indicates that resource configuration or provisioning encountered an error. When function creation fails, Lambda sets the function state to failed, and you must delete and recreate the function.
++ `Inactive` – A function becomes inactive when it has been idle long enough for Lambda to reclaim the external resources that were configured for it. When you try to invoke a function that is inactive, the invocation fails and Lambda sets the function to pending state until the function resources are recreated. If Lambda fails to recreate the resources, the function returns to the inactive state. You might need to resolve any errors and redeploy your function to restore it to the active state.
 
-- `Pending` – After Lambda creates the function, it sets the state to pending. While in pending state, Lambda attempts to create or configure resources for the function, such as VPC or EFS resources.
-  Lambda does not invoke a function during pending state. Any invocations or other API actions that operate on the function fail.
-- `Active` – Your function transitions to active state after Lambda completes resource configuration and provisioning.
-  Functions can only be successfully invoked while active.
-- `Failed` – Indicates that resource configuration or provisioning encountered an error.
-  When function creation fails, Lambda sets the function state to failed, and you must delete and recreate the function.
-- `Inactive` – A function becomes inactive when it has been idle
-  long enough for Lambda to reclaim the external resources that were configured for it.
-  When you try to invoke a function that is inactive, the invocation fails and Lambda
-  sets the function to pending state until the function resources are recreated.
-  If Lambda fails to recreate the resources, the function returns to the inactive state.
-  You might need to resolve any errors and redeploy your function to
-  restore it to the active state.
+  A function also transitions to the `Inactive` state if Lambda loses access to the function's source artifact. This applies to [container image](images-create.md) functions where the image is deleted from Amazon ECR or permissions are revoked, and to .zip functions that use [self-managed S3 code storage](configuration-self-managed-storage.md) where the source object is deleted or bucket policy permissions are revoked. To restore the function, restore access to the source artifact and update the function.
 
-A function also transitions to the `Inactive` state if Lambda loses access to the function's source artifact. This applies to [container image](images-create.md "images-create.md") functions where the image is deleted from Amazon ECR or permissions are revoked, and to .zip functions that use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md") where the source object is deleted or bucket policy permissions are revoked. To restore the function, restore access to the source artifact and update the function.
-If you are using SDK-based automation workflows or calling Lambda's service APIs directly, ensure that you check a function's state before invocation to verify that it is active.
-You can do this with the Lambda API action [GetFunction](../api/API_GetFunction.md "../api/API_GetFunction.md"), or by configuring a waiter using the
-[AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2 "https://github.com/aws/aws-sdk-java-v2").
+If you are using SDK-based automation workflows or calling Lambda's service APIs directly, ensure that you check a function's state before invocation to verify that it is active. You can do this with the Lambda API action [GetFunction](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunction.html), or by configuring a waiter using the [AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2).
 
 ```
-`aws lambda get-function --function-name my-function --query 'Configuration.[State, LastUpdateStatus]'`
+aws lambda get-function --function-name my-function --query 'Configuration.[State, LastUpdateStatus]'
 ```
 
 You should see the following output:
@@ -42,43 +29,38 @@ You should see the following output:
 ```
 [
  "Active",
- "Successful"
+ "Successful" 
 ]
 ```
 
 The following operations fail while function creation is pending:
-
-- [Invoke](../api/API_Invoke.md "../api/API_Invoke.md")
-- [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_UpdateFunctionCode.md")
-- [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md")
-- [PublishVersion](../api/API_PublishVersion.md "../api/API_PublishVersion.md")
++ [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html)
++ [UpdateFunctionCode](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionCode.html)
++ [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html)
++ [PublishVersion](https://docs.aws.amazon.com/lambda/latest/api/API_PublishVersion.html)
 
 ## Function states during updates
+<a name="functions-states-updating"></a>
 
 Lambda has two operations for updating functions:
++ [UpdateFunctionCode](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionCode.html): Updates the function's deployment package
++ [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html): Updates the function's configuration
 
-- [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_UpdateFunctionCode.md"): Updates the function's deployment package
-- [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md"): Updates the function's configuration
-
-Lambda uses the [LastUpdateStatus](../api/API_FunctionConfiguration.md#lambda-Type-FunctionConfiguration-LastUpdateStatus "../api/API_FunctionConfiguration.md#lambda-Type-FunctionConfiguration-LastUpdateStatus") attribute to track the progress of these update operations. While an update is in progress (when `"LastUpdateStatus": "InProgress"`):
-
-- The function's [State](../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State "../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State") remains `Active`.
-- Invocations continue to use the function's previous code and configuration until the update completes.
-- The following operations fail:
-
-  - [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_UpdateFunctionCode.md")
-  - [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md")
-  - [PublishVersion](../api/API_PublishVersion.md "../api/API_PublishVersion.md")
-  - [TagResource](../api/API_TagResource.md "../api/API_TagResource.md")
+Lambda uses the [LastUpdateStatus](https://docs.aws.amazon.com/lambda/latest/api/API_FunctionConfiguration.html#lambda-Type-FunctionConfiguration-LastUpdateStatus) attribute to track the progress of these update operations. While an update is in progress (when `"LastUpdateStatus": "InProgress"`):
++ The function's [State](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionConfiguration.html#lambda-GetFunctionConfiguration-response-State) remains `Active`.
++ Invocations continue to use the function's previous code and configuration until the update completes.
++ The following operations fail:
+  + [UpdateFunctionCode](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionCode.html)
+  + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html)
+  + [PublishVersion](https://docs.aws.amazon.com/lambda/latest/api/API_PublishVersion.html)
+  + [TagResource](https://docs.aws.amazon.com/lambda/latest/api/API_TagResource.html)
 
 When an update fails (when `"LastUpdateStatus": "Failed"`):
++ The function's [State](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionConfiguration.html#lambda-GetFunctionConfiguration-response-State) remains `Active`.
++ Invocations continue to use the function's previous code and configuration.
 
-- The function's [State](../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State "../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State") remains `Active`.
-- Invocations continue to use the function's previous code and configuration.
-
-###### Example GetFunctionConfiguration response
-
-The following example is the result of [GetFunctionConfiguration](../api/API_GetFunctionConfiguration.md "../api/API_GetFunctionConfiguration.md") request on a function undergoing an update.
+**Example GetFunctionConfiguration response**  
+The following example is the result of [GetFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionConfiguration.html) request on a function undergoing an update.  
 
 ```
 {
@@ -96,8 +78,8 @@ The following example is the result of [GetFunctionConfiguration](../api/API_Get
         ],
         "VpcId": "vpc-08e1234569e011e83"
     },
-    `"State": "Active",
- "LastUpdateStatus": "InProgress"`,
+    "State": "Active",
+    "LastUpdateStatus": "InProgress",
     ...
 }
 ```

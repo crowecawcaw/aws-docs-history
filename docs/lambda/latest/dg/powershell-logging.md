@@ -1,23 +1,25 @@
-# Log and monitor Powershell Lambda functions
 
-AWS Lambda automatically monitors Lambda functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md "monitoring-cloudwatchlogs.md").
+
+# Log and monitor Powershell Lambda functions
+<a name="powershell-logging"></a>
+
+AWS Lambda automatically monitors Lambda functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
 This page describes how to produce log output from your Lambda function's code, and access logs using the AWS Command Line Interface, the Lambda console, or the CloudWatch console.
 
-###### Sections
-
-- [Creating a function that returns logs](#powershell-logging-output "#powershell-logging-output")
-- [Viewing logs in the Lambda console](#powershell-logging-console "#powershell-logging-console")
-- [Viewing logs in the CloudWatch console](#powershell-logging-cwconsole "#powershell-logging-cwconsole")
-- [Viewing logs using the AWS Command Line Interface (AWS CLI)](#powershell-logging-cli "#powershell-logging-cli")
-- [Deleting logs](#powershell-logging-delete "#powershell-logging-delete")
+**Topics**
++ [Creating a function that returns logs](#powershell-logging-output)
++ [Viewing logs in the Lambda console](#powershell-logging-console)
++ [Viewing logs in the CloudWatch console](#powershell-logging-cwconsole)
++ [Viewing logs using the AWS Command Line Interface (AWS CLI)](#powershell-logging-cli)
++ [Deleting logs](#powershell-logging-delete)
 
 ## Creating a function that returns logs
+<a name="powershell-logging-output"></a>
 
-To output logs from your function code, you can use cmdlets on [Microsoft.PowerShell.Utility](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility "https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility") , or any logging module that writes to `stdout` or `stderr`. The following example
-uses `Write-Host`.
+To output logs from your function code, you can use cmdlets on [Microsoft.PowerShell.Utility ](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility), or any logging module that writes to `stdout` or `stderr`. The following example uses `Write-Host`.
 
-###### Example [function/Handler.ps1](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-powershell/function/Handler.ps1 "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-powershell/function/Handler.ps1") – Logging
+**Example [function/Handler.ps1](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-powershell/function/Handler.ps1) – Logging**  
 
 ```
 #Requires -Modules @{ModuleName='AWSPowerShell.NetCore';ModuleVersion='3.3.618.0'}
@@ -32,7 +34,7 @@ Write-Host `## Event
 Write-Host (ConvertTo-Json -InputObject $LambdaInput -Compress -Depth 3)
 ```
 
-###### Example log format
+**Example log format**  
 
 ```
 START RequestId: 56639408-xmpl-435f-9041-ac47ae25ceed Version: $LATEST
@@ -45,7 +47,7 @@ Importing module ./Modules/AWSPowerShell.NetCore/3.3.618.0/AWSPowerShell.NetCore
 [Information] - AWS_LAMBDA_FUNCTION_NAME=blank-powershell-function-18CIXMPLHFAJJ
 [Information] - PATH=/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin
 [Information] - ## Event
-[Information] -
+[Information] - 
 {
     "Records": [
         {
@@ -60,62 +62,59 @@ Importing module ./Modules/AWSPowerShell.NetCore/3.3.618.0/AWSPowerShell.NetCore
             },
             ...
 END RequestId: 56639408-xmpl-435f-9041-ac47ae25ceed
-REPORT RequestId: 56639408-xmpl-435f-9041-ac47ae25ceed	Duration: 3906.38 ms	Billed Duration: 9867 ms	Memory Size: 512 MB	Max Memory Used: 367 MB	Init Duration: 5960.19 ms
+REPORT RequestId: 56639408-xmpl-435f-9041-ac47ae25ceed	Duration: 3906.38 ms	Billed Duration: 9867 ms	Memory Size: 512 MB	Max Memory Used: 367 MB	Init Duration: 5960.19 ms	
 XRAY TraceId: 1-5e843da6-733cxmple7d0c3c020510040	SegmentId: 3913xmpl20999446	Sampled: true
 ```
 
-The .NET runtime logs the `START`, `END`, and `REPORT` lines for each
-invocation. The report line provides the following details.
+The .NET runtime logs the `START`, `END`, and `REPORT` lines for each invocation. The report line provides the following details.
 
-###### REPORT line data fields
-
-- **RequestId** – The unique request ID for the invocation.
-- **Duration** – The amount of time that your function's handler method
-  spent processing the event.
-- **Billed Duration** – The amount of time billed for the
-  invocation.
-- **Memory Size** – The amount of memory allocated to the function.
-- **Max Memory Used** – The amount of memory used by the function. When invocations share an execution environment,
-  Lambda reports the maximum memory used across all invocations. This behavior might result in a higher than expected reported value.
-- **Init Duration** – For the first request served, the amount of time it
-  took the runtime to load the function and run code outside of the handler method.
-- **XRAY TraceId** – For traced requests, the [AWS X-Ray trace ID](services-xray.md "services-xray.md").
-- **SegmentId** – For traced requests, the X-Ray segment ID.
-- **Sampled** – For traced requests, the sampling result.
+**REPORT line data fields**
++ **RequestId** – The unique request ID for the invocation.
++ **Duration** – The amount of time that your function's handler method spent processing the event.
++ **Billed Duration** – The amount of time billed for the invocation.
++ **Memory Size** – The amount of memory allocated to the function.
++ **Max Memory Used** – The amount of memory used by the function. When invocations share an execution environment, Lambda reports the maximum memory used across all invocations. This behavior might result in a higher than expected reported value.
++ **Init Duration** – For the first request served, the amount of time it took the runtime to load the function and run code outside of the handler method.
++ **XRAY TraceId** – For traced requests, the [AWS X-Ray trace ID](services-xray.md).
++ **SegmentId** – For traced requests, the X-Ray segment ID.
++ **Sampled** – For traced requests, the sampling result.
 
 ## Viewing logs in the Lambda console
+<a name="powershell-logging-console"></a>
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
 If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
+<a name="powershell-logging-cwconsole"></a>
 
 You can use the Amazon CloudWatch console to view logs for all Lambda function invocations.
 
-###### To view logs on the CloudWatch console
+**To view logs on the CloudWatch console**
 
-1. Open the [Log groups page](https://console.aws.amazon.com/cloudwatch/home?#logs: "https://console.aws.amazon.com/cloudwatch/home?#logs:") on the CloudWatch console.
-2. Choose the log group for your function (**/aws/lambda/`your-function-name`**).
-3. Choose a log stream.
+1. Open the [Log groups page](https://console.aws.amazon.com/cloudwatch/home?#logs:) on the CloudWatch console.
 
-Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md "lambda-runtime-environment.md"). A log stream appears when you update your Lambda function, and when additional instances are created to handle concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.
+1. Choose the log group for your function (**/aws/lambda/{{your-function-name}}**).
+
+1. Choose a log stream.
+
+Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md). A log stream appears when you update your Lambda function, and when additional instances are created to handle concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.
 
 ## Viewing logs using the AWS Command Line Interface (AWS CLI)
+<a name="powershell-logging-cli"></a>
 
-The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
+You can use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
 
-###### Example retrieve a log ID
-
-The following example shows how to retrieve a _log ID_ from the `LogResult` field for a function named `my-function`.
+**Example retrieve a log ID**  
+The following example shows how to retrieve a *log ID* from the `LogResult` field for a function named `my-function`.  
 
 ```
-`aws lambda invoke --function-name my-function out --log-type Tail`
+aws lambda invoke --function-name my-function out --log-type Tail
 ```
-
-You should see the following output:
+You should see the following output:  
 
 ```
 {
@@ -125,18 +124,15 @@ You should see the following output:
 }
 ```
 
-###### Example decode the logs
-
-In the same command prompt, use the `base64` utility to decode the logs. The following example shows how to retrieve base64-encoded logs for `my-function`.
+**Example decode the logs**  
+In the same command prompt, use the `base64` utility to decode the logs. The following example shows how to retrieve base64-encoded logs for `my-function`.  
 
 ```
-`aws lambda invoke --function-name my-function out --log-type Tail \
---query 'LogResult' --output text --cli-binary-format raw-in-base64-out | base64 --decode`
+aws lambda invoke --function-name my-function out --log-type Tail \
+--query 'LogResult' --output text --cli-binary-format raw-in-base64-out | base64 --decode
 ```
-
-The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide for Version 2_.
-
-You should see the following output:
+The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html#cli-configure-options-list) in the *AWS Command Line Interface User Guide for Version 2*.  
+You should see the following output:  
 
 ```
 START RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8 Version: $LATEST
@@ -144,42 +140,35 @@ START RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8 Version: $LATEST
 END RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8
 REPORT RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8  Duration: 79.67 ms      Billed Duration: 80 ms         Memory Size: 128 MB     Max Memory Used: 73 MB
 ```
+The `base64` utility is available on Linux, macOS, and [Ubuntu on Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10). macOS users may need to use `base64 -D`.
 
-The `base64` utility is available on Linux, macOS, and [Ubuntu on Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "https://docs.microsoft.com/en-us/windows/wsl/install-win10"). macOS users may need to use `base64 -D`.
-
-###### Example get-logs.sh script
-
-In the same command prompt, use the following script to download the last five log events. The script uses `sed` to remove quotes from the output file, and sleeps for 15 seconds to allow time for the logs to become available. The output includes the response from Lambda and the output from the `get-log-events` command.
-
-Copy the contents of the following code sample and save in your Lambda project directory as `get-logs.sh`.
-
-The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide for Version 2_.
+**Example get-logs.sh script**  
+In the same command prompt, use the following script to download the last five log events. The script uses `sed` to remove quotes from the output file, and sleeps for 15 seconds to allow time for the logs to become available. The output includes the response from Lambda and the output from the `get-log-events` command.   
+Copy the contents of the following code sample and save in your Lambda project directory as `get-logs.sh`.  
+The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html#cli-configure-options-list) in the *AWS Command Line Interface User Guide for Version 2*.  
 
 ```
 #!/bin/bash
 aws lambda invoke --function-name my-function --cli-binary-format raw-in-base64-out --payload '{"key": "value"}' out
 sed -i'' -e 's/"//g' out
 sleep 15
-aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-name `stream1` --limit 5
+aws logs get-log-events --log-group-name /aws/lambda/{{my-function}} --log-stream-name {{stream1}} --limit 5
 ```
 
-###### Example macOS and Linux (only)
-
-In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.
-
-```
-`chmod -R 755 get-logs.sh`
-```
-
-###### Example retrieve the last five log events
-
-In the same command prompt, run the following script to get the last five log events.
+**Example macOS and Linux (only)**  
+In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.  
 
 ```
-`./get-logs.sh`
+chmod -R 755 get-logs.sh
 ```
 
-You should see the following output:
+**Example retrieve the last five log events**  
+In the same command prompt, run the following script to get the last five log events.  
+
+```
+./get-logs.sh
+```
+You should see the following output:  
 
 ```
 {
@@ -220,7 +209,6 @@ You should see the following output:
 ```
 
 ## Deleting logs
+<a name="powershell-logging-delete"></a>
 
-Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete
-the log group, or [configure
-a retention period](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention") after which logs are deleted automatically.
+Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete the log group, or [configure a retention period](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#SettingLogRetention) after which logs are deleted automatically.

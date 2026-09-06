@@ -1,27 +1,27 @@
+
+
 # Using the Lambda metadata endpoint
+<a name="configuration-metadata-endpoint"></a>
 
-With the Lambda metadata endpoint, your functions can discover which Availability Zone (AZ) they are running in.
-You can use this to optimize latency by routing to same-AZ resources like Amazon ElastiCache and Amazon RDS endpoints,
-and to implement AZ-aware resilience patterns.
+With the Lambda metadata endpoint, your functions can discover which Availability Zone (AZ) they are running in. You can use this to optimize latency by routing to same-AZ resources like Amazon ElastiCache and Amazon RDS endpoints, and to implement AZ-aware resilience patterns.
 
-The endpoint returns metadata in a simple JSON format through a localhost HTTP API within the execution
-environment and is accessible to both runtimes and extensions.
+The endpoint returns metadata in a simple JSON format through a localhost HTTP API within the execution environment and is accessible to both runtimes and extensions.
 
-###### Sections
-
-- [Getting started](#metadata-endpoint-getting-started "#metadata-endpoint-getting-started")
-- [Understanding Availability Zone IDs](#metadata-endpoint-az-ids "#metadata-endpoint-az-ids")
-- [API reference](#metadata-endpoint-api-reference "#metadata-endpoint-api-reference")
+**Topics**
++ [Getting started](#metadata-endpoint-getting-started)
++ [Understanding Availability Zone IDs](#metadata-endpoint-az-ids)
++ [API reference](#metadata-endpoint-api-reference)
 
 ## Getting started
+<a name="metadata-endpoint-getting-started"></a>
 
-[Powertools for AWS Lambda](../../../powertools.md "../../../powertools.md") provides a utility
-for accessing the Lambda metadata endpoint in Python, TypeScript, Java, and .NET. The utility caches the response
-after the first call and handles SnapStart cache invalidation automatically.
+[Powertools for AWS Lambda](https://docs.aws.amazon.com/powertools/) provides a utility for accessing the Lambda metadata endpoint in Python, TypeScript, Java, and .NET. The utility caches the response after the first call and handles SnapStart cache invalidation automatically.
 
 Use the Powertools for AWS Lambda metadata utility or call the metadata endpoint directly
 
-Python
+------
+#### [ Python ]
+
 Install the Powertools package:
 
 ```
@@ -30,7 +30,7 @@ pip install "aws-lambda-powertools"
 
 Use the metadata utility in your handler:
 
-###### Example Retrieving AZ ID with Powertools (Python)
+**Example Retrieving AZ ID with Powertools (Python)**  
 
 ```
 from aws_lambda_powertools.utilities.lambda_metadata import get_lambda_metadata
@@ -42,7 +42,9 @@ def handler(event, context):
     return {"az_id": az_id}
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 Install the Powertools package:
 
 ```
@@ -51,7 +53,7 @@ npm install @aws-lambda-powertools/commons
 
 Use the metadata utility in your handler:
 
-###### Example Retrieving AZ ID with Powertools (TypeScript)
+**Example Retrieving AZ ID with Powertools (TypeScript)**  
 
 ```
 import { getMetadata } from '@aws-lambda-powertools/commons/utils/metadata';
@@ -64,7 +66,9 @@ export const handler = async () => {
 };
 ```
 
-Java
+------
+#### [ Java ]
+
 Add the Powertools dependency to your `pom.xml`:
 
 ```
@@ -79,7 +83,7 @@ Add the Powertools dependency to your `pom.xml`:
 
 Use the metadata client in your handler:
 
-###### Example Retrieving AZ ID with Powertools (Java)
+**Example Retrieving AZ ID with Powertools (Java)**  
 
 ```
 import software.amazon.lambda.powertools.metadata.LambdaMetadata;
@@ -97,7 +101,9 @@ public class App implements RequestHandler<Object, String> {
 }
 ```
 
-.NET
+------
+#### [ .NET ]
+
 Install the Powertools package:
 
 ```
@@ -106,7 +112,7 @@ dotnet add package AWS.Lambda.Powertools.Metadata
 
 Use the metadata class in your handler:
 
-###### Example Retrieving AZ ID with Powertools (.NET)
+**Example Retrieving AZ ID with Powertools (.NET)**  
 
 ```
 using AWS.Lambda.Powertools.Metadata;
@@ -121,12 +127,12 @@ public class Function
 }
 ```
 
-All Runtimes
-All Lambda runtimes support the metadata endpoint, including custom runtimes and container images.
-Use the following example to access the metadata API directly from your function using the environment
-variables that Lambda automatically sets in the execution environment.
+------
+#### [ All Runtimes ]
 
-###### Example Accessing the metadata endpoint directly
+All Lambda runtimes support the metadata endpoint, including custom runtimes and container images. Use the following example to access the metadata API directly from your function using the environment variables that Lambda automatically sets in the execution environment.
+
+**Example Accessing the metadata endpoint directly**  
 
 ```
 # Variables are automatically set by Lambda
@@ -141,46 +147,40 @@ AZ_ID=$(echo "$RESPONSE" | jq -r '.AvailabilityZoneID')
 echo "Function is running in AZ ID: $AZ_ID"
 ```
 
-## Understanding Availability Zone IDs
+------
 
-AZ IDs (for example, `use1-az1`) always refer to the same physical location across all AWS accounts,
-while AZ names (for example, `us-east-1a`) might map to different physical infrastructure in each AWS
-account in certain regions. For more information, see
-[AZ IDs for cross-account consistency](../../../global-infrastructure/latest/regions/az-ids.md "../../../global-infrastructure/latest/regions/az-ids.md").
+## Understanding Availability Zone IDs
+<a name="metadata-endpoint-az-ids"></a>
+
+AZ IDs (for example, `use1-az1`) always refer to the same physical location across all AWS accounts, while AZ names (for example, `us-east-1a`) might map to different physical infrastructure in each AWS account in certain regions. For more information, see [AZ IDs for cross-account consistency](https://docs.aws.amazon.com/global-infrastructure/latest/regions/az-ids.html).
 
 **Converting AZ ID to AZ name:**
 
-To convert an AZ ID to an AZ name, use the Amazon EC2
-[DescribeAvailabilityZones](../../../AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.md "../../../AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.md")
-API. To use this API, add the `ec2:DescribeAvailabilityZones` permission to your function's execution role.
+To convert an AZ ID to an AZ name, use the Amazon EC2 [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) API. To use this API, add the `ec2:DescribeAvailabilityZones` permission to your function's execution role.
 
 ## API reference
+<a name="metadata-endpoint-api-reference"></a>
 
 ### Environment variables
+<a name="metadata-endpoint-env-vars"></a>
 
 Lambda automatically sets the following environment variables in every execution environment:
-
-- `AWS_LAMBDA_METADATA_API` – The metadata server address in the format
-  `{ipv4_address}:{port}` (for example, `169.254.100.1:9001`).
-- `AWS_LAMBDA_METADATA_TOKEN` – A unique authentication token for the current
-  execution environment. Lambda generates this token automatically at initialization. Include it in all
-  metadata API requests.
++ `AWS_LAMBDA_METADATA_API` – The metadata server address in the format `{ipv4_address}:{port}` (for example, `169.254.100.1:9001`).
++ `AWS_LAMBDA_METADATA_TOKEN` – A unique authentication token for the current execution environment. Lambda generates this token automatically at initialization. Include it in all metadata API requests.
 
 ### Endpoint
+<a name="metadata-endpoint-url"></a>
 
 `GET http://${AWS_LAMBDA_METADATA_API}/2026-01-15/metadata/execution-environment`
 
 ### Request
+<a name="metadata-endpoint-request"></a>
 
 **Required headers:**
-
-- `Authorization` – The token value from the `AWS_LAMBDA_METADATA_TOKEN`
-  environment variable with the Bearer scheme: `Bearer <token>`. This token-based
-  authentication provides defense in depth protection against Server-Side Request Forgery (SSRF)
-  vulnerabilities. Each execution environment receives a unique, randomly generated token at
-  initialization.
++ `Authorization` – The token value from the `AWS_LAMBDA_METADATA_TOKEN` environment variable with the Bearer scheme: `Bearer <token>`. This token-based authentication provides defense in depth protection against Server-Side Request Forgery (SSRF) vulnerabilities. Each execution environment receives a unique, randomly generated token at initialization.
 
 ### Response
+<a name="metadata-endpoint-response"></a>
 
 **Status:** `200 OK`
 
@@ -188,10 +188,7 @@ Lambda automatically sets the following environment variables in every execution
 
 **Cache-Control:** `private, max-age=43200, immutable`
 
-The response is immutable within an execution environment. Clients should cache the response and respect
-the `Cache-Control` TTL. For SnapStart functions, the TTL is reduced during initialization so that
-clients refresh metadata after restore when the execution environment might be in a different AZ. If you use
-Powertools, caching and SnapStart invalidation are handled automatically.
+The response is immutable within an execution environment. Clients should cache the response and respect the `Cache-Control` TTL. For SnapStart functions, the TTL is reduced during initialization so that clients refresh metadata after restore when the execution environment might be in a different AZ. If you use Powertools, caching and SnapStart invalidation are handled automatically.
 
 **Body:**
 
@@ -201,20 +198,13 @@ Powertools, caching and SnapStart invalidation are handled automatically.
 }
 ```
 
-The `AvailabilityZoneID` field contains the unique identifier for the Availability Zone
-where the execution environment is running.
+The `AvailabilityZoneID` field contains the unique identifier for the Availability Zone where the execution environment is running.
 
-###### Note
-
-Additional fields might be added to the response in future updates. Clients should ignore unknown
-fields and not fail if new fields appear.
+**Note**  
+Additional fields might be added to the response in future updates. Clients should ignore unknown fields and not fail if new fields appear.
 
 ### Error responses
-
-- **401 Unauthorized** – The `Authorization` header is
-  missing or contains an invalid token. Verify you are passing
-  `Bearer ${AWS_LAMBDA_METADATA_TOKEN}`.
-- **405 Method Not Allowed** – Request method is not
-  `GET`.
-- **500 Internal Server Error** – Server-side processing
-  error.
+<a name="metadata-endpoint-errors"></a>
++ **401 Unauthorized** – The `Authorization` header is missing or contains an invalid token. Verify you are passing `Bearer ${AWS_LAMBDA_METADATA_TOKEN}`.
++ **405 Method Not Allowed** – Request method is not `GET`.
++ **500 Internal Server Error** – Server-side processing error.

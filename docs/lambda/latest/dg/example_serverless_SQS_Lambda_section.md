@@ -1,18 +1,16 @@
+
+
 # Invoke a Lambda function from an Amazon SQS trigger
+<a name="example_serverless_SQS_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that receives an event triggered by receiving messages from an SQS queue. The function retrieves the messages from the event parameter and logs the content of each message.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda")
-repository.
-
-Consuming an SQS event with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda) repository. 
+Consuming an SQS event with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -54,21 +52,14 @@ namespace SqsIntegrationSampleCode
 
     }
 }
-
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda")
-repository.
-
-Consuming an SQS event with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda) repository. 
+Consuming an SQS event with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -101,21 +92,14 @@ func processMessage(record events.SQSMessage) error {
 func main() {
 	lambda.Start(handler)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda")
-repository.
-
-Consuming an SQS event with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda) repository. 
+Consuming an SQS event with Lambda using Java.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -148,20 +132,14 @@ public class Function implements RequestHandler<SQSEvent, Void> {
 
     }
 }
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-sqs-to-lambda "https://github.com/aws-samples/serverless-snippets/blob/main/integration-sqs-to-lambda")
-repository.
-
-Consuming an SQS event with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-sqs-to-lambda) repository. 
+Consuming an SQS event with Lambda using JavaScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -183,11 +161,8 @@ async function processMessageAsync(message) {
     throw err;
   }
 }
-
-
 ```
-
-Consuming an SQS event with Lambda using TypeScript.
+Consuming an SQS event with Lambda using TypeScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -214,21 +189,14 @@ async function processMessageAsync(message: SQSRecord): Promise<any> {
     throw err;
   }
 }
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda")
-repository.
-
-Consuming an SQS event with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda) repository. 
+Consuming an SQS event with Lambda using PHP.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -267,21 +235,14 @@ class Handler extends SqsHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda")
-repository.
-
-Consuming an SQS event with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda) repository. 
+Consuming an SQS event with Lambda using Python.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -298,21 +259,14 @@ def process_message(message):
     except Exception as err:
         print("An error occurred")
         raise err
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda")
-repository.
-
-Consuming an SQS event with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda) repository. 
+Consuming an SQS event with Lambda using Ruby.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -333,20 +287,14 @@ def process_message(message)
     raise err
   end
 end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda")
-repository.
-
-Consuming an SQS event with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-sqs-to-lambda) repository. 
+Consuming an SQS event with Lambda using Rust.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -375,9 +323,8 @@ async fn main() -> Result<(), Error> {
 
     run(service_fn(function_handler)).await
 }
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

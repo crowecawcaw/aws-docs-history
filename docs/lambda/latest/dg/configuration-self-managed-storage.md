@@ -1,4 +1,7 @@
+
+
 # Self-managed S3 code storage
+<a name="configuration-self-managed-storage"></a>
 
 By default, when you create or update a Lambda function or layer from a .zip file archive, Lambda stores a copy of your code in Lambda-managed storage. Each AWS account has a 300 GB quota for Lambda-managed storage per Region.
 
@@ -6,38 +9,42 @@ With self-managed S3 code storage, you can configure Lambda to reference your co
 
 Self-managed S3 code storage is available for all functions and layers created and updated using .zip file archives. It is compatible with all S3 storage classes except Glacier storage classes.
 
-###### Note
-
+**Note**  
 Self-managed S3 code storage does not change the maximum .zip deployment package size, which remains at 250 MB (unzipped).
 
-###### Topics
-
-- [Setting up self-managed S3 code storage](#self-managed-storage-setup "#self-managed-storage-setup")
-- [Configuring permissions](#self-managed-storage-permissions "#self-managed-storage-permissions")
-- [Creating a function with self-managed S3 storage](#self-managed-storage-create-function "#self-managed-storage-create-function")
-- [Using self-managed S3 storage with layers](#self-managed-storage-layers "#self-managed-storage-layers")
-- [Switching between storage modes](#self-managed-storage-switching "#self-managed-storage-switching")
-- [Function lifecycle with self-managed storage](#self-managed-storage-lifecycle "#self-managed-storage-lifecycle")
-- [Cross-account and cross-Region usage](#self-managed-storage-cross-account "#self-managed-storage-cross-account")
-- [Considerations](#self-managed-storage-considerations "#self-managed-storage-considerations")
+**Topics**
++ [Setting up self-managed S3 code storage](#self-managed-storage-setup)
++ [Configuring permissions](#self-managed-storage-permissions)
++ [Creating a function with self-managed S3 storage](#self-managed-storage-create-function)
++ [Using self-managed S3 storage with layers](#self-managed-storage-layers)
++ [Switching between storage modes](#self-managed-storage-switching)
++ [Function lifecycle with self-managed storage](#self-managed-storage-lifecycle)
++ [Cross-account and cross-Region usage](#self-managed-storage-cross-account)
++ [Considerations](#self-managed-storage-considerations)
 
 ## Setting up self-managed S3 code storage
+<a name="self-managed-storage-setup"></a>
 
 To use self-managed S3 code storage, complete the following steps:
 
 1. Create an S3 bucket or use an existing bucket in your account.
-2. Enable [S3 versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") for the bucket. Lambda requires S3 versioning to track which version of your source object to use. Each time you upload a new .zip package, S3 creates a new version so Lambda can distinguish updates.
-3. Upload your .zip deployment package to the S3 bucket.
-4. Grant the Lambda service principal `s3:GetObject` and `s3:GetObjectVersion` permissions for the source object. See [Configuring permissions](#self-managed-storage-permissions "#self-managed-storage-permissions").
-5. Create or update your function or layer, specifying the S3 object, S3 key, S3 object version, and setting `S3ObjectStorageMode` to `REFERENCE`.
+
+1. Enable [S3 versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html) for the bucket. Lambda requires S3 versioning to track which version of your source object to use. Each time you upload a new .zip package, S3 creates a new version so Lambda can distinguish updates.
+
+1. Upload your .zip deployment package to the S3 bucket.
+
+1. Grant the Lambda service principal `s3:GetObject` and `s3:GetObjectVersion` permissions for the source object. See [Configuring permissions](#self-managed-storage-permissions).
+
+1. Create or update your function or layer, specifying the S3 object, S3 key, S3 object version, and setting `S3ObjectStorageMode` to `REFERENCE`.
 
 ## Configuring permissions
+<a name="self-managed-storage-permissions"></a>
 
 To use self-managed S3 code storage, grant the Lambda service principal (`lambda.amazonaws.com`) permission to access your source objects. Add the following S3 bucket policy:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "LambdaSelfManagedCodeAccess",
@@ -47,14 +54,14 @@ To use self-managed S3 code storage, grant the Lambda service principal (`lambda
         "s3:GetObjectVersion"
       ],
       "Resource": [
-        "arn:aws:s3:::`my-bucket`/`my-function.zip`"
+        "arn:aws:s3:::{{my-bucket}}/{{my-function.zip}}"
       ],
       "Principal": {
         "Service": "lambda.amazonaws.com"
       },
       "Condition": {
         "ArnLike": {
-          "aws:SourceArn": "arn:aws:lambda:`us-east-1`:`111122223333`:function:`my-function`"
+          "aws:SourceArn": "arn:aws:lambda:{{us-east-1}}:{{111122223333}}:function:{{my-function}}"
         }
       }
     }
@@ -63,60 +70,67 @@ To use self-managed S3 code storage, grant the Lambda service principal (`lambda
 ```
 
 ## Creating a function with self-managed S3 storage
+<a name="self-managed-storage-create-function"></a>
 
 You can create a function with self-managed S3 code storage using the console, the AWS CLI, or AWS CloudFormation.
 
-###### Note
-
+**Note**  
 The Lambda console code editor is not available for functions that use Reference mode. To edit function code, update the .zip file in your S3 bucket and update the function.
 
 ### Using the console
+<a name="self-managed-storage-console"></a>
 
 When you update a function from an S3 location in the Lambda console, you can choose the code storage mode.
 
-###### To update a function to use Reference mode (console)
+**To update a function to use Reference mode (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Choose the function to update and choose the **Code** tab.
-3. Under **Code source**, choose **Update**, then choose **Update from a file in Amazon S3**.
-4. For **Amazon S3 link URL**, enter the S3 link URL of your .zip file.
-5. Under **Code storage mode**, choose **Reference mode**.
-6. Choose **Save**.
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+
+1. Choose the function to update and choose the **Code** tab.
+
+1. Under **Code source**, choose **Update**, then choose **Update from a file in Amazon S3**.
+
+1. For **Amazon S3 link URL**, enter the S3 link URL of your .zip file.
+
+1. Under **Code storage mode**, choose **Reference mode**.
+
+1. Choose **Save**.
 
 After you configure Reference mode, the **Code properties** section on the function's **Code** tab displays **Code storage mode: Reference** and the **S3 location** pointing to your S3 bucket.
 
 ### Using the AWS CLI
+<a name="self-managed-storage-cli"></a>
 
 Use the `create-function` command with the `S3ObjectStorageMode=REFERENCE` parameter:
 
 ```
-`aws lambda create-function \
- --function-name my-function \
- --runtime python3.12 \
- --role arn:aws:iam::111122223333:role/lambda-execution-role \
- --handler lambda_function.lambda_handler \
- --code S3Bucket=`my-bucket`,\
-S3Key=`my-function.zip`,\
-S3ObjectVersion=`abc123def456`,\
-S3ObjectStorageMode=REFERENCE`
+aws lambda create-function \
+  --function-name my-function \
+  --runtime python3.12 \
+  --role arn:aws:iam::111122223333:role/lambda-execution-role \
+  --handler lambda_function.lambda_handler \
+  --code S3Bucket={{my-bucket}},\
+S3Key={{my-function.zip}},\
+S3ObjectVersion={{abc123def456}},\
+S3ObjectStorageMode=REFERENCE
 ```
 
 To update an existing function to use self-managed S3 storage:
 
 ```
-`aws lambda update-function-code \
- --function-name my-function \
- --s3-bucket `my-bucket` \
- --s3-key `my-function.zip` \
- --s3-object-version `abc123def456` \
- --s3-object-storage-mode REFERENCE`
+aws lambda update-function-code \
+  --function-name my-function \
+  --s3-bucket {{my-bucket}} \
+  --s3-key {{my-function.zip}} \
+  --s3-object-version {{abc123def456}} \
+  --s3-object-storage-mode REFERENCE
 ```
 
-###### Important
-
+**Important**  
 You must specify `S3ObjectStorageMode=REFERENCE` on every call to `update-function-code`. If you omit `S3ObjectStorageMode`, it defaults to `COPY` and Lambda stores your code in Lambda-managed storage.
 
 ### Using AWS CloudFormation
+<a name="self-managed-storage-cfn"></a>
 
 In your CloudFormation template, set `S3ObjectStorageMode` to `REFERENCE` in the `Code` property of the `AWS::Lambda::Function` resource:
 
@@ -130,49 +144,51 @@ Resources:
       Handler: lambda_function.lambda_handler
       Role: !GetAtt LambdaExecutionRole.Arn
       Code:
-        S3Bucket: `my-bucket`
-        S3Key: `my-function.zip`
-        S3ObjectVersion: `abc123def456`
+        S3Bucket: {{my-bucket}}
+        S3Key: {{my-function.zip}}
+        S3ObjectVersion: {{abc123def456}}
         S3ObjectStorageMode: REFERENCE
 ```
 
 ## Using self-managed S3 storage with layers
+<a name="self-managed-storage-layers"></a>
 
 You can also use self-managed S3 code storage for layer versions. Use the `publish-layer-version` command with `S3ObjectStorageMode=REFERENCE`:
 
 ```
-`aws lambda publish-layer-version \
- --layer-name my-layer \
- --content S3Bucket=`my-bucket`,S3Key=`my-layer.zip`,S3ObjectStorageMode=REFERENCE \
- --compatible-runtimes python3.12`
+aws lambda publish-layer-version \
+  --layer-name my-layer \
+  --content S3Bucket={{my-bucket}},S3Key={{my-layer.zip}},S3ObjectStorageMode=REFERENCE \
+  --compatible-runtimes python3.12
 ```
 
 You can use any combination of Lambda-managed and self-managed storage for function code and layer code.
 
 ## Switching between storage modes
+<a name="self-managed-storage-switching"></a>
 
 You can switch between Lambda-managed and self-managed S3 code storage when you update your function code or publish a new layer version. Set `S3ObjectStorageMode` to either `COPY` or `REFERENCE`:
-
-- `COPY` (default) – Lambda copies your source code to Lambda-managed storage.
-- `REFERENCE` – Lambda references your source code directly from your S3 bucket without storing a copy.
++ `COPY` (default) – Lambda copies your source code to Lambda-managed storage.
++ `REFERENCE` – Lambda references your source code directly from your S3 bucket without storing a copy.
 
 When you switch from `COPY` to `REFERENCE`, Lambda deletes the Lambda-managed copy of your source code. When you switch from `REFERENCE` to `COPY`, Lambda makes a copy of your source code in Lambda-managed storage. Switching to `COPY` fails if you exceed the Lambda-managed code storage limit.
 
 ## Function lifecycle with self-managed storage
+<a name="self-managed-storage-lifecycle"></a>
 
 Lambda periodically accesses the source object from your S3 bucket to reoptimize your function code. You must maintain access to the source object for your function to remain active.
-
-- If Lambda loses access to the source object for a function, the function transitions to the `Inactive` state. To restore the function, restore access to the source object and update the function.
-- If Lambda loses access to the source object for a layer, the function remains `Active`. You can update function configuration (without updating layers), update function code, or update function configuration with new layers. However, updating function configuration with the inaccessible layer fails.
++ If Lambda loses access to the source object for a function, the function transitions to the `Inactive` state. To restore the function, restore access to the source object and update the function.
++ If Lambda loses access to the source object for a layer, the function remains `Active`. You can update function configuration (without updating layers), update function code, or update function configuration with new layers. However, updating function configuration with the inaccessible layer fails.
 
 ## Cross-account and cross-Region usage
+<a name="self-managed-storage-cross-account"></a>
 
-You can create functions and layers from source code in S3 buckets in different accounts and in different Regions. Cross-Region object retrieval incurs additional S3 data transfer costs. See [S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/") for details.
+You can create functions and layers from source code in S3 buckets in different accounts and in different Regions. Cross-Region object retrieval incurs additional S3 data transfer costs. See [S3 pricing](https://aws.amazon.com/s3/pricing/) for details.
 
 ## Considerations
-
-- Self-managed S3 code storage is available for .zip file archive functions and layers only. Container image functions continue to use Amazon ECR.
-- The maximum .zip deployment package size (250 MB unzipped) is unchanged.
-- You pay standard Amazon S3 storage rates for code stored in your self-managed buckets. Lambda does not charge for S3 object retrieval within the same Region.
-- Self-managed S3 code storage is compatible with all S3 storage classes except Glacier storage classes.
-- You can use S3 features like S3 Cross-Region Replication to share artifacts across Regions and S3 lifecycle policies to manage objects.
+<a name="self-managed-storage-considerations"></a>
++ Self-managed S3 code storage is available for .zip file archive functions and layers only. Container image functions continue to use Amazon ECR.
++ The maximum .zip deployment package size (250 MB unzipped) is unchanged.
++ You pay standard Amazon S3 storage rates for code stored in your self-managed buckets. Lambda does not charge for S3 object retrieval within the same Region.
++ Self-managed S3 code storage is compatible with all S3 storage classes except Glacier storage classes.
++ You can use S3 features like S3 Cross-Region Replication to share artifacts across Regions and S3 lifecycle policies to manage objects.

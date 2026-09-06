@@ -1,43 +1,29 @@
-# Getting started with example applications and patterns
 
-The following resources can be used to quickly create and deploy serverless apps that implement some common Lambda uses cases. For each of the example apps, we
-provide instructions to either create and configure resources manually using the AWS Management Console, or to
-use the AWS Serverless Application Model to deploy the resources using IaC. Follow the console intructions to learn more about configuring the individual AWS
-resources for each app, or use to AWS SAM to quickly deploy resources as you would in a production environment.
+
+# Getting started with example applications and patterns
+<a name="example-apps"></a>
+
+The following resources can be used to quickly create and deploy serverless apps that implement some common Lambda uses cases. For each of the example apps, we provide instructions to either create and configure resources manually using the AWS Management Console, or to use the AWS Serverless Application Model to deploy the resources using IaC. Follow the console intructions to learn more about configuring the individual AWS resources for each app, or use to AWS SAM to quickly deploy resources as you would in a production environment.
 
 ## File Processing
-
-- **[PDF Encryption Application](file-processing-app.md "file-processing-app.md")**: Create a serverless application that encrypts PDF files
-  when they are uploaded to an Amazon Simple Storage Service bucket and saves them to another bucket, which is useful for securing sensitive documents upon upload.
-
-- **[Image Analysis Application](../../../serverless-application-model/latest/developerguide/serverless-example-s3.md "../../../serverless-application-model/latest/developerguide/serverless-example-s3.md")**: Create a serverless application
-  that extracts text from images using Amazon Rekognition, which is useful for document processing, content moderation, and automated image analysis.
+<a name="examples-apps-file"></a>
++ **[PDF Encryption Application](file-processing-app.md)**: Create a serverless application that encrypts PDF files when they are uploaded to an Amazon Simple Storage Service bucket and saves them to another bucket, which is useful for securing sensitive documents upon upload.
++ **[Image Analysis Application](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-example-s3.html)**: Create a serverless application that extracts text from images using Amazon Rekognition, which is useful for document processing, content moderation, and automated image analysis.
 
 ## Database Integration
-
-- **[Queue-to-Database Application](../../../AmazonRDS/latest/UserGuide/rds-lambda-tutorial.md "../../../AmazonRDS/latest/UserGuide/rds-lambda-tutorial.md")**: Create a serverless application that writes queue
-  messages to an Amazon RDS database, which is useful for processing user registrations and handling order submissions.
-
-- **[Database Event Handler](../../../serverless-application-model/latest/developerguide/serverless-example-ddb.md "../../../serverless-application-model/latest/developerguide/serverless-example-ddb.md")**: Create a serverless application
-  that responds to Amazon DynamoDB table changes, which is useful for audit logging, data replication, and automated workflows.
+<a name="examples-apps-database"></a>
++ **[Queue-to-Database Application](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-lambda-tutorial.html)**: Create a serverless application that writes queue messages to an Amazon RDS database, which is useful for processing user registrations and handling order submissions.
++ **[Database Event Handler](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-example-ddb.html)**: Create a serverless application that responds to Amazon DynamoDB table changes, which is useful for audit logging, data replication, and automated workflows.
 
 ## Scheduled Tasks
-
-- **[Database Maintenance Application](scheduled-task-app.md "scheduled-task-app.md")**: Create a serverless application that automatically
-  deletes entries older than 12 months from an Amazon DynamoDB table on a cron schedule. This is useful for automated database maintenance and data lifecycle management.
-- **[Create an EventBridge Scheduler schedule for Lambda functions](with-eventbridge-scheduler.md "with-eventbridge-scheduler.md")**:
-  Use EventBridge Scheduler to invoke a Lambda function on a one-time or recurring schedule. EventBridge Scheduler supports cron and rate expressions,
-  flexible time windows, retry policies, and dead-letter queues. You can create a schedule directly from the Lambda
-  console using the Add trigger flow, or from the EventBridge Scheduler console.
+<a name="examples-apps-scheduled"></a>
++ **[Database Maintenance Application](scheduled-task-app.md)**: Create a serverless application that automatically deletes entries older than 12 months from an Amazon DynamoDB table on a cron schedule. This is useful for automated database maintenance and data lifecycle management.
++ **[Create an EventBridge Scheduler schedule for Lambda functions](with-eventbridge-scheduler.md)**: Use EventBridge Scheduler to invoke a Lambda function on a one-time or recurring schedule. EventBridge Scheduler supports cron and rate expressions, flexible time windows, retry policies, and dead-letter queues. You can create a schedule directly from the Lambda console using the Add trigger flow, or from the EventBridge Scheduler console.
 
 ## Additional resources
+<a name="examples-apps-additional-resources"></a>
 
 Use the following resources to further explore Lambda and serverless application development:
-
-- **[Serverless Land](https://serverlessland.com/ "https://serverlessland.com/")**: a library of ready-to-use patterns for building serverless apps.
-  It helps developers create applications faster using AWS services like Lambda,
-  API Gateway, and EventBridge. The site offers pre-built solutions and best practices, making it easier to develop serverless systems.
-- **[Lambda sample applications](lambda-samples.md "lambda-samples.md")**: Applications that are available in the GitHub repository for this guide.
-  These samples demonstrate the use of various languages and AWS services. Each sample application includes scripts for easy deployment and cleanup and supporting resources.
-- **[Code examples for Lambda using AWS SDKs](service_code_examples.md "service_code_examples.md")**: Examples that show you how to use Lambda with AWS software development kits (SDKs).
-  These examples include basics, actions, scenarios, and AWS community contributions. Examples cover essential operations, individual service functions, and specific tasks using multiple functions or AWS services.
++ **[Serverless Land](https://serverlessland.com/)**: a library of ready-to-use patterns for building serverless apps. It helps developers create applications faster using AWS services like Lambda, API Gateway, and EventBridge. The site offers pre-built solutions and best practices, making it easier to develop serverless systems.
++ **[Lambda sample applications](https://docs.aws.amazon.com/lambda/latest/dg/lambda-samples.html)**: Applications that are available in the GitHub repository for this guide. These samples demonstrate the use of various languages and AWS services. Each sample application includes scripts for easy deployment and cleanup and supporting resources.
++ **[Code examples for Lambda using AWS SDKs](https://docs.aws.amazon.com/lambda/latest/dg/service_code_examples.html)**: Examples that show you how to use Lambda with AWS software development kits (SDKs). These examples include basics, actions, scenarios, and AWS community contributions. Examples cover essential operations, individual service functions, and specific tasks using multiple functions or AWS services.

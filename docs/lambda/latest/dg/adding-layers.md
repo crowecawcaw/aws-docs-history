@@ -1,73 +1,77 @@
+
+
 # Adding layers to functions
+<a name="adding-layers"></a>
 
-A Lambda layer is a .zip file archive that contains supplementary code or data.
-Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md "runtimes-custom.md"),
-or configuration files.
+A Lambda layer is a .zip file archive that contains supplementary code or data. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. 
 
-This section explains how to add a layer to a Lambda function. For more conceptual
-information about layers and why you might consider using them, see
-[Managing Lambda dependencies with layers](chapter-layers.md "chapter-layers.md").
+This section explains how to add a layer to a Lambda function. For more conceptual information about layers and why you might consider using them, see [Managing Lambda dependencies with layers](chapter-layers.md).
 
 Before you can configure a Lambda function to use a layer, you must:
++ [Package your layer content](packaging-layers.md)
++ [Create a layer in Lambda](creating-deleting-layers.md)
++ Make sure that you have permission to call the [GetLayerVersion](https://docs.aws.amazon.com/lambda/latest/api/API_GetLayerVersion.html) API on the layer version. For functions in your AWS account, you must have this permission in your [user policy](access-control-identity-based.md). To use a layer in another account, the owner of that account must grant your account permission in a [resource-based policy](access-control-resource-based.md). For examples, see [Granting Lambda layer access to other accounts](permissions-layer-cross-account.md).
 
-- [Package your layer content](packaging-layers.md "packaging-layers.md")
-- [Create a layer in Lambda](creating-deleting-layers.md "creating-deleting-layers.md")
-- Make sure that you have permission to call the [GetLayerVersion](../api/API_GetLayerVersion.md "../api/API_GetLayerVersion.md") API on the
-  layer version. For functions in your AWS account, you must have this permission in
-  your [user policy](access-control-identity-based.md "access-control-identity-based.md"). To use a layer
-  in another account, the owner of that account must grant your account permission in a
-  [resource-based policy](access-control-resource-based.md "access-control-resource-based.md"). For
-  examples, see [Granting Lambda layer access to other accounts](permissions-layer-cross-account.md "permissions-layer-cross-account.md").
-  You can add up to five layers to a Lambda function. The total unzipped size of the
-  function and all layers cannot exceed the unzipped deployment package size quota of 250 MB.
-  For more information, see [Lambda quotas](gettingstarted-limits.md "gettingstarted-limits.md").
+You can add up to five layers to a Lambda function. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size quota of 250 MB. For more information, see [Lambda quotas](gettingstarted-limits.md).
 
-Your functions can continue to use any layer version that you've already added, even
-after that layer version has been deleted, or after your permission to access the layer
-is revoked. However, you cannot create a new function that uses a deleted layer version.
+Your functions can continue to use any layer version that you've already added, even after that layer version has been deleted, or after your permission to access the layer is revoked. However, you cannot create a new function that uses a deleted layer version.
 
-###### To add a layer to a function
+**To add a layer to a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Choose the function.
-3. Scroll down to the **Layers** section, and then choose **Add a layer**.
-4. Under **Choose a layer**, choose a layer source:
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-   1. **AWS layers**: Choose from the list of [AWS-managed extensions](extensions-api-partners.md#aws-managed-extensions "extensions-api-partners.md#aws-managed-extensions").
-   2. **Custom layers**: Choose a layer created in your AWS account.
-   3. **Specify an ARN**: To use a layer [from a different AWS account](permissions-layer-cross-account.md "permissions-layer-cross-account.md"), such as a [third-party extension](extensions-api-partners.md "extensions-api-partners.md"), enter the Amazon Resource Name (ARN).
+1. Choose the function.
 
-5. Choose **Add**.
-   The order in which you add the layers is the order in which Lambda merges the layer content
-   into the execution environment. You can change the layer merge order using the console.
+1. Scroll down to the **Layers** section, and then choose **Add a layer**.
 
-###### To update layer merge order for your function (console)
+1. Under **Choose a layer**, choose a layer source:
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Choose the function to configure.
-3. Under **Layers**, choose **Edit**
-4. Choose one of the layers.
-5. Choose **Merge earlier** or **Merge later** to adjust the order of the layers.
-6. Choose **Save**.
-   Layers are versioned. The content of each layer version is immutable. The owner of a
-   layer can release new layer versions to provide updated content. You can use the console
-   to update the layer version attached to your functions.
+   1. **AWS layers**: Choose from the list of [AWS-managed extensions](extensions-api-partners.md#aws-managed-extensions).
 
-###### To update layer versions for your function (console)
+   1. **Custom layers**: Choose a layer created in your AWS account.
 
-1. Open the [Layers page](https://console.aws.amazon.com/lambda/home#/layers "https://console.aws.amazon.com/lambda/home#/layers")
-   of the Lambda console.
-2. Choose the layer you want to update the version for.
-3. Choose the **Functions using this version** tab.
-4. Choose the functions you want to modify, then choose **Edit**.
-5. For **Layer version**, choose the layer version to change to.
-6. Choose **Update functions**.
-   You cannot update function layer versions across AWS accounts.
+   1. **Specify an ARN**: To use a layer [from a different AWS account](permissions-layer-cross-account.md), such as a [third-party extension](extensions-api-partners.md), enter the Amazon Resource Name (ARN).
+
+1. Choose **Add**.
+
+The order in which you add the layers is the order in which Lambda merges the layer content into the execution environment. You can change the layer merge order using the console.
+
+**To update layer merge order for your function (console)**
+
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+
+1. Choose the function to configure.
+
+1. Under **Layers**, choose **Edit**
+
+1. Choose one of the layers.
+
+1. Choose **Merge earlier** or **Merge later** to adjust the order of the layers.
+
+1. Choose **Save**.
+
+Layers are versioned. The content of each layer version is immutable. The owner of a layer can release new layer versions to provide updated content. You can use the console to update the layer version attached to your functions.
+
+**To update layer versions for your function (console)**
+
+1. Open the [Layers page](https://console.aws.amazon.com/lambda/home#/layers) of the Lambda console.
+
+1. Choose the layer you want to update the version for.
+
+1. Choose the **Functions using this version** tab.
+
+1. Choose the functions you want to modify, then choose **Edit**.
+
+1. For **Layer version**, choose the layer version to change to.
+
+1. Choose **Update functions**.
+
+You cannot update function layer versions across AWS accounts.
 
 ## Finding layer information
+<a name="finding-layer-information"></a>
 
-To find layers in your account that are compatible with your function's runtime,
-use the [ListLayers](../api/API_ListLayers.md "../api/API_ListLayers.md") API. For example, you can use the following [list-layers](../../../cli/latest/reference/lambda/list-layers.md "../../../cli/latest/reference/lambda/list-layers.md") AWS Command Line Interface (CLI) command:
+To find layers in your account that are compatible with your function's runtime, use the [ListLayers](https://docs.aws.amazon.com/lambda/latest/api/API_ListLayers.html) API. For example, you can use the following [list-layers](https://docs.aws.amazon.com/cli/latest/reference/lambda/list-layers.html) AWS Command Line Interface (CLI) command:
 
 ```
 aws lambda list-layers --compatible-runtime python3.14
@@ -95,11 +99,9 @@ You should see output similar to the following:
 }
 ```
 
-To list all layers in your account, omit the `--compatible-runtime` option.
-The response details show the latest version of each layer.
+To list all layers in your account, omit the `--compatible-runtime` option. The response details show the latest version of each layer.
 
-You can also get the latest version of a layer using the [ListLayerVersions](../api/API_ListLayerVersions.md "../api/API_ListLayerVersions.md") API.
-For example, you can use the following `list-layer-versions` CLI command:
+You can also get the latest version of a layer using the [ListLayerVersions](https://docs.aws.amazon.com/lambda/latest/api/API_ListLayerVersions.html) API. For example, you can use the following `list-layer-versions` CLI command:
 
 ```
 aws lambda list-layer-versions --layer-name my-layer

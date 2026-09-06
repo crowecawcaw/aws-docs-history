@@ -1,23 +1,23 @@
+
+
 # Use `GetProvisionedConcurrencyConfig` with a CLI
+<a name="example_lambda_GetProvisionedConcurrencyConfig_section"></a>
 
 The following code examples show how to use `GetProvisionedConcurrencyConfig`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To view a provisioned concurrency configuration**
-
-The following `get-provisioned-concurrency-config` example displays details for the provisioned concurrency configuration for the `BLUE` alias of the specified function.
-
-```
-`aws lambda get-provisioned-concurrency-config \
- --function-name `my-function` \
- --qualifier `BLUE``
+**AWS CLI**  
+**To view a provisioned concurrency configuration**  
+The following `get-provisioned-concurrency-config` example displays details for the provisioned concurrency configuration for the `BLUE` alias of the specified function.  
 
 ```
-
-Output:
+aws lambda get-provisioned-concurrency-config \
+    --function-name {{my-function}} \
+    --qualifier {{BLUE}}
+```
+Output:  
 
 ```
 {
@@ -28,23 +28,18 @@ Output:
     "LastModified": "2019-12-31T20:28:49+0000"
 }
 ```
++  For API details, see [GetProvisionedConcurrencyConfig](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-provisioned-concurrency-config.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetProvisionedConcurrencyConfig](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-provisioned-concurrency-config.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-provisioned-concurrency-config.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example gets the provisioned Concurrency Configuration for the specified Alias of the Lambda Function.**
+**Tools for PowerShell V4**  
+**Example 1: This example gets the provisioned Concurrency Configuration for the specified Alias of the Lambda Function.**  
 
 ```
 C:\>Get-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -Qualifier "NewAlias1"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllocatedProvisionedConcurrentExecutions : 0
@@ -54,21 +49,15 @@ RequestedProvisionedConcurrentExecutions : 70
 Status                                   : IN_PROGRESS
 StatusReason                             :
 ```
++  For API details, see [GetProvisionedConcurrencyConfig](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetProvisionedConcurrencyConfig](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example gets the provisioned Concurrency Configuration for the specified Alias of the Lambda Function.**
+**Tools for PowerShell V5**  
+**Example 1: This example gets the provisioned Concurrency Configuration for the specified Alias of the Lambda Function.**  
 
 ```
 C:\>Get-LMProvisionedConcurrencyConfig -FunctionName "MylambdaFunction123" -Qualifier "NewAlias1"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllocatedProvisionedConcurrentExecutions : 0
@@ -78,11 +67,8 @@ RequestedProvisionedConcurrentExecutions : 70
 Status                                   : IN_PROGRESS
 StatusReason                             :
 ```
++  For API details, see [GetProvisionedConcurrencyConfig](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetProvisionedConcurrencyConfig](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,25 +1,22 @@
+
+
 # Use `DeleteFunction` with an AWS SDK or CLI
+<a name="example_lambda_DeleteFunction_section"></a>
 
 The following code examples show how to use `DeleteFunction`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md) 
++  [Create a rest API with function proxy integration](example_api_gateway_GettingStarted_087_section.md) 
++  [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md) 
++  [Creating your first serverless function](example_lambda_GettingStarted_019_section.md) 
++  [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md) 
 
-- [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
-- [Create a rest API with function proxy integration](example_api_gateway_GettingStarted_087_section.md "example_api_gateway_GettingStarted_087_section.md")
-- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
-- [Creating your first serverless function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
-- [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
 ```
     /// <summary>
@@ -42,24 +39,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         // is intentionally blank.
         return response.HttpStatusCode == System.Net.HttpStatusCode.NoContent;
     }
-
-
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/DeleteFunction) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteFunction](../../../goto/DotNetSDKV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/DeleteFunction.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -82,72 +69,47 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                   << outcome.GetError().GetMessage()
                   << std::endl;
     }
+```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/DeleteFunction) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To delete a Lambda function by function name**  
+The following `delete-function` example deletes the Lambda function named `my-function` by specifying the function's name.  
 
 ```
-
-- For API details, see
-  [DeleteFunction](../../../goto/SdkForCpp/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForCpp/lambda-2015-03-31/DeleteFunction.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To delete a Lambda function by function name**
-
-The following `delete-function` example deletes the Lambda function named `my-function` by specifying the function's name.
+aws lambda delete-function \
+    --function-name {{my-function}}
+```
+This command produces no output.  
+**Example 2: To delete a Lambda function by function ARN**  
+The following `delete-function` example deletes the Lambda function named `my-function` by specifying the function's ARN.  
 
 ```
-`aws lambda delete-function \
- --function-name `my-function``
+aws lambda delete-function \
+    --function-name {{arn:aws:lambda:us-west-2:123456789012:function:my-function}}
+```
+This command produces no output.  
+**Example 3: To delete a Lambda function by partial function ARN**  
+The following `delete-function` example deletes the Lambda function named `my-function` by specifying the function's partial ARN.  
 
 ```
+aws lambda delete-function \
+    --function-name {{123456789012:function:my-function}}
+```
+This command produces no output.  
+For more information, see [AWS Lambda Function Configuration](https://docs.aws.amazon.com/lambda/latest/dg/resource-model.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [DeleteFunction](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/delete-function.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Go ]
 
-**Example 2: To delete a Lambda function by function ARN**
-
-The following `delete-function` example deletes the Lambda function named `my-function` by specifying the function's ARN.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
 ```
-`aws lambda delete-function \
- --function-name `arn:aws:lambda:us-west-2:123456789012:function:my-function``
-
-```
-
-This command produces no output.
-
-**Example 3: To delete a Lambda function by partial function ARN**
-
-The following `delete-function` example deletes the Lambda function named `my-function` by specifying the function's partial ARN.
-
-```
-`aws lambda delete-function \
- --function-name `123456789012:function:my-function``
-
-```
-
-This command produces no output.
-
-For more information, see [AWS Lambda Function Configuration](resource-model.md "resource-model.md") in the _AWS Lambda Developer Guide_.
-
-- For API details, see
-  [DeleteFunction](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/delete-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/delete-function.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples").
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -178,24 +140,14 @@ func (wrapper FunctionWrapper) DeleteFunction(ctx context.Context, functionName 
 		log.Panicf("Couldn't delete function %v. Here's why: %v\n", functionName, err)
 	}
 }
-
-
-
 ```
++  For API details, see [DeleteFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.DeleteFunction) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.DeleteFunction "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.DeleteFunction")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
 ```
     /**
@@ -220,23 +172,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteFunction](../../../goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
 ```
 /**
@@ -247,23 +190,14 @@ const deleteFunction = (funcName) => {
   const command = new DeleteFunctionCommand({ FunctionName: funcName });
   return client.send(command);
 };
-
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/DeleteFunctionCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteFunction](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/DeleteFunctionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/DeleteFunctionCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/lambda#code-examples). 
 
 ```
 suspend fun delLambdaFunction(myFunctionName: String) {
@@ -277,23 +211,14 @@ suspend fun delLambdaFunction(myFunctionName: String) {
         println("$myFunctionName was deleted")
     }
 }
-
-
 ```
++  For API details, see [DeleteFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
 ```
     public function deleteFunction($functionName)
@@ -302,51 +227,33 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             'FunctionName' => $functionName,
         ]);
     }
-
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/DeleteFunction) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DeleteFunction](../../../goto/SdkForPHPV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/DeleteFunction.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes a specific version of a Lambda function**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes a specific version of a Lambda function**  
 
 ```
 Remove-LMFunction -FunctionName "MylambdaFunction123" -Qualifier '3'
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteFunction](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes a specific version of a Lambda function**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes a specific version of a Lambda function**  
 
 ```
 Remove-LMFunction -FunctionName "MylambdaFunction123" -Qualifier '3'
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteFunction](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper:
@@ -366,24 +273,14 @@ class LambdaWrapper:
         except ClientError:
             logger.exception("Couldn't delete function %s.", function_name)
             raise
-
-
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/DeleteFunction) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteFunction](../../../goto/boto3/lambda-2015-03-31/DeleteFunction.md "../../../goto/boto3/lambda-2015-03-31/DeleteFunction.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper
@@ -408,23 +305,14 @@ class LambdaWrapper
   rescue Aws::Lambda::Errors::ServiceException => e
     @logger.error("There was an error deleting #{function_name}:\n #{e.message}")
   end
-
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/DeleteFunction) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteFunction](../../../goto/SdkForRubyV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/DeleteFunction.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
 ```
     /** Delete a function and its role, and if possible or necessary, its associated code object and bucket. */
@@ -473,23 +361,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
 
         (delete_function, delete_role, delete_object)
     }
-
-
 ```
++  For API details, see [DeleteFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.delete_function) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.delete_function "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.delete_function")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
 ```
     TRY.
@@ -506,23 +385,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_lmdtoomanyrequestsex.
         MESSAGE 'The maximum request throughput was reached.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteFunction](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteFunction](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
 ```
 import AWSClientRuntime
@@ -538,14 +408,9 @@ import Foundation
         } catch {
             print("Error: Unable to delete the function.")
         }
-
-
 ```
++  For API details, see [DeleteFunction](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/deletefunction(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteFunction](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/deletefunction(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/deletefunction(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,13 +1,13 @@
+
+
 # Process Application Load Balancer requests with Lambda
+<a name="services-alb"></a>
 
-You can use a Lambda function to process requests from an Application Load Balancer. Elastic Load Balancing supports Lambda functions as a target for
-an Application Load Balancer. Use load balancer rules to route HTTP requests to a function, based on path or header values. Process the
-request and return an HTTP response from your Lambda function.
+You can use a Lambda function to process requests from an Application Load Balancer. Elastic Load Balancing supports Lambda functions as a target for an Application Load Balancer. Use load balancer rules to route HTTP requests to a function, based on path or header values. Process the request and return an HTTP response from your Lambda function.
 
-Elastic Load Balancing invokes your Lambda function synchronously with an event that contains the request body and
-metadata.
+Elastic Load Balancing invokes your Lambda function synchronously with an event that contains the request body and metadata.
 
-###### Example Application Load Balancer request event
+**Example Application Load Balancer request event**  
 
 ```
 {
@@ -40,10 +40,9 @@ metadata.
 }
 ```
 
-Your function processes the event and returns a response document to the load balancer in JSON. Elastic Load Balancing converts
-the document to an HTTP success or error response and returns it to the user.
+Your function processes the event and returns a response document to the load balancer in JSON. Elastic Load Balancing converts the document to an HTTP success or error response and returns it to the user.
 
-###### Example response document format
+**Example response document format**  
 
 ```
 {
@@ -57,17 +56,14 @@ the document to an HTTP success or error response and returns it to the user.
 }
 ```
 
-To configure an Application Load Balancer as a function trigger, grant Elastic Load Balancing permission to run the function, create a target
-group that routes requests to the function, and add a rule to the load balancer that sends requests to the target
-group.
+To configure an Application Load Balancer as a function trigger, grant Elastic Load Balancing permission to run the function, create a target group that routes requests to the function, and add a rule to the load balancer that sends requests to the target group.
 
-Use the `add-permission` command to add a permission statement to your function's resource-based
-policy.
+Use the `add-permission` command to add a permission statement to your function's resource-based policy.
 
 ```
-`aws lambda add-permission --function-name `alb-function` \
+aws lambda add-permission --function-name {{alb-function}} \
 --statement-id load-balancer --action "lambda:InvokeFunction" \
---principal elasticloadbalancing.amazonaws.com`
+--principal elasticloadbalancing.amazonaws.com
 ```
 
 You should see the following output:
@@ -78,15 +74,15 @@ You should see the following output:
 }
 ```
 
-For instructions on configuring the Application Load Balancer listener and target group, see [Lambda functions as a target](../../../elasticloadbalancing/latest/application/lambda-functions.md "../../../elasticloadbalancing/latest/application/lambda-functions.md") in the
-_User Guide for Application Load Balancers_.
+For instructions on configuring the Application Load Balancer listener and target group, see [Lambda functions as a target](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/lambda-functions.html) in the *User Guide for Application Load Balancers*.
 
 ## Event Handler from Powertools for AWS Lambda
+<a name="services-alb-powertools"></a>
 
-The event handler from the Powertools for AWS Lambda toolkit provides routing, middleware, CORS configuration, OpenAPI spec generation, request validation, error handling, and other useful features when writing Lambda functions invoked by an Application Load Balancer.
-The Event Handler utility is available for Python. For more information, see [Event Handler REST API](../../../powertools/python/latest/core/event_handler/api_gateway.md "../../../powertools/python/latest/core/event_handler/api_gateway.md") in the _Powertools for AWS Lambda (Python) documentation_.
+The event handler from the Powertools for AWS Lambda toolkit provides routing, middleware, CORS configuration, OpenAPI spec generation, request validation, error handling, and other useful features when writing Lambda functions invoked by an Application Load Balancer. The Event Handler utility is available for Python. For more information, see [Event Handler REST API](https://docs.aws.amazon.com/powertools/python/latest/core/event_handler/api_gateway/) in the *Powertools for AWS Lambda (Python) documentation*.
 
 ### Python
+<a name="services-alb-powertools-python"></a>
 
 ```
 import requests

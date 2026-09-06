@@ -1,26 +1,27 @@
-# Log and monitor Ruby Lambda functions
 
-AWS Lambda automatically monitors Lambda functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md "monitoring-cloudwatchlogs.md").
+
+# Log and monitor Ruby Lambda functions
+<a name="ruby-logging"></a>
+
+AWS Lambda automatically monitors Lambda functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
 This page describes how to produce log output from your Lambda function's code, and access logs using the AWS Command Line Interface, the Lambda console, or the CloudWatch console.
 
-###### Sections
-
-- [Creating a function that returns logs](#ruby-logging-output "#ruby-logging-output")
-- [Using Lambda advanced logging controls with Ruby](#ruby-logging-advanced "#ruby-logging-advanced")
-- [Viewing logs in the Lambda console](#ruby-logging-console "#ruby-logging-console")
-- [Viewing logs in the CloudWatch console](#ruby-logging-cwconsole "#ruby-logging-cwconsole")
-- [Viewing logs using the AWS Command Line Interface (AWS CLI)](#ruby-logging-cli "#ruby-logging-cli")
-- [Deleting logs](#ruby-logging-delete "#ruby-logging-delete")
-- [Working with the Ruby logger library](#ruby-logging-lib "#ruby-logging-lib")
+**Topics**
++ [Creating a function that returns logs](#ruby-logging-output)
++ [Using Lambda advanced logging controls with Ruby](#ruby-logging-advanced)
++ [Viewing logs in the Lambda console](#ruby-logging-console)
++ [Viewing logs in the CloudWatch console](#ruby-logging-cwconsole)
++ [Viewing logs using the AWS Command Line Interface (AWS CLI)](#ruby-logging-cli)
++ [Deleting logs](#ruby-logging-delete)
++ [Working with the Ruby logger library](#ruby-logging-lib)
 
 ## Creating a function that returns logs
+<a name="ruby-logging-output"></a>
 
-To output logs from your function code, you can use `puts` statements, or any logging library that
-writes to `stdout` or `stderr`. The following example logs the values of environment variables
-and the event object. For information about the context object available to your handler, see [Using the Lambda context object to retrieve Ruby function information](ruby-context.md "ruby-context.md").
+To output logs from your function code, you can use `puts` statements, or any logging library that writes to `stdout` or `stderr`. The following example logs the values of environment variables and the event object. For information about the context object available to your handler, see [Using the Lambda context object to retrieve Ruby function information](ruby-context.md).
 
-###### Example lambda\_function.rb
+**Example lambda\_function.rb**  
 
 ```
 # lambda_function.rb
@@ -33,7 +34,7 @@ def handler(event:, context:)
 end
 ```
 
-###### Example log format
+**Example log format**  
 
 ```
 START RequestId: 8f507cfc-xmpl-4697-b07a-ac58fc914c95 Version: $LATEST
@@ -46,59 +47,54 @@ REPORT RequestId: 8f507cfc-xmpl-4697-b07a-ac58fc914c95  Duration: 15.74 ms  Bill
 XRAY TraceId: 1-5e34a614-10bdxmplf1fb44f07bc535a1   SegmentId: 07f5xmpl2d1f6f85 Sampled: true
 ```
 
-The Ruby runtime logs the `START`, `END`, and `REPORT` lines for each
-invocation. The report line provides the following details.
+The Ruby runtime logs the `START`, `END`, and `REPORT` lines for each invocation. The report line provides the following details.
 
-###### REPORT line data fields
+**REPORT line data fields**
++ **RequestId** – The unique request ID for the invocation.
++ **Duration** – The amount of time that your function's handler method spent processing the event.
++ **Billed Duration** – The amount of time billed for the invocation.
++ **Memory Size** – The amount of memory allocated to the function.
++ **Max Memory Used** – The amount of memory used by the function. When invocations share an execution environment, Lambda reports the maximum memory used across all invocations. This behavior might result in a higher than expected reported value.
++ **Init Duration** – For the first request served, the amount of time it took the runtime to load the function and run code outside of the handler method.
++ **XRAY TraceId** – For traced requests, the [AWS X-Ray trace ID](services-xray.md).
++ **SegmentId** – For traced requests, the X-Ray segment ID.
++ **Sampled** – For traced requests, the sampling result.
 
-- **RequestId** – The unique request ID for the invocation.
-- **Duration** – The amount of time that your function's handler method
-  spent processing the event.
-- **Billed Duration** – The amount of time billed for the
-  invocation.
-- **Memory Size** – The amount of memory allocated to the function.
-- **Max Memory Used** – The amount of memory used by the function. When invocations share an execution environment,
-  Lambda reports the maximum memory used across all invocations. This behavior might result in a higher than expected reported value.
-- **Init Duration** – For the first request served, the amount of time it
-  took the runtime to load the function and run code outside of the handler method.
-- **XRAY TraceId** – For traced requests, the [AWS X-Ray trace ID](services-xray.md "services-xray.md").
-- **SegmentId** – For traced requests, the X-Ray segment ID.
-- **Sampled** – For traced requests, the sampling result.
-
-For more detailed logs, use the [Working with the Ruby logger library](#ruby-logging-lib "#ruby-logging-lib").
+For more detailed logs, use the [Working with the Ruby logger library](#ruby-logging-lib).
 
 ## Using Lambda advanced logging controls with Ruby
+<a name="ruby-logging-advanced"></a>
 
 To give you more control over how your functions' logs are captured, processed, and consumed, Lambda offers advanced logging controls with Ruby. For Ruby 4.0 and later runtimes, you can configure the following logging options:
++ **Log format** - select between plain text and structured JSON format for your function's logs
++ **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to Amazon CloudWatch, such as ERROR, DEBUG, or INFO
++ **Log group** - choose the CloudWatch log group your function sends logs to
 
-- **Log format** - select between plain text and structured JSON format for your function's logs
-- **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to Amazon CloudWatch, such as ERROR, DEBUG, or INFO
-- **Log group** - choose the CloudWatch log group your function sends logs to
-
-For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
+For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 
 To learn more about using the log format and log level options with your Ruby Lambda functions, see the guidance in the following sections.
 
 ### Using structured JSON logs with Ruby
+<a name="ruby-logging-json"></a>
 
 If you select JSON for your function's log format, Lambda will send logs output by the Ruby standard `Logger` library to CloudWatch as structured JSON. Each JSON log object contains at least four key value pairs with the following keys:
-
-- `"timestamp"` - the time the log message was generated
-- `"level"` - the log level assigned to the message
-- `"message"` - the contents of the log message
-- `"requestId"` - the unique request ID for the function invocation
++ `"timestamp"` - the time the log message was generated
++ `"level"` - the log level assigned to the message
++ `"message"` - the contents of the log message
++ `"requestId"` - the unique request ID for the function invocation
 
 The Ruby `Logger` library can also add extra key value pairs such as `"logger"` to this JSON object.
 
 The examples in the following sections show how log outputs generated using the Ruby `Logger` library are captured in CloudWatch Logs when you configure your function's log format as JSON.
 
-Note that if you use the `puts` method to produce basic log outputs as described in [Creating a function that returns logs](#ruby-logging-output "#ruby-logging-output"), Lambda will capture these outputs as plain text, even if you configure your function's logging format as JSON.
+Note that if you use the `puts` method to produce basic log outputs as described in [Creating a function that returns logs](#ruby-logging-output), Lambda will capture these outputs as plain text, even if you configure your function's logging format as JSON.
 
 ### Standard JSON log outputs using Ruby Logger library
+<a name="ruby-logging-json-standard"></a>
 
 The following example code snippet and log output show how standard log outputs generated using the Ruby `Logger` library are captured in CloudWatch Logs when your function's log format is set to JSON.
 
-###### Example Ruby logging code
+**Example Ruby logging code**  
 
 ```
 require 'logger'
@@ -109,7 +105,7 @@ def lambda_handler(event:, context:)
 end
 ```
 
-###### Example JSON log record
+**Example JSON log record**  
 
 ```
 {
@@ -121,10 +117,11 @@ end
 ```
 
 ### Logging extra parameters in JSON
+<a name="ruby-logging-json-extra-params"></a>
 
 When your function's log format is set to JSON, you can also log additional parameters with the Ruby `Logger` library by passing a hash of extra key value pairs to the log output.
 
-###### Example Ruby logging code
+**Example Ruby logging code**  
 
 ```
 require 'logger'
@@ -137,7 +134,7 @@ def lambda_handler(event:, context:)
 end
 ```
 
-###### Example JSON log record
+**Example JSON log record**  
 
 ```
 {
@@ -153,10 +150,11 @@ end
 ```
 
 ### Logging exceptions in JSON
+<a name="ruby-logging-json-exceptions"></a>
 
 The following code snippet shows how Ruby exceptions are captured in your function's log output when you configure the log format as JSON. Note that log outputs generated using `logger.error` with an exception are assigned the log level ERROR.
 
-###### Example Ruby logging code
+**Example Ruby logging code**  
 
 ```
 require 'logger'
@@ -171,7 +169,7 @@ def lambda_handler(event:, context:)
 end
 ```
 
-###### Example JSON log record
+**Example JSON log record**  
 
 ```
 {
@@ -189,13 +187,13 @@ end
 ```
 
 ### Using log-level filtering with Ruby
+<a name="ruby-logging-log-level"></a>
 
-By configuring log-level filtering, you can choose to send only logs of a certain logging level or lower to CloudWatch Logs. To learn how to configure log-level filtering for your function, see [Log-level filtering](monitoring-cloudwatchlogs-log-level.md "monitoring-cloudwatchlogs-log-level.md").
+By configuring log-level filtering, you can choose to send only logs of a certain logging level or lower to CloudWatch Logs. To learn how to configure log-level filtering for your function, see [Log-level filtering](monitoring-cloudwatchlogs-log-level.md).
 
 For AWS Lambda to filter your application logs according to their log level, your function must use JSON formatted logs. You can achieve this in two ways:
-
-- Create log outputs using the standard Ruby `Logger` library and configure your function to use JSON log formatting. AWS Lambda then filters your log outputs using the `"level"` key value pair in the JSON object described in [Using structured JSON logs with Ruby](#ruby-logging-json "#ruby-logging-json"). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
-- Use another logging library or method to create JSON structured logs in your code that include a `"level"` key value pair defining the level of the log output.
++ Create log outputs using the standard Ruby `Logger` library and configure your function to use JSON log formatting. AWS Lambda then filters your log outputs using the `"level"` key value pair in the JSON object described in [Using structured JSON logs with Ruby](#ruby-logging-json). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
++ Use another logging library or method to create JSON structured logs in your code that include a `"level"` key value pair defining the level of the log output.
 
 You can also use a `puts` statement to output a JSON object containing a log level identifier. The following `puts` statement produces a JSON formatted output where the log level is set to INFO. AWS Lambda will send the JSON object to CloudWatch Logs if your function's logging level is set to INFO, DEBUG, or TRACE.
 
@@ -203,47 +201,51 @@ You can also use a `puts` statement to output a JSON object containing a log lev
 puts '{"msg":"My log message", "level":"info"}'
 ```
 
-For Lambda to filter your function's logs, you must also include a `"timestamp"` key value pair in your JSON log output. The time must be specified in valid [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt "https://www.ietf.org/rfc/rfc3339.txt") timestamp format. If you don't supply a valid timestamp, Lambda will assign the log the level INFO and add a timestamp for you.
+For Lambda to filter your function's logs, you must also include a `"timestamp"` key value pair in your JSON log output. The time must be specified in valid [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format. If you don't supply a valid timestamp, Lambda will assign the log the level INFO and add a timestamp for you.
 
 ### Using an alternative logging library
+<a name="ruby-logging-alt-library"></a>
 
 If you need to use a custom version of the `logger` library, you can include it in your deployment package or in a Lambda layer, and set the `RUBYLIB` environment variable to the library's `lib` directory. The Lambda runtime will load your version instead of the bundled one.
 
 If your code already uses another logging library to produce JSON structured logs, you don't need to make any changes. AWS Lambda doesn't double-encode any logs that are already JSON encoded. Even if you configure your function to use the JSON log format, your logging outputs appear in CloudWatch in the JSON structure you define.
 
 ## Viewing logs in the Lambda console
+<a name="ruby-logging-console"></a>
 
 You can use the Lambda console to view log output after you invoke a Lambda function.
 
 If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
+<a name="ruby-logging-cwconsole"></a>
 
 You can use the Amazon CloudWatch console to view logs for all Lambda function invocations.
 
-###### To view logs on the CloudWatch console
+**To view logs on the CloudWatch console**
 
-1. Open the [Log groups page](https://console.aws.amazon.com/cloudwatch/home?#logs: "https://console.aws.amazon.com/cloudwatch/home?#logs:") on the CloudWatch console.
-2. Choose the log group for your function (**/aws/lambda/`your-function-name`**).
-3. Choose a log stream.
+1. Open the [Log groups page](https://console.aws.amazon.com/cloudwatch/home?#logs:) on the CloudWatch console.
 
-Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md "lambda-runtime-environment.md"). A log stream appears when you update your Lambda function, and when additional instances are created to handle concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.
+1. Choose the log group for your function (**/aws/lambda/{{your-function-name}}**).
+
+1. Choose a log stream.
+
+Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md). A log stream appears when you update your Lambda function, and when additional instances are created to handle concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.
 
 ## Viewing logs using the AWS Command Line Interface (AWS CLI)
+<a name="ruby-logging-cli"></a>
 
-The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+The AWS CLI is an open-source tool that you can use to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
+You can use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
 
-###### Example retrieve a log ID
-
-The following example shows how to retrieve a _log ID_ from the `LogResult` field for a function named `my-function`.
+**Example retrieve a log ID**  
+The following example shows how to retrieve a *log ID* from the `LogResult` field for a function named `my-function`.  
 
 ```
-`aws lambda invoke --function-name my-function out --log-type Tail`
+aws lambda invoke --function-name my-function out --log-type Tail
 ```
-
-You should see the following output:
+You should see the following output:  
 
 ```
 {
@@ -253,18 +255,15 @@ You should see the following output:
 }
 ```
 
-###### Example decode the logs
-
-In the same command prompt, use the `base64` utility to decode the logs. The following example shows how to retrieve base64-encoded logs for `my-function`.
+**Example decode the logs**  
+In the same command prompt, use the `base64` utility to decode the logs. The following example shows how to retrieve base64-encoded logs for `my-function`.  
 
 ```
-`aws lambda invoke --function-name my-function out --log-type Tail \
---query 'LogResult' --output text --cli-binary-format raw-in-base64-out | base64 --decode`
+aws lambda invoke --function-name my-function out --log-type Tail \
+--query 'LogResult' --output text --cli-binary-format raw-in-base64-out | base64 --decode
 ```
-
-The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide for Version 2_.
-
-You should see the following output:
+The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html#cli-configure-options-list) in the *AWS Command Line Interface User Guide for Version 2*.  
+You should see the following output:  
 
 ```
 START RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8 Version: $LATEST
@@ -272,42 +271,35 @@ START RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8 Version: $LATEST
 END RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8
 REPORT RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8  Duration: 79.67 ms      Billed Duration: 80 ms         Memory Size: 128 MB     Max Memory Used: 73 MB
 ```
+The `base64` utility is available on Linux, macOS, and [Ubuntu on Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10). macOS users may need to use `base64 -D`.
 
-The `base64` utility is available on Linux, macOS, and [Ubuntu on Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "https://docs.microsoft.com/en-us/windows/wsl/install-win10"). macOS users may need to use `base64 -D`.
-
-###### Example get-logs.sh script
-
-In the same command prompt, use the following script to download the last five log events. The script uses `sed` to remove quotes from the output file, and sleeps for 15 seconds to allow time for the logs to become available. The output includes the response from Lambda and the output from the `get-log-events` command.
-
-Copy the contents of the following code sample and save in your Lambda project directory as `get-logs.sh`.
-
-The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide for Version 2_.
+**Example get-logs.sh script**  
+In the same command prompt, use the following script to download the last five log events. The script uses `sed` to remove quotes from the output file, and sleeps for 15 seconds to allow time for the logs to become available. The output includes the response from Lambda and the output from the `get-log-events` command.   
+Copy the contents of the following code sample and save in your Lambda project directory as `get-logs.sh`.  
+The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html#cli-configure-options-list) in the *AWS Command Line Interface User Guide for Version 2*.  
 
 ```
 #!/bin/bash
 aws lambda invoke --function-name my-function --cli-binary-format raw-in-base64-out --payload '{"key": "value"}' out
 sed -i'' -e 's/"//g' out
 sleep 15
-aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-name `stream1` --limit 5
+aws logs get-log-events --log-group-name /aws/lambda/{{my-function}} --log-stream-name {{stream1}} --limit 5
 ```
 
-###### Example macOS and Linux (only)
-
-In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.
-
-```
-`chmod -R 755 get-logs.sh`
-```
-
-###### Example retrieve the last five log events
-
-In the same command prompt, run the following script to get the last five log events.
+**Example macOS and Linux (only)**  
+In the same command prompt, macOS and Linux users might need to run the following command to ensure the script is executable.  
 
 ```
-`./get-logs.sh`
+chmod -R 755 get-logs.sh
 ```
 
-You should see the following output:
+**Example retrieve the last five log events**  
+In the same command prompt, run the following script to get the last five log events.  
+
+```
+./get-logs.sh
+```
+You should see the following output:  
 
 ```
 {
@@ -348,22 +340,21 @@ You should see the following output:
 ```
 
 ## Deleting logs
+<a name="ruby-logging-delete"></a>
 
-Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete
-the log group, or [configure
-a retention period](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention") after which logs are deleted automatically.
+Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete the log group, or [configure a retention period](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#SettingLogRetention) after which logs are deleted automatically.
 
 ## Working with the Ruby logger library
+<a name="ruby-logging-lib"></a>
 
-The Ruby [logger library](https://ruby-doc.org/stdlib-2.7.0/libdoc/logger/rdoc/index.html "https://ruby-doc.org/stdlib-2.7.0/libdoc/logger/rdoc/index.html") returns streamlined logs that are easily read. Use the logger utility to
-output detailed information, messages, and errors codes related to your function.
+The Ruby [logger library](https://ruby-doc.org/stdlib-2.7.0/libdoc/logger/rdoc/index.html) returns streamlined logs that are easily read. Use the logger utility to output detailed information, messages, and errors codes related to your function.
 
 ```
 # lambda_function.rb
 
 require 'logger'
 
-def handler(event:, context:)
+def handler(event:, context:) 
   logger = Logger.new($stdout)
   logger.info('## ENVIRONMENT VARIABLES')
   logger.info(ENV.to_a)
@@ -388,6 +379,4 @@ START RequestId: 1c8df7d3-xmpl-46da-9778-518e6eca8125 Version: $LATEST
 END RequestId: 1c8df7d3-xmpl-46da-9778-518e6eca8125
 REPORT RequestId: 1c8df7d3-xmpl-46da-9778-518e6eca8125  Duration: 2.75 ms   Billed Duration: 117 ms Memory Size: 128 MB Max Memory Used: 56 MB  Init Duration: 113.51 ms
 XRAY TraceId: 1-5e34a66a-474xmpl7c2534a87870b4370   SegmentId: 073cxmpl3e442861 Sampled: true
-
-
 ```

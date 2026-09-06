@@ -1,27 +1,27 @@
+
+
 # Use `GetPolicy` with a CLI
+<a name="example_lambda_GetPolicy_section"></a>
 
 The following code examples show how to use `GetPolicy`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To retrieve the resource-based IAM policy for a function, version, or alias**
-
-The following `get-policy` example displays policy information about the `my-function` Lambda function.
-
-```
-`aws lambda get-policy \
- --function-name `my-function``
+**AWS CLI**  
+**To retrieve the resource-based IAM policy for a function, version, or alias**  
+The following `get-policy` example displays policy information about the `my-function` Lambda function.  
 
 ```
-
-Output:
+aws lambda get-policy \
+    --function-name {{my-function}}
+```
+Output:  
 
 ```
 {
     "Policy": {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Id":"default",
         "Statement":
         [
@@ -37,53 +37,38 @@ Output:
     "RevisionId": "93017fc9-59cb-41dc-901b-4845ce4bf668"
 }
 ```
+For more information, see [Using Resource-based Policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [GetPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-policy.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Using Resource-based Policies for AWS Lambda](access-control-resource-based.md "access-control-resource-based.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-policy.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This sample displays the Function policy of the Lambda function**
+**Tools for PowerShell V4**  
+**Example 1: This sample displays the Function policy of the Lambda function**  
 
 ```
 Get-LMPolicy -FunctionName test -Select Policy
+```
+**Output:**  
 
 ```
-
-**Output:**
-
+{"Version":"2012-10-17",		 	 	 "Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}
 ```
-{"Version":"2012-10-17","Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}
-```
++  For API details, see [GetPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetPolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This sample displays the Function policy of the Lambda function**
+**Tools for PowerShell V5**  
+**Example 1: This sample displays the Function policy of the Lambda function**  
 
 ```
 Get-LMPolicy -FunctionName test -Select Policy
+```
+**Output:**  
 
 ```
-
-**Output:**
-
+{"Version":"2012-10-17",		 	 	 "Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}
 ```
-{"Version":"2012-10-17","Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}
-```
++  For API details, see [GetPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetPolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,30 +1,23 @@
+
+
 # Configuring partial batch response with Kinesis Data Streams and Lambda
+<a name="services-kinesis-batchfailurereporting"></a>
 
-When consuming and processing streaming data from an event source, by default Lambda checkpoints to the highest
-sequence number of a batch only when the batch is a complete success. Lambda treats all other results as a complete
-failure and retries processing the batch up to the retry limit. To allow for partial successes while processing
-batches from a stream, turn on `ReportBatchItemFailures`. Allowing partial successes can help to reduce
-the number of retries on a record, though it doesn't entirely prevent the possibility of retries in a successful record.
+When consuming and processing streaming data from an event source, by default Lambda checkpoints to the highest sequence number of a batch only when the batch is a complete success. Lambda treats all other results as a complete failure and retries processing the batch up to the retry limit. To allow for partial successes while processing batches from a stream, turn on `ReportBatchItemFailures`. Allowing partial successes can help to reduce the number of retries on a record, though it doesn't entirely prevent the possibility of retries in a successful record.
 
-To turn on `ReportBatchItemFailures`, include the enum value
-`ReportBatchItemFailures` in the [FunctionResponseTypes](../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-FunctionResponseTypes "../api/API_CreateEventSourceMapping.md#lambda-CreateEventSourceMapping-request-FunctionResponseTypes") list. This list indicates
-which response types are enabled for your function. You can configure this list when you [create](../api/API_CreateEventSourceMapping.md "../api/API_CreateEventSourceMapping.md") or [update](../api/API_UpdateEventSourceMapping.md "../api/API_UpdateEventSourceMapping.md") an event source mapping.
+To turn on `ReportBatchItemFailures`, include the enum value **ReportBatchItemFailures** in the [FunctionResponseTypes](https://docs.aws.amazon.com/lambda/latest/api/API_CreateEventSourceMapping.html#lambda-CreateEventSourceMapping-request-FunctionResponseTypes) list. This list indicates which response types are enabled for your function. You can configure this list when you [create](https://docs.aws.amazon.com/lambda/latest/api/API_CreateEventSourceMapping.html) or [update](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateEventSourceMapping.html) an event source mapping.
 
-###### Note
-
-Even when your function code returns partial batch failure responses, these responses are not processed by Lambda unless the
-`ReportBatchItemFailures` feature is explicitly turned on for your event source mapping.
+**Note**  
+Even when your function code returns partial batch failure responses, these responses are not processed by Lambda unless the `ReportBatchItemFailures` feature is explicitly turned on for your event source mapping.
 
 ## Report syntax
+<a name="streams-batchfailurereporting-syntax"></a>
 
-When configuring reporting on batch item failures, the `StreamsEventResponse` class is returned with a
-list of batch item failures. You can use a `StreamsEventResponse` object to return the sequence number
-of the first failed record in the batch. You can also create your own custom class using the correct response
-syntax. The following JSON structure shows the required response syntax:
+When configuring reporting on batch item failures, the `StreamsEventResponse` class is returned with a list of batch item failures. You can use a `StreamsEventResponse` object to return the sequence number of the first failed record in the batch. You can also create your own custom class using the correct response syntax. The following JSON structure shows the required response syntax:
 
 ```
-{
-  "batchItemFailures": [
+{ 
+  "batchItemFailures": [ 
         {
             "itemIdentifier": "<SequenceNumber>"
         }
@@ -32,53 +25,42 @@ syntax. The following JSON structure shows the required response syntax:
 }
 ```
 
-###### Note
-
-If the `batchItemFailures` array contains multiple items, Lambda uses the record with the lowest
-sequence number as the checkpoint. Lambda then retries all records starting from that checkpoint.
+**Note**  
+If the `batchItemFailures` array contains multiple items, Lambda uses the record with the lowest sequence number as the checkpoint. Lambda then retries all records starting from that checkpoint.
 
 ## Success and failure conditions
+<a name="streams-batchfailurereporting-conditions"></a>
 
 Lambda treats a batch as a complete success if you return any of the following:
-
-- An empty `batchItemFailure` list
-- A null `batchItemFailure` list
-- An empty `EventResponse`
-- A null `EventResponse`
++ An empty `batchItemFailure` list
++ A null `batchItemFailure` list
++ An empty `EventResponse`
++ A null `EventResponse`
 
 Lambda treats a batch as a complete failure if you return any of the following:
-
-- An empty string `itemIdentifier`
-- A null `itemIdentifier`
-- An `itemIdentifier` with a bad key name
++ An empty string `itemIdentifier`
++ A null `itemIdentifier`
++ An `itemIdentifier` with a bad key name
 
 Lambda retries failures based on your retry strategy.
 
 ## Bisecting a batch
+<a name="streams-batchfailurereporting-bisect"></a>
 
-If your invocation fails and `BisectBatchOnFunctionError` is turned on, the batch is bisected
-regardless of your `ReportBatchItemFailures` setting.
+If your invocation fails and `BisectBatchOnFunctionError` is turned on, the batch is bisected regardless of your `ReportBatchItemFailures` setting.
 
-When a partial batch success response is received and both `BisectBatchOnFunctionError` and
-`ReportBatchItemFailures` are turned on, the batch is bisected at the returned sequence number and
-Lambda retries only the remaining records.
+When a partial batch success response is received and both `BisectBatchOnFunctionError` and `ReportBatchItemFailures` are turned on, the batch is bisected at the returned sequence number and Lambda retries only the remaining records.
 
-To simplify the implementation of partial batch response logic, consider using the [Batch Processor utility](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md")
-from Powertools for AWS Lambda, which automatically handles these complexities for you.
+To simplify the implementation of partial batch response logic, consider using the [Batch Processor utility](https://docs.aws.amazon.com/powertools/python/latest/utilities/batch/) from Powertools for AWS Lambda, which automatically handles these complexities for you.
 
 Here are some examples of function code that return the list of failed message IDs in the batch:
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting Kinesis batch item failures with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling) repository. 
+Reporting Kinesis batch item failures with Lambda using .NET.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -153,20 +135,14 @@ public class StreamsEventResponse
         public string ItemIdentifier { get; set; }
     }
 }
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting Kinesis batch item failures with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling) repository. 
+Reporting Kinesis batch item failures with Lambda using Go.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -206,21 +182,14 @@ func handler(ctx context.Context, kinesisEvent events.KinesisEvent) (map[string]
 func main() {
 	lambda.Start(handler)
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting Kinesis batch item failures with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling) repository. 
+Reporting Kinesis batch item failures with Lambda using Java.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -255,25 +224,18 @@ public class ProcessKinesisRecords implements RequestHandler<KinesisEvent, Strea
                 return new StreamsEventResponse(batchItemFailures);
             }
         }
-
-       return new StreamsEventResponse(batchItemFailures);
+       
+       return new StreamsEventResponse(batchItemFailures);   
     }
 }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting Kinesis batch item failures with Lambda using Javascript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/blob/main/integration-kinesis-to-lambda-with-batch-item-handling) repository. 
+Reporting Kinesis batch item failures with Lambda using Javascript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -303,11 +265,8 @@ async function getRecordDataAsync(payload) {
   await Promise.resolve(1); //Placeholder for actual async work
   return data;
 }
-
-
 ```
-
-Reporting Kinesis batch item failures with Lambda using TypeScript.
+Reporting Kinesis batch item failures with Lambda using TypeScript.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -357,21 +316,14 @@ async function getRecordDataAsync(
   await Promise.resolve(1); //Placeholder for actual async work
   return data;
 }
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting Kinesis batch item failures with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling) repository. 
+Reporting Kinesis batch item failures with Lambda using PHP.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -434,21 +386,14 @@ class Handler implements StdHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting Kinesis batch item failures with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling) repository. 
+Reporting Kinesis batch item failures with Lambda using Python.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -456,7 +401,7 @@ Reporting Kinesis batch item failures with Lambda using Python.
 def handler(event, context):
     records = event.get("Records")
     curRecordSequenceNumber = ""
-
+    
     for record in records:
         try:
             # Process your record
@@ -466,21 +411,14 @@ def handler(event, context):
             return {"batchItemFailures":[{"itemIdentifier": curRecordSequenceNumber}]}
 
     return {"batchItemFailures":[]}
-
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting Kinesis batch item failures with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling) repository. 
+Reporting Kinesis batch item failures with Lambda using Ruby.  
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -514,20 +452,14 @@ def get_record_data_async(payload)
   sleep(1)
   data
 end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling "https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling")
-repository.
-
-Reporting Kinesis batch item failures with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-kinesis-to-lambda-with-batch-item-handling) repository. 
+Reporting Kinesis batch item failures with Lambda using Rust.  
 
 ```
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -603,21 +535,18 @@ async fn main() -> Result<(), Error> {
 
     run(service_fn(function_handler)).await
 }
-
 ```
 
+------
+
 ## Using Powertools for AWS Lambda batch processor
+<a name="services-kinesis-batchfailurereporting-powertools"></a>
 
-The batch processor utility from Powertools for AWS Lambda automatically handles partial batch response logic, reducing the complexity of
-implementing batch failure reporting. Here are examples using the batch processor:
+The batch processor utility from Powertools for AWS Lambda automatically handles partial batch response logic, reducing the complexity of implementing batch failure reporting. Here are examples using the batch processor:
 
-**Python**
-
-###### Note
-
-For complete examples and setup instructions, see the [batch processor documentation](../../../powertools/python/latest/utilities/batch.md "../../../powertools/python/latest/utilities/batch.md").
-
-Processing Kinesis Data Streams stream records with AWS Lambda batch processor.
+**Python**  
+For complete examples and setup instructions, see the [batch processor documentation](https://docs.aws.amazon.com/powertools/python/latest/utilities/batch/).
+Processing Kinesis Data Streams stream records with AWS Lambda batch processor.  
 
 ```
 import json
@@ -633,24 +562,19 @@ def record_handler(record):
     logger.info(record)
     # Your business logic here
     # Raise an exception to mark this record as failed
-
+    
 def lambda_handler(event, context: LambdaContext):
     return process_partial_response(
-        event=event,
-        record_handler=record_handler,
+        event=event, 
+        record_handler=record_handler, 
         processor=processor,
         context=context
     )
 ```
 
-**TypeScript**
-
-###### Note
-
-For complete examples and setup instructions,
-see the [batch processor documentation](../../../powertools/typescript/latest/features/batch.md "../../../powertools/typescript/latest/features/batch.md").
-
-Processing Kinesis Data Streams stream records with AWS Lambda batch processor.
+**TypeScript**  
+For complete examples and setup instructions, see the [batch processor documentation](https://docs.aws.amazon.com/powertools/typescript/latest/features/batch/).
+Processing Kinesis Data Streams stream records with AWS Lambda batch processor.  
 
 ```
 import { BatchProcessor, EventType, processPartialResponse } from '@aws-lambda-powertools/batch';
@@ -673,13 +597,9 @@ export const handler = async (event: KinesisEvent, context: Context) => {
 };
 ```
 
-**Java**
-
-###### Note
-
-For complete examples and setup instructions, see the [batch processor documentation](../../../powertools/java/latest/utilities/batch.md "../../../powertools/java/latest/utilities/batch.md").
-
-Processing Kinesis Data Streams stream records with AWS Lambda batch processor.
+**Java**  
+For complete examples and setup instructions, see the [batch processor documentation](https://docs.aws.amazon.com/powertools/java/latest/utilities/batch/).
+Processing Kinesis Data Streams stream records with AWS Lambda batch processor.  
 
 ```
 import com.amazonaws.services.lambda.runtime.Context;
@@ -710,13 +630,9 @@ public class KinesisStreamBatchHandler implements RequestHandler<KinesisEvent, S
 }
 ```
 
-**.NET**
-
-###### Note
-
-For complete examples and setup instructions, see the [batch processor documentation](../../../powertools/dotnet/utilities/batch-processing.md "../../../powertools/dotnet/utilities/batch-processing.md").
-
-Processing Kinesis Data Streams stream records with AWS Lambda batch processor.
+**.NET**  
+For complete examples and setup instructions, see the [batch processor documentation](https://docs.aws.amazon.com/powertools/dotnet/utilities/batch-processing/).
+Processing Kinesis Data Streams stream records with AWS Lambda batch processor.  
 
 ```
 using System;
@@ -739,16 +655,16 @@ public class OrderEvent
     public DateTime OrderDate { get; set; }
 }
 
-internal class TypedKinesisRecordHandler : ITypedRecordHandler<OrderEvent>
+internal class TypedKinesisRecordHandler : ITypedRecordHandler<OrderEvent> 
 {
     public async Task<RecordHandlerResult> HandleAsync(OrderEvent orderEvent, CancellationToken cancellationToken)
     {
-        if (string.IsNullOrEmpty(orderEvent.OrderId))
+        if (string.IsNullOrEmpty(orderEvent.OrderId)) 
         {
             throw new ArgumentException("Order ID is required");
         }
 
-        return await Task.FromResult(RecordHandlerResult.None);
+        return await Task.FromResult(RecordHandlerResult.None); 
     }
 }
 
@@ -757,7 +673,7 @@ public class Function
     [BatchProcessor(TypedRecordHandler = typeof(TypedKinesisRecordHandler))]
     public BatchItemFailuresResponse HandlerUsingTypedAttribute(KinesisEvent _)
     {
-        return TypedKinesisStreamBatchProcessor.Result.BatchItemFailuresResponse;
+        return TypedKinesisStreamBatchProcessor.Result.BatchItemFailuresResponse; 
     }
 }
 ```

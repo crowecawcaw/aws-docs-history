@@ -1,18 +1,16 @@
+
+
 # Invoke a Lambda function from a Amazon DocumentDB trigger
+<a name="example_serverless_DocumentDB_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that receives an event triggered by receiving records from a DocumentDB change stream. The function retrieves the DocumentDB payload and logs the record contents.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda")
-repository.
-
-Consuming a Amazon DocumentDB event with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda) repository. 
+Consuming a Amazon DocumentDB event with Lambda using .NET.  
 
 ```
 using Amazon.Lambda.Core;
@@ -27,7 +25,7 @@ namespace LambdaDocDb;
 
 public class Function
 {
-
+    
      /// <summary>
     /// Lambda function entry point to process Amazon DocumentDB events.
     /// </summary>
@@ -36,7 +34,7 @@ public class Function
     /// <returns>A string to indicate successful processing.</returns>
     public string FunctionHandler(Event evnt, ILambdaContext context)
     {
-
+        
         foreach (var record in evnt.Events)
         {
             ProcessDocumentDBEvent(record, context);
@@ -47,7 +45,7 @@ public class Function
 
      private void ProcessDocumentDBEvent(DocumentDBEventRecord record, ILambdaContext context)
     {
-
+        
         var eventData = record.Event;
         var operationType = eventData.OperationType;
         var databaseName = eventData.Ns.Db;
@@ -143,24 +141,16 @@ public class Function
         public string Coll { get; set; }
     }
 }
-
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda")
-repository.
-
-Consuming a Amazon DocumentDB event with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda) repository. 
+Consuming a Amazon DocumentDB event with Lambda using Go.  
 
 ```
-
 package main
 
 import (
@@ -206,21 +196,14 @@ func logDocumentDBEvent(record Record) {
 	docBytes, _ := json.MarshalIndent(record.Event.FullDocument, "", "  ")
 	fmt.Printf("Full document: %s\n", string(docBytes))
 }
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda")
-repository.
-
-Consuming a Amazon DocumentDB event with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda) repository. 
+Consuming a Amazon DocumentDB event with Lambda using Java.  
 
 ```
 import java.util.List;
@@ -260,21 +243,14 @@ public class Example implements RequestHandler<Map<String, Object>, String> {
     }
 
 }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda")
-repository.
-
-Consuming a Amazon DocumentDB event with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda) repository. 
+Consuming a Amazon DocumentDB event with Lambda using JavaScript.  
 
 ```
 console.log('Loading function');
@@ -291,12 +267,8 @@ const logDocumentDBEvent = (record) => {
     console.log('collection: ' + record.event.ns.coll);
     console.log('Full document:', JSON.stringify(record.event.fullDocument, null, 2));
 };
-
-
-
 ```
-
-Consuming a Amazon DocumentDB event with Lambda using TypeScript
+Consuming a Amazon DocumentDB event with Lambda using TypeScript  
 
 ```
 import { DocumentDBEventRecord, DocumentDBEventSubscriptionContext } from 'aws-lambda';
@@ -319,21 +291,14 @@ const logDocumentDBEvent = (record: DocumentDBEventRecord): void => {
   console.log('collection: ' + record.event.ns.coll);
   console.log('Full document:', JSON.stringify(record.event.fullDocument, null, 2));
 };
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda")
-repository.
-
-Consuming a Amazon DocumentDB event with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda) repository. 
+Consuming a Amazon DocumentDB event with Lambda using PHP.  
 
 ```
 <?php
@@ -373,20 +338,14 @@ class DocumentDBEventHandler implements Handler
     }
 }
 return new DocumentDBEventHandler();
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda")
-repository.
-
-Consuming a Amazon DocumentDB event with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda) repository. 
+Consuming a Amazon DocumentDB event with Lambda using Python.  
 
 ```
 import json
@@ -407,20 +366,14 @@ def log_document_db_event(record):
     print(f"db: {db}")
     print(f"collection: {collection}")
     print("Full document:", json.dumps(full_document, indent=2))
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda")
-repository.
-
-Consuming a Amazon DocumentDB event with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda) repository. 
+Consuming a Amazon DocumentDB event with Lambda using Ruby.  
 
 ```
 require 'json'
@@ -444,23 +397,16 @@ def log_document_db_event(record)
   puts "collection: #{collection}"
   puts "Full document: #{JSON.pretty_generate(full_document)}"
 end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda")
-repository.
-
-Consuming a Amazon DocumentDB event with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-docdb-to-lambda) repository. 
+Consuming a Amazon DocumentDB event with Lambda using Rust.  
 
 ```
-
 use lambda_runtime::{service_fn, tracing, Error, LambdaEvent};
 use aws_lambda_events::{
     event::documentdb::{DocumentDbEvent, DocumentDbInnerEvent},
@@ -476,12 +422,12 @@ use aws_lambda_events::{
 //aws_lambda_events = "0.15.0"
 
 async fn function_handler(event: LambdaEvent<DocumentDbEvent>) ->Result<(), Error> {
-
+    
     tracing::info!("Event Source ARN: {:?}", event.payload.event_source_arn);
     tracing::info!("Event Source: {:?}", event.payload.event_source);
-
+  
     let records = &event.payload.events;
-
+   
     if records.is_empty() {
         tracing::info!("No records found. Exiting.");
         return Ok(());
@@ -500,7 +446,7 @@ async fn function_handler(event: LambdaEvent<DocumentDbEvent>) ->Result<(), Erro
 
 fn log_document_db_event(record: &DocumentDbInnerEvent)-> Result<(), Error>{
     tracing::info!("Change Event: {:?}", record.event);
-
+    
     Ok(())
 
 }
@@ -516,12 +462,10 @@ async fn main() -> Result<(), Error> {
     let func = service_fn(function_handler);
     lambda_runtime::run(func).await?;
     Ok(())
-
+    
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

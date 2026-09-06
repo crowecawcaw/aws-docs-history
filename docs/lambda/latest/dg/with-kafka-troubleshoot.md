@@ -1,42 +1,39 @@
+
+
 # Troubleshooting Kafka event source mapping errors
+<a name="with-kafka-troubleshoot"></a>
 
-The following topics provide troubleshooting advice for errors and issues that you might encounter when using
-Amazon MSK or self-managed Apache Kafka with Lambda.
+The following topics provide troubleshooting advice for errors and issues that you might encounter when using Amazon MSK or self-managed Apache Kafka with Lambda.
 
-For more help with troubleshooting, visit the [AWS Knowledge Center](https://repost.aws/knowledge-center#AWS_Lambda "https://repost.aws/knowledge-center#AWS_Lambda").
+For more help with troubleshooting, visit the [AWS Knowledge Center](https://repost.aws/knowledge-center#AWS_Lambda).
 
 ## Authentication and authorization errors
+<a name="kafka-permissions-errors"></a>
 
-If any of the permissions required to consume data from the Kafka cluster are missing, Lambda displays one of
-the following error messages in the event source mapping under **LastProcessingResult**.
+If any of the permissions required to consume data from the Kafka cluster are missing, Lambda displays one of the following error messages in the event source mapping under **LastProcessingResult**.
 
-###### Error messages
-
-- [Cluster failed to authorize Lambda](#kafka-authorize-errors "#kafka-authorize-errors")
-- [SASL authentication failed](#kafka-sasl-errors "#kafka-sasl-errors")
-- [Server failed to authenticate Lambda](#kafka-mtls-errors-server "#kafka-mtls-errors-server")
-- [Lambda failed to authenticate server](#kafka-mtls-errors-lambda "#kafka-mtls-errors-lambda")
-- [Provided certificate or private key is invalid](#kafka-key-errors "#kafka-key-errors")
+**Topics**
++ [Cluster failed to authorize Lambda](#kafka-authorize-errors)
++ [SASL authentication failed](#kafka-sasl-errors)
++ [Server failed to authenticate Lambda](#kafka-mtls-errors-server)
++ [Lambda failed to authenticate server](#kafka-mtls-errors-lambda)
++ [Provided certificate or private key is invalid](#kafka-key-errors)
 
 ### Cluster failed to authorize Lambda
+<a name="kafka-authorize-errors"></a>
 
-For SASL/SCRAM or mTLS, this error indicates that the provided user doesn't have all of the following
-required Kafka access control list (ACL) permissions:
+For SASL/SCRAM or mTLS, this error indicates that the provided user doesn't have all of the following required Kafka access control list (ACL) permissions:
++ DescribeConfigs Cluster
++ Describe Group
++ Read Group
++ Describe Topic
++ Read Topic
 
-- DescribeConfigs Cluster
-- Describe Group
-- Read Group
-- Describe Topic
-- Read Topic
+When you create Kafka ACLs with the required `kafka-cluster` permissions, specify the topic and group as resources. The topic name must match the topic in the event source mapping. The group name must match the event source mapping's UUID.
 
-When you create Kafka ACLs with the required `kafka-cluster` permissions, specify the topic and
-group as resources. The topic name must match the topic in the event source mapping. The group name must match
-the event source mapping's UUID.
+After you add the required permissions to the execution role, it might take several minutes for the changes to take effect.
 
-After you add the required permissions to the execution role, it might take several minutes for the changes
-to take effect.
-
-The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md "esm-logging.md") for this issue:
+The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md) for this issue:
 
 ```
 {
@@ -54,19 +51,15 @@ The following is an example ESM system-level log after enabling [Logging Config]
 ```
 
 ### SASL authentication failed
+<a name="kafka-sasl-errors"></a>
 
-For SASL/SCRAM or SASL/PLAIN, this error indicates that the provided sign-in credentials aren't
-valid.
+For SASL/SCRAM or SASL/PLAIN, this error indicates that the provided sign-in credentials aren't valid.
 
-For IAM access control, the execution role is missing the `kafka-cluster:Connect` permission
-for the cluster. Add this permission to the role and specify the cluster's Amazon Resource Name (ARN) as a
-resource.
+For IAM access control, the execution role is missing the `kafka-cluster:Connect` permission for the cluster. Add this permission to the role and specify the cluster's Amazon Resource Name (ARN) as a resource.
 
-You might see this error occurring intermittently. The cluster rejects connections after the number of TCP
-connections exceeds the service quota. Lambda backs off and retries until a connection is successful. After Lambda connects to the
-cluster and polls for records, the last processing result changes to `OK`.
+You might see this error occurring intermittently. The cluster rejects connections after the number of TCP connections exceeds the service quota. Lambda backs off and retries until a connection is successful. After Lambda connects to the cluster and polls for records, the last processing result changes to `OK`.
 
-The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md "esm-logging.md") for this issue when using IAM authentication:
+The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md) for this issue when using IAM authentication:
 
 ```
 {
@@ -84,31 +77,27 @@ The following is an example ESM system-level log after enabling [Logging Config]
 ```
 
 ### Server failed to authenticate Lambda
+<a name="kafka-mtls-errors-server"></a>
 
-This error indicates that the Kafka broker failed to authenticate Lambda. This can occur for any of the
-following reasons:
-
-- You didn't provide a client certificate for mTLS authentication.
-- You provided a client certificate, but the Kafka brokers aren't configured to use mTLS authentication.
-- A client certificate isn't trusted by the Kafka brokers.
+This error indicates that the Kafka broker failed to authenticate Lambda. This can occur for any of the following reasons:
++ You didn't provide a client certificate for mTLS authentication.
++ You provided a client certificate, but the Kafka brokers aren't configured to use mTLS authentication.
++ A client certificate isn't trusted by the Kafka brokers.
 
 ### Lambda failed to authenticate server
+<a name="kafka-mtls-errors-lambda"></a>
 
-This error indicates that Lambda failed to authenticate the Kafka broker. This can occur for any of the
-following reasons:
-
-- For self-managed Apache Kafka: The Kafka brokers use self-signed certificates or a private CA, but didn't provide the server root CA
-  certificate.
-- For self-managed Apache Kafka: The server root CA certificate doesn't match the root CA that signed the broker's certificate.
-- Hostname validation failed because the broker's certificate doesn't contain the broker's DNS name or IP address as
-  a subject alternative name.
+This error indicates that Lambda failed to authenticate the Kafka broker. This can occur for any of the following reasons:
++ For self-managed Apache Kafka: The Kafka brokers use self-signed certificates or a private CA, but didn't provide the server root CA certificate.
++ For self-managed Apache Kafka: The server root CA certificate doesn't match the root CA that signed the broker's certificate.
++ Hostname validation failed because the broker's certificate doesn't contain the broker's DNS name or IP address as a subject alternative name.
 
 ### Provided certificate or private key is invalid
+<a name="kafka-key-errors"></a>
 
-This error indicates that the Kafka consumer couldn't use the provided certificate or private key. Make sure
-that the certificate and key use PEM format, and that the private key encryption uses a PBES1 algorithm.
+This error indicates that the Kafka consumer couldn't use the provided certificate or private key. Make sure that the certificate and key use PEM format, and that the private key encryption uses a PBES1 algorithm.
 
-The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md "esm-logging.md") for this issue:
+The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md) for this issue:
 
 ```
 {
@@ -126,19 +115,20 @@ The following is an example ESM system-level log after enabling [Logging Config]
 ```
 
 ## Network and connectivity errors
+<a name="kafka-network-errors"></a>
 
 Network configuration issues can prevent Lambda from connecting to your Kafka cluster. The following topics describe common network-related errors.
 
-###### Error messages
-
-- [Connection timeout due to security group configuration](#kafka-security-group-errors "#kafka-security-group-errors")
-- [Kafka broker endpoints cannot be resolved](#kafka-cluster-deleted-errors "#kafka-cluster-deleted-errors")
+**Topics**
++ [Connection timeout due to security group configuration](#kafka-security-group-errors)
++ [Kafka broker endpoints cannot be resolved](#kafka-cluster-deleted-errors)
 
 ### Connection timeout due to security group configuration
+<a name="kafka-security-group-errors"></a>
 
 If the security group associated with your Kafka cluster doesn't allow inbound traffic from itself, Lambda can't connect to the cluster. Make sure that the security group's inbound rules allow traffic from the security group itself on the Kafka broker ports.
 
-The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md "esm-logging.md") for this issue:
+The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md) for this issue:
 
 ```
 {
@@ -195,10 +185,11 @@ You can also check the Kafka consumer INFO log to verify the connection and netw
 ```
 
 ### Kafka broker endpoints cannot be resolved
+<a name="kafka-cluster-deleted-errors"></a>
 
 This error indicates that the Kafka cluster doesn't exist or has been deleted. Verify that the cluster specified in the event source mapping exists and is in an active state.
 
-The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md "esm-logging.md") for this issue:
+The following is an example ESM system-level log after enabling [Logging Config](esm-logging.md) for this issue:
 
 ```
 {
@@ -216,28 +207,23 @@ The following is an example ESM system-level log after enabling [Logging Config]
 ```
 
 ## Event source mapping errors
+<a name="services-event-errors"></a>
 
-When you add your Apache Kafka cluster as an [event source](invocation-eventsourcemapping.md "invocation-eventsourcemapping.md") for your Lambda function, if your function encounters an error, your Kafka consumer stops processing records. Consumers of a topic partition are those that subscribe to, read, and process your records. Your other Kafka consumers can continue processing records, provided they don't encounter the same error.
+When you add your Apache Kafka cluster as an [event source](invocation-eventsourcemapping.md) for your Lambda function, if your function encounters an error, your Kafka consumer stops processing records. Consumers of a topic partition are those that subscribe to, read, and process your records. Your other Kafka consumers can continue processing records, provided they don't encounter the same error.
 
 To determine the cause of a stopped consumer, check the `StateTransitionReason` field in the response of `EventSourceMapping`. The following list describes the event source errors that you can receive:
 
-**`ESM_CONFIG_NOT_VALID`**
-
+**`ESM_CONFIG_NOT_VALID`**  
 The event source mapping configuration isn't valid.
 
-**`EVENT_SOURCE_AUTHN_ERROR`**
-
+**`EVENT_SOURCE_AUTHN_ERROR`**  
 Lambda couldn't authenticate the event source.
 
-**`EVENT_SOURCE_AUTHZ_ERROR`**
-
+**`EVENT_SOURCE_AUTHZ_ERROR`**  
 Lambda doesn't have the required permissions to access the event source.
 
-**`FUNCTION_CONFIG_NOT_VALID`**
-
+**`FUNCTION_CONFIG_NOT_VALID`**  
 The function configuration isn't valid.
 
-###### Note
-
-If your Lambda event records exceed the allowed size limit of 6 MB, they can go
-unprocessed.
+**Note**  
+If your Lambda event records exceed the allowed size limit of 6 MB, they can go unprocessed.

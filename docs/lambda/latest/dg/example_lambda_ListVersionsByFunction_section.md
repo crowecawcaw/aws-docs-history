@@ -1,22 +1,22 @@
+
+
 # Use `ListVersionsByFunction` with a CLI
+<a name="example_lambda_ListVersionsByFunction_section"></a>
 
 The following code examples show how to use `ListVersionsByFunction`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To retrieve a list of versions of a function**
-
-The following `list-versions-by-function` example displays the list of versions for the `my-function` Lambda function.
-
-```
-`aws lambda list-versions-by-function \
- --function-name `my-function``
+**AWS CLI**  
+**To retrieve a list of versions of a function**  
+The following `list-versions-by-function` example displays the list of versions for the `my-function` Lambda function.  
 
 ```
-
-Output:
+aws lambda list-versions-by-function \
+    --function-name {{my-function}}
+```
+Output:  
 
 ```
 {
@@ -93,25 +93,19 @@ Output:
     ]
 }
 ```
+For more information, see [Configuring AWS Lambda Function Aliases](https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [ListVersionsByFunction](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/list-versions-by-function.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Configuring AWS Lambda Function Aliases](aliases-intro.md "aliases-intro.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [ListVersionsByFunction](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/list-versions-by-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/list-versions-by-function.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns the list of version specific configurations for each version of the Lambda Function.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns the list of version specific configurations for each version of the Lambda Function.**  
 
 ```
 Get-LMVersionsByFunction -FunctionName "MylambdaFunction123"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 FunctionName        Runtime   MemorySize Timeout CodeSize LastModified                 RoleName
@@ -121,21 +115,15 @@ MylambdaFunction123 python3.8        128       5     1426 2019-12-25T09:19:02.23
 MylambdaFunction123 python3.8        128       5     1426 2019-12-25T09:39:36.779+0000 lambda
 MylambdaFunction123 python3.8        128     600     1426 2019-12-25T09:52:59.872+0000 lambda
 ```
++  For API details, see [ListVersionsByFunction](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListVersionsByFunction](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns the list of version specific configurations for each version of the Lambda Function.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns the list of version specific configurations for each version of the Lambda Function.**  
 
 ```
 Get-LMVersionsByFunction -FunctionName "MylambdaFunction123"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 FunctionName        Runtime   MemorySize Timeout CodeSize LastModified                 RoleName
@@ -145,11 +133,8 @@ MylambdaFunction123 python3.8        128       5     1426 2019-12-25T09:19:02.23
 MylambdaFunction123 python3.8        128       5     1426 2019-12-25T09:39:36.779+0000 lambda
 MylambdaFunction123 python3.8        128     600     1426 2019-12-25T09:52:59.872+0000 lambda
 ```
++  For API details, see [ListVersionsByFunction](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListVersionsByFunction](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

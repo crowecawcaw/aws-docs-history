@@ -1,18 +1,16 @@
+
+
 # Invoke a Lambda function from an Amazon MSK trigger
+<a name="example_serverless_MSK_Lambda_section"></a>
 
 The following code examples show how to implement a Lambda function that receives an event triggered by receiving records from an Amazon MSK cluster. The function retrieves the MSK payload and logs the record contents.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda")
-repository.
-
-Consuming an Amazon MSK event with Lambda using .NET.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda) repository. 
+Consuming an Amazon MSK event with Lambda using .NET.  
 
 ```
 using System.Text;
@@ -27,8 +25,8 @@ namespace MSKLambda;
 
 public class Function
 {
-
-
+    
+    
     /// <param name="input">The event for the Lambda function handler to process.</param>
     /// <param name="context">The ILambdaContext that provides methods for logging and describing the Lambda environment.</param>
     /// <returns></returns>
@@ -37,37 +35,29 @@ public class Function
 
         foreach (var record in evnt.Records)
         {
-            Console.WriteLine("Key:" + record.Key);
+            Console.WriteLine("Key:" + record.Key); 
             foreach (var eventRecord in record.Value)
             {
-                var valueBytes = eventRecord.Value.ToArray();
+                var valueBytes = eventRecord.Value.ToArray();    
                 var valueText = Encoding.UTF8.GetString(valueBytes);
-
+                
                 Console.WriteLine("Message:" + valueText);
             }
         }
     }
-
+    
 
 }
-
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda")
-repository.
-
-Consuming an Amazon MSK event with Lambda using Go.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda) repository. 
+Consuming an Amazon MSK event with Lambda using Go.  
 
 ```
-
 package main
 
 import (
@@ -95,23 +85,16 @@ func handler(event events.KafkaEvent) {
 func main() {
 	lambda.Start(handler)
 }
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda")
-repository.
-
-Consuming an Amazon MSK event with Lambda using Java.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda) repository. 
+Consuming an Amazon MSK event with Lambda using Java.  
 
 ```
-
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.KafkaEvent;
@@ -140,24 +123,16 @@ public class Example implements RequestHandler<KafkaEvent, Void> {
         return null;
     }
 }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda")
-repository.
-
-Consuming an Amazon MSK event with Lambda using JavaScript.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda) repository. 
+Consuming an Amazon MSK event with Lambda using JavaScript.  
 
 ```
-
 exports.handler = async (event) => {
     // Iterate through keys
     for (let key in event.records) {
@@ -168,13 +143,11 @@ exports.handler = async (event) => {
         // Decode base64
         const msg = Buffer.from(record.value, 'base64').toString()
         console.log('Message:', msg)
-      })
+      }) 
     }
 }
-
 ```
-
-Consuming an Amazon MSK event with Lambda using TypeScript.
+Consuming an Amazon MSK event with Lambda using TypeScript.  
 
 ```
 import { MSKEvent, Context } from "aws-lambda";
@@ -210,21 +183,14 @@ export const handler = async (
     };
   }
 }
-
-
 ```
 
-PHP
+------
+#### [ PHP ]
 
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda")
-repository.
-
-Consuming an Amazon MSK event with Lambda using PHP.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda) repository. 
+Consuming an Amazon MSK event with Lambda using PHP.  
 
 ```
 <?php
@@ -269,7 +235,7 @@ class Handler implements StdHandler
                 foreach ($values as $value) {
                     $this->logger->info("Value: $value");
                 }
-
+                
             } catch (Exception $e) {
                 $this->logger->error($e->getMessage());
             }
@@ -281,24 +247,16 @@ class Handler implements StdHandler
 
 $logger = new StderrLogger();
 return new Handler($logger);
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda")
-repository.
-
-Consuming an Amazon MSK event with Lambda using Python.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda) repository. 
+Consuming an Amazon MSK event with Lambda using Python.  
 
 ```
-
 import base64
 
 def lambda_handler(event, context):
@@ -311,23 +269,16 @@ def lambda_handler(event, context):
             # Decode base64
             msg = base64.b64decode(record['value']).decode('utf-8')
             print('Message:', msg)
-
 ```
 
-Ruby
+------
+#### [ Ruby ]
 
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda")
-repository.
-
-Consuming an Amazon MSK event with Lambda using Ruby.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda) repository. 
+Consuming an Amazon MSK event with Lambda using Ruby.  
 
 ```
-
 require 'base64'
 
 def lambda_handler(event:, context:)
@@ -345,20 +296,14 @@ def lambda_handler(event:, context:)
     end
   end
 end
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda "https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda")
-repository.
-
-Consuming an Amazon MSK event with Lambda using Rust.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Serverless examples](https://github.com/aws-samples/serverless-snippets/tree/main/integration-msk-to-lambda) repository. 
+Consuming an Amazon MSK event with Lambda using Rust.  
 
 ```
 use aws_lambda_events::event::kafka::KafkaEvent;
@@ -391,7 +336,7 @@ async fn function_handler(event: LambdaEvent<KafkaEvent>) -> Result<Value, Error
          // perform Base64 decoding
          let record_bytes = BASE64_STANDARD.decode(record_text)?;
          let message = std::str::from_utf8(&record_bytes)?;
-
+         
          info!("Message: {}", message);
         }
 
@@ -409,9 +354,8 @@ async fn main() -> Result<(), Error> {
 
     run(service_fn(function_handler)).await
 }
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

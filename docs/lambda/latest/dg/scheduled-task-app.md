@@ -1,74 +1,61 @@
+
+
 # Create an app to perform scheduled database maintenance
+<a name="scheduled-task-app"></a>
 
-You can use AWS Lambda to replace scheduled processes such as automated system backups, file conversions, and maintenance tasks.
-In this example, you create a serverless application that performs regular scheduled maintenance on a DynamoDB table by deleting old entries. The app uses EventBridge Scheduler to invoke a
-Lambda function on a cron schedule. When invoked, the function queries the table for items older than one year, and deletes them. The function logs each deleted item
-in CloudWatch Logs.
+You can use AWS Lambda to replace scheduled processes such as automated system backups, file conversions, and maintenance tasks. In this example, you create a serverless application that performs regular scheduled maintenance on a DynamoDB table by deleting old entries. The app uses EventBridge Scheduler to invoke a Lambda function on a cron schedule. When invoked, the function queries the table for items older than one year, and deletes them. The function logs each deleted item in CloudWatch Logs.
 
-To implement this example, first create a DynamoDB table and populate it with some test data for your function to query. Then, create a Python Lambda function with
-an EventBridge Scheduler trigger and an IAM execution role that gives the function permission to read, and delete, items from your table.
+To implement this example, first create a DynamoDB table and populate it with some test data for your function to query. Then, create a Python Lambda function with an EventBridge Scheduler trigger and an IAM execution role that gives the function permission to read, and delete, items from your table.
 
-![Diagram showing flow of data between an EventBridge Scheduler schedule, a Lambda function and a DynamoDB table.](images/ExampleApps/cron_app.png)
+![Diagram showing flow of data between an EventBridge Scheduler schedule, a Lambda function and a DynamoDB table.](http://docs.aws.amazon.com/lambda/latest/dg/images/ExampleApps/cron_app.png)
 
-###### Tip
 
-If you're new to Lambda, we recommend that you complete the tutorial [Create your first Lambda function](getting-started.md "getting-started.md") before
-creating this example app.
+**Tip**  
+If you're new to Lambda, we recommend that you complete the tutorial [Create your first Lambda function](getting-started.md) before creating this example app.
 
-You can deploy your app manually by creating and configuring resources with the AWS Management Console. You can
-also deploy the app by using the AWS Serverless Application Model (AWS SAM). AWS SAM is an infrastructure as code (IaC) tool. With IaC, you don't create
-resources manually, but define them in code and then deploy them automatically.
+You can deploy your app manually by creating and configuring resources with the AWS Management Console. You can also deploy the app by using the AWS Serverless Application Model (AWS SAM). AWS SAM is an infrastructure as code (IaC) tool. With IaC, you don't create resources manually, but define them in code and then deploy them automatically.
 
-If you want to learn more about using Lambda with IaC before deploying this example app, see [Using Lambda with infrastructure as code (IaC)](foundation-iac.md "foundation-iac.md").
+If you want to learn more about using Lambda with IaC before deploying this example app, see [Using Lambda with infrastructure as code (IaC)](foundation-iac.md).
 
 ## Prerequisites
+<a name="scheduled-task-app-prereqs"></a>
 
 Before you can create the example app, make sure you have the required command line tools and programs installed.
++ **Python**
 
-- **Python**
+  To populate the DynamoDB table you create to test your app, this example uses a Python script and a CSV file to write data into the table. Make sure you have Python version 3.8 or later installed on your machine.
++ **AWS SAM CLI**
 
-To populate the DynamoDB table you create to test your app, this example uses a Python script and a CSV file to write data into the table. Make sure you have
-Python version 3.8 or later installed on your machine.
+  If you want to create the DynamoDB table and deploy the example app using AWS SAM, you need to install the AWS SAM CLI. Follow the [installation instructions](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html) in the *AWS SAM User Guide*.
++ **AWS CLI**
 
-- **AWS SAM CLI**
+  To use the provided Python script to populate your test table, you need to have installed and configured the AWS CLI. This is because the script uses the AWS SDK for Python (Boto3), which needs access to your AWS Identity and Access Management (IAM) credentials. You also need the AWS CLI installed to deploy resources using AWS SAM. Install the CLI by following the [installation instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide*.
++ **Docker**
 
-If you want to create the DynamoDB table and deploy the example app using AWS SAM, you need to install the AWS SAM CLI.
-Follow the [installation instructions](../../../serverless-application-model/latest/developerguide/install-sam-cli.md "../../../serverless-application-model/latest/developerguide/install-sam-cli.md")
-in the _AWS SAM User Guide_.
-
-- **AWS CLI**
-
-To use the provided Python script to populate your test table, you need to have installed and configured the AWS CLI. This is because the script uses
-the AWS SDK for Python (Boto3), which needs access to your AWS Identity and Access Management (IAM) credentials. You also need the AWS CLI installed to deploy resources using AWS SAM. Install the CLI by following
-the [installation instructions](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
-
-- **Docker**
-
-To deploy the app using AWS SAM, Docker must also be installed on your build machine. Follow the instructions in [Install Docker Engine](https://docs.docker.com/engine/install/ "https://docs.docker.com/engine/install/")
-on the Docker documentation website.
+  To deploy the app using AWS SAM, Docker must also be installed on your build machine. Follow the instructions in [Install Docker Engine](https://docs.docker.com/engine/install/) on the Docker documentation website.
 
 ## Downloading the example app files
+<a name="scheduled-task-app-download"></a>
 
 To create the example database and the scheduled-maintenance app, you need to create the following files in your project directory:
 
 **Example database files**
-
-- `template.yaml` - an AWS SAM template you can use to create the DynamoDB table
-- `sample_data.csv` - a CSV file containing sample data to load into your table
-- `load_sample_data.py` - a Python script that writes the data in the CSV file into the table
++ `template.yaml` - an AWS SAM template you can use to create the DynamoDB table
++ `sample_data.csv` - a CSV file containing sample data to load into your table
++ `load_sample_data.py` - a Python script that writes the data in the CSV file into the table
 
 **Scheduled-maintenance app files**
-
-- `lambda_function.py` - the Python function code for the Lambda function that performs the database maintenance
-- `requirements.txt` - a manifest file defining the dependencies that your Python function code requires
-- `template.yaml` - an AWS SAM template you can use to deploy the app
++ `lambda_function.py` - the Python function code for the Lambda function that performs the database maintenance
++ `requirements.txt` - a manifest file defining the dependencies that your Python function code requires
++ `template.yaml` - an AWS SAM template you can use to deploy the app
 
 **Test file**
++ `test_app.py` - a Python script that scans the table and confirms successful operation of your function by outputting all records older than one year
 
-- `test_app.py` - a Python script that scans the table and confirms successful operation of your function by outputting all records older than one year
+Expand the following sections to view the code and to learn more about the role of each file in creating and testing your app. To create the files on your local machine, copy and paste the code below.
 
-Expand the following sections to view the code and to learn more about the role of each file in creating and testing your app. To create the
-files on your local machine, copy and paste the code below.
+### AWS SAM template (example DynamoDB table)
+<a name="scheduled-task-app-table-yaml"></a>
 
 Copy and paste the following code into a file named `template.yaml`.
 
@@ -116,17 +103,15 @@ Outputs:
     Value: !GetAtt MyDynamoDBTable.Arn
 ```
 
-###### Note
+**Note**  
+AWS SAM templates use a standard naming convention of `template.yaml`. In this example, you have two template files - one to create the example database and another to create the app itself. Save them in separate sub-directories in your project folder.
 
-AWS SAM templates use a standard naming convention of `template.yaml`. In this example, you have two template files - one to create the
-example database and another to create the app itself. Save them in separate sub-directories in your project folder.
+This AWS SAM template defines the DynamoDB table resource you create to test your app. The table uses a primary key of `Order_number` with a sort key of `Date`. In order for your Lambda function to find items directly by date, we also define a [Global Secondary Index](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html) named `Date-index`.
 
-This AWS SAM template defines the DynamoDB table resource you create to test your app. The table uses a primary key of `Order_number` with a sort
-key of `Date`. In order for your Lambda function to find items directly by date, we also define a [Global Secondary Index](../../../amazondynamodb/latest/developerguide/GSI.md "../../../amazondynamodb/latest/developerguide/GSI.md")
-named `Date-index`.
+To learn more about creating and configuring a DynamoDB table using the `AWS::DynamoDB::Table` resource, see [AWS::DynamoDB::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html) in the *AWS CloudFormation User Guide*.
 
-To learn more about creating and configuring a DynamoDB table using the `AWS::DynamoDB::Table` resource, see [AWS::DynamoDB::Table](../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.md") in
-the _AWS CloudFormation User Guide_.
+### Sample database data file
+<a name="scheduled-task-app-csv-file"></a>
 
 Copy and paste the following code into a file named `sample_data.csv`.
 
@@ -161,6 +146,9 @@ Date,Order_number,CustomerName,ProductID,Quantity,TotalAmount
 
 This file contains some example test data to populate your DynamoDB table with in a standard comma-separated values (CSV) format.
 
+### Python script to load sample data
+<a name="scheduled-task-app-load-script"></a>
+
 Copy and paste the following code into a file named `load_sample_data.py`.
 
 ```
@@ -170,7 +158,7 @@ from decimal import Decimal
 
 # Initialize the DynamoDB client
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('MyOrderTable')
+table = dynamodb.Table('MyOrderTable') 
 print("DDB client initialized.")
 
 def load_data_from_csv(filename):
@@ -193,8 +181,10 @@ if __name__ == "__main__":
     print("Data loading completed.")
 ```
 
-This Python script first uses the AWS SDK for Python (Boto3) to create a connection to your DynamoDB table. It then iterates over each row in the example-data CSV file, creates an item from that row, and
-writes the item to the DynamoDB table using the boto3 SDK.
+This Python script first uses the AWS SDK for Python (Boto3) to create a connection to your DynamoDB table. It then iterates over each row in the example-data CSV file, creates an item from that row, and writes the item to the DynamoDB table using the boto3 SDK.
+
+### Python function code
+<a name="scheduled-task-app-function-code"></a>
 
 Copy and paste the following code into a file named `lambda_function.py`.
 
@@ -210,17 +200,17 @@ logger.setLevel("INFO")
 def lambda_handler(event, context):
     # Initialize the DynamoDB client
     dynamodb = boto3.resource('dynamodb')
-
+    
     # Specify the table name
     table_name = 'MyOrderTable'
     table = dynamodb.Table(table_name)
-
+    
     # Get today's date
     today = datetime.now()
-
+    
     # Calculate the date one year ago
     one_year_ago = (today - timedelta(days=365)).strftime('%Y-%m-%d')
-
+    
     # Scan the table using a global secondary index
     response = table.scan(
         IndexName='Date-index',
@@ -232,7 +222,7 @@ def lambda_handler(event, context):
             ':one_year_ago': one_year_ago
         }
     )
-
+    
      # Delete old items
     with table.batch_writer() as batch:
         for item in response['Items']:
@@ -244,7 +234,7 @@ def lambda_handler(event, context):
                 }
             )
             logger.info(f'deleted order number {Order_number}')
-
+    
     # Check if there are more items to scan
     while 'LastEvaluatedKey' in response:
         response = table.scan(
@@ -258,7 +248,7 @@ def lambda_handler(event, context):
             },
             ExclusiveStartKey=response['LastEvaluatedKey']
         )
-
+        
         # Delete old items
         with table.batch_writer() as batch:
             for item in response['Items']:
@@ -268,22 +258,21 @@ def lambda_handler(event, context):
                         'Date': item['Date']
                     }
                 )
-
+    
     return {
         'statusCode': 200,
         'body': 'Cleanup completed successfully'
     }
 ```
 
-The Python function code contains the [handler function](python-handler.md "python-handler.md") (`lambda_handler`) that Lambda runs when your function is
-invoked.
+The Python function code contains the [handler function](python-handler.md) (`lambda_handler`) that Lambda runs when your function is invoked.
 
-When the function is invoked by EventBridge Scheduler, it uses the AWS SDK for Python (Boto3) to create a connection to the DynamoDB table on which the scheduled maintenance task is to be performed.
-It then uses the Python `datetime` library to calculate the date one year ago, before scanning the table for items older than this and deleting them.
+When the function is invoked by EventBridge Scheduler, it uses the AWS SDK for Python (Boto3) to create a connection to the DynamoDB table on which the scheduled maintenance task is to be performed. It then uses the Python `datetime` library to calculate the date one year ago, before scanning the table for items older than this and deleting them.
 
-Note that responses from DynamoDB query and scan operations are limited to a maximum of 1 MB in size. If the response is larger than 1 MB, DynamoDB paginates the
-data and returns a `LastEvaluatedKey` element in the response. To ensure that our function processes all the records in the table, we check for the presence of this key
-and continue performing table scans from the last evaluated position until the whole table has been scanned.
+Note that responses from DynamoDB query and scan operations are limited to a maximum of 1 MB in size. If the response is larger than 1 MB, DynamoDB paginates the data and returns a `LastEvaluatedKey` element in the response. To ensure that our function processes all the records in the table, we check for the presence of this key and continue performing table scans from the last evaluated position until the whole table has been scanned.
+
+### `requirements.txt` manifest file
+<a name="scheduled-task-app-dependencies"></a>
 
 Copy and paste the following code into a file named `requirements.txt`.
 
@@ -291,15 +280,13 @@ Copy and paste the following code into a file named `requirements.txt`.
 boto3
 ```
 
-For this example, your function code has only one dependency that isn't part of the standard Python library -
-the SDK for Python (Boto3) that the function uses to scan and delete items from the DynamoDB table.
+For this example, your function code has only one dependency that isn't part of the standard Python library - the SDK for Python (Boto3) that the function uses to scan and delete items from the DynamoDB table.
 
-###### Note
+**Note**  
+A version of the SDK for Python (Boto3) is included as part of the Lambda runtime, so your code would run without adding Boto3 to your function's deployment package. However, to maintain full control of your function's dependencies and avoid possible issues with version misalignment, best practice for Python is to include all function dependencies in your function's deployment package. See [Runtime dependencies in Python](python-package.md#python-package-dependencies) to learn more.
 
-A version of the SDK for Python (Boto3) is included as part of the Lambda runtime, so your code would run without adding Boto3 to your
-function's deployment package. However, to maintain full control of your function's dependencies and avoid possible issues with
-version misalignment, best practice for Python is to include all function dependencies in your function's deployment package.
-See [Runtime dependencies in Python](python-package.md#python-package-dependencies "python-package.md#python-package-dependencies") to learn more.
+### AWS SAM template (scheduled-maintenance app)
+<a name="scheduled-task-app-table-yaml"></a>
 
 Copy and paste the following code into a file named `template.yaml`.
 
@@ -348,17 +335,15 @@ Outputs:
     Value: !GetAtt MyLambdaFunction.Arn
 ```
 
-###### Note
+**Note**  
+AWS SAM templates use a standard naming convention of `template.yaml`. In this example, you have two template files - one to create the example database and another to create the app itself. Save them in separate sub-directories in your project folder.
 
-AWS SAM templates use a standard naming convention of `template.yaml`. In this example, you have two template files - one to create the
-example database and another to create the app itself. Save them in separate sub-directories in your project folder.
-
-This AWS SAM template defines the resources for your app. We define the Lambda function using the `AWS::Serverless::Function` resource. The EventBridge Scheduler schedule and the
-trigger to invoke the Lambda function are created by using the `Events` property of this resource using a type of `ScheduleV2`. To learn more about defining EventBridge Scheduler schedules in AWS SAM templates,
-see [ScheduleV2](../../../serverless-application-model/latest/developerguide/sam-property-function-schedulev2.md "../../../serverless-application-model/latest/developerguide/sam-property-function-schedulev2.md") in the
-_AWS Serverless Application Model Developer Guide_.
+This AWS SAM template defines the resources for your app. We define the Lambda function using the `AWS::Serverless::Function` resource. The EventBridge Scheduler schedule and the trigger to invoke the Lambda function are created by using the `Events` property of this resource using a type of `ScheduleV2`. To learn more about defining EventBridge Scheduler schedules in AWS SAM templates, see [ScheduleV2](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-schedulev2.html) in the *AWS Serverless Application Model Developer Guide*.
 
 In addition to the Lambda function and the EventBridge Scheduler schedule, we also define a CloudWatch log group for your function to send records of deleted items to.
+
+### Test script
+<a name="scheduled-task-app-test-script"></a>
 
 Copy and paste the following code into a file named `test_app.py`.
 
@@ -416,295 +401,321 @@ for record in old_records:
 
 # The total number of old records should be zero.
 print(f"Total number of old records: {len(old_records)}")
-
 ```
 
-This test script uses the AWS SDK for Python (Boto3) to create a connection to your DynamoDB table and scan for items older than one year. To confirm if the Lambda function
-has run successfully, at the end of the test, the function prints the number of records older than one year still in the table. If the Lambda function was successful,
-the number of old records in the table should be zero.
+This test script uses the AWS SDK for Python (Boto3) to create a connection to your DynamoDB table and scan for items older than one year. To confirm if the Lambda function has run successfully, at the end of the test, the function prints the number of records older than one year still in the table. If the Lambda function was successful, the number of old records in the table should be zero. 
 
 ## Creating and populating the example DynamoDB table
+<a name="scheduled-task-app-create-table"></a>
 
-To test your scheduled-maintenance app, you first create a DynamoDB table and populate it with some sample data. You can create the table either manually using the
-AWS Management Console or by using AWS SAM. We recommend that you use AWS SAM to quickly create and configure the table using a few AWS CLI commands.
+To test your scheduled-maintenance app, you first create a DynamoDB table and populate it with some sample data. You can create the table either manually using the AWS Management Console or by using AWS SAM. We recommend that you use AWS SAM to quickly create and configure the table using a few AWS CLI commands.
 
-Console
+------
+#### [ Console ]
 
-###### To create the DynamoDB table
+**To create the DynamoDB table**
 
-1. Open the [Tables](https://console.aws.amazon.com/dynamodbv2/home#tables "https://console.aws.amazon.com/dynamodbv2/home#tables") page of the DynamoDB console.
-2. Choose **Create table**.
-3. Create the table by doing the following:
+1. Open the [Tables](https://console.aws.amazon.com/dynamodbv2/home#tables) page of the DynamoDB console.
 
-   1. Under **Table details**, for **Table name**, enter `MyOrderTable`.
-   2. For **Partition key**, enter `Order_number` and leave the type as **String**.
-   3. For **Sort key**, enter `Date` and leave the type as **String**.
-   4. Leave **Table settings** set to **Default settings** and choose **Create table**.
+1. Choose **Create table**.
 
-4. When your table has finished creating and its **Status** shows as **Active**, create a global secondary index (GSI) by doing the
-   following. Your app uses this GSI to search for items directly by date to determine what to delete.
+1. Create the table by doing the following:
+
+   1. Under **Table details**, for **Table name**, enter **MyOrderTable**.
+
+   1. For **Partition key**, enter **Order\_number** and leave the type as **String**.
+
+   1. For **Sort key**, enter **Date** and leave the type as **String**.
+
+   1. Leave **Table settings** set to **Default settings** and choose **Create table**.
+
+1. When your table has finished creating and its **Status** shows as **Active**, create a global secondary index (GSI) by doing the following. Your app uses this GSI to search for items directly by date to determine what to delete.
 
    1. Choose **MyOrderTable** from the list of tables.
-   2. Choose the **Indexes** tab.
-   3. Under **Global secondary indexes**, choose **Create index**.
-   4. Under **Index details**, enter `Date` for the **Partition key** and leave the
-      **Data type** set to **String**.
-   5. For **Index name**, enter `Date-index`.
-   6. Leave all other parameters set to their default values, scroll to the bottom of the page, and choose **Create index**.
 
-AWS SAM
+   1. Choose the **Indexes** tab.
 
-###### To create the DynamoDB table
+   1. Under **Global secondary indexes**, choose **Create index**.
 
-1. Navigate to the folder you saved the `template.yaml` file for the DynamoDB table in. Note that this example uses two
-   `template.yaml` files. Make sure they are saved in separate sub-folders and that you are in the correct folder containing
-   the template to create your DynamoDB table.
-2. Run the following command.
+   1. Under **Index details**, enter **Date** for the **Partition key** and leave the **Data type** set to **String**.
 
-```
-`sam build`
-```
+   1. For **Index name**, enter **Date-index**.
 
-This command gathers the build artifacts for the resources you want to deploy and places them in the proper format and
-location to deploy them. 3. To create the DynamoDB resource specified in the `template.yaml` file, run the following command.
+   1. Leave all other parameters set to their default values, scroll to the bottom of the page, and choose **Create index**.
 
-```
-`sam deploy --guided`
-```
+------
+#### [ AWS SAM ]
 
-Using the `--guided` flag means that AWS SAM shows you prompts to guide you through the deployment process. For this deployment,
-enter a `Stack name` of `cron-app-test-db`, and accept the defaults for all other options by using Enter.
+**To create the DynamoDB table**
 
-When AWS SAM has finished creating the DynamoDB resource, you should see the following message.
+1. Navigate to the folder you saved the `template.yaml` file for the DynamoDB table in. Note that this example uses two `template.yaml` files. Make sure they are saved in separate sub-folders and that you are in the correct folder containing the template to create your DynamoDB table.
 
-```
-Successfully created/updated stack - cron-app-test-db in `us-west-2`
-```
+1. Run the following command.
 
-4. You can additionally confirm that the DynamoDB table has been created by opening the [Tables](https://console.aws.amazon.com/dynamodbv2/home#tables "https://console.aws.amazon.com/dynamodbv2/home#tables") page of the DynamoDB console.
-   You should see a table named `MyOrderTable`.
+   ```
+   sam build
+   ```
 
-After you've created your table, you next add some sample data to test your app. The CSV file `sample_data.csv` you downloaded
-earlier contains a number of example entries comprised of order numbers, dates, and customer and order information. Use the provided python script
-`load_sample_data.py` to add this data to your table.
+   This command gathers the build artifacts for the resources you want to deploy and places them in the proper format and location to deploy them.
 
-###### To add the sample data to the table
+1. To create the DynamoDB resource specified in the `template.yaml` file, run the following command.
 
-1. Navigate to the directory containing the `sample_data.csv` and `load_sample_data.py` files. If these files are in
-   separate directories, move them so they're saved in the same location.
-2. Create a Python virtual environment to run the script in by running the following command. We recommend that you use a virtual environment because in a following
-   step you'll need to install the AWS SDK for Python (Boto3).
+   ```
+   sam deploy --guided
+   ```
 
-```
-`python -m venv venv`
-```
+   Using the `--guided` flag means that AWS SAM shows you prompts to guide you through the deployment process. For this deployment, enter a `Stack name` of **cron-app-test-db**, and accept the defaults for all other options by using Enter.
 
-3. Activate the virtual environment by running the following command.
+   When AWS SAM has finished creating the DynamoDB resource, you should see the following message.
 
-```
-`source venv/bin/activate`
-```
+   ```
+   Successfully created/updated stack - cron-app-test-db in {{us-west-2}}
+   ```
 
-4. Install the SDK for Python (Boto3) in your virtual environment by running the following command. The script uses this library to connect to your DynamoDB table and add the items.
+1. You can additionally confirm that the DynamoDB table has been created by opening the [Tables](https://console.aws.amazon.com/dynamodbv2/home#tables) page of the DynamoDB console. You should see a table named `MyOrderTable`.
 
-```
-`pip install boto3`
-```
+------
 
-5. Run the script to populate the table by running the following command.
+After you've created your table, you next add some sample data to test your app. The CSV file `sample_data.csv` you downloaded earlier contains a number of example entries comprised of order numbers, dates, and customer and order information. Use the provided python script `load_sample_data.py` to add this data to your table.
 
-```
-`python load_sample_data.py`
-```
+**To add the sample data to the table**
 
-If the script runs successfully, it should print each item to the console as it loads it and report `Data loading completed`. 6. Deactivate the virtual environment by running the following command.
+1. Navigate to the directory containing the `sample_data.csv` and `load_sample_data.py` files. If these files are in separate directories, move them so they're saved in the same location.
 
-```
-`deactivate`
-```
+1. Create a Python virtual environment to run the script in by running the following command. We recommend that you use a virtual environment because in a following step you'll need to install the AWS SDK for Python (Boto3).
 
-7. You can verify that the data has been loaded to your DynamoDB table by doing the following:
+   ```
+   python -m venv venv
+   ```
 
-   1. Open the [Explore items](https://console.aws.amazon.com/dynamodbv2/home#item-explorer "https://console.aws.amazon.com/dynamodbv2/home#item-explorer") page of the DynamoDB console and select your table (`MyOrderTable`).
-   2. In the **Items returned** pane, you should see the 25 items from the CSV file that the script added to the table.
+1. Activate the virtual environment by running the following command.
+
+   ```
+   source venv/bin/activate
+   ```
+
+1. Install the SDK for Python (Boto3) in your virtual environment by running the following command. The script uses this library to connect to your DynamoDB table and add the items.
+
+   ```
+   pip install boto3
+   ```
+
+1. Run the script to populate the table by running the following command.
+
+   ```
+   python load_sample_data.py
+   ```
+
+   If the script runs successfully, it should print each item to the console as it loads it and report `Data loading completed`.
+
+1. Deactivate the virtual environment by running the following command.
+
+   ```
+   deactivate
+   ```
+
+1. You can verify that the data has been loaded to your DynamoDB table by doing the following:
+
+   1. Open the [Explore items](https://console.aws.amazon.com/dynamodbv2/home#item-explorer) page of the DynamoDB console and select your table (`MyOrderTable`).
+
+   1. In the **Items returned** pane, you should see the 25 items from the CSV file that the script added to the table.
 
 ## Creating the scheduled-maintenance app
+<a name="scheduled-task-app-create-app"></a>
 
-You can create and deploy the resources for this example app step by step using the AWS Management Console or by using AWS SAM. In a production environment, we
-recommend that you use an Infrustracture-as-Code (IaC) tool like AWS SAM to repeatably deploy serverless applications without using manual processes.
+You can create and deploy the resources for this example app step by step using the AWS Management Console or by using AWS SAM. In a production environment, we recommend that you use an Infrustracture-as-Code (IaC) tool like AWS SAM to repeatably deploy serverless applications without using manual processes.
 
-For this example, follow the console instructions to learn how to configure each AWS resource separately, or follow the AWS SAM instructions
-to quickly deploy the app using AWS CLI commands.
+For this example, follow the console instructions to learn how to configure each AWS resource separately, or follow the AWS SAM instructions to quickly deploy the app using AWS CLI commands.
 
-Console
+------
+#### [ Console ]
 
-###### To create the function using the AWS Management Console
+**To create the function using the AWS Management Console**
 
-First, create a function containing basic starter code. You then
-replace this code with your own function code by either copying and pasting the code directly in the Lambda code editor, or by uploading your code
-as a `.zip` package. For this task, we recommend copying and pasting the code.
+First, create a function containing basic starter code. You then replace this code with your own function code by either copying and pasting the code directly in the Lambda code editor, or by uploading your code as a `.zip` package. For this task, we recommend copying and pasting the code.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Choose **Create function**.
-3. Choose **Author from scratch**.
-4. Under **Basic information**, do the following:
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+
+1. Choose **Create function**.
+
+1. Choose **Author from scratch**.
+
+1. Under **Basic information**, do the following:
 
    1. For **Function name**, enter `ScheduledDBMaintenance`.
-   2. For **Runtime** choose the latest Python version.
-   3. For **Architecture**, choose **x86\_64**.
 
-5. Choose **Create function**.
-6. After your function is created, you can configure your function with the provided function code.
+   1. For **Runtime** choose the latest Python version.
 
-   1. In the **Code source** pane, replace the Hello world code that Lambda created with the Python function code from
-      the `lambda_function.py` file that you saved earlier.
-   2. In the **DEPLOY** section, choose **Deploy** to update your function's code:
+   1. For **Architecture**, choose **x86\_64**.
 
-   ![Deploy button in the Lambda console code editor](images/getting-started-tutorial/deploy-console.png)
+1. Choose **Create function**.
 
-###### To configure the function memory and timeout (console)
+1. After your function is created, you can configure your function with the provided function code.
 
-1. Select the **Configuration** tab for your function.
-2. In the **General configuration** pane, choose **Edit**.
-3. Set **Memory** to 256 MB and **Timeout** to 15 seconds.
-   If you are processing a large table with many records, for example in the case of a production environment,
-   you might consider setting **Timeout** to a larger number. This gives your function
-   more time to scan, and clean the database.
-4. Choose **Save**.
+   1. In the **Code source** pane, replace the Hello world code that Lambda created with the Python function code from the `lambda_function.py` file that you saved earlier.
 
-###### To configure the log format (console)
+   1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
+![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
-You can configure Lambda functions to output logs in either unstructured text or JSON format. We recommend that you use JSON format for logs to
-make it easier to search and filter log data. To learn more about Lambda log configuration options, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced").
+**To configure the function memory and timeout (console)**
 
 1. Select the **Configuration** tab for your function.
-2. Select **Monitoring and operations tools**.
-3. In the **Logging configuration** pane, choose **Edit**.
-4. For **Logging configuration**, select **JSON**.
-5. Choose **Save**.
 
-###### To set Up IAM permissions
+1. In the **General configuration** pane, choose **Edit**.
 
-To give your function the permissions it needs to read and delete DynamoDB items, you need to add a policy to your function's
-[execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") defining the necessary permissions.
+1. Set **Memory** to 256 MB and **Timeout** to 15 seconds. If you are processing a large table with many records, for example in the case of a production environment, you might consider setting **Timeout** to a larger number. This gives your function more time to scan, and clean the database.
 
-1. Open the **Configuration** tab, then choose
-   **Permissions** from the left navigation bar.
-2. Choose the role name under **Execution role**.
-3. In the IAM console, choose **Add permissions**, then
-   **Create inline policy**.
-4. Use the JSON editor and enter the following policy:
+1. Choose **Save**.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "dynamodb:Scan",
- "dynamodb:DeleteItem",
- "dynamodb:BatchWriteItem"
- ],
- "Resource": "arn:aws:dynamodb:*:*:table/`MyOrderTable`"
- }
- ]
-}`
+**To configure the log format (console)**
 
-```
+You can configure Lambda functions to output logs in either unstructured text or JSON format. We recommend that you use JSON format for logs to make it easier to search and filter log data. To learn more about Lambda log configuration options, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 
-5. Name the policy `DynamoDBCleanupPolicy`, then create it.
+1. Select the **Configuration** tab for your function.
 
-###### To set up EventBridge Scheduler as a trigger (console)
+1. Select **Monitoring and operations tools**.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Choose your function (`ScheduledDBMaintenance`).
-3. In the **Function overview** pane, choose **Add trigger**.
-4. From the trigger source dropdown, choose **Scheduler**.
-5. Configure the schedule by doing the following:
+1. In the **Logging configuration** pane, choose **Edit**.
 
-   1. For **Schedule name**, enter `DynamoDBCleanupSchedule`.
-   2. For **Schedule group**, leave the default (`default`).
-   3. For **Schedule type**, choose **Recurring schedule** and enter
-      the following cron expression: `cron(0 3 1 * ? *)`.
+1. For **Logging configuration**, select **JSON**.
 
-   When evaluated, this cron expression runs on the first day of every month at 03:00 AM. 4. For **Flexible time window**, choose **Off**. 5. Leave the **Payload** field empty. 6. For the execution role, choose **Create new role for this schedule** and enter a role name.
-   EventBridge Scheduler creates a new policy with the required permissions the schedule needs to invoke your function.
+1. Choose **Save**.
 
-6. Choose **Add**.
+**To set Up IAM permissions**
 
-AWS SAM
+To give your function the permissions it needs to read and delete DynamoDB items, you need to add a policy to your function's [execution role](lambda-intro-execution-role.md) defining the necessary permissions.
 
-###### To deploy the app using AWS SAM
+1. Open the **Configuration** tab, then choose **Permissions** from the left navigation bar.
 
-1. Navigate to the folder you saved the `template.yaml` file for the app in. Note that this example uses two `template.yaml` files.
-   Make sure they are saved in separate sub-folders and that you are in the correct folder containing the template to create the app.
-2. Copy the `lambda_function.py` and `requirements.txt` files you downloaded earlier to the same folder. The code location specified in the
-   AWS SAM template is `./`, meaning the current location. AWS SAM searches in this folder for the Lambda function code when you try to deploy the app.
-3. Run the following command.
+1. Choose the role name under **Execution role**.
 
-```
-`sam build --use-container`
-```
+1. In the IAM console, choose **Add permissions**, then **Create inline policy**.
 
-This command gathers the build artifacts for the resources you want to deploy and places them in the proper format and
-location to deploy them. Specifying the `--use-container` option builds your function inside a Lambda-like Docker container.
-We use it here so you don't need to have Python 3.12 installed on your local machine for the build to work. 4. To create the Lambda and EventBridge Scheduler resources specified in the `template.yaml` file, run the following command.
+1. Use the JSON editor and enter the following policy:  
+****  
 
-```
-`sam deploy --guided`
-```
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "dynamodb:Scan",
+                   "dynamodb:DeleteItem",
+                   "dynamodb:BatchWriteItem"
+               ],
+               "Resource": "arn:aws:dynamodb:*:*:table/{{MyOrderTable}}"
+           }
+       ]
+   }
+   ```
 
-Using the `--guided` flag means that AWS SAM shows you prompts to guide you through the deployment process. For this deployment,
-enter a `Stack name` of `cron-maintenance-app`, and accept the defaults for all other options by using Enter.
+1. Name the policy **DynamoDBCleanupPolicy**, then create it.
 
-When AWS SAM has finished creating the Lambda and EventBridge Scheduler resources, you should see the following message.
+**To set up EventBridge Scheduler as a trigger (console)**
 
-```
-Successfully created/updated stack - cron-maintenance-app in `us-west-2`
-```
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-5. You can additionally confirm that the Lambda function has been created by opening the [Functions](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") page of the Lambda console.
-   You should see a function named `ScheduledDBMaintenance`.
+1. Choose your function (`ScheduledDBMaintenance`).
+
+1. In the **Function overview** pane, choose **Add trigger**.
+
+1. From the trigger source dropdown, choose **Scheduler**.
+
+1. Configure the schedule by doing the following:
+
+   1. For **Schedule name**, enter **DynamoDBCleanupSchedule**.
+
+   1. For **Schedule group**, leave the default (`default`).
+
+   1. For **Schedule type**, choose **Recurring schedule** and enter the following cron expression: **cron(0 3 1 \* ? \*)**.
+
+      When evaluated, this cron expression runs on the first day of every month at 03:00 AM.
+
+   1. For **Flexible time window**, choose **Off**.
+
+   1. Leave the **Payload** field empty.
+
+   1. For the execution role, choose **Create new role for this schedule** and enter a role name. EventBridge Scheduler creates a new policy with the required permissions the schedule needs to invoke your function.
+
+1. Choose **Add**.
+
+------
+#### [ AWS SAM ]
+
+**To deploy the app using AWS SAM**
+
+1. Navigate to the folder you saved the `template.yaml` file for the app in. Note that this example uses two `template.yaml` files. Make sure they are saved in separate sub-folders and that you are in the correct folder containing the template to create the app.
+
+1. Copy the `lambda_function.py` and `requirements.txt` files you downloaded earlier to the same folder. The code location specified in the AWS SAM template is `./`, meaning the current location. AWS SAM searches in this folder for the Lambda function code when you try to deploy the app.
+
+1. Run the following command.
+
+   ```
+   sam build --use-container
+   ```
+
+   This command gathers the build artifacts for the resources you want to deploy and places them in the proper format and location to deploy them. Specifying the `--use-container` option builds your function inside a Lambda-like Docker container. We use it here so you don't need to have Python 3.12 installed on your local machine for the build to work.
+
+1. To create the Lambda and EventBridge Scheduler resources specified in the `template.yaml` file, run the following command.
+
+   ```
+   sam deploy --guided
+   ```
+
+   Using the `--guided` flag means that AWS SAM shows you prompts to guide you through the deployment process. For this deployment, enter a `Stack name` of **cron-maintenance-app**, and accept the defaults for all other options by using Enter.
+
+   When AWS SAM has finished creating the Lambda and EventBridge Scheduler resources, you should see the following message.
+
+   ```
+   Successfully created/updated stack - cron-maintenance-app in {{us-west-2}}
+   ```
+
+1. You can additionally confirm that the Lambda function has been created by opening the [Functions](https://console.aws.amazon.com/lambda/home#/functions) page of the Lambda console. You should see a function named `ScheduledDBMaintenance`.
+
+------
 
 ## Testing the app
+<a name="scheduled-task-app-test-app"></a>
 
-To test that your schedule correctly triggers your function, and that your function correctly cleans records
-from the database, you can temporarily modify your schedule to run once at a specific time. You can then run `sam deploy` again to
-reset your recurrence schedule to run once a month.
+ To test that your schedule correctly triggers your function, and that your function correctly cleans records from the database, you can temporarily modify your schedule to run once at a specific time. You can then run `sam deploy` again to reset your recurrence schedule to run once a month. 
 
-###### To run the application using the AWS Management Console
+**To run the application using the AWS Management Console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Choose your function (`ScheduledDBMaintenance`).
-3. In the **Triggers** section, choose the `DynamoDBCleanupSchedule` trigger.
-4. Choose **Edit**.
-5. For **Schedule type**, choose **One-time schedule**.
-6. Set your invocation time to a few minutes from now, then choose **Save**.
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-After the schedule runs and invokes its target, you run the `test_app.py` script to verify that your function successfully removed all old records
-from the DynamoDB table.
+1. Choose your function (`ScheduledDBMaintenance`).
 
-###### To verify that old records are deleted using a Python script
+1. In the **Triggers** section, choose the `DynamoDBCleanupSchedule` trigger.
 
-1. In your command line, navigate to the folder where you saved `test_app.py`.
-2. Run the script.
+1. Choose **Edit**.
 
-```
-`python test_app.py`
-```
+1. For **Schedule type**, choose **One-time schedule**.
 
-If successful, you see the following output.
+1.  Set your invocation time to a few minutes from now, then choose **Save**. 
 
-```
-Total number of old records: 0
-```
+ After the schedule runs and invokes its target, you run the `test_app.py` script to verify that your function successfully removed all old records from the DynamoDB table. 
+
+**To verify that old records are deleted using a Python script**
+
+1.  In your command line, navigate to the folder where you saved `test_app.py`. 
+
+1. Run the script.
+
+   ```
+   python test_app.py
+   ```
+
+    If successful, you see the following output. 
+
+   ```
+   Total number of old records: 0
+   ```
 
 ## Next steps
+<a name="scheduled-task-app-next-steps"></a>
 
-You can now modify the EventBridge Scheduler schedule to meet your particular application requirements. EventBridge Scheduler supports the following schedule expressions: cron, rate, and one-time schedules.
+ You can now modify the EventBridge Scheduler schedule to meet your particular application requirements. EventBridge Scheduler supports the following schedule expressions: cron, rate, and one-time schedules. 
 
-For more information about EventBridge Scheduler schedule expressions, see [Schedule types](../../../scheduler/latest/UserGuide/schedule-types.md "../../../scheduler/latest/UserGuide/schedule-types.md") in the
-_EventBridge Scheduler User Guide_.
-
-[Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the _IAM User Guide_
+ For more information about EventBridge Scheduler schedule expressions, see [Schedule types](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html) in the *EventBridge Scheduler User Guide*. [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide* 

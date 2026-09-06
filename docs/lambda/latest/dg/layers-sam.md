@@ -1,8 +1,9 @@
-# Using AWS SAM with layers
 
-You can use the AWS Serverless Application Model (AWS SAM) to automate the creation of layers in your
-application. The `AWS::Serverless::LayerVersion` resource type creates
-a layer version that you can reference from your Lambda function configuration.
+
+# Using AWS SAM with layers
+<a name="layers-sam"></a>
+
+You can use the AWS Serverless Application Model (AWS SAM) to automate the creation of layers in your application. The `AWS::Serverless::LayerVersion` resource type creates a layer version that you can reference from your Lambda function configuration.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'

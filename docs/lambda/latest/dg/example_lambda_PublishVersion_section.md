@@ -1,22 +1,22 @@
+
+
 # Use `PublishVersion` with a CLI
+<a name="example_lambda_PublishVersion_section"></a>
 
 The following code examples show how to use `PublishVersion`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To publish a new version of a function**
-
-The following `publish-version` example publishes a new version of the `my-function` Lambda function.
-
-```
-`aws lambda publish-version \
- --function-name `my-function``
+**AWS CLI**  
+**To publish a new version of a function**  
+The following `publish-version` example publishes a new version of the `my-function` Lambda function.  
 
 ```
-
-Output:
+aws lambda publish-version \
+    --function-name {{my-function}}
+```
+Output:  
 
 ```
 {
@@ -38,41 +38,28 @@ Output:
     "Description": ""
 }
 ```
+For more information, see [Configuring AWS Lambda Function Aliases](https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [PublishVersion](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-version.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Configuring AWS Lambda Function Aliases](aliases-intro.md "aliases-intro.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [PublishVersion](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-version.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a version for the existing snapshot of Lambda Function Code**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a version for the existing snapshot of Lambda Function Code**  
 
 ```
 Publish-LMVersion -FunctionName "MylambdaFunction123" -Description "Publishing Existing Snapshot of function code as a  new version through Powershell"
-
 ```
++  For API details, see [PublishVersion](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PublishVersion](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a version for the existing snapshot of Lambda Function Code**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a version for the existing snapshot of Lambda Function Code**  
 
 ```
 Publish-LMVersion -FunctionName "MylambdaFunction123" -Description "Publishing Existing Snapshot of function code as a  new version through Powershell"
-
 ```
++  For API details, see [PublishVersion](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PublishVersion](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,17 +1,14 @@
+
+
 # Deploying Lambda functions with AWS CDK
+<a name="lambda-cdk-tutorial"></a>
 
-The AWS Cloud Development Kit (AWS CDK) is an infrastructure as code (IaC) framework that you can use to define
-AWS cloud infrastructure by using a programming language of your choosing. To define your
-own cloud infrastructure, you first write an app (in one of the CDK's supported
-languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template
-and deploy your resources to your AWS account. Follow the steps in this topic to deploy a
-Lambda function that returns an event from an Amazon API Gateway endpoint.
+The AWS Cloud Development Kit (AWS CDK) is an infrastructure as code (IaC) framework that you can use to define AWS cloud infrastructure by using a programming language of your choosing. To define your own cloud infrastructure, you first write an app (in one of the CDK's supported languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template and deploy your resources to your AWS account. Follow the steps in this topic to deploy a Lambda function that returns an event from an Amazon API Gateway endpoint.
 
-The AWS Construct Library, included with the CDK, provides modules that you can
-use to model the resources that AWS services provide. For popular services, the library
-provides curated constructs with smart defaults and best practices. You can use the [aws\_lambda](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md") module to define your function and supporting resources with just a few lines of code.
+The AWS Construct Library, included with the CDK, provides modules that you can use to model the resources that AWS services provide. For popular services, the library provides curated constructs with smart defaults and best practices. You can use the [aws\_lambda](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.html) module to define your function and supporting resources with just a few lines of code. 
 
 ## Prerequisites
+<a name="lambda-cdk-prerequisites"></a>
 
 Before starting this tutorial, install the AWS CDK by running the following command.
 
@@ -20,10 +17,12 @@ npm install -g aws-cdk
 ```
 
 ## Step 1: Set up your AWS CDK project
+<a name="lambda-cdk-step-1"></a>
 
 Create a directory for your new AWS CDK app and initialize the project.
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 mkdir hello-lambda
@@ -31,7 +30,8 @@ cd hello-lambda
 cdk init --language javascript
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 mkdir hello-lambda
@@ -39,7 +39,8 @@ cd hello-lambda
 cdk init --language typescript
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 mkdir hello-lambda
@@ -54,7 +55,8 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 mkdir hello-lambda
@@ -64,7 +66,8 @@ cdk init --language java
 
 Import this Maven project to your Java integrated development environment (IDE). For example, in Eclipse, choose **File**, **Import**, **Maven**, **Existing Maven Projects**.
 
-C#
+------
+#### [ C\# ]
 
 ```
 mkdir hello-lambda
@@ -72,33 +75,29 @@ cd hello-lambda
 cdk init --language csharp
 ```
 
-###### Note
+------
 
-The AWS CDK application template uses the name of the project directory to generate
-names for source files and classes. In this example, the directory is named
-`hello-lambda`. If you use a different project directory name,
-your app won't match these instructions.
+**Note**  
+The AWS CDK application template uses the name of the project directory to generate names for source files and classes. In this example, the directory is named `hello-lambda`. If you use a different project directory name, your app won't match these instructions.
 
-AWS CDK v2 includes stable constructs for all AWS services in a single package that's
-called `aws-cdk-lib`. This package is installed as a dependency when you
-initialize the project. When working with certain programming languages, the package is
-installed when you build the project for the first time.
+AWS CDK v2 includes stable constructs for all AWS services in a single package that's called `aws-cdk-lib`. This package is installed as a dependency when you initialize the project. When working with certain programming languages, the package is installed when you build the project for the first time.
 
 ## Step 2: Define the AWS CDK stack
+<a name="lambda-cdk-step-2"></a>
 
-A CDK _stack_ is a collection of one or more constructs, which define AWS resources.
-Each CDK stack represents an CloudFormation stack in your CDK app.
+A CDK *stack* is a collection of one or more constructs, which define AWS resources. Each CDK stack represents an CloudFormation stack in your CDK app.
 
 To define your CDK stack, follow the instructions for your preferred programming language. This stack defines the following:
++ The function's logical name: `MyFunction`
++ The location of the function code, specified in the `code` property. For more information, see [Handler code](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.html#handler-code) in the *AWS Cloud Development Kit (AWS CDK) API Reference*.
++ The REST API's logical name: `HelloApi`
++ The API Gateway endpoint's logical name: `ApiGwEndpoint`
 
-- The function's logical name: `MyFunction`
-- The location of the function code, specified in the `code` property. For more information, see [Handler code](../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md#handler-code "../../../cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.md#handler-code") in the _AWS Cloud Development Kit (AWS CDK) API Reference_.
-- The REST API's logical name: `HelloApi`
-- The API Gateway endpoint's logical name: `ApiGwEndpoint`
+Note that all of the CDK stacks in this tutorial use the Node.js [runtime](lambda-runtimes.md) for the Lambda function. You can use different programming languages for the CDK stack and the Lambda function to use the strengths of each language. For example, you can use TypeScript for the CDK stack to use the benefits of static typing for your infrastructure code. You can use JavaScript for the Lambda function to take advantage of the flexibility and rapid development of a dynamically typed language.
 
-Note that all of the CDK stacks in this tutorial use the Node.js [runtime](lambda-runtimes.md "lambda-runtimes.md") for the Lambda function. You can use different programming languages for the CDK stack and the Lambda function to use the strengths of each language. For example, you can use TypeScript for the CDK stack to use the benefits of static typing for your infrastructure code. You can use JavaScript for the Lambda function to take advantage of the flexibility and rapid development of a dynamically typed language.
+------
+#### [ JavaScript ]
 
-JavaScript
 Open the `lib/hello-lambda-stack.js` file and replace the contents with the following.
 
 ```
@@ -132,7 +131,9 @@ class HelloLambdaStack extends Stack {
 module.exports = { HelloLambdaStack }
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 Open the `lib/hello-lambda-stack.ts` file and replace the contents with the following.
 
 ```
@@ -160,7 +161,9 @@ export class HelloLambdaStack extends cdk.Stack {
 }
 ```
 
-Python
+------
+#### [ Python ]
+
 Open the `/hello-lambda/hello_lambda/hello_lambda_stack.py` file and replace the contents with the following.
 
 ```
@@ -192,7 +195,9 @@ class HelloLambdaStack(Stack):
         )
 ```
 
-Java
+------
+#### [ Java ]
+
 Open the `/hello-lambda/src/main/java/com/myorg/HelloLambdaStack.java` file and replace the contents with the following.
 
 ```
@@ -227,7 +232,9 @@ public class HelloLambdaStack extends Stack {
 }
 ```
 
-C#
+------
+#### [ C\# ]
+
 Open the `src/HelloLambda/HelloLambdaStack.cs` file and replace the contents with the following.
 
 ```
@@ -258,106 +265,108 @@ namespace HelloLambda
 }
 ```
 
+------
+
 ## Step 3: Create the Lambda function code
+<a name="lambda-cdk-step-3"></a>
 
 1. From the root of your project (`hello-lambda`), create the `/lib/lambda-handler` directory for the Lambda function code. This directory is specified in the `code` property of your AWS CDK stack.
-2. Create a new file called `index.js` in the `/lib/lambda-handler` directory. Paste the following code into the file. The function extracts specific properties from the API request and returns them as a JSON response.
 
-```
-exports.handler = async (event) => {
-  // Extract specific properties from the event object
-  const { resource, path, httpMethod, headers, queryStringParameters, body } = event;
-  const response = {
-    resource,
-    path,
-    httpMethod,
-    headers,
-    queryStringParameters,
-    body,
-  };
-  return {
-    body: JSON.stringify(response, null, 2),
-    statusCode: 200,
-  };
-};
-```
+1. Create a new file called `index.js` in the `/lib/lambda-handler` directory. Paste the following code into the file. The function extracts specific properties from the API request and returns them as a JSON response.
+
+   ```
+   exports.handler = async (event) => {
+     // Extract specific properties from the event object
+     const { resource, path, httpMethod, headers, queryStringParameters, body } = event;
+     const response = {
+       resource,
+       path,
+       httpMethod,
+       headers,
+       queryStringParameters,
+       body,
+     };
+     return {
+       body: JSON.stringify(response, null, 2),
+       statusCode: 200,
+     };
+   };
+   ```
 
 ## Step 4: Deploy the AWS CDK stack
+<a name="lambda-cdk-step-4"></a>
 
-1. From the root of your project, run the [cdk synth](../../../cdk/v2/guide/ref-cli-cmd-synth.md "../../../cdk/v2/guide/ref-cli-cmd-synth.md") command:
+1. From the root of your project, run the [cdk synth](https://docs.aws.amazon.com/cdk/v2/guide/ref-cli-cmd-synth.html) command:
 
-```
-cdk synth
-```
+   ```
+   cdk synth
+   ```
 
-This command synthesizes an AWS CloudFormation template from your CDK stack. The template is an approximately 400-line YAML
-file, similar to the following.
+   This command synthesizes an AWS CloudFormation template from your CDK stack. The template is an approximately 400-line YAML file, similar to the following. 
+**Note**  
+If you get the following error, make sure that you are in the root of your project directory.  
 
-###### Note
+   ```
+   --app is required either in command-line, in cdk.json or in ~/.cdk.json
+   ```  
+**Example CloudFormation template**  
 
-If you get the following error, make sure that you are in the root of your project directory.
+   ```
+   Resources:
+     MyFunctionServiceRole3C357FF2:
+       Type: AWS::IAM::Role
+       Properties:
+         AssumeRolePolicyDocument:
+           Statement:
+             - Action: sts:AssumeRole
+               Effect: Allow
+               Principal:
+                 Service: lambda.amazonaws.com
+           Version: "2012-10-17"		 	 	 
+         ManagedPolicyArns:
+           - Fn::Join:
+               - ""
+               - - "arn:"
+                 - Ref: AWS::Partition
+                 - :iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+       Metadata:
+         aws:cdk:path: HelloLambdaStack/MyFunction/ServiceRole/Resource
+     MyFunction1BAA52E7:
+       Type: AWS::Lambda::Function
+       Properties:
+         Code:
+           S3Bucket:
+             Fn::Sub: cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}
+           S3Key: ab1111111cd32708dc4b83e81a21c296d607ff2cdef00f1d7f48338782f92l3901.zip
+         Handler: index.handler
+         Role:
+           Fn::GetAtt:
+             - MyFunctionServiceRole3C357FF2
+             - Arn
+         Runtime: nodejs24.x
+         ...
+   ```
 
-```
---app is required either in command-line, in cdk.json or in ~/.cdk.json
-```
+1. Run the [cdk deploy](https://docs.aws.amazon.com/cdk/v2/guide/ref-cli-cmd-deploy.html) command:
 
-###### Example CloudFormation template
+   ```
+   cdk deploy
+   ```
 
-```
-Resources:
-  MyFunctionServiceRole3C357FF2:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Action: sts:AssumeRole
-            Effect: Allow
-            Principal:
-              Service: lambda.amazonaws.com
-        Version: "2012-10-17"
-      ManagedPolicyArns:
-        - Fn::Join:
-            - ""
-            - - "arn:"
-              - Ref: AWS::Partition
-              - :iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-    Metadata:
-      aws:cdk:path: HelloLambdaStack/MyFunction/ServiceRole/Resource
-  MyFunction1BAA52E7:
-    Type: AWS::Lambda::Function
-    Properties:
-      Code:
-        S3Bucket:
-          Fn::Sub: cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}
-        S3Key: ab1111111cd32708dc4b83e81a21c296d607ff2cdef00f1d7f48338782f92l3901.zip
-      Handler: index.handler
-      Role:
-        Fn::GetAtt:
-          - MyFunctionServiceRole3C357FF2
-          - Arn
-      Runtime: nodejs24.x
-      ...
-```
+   Wait while your resources are created. The final output includes the URL for your API Gateway endpoint. Example:
 
-2. Run the [cdk deploy](../../../cdk/v2/guide/ref-cli-cmd-deploy.md "../../../cdk/v2/guide/ref-cli-cmd-deploy.md") command:
-
-```
-cdk deploy
-```
-
-Wait while your resources are created. The final output includes the URL for your API Gateway endpoint. Example:
-
-```
-Outputs:
-HelloLambdaStack.ApiGwEndpoint77F417B1 = `https://abcd1234.execute-api.us-east-1.amazonaws.com/prod/`
-```
+   ```
+   Outputs:
+   HelloLambdaStack.ApiGwEndpoint77F417B1 = {{https://abcd1234.execute-api.us-east-1.amazonaws.com/prod/}}
+   ```
 
 ## Step 5: Test the function
+<a name="lambda-cdk-step-5"></a>
 
 To invoke the Lambda function, copy the API Gateway endpoint and paste it into a web browser or run a `curl` command:
 
 ```
-curl -s `https://abcd1234.execute-api.us-east-1.amazonaws.com/prod/`
+curl -s {{https://abcd1234.execute-api.us-east-1.amazonaws.com/prod/}}
 ```
 
 The response is a JSON representation of selected properties from the original event object, which contains information about the request made to the API Gateway endpoint. Example:
@@ -383,34 +392,47 @@ The response is a JSON representation of selected properties from the original e
 ```
 
 ## Step 6: Clean up your resources
+<a name="lambda-cdk-step-6"></a>
 
-The API Gateway endpoint is publicly accessible. To prevent unexpected charges, run the [cdk destroy](../../../cdk/v2/guide/ref-cli-cmd-destroy.md "../../../cdk/v2/guide/ref-cli-cmd-destroy.md") command to delete the stack and all associated resources.
+The API Gateway endpoint is publicly accessible. To prevent unexpected charges, run the [cdk destroy](https://docs.aws.amazon.com/cdk/v2/guide/ref-cli-cmd-destroy.html) command to delete the stack and all associated resources.
 
 ```
 cdk destroy
 ```
 
 ## Next steps
+<a name="lambda-cdk-next-steps"></a>
 
-For information about writing AWS CDK apps in your language of choice, see the
-following:
+For information about writing AWS CDK apps in your language of choice, see the following:
 
-TypeScript
-[Working with the AWS CDK
-in TypeScript](../../../cdk/v2/guide/work-with-cdk-typescript.md "../../../cdk/v2/guide/work-with-cdk-typescript.md")
+------
+#### [ TypeScript ]
 
-JavaScript
-[Working with the AWS CDK
-in JavaScript](../../../cdk/v2/guide/work-with-cdk-javascript.md "../../../cdk/v2/guide/work-with-cdk-javascript.md")
+[Working with the AWS CDK in TypeScript](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-typescript.html)
 
-Python
-[Working with the AWS CDK in Python](../../../cdk/v2/guide/work-with-cdk-python.md "../../../cdk/v2/guide/work-with-cdk-python.md")
+------
+#### [ JavaScript ]
 
-Java
-[Working with the AWS CDK in Java](../../../cdk/v2/guide/work-with-cdk-java.md "../../../cdk/v2/guide/work-with-cdk-java.md")
+[Working with the AWS CDK in JavaScript](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-javascript.html)
 
-C#
-[Working with the AWS CDK in C#](../../../cdk/v2/guide/work-with-cdk-csharp.md "../../../cdk/v2/guide/work-with-cdk-csharp.md")
+------
+#### [ Python ]
 
-Go
-[Working with the AWS CDK in Go](../../../cdk/v2/guide/work-with-cdk-go.md "../../../cdk/v2/guide/work-with-cdk-go.md")
+[Working with the AWS CDK in Python](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-python.html)
+
+------
+#### [ Java ]
+
+[Working with the AWS CDK in Java](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-java.html)
+
+------
+#### [ C\# ]
+
+[Working with the AWS CDK in C\#](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-csharp.html)
+
+------
+#### [ Go ]
+
+[Working with the AWS CDK in Go](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-go.html)
+
+------

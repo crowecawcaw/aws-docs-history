@@ -1,15 +1,18 @@
-# Testing Lambda durable functions
 
-Use the Durable Execution testing SDKs to run and inspect executions both locally and in the cloud. For authoring tests, assertions, the cloud runner, SAM CLI integration, and complete examples, see [Testing](../../../durable-execution/testing.md "../../../durable-execution/testing.md") in the AWS Durable Execution SDK Developer Guide.
+
+# Testing Lambda durable functions
+<a name="durable-testing"></a>
+
+Use the Durable Execution testing SDKs to run and inspect executions both locally and in the cloud. For authoring tests, assertions, the cloud runner, SAM CLI integration, and complete examples, see [Testing](https://docs.aws.amazon.com/durable-execution/testing/) in the AWS Durable Execution SDK Developer Guide.
 
 ## IAM permissions for cloud testing
+<a name="durable-cloud-testing"></a>
 
 When you use the cloud runner or `sam remote invoke` to test a deployed durable function, the calling principal needs permission to invoke the function and to read its execution history. Attach the following permissions to your test caller:
 
 ```
-
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -25,12 +28,12 @@ When you use the cloud runner or `sam remote invoke` to test a deployed durable 
         }
     ]
 }
-
 ```
 
-Replace `region`, `account-id`, and `function-name` with your values.
+Replace {{region}}, {{account-id}}, and {{function-name}} with your values.
 
 ## Debugging failures
+<a name="durable-testing-debugging"></a>
 
 When tests fail, inspect the execution result to understand what went wrong. Check the execution status to see if the function succeeded, failed, or timed out. Read error messages to understand the failure cause.
 

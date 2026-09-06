@@ -1,25 +1,26 @@
+
+
 # Maximize Lambda SnapStart performance
+<a name="snapstart-best-practices"></a>
 
-###### Topics
-
-- [Performance tuning](#snapstart-tuning "#snapstart-tuning")
-- [Networking best practices](#snapstart-networking "#snapstart-networking")
+**Topics**
++ [Performance tuning](#snapstart-tuning)
++ [Networking best practices](#snapstart-networking)
 
 ## Performance tuning
+<a name="snapstart-tuning"></a>
 
 To maximize the benefits of SnapStart, consider the following code optimization recommendations for your runtime.
 
-###### Note
-
+**Note**  
 SnapStart works best when used with function invocations at scale. Functions that are invoked infrequently might not experience the same performance improvements.
 
-To maximize the benefits of SnapStart, we recommend that you preload dependencies and initialize resources that contribute to startup
-latency in your initialization code instead of in the function handler. This moves the latency associated with
-heavy class loading out of the invocation path, optimizing startup performance with SnapStart.
+### Java
+<a name="snapstart-tuning-java"></a>
 
-If you can't preload dependencies or resources during initialization, then we recommend that you preload them with dummy
-invocations. To do this, update the function handler code, as shown in the following example from the [pet store
-function](https://github.com/awslabs/aws-serverless-java-container/tree/main/samples/spring/pet-store "https://github.com/awslabs/aws-serverless-java-container/tree/main/samples/spring/pet-store") on the AWS Labs GitHub repository.
+To maximize the benefits of SnapStart, we recommend that you preload dependencies and initialize resources that contribute to startup latency in your initialization code instead of in the function handler. This moves the latency associated with heavy class loading out of the invocation path, optimizing startup performance with SnapStart.
+
+If you can't preload dependencies or resources during initialization, then we recommend that you preload them with dummy invocations. To do this, update the function handler code, as shown in the following example from the [pet store function](https://github.com/awslabs/aws-serverless-java-container/tree/main/samples/spring/pet-store) on the AWS Labs GitHub repository.
 
 ```
 private static SpringLambdaContainerHandler<AwsProxyRequest, AwsProxyResponse> handler;
@@ -63,14 +64,16 @@ private static SpringLambdaContainerHandler<AwsProxyRequest, AwsProxyResponse> h
   }
 ```
 
-To maximize the benefits of SnapStart, focus on efficient code organization and resource management within your Python functions. As a general guideline, perform heavy computational tasks during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib"). This approach moves time-consuming operations out of the invocation path, improving overall function performance. To implement this strategy effectively, we recommend the following best practices:
+### Python
+<a name="snapstart-tuning-python"></a>
 
-- Import dependencies outside of the function handler.
-- Create `boto3` instances outside of the handler.
-- Initialize static resources or configurations before the handler is invoked.
-- Consider using a before-snapshot [runtime hook](snapstart-runtime-hooks-python.md "snapstart-runtime-hooks-python.md") for resource-intensive tasks such as downloading external files, pre-loading frameworks like Django, or loading machine learning models.
+To maximize the benefits of SnapStart, focus on efficient code organization and resource management within your Python functions. As a general guideline, perform heavy computational tasks during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib). This approach moves time-consuming operations out of the invocation path, improving overall function performance. To implement this strategy effectively, we recommend the following best practices:
++ Import dependencies outside of the function handler.
++ Create `boto3` instances outside of the handler.
++ Initialize static resources or configurations before the handler is invoked.
++ Consider using a before-snapshot [runtime hook](snapstart-runtime-hooks-python.md) for resource-intensive tasks such as downloading external files, pre-loading frameworks like Django, or loading machine learning models.
 
-###### Example— Optimize Python function for SnapStart
+**Example — Optimize Python function for SnapStart**  
 
 ```
 # Import all dependencies outside of Lambda handler
@@ -95,13 +98,15 @@ def lambda_handler(event, context):
     ...
 ```
 
-To reduce just-in-time (JIT) compilation and assembly loading time, consider invoking your function handler from a `RegisterBeforeCheckpoint` [runtime hook](snapstart-runtime-hooks-dotnet.md "snapstart-runtime-hooks-dotnet.md"). Because of how .NET tiered compilation works, you'll get optimal results by invoking the handler multiple times, as shown in the following example.
+### .NET
+<a name="snapstart-tuning-dotnet"></a>
 
-###### Important
+To reduce just-in-time (JIT) compilation and assembly loading time, consider invoking your function handler from a `RegisterBeforeCheckpoint` [runtime hook](snapstart-runtime-hooks-dotnet.md). Because of how .NET tiered compilation works, you'll get optimal results by invoking the handler multiple times, as shown in the following example.
 
+**Important**  
 Make sure that your dummy function invocation does not produce unintended side effects, such as initiating business transactions.
 
-###### Example
+**Example**  
 
 ```
 public class Function
@@ -132,47 +137,36 @@ public class Function
     {
         //
         // Process HTTP request
-        //
+        // 
 
         var response = new APIGatewayProxyResponse
         {
             StatusCode = 200
         };
-
+        
         return await Task.FromResult(response);
     }
 }
 ```
 
 ## Networking best practices
+<a name="snapstart-networking"></a>
 
 The state of connections that your function establishes during the initialization phase isn't guaranteed when Lambda resumes your function from a snapshot. In most cases, network connections that an AWS SDK establishes automatically resume. For other connections, we recommend the following best practices.
 
-###### Re-establish network connections
+**Re-establish network connections**  
+Always re-establish your network connections when your function resumes from a snapshot. We recommend that you re-establish network connections in the function handler. Alternatively, you can use an after-restore [runtime hook](snapstart-runtime-hooks.md).
 
-Always re-establish your network connections when your function resumes from a snapshot. We recommend that you re-establish network connections in the function handler. Alternatively, you can use an after-restore [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md").
+**Don't use hostname as a unique execution environment identifier**  
+We recommend against using `hostname` to identify your execution environment as a unique node or container in your applications. With SnapStart, a single snapshot is used as the initial state for multiple execution environments. All execution environments return the same `hostname` value for `InetAddress.getLocalHost()` (Java), `socket.gethostname()` (Python), and `Dns.GetHostName()` (.NET). For applications that require a unique execution environment identity or `hostname` value, we recommend that you generate a unique ID in the function handler. Or, use an after-restore [runtime hook](snapstart-runtime-hooks.md) to generate a unique ID, and then use the unique ID as the identifier for the execution environment.
 
-###### Don't use hostname as a unique execution environment identifier
-
-We recommend against using `hostname` to identify your execution environment as a unique node or
-container in your applications. With SnapStart, a single snapshot is used as the initial state for multiple
-execution environments. All execution environments return the same `hostname` value for
-`InetAddress.getLocalHost()` (Java), `socket.gethostname()` (Python), and `Dns.GetHostName()` (.NET). For applications that require a unique execution environment identity
-or `hostname` value, we recommend that you generate a unique ID in the function handler. Or, use an
-after-restore [runtime hook](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md") to generate a unique ID, and then use the unique ID as
-the identifier for the execution environment.
-
-###### Avoid binding connections to fixed source ports
-
+**Avoid binding connections to fixed source ports**  
 We recommend that you avoid binding network connections to fixed source ports. Connections are re-established when a function resumes from a snapshot, and network connections that are bound to a fixed source port might fail.
 
-###### Avoid using Java DNS cache
-
+**Avoid using Java DNS cache**  
 Lambda functions already cache DNS responses. If you use another DNS cache with SnapStart, then you might experience connection timeouts when the function resumes from a snapshot.
 
-The `java.util.logging.Logger` class can indirectly enable the JVM DNS cache.
-To override the default settings, set [networkaddress.cache.ttl](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/InetAddress.html#inetaddress-caching-heading "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/InetAddress.html#inetaddress-caching-heading") to 0 before initializing `logger`.
-Example:
+The `java.util.logging.Logger` class can indirectly enable the JVM DNS cache. To override the default settings, set [networkaddress.cache.ttl](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/InetAddress.html#inetaddress-caching-heading) to 0 before initializing `logger`. Example:
 
 ```
 public class MyHandler {
@@ -185,7 +179,6 @@ public class MyHandler {
 }
 ```
 
-To prevent `UnknownHostException` failures in the Java 11 runtime, we recommend setting `networkaddress.cache.negative.ttl` to 0. In Java 17 and later runtimes, this step isn't necessary. You can set this
-property for a Lambda function with the `AWS_LAMBDA_JAVA_NETWORKADDRESS_CACHE_NEGATIVE_TTL=0` environment variable.
+To prevent `UnknownHostException` failures in the Java 11 runtime, we recommend setting `networkaddress.cache.negative.ttl` to 0. In Java 17 and later runtimes, this step isn't necessary. You can set this property for a Lambda function with the `AWS_LAMBDA_JAVA_NETWORKADDRESS_CACHE_NEGATIVE_TTL=0` environment variable.
 
 Disabling the JVM DNS cache does not disable Lambda's managed DNS caching.

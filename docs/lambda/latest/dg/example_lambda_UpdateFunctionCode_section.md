@@ -1,21 +1,18 @@
+
+
 # Use `UpdateFunctionCode` with an AWS SDK or CLI
+<a name="example_lambda_UpdateFunctionCode_section"></a>
 
 The following code examples show how to use `UpdateFunctionCode`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md) 
 
-- [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
 ```
     /// <summary>
@@ -42,24 +39,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         var response = await _lambdaService.UpdateFunctionCodeAsync(functionCodeRequest);
         Console.WriteLine($"The Function was last modified at {response.LastModified}.");
     }
-
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionCode) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/UpdateFunctionCode.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -103,30 +90,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/c
                       << outcome.GetError().GetMessage()
                       << std::endl;
         }
+```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionCode) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To update the code of a Lambda function**  
+The following `update-function-code` example replaces the code of the unpublished ($LATEST) version of the `my-function` function with the contents of the specified zip file.  
 
 ```
-
-- For API details, see
-  [UpdateFunctionCode](../../../goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/SdkForCpp/lambda-2015-03-31/UpdateFunctionCode.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To update the code of a Lambda function**
-
-The following `update-function-code` example replaces the code of the unpublished ($LATEST) version of the `my-function` function with the contents of the specified zip file.
-
+aws lambda update-function-code \
+    --function-name  {{my-function}} \
+    --zip-file {{fileb://my-function.zip}}
 ```
-`aws lambda update-function-code \
- --function-name `my-function` \
- --zip-file `fileb://my-function.zip``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -153,25 +132,16 @@ Output:
     "Handler": "index.handler"
 }
 ```
+For more information, see [AWS Lambda Function Configuration](https://docs.aws.amazon.com/lambda/latest/dg/resource-model.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [UpdateFunctionCode](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-code.html) in *AWS CLI Command Reference*. 
 
-For more information, see [AWS Lambda Function Configuration](resource-model.md "resource-model.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [UpdateFunctionCode](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-code.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-code.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -216,24 +186,14 @@ func (wrapper FunctionWrapper) UpdateFunctionCode(ctx context.Context, functionN
 	}
 	return state
 }
-
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionCode) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionCode "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.UpdateFunctionCode")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
 ```
     /**
@@ -270,23 +230,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionCode) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/UpdateFunctionCode.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
 ```
 const updateFunctionCode = async (funcName, newFunc) => {
@@ -303,23 +254,14 @@ const updateFunctionCode = async (funcName, newFunc) => {
 
   return client.send(command);
 };
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionCodeCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionCodeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/UpdateFunctionCodeCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/lambda#code-examples). 
 
 ```
     public function updateFunctionCode($functionName, $s3Bucket, $s3Key)
@@ -330,65 +272,43 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             'S3Key' => $s3Key,
         ]);
     }
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionCode) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/UpdateFunctionCode.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Updates the function named 'MyFunction' with new content contained in the specified zip file. For a C# .NET Core Lambda function the zip file should contain the compiled assembly.**
+**Tools for PowerShell V4**  
+**Example 1: Updates the function named 'MyFunction' with new content contained in the specified zip file. For a C\# .NET Core Lambda function the zip file should contain the compiled assembly.**  
 
 ```
 Update-LMFunctionCode -FunctionName MyFunction -ZipFilename .\UpdatedCode.zip
-
 ```
-
-**Example 2: This example is similar to the previous one but uses an Amazon S3 object containing the updated code to update the function.**
+**Example 2: This example is similar to the previous one but uses an Amazon S3 object containing the updated code to update the function.**  
 
 ```
 Update-LMFunctionCode -FunctionName MyFunction -BucketName amzn-s3-demo-bucket -Key UpdatedCode.zip
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Updates the function named 'MyFunction' with new content contained in the specified zip file. For a C# .NET Core Lambda function the zip file should contain the compiled assembly.**
+**Tools for PowerShell V5**  
+**Example 1: Updates the function named 'MyFunction' with new content contained in the specified zip file. For a C\# .NET Core Lambda function the zip file should contain the compiled assembly.**  
 
 ```
 Update-LMFunctionCode -FunctionName MyFunction -ZipFilename .\UpdatedCode.zip
-
 ```
-
-**Example 2: This example is similar to the previous one but uses an Amazon S3 object containing the updated code to update the function.**
+**Example 2: This example is similar to the previous one but uses an Amazon S3 object containing the updated code to update the function.**  
 
 ```
 Update-LMFunctionCode -FunctionName MyFunction -BucketName amzn-s3-demo-bucket -Key UpdatedCode.zip
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper:
@@ -421,24 +341,14 @@ class LambdaWrapper:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/UpdateFunctionCode) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../goto/boto3/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/boto3/lambda-2015-03-31/UpdateFunctionCode.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
 ```
 class LambdaWrapper
@@ -474,23 +384,14 @@ class LambdaWrapper
   rescue Aws::Waiters::Errors::WaiterFailed => e
     @logger.error("Failed waiting for #{function_name} to update:\n #{e.message}")
   end
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionCode) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionCode.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/UpdateFunctionCode.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/lambda#code-examples). 
 
 ```
     /** Given a Path to a zip file, update the function's code and wait for the update to finish. */
@@ -546,23 +447,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .s3_key(key)
             .build())
     }
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_code) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_code "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.update_function_code")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/lmd#code-examples). 
 
 ```
     TRY.
@@ -590,23 +482,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_lmdtoomanyrequestsex.
         MESSAGE 'The maximum request throughput was reached.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/lambda/basics#code-examples). 
 
 ```
 import AWSClientRuntime
@@ -637,14 +520,9 @@ import Foundation
         } catch {
             return false
         }
-
-
 ```
++  For API details, see [UpdateFunctionCode](https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctioncode(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [UpdateFunctionCode](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctioncode(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/updatefunctioncode(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

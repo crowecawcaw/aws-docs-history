@@ -1,84 +1,55 @@
+
+
 # Troubleshoot configuration issues in Lambda
+<a name="troubleshooting-configuration"></a>
 
-Your function configuration settings can have an impact on the overall performance and behavior of your
-Lambda function. These might not cause actual function errors, but can cause unexpected timeouts and results.
+Your function configuration settings can have an impact on the overall performance and behavior of your Lambda function. These might not cause actual function errors, but can cause unexpected timeouts and results.
 
-The following topics provide troubleshooting advice for common issues that you might encounter related
-to Lambda function configuration settings.
+The following topics provide troubleshooting advice for common issues that you might encounter related to Lambda function configuration settings.
 
-###### Topics
-
-- [Memory configurations](#memory-config "#memory-config")
-- [CPU-bound configurations](#cpu-bound-config "#cpu-bound-config")
-- [Timeouts](#timeouts "#timeouts")
-- [Memory leakage between invocations](#memory-leakage "#memory-leakage")
-- [Asynchronous results returned to a later invocation](#asynchronous-results "#asynchronous-results")
+**Topics**
++ [Memory configurations](#memory-config)
++ [CPU-bound configurations](#cpu-bound-config)
++ [Timeouts](#timeouts)
++ [Memory leakage between invocations](#memory-leakage)
++ [Asynchronous results returned to a later invocation](#asynchronous-results)
 
 ## Memory configurations
+<a name="memory-config"></a>
 
-You can configure a Lambda function to use between 128 MB and 10,240 MB of memory. By default, any
-function created in the console is assigned the smallest amount of memory. Many Lambda functions are
-performant at this lowest setting. However, if you are importing large code libraries or completing
-memory intensive tasks, 128 MB is not sufficient.
+You can configure a Lambda function to use between 128 MB and 10,240 MB of memory. By default, any function created in the console is assigned the smallest amount of memory. Many Lambda functions are performant at this lowest setting. However, if you are importing large code libraries or completing memory intensive tasks, 128 MB is not sufficient.
 
-If your functions are running much slower than expected, the first step is to increase the memory
-setting. For memory-bound functions, this resolves the bottleneck and might improve the performance
-of your function.
+If your functions are running much slower than expected, the first step is to increase the memory setting. For memory-bound functions, this resolves the bottleneck and might improve the performance of your function.
 
 ## CPU-bound configurations
+<a name="cpu-bound-config"></a>
 
-For compute-intensive operations, if your function experiences slower-than-expected performance, this
-might be due to your function being CPU-bound. In this case, the computational capacity of the function
-cannot keep pace with the work.
+For compute-intensive operations, if your function experiences slower-than-expected performance, this might be due to your function being CPU-bound. In this case, the computational capacity of the function cannot keep pace with the work.
 
-While Lambda doesn't allow you to modify CPU configuration directly, CPU is indirectly controlled through
-the memory settings. The Lambda service proportionally allocates more virtual CPU as you allocate more
-memory. At 1.8 GB memory, a Lambda function has an entire vCPU allocated, and above this level it has
-access to more than one vCPU core. At 10,240MB, it has 6 vCPUs available. In other words, you can improve
-performance by increasing the memory allocation, even if the function doesn't use all of the memory.
+While Lambda doesn't allow you to modify CPU configuration directly, CPU is indirectly controlled through the memory settings. The Lambda service proportionally allocates more virtual CPU as you allocate more memory. At 1.8 GB memory, a Lambda function has an entire vCPU allocated, and above this level it has access to more than one vCPU core. At 10,240MB, it has 6 vCPUs available. In other words, you can improve performance by increasing the memory allocation, even if the function doesn't use all of the memory.
 
 ## Timeouts
+<a name="timeouts"></a>
 
-[Timeouts](configuration-console.md "configuration-console.md") for
-Lambda functions can be set between 1 and 900 seconds (15 minutes). By default, the Lambda console sets this
-to 3 seconds. The timeout value is a safety valve that ensures functions do not run indefinitely. After the
-timeout value is reached, Lambda stops the function invocation.
+ [Timeouts](https://docs.aws.amazon.com/lambda/latest/dg/configuration-console.html) for Lambda functions can be set between 1 and 900 seconds (15 minutes). By default, the Lambda console sets this to 3 seconds. The timeout value is a safety valve that ensures functions do not run indefinitely. After the timeout value is reached, Lambda stops the function invocation.
 
-If a timeout value is set close to the average duration of a function, this increases the risk that the
-function times out unexpectedly. The duration of a function can vary based on the amount of data transfer
-and processing, and the latency of any services the function interacts with. Common causes of timeout include:
+If a timeout value is set close to the average duration of a function, this increases the risk that the function times out unexpectedly. The duration of a function can vary based on the amount of data transfer and processing, and the latency of any services the function interacts with. Common causes of timeout include:
++ When downloading data from S3 buckets or other data stores, the download is larger or takes longer than average.
++ A function makes a request to another service, which takes longer to respond.
++ The parameters provided to a function require more computational complexity in the function, which causes the invocation to take longer.
 
-- When downloading data from S3 buckets or other data stores, the download is larger or takes longer
-  than average.
-- A function makes a request to another service, which takes longer to respond.
-- The parameters provided to a function require more computational complexity in the function, which
-  causes the invocation to take longer.
+When testing your application, ensure that your tests accurately reflect the size and quantity of data, and realistic parameter values. Importantly, use datasets at the upper bounds of what is reasonably expected for your workload.
 
-When testing your application, ensure that your tests accurately reflect the size and quantity of data,
-and realistic parameter values. Importantly, use datasets at the upper bounds of what is reasonably expected
-for your workload.
-
-Additionally, implement upper-bound limits in your workload wherever practical. In this example, the
-application could use a maximum size limit for each file type. You can then test the performance of your
-application for a range of expected file sizes, up to and including the maximum limits.
+Additionally, implement upper-bound limits in your workload wherever practical. In this example, the application could use a maximum size limit for each file type. You can then test the performance of your application for a range of expected file sizes, up to and including the maximum limits.
 
 ## Memory leakage between invocations
+<a name="memory-leakage"></a>
 
-Global variables and objects stored in the INIT phase of a Lambda invocation retain their state between
-warm invocations. They are completely reset only when the execution environment is run for the first time
-(also known as a "cold start"). Any variables stored in the handler are destroyed when the handler exits. It's
-best practice to use the INIT phase to set up database connections, load libraries, create caches, and load
-immutable assets.
+Global variables and objects stored in the INIT phase of a Lambda invocation retain their state between warm invocations. They are completely reset only when the execution environment is run for the first time (also known as a "cold start"). Any variables stored in the handler are destroyed when the handler exits. It's best practice to use the INIT phase to set up database connections, load libraries, create caches, and load immutable assets.
 
-When you use third-party libraries across multiple invocations in the same execution environment, check their
-documentation for usage in a serverless compute environment. Some database connection and logging libraries
-might save intermediate invocation results and other data. This causes the memory usage of these libraries to grow
-with subsequent warm invocations. If this is the case, you might find the Lambda function runs out of memory, even
-if your custom code is disposing of variables correctly.
+When you use third-party libraries across multiple invocations in the same execution environment, check their documentation for usage in a serverless compute environment. Some database connection and logging libraries might save intermediate invocation results and other data. This causes the memory usage of these libraries to grow with subsequent warm invocations. If this is the case, you might find the Lambda function runs out of memory, even if your custom code is disposing of variables correctly.
 
-This issue affects invocations occurring in warm execution environments. For example, the following code
-creates a memory leak between invocations. The Lambda function consumes additional memory with each invocation by
-increasing the size of a global array:
+This issue affects invocations occurring in warm execution environments. For example, the following code creates a memory leak between invocations. The Lambda function consumes additional memory with each invocation by increasing the size of a global array:
 
 ```
 let a = []
@@ -88,32 +59,23 @@ exports.handler = async (event) => {
 }
 ```
 
-Configured with 128 MB of memory, after invoking this function 1000 times, the **Monitoring**
-tab of the Lambda function shows the typical changes in invocations, duration, and error counts when a memory leak
-occurs:
+Configured with 128 MB of memory, after invoking this function 1000 times, the **Monitoring** tab of the Lambda function shows the typical changes in invocations, duration, and error counts when a memory leak occurs:
 
-![Lambda console Monitoring tab showing invocations dropping, duration increasing, and error count rising during a memory leak.](images/debugging-ops-figure-4.png)
+![Lambda console Monitoring tab showing invocations dropping, duration increasing, and error count rising during a memory leak.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-4.png)
 
-1. **Invocations** – A steady transaction rate is interrupted
-   periodically as the invocations take longer to complete. During the steady state, the memory leak is not
-   consuming all of the function's allocated memory. As performance degrades, the operating system is paging
-   local storage to accommodate the growing memory required by the function, which results in fewer transactions
-   being completed.
-2. **Duration** – Before the function runs out of memory, it finishes
-   invocations at a steady double-digit millisecond rate. As paging occurs, the duration takes an order of
-   magnitude longer.
-3. **Error count** – As the memory leak exceeds allocated memory,
-   eventually the function errors due to the computation exceeding the timeout, or the execution environment
-   stops the function.
 
-After the error, Lambda restarts the execution environment, which explains why all three graphs show a return to
-the original state. Expanding the CloudWatch metrics for duration provides more detail for the minimum, maximum and average
-duration statistics:
+1.  **Invocations** – A steady transaction rate is interrupted periodically as the invocations take longer to complete. During the steady state, the memory leak is not consuming all of the function's allocated memory. As performance degrades, the operating system is paging local storage to accommodate the growing memory required by the function, which results in fewer transactions being completed.
 
-![CloudWatch duration metrics showing minimum, maximum, and average statistics with a spike during the memory leak period.](images/debugging-ops-figure-5.png)
+1.  **Duration** – Before the function runs out of memory, it finishes invocations at a steady double-digit millisecond rate. As paging occurs, the duration takes an order of magnitude longer.
 
-To find the errors generated across the 1000 invocations, you can use the CloudWatch Insights query language. The
-following query excludes informational logs to report only the errors:
+1.  **Error count** – As the memory leak exceeds allocated memory, eventually the function errors due to the computation exceeding the timeout, or the execution environment stops the function.
+
+After the error, Lambda restarts the execution environment, which explains why all three graphs show a return to the original state. Expanding the CloudWatch metrics for duration provides more detail for the minimum, maximum and average duration statistics:
+
+![CloudWatch duration metrics showing minimum, maximum, and average statistics with a spike during the memory leak period.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-5.png)
+
+
+To find the errors generated across the 1000 invocations, you can use the CloudWatch Insights query language. The following query excludes informational logs to report only the errors:
 
 ```
 fields @timestamp, @message
@@ -128,14 +90,13 @@ fields @timestamp, @message
 
 When run against the log group for this function, this shows that timeouts were responsible for the periodic errors:
 
-![CloudWatch Logs Insights query results showing timeout errors from the Lambda function.](images/debugging-ops-figure-6.png)
+![CloudWatch Logs Insights query results showing timeout errors from the Lambda function.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-6.png)
+
 
 ## Asynchronous results returned to a later invocation
+<a name="asynchronous-results"></a>
 
-For function code that uses asynchronous patterns, it's possible for the callback results from one invocation
-to be returned in a future invocation. This example uses Node.js, but the same logic can apply to other runtimes
-using asynchronous patterns. The function uses the traditional callback syntax in JavaScript. It calls an
-asynchronous function with an incremental counter that tracks the number of invocations:
+For function code that uses asynchronous patterns, it's possible for the callback results from one invocation to be returned in a future invocation. This example uses Node.js, but the same logic can apply to other runtimes using asynchronous patterns. The function uses the traditional callback syntax in JavaScript. It calls an asynchronous function with an incremental counter that tracks the number of invocations:
 
 ```
 let seqId = 0
@@ -154,29 +115,20 @@ function doWork(id, callback) {
 
 When invoked several times in succession, the results of the callbacks occur in subsequent invocations:
 
-![CloudWatch logs showing callback results from one invocation appearing in subsequent invocations.](images/debugging-ops-figure-7.png)
+![CloudWatch logs showing callback results from one invocation appearing in subsequent invocations.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-7.png)
+
 
 1. The code calls the `doWork` function, providing a callback function as the last parameter.
-2. The `doWork` function takes some period of time to complete before invoking the callback.
-3. The function's logging indicates that the invocation is ending before the `doWork` function
-   finishes execution. Additionally, after starting an iteration, callbacks from previous iterations are being
-   processed, as shown in the logs.
 
-In JavaScript, asynchronous callbacks are handled with an
-[event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop "https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop"). Other runtimes use
-different mechanisms to handle concurrency. When the function's execution environment ends, Lambda freezes the environment
-until the next invocation.
+1. The `doWork` function takes some period of time to complete before invoking the callback.
 
-After it resumes, JavaScript continues processing the event loop, which in this case includes
-an asynchronous callback from a previous invocation. Without this context, it can appear that the function is running
-code for no reason, and returning arbitrary data. In fact, it is really an artifact of how runtime concurrency and the
-execution environments interact.
+1. The function's logging indicates that the invocation is ending before the `doWork` function finishes execution. Additionally, after starting an iteration, callbacks from previous iterations are being processed, as shown in the logs.
 
-This creates the potential for private data from a previous invocation to appear in a subsequent invocation. There are
-two ways to prevent or detect this behavior. First, JavaScript provides the
-[async and await
-keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function") to simplify asynchronous development and also force code execution to wait for an asynchronous call to
-complete. The function above can be rewritten using this approach as follows:
+In JavaScript, asynchronous callbacks are handled with an [event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop). Other runtimes use different mechanisms to handle concurrency. When the function's execution environment ends, Lambda freezes the environment until the next invocation.
+
+After it resumes, JavaScript continues processing the event loop, which in this case includes an asynchronous callback from a previous invocation. Without this context, it can appear that the function is running code for no reason, and returning arbitrary data. In fact, it is really an artifact of how runtime concurrency and the execution environments interact.
+
+This creates the potential for private data from a previous invocation to appear in a subsequent invocation. There are two ways to prevent or detect this behavior. First, JavaScript provides the [async and await keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to simplify asynchronous development and also force code execution to wait for an asynchronous call to complete. The function above can be rewritten using this approach as follows:
 
 ```
 let seqId = 0
@@ -193,22 +145,18 @@ function doWork(id) {
 }
 ```
 
-Using this syntax prevents the handler from exiting before the asynchronous function is finished. In this case, if
-the callback takes longer than the Lambda function's timeout, the function throws an error, instead of returning the
-callback result in a later invocation:
+Using this syntax prevents the handler from exiting before the asynchronous function is finished. In this case, if the callback takes longer than the Lambda function's timeout, the function throws an error, instead of returning the callback result in a later invocation:
 
-![CloudWatch logs showing the function timing out when using await, preventing callback leaking to later invocations.](images/debugging-ops-figure-8.png)
+![CloudWatch logs showing the function timing out when using await, preventing callback leaking to later invocations.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-8.png)
+
 
 1. The code calls the asynchronous `doWork` function using the await keyword in the handler.
-2. The `doWork` function takes some period of time to complete before resolving the promise.
-3. The function times out because `doWork` takes longer than the timeout limit allows and the
-   callback result is not returned in a later invocation.
 
-Generally, you should make sure any background processes or callbacks in the code are complete before the code exits.
-If this is not possible in your use case, you can use an identifier to ensure that the callback belongs to the current
-invocation. To do this, you can use the _awsRequestId_ provided by the context object. By passing this
-value to the asynchronous callback, you can compare the passed value with the current value to detect if the callback
-originated from another invocation:
+1. The `doWork` function takes some period of time to complete before resolving the promise.
+
+1. The function times out because `doWork` takes longer than the timeout limit allows and the callback result is not returned in a later invocation.
+
+Generally, you should make sure any background processes or callbacks in the code are complete before the code exits. If this is not possible in your use case, you can use an identifier to ensure that the callback belongs to the current invocation. To do this, you can use the *awsRequestId* provided by the context object. By passing this value to the asynchronous callback, you can compare the passed value with the current value to detect if the callback originated from another invocation:
 
 ```
 let currentContext
@@ -231,8 +179,9 @@ function doWork(id, callback) {
 }
 ```
 
-![CloudWatch logs showing the function detecting and logging when a callback originated from a different invocation.](images/debugging-ops-figure-9.png)
+![CloudWatch logs showing the function detecting and logging when a callback originated from a different invocation.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-9.png)
+
 
 1. The Lambda function handler takes the context parameter, which provides access to a unique invocation request ID.
-2. The `awsRequestId` is passed to the doWork function. In the callback, the ID is compared with the
-   `awsRequestId` of the current invocation. If these values are different, the code can take action accordingly.
+
+1. The `awsRequestId` is passed to the doWork function. In the callback, the ID is compared with the `awsRequestId` of the current invocation. If these values are different, the code can take action accordingly.

@@ -1,12 +1,17 @@
+
+
 # Java runtime for Lambda Managed Instances
+<a name="lambda-managed-instances-java-runtime"></a>
 
 For Java runtimes, Lambda Managed Instances use OS threads for concurrency. Lambda loads your handler object once per execution environment during initialization and then creates multiple threads. These threads execute in parallel and require thread-safe handling of state and shared resources. Each thread shares the same handler object and any static fields.
 
 ## Concurrency configuration
+<a name="lambda-managed-instances-java-concurrency-config"></a>
 
 The maximum number of concurrent requests which Lambda sends to each execution environment is controlled by the `PerExecutionEnvironmentMaxConcurrency` setting in the function configuration. This is an optional setting, and the default value varies depending on the runtime. For Java runtimes, the default is 32 concurrent requests per vCPU, or you can configure your own value. This value also determines the number of threads used by the Java runtime. Lambda automatically adjusts the number of concurrent requests up to the configured maximum based on the capacity of each execution environment to absorb those requests.
 
 ## Building functions for multi-concurrency
+<a name="lambda-managed-instances-java-building"></a>
 
 You should apply the same thread safety practices when using Lambda Managed Instances as you would in any other multi-threaded environment. Since the handler object is shared across all runtime worker threads, any mutable state must be thread-safe. This includes collections, database connections, and any static objects that are modified during request processing.
 
@@ -95,9 +100,9 @@ Instead, use thread-safe collections:
 
 ```
 public class Handler implements RequestHandler<Object, String> {
-    private static final List<String> items =
+    private static final List<String> items = 
         Collections.synchronizedList(new ArrayList<>());
-    private static final ConcurrentHashMap<String, Object> cache =
+    private static final ConcurrentHashMap<String, Object> cache = 
         new ConcurrentHashMap<>();
 
     @Override
@@ -110,22 +115,25 @@ public class Handler implements RequestHandler<Object, String> {
 ```
 
 ## Shared /tmp directory
+<a name="lambda-managed-instances-java-shared-tmp"></a>
 
 The `/tmp` directory is shared across all concurrent requests in the execution environment. Concurrent writes to the same file can cause data corruption, for example if another process overwrites the file. To address this, either implement file locking for shared files or use unique file names per thread or per request to avoid conflicts. Remember to clean up unneeded files to avoid exhausting the available space.
 
 ## Logging
+<a name="lambda-managed-instances-java-logging"></a>
 
 Log interleaving (log entries from different requests being interleaved in logs) is normal in multi-concurrent systems.
 
-Functions using Lambda Managed Instances always use the structured JSON log format introduced with [advanced logging controls](monitoring-logs.md#monitoring-cloudwatchlogs-advanced "monitoring-logs.md#monitoring-cloudwatchlogs-advanced"). This format includes the `requestId`, allowing log entries to be correlated to a single request. When you use the `LambdaLogger` object from `context.getLogger()` the `requestId` is automatically included in each log entry. For further information, see [Using Lambda advanced logging controls with Java](java-logging.md#java-logging-advanced "java-logging.md#java-logging-advanced").
+Functions using Lambda Managed Instances always use the structured JSON log format introduced with [advanced logging controls](monitoring-logs.md#monitoring-cloudwatchlogs-advanced). This format includes the `requestId`, allowing log entries to be correlated to a single request. When you use the `LambdaLogger` object from `context.getLogger()` the `requestId` is automatically included in each log entry. For further information, see [Using Lambda advanced logging controls with Java](java-logging.md#java-logging-advanced).
 
 ## Request context
+<a name="lambda-managed-instances-java-request-context"></a>
 
 The `context` object is bound to the request thread. Using `context.getAwsRequestId()` provides thread-safe access to the request ID for the current request.
 
 Use `context.getXrayTraceId()` to access the X-Ray trace ID. This provides thread-safe access to the trace ID for the current request. Lambda does not support the `_X_AMZN_TRACE_ID` environment variable with Lambda Managed Instances. The X-Ray trace ID is propagated automatically when using the AWS SDK.
 
-Use `com.amazonaws.services.lambda.runtime.Context.getRemainingTimeInMillis()` to detect timeouts. See [Error handling and recovery](lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling "lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling") for more information.
+Use `com.amazonaws.services.lambda.runtime.Context.getRemainingTimeInMillis()` to detect timeouts. See [Error handling and recovery](lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling) for more information.
 
 If you use virtual threads in your program or create threads during initialization, you need to pass any required request context to these threads.
 
@@ -170,27 +178,29 @@ public String handleRequest(Map<String, Object> event, Context context) {
 ```
 
 ## Initialization and shutdown
+<a name="lambda-managed-instances-java-init-shutdown"></a>
 
 Function initialization occurs once per execution environment. Objects created during initialization are shared across threads.
 
-For Lambda functions with extensions, the execution environment emits a SIGTERM signal during shut down. This signal is used by extensions to trigger clean up tasks, such as flushing buffers. You can subscribe to SIGTERM events to trigger function clean-up tasks, such as closing database connections. To learn more about the execution environment lifecycle, see [Understanding the Lambda execution environment lifecycle](lambda-runtime-environment.md "lambda-runtime-environment.md").
+For Lambda functions with extensions, the execution environment emits a SIGTERM signal during shut down. This signal is used by extensions to trigger clean up tasks, such as flushing buffers. You can subscribe to SIGTERM events to trigger function clean-up tasks, such as closing database connections. To learn more about the execution environment lifecycle, see [Understanding the Lambda execution environment lifecycle](lambda-runtime-environment.md).
 
 ## Dependency versions
+<a name="lambda-managed-instances-java-dependencies"></a>
 
 Lambda Managed Instances requires the following minimum package versions:
-
-- AWS SDK for Java 2.0: version 2.34.0 or later
-- AWS X-Ray SDK for Java: version 2.20.0 or later
-- AWS Distro for OpenTelemetry - Instrumentation for Java: version 2.20.0 or later
-- Powertools for AWS Lambda (Java): version 2.8.0 or later
++ AWS SDK for Java 2.0: version 2.34.0 or later
++ AWS X-Ray SDK for Java: version 2.20.0 or later
++ AWS Distro for OpenTelemetry - Instrumentation for Java: version 2.20.0 or later
++ Powertools for AWS Lambda (Java): version 2.8.0 or later
 
 ## Powertools for AWS Lambda (Java)
+<a name="lambda-managed-instances-java-powertools"></a>
 
-Powertools for AWS Lambda (Java) is compatible with Lambda Managed Instances and provides utilities for logging, tracing, metrics, and more. For more information, see [Powertools for AWS Lambda (Java)](https://github.com/aws-powertools/powertools-lambda-java "https://github.com/aws-powertools/powertools-lambda-java").
+Powertools for AWS Lambda (Java) is compatible with Lambda Managed Instances and provides utilities for logging, tracing, metrics, and more. For more information, see [Powertools for AWS Lambda (Java)](https://github.com/aws-powertools/powertools-lambda-java).
 
 ## Next steps
-
-- Review [Node.js runtime for Lambda Managed Instances](lambda-managed-instances-nodejs-runtime.md "lambda-managed-instances-nodejs-runtime.md")
-- Review [Python runtime for Lambda Managed Instances](lambda-managed-instances-python-runtime.md "lambda-managed-instances-python-runtime.md")
-- Review [.NET runtime for Lambda Managed Instances](lambda-managed-instances-dotnet-runtime.md "lambda-managed-instances-dotnet-runtime.md")
-- Learn about [scaling Lambda Managed Instances](lambda-managed-instances-scaling.md "lambda-managed-instances-scaling.md")
+<a name="lambda-managed-instances-java-next-steps"></a>
++ Review [Node.js runtime for Lambda Managed Instances](lambda-managed-instances-nodejs-runtime.md)
++ Review [Python runtime for Lambda Managed Instances](lambda-managed-instances-python-runtime.md)
++ Review [.NET runtime for Lambda Managed Instances](lambda-managed-instances-dotnet-runtime.md)
++ Learn about [scaling Lambda Managed Instances](lambda-managed-instances-scaling.md)

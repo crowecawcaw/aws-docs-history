@@ -1,102 +1,91 @@
-# Lambda Telemetry API `Event` schema reference
 
-Use the Lambda Telemetry API endpoint to subscribe extensions to telemetry streams. You can retrieve the
-Telemetry API endpoint from the `AWS_LAMBDA_RUNTIME_API` environment variable. To send an API request,
-append the API version (`2022-07-01/`) and `telemetry/`. For example:
+
+# Lambda Telemetry API `Event` schema reference
+<a name="telemetry-schema-reference"></a>
+
+Use the Lambda Telemetry API endpoint to subscribe extensions to telemetry streams. You can retrieve the Telemetry API endpoint from the `AWS_LAMBDA_RUNTIME_API` environment variable. To send an API request, append the API version (`2022-07-01/`) and `telemetry/`. For example:
 
 ```
 http://${AWS_LAMBDA_RUNTIME_API}/2022-07-01/telemetry/
 ```
 
-For the OpenAPI Specification (OAS) definition of the subscription responses version
-`2025-01-29`, see the following:
+For the OpenAPI Specification (OAS) definition of the subscription responses version `2025-01-29`, see the following:
++ **HTTP** – [telemetry-api-http-schema.zip](samples/events_http_schema_v2025_01_29.zip)
++ **TCP** – [telemetry-api-tcp-schema.zip](samples/events_tcp_schema_v2025_01_29.zip)
 
-- **HTTP** –
-  [telemetry-api-http-schema.zip](samples/events_http_schema_v2025_01_29.zip.md "samples/events_http_schema_v2025_01_29.zip.md")
-- **TCP** –
-  [telemetry-api-tcp-schema.zip](samples/events_tcp_schema_v2025_01_29.zip.md "samples/events_tcp_schema_v2025_01_29.zip.md")
-  The following table is a summary of all the types of `Event` objects that the Telemetry API
-  supports.
+The following table is a summary of all the types of `Event` objects that the Telemetry API supports.
 
-| Category       | Event type                       | Description                                                              | Event record schema                                                                                        |
-| -------------- | -------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| Platform event | `platform.initStart`             | Function initialization started.                                         | [platform.initStart](#platform-initStart "#platform-initStart") schema                                     |
-| Platform event | `platform.initRuntimeDone`       | Function initialization completed.                                       | [platform.initRuntimeDone](#platform-initRuntimeDone "#platform-initRuntimeDone") schema                   |
-| Platform event | `platform.initReport`            | A report of function initialization.                                     | [platform.initReport](#platform-initReport "#platform-initReport") schema                                  |
-| Platform event | `platform.start`                 | Function invocation started.                                             | [platform.start](#platform-start "#platform-start") schema                                                 |
-| Platform event | `platform.runtimeDone`           | The runtime finished processing an event with either success or failure. | [platform.runtimeDone](#platform-runtimeDone "#platform-runtimeDone") schema                               |
-| Platform event | `platform.report`                | A report of function invocation.                                         | [platform.report](#platform-report "#platform-report") schema                                              |
-| Platform event | `platform.restoreStart`          | Runtime restore started.                                                 | [platform.restoreStart](#platform-restoreStart "#platform-restoreStart") schema                            |
-| Platform event | `platform.restoreRuntimeDone`    | Runtime restore completed.                                               | [platform.restoreRuntimeDone](#platform-restoreRuntimeDone "#platform-restoreRuntimeDone") schema          |
-| Platform event | `platform.restoreReport`         | Report of runtime restore.                                               | [platform.restoreReport](#platform-restoreReport "#platform-restoreReport") schema                         |
-| Platform event | `platform.telemetrySubscription` | The extension subscribed to the Telemetry API.                           | [platform.telemetrySubscription](#platform-telemetrySubscription "#platform-telemetrySubscription") schema |
-| Platform event | `platform.logsDropped`           | Lambda dropped log entries.                                              | [platform.logsDropped](#platform-logsDropped "#platform-logsDropped") schema                               |
-| Function logs  | `function`                       | A log line from function code.                                           | [function](#telemetry-api-function "#telemetry-api-function") schema                                       |
-| Extension logs | `extension`                      | A log line from extension code.                                          | [extension](#telemetry-api-extension "#telemetry-api-extension") schema                                    |
 
-###### Contents
+| Category | Event type | Description | Event record schema | 
+| --- | --- | --- | --- | 
+| Platform event | `platform.initStart` | Function initialization started. | [`platform.initStart`](#platform-initStart) schema | 
+| Platform event | `platform.initRuntimeDone` | Function initialization completed. | [`platform.initRuntimeDone`](#platform-initRuntimeDone) schema | 
+| Platform event | `platform.initReport` | A report of function initialization. | [`platform.initReport`](#platform-initReport) schema | 
+| Platform event | `platform.start` | Function invocation started. | [`platform.start`](#platform-start) schema | 
+| Platform event | `platform.runtimeDone` | The runtime finished processing an event with either success or failure. | [`platform.runtimeDone`](#platform-runtimeDone) schema | 
+| Platform event | `platform.report` | A report of function invocation. | [`platform.report`](#platform-report) schema | 
+| Platform event | `platform.restoreStart` | Runtime restore started. | [`platform.restoreStart`](#platform-restoreStart) schema | 
+| Platform event | `platform.restoreRuntimeDone` | Runtime restore completed. | [`platform.restoreRuntimeDone`](#platform-restoreRuntimeDone) schema | 
+| Platform event | `platform.restoreReport` | Report of runtime restore. | [`platform.restoreReport`](#platform-restoreReport) schema | 
+| Platform event | `platform.telemetrySubscription` | The extension subscribed to the Telemetry API. | [`platform.telemetrySubscription`](#platform-telemetrySubscription) schema | 
+| Platform event | `platform.logsDropped` | Lambda dropped log entries. | [`platform.logsDropped`](#platform-logsDropped) schema | 
+| Function logs | `function` | A log line from function code. | [`function`](#telemetry-api-function) schema | 
+| Extension logs | `extension` | A log line from extension code. | [`extension`](#telemetry-api-extension) schema | 
 
-- [Telemetry API Event object types](telemetry-schema-reference.md#telemetry-api-events "telemetry-schema-reference.md#telemetry-api-events")
-
-  - [platform.initStart](telemetry-schema-reference.md#platform-initStart "telemetry-schema-reference.md#platform-initStart")
-  - [platform.initRuntimeDone](telemetry-schema-reference.md#platform-initRuntimeDone "telemetry-schema-reference.md#platform-initRuntimeDone")
-  - [platform.initReport](telemetry-schema-reference.md#platform-initReport "telemetry-schema-reference.md#platform-initReport")
-  - [platform.start](telemetry-schema-reference.md#platform-start "telemetry-schema-reference.md#platform-start")
-  - [platform.runtimeDone](telemetry-schema-reference.md#platform-runtimeDone "telemetry-schema-reference.md#platform-runtimeDone")
-  - [platform.report](telemetry-schema-reference.md#platform-report "telemetry-schema-reference.md#platform-report")
-  - [platform.restoreStart](telemetry-schema-reference.md#platform-restoreStart "telemetry-schema-reference.md#platform-restoreStart")
-  - [platform.restoreRuntimeDone](telemetry-schema-reference.md#platform-restoreRuntimeDone "telemetry-schema-reference.md#platform-restoreRuntimeDone")
-  - [platform.restoreReport](telemetry-schema-reference.md#platform-restoreReport "telemetry-schema-reference.md#platform-restoreReport")
-  - [platform.extension](telemetry-schema-reference.md#platform-extension "telemetry-schema-reference.md#platform-extension")
-  - [platform.telemetrySubscription](telemetry-schema-reference.md#platform-telemetrySubscription "telemetry-schema-reference.md#platform-telemetrySubscription")
-  - [platform.logsDropped](telemetry-schema-reference.md#platform-logsDropped "telemetry-schema-reference.md#platform-logsDropped")
-  - [function](telemetry-schema-reference.md#telemetry-api-function "telemetry-schema-reference.md#telemetry-api-function")
-  - [extension](telemetry-schema-reference.md#telemetry-api-extension "telemetry-schema-reference.md#telemetry-api-extension")
-
-- [Shared object types](telemetry-schema-reference.md#telemetry-api-objects "telemetry-schema-reference.md#telemetry-api-objects")
-
-  - [InitPhase](telemetry-schema-reference.md#InitPhase "telemetry-schema-reference.md#InitPhase")
-  - [InitReportMetrics](telemetry-schema-reference.md#InitReportMetrics "telemetry-schema-reference.md#InitReportMetrics")
-  - [InitType](telemetry-schema-reference.md#InitType "telemetry-schema-reference.md#InitType")
-  - [ReportMetrics](telemetry-schema-reference.md#ReportMetrics "telemetry-schema-reference.md#ReportMetrics")
-  - [RestoreReportMetrics](telemetry-schema-reference.md#RestoreReportMetrics "telemetry-schema-reference.md#RestoreReportMetrics")
-  - [RuntimeDoneMetrics](telemetry-schema-reference.md#RuntimeDoneMetrics "telemetry-schema-reference.md#RuntimeDoneMetrics")
-  - [Span](telemetry-schema-reference.md#Span "telemetry-schema-reference.md#Span")
-  - [Status](telemetry-schema-reference.md#Status "telemetry-schema-reference.md#Status")
-  - [TraceContext](telemetry-schema-reference.md#TraceContext "telemetry-schema-reference.md#TraceContext")
-  - [TracingType](telemetry-schema-reference.md#TracingType "telemetry-schema-reference.md#TracingType")
+**Contents**
++ [Telemetry API `Event` object types](#telemetry-api-events)
+  + [`platform.initStart`](#platform-initStart)
+  + [`platform.initRuntimeDone`](#platform-initRuntimeDone)
+  + [`platform.initReport`](#platform-initReport)
+  + [`platform.start`](#platform-start)
+  + [`platform.runtimeDone`](#platform-runtimeDone)
+  + [`platform.report`](#platform-report)
+  + [`platform.restoreStart`](#platform-restoreStart)
+  + [`platform.restoreRuntimeDone`](#platform-restoreRuntimeDone)
+  + [`platform.restoreReport`](#platform-restoreReport)
+  + [`platform.extension`](#platform-extension)
+  + [`platform.telemetrySubscription`](#platform-telemetrySubscription)
+  + [`platform.logsDropped`](#platform-logsDropped)
+  + [`function`](#telemetry-api-function)
+  + [`extension`](#telemetry-api-extension)
++ [Shared object types](#telemetry-api-objects)
+  + [`InitPhase`](#InitPhase)
+  + [`InitReportMetrics`](#InitReportMetrics)
+  + [`InitType`](#InitType)
+  + [`ReportMetrics`](#ReportMetrics)
+  + [`RestoreReportMetrics`](#RestoreReportMetrics)
+  + [`RuntimeDoneMetrics`](#RuntimeDoneMetrics)
+  + [`Span`](#Span)
+  + [`Status`](#Status)
+  + [`TraceContext`](#TraceContext)
+  + [`TracingType`](#TracingType)
 
 ## Telemetry API `Event` object types
+<a name="telemetry-api-events"></a>
 
-This section details the types of `Event` objects that the Lambda Telemetry API supports. In the
-event descriptions, a question mark (`?`) indicates that the attribute may not be present in the
-object.
+This section details the types of `Event` objects that the Lambda Telemetry API supports. In the event descriptions, a question mark (`?`) indicates that the attribute may not be present in the object.
 
 ### `platform.initStart`
+<a name="platform-initStart"></a>
 
-A `platform.initStart` event indicates that the function initialization phase has started. A
-`platform.initStart`
-`Event` object has the following shape:
+A `platform.initStart` event indicates that the function initialization phase has started. A `platform.initStart` `Event` object has the following shape:
 
 ```
 Event: Object
 - time: String
 - type: String = platform.initStart
 - record: PlatformInitStart
-
 ```
 
 The `PlatformInitStart` object has the following attributes:
-
-- **functionName** – `String`
-- **functionVersion** – `String`
-- **initializationType** – `InitType`
-  object
-- **instanceId?** – `String`
-- **instanceMaxMemory?** – `Integer`
-- **phase** – `InitPhase` object
-- **runtimeVersion?** – `String`
-- **runtimeVersionArn?** – `String`
++ **functionName** – `String`
++ **functionVersion** – `String`
++ **initializationType** – ``InitType`` object
++ **instanceId?** – `String`
++ **instanceMaxMemory?** – `Integer`
++ **phase** – ``InitPhase`` object
++ **runtimeVersion?** – `String`
++ **runtimeVersionArn?** – `String`
 
 The following is an example `Event` of type `platform.initStart`:
 
@@ -118,10 +107,9 @@ The following is an example `Event` of type `platform.initStart`:
 ```
 
 ### `platform.initRuntimeDone`
+<a name="platform-initRuntimeDone"></a>
 
-A `platform.initRuntimeDone` event indicates that the function initialization phase has
-completed. A `platform.initRuntimeDone`
-`Event` object has the following shape:
+A `platform.initRuntimeDone` event indicates that the function initialization phase has completed. A `platform.initRuntimeDone` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -131,13 +119,10 @@ Event: Object
 ```
 
 The `PlatformInitRuntimeDone` object has the following attributes:
-
-- **initializationType** – `InitType`
-  object
-- **phase** – `InitPhase` object
-- **status** – `Status` object
-- **spans?** – List of `Span`
-  objects
++ **initializationType** – ``InitType`` object
++ **phase** – ``InitPhase`` object
++ **status** – ``Status`` object
++ **spans?** – List of ``Span`` objects
 
 The following is an example `Event` of type `platform.initRuntimeDone`:
 
@@ -160,10 +145,9 @@ The following is an example `Event` of type `platform.initRuntimeDone`:
 ```
 
 ### `platform.initReport`
+<a name="platform-initReport"></a>
 
-A `platform.initReport` event contains an overall report of the function initialization phase. A
-`platform.initReport`
-`Event` object has the following shape:
+A `platform.initReport` event contains an overall report of the function initialization phase. A `platform.initReport` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -173,16 +157,12 @@ Event: Object
 ```
 
 The `PlatformInitReport` object has the following attributes:
-
-- **errorType?** – string
-- **initializationType** – `InitType`
-  object
-- **phase** – `InitPhase` object
-- **metrics** – `InitReportMetrics`
-  object
-- **spans?** – List of `Span`
-  objects
-- **status** – `Status` object
++ **errorType?** – string
++ **initializationType** – ``InitType`` object
++ **phase** – ``InitPhase`` object
++ **metrics** – ``InitReportMetrics`` object
++ **spans?** – List of ``Span`` objects
++ **status** – ``Status`` object
 
 The following is an example `Event` of type `platform.initReport`:
 
@@ -209,10 +189,9 @@ The following is an example `Event` of type `platform.initReport`:
 ```
 
 ### `platform.start`
+<a name="platform-start"></a>
 
-A `platform.start` event indicates that the function invocation phase has started. A
-`platform.start`
-`Event` object has the following shape:
+A `platform.start` event indicates that the function invocation phase has started. A `platform.start` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -222,10 +201,9 @@ Event: Object
 ```
 
 The `PlatformStart` object has the following attributes:
-
-- **requestId** – `String`
-- **version?** – `String`
-- **tracing?** – `TraceContext`
++ **requestId** – `String`
++ **version?** – `String`
++ **tracing?** – ``TraceContext``
 
 The following is an example `Event` of type `platform.start`:
 
@@ -246,22 +224,13 @@ The following is an example `Event` of type `platform.start`:
 ```
 
 ### `platform.runtimeDone`
+<a name="platform-runtimeDone"></a>
 
-A `platform.runtimeDone` event indicates that the function invocation phase has completed. A
-`platform.runtimeDone`
-`Event` object has the following shape:
+A `platform.runtimeDone` event indicates that the function invocation phase has completed. A `platform.runtimeDone` `Event` object has the following shape:
 
-###### Lambda Managed Instances
-
-The `platform.runtimeDone` event is not supported for Lambda Managed Instances. Extensions
-running on Managed Instances do not receive this event because extensions cannot subscribe to the
-`INVOKE` event on Managed Instances. Due to the concurrent execution model where multiple
-invocations can be processed simultaneously, extensions cannot perform post-invoke processing for individual
-invocations as they traditionally do on Lambda (default) functions.
-
-For Managed Instances, the `responseLatency` and `responseDuration` spans that
-are normally included in `platform.runtimeDone` are instead available in the
-`platform.report` event. See [platform.report](#platform-report "#platform-report") for details.
+**Lambda Managed Instances**  
+The `platform.runtimeDone` event is not supported for Lambda Managed Instances. Extensions running on Managed Instances do not receive this event because extensions cannot subscribe to the `INVOKE` event on Managed Instances. Due to the concurrent execution model where multiple invocations can be processed simultaneously, extensions cannot perform post-invoke processing for individual invocations as they traditionally do on Lambda (default) functions.  
+For Managed Instances, the `responseLatency` and `responseDuration` spans that are normally included in `platform.runtimeDone` are instead available in the `platform.report` event. See [`platform.report`](#platform-report) for details.
 
 ```
 Event: Object
@@ -271,16 +240,12 @@ Event: Object
 ```
 
 The `PlatformRuntimeDone` object has the following attributes:
-
-- **errorType?** – `String`
-- **metrics?** – `RuntimeDoneMetrics`
-  object
-- **requestId** – `String`
-- **status** – `Status` object
-- **spans?** – List of `Span`
-  objects
-- **tracing?** – `TraceContext`
-  object
++ **errorType?** – `String`
++ **metrics?** – ``RuntimeDoneMetrics`` object
++ **requestId** – `String`
++ **status** – ``Status`` object
++ **spans?** – List of ``Span`` objects
++ **tracing?** – ``TraceContext`` object
 
 The following is an example `Event` of type `platform.runtimeDone`:
 
@@ -312,25 +277,14 @@ The following is an example `Event` of type `platform.runtimeDone`:
 ```
 
 ### `platform.report`
+<a name="platform-report"></a>
 
-A `platform.report` event contains an overall report of the function invoke phase. A
-`platform.report`
-`Event` object has the following shape:
+A `platform.report` event contains an overall report of the function invoke phase. A `platform.report` `Event` object has the following shape:
 
-###### Lambda Managed Instances
-
-The `platform.report` event for Lambda Managed Instances has different metrics and spans compared
-to Lambda (default) functions. For Managed Instances:
-
-- **Spans**: Contains `responseLatency` and `responseDuration`
-  instead of `extensionOverhead`. The `extensionOverhead` span is not available because
-  extensions cannot subscribe to the `INVOKE` event on Managed Instances due to the concurrent
-  execution model.
-- **Metrics**: Only includes `durationMs`. The following metrics are
-  not included: `billedDurationMs`, `initDurationMs`, `maxMemoryUsedMB`,
-  and `memorySizeMB`. These per-invoke metrics are not applicable in the concurrent execution
-  environment. For resource utilization metrics, use [Monitoring Lambda Managed Instances](lambda-managed-instances-monitoring.md "lambda-managed-instances-monitoring.md") or
-  [Lambda Insights](monitoring-insights.md "monitoring-insights.md").
+**Lambda Managed Instances**  
+The `platform.report` event for Lambda Managed Instances has different metrics and spans compared to Lambda (default) functions. For Managed Instances:  
+**Spans**: Contains `responseLatency` and `responseDuration` instead of `extensionOverhead`. The `extensionOverhead` span is not available because extensions cannot subscribe to the `INVOKE` event on Managed Instances due to the concurrent execution model.
+**Metrics**: Only includes `durationMs`. The following metrics are not included: `billedDurationMs`, `initDurationMs`, `maxMemoryUsedMB`, and `memorySizeMB`. These per-invoke metrics are not applicable in the concurrent execution environment. For resource utilization metrics, use [Monitoring Lambda Managed Instances](lambda-managed-instances-monitoring.md) or [Lambda Insights](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-insights.html).
 
 ```
 Event: Object
@@ -340,15 +294,11 @@ Event: Object
 ```
 
 The `PlatformReport` object has the following attributes:
-
-- **metrics** – `ReportMetrics`
-  object
-- **requestId** – `String`
-- **spans?** – List of `Span`
-  objects
-- **status** – `Status` object
-- **tracing?** – `TraceContext`
-  object
++ **metrics** – ``ReportMetrics`` object
++ **requestId** – `String`
++ **spans?** – List of ``Span`` objects
++ **status** – ``Status`` object
++ **tracing?** – ``TraceContext`` object
 
 The following is an example `Event` of type `platform.report`:
 
@@ -370,12 +320,9 @@ The following is an example `Event` of type `platform.report`:
 ```
 
 ### `platform.restoreStart`
+<a name="platform-restoreStart"></a>
 
-A `platform.restoreStart` event indicates that a function environment restoration event started.
-In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it
-from scratch. For more information, see [SnapStart](snapstart.md "snapstart.md"). A
-`platform.restoreStart`
-`Event` object has the following shape:
+A `platform.restoreStart` event indicates that a function environment restoration event started. In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it from scratch. For more information, see [SnapStart](snapstart.md). A `platform.restoreStart` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -385,13 +332,12 @@ Event: Object
 ```
 
 The `PlatformRestoreStart` object has the following attributes:
-
-- **functionName** – `String`
-- **functionVersion** – `String`
-- **instanceId?** – `String`
-- **instanceMaxMemory?** – `String`
-- **runtimeVersion?** – `String`
-- **runtimeVersionArn?** – `String`
++ **functionName** – `String`
++ **functionVersion** – `String`
++ **instanceId?** – `String`
++ **instanceMaxMemory?** – `String`
++ **runtimeVersion?** – `String`
++ **runtimeVersionArn?** – `String`
 
 The following is an example `Event` of type `platform.restoreStart`:
 
@@ -411,12 +357,9 @@ The following is an example `Event` of type `platform.restoreStart`:
 ```
 
 ### `platform.restoreRuntimeDone`
+<a name="platform-restoreRuntimeDone"></a>
 
-A `platform.restoreRuntimeDone` event indicates that a function environment restoration event completed.
-In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it
-from scratch. For more information, see [SnapStart](snapstart.md "snapstart.md"). A
-`platform.restoreRuntimeDone`
-`Event` object has the following shape:
+A `platform.restoreRuntimeDone` event indicates that a function environment restoration event completed. In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it from scratch. For more information, see [SnapStart](snapstart.md). A `platform.restoreRuntimeDone` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -426,11 +369,9 @@ Event: Object
 ```
 
 The `PlatformRestoreRuntimeDone` object has the following attributes:
-
-- **errorType?** – `String`
-- **spans?** – List of `Span`
-  objects
-- **status** – `Status` object
++ **errorType?** – `String`
++ **spans?** – List of ``Span`` objects
++ **status** – ``Status`` object
 
 The following is an example `Event` of type `platform.restoreRuntimeDone`:
 
@@ -452,10 +393,9 @@ The following is an example `Event` of type `platform.restoreRuntimeDone`:
 ```
 
 ### `platform.restoreReport`
+<a name="platform-restoreReport"></a>
 
-A `platform.restoreReport` event contains an overall report of a function restoration event. A
-`platform.restoreReport`
-`Event` object has the following shape:
+A `platform.restoreReport` event contains an overall report of a function restoration event. A `platform.restoreReport` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -465,13 +405,10 @@ Event: Object
 ```
 
 The `PlatformRestoreReport` object has the following attributes:
-
-- **errorType?** – string
-- **metrics?** – `RestoreReportMetrics`
-  object
-- **spans?** – List of `Span`
-  objects
-- **status** – `Status` object
++ **errorType?** – string
++ **metrics?** – ``RestoreReportMetrics`` object
++ **spans?** – List of ``Span`` objects
++ **status** – ``Status`` object
 
 The following is an example `Event` of type `platform.restoreReport`:
 
@@ -496,9 +433,9 @@ The following is an example `Event` of type `platform.restoreReport`:
 ```
 
 ### `platform.extension`
+<a name="platform-extension"></a>
 
-An `extension` event contains logs from the extension code. An `extension`
-`Event` object has the following shape:
+An `extension` event contains logs from the extension code. An `extension` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -508,10 +445,9 @@ Event: Object
 ```
 
 The `PlatformExtension` object has the following attributes:
-
-- **events** – List of `String`
-- **name** – `String`
-- **state** – `String`
++ **events** – List of `String`
++ **name** – `String`
++ **state** – `String`
 
 The following is an example `Event` of type `platform.extension`:
 
@@ -528,10 +464,9 @@ The following is an example `Event` of type `platform.extension`:
 ```
 
 ### `platform.telemetrySubscription`
+<a name="platform-telemetrySubscription"></a>
 
-A `platform.telemetrySubscription` event contains information about an extension subscription. A
-`platform.telemetrySubscription`
-`Event` object has the following shape:
+A `platform.telemetrySubscription` event contains information about an extension subscription. A `platform.telemetrySubscription` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -541,10 +476,9 @@ Event: Object
 ```
 
 The `PlatformTelemetrySubscription` object has the following attributes:
-
-- **name** – `String`
-- **state** – `String`
-- **types** – List of `String`
++ **name** – `String`
++ **state** – `String`
++ **types** – List of `String`
 
 The following is an example `Event` of type `platform.telemetrySubscription`:
 
@@ -561,13 +495,9 @@ The following is an example `Event` of type `platform.telemetrySubscription`:
 ```
 
 ### `platform.logsDropped`
+<a name="platform-logsDropped"></a>
 
-A `platform.logsDropped` event contains information about dropped events. Lambda emits the
-`platform.logsDropped` event when a function outputs logs at too high a rate for Lambda to process
-them. When Lambda can't send logs to CloudWatch or to the extension subscribed to Telemetry API at the rate the
-function produces them, it drops logs to prevent the function's execution from slowing down. A
-`platform.logsDropped`
-`Event` object has the following shape:
+A `platform.logsDropped` event contains information about dropped events. Lambda emits the `platform.logsDropped` event when a function outputs logs at too high a rate for Lambda to process them. When Lambda can't send logs to CloudWatch or to the extension subscribed to Telemetry API at the rate the function produces them, it drops logs to prevent the function's execution from slowing down. A `platform.logsDropped` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -577,10 +507,9 @@ Event: Object
 ```
 
 The `PlatformLogsDropped` object has the following attributes:
-
-- **droppedBytes** – `Integer`
-- **droppedRecords** – `Integer`
-- **reason** – `String`
++ **droppedBytes** – `Integer`
++ **droppedRecords** – `Integer`
++ **reason** – `String`
 
 The following is an example `Event` of type `platform.logsDropped`:
 
@@ -597,9 +526,9 @@ The following is an example `Event` of type `platform.logsDropped`:
 ```
 
 ### `function`
+<a name="telemetry-api-function"></a>
 
-A `function` event contains logs from the function code. A `function`
-`Event` object has the following shape:
+A `function` event contains logs from the function code. A `function` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -608,8 +537,7 @@ Event: Object
 - record: {}
 ```
 
-The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format.
-to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md")
+The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format. to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md)
 
 The following is an example `Event` of type `function` where the log format is plain text:
 
@@ -636,16 +564,13 @@ The following is an example `Event` of type `function` where the log format is J
 }
 ```
 
-###### Note
-
-If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered
-as a string even when your function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version
-`2025-01-29`.
+**Note**  
+If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered as a string even when your function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version `2025-01-29`.
 
 ### `extension`
+<a name="telemetry-api-extension"></a>
 
-A `extension` event contains logs from the extension code. A `extension`
-`Event` object has the following shape:
+A `extension` event contains logs from the extension code. A `extension` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -654,8 +579,7 @@ Event: Object
 - record: {}
 ```
 
-The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format.
-to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md")
+The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format. to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md)
 
 The following is an example `Event` of type `extension` where the log format is plain text:
 
@@ -678,35 +602,30 @@ The following is an example `Event` of type `extension` where the log format is 
        "level": "INFO",
        "requestId": "79b4f56e-95b1-4643-9700-2807f4e68189",
        "message": "Hello world, I am an extension!"
-    }
+    }    
 }
 ```
 
-###### Note
-
-If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered
-as a string even when your function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version
-`2025-01-29`.
+**Note**  
+If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered as a string even when your function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version `2025-01-29`.
 
 ## Shared object types
+<a name="telemetry-api-objects"></a>
 
 This section details the types of shared objects that the Lambda Telemetry API supports.
 
 ### `InitPhase`
+<a name="InitPhase"></a>
 
-A string enum that describes the phase when the initialization step occurs. In most cases, Lambda runs the
-function initialization code during the `init` phase. However, in some error cases, Lambda may re-run
-the function initialization code during the `invoke` phase. (This is called a _suppressed
-init_.)
-
-- **Type** – `String`
-- **Valid values** – `init`|`invoke`|`snap-start`
+A string enum that describes the phase when the initialization step occurs. In most cases, Lambda runs the function initialization code during the `init` phase. However, in some error cases, Lambda may re-run the function initialization code during the `invoke` phase. (This is called a *suppressed init*.)
++ **Type** – `String`
++ **Valid values** – `init`\|`invoke`\|`snap-start`
 
 ### `InitReportMetrics`
+<a name="InitReportMetrics"></a>
 
 An object that contains metrics about an initialization phase.
-
-- **Type** – `Object`
++ **Type** – `Object`
 
 An `InitReportMetrics` object has the following shape:
 
@@ -724,18 +643,17 @@ The following is an example `InitReportMetrics` object:
 ```
 
 ### `InitType`
+<a name="InitType"></a>
 
 A string enum that describes how Lambda initialized the environment.
-
-- **Type** – `String`
-- **Valid values** –
-  `on-demand`|`provisioned-concurrency`
++ **Type** – `String`
++ **Valid values** – `on-demand`\|`provisioned-concurrency`
 
 ### `ReportMetrics`
+<a name="ReportMetrics"></a>
 
 An object that contains metrics about a completed phase.
-
-- **Type** – `Object`
++ **Type** – `Object`
 
 A `ReportMetrics` object has the following shape:
 
@@ -762,10 +680,10 @@ The following is an example `ReportMetrics` object:
 ```
 
 ### `RestoreReportMetrics`
+<a name="RestoreReportMetrics"></a>
 
 An object that contains metrics about a completed restoration phase.
-
-- **Type** – `Object`
++ **Type** – `Object`
 
 A `RestoreReportMetrics` object has the following shape:
 
@@ -783,10 +701,10 @@ The following is an example `RestoreReportMetrics` object:
 ```
 
 ### `RuntimeDoneMetrics`
+<a name="RuntimeDoneMetrics"></a>
 
 An object that contains metrics about an invocation phase.
-
-- **Type** – `Object`
++ **Type** – `Object`
 
 A `RuntimeDoneMetrics` object has the following shape:
 
@@ -806,44 +724,37 @@ The following is an example `RuntimeDoneMetrics` object:
 ```
 
 ### `Span`
+<a name="Span"></a>
 
-An object that contains details about a span. A span represents a unit of work or operation in a trace. For
-more information about spans, see [Span](https://opentelemetry.io/docs/reference/specification/trace/api/#span "https://opentelemetry.io/docs/reference/specification/trace/api/#span") on the
-**Tracing API** page of the OpenTelemetry Docs website.
+An object that contains details about a span. A span represents a unit of work or operation in a trace. For more information about spans, see [Span](https://opentelemetry.io/docs/reference/specification/trace/api/#span) on the **Tracing API** page of the OpenTelemetry Docs website.
 
 Lambda supports the following spans for the `platform.RuntimeDone` event:
-
-- The `responseLatency` span describes how long it took your Lambda function to start
-  sending the response.
-- The `responseDuration` span describes how long it took your Lambda function to finish
-  sending the entire response.
-- The `runtimeOverhead` span describes how long it took the Lambda runtime to signal that it is ready to process the next function invoke. This is how long the runtime took to call the [next invocation](runtimes-api.md#runtimes-api-next "runtimes-api.md#runtimes-api-next") API to get the next event after returning your function response.
++ The `responseLatency` span describes how long it took your Lambda function to start sending the response.
++ The `responseDuration` span describes how long it took your Lambda function to finish sending the entire response.
++ The `runtimeOverhead` span describes how long it took the Lambda runtime to signal that it is ready to process the next function invoke. This is how long the runtime took to call the [next invocation](runtimes-api.md#runtimes-api-next) API to get the next event after returning your function response.
 
 The following is an example `responseLatency` span object:
 
 ```
 {
-        "name": "responseLatency",
+        "name": "responseLatency", 
         "start": "2022-08-02T12:01:23.521Z",
         "durationMs": 23.02
       }
 ```
 
 ### `Status`
+<a name="Status"></a>
 
-An object that describes the status of an initialization or invocation phase. If the status is either
-`failure` or `error`, then the `Status` object also contains an
-`errorType` field describing the error.
-
-- **Type** – `Object`
-- **Valid status values** –
-  `success`|`failure`|`error`|`timeout`
+An object that describes the status of an initialization or invocation phase. If the status is either `failure` or `error`, then the `Status` object also contains an `errorType` field describing the error.
++ **Type** – `Object`
++ **Valid status values** – `success`\|`failure`\|`error`\|`timeout`
 
 ### `TraceContext`
+<a name="TraceContext"></a>
 
 An object that describes the properties of a trace.
-
-- **Type** – `Object`
++ **Type** – `Object`
 
 A `TraceContext` object has the following shape:
 
@@ -865,9 +776,8 @@ The following is an example `TraceContext` object:
 ```
 
 ### `TracingType`
+<a name="TracingType"></a>
 
-A string enum that describes the type of tracing in a `TraceContext`
-object.
-
-- **Type** – `String`
-- **Valid values** – `X-Amzn-Trace-Id`
+A string enum that describes the type of tracing in a ``TraceContext`` object.
++ **Type** – `String`
++ **Valid values** – `X-Amzn-Trace-Id`

@@ -1,37 +1,28 @@
+
+
 # Define Lambda function handler in Java
+<a name="java-handler"></a>
 
-The Lambda function _handler_ is the method in your function code that processes events. When your function is
-invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in Java, including options for project
-setup, naming conventions, and best practices. This page also includes an example of a Java Lambda
-function that takes in information about an order, produces a text file receipt, and puts this file
-in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see
-[Deploy Java Lambda functions with .zip or JAR file archives](java-package.md "java-package.md") or [Deploy Java Lambda functions with container images](java-image.md "java-image.md").
+This page describes how to work with Lambda function handlers in Java, including options for project setup, naming conventions, and best practices. This page also includes an example of a Java Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md) or [Deploy Java Lambda functions with container images](java-image.md).
 
-###### Sections
-
-- [Setting up your Java handler project](#java-handler-setup "#java-handler-setup")
-- [Example Java Lambda function code](#java-example-code "#java-example-code")
-- [Valid class definitions for Java handlers](#java-handler-signatures "#java-handler-signatures")
-- [Handler naming conventions](#java-example-naming "#java-example-naming")
-- [Defining and accessing the input event object](#java-handler-input "#java-handler-input")
-- [Accessing and using the Lambda context object](#java-example-context "#java-example-context")
-- [Using the AWS SDK for Java v2 in your handler](#java-example-sdk-usage "#java-example-sdk-usage")
-- [Accessing environment variables](#java-example-envvars "#java-example-envvars")
-- [Using global state](#java-handler-state "#java-handler-state")
-- [Code best practices for Java Lambda functions](#java-best-practices "#java-best-practices")
+**Topics**
++ [Setting up your Java handler project](#java-handler-setup)
++ [Example Java Lambda function code](#java-example-code)
++ [Valid class definitions for Java handlers](#java-handler-signatures)
++ [Handler naming conventions](#java-example-naming)
++ [Defining and accessing the input event object](#java-handler-input)
++ [Accessing and using the Lambda context object](#java-example-context)
++ [Using the AWS SDK for Java v2 in your handler](#java-example-sdk-usage)
++ [Accessing environment variables](#java-example-envvars)
++ [Using global state](#java-handler-state)
++ [Code best practices for Java Lambda functions](#java-best-practices)
 
 ## Setting up your Java handler project
+<a name="java-handler-setup"></a>
 
-When working with Lambda functions in Java, the process involves writing your code, compiling it,
-and deploying the compiled artifacts to Lambda. You can initialize a Java Lambda project in various
-ways. For instance, you can use tools like the
-[Maven
-Archetype for Lambda functions](https://github.com/aws/aws-sdk-java-v2/tree/master/archetypes/archetype-lambda "https://github.com/aws/aws-sdk-java-v2/tree/master/archetypes/archetype-lambda"), the AWS SAM CLI
-[sam init command](../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-init.md "../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-init.md"), or even a standard Java project setup in your preferred IDE, such as
-IntelliJ IDEA or Visual Studio Code. Alternatively, you can create the required file structure
-manually.
+When working with Lambda functions in Java, the process involves writing your code, compiling it, and deploying the compiled artifacts to Lambda. You can initialize a Java Lambda project in various ways. For instance, you can use tools like the [Maven Archetype for Lambda functions](https://github.com/aws/aws-sdk-java-v2/tree/master/archetypes/archetype-lambda), the AWS SAM CLI [ sam init command](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-init.html), or even a standard Java project setup in your preferred IDE, such as IntelliJ IDEA or Visual Studio Code. Alternatively, you can create the required file structure manually.
 
 A typical Java Lambda function project follows this general structure:
 
@@ -48,18 +39,14 @@ A typical Java Lambda function project follows this general structure:
 
 You can use either Maven or Gradle to build your project and manage dependencies.
 
-The main handler logic for your function resides in a Java file under the
-`src/main/java/example` directory. In the example on this page, we name this file
-`OrderHandler.java`. Apart from this file, you can include additional Java classes as needed.
-When deploying your function to Lambda, make sure you specify the Java class that contains the main
-handler method that Lambda should invoke during an invocation.
+The main handler logic for your function resides in a Java file under the `src/main/java/example` directory. In the example on this page, we name this file `OrderHandler.java`. Apart from this file, you can include additional Java classes as needed. When deploying your function to Lambda, make sure you specify the Java class that contains the main handler method that Lambda should invoke during an invocation.
 
 ## Example Java Lambda function code
+<a name="java-example-code"></a>
 
-The following example Java 21 Lambda function code takes in information about an order,
-produces a text file receipt, and puts this file in an Amazon S3 bucket.
+The following example Java 21 Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket.
 
-###### Example `OrderHandler.java` Lambda function
+**Example `OrderHandler.java` Lambda function**  
 
 ```
 package example;
@@ -126,33 +113,24 @@ public class OrderHandler implements RequestHandler<OrderHandler.Order, String> 
         }
     }
 }
-
 ```
 
 This `OrderHandler.java` file contains the following sections of code:
++ `package example`: In Java, this can be anything, but it must match the directory structure of your project. Here, we use `package example` because the directory structure is `src/main/java/example`.
++ `import` statements: Use these to import Java classes that your Lambda function requires.
++ `public class OrderHandler ...`: This defines your Java class, and must be a [valid class definition](#java-handler-signatures).
++ `private static final S3Client S3_CLIENT ...`: This initializes an S3 client outside of any of the class's methods. This causes Lambda to run this code during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib).
++ `public record Order ...`: Define the shape of the expected input event in this custom Java [record](https://openjdk.org/jeps/395).
++ `public String handleRequest(Order event, Context context)`: This is the **main handler method**, which contains your main application logic.
++ `private void uploadReceiptToS3(...) {}`: This is a helper method that's referenced by the main `handleRequest` handler method.
 
-- `package example`: In Java, this can be anything, but it must match the
-  directory structure of your project. Here, we use `package example` because
-  the directory structure is `src/main/java/example`.
-- `import` statements: Use these to import Java classes that your Lambda
-  function requires.
-- `public class OrderHandler ...`: This defines your Java class, and must
-  be a [valid class definition](#java-handler-signatures "#java-handler-signatures").
-- `private static final S3Client S3_CLIENT ...`: This initializes an S3
-  client outside of any of the class's methods. This causes Lambda to run this code during
-  the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib").
-- `public record Order ...`: Define the shape of the expected input event
-  in this custom Java [record](https://openjdk.org/jeps/395 "https://openjdk.org/jeps/395").
-- `public String handleRequest(Order event, Context context)`: This is the
-  **main handler method**, which contains your main
-  application logic.
-- `private void uploadReceiptToS3(...) {}`: This is a helper method that's
-  referenced by the main `handleRequest` handler method.
+### Sample build.gradle and pom.xml file
+<a name="java-gradle-maven-example"></a>
 
-The following `build.gradle` or `pom.xml` file accompanies this
-function.
+The following `build.gradle` or `pom.xml` file accompanies this function.
 
-build.gradle
+------
+#### [ build.gradle ]
 
 ```
 plugins {
@@ -185,7 +163,8 @@ java {
 build.dependsOn buildZip
 ```
 
-pom.xml
+------
+#### [ pom.xml ]
 
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -218,7 +197,7 @@ pom.xml
             <version>2.0.16</version>
         </dependency>
     </dependencies>
-
+    
     <build>
         <plugins>
             <plugin>
@@ -263,31 +242,21 @@ pom.xml
 </project>
 ```
 
-For this function to work properly, its [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") must allow the `s3:PutObject` action. Also, ensure that you
-define the `RECEIPT_BUCKET` environment variable. After a successful invocation,
-the Amazon S3 bucket should contain a receipt file.
+------
 
-###### Note
+For this function to work properly, its [ execution role](lambda-intro-execution-role.md) must allow the `s3:PutObject` action. Also, ensure that you define the `RECEIPT_BUCKET` environment variable. After a successful invocation, the Amazon S3 bucket should contain a receipt file.
 
-This function might require additional configuration settings to run successfully without
-timing out. We recommend configuring 256 MB of memory, and a 10 second timeout. The first
-invocation might take extra time due to a [cold start](lambda-runtime-environment.md#cold-start-latency "lambda-runtime-environment.md#cold-start-latency").
-Subsequent invocations should run much faster due to reuse of the execution environment.
+**Note**  
+This function might require additional configuration settings to run successfully without timing out. We recommend configuring 256 MB of memory, and a 10 second timeout. The first invocation might take extra time due to a [cold start](lambda-runtime-environment.md#cold-start-latency). Subsequent invocations should run much faster due to reuse of the execution environment.
 
 ## Valid class definitions for Java handlers
+<a name="java-handler-signatures"></a>
 
-To define your class, the [aws-lambda-java-core](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core "https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core") library defines two interfaces for handler methods. Use the
-provided interfaces to simplify handler configuration and validate the method signature
-at compile time.
+To define your class, the [ aws-lambda-java-core](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core) library defines two interfaces for handler methods. Use the provided interfaces to simplify handler configuration and validate the method signature at compile time.
++ [ com.amazonaws.services.lambda.runtime.RequestHandler](https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestHandler.java)
++ [ com.amazonaws.services.lambda.runtime.RequestStreamHandler](https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestStreamHandler.java)
 
-- [com.amazonaws.services.lambda.runtime.RequestHandler](https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestHandler.java "https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestHandler.java")
-- [com.amazonaws.services.lambda.runtime.RequestStreamHandler](https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestStreamHandler.java "https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestStreamHandler.java")
-
-The `RequestHandler` interface is a generic type that takes two parameters: the
-input type and the output type. Both types must be objects. In this example, our
-`OrderHandler` class implements `RequestHandler<OrderHandler.Order, String>`.
-The input type is the `Order` record we define within the class, and the output type
-is `String`.
+The `RequestHandler` interface is a generic type that takes two parameters: the input type and the output type. Both types must be objects. In this example, our `OrderHandler` class implements `RequestHandler<OrderHandler.Order, String>`. The input type is the `Order` record we define within the class, and the output type is `String`.
 
 ```
 public class OrderHandler implements RequestHandler<OrderHandler.Order, String> {
@@ -295,20 +264,11 @@ public class OrderHandler implements RequestHandler<OrderHandler.Order, String> 
 }
 ```
 
-When you use this interface, the Java runtime deserializes the event into the object with the
-input type, and serializes the output into text. Use this interface when the built-in serialization
-works with your input and output types.
+When you use this interface, the Java runtime deserializes the event into the object with the input type, and serializes the output into text. Use this interface when the built-in serialization works with your input and output types.
 
-To use your own serialization, you can implement the `RequestStreamHandler` interface.
-With this interface, Lambda passes your handler an input stream and output stream. The handler reads
-bytes from the input stream, writes to the output stream, and returns void. For an example of this
-using the Java 21 runtime, see
-[HandlerStream.java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic/src/main/java/example/HandlerStream.java "https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic/src/main/java/example/HandlerStream.java").
+To use your own serialization, you can implement the `RequestStreamHandler` interface. With this interface, Lambda passes your handler an input stream and output stream. The handler reads bytes from the input stream, writes to the output stream, and returns void. For an example of this using the Java 21 runtime, see [ HandlerStream.java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic/src/main/java/example/HandlerStream.java).
 
-If you're working only with basic and generic types (i.e. `String`, `Integer`,
-`List`, or `Map`) in your Java function , you don't need to implement an interface.
-For example, if your function takes in a `Map<String, String>` input and returns a
-`String`, your class definition and handler signature might look like the following:
+If you're working only with basic and generic types (i.e. `String`, `Integer`, `List`, or `Map`) in your Java function , you don't need to implement an interface. For example, if your function takes in a `Map<String, String>` input and returns a `String`, your class definition and handler signature might look like the following:
 
 ```
 public class ExampleHandler {
@@ -318,9 +278,7 @@ public class ExampleHandler {
 }
 ```
 
-In addition, when you don't implement an interface, the
-[context](java-context.md "java-context.md") object is optional. For example, your class definition
-and handler signature might look like the following:
+In addition, when you don't implement an interface, the [context](java-context.md) object is optional. For example, your class definition and handler signature might look like the following:
 
 ```
 public class NoContextHandler {
@@ -331,28 +289,18 @@ public class NoContextHandler {
 ```
 
 ## Handler naming conventions
+<a name="java-example-naming"></a>
 
-For Lambda functions in Java, if you are implementing either the `RequestHandler` or
-`RequestStreamHandler` interface, your main handler method must be named
-`handleRequest`. Also, include the `@Override` tag above your
-`handleRequest` method. When you deploy your function to Lambda, specify the main handler
-in your function's configuration in the following format:
+For Lambda functions in Java, if you are implementing either the `RequestHandler` or `RequestStreamHandler` interface, your main handler method must be named `handleRequest`. Also, include the `@Override` tag above your `handleRequest` method. When you deploy your function to Lambda, specify the main handler in your function's configuration in the following format:
++ {{<package>}}.{{<Class>}} – For example, `example.OrderHandler`.
 
-- `<package>`.`<Class>` –
-  For example, `example.OrderHandler`.
-
-For Lambda functions in Java that don't implement the `RequestHandler` or
-`RequestStreamHandler` interface, you can use any name for the handler. When you deploy
-your function to Lambda, specify the main handler in your function's configuration in the following
-format:
-
-- `<package>`.`<Class>`::`<handler_method_name>` –
-  For example, `example.Handler::mainHandler`.
+For Lambda functions in Java that don't implement the `RequestHandler` or `RequestStreamHandler` interface, you can use any name for the handler. When you deploy your function to Lambda, specify the main handler in your function's configuration in the following format:
++ {{<package>}}.{{<Class>}}::{{<handler\_method\_name>}} – For example, `example.Handler::mainHandler`.
 
 ## Defining and accessing the input event object
+<a name="java-handler-input"></a>
 
-JSON is the most common and standard input format for Lambda functions. In this example, the
-function expects an input similar to the following:
+JSON is the most common and standard input format for Lambda functions. In this example, the function expects an input similar to the following:
 
 ```
 {
@@ -362,52 +310,31 @@ function expects an input similar to the following:
 }
 ```
 
-When working with Lambda functions in Java 17 or newer, you can define the shape of the expected
-input event as a Java record. In this example, we define a record within the `OrderHandler`
-class to represent an `Order` object:
+When working with Lambda functions in Java 17 or newer, you can define the shape of the expected input event as a Java record. In this example, we define a record within the `OrderHandler` class to represent an `Order` object:
 
 ```
 public record Order(String orderId, double amount, String item) {}
 ```
 
-This record matches the expected input shape. After you define your record, you can write a
-handler signature that takes in a JSON input that conforms to the record definition. The Java runtime
-automatically deserializes this JSON into a Java object. You can then access the fields of the object.
-For example, `event.orderId` retrieves the value of `orderId` from the original
-input.
+This record matches the expected input shape. After you define your record, you can write a handler signature that takes in a JSON input that conforms to the record definition. The Java runtime automatically deserializes this JSON into a Java object. You can then access the fields of the object. For example, `event.orderId` retrieves the value of `orderId` from the original input.
 
-###### Note
-
-Java records are a feature of Java 17 runtimes and newer only. In all Java runtimes, you can
-use a class to represent event data. In such cases, you can use a library like
-[jackson](https://github.com/FasterXML/jackson "https://github.com/FasterXML/jackson") to deserialize JSON inputs.
+**Note**  
+Java records are a feature of Java 17 runtimes and newer only. In all Java runtimes, you can use a class to represent event data. In such cases, you can use a library like [jackson](https://github.com/FasterXML/jackson) to deserialize JSON inputs.
 
 ### Other input event types
+<a name="java-input-event-types"></a>
 
 There are many possible input events for Lambda functions in Java:
-
-- `Integer`, `Long`, `Double`, and other numeric types – The event is a
-  number with no additional formatting—for example, `3.5`. The Java runtime converts
-  the value into an object of the specified type.
-- `String` – The event is a JSON string, including quotes—for example,
-  `"My string"`. The runtime converts the value into a `String` object
-  without quotes.
-- `List<Integer>`, `List<String>`,
-  `List<Object>`, and similar types – The event is a JSON array. The runtime
-  deserializes it into an object of the specified type or interface.
-- `InputStream` – The event is any JSON type. The runtime passes a
-  byte stream of the document to the handler without modification. You deserialize the input
-  and write output to an output stream.
-- Library type – For events sent by other AWS services, use the types in the
-  [aws-lambda-java-events](https://github.com/aws/aws-lambda-java-libs/tree/main/aws-lambda-java-events "https://github.com/aws/aws-lambda-java-libs/tree/main/aws-lambda-java-events") library. For example, if your Lambda function is invoked by
-  Amazon Simple Queue Service (SQS), use the `SQSEvent` object as the input.
++ `Integer`, `Long`, `Double`, and other numeric types – The event is a number with no additional formatting—for example, `3.5`. The Java runtime converts the value into an object of the specified type.
++ `String` – The event is a JSON string, including quotes—for example, `"My string"`. The runtime converts the value into a `String` object without quotes.
++ `List<Integer>`, `List<String>`, `List<Object>`, and similar types – The event is a JSON array. The runtime deserializes it into an object of the specified type or interface.
++ `InputStream` – The event is any JSON type. The runtime passes a byte stream of the document to the handler without modification. You deserialize the input and write output to an output stream.
++ Library type – For events sent by other AWS services, use the types in the [ aws-lambda-java-events](https://github.com/aws/aws-lambda-java-libs/tree/main/aws-lambda-java-events) library. For example, if your Lambda function is invoked by Amazon Simple Queue Service (SQS), use the `SQSEvent` object as the input.
 
 ## Accessing and using the Lambda context object
+<a name="java-example-context"></a>
 
-The Lambda [context object](java-context.md "java-context.md") contains information about the
-invocation, function, and execution environment. In this example, the context object is of type
-`com.amazonaws.services.lambda.runtime.Context`, and is the second argument of the
-main handler function.
+The Lambda [context object](java-context.md) contains information about the invocation, function, and execution environment. In this example, the context object is of type `com.amazonaws.services.lambda.runtime.Context`, and is the second argument of the main handler function.
 
 ```
 public String handleRequest(Order event, Context context) {
@@ -415,46 +342,31 @@ public String handleRequest(Order event, Context context) {
 }
 ```
 
-If your class implements either the
-[RequestHandler](https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestHandler.java "https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestHandler.java") or
-[RequestStreamHandler](https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestStreamHandler.java "https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestStreamHandler.java") interface, the context object is a required argument. Otherwise, the
-context object is optional. For more information about valid accepted handler signatures, see
-[Valid class definitions for Java handlers](#java-handler-signatures "#java-handler-signatures").
+If your class implements either the [ RequestHandler](https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestHandler.java) or [ RequestStreamHandler](https://github.com/aws/aws-lambda-java-libs/blob/master/aws-lambda-java-core/src/main/java/com/amazonaws/services/lambda/runtime/RequestStreamHandler.java) interface, the context object is a required argument. Otherwise, the context object is optional. For more information about valid accepted handler signatures, see [Valid class definitions for Java handlers](#java-handler-signatures).
 
-If you make calls to other services using the AWS SDK, the context object is required in
-a few key areas. For example, to produce function logs for Amazon CloudWatch, you can use the
-`context.getLogger()` method to get a `LambdaLogger` object for logging.
-In this example, we can use the logger to log an error message if processing fails for any reason:
+If you make calls to other services using the AWS SDK, the context object is required in a few key areas. For example, to produce function logs for Amazon CloudWatch, you can use the `context.getLogger()` method to get a `LambdaLogger` object for logging. In this example, we can use the logger to log an error message if processing fails for any reason:
 
 ```
 context.getLogger().log("Failed to process order: " + e.getMessage());
 ```
 
-Outside of logging, you can also use the context object for function monitoring. For more
-information about the context object, see [Using the Lambda context object to retrieve Java function information](java-context.md "java-context.md").
+Outside of logging, you can also use the context object for function monitoring. For more information about the context object, see [Using the Lambda context object to retrieve Java function information](java-context.md).
 
 ## Using the AWS SDK for Java v2 in your handler
+<a name="java-example-sdk-usage"></a>
 
-Often, you'll use Lambda functions to interact with or make updates to other AWS resources.
-The simplest way to interface with these resources is to use the AWS SDK for Java v2.
+Often, you'll use Lambda functions to interact with or make updates to other AWS resources. The simplest way to interface with these resources is to use the AWS SDK for Java v2.
 
-###### Note
+**Note**  
+The AWS SDK for Java (v1) is in maintenance mode, and will reach end-of-support on December 31, 2025. We recommend that you use only the AWS SDK for Java v2 going forward.
 
-The AWS SDK for Java (v1) is in maintenance mode, and will reach end-of-support on
-December 31, 2025. We recommend that you use only the AWS SDK for Java v2 going forward.
-
-To add SDK dependencies to your function, add them in your `build.gradle` for
-Gradle or `pom.xml` file for Maven. We recommend only adding the libraries that you
-need for your function. In the example code earlier, we used the
-`software.amazon.awssdk.services.s3` library. In Gradle, you can add this dependency
-by adding the following line in the dependencies section of your `build.gradle`:
+To add SDK dependencies to your function, add them in your `build.gradle` for Gradle or `pom.xml` file for Maven. We recommend only adding the libraries that you need for your function. In the example code earlier, we used the `software.amazon.awssdk.services.s3` library. In Gradle, you can add this dependency by adding the following line in the dependencies section of your `build.gradle`:
 
 ```
 implementation 'software.amazon.awssdk:s3:2.28.29'
 ```
 
-In Maven, add the following lines in the `<dependencies>` section of your
-`pom.xml`:
+In Maven, add the following lines in the `<dependencies>` section of your `pom.xml`:
 
 ```
     <dependency>
@@ -464,10 +376,8 @@ In Maven, add the following lines in the `<dependencies>` section of your
     </dependency>
 ```
 
-###### Note
-
-This might not be the most recent version of the SDK. Choose the appropriate version of
-the SDK for your application.
+**Note**  
+This might not be the most recent version of the SDK. Choose the appropriate version of the SDK for your application.
 
 Then, import the dependencies directly in your Java class:
 
@@ -483,10 +393,7 @@ The example code then initializes an Amazon S3 client as follows:
 private static final S3Client S3_CLIENT = S3Client.builder().build();
 ```
 
-In this example, we initialized our Amazon S3 client outside of the main handler function to
-avoid having to initialize it every time we invoke our function. After you initialize your SDK
-client, you can then use it to interact with other AWS services. The example code calls the
-Amazon S3 `PutObject` API as follows:
+In this example, we initialized our Amazon S3 client outside of the main handler function to avoid having to initialize it every time we invoke our function. After you initialize your SDK client, you can then use it to interact with other AWS services. The example code calls the Amazon S3 `PutObject` API as follows:
 
 ```
 PutObjectRequest putObjectRequest = PutObjectRequest.builder()
@@ -499,10 +406,9 @@ S3_CLIENT.putObject(putObjectRequest, RequestBody.fromBytes(receiptContent.getBy
 ```
 
 ## Accessing environment variables
+<a name="java-example-envvars"></a>
 
-In your handler code, you can reference any [environment variables](configuration-envvars.md "configuration-envvars.md") by using the `System.getenv()` method. In this example,
-we reference the defined `RECEIPT_BUCKET` environment variable using the following
-line of code:
+In your handler code, you can reference any [ environment variables](configuration-envvars.md) by using the `System.getenv()` method. In this example, we reference the defined `RECEIPT_BUCKET` environment variable using the following line of code:
 
 ```
 String bucketName = System.getenv("RECEIPT_BUCKET");
@@ -512,90 +418,46 @@ if (bucketName == null || bucketName.isEmpty()) {
 ```
 
 ## Using global state
+<a name="java-handler-state"></a>
 
-Lambda runs your static code and the class constructor during the
-[initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib") before invoking your function for the first time. Resources created during initialization stay in memory between invocations, so you can avoid having to create them every time you invoke your function.
+Lambda runs your static code and the class constructor during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib) before invoking your function for the first time. Resources created during initialization stay in memory between invocations, so you can avoid having to create them every time you invoke your function.
 
 In the example code, the S3 client initialization code is outside the main handler method. The runtime initializes the client before the function handles its first event, and the client remains available for reuse across all invocations.
 
 ## Code best practices for Java Lambda functions
+<a name="java-best-practices"></a>
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
++ **Separate the Lambda handler from your core logic.** With this approach, you can make a more unit-testable function.
++ **Control the dependencies in your function's deployment package. ** The AWS Lambda execution environment contains a number of libraries. To enable the latest set of features and security updates, Lambda periodically updates these libraries. These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the dependencies your function uses, package all of your dependencies with your deployment package. 
++ **Minimize the complexity of your dependencies.** Prefer simpler frameworks that load quickly on [execution environment](lambda-runtime-environment.md) startup. For example, prefer simpler Java dependency injection (IoC) frameworks like [Dagger](https://google.github.io/dagger/) or [Guice](https://github.com/google/guice), over more complex ones like [Spring Framework](https://github.com/spring-projects/spring-framework).
++ **Minimize your deployment package size to its runtime necessities. ** This reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead of invocation. For functions authored in Java, avoid uploading the entire AWS SDK library as part of your deployment package. Instead, selectively depend on the modules which pick up components of the SDK you need (for example, DynamoDB, Amazon S3 SDK modules and [Lambda core libraries](https://github.com/aws/aws-lambda-java-libs) on the GitHub website).
 
-- **Separate the Lambda handler from your core logic.** With this approach, you can make
-  a more unit-testable function.
-- **Control the dependencies in your function's deployment package.** The
-  AWS Lambda execution environment contains a number of libraries.
-  To enable the latest set of features and security updates, Lambda periodically updates these libraries.
-  These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the
-  dependencies your function uses, package all of your dependencies with your deployment package.
-- **Minimize the complexity of your dependencies.** Prefer simpler frameworks
-  that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup. For example, prefer
-  simpler Java dependency injection (IoC) frameworks like [Dagger](https://google.github.io/dagger/ "https://google.github.io/dagger/") or
-  [Guice](https://github.com/google/guice "https://github.com/google/guice"), over more complex ones like
-  [Spring Framework](https://github.com/spring-projects/spring-framework "https://github.com/spring-projects/spring-framework").
-- **Minimize your deployment package size to its runtime necessities.** This
-  reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
-  of invocation. For functions authored in Java, avoid uploading the entire AWS SDK library as part
-  of your deployment package. Instead, selectively depend on the modules which pick up components of the SDK you
-  need (for example, DynamoDB, Amazon S3 SDK modules and [Lambda core
-  libraries](https://github.com/aws/aws-lambda-java-libs "https://github.com/aws/aws-lambda-java-libs") on the GitHub website).
+**Take advantage of execution environment reuse to improve the performance of your function.** Initialize SDK clients and database connections outside of the function handler, and cache static assets locally in the `/tmp` directory. Subsequent invocations processed by the same instance of your function can reuse these resources. This saves cost by reducing function run time.
 
-**Take advantage of execution environment reuse to improve the performance of your
-function.** Initialize SDK clients and database connections outside of the function handler, and
-cache static assets locally in the `/tmp` directory. Subsequent invocations processed by
-the same instance of your function can reuse these resources. This saves cost by reducing function run time.
+To avoid potential data leaks across invocations, don’t use the execution environment to store user data, events, or other information with security implications. If your function relies on a mutable state that can’t be stored in memory within the handler, consider creating a separate function or separate versions of a function for each user.
 
-To avoid potential data leaks across invocations, don’t use the execution environment to store user data,
-events, or other information with security implications. If your function relies on a mutable state that can’t
-be stored in memory within the handler, consider creating a separate function or separate versions of a
-function for each user.
+**Use a keep-alive directive to maintain persistent connections.** Lambda purges idle connections over time. Attempting to reuse an idle connection when invoking a function will result in a connection error. To maintain your persistent connection, use the keep-alive directive associated with your runtime. For an example, see [Reusing Connections with Keep-Alive in Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/node-reusing-connections.html).
 
-**Use a keep-alive directive to maintain persistent connections.** Lambda purges idle connections over time.
-Attempting to reuse an idle connection when invoking a function will result in a connection error. To maintain your persistent connection, use the
-keep-alive directive associated with your runtime.
-For an example, see [Reusing Connections with Keep-Alive in Node.js](../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md "../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md").
+**Use [environment variables](configuration-envvars.md) to pass operational parameters to your function.** For example, if you are writing to an Amazon S3 bucket, instead of hard-coding the bucket name you are writing to, configure the bucket name as an environment variable.
 
-**Use [environment variables](configuration-envvars.md "configuration-envvars.md") to pass operational parameters to your function.** For example, if
-you are writing to an Amazon S3 bucket, instead of hard-coding the bucket name you are writing to, configure the
-bucket name as an environment variable.
+**Avoid using recursive invocations** in your Lambda function, where the function invokes itself or initiates a process that may invoke the function again. This could lead to unintended volume of function invocations and escalated costs. If you see an unintended volume of invocations, set the function reserved concurrency to `0` immediately to throttle all invocations to the function, while you update the code.
 
-**Avoid using recursive invocations** in your Lambda function, where the function
-invokes itself or initiates a process that may invoke the function again. This could lead to unintended volume of
-function invocations and escalated costs. If you see an unintended volume of invocations, set the function reserved concurrency
-to `0` immediately to throttle all invocations to the function, while you update the
-code.
+**Do not use non-documented, non-public APIs** in your Lambda function code. For AWS Lambda managed runtimes, Lambda periodically applies security and functional updates to Lambda's internal APIs. These internal API updates may be backwards-incompatible, leading to unintended consequences such as invocation failures if your function has a dependency on these non-public APIs. See [the API reference](https://docs.aws.amazon.com/lambda/latest/api/welcome.html) for a list of publicly available APIs.
 
-**Do not use non-documented, non-public APIs** in your Lambda function code.
-For AWS Lambda managed runtimes, Lambda periodically applies security and functional updates to Lambda's internal APIs.
-These internal API updates may be backwards-incompatible, leading to unintended consequences such as invocation
-failures if your function has a dependency on these non-public APIs. See
-[the API reference](../api/welcome.md "../api/welcome.md") for a list of
-publicly available APIs.
+**Write idempotent code.** Writing idempotent code for your functions ensures that duplicate events are handled the same way. Your code should properly validate events and gracefully handle duplicate events. For more information, see [How do I make my Lambda function idempotent?](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/).
++ **Avoid using the Java DNS cache.** Lambda functions already cache DNS responses. If you use another DNS cache, then you might experience connection timeouts.
 
-**Write idempotent code.** Writing idempotent code for your functions ensures that
-duplicate events are handled the same way. Your code should properly validate events and gracefully handle
-duplicate events. For more information, see
-[How do I make
-my Lambda function idempotent?](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/").
+  The `java.util.logging.Logger` class can indirectly enable the JVM DNS cache. To override the default settings, set [networkaddress.cache.ttl](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/InetAddress.html#inetaddress-caching-heading) to 0 before initializing `logger`. Example:
 
-- **Avoid using the Java DNS cache.** Lambda functions already cache DNS responses. If you use another DNS cache, then you might experience connection timeouts.
-
-The `java.util.logging.Logger` class can indirectly enable the JVM DNS cache.
-To override the default settings, set [networkaddress.cache.ttl](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/InetAddress.html#inetaddress-caching-heading "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/InetAddress.html#inetaddress-caching-heading") to 0 before initializing `logger`.
-Example:
-
-```
-public class MyHandler {
-  // first set TTL property
-  static{
-   java.security.Security.setProperty("networkaddress.cache.ttl" , "0");
+  ```
+  public class MyHandler {
+    // first set TTL property
+    static{
+     java.security.Security.setProperty("networkaddress.cache.ttl" , "0");
+    }
+   // then instantiate logger
+    var logger = org.apache.logging.log4j.LogManager.getLogger(MyHandler.class);
   }
- // then instantiate logger
-  var logger = org.apache.logging.log4j.LogManager.getLogger(MyHandler.class);
-}
-```
-
-- **Reduce the time it takes Lambda to unpack deployment packages** authored in
-  Java by putting your dependency `.jar` files in a separate /lib directory. This is faster than
-  putting all your function's code in a single jar with a large number of `.class` files. See [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md "java-package.md") for instructions.
+  ```
++ **Reduce the time it takes Lambda to unpack deployment packages** authored in Java by putting your dependency `.jar` files in a separate /lib directory. This is faster than putting all your function's code in a single jar with a large number of `.class` files. See [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md) for instructions.

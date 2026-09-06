@@ -1,16 +1,15 @@
+
+
 # Hello Lambda
+<a name="example_lambda_Hello_section"></a>
 
 The following code examples show how to get started using Lambda.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Lambda#code-examples). 
 
 ```
 namespace LambdaActions;
@@ -33,26 +32,15 @@ public class HelloLambda
         });
     }
 }
-
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListFunctions](../../../goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda/hello_lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda/hello_lambda#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/lambda/hello_lambda#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -82,7 +70,7 @@ find_package(AWSSDK REQUIRED COMPONENTS ${SERVICE_COMPONENTS})
 if (WINDOWS_BUILD AND AWSSDK_INSTALL_AS_SHARED_LIBS)
      # Copy relevant AWS SDK for C++ libraries into the current binary directory for running and debugging.
 
-     # set(BIN_SUB_DIR "/Debug") # if you are building from the command line you may need to uncomment this
+     # set(BIN_SUB_DIR "/Debug") # if you are building from the command line you may need to uncomment this 
                                     # and set the proper subdirectory to the executables' location.
 
      AWSSDK_CPY_DYN_LIBS(SERVICE_COMPONENTS "" ${CMAKE_CURRENT_BINARY_DIR}${BIN_SUB_DIR})
@@ -93,11 +81,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_lambda.cpp source file.
+Code for the hello\_lambda.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -168,26 +153,16 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return result;
 }
+```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/SdkForCpp/lambda-2015-03-31/ListFunctions) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples). 
 
 ```
-
-- For API details, see
-  [ListFunctions](../../../goto/SdkForCpp/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForCpp/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/lambda#code-examples").
-
-```
-
 package main
 
 import (
@@ -230,24 +205,14 @@ func main() {
 		}
 	}
 }
-
-
-
 ```
++  For API details, see [ListFunctions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListFunctions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.ListFunctions")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/lambda#code-examples). 
 
 ```
     /**
@@ -270,23 +235,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/SdkForJavaV2/lambda-2015-03-31/ListFunctions) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListFunctions](../../../goto/SdkForJavaV2/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples). 
 
 ```
 import { LambdaClient, paginateListFunctions } from "@aws-sdk/client-lambda";
@@ -306,26 +262,16 @@ export const helloLambda = async () => {
   console.log(functions.join("\n"));
   return functions;
 };
+```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples). 
 
 ```
-
-- For API details, see
-  [ListFunctions](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/ListFunctionsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/lambda#code-examples").
-
-```
-
 import boto3
 
 
@@ -348,27 +294,16 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/boto3/lambda-2015-03-31/ListFunctions) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples). 
 
 ```
-
-- For API details, see
-  [ListFunctions](../../../goto/boto3/lambda-2015-03-31/ListFunctions.md "../../../goto/boto3/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/lambda#code-examples").
-
-```
-
 require 'aws-sdk-lambda'
 
 # Creates an AWS Lambda client using the default credentials and configuration
@@ -397,15 +332,9 @@ def list_lambda_functions
 end
 
 list_lambda_functions if __FILE__ == $PROGRAM_NAME
-
-
-
 ```
++  For API details, see [ListFunctions](https://docs.aws.amazon.com/goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListFunctions](../../../goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/ListFunctions.md")
-  in _AWS SDK for Ruby API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

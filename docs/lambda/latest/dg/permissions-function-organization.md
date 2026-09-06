@@ -1,15 +1,15 @@
+
+
 # Granting function access to an organization
+<a name="permissions-function-organization"></a>
 
-To grant permissions to all accounts in an [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") organization,
-we recommend using `put-resource-policy` to create a full JSON policy with the `aws:PrincipalOrgID` condition key.
+To grant permissions to all accounts in an [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) organization, we recommend using `put-resource-policy` to create a full JSON policy with the `aws:PrincipalOrgID` condition key.
 
-###### Important
-
-Using `put-resource-policy` replaces any existing resource-based policy on the resource. If the resource
-already has permissions defined with `add-permission`, `put-resource-policy` overwrites them.
-Use `get-resource-policy` to retrieve the existing policy before making changes.
+**Important**  
+Using `put-resource-policy` replaces any existing resource-based policy on the resource. If the resource already has permissions defined with `add-permission`, `put-resource-policy` overwrites them. Use `get-resource-policy` to retrieve the existing policy before making changes.
 
 ## Using a full JSON policy (recommended)
+<a name="permissions-function-organization-json"></a>
 
 The following example policy grants invoke access to all AWS accounts in organization `o-a1b2c3d4e5f`:
 
@@ -36,9 +36,9 @@ The following example policy grants invoke access to all AWS accounts in organiz
 Save the policy to a file named `policy.json` and apply it:
 
 ```
-`aws lambda put-resource-policy \
- --resource-arn arn:aws:lambda:`us-east-2`:`123456789012`:function:`my-function` \
- --policy file://policy.json`
+aws lambda put-resource-policy \
+  --resource-arn arn:aws:lambda:{{us-east-2}}:{{123456789012}}:function:{{my-function}} \
+  --policy file://policy.json
 ```
 
 With a full JSON policy, you can also deny access to specific accounts within an organization:
@@ -76,24 +76,20 @@ With a full JSON policy, you can also deny access to specific accounts within an
 ```
 
 ## Using add-permission
+<a name="permissions-function-organization-add-permission"></a>
 
-For simple use cases, you can use `add-permission` with the `principal-org-id` option.
-The following command grants invocation access to all users in organization `o-a1b2c3d4e5f`:
+For simple use cases, you can use `add-permission` with the `principal-org-id` option. The following command grants invocation access to all users in organization `o-a1b2c3d4e5f`:
 
 ```
-`aws lambda add-permission \
- --function-name my-function \
- --statement-id org-access \
- --action lambda:InvokeFunction \
- --principal * \
- --principal-org-id o-a1b2c3d4e5f`
+aws lambda add-permission \
+  --function-name my-function \
+  --statement-id org-access \
+  --action lambda:InvokeFunction \
+  --principal * \
+  --principal-org-id o-a1b2c3d4e5f
 ```
 
-###### Note
+**Note**  
+In this command, `Principal` is `*`. This means that all users in the organization `o-a1b2c3d4e5f` get function invocation permissions. If you specify an AWS account or role as the `Principal`, then only that principal gets function invocation permissions, but only if they are also part of the `o-a1b2c3d4e5f` organization.
 
-In this command, `Principal` is `*`. This means that all users in the organization
-`o-a1b2c3d4e5f` get function invocation permissions. If you specify an AWS account or role as the
-`Principal`, then only that principal gets function invocation permissions, but only if they are
-also part of the `o-a1b2c3d4e5f` organization.
-
-For more information, see [aws:PrincipalOrgID](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid") in the _IAM user guide_.
+For more information, see [ aws:PrincipalOrgID](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-principalorgid) in the *IAM user guide*.

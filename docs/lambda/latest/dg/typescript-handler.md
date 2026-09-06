@@ -1,39 +1,37 @@
+
+
 # Define Lambda function handler in TypeScript
+<a name="typescript-handler"></a>
 
-The Lambda function _handler_ is the method in your function code that processes events. When your function is
-invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in TypeScript, including options for project
-setup, naming conventions, and best practices. This page also includes an example of a TypeScript Lambda
-function that takes in information about an order, produces a text file receipt, and puts this file
-in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see
-[Deploy transpiled TypeScript code in Lambda with .zip file archives](typescript-package.md "typescript-package.md") or [Deploy transpiled TypeScript code in Lambda with container images](typescript-image.md "typescript-image.md").
+This page describes how to work with Lambda function handlers in TypeScript, including options for project setup, naming conventions, and best practices. This page also includes an example of a TypeScript Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy transpiled TypeScript code in Lambda with .zip file archives](typescript-package.md) or [Deploy transpiled TypeScript code in Lambda with container images](typescript-image.md).
 
-###### Topics
-
-- [Setting up your TypeScript project](#typescript-handler-setup "#typescript-handler-setup")
-- [Example TypeScript Lambda function code](#typescript-example-code "#typescript-example-code")
-- [CommonJS and ES Modules](#typescript-commonjs-es-modules "#typescript-commonjs-es-modules")
-- [Node.js initialization](#typescript-initialization "#typescript-initialization")
-- [Handler naming conventions](#typescript-handler-naming "#typescript-handler-naming")
-- [Defining and accessing the input event object](#typescript-example-input "#typescript-example-input")
-- [Valid handler patterns for TypeScript functions](#typescript-handler-signatures "#typescript-handler-signatures")
-- [Using the SDK for JavaScript v3 in your handler](#typescript-example-sdk-usage "#typescript-example-sdk-usage")
-- [Accessing environment variables](#typescript-example-envvars "#typescript-example-envvars")
-- [Using global state](#typescript-handler-state "#typescript-handler-state")
-- [Code best practices for TypeScript Lambda functions](#typescript-best-practices "#typescript-best-practices")
+**Topics**
++ [Setting up your TypeScript project](#typescript-handler-setup)
++ [Example TypeScript Lambda function code](#typescript-example-code)
++ [CommonJS and ES Modules](#typescript-commonjs-es-modules)
++ [Node.js initialization](#typescript-initialization)
++ [Handler naming conventions](#typescript-handler-naming)
++ [Defining and accessing the input event object](#typescript-example-input)
++ [Valid handler patterns for TypeScript functions](#typescript-handler-signatures)
++ [Using the SDK for JavaScript v3 in your handler](#typescript-example-sdk-usage)
++ [Accessing environment variables](#typescript-example-envvars)
++ [Using global state](#typescript-handler-state)
++ [Code best practices for TypeScript Lambda functions](#typescript-best-practices)
 
 ## Setting up your TypeScript project
+<a name="typescript-handler-setup"></a>
 
 Use a local integrated development environment (IDE) or text editor to write your TypeScript function code. You can’t create TypeScript code on the Lambda console.
 
-There are multiple ways to initialize a TypeScript Lambda project. For example, you can create a project using `npm`, create an [AWS SAM application](typescript-package.md#aws-sam-ts "typescript-package.md#aws-sam-ts"), or create an [AWS CDK application](typescript-package.md#aws-cdk-ts "typescript-package.md#aws-cdk-ts"). To create the project using `npm`:
+There are multiple ways to initialize a TypeScript Lambda project. For example, you can create a project using `npm`, create an [AWS SAM application](typescript-package.md#aws-sam-ts), or create an [AWS CDK application](typescript-package.md#aws-cdk-ts). To create the project using `npm`:
 
 ```
 npm init
 ```
 
-Your function code lives in a `.ts` file, which you transpile into a JavaScript file at build time. You can use either [esbuild](https://esbuild.github.io/ "https://esbuild.github.io/") or Microsoft's TypeScript compiler (`tsc`) to transpile your TypeScript code into JavaScript. To use esbuild, add it as a development dependency:
+Your function code lives in a `.ts` file, which you transpile into a JavaScript file at build time. You can use either [esbuild](https://esbuild.github.io/) or Microsoft's TypeScript compiler (`tsc`) to transpile your TypeScript code into JavaScript. To use esbuild, add it as a development dependency:
 
 ```
 npm install -D esbuild
@@ -43,24 +41,23 @@ A typical TypeScript Lambda function project follows this general structure:
 
 ```
 /project-root
-  ├── index.ts - *Contains main handler*
-  ├── dist/ - *Contains compiled JavaScript*
-  ├── package.json - *Project metadata and dependencies*
-  ├── package-lock.json - *Dependency lock file*
-  ├── tsconfig.json - *TypeScript configuration*
-  └── node_modules/ - *Installed dependencies*
+  ├── index.ts - Contains main handler
+  ├── dist/ - Contains compiled JavaScript
+  ├── package.json - Project metadata and dependencies
+  ├── package-lock.json - Dependency lock file
+  ├── tsconfig.json - TypeScript configuration
+  └── node_modules/ - Installed dependencies
 ```
 
 ## Example TypeScript Lambda function code
+<a name="typescript-example-code"></a>
 
-The following example Lambda function code takes in information about an order,
-produces a text file receipt, and puts this file in an Amazon S3 bucket. This example defines a custom event type (`OrderEvent`). To learn how to import type definitions for AWS event sources, see [Type definitions for Lambda](lambda-typescript.md#typescript-type-definitions "lambda-typescript.md#typescript-type-definitions").
+The following example Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket. This example defines a custom event type (`OrderEvent`). To learn how to import type definitions for AWS event sources, see [Type definitions for Lambda](lambda-typescript.md#typescript-type-definitions).
 
-###### Note
+**Note**  
+This example uses an ES module handler. Lambda supports both ES module and CommonJS handlers. For more information, see [CommonJS and ES Modules](nodejs-handler.md#nodejs-commonjs-es-modules).
 
-This example uses an ES module handler. Lambda supports both ES module and CommonJS handlers. For more information, see [CommonJS and ES Modules](nodejs-handler.md#nodejs-commonjs-es-modules "nodejs-handler.md#nodejs-commonjs-es-modules").
-
-###### Example index.ts Lambda function
+**Example index.ts Lambda function**  
 
 ```
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
@@ -120,24 +117,25 @@ async function uploadReceiptToS3(bucketName: string, key: string, receiptContent
 ```
 
 This `index.ts` file contains the following sections of code:
++ `import` block: Use this block to include libraries that your Lambda function requires, such as [AWS SDK clients](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/the-request-object.html).
++ `const s3Client` declaration: This initializes an [Amazon S3 client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/) outside of the handler function. This causes Lambda to run this code during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib), and the client is preserved for [reuse across multiple invocations](lambda-runtime-environment.md#execution-environment-reuse).
++ `type OrderEvent`: Defines the structure of the expected input event.
++ `export const handler`: This is the main handler function that Lambda invokes. When deploying your function, specify `index.handler` for the [Handler](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html#lambda-CreateFunction-request-Handler) property. The value of the `Handler` property is the file name and the name of the exported handler method, separated by a dot.
++ `uploadReceiptToS3` function: This is a helper function that's referenced by the main handler function.
 
-- `import` block: Use this block to include libraries that your Lambda function requires, such as [AWS SDK clients](../../../sdk-for-javascript/v3/developer-guide/the-request-object.md "../../../sdk-for-javascript/v3/developer-guide/the-request-object.md").
-- `const s3Client` declaration: This initializes an [Amazon S3 client](../../../AWSJavaScriptSDK/v3/latest/client/s3.md "../../../AWSJavaScriptSDK/v3/latest/client/s3.md") outside of the handler function. This causes Lambda to run this code during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib"), and the client is preserved for [reuse across multiple invocations](lambda-runtime-environment.md#execution-environment-reuse "lambda-runtime-environment.md#execution-environment-reuse").
-- `type OrderEvent`: Defines the structure of the expected input event.
-- `export const handler`: This is the main handler function that Lambda invokes. When deploying your function, specify `index.handler` for the [Handler](../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler "../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler") property. The value of the `Handler` property is the file name and the name of the exported handler method, separated by a dot.
-- `uploadReceiptToS3` function: This is a helper function that's referenced by the main handler function.
-
-For this function to work properly, its [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") must allow the `s3:PutObject` action. Also, ensure that you define the `RECEIPT_BUCKET` environment variable. After a successful invocation, the Amazon S3 bucket should contain a receipt file.
+For this function to work properly, its [ execution role](lambda-intro-execution-role.md) must allow the `s3:PutObject` action. Also, ensure that you define the `RECEIPT_BUCKET` environment variable. After a successful invocation, the Amazon S3 bucket should contain a receipt file.
 
 ## CommonJS and ES Modules
+<a name="typescript-commonjs-es-modules"></a>
 
-Node.js supports two module systems: CommonJS and ECMAScript modules (ES modules). Lambda recommends using ES modules as it supports top-level await, which enables asynchronous tasks to be completed during [execution environment initialization](#typescript-initialization "#typescript-initialization").
+Node.js supports two module systems: CommonJS and ECMAScript modules (ES modules). Lambda recommends using ES modules as it supports top-level await, which enables asynchronous tasks to be completed during [execution environment initialization](#typescript-initialization).
 
-Node.js treats files with a `.cjs` file name extension as CommonJS modules while a `.mjs` extension denotes ES modules. By default, Node.js treats files with the `.js` file name extension as CommonJS modules. You can configure Node.js to treat `.js` files as ES modules by specifying the `type` as `module` in the function's `package.json` file. You can configure Node.js in Lambda to detect automatically whether a `.js` file should be treated as CommonJS or as an ES module by adding the `—experimental-detect-module` flag to the `NODE_OPTIONS` environment variable. For more information, see [Experimental Node.js features](lambda-nodejs.md#nodejs-experimental-features "lambda-nodejs.md#nodejs-experimental-features").
+Node.js treats files with a `.cjs` file name extension as CommonJS modules while a `.mjs` extension denotes ES modules. By default, Node.js treats files with the `.js` file name extension as CommonJS modules. You can configure Node.js to treat `.js` files as ES modules by specifying the `type` as `module` in the function's `package.json` file. You can configure Node.js in Lambda to detect automatically whether a `.js` file should be treated as CommonJS or as an ES module by adding the `—experimental-detect-module` flag to the `NODE_OPTIONS` environment variable. For more information, see [Experimental Node.js features](lambda-nodejs.md#nodejs-experimental-features).
 
 The following examples show function handlers written using both ES modules and CommonJS modules. The remaining examples on this page all use ES modules.
 
 ## Node.js initialization
+<a name="typescript-initialization"></a>
 
 Node.js uses a non-blocking I/O model that supports efficient asynchronous operations using an event loop. For example, if Node.js makes a network call, the function continues to process other operations without blocking on a network response. When the network response is received, it is placed into the callback queue. Tasks from the queue are processed when the current task completes.
 
@@ -145,27 +143,29 @@ Lambda recommends using top-level await so that asynchronous tasks initiated dur
 
 For example, your function initialization might make a network call to fetch a parameter from AWS Parameter Store. If this task is not completed during initialization, the value might be null during an invocation. There can also be a delay between initialization and invoke which can trigger errors in time-sensitive operations. In particular, AWS service calls can rely on time-sensitive request signatures, resulting in service call failures if the call is not completed during the initialization phase.
 
-Completing tasks during initialization typically improves cold-start performance, and first invoke performance when using Provisioned Concurrency. For more information, see our blog post [Using Node.js ES modules and top-level await in AWS Lambda](https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda "https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda").
+Completing tasks during initialization typically improves cold-start performance, and first invoke performance when using Provisioned Concurrency. For more information, see our blog post [Using Node.js ES modules and top-level await in AWS Lambda](https://aws.amazon.com/blogs/compute/using-node-js-es-modules-and-top-level-await-in-aws-lambda).
 
 ## Handler naming conventions
+<a name="typescript-handler-naming"></a>
 
-When you configure a function, the value of the [Handler](../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler "../api/API_CreateFunction.md#lambda-CreateFunction-request-Handler") setting is
-the file name and the name of the exported handler method, separated by a dot. The default for functions created in the console and for
-examples in this guide is `index.handler`. This indicates the `handler` method that's exported
-from the `index.js` or `index.mjs` file.
+When you configure a function, the value of the [Handler](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html#lambda-CreateFunction-request-Handler) setting is the file name and the name of the exported handler method, separated by a dot. The default for functions created in the console and for examples in this guide is `index.handler`. This indicates the `handler` method that's exported from the `index.js` or `index.mjs` file.
 
-If you create a function in the console using a different file name or function handler name, you must edit
-the default handler name.
+If you create a function in the console using a different file name or function handler name, you must edit the default handler name.
 
-###### To change the function handler name (console)
+**To change the function handler name (console)**
 
-1. Open the [Functions](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") page of the Lambda console and choose your function.
-2. Choose the **Code** tab.
-3. Scroll down to the **Runtime settings** pane and choose **Edit**.
-4. In **Handler**, enter the new name for your function handler.
-5. Choose **Save**.
+1. Open the [Functions](https://console.aws.amazon.com/lambda/home#/functions) page of the Lambda console and choose your function.
+
+1. Choose the **Code** tab.
+
+1. Scroll down to the **Runtime settings** pane and choose **Edit**.
+
+1. In **Handler**, enter the new name for your function handler.
+
+1. Choose **Save**.
 
 ## Defining and accessing the input event object
+<a name="typescript-example-input"></a>
 
 JSON is the most common and standard input format for Lambda functions. In this example, the function expects an input similar to the following:
 
@@ -196,41 +196,42 @@ export const handler = async (event: OrderEvent): Promise<string> => {
 During compilation, TypeScript validates that the event object contains the required fields with the correct types. For example, the TypeScript compiler reports an error if you try to use `event.order_id` as a number or `event.amount` as a string.
 
 ## Valid handler patterns for TypeScript functions
+<a name="typescript-handler-signatures"></a>
 
-We recommend that you use [async/await](../../../sdk-for-javascript/v3/developer-guide/using-async-await.md "../../../sdk-for-javascript/v3/developer-guide/using-async-await.md") to declare the function handler instead of using [callbacks](../../../sdk-for-javascript/v3/developer-guide/using-a-callback-function.md "../../../sdk-for-javascript/v3/developer-guide/using-a-callback-function.md"). Async/await is a concise and readable way to write asynchronous code, without the need for nested callbacks or chaining promises. With async/await, you can write code that reads like synchronous code, while still being asynchronous and non-blocking.
+We recommend that you use [async/await](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/using-async-await.html) to declare the function handler instead of using [callbacks](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/using-a-callback-function.html). Async/await is a concise and readable way to write asynchronous code, without the need for nested callbacks or chaining promises. With async/await, you can write code that reads like synchronous code, while still being asynchronous and non-blocking.
 
-The examples in this section use the `S3Event` type. However, you can use any other AWS event types in the [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda "https://www.npmjs.com/package/@types/aws-lambda") package, or define your own event type. To use types from @types/aws-lambda:
+The examples in this section use the `S3Event` type. However, you can use any other AWS event types in the [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda) package, or define your own event type. To use types from @types/aws-lambda:
 
 1. Add the @types/aws-lambda package as a development dependency:
 
-```
-npm install -D @types/aws-lambda
-```
+   ```
+   npm install -D @types/aws-lambda
+   ```
 
-2. Import the types you need, such as `Context`, `S3Event`, or `Callback`.
+1. Import the types you need, such as `Context`, `S3Event`, or `Callback`.
 
 ### async function handlers (recommended)
+<a name="typescript-handler-async"></a>
 
 The `async` keyword marks a function as asynchronous, and the `await` keyword pauses the execution of the function until a `Promise` is resolved. The handler accepts the following arguments:
-
-- `event`: Contains the input data passed to your function.
-- `context`: Contains information about the invocation, function, and execution environment. For more information, see [Using the Lambda context object to retrieve TypeScript function information](typescript-context.md "typescript-context.md").
++ `event`: Contains the input data passed to your function.
++ `context`: Contains information about the invocation, function, and execution environment. For more information, see [Using the Lambda context object to retrieve TypeScript function information](typescript-context.md).
 
 Here are the valid signatures for the async/await pattern:
 
 ```
-export const handler = async `(event: S3Event)`: Promise<void> => { };
+export const handler = async {{(event: S3Event)}}: Promise<void> => { };
 ```
 
 ```
-export const handler = async `(event: S3Event, context: Context)`: Promise<void> => { };
+export const handler = async {{(event: S3Event, context: Context)}}: Promise<void> => { };
 ```
 
-###### Note
-
-When processing arrays of items asynchronously, make sure to use await with `Promise.all` to ensure all operations complete. Methods like `forEach` don't wait for async callbacks to complete. For more information, see [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach") in the Mozilla documentation.
+**Note**  
+When processing arrays of items asynchronously, make sure to use await with `Promise.all` to ensure all operations complete. Methods like `forEach` don't wait for async callbacks to complete. For more information, see [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) in the Mozilla documentation.
 
 ### Synchronous function handlers
+<a name="typescript-handler-synchronous"></a>
 
 Where your function does not perform any asynchronous tasks, you can use a synchronous function handler, using one of the following function signatures:
 
@@ -243,6 +244,7 @@ export const handler = (event: S3Event, context: Context): void => { };
 ```
 
 ### Response streaming function handlers
+<a name="typescript-handler-response-streaming"></a>
 
 Lambda supports response streaming with Node.js. Response streaming function handlers use the awslambda.streamifyResponse() decorator and take 3 parameters: event, responseStream, and context. The function signature is:
 
@@ -253,9 +255,9 @@ export const handler = awslambda.streamifyResponse(async (event: APIGatewayProxy
 For more information, see Response streaming for Lambda functions.
 
 ### Callback-based function handlers
+<a name="typescript-handler-callback"></a>
 
-###### Note
-
+**Note**  
 Callback-based function handlers are only supported up to Node.js 22. Starting from Node.js 24, asynchronous tasks should be implemented using async function handlers.
 
 Callback-based function handlers can use the event, context, and callback arguments. The callback argument expects an `Error` and a response, which must be JSON-serializable.
@@ -263,14 +265,13 @@ Callback-based function handlers can use the event, context, and callback argume
 Here is the valid signature for the callback handler pattern:
 
 ```
-export const handler = `(event: S3Event, context: Context, callback: Callback<void>)`: void => { };
+export const handler = {{(event: S3Event, context: Context, callback: Callback<void>)}}: void => { };
 ```
 
-The function continues to execute until the [event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/ "https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/") is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](typescript-context.md "typescript-context.md") to false.
+The function continues to execute until the [event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/) is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](typescript-context.md) to false.
 
-###### Example TypeScript function with callback
-
-The following example uses `APIGatewayProxyCallback`, which is a specialized callback type specific to API Gateway integrations. Most AWS event sources use the generic `Callback` type shown in the signatures above.
+**Example TypeScript function with callback**  
+The following example uses `APIGatewayProxyCallback`, which is a specialized callback type specific to API Gateway integrations. Most AWS event sources use the generic `Callback` type shown in the signatures above.  
 
 ```
 import { Context, APIGatewayProxyCallback, APIGatewayEvent } from 'aws-lambda';
@@ -288,10 +289,11 @@ export const lambdaHandler = (event: APIGatewayEvent, context: Context, callback
 ```
 
 ## Using the SDK for JavaScript v3 in your handler
+<a name="typescript-example-sdk-usage"></a>
 
-Often, you'll use Lambda functions to interact with or make updates to other AWS resources. The simplest way to interface with these resources is to use the AWS SDK for JavaScript. All supported Lambda Node.js runtimes include the [SDK for JavaScript version 3](../../../AWSJavaScriptSDK/v3/latest/introduction.md "../../../AWSJavaScriptSDK/v3/latest/introduction.md"). However, we strongly recommend that you include the AWS SDK clients that you need in your deployment package. This maximizes [backward compatibility](runtimes-update.md#runtime-update-compatibility "runtimes-update.md#runtime-update-compatibility") during future Lambda runtime updates.
+Often, you'll use Lambda functions to interact with or make updates to other AWS resources. The simplest way to interface with these resources is to use the AWS SDK for JavaScript. All supported Lambda Node.js runtimes include the [SDK for JavaScript version 3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/introduction/). However, we strongly recommend that you include the AWS SDK clients that you need in your deployment package. This maximizes [backward compatibility](runtimes-update.md#runtime-update-compatibility) during future Lambda runtime updates.
 
-To add SDK dependencies to your function, use the `npm install` command for the specific SDK clients that you need. In the example code, we used the [Amazon S3 client](../../../AWSJavaScriptSDK/v3/latest/client/s3.md "../../../AWSJavaScriptSDK/v3/latest/client/s3.md"). Add this dependency by running the following command in the directory that contains your `package.json` file:
+To add SDK dependencies to your function, use the `npm install` command for the specific SDK clients that you need. In the example code, we used the [Amazon S3 client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/). Add this dependency by running the following command in the directory that contains your `package.json` file:
 
 ```
 npm install @aws-sdk/client-s3
@@ -303,13 +305,13 @@ In the function code, import the client and commands that you need, as the examp
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 ```
 
-Then, initialize an [Amazon S3 client](../../../AWSJavaScriptSDK/v3/latest/client/s3.md "../../../AWSJavaScriptSDK/v3/latest/client/s3.md"):
+Then, initialize an [Amazon S3 client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/):
 
 ```
 const s3Client = new S3Client();
 ```
 
-In this example, we initialized our Amazon S3 client outside of the main handler function to avoid having to initialize it every time we invoke our function. After you initialize your SDK client, you can then use it to make API calls for that AWS service. The example code calls the Amazon S3 [PutObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand.md") API action as follows:
+In this example, we initialized our Amazon S3 client outside of the main handler function to avoid having to initialize it every time we invoke our function. After you initialize your SDK client, you can then use it to make API calls for that AWS service. The example code calls the Amazon S3 [PutObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand/) API action as follows:
 
 ```
 const command = new PutObjectCommand({
@@ -320,8 +322,9 @@ const command = new PutObjectCommand({
 ```
 
 ## Accessing environment variables
+<a name="typescript-example-envvars"></a>
 
-In your handler code, you can reference any [environment variables](configuration-envvars.md "configuration-envvars.md") by using `process.env`. In this example, we reference the defined `RECEIPT_BUCKET` environment variable using the following lines of code:
+In your handler code, you can reference any [environment variables](configuration-envvars.md) by using `process.env`. In this example, we reference the defined `RECEIPT_BUCKET` environment variable using the following lines of code:
 
 ```
 // Access environment variables
@@ -332,54 +335,31 @@ if (!bucketName) {
 ```
 
 ## Using global state
+<a name="typescript-handler-state"></a>
 
-Lambda runs your static code during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib") before invoking your function for the first time. Resources created during initialization stay in memory between invocations, so you can avoid having to create them every time you invoke your function.
+Lambda runs your static code during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib) before invoking your function for the first time. Resources created during initialization stay in memory between invocations, so you can avoid having to create them every time you invoke your function.
 
 In the example code, the S3 client initialization code is outside the handler. The runtime initializes the client before the function handles its first event, and the client remains available for reuse across all invocations.
 
 ## Code best practices for TypeScript Lambda functions
+<a name="typescript-best-practices"></a>
 
 Follow these guidelines when building Lambda functions:
++ **Separate the Lambda handler from your core logic.** This allows you to make a more unit-testable function.
++ **Control the dependencies in your function's deployment package. ** The AWS Lambda execution environment contains a number of libraries. For the Node.js and Python runtimes, these include the AWS SDKs. To enable the latest set of features and security updates, Lambda will periodically update these libraries. These updates may introduce subtle changes to the behavior of your Lambda function. To have full control of the dependencies your function uses, package all of your dependencies with your deployment package. 
++ **Minimize the complexity of your dependencies.** Prefer simpler frameworks that load quickly on [execution environment](lambda-runtime-environment.md) startup.
++ **Minimize your deployment package size to its runtime necessities. ** This will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead of invocation.
 
-- **Separate the Lambda handler from your core logic.** This allows you to make a more unit-testable function.
-- **Control the dependencies in your function's deployment package.** The AWS Lambda execution environment contains a number of libraries. For the Node.js and Python runtimes, these include the AWS SDKs. To enable the latest set of features and security updates, Lambda will periodically update these libraries. These updates may introduce subtle changes to the behavior of your Lambda function. To have full control of the dependencies your function uses, package all of your dependencies with your deployment package.
-- **Minimize the complexity of your dependencies.** Prefer simpler frameworks that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup.
-- **Minimize your deployment package size to its runtime necessities.** This will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead of invocation.
+**Take advantage of execution environment reuse to improve the performance of your function.** Initialize SDK clients and database connections outside of the function handler, and cache static assets locally in the `/tmp` directory. Subsequent invocations processed by the same instance of your function can reuse these resources. This saves cost by reducing function run time.
 
-**Take advantage of execution environment reuse to improve the performance of your
-function.** Initialize SDK clients and database connections outside of the function handler, and
-cache static assets locally in the `/tmp` directory. Subsequent invocations processed by
-the same instance of your function can reuse these resources. This saves cost by reducing function run time.
+To avoid potential data leaks across invocations, don’t use the execution environment to store user data, events, or other information with security implications. If your function relies on a mutable state that can’t be stored in memory within the handler, consider creating a separate function or separate versions of a function for each user.
 
-To avoid potential data leaks across invocations, don’t use the execution environment to store user data,
-events, or other information with security implications. If your function relies on a mutable state that can’t
-be stored in memory within the handler, consider creating a separate function or separate versions of a
-function for each user.
+**Use a keep-alive directive to maintain persistent connections.** Lambda purges idle connections over time. Attempting to reuse an idle connection when invoking a function will result in a connection error. To maintain your persistent connection, use the keep-alive directive associated with your runtime. For an example, see [Reusing Connections with Keep-Alive in Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/node-reusing-connections.html).
 
-**Use a keep-alive directive to maintain persistent connections.** Lambda purges idle connections over time.
-Attempting to reuse an idle connection when invoking a function will result in a connection error. To maintain your persistent connection, use the
-keep-alive directive associated with your runtime.
-For an example, see [Reusing Connections with Keep-Alive in Node.js](../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md "../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md").
+**Use [environment variables](configuration-envvars.md) to pass operational parameters to your function.** For example, if you are writing to an Amazon S3 bucket, instead of hard-coding the bucket name you are writing to, configure the bucket name as an environment variable.
 
-**Use [environment variables](configuration-envvars.md "configuration-envvars.md") to pass operational parameters to your function.** For example, if
-you are writing to an Amazon S3 bucket, instead of hard-coding the bucket name you are writing to, configure the
-bucket name as an environment variable.
+**Avoid using recursive invocations** in your Lambda function, where the function invokes itself or initiates a process that may invoke the function again. This could lead to unintended volume of function invocations and escalated costs. If you see an unintended volume of invocations, set the function reserved concurrency to `0` immediately to throttle all invocations to the function, while you update the code.
 
-**Avoid using recursive invocations** in your Lambda function, where the function
-invokes itself or initiates a process that may invoke the function again. This could lead to unintended volume of
-function invocations and escalated costs. If you see an unintended volume of invocations, set the function reserved concurrency
-to `0` immediately to throttle all invocations to the function, while you update the
-code.
+**Do not use non-documented, non-public APIs** in your Lambda function code. For AWS Lambda managed runtimes, Lambda periodically applies security and functional updates to Lambda's internal APIs. These internal API updates may be backwards-incompatible, leading to unintended consequences such as invocation failures if your function has a dependency on these non-public APIs. See [the API reference](https://docs.aws.amazon.com/lambda/latest/api/welcome.html) for a list of publicly available APIs.
 
-**Do not use non-documented, non-public APIs** in your Lambda function code.
-For AWS Lambda managed runtimes, Lambda periodically applies security and functional updates to Lambda's internal APIs.
-These internal API updates may be backwards-incompatible, leading to unintended consequences such as invocation
-failures if your function has a dependency on these non-public APIs. See
-[the API reference](../api/welcome.md "../api/welcome.md") for a list of
-publicly available APIs.
-
-**Write idempotent code.** Writing idempotent code for your functions ensures that
-duplicate events are handled the same way. Your code should properly validate events and gracefully handle
-duplicate events. For more information, see
-[How do I make
-my Lambda function idempotent?](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/").
+**Write idempotent code.** Writing idempotent code for your functions ensures that duplicate events are handled the same way. Your code should properly validate events and gracefully handle duplicate events. For more information, see [How do I make my Lambda function idempotent?](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/).

@@ -1,236 +1,192 @@
+
+
 # Fine-tuning the Resources and Conditions sections of policies
+<a name="lambda-api-permissions-ref"></a>
 
-You can restrict the scope of a user's permissions by specifying resources and conditions in an AWS Identity and Access Management
-(IAM) policy. Each action in a policy supports a combination of resource and condition types that varies depending
-on the behavior of the action.
+You can restrict the scope of a user's permissions by specifying resources and conditions in an AWS Identity and Access Management (IAM) policy. Each action in a policy supports a combination of resource and condition types that varies depending on the behavior of the action.
 
-Every IAM policy statement grants permission to an action that's performed on a resource. When the action
-doesn't act on a named resource, or when you grant permission to perform the action on all resources, the value of
-the resource in the policy is a wildcard (`*`). For many actions, you can restrict the resources that a
-user can modify by specifying the Amazon Resource Name (ARN) of a resource, or an ARN pattern that matches multiple
-resources.
+Every IAM policy statement grants permission to an action that's performed on a resource. When the action doesn't act on a named resource, or when you grant permission to perform the action on all resources, the value of the resource in the policy is a wildcard (`*`). For many actions, you can restrict the resources that a user can modify by specifying the Amazon Resource Name (ARN) of a resource, or an ARN pattern that matches multiple resources.
 
 By resource type, the general design of how to restrict the scope of an action is the following:
++ Functions–Actions that operate on a function can be restricted to a specific function by function, version, or alias ARN.
++ Event source mappings–Actions can be restricted to specific event source mapping resources by ARN. Event source mappings are always associated with a function. You can also use the `lambda:FunctionArn` condition to restrict actions by associated function.
++ Layers–Actions related to layer usage and permissions act on a version of a layer.
++ Code signing configuration–Actions can be restricted to specific code signing configuration resources by ARN.
++ Tags–Use standard tag conditions. For more information, see [Using attribute-based access control in Lambda](attribute-based-access-control.md).
 
-- Functions–Actions that operate on a function can be restricted to a specific function by function, version, or alias ARN.
-- Event source mappings–Actions can be restricted to specific event source mapping resources by ARN. Event source
-  mappings are always associated with a function. You can also use the `lambda:FunctionArn` condition to restrict
-  actions by associated function.
-- Layers–Actions related to layer usage and permissions act on a version of a layer.
-- Code signing configuration–Actions can be restricted to specific code signing configuration resources by ARN.
-- Tags–Use standard tag conditions. For more information, see [Using attribute-based access control in Lambda](attribute-based-access-control.md "attribute-based-access-control.md").
-  To restrict permissions by resource, specify the resource by ARN.
+To restrict permissions by resource, specify the resource by ARN.
 
-###### Lambda resource ARN format
+**Lambda resource ARN format**
++ Function – `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:function:{{my-function}}`
++ Function version – `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:function:{{my-function}}:{{1}}`
++ Function alias – `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:function:{{my-function}}:{{TEST}}`
++ Durable execution – `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:function:{{my-function}}:{{1}}/durable-execution/{{execution-name}}/{{execution-id}}`
++ Event source mapping – `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:event-source-mapping:{{fa123456-14a1-4fd2-9fec-83de64ad683de6d47}}`
++ Layer – `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:layer:{{my-layer}}`
++ Layer version – `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:layer:{{my-layer}}:{{1}}`
++ Code signing configuration – `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:code-signing-config:{{my-csc}}`
 
-- Function –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:function:`my-function``
-- Function version –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:function:`my-function`:`1``
-- Function alias –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:function:`my-function`:`TEST``
-- Durable execution –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:function:`my-function`:`1`/durable-execution/`execution-name`/`execution-id``
-- Event source mapping –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:event-source-mapping:`fa123456-14a1-4fd2-9fec-83de64ad683de6d47``
-- Layer –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:layer:`my-layer``
-- Layer version –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:layer:`my-layer`:`1``
-- Code signing configuration –
-  `arn:aws:lambda:`us-west-2`:`123456789012`:code-signing-config:`my-csc``
-  For example, the following policy allows a user in AWS account `123456789012` to invoke a function
-  named `my-function` in the US West (Oregon) AWS Region.
+For example, the following policy allows a user in AWS account `123456789012` to invoke a function named `my-function` in the US West (Oregon) AWS Region.
 
-###### Example invoke function policy
-
-JSON
+**Example invoke function policy**    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Invoke",
- "Effect": "Allow",
- "Action": [
- "lambda:InvokeFunction"
- ],
- "Resource": "arn:aws:lambda:us-west-2:123456789012:function:`my-function`"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "Invoke",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:InvokeFunction"
+            ],
+            "Resource": "arn:aws:lambda:us-west-2:123456789012:function:{{my-function}}"
+        }
+    ]
+}
 ```
 
-This is a special case where the action identifier (`lambda:InvokeFunction`) differs from the API
-operation ([Invoke](../api/API_Invoke.md "../api/API_Invoke.md")). For other actions, the action identifier is the operation name prefixed by
-`lambda:`.
+This is a special case where the action identifier (`lambda:InvokeFunction`) differs from the API operation ([Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html)). For other actions, the action identifier is the operation name prefixed by `lambda:`.
 
-###### Sections
-
-- [Understanding the Condition section in policies](#authorization-conditions "#authorization-conditions")
-- [Referencing functions in the Resource section of policies](#function-resources "#function-resources")
-- [Referencing durable executions in the Resource section of policies](#durable-execution-resources "#durable-execution-resources")
-- [Supported IAM actions and function behaviors](#permissions-resources "#permissions-resources")
+**Topics**
++ [Understanding the Condition section in policies](#authorization-conditions)
++ [Referencing functions in the Resource section of policies](#function-resources)
++ [Referencing durable executions in the Resource section of policies](#durable-execution-resources)
++ [Supported IAM actions and function behaviors](#permissions-resources)
 
 ## Understanding the Condition section in policies
+<a name="authorization-conditions"></a>
 
-Conditions are an optional policy element that applies additional logic to determine if an action is allowed.
-In addition to common [conditions](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md")
-that all actions support, Lambda defines condition types that you can use to restrict the values of additional
-parameters on some actions.
+Conditions are an optional policy element that applies additional logic to determine if an action is allowed. In addition to common [conditions](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) that all actions support, Lambda defines condition types that you can use to restrict the values of additional parameters on some actions.
 
-For example, the `lambda:Principal` condition lets you restrict the service or account that a user
-can grant invocation access to on a function's [resource-based
-policy](access-control-resource-based.md "access-control-resource-based.md"). The following policy lets a user grant permission to Amazon Simple Notification Service (Amazon SNS) topics to invoke a
-function named `test`.
+For example, the `lambda:Principal` condition lets you restrict the service or account that a user can grant invocation access to on a function's [resource-based policy](access-control-resource-based.md). The following policy lets a user grant permission to Amazon Simple Notification Service (Amazon SNS) topics to invoke a function named `test`.
 
-###### Example manage function policy permissions
-
-JSON
+**Example manage function policy permissions**    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "ManageFunctionPolicy",
- "Effect": "Allow",
- "Action": [
- "lambda:AddPermission",
- "lambda:RemovePermission"
- ],
- "Resource": "arn:aws:lambda:us-west-2:123456789012:function:test:*",
- `"Condition": {
- "StringEquals": {
- "lambda:Principal": "sns.amazonaws.com"
- }
- }`
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "ManageFunctionPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:AddPermission",
+                "lambda:RemovePermission"
+            ],
+            "Resource": "arn:aws:lambda:us-west-2:123456789012:function:test:*",
+            {{"Condition": {
+                "StringEquals": {
+                    "lambda:Principal": "sns.amazonaws.com"
+                }
+            }}}
+        }
+    ]
+}
 ```
 
-The condition requires that the principal is Amazon SNS and not another service or account. The resource pattern
-requires that the function name is `test` and includes a version number or alias. For example,
-`test:v1`.
+The condition requires that the principal is Amazon SNS and not another service or account. The resource pattern requires that the function name is `test` and includes a version number or alias. For example, `test:v1`.
 
-For more information on resources and conditions for Lambda and other AWS services, see [Actions,
-resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the _Service Authorization Reference_.
+For more information on resources and conditions for Lambda and other AWS services, see [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) in the *Service Authorization Reference*.
 
 ## Referencing functions in the Resource section of policies
+<a name="function-resources"></a>
 
-You reference a Lambda function in a policy statement using an Amazon Resource Name (ARN). The format of a
-function ARN depends on whether you are referencing the whole function (unqualified) or a function [version](configuration-versions.md "configuration-versions.md") or [alias](configuration-aliases.md "configuration-aliases.md") (qualified).
+You reference a Lambda function in a policy statement using an Amazon Resource Name (ARN). The format of a function ARN depends on whether you are referencing the whole function (unqualified) or a function [version](configuration-versions.md) or [alias](configuration-aliases.md) (qualified). 
 
-When making Lambda API calls, users can specify a version or alias by passing a version ARN or alias ARN in the
-[GetFunction](../api/API_GetFunction.md "../api/API_GetFunction.md") `FunctionName` parameter, or by setting a value in the [GetFunction](../api/API_GetFunction.md "../api/API_GetFunction.md")
-`Qualifier` parameter. Lambda makes authorization decisions by comparing the resource element in the
-IAM policy with both the `FunctionName` and `Qualifier` passed in API calls. If there is a
-mismatch, Lambda denies the request.
+When making Lambda API calls, users can specify a version or alias by passing a version ARN or alias ARN in the [GetFunction](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunction.html) `FunctionName` parameter, or by setting a value in the [GetFunction](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunction.html) `Qualifier` parameter. Lambda makes authorization decisions by comparing the resource element in the IAM policy with both the `FunctionName` and `Qualifier` passed in API calls. If there is a mismatch, Lambda denies the request.
 
-Whether you are allowing or denying an action on your function, you must use the correct function ARN types in your policy statement to achieve the results that you expect. For example,
-if your policy references the unqualified ARN, Lambda accepts requests that reference the unqualified ARN but denies requests that reference a qualified ARN.
+Whether you are allowing or denying an action on your function, you must use the correct function ARN types in your policy statement to achieve the results that you expect. For example, if your policy references the unqualified ARN, Lambda accepts requests that reference the unqualified ARN but denies requests that reference a qualified ARN.
 
-###### Note
+**Note**  
+You can't use a wildcard character (\*) to match the account ID. For more information on accepted syntax, see [IAM JSON policy reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html) in the *IAM User Guide*.
 
-You can't use a wildcard character (\*) to match the account ID. For more information on accepted syntax, see
-[IAM JSON policy reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the
-_IAM User Guide_.
-
-###### Example allowing invocation of an unqualified ARN
-
-JSON
+**Example allowing invocation of an unqualified ARN**    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "lambda:InvokeFunction",
- `"Resource": "arn:aws:lambda:us-west-2:123456789012:function:myFunction"`
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            {{"Resource": "arn:aws:lambda:us-west-2:123456789012:function:myFunction"}}
+        }
+    ]
+}
 ```
 
 If your policy references a specific qualified ARN, Lambda accepts requests that reference that ARN but denies requests that reference the unqualified ARN or a different qualified ARN, for example, `myFunction:2`.
 
-###### Example allowing invocation of a specific qualified ARN
-
-JSON
+**Example allowing invocation of a specific qualified ARN**    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "lambda:InvokeFunction",
- `"Resource": "arn:aws:lambda:us-west-2:123456789012:function:myFunction:1"`
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            {{"Resource": "arn:aws:lambda:us-west-2:123456789012:function:myFunction:1"}}
+        }
+    ]
+}
 ```
 
 If your policy references any qualified ARN using `:*`, Lambda accepts any qualified ARN but denies requests that reference the unqualified ARN.
 
-###### Example allowing invocation of any qualified ARN
-
-JSON
+**Example allowing invocation of any qualified ARN**    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "lambda:InvokeFunction",
- `"Resource": "arn:aws:lambda:us-west-2:123456789012:function:myFunction:*"`
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            {{"Resource": "arn:aws:lambda:us-west-2:123456789012:function:myFunction:*"}}
+        }
+    ]
+}
 ```
 
 If your policy references any ARN using `*`, Lambda accepts any qualified or unqualified ARN.
 
-###### Example allowing invocation of any qualified or unqualified ARN
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "lambda:InvokeFunction",
- `"Resource": "arn:aws:lambda:us-west-2:123456789012:function:myFunction*"`
- }
- ]
-}`
-
-```
-
-## Referencing durable executions in the Resource section of policies
-
-A durable execution is a sub-resource of a function version. For the durable execution ARN structure and policy guidance, see [IAM permissions for durable functions](durable-security.md#durable-iam-permissions "durable-security.md#durable-iam-permissions").
-
-You can invoke durable functions only with a qualified function name or ARN, so policies that allow invocation of durable functions must match qualified ARNs. For more information, see [Qualified ARNs requirement](durable-invoking.md#durable-invoking-qualified-arns "durable-invoking.md#durable-invoking-qualified-arns").
-
-If your policy references the unqualified function ARN, Lambda denies requests to durable execution actions. The unqualified ARN never matches a durable execution ARN.
-
-###### Example Policy that does not grant access to durable executions
+**Example allowing invocation of any qualified or unqualified ARN**    
+****  
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            {{"Resource": "arn:aws:lambda:us-west-2:123456789012:function:myFunction*"}}
+        }
+    ]
+}
+```
+
+## Referencing durable executions in the Resource section of policies
+<a name="durable-execution-resources"></a>
+
+A durable execution is a sub-resource of a function version. For the durable execution ARN structure and policy guidance, see [IAM permissions for durable functions](durable-security.md#durable-iam-permissions).
+
+You can invoke durable functions only with a qualified function name or ARN, so policies that allow invocation of durable functions must match qualified ARNs. For more information, see [Qualified ARNs requirement](durable-invoking.md#durable-invoking-qualified-arns).
+
+If your policy references the unqualified function ARN, Lambda denies requests to durable execution actions. The unqualified ARN never matches a durable execution ARN.
+
+**Example Policy that does not grant access to durable executions**  
+
+```
+{
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -243,11 +199,11 @@ If your policy references the unqualified function ARN, Lambda denies requests t
 
 If your policy references the function ARN with `:*`, Lambda accepts requests to durable executions of every version.
 
-###### Example Allowing access to durable executions of any version
+**Example Allowing access to durable executions of any version**  
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -260,11 +216,11 @@ If your policy references the function ARN with `:*`, Lambda accepts requests to
 
 If your policy references the function ARN with `:1/durable-execution/*`, Lambda accepts requests to durable executions of version 1 only.
 
-###### Example Allowing access to durable executions of a specific version
+**Example Allowing access to durable executions of a specific version**  
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -275,20 +231,18 @@ If your policy references the function ARN with `:1/durable-execution/*`, Lambda
 }
 ```
 
-###### Alias patterns never match durable execution ARNs
-
+**Alias patterns never match durable execution ARNs**  
 Alias names never appear in durable execution ARNs. A resource pattern such as `my-function:prod/durable-execution/*` never matches any durable execution because Lambda resolves the alias to a version number when the function executes.
 
 Lambda authorizes the `lambda:ListDurableExecutionsByFunction` action against the function ARN from the request, not a durable execution ARN. The following rules apply to ARN matching:
++ A policy that grants the unqualified function ARN matches only requests that use the unqualified function name.
++ A policy that grants a qualified ARN matches only requests that use a qualified function name.
 
-- A policy that grants the unqualified function ARN matches only requests that use the unqualified function name.
-- A policy that grants a qualified ARN matches only requests that use a qualified function name.
-
-###### Example Allowing listing of durable executions with either name form
+**Example Allowing listing of durable executions with either name form**  
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -303,25 +257,22 @@ Lambda authorizes the `lambda:ListDurableExecutionsByFunction` action against th
 ```
 
 ## Supported IAM actions and function behaviors
+<a name="permissions-resources"></a>
 
-Actions define what can be permitted through IAM policies. For a list of actions supported in Lambda, see
-[Actions, resources,
-and condition keys for AWS Lambda](../../../service-authorization/latest/reference/list_awslambda.md "../../../service-authorization/latest/reference/list_awslambda.md") in the Service Authorization Reference. In most cases, when an IAM action permits an Lambda API action,
-the name of the IAM action is the same as the name of the Lambda API action, with the following exceptions:
+ Actions define what can be permitted through IAM policies. For a list of actions supported in Lambda, see [Actions, resources, and condition keys for AWS Lambda](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html) in the Service Authorization Reference. In most cases, when an IAM action permits an Lambda API action, the name of the IAM action is the same as the name of the Lambda API action, with the following exceptions: 
 
-| API action                                                                                                                                                                          | IAM action               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| [Invoke](../api/API_Invoke.md "../api/API_Invoke.md")                                                                                                                               | `lambda:InvokeFunction`  |
-| [GetLayerVersion](../api/API_GetLayerVersion.md "../api/API_GetLayerVersion.md")<br>[GetLayerVersionByArn](../api/API_GetLayerVersionByArn.md "../api/API_GetLayerVersionByArn.md") | `lambda:GetLayerVersion` |
 
-In addition to the resources and conditions defined in the [Service Authorization Reference](../../../service-authorization/latest/reference/list_awslambda.md "../../../service-authorization/latest/reference/list_awslambda.md"), Lambda
-supports the following resources and conditions for certain actions. Many of these are related to referencing
-functions in the resource section of policies. Actions that operate on a function can be restricted to a specific
-function by function, version, or alias ARN, as described in the following table.
+| API action | IAM action | 
+| --- | --- | 
+| [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) | lambda:InvokeFunction | 
+| [GetLayerVersion](https://docs.aws.amazon.com/lambda/latest/api/API_GetLayerVersion.html)<br />[GetLayerVersionByArn](https://docs.aws.amazon.com/lambda/latest/api/API_GetLayerVersionByArn.html) | lambda:GetLayerVersion | 
 
-| Action                                                                                                                                                                                                                                                                                                                                                                                                                              | Resource                           | Condition                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------------------- |
-| [AddPermission](../api/API_AddPermission.md "../api/API_AddPermission.md")<br>[RemovePermission](../api/API_RemovePermission.md "../api/API_RemovePermission.md")<br>[Invoke](../api/API_Invoke.md "../api/API_Invoke.md") (**Permission:**<br>`lambda:InvokeFunction`)                                                                                                                                                             | Function version<br>Function alias | N/A                           |
-| [ListDurableExecutionsByFunction](../api/API_ListDurableExecutionsByFunction.md "../api/API_ListDurableExecutionsByFunction.md")                                                                                                                                                                                                                                                                                                    | Function version                   | N/A                           |
-| [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md")                                                                                                                                                                                                                                                                                                                | N/A                                | `lambda:CodeSigningConfigArn` |
-| [CreateFunctionUrlConfig](../api/API_CreateFunctionUrlConfig.md "../api/API_CreateFunctionUrlConfig.md")<br>[DeleteFunctionUrlConfig](../api/API_DeleteFunctionUrlConfig.md "../api/API_DeleteFunctionUrlConfig.md")<br>[GetFunctionUrlConfig](../api/API_GetFunctionUrlConfig.md "../api/API_GetFunctionUrlConfig.md")<br>[UpdateFunctionUrlConfig](../api/API_UpdateFunctionUrlConfig.md "../api/API_UpdateFunctionUrlConfig.md") | Function alias                     | N/A                           |
+In addition to the resources and conditions defined in the [Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html), Lambda supports the following resources and conditions for certain actions. Many of these are related to referencing functions in the resource section of policies. Actions that operate on a function can be restricted to a specific function by function, version, or alias ARN, as described in the following table.
+
+
+| Action | Resource | Condition | 
+| --- | --- | --- | 
+| [AddPermission](https://docs.aws.amazon.com/lambda/latest/api/API_AddPermission.html)<br />[RemovePermission](https://docs.aws.amazon.com/lambda/latest/api/API_RemovePermission.html)<br />[Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) (**Permission:** `lambda:InvokeFunction`) | Function version<br />Function alias | N/A | 
+| [ListDurableExecutionsByFunction](https://docs.aws.amazon.com/lambda/latest/api/API_ListDurableExecutionsByFunction.html) | Function version | N/A | 
+| [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html) | N/A | `lambda:CodeSigningConfigArn` | 
+| [CreateFunctionUrlConfig](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunctionUrlConfig.html)<br />[DeleteFunctionUrlConfig](https://docs.aws.amazon.com/lambda/latest/api/API_DeleteFunctionUrlConfig.html)<br />[GetFunctionUrlConfig](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionUrlConfig.html)<br />[UpdateFunctionUrlConfig](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionUrlConfig.html) | Function alias | N/A | 

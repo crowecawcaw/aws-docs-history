@@ -1,23 +1,23 @@
+
+
 # Use `GetAlias` with a CLI
+<a name="example_lambda_GetAlias_section"></a>
 
 The following code examples show how to use `GetAlias`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To retrieve details about a function alias**
-
-The following `get-alias` example displays details for the alias named `LIVE` on the `my-function` Lambda function.
-
-```
-`aws lambda get-alias \
- --function-name `my-function` \
- --name `LIVE``
+**AWS CLI**  
+**To retrieve details about a function alias**  
+The following `get-alias` example displays details for the alias named `LIVE` on the `my-function` Lambda function.  
 
 ```
-
-Output:
+aws lambda get-alias \
+    --function-name {{my-function}} \
+    --name {{LIVE}}
+```
+Output:  
 
 ```
 {
@@ -28,57 +28,42 @@ Output:
     "Description": "alias for live version of function"
 }
 ```
+For more information, see [Configuring AWS Lambda Function Aliases](https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html) in the *AWS Lambda Developer Guide*.  
++  For API details, see [GetAlias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-alias.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Configuring AWS Lambda Function Aliases](aliases-intro.md "aliases-intro.md") in the _AWS Lambda Developer Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [GetAlias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-alias.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/get-alias.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves the Routing Config weights for a specific Lambda Function Alias.**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves the Routing Config weights for a specific Lambda Function Alias.**  
 
 ```
 Get-LMAlias -FunctionName "MylambdaFunction123" -Name "newlabel1" -Select RoutingConfig
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AdditionalVersionWeights
 ------------------------
 {[1, 0.6]}
 ```
++  For API details, see [GetAlias](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetAlias](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves the Routing Config weights for a specific Lambda Function Alias.**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves the Routing Config weights for a specific Lambda Function Alias.**  
 
 ```
 Get-LMAlias -FunctionName "MylambdaFunction123" -Name "newlabel1" -Select RoutingConfig
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AdditionalVersionWeights
 ------------------------
 {[1, 0.6]}
 ```
++  For API details, see [GetAlias](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetAlias](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Lambda with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Lambda with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
