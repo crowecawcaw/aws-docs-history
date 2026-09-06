@@ -1,0 +1,5 @@
+# Custom compute fallback
+
+The Custom compute fallback page was renamed and moved to a different URL. The new page:
+[Advanced resource configuration](advanced-resource-configuration.md "advanced-resource-configuration.md").
+Update your bookmarks accordingly.

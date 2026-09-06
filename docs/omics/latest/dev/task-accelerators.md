@@ -60,3 +60,19 @@ requirements:
       cudaVersionMin: "1.0"
 
 ```
+
+## Advanced resource configuration
+
+You can also configure a task to reserve multiple accelerators in your preferred priority order using
+the **omicsResourceFallbackOrder** directive. This directive is currently available only
+for WDL. HealthOmics tries each accelerator profile in order you define until one succeeds, including an optional final CPU profile.
+
+This is useful in the following scenarios:
+
+- **GPU to GPU fallback** – List GPU types in priority order (for
+  example, try `nvidia-l40s` first, then fall back to `nvidia-l4`).
+- **GPU to CPU fallback** – Add a final CPU-only profile so the task
+  completes even when no GPU capacity is available in the Region.
+
+For full details about **omicsResourceFallbackOrder**, including per-profile field
+reference, validation rules, and a complete WDL example, see [Advanced resource configuration](advanced-resource-configuration.md "advanced-resource-configuration.md").

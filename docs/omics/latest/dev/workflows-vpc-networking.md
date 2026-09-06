@@ -421,8 +421,10 @@ example shows the VPC-related fields from the response:
 
 ### Configuration immutability
 
-Workflows use a snapshot of the configuration as it existed when the run started. You can safely modify or
-delete configurations during run execution without affecting active runs.
+Configuration resources are immutable—after you create a configuration, you cannot change its settings.
+To use different networking settings, create a new configuration. You cannot delete a configuration while it is
+in use by active workflow runs—the `DeleteConfiguration` request is rejected until those runs
+reach a terminal state.
 
 ### Call caching considerations
 

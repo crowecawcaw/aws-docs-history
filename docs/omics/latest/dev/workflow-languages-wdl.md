@@ -109,6 +109,39 @@ runtime {
 }
 ```
 
+### Configure resource fallback with **omicsResourceFallbackOrder**
+
+HealthOmics supports the **omicsResourceFallbackOrder** runtime directive to define an ordered
+list of accelerator (or GPU) and CPU resource profiles for a task. When the requested accelerator type is
+unavailable, HealthOmics automatically advances to the next profile in the list. You can include a CPU-only
+profile as a final option.
+
+The following example tries `nvidia-l40s` first, then `nvidia-l4`, and finally
+falls back to CPU if neither accelerator is available:
+
+```
+runtime {
+    docker: "my-registry/align-multi-arch:latest"
+    omicsResourceFallbackOrder: [
+        {"acceleratorType": "nvidia-l40s", "acceleratorCount": 1, "cpu": 8, "memory": "32 GiB", "omicsResourceWaitTimeoutInMin": 45},
+        {"acceleratorType": "nvidia-l4",   "acceleratorCount": 1, "cpu": 8, "memory": "32 GiB"},
+        {"cpu": 32, "memory": "128 GiB"}
+    ]
+}
+```
+
+HealthOmics sets the **AWS\_HEALTHOMICS\_RESOURCE\_TYPE** environment variable automatically in
+the container. Its value is the active profile's accelerator type (for example, `nvidia-l40s`)
+or `cpu` for a CPU-only profile. Use it to branch your command when GPU and CPU code paths
+differ.
+
+If every profile in the list is exhausted, the task fails with failure reason
+`ALL_PROFILES_INSTANCE_RESERVATION_FAILED`. OOM and service-error retries operate within the
+current profile and do not advance to the next one.
+
+For more information see [Advanced resource configuration](advanced-resource-configuration.md "advanced-resource-configuration.md")
+and for supported accelerator types see [Task accelerators in a HealthOmics workflow definition](task-accelerators.md "task-accelerators.md").
+
 ### Configure task retry for service errors
 
 HealthOmics supports up to two retries for a task that failed because of service errors (5XX HTTP status codes).
