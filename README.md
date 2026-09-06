@@ -25,8 +25,9 @@ python crawler.py --service-url "https://docs.aws.amazon.com/AmazonS3/latest/use
 <!-- sparkline-start -->
 ## Documentation activity
 
-Net lines changed per service per week over the last 6 months. Bar heights use a
-log scale. Green = net lines added, red = net lines removed.
+Net lines changed per service per week over the last 6 months, excluding each
+service's initial snapshot. Bar heights use a log scale. Green = net lines
+added, red = net lines removed.
 
 ![Documentation activity](docs_activity.svg)
 <!-- sparkline-end -->
