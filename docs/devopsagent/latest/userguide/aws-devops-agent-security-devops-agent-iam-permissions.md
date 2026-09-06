@@ -1,108 +1,113 @@
+
+
 # DevOps Agent IAM permissions
+<a name="aws-devops-agent-security-devops-agent-iam-permissions"></a>
 
 AWS DevOps Agent uses service-specific AWS Identity and Access Management (IAM) actions to control access to its features and capabilities. These actions determine what users can do within the AWS DevOps Agent console and Operator Web App. This is separate from the AWS service API permissions that the agent itself uses to investigate your resources.
 
-For more information about limiting agent access, see [Limiting Agent Access in an AWS Account](aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md "aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md").
+For more information about limiting agent access, see [Limiting Agent Access in an AWS Account](aws-devops-agent-security-limiting-agent-access-in-an-aws-account.md).
 
-To let the agent perform directed actions in your AWS accounts, register an elevated IAM role on the account association. For example, you might use an elevated role to remediate an issue after operator approval. For more information about directed actions and registering an elevated IAM role, see [Working with directed actions](working-with-devops-agent-working-with-directed-actions.md "working-with-devops-agent-working-with-directed-actions.md").
+To let the agent perform directed actions in your AWS accounts, register an elevated IAM role on the account association. For example, you might use an elevated role to remediate an issue after operator approval. For more information about directed actions and registering an elevated IAM role, see [Working with directed actions](working-with-devops-agent-working-with-directed-actions.md).
 
 ## Agent Space management actions
+<a name="agent-space-management-actions"></a>
 
 These actions control access to Agent Space configuration and management:
-
-- **aidevops:GetAgentSpace** – Allows users to view details about an Agent Space, including its configuration, status, and associated accounts. Users need this permission to access an Agent Space in the AWS Management Console.
-- **aidevops:GetAssociation** – Allows users to view details about a specific account association, including the IAM role configuration and connection status.
-- **aidevops:ListAssociations** – Allows users to list all AWS account associations configured for an Agent Space, including both primary and secondary accounts.
++ **aidevops:GetAgentSpace** – Allows users to view details about an Agent Space, including its configuration, status, and associated accounts. Users need this permission to access an Agent Space in the AWS Management Console.
++ **aidevops:GetAssociation** – Allows users to view details about a specific account association, including the IAM role configuration and connection status.
++ **aidevops:ListAssociations** – Allows users to list all AWS account associations configured for an Agent Space, including both primary and secondary accounts.
 
 ## Investigation and execution actions
+<a name="investigation-and-execution-actions"></a>
 
 These actions control access to incident investigation features:
-
-- **aidevops:ListExecutions** – Allows you to view execution metadata, including ID, status, and more, for investigations, mitigations, evaluations, and chat conversations associated with a task.
-- **aidevops:ListJournalRecords** – Allows users to access detailed logs that show the agent's reasoning steps, actions taken, and data sources consulted during an investigation, mitigation, evaluation, and chat conversation. This is useful for understanding how the agent reached its conclusions.
++ **aidevops:ListExecutions** – Allows you to view execution metadata, including ID, status, and more, for investigations, mitigations, evaluations, and chat conversations associated with a task.
++ **aidevops:ListJournalRecords** – Allows users to access detailed logs that show the agent's reasoning steps, actions taken, and data sources consulted during an investigation, mitigation, evaluation, and chat conversation. This is useful for understanding how the agent reached its conclusions.
 
 ## Chat management actions
+<a name="chat-management-actions"></a>
 
 Chat requires the following IAM permissions to function:
-
-- **aidevops:ListChats** – Allows users to list and access chat conversation history.
-- **aidevops:CreateChat** – Allows users to create new chat conversations.
-- **aidevops:SendMessage** – Allows users to submit queries and receive streaming responses.
++ **aidevops:ListChats** – Allows users to list and access chat conversation history.
++ **aidevops:CreateChat** – Allows users to create new chat conversations.
++ **aidevops:SendMessage** – Allows users to submit queries and receive streaming responses.
 
 ## Topology and discovery actions
+<a name="topology-and-discovery-actions"></a>
 
 These actions control access to application resource mapping features:
-
-- **aidevops:DiscoverTopology** – Allows users to trigger topology discovery and mapping for an Agent Space. This action initiates the process of scanning AWS accounts and building the application resource topology.
++ **aidevops:DiscoverTopology** – Allows users to trigger topology discovery and mapping for an Agent Space. This action initiates the process of scanning AWS accounts and building the application resource topology.
 
 ## Prevention and recommendation actions
+<a name="prevention-and-recommendation-actions"></a>
 
 These actions control access to the Prevention feature:
-
-- **aidevops:ListGoals** – Allows users to view prevention goals and objectives that the agent is working toward based on recent incident patterns.
-- **aidevops:ListRecommendations** – Allows users to view all recommendations generated by the Prevention feature, including their priority and category.
-- **aidevops:GetRecommendation** – Allows users to view detailed information about a specific recommendation, including the incidents it would have prevented and implementation guidance.
++ **aidevops:ListGoals** – Allows users to view prevention goals and objectives that the agent is working toward based on recent incident patterns.
++ **aidevops:ListRecommendations** – Allows users to view all recommendations generated by the Prevention feature, including their priority and category.
++ **aidevops:GetRecommendation** – Allows users to view detailed information about a specific recommendation, including the incidents it would have prevented and implementation guidance.
 
 ## Backlog task management actions
+<a name="backlog-task-management-actions"></a>
 
 These actions control the ability to manage recommendations as backlog tasks:
-
-- **aidevops:CreateBacklogTask** – Allows users to create an incident investigation or prevention evaluation task.
-- **aidevops:UpdateBacklogTask** – Allows users to approve a mitigation plan or cancel an active investigation or evaluation.
-- **aidevops:GetBacklogTask** – Allows users to retrieve details about a specific task.
-- **aidevops:ListBacklogTasks** – Allows users to list tasks for an Agent Space, filtered by task type, status, priority, or creation time.
++ **aidevops:CreateBacklogTask** – Allows users to create an incident investigation or prevention evaluation task.
++ **aidevops:UpdateBacklogTask** – Allows users to approve a mitigation plan or cancel an active investigation or evaluation.
++ **aidevops:GetBacklogTask** – Allows users to retrieve details about a specific task.
++ **aidevops:ListBacklogTasks** – Allows users to list tasks for an Agent Space, filtered by task type, status, priority, or creation time.
 
 ## Asset management actions
+<a name="asset-management-actions"></a>
 
-These actions control the ability to add and manage assets in an Agent Space, including skills, AGENTS.md files, attachments, custom agents, test profiles, and feedback. For details on the Asset API, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
-
-- **aidevops:CreateAsset** – Allows users to create a new asset in an Agent Space, including skills, AGENTS.md files, attachments, custom agents, test profiles, and feedback.
-- **aidevops:GetAsset** – Allows users to retrieve an asset's metadata and version information.
-- **aidevops:UpdateAsset** – Allows users to update the metadata or content of an existing asset.
-- **aidevops:DeleteAsset** – Allows users to delete an asset and all of its files from an Agent Space.
-- **aidevops:ListAssets** – Allows users to list assets in an Agent Space, with optional filtering by asset type.
-- **aidevops:ListAssetVersions** – Allows users to list the historical versions of an asset.
-- **aidevops:GetAssetContent** – Allows users to download an asset's full content as a zip bundle.
-- **aidevops:CreateAssetFile** – Allows users to add a new file to an existing asset.
-- **aidevops:GetAssetFile** – Allows users to retrieve a single file from an asset by its path.
-- **aidevops:UpdateAssetFile** – Allows users to replace the content or metadata of an existing file in an asset.
-- **aidevops:DeleteAssetFile** – Allows users to remove a single file from an asset.
-- **aidevops:ListAssetFiles** – Allows users to list the files within an asset.
-- **aidevops:ListAssetTypes** – Allows users to list the asset types supported by AWS DevOps Agent. This action is not scoped to a specific Agent Space and requires `Resource: "*"`.
+These actions control the ability to add and manage assets in an Agent Space, including skills, AGENTS.md files, attachments, custom agents, test profiles, and feedback. For details on the Asset API, see [Managing assets](about-aws-devops-agent-managing-assets.html).
++ **aidevops:CreateAsset** – Allows users to create a new asset in an Agent Space, including skills, AGENTS.md files, attachments, custom agents, test profiles, and feedback.
++ **aidevops:GetAsset** – Allows users to retrieve an asset's metadata and version information.
++ **aidevops:UpdateAsset** – Allows users to update the metadata or content of an existing asset.
++ **aidevops:DeleteAsset** – Allows users to delete an asset and all of its files from an Agent Space.
++ **aidevops:ListAssets** – Allows users to list assets in an Agent Space, with optional filtering by asset type.
++ **aidevops:ListAssetVersions** – Allows users to list the historical versions of an asset.
++ **aidevops:GetAssetContent** – Allows users to download an asset's full content as a zip bundle.
++ **aidevops:CreateAssetFile** – Allows users to add a new file to an existing asset.
++ **aidevops:GetAssetFile** – Allows users to retrieve a single file from an asset by its path.
++ **aidevops:UpdateAssetFile** – Allows users to replace the content or metadata of an existing file in an asset.
++ **aidevops:DeleteAssetFile** – Allows users to remove a single file from an asset.
++ **aidevops:ListAssetFiles** – Allows users to list the files within an asset.
++ **aidevops:ListAssetTypes** – Allows users to list the asset types supported by AWS DevOps Agent. This action is not scoped to a specific Agent Space and requires `Resource: "*"`.
 
 ## AWS Support integration actions
+<a name="aws-support-integration-actions"></a>
 
 These actions control integration with AWS Support cases:
-
-- **aidevops:InitiateChatForCase** – Allows users to start a chat session with AWS Support directly from an investigation, automatically providing context about the incident.
-- **aidevops:EndChatForCase** – Allows users to end an active AWS Support case chat session.
-- **aidevops:DescribeSupportLevel** – Allows users to check the AWS Support plan level for the account to determine available support options.
++ **aidevops:InitiateChatForCase** – Allows users to start a chat session with AWS Support directly from an investigation, automatically providing context about the incident.
++ **aidevops:EndChatForCase** – Allows users to end an active AWS Support case chat session.
++ **aidevops:DescribeSupportLevel** – Allows users to check the AWS Support plan level for the account to determine available support options.
 
 ## Access token management actions
+<a name="access-token-management-actions"></a>
 
 These actions control access to access token operations for remote MCP and A2A server authentication:
-
-- **aidevops:CreateAccessToken** – Allows users to create access tokens for an Agent Space.
-- **aidevops:GetAccessToken** – Allows users to view access token details.
-- **aidevops:ListAccessTokens** – Allows users to list access tokens in an Agent Space.
-- **aidevops:RotateAccessToken** – Allows users to rotate an access token, generating a new value while preserving configuration.
-- **aidevops:RevokeAccessToken** – Allows users to revoke an access token, permanently disabling it.
++ **aidevops:CreateAccessToken** – Allows users to create access tokens for an Agent Space.
++ **aidevops:GetAccessToken** – Allows users to view access token details.
++ **aidevops:ListAccessTokens** – Allows users to list access tokens in an Agent Space.
++ **aidevops:RotateAccessToken** – Allows users to rotate an access token, generating a new value while preserving configuration.
++ **aidevops:RevokeAccessToken** – Allows users to revoke an access token, permanently disabling it.
 
 ## Usage and monitoring actions
+<a name="usage-and-monitoring-actions"></a>
 
 These actions control access to usage information:
-
-- **aidevops:GetAccountUsage** – Allows users to view the AWS DevOps Agent monthly quota for investigation hours, prevention evaluation hours, and chat requests, as well as the current month's usage.
++ **aidevops:GetAccountUsage** – Allows users to view the AWS DevOps Agent monthly quota for investigation hours, prevention evaluation hours, and chat requests, as well as the current month's usage.
 
 ## Common IAM policy examples
+<a name="common-iam-policy-examples"></a>
 
 ### Administrator policy
+<a name="administrator-policy"></a>
 
 This policy grants full access to all AWS DevOps Agent features:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -114,12 +119,13 @@ This policy grants full access to all AWS DevOps Agent features:
 ```
 
 ### Operator policy
+<a name="operator-policy"></a>
 
 This policy grants access to investigation and prevention features without administrative capabilities:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -164,12 +170,13 @@ This policy grants access to investigation and prevention features without admin
 ```
 
 ### Read-only policy
+<a name="read-only-policy"></a>
 
 This policy grants view-only access to investigations and recommendations:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -199,50 +206,56 @@ This policy grants view-only access to investigations and recommendations:
 ```
 
 ## Using service-linked roles for AWS DevOps Agent
+<a name="using-service-linked-roles-for-aws-devops-agent"></a>
 
-AWS DevOps Agent uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md"). A service-linked role is a unique type of IAM role that is linked directly to AWS DevOps Agent. Service-linked roles are predefined by AWS DevOps Agent and include all the permissions that the service requires to call other AWS services on your behalf.
+AWS DevOps Agent uses AWS Identity and Access Management (IAM) [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). A service-linked role is a unique type of IAM role that is linked directly to AWS DevOps Agent. Service-linked roles are predefined by AWS DevOps Agent and include all the permissions that the service requires to call other AWS services on your behalf.
 
 ### Service-linked role permissions
+<a name="service-linked-role-permissions"></a>
 
 The `AWSServiceRoleForAIDevOps` service-linked role trusts the `aidevops.amazonaws.com` service principal to assume the role.
 
 The role uses the managed policy `AWSServiceRoleForAIDevOpsPolicy` with the following permissions:
-
-- `cloudwatch:PutMetricData` – Publish usage metrics to the `AWS/AIDevOps` CloudWatch namespace. Scoped by a `cloudwatch:namespace` condition to only allow the `AWS/AIDevOps` namespace.
-- `vpc-lattice:CreateResourceGateway` – Create VPC Lattice resource gateways for private connections. Scoped by an `aws:RequestTag/AWSAIDevOpsManaged` condition so the service can only create resource gateways that carry the `AWSAIDevOpsManaged` tag.
-- `vpc-lattice:TagResource` – Tag VPC Lattice resource gateways. Scoped by an `aws:RequestTag/AWSAIDevOpsManaged` condition.
-- `vpc-lattice:DeleteResourceGateway` – Delete VPC Lattice resource gateways. Scoped by an `aws:ResourceTag/AWSAIDevOpsManaged` condition so the service can only delete resource gateways it created.
-- `vpc-lattice:GetResourceGateway` – Retrieve information about VPC Lattice resource gateways. Scoped by an `aws:ResourceTag/AWSAIDevOpsManaged` condition so the service can only read resource gateways it created.
-- `ec2:DescribeVpcs`, `ec2:DescribeSubnets`, `ec2:DescribeSecurityGroups` – Retrieve information about VPC networking resources required to configure resource gateways. These read-only actions apply to all VPC resources because the EC2 API does not support resource-level permissions for Describe calls.
-- `iam:CreateServiceLinkedRole` – Create the VPC Lattice service-linked role required for resource gateway operations. This permission is scoped to the `vpc-lattice.amazonaws.com` service principal only and cannot be used to create service-linked roles for any other service.
++ `cloudwatch:PutMetricData` – Publish usage metrics to the `AWS/AIDevOps` CloudWatch namespace. Scoped by a `cloudwatch:namespace` condition to only allow the `AWS/AIDevOps` namespace.
++ `vpc-lattice:CreateResourceGateway` – Create VPC Lattice resource gateways for private connections. Scoped by an `aws:RequestTag/AWSAIDevOpsManaged` condition so the service can only create resource gateways that carry the `AWSAIDevOpsManaged` tag.
++ `vpc-lattice:TagResource` – Tag VPC Lattice resource gateways. Scoped by an `aws:RequestTag/AWSAIDevOpsManaged` condition.
++ `vpc-lattice:DeleteResourceGateway` – Delete VPC Lattice resource gateways. Scoped by an `aws:ResourceTag/AWSAIDevOpsManaged` condition so the service can only delete resource gateways it created.
++ `vpc-lattice:GetResourceGateway` – Retrieve information about VPC Lattice resource gateways. Scoped by an `aws:ResourceTag/AWSAIDevOpsManaged` condition so the service can only read resource gateways it created.
++ `ec2:DescribeVpcs`, `ec2:DescribeSubnets`, `ec2:DescribeSecurityGroups` – Retrieve information about VPC networking resources required to configure resource gateways. These read-only actions apply to all VPC resources because the EC2 API does not support resource-level permissions for Describe calls.
++ `iam:CreateServiceLinkedRole` – Create the VPC Lattice service-linked role required for resource gateway operations. This permission is scoped to the `vpc-lattice.amazonaws.com` service principal only and cannot be used to create service-linked roles for any other service.
 
 ### Creating the service-linked role
+<a name="creating-the-service-linked-role"></a>
 
 You don't need to manually create the `AWSServiceRoleForAIDevOps` service-linked role. When you start using AWS DevOps Agent, the service creates the service-linked role for you.
 
-To allow the service to create the role on your behalf, you must have the `iam:CreateServiceLinkedRole` permission. We recommend scoping this permission with an `iam:AWSServiceName` condition for `aidevops.amazonaws.com` to follow the principle of least privilege. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions").
+To allow the service to create the role on your behalf, you must have the `iam:CreateServiceLinkedRole` permission. We recommend scoping this permission with an `iam:AWSServiceName` condition for `aidevops.amazonaws.com` to follow the principle of least privilege. For more information, see [Service-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions).
 
 ### Editing the service-linked role
+<a name="editing-the-service-linked-role"></a>
 
-You cannot edit the `AWSServiceRoleForAIDevOps` service-linked role. After the role is created, you cannot change the name of the role because various entities might reference the role by name. However, you can edit the description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role").
+You cannot edit the `AWSServiceRoleForAIDevOps` service-linked role. After the role is created, you cannot change the name of the role because various entities might reference the role by name. However, you can edit the description of the role using IAM. For more information, see [Editing a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role).
 
 ### Deleting the service-linked role
+<a name="deleting-the-service-linked-role"></a>
 
-If you no longer need to use AWS DevOps Agent, we recommend that you delete the `AWSServiceRoleForAIDevOps` service-linked role. Before you can delete the role, you must first remove any private connections configured in your Agent Space. Deleting the service-linked role does not automatically remove VPC Lattice resource gateways tagged with `AWSAIDevOpsManaged` that were previously created by the service. You should delete these resource gateways manually if they are no longer needed. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role").
+If you no longer need to use AWS DevOps Agent, we recommend that you delete the `AWSServiceRoleForAIDevOps` service-linked role. Before you can delete the role, you must first remove any private connections configured in your Agent Space. Deleting the service-linked role does not automatically remove VPC Lattice resource gateways tagged with `AWSAIDevOpsManaged` that were previously created by the service. You should delete these resource gateways manually if they are no longer needed. For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role).
 
 ## AWS Managed policies for AWS DevOps Agent
+<a name="aws-managed-policies-for-aws-devops-agent"></a>
 
-AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. These AWS managed policies grant necessary permissions for common use cases so that you can avoid having to investigate what permissions are needed. For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the \_IAM User Guide\_.
+AWS addresses many common use cases by providing standalone IAM policies that are created and administered by AWS. These AWS managed policies grant necessary permissions for common use cases so that you can avoid having to investigate what permissions are needed. For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the \_IAM User Guide\_.
 
 The following AWS managed policies, which you can attach to users in your account, are specific to AWS DevOps Agent.
 
 ### AIDevOpsAgentReadOnlyAccess
+<a name="aidevopsagentreadonlyaccess"></a>
 
 Provides read only access to Amazon DevOps Agent via the AWS Management Console
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 		 	 	 
   "Statement": [
     {
       "Sid": "AIDevOpsAgentReadOnlyAccess",
@@ -261,12 +274,13 @@ Provides read only access to Amazon DevOps Agent via the AWS Management Console
 ```
 
 ### AIDevOpsAgentFullAccess
+<a name="aidevopsagentfullaccess"></a>
 
 Provides full access to Amazon DevOps Agent via the AWS Management Console
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 		 	 	 
   "Statement": [
     {
       "Sid": "AIDevOpsAgentAccess",
@@ -362,12 +376,13 @@ Provides full access to Amazon DevOps Agent via the AWS Management Console
 ```
 
 ### AIDevOpsOperatorAppAccessPolicy
+<a name="aidevopsoperatorappaccesspolicy"></a>
 
 Provides access to use the AWS DevOps operator web app for an Agent Space.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 		 	 	 
   "Statement": [
     {
       "Sid": "AllowOperatorAgentSpaceActions",
@@ -488,12 +503,13 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
 ```
 
 ### AIDevOpsAgentAccessPolicy
+<a name="aidevopsagentaccesspolicy"></a>
 
 Provides permissions required by the AWS DevOps Agent to conduct investigations and perform analysis on customer AWS resources.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 		 	 	 
   "Statement": [
     {
       "Sid": "AIOPSServiceWriteAccess",

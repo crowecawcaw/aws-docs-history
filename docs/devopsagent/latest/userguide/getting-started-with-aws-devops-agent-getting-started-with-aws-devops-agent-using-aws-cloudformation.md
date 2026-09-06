@@ -1,35 +1,41 @@
+
+
 # Getting started with AWS DevOps Agent using AWS CloudFormation
+<a name="getting-started-with-aws-devops-agent-getting-started-with-aws-devops-agent-using-aws-cloudformation"></a>
 
 ## Overview
+<a name="overview"></a>
 
 This guide shows you how to use AWS CloudFormation templates to create and deploy AWS DevOps Agent resources. The templates automate the creation of an agent space, AWS Identity and Access Management (IAM) roles, an operator app, and AWS account associations as infrastructure as code.
 
-The CloudFormation approach automates the manual steps described in the [CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md") by defining all required resources in declarative YAML templates.
+The CloudFormation approach automates the manual steps described in the [CLI onboarding guide](https://docs.aws.amazon.com/devopsagent/latest/userguide/getting-started-with-aws-devops-agent-cli-onboarding-guide.html) by defining all required resources in declarative YAML templates.
 
-AWS DevOps Agent is available in multiple AWS Regions. For the full list, see [Supported Regions](about-aws-devops-agent-supported-regions.md "about-aws-devops-agent-supported-regions.md").
+AWS DevOps Agent is available in multiple AWS Regions. For the full list, see [Supported Regions](about-aws-devops-agent-supported-regions.md).
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
 Before you begin, make sure that you have the following:
-
-- AWS Command Line Interface (AWS CLI) installed and configured with the appropriate credentials
-- Permissions to create IAM roles and CloudFormation stacks
-- One AWS account for the monitoring (primary) account
-- (Optional) A second AWS account if you want to set up cross-account monitoring
++ AWS Command Line Interface (AWS CLI) installed and configured with the appropriate credentials
++ Permissions to create IAM roles and CloudFormation stacks
++ One AWS account for the monitoring (primary) account
++ (Optional) A second AWS account if you want to set up cross-account monitoring
 
 ## What this guide covers
+<a name="what-this-guide-covers"></a>
 
 This guide is divided into the following parts:
-
-- **Part 1** – Deploy an agent space with an operator app and an AWS association in your monitoring account. After you complete this part, the agent can monitor issues in that account.
-- **Part 2 (Optional)** – Deploy a cross-account IAM role into a secondary account and add a source AWS association. This configuration enables the agent space to monitor resources across accounts.
-- **Part 3 (Optional)** – Add a skill, a custom agent, and a scheduled trigger to the agent space, so the agent has custom knowledge and runs a custom agent on a schedule.
++ **Part 1** – Deploy an agent space with an operator app and an AWS association in your monitoring account. After you complete this part, the agent can monitor issues in that account.
++ **Part 2 (Optional)** – Deploy a cross-account IAM role into a secondary account and add a source AWS association. This configuration enables the agent space to monitor resources across accounts.
++ **Part 3 (Optional)** – Add a skill, a custom agent, and a scheduled trigger to the agent space, so the agent has custom knowledge and runs a custom agent on a schedule.
 
 ## Part 1: Deploy the agent space
+<a name="part-1-deploy-the-agent-space"></a>
 
 In this section, you create a CloudFormation template that provisions the agent space, IAM roles, operator app, and an AWS association in your monitoring account.
 
 ### Step 1: Create the CloudFormation template
+<a name="step-1-create-the-cloudformation-template"></a>
 
 Save the following template as `devops-agent-stack.yaml`:
 
@@ -142,8 +148,9 @@ Outputs:
 ```
 
 ### Step 2: Deploy the stack
+<a name="step-2-deploy-the-stack"></a>
 
-Run the following command to deploy the stack. Replace `<REGION>` with a [Supported Regions](about-aws-devops-agent-supported-regions.md "about-aws-devops-agent-supported-regions.md") (for example, `us-east-1`).
+Run the following command to deploy the stack. Replace `<REGION>` with a [Supported Regions](about-aws-devops-agent-supported-regions.md) (for example, `us-east-1`).
 
 ```
 aws cloudformation deploy \
@@ -154,6 +161,7 @@ aws cloudformation deploy \
 ```
 
 ### Step 3: Record the stack outputs
+<a name="step-3-record-the-stack-outputs"></a>
 
 After deployment completes, run the following command to retrieve the stack outputs. Record these values for later use.
 
@@ -190,6 +198,7 @@ The following example shows the expected output:
 If you plan to complete Part 2, save the `AgentSpaceArn` value. You need it to configure the cross-account role.
 
 ### Step 4: Verify the deployment
+<a name="step-4-verify-the-deployment"></a>
 
 To verify that the agent space was created successfully, run the following AWS CLI command:
 
@@ -202,15 +211,18 @@ aws devops-agent get-agent-space \
 At this point, your agent space is deployed with the operator app enabled and your monitoring account associated. The agent can monitor issues in this account.
 
 ## Part 2 (Optional): Add cross-account monitoring
+<a name="part-2-optional-add-cross-account-monitoring"></a>
 
 In this section, you extend the setup so that your agent space can monitor resources in a second AWS account (the service account). This involves two actions:
 
 1. Deploying an IAM role in the service account that trusts the agent space.
-2. Adding a source AWS association in the monitoring account that points to the service account.
+
+1. Adding a source AWS association in the monitoring account that points to the service account.
 
 You must complete Part 1 before you proceed. The service account template requires the `AgentSpaceArn` from the Part 1 stack outputs.
 
 ### Step 1: Create the service account template
+<a name="step-1-create-the-service-account-template"></a>
 
 Save the following template as `devops-agent-service-account.yaml`. This template creates a cross-account IAM role in the secondary account.
 
@@ -265,6 +277,7 @@ Outputs:
 ```
 
 ### Step 2: Deploy the service account stack
+<a name="step-2-deploy-the-service-account-stack"></a>
 
 Using credentials for the service account, run the following command:
 
@@ -280,6 +293,7 @@ aws cloudformation deploy \
 ```
 
 ### Step 3: Add the source AWS association
+<a name="step-3-add-the-source-aws-association"></a>
 
 Switch back to the monitoring account and create a source AWS association. You can do this by creating a separate stack or by updating the original template. The following example uses a standalone template.
 
@@ -332,12 +346,14 @@ aws cloudformation deploy \
 ```
 
 ## Part 3: Add a skill, custom agent, and scheduled trigger
+<a name="part-3-add-a-skill-custom-agent-and-scheduled-trigger"></a>
 
-This part is optional. In this section, you add four resources to the agent space you created in Part 1: a **skill** the agent loads when relevant, a **memory store** that holds operational context, a **custom agent** that scopes the agent to a specific workflow, and a **scheduled trigger** that runs the custom agent automatically. These resources use the `AWS::DevOpsAgent::Asset` and `AWS::DevOpsAgent::Trigger` resource types. For more information about managing assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+This part is optional. In this section, you add four resources to the agent space you created in Part 1: a **skill** the agent loads when relevant, a **memory store** that holds operational context, a **custom agent** that scopes the agent to a specific workflow, and a **scheduled trigger** that runs the custom agent automatically. These resources use the `AWS::DevOpsAgent::Asset` and `AWS::DevOpsAgent::Trigger` resource types. For more information about managing assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md).
 
 You must complete Part 1 before you proceed. This template requires the `AgentSpaceId` from the Part 1 stack outputs.
 
 ### Step 1: Create the template
+<a name="step-1-create-the-template"></a>
 
 Save the following template as `devops-agent-content.yaml`. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The template wires this automatically with `Fn::GetAtt`.
 
@@ -437,6 +453,7 @@ Outputs:
 ```
 
 ### Step 2: Deploy the stack
+<a name="step-2-deploy-the-stack"></a>
 
 Using monitoring account credentials, run the following command. Replace `<AGENT_SPACE_ID>` with the value from the Part 1 outputs.
 
@@ -448,9 +465,10 @@ aws cloudformation deploy \
   --region <REGION>
 ```
 
-The `AgentSpaceId`, `Type`, `Condition`, and `Action` properties are create-only. Changing any of them replaces the resource. You can update the trigger's `Status` (`Active` or `Inactive`) in place—set it to `Inactive` to pause the trigger without deleting it. For more information about the other asset types and the full property reference, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+The `AgentSpaceId`, `Type`, `Condition`, and `Action` properties are create-only. Changing any of them replaces the resource. You can update the trigger's `Status` (`Active` or `Inactive`) in place—set it to `Inactive` to pause the trigger without deleting it. For more information about the other asset types and the full property reference, see [Managing assets](about-aws-devops-agent-managing-assets.md).
 
 ## Verification
+<a name="verification"></a>
 
 Verify your setup by running the following AWS CLI commands:
 
@@ -471,29 +489,27 @@ aws devops-agent list-associations \
 ```
 
 ## Troubleshooting
+<a name="troubleshooting"></a>
 
 This section describes common issues and how to resolve them.
 
 **CloudFormation resource type not found**
-
-- Verify that you are deploying in a [Supported Regions](about-aws-devops-agent-supported-regions.md "about-aws-devops-agent-supported-regions.md").
-- Confirm that your AWS CLI is configured with the appropriate permissions.
++ Verify that you are deploying in a [Supported Regions](about-aws-devops-agent-supported-regions.md).
++ Confirm that your AWS CLI is configured with the appropriate permissions.
 
 **IAM role creation failed**
-
-- Verify that your deployment credentials have permissions to create IAM roles with custom names (`CAPABILITY_NAMED_IAM`).
-- Check that the trust policy conditions match your account ID.
++ Verify that your deployment credentials have permissions to create IAM roles with custom names (`CAPABILITY_NAMED_IAM`).
++ Check that the trust policy conditions match your account ID.
 
 **Cross-account deployment fails**
-
-- Each stack must be deployed with credentials for the target account. Use the `--profile` flag to specify the correct AWS CLI profile.
-- Verify that the `AgentSpaceArn` parameter matches the exact ARN from the Part 1 stack outputs.
++ Each stack must be deployed with credentials for the target account. Use the `--profile` flag to specify the correct AWS CLI profile.
++ Verify that the `AgentSpaceArn` parameter matches the exact ARN from the Part 1 stack outputs.
 
 **IAM propagation delays**
-
-- IAM role changes can take a few minutes to propagate. If the agent space creation fails immediately after role creation, wait a few minutes and redeploy.
++ IAM role changes can take a few minutes to propagate. If the agent space creation fails immediately after role creation, wait a few minutes and redeploy.
 
 ## Cleanup
+<a name="cleanup"></a>
 
 To remove all resources, delete the stacks in reverse order.
 
@@ -536,12 +552,12 @@ aws cloudformation delete-stack \
 ```
 
 ## Next steps
+<a name="next-steps"></a>
 
 After you have deployed your AWS DevOps Agent by using AWS CloudFormation:
-
-- To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md "configuring-integrations-and-knowledge.md").
-- If you register a third-party integration, get its webhook URL and secret by rotating the webhook in the console. AWS CloudFormation does not return the webhook secret as a stack output, because it is sensitive. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md").
-- To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md").
-- For more information about managing skills, custom agents, and other assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
-- To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md "about-aws-devops-agent-what-is-a-devops-agent-web-app.md").
-- For detailed property references for the CloudFormation resource types used in this guide, see [AWS DevOps Agent resource type reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_DevOpsAgent.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_DevOpsAgent.md") in the _AWS CloudFormation Template Reference_.
++ To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md).
++ If you register a third-party integration, get its webhook URL and secret by rotating the webhook in the console. AWS CloudFormation does not return the webhook secret as a stack output, because it is sensitive. For instructions on managing webhook credentials, see [Managing webhook credentials](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md).
++ To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md).
++ For more information about managing skills, custom agents, and other assets as infrastructure as code, see [Managing assets](about-aws-devops-agent-managing-assets.md).
++ To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md).
++ For detailed property references for the CloudFormation resource types used in this guide, see [AWS DevOps Agent resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/AWS_DevOpsAgent.html) in the *AWS CloudFormation Template Reference*.

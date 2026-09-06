@@ -1,23 +1,26 @@
+
+
 # AWS DevOps Agent events detail reference
+<a name="integrating-devops-agent-into-event-driven-applications-using-amazon-eventbridge-devops-agent-events-detail-reference"></a>
 
 Events from AWS services have common metadata fields, including `source`, `detail-type`, `account`, `region`, and `time`. These events also contain a `detail` field with data specific to the service. For AWS DevOps Agent events, the `source` is always `aws.aidevops` and the `detail-type` identifies the specific event.
 
 ## Investigation events
+<a name="investigation-events"></a>
 
 The following `detail-type` values identify investigation events:
++ `Investigation Created`
++ `Investigation Priority Updated`
++ `Investigation In Progress`
++ `Investigation Completed`
++ `Investigation Failed`
++ `Investigation Timed Out`
++ `Investigation Cancelled`
++ `Investigation Pending Triage`
++ `Investigation Linked`
++ `Investigation Skipped`
 
-- `Investigation Created`
-- `Investigation Priority Updated`
-- `Investigation In Progress`
-- `Investigation Completed`
-- `Investigation Failed`
-- `Investigation Timed Out`
-- `Investigation Cancelled`
-- `Investigation Pending Triage`
-- `Investigation Linked`
-- `Investigation Skipped`
-
-The `source` and `detail-type` fields are included below because they contain specific values for AWS DevOps Agent events. For definitions of the other metadata fields that are included in all events, see [Event structure](../../../eventbridge/latest/ref/overiew-event-structure.md "../../../eventbridge/latest/ref/overiew-event-structure.md") in the _Amazon EventBridge Events Reference_.
+The `source` and `detail-type` fields are included below because they contain specific values for AWS DevOps Agent events. For definitions of the other metadata fields that are included in all events, see [Event structure](https://docs.aws.amazon.com/eventbridge/latest/ref/overiew-event-structure.html) in the *Amazon EventBridge Events Reference*.
 
 The following is the JSON structure for investigation events.
 
@@ -51,17 +54,16 @@ The following is the JSON structure for investigation events.
 **`source`** Identifies the service that generated the event. For AWS DevOps Agent events, this value is `aws.aidevops`.
 
 **`detail`** A JSON object that contains event-specific data. The `detail` object includes the following fields:
-
-- `version` (string) – The schema version of the event detail. Currently `1.0.0`.
-- `metadata.agent_space_id` (string) – The unique identifier of the agent space where the event originated.
-- `metadata.task_id` (string) – The unique identifier of the task.
-- `metadata.execution_id` (string) – The unique identifier of the execution run. Present when an execution has been assigned to the investigation.
-- `data.task_type` (string) – The type of task. Value: `INVESTIGATION`.
-- `data.priority` (string) – The priority level. Values: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `MINIMAL`.
-- `data.status` (string) – The current status. Values: `PENDING_START`, `IN_PROGRESS`, `COMPLETED`, `FAILED`, `TIMED_OUT`, `CANCELLED`, `PENDING_TRIAGE`, `LINKED`, `SKIPPED`.
-- `data.created_at` (string) – ISO 8601 timestamp when the task was created.
-- `data.updated_at` (string) – ISO 8601 timestamp when the task was last updated.
-- `data.summary_record_id` (string) – The identifier of the summary record containing investigation findings. Included when a summary is generated for the completed investigation. You can retrieve the summary content through the AWS DevOps Agent API by using this identifier to look up the journal record with a record type of `investigation_summary_md`.
++ `version` (string) – The schema version of the event detail. Currently `1.0.0`.
++ `metadata.agent_space_id` (string) – The unique identifier of the agent space where the event originated.
++ `metadata.task_id` (string) – The unique identifier of the task.
++ `metadata.execution_id` (string) – The unique identifier of the execution run. Present when an execution has been assigned to the investigation.
++ `data.task_type` (string) – The type of task. Value: `INVESTIGATION`.
++ `data.priority` (string) – The priority level. Values: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `MINIMAL`.
++ `data.status` (string) – The current status. Values: `PENDING_START`, `IN_PROGRESS`, `COMPLETED`, `FAILED`, `TIMED_OUT`, `CANCELLED`, `PENDING_TRIAGE`, `LINKED`, `SKIPPED`.
++ `data.created_at` (string) – ISO 8601 timestamp when the task was created.
++ `data.updated_at` (string) – ISO 8601 timestamp when the task was last updated.
++ `data.summary_record_id` (string) – The identifier of the summary record containing investigation findings. Included when a summary is generated for the completed investigation. You can retrieve the summary content through the AWS DevOps Agent API by using this identifier to look up the journal record with a record type of `investigation_summary_md`.
 
 **Example: Investigation Completed event**
 
@@ -129,16 +131,16 @@ The following is the JSON structure for investigation events.
 ```
 
 ## Mitigation events
+<a name="mitigation-events"></a>
 
 The following `detail-type` values identify mitigation events:
++ `Mitigation In Progress`
++ `Mitigation Completed`
++ `Mitigation Failed`
++ `Mitigation Timed Out`
++ `Mitigation Cancelled`
 
-- `Mitigation In Progress`
-- `Mitigation Completed`
-- `Mitigation Failed`
-- `Mitigation Timed Out`
-- `Mitigation Cancelled`
-
-The `source` and `detail-type` fields are included below because they contain specific values for AWS DevOps Agent events. For definitions of the other metadata fields that are included in all events, see [Event structure](../../../eventbridge/latest/ref/overiew-event-structure.md "../../../eventbridge/latest/ref/overiew-event-structure.md") in the _Amazon EventBridge Events Reference_.
+The `source` and `detail-type` fields are included below because they contain specific values for AWS DevOps Agent events. For definitions of the other metadata fields that are included in all events, see [Event structure](https://docs.aws.amazon.com/eventbridge/latest/ref/overiew-event-structure.html) in the *Amazon EventBridge Events Reference*.
 
 The following is the JSON structure for mitigation events.
 
@@ -172,17 +174,16 @@ The following is the JSON structure for mitigation events.
 **`source`** Identifies the service that generated the event. For AWS DevOps Agent events, this value is `aws.aidevops`.
 
 **`detail`** A JSON object that contains event-specific data. The `detail` object includes the following fields:
-
-- `version` (string) – The schema version of the event detail. Currently `1.0.0`.
-- `metadata.agent_space_id` (string) – The unique identifier of the agent space where the event originated.
-- `metadata.task_id` (string) – The unique identifier of the task.
-- `metadata.execution_id` (string) – The unique identifier of the execution run. Present when an execution has been assigned to the mitigation.
-- `data.task_type` (string) – The type of task. Value: `INVESTIGATION`.
-- `data.priority` (string) – The priority level. Values: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `MINIMAL`.
-- `data.status` (string) – The current status. Values: `IN_PROGRESS`, `COMPLETED`, `FAILED`, `TIMED_OUT`, `CANCELLED`.
-- `data.created_at` (string) – ISO 8601 timestamp when the task was created.
-- `data.updated_at` (string) – ISO 8601 timestamp when the task was last updated.
-- `data.summary_record_id` (string) – The identifier of the summary record containing mitigation findings. Included when a summary is generated for the completed mitigation. You can retrieve the summary content through the AWS DevOps Agent API by using this identifier to look up the journal record with a record type of `mitigation_summary_md`.
++ `version` (string) – The schema version of the event detail. Currently `1.0.0`.
++ `metadata.agent_space_id` (string) – The unique identifier of the agent space where the event originated.
++ `metadata.task_id` (string) – The unique identifier of the task.
++ `metadata.execution_id` (string) – The unique identifier of the execution run. Present when an execution has been assigned to the mitigation.
++ `data.task_type` (string) – The type of task. Value: `INVESTIGATION`.
++ `data.priority` (string) – The priority level. Values: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `MINIMAL`.
++ `data.status` (string) – The current status. Values: `IN_PROGRESS`, `COMPLETED`, `FAILED`, `TIMED_OUT`, `CANCELLED`.
++ `data.created_at` (string) – ISO 8601 timestamp when the task was created.
++ `data.updated_at` (string) – ISO 8601 timestamp when the task was last updated.
++ `data.summary_record_id` (string) – The identifier of the summary record containing mitigation findings. Included when a summary is generated for the completed mitigation. You can retrieve the summary content through the AWS DevOps Agent API by using this identifier to look up the journal record with a record type of `mitigation_summary_md`.
 
 **Example: Mitigation Completed event**
 

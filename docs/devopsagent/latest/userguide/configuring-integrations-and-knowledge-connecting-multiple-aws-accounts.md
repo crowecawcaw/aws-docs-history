@@ -1,17 +1,21 @@
+
+
 # Connecting multiple AWS Accounts
+<a name="configuring-integrations-and-knowledge-connecting-multiple-aws-accounts"></a>
 
 Secondary AWS accounts allow AWS DevOps Agent to investigate resources across multiple AWS accounts in your organization. When your applications span multiple accounts, adding secondary accounts ensures the agent has visibility into all relevant resources during incident investigations. Greater access to the accounts and resources composing an application ensures greater investigation accuracy.
 
 ## Prerequisites
+<a name="prerequisites"></a>
 
 Before adding a secondary AWS account, ensure you have:
-
-- Access to the AWS DevOps Agent console in the primary account
-- Administrative access to the secondary AWS account
-- IAM permissions to create roles in the secondary account
-- Permission to pass an IAM role (`iam:PassRole`) in the primary account. See [Required permissions in your primary account](#required-permissions-in-your-primary-account "#required-permissions-in-your-primary-account").
++ Access to the AWS DevOps Agent console in the primary account
++ Administrative access to the secondary AWS account
++ IAM permissions to create roles in the secondary account
++ Permission to pass an IAM role (`iam:PassRole`) in the primary account. See [Required permissions in your primary account](#required-permissions-in-your-primary-account).
 
 ## Required permissions in your primary account
+<a name="required-permissions-in-your-primary-account"></a>
 
 When you connect or update a secondary AWS account, AWS DevOps Agent checks that the calling principal can pass an IAM role. The principal is the IAM user or role that makes the request in the primary account. If the principal does not have `iam:PassRole`, the request fails with an HTTP 403 `AccessDeniedException` that names `iam:PassRole`. This happens even when the principal already has full access to AWS DevOps Agent (for example, `aidevops:*`). Add `iam:PassRole` to your identity policy in the primary account before you add a secondary account.
 
@@ -19,7 +23,7 @@ The following policy grants the smallest set of permissions the check requires:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -36,80 +40,112 @@ The following policy grants the smallest set of permissions the check requires:
 ```
 
 Keep the following in mind:
-
-- Scope `Resource` to the role wildcard for your own account: `arn:aws:iam::<primary-account-id>:role/*` (or `*`). Do not use specific role ARNs. The check uses the wildcard resource, and a policy scoped to individual ARNs does not satisfy it.
-- Use the `iam:PassedToService` condition set to `aidevops.amazonaws.com` for least-privilege access. An `iam:PassRole` grant on the role wildcard with no condition also satisfies the check. If you already scope `iam:PassRole` to specific services, add `aidevops.amazonaws.com` to the existing condition.
-- Remember that the check runs when you add a secondary account and each time you update one. Secondary accounts that are already connected continue to work until the next time you update them.
++ Scope `Resource` to the role wildcard for your own account: `arn:aws:iam::<primary-account-id>:role/*` (or `*`). Do not use specific role ARNs. The check uses the wildcard resource, and a policy scoped to individual ARNs does not satisfy it.
++ Use the `iam:PassedToService` condition set to `aidevops.amazonaws.com` for least-privilege access. An `iam:PassRole` grant on the role wildcard with no condition also satisfies the check. If you already scope `iam:PassRole` to specific services, add `aidevops.amazonaws.com` to the existing condition.
++ Remember that the check runs when you add a secondary account and each time you update one. Secondary accounts that are already connected continue to work until the next time you update them.
 
 ## Adding a secondary AWS account
+<a name="adding-a-secondary-aws-account"></a>
 
-In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md") to programmatically add secondary accounts.
+In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md) to programmatically add secondary accounts.
 
 ### Step 1: Start the secondary account configuration
+<a name="step-1-start-the-secondary-account-configuration"></a>
 
 1. Sign in to the AWS Management Console and navigate to the AWS DevOps Agent console
-2. Select your Agent Space
-3. Go to the **Capabilities** tab
-4. In the **Cloud** section, locate the **Secondary sources** subsection
-5. Choose **Add**
+
+1. Select your Agent Space
+
+1. Go to the **Capabilities** tab
+
+1. In the **Cloud** section, locate the **Secondary sources** subsection
+
+1. Choose **Add**
 
 ### Step 2: Specify the role name
+<a name="step-2-specify-the-role-name"></a>
 
 1. In the **Name your role** field, enter a name for the role you'll create in the secondary account
-2. Note this name—you'll use it again when creating the role in the secondary account
-3. Copy the trust policy provided in the console and save it in a scratch space
+
+1. Note this name—you'll use it again when creating the role in the secondary account
+
+1. Copy the trust policy provided in the console and save it in a scratch space
 
 ### Step 3: Create the role in the secondary account
+<a name="step-3-create-the-role-in-the-secondary-account"></a>
 
 1. Open a new browser tab and sign in to the IAM console in the secondary AWS account
-2. Navigate to **IAM >****Roles** > **Create role**
-3. Select **Custom trust policy**
-4. Paste the trust policy you copied from Step 2
-5. Choose **Next**
+
+1. Navigate to **IAM >****Roles** > **Create role**
+
+1. Select **Custom trust policy**
+
+1. Paste the trust policy you copied from Step 2
+
+1. Choose **Next**
 
 ### Step 4: Attach the AWS managed policy
+<a name="step-4-attach-the-aws-managed-policy"></a>
 
 1. In the **Permissions policies** section, search for **AIDevOpsAgentAccessPolicy**
-2. Select the checkbox next to the **AIDevOpsAgentAccessPolicy** managed policy
-3. Choose **Next**
+
+1. Select the checkbox next to the **AIDevOpsAgentAccessPolicy** managed policy
+
+1. Choose **Next**
 
 ### Step 5: Name and create the role
+<a name="step-5-name-and-create-the-role"></a>
 
 1. In the **Role name** field, enter the same role name you provided in Step 2
-2. (Optional) Add a description to help identify the role's purpose
-3. Review the trust policy and attached permissions
-4. Choose **Create role**
+
+1. (Optional) Add a description to help identify the role's purpose
+
+1. Review the trust policy and attached permissions
+
+1. Choose **Create role**
 
 ### Step 6: Attach the inline policy
+<a name="step-6-attach-the-inline-policy"></a>
 
 1. In the IAM console, locate and select the role you just created
-2. Go to the **Permissions** tab
-3. Choose **Add permissions** > **Create inline policy**
-4. Switch to the **JSON** tab
-5. Paste the policy you saved in Step 2
-6. Paste the policy into the JSON editor in the IAM console
-7. Choose **Next**
-8. Provide a name for the inline policy (for example, "DevOpsAgentInlinePolicy")
-9. Choose **Create policy**
+
+1. Go to the **Permissions** tab
+
+1. Choose **Add permissions** > **Create inline policy**
+
+1. Switch to the **JSON** tab
+
+1. Paste the policy you saved in Step 2
+
+1. Paste the policy into the JSON editor in the IAM console
+
+1. Choose **Next**
+
+1. Provide a name for the inline policy (for example, "DevOpsAgentInlinePolicy")
+
+1. Choose **Create policy**
 
 ### Step 7: Complete the configuration
+<a name="step-7-complete-the-configuration"></a>
 
 1. Return to the AWS DevOps Agent console in the primary account
-2. Choose **Next** to complete the secondary account configuration
-3. Verify the connection status shows as **Active**
+
+1. Choose **Next** to complete the secondary account configuration
+
+1. Verify the connection status shows as **Active**
 
 ## Understanding the required policies
+<a name="understanding-the-required-policies"></a>
 
 AWS DevOps Agent requires three policy components to access resources in a secondary account:
-
-- **Trust policy** – Enables the AWS DevOps Agent service principal (`aidevops.amazonaws.com`) to assume the role in the secondary account directly. The policy uses confused deputy prevention. This security control prevents an unauthorized service from using your role to access your resources. These conditions allow only your Agent Space in the primary account to initiate access.
-- **AIDevOpsAgentAccessPolicy (AWS managed policy)** – Provides the core read-only permissions AWS DevOps Agent needs to investigate resources in the secondary account. This policy is maintained by AWS and updated as new capabilities are added.
-- **Inline policy** – Provides additional permissions specific to your Agent Space configuration. This policy is generated based on your Agent Space settings and may include permissions for specific integrations or features.
++ **Trust policy** – Enables the AWS DevOps Agent service principal (`aidevops.amazonaws.com`) to assume the role in the secondary account directly. The policy uses confused deputy prevention. This security control prevents an unauthorized service from using your role to access your resources. These conditions allow only your Agent Space in the primary account to initiate access.
++ **AIDevOpsAgentAccessPolicy (AWS managed policy)** – Provides the core read-only permissions AWS DevOps Agent needs to investigate resources in the secondary account. This policy is maintained by AWS and updated as new capabilities are added.
++ **Inline policy** – Provides additional permissions specific to your Agent Space configuration. This policy is generated based on your Agent Space settings and may include permissions for specific integrations or features.
 
 The AWS DevOps Agent service assumes the role in the secondary account directly through its service principal. The trust policy conditions ensure that only your Agent Space in the primary account can initiate this cross-account access.
 
 ## Managing secondary accounts
-
-- **Viewing connected accounts** – In the **Capabilities** tab, the **Secondary sources** subsection lists all connected secondary accounts with their connection status.
-- **Updating the IAM role** – If you need to modify permissions, update the inline policy attached to the role in the secondary account. Changes take effect immediately.
-- **Removing a secondary account** – To disconnect a secondary account, select it in the **Secondary sources** list and choose **Remove**. This does not delete the IAM role in the secondary account.
+<a name="managing-secondary-accounts"></a>
++ **Viewing connected accounts** – In the **Capabilities** tab, the **Secondary sources** subsection lists all connected secondary accounts with their connection status.
++ **Updating the IAM role** – If you need to modify permissions, update the inline policy attached to the role in the secondary account. Changes take effect immediately.
++ **Removing a secondary account** – To disconnect a secondary account, select it in the **Secondary sources** list and choose **Remove**. This does not delete the IAM role in the secondary account.

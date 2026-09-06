@@ -1,10 +1,14 @@
+
+
 # On Demand DevOps Tasks
+<a name="working-with-devops-agent-on-demand-devops-tasks"></a>
 
 AWS DevOps Agent On Demand Tasks is a generative artificial intelligence (AI) powered conversational assistant that enables operations teams to query their application architecture, analyze system health, and access investigation insights using natural language. You can ask questions about your AWS resources, system metrics, alarm status, deployment history, and incident patterns. Chat provides immediate answers grounded in your actual infrastructure and operations data, eliminating the need to navigate between multiple AWS consoles or monitoring tools.
 
 Chat is integrated throughout the DevOps Agent Space web app and provides context-aware responses based on the page you are viewing. The interface maintains conversation history, enabling you to continue previous discussions and build on earlier queries.
 
 ## Tasks capabilities
+<a name="tasks-capabilities"></a>
 
 AWS DevOps Agent On Demand Tasks provides comprehensive capabilities to help you manage and understand your infrastructure:
 
@@ -18,17 +22,19 @@ AWS DevOps Agent On Demand Tasks provides comprehensive capabilities to help you
 
 **Chat artifacts** – Generate structured reports and documents, such as operational health summaries, error reports, and incident analyses. Artifacts appear in a dedicated panel and support versioned editing within the conversation.
 
-**File attachments** – Attach images, documents, and code files to your messages so Chat can analyze them in context. For example, attach a screenshot of an alarm dashboard, a YAML configuration file, or a runbook PDF, and ask Chat what to do next. See [Sending file attachments](#sending-file-attachments "#sending-file-attachments") for details.
+**File attachments** – Attach images, documents, and code files to your messages so Chat can analyze them in context. For example, attach a screenshot of an alarm dashboard, a YAML configuration file, or a runbook PDF, and ask Chat what to do next. See [Sending file attachments](#sending-file-attachments) for details.
 
 **Recommendation filtering** – Query incident prevention recommendations with specific criteria, such as recommendations related to particular services or operational concerns. Chat explains the impact and implementation considerations for each recommendation. For example, "Show me recommendations that will prevent incidents involving DynamoDB" or "Which recommendations would help me detect request latency issues quicker?"
 
 ### Investigation prompt
+<a name="investigation-prompt"></a>
 
 In AWS DevOps Agent chat, you see a prompt to create a formal investigation when a complex issue needs deeper root cause analysis. You do not need to wait for a full analysis in the conversation. Choose the prompt to launch an investigation for a thorough, step-by-step analysis.
 
 ## Accessing Chat
+<a name="accessing-chat"></a>
 
-Chat is available as a persistent panel in the DevOps Agent Space web app. The left sidebar includes a **+ New chat** button, a **Pages** section for navigating to Incidents, Improvements, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
+Chat is available as a persistent panel in the DevOps Agent Space web app. The left sidebar includes a **\+ New chat** button, a **Pages** section for navigating to Incidents, Improvements, and Topology, and a **Chats** section that displays your recent conversations. Choose **View all** to see your full conversation history.
 
 You can also start a new chat by adding the `?newChat` query parameter to any DevOps Agent web app URL for your Agent Space. Use this parameter to link to a fresh conversation from external tools, runbooks, or bookmarks.
 
@@ -45,6 +51,7 @@ Chat provides context-aware responses based on where you access it:
 The chat interface remains available as you switch between pages, but the context changes to provide relevant information for your current view. When you start a new conversation, it begins without prior context. When you continue an existing conversation, Chat maintains the full conversation history for follow-up questions.
 
 ## Context-aware responses
+<a name="context-aware-responses"></a>
 
 Chat adapts its responses based on the page you are viewing in the DevOps Agent Space web app. This context awareness ensures you receive relevant information without needing to specify which investigation or resource scope you are asking about.
 
@@ -57,6 +64,7 @@ When accessing Chat from the Topology page, Chat provides broad visibility acros
 This context awareness eliminates the need to repeatedly specify which investigation, recommendation, or resource scope you are referencing, creating a more natural conversational flow.
 
 ## Managing conversations
+<a name="managing-conversations"></a>
 
 Chat maintains conversation history to enable you to continue previous discussions and reference earlier queries.
 
@@ -69,20 +77,23 @@ Chat maintains conversation history to enable you to continue previous discussio
 Note that conversation history is isolated within each Agent Space. Conversations in one Agent Space are not visible or accessible from other Agent Spaces. This isolation ensures that sensitive information remains compartmentalized according to your organizational boundaries.
 
 ## Starting an investigation from Chat
+<a name="starting-an-investigation-from-chat"></a>
 
 In AWS DevOps Agent chat, you see a prompt to create a formal investigation when a complex issue comes up. Investigations provide a structured, step-by-step analysis that goes deeper than a conversational exchange.
 
 When you see an investigation prompt, choose it to create a new investigation. The investigation opens in the Incident Response view. You can continue chatting while the investigation runs.
 
-For more information about investigations, see [Autonomous incident response](production-operations-autonomous-incident-response.md "production-operations-autonomous-incident-response.md").
+For more information about investigations, see [Autonomous incident response](production-operations-autonomous-incident-response.html).
 
 ## Generating artifacts
+<a name="generating-artifacts"></a>
 
 AWS DevOps Agent supports chat artifacts — structured, versioned documents generated by the agent during a conversation. Artifacts provide a dedicated, interactive panel in the chat UI for reviewing and editing AI-generated content, such as operational reports, error summaries, and health assessments.
 
 You can request artifacts from any page in the DevOps Agent Space web app. Chat uses the current page context to scope the artifact content.
 
 ### How artifacts work
+<a name="how-artifacts-work"></a>
 
 When you ask Chat to create or update content, Chat generates an artifact — typically a formatted document — and displays it in the artifact panel alongside the conversation.
 
@@ -93,185 +104,194 @@ When you ask Chat to create or update content, Chat generates an artifact — ty
 **Edit** – Request changes to the artifact through Chat. For example, ask "Add a section on Lambda cold starts" or "Update the report to include last month's data". Chat creates a new version of the artifact with your requested changes.
 
 ### Viewing and retrieving artifacts
+<a name="viewing-and-retrieving-artifacts"></a>
 
 You can read and list the artifacts Chat has generated for you directly in the conversation, without leaving chat. For example, ask Chat "List the artifacts you've created in this conversation" or "Show me the health report you generated earlier." Chat displays the artifact or a list of all artifacts directly in the conversation.
 
 With this feature, you can find and reuse agent output at any point in the conversation. You do not need to remember where an artifact appeared or scroll back through chat history to find it.
 
 ## Sending file attachments
+<a name="sending-file-attachments"></a>
 
 You can attach files to your chat messages so Chat can read them along with your question. Use attachments to share what you are looking at — a screenshot of a dashboard or alarm, a configuration file, source code, an operational runbook — and ask the agent to reason about it directly.
 
 Files are scoped to your Agent Space – they are not visible from other Agent Spaces, and access is bounded by the same IAM permissions that gate the rest of Chat. Files upload to managed Agent Space storage as soon as you attach them.
 
 ### How to attach files
+<a name="how-to-attach-files"></a>
 
 You can add files to a message in three ways:
-
-- Choose the upload icon in the chat input toolbar and select one or more files from your device.
-- Drag and drop one or more files onto the chat input area.
-- Paste an image directly from your clipboard, for example after taking a screenshot.
++ Choose the upload icon in the chat input toolbar and select one or more files from your device.
++ Drag and drop one or more files onto the chat input area.
++ Paste an image directly from your clipboard, for example after taking a screenshot.
 
 Each file you attach appears as a chip in the chat input with an upload progress indicator. To preview a file, choose its chip. To remove a file, choose the X on the chip. The Send button stays disabled while any attached file is still uploading.
 
 ### Supported file types
+<a name="supported-file-types"></a>
 
 Chat accepts the following three categories of files:
-
-- **Images** – `png`, `jpeg`, `jpg`, `gif`, `webp`
-- **Documents** – `pdf`, `csv`, `doc`, `docx`, `xls`, `xlsx`, `html`, `txt`, `md`
-- **Text and code files** – `json`, `yaml`, `yml`, `xml`, `js`, `ts`, `py`, `java`, `rb`, `go`, `rs`, `sh`, `bash`, `log`, `cfg`, `ini`, `toml`
++ **Images** – `png`, `jpeg`, `jpg`, `gif`, `webp`
++ **Documents** – `pdf`, `csv`, `doc`, `docx`, `xls`, `xlsx`, `html`, `txt`, `md`
++ **Text and code files** – `json`, `yaml`, `yml`, `xml`, `js`, `ts`, `py`, `java`, `rb`, `go`, `rs`, `sh`, `bash`, `log`, `cfg`, `ini`, `toml`
 
 Files outside these categories are rejected before upload.
 
 ### Limits
+<a name="limits"></a>
 
 The following limits apply to each message:
 
-| Limit                                                  | Value   |
-| ------------------------------------------------------ | ------- |
-| Maximum file size                                      | 3.75 MB |
-| Attachments per message (any mix of types)             | 20      |
-| Of those, binary documents (PDF, DOC, DOCX, XLS, XLSX) | up to 5 |
+
+| Limit | Value | 
+| --- | --- | 
+| Maximum file size | 3.75 MB | 
+| Attachments per message (any mix of types) | 20 | 
+| Of those, binary documents (PDF, DOC, DOCX, XLS, XLSX) | up to 5 | 
 
 In addition, your message text and attachment content together must fit within the model's per-message context window. If a message and its attachments are too large, Chat rejects the message and asks you to reduce the size or number of attachments before sending.
 
 ### Use cases
+<a name="use-cases"></a>
 
 Common ways to use file attachments with the DevOps Agent:
-
-- Attach a screenshot of an alarm or error dashboard and ask Chat to interpret what is failing and where to look next.
-- Attach service source code and ask Chat to review the change, suggest fixes, or explain its behavior.
-- Attach a configuration file (for example, a YAML, JSON, or TOML config) and ask Chat to troubleshoot why a deployment, alarm, or integration is misbehaving.
-- Attach an operational runbook or post-incident report PDF and ask Chat to convert it into a skill — the agent extracts the procedure and saves it to your Agent Space so future investigations can apply it automatically.
++ Attach a screenshot of an alarm or error dashboard and ask Chat to interpret what is failing and where to look next.
++ Attach service source code and ask Chat to review the change, suggest fixes, or explain its behavior.
++ Attach a configuration file (for example, a YAML, JSON, or TOML config) and ask Chat to troubleshoot why a deployment, alarm, or integration is misbehaving.
++ Attach an operational runbook or post-incident report PDF and ask Chat to convert it into a skill — the agent extracts the procedure and saves it to your Agent Space so future investigations can apply it automatically.
 
 ## Sample queries
+<a name="sample-queries"></a>
 
 The following examples demonstrate the types of questions you can ask Chat. These examples are organized by use case and context.
 
 ### Artifact generation queries
+<a name="artifact-generation-queries"></a>
 
 From any page in the DevOps Agent Space web app:
-
-- Generate a weekly operational health summary for my Agent Space
-- Create a report of all 4xx errors from last week
-- Build an incident summary report for the last 30 days
-- Create a summary of alarm activity for the payment service this week
-- Generate a deployment history report for the last 7 days
-- Summarize all open recommendations into a report
++ Generate a weekly operational health summary for my Agent Space
++ Create a report of all 4xx errors from last week
++ Build an incident summary report for the last 30 days
++ Create a summary of alarm activity for the payment service this week
++ Generate a deployment history report for the last 7 days
++ Summarize all open recommendations into a report
 
 ### Resource information queries
+<a name="resource-information-queries"></a>
 
 From any page in the DevOps Agent Space web app:
-
-- How many Lambda functions are using Python 3.8?
-- Do I have any certificates about to expire?
-- List all DynamoDB tables with on-demand billing
-- Show me EKS clusters in production
-- Which Lambda functions have not been deployed in the last 90 days?
-- List S3 buckets without versioning enabled
-- What RDS instances are running database version X?
++ How many Lambda functions are using Python 3.8?
++ Do I have any certificates about to expire?
++ List all DynamoDB tables with on-demand billing
++ Show me EKS clusters in production
++ Which Lambda functions have not been deployed in the last 90 days?
++ List S3 buckets without versioning enabled
++ What RDS instances are running database version X?
 
 ### System health queries
+<a name="system-health-queries"></a>
 
 From Topology or Incident Response pages:
-
-- Which alarms fired in the last 24 hours?
-- Any 5xx errors in the last hour?
-- Show me Lambda error trends for the payment service
-- What is the CPU utilization for my ECS cluster?
-- Are there any unhealthy targets in my load balancers?
-- Show me API Gateway throttling events from yesterday
-- Which services had the highest error rate last week?
-- Give me an overall health report covering the last 24 hours
++ Which alarms fired in the last 24 hours?
++ Any 5xx errors in the last hour?
++ Show me Lambda error trends for the payment service
++ What is the CPU utilization for my ECS cluster?
++ Are there any unhealthy targets in my load balancers?
++ Show me API Gateway throttling events from yesterday
++ Which services had the highest error rate last week?
++ Give me an overall health report covering the last 24 hours
 
 ### Observability tool queries
+<a name="observability-tool-queries"></a>
 
 From Topology:
-
-- List Splunk log groups
-- Show me Prometheus metrics and their alarm thresholds
-- What Datadog monitors are configured for this service?
-- List New Relic alert policies
-- Show me Dynatrace dashboard configurations
++ List Splunk log groups
++ Show me Prometheus metrics and their alarm thresholds
++ What Datadog monitors are configured for this service?
++ List New Relic alert policies
++ Show me Dynatrace dashboard configurations
 
 ### Investigation insights queries
+<a name="investigation-insights-queries"></a>
 
 From Incident Response page:
-
-- What is the most common cause of incidents last month?
-- What's the average resolution time for completed investigations?
-- Summarize investigations from last week and their RCA
-- How many incidents were caused by DynamoDB throttling?
-- Show me investigation trends over the past quarter
-- Which services have the most frequent incidents?
++ What is the most common cause of incidents last month?
++ What's the average resolution time for completed investigations?
++ Summarize investigations from last week and their RCA
++ How many incidents were caused by DynamoDB throttling?
++ Show me investigation trends over the past quarter
++ Which services have the most frequent incidents?
 
 ### Investigation detail queries
+<a name="investigation-detail-queries"></a>
 
 From Investigation Detail page:
-
-- What logs did you look at?
-- Which hypotheses did you explore?
-- How risky is the mitigating action you propose?
-- What was the timeline of events during this incident?
-- Why did you conclude this was the root cause?
-- What evidence supports your root cause analysis?
-- Who provided steering during your investigation?
-- Give me a summary of this incident investigation
++ What logs did you look at?
++ Which hypotheses did you explore?
++ How risky is the mitigating action you propose?
++ What was the timeline of events during this incident?
++ Why did you conclude this was the root cause?
++ What evidence supports your root cause analysis?
++ Who provided steering during your investigation?
++ Give me a summary of this incident investigation
 
 ### Investigation steering queries
+<a name="investigation-steering-queries"></a>
 
 From Investigation Detail page:
-
-- Focus on logs for the payment service between 14:00-15:00 UTC and update your RCA
-- Explore the hypothesis that DynamoDB throttling caused the issue
-- Check the ECS cluster configuration to see if that caused the alarm
-- Only check logs for the last 2 hours, not the full day
-- Investigate the spike in errors at 3 PM
-- Look at the API Gateway logs instead of Lambda logs
++ Focus on logs for the payment service between 14:00-15:00 UTC and update your RCA
++ Explore the hypothesis that DynamoDB throttling caused the issue
++ Check the ECS cluster configuration to see if that caused the alarm
++ Only check logs for the last 2 hours, not the full day
++ Investigate the spike in errors at 3 PM
++ Look at the API Gateway logs instead of Lambda logs
 
 ### Prevention recommendation queries
+<a name="prevention-recommendation-queries"></a>
 
 From Prevention page:
-
-- What are my top 3 incident prevention recommendations?
-- Show me recommendations that will prevent incidents involving DynamoDB
-- Which recommendations would help me detect request latency issues quicker?
-- List observability improvements that could prevent similar incidents
-- Show me infrastructure recommendations for the payment service
-- Which recommendations have the highest impact on system resilience?
++ What are my top 3 incident prevention recommendations?
++ Show me recommendations that will prevent incidents involving DynamoDB
++ Which recommendations would help me detect request latency issues quicker?
++ List observability improvements that could prevent similar incidents
++ Show me infrastructure recommendations for the payment service
++ Which recommendations have the highest impact on system resilience?
 
 ## Enabling Chat in your Agent Space
+<a name="enabling-chat-in-your-agent-space"></a>
 
 Chat is available in all DevOps Agent Space web apps. The setup process depends on whether you have a new or existing Agent Space.
 
 ### New Agent Spaces
+<a name="new-agent-spaces"></a>
 
 Chat is **automatically enabled** when you create a new Agent Space. No additional configuration or IAM permissions setup is required. After you configure your DevOps Agent Space web app, Chat is immediately available as a persistent panel in the web app.
 
 ### Existing Agent Spaces
+<a name="existing-agent-spaces"></a>
 
 If you created your Agent Space before Chat was released, you must enable the required IAM permissions. You have two options:
 
 **Option 1: Revoke and re-enable operator app access**
 
-Navigate to the AWS DevOps Agent Admin Console, locate the **Action** dropdown, and disable the current operator access configuration.
+Navigate to the AWS DevOps Agent Admin Console, locate the **Action** dropdown, and disable the current operator access configuration. 
 
-![Actions dropdown menu showing options including Disable Operator Access highlighted.](images/6f3b13aeccc7.png)
+![Actions dropdown menu showing options including Disable Operator Access highlighted.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/6f3b13aeccc7.png)
 
-Then enable the auto-create option for operator access.
 
-![Operator access section with Auto-create a new AWS DevOps Agent role option selected.](images/1446286ed5e6.png)
+Then enable the auto-create option for operator access. 
+
+![Operator access section with Auto-create a new AWS DevOps Agent role option selected.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/1446286ed5e6.png)
+
 
 This automatically applies the required IAM permissions for Chat along with all other current operator permissions.
 
 **Option 2: Add IAM permissions manually**
 
 Add the following IAM permissions to your existing operator access role:
-
-- `aidevops:ListChats` – View chat conversation history
-- `aidevops:CreateChat` – Create new chat conversations
-- `aidevops:SendMessage` – Send messages and receive responses
++ `aidevops:ListChats` – View chat conversation history
++ `aidevops:CreateChat` – Create new chat conversations
++ `aidevops:SendMessage` – Send messages and receive responses
 
 Navigate to the AWS IAM console, locate your DevOps Agent operator role, and add these permissions to the role policy. Chat becomes available immediately after the permissions are added.
 
