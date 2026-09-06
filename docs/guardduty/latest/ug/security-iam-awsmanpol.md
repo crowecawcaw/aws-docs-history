@@ -1,154 +1,131 @@
+
+
 # AWS managed policies for Amazon GuardDuty
+<a name="security-iam-awsmanpol"></a>
 
-To add permissions to users, groups, and roles, it is easier to use AWS managed policies
-than to write policies yourself. It takes time and expertise to [create IAM customer
-managed policies](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") that provide your team with only the permissions they need. To
-get started quickly, you can use our AWS managed policies. These policies cover common use
-cases and are available in your AWS account. For more information about AWS managed
-policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
+To add permissions to users, groups, and roles, it is easier to use AWS managed policies than to write policies yourself. It takes time and expertise to [create IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your team with only the permissions they need. To get started quickly, you can use our AWS managed policies. These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
-AWS services maintain and update AWS managed policies. You can't change the
-permissions in AWS managed policies. Services occasionally add additional permissions to
-an AWS managed policy to support new features. This type of update affects all identities
-(users, groups, and roles) where the policy is attached. Services are most likely to update
-an AWS managed policy when a new feature is launched or when new operations become
-available. Services do not remove permissions from an AWS managed policy, so policy
-updates won't break your existing permissions.
+AWS services maintain and update AWS managed policies. You can't change the permissions in AWS managed policies. Services occasionally add additional permissions to an AWS managed policy to support new features. This type of update affects all identities (users, groups, and roles) where the policy is attached. Services are most likely to update an AWS managed policy when a new feature is launched or when new operations become available. Services do not remove permissions from an AWS managed policy, so policy updates won't break your existing permissions.
 
-Additionally, AWS supports managed policies for job functions that span multiple
-services. For example, the **ReadOnlyAccess** AWS managed
-policy provides read-only access to all AWS services and resources. When a service
-launches a new feature, AWS adds read-only permissions for new operations and resources.
-For a list and descriptions of job function policies, see [AWS managed policies for
-job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
+Additionally, AWS supports managed policies for job functions that span multiple services. For example, the **ReadOnlyAccess** AWS managed policy provides read-only access to all AWS services and resources. When a service launches a new feature, AWS adds read-only permissions for new operations and resources. For a list and descriptions of job function policies, see [AWS managed policies for job functions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html) in the *IAM User Guide*.
 
-The `Version` policy element specifies the language syntax rules that are to be
-used to process a policy. The following policies include the current version that IAM
-supports. For more information, see [IAM JSON policy
-elements: Version](../../../IAM/latest/UserGuide/reference_policies_elements_version.md "../../../IAM/latest/UserGuide/reference_policies_elements_version.md").
+The `Version` policy element specifies the language syntax rules that are to be used to process a policy. The following policies include the current version that IAM supports. For more information, see [IAM JSON policy elements: Version](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+
+
 
 ## AWS managed policy: AmazonGuardDutyFullAccess\_v2 (recommended)
+<a name="security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2"></a>
 
-You can attach the AmazonGuardDutyFullAccess\_v2 policy to your IAM
-identities. This policy will allow a user full access to perform all GuardDuty actions and access
-required resources. Between AmazonGuardDutyFullAccess\_v2 and AmazonGuardDutyFullAccess, GuardDuty recommends
-attaching AmazonGuardDutyFullAccess\_v2 because it offers enhanced security and restricts administrative actions
-to GuardDuty service principals.
+You can attach the AmazonGuardDutyFullAccess\_v2 policy to your IAM identities. This policy will allow a user full access to perform all GuardDuty actions and access required resources. Between AmazonGuardDutyFullAccess\_v2 and AmazonGuardDutyFullAccess, GuardDuty recommends attaching AmazonGuardDutyFullAccess\_v2 because it offers enhanced security and restricts administrative actions to GuardDuty service principals.
 
 ### Permission details
+<a name="security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2-permissions-details"></a>
 
 The AmazonGuardDutyFullAccess\_v2 policy includes the following permissions:
 
-- `GuardDuty` – Allows users full access to all GuardDuty
-  actions.
-- `IAM`:
 
-  - Allows users to create GuardDuty service-linked role.
-  - Allows viewing and managing IAM roles and their policies for GuardDuty.
-  - Allows users to pass a role to GuardDuty. GuardDuty uses this role to enable Malware Protection for S3 and scan S3 objects for malware.
-    GuardDuty also uses this role to initiate scans for Malware Protection for AWS Backup.
-  - The permission to perform an `iam:GetRole` action on
-    `AWSServiceRoleForAmazonGuardDutyMalwareProtection` establishes if the
-    service-linked role (SLR) for Malware Protection for EC2 exists in an account.
 
-- `Organizations`:
 
-  - Allow users to read (view) GuardDuty organization structure and accounts.
-  - Allows users to designate a delegated administrator
-    and manage members for a GuardDuty organization.
++ `GuardDuty` – Allows users full access to all GuardDuty actions.
++ `IAM`:
+  + Allows users to create GuardDuty service-linked role.
+  + Allows viewing and managing IAM roles and their policies for GuardDuty.
+  +  Allows users to pass a role to GuardDuty. GuardDuty uses this role to enable Malware Protection for S3 and scan S3 objects for malware. GuardDuty also uses this role to initiate scans for Malware Protection for AWS Backup. 
+  + The permission to perform an `iam:GetRole` action on `AWSServiceRoleForAmazonGuardDutyMalwareProtection` establishes if the service-linked role (SLR) for Malware Protection for EC2 exists in an account.
++ `Organizations`: 
+  + Allow users to read (view) GuardDuty organization structure and accounts.
+  + Allows users to designate a delegated administrator and manage members for a GuardDuty organization.
 
-To review the permissions for this policy, see [AmazonGuardDutyFullAccess\_v2](../../../aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess_v2.md") in the _AWS Managed Policy
-Reference Guide_.
+
+
+To review the permissions for this policy, see [AmazonGuardDutyFullAccess\_v2](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess_v2.html) in the *AWS Managed Policy Reference Guide*.
 
 ## AWS managed policy: AmazonGuardDutyFullAccess
+<a name="security-iam-awsmanpol-AmazonGuardDutyFullAccess"></a>
 
-You can attach the `AmazonGuardDutyFullAccess` policy to your IAM
-identities.
+You can attach the `AmazonGuardDutyFullAccess` policy to your IAM identities.
 
-###### Important
+**Important**  
+For enhanced security and restrictive permissions to GuardDuty service principals, we recommend you to use [AWS managed policy: AmazonGuardDutyFullAccess\_v2 (recommended)](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2).
 
-For enhanced security and restrictive permissions to GuardDuty service principals,
-we recommend you to use [AWS managed policy: AmazonGuardDutyFullAccess\_v2 (recommended)](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2").
-
-This policy grants administrative permissions that allow a user full access to perform all
-GuardDuty actions and resources.
+This policy grants administrative permissions that allow a user full access to perform all GuardDuty actions and resources.
 
 ### Permission details
+<a name="security-iam-awsmanpol-AmazonGuardDutyFullAccess-permissions-details"></a>
 
 This policy includes the following permissions.
 
-- `GuardDuty` – Allows users full access to all GuardDuty
-  actions.
-- `IAM`:
 
-  - Allows users to create the GuardDuty service-linked role.
-  - Allows an administrator account to enable GuardDuty for member accounts.
-  - Allows users to pass a role to GuardDuty. GuardDuty uses this role to enable Malware Protection for S3 and scan S3 objects for malware.
-    GuardDuty also uses this role to initiate scans for Malware Protection for AWS Backup.
 
-- `Organizations` – Allows users to designate a delegated administrator
-  and manage members for a GuardDuty organization.
 
-The permission to perform an `iam:GetRole` action on
-`AWSServiceRoleForAmazonGuardDutyMalwareProtection` establishes if the
-service-linked role (SLR) for Malware Protection for EC2 exists in an account.
++ `GuardDuty` – Allows users full access to all GuardDuty actions.
++ `IAM`:
+  + Allows users to create the GuardDuty service-linked role.
+  + Allows an administrator account to enable GuardDuty for member accounts. 
+  +  Allows users to pass a role to GuardDuty. GuardDuty uses this role to enable Malware Protection for S3 and scan S3 objects for malware. GuardDuty also uses this role to initiate scans for Malware Protection for AWS Backup. 
++ `Organizations` – Allows users to designate a delegated administrator and manage members for a GuardDuty organization.
 
-To review the permissions for this policy, see [AmazonGuardDutyFullAccess](../../../aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess.md") in the _AWS Managed Policy
-Reference Guide_.
+The permission to perform an `iam:GetRole` action on `AWSServiceRoleForAmazonGuardDutyMalwareProtection` establishes if the service-linked role (SLR) for Malware Protection for EC2 exists in an account.
+
+
+
+To review the permissions for this policy, see [AmazonGuardDutyFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess.html) in the *AWS Managed Policy Reference Guide*.
 
 ## AWS managed policy: AmazonGuardDutyReadOnlyAccess
+<a name="security-iam-awsmanpol-AmazonGuardDutyReadOnlyAccess"></a>
 
-You can attach the `AmazonGuardDutyReadOnlyAccess` policy to your IAM
-identities.
+You can attach the `AmazonGuardDutyReadOnlyAccess` policy to your IAM identities.
 
-This policy grants read-only permissions that allow a user to view GuardDuty findings and
-details of your GuardDuty organization.
+This policy grants read-only permissions that allow a user to view GuardDuty findings and details of your GuardDuty organization.
 
 **Permissions details**
 
 This policy includes the following permissions.
 
-- `GuardDuty` – Allows users to view GuardDuty findings and perform
-  API operations that start with `Get`, `List`, or
-  `Describe`.
-- `Organizations` – Allows users to retrieve information about your
-  GuardDuty organization configuration, including details of the delegated
-  administrator account.
 
-To review the permissions for this policy, see [AmazonGuardDutyReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonGuardDutyReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonGuardDutyReadOnlyAccess.md") in the _AWS Managed Policy
-Reference Guide_.
+
+
++ `GuardDuty` – Allows users to view GuardDuty findings and perform API operations that start with `Get`, `List`, or `Describe`.
++ `Organizations` – Allows users to retrieve information about your GuardDuty organization configuration, including details of the delegated administrator account.
+
+
+
+To review the permissions for this policy, see [AmazonGuardDutyReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonGuardDutyReadOnlyAccess.html) in the *AWS Managed Policy Reference Guide*.
 
 ## AWS managed policy: AmazonGuardDutyServiceRolePolicy
+<a name="security-iam-awsmanpol-AmazonGuardDutyServiceRolePolicy"></a>
 
-You can't attach `AmazonGuardDutyServiceRolePolicy` to your IAM entities.
-This AWS managed policy is attached to a service-linked role that allows GuardDuty to
-perform actions on your behalf. For more information, see [Service-linked role permissions for GuardDuty](slr-permissions.md "slr-permissions.md").
+You can't attach `AmazonGuardDutyServiceRolePolicy` to your IAM entities. This AWS managed policy is attached to a service-linked role that allows GuardDuty to perform actions on your behalf. For more information, see [Service-linked role permissions for GuardDuty](slr-permissions.md). 
 
 ## GuardDuty updates to AWS managed policies
+<a name="security-iam-awsmanpol-updates"></a>
 
-View details about updates to AWS managed policies for GuardDuty since this service
-began tracking these changes. For automatic alerts about changes to this page, subscribe
-to the RSS feed on the GuardDuty Document history page.
 
-| Change                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Date              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [AmazonGuardDutyServiceRolePolicy](slr-permissions.md "slr-permissions.md") – Update to an<br>existing policy                                                                             | Added `s3:ListBucket` permission to retrieve S3 bucket listings,<br>and `ecs:DescribeTasks` and `ecs:DescribeTaskDefinition`<br>permissions to retrieve information about Amazon ECS tasks and task definitions.                                                                                                                                                                                                                                                                                                                                                                         | April 23, 2026    |
-| [AmazonGuardDutyServiceRolePolicy](slr-permissions.md "slr-permissions.md") – Update to an<br>existing policy                                                                             | Added the `cloudtrail:CreateServiceLinkedChannel` permission<br>to enable an additional mechanism for consuming AWS CloudTrail events.<br>`<br>{<br>"Sid": "CloudTrailCreateServiceLinkedChannelSid",<br>"Effect": "Allow",<br>"Action": [<br>"cloudtrail:CreateServiceLinkedChannel"<br>],<br>"Resource": "arn:aws:cloudtrail:*:*:channel/aws-service-channel/guardduty/*",<br>"Condition": {<br>"StringEquals": {<br>"aws:ResourceAccount": "${aws:PrincipalAccount}"<br>}<br>}<br>}<br>`                                                                                              | March 25, 2026    |
-| `AmazonGuardDutyFullAccess` – Deprecated                                                                                                                                                  | This policy has been replaced by a scoped-down policy named `AmazonGuardDutyFullAccess_v2`.<br>After **March 13th, 2026**, you can't attach the `AmazonGuardDutyFullAccess` policy to any new users, groups, or roles.<br>For more information, see [AWS managed policy: AmazonGuardDutyFullAccess\_v2 (recommended)](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2").                                                                                                                                                      | March 13, 2026    |
-| [AmazonGuardDutyFullAccess\_v2](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2") – Update to an existing policy               | Added permission that allows you to pass an IAM role to GuardDuty when you enable Malware Protection for AWS Backup.<br>`<br>{<br>"Sid": "AllowPassRoleToMalwareProtection",<br>"Effect": "Allow",<br>"Action": [<br>"iam:PassRole"<br>],<br>"Resource": "arn:aws:iam::*:role/*",<br>"Condition": {<br>"StringEquals": {<br>"iam:PassedToService": [<br>"malware-protection-plan.guardduty.amazonaws.com",<br>"malware-protection.guardduty.amazonaws.com"<br>]<br>}<br>}<br>}<br>`                                                                                                      | November 19, 2025 |
-| [AmazonGuardDutyFullAccess](#security-iam-awsmanpol-AmazonGuardDutyFullAccess "#security-iam-awsmanpol-AmazonGuardDutyFullAccess") – Update to an existing policy                         | Added permission that allows you to pass an IAM role to GuardDuty when you enable Malware Protection for AWS Backup.<br>`<br>{<br>"Sid": "AllowPassRoleToMalwareProtection",<br>"Effect": "Allow",<br>"Action": [<br>"iam:PassRole"<br>],<br>"Resource": "arn:aws:iam::*:role/*",<br>"Condition": {<br>"StringEquals": {<br>"iam:PassedToService": [<br>"malware-protection-plan.guardduty.amazonaws.com",<br>"malware-protection.guardduty.amazonaws.com"<br>]<br>}<br>}<br>}<br>`                                                                                                      | November 19, 2025 |
-| [AmazonGuardDutyFullAccess\_v2](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2") – Added a new policy                         | Added a new AmazonGuardDutyFullAccess\_v2 policy. This is recommended because<br>its permissions enhance security by restricting administrative actions to GuardDuty<br>service principals based on IAM roles and policies, and AWS Organizations integration.                                                                                                                                                                                                                                                                                                                           | June 04, 2025     |
-| [AmazonGuardDutyServiceRolePolicy](slr-permissions.md "slr-permissions.md") – Update to an<br>existing policy                                                                             | Added the `ec2:DescribeVpcs` permission. This allows<br>GuardDuty to track VPC updates, such as retrieving the VPC CIDR.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | August 22, 2024   |
-| [AmazonGuardDutyFullAccess](slr-permissions.md "slr-permissions.md") – Update to an<br>existing policy                                                                                    | Added permission that allows you to pass an IAM role to GuardDuty<br>when you enable Malware Protection for S3.<br>`<br>{<br>"Sid": "AllowPassRoleToMalwareProtectionPlan",<br>"Effect": "Allow",<br>"Action": [<br>"iam:PassRole"<br>],<br>"Resource": "arn:aws:iam::*:role/*",<br>"Condition": {<br>"StringEquals": {<br>"iam:PassedToService": "malware-protection-plan.guardduty.amazonaws.com"<br>}<br>}<br>}<br>`                                                                                                                                                                  | June 10, 2024     |
-| [AmazonGuardDutyServiceRolePolicy](slr-permissions.md "slr-permissions.md") – Update to an<br>existing policy.                                                                            | Use AWS Systems Manager actions to manage SSM associations on Amazon EC2<br>instances when you enable GuardDuty Runtime Monitoring with automated agent for<br>Amazon EC2. When GuardDuty automated agent configuration is disabled, GuardDuty<br>considers only those EC2 instances that have an inclusion tag<br>(`GuardDutyManaged`:`true`).                                                                                                                                                                                                                                          | March 26, 2024    |
-| [AmazonGuardDutyServiceRolePolicy](slr-permissions.md "slr-permissions.md") – Update to an<br>existing policy.                                                                            | GuardDuty has added a new permission -<br>`organization:DescribeOrganization` to retrieve the<br>organization ID of the shared Amazon VPC account and set the Amazon VPC<br>endpoint policy with organization ID.                                                                                                                                                                                                                                                                                                                                                                        | February 9, 2024  |
-| [AmazonGuardDutyMalwareProtectionServiceRolePolicy](slr-permissions-malware-protection.md "slr-permissions-malware-protection.md")<br>– Update to an existing policy.                     | Malware Protection for EC2 has added two permissions -<br>`GetSnapshotBlock` and<br>`ListSnapshotBlocks` to fetch the snapshot of an EBS<br>volume (encrypted using AWS managed key) from your AWS account<br>and copy it to the GuardDuty service account before starting the malware<br>scan.                                                                                                                                                                                                                                                                                          | Jan 25, 2024      |
-| [AmazonGuardDutyServiceRolePolicy](#security-iam-awsmanpol-AmazonGuardDutyServiceRolePolicy "#security-iam-awsmanpol-AmazonGuardDutyServiceRolePolicy") – Update to an<br>existing policy | Added new permissions to allow GuardDuty to add<br>`guarddutyActivate` Amazon ECS account setting, and<br>perform list and describe operations on Amazon ECS clusters.                                                                                                                                                                                                                                                                                                                                                                                                                   | Nov 26, 2023      |
-| [AmazonGuardDutyReadOnlyAccess](#security-iam-awsmanpol-AmazonGuardDutyReadOnlyAccess "#security-iam-awsmanpol-AmazonGuardDutyReadOnlyAccess") – Update to an existing policy             | GuardDuty added a new policy for `organizations` to<br>`ListAccounts`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | November 16, 2023 |
-| [AmazonGuardDutyFullAccess](#security-iam-awsmanpol-AmazonGuardDutyFullAccess "#security-iam-awsmanpol-AmazonGuardDutyFullAccess")<br>– Update to an existing policy                      | GuardDuty added a new policy for `organizations` to<br>`ListAccounts`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | November 16, 2023 |
-| [AmazonGuardDutyServiceRolePolicy](slr-permissions.md "slr-permissions.md")<br>– Update to an existing policy                                                                             | GuardDuty added new permissions to support the upcoming GuardDuty<br>EKS Runtime Monitoring feature.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | March 8, 2023     |
-| [AmazonGuardDutyServiceRolePolicy](#security-iam-awsmanpol-AmazonGuardDutyServiceRolePolicy "#security-iam-awsmanpol-AmazonGuardDutyServiceRolePolicy") – Update to an<br>existing policy | GuardDuty has added new permissions to allow GuardDuty to create [Service-linked role for Malware Protection for EC2](slr-permissions-malware-protection.md "slr-permissions-malware-protection.md"). This will help GuardDuty<br>streamline the process of enabling Malware Protection for EC2.<br>GuardDuty can now perform the following IAM action:<br>`<br>{<br>"Effect": "Allow",<br>"Action": "iam:CreateServiceLinkedRole",<br>"Resource": "*",<br>"Condition": {<br>"StringEquals": {<br>"iam:AWSServiceName": "malware-protection.guardduty.amazonaws.com"<br>}<br>}<br>}<br>` | Feb 21, 2023      |
-| [AmazonGuardDutyFullAccess](#security-iam-awsmanpol-AmazonGuardDutyFullAccess "#security-iam-awsmanpol-AmazonGuardDutyFullAccess")<br>– Update to an existing policy                      | GuardDuty updated ARN for `iam:GetRole` to<br>`*AWSServiceRoleForAmazonGuardDutyMalwareProtection`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Jul 26, 2022      |
-| [AmazonGuardDutyFullAccess](#security-iam-awsmanpol-AmazonGuardDutyFullAccess "#security-iam-awsmanpol-AmazonGuardDutyFullAccess")<br>– Update to an existing policy                      | GuardDuty added a new `AWSServiceName` to allow the<br>creation of service-linked role using<br>`iam:CreateServiceLinkedRole` for GuardDuty Malware Protection for EC2<br>service.<br>GuardDuty can now perform the `iam:GetRole` action to gain<br>information for `AWSServiceRole`.                                                                                                                                                                                                                                                                                                    | Jul 26, 2022      |
-| [AmazonGuardDutyServiceRolePolicy](slr-permissions.md "slr-permissions.md")<br>– Update to an existing policy                                                                             | GuardDuty added new permissions to allow GuardDuty to use Amazon EC2 networking<br>actions to improve findings.<br>GuardDuty can now perform the following EC2 actions to gain<br>information about how your EC2 instances are communicating. This<br>information is used to improve finding accuracy.<br>• `ec2:DescribeVpcEndpoints`<br>• `ec2:DescribeSubnets`<br>• `ec2:DescribeVpcPeeringConnections`<br>• `ec2:DescribeTransitGatewayAttachments`                                                                                                                                  | Aug 3, 2021       |
-| GuardDuty started tracking<br>changes                                                                                                                                                     | GuardDuty started tracking changes for its AWS managed<br>policies.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Aug 3, 2021       |
+
+View details about updates to AWS managed policies for GuardDuty since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the GuardDuty Document history page.
+
+
+
+
+| Change | Description | Date | 
+| --- | --- | --- | 
+|  [AmazonGuardDutyServiceRolePolicy](slr-permissions.md) – Update to an existing policy | Added `s3:ListBucket` permission to retrieve S3 bucket listings, and `ecs:DescribeTasks` and `ecs:DescribeTaskDefinition` permissions to retrieve information about Amazon ECS tasks and task definitions. | April 23, 2026 | 
+|  [AmazonGuardDutyServiceRolePolicy](slr-permissions.md) – Update to an existing policy | Added the `cloudtrail:CreateServiceLinkedChannel` permission to enable an additional mechanism for consuming AWS CloudTrail events.<pre>{<br />                                "Sid": "CloudTrailCreateServiceLinkedChannelSid",<br />                                "Effect": "Allow",<br />                                "Action": [<br />                                    "cloudtrail:CreateServiceLinkedChannel"<br />                                ],<br />                                "Resource": "arn:aws:cloudtrail:*:*:channel/aws-service-channel/guardduty/*",<br />                                "Condition": {<br />                                    "StringEquals": {<br />                                        "aws:ResourceAccount": "${aws:PrincipalAccount}"<br />                                    }<br />                                }<br />                            }</pre> | March 25, 2026 | 
+| AmazonGuardDutyFullAccess – Deprecated | This policy has been replaced by a scoped-down policy named `AmazonGuardDutyFullAccess_v2`.<br />After **March 13th, 2026**, you can't attach the `AmazonGuardDutyFullAccess` policy to any new users, groups, or roles. For more information, see [AWS managed policy: AmazonGuardDutyFullAccess\_v2 (recommended)](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2). | March 13, 2026 | 
+|  [AmazonGuardDutyFullAccess\_v2](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2) – Update to an existing policy |  Added permission that allows you to pass an IAM role to GuardDuty when you enable Malware Protection for AWS Backup. <pre>{<br />                                    "Sid": "AllowPassRoleToMalwareProtection",<br />                                    "Effect": "Allow",<br />                                    "Action": [<br />                                        "iam:PassRole"<br />                                    ],<br />                                    "Resource": "arn:aws:iam::*:role/*",<br />                                    "Condition": {<br />                                        "StringEquals": {<br />                                            "iam:PassedToService": [<br />                                                "malware-protection-plan.guardduty.amazonaws.com",<br />                                                "malware-protection.guardduty.amazonaws.com"<br />                                            ]<br />                                        }<br />                                    }<br />                        }</pre> | November 19, 2025 | 
+|  [AmazonGuardDutyFullAccess](#security-iam-awsmanpol-AmazonGuardDutyFullAccess) – Update to an existing policy |  Added permission that allows you to pass an IAM role to GuardDuty when you enable Malware Protection for AWS Backup. <pre>{<br />                                    "Sid": "AllowPassRoleToMalwareProtection",<br />                                    "Effect": "Allow",<br />                                    "Action": [<br />                                        "iam:PassRole"<br />                                    ],<br />                                    "Resource": "arn:aws:iam::*:role/*",<br />                                    "Condition": {<br />                                        "StringEquals": {<br />                                            "iam:PassedToService": [<br />                                                "malware-protection-plan.guardduty.amazonaws.com",<br />                                                "malware-protection.guardduty.amazonaws.com"<br />                                            ]<br />                                        }<br />                                    }<br />                        }</pre> | November 19, 2025 | 
+|  [AmazonGuardDutyFullAccess\_v2](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2) – Added a new policy | Added a new AmazonGuardDutyFullAccess\_v2 policy. This is recommended because its permissions enhance security by restricting administrative actions to GuardDuty service principals based on IAM roles and policies, and AWS Organizations integration. | June 04, 2025 | 
+|  [AmazonGuardDutyServiceRolePolicy](slr-permissions.md) – Update to an existing policy  | Added the `ec2:DescribeVpcs` permission. This allows GuardDuty to track VPC updates, such as retrieving the VPC CIDR. | August 22, 2024 | 
+| [AmazonGuardDutyFullAccess](slr-permissions.md) – Update to an existing policy | Added permission that allows you to pass an IAM role to GuardDuty when you enable Malware Protection for S3.<pre>{<br />            "Sid": "AllowPassRoleToMalwareProtectionPlan",<br />            "Effect": "Allow",<br />            "Action": [<br />                "iam:PassRole"<br />            ],<br />            "Resource": "arn:aws:iam::*:role/*",<br />            "Condition": {<br />                "StringEquals": {<br />                    "iam:PassedToService": "malware-protection-plan.guardduty.amazonaws.com"<br />                }<br />            }<br />}</pre> | June 10, 2024 | 
+|  [AmazonGuardDutyServiceRolePolicy](slr-permissions.md) – Update to an existing policy. | Use AWS Systems Manager actions to manage SSM associations on Amazon EC2 instances when you enable GuardDuty Runtime Monitoring with automated agent for Amazon EC2. When GuardDuty automated agent configuration is disabled, GuardDuty considers only those EC2 instances that have an inclusion tag (`GuardDutyManaged`:`true`). | March 26, 2024 | 
+|  [AmazonGuardDutyServiceRolePolicy](slr-permissions.md) – Update to an existing policy. | GuardDuty has added a new permission - `organization:DescribeOrganization` to retrieve the organization ID of the shared Amazon VPC account and set the Amazon VPC endpoint policy with organization ID. | February 9, 2024 | 
+|  [AmazonGuardDutyMalwareProtectionServiceRolePolicy](slr-permissions-malware-protection.md) – Update to an existing policy. | Malware Protection for EC2 has added two permissions - `GetSnapshotBlock` and `ListSnapshotBlocks` to fetch the snapshot of an EBS volume (encrypted using AWS managed key) from your AWS account and copy it to the GuardDuty service account before starting the malware scan. | Jan 25, 2024 | 
+| [AmazonGuardDutyServiceRolePolicy](#security-iam-awsmanpol-AmazonGuardDutyServiceRolePolicy) – Update to an existing policy | Added new permissions to allow GuardDuty to add `guarddutyActivate` Amazon ECS account setting, and perform list and describe operations on Amazon ECS clusters. | Nov 26, 2023 | 
+|  [AmazonGuardDutyReadOnlyAccess](#security-iam-awsmanpol-AmazonGuardDutyReadOnlyAccess) – Update to an existing policy | GuardDuty added a new policy for organizations to ListAccounts. | November 16, 2023 | 
+|  [AmazonGuardDutyFullAccess](#security-iam-awsmanpol-AmazonGuardDutyFullAccess) – Update to an existing policy | GuardDuty added a new policy for organizations to ListAccounts. | November 16, 2023 | 
+|  [AmazonGuardDutyServiceRolePolicy](slr-permissions.md) – Update to an existing policy | GuardDuty added new permissions to support the upcoming GuardDuty EKS Runtime Monitoring feature. | March 8, 2023 | 
+| [AmazonGuardDutyServiceRolePolicy](#security-iam-awsmanpol-AmazonGuardDutyServiceRolePolicy) – Update to an existing policy | GuardDuty has added new permissions to allow GuardDuty to create [Service-linked role for Malware Protection for EC2](slr-permissions-malware-protection.md). This will help GuardDuty streamline the process of enabling Malware Protection for EC2.<br />GuardDuty can now perform the following IAM action:<pre>{<br />    "Effect": "Allow",<br />	"Action": "iam:CreateServiceLinkedRole",<br />	"Resource": "*",<br />	"Condition": {<br />	   "StringEquals": {<br />	       "iam:AWSServiceName": "malware-protection.guardduty.amazonaws.com"<br />	   }<br />	}<br />}</pre> | Feb 21, 2023 | 
+|  [AmazonGuardDutyFullAccess](#security-iam-awsmanpol-AmazonGuardDutyFullAccess) – Update to an existing policy | GuardDuty updated ARN for `iam:GetRole` to `*AWSServiceRoleForAmazonGuardDutyMalwareProtection`. | Jul 26, 2022 | 
+|  [AmazonGuardDutyFullAccess](#security-iam-awsmanpol-AmazonGuardDutyFullAccess) – Update to an existing policy | GuardDuty added a new `AWSServiceName` to allow the creation of service-linked role using `iam:CreateServiceLinkedRole` for GuardDuty Malware Protection for EC2 service.<br />GuardDuty can now perform the `iam:GetRole` action to gain information for `AWSServiceRole`. | Jul 26, 2022 | 
+|  [AmazonGuardDutyServiceRolePolicy](slr-permissions.md) – Update to an existing policy | GuardDuty added new permissions to allow GuardDuty to use Amazon EC2 networking actions to improve findings.<br />GuardDuty can now perform the following EC2 actions to gain information about how your EC2 instances are communicating. This information is used to improve finding accuracy.+  `ec2:DescribeVpcEndpoints` <br />+  `ec2:DescribeSubnets` <br />+  `ec2:DescribeVpcPeeringConnections` <br />+  `ec2:DescribeTransitGatewayAttachments`  | Aug 3, 2021 | 
+| GuardDuty started tracking changes | GuardDuty started tracking changes for its AWS managed policies. | Aug 3, 2021 | 

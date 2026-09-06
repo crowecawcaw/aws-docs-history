@@ -1,9 +1,13 @@
+
+
 # GuardDuty Managed Instances Support
+<a name="guardduty_managed-instances"></a>
 
 The following table indicates the support that GuardDuty's various features have for the different types of managed instances.
 
-| Managed Feature Type                                                                                                                                                   | [Runtime Monitoring](runtime-monitoring.md "runtime-monitoring.md") support | [Malware Protection for EC2](malware-protection.md "malware-protection.md") support |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| [Amazon EKS Auto Mode](https://aws.amazon.com/eks/auto-mode/ "https://aws.amazon.com/eks/auto-mode/")                                                                  | Supported                                                                   | Supported                                                                           |
-| [Amazon ECS AWS Fargate Managed Instance](../../../AmazonECS/latest/developerguide/ManagedInstances.md "../../../AmazonECS/latest/developerguide/ManagedInstances.md") | Unsupported                                                                 | Supported                                                                           |
-| [Lambda Managed Instance](../../../lambda/latest/dg/lambda-managed-instances.md "../../../lambda/latest/dg/lambda-managed-instances.md")                               | Unsupported                                                                 | Unsupported                                                                         |
+
+| Managed Feature Type | [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html) support | [Malware Protection for EC2](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) support | 
+| --- | --- | --- | 
+| [Amazon EKS Auto Mode](https://aws.amazon.com/eks/auto-mode/) | Supported | Supported | 
+| [Amazon ECS AWS Fargate Managed Instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ManagedInstances.html) | Unsupported | Supported | 
+| [Lambda Managed Instance](https://docs.aws.amazon.com/lambda/latest/dg/lambda-managed-instances.html) | Unsupported | Unsupported | 

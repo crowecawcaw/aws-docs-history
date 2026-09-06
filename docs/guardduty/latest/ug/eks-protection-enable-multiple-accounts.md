@@ -1,253 +1,233 @@
-# Enabling EKS Protection in multiple-account environments
 
-In a multiple-account environment, only the delegated GuardDuty administrator account has the option to enable or disable the
-EKS Protection; feature for the member accounts in their organization. The GuardDuty member accounts can't
-modify this configuration from their accounts. The delegated GuardDuty administrator account manages their member accounts using
-AWS Organizations. This delegated GuardDuty administrator account can choose to auto-enable EKS Protection for all the new accounts as they join
-the organization. For more information about multiple-account environments, see [Managing multiple accounts
-in Amazon GuardDuty](guardduty_accounts.md "guardduty_accounts.md").
+
+# Enabling EKS Protection in multiple-account environments
+<a name="eks-protection-enable-multiple-accounts"></a>
+
+In a multiple-account environment, only the delegated GuardDuty administrator account has the option to enable or disable the EKS Protection; feature for the member accounts in their organization. The GuardDuty member accounts can't modify this configuration from their accounts. The delegated GuardDuty administrator account manages their member accounts using AWS Organizations. This delegated GuardDuty administrator account can choose to auto-enable EKS Protection for all the new accounts as they join the organization. For more information about multiple-account environments, see [Managing multiple accounts in Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html).
+
+## Configuring EKS Audit Log Monitoring for delegated GuardDuty administrator account
+<a name="configure-eks-audit-log-monitoring-delegatedadmin"></a>
 
 Choose your preferred access method to configure EKS Audit Log Monitoring for the delegated GuardDuty administrator account.
 
-Console
+------
+#### [ Console ]
 
-1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
-2. In the navigation pane, choose **Protection Plans**.
-3. Choose **Configure all enablements**. Under
-   **EKS Audit Logs**, you can view the current
-   configuration status of EKS Audit Log Monitoring.
-4. Do one of the following:
+1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/).
 
-###### Using **Enable for all accounts**
+1. In the navigation pane, choose **Protection Plans**.
 
-    * Choose **Enable for all accounts**. This will enable
-     the protection plan for all the active GuardDuty accounts in your AWS organization, including the new accounts that
-     join the organization.
-    * Choose **Save**.
+1. Choose **Configure all enablements**. Under **EKS Audit Logs**, you can view the current configuration status of EKS Audit Log Monitoring.
 
-###### Using **Configure accounts manually**
+1. Do one of the following:
 
-    * To enable the protection plan only for the delegated GuardDuty administrator account account, choose
-     **Configure accounts manually**.
-    * Choose **Enable** under the
-     **delegated GuardDuty administrator account (this account)** section.
-    * Choose **Save**.
+**Using **Enable for all accounts****
+   + Choose **Enable for all accounts**. This will enable the protection plan for all the active GuardDuty accounts in your AWS organization, including the new accounts that join the organization.
+   + Choose **Save**.
 
-API/CLI
-Run the [updateDetector](../APIReference/API_UpdateDetector.md "../APIReference/API_UpdateDetector.md") API operation using your own regional detector ID and
-passing the `features` object `name` as `EKS_AUDIT_LOGS` and
-`status` as `ENABLED` or `DISABLED`.
+**Using **Configure accounts manually****
+   + To enable the protection plan only for the delegated GuardDuty administrator account account, choose **Configure accounts manually**.
+   + Choose **Enable** under the **delegated GuardDuty administrator account (this account)** section.
+   + Choose **Save**.
 
-To find the `detectorId` for your account and current Region, see the
-**Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
-or run the [ListDetectors](../APIReference/API_ListDetectors.md "../APIReference/API_ListDetectors.md") API.
+------
+#### [ API/CLI ]
 
-You can enable or disable EKS Audit Log Monitoring by running the following AWS CLI command. Make sure
-to use delegated GuardDuty administrator account's valid `detector ID`.
+Run the [updateDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateDetector.html) API operation using your own regional detector ID and passing the `features` object `name` as `EKS_AUDIT_LOGS` and `status` as `ENABLED` or `DISABLED`.
 
-###### Note
+To find the `detectorId` for your account and current Region, see the **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/) console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 
-The following example code enables EKS Audit Log Monitoring. Make sure to replace
-`12abc34d567e8fa901bc2d34e56789f0` with the
-`detector-id` of the delegated GuardDuty administrator account and
-`555555555555` with the AWS account of the delegated GuardDuty administrator account.
+You can enable or disable EKS Audit Log Monitoring by running the following AWS CLI command. Make sure to use delegated GuardDuty administrator account's valid {{detector ID}}. 
 
-To find the `detectorId` for your account and current Region, see the
-**Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
-or run the [ListDetectors](../APIReference/API_ListDetectors.md "../APIReference/API_ListDetectors.md") API.
+**Note**  
+The following example code enables EKS Audit Log Monitoring. Make sure to replace {{12abc34d567e8fa901bc2d34e56789f0}} with the `detector-id` of the delegated GuardDuty administrator account and {{555555555555}} with the AWS account of the delegated GuardDuty administrator account. 
+
+To find the `detectorId` for your account and current Region, see the **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/) console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 
 ```
-aws guardduty update-detector --detector-id `12abc34d567e8fa901bc2d34e56789f0` --features '[{"Name": "EKS_AUDIT_LOGS", "Status": "`ENABLED`"}]'
+aws guardduty update-detector --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} --features '[{"Name": "EKS_AUDIT_LOGS", "Status": "{{ENABLED}}"}]'
 ```
 
 To disable EKS Audit Log Monitoring, replace `ENABLED` with `DISABLED`.
 
-Choose your preferred access method to enable the EKS Audit Log Monitoring for existing member accounts
-in your organization.
+------
 
-Console
+## Auto-enable EKS Audit Log Monitoring for all member accounts
+<a name="k8s-autoenable"></a>
 
-1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
+Choose your preferred access method to enable the EKS Audit Log Monitoring for existing member accounts in your organization.
 
-Make sure to use the delegated GuardDuty administrator account credentials. 2. Do one of the following:
+------
+#### [ Console ]
 
-###### Using the **Protection Plans** page
+1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/).
 
-    1. In the navigation pane, choose **Protection Plans**.
-    2. Choose **Configure all enablements**. Under
-     **EKS Audit Logs**, you can view the current status of
-     EKS Audit Log Monitoring for active member accounts in your organization.
-    3. Choose **Enable for all accounts**. This action automatically
-     enables EKS Audit Log Monitoring for both the existing and new accounts in the organization.
-    4. Choose **Save all**, then choose **Confirm and save**.
+   Make sure to use the delegated GuardDuty administrator account credentials.
 
+1. Do one of the following:
 
-    ###### Note
+**Using the **Protection Plans** page**
 
-    It may take up to 24 hours to update the configuration for the member accounts.
+   1. In the navigation pane, choose **Protection Plans**.
 
-###### Using the **Accounts** page
+   1. Choose **Configure all enablements**. Under **EKS Audit Logs**, you can view the current status of EKS Audit Log Monitoring for active member accounts in your organization. 
 
-    1. In the navigation pane, choose **Accounts**.
-    2. On the **Accounts** page, choose **Auto-enable**
-     preferences before **Add accounts by invitation**.
-    3. In the **Manage auto-enable preferences** window, choose
-     **Enable for all accounts** under
-     **EKS Audit Log Monitoring**.
-    4. Choose **Save**.
+   1. Choose **Enable for all accounts**. This action automatically enables EKS Audit Log Monitoring for both the existing and new accounts in the organization.
 
-If you can't use the **Enable for all accounts** option and want to
-customize EKS Audit Log Monitoring configuration for specific accounts in your organization, see [Selectively enable or disable EKS Audit Log Monitoring for member accounts](#k8s-enable-disable-selective-members-org "#k8s-enable-disable-selective-members-org").
+   1. Choose **Save all**, then choose **Confirm and save**.
+**Note**  
+It may take up to 24 hours to update the configuration for the member accounts.
 
-API/CLI
+**Using the **Accounts** page**
 
-- To selectively enable or disable EKS Audit Log Monitoring for your member accounts, run the [updateMemberDetectors](../APIReference/API_UpdateMemberDetectors.md "../APIReference/API_UpdateMemberDetectors.md") API operation using your own
-  `detector ID`.
-- The following example shows how you can enable EKS Audit Log Monitoring for a single member
-  account. To disable it, replace `ENABLED` with `DISABLED`.
+   1. In the navigation pane, choose **Accounts**.
 
-To find the `detectorId` for your account and current Region, see the
-**Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
-or run the [ListDetectors](../APIReference/API_ListDetectors.md "../APIReference/API_ListDetectors.md") API.
+   1. On the **Accounts** page, choose **Auto-enable** preferences before **Add accounts by invitation**.
 
-```
-aws guardduty update-member-detectors --detector-id `12abc34d567e8fa901bc2d34e56789f0` --account-ids `111122223333` --features '[{"name": "EKS_AUDIT_LOGS", "status": "`ENABLED`"}]'
-```
+   1. In the **Manage auto-enable preferences** window, choose **Enable for all accounts** under **EKS Audit Log Monitoring**.
 
-###### Note
+   1. Choose **Save**.
 
+   If you can't use the **Enable for all accounts** option and want to customize EKS Audit Log Monitoring configuration for specific accounts in your organization, see [Selectively enable or disable EKS Audit Log Monitoring for member accounts](#k8s-enable-disable-selective-members-org).
+
+------
+#### [ API/CLI ]
++ To selectively enable or disable EKS Audit Log Monitoring for your member accounts, run the [updateMemberDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateMemberDetectors.html) API operation using your own {{detector ID}}. 
++ The following example shows how you can enable EKS Audit Log Monitoring for a single member account. To disable it, replace `ENABLED` with `DISABLED`. 
+
+  To find the `detectorId` for your account and current Region, see the **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/) console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
+
+  ```
+  aws guardduty update-member-detectors --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} --account-ids {{111122223333}} --features '[{"name": "EKS_AUDIT_LOGS", "status": "{{ENABLED}}"}]'
+  ```
+**Note**  
 You can also pass a list of account IDs separated by a space.
++ When the code has successfully executed, it returns an empty list of `UnprocessedAccounts`. If there were any problems changing the detector settings for an account, that account ID is listed along with a summary of the issue.
 
-- When the code has successfully executed, it returns an empty list of
-  `UnprocessedAccounts`. If there were any problems changing the detector
-  settings for an account, that account ID is listed along with a summary of the
-  issue.
+------
 
-Choose your preferred access method to enable EKS Audit Log Monitoring for all existing active member
-accounts in the organization.
+## Enable EKS Audit Log Monitoring for all existing active member accounts
+<a name="enable-for-all-existing-members-eks-audit-log"></a>
 
-Console
+Choose your preferred access method to enable EKS Audit Log Monitoring for all existing active member accounts in the organization.
 
-1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
+------
+#### [ Console ]
 
-Sign in using the delegated GuardDuty administrator account credentials. 2. In the navigation pane, choose **Protection Plans**. 3. Choose **Configure all enablements**. Under
-**EKS Audit Logs**, under the **Active
-member accounts** section, choose **Actions**. 4. From the **Actions** dropdown menu, choose **Enable for all
-existing active member accounts**. 5. Choose **Save**.
+1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/).
 
-API/CLI
+   Sign in using the delegated GuardDuty administrator account credentials.
 
-- To selectively enable or disable EKS Audit Log Monitoring for your member accounts, run the [updateMemberDetectors](../APIReference/API_UpdateMemberDetectors.md "../APIReference/API_UpdateMemberDetectors.md") API operation using your own
-  `detector ID`.
-- The following example shows how you can enable EKS Audit Log Monitoring for a single member
-  account. To disable it, replace `ENABLED` with `DISABLED`.
+1. In the navigation pane, choose **Protection Plans**.
 
-To find the `detectorId` for your account and current Region, see the
-**Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
-or run the [ListDetectors](../APIReference/API_ListDetectors.md "../APIReference/API_ListDetectors.md") API.
+1. Choose **Configure all enablements**. Under **EKS Audit Logs**, under the **Active member accounts** section, choose **Actions**.
 
-```
-aws guardduty update-member-detectors --detector-id `12abc34d567e8fa901bc2d34e56789f0` --account-ids `111122223333` --features '[{"name": "EKS_AUDIT_LOGS", "status": "`ENABLED`"}]'
-```
+1. From the **Actions** dropdown menu, choose **Enable for all existing active member accounts**.
 
-###### Note
+1. Choose **Save**.
 
+------
+#### [ API/CLI ]
++ To selectively enable or disable EKS Audit Log Monitoring for your member accounts, run the [updateMemberDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateMemberDetectors.html) API operation using your own {{detector ID}}. 
++ The following example shows how you can enable EKS Audit Log Monitoring for a single member account. To disable it, replace `ENABLED` with `DISABLED`. 
+
+  To find the `detectorId` for your account and current Region, see the **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/) console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
+
+  ```
+  aws guardduty update-member-detectors --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} --account-ids {{111122223333}} --features '[{"name": "EKS_AUDIT_LOGS", "status": "{{ENABLED}}"}]'
+  ```
+**Note**  
 You can also pass a list of account IDs separated by a space.
++ When the code has successfully executed, it returns an empty list of `UnprocessedAccounts`. If there were any problems changing the detector settings for an account, that account ID is listed along with a summary of the issue.
 
-- When the code has successfully executed, it returns an empty list of
-  `UnprocessedAccounts`. If there were any problems changing the detector
-  settings for an account, that account ID is listed along with a summary of the
-  issue.
+------
 
-The newly added member accounts must **Enable** GuardDuty before selecting
-configuring GuardDuty-initiated malware scan. The member accounts managed by invitation can configure
-GuardDuty-initiated malware scan manually for their accounts. For more information, see [Step 3 - Accept an invitation](guardduty_become_console.md#guardduty_accept_invite_proc "guardduty_become_console.md#guardduty_accept_invite_proc").
+## Auto-enable EKS Audit Log Monitoring for new member accounts
+<a name="k8s-auto-enable-new-member-org"></a>
 
-Choose your preferred access method to enable EKS Audit Log Monitoring for new accounts that join your
-organization.
+The newly added member accounts must **Enable** GuardDuty before selecting configuring GuardDuty-initiated malware scan. The member accounts managed by invitation can configure GuardDuty-initiated malware scan manually for their accounts. For more information, see [Step 3 - Accept an invitation](guardduty_become_console.md#guardduty_accept_invite_proc).
 
-Console
-The delegated GuardDuty administrator account can enable EKS Audit Log Monitoring for new member accounts in an organization, using
-either the **EKS Audit Log Monitoring** or **Accounts** page.
+Choose your preferred access method to enable EKS Audit Log Monitoring for new accounts that join your organization.
 
-###### To auto-enable EKS Audit Log Monitoring for new member accounts
+------
+#### [ Console ]
 
-1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
+The delegated GuardDuty administrator account can enable EKS Audit Log Monitoring for new member accounts in an organization, using either the **EKS Audit Log Monitoring** or **Accounts** page.
 
-Make sure to use the delegated GuardDuty administrator account credentials. 2. Do one of the following:
+**To auto-enable EKS Audit Log Monitoring for new member accounts**
 
-    * Using the **Protection Plans** page:
+1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/).
 
+   Make sure to use the delegated GuardDuty administrator account credentials.
 
+1. Do one of the following:
+   + Using the **Protection Plans** page:
 
+     1. In the navigation pane, choose **Protection Plans**.
 
-    	1. In the navigation pane, choose **Protection Plans**.
-    	2. Choose **Configure all enablements**. Under
-    	 **EKS Audit Logs**, configure the auto-enable setting.
-    	3. Choose **Configure accounts manually**.
-    	4. Select **Automatically enable for new member accounts**. This
-    	 step ensures that whenever a new account joins your organization, EKS Audit Log Monitoring will be
-    	 automatically enabled for their account. Only the organization delegated GuardDuty administrator account can modify this
-    	 configuration.
-    	5. Choose **Save**.
-    * Using the **Accounts** page:
+     1. Choose **Configure all enablements**. Under **EKS Audit Logs**, configure the auto-enable setting.
 
+     1. Choose **Configure accounts manually**.
 
+     1. Select **Automatically enable for new member accounts**. This step ensures that whenever a new account joins your organization, EKS Audit Log Monitoring will be automatically enabled for their account. Only the organization delegated GuardDuty administrator account can modify this configuration.
 
+     1. Choose **Save**.
+   + Using the **Accounts** page:
 
-    	1. In the navigation pane, choose **Accounts**.
-    	2. On the **Accounts** page, choose **Auto-enable**
-    	 preferences.
-    	3. In the **Manage auto-enable preferences** window, select
-    	 **Enable for new accounts** under
-    	 **EKS Audit Log Monitoring**.
-    	4. Choose **Save**.
+     1. In the navigation pane, choose **Accounts**.
 
-API/CLI
+     1. On the **Accounts** page, choose **Auto-enable** preferences.
 
-- To selectively enable or disable EKS Audit Log Monitoring for your new accounts, run the [UpdateOrganizationConfiguration](../APIReference/API_UpdateOrganizationConfiguration.md "../APIReference/API_UpdateOrganizationConfiguration.md") API operation using your own
-  `detector ID`.
-- The following example shows how you can enable EKS Audit Log Monitoring for the new members that
-  join your organization. You can also pass a list of account IDs separated by a
-  space.
+     1. In the **Manage auto-enable preferences** window, select **Enable for new accounts** under **EKS Audit Log Monitoring**.
 
-To find the `detectorId` for your account and current Region, see the
-**Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
-or run the [ListDetectors](../APIReference/API_ListDetectors.md "../APIReference/API_ListDetectors.md") API.
+     1. Choose **Save**.
 
-```
-aws guardduty update-organization-configuration --detector-id `12abc34d567e8fa901bc2d34e56789f0` --auto-enable --features '[{"Name": "EKS_AUDIT_LOGS", "AutoEnable": "NEW"}]'
-```
+------
+#### [ API/CLI ]
++ To selectively enable or disable EKS Audit Log Monitoring for your new accounts, run the [UpdateOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateOrganizationConfiguration.html) API operation using your own {{detector ID}}. 
++ The following example shows how you can enable EKS Audit Log Monitoring for the new members that join your organization. You can also pass a list of account IDs separated by a space.
 
-Choose your preferred access method to enable or disable EKS Audit Log Monitoring for selective member
-accounts in your organization.
+  To find the `detectorId` for your account and current Region, see the **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/) console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 
-Console
+  ```
+  aws guardduty update-organization-configuration --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} --auto-enable --features '[{"Name": "EKS_AUDIT_LOGS", "AutoEnable": "NEW"}]'
+  ```
 
-1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
+------
 
-Make sure to use the delegated GuardDuty administrator account credentials. 2. In the navigation pane, choose **Accounts**.
+## Selectively enable or disable EKS Audit Log Monitoring for member accounts
+<a name="k8s-enable-disable-selective-members-org"></a>
 
-On the **Accounts** page, review the
-**EKS Audit Log Monitoring** column for the status of your member account. 3. ###### To enable or disable EKS Audit Log Monitoring
+Choose your preferred access method to enable or disable EKS Audit Log Monitoring for selective member accounts in your organization.
 
-Select an account that you want to configure for EKS Audit Log Monitoring. You can select multiple
-accounts at a time. Under the **Edit Protection Plans** dropdown, choose
-**EKS Audit Log Monitoring**, and then choose the appropriate option.
+------
+#### [ Console ]
 
-API/CLI
-To selectively enable or disable EKS Audit Log Monitoring for your member accounts, invoke the
-[updateMemberDetectors](../APIReference/API_UpdateMemberDetectors.md "../APIReference/API_UpdateMemberDetectors.md") API operation using your own
-`detector ID`.
+1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/).
 
-The following example shows how you can enable EKS Audit Log Monitoring for a single member account.
-To disable it, replace `ENABLED` with `DISABLED`. You can also pass a
-list of account IDs separated by a space.
+   Make sure to use the delegated GuardDuty administrator account credentials.
 
-To find the `detectorId` for your account and current Region, see the
-**Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
-or run the [ListDetectors](../APIReference/API_ListDetectors.md "../APIReference/API_ListDetectors.md") API.
+1. In the navigation pane, choose **Accounts**.
+
+   On the **Accounts** page, review the **EKS Audit Log Monitoring** column for the status of your member account. 
+
+1. 
+
+**To enable or disable EKS Audit Log Monitoring**
+
+   Select an account that you want to configure for EKS Audit Log Monitoring. You can select multiple accounts at a time. Under the **Edit Protection Plans** dropdown, choose **EKS Audit Log Monitoring**, and then choose the appropriate option.
+
+------
+#### [ API/CLI ]
+
+To selectively enable or disable EKS Audit Log Monitoring for your member accounts, invoke the [updateMemberDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateMemberDetectors.html) API operation using your own {{detector ID}}. 
+
+The following example shows how you can enable EKS Audit Log Monitoring for a single member account. To disable it, replace `ENABLED` with `DISABLED`. You can also pass a list of account IDs separated by a space.
+
+To find the `detectorId` for your account and current Region, see the **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/) console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 
 ```
-aws guardduty update-member-detectors --detector-id `12abc34d567e8fa901bc2d34e56789f0` --accountids `111122223333` --features '[{"Name": "EKS_AUDIT_LOGS", "Status": "`ENABLED`"}]'
+aws guardduty update-member-detectors --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} --accountids {{111122223333}} --features '[{"Name": "EKS_AUDIT_LOGS", "Status": "{{ENABLED}}"}]'
 ```
+
+------

@@ -1,106 +1,57 @@
+
+
 # Amazon GuardDuty Regions and endpoints
+<a name="guardduty_regions"></a>
 
-To view the AWS Regions where Amazon GuardDuty is available, see [Amazon GuardDuty endpoints](../../../general/latest/gr/guardduty.md "../../../general/latest/gr/guardduty.md") in the
-_Amazon Web Services General Reference_.
+To view the AWS Regions where Amazon GuardDuty is available, see [Amazon GuardDuty endpoints](https://docs.aws.amazon.com/general/latest/gr/guardduty.html) in the *Amazon Web Services General Reference*.
 
-We recommend that you enable GuardDuty in all supported AWS Regions. This enables GuardDuty to
-generate findings about unauthorized or unusual activity even in Regions that you are not
-actively using. This also allows GuardDuty to monitor AWS CloudTrail events for the supported
-AWS Regions, its ability to detect activity that involves global services is
-reduced.
+We recommend that you enable GuardDuty in all supported AWS Regions. This enables GuardDuty to generate findings about unauthorized or unusual activity even in Regions that you are not actively using. This also allows GuardDuty to monitor AWS CloudTrail events for the supported AWS Regions, its ability to detect activity that involves global services is reduced.
 
 ## Region-specific feature availability
+<a name="gd-regional-feature-availability"></a>
 
 A list of regional differences to specify the availability of GuardDuty features.
 
-**Expanded filterable fields for CreateFilter and UpdateFilter**
+**Expanded filterable fields for CreateFilter and UpdateFilter**  
+The [additional filterable fields](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria) for suppression rules and filters are available only in the AWS partition (`aws`). In other partitions, you can continue to use the console-supported fields.
 
-The [additional filterable fields](guardduty_filter-findings.md#filter_criteria "guardduty_filter-findings.md#filter_criteria") for
-suppression rules and filters are available only in the AWS partition
-(`aws`). In other partitions, you can continue to use the
-console-supported fields.
+**ListFindings and GetFindingsStatistics APIs**  
+The [GetFindingsStatistics](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetFindingsStatistics.html) and [ListFindings](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListFindings.html) APIs have a temporary `consoleOnly` flag. When you use any or both of these APIs, the `consoleOnly` flag means that the API can fetch results to a maximum limit of 1000.
 
-**ListFindings and GetFindingsStatistics APIs**
+**Malware Protection for EC2**  
+GuardDuty supports the [Malware Protection for EC2](malware-protection.md) feature in the [AWS Dedicated Local Zones](https://aws.amazon.com/dedicatedlocalzones).
 
-The [GetFindingsStatistics](../APIReference/API_GetFindingsStatistics.md "../APIReference/API_GetFindingsStatistics.md") and [ListFindings](../APIReference/API_ListFindings.md "../APIReference/API_ListFindings.md") APIs have a temporary
-`consoleOnly` flag. When you use any or both of these APIs,
-the `consoleOnly` flag means that the API can fetch results to a
-maximum limit of 1000.
-
-**Malware Protection for EC2**
-
-GuardDuty supports the [Malware Protection for EC2](malware-protection.md "malware-protection.md") feature in the [AWS Dedicated
-Local Zones](https://aws.amazon.com/dedicatedlocalzones "https://aws.amazon.com/dedicatedlocalzones").
-
-**RDS Protection**
-
-RDS Protection is not supported in Asia Pacific (Taipei) (`ap-east-2`) Region.
-
+**RDS Protection**  
+RDS Protection is not supported in Asia Pacific (Taipei) (`ap-east-2`) Region.  
 RDS Protection is not supported in the AWS Dedicated Local Zones.
 
-**IAM finding type – [CredentialAccess:IAMUser/CompromisedCredentials](guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials "guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials")**
+**IAM finding type – [CredentialAccess:IAMUser/CompromisedCredentials](guardduty_finding-types-iam.md#credentialaccess-iam-compromisedcredentials)**  
+The CredentialAccess:IAMUser/CompromisedCredentials finding type is not supported in following regions.      
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html)
 
-The CredentialAccess:IAMUser/CompromisedCredentials finding type is not supported
-in following regions.
+**IAM finding type – [DefenseEvasion:IAMUser/BedrockLoggingDisabled](guardduty_finding-types-iam.md#defenseevasion-iam-bedrockloggingdisabled)**  
+The DefenseEvasion:IAMUser/BedrockLoggingDisabled finding type is not supported in Asia Pacific (Hong Kong) (`ap-east-1`) Region.
 
-| AWS Region             | Region code    |
-| ---------------------- | -------------- |
-| AWS GovCloud (US-West) | us-gov-west-1  |
-| AWS GovCloud (US-East) | us-gov-east-1  |
-| China (Beijing)        | cn-north-1     |
-| China (Ningxia)        | cn-northwest-1 |
+**AI Protection finding types**  
+The [Impact:IAMUser/AnomalousModelInvocation](findings-ai-protection.md#ai-protection-anomalousmodelinvocation) and [Impact:IAMUser/CostHarvesting](findings-ai-protection.md#ai-protection-costharvesting) finding types require Amazon Bedrock or Amazon SageMaker AI. In AWS Regions where Amazon Bedrock isn't available, GuardDuty generates these finding types from Amazon SageMaker AI model invocations only. For the Regions where Amazon Bedrock is available, see [Amazon Bedrock supported AWS Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html) in the *Amazon Bedrock User Guide*.  
+The [Impact:IAMUser/PromptInjection.Direct](findings-ai-protection.md#ai-protection-promptinjection-direct) finding type depends on Amazon Bedrock Guardrails, which isn't available in all AWS Regions. This finding type is supported only in the Regions where Amazon Bedrock Guardrails is available. For the current list, see [Supported Regions for Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-supported.html) in the *Amazon Bedrock User Guide*.
 
-**IAM finding type – [DefenseEvasion:IAMUser/BedrockLoggingDisabled](guardduty_finding-types-iam.md#defenseevasion-iam-bedrockloggingdisabled "guardduty_finding-types-iam.md#defenseevasion-iam-bedrockloggingdisabled")**
+**General API support**  
+The following APIs in the Amazon GuardDuty API Reference may have regional differences because of the unavailability of some of the data sources or features in previously specified AWS Regions:  
++ [CreateDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateDetector.html) 
++ [UpdateDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateDetector.html) 
++ [UpdateMemberDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateMemberDetectors.html) 
++ [UpdateOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateOrganizationConfiguration.html) 
++ [GetDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetDetector.html) 
++ [GetMemberDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMemberDetectors.html) 
++ [DescribeOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html) 
 
-The DefenseEvasion:IAMUser/BedrockLoggingDisabled finding type is not supported
-in Asia Pacific (Hong Kong) (`ap-east-1`) Region.
+**Amazon EC2 finding types – [DefenseEvasion:EC2/UnusualDoHActivity](guardduty_finding-types-ec2.md#defenseevasion-ec2-unsualdohactivity) and [DefenseEvasion:EC2/UnusualDoTActivity](guardduty_finding-types-ec2.md#defenseevasion-ec2-unusualdotactivity)**  
+The following table shows the AWS Regions where GuardDuty is available but these two Amazon EC2 finding types are not yet supported.       
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html)
 
-**AI Protection finding types**
+**AWS GovCloud (US) Regions**  
+For latest information, see [Amazon GuardDuty](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-guardduty.html) in the *AWS GovCloud (US) User Guide*.
 
-The [Impact:IAMUser/AnomalousModelInvocation](findings-ai-protection.md#ai-protection-anomalousmodelinvocation "findings-ai-protection.md#ai-protection-anomalousmodelinvocation") and [Impact:IAMUser/CostHarvesting](findings-ai-protection.md#ai-protection-costharvesting "findings-ai-protection.md#ai-protection-costharvesting") finding types require Amazon Bedrock
-or Amazon SageMaker AI. In AWS Regions where Amazon Bedrock isn't available, GuardDuty generates
-these finding types from Amazon SageMaker AI model invocations only. For the Regions
-where Amazon Bedrock is available, see [Amazon Bedrock supported
-AWS Regions](../../../bedrock/latest/userguide/models-regions.md "../../../bedrock/latest/userguide/models-regions.md") in the _Amazon Bedrock User Guide_.
-
-The [Impact:IAMUser/PromptInjection.Direct](findings-ai-protection.md#ai-protection-promptinjection-direct "findings-ai-protection.md#ai-protection-promptinjection-direct") finding type
-depends on Amazon Bedrock Guardrails, which isn't available in all AWS Regions. This
-finding type is supported only in the Regions where Amazon Bedrock Guardrails is
-available. For the
-current list, see [Supported
-Regions for Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-supported.md "../../../bedrock/latest/userguide/guardrails-supported.md") in the _Amazon Bedrock User
-Guide_.
-
-**General API support**
-
-The following APIs in the Amazon GuardDuty API Reference may have regional differences
-because of the unavailability of some of the data sources or features in
-previously specified AWS Regions:
-
-- [CreateDetector](../APIReference/API_CreateDetector.md "../APIReference/API_CreateDetector.md")
-- [UpdateDetector](../APIReference/API_UpdateDetector.md "../APIReference/API_UpdateDetector.md")
-- [UpdateMemberDetectors](../APIReference/API_UpdateMemberDetectors.md "../APIReference/API_UpdateMemberDetectors.md")
-- [UpdateOrganizationConfiguration](../APIReference/API_UpdateOrganizationConfiguration.md "../APIReference/API_UpdateOrganizationConfiguration.md")
-- [GetDetector](../APIReference/API_GetDetector.md "../APIReference/API_GetDetector.md")
-- [GetMemberDetectors](../APIReference/API_GetMemberDetectors.md "../APIReference/API_GetMemberDetectors.md")
-- [DescribeOrganizationConfiguration](../APIReference/API_DescribeOrganizationConfiguration.md "../APIReference/API_DescribeOrganizationConfiguration.md")
-
-**Amazon EC2 finding types – [DefenseEvasion:EC2/UnusualDoHActivity](guardduty_finding-types-ec2.md#defenseevasion-ec2-unsualdohactivity "guardduty_finding-types-ec2.md#defenseevasion-ec2-unsualdohactivity") and [DefenseEvasion:EC2/UnusualDoTActivity](guardduty_finding-types-ec2.md#defenseevasion-ec2-unusualdotactivity "guardduty_finding-types-ec2.md#defenseevasion-ec2-unusualdotactivity")**
-
-The following table shows the AWS Regions where GuardDuty is available but
-these two Amazon EC2 finding types are not yet supported.
-
-| AWS Region             | Region code    |
-| ---------------------- | -------------- |
-| Asia Pacific (Seoul)   | ap-northeast-2 |
-| Asia Pacific (Osaka)   | ap-northeast-3 |
-| Asia Pacific (Jakarta) | ap-southeast-3 |
-
-**AWS GovCloud (US) Regions**
-
-For latest information, see [Amazon GuardDuty](../../../govcloud-us/latest/UserGuide/govcloud-guardduty.md "../../../govcloud-us/latest/UserGuide/govcloud-guardduty.md") in the
-_AWS GovCloud (US) User Guide_.
-
-**China Regions**
-
-For latest information, see [Feature availability and implementation differences](https://docs.amazonaws.cn/en_us/aws/latest/userguide/guardduty.html#feature-diff "https://docs.amazonaws.cn/en_us/aws/latest/userguide/guardduty.html#feature-diff").
+**China Regions**  
+For latest information, see [Feature availability and implementation differences](https://docs.amazonaws.cn/en_us/aws/latest/userguide/guardduty.html#feature-diff).
