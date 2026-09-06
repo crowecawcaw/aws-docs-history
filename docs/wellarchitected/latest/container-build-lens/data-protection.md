@@ -1,24 +1,17 @@
+
+
 # Data protection
+<a name="data-protection"></a>
 
-| CONTAINER\_BUILD\_SEC\_05: How do you handle data within your<br>containerized applications? |
-| -------------------------------------------------------------------------------------------- |
-|                                                                                              |
 
-**Do not hardcode sensitive data into your container image**
+| CONTAINER\_BUILD\_SEC\_05: How do you handle data within your containerized applications? | 
+| --- | 
+|   | 
 
-With respect to handling data in the build and design of the
-container, it is important that no sensitive information is
-stored in the container itself. For example, user credentials
-should never be hardcoded into your container image. Instead,
-consider using a secret management protocol that is compatible
-with the container orchestration system being used to manage
-the container workloads.
+** Do not hardcode sensitive data into your container image**
 
-**Ensure that persistent data
-is stored outside of the container**
+ With respect to handling data in the build and design of the container, it is important that no sensitive information is stored in the container itself. For example, user credentials should never be hardcoded into your container image. Instead, consider using a secret management protocol that is compatible with the container orchestration system being used to manage the container workloads. 
 
-Also, if your containerized application writes or consumes
-persistent data, ensure that data is stored outside of the
-container. Since containers are intended to be ephemeral, use
-volumes to store persistent data that will remain intact long
-after a container’s lifecycle has completed.
+ **Ensure that persistent data is stored outside of the container** 
+
+ Also, if your containerized application writes or consumes persistent data, ensure that data is stored outside of the container. Since containers are intended to be ephemeral, use volumes to store persistent data that will remain intact long after a container’s lifecycle has completed. 

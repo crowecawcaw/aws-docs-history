@@ -1,12 +1,13 @@
+
+
 # Failure management
+<a name="failure-management"></a>
 
-| CONTAINER\_BUILD\_REL\_05: How do you monitor the health of a<br>container? |
-| --------------------------------------------------------------------------- |
-|                                                                             |
 
-**Plan for health checks in
-all containers builds and deployments**
+| CONTAINER\_BUILD\_REL\_05: How do you monitor the health of a container? | 
+| --- | 
+|   | 
 
-It is common to initially develop container applications without thinking of the availability of the services in the container. When running container applications, there is no way of knowing whether the services running within a container are up or not. Adding a health check or probe to the container provides testing of the services in the container. Health check options are available in Docker using the `HEALTHCHECK` command, however, `containerd` does not have this option.
+ **Plan for health checks in all containers builds and deployments** 
 
-Examine the orchestrations systems health check and probing options. This could include liveness and readiness probes within Amazon EKS or health checks within a definition file within Amazon ECS.
+It is common to initially develop container applications without thinking of the availability of the services in the container. When running container applications, there is no way of knowing whether the services running within a container are up or not. Adding a health check or probe to the container provides testing of the services in the container. Health check options are available in Docker using the `HEALTHCHECK` command, however, `containerd` does not have this option. Examine the orchestrations systems health check and probing options. This could include liveness and readiness probes within Amazon EKS or health checks within a definition file within Amazon ECS.

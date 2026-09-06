@@ -1,23 +1,20 @@
+
+
 # Foundations
+<a name="foundations"></a>
 
-| CONTAINER\_BUILD\_REL\_01: How do you limit the amount of CPU and<br>memory a container consumes? |
-| ------------------------------------------------------------------------------------------------- |
-|                                                                                                   |
 
-**Use RAM and CPU limits**
+| CONTAINER\_BUILD\_REL\_01: How do you limit the amount of CPU and memory a container consumes? | 
+| --- | 
+|   | 
 
-By default, a running container will use the full RAM and CPU
-of the host system. This can lead to performance bottlenecks
-on the host and put your workload in a degraded state.
+** Use RAM and CPU limits**
 
-Setting RAM and CPU limits on your running container will
-improve the availability of the host system and the workload.
-In Amazon ECS, update the CPU and memory parameters in the
-task definition to limit the CPU and RAM a container will
-consume.
+ By default, a running container will use the full RAM and CPU of the host system. This can lead to performance bottlenecks on the host and put your workload in a degraded state. 
+
+ Setting RAM and CPU limits on your running container will improve the availability of the host system and the workload. In Amazon ECS, update the CPU and memory parameters in the task definition to limit the CPU and RAM a container will consume. 
 
 ```
-
           {
   "containerDefinitions": [
       {
@@ -38,21 +35,15 @@ consume.
   "memory": "512",
   "executionRoleArn": "arn:aws:iam::012345678910:role/ecsTaskExecutionRole",
   "family": "fargate-task-definition",
-  "networkMode": "awsvpc",
-  "runtimePlatform": {"operatingSystemFamily": "LINUX" },
+  "networkMode": "awsvpc", 
+  "runtimePlatform": {"operatingSystemFamily": "LINUX" }, 
   "requiresCompatibilities": [ "FARGATE" ]
   }
-
 ```
 
-If you are going to run your container workload on Amazon EKS,
-update the CPU and memory values in the resources section of
-your YAML file. The requests and limits keys are used to
-define how much memory and CPU a specific container will
-consume when running.
+ If you are going to run your container workload on Amazon EKS, update the CPU and memory values in the resources section of your YAML file. The requests and limits keys are used to define how much memory and CPU a specific container will consume when running. 
 
 ```
-
          ---
 apiVersion: apps/v1
 kind: Deployment
@@ -82,5 +73,4 @@ spec:
           limits:
             memory: "128Mi"
             CPU: "500m"
-
 ```

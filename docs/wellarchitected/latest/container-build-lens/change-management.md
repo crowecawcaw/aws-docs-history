@@ -1,59 +1,32 @@
+
+
 # Change management
+<a name="change-management"></a>
 
-| CONTAINER\_BUILD\_REL\_04: How do I cascade updates to a parent or<br>base image? |
-| --------------------------------------------------------------------------------- |
-|                                                                                   |
 
-**Create a standardized parent
-image**
+| CONTAINER\_BUILD\_REL\_04: How do I cascade updates to a parent or base image? | 
+| --- | 
+|   | 
 
-Based on a lean parent image, a team- or enterprise-wide image
-can be created that provides optimizations to all teams. This
-could also be multiple parent images depending on the
-containerized application frameworks and languages. An
-organization could potentially start with a lean image
-containing company-specific configurations, and teams can add
-additional software that is necessary to run the different
-applications. This could be, for example, a Java Runtime
-Edition (JRE) or a specific Python version. One disadvantage
-of this solution is that if a parent image is changed, all
-images that use it - directly or indirectly - must also be
-recreated.
+ **Create a standardized parent image** 
 
-**Use an image hierarchy
-approach**
+ Based on a lean parent image, a team- or enterprise-wide image can be created that provides optimizations to all teams. This could also be multiple parent images depending on the containerized application frameworks and languages. An organization could potentially start with a lean image containing company-specific configurations, and teams can add additional software that is necessary to run the different applications. This could be, for example, a Java Runtime Edition (JRE) or a specific Python version. One disadvantage of this solution is that if a parent image is changed, all images that use it - directly or indirectly - must also be recreated. 
 
-Try to maintain an image hierarchy in your container image
-strategy. A hierarchy or layered approach to container images
-helps with maintenance, cascading of updates to base images,
-and allows for the reuse of container images. In addition, it
-helps maintain the security posture of the broader
-organization by using the same images that have the security
-controls image managed by a central team. Operations like
-patching of a parent image should trigger a rebuild with
-changes to child images. As a best practice, separate images
-into the following categories:
+ **Use an image hierarchy approach** 
 
-- Intermediate base image
-- Application server
-- Application source code or binary
-  The intermediate base image is a small and lightweight base OS image. See the
-  following example of a base image, which is the Docker Hub's official public alpine image.
+ Try to maintain an image hierarchy in your container image strategy. A hierarchy or layered approach to container images helps with maintenance, cascading of updates to base images, and allows for the reuse of container images. In addition, it helps maintain the security posture of the broader organization by using the same images that have the security controls image managed by a central team. Operations like patching of a parent image should trigger a rebuild with changes to child images. As a best practice, separate images into the following categories: 
++  Intermediate base image 
++  Application server 
++  Application source code or binary 
 
-###### Note
+ The intermediate base image is a small and lightweight base OS image. See the following example of a base image, which is the Docker Hub's official public alpine image. 
 
-Before using images
-from a public repository, take steps to review the image for
-security vulnerabilities.
+**Note**  
+ Before using images from a public repository, take steps to review the image for security vulnerabilities. 
 
-`FROM alpine:3.13`
+ `FROM alpine:3.13` 
 
-The application server image is a specific image of the platform application to run
-the developer's code but does not contain the application's binary code itself. See the
-following example of an application server image, which is Docker Hub's official NGINX
-image. It contains the base image of `alpine:1.13` and the NGINX platform
-application. The following Dockerfile is built using `docker build -t
- nginx:1.20.1-alpine`.
+ The application server image is a specific image of the platform application to run the developer's code but does not contain the application's binary code itself. See the following example of an application server image, which is Docker Hub's official NGINX image. It contains the base image of `alpine:1.13` and the NGINX platform application. The following Dockerfile is built using `docker build -t nginx:1.20.1-alpine`. 
 
 ```
 FROM alpine:3.13
@@ -62,26 +35,15 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off"]
 ```
 
-Lastly, the application binary created by the developer should reside in the
-container image. The container image comprises all the developer's source code to run
-their application. The following example uses the application server image, and copies the
-application code into the image.
+ Lastly, the application binary created by the developer should reside in the container image. The container image comprises all the developer's source code to run their application. The following example uses the application server image, and copies the application code into the image. 
 
 ```
 FROM nginx:1.20.1-alpine
 COPY . /usr/share/nginx/html
 ```
 
-**Use source control and
-tagging on all container images**
+ **Use source control and tagging on all container images** 
 
-Maintain the Dockerfile for all container images in a source
-control repository in the image hierarchy and ensure proper
-tagging of container images. In addition, use a contentious
-integration process to create a direct correlation between the
-container's images in source control and the image tag. This
-best practice is critical to determine what changed in the
-container image from a prior release.
+ Maintain the Dockerfile for all container images in a source control repository in the image hierarchy and ensure proper tagging of container images. In addition, use a contentious integration process to create a direct correlation between the container's images in source control and the image tag. This best practice is critical to determine what changed in the container image from a prior release. 
 
-For example, tag `1.0` indicates that this tag will always point
-to the latest patch release `1.0.1`, `1.0.2`, `1.0.3`, and so on.
+ For example, tag `1.0` indicates that this tag will always point to the latest patch release `1.0.1`, `1.0.2`, `1.0.3`, and so on. 
