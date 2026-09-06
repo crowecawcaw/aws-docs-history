@@ -1,49 +1,27 @@
+
+
 # Add a destination for your Sidewalk end device
+<a name="iot-sidewalk-qsg-destination"></a>
 
-###### Note
+**Note**  
+For Bluetooth Low Energy based location, AWS IoT returns location coordinates based on the approximate location of nearby Sidewalk Gateways that are connected to Amazon Sidewalk and have the Community Finding feature enabled. Gateway Location Data is AWS Content and is provided to you solely for the purpose of assisting you in locating your devices that are connected to Amazon Sidewalk, and you must only use the data for that purpose. You must only use and access location data via the interface and functionality that we generally make available to you, and you must not attempt to re-identify, reverse engineer, or re-map any Gateway location data provided by us to you.
 
-For Bluetooth Low Energy based location, AWS IoT returns location coordinates
-based on the approximate location of nearby Sidewalk Gateways that are
-connected to Amazon Sidewalk and have the Community Finding feature enabled.
-Gateway Location Data is AWS Content and is provided to you solely for
-the purpose of assisting you in locating your devices that are connected
-to Amazon Sidewalk, and you must only use the data for that purpose. You must
-only use and access location data via the interface and functionality
-that we generally make available to you, and you must not attempt to
-re-identify, reverse engineer, or re-map any Gateway location data provided
-by us to you.
+AWS IoT Core for Amazon Sidewalk destinations describe the AWS IoT rule or MQTT topic that processes a device's data for use by other AWS services and applications. Use AWS IoT rules or MQTT topics to process the data and device messages and route it to other services.
 
-AWS IoT Core for Amazon Sidewalk destinations describe the AWS IoT rule or MQTT topic that processes a
-device's data for use by other AWS services and applications. Use AWS IoT rules or MQTT
-topics to process the data and device messages and route it to other services.
+Because most Sidewalk devices don't send data to AWS IoT Core for Amazon Sidewalk in a format that can be used by AWS services, an AWS IoT rule must process it first. The AWS IoT rule contains the SQL statement that interprets the device's data and the topic rule actions that send the result of the SQL statement to the services that will use it.
 
-Because most Sidewalk devices don't send data to AWS IoT Core for Amazon Sidewalk in a format that can
-be used by AWS services, an AWS IoT rule must process it first. The AWS IoT rule contains
-the SQL statement that interprets the device's data and the topic rule actions that send
-the result of the SQL statement to the services that will use it.
-
-The AWS IoT rule processes binary messages received from a device and converts the
-messages to other formats that make other services easy to use them. Destinations
-associate your Sidewalk end device with the rule that processes the device data
-to send to other AWS services. For more information about rules, see [Rules for
-AWS IoT](../../../iot/latest/developerguide/iot-rules.md "../../../iot/latest/developerguide/iot-rules.md") in the _AWS IoT Core documentation_.
+The AWS IoT rule processes binary messages received from a device and converts the messages to other formats that make other services easy to use them. Destinations associate your Sidewalk end device with the rule that processes the device data to send to other AWS services. For more information about rules, see [Rules for AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) in the *AWS IoT Core documentation*.
 
 ## How to create and use a destination
+<a name="iot-sidewalk-destination-how"></a>
 
-1. Create an AWS IoT rule and an IAM role for the destination. The AWS IoT rule
-   specifies the rules that will process the device's data and routes it for
-   use by other AWS services and your applications. The IAM role grants
-   permission to access the rule.
-2. Create a destination for your Sidewalk devices using the
-   `CreateDestination` API operation. Specify the destination
-   name, rule name, role name, and any optional parameters. The API will return
-   a unique identifier for the destination, which you can specify when adding
-   your end device to AWS IoT Core for Amazon Sidewalk.
+1. Create an AWS IoT rule and an IAM role for the destination. The AWS IoT rule specifies the rules that will process the device's data and routes it for use by other AWS services and your applications. The IAM role grants permission to access the rule.
 
-The following shows how to create a destination, and an AWS IoT rule and IAM role for
-the destination.
+1. Create a destination for your Sidewalk devices using the `CreateDestination` API operation. Specify the destination name, rule name, role name, and any optional parameters. The API will return a unique identifier for the destination, which you can specify when adding your end device to AWS IoT Core for Amazon Sidewalk.
 
-###### Topics
+The following shows how to create a destination, and an AWS IoT rule and IAM role for the destination.
 
-- [Create a destination for your Sidewalk device](iot-sidewalk-destination-create.md "iot-sidewalk-destination-create.md")
-- [Create an IAM role and IoT rule for your destination](sidewalk-destination-rule-role.md "sidewalk-destination-rule-role.md")
+**Topics**
++ [How to create and use a destination](#iot-sidewalk-destination-how)
++ [Create a destination for your Sidewalk device](iot-sidewalk-destination-create.md)
++ [Create an IAM role and IoT rule for your destination](sidewalk-destination-rule-role.md)

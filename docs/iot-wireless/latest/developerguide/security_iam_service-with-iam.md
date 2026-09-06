@@ -1,130 +1,109 @@
+
+
 # How AWS IoT Wireless works with IAM
+<a name="security_iam_service-with-iam"></a>
 
-Before you use IAM to manage access to AWS IoT Wireless, you should understand what IAM
-features are available to use with AWS IoT Wireless. To get a high-level view of how AWS IoT Wireless and
-other AWS services work with IAM, see [AWS Services That
-Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
+Before you use IAM to manage access to AWS IoT Wireless, you should understand what IAM features are available to use with AWS IoT Wireless. To get a high-level view of how AWS IoT Wireless and other AWS services work with IAM, see [AWS Services That Work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
-IAM features you can use with AWS IoT Wireless| IAM feature | AWS IoT Wireless support |
-| --- | --- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | No |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
-| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | No |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Yes |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Yes |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | No |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | No |
 
-###### Topics
+**IAM features you can use with AWS IoT Wireless**  
 
-- [AWS IoT Wireless Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Resource-based policies within AWS IoT Wireless](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")
-- [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
-- [Condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys")
-- [Access control lists (ACLs)](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
-- [ABAC with AWS IoT Wireless](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Using temporary credentials with AWS IoT Wireless](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
-- [Cross-service principal permissions for AWS IoT Wireless](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")
-- [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")
-- [Service-linked roles for AWS IoT Wireless](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
+| IAM feature | AWS IoT Wireless support | 
+| --- | --- | 
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies) |  Yes | 
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies) |  No  | 
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions) |  Yes | 
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources) |  Yes | 
+| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys) |  Yes | 
+| [ACLs](#security_iam_service-with-iam-acls) |  No  | 
+| [ABAC (tags in policies)](#security_iam_service-with-iam-tags) |  Yes | 
+| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds) |  Yes | 
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions) |  Yes | 
+| [Service roles](#security_iam_service-with-iam-roles-service) |  No  | 
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked) |  No  | 
+
+**Topics**
++ [AWS IoT Wireless Identity-based policies](#security_iam_service-with-iam-id-based-policies)
++ [Resource-based policies within AWS IoT Wireless](#security_iam_service-with-iam-resource-based-policies)
++ [Policy actions](#security_iam_service-with-iam-id-based-policies-actions)
++ [Policy resources](#security_iam_service-with-iam-id-based-policies-resources)
++ [Condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys)
++ [Access control lists (ACLs)](#security_iam_service-with-iam-acls)
++ [ABAC with AWS IoT Wireless](#security_iam_service-with-iam-tags)
++ [Using temporary credentials with AWS IoT Wireless](#security_iam_service-with-iam-roles-tempcreds)
++ [Cross-service principal permissions for AWS IoT Wireless](#security_iam_service-with-iam-principal-permissions)
++ [Service roles](#security_iam_service-with-iam-roles-service)
++ [Service-linked roles for AWS IoT Wireless](#security_iam_service-with-iam-roles-service-linked)
 
 ## AWS IoT Wireless Identity-based policies
+<a name="security_iam_service-with-iam-id-based-policies"></a>
 
-**Supports identity-based policies:**
+**Supports identity-based policies:** Yes
 
-Yes
+Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*.
 
-Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These
-policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
-policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
-_IAM User Guide_.
-
-With IAM identity-based policies, you can specify allowed or denied actions and
-resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a
-JSON policy, see [IAM JSON
-policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
-_IAM User Guide_.
+With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a JSON policy, see [IAM JSON policy elements reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*.
 
 ### Examples
+<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 
-To view examples of AWS IoT Wireless identity-based policies, see [AWS IoT Wireless identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+
+To view examples of AWS IoT Wireless identity-based policies, see [AWS IoT Wireless identity-based policy examples](security_iam_id-based-policy-examples.md).
 
 ## Resource-based policies within AWS IoT Wireless
+<a name="security_iam_service-with-iam-resource-based-policies"></a>
 
-**Supports resource-based policies:**
+**Supports resource-based policies:** No 
 
-No
+Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are IAM *role trust policies* and Amazon S3 *bucket policies*. In services that support resource-based policies, service administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource-based policy. Principals can include accounts, users, roles, federated users, or AWS services.
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are
-IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service
-administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions
-a specified principal can perform on that resource and under what conditions. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals
-can include accounts, users, roles, federated users, or AWS services.
-
-To enable cross-account access, you can specify an entire account or IAM entities
-in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
-_IAM User Guide_.
+To enable cross-account access, you can specify an entire account or IAM entities in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.
 
 ## Policy actions
+<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
-**Supports policy actions:**
+**Supports policy actions:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
+The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-The `Action` element of a JSON policy describes the
-actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
+Policy actions in AWS IoT Wireless use the following prefix before the action: `iotwireless:`. For example, to grant someone permission to list all wireless devices registered in their AWS account with the `ListWirelessDevices` API operation, you include the `iotwireless:ListWirelessDevices` action in their policy. Policy statements must include either an `Action` or `NotAction` element. AWS IoT Wireless defines its own set of actions that describe tasks that you can perform with this service.
 
-Policy actions in AWS IoT Wireless use the following prefix before the action:
-`iotwireless:`. For example, to grant someone permission to list
-all wireless devices registered in their AWS account with the
-`ListWirelessDevices` API operation, you include the
-`iotwireless:ListWirelessDevices` action in their policy. Policy
-statements must include either an `Action` or `NotAction` element.
-AWS IoT Wireless defines its own set of actions that describe tasks that you can perform
-with this service.
-
-To specify multiple actions in a single statement, separate them with commas as
-follows:
+To specify multiple actions in a single statement, separate them with commas as follows:
 
 ```
 "Action": [
-      "iotwireless:*ListMulticastGroups*",
-      "iotwireless:*ListFuotaTasks*"
+      "iotwireless:ListMulticastGroups",
+      "iotwireless:ListFuotaTasks"
    ]
 ```
 
-You can specify multiple actions using wildcards (\*). For example, to specify all
-actions that begin with the word `Get`, include the following action:
+You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Get`, include the following action:
 
 ```
-`"Action": "iotwireless:Get*"`
+"Action": "iotwireless:Get*"
 ```
 
-To see a list of AWS IoT Wireless actions, see [Actions Defined by AWS IoT Wireless](../../../IAM/latest/UserGuide/list_awsiotwireless.md#awsiotwireless-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsiotwireless.md#awsiotwireless-actions-as-permissions") in the
-_IAM User Guide_.
+
+
+To see a list of AWS IoT Wireless actions, see [Actions Defined by AWS IoT Wireless ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsiotwireless.html#awsiotwireless-actions-as-permissions) in the *IAM User Guide*.
 
 ## Policy resources
+<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
-**Supports policy resources:**
+**Supports policy resources:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
-
-The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md"). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
+The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
 
 ```
 "Resource": "*"
 ```
+
+
 
 The AWS IoT Wireless service has the following ARN:
 
@@ -132,137 +111,95 @@ The AWS IoT Wireless service has the following ARN:
 arn:${Partition}:iotwireless:${Region}:${Account}:${Resource}/${Resource-id}
 ```
 
-For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").
+For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
 
-For example, to specify the network analyzer configuration, `NAConfig1`,
-in your statement, use the following ARN:
-
-```
-"Resource": "arn:aws:iotwireless:`us-east-1`:`123456789012`:`NetworkAnalyzerConfiguration/NAConfig1`"
-```
-
-To specify all FUOTA tasks that belong to a specific account, use the wildcard
-(\*):
+For example, to specify the network analyzer configuration, `NAConfig1`, in your statement, use the following ARN:
 
 ```
-"Resource": "arn:aws:iotwireless:`us-east-1`:`123456789012`:`FuotaTask`/*"
+"Resource": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:{{NetworkAnalyzerConfiguration/NAConfig1}}"
 ```
 
-Some AWS IoT Wireless actions, such as those for listing resources, cannot be performed on a
-specific resource. In those cases, you must use the wildcard (\*).
+To specify all FUOTA tasks that belong to a specific account, use the wildcard (\*):
+
+```
+"Resource": "arn:aws:iotwireless:{{us-east-1}}:{{123456789012}}:{{FuotaTask}}/*"
+```
+
+Some AWS IoT Wireless actions, such as those for listing resources, cannot be performed on a specific resource. In those cases, you must use the wildcard (\*).
 
 ```
 "Resource": "*"
 ```
 
-Many AWS IoT Wireless API actions involve multiple resources. For example,
-`AssociateWirelessDeviceWithThing` associates a wireless device with an
-AWS IoT thing, so an IAM user must have permissions to use the device and an IoT thing.
-To specify multiple resources in a single statement, separate the ARNs with commas.
+Many AWS IoT Wireless API actions involve multiple resources. For example, `AssociateWirelessDeviceWithThing` associates a wireless device with an AWS IoT thing, so an IAM user must have permissions to use the device and an IoT thing. To specify multiple resources in a single statement, separate the ARNs with commas. 
 
 ```
 "Resource": [
-      "*WirelessDevice*",
-      "*thing*"
+      "WirelessDevice",
+      "thing"
 ```
 
-To see a list of AWS IoT Wireless resource types and their ARNs, see [Resources Defined by AWS IoT Wireless](../../../IAM/latest/UserGuide/list_awsiotwireless.md#awsiotwireless-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awsiotwireless.md#awsiotwireless-resources-for-iam-policies")
-in the _IAM User Guide_. To learn with which actions you can
-specify the ARN of each resource, see [Actions Defined by AWS IoT Wireless](../../../IAM/latest/UserGuide/list_awsiotwireless.md#awsiotwireless-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsiotwireless.md#awsiotwireless-actions-as-permissions") .
+To see a list of AWS IoT Wireless resource types and their ARNs, see [Resources Defined by AWS IoT Wireless ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsiotwireless.html#awsiotwireless-resources-for-iam-policies) in the *IAM User Guide*. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS IoT Wireless ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsiotwireless.html#awsiotwireless-actions-as-permissions).
 
 ## Condition keys
+<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
-**Supports service-specific policy condition keys:**
+**Supports service-specific policy condition keys:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
+The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
-The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition
-operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md"), such as equals or less than, to match the condition in the
-policy with values in the request. To see all AWS global
-condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
-_IAM User Guide_.
+AWS IoT Wireless defines its own set of condition keys and also supports using some global condition keys. To see all AWS global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*. To see a list of AWS IoT Wireless condition keys, see [Condition Keys for AWS IoT Wireless ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-policy-keys) in the *IAM User Guide*. To learn with which actions and resources you can use a condition key, see [Actions Defined by AWS IoT Wireless ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsiotwireless.html#awsiotwireless-actions-as-permissions)
 
-AWS IoT Wireless defines its own set of condition keys and also supports using some global
-condition keys. To see all AWS global condition keys, see [AWS Global Condition
-Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_. To see a list of
-AWS IoT Wireless condition keys, see [Condition Keys for AWS IoT Wireless](../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys "../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys") in the
-_IAM User Guide_. To learn with which actions and resources you
-can use a condition key, see [Actions Defined by AWS IoT Wireless](../../../IAM/latest/UserGuide/list_awsiotwireless.md#awsiotwireless-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsiotwireless.md#awsiotwireless-actions-as-permissions")
+
 
 ## Access control lists (ACLs)
+<a name="security_iam_service-with-iam-acls"></a>
 
-**Supports ACLs:**
+**Supports ACLs:** No 
 
-No
-
-Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
-similar to resource-based policies, although they do not use the JSON policy document format.
+Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are similar to resource-based policies, although they do not use the JSON policy document format.
 
 ## ABAC with AWS IoT Wireless
+<a name="security_iam_service-with-iam-tags"></a>
 
-**Supports ABAC (tags in policies):**
+**Supports ABAC (tags in policies):** Yes
 
-Yes
+Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
 
-Attribute-based access control (ABAC) is an authorization strategy that defines permissions
-based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
-
-To control access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the `aws:ResourceTag/`key-name``, 
- `aws:RequestTag/`key-name``, or `aws:TagKeys` condition keys.
+To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys.
 
 If a service supports all three condition keys for every resource type, then the value is **Yes** for the service. If a service supports all three condition keys for only some resource types, then the value is **Partial**.
 
-For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
-[Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
+For more information about ABAC, see [Define permissions with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*. To view a tutorial with steps for setting up ABAC, see [Use attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html) in the *IAM User Guide*.
 
-You can attach tags to AWS IoT Wireless resources or pass tags in a request to AWS IoT Wireless. To
-control access based on tags, you provide tag information in the [condition
-element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the
-`YOUR-SERVICE-PREFIX:ResourceTag/`key-name``,
- `aws:RequestTag/`key-name``, or
-`aws:TagKeys` condition keys. For more information about tagging AWS IoT Wireless
-resources, see[Tagging your AWS IoT Wireless resources](tagging-iotwireless.md "tagging-iotwireless.md").
+You can attach tags to AWS IoT Wireless resources or pass tags in a request to AWS IoT Wireless. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `YOUR-SERVICE-PREFIX:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys. For more information about tagging AWS IoT Wireless resources, see[Tagging your AWS IoT Wireless resources](tagging-iotwireless.md).
 
 ## Using temporary credentials with AWS IoT Wireless
+<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
-**Supports temporary credentials:**
+**Supports temporary credentials:** Yes
 
-Yes
-
-Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you
-dynamically generate temporary credentials instead of using long-term access keys. For
-more information, see [Temporary
-security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
-that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
+Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you dynamically generate temporary credentials instead of using long-term access keys. For more information, see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) and [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
 ## Cross-service principal permissions for AWS IoT Wireless
+<a name="security_iam_service-with-iam-principal-permissions"></a>
 
-**Supports forward access sessions (FAS):**
+**Supports forward access sessions (FAS):** Yes
 
-Yes
-
-Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
-when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
+ Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details when making FAS requests, see [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html). 
 
 ## Service roles
+<a name="security_iam_service-with-iam-roles-service"></a>
 
-**Supports service roles:**
+**Supports service roles:** No 
 
-No
-
-A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
-actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
-more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
+ A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For more information, see [Create a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*. 
 
 ## Service-linked roles for AWS IoT Wireless
+<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
-**Supports service-linked roles:**
+**Supports service-linked roles:** No 
 
-No
-
-A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
-Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
-but not edit the permissions for service-linked roles.
+ A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf. Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view, but not edit the permissions for service-linked roles. 

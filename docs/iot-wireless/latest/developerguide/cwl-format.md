@@ -1,102 +1,67 @@
-# View CloudWatch AWS IoT Wireless log entries
 
-After you've configured logging for AWS IoT Wireless as described in [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md "create-logging-role-policy.md") and written some log entries, you can view the log entries in the CloudWatch console by
-performing the following steps.
+
+# View CloudWatch AWS IoT Wireless log entries
+<a name="cwl-format"></a>
+
+After you've configured logging for AWS IoT Wireless as described in [Create logging role and policy for AWS IoT Wireless monitoring](create-logging-role-policy.md) and written some log entries, you can view the log entries in the CloudWatch console by performing the following steps.
 
 ## Viewing AWS IoT logs in the CloudWatch Log groups console
+<a name="viewing-logs"></a>
 
-In the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"), CloudWatch
-logs appear in a log group named **/aws/iotwireless**. For more
-information about CloudWatch Logs, see [What is
-CloudWatch Logs?](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
+In the [CloudWatch console](https://console.aws.amazon.com/cloudwatch), CloudWatch logs appear in a log group named **/aws/iotwireless**. For more information about CloudWatch Logs, see [What is CloudWatch Logs?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
 
-###### To view your AWS IoT logs in the CloudWatch console
+**To view your AWS IoT logs in the CloudWatch console**
 
-Navigate to the [CloudWatch
-console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch") and choose **Log groups** in the
-navigation pane.
+Navigate to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch) and choose **Log groups** in the navigation pane.
 
-1. In the **Filter** text box, enter
-   `/aws/iotwireless`, and then choose the
-   `/aws/iotwireless` Log group.
-2. To see a complete list of the AWS IoT Core for LoRaWAN logs generated for your
-   account, choose **Search all**. To look at an
-   individual log stream, choose the expand icon.
-3. To filter the log streams, you can also enter a query in the
-   **Filter events** text box. Here are some queries
-   to try:
+1. In the **Filter** text box, enter **/aws/iotwireless**, and then choose the `/aws/iotwireless` Log group.
 
-   - `{ $.logLevel = "ERROR" }`
+1. To see a complete list of the AWS IoT Core for LoRaWAN logs generated for your account, choose **Search all**. To look at an individual log stream, choose the expand icon.
 
-   Use this filter to find all logs that have a log level of
-   `ERROR` and you can expand the individual error
-   streams to read the error messages, which will help you resolve
-   them.
-   - `{ $.resource = "WirelessGateway" }`
+1. To filter the log streams, you can also enter a query in the **Filter events** text box. Here are some queries to try:
+   + `{ $.logLevel = "ERROR" }` 
 
-   Find all logs for the `WirelessGateway` resource
-   regardless of the log level.
-   - `{ $.event = "CUPS_Request" && $.logLevel =
-  "ERROR" }`
+      Use this filter to find all logs that have a log level of `ERROR` and you can expand the individual error streams to read the error messages, which will help you resolve them.
+   + `{ $.resource = "WirelessGateway" }` 
 
-   Find all logs that have an event type of
-   `CUPS_Request` and a log level of
-   `ERROR`.
+      Find all logs for the `WirelessGateway` resource regardless of the log level.
+   + `{ $.event = "CUPS_Request" && $.logLevel = "ERROR" }`
+
+      Find all logs that have an event type of `CUPS_Request` and a log level of `ERROR`.
 
 ## Events and resource types
+<a name="cwl-format-events-resources"></a>
 
-The following table shows the different types of events for which you'll see
-log entries. The event types also depend on whether the resource type is a
-wireless device, a wireless gateway, or a FUOTA task. You can use the default
-log level for the resources and event types or override the default log level by
-specifying a log level for each of them.
+The following table shows the different types of events for which you'll see log entries. The event types also depend on whether the resource type is a wireless device, a wireless gateway, or a FUOTA task. You can use the default log level for the resources and event types or override the default log level by specifying a log level for each of them.
 
-Event types based on resources used| Resource | Resource type | Event type |
-| --- | --- | --- |
-| Wireless gateway | LoRaWAN | • CUPS\_Request<br>• Certificate |
-| Wireless device | LoRaWAN | • Join<br>• Rejoin<br>• Uplink\_Data<br>• Downlink\_Data |
-| Wireless device | Sidewalk | • Registration<br>• Uplink\_Data<br>• Downlink\_Data |
-| FUOTA task | LoRaWAN | • Fuota |
 
-The following topic contains more information about these event types and the log
-entries for wireless gateways and wireless devices.
+**Event types based on resources used**  
+
+| Resource | Resource type | Event type | 
+| --- | --- | --- | 
+| Wireless gateway | LoRaWAN |  +  CUPS\_Request <br />+  Certificate   | 
+| Wireless device | LoRaWAN |  +  Join <br />+  Rejoin <br />+  Uplink\_Data <br />+  Downlink\_Data   | 
+| Wireless device | Sidewalk |  +  Registration <br />+  Uplink\_Data <br />+  Downlink\_Data   | 
+| FUOTA task | LoRaWAN |  +  Fuota   | 
+
+The following topic contains more information about these event types and the log entries for wireless gateways and wireless devices.
 
 ## Log entries for wireless gateways and wireless device resources
+<a name="wireless-log-entries"></a>
 
-After you've enabled logging, you can view log entries for your wireless
-gateways, wireless devices, and FUOTA tasks. The following section describes the
-various kinds of log entries based on your resource and event types.
+After you've enabled logging, you can view log entries for your wireless gateways, wireless devices, and FUOTA tasks. The following section describes the various kinds of log entries based on your resource and event types.
 
-This section shows some of the sample log entries for your wireless
-gateway resources that you'll see in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"). These log
-messages can have event type as `CUPS_Request` or
-`Certificate`, and can be configured to display a log
-level of `INFO`, `ERROR`, or `DISABLED`
-at the resource level or the event level. If you want to see only error
-information, set the log level to `ERROR`. The message in the
-`ERROR` log entry will contain information about why it
-failed.
+### Wireless gateway log entries
+<a name="gateway-log-entries"></a>
 
-The log entries for your wireless gateway resource can be classified
-based on the following event types:
+This section shows some of the sample log entries for your wireless gateway resources that you'll see in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch). These log messages can have event type as `CUPS_Request` or `Certificate`, and can be configured to display a log level of `INFO`, `ERROR`, or `DISABLED` at the resource level or the event level. If you want to see only error information, set the log level to `ERROR`. The message in the `ERROR` log entry will contain information about why it failed.
 
-- ###### CUPS\_Request
+The log entries for your wireless gateway resource can be classified based on the following event types:
++ 
 
-The LoRa Basics Station running on your gateway
-periodically sends a request to the Configuration and Update
-Server (CUPS) for updates. For this event type, if you set
-log level to `INFO` when configuring the CLI for
-your wireless gateway resource, then in the logs:
-
-    + If the event is successful, you'll see log messages
-     that have a `logLevel` of `INFO`.
-     The messages will include details about the CUPS
-     response sent to your gateway and the gateway details.
-     Following shows an example of this log entry. For more
-     information about the `logLevel` and other
-     fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
-
-
+**CUPS\_Request**  
+The LoRa Basics Station running on your gateway periodically sends a request to the Configuration and Update Server (CUPS) for updates. For this event type, if you set log level to `INFO` when configuring the CLI for your wireless gateway resource, then in the logs:
+  + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the CUPS response sent to your gateway and the gateway details. Following shows an example of this log entry. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
     ```
     {
@@ -110,20 +75,7 @@ your wireless gateway resource, then in the logs:
         "message": "Sending CUPS response of total length 3213 to GatewayEui: feffff00000000e2 with  TC Credentials,"
     }
     ```
-    + If there is an error, you'll see log entries that have
-     a `logLevel` of `ERROR`, and the
-     messages will include details about the error. Examples
-     of when an error can occur for the
-     `CUPS_Request` event include: missing
-     CUPS CRC, mismatch in the gateway's TC Uri with
-     AWS IoT Core for LoRaWAN, missing
-     `IoTWirelessGatewayCertManagerRole`, or
-     not able to obtain wireless gateway record. Following
-     example shows a missing CRC log entry. To resolve the
-     error, check your gateway setup to verify that you've
-     entered the correct CUPS CRC.
-
-
+  + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error. Examples of when an error can occur for the `CUPS_Request` event include: missing CUPS CRC, mismatch in the gateway's TC Uri with AWS IoT Core for LoRaWAN, missing `IoTWirelessGatewayCertManagerRole`, or not able to obtain wireless gateway record. Following example shows a missing CRC log entry. To resolve the error, check your gateway setup to verify that you've entered the correct CUPS CRC.
 
     ```
     {
@@ -137,25 +89,11 @@ your wireless gateway resource, then in the logs:
         "message": "The CUPS CRC is missing from the request. Check your gateway setup and enter the CUPS CRC,"
     }
     ```
++ 
 
-- ###### Certificate
-
-These log entries will help you check whether your
-wireless gateway presented the correct certificate for
-authenticating connection to AWS IoT. For this event type, if
-you set log level to `INFO` when configuring the
-CLI for your wireless gateway resource, then in the
-logs:
-
-    + If the event is successful, you'll see log messages
-     that have a `logLevel` of `INFO`.
-     The messages will include details about the Certificate
-     ID and the Wireless gateway identifier. Following shows
-     an example of this log entry. For more information about
-     the `logLevel` and other fields in the log
-     entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
-
-
+**Certificate**  
+These log entries will help you check whether your wireless gateway presented the correct certificate for authenticating connection to AWS IoT. For this event type, if you set log level to `INFO` when configuring the CLI for your wireless gateway resource, then in the logs:
+  + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the Certificate ID and the Wireless gateway identifier. Following shows an example of this log entry. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
     ```
     {
@@ -164,23 +102,11 @@ logs:
         "wirelessGatewayType": "LoRaWAN",
         "event": "Certificate",
         "logLevel": "INFO",
-        "message": "Gateway connection authenticated.
+        "message": "Gateway connection authenticated. 
         (CertificateId: b5942a7aee973eda24314e416889227a5e0aa5ed87e6eb89239a83f515dea17c, WirelessGatewayId: 5da85cc8-3361-4c79-8be3-3360fb87abda)"
     }
     ```
-    + If there is an error, you'll see log entries that have
-     a `logLevel` of `ERROR`, and the
-     messages will include details about the error. Examples
-     of when an error can occur for the
-     `Certificate` event include an invalid
-     Certificate ID, wireless gateway identifier, or a
-     mismatch between the wireless gateway identifier and the
-     Certificate ID. Following example shows an
-     `ERROR` due to invalid wireless gateway
-     identifier. To resolve the error, check the gateway
-     identifiers.
-
-
+  + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error. Examples of when an error can occur for the `Certificate` event include an invalid Certificate ID, wireless gateway identifier, or a mismatch between the wireless gateway identifier and the Certificate ID. Following example shows an `ERROR` due to invalid wireless gateway identifier. To resolve the error, check the gateway identifiers.
 
     ```
     {
@@ -189,77 +115,44 @@ logs:
         "wirelessGatewayType": "LoRaWAN",
         "event": "Certificate",
         "logLevel": "INFO",
-        "message": "The gateway connection couldn't be authenticated because a provisioned gateway associated with the certificate couldn't be found.
+        "message": "The gateway connection couldn't be authenticated because a provisioned gateway associated with the certificate couldn't be found. 
         (CertificateId: 729828e264810f6fc7134daf68056e8fd848afc32bfe8082beeb44116d709d9e)"
     }
     ```
 
-This section shows some of the sample log entries for your wireless
-device resources that you'll see in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"). The event
-type for these log messages depend on whether you're using a LoRaWAN or
-a Sidewalk device. Each wireless device resource or event type can be
-configured to display a log level of `INFO`,
-`ERROR`, or `DISABLED`.
+### Wireless device log entries
+<a name="device-log-entries"></a>
 
-###### Note
+This section shows some of the sample log entries for your wireless device resources that you'll see in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch). The event type for these log messages depend on whether you're using a LoRaWAN or a Sidewalk device. Each wireless device resource or event type can be configured to display a log level of `INFO`, `ERROR`, or `DISABLED`. 
 
-Your request must not contain both LoRaWAN and Sidewalk wireless
-metadata at the same time. To avoid an `ERROR` log entry
-for this scenario, specify either LoRaWAN or Sidewalk wireless
-data.
+**Note**  
+Your request must not contain both LoRaWAN and Sidewalk wireless metadata at the same time. To avoid an `ERROR` log entry for this scenario, specify either LoRaWAN or Sidewalk wireless data.
 
 #### LoRaWAN device log entries
+<a name="lorawan-log-entries"></a>
 
-The log entries for your LoRaWAN wireless device can be classified
-based on the following event types:
+The log entries for your LoRaWAN wireless device can be classified based on the following event types:
++ 
 
-- ###### `Join` and `Rejoin`
+**`Join` and `Rejoin`**  
+When you add a LoRaWAN device and connect it to AWS IoT Core for LoRaWAN, before your device can send uplink data, you must complete a process called `activation` or `join procedure`. For more information, see [Add your wireless device to AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md).
 
-When you add a LoRaWAN device and connect it to
-AWS IoT Core for LoRaWAN, before your device can send uplink data,
-you must complete a process called
-`activation` or `join
- procedure`. For more information, see [Add your wireless device to AWS IoT Core for LoRaWAN](lorawan-end-devices-add.md "lorawan-end-devices-add.md").
-
-For this event type, if you set log level to
-`INFO` when configuring the CLI for your
-wireless gateway resource, then in the logs:
-
-    + If the event is successful, you'll see log
-     messages that have a `logLevel` of
-     `INFO`. The messages will include
-     details about the status of your join or rejoin
-     request. Following shows an example of this log
-     entry. For more information about the
-     `logLevel` and other fields in the log
-     entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
-
-
+  For this event type, if you set log level to `INFO` when configuring the CLI for your wireless gateway resource, then in the logs:
+  + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the status of your join or rejoin request. Following shows an example of this log entry. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
     ```
     {
         "timestamp": "2021-05-13T16:56:08.853Z",
         "resource": "WirelessDevice",
         "wirelessDeviceType": "LoRaWAN",
-        "WirelessDeviceId": "5da85cc8-3361-4c79-8be3-3360fb87abda",
+        "WirelessDeviceId": "5da85cc8-3361-4c79-8be3-3360fb87abda",    
         "devEui": "feffff00000000e2",
         "event": "Rejoin",
         "logLevel": "INFO",
         "message": "Rejoin succeeded"
     }
     ```
-    + If there is an error, you'll see log entries that
-     have a `logLevel` of `ERROR`,
-     and the messages will include details about the
-     error. Examples of when an error can occur for the
-     `Join` and `Rejoin` events
-     include invalid LoRaWAN region setting, or invalid
-     Message Integrity Code (MIC) check. Following
-     example shows a join error due to MIC check. To
-     resolve the error, check whether you've entered the
-     correct root keys.
-
-
+  + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error. Examples of when an error can occur for the `Join` and `Rejoin` events include invalid LoRaWAN region setting, or invalid Message Integrity Code (MIC) check. Following example shows a join error due to MIC check. To resolve the error, check whether you've entered the correct root keys.
 
     ```
     {
@@ -273,31 +166,13 @@ wireless gateway resource, then in the logs:
         "message": "invalid MIC. It's most likely caused by wrong root keys."
     }
     ```
++ 
 
-- ###### Uplink\_Data and Downlink\_Data
+**Uplink\_Data and Downlink\_Data**  
+The event type `Uplink_Data` is used for messages that are generated by AWS IoT Wireless when the payload is sent from your LoRaWAN or Sidewalk device to AWS IoT. The event type `Downlink_Data` is used for messages that are related to downlink messages that are sent from AWS IoT to the wireless device.
 
-The event type `Uplink_Data` is used for
-messages that are generated by AWS IoT Wireless when
-the payload is sent from your LoRaWAN or Sidewalk device
-to AWS IoT. The event type `Downlink_Data` is
-used for messages that are related to downlink messages
-that are sent from AWS IoT to the wireless device.
-
-For this event type, if you set log level to
-`INFO` when configuring the CLI for your
-wireless devices, then in the logs, you'll see:
-
-    + If the event is successful, you'll see log
-     messages that have a `logLevel` of
-     `INFO`. The messages will include
-     details about the status of the uplink or downlink
-     message that was sent and the wireless device
-     identifier. Following shows an example of this log
-     entry for a Sidewalk device. For more information
-     about the `logLevel` and other fields in
-     the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
-
-
+  For this event type, if you set log level to `INFO` when configuring the CLI for your wireless devices, then in the logs, you'll see: 
+  + If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the status of the uplink or downlink message that was sent and the wireless device identifier. Following shows an example of this log entry for a Sidewalk device. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
     ```
     {
@@ -310,19 +185,7 @@ wireless devices, then in the logs, you'll see:
         "message": "Message delivery succeeded.  MessageId: 8da04fa8-037d-4ae9-bf67-35c4bb33da71. AWS IoT Core: {\"message\":\"OK\",\"traceId\":\"038b5b05-a340-d18a-150d-d5a578233b09\"}"
     }
     ```
-    + If there is an error, you'll see log entries that
-     have a `logLevel` of `ERROR`,
-     and the messages will include details about the
-     error, which will help you resolve it. Examples of
-     when an error can occur for the
-     `Registration` event include:
-     authentication issues, invalid or too many requests,
-     unable to encrypt or decrypt the payload, or unable
-     to find the wireless device using the specified ID.
-     Following example shows a permission error
-     encountered while processing a message.
-
-
+  + If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error, which will help you resolve it. Examples of when an error can occur for the `Registration` event include: authentication issues, invalid or too many requests, unable to encrypt or decrypt the payload, or unable to find the wireless device using the specified ID. Following example shows a permission error encountered while processing a message.
 
     ```
     {
@@ -331,124 +194,82 @@ wireless devices, then in the logs, you'll see:
         "wirelessDeviceType": "LoRaWAN",
         "event": "Uplink_Data",
         "logLevel": "ERROR",
-        "message": "Cannot assume role MessageId: ef38877f-3454-4c99-96ed-5088c1cd8dee.
+        "message": "Cannot assume role MessageId: ef38877f-3454-4c99-96ed-5088c1cd8dee. 
         Access denied: User: arn:aws:sts::005196538709:assumed-role/DataRoutingServiceRole/6368b35fd48c445c9a14781b5d5890ed is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::400232685877:role/ExecuteRules_Role\tstatus code: 403, request id: 471c3e35-f8f3-4e94-b734-c862f63f4edb"
     }
     ```
 
 #### Sidewalk device log entries
+<a name="sidewalk-log-entries"></a>
 
-The log entries for your Sidewalk device can be classified based
-on the following event types:
+The log entries for your Sidewalk device can be classified based on the following event types:
++ 
 
-- ###### `Registration`
+**`Registration`**  
+These log entries will help you monitor the status of any Sidewalk devices that you're registering with AWS IoT Wireless. For this event type, if you set log level to `INFO` when configuring the CLI for your wireless device resource, then in the logs, you'll see log messages that have a `logLevel` of `INFO` and `ERROR`. The messages will include details about the registration progress from start to completion. `ERROR` log messages will contain information about how to troubleshoot issues with registering your device.
 
-These log entries will help you monitor the status of
-any Sidewalk devices that you're registering with
-AWS IoT Wireless. For this event type, if you set log
-level to `INFO` when configuring the CLI for
-your wireless device resource, then in the logs, you'll
-see log messages that have a `logLevel` of
-`INFO` and `ERROR`. The
-messages will include details about the registration
-progress from start to completion. `ERROR`
-log messages will contain information about how to
-troubleshoot issues with registering your device.
+  Following shows an example for a log message with log level of `INFO`. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
-Following shows an example for a log message with log
-level of `INFO`. For more information about the
-`logLevel` and other fields in the log entry,
-see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+  ```
+  {
+      "resource": "WirelessDevice",
+      "wirelessDeviceId": "8d0b2775-e19b-4b2a-a351-cb8a2734a504",
+      "wirelessDeviceType": "Sidewalk",
+      "event": "Registration",
+      "logLevel": "INFO",
+      "message": "Successfully completed device registration. Amazon SidewalkId = 2000000002"
+  }
+  ```
++ 
 
-```
-{
-    "resource": "WirelessDevice",
-    "wirelessDeviceId": "8d0b2775-e19b-4b2a-a351-cb8a2734a504",
-    "wirelessDeviceType": "Sidewalk",
-    "event": "Registration",
-    "logLevel": "INFO",
-    "message": "Successfully completed device registration. Amazon SidewalkId = 2000000002"
-}
-```
+**Uplink\_Data and Downlink\_Data**  
+The event types `Uplink_Data` and `Downlink_Data` for Sidewalk devices are similar to the corresponding event types for LoRaWAN devices. For more information, refer to the **Uplink\_Data and Downlink\_Data** section described previously for LoRaWAN device log entries.
 
-- ###### Uplink\_Data and Downlink\_Data
+### FUOTA task log entries
+<a name="fuota-log-entries"></a>
 
-The event types `Uplink_Data` and
-`Downlink_Data` for Sidewalk devices are
-similar to the corresponding event types for LoRaWAN
-devices. For more information, refer to the **Uplink\_Data and Downlink\_Data**
-section described previously for LoRaWAN device log
-entries.
+This section shows some of the sample log entries for your FUOTA tasks that you'll see in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch). These log messages have event type as `Fuota` and can be configured to display a log level of `INFO`, `ERROR`, or `DISABLED` at the resource level or the event level. If you want to see only error information, set the log level to `ERROR`. The message in the `ERROR` log entry will contain information about why it failed.
 
-This section shows some of the sample log entries for your FUOTA tasks
-that you'll see in the [CloudWatch
-console](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"). These log messages have event type as
-`Fuota` and can be configured to display a log level of
-`INFO`, `ERROR`, or `DISABLED` at
-the resource level or the event level. If you want to see only error
-information, set the log level to `ERROR`. The message in the
-`ERROR` log entry will contain information about why it
-failed.
+For the `Fuota` event type, if you set log level to `INFO` when configuring the CLI for your FUOTA task, then in the logs, you'll see: 
++ If the event is successful, you'll see log messages that have a `logLevel` of `INFO`. The messages will include details about the FUOTA task and the FUOTA task identifier. The following example shows a log entry when a FUOTA task file transmission has started. For more information about the `logLevel` and other fields in the log entry, see [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources).
 
-For the `Fuota` event type, if you set log level to
-`INFO` when configuring the CLI for your FUOTA task, then in the logs, you'll see:
+  ```
+  {
+      "resource": "FuotaTask",
+      "fuotaTaskId": "01a23cde-5678-4a5b-ab1d-33456808ecb2",
+      "fuotaTaskType": "LoRaWAN",
+      "event": "Fuota",
+      "logLevel": "INFO",
+      "message": "Starting firmware image transmission, fuotaTaskId=01a23cde-5678-4a5b-ab1d-33456808ecb2"
+  }
+  ```
 
-- If the event is successful, you'll see log messages that have
-  a `logLevel` of `INFO`. The messages will
-  include details about the FUOTA task and the FUOTA task
-  identifier. The following example shows a log entry when a FUOTA
-  task file transmission has started. For more information about
-  the `logLevel` and other fields in the log entry, see
-  [AWS IoT Wireless resources and log levels](configure-logging.md#log-levels-resources "configure-logging.md#log-levels-resources").
+  The following example shows another log entry when a status change occurs to a FUOTA task.
 
-```
-{
+  ```
+  {
+      "resource": "FuotaTask",
+      "fuotaTaskId": "01a23cde-5678-4a5b-ab1d-33456808ecb2",
+      "fuotaTaskType": "LoRaWAN",
+      "event": "Fuota",
+      "logLevel": "INFO",
+      "message": "FUOTA task status updated from Pending to FuotaSession_Waiting, fuotaTaskId=01a23cde-5678-4a5b-ab1d-33456808ecb2"
+  }
+  ```
++ If there is an error, you'll see log entries that have a `logLevel` of `ERROR`, and the messages will include details about the error, which will help you resolve it. Examples of when an error can occur for the `Fuota` event include insufficient memory or the device is not ready. For more information about the different FUOTA statuses and how to troubleshoot them, see [Monitor and troubleshoot your FUOTA task and devices](lorawan-fuota-status.md).
+
+  ```
+  {
     "resource": "FuotaTask",
     "fuotaTaskId": "01a23cde-5678-4a5b-ab1d-33456808ecb2",
     "fuotaTaskType": "LoRaWAN",
     "event": "Fuota",
-    "logLevel": "INFO",
-    "message": "Starting firmware image transmission, fuotaTaskId=01a23cde-5678-4a5b-ab1d-33456808ecb2"
-}
-```
-
-The following example shows another log entry when a status
-change occurs to a FUOTA task.
-
-```
-{
-    "resource": "FuotaTask",
-    "fuotaTaskId": "01a23cde-5678-4a5b-ab1d-33456808ecb2",
-    "fuotaTaskType": "LoRaWAN",
-    "event": "Fuota",
-    "logLevel": "INFO",
-    "message": "FUOTA task status updated from Pending to FuotaSession_Waiting, fuotaTaskId=01a23cde-5678-4a5b-ab1d-33456808ecb2"
-}
-```
-
-- If there is an error, you'll see log entries that have a
-  `logLevel` of `ERROR`, and the
-  messages will include details about the error, which will help
-  you resolve it. Examples of when an error can occur for the
-  `Fuota` event include insufficient memory or the
-  device is not ready. For more information about the different
-  FUOTA statuses and how to troubleshoot them, see [Monitor and troubleshoot your FUOTA task and devices](lorawan-fuota-status.md "lorawan-fuota-status.md").
-
-```
-{
-  "resource": "FuotaTask",
-  "fuotaTaskId": "01a23cde-5678-4a5b-ab1d-33456808ecb2",
-  "fuotaTaskType": "LoRaWAN",
-  "event": "Fuota",
-  "logLevel": "ERROR",
-  "message": "Unable to start the FUOTA session as no devices have been successfully set up with a fragmentation session to receive the image file, fuotaTaskId=01a23cde-5678-4a5b-ab1d-33456808ecb2"
-}
-```
+    "logLevel": "ERROR",
+    "message": "Unable to start the FUOTA session as no devices have been successfully set up with a fragmentation session to receive the image file, fuotaTaskId=01a23cde-5678-4a5b-ab1d-33456808ecb2"
+  }
+  ```
 
 ## Next steps
+<a name="cwl-format-next-steps"></a>
 
-You've learned how to view log entries for your resources and the different
-log entries that you can view in the CloudWatch console after enabling logging for
-AWS IoT Wireless. While you can create filter streams using **Log
-groups**, we recommend that you use CloudWatch Insights to create and use
-filter streams. For more information, see [Use CloudWatch Insights to filter logs for AWS IoT Wireless](cwl-insights.md "cwl-insights.md").
+You've learned how to view log entries for your resources and the different log entries that you can view in the CloudWatch console after enabling logging for AWS IoT Wireless. While you can create filter streams using **Log groups**, we recommend that you use CloudWatch Insights to create and use filter streams. For more information, see [Use CloudWatch Insights to filter logs for AWS IoT Wireless](cwl-insights.md).

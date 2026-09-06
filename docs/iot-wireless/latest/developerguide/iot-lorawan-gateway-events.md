@@ -1,110 +1,83 @@
-# Enable notifications for LoRaWAN gateway connection status events
 
-AWS IoT Core for LoRaWAN can publish messages to notify you of connection status events for
-LoRaWAN gateways that you onboard to AWS IoT. Connection status events notify you when
-the connection status of a LoRaWAN gateway changes to connected or
-disconnected.
+
+# Enable notifications for LoRaWAN gateway connection status events
+<a name="iot-lorawan-gateway-events"></a>
+
+AWS IoT Core for LoRaWAN can publish messages to notify you of connection status events for LoRaWAN gateways that you onboard to AWS IoT. Connection status events notify you when the connection status of a LoRaWAN gateway changes to connected or disconnected.
 
 ## How connection status events work
+<a name="iot-lorawan-gateway-events-work"></a>
 
-After you've onboarded your gateway to AWS IoT Core for LoRaWAN, you can connect your
-gateway to AWS IoT Core for LoRaWAN and verify its connection status. This event notifies
-you when your gateway connection status changes to connected or disconnected.
-For more information about onboarding and connecting your gateway to
-AWS IoT Core for LoRaWAN, see [Onboard your gateways to AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md "lorawan-onboard-gateways.md") and [Connect your LoRaWAN gateway and verify its connection status](lorawan-gateway-connection-status.md "lorawan-gateway-connection-status.md").
+After you've onboarded your gateway to AWS IoT Core for LoRaWAN, you can connect your gateway to AWS IoT Core for LoRaWAN and verify its connection status. This event notifies you when your gateway connection status changes to connected or disconnected. For more information about onboarding and connecting your gateway to AWS IoT Core for LoRaWAN, see [Onboard your gateways to AWS IoT Core for LoRaWAN](lorawan-onboard-gateways.md) and [Connect your LoRaWAN gateway and verify its connection status](lorawan-gateway-connection-status.md).
 
 ## Format of MQTT topics for LoRaWAN gateways
+<a name="lorawan-gateway-message-format"></a>
 
-Reserved MQTT topics for LoRaWAN gateways use the following format. If you've
-subscribed to these topics, then all LoRaWAN gateways that are registered to
-your AWS account can receive the notification:
+Reserved MQTT topics for LoRaWAN gateways use the following format. If you've subscribed to these topics, then all LoRaWAN gateways that are registered to your AWS account can receive the notification:
++ For resource-level topics:
 
-- For resource-level topics:
+  `$aws/iotwireless/events/{eventName}/{eventType}/lorawan/wireless_gateways`
++ For identifier topics:
 
-`$aws/iotwireless/events/{eventName}/{eventType}/lorawan/wireless_gateways`
-
-- For identifier topics:
-
-`$aws/iotwireless/events/{eventName}/{eventType}/lorawan/wireless_gateways/{resourceID}/{id}`
+  `$aws/iotwireless/events/{eventName}/{eventType}/lorawan/wireless_gateways/{resourceID}/{id}`
 
 Where:
 
-**{eventName}**
-
+**{eventName}**  
 {eventName} must be `connection_status`.
 
-**{eventType}**
+**{eventType}**  
+{eventType} can be `connected` or `disconnected`.
 
-{eventType} can be `connected` or
-`disconnected`.
+**{resourceID}**  
+{resourceID} can be `gateway_eui` or `wireless_gateway_id`.
 
-**{resourceID}**
-
-{resourceID} can be `gateway_eui` or
-`wireless_gateway_id`.
-
-For example, you can subscribe to the following topics to receive an event
-notification when all your gateways have connected to AWS IoT Core for LoRaWAN:
+For example, you can subscribe to the following topics to receive an event notification when all your gateways have connected to AWS IoT Core for LoRaWAN:
 
 `$aws/iotwireless/events/connection_status/connected/lorawan/wireless_gateways/wireless_gateway_id/{id}`
 
-You can also use the `+` wildcard character to subscribe to
-multiple topics at the same time. The `+` wildcard character matches
-any string in the level that contains the character, such as the following
-topic:
+You can also use the `+` wildcard character to subscribe to multiple topics at the same time. The `+` wildcard character matches any string in the level that contains the character, such as the following topic:
 
 `$aws/iotwireless/events/connection_status/connected/lorawan/wireless_gateways/wireless_gateway_id/+`
 
-###### Note
+**Note**  
+You can't use the wildcard character `#` to subscribe to the reserved topics.
 
-You can't use the wildcard character `#` to subscribe to the
-reserved topics.
-
-For more information about using the `+` wildcard when subscribing
-to topics, see [MQTT topic filters](../../../iot/latest/developerguide/topicfilters.md "../../../iot/latest/developerguide/topicfilters.md")
-in the _AWS IoT developer guide_.
+For more information about using the `+` wildcard when subscribing to topics, see [MQTT topic filters](https://docs.aws.amazon.com/iot/latest/developerguide/topicfilters.html) in the *AWS IoT developer guide*.
 
 ## Message payload for connection status events
+<a name="iot-lorawan-gateway-payload"></a>
 
-The following shows the message payload for the connection status
-event.
+The following shows the message payload for the connection status event.
 
 ```
 {
  // General fields
-    "eventId": "string",
+    "eventId": "string", 
     "eventType": "connected|disconnected",
     "WirelessGatewayId": "string",
     "timestamp": "timestamp",
-
+ 
  // Event-specific fields
     "LoRaWAN": {
-        "GatewayEui": "string"
+        "GatewayEui": "string"        
     }
 }
 ```
 
 The payload contains the following attributes:
 
-**eventId**
+**eventId**  
+A unique event ID that's generated by AWS IoT Core for LoRaWAN (string).
 
-A unique event ID that's generated by AWS IoT Core for LoRaWAN
-(string).
+**eventType**  
+The type of event that occurred. Can be `connected` or `disconnected`.
 
-**eventType**
-
-The type of event that occurred. Can be `connected` or
-`disconnected`.
-
-**wirelessGatewayId**
-
+**wirelessGatewayId**  
 The ID of the LoRaWAN gateway.
 
-**timestamp**
-
+**timestamp**  
 The ISO timestamp of when the event occurred.
 
-**GatewayEui**
-
-The unique identifier of the gateway found on the gateway label or
-gateway documentation.
+**GatewayEui**  
+The unique identifier of the gateway found on the gateway label or gateway documentation.
