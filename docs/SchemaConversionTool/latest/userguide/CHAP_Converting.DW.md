@@ -381,7 +381,7 @@ To manage keys, select a table in your target database,
 and then choose the **Key Management** tab
 as shown following.
 
-![Key management tab](/images/SchemaConversionTool/latest/userguide/images/key-management.png)
+![Key management tab](images/key-management.png)
 
 The left pane contains key suggestions,
 and includes the confidence rating for each suggestion.
