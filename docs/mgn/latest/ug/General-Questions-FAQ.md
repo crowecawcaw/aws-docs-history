@@ -1,200 +1,162 @@
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
+
+
+NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
 
 # General questions
+<a name="General-Questions-FAQ"></a>
 
 This section contains answers to general questions about AWS Transform MGN.
 
-###### Topics
-
-- [Why was AWS Application Migration Service renamed to AWS Transform MGN?](#mgn-rebranding "#mgn-rebranding")
-- [Can MGN protect or migrate physical servers?](#Can-CloudEndure-Protect-Migrate-Servers "#Can-CloudEndure-Protect-Migrate-Servers")
-- [What data is stored on and transmitted through MGN service?](#What-Data-Stored "#What-Data-Stored")
-- [What should I consider when replicating Active Directory?](#What-Active-Directory "#What-Active-Directory")
-- [Does AWS Transform MGN work with LVM and RAID configurations?](#Does-LVM-RAID-Work "#Does-LVM-RAID-Work")
-- [What is there to note regarding SAN/NAS support?](#SAN-NAS-Support "#SAN-NAS-Support")
-- [Does AWS Transform MGN support Windows License migration?](#Does-Windows-License-Migration "#Does-Windows-License-Migration")
-- [Can you perform an OS (Operating System) upgrade with AWS Transform MGN?](#Can-OS-Upgrade "#Can-OS-Upgrade")
-- [What are the AWS Transform MGN quota limits?](#MGN-service-limits-faq "#MGN-service-limits-faq")
-- [What are the Private APIs used by MGN to define actions in the IAM Policy?](#mgn-apis "#mgn-apis")
-- [Which post-launch scripts does MGN support?](#mgn-post-launch "#mgn-post-launch")
-- [What happens if I use a custom DNS?](#custom-DNS "#custom-DNS")
-- [Can I use AWS Transform MGN to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?](#vmc "#vmc")
-- [When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?](#using-drs "#using-drs")
+**Topics**
++ [Why was AWS Application Migration Service renamed to AWS Transform MGN?](#mgn-rebranding)
++ [Can MGN protect or migrate physical servers?](#Can-CloudEndure-Protect-Migrate-Servers)
++ [What data is stored on and transmitted through MGN service?](#What-Data-Stored)
++ [What should I consider when replicating Active Directory?](#What-Active-Directory)
++ [Does AWS Transform MGN work with LVM and RAID configurations?](#Does-LVM-RAID-Work)
++ [What is there to note regarding SAN/NAS support?](#SAN-NAS-Support)
++ [Does AWS Transform MGN support Windows License migration?](#Does-Windows-License-Migration)
++ [Can you perform an OS (Operating System) upgrade with AWS Transform MGN?](#Can-OS-Upgrade)
++ [What are the AWS Transform MGN quota limits?](#MGN-service-limits-faq)
++ [What are the Private APIs used by MGN to define actions in the IAM Policy?](#mgn-apis)
++ [Which post-launch scripts does MGN support?](#mgn-post-launch)
++ [What happens if I use a custom DNS?](#custom-DNS)
++ [Can I use AWS Transform MGN to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?](#vmc)
++ [When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?](#using-drs)
 
 ## Why was AWS Application Migration Service renamed to AWS Transform MGN?
+<a name="mgn-rebranding"></a>
 
-AWS Application Migration Service has been renamed to AWS Transform MGN. The new name
-reflects the close link between MGN and AWS Transform. AWS Transform uses MGN replication
-technology to rehost servers.
+AWS Application Migration Service has been renamed to AWS Transform MGN. The new name reflects the close link between MGN and AWS Transform. AWS Transform uses MGN replication technology to rehost servers.
 
 You can access AWS Transform MGN in two ways:
++ Use the MGN console directly in the AWS console for a hands-on experience.
++ Use the AWS Transform workflow, which automates discovery, wave planning, network setup, landing zone creation, rehosting and containerization.
 
-- Use the MGN console directly in the AWS console for a hands-on experience.
-- Use the AWS Transform workflow, which automates discovery, wave planning,
-  network setup, landing zone creation, rehosting and containerization.
+At the rehosting stage, you can continue with the agentic workflow or switch to the MGN console if you prefer a more hands-on experience.
 
-At the rehosting stage, you can continue with the agentic workflow or switch to the
-MGN console if you prefer a more hands-on experience.
-
-AWS Transform is also available through Kiro, Claude, Cursor, and Codex via the
-AWS Transform MCP server.
+AWS Transform is also available through Kiro, Claude, Cursor, and Codex via the AWS Transform MCP server.
 
 ## Can MGN protect or migrate physical servers?
+<a name="Can-CloudEndure-Protect-Migrate-Servers"></a>
 
-Yes. MGN can migrate both virtual and physical servers. The replication process
-works at the OS level, so it handles both server types the same way.
+Yes. MGN can migrate both virtual and physical servers. The replication process works at the OS level, so it handles both server types the same way.
 
 ## What data is stored on and transmitted through MGN service?
+<a name="What-Data-Stored"></a>
 
-MGN stores only configuration and log data. This data is kept in an
-encrypted database. Your replicated data stays in your own VPC. All data in transit
-is encrypted.
+MGN stores only configuration and log data. This data is kept in an encrypted database. Your replicated data stays in your own VPC. All data in transit is encrypted.
 
 ## What should I consider when replicating Active Directory?
+<a name="What-Active-Directory"></a>
 
-There are two main approaches when it comes to migrating Active Directory or domain
-controllers from a disaster:
+There are two main approaches when it comes to migrating Active Directory or domain controllers from a disaster:
 
-1. Replicating the entire environment, including the AD server(s) – in this approach it is
-   recommended to launch the test or cutover AD servers first, wait until it's up and
-   running, and then launch the other test or cutover instances, to make sure the AD
-   servers are ready to authenticate them.
-2. Leaving the AD server(s) in the source environment – in this approach, the test or
-   cutover instances will communicate back to the AD server in the source environment and
-   will take the source server's place in the AD automatically.
+1. Replicating the entire environment, including the AD server(s) – in this approach it is recommended to launch the test or cutover AD servers first, wait until it's up and running, and then launch the other test or cutover instances, to make sure the AD servers are ready to authenticate them.
 
-In this case, it is important to conduct any tests using an isolated subnet in the AWS
-cloud, so to avoid having the test or cutover instances communicate into the source AD
-server outside of a cutover.
+1. Leaving the AD server(s) in the source environment – in this approach, the test or cutover instances will communicate back to the AD server in the source environment and will take the source server's place in the AD automatically.
+
+   In this case, it is important to conduct any tests using an isolated subnet in the AWS cloud, so to avoid having the test or cutover instances communicate into the source AD server outside of a cutover.
 
 ## Does AWS Transform MGN work with LVM and RAID configurations?
+<a name="Does-LVM-RAID-Work"></a>
 
 Yes, AWS Transform MGN works with any such configuration.
 
 ## What is there to note regarding SAN/NAS support?
+<a name="SAN-NAS-Support"></a>
 
-If the disks are represented as block devices on the machine, as most SAN are, AWS Transform MGN will
-replicate them transparently, just like actual local disks.
+If the disks are represented as block devices on the machine, as most SAN are, AWS Transform MGN will replicate them transparently, just like actual local disks.
 
-If the disks are mounted over the network, such as an NFS share, as most NAS
-implementations are, the AWS Replication Agent would need to be installed on the actual NFS
-server to replicate the disk.
+If the disks are mounted over the network, such as an NFS share, as most NAS implementations are, the AWS Replication Agent would need to be installed on the actual NFS server to replicate the disk.
 
 ## Does AWS Transform MGN support Windows License migration?
+<a name="Does-Windows-License-Migration"></a>
 
-AWS Transform MGN conforms to the [Microsoft Licensing on
-AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") guidelines.
+AWS Transform MGN conforms to the [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/) guidelines. 
 
 ## Can you perform an OS (Operating System) upgrade with AWS Transform MGN?
+<a name="Can-OS-Upgrade"></a>
 
-Yes. AWS Transform MGN allows you to [perform an OS upgrade](predefined-post-launch-actions.md#predefined-windows-upgrade "predefined-post-launch-actions.md#predefined-windows-upgrade") using a predefined
-action. The action will clone your machine and upgrade the clone. After the upgrade, verify
-that the cloned machine is working well, and then you can begin using it.
+Yes. AWS Transform MGN allows you to [perform an OS upgrade](predefined-post-launch-actions.md#predefined-windows-upgrade) using a predefined action. The action will clone your machine and upgrade the clone. After the upgrade, verify that the cloned machine is working well, and then you can begin using it.
 
 ## What are the AWS Transform MGN quota limits?
+<a name="MGN-service-limits-faq"></a>
 
 The following are the AWS Transform MGN service quota limits:
 
-| Name                                     | Default                           | Description                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Concurrent jobs in progress              | Each supported AWS Region: 20     | Launching a test or cutover instance, or a cleanup action is considered a<br>"job". Multiple servers launched together count as a single job. This parameter is the maximum number of Jobs that can be run concurrently.<br>Jobs that are *_Completed_<br>• are not counted against this quota.                                                                                   |
-| Max active source servers                | Each supported AWS Region: 150    | The maximum number of servers that can be actively replicating at any time. For larger migrations contact Support.                                                                                                                                                                                                                                                                |
-| Max non-archived source servers          | Each supported AWS Region: 4,000  | This parameter is used for agentless migrations. This is the max number of<br>servers that can be managed by MGN, in non-archived state. This includes the servers<br>that are actively replicating, as well as any servers whose replication has not yet<br>started. The number of actively replicating servers is controlled by the parameter<br>**Max active source servers**. |
-| Max source servers in a single job       | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". If you select multiple servers, and perform one of these actions, they are<br>grouped into a single job. This is the maximum number of servers that can be grouped<br>into a single Job.                                                                                                      |
-| Max source servers in all jobs           | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum total number of servers that can be configured in all<br>active Jobs. Jobs that are *_Completed_<br>• are not counted against this quota.                                                                                                                                 |
-| Max total source servers per AWS account | Each supported AWS Region: 50,000 | This parameter is the maximum total servers, both active and archived, that can<br>be migrated in a single account in each AWS Region. Servers that are deleted, are<br>not counted against this quota.                                                                                                                                                                           |
-| Max concurrent jobs per source server    | Each supported AWS Region: 1      | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum number of active Jobs, that can be configured per server.<br>Jobs that are *_Completed_<br>• are not counted against this quota.                                                                                                                                          |
 
-You can learn about the AWS Transform MGN limits in the [AWS General
-Reference](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md").
+| Name | Default | Description | 
+| --- | --- | --- | 
+| Concurrent jobs in progress | Each supported AWS Region: 20 | Launching a test or cutover instance, or a cleanup action is considered a "job". Multiple servers launched together count as a single job. This parameter is the maximum number of Jobs that can be run concurrently. Jobs that are Completed are not counted against this quota. | 
+| Max active source servers | Each supported AWS Region: 150 | The maximum number of servers that can be actively replicating at any time. For larger migrations contact Support. | 
+| Max non-archived source servers | Each supported AWS Region: 4,000 | This parameter is used for agentless migrations. This is the max number of servers that can be managed by MGN, in non-archived state. This includes the servers that are actively replicating, as well as any servers whose replication has not yet started. The number of actively replicating servers is controlled by the parameter Max active source servers. | 
+| Max source servers in a single job | Each supported AWS Region: 200 | Launching a test or cutover instance, or a cleanup action is considered a "Job". If you select multiple servers, and perform one of these actions, they are grouped into a single job. This is the maximum number of servers that can be grouped into a single Job. | 
+| Max source servers in all jobs | Each supported AWS Region: 200 | Launching a test or cutover instance, or a cleanup action is considered a "Job". This is the maximum total number of servers that can be configured in all active Jobs. Jobs that are Completed are not counted against this quota. | 
+| Max total source servers per AWS account | Each supported AWS Region: 50,000 | This parameter is the maximum total servers, both active and archived, that can be migrated in a single account in each AWS Region. Servers that are deleted, are not counted against this quota. | 
+| Max concurrent jobs per source server | Each supported AWS Region: 1 | Launching a test or cutover instance, or a cleanup action is considered a "Job". This is the maximum number of active Jobs, that can be configured per server. Jobs that are Completed are not counted against this quota. | 
+
+ You can learn about the AWS Transform MGN limits in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/mgn.html).
 
 ## What are the Private APIs used by MGN to define actions in the IAM Policy?
+<a name="mgn-apis"></a>
 
-MGN uses the following Private API resources as actions in the IAM Policy. [Learn more about Actions, resources, and condition keys for MGN.](../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md "../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md")
+MGN uses the following Private API resources as actions in the IAM Policy. [Learn more about Actions, resources, and condition keys for MGN. ](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsapplicationmigrationservice.html)
++ BatchCreateVolumeSnapshotGroupForMgn – Grants permission to create volume snapshot group.
++ BatchDeleteSnapshotRequestForMgn – Grants permission to batch delete snapshot request.
++ DescribeReplicationServerAssociationsForMgn – Grants permission to describe replication server associations.
++ DescribeSnapshotRequestsForMgn – Grants permission to describe snapshots requests.
++ GetAgentCommandForMgn – Grants permission to get agent command.
++ GetAgentConfirmedResumeInfoForMgn – Grants permission to get agent confirmed resume info.
++ GetAgentInstallationAssetsForMgn – Grants permission to get agent installation assets.
++ GetAgentReplicationInfoForMgn – Grants permission to get agent replication info.
++ GetAgentRuntimeConfigurationForMgn – Grants permission to get agent runtime configuration.
++ GetAgentSnapshotCreditsForMgn – Grants permission to get agent snapshots credits.
++ GetChannelCommandsForMgn – Grants permission to get channel commands.
++ NotifyAgentAuthenticationForMgn – Grants permission to notify agent authentication.
++ NotifyAgentConnectedForMgn – Grants permission to notify agent is connected.
++ NotifyAgentDisconnectedForMgn – Grants permission to notify agent is disconnected
++ NotifyAgentReplicationProgressForMgn – Grants permission to notify agent replication progress.
++ RegisterAgentForMgn – Grants permission to register agent.
++ SendAgentLogsForMgn – Grants permission to send agent logs.
++ SendAgentMetricsForMgn – Grants permission to send agent metrics.
++ SendChannelCommandResultForMgn – Grants permission to send channel command result.
++ SendClientLogsForMgn – Grants permission to send client logs.
++ SendClientMetricsForMgn – Grants permission to send client metrics.
++ UpdateAgentBacklogForMgn – Grants permission to update agent backlog.
++ UpdateAgentConversionInfoForMgn – Grants permission to update agent conversion info.
++ UpdateAgentReplicationInfoForMgn – Grants permission to update agent replication info.
++ UpdateAgentReplicationProcessStateForMgn – Grants permission to update agent replication process state.
++ UpdateAgentSourcePropertiesForMgn – Grants permission to update agent source properties.
++ CreateVcenterClientForMgn – Grants permission to create a vCenter client.
++ GetVcenterClientCommandsForMgn – Grants permission to get vCenter client commands.
++ SendVcenterClientCommandResultForMgn – Grants permission to send vCenter client command result.
++ SendVcenterClientLogsForMgn – Grants permission to send vCenter client logs.
++ SendVcenterClientMetricsForMgn – Grants permission to send vCenter client metrics.
++ NotifyVcenterClientStartedForMgn – Grants permission to notify vCenter client started.
++ IssueAgentCertificateForMgn – Grants permission to send certificate signing request.
 
-- BatchCreateVolumeSnapshotGroupForMgn – Grants permission to create volume snapshot
-  group.
-- BatchDeleteSnapshotRequestForMgn – Grants permission to batch delete snapshot
-  request.
-- DescribeReplicationServerAssociationsForMgn – Grants permission to describe
-  replication server associations.
-- DescribeSnapshotRequestsForMgn – Grants permission to describe snapshots
-  requests.
-- GetAgentCommandForMgn – Grants permission to get agent command.
-- GetAgentConfirmedResumeInfoForMgn – Grants permission to get agent confirmed resume
-  info.
-- GetAgentInstallationAssetsForMgn – Grants permission to get agent installation
-  assets.
-- GetAgentReplicationInfoForMgn – Grants permission to get agent replication
-  info.
-- GetAgentRuntimeConfigurationForMgn – Grants permission to get agent runtime
-  configuration.
-- GetAgentSnapshotCreditsForMgn – Grants permission to get agent snapshots
-  credits.
-- GetChannelCommandsForMgn – Grants permission to get channel commands.
-- NotifyAgentAuthenticationForMgn – Grants permission to notify agent
-  authentication.
-- NotifyAgentConnectedForMgn – Grants permission to notify agent is connected.
-- NotifyAgentDisconnectedForMgn – Grants permission to notify agent is
-  disconnected
-- NotifyAgentReplicationProgressForMgn – Grants permission to notify agent replication
-  progress.
-- RegisterAgentForMgn – Grants permission to register agent.
-- SendAgentLogsForMgn – Grants permission to send agent logs.
-- SendAgentMetricsForMgn – Grants permission to send agent metrics.
-- SendChannelCommandResultForMgn – Grants permission to send channel command
-  result.
-- SendClientLogsForMgn – Grants permission to send client logs.
-- SendClientMetricsForMgn – Grants permission to send client metrics.
-- UpdateAgentBacklogForMgn – Grants permission to update agent backlog.
-- UpdateAgentConversionInfoForMgn – Grants permission to update agent conversion
-  info.
-- UpdateAgentReplicationInfoForMgn – Grants permission to update agent replication
-  info.
-- UpdateAgentReplicationProcessStateForMgn – Grants permission to update agent
-  replication process state.
-- UpdateAgentSourcePropertiesForMgn – Grants permission to update agent source
-  properties.
-- CreateVcenterClientForMgn – Grants permission to create a vCenter client.
-- GetVcenterClientCommandsForMgn – Grants permission to get vCenter client commands.
-- SendVcenterClientCommandResultForMgn – Grants permission to send vCenter client
-  command result.
-- SendVcenterClientLogsForMgn – Grants permission to send vCenter client logs.
-- SendVcenterClientMetricsForMgn – Grants permission to send vCenter client
-  metrics.
-- NotifyVcenterClientStartedForMgn – Grants permission to notify vCenter client
-  started.
-- IssueAgentCertificateForMgn – Grants permission to send certificate signing
-  request.
+
 
 ## Which post-launch scripts does MGN support?
+<a name="mgn-post-launch"></a>
 
-MGN can run scripts on a launched test or cutover instance. This is done by creating the
-following folder on the source server and placing the scripts within that folder.
+MGN can run scripts on a launched test or cutover instance. This is done by creating the following folder on the source server and placing the scripts within that folder. 
 
-**Linux**: /boot/post\_launch (any files that are marked as
-executable)
+**Linux**: /boot/post\_launch (any files that are marked as executable)
 
-**Windows**: C:\Program Files (x86)\AWS Replication
-Agent\post\_launch\ (any .exe, .cmd, or .bat files)
+**Windows**: C:\\Program Files (x86)\\AWS Replication Agent\\post\_launch\\ (any .exe, .cmd, or .bat files)
 
-Once you put these scripts in the above folders on the source server, the folder will be
-replicated to the test or cutover instance and be executed once after the instance boots for
-the first time.
+Once you put these scripts in the above folders on the source server, the folder will be replicated to the test or cutover instance and be executed once after the instance boots for the first time.
 
-###### Note
-
-Post-launch scripts on Windows run under the Local System context. Post-launch scripts on
-Linux run under the 'root' user.
+**Note**  
+Post-launch scripts on Windows run under the Local System context. Post-launch scripts on Linux run under the 'root' user.
 
 ### Uninstalling VMTools from Windows
+<a name="mgn-post-launch-uninstall-vmtools"></a>
 
-The following script can be utilized to uninstall VMTools post migration from Windows.
-This is a powershell script. It needs to be wrapped by a .CMD file, as powershell scripts
-are not run automatically by the post\_launch.
+The following script can be utilized to uninstall VMTools post migration from Windows. This is a powershell script. It needs to be wrapped by a .CMD file, as powershell scripts are not run automatically by the post\_launch.
 
 ```
-
         $regpath = "HKLM:\Software\Microsoft\Windows\CurrentVersion\uninstall"
 
         Get-childItem $regpath | % {
@@ -212,41 +174,27 @@ are not run automatically by the post\_launch.
         MsiExec.exe /x $VMwareToolsGUID /qn /norestart
 
         }
-
 ```
 
 ## What happens if I use a custom DNS?
+<a name="custom-DNS"></a>
 
 Custom DNS settings can cause issues in the replication servers.
 
-Therefore, if you are using a custom DNS, you will need to add a TCP port 53 to the
-security group outbound rules, for replication and conversion servers.
+Therefore, if you are using a custom DNS, you will need to add a TCP port 53 to the security group outbound rules, for replication and conversion servers.
 
 ## Can I use AWS Transform MGN to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?
+<a name="vmc"></a>
 
-Yes, you can. For migrations of source servers from
-[VMC](https://aws.amazon.com/vmware/ "https://aws.amazon.com/vmware/")
-to EC2 you have two options.
-You can install the agentless appliance in your VMC environment, and migrate your servers using
-[agentless replication](agentless-mgn.md "agentless-mgn.md"),
-or install the
-[AWS replication agent](agent-installation.md "agent-installation.md")
-on each of your source servers, and use agent-based replication for your migration.
+ Yes, you can. For migrations of source servers from [VMC](https://aws.amazon.com/vmware/) to EC2 you have two options. You can install the agentless appliance in your VMC environment, and migrate your servers using [agentless replication](agentless-mgn.md), or install the [AWS replication agent](agent-installation.md) on each of your source servers, and use agent-based replication for your migration. 
 
 ## When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?
+<a name="using-drs"></a>
 
-In cases that DRS supports a feature that does not exist in MGN, DRS can be used for migration. You can install the DRS replication agent on your source servers.
-Following replication, you can launch recovery instances in your target environment, to complete the migration.
+ In cases that DRS supports a feature that does not exist in MGN, DRS can be used for migration. You can install the DRS replication agent on your source servers. Following replication, you can launch recovery instances in your target environment, to complete the migration. 
 
-DRS can be used for migration, as the DRS and MGN services use shared technology for performing block level replication.
-Both MGN and DRS have a replication agent, for replicating servers into a staging area in AWS.
-MGN supports launching test and cutover instances from the staging area.
-DRS supports launching recovery instances from the staging area.
-The technology used by both of these services for launching instances in AWS is very similar.
-DRS also has the capability to failback to the source environment, after the source environment has recovered.
-This capability does not exist in MGN.
+ DRS can be used for migration, as the DRS and MGN services use shared technology for performing block level replication. Both MGN and DRS have a replication agent, for replicating servers into a staging area in AWS. MGN supports launching test and cutover instances from the staging area. DRS supports launching recovery instances from the staging area. The technology used by both of these services for launching instances in AWS is very similar. DRS also has the capability to failback to the source environment, after the source environment has recovered. This capability does not exist in MGN. 
 
-Note that you cannot install the DRS and MGN agents on the same server at the same time.
-If you already installed the MGN agent on a server, and want to use DRS for migration, you must uninstall the MGN agent before installing the DRS agent.
+ Note that you cannot install the DRS and MGN agents on the same server at the same time. If you already installed the MGN agent on a server, and want to use DRS for migration, you must uninstall the MGN agent before installing the DRS agent. 
 
-Note that there are costs associated with using the DRS service. For DRS pricing information see [AWS Elastic Disaster Recovery pricing](https://aws.amazon.com/disaster-recovery/pricing/ "https://aws.amazon.com/disaster-recovery/pricing/").
+ Note that there are costs associated with using the DRS service. For DRS pricing information see [AWS Elastic Disaster Recovery pricing](https://aws.amazon.com/disaster-recovery/pricing/). 

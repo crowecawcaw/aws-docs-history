@@ -1,18 +1,18 @@
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
+
+
+NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
 
 # AWS managed policy: AWSApplicationMigrationReadOnlyAccess
+<a name="security-iam-awsmanpol-AWSApplicationMigrationReadOnlyAccess"></a>
 
-You can attach the `AWSApplicationMigrationReadOnlyAccess` policy to your
-IAM identities.
+ 
 
-This policy provides permissions to all read-only public APIs of AWS Transform MGN, as well as some read-only APIs of other AWS services that are required in
-order to make full read-only use of the MGN console. It does not allow them to perform any actions, such as initialize the
-service, replicate servers, or launch servers in AWS. This policy can be granted to a
-user in a support role.
+You can attach the `AWSApplicationMigrationReadOnlyAccess` policy to your IAM identities. 
 
-Attach this policy to your users
-or roles.
+This policy provides permissions to all read-only public APIs of AWS Transform MGN, as well as some read-only APIs of other AWS services that are required in order to make full read-only use of the MGN console. It does not allow them to perform any actions, such as initialize the service, replicate servers, or launch servers in AWS. This policy can be granted to a user in a support role. 
 
-**Permissions details**
+ Attach this policy to your users or roles. 
 
-To view the policy permission details see [AWSApplicationMigrationReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSApplicationMigrationReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSApplicationMigrationReadOnlyAccess.md") in the AWS Managed Policy Reference Guide.
+ **Permissions details** 
+
+To view the policy permission details see [AWSApplicationMigrationReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSApplicationMigrationReadOnlyAccess.html) in the AWS Managed Policy Reference Guide.

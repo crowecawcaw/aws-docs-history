@@ -1,154 +1,93 @@
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
+
+
+NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
 
 # Installing the MGN vCenter Client
+<a name="installing-vcenter-appliance-mgn"></a>
 
-The first step to deploying the agentless solution is installing the MGN vCenter Client
-on your vCenter environment.
+The first step to deploying the agentless solution is installing the MGN vCenter Client on your vCenter environment. 
 
-###### Note
+**Note**  
+If you have multiple vCenter environments, you need to install multiple clients. You may not have more than one MGN vCenter Client installed per AWS account. If you have multiple vCenter environments, you can either use a different AWS account for each environment or you can migrate your VMs serially, environment by environment, into the same AWS account. 
 
-If you have multiple vCenter environments, you need to install multiple clients. You
-may not have more than one MGN vCenter Client installed per AWS account. If you have
-multiple vCenter environments, you can either use a different AWS account for each environment
-or you can migrate your VMs serially, environment by environment, into the same AWS account.
-
-After the MGN vCenter Client has been installed, it discovers all of the VMs in
-your vCenter environment and adds them to MGN.
+After the MGN vCenter Client has been installed, it discovers all of the VMs in your vCenter environment and adds them to MGN.
 
 ## MGN vCenter Client requirements
+<a name="client-notes-mgn"></a>
 
-Ensure that you review the notes below prior to installing the MGN vCenter Client.
-Once you have read the notes, proceed to [install the client](client-installation-instructions-mgn.md "client-installation-instructions-mgn.md").
+Ensure that you review the notes below prior to installing the MGN vCenter Client. Once you have read the notes, proceed to [install the client](client-installation-instructions-mgn.md).
 
 ### vCenter Client requirements
-
-- You must install the MGN vCenter Client on a VM that has outbound network
-  connectivity to the AWS Transform MGN API endpoints and outbound network connectivity to the
-  vCenter endpoint. Customers who want to use PrivateLink can use VPN or AWS Direct Connect
-  to connect to AWS.
-- The MGN vCenter Client currently only supports VirtualDiskFlatVer2BackingInfo VMDK on
-  CBT.
-- You must log in to your Broadcom account and download VDDK 7.0.3.3 to the VM on which
-  the MGN vCenter Client is installed. VDDK 7.0.3.3 must be used, regardless of the
-  vCenter version used.
-- The MGN vCenter Client requires these vCenter user permissions for agentless
-  deployment. It is a best practice to create a dedicated role with these permissions
-  and a dedicated user group with which the role is associated. Every new user
-  created for the MGN vCenter Client needs to be a member of that group in order
-  to obtain the required permissions. The vCenter predefined role: “ Consolidated
-  Backup user (sample) ” provides most of these permissions. If that role is used, the
-  **Toggle disk change tracking** permission must be
-  provided..
-
-  - Change configuration
-
-    - Acquire disk lease
-    - Toggle disk change tracking
-
-  - Provisioning
-
-    - Allow read-only disk access
-    - Allow virtual machine download
-
-  - Snapshot management
-
-    - Create snapshot
-    - Remove snapshot
-
-- The VM on which the MGN vCenter Client is installed should meet these RAM,
-  CPU, and memory requirements:
-
-  - Minimal requirements (these requirements allow the replication of up to 5
-    servers in parallel) – 2 GiB RAM, 1 core, 10 GiB of free disk space
-  - Optional performance requirements (these requirements allow the replication of
-    the maximum number of 50 servers in parallel) – 16 GiB RAM, 8 cores, 10 GiB of free disk
-    space
-
-- VMs that are being replicated into AWS should have at least 2 GiB of free disk
-  space.
-- The VM on which the MGN vCenter Client is installed should not allow any incoming
-  (ingress) traffic.
-- The VM on which the MGN vCenter Client is installed should only allow outgoing
-  traffic as following:
-
-  - Egress TCP on the port on which the vCenter API runs.
-  - Egress TCP on port 443 for communication with the MGN API.
-  - Egress TCP on port 1500 – for the replication server.
-
-- Patching of guest OS running AWS vCenter client should be handled by the customer as
-  part of shared responsibility.
-- IAM credentials used by the vCenter Client should be rotated on a regular schedule.
-  Learn more about how to rotate access keys for IAM users in [this
-  IAM blog post](https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/ "https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/"). IAM credentials can be regenerated by reinstalling the AWS
-  Replication Agent.
-- The VM that hosts the MGN vCenter Client should only be used for client hosting and
-  should not be used for any other purposes.
-- Only a trusted administrator should have access to the VM on which the MGN vCenter
-  Client is installed.
-- The MGN vCenter Client should be located in an isolated and dedicated network and
-  considered a sensitive segment.
-- You can deactivate the vCenter Client auto-update mechanism by running this
-  command: `touch /var/lib/aws-vcenter-client/.disable_auto_updates` Once
-  auto-updates are deactivated, you need to reinstall the client to perform a manual
-  update. If you deactivate the auto-update mechanism, you are responsible for ensuring
-  that all security updates are performed on the client. After a manual update, you should
-  validate the new hash against the [installer hash](client-installation-instructions-mgn.md "client-installation-instructions-mgn.md").
+<a name="client-reqs"></a>
++ You must install the MGN vCenter Client on a VM that has outbound network connectivity to the AWS Transform MGN API endpoints and outbound network connectivity to the vCenter endpoint. Customers who want to use PrivateLink can use VPN or AWS Direct Connect to connect to AWS.
++ The MGN vCenter Client currently only supports VirtualDiskFlatVer2BackingInfo VMDK on CBT. 
++ You must log in to your Broadcom account and download VDDK 7.0.3.3 to the VM on which the MGN vCenter Client is installed. VDDK 7.0.3.3 must be used, regardless of the vCenter version used. 
++ The MGN vCenter Client requires these vCenter user permissions for agentless deployment. It is a best practice to create a dedicated role with these permissions and a dedicated user group with which the role is associated. Every new user created for the MGN vCenter Client needs to be a member of that group in order to obtain the required permissions. The vCenter predefined role: “ Consolidated Backup user (sample) ” provides most of these permissions. If that role is used, the **Toggle disk change tracking** permission must be provided..
+  + Change configuration
+    + Acquire disk lease
+    + Toggle disk change tracking
+  + Provisioning
+    + Allow read-only disk access
+    + Allow virtual machine download
+  + Snapshot management
+    + Create snapshot
+    + Remove snapshot
++ The VM on which the MGN vCenter Client is installed should meet these RAM, CPU, and memory requirements:
+  + Minimal requirements (these requirements allow the replication of up to 5 servers in parallel) – 2 GiB RAM, 1 core, 10 GiB of free disk space
+  + Optional performance requirements (these requirements allow the replication of the maximum number of 50 servers in parallel) – 16 GiB RAM, 8 cores, 10 GiB of free disk space
++ VMs that are being replicated into AWS should have at least 2 GiB of free disk space.
++ The VM on which the MGN vCenter Client is installed should not allow any incoming (ingress) traffic.
++ The VM on which the MGN vCenter Client is installed should only allow outgoing traffic as following:
+  + Egress TCP on the port on which the vCenter API runs.
+  + Egress TCP on port 443 for communication with the MGN API.
+  + Egress TCP on port 1500 – for the replication server.
++ Patching of guest OS running AWS vCenter client should be handled by the customer as part of shared responsibility.
++ IAM credentials used by the vCenter Client should be rotated on a regular schedule. Learn more about how to rotate access keys for IAM users in [this IAM blog post](https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/). IAM credentials can be regenerated by reinstalling the AWS Replication Agent.
++ The VM that hosts the MGN vCenter Client should only be used for client hosting and should not be used for any other purposes.
++ Only a trusted administrator should have access to the VM on which the MGN vCenter Client is installed. 
++ The MGN vCenter Client should be located in an isolated and dedicated network and considered a sensitive segment.
++ You can deactivate the vCenter Client auto-update mechanism by running this command: `touch /var/lib/aws-vcenter-client/.disable_auto_updates` Once auto-updates are deactivated, you need to reinstall the client to perform a manual update. If you deactivate the auto-update mechanism, you are responsible for ensuring that all security updates are performed on the client. After a manual update, you should validate the new hash against the [installer hash](client-installation-instructions-mgn.md).
 
 ### vCenter Client installer notes
+<a name="client-notes-appliance-mgn"></a>
++ The MGN vCenter Client installer only supports vCenter 6.7, 7.0 and 8.0.
++ The MGN vCenter Client can be installed on these 64 bit Linux versions:
+  + Ubuntu 18.x\+ (64 bit) - 22.04
+  + Amazon Linux 2
+  + RHEL 8.x
++ If you are using a RHEL 8.x environment, ensure that you run the `sudo yum install python3` command to install python prior to launching the client installer.
++ These flags are used by the installer: 
+  + usage: aws-vcenter-client-installer-init.py [-h]
+  +  [--aws-access-key-id AWS\_ACCESS\_KEY\_ID]
+  + [--aws-secret-access-key AWS\_SECRET\_ACCESS\_KEY]
+  + [--region REGION]
+  + [--endpoint ENDPOINT]
+  + [--s3-endpoint S3\_ENDPOINT]
+  + [--vcenter-host VCENTER\_HOST]
+  + [--vcenter-port VCENTER\_PORT]
+  + [--vcenter-user VCENTER\_USER]
+  + [--vcenter-password VCENTER\_PASSWORD]
+  + [--vcenter-ca-path VCENTER\_CA\_PATH]
+  + [--vddk-path VDDK\_PATH]
+  + [--vcenter-client-tags KEY=VALUE [KEY=VALUE ...]]
+  + [--source-server-tags KEY=VALUE [KEY=VALUE ...]]
+  + [--disable-ssl-cert-validation]
+  + [--no-prompt]
+  + Use this flag for an unattended installation. If you are using this flag, you must also use the --force-delete-existing client flag.
 
-- The MGN vCenter Client installer only supports vCenter 6.7, 7.0 and 8.0.
-- The MGN vCenter Client can be installed on these 64 bit Linux versions:
+     [--force-delete-existing-client]
+  + Use this flag to delete an existing version of the vCenter Client from your VM. You must use this flag if you've previously installed the vCenter Client on the VM. If you use the --no-prompt flag, you must also use this flag. 
 
-  - Ubuntu 18.x+ (64 bit) - 22.04
-  - Amazon Linux 2
-  - RHEL 8.x
+     [--version]
 
-- If you are using a RHEL 8.x environment, ensure that you run the `sudo yum install
- python3` command to install python prior to launching the client installer.
-- These flags are used by the installer:
+    Optional arguments:
 
-  - usage: aws-vcenter-client-installer-init.py [-h]
-  - [--aws-access-key-id AWS\_ACCESS\_KEY\_ID]
-  - [--aws-secret-access-key AWS\_SECRET\_ACCESS\_KEY]
-  - [--region REGION]
-  - [--endpoint ENDPOINT]
-  - [--s3-endpoint S3\_ENDPOINT]
-  - [--vcenter-host VCENTER\_HOST]
-  - [--vcenter-port VCENTER\_PORT]
-  - [--vcenter-user VCENTER\_USER]
-  - [--vcenter-password VCENTER\_PASSWORD]
-  - [--vcenter-ca-path VCENTER\_CA\_PATH]
-  - [--vddk-path VDDK\_PATH]
-  - [--vcenter-client-tags KEY=VALUE [KEY=VALUE ...]]
-  - [--source-server-tags KEY=VALUE [KEY=VALUE ...]]
-  - [--disable-ssl-cert-validation]
-  - [--no-prompt]
-  - Use this flag for an unattended installation. If you are using this flag, you must
-    also use the --force-delete-existing client flag.
-
-  [--force-delete-existing-client]
-  - Use this flag to delete an existing version of the vCenter Client from your VM. You
-    must use this flag if you've previously installed the vCenter Client on the VM. If you use
-    the --no-prompt flag, you must also use this flag.
-
-  [--version]
-
-  Optional arguments:
-
-  -h, --help show this help message and exit
+     -h, --help show this help message and exit
 
 ### vCenter environment requirements
-
-- AWS Transform MGN supports VM hardware version 7 and higher with CBT activated.
-  Ensure that you upgrade any VMs you have to hardware version 7 or higher. Ensure that CBT
-  support is activated in your vSphere deployment. MGN activates CBT on replicating VMs. You
-  can deactivate CBT after cutover.
-- The VM being replicated into MGN must not contain any existing VMware
-  snapshots.
-- Once added to MGN, snapshot-based replication creates snapshots on the
-  replicated VM, which may result in slower disk performance.
-- VMs with independent disks, Raw Device Mappings (RDM), or direct-attach disks (iSCSI,
-  NBD) are not supported for replication into MGN.
-- The VM being replicated into MGN can be either stopped or running. Changing the VM
-  state during data replication does not affect data replication and causes no data
-  corruption.
+<a name="client-notes-environment-mgn"></a>
++ AWS Transform MGN supports VM hardware version 7 and higher with CBT activated. Ensure that you upgrade any VMs you have to hardware version 7 or higher. Ensure that CBT support is activated in your vSphere deployment. MGN activates CBT on replicating VMs. You can deactivate CBT after cutover. 
++ The VM being replicated into MGN must not contain any existing VMware snapshots.
++ Once added to MGN, snapshot-based replication creates snapshots on the replicated VM, which may result in slower disk performance.
++ VMs with independent disks, Raw Device Mappings (RDM), or direct-attach disks (iSCSI, NBD) are not supported for replication into MGN.
++ The VM being replicated into MGN can be either stopped or running. Changing the VM state during data replication does not affect data replication and causes no data corruption.

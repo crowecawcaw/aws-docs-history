@@ -1,10 +1,10 @@
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
+
+
+NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
 
 # Review all applications associated with a wave
+<a name="wave-applications-table"></a>
 
-The **Applications** table lists all the applications that
-are associated with the wave.
+The **Applications** table lists all the applications that are associated with the wave. 
 
-You can perform batch operations on all the applications via the wave **Actions** menu at the top of the page. You can perform an operation on a
-single application from its own **Application details** page, by
-choosing the application's **Application name**.
+You can perform batch operations on all the applications via the wave **Actions** menu at the top of the page. You can perform an operation on a single application from its own **Application details** page, by choosing the application's **Application name**. 

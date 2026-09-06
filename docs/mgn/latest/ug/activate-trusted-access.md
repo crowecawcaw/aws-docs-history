@@ -1,32 +1,33 @@
-NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
+
+
+NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](https://docs.aws.amazon.com/transform/latest/userguide/getting-started.html) in the *AWS Transform User Guide*.
 
 # Activate trusted access for AWS Transform MGN
+<a name="activate-trusted-access"></a>
 
 To use global view, you must activate trusted access to AWS Transform MGN for your organization.
 
-Attach the [AWSOrganizationsFullAccess](../../../aws-managed-policy/latest/reference/AWSOrganizationsFullAccess.md "../../../aws-managed-policy/latest/reference/AWSOrganizationsFullAccess.md") managed policy to the user.
+Attach the [AWSOrganizationsFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSOrganizationsFullAccess.html) managed policy to the user.
 
 To enable service access for your organization, take the following steps:
 
 1. Activate trusted access for MGN
 
    1. Log in as management account.
-   2. Select **Global view** from the left-hand navigation
-      menu.
-   3. Activate service access by choosing the 'Enable AWS Organizations service access' button
-      [Learn more about activating trusted access.](../../../organizations/latest/userguide/orgs_integrate_services.md "../../../organizations/latest/userguide/orgs_integrate_services.md")
 
-2. Select members and turn them into delegated admins for MGN by calling the [RegisterDelegatedAdministrator](../../../organizations/latest/APIReference/API_RegisterDelegatedAdministrator.md "../../../organizations/latest/APIReference/API_RegisterDelegatedAdministrator.md") API, including the service name:
+   1. Select **Global view** from the left-hand navigation menu.
 
-```
+   1. Activate service access by choosing the 'Enable AWS Organizations service access' button
 
-            {
-              "AccountId": "string",
-              "ServicePrincipal": "mgn.amazonaws.com"
-            }
+   [Learn more about activating trusted access.](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html)
 
-```
+1. Select members and turn them into delegated admins for MGN by calling the [RegisterDelegatedAdministrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html) API, including the service name:
 
-###### Important
-
+   ```
+               {
+                 "AccountId": "string",
+                 "ServicePrincipal": "mgn.amazonaws.com"
+               }
+   ```
+**Important**  
 You can register up to 5 delegated administrators.
