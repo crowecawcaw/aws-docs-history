@@ -1,10 +1,9 @@
-# AWS Cloud WAN example: Edge consolidation with isolated VPCs
 
-This policy creates two segments, `development` and `hybrid`. If an
-attachment comes from a VPC, it will be mapped automatically to the development segment.
-VPCs that are attached to the development segment cannot talk to each other, and can talk
-only to the VPN. The development segment has a default route that points to the two
-attachments (one for each Region) and routes all traffic back on-premises.
+
+# AWS Cloud WAN example: Edge consolidation with isolated VPCs
+<a name="cloudwan-policy-examples-edge-consolidation"></a>
+
+This policy creates two segments, `development` and `hybrid`. If an attachment comes from a VPC, it will be mapped automatically to the development segment. VPCs that are attached to the development segment cannot talk to each other, and can talk only to the VPN. The development segment has a default route that points to the two attachments (one for each Region) and routes all traffic back on-premises. 
 
 ```
 {

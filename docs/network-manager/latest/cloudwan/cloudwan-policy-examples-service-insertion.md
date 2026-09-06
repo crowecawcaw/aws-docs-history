@@ -1,13 +1,9 @@
-# AWS Cloud WAN example: Service insertion firewalls between on-premises and VPCs
 
-In this policy, traffic on a segment named _development_ is first sent
-to an Inspection VPC before being sent to a segment named _production_ using
-a network function group named _InspectionVPC_. The on-premises attachment
-has already been set up and mapped to either the `development` or
-`production` segments. The segment action uses `send-via`, indicating
-that this is east-west traffic. The attachment policy rule uses the `and` condition
-logic with `InspectionVpcs` as the value of the key-value pair associated with the
-attachment.
+
+# AWS Cloud WAN example: Service insertion firewalls between on-premises and VPCs
+<a name="cloudwan-policy-examples-service-insertion"></a>
+
+In this policy, traffic on a segment named *development* is first sent to an Inspection VPC before being sent to a segment named *production* using a network function group named *InspectionVPC*. The on-premises attachment has already been set up and mapped to either the `development` or `production` segments. The segment action uses `send-via`, indicating that this is east-west traffic. The attachment policy rule uses the `and` condition logic with `InspectionVpcs` as the value of the key-value pair associated with the attachment. 
 
 ```
 {

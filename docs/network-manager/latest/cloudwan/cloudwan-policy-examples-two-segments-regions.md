@@ -1,10 +1,9 @@
-# AWS Cloud WAN example: Two segments and multiple AWS Regions
 
-This policy sets up two networks, `Secured` and `Non-Secured`,
-across three AWS Regions. Attachments with the tag `"Network" : "Secured"` map
-to `"Secured"`, while attachments with the tag `"Network" :
- "Non-Secured"` map to `"Non-Secured"`. All attachments require
-acceptance. Attachments can only talk within their segment but not across segments.
+
+# AWS Cloud WAN example: Two segments and multiple AWS Regions
+<a name="cloudwan-policy-examples-two-segments-regions"></a>
+
+This policy sets up two networks, `Secured` and `Non-Secured`, across three AWS Regions. Attachments with the tag `"Network" : "Secured"` map to `"Secured"`, while attachments with the tag `"Network" : "Non-Secured"` map to `"Non-Secured"`. All attachments require acceptance. Attachments can only talk within their segment but not across segments.
 
 ```
 {

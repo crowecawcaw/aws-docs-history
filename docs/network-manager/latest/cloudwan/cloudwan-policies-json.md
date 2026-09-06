@@ -1,141 +1,62 @@
+
+
 # Core network policy version parameters in AWS Cloud WAN
+<a name="cloudwan-policies-json"></a>
 
-The following sections describe the parameters that you use to create a core network
-policy version using JSON. Your JSON file contains two sections that describe the policy
-network settings and segments. You can then add optional sections for defining network
-function groups and segment actions.
+The following sections describe the parameters that you use to create a core network policy version using JSON. Your JSON file contains two sections that describe the policy network settings and segments. You can then add optional sections for defining network function groups and segment actions. 
 
-For example JSON policies, see [AWS Cloud WAN core network policy examples](cloudwan-policy-examples.md "cloudwan-policy-examples.md").
+For example JSON policies, see [AWS Cloud WAN core network policy examples](cloudwan-policy-examples.md). 
 
-###### Topics
-
-- [version](#cloudwan-version-json "#cloudwan-version-json")
-- [core-network-configuration](#cloudwan-network-config-json "#cloudwan-network-config-json")
-- [segments](#cloudwan-segments-json-about "#cloudwan-segments-json-about")
-- [network-function-groups](#cloudwan-network-functions-json "#cloudwan-network-functions-json")
-- [segment-actions](#cloudwan-segment-actions-json "#cloudwan-segment-actions-json")
-- [attachment-policies](#cloudwan-attach-policies-json "#cloudwan-attach-policies-json")
-- [attachment-routing-policy-rules](#cloudwan-attachment-routing-policy-rules-json "#cloudwan-attachment-routing-policy-rules-json")
-- [routing-policies](#cloudwan-routing-policies-json "#cloudwan-routing-policies-json")
+**Topics**
++ [`version`](#cloudwan-version-json)
++ [`core-network-configuration`](#cloudwan-network-config-json)
++ [`segments`](#cloudwan-segments-json-about)
++ [`network-function-groups`](#cloudwan-network-functions-json)
++ [`segment-actions`](#cloudwan-segment-actions-json)
++ [`attachment-policies`](#cloudwan-attach-policies-json)
++ [`attachment-routing-policy-rules`](#cloudwan-attachment-routing-policy-rules-json)
++ [`routing-policies`](#cloudwan-routing-policies-json)
 
 ## `version`
+<a name="cloudwan-version-json"></a>
 
-You must select a version for your core network from the following options:
+You must select a version for your core network from the following options: 
++ `2021.12`
++ `2025.11`
 
-- `2021.12`
-- `2025.11`
-
-###### Note
-
-You must select version 2025.11 to use route policies in your core network policy. Using version 2025.11 will also enable BGP community support on your core network, meaning
-community tags coming from BGP capable attachments will begin to be propagated through your core network. We will drop the subtype information of community tags propagated through the core network
-and for community tags propagated outbound of the core network the subtype will be set to Route Target.
+**Note**  
+You must select version 2025.11 to use route policies in your core network policy. Using version 2025.11 will also enable BGP community support on your core network, meaning community tags coming from BGP capable attachments will begin to be propagated through your core network. We will drop the subtype information of community tags propagated through the core network and for community tags propagated outbound of the core network the subtype will be set to Route Target. 
 
 ## `core-network-configuration`
+<a name="cloudwan-network-config-json"></a>
 
-The core network configuration section defines the Regions where a core network should
-operate.
+The core network configuration section defines the Regions where a core network should operate. 
 
-For AWS Regions that are defined in the policy, the core network creates a Core
-Network Edge where you can connect attachments. After it's created, each Core Network
-Edge is peered with every other defined Region and is configured with
-consistent segment and routing across all Regions. Regions can't be
-removed until the associated attachments are deleted.
-`core-network-configuration` is required.
+For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions can't be removed until the associated attachments are deleted. `core-network-configuration` is required.
 
 ### Parameters
+<a name="cloudwan-network-config-params"></a>
 
-The following parameters are used in
-`core-network-configuration`:
+ The following parameters are used in `core-network-configuration`:
++ General settings allow you to create the foundation of a core network, including whether VPN ECMP, DNS, and security group referencing are supported. 
+  + `vpn-ecmp-support `— (Optional) Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. When set to `true`, traffic can be distributed across multiple VPN tunnels for better throughput and redundancy. The default is `true`.
+  + `dns-support` — (Optional) Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`. For more information, see [DNS support](cloudwan-vpc-attachment.md#cloudwan-dns-support).
+  + `security-group-referencing-support` — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`. For more information about security group referencing, see [Security group referencing](cloudwan-vpc-attachment.md#cloudwan-sg-referencing).
++ `asn-ranges` — The Autonomous System Numbers (ASNs) to assign to core network edges. By default, the core network automatically assigns an ASN for each core network edge, but you can optionally define the ASN in the `edge-locations` for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294`. No other ASN ranges can be used. 
++ `inside-cidr-blocks` — (Optional) The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the core network edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new core network edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge. 
+**Note**  
+ If the ranges provided do not have enough space to create a `/24` for IPv4 or `/64` for IPv6 block when a new edge location is added to the policy a policy exception will occur. Auto assigning CIDR blocks will occur whenever a value for this option is specified. To avoid this exception you would either need to increase the CIDR range provided or have this CIDR range match the CIDRS specified in the core network edges section per Region. Expanding the range will allow the service to be able to auto assign a CIDR range for a new edge location. Having the ranges match the core network edge locations indicates that no auto assigning needs to occur and we will not attempt to auto assign for any new edge locations. 
++  `vpn-ecmp-support` — (Optional) Indicate whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can either be `true` or `false`. The default is `true`. 
++ `edge-locations` — An array of AWS Region locations where you're creating core network edges. The array is composed of the following parameters:
+  +  `location` — An AWS Region code, such as `us-east-1`.
+  + `asn` — (Optional) The ASN of the core network edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn-ranges`. 
+**Note**  
+You can't change the ASN of a core network edge. Any transit gateway with the same ASN can't be peered to that core network edge. For example, if you have a core network edge with an ASN of `64512`, you can't peer any transit gateway that also has an ASN of `64512`. 
+  + `inside-cidr-blocks` — (Optional) The local CIDR blocks for this core network edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside-cidr-blocks`. 
+**Note**  
+You can't delete the inside CIDR block once it's assigned to a core network edge.
 
-- General settings allow you to create the foundation of a core network,
-  including whether VPN ECMP, DNS, and security group referencing are
-  supported.
-
-  - `vpn-ecmp-support` — (Optional) Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. When set to `true`, traffic can be distributed across multiple VPN tunnels for better throughput and redundancy. The default is `true`.
-  - `dns-support` — (Optional) Indicates whether DNS
-    resolution is enabled for the core network. The value can be either
-    `true` or `false`. When set to
-    `true`, DNS resolution is enabled for VPCs attached
-    to the core network, allowing resources in different VPCs to resolve
-    each other's domain names. The default is `true`. For
-    more information, see [DNS support](cloudwan-vpc-attachment.md#cloudwan-dns-support "cloudwan-vpc-attachment.md#cloudwan-dns-support").
-  - `security-group-referencing-support` — (Optional)
-    Indicates whether security group referencing is enabled for the core
-    network. The value can be either `true` or
-    `false`. When set to `true`, security
-    groups in one VPC can reference security groups in another VPC
-    attached to the core network, enabling more flexible security
-    configurations across your network. The default is
-    `false`. For more information about security group referencing,
-    see [Security group referencing](cloudwan-vpc-attachment.md#cloudwan-sg-referencing "cloudwan-vpc-attachment.md#cloudwan-sg-referencing").
-
-- `asn-ranges` — The Autonomous System Numbers (ASNs) to assign
-  to core network edges. By default, the core network automatically assigns an
-  ASN for each core network edge, but you can optionally define the ASN in the
-  `edge-locations` for each Region. The ASN
-  uses an array of integer ranges only from `64512` to
-  `65534` and `4200000000` to
-  `4294967294`. No other ASN ranges can be used.
-- `inside-cidr-blocks` — (Optional) The Classless Inter-Domain
-  Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect.
-  The format is standard AWS CIDR range (for example,
-  `10.0.1.0/24`). You can optionally define the inside CIDR in
-  the core network edges section per Region. The minimum is a `/24`
-  for IPv4 or `/64` for IPv6. You can provide multiple
-  `/24` subnets or a larger CIDR range. If you define a larger
-  CIDR range, new core network edges will be automatically assigned
-  `/24` and `/64` subnets from the larger CIDR. an
-  Inside CIDR block is required for attaching Connect attachments to a Core
-  Network Edge.
-
-###### Note
-
-If the ranges provided do not have enough space to create a `/24`
-for IPv4 or `/64` for IPv6 block when a new edge location is added to the
-policy a policy exception will occur. Auto assigning CIDR blocks will occur whenever
-a value for this option is specified. To avoid this exception you would either need
-to increase the CIDR range provided or have this CIDR range match the CIDRS specified
-in the core network edges section per Region. Expanding the range will allow the service
-to be able to auto assign a CIDR range for a new edge location. Having the ranges match
-the core network edge locations indicates that no auto assigning needs to occur and we
-will not attempt to auto assign for any new edge locations.
-
-- `vpn-ecmp-support` — (Optional) Indicate whether the core
-  network forwards traffic over multiple equal-cost routes using VPN. The
-  value can either be `true` or `false`. The default is
-  `true`.
-- `edge-locations` — An array of AWS Region locations where you're
-  creating core network edges. The array is composed of the following
-  parameters:
-
-  - `location` — An AWS Region code, such as
-    `us-east-1`.
-  - `asn` — (Optional) The ASN of the core network edge in an
-    AWS Region. By default, the ASN will be a single integer
-    automatically assigned from `asn-ranges`.
-
-  ###### Note
-
-  You can't change the ASN of a core network edge. Any transit gateway with the same ASN can't be peered to that core network edge. For example, if you have a core network edge with an ASN of `64512`, you can't peer any transit gateway that also has an ASN of `64512`.
-  - `inside-cidr-blocks` — (Optional) The local CIDR blocks for
-    this core network edge for AWS Transit Gateway Connect attachments. By
-    default, this CIDR block will be one or more optional IPv4 and IPv6
-    CIDR prefixes auto-assigned from `inside-cidr-blocks`.
-
-  ###### Note
-
-  You can't delete the inside CIDR block once it's assigned to a
-  core network edge.
-
-For example, you might have the following core network configuration. This
-core network configuration establishes a Cloud WAN core network with VPN ECMP and
-DNS support enabled, while disabling security group referencing across VPCs. It
-allocates two internal CIDR blocks (`10.0.0.0/16` and
-`10.1.0.0/16`) for network connectivity, defines an ASN range of
-`65000-65100`, and deploys a single edge location in
-`us-east-1`, providing the foundation for a managed wide area
-network.
+For example, you might have the following core network configuration. This core network configuration establishes a Cloud WAN core network with VPN ECMP and DNS support enabled, while disabling security group referencing across VPCs. It allocates two internal CIDR blocks (`10.0.0.0/16` and `10.1.0.0/16`) for network connectivity, defines an ASN range of `65000-65100`, and deploys a single edge location in `us-east-1`, providing the foundation for a managed wide area network. 
 
 ```
 {
@@ -153,7 +74,7 @@ network.
     ],
     "edge-locations": [
         {
-        "location": "us-east-1"
+        "location": "us-east-1"        
         }
     ]
  }
@@ -162,371 +83,158 @@ network.
 ```
 
 ## `segments`
+<a name="cloudwan-segments-json-about"></a>
 
-The segments section defines the different segments in the network. Here you can
-provide descriptions, change defaults, and provide explicit regional, operational, and
-route filters. The names defined for each segment are used in the segment-actions and
-attachment-policies section. Each segment is created and operates as a completely
-separate routing domain. By default, attachments can only communicate with other
-attachments in the same segment. `segments` is a required section.
+The segments section defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit regional, operational, and route filters. The names defined for each segment are used in the segment-actions and attachment-policies section. Each segment is created and operates as a completely separate routing domain. By default, attachments can only communicate with other attachments in the same segment. `segments` is a required section.
 
 ### Parameters
+<a name="cloudwan-segments-json-params"></a>
 
 The following parameters are used in `segments`:
-
-- `segments` — At least one segment must be defined and composed of
-  the following parameters:
-
-  - `name` — The name of the segment. The `name`
-    is a string used in other parts of the policy document, as well as
-    in the console for metrics and other reference points. Valid
-    characters are a–z, A–Z, and 0–9.
-
-  ###### Note
-
-  There is no ARN or ID for a segment.
-  - `description` — (Optional) A user-defined string describing
-    the segment.
-  - `edge-locations` — (Optional) Allows you to define a more
-    restrictive set of Regions for a segment. The edge
-    location must be a subset of the locations that are defined for
-    `edge-locations` in the core-network-configuration.
-    These locations use the AWS Region code. For example, you might
-    want to use `us-east-1` as an edge
-    location.
-  - `isolate-attachments` — (Optional) This Boolean setting
-    determines whether attachments on the same segment can communicate
-    with each other. The default value is `false`. When set
-    to `true`, the only routes available will either be
-    shared routes through the share actions, which are attachments in
-    other segments, or static routes. For example, you might have a
-    segment dedicated to `development` that should never
-    allow VPCs to talk to each other, even if they’re on the same
-    segment. In this example, you would set the parameter to
-    `true`.
-
-  ###### Note
-
-  Routes coming from a route table attachment are not affected
-  by the `isolate-attachments` parameter. You are
-  responsible for managing routes propagating from their attached
-  route tables. Routes flowing into the route table attachment
-  from other attachments within the segment follow the standard
-  `isolate-attachments` behavior
-  - `require-attachment-acceptance` — (Optional) This Boolean
-    setting determines whether attachment requests are automatically
-    approved or require acceptance. The default is `true`,
-    indicating that attachment requests require acceptance. For example,
-    you might use this setting to allow a `sandbox` segment
-    to allow any attachment request so that a core network or attachment
-    administrator does not need to review and approve attachment
-    requests. In this example,
-    `require-attachment-acceptance` is set to
-    `false`.
-
-  ###### Note
-
-  If `require-attachment-acceptance` is
-  `false` for a segment, it's still possible for
-  attachments to be added to or removed from a segment
-  automatically when their tags change. If this behavior is not
-  desired, set `require-attachment-acceptance` to
-  `true`.
-  - `deny-filter` — (Optional) An array of segments that
-    disallows routes from the segments listed in the array. It is
-    applied only after routes have been shared in
-    `segment-actions`. If a segment is listed in the
-    `deny-filter`, attachments between the two segments
-    will never have routes shared across them. For example, you might
-    have a financial `payment` segment that should
-    never share routes with a `development` segment,
-    regardless of how many other share statements are created. Adding
-    the `payments` segment to the
-    `deny-filter` parameter prevents any shared routes
-    from being created with other segments.
-  - `allow-filter` (optional) — An array of segments that
-    explicitly allows only routes from the segments that are listed in
-    the array. Use the `allow-filter` setting if a segment has a well-defined group of
-    other segments that connectivity should be restricted to. It is
-    applied after routes have been shared in
-    `segment-actions`. If a segment is listed in
-    `allow-filter`, attachments between the two segments
-    will have routes if they are also shared in the
-    `segment-actions` area. For example, you might have a
-    segment named `video-producer` that should only
-    ever share routes with a `video-distributor` segment, no
-    matter how many other share statements are created.
-
-  ###### Note
-
-  You can use either `allow-filter` or `deny-filter`, but you can't use
-  both of them simultaneously. These are optional fields used to more
-  explicitly control segment sharing. These parameters are not
-  required in order to receive or send routes between segments.
++  `segments` — At least one segment must be defined and composed of the following parameters:
+  +  `name` — The name of the segment. The `name` is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, A–Z, and 0–9.
+**Note**  
+There is no ARN or ID for a segment.
+  + `description` — (Optional) A user-defined string describing the segment.
+  + `edge-locations` — (Optional) Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge-locations` in the core-network-configuration. These locations use the AWS Region code. For example, you might want to use `us-east-1` as an edge location.
+  + `isolate-attachments ` — (Optional) This Boolean setting determines whether attachments on the same segment can communicate with each other. The default value is `false`. When set to `true`, the only routes available will either be shared routes through the share actions, which are attachments in other segments, or static routes. For example, you might have a segment dedicated to `development` that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would set the parameter to `true`.
+**Note**  
+Routes coming from a route table attachment are not affected by the `isolate-attachments` parameter. You are responsible for managing routes propagating from their attached route tables. Routes flowing into the route table attachment from other attachments within the segment follow the standard `isolate-attachments` behavior
+  + `require-attachment-acceptance` — (Optional) This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a `sandbox` segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require-attachment-acceptance` is set to `false`.
+**Note**  
+If `require-attachment-acceptance` is `false` for a segment, it's still possible for attachments to be added to or removed from a segment automatically when their tags change. If this behavior is not desired, set `require-attachment-acceptance` to `true`.
+  + `deny-filter` — (Optional) An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment-actions`. If a segment is listed in the `deny-filter`, attachments between the two segments will never have routes shared across them. For example, you might have a financial `payment` segment that should never share routes with a `development` segment, regardless of how many other share statements are created. Adding the `payments` segment to the `deny-filter` parameter prevents any shared routes from being created with other segments.
+  + `allow-filter` (optional) — An array of segments that explicitly allows only routes from the segments that are listed in the array. Use the `allow-filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment-actions`. If a segment is listed in `allow-filter`, attachments between the two segments will have routes if they are also shared in the `segment-actions` area. For example, you might have a segment named `video-producer` that should only ever share routes with a `video-distributor` segment, no matter how many other share statements are created.
+**Note**  
+ You can use either `allow-filter` or `deny-filter`, but you can't use both of them simultaneously. These are optional fields used to more explicitly control segment sharing. These parameters are not required in order to receive or send routes between segments.
 
 ## `network-function-groups`
+<a name="cloudwan-network-functions-json"></a>
 
-`network-function-groups` defines the container for the service insertion
-actions you want to include. This will include any attachment policies.
-
-- `name` — Required. This identifies the network function group
-  container.
-- `description` — Optional description of the network function
-  group.
-- `require-attachment-acceptance` — This will be either
-  `true`, that attachment acceptance is required, or
-  `false`, that it is not required.
+`network-function-groups` defines the container for the service insertion actions you want to include. This will include any attachment policies.
++ `name` — Required. This identifies the network function group container. 
++ `description` — Optional description of the network function group.
++ `require-attachment-acceptance` — This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
 
 ## `segment-actions`
+<a name="cloudwan-segment-actions-json"></a>
 
-`segment-actions` define how routing works between segments. By default,
-attachments can only communicate with other attachments in the same segment. You can use
-`segment-actions` to:
+`segment-actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. You can use `segment-actions` to:
++ `share` attachments across segments. Use the `share` action so that attachments from two different segments can reach each other. For example, if you've set a segment to `isolate-attachments`, the segment can't reach anything unless it has a `share` relationship with other segments. The `share` statement creates routes between attachments in the provided segments. If you're creating a share between one segment and an array of segments, the segment to share allows attachments from the segments in the array. However, sharing does not occur between the segments within the array. For example, if a segment named `shared-service` is defined as a segment with a `share-with` array of segments named `prod` and `prod2`, the network policy will allow the attachments in both `prod` and `prod2` to reach `shared-service`. But the network policy will not allow sharing of attachments between `prod` and `prod2`.
++ `create-route` to define a static route in a segment.
 
-- `share` attachments across segments. Use the `share`
-  action so that attachments from two different segments can reach each other. For
-  example, if you've set a segment to `isolate-attachments`, the
-  segment can't reach anything unless it has a `share` relationship
-  with other segments. The `share` statement creates routes between
-  attachments in the provided segments. If you're creating a share between one
-  segment and an array of segments, the segment to share allows attachments from
-  the segments in the array. However, sharing does not occur between the segments
-  within the array. For example, if a segment named `shared-service` is
-  defined as a segment with a `share-with` array of segments named
-  `prod` and `prod2`, the network policy will allow the
-  attachments in both `prod` and `prod2` to reach
-  `shared-service`. But the network policy will not allow sharing
-  of attachments between `prod` and `prod2`.
-- `create-route` to define a static route in a segment.
-
-###### Note
-
-Sharing routes occurs between segments. All attachments connected to the same
-segment will share a similar routing behavior globally. If some attachments differ
-from other attachments in the same segment, those attachments should be within their
-own segments. This is intentional to prevent a proliferation of segments where one
-segment equals one attachment.
+**Note**  
+Sharing routes occurs between segments. All attachments connected to the same segment will share a similar routing behavior globally. If some attachments differ from other attachments in the same segment, those attachments should be within their own segments. This is intentional to prevent a proliferation of segments where one segment equals one attachment. 
 
 `segment-actions` is an optional section.
 
 ### Parameters
+<a name="cloudwan-segment-params-json"></a>
 
 The following parameters are used in `segment-actions`:
++ `action` — The action to take for the chosen segment. The `action` can be any of the following: 
+  +  `share` for a shared route
+  +  `create-route` for a route 
+  + `send-via` for service insertion, indicating that traffic is sent from one Cloud WAN attachment to another (east-west).
+  + `send-to` for service insertion, indicating that traffic is sent out from the cloud and doesn't re-enter (north-south).
+  + `associate-routing-policy` for associating routing policies with edge location pairs within a segment.
 
-- `action` — The action to take for the chosen segment. The
-  `action` can be any of the following:
+  The following parameters are described for these actions. 
++ `share` parameters. If the action to take is share, the following parameters are required. `share` is the default action behavior.
+  + `segment` — The name of the segment created in the `segments` section to share.
+  + `mode` — `attachment-route` is the only supported value. This mode places the attachment and return routes in each of the `share-with` segments. For example, if there are static routes or routes shared from other segments, those will not be shared through the `attachment-route` `mode`.
+  + `share-with` — An array of segments that will have reachability with the segment defined. The core network will create mutual advertisements between these `share-with` segments and the defined segment attachments.
 
-  - `share` for a shared route
-  - `create-route` for a route
-  - `send-via` for service insertion, indicating that
-    traffic is sent from one Cloud WAN attachment to another
-    (east-west).
-  - `send-to` for service insertion, indicating that
-    traffic is sent out from the cloud and doesn't re-enter
-    (north-south).
-  - `associate-routing-policy` for associating routing
-    policies with edge location pairs within a segment.
-    The following parameters are described for these
-    actions.
+    For example, if you create a `share` between a segment named `shared-services` and share-with "A" and "B", this allows the attachments from "A" and "B" to reach "Shared services". "A" and "B" cannot reach each other, and any static routes or routes propagated from other segments are not shared among these segments.
 
-- `share` parameters. If the action to take is share, the following
-  parameters are required. `share` is the default action
-  behavior.
+    Use "`*`" as a wild card to reference all segments instead of explicitly calling out segments individually.
+  + `except` — Explicitly exclude segments, encapsulated within a `share-with` block. For example,
 
-  - `segment` — The name of the segment created in the
-    `segments` section to share.
-  - `mode` — `attachment-route` is the only
-    supported value. This mode places the attachment and return routes
-    in each of the `share-with` segments. For example, if
-    there are static routes or routes shared from other segments, those
-    will not be shared through the `attachment-route`
-    `mode`.
-  - `share-with` — An array of segments that will have
-    reachability with the segment defined. The core network will create
-    mutual advertisements between these `share-with` segments
-    and the defined segment attachments.
+    ```
+    {
+          "action": "share",
+          "mode": "attachment-route",
+          "segment": "segment",
+          "share-with": {
+            "except": [
+              "dev",
+              "prod"
+            ]
+          }
+        }
+    ```
+  + `routing-policy-names` — (Optional) An array of routing policy names to apply to the segment sharing. The routing policies control how routes are propagated between the shared segments.
++ `create-route` parameters. If the action is `create-route`, the following are the required and optional parameters.
+  + `segment` — The name of the segment created in the `segments` section, which must be a static route. If you need to duplicate the static route in multiple segments, use multiple `create-route` statements.
+  + `destination-cidr-blocks` — The static route to create. A segment should have the same routing behavior for a certain destination. This means if one Region has a route to a destination, other Regions should also have that route, but with potentially different paths. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
+  + `destinations` — Defines the list of attachments to send the traffic to, with up to one `attachment-id` per Region. Because a segment is a global object, you should design your routing so that every AWS Region has an attachment in the destinations list. Regions that do not have attachments in this list will receive a propagated version of this route through cross-Region peering connections, and will use the static route of another Region. This is the same case for multiple attachments that are defined across multiple remote Regions. Instead of an array of attachments, you can also provide a `blackhole`, which drops all traffic to the `destination-cidr-blocks`. 
+**Note**  
+ AWS Cloud WAN does not propagate blackhole routes.
+  + `description` — (Optional) A user-defined description to help further identify this route.
++ `associate-routing-policy` parameters. If the action is `associate-routing-policy`, the following parameters are required:
+  + `segment` — The name of the segment where the routing policy association will be applied.
+  + `edge-location-association` — Defines the edge location pair and routing policies to associate:
+    + `edge-location` — The primary edge location.
+    + `peer-edge-location` — The peer edge location that forms the edge location pair.
+    + `routing-policy-names` — An array of routing policy names to apply to traffic between these edge locations.
 
-  For example, if you create a `share` between a segment
-  named `shared-services` and share-with "A" and "B",
-  this allows the attachments from "A" and "B" to reach "Shared
-  services". "A" and "B" cannot reach each other, and any static
-  routes or routes propagated from other segments are not shared among
-  these segments.
-
-  Use "`*`" as a wild card to reference all segments instead
-  of explicitly calling out segments individually.
-  - `except` — Explicitly exclude segments, encapsulated within
-    a `share-with` block. For example,
+  The following example shows associating a routing policy with an edge location pair:
 
   ```
   {
-        "action": "share",
-        "mode": "attachment-route",
-        "segment": "segment",
-        "share-with": {
-          "except": [
-            "dev",
-            "prod"
-          ]
-        }
+    "action": "associate-routing-policy",
+    "segment": "prod",
+    "edge-location-association": {
+      "edge-location": "us-east-1",
+      "peer-edge-location": "us-west-2",
+      "routing-policy-names": ["inboundRoutingFilter"]
+    }
+  }
+  ```
++ `send-via` and `send-to` parameters. If the network function group segment `action` is either `send-via` or `send-to`. Use` send-via` if you want to send east-west traffic between VPCs. Use `send-to` for north-south traffic; that is, traffic that first must come into your security appliance and then out to either the Internet or an on-premises location. 
+
+  The following are the required and optional parameters:
+  + `segment` — Required. The name of an existing segment that can be used for the `send-via` or `send-to` action.
+  + `mode` — This only applies when the `action` is `send-via`, and indicates the mode used for packets. This will be either `single-hop` or `dual-hop`. `send-to` does not rely on `mode` for traffic.
+  + `when-sent-to` parameters are used to list the destination segments for the `send-via` or `send-to` action. 
+    + `segments` — The list of segments that the `send-via` action uses. `segments` is not used for the `send-to` action. 
+  + `via` parameters describe the network function groups and any edge overrides associated with the
+    + `network-function-groups` — The network function group to use for the service insertion action.
+    + `with-edge-overrides` parameters describe any edge overrides and the preferred edge to use.
+      + `edge-sets` — The list of edges associated with the network function group.
+      + `use-edge-location` — The preferred edge to use.
+
+  The following example shows an example of the `send-via` action:
+  + Traffic is sent via a segment named `development`.
+  +  the `via` parameter, which contains the details of the edge locations and overrides. It uses a network function group named `inspection-vpc` and has two defined `edge-sets`, `corenetwork1`and `corenetwork2`. `corenetwork2` is set as the preferred core network edge (`use-edge-location`).
+
+  ```
+  {
+          "segment": "SendToInspectionVPC", 
+          "action": "send-via",
+          "mode": "single-hop",
+          "when-sent-to": { 
+              "segments ": [ 
+                  "development" 
+              ]
+          }, 
+          "via": { 
+              "network-function-groups": [
+                  "inspection-vpc"
+              ], 
+              "with-edge-overrides ": [ 
+                  { 
+                      "edge-sets ": [ 
+                          ["corenetwork1", "corenetwork2"] 
+                      ], 
+                      "use-edge-location": "corenetwork2" 
+                  } 
+              ] 
+          } 
       }
   ```
-  - `routing-policy-names` — (Optional) An array of routing
-    policy names to apply to the segment sharing. The routing policies
-    control how routes are propagated between the shared segments.
 
-- `create-route` parameters. If the action is
-  `create-route`, the following are the required and optional
-  parameters.
-
-  - `segment` — The name of the segment created in the
-    `segments` section, which must be a static route. If
-    you need to duplicate the static route in multiple segments, use
-    multiple `create-route` statements.
-  - `destination-cidr-blocks` — The static route to create. A
-    segment should have the same routing behavior for a certain
-    destination. This means if one Region has a route to
-    a destination, other Regions should also have that
-    route, but with potentially different paths. You can define the IPv4
-    and IPv6 CIDR notation for each AWS Region. For example,
-    `10.1.0.0/16` or `2001:db8::/56`. This is
-    an array of CIDR notation strings.
-  - `destinations` — Defines the list of attachments to send
-    the traffic to, with up to one `attachment-id` per
-    Region. Because a segment is a global object, you
-    should design your routing so that every AWS Region has an
-    attachment in the destinations list. Regions that do
-    not have attachments in this list will receive a propagated version
-    of this route through cross-Region peering
-    connections, and will use the static route of another
-    Region. This is the same case for multiple
-    attachments that are defined across multiple remote
-    Regions. Instead of an array of attachments, you can
-    also provide a `blackhole`, which drops all traffic to
-    the `destination-cidr-blocks`.
-
-  ###### Note
-
-        - AWS Cloud WAN does not propagate blackhole routes.
-  - `description` — (Optional) A user-defined description to
-    help further identify this route.
-
-- `associate-routing-policy` parameters. If the action is
-  `associate-routing-policy`, the following parameters are required:
-
-  - `segment` — The name of the segment where the routing
-    policy association will be applied.
-  - `edge-location-association` — Defines the edge location
-    pair and routing policies to associate:
-
-    - `edge-location` — The primary edge location.
-    - `peer-edge-location` — The peer edge location
-      that forms the edge location pair.
-    - `routing-policy-names` — An array of routing
-      policy names to apply to traffic between these edge locations.
-      The following example shows associating a routing policy with an edge
-      location pair:
-
-```
-{
-  "action": "associate-routing-policy",
-  "segment": "prod",
-  "edge-location-association": {
-    "edge-location": "us-east-1",
-    "peer-edge-location": "us-west-2",
-    "routing-policy-names": ["inboundRoutingFilter"]
-  }
-}
-```
-
-- `send-via` and `send-to` parameters. If the network
-  function group segment `action` is either `send-via`
-  or `send-to`. Use `send-via` if you want to send
-  east-west traffic between VPCs. Use `send-to` for north-south
-  traffic; that is, traffic that first must come into your security appliance
-  and then out to either the Internet or an on-premises location.
-
-The following are the required and optional parameters:
-
-    + `segment` — Required. The name of an existing segment
-     that can be used for the `send-via` or
-     `send-to` action.
-    + `mode` — This only applies when the `action`
-     is `send-via`, and indicates the mode used for packets.
-     This will be either `single-hop` or
-     `dual-hop`. `send-to` does not rely on
-     `mode` for traffic.
-    + `when-sent-to` parameters are used to list the
-     destination segments for the `send-via` or
-     `send-to` action.
-
-
-
-
-    	- `segments` — The list of segments that the
-    	 `send-via` action uses. `segments`
-    	 is not used for the `send-to` action.
-    + `via` parameters describe the network function groups
-     and any edge overrides associated with the
-
-
-
-
-    	- `network-function-groups` — The network
-    	 function group to use for the service insertion
-    	 action.
-    	- `with-edge-overrides` parameters describe any
-    	 edge overrides and the preferred edge to use.
-
-
-
-
-    		* `edge-sets` — The list of edges
-    		 associated with the network function group.
-    		* `use-edge-location` — The preferred edge to
-    		 use.
-
-The following example shows an example of the `send-via`
-action:
-
-    + Traffic is sent via a segment named
-     `development`.
-    + the `via` parameter, which contains the details of the
-     edge locations and overrides. It uses a network function group named
-     `inspection-vpc` and has two defined
-     `edge-sets`, `corenetwork1`and
-     `corenetwork2`. `corenetwork2` is set as
-     the preferred core network edge (`use-edge-location`).
-
-```
-{
-        "segment": "SendToInspectionVPC",
-        "action": "send-via",
-        "mode": "single-hop",
-        "when-sent-to": {
-            "segments ": [
-                "development"
-            ]
-        },
-        "via": {
-            "network-function-groups": [
-                "inspection-vpc"
-            ],
-            "with-edge-overrides ": [
-                {
-                    "edge-sets ": [
-                        ["corenetwork1", "corenetwork2"]
-                    ],
-                    "use-edge-location": "corenetwork2"
-                }
-            ]
-        }
-    }
-```
-
-The following example shows an example of the `send-to` action. In this
-example, traffic is sent to a segment named `development` through a
-network function group named `inspection-vpc`.
+The following example shows an example of the `send-to` action. In this example, traffic is sent to a segment named `development` through a network function group named `inspection-vpc`.
 
 ```
 {
@@ -542,287 +250,115 @@ network function group named `inspection-vpc`.
 ```
 
 ## `attachment-policies`
+<a name="cloudwan-attach-policies-json"></a>
 
-In a core network, all attachments use the `attachment-policies` section to
-map an attachment to a segment. Instead of manually associating a segment to each
-attachment, attachments use tags. The tags are then used to associate the attachment to
-the specified segment or network function group. A core network supports the following
-types of attachments:
+In a core network, all attachments use the `attachment-policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags. The tags are then used to associate the attachment to the specified segment or network function group. A core network supports the following types of attachments:
++ Transit Gateway Connect — `connect`
++ Direct Connect gateway — `direct-connect-gateway`
++ VPC — `vpc`
++ VPN — `site-to-site-vpn`
++ Transit Gateway route table — `transit-gateway-route-table`
 
-- Transit Gateway Connect — `connect`
-- Direct Connect gateway — `direct-connect-gateway`
-- VPC — `vpc`
-- VPN — `site-to-site-vpn`
-- Transit Gateway route table — `transit-gateway-route-table`
+For example, to attach a VPC to a core network, either the VPC owner or the core network owner would create a core network attachment in the core network using either the AWS Cloud WAN console or the Network Manager `create-attachment` command line or API. The attachment itself will have tags analyzed by the attachment policy, and not the tags associated with the VPC resource. A tag on the attachment such as `"environment" : "development" ` would then map to a `development` segment. Attachment policy rules can also use available metadata from within the conditions, such as `account ID`, `type` of attachment, the `resource ID` (for example, `vpc-id`), or the AWS Region.
 
-For example, to attach a VPC to a core network, either the VPC owner or the core
-network owner would create a core network attachment in the core network using either
-the AWS Cloud WAN console or the Network Manager `create-attachment` command line or API. The
-attachment itself will have tags analyzed by the attachment policy, and not the tags
-associated with the VPC resource. A tag on the attachment such as `"environment" :
- "development"` would then map to a `development` segment.
-Attachment policy rules can also use available metadata from within the conditions, such
-as `account ID`, `type` of attachment, the `resource
- ID` (for example, `vpc-id`), or the AWS Region.
+Rules are assigned numbers for processing, and are processed in order by number, from lowest to highest. When a match is made, the action is taken and no further rules are processed. A single attachment can only be associated to a single segment. If no rules are matched (for example, there might be a misspelled tag value), the attachment won't be associated to a segment. 
 
-Rules are assigned numbers for processing, and are processed in order by number, from
-lowest to highest. When a match is made, the action is taken and no further rules are
-processed. A single attachment can only be associated to a single segment. If no rules
-are matched (for example, there might be a misspelled tag value), the attachment won't
-be associated to a segment.
+When an attachment matches a rule, the attachment attaches to the segment defined `segment`. Each attachment can either be associated without acceptance or require a separate action to approve the attachment association. By default, every segment requires all attachments to be accepted. The acceptance requirement can be turned off with `"require-attachment-acceptance" : false` in the `segment` definition. When `require-acceptance` is `false`, any attachment that maps to the segment is automatically added. For example, a developer `sandbox` segment might want to allow any attachment with the correct tag to be added to the network. With the `attachment-policies`, you can add additional controls on a per-rule basis. For example, if attachments from the `us-east-2` Region require acceptance but other Regions do not, you can set the `"require-acceptance" : true` setting on a rule that is specific to `us-east-2` .
 
-When an attachment matches a rule, the attachment attaches to the segment defined
-`segment`. Each attachment can either be associated without acceptance or
-require a separate action to approve the attachment association. By default, every
-segment requires all attachments to be accepted. The acceptance requirement can be
-turned off with `"require-attachment-acceptance" : false` in the
-`segment` definition. When `require-acceptance` is
-`false`, any attachment that maps to the segment is automatically added.
-For example, a developer `sandbox` segment might want to allow any attachment
-with the correct tag to be added to the network. With the
-`attachment-policies`, you can add additional controls on a per-rule
-basis. For example, if attachments from the `us-east-2`
-Region require acceptance but other Regions do not, you
-can set the `"require-acceptance" : true` setting on a rule that is specific
-to `us-east-2` .
+You can apply multiple conditions using either `and` or `or` logic to create a single rule. For example, you can state that if the account is `111122223333` and includes the tag `"stage" : "development"` it should map to a specified segment. If you don't want to use tags to map attachments, you could use the `resource-id` to manually map each incoming connection to a segment. However, this approach requires changing the policy document every time new attachments are added and can reduce the operability of your current LIVE policy.
 
-You can apply multiple conditions using either `and` or `or`
-logic to create a single rule. For example, you can state that if the account is
-`111122223333` and includes the tag `"stage" :
- "development"` it should map to a specified segment. If you don't want to use
-tags to map attachments, you could use the `resource-id` to manually map each
-incoming connection to a segment. However, this approach requires changing the policy
-document every time new attachments are added and can reduce the operability of your
-current LIVE policy.
-
-If you're creating an attachment policy that includes a network functions group for
-service insertion, an attachment is required. If you attempt to create a service
-insertion policy that doesn't include an attachment, policy generation will fail.
+If you're creating an attachment policy that includes a network functions group for service insertion, an attachment is required. If you attempt to create a service insertion policy that doesn't include an attachment, policy generation will fail.
 
 `attachment-policies` is an optional section.
 
 ### Parameters
+<a name="cloudwan-attach-policies-params"></a>
 
 The following parameters are used in `attachment-policies`:
++  `rule-number` — An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
++ `description` — (Optional) A user-defined description that further helps identify the rule.
++ `condition-logic` — Evaluates a condition on either `and` or `or`. 
 
-- `rule-number` — An integer from `1` to
-  `65535` indicating the rule's order number. Rules are
-  processed in order from the lowest numbered rule to the highest. Rules stop
-  processing when a rule is matched. It's important to make sure that you
-  number your rules in the exact order that you want them processed.
-- `description` — (Optional) A user-defined description that
-  further helps identify the rule.
-- `condition-logic` — Evaluates a condition on either
-  `and` or `or`.
+  This is a mandatory parameter only if you have more than one condition. The conditions themselves are unordered, so the `condition-logic` applies to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `and` if you want to the rule to match on all of the conditions, or use `or` if you want the rule to match on one of the conditions. 
 
-This is a mandatory parameter only if you have more than one condition.
-The conditions themselves are unordered, so the `condition-logic`
-applies to all of the conditions for a rule, which also means nested
-conditions of `and` or `or` are not supported. Use
-`and` if you want to the rule to match on all of the
-conditions, or use `or` if you want the rule to match on one of
-the conditions.
+  If you're creating a JSON policy for a network function group `and` and `or` are the only supported `condition-logic` options.
++ `conditions` — An array composed of one of the following types: 
+  + `type` - Specifies the kind of condition to evaluate for matching attachments. The type determines what attribute of the attachment will be examined and how the matching logic is applied.
+    + `any` — This matches any request. For example, you could use any if you're only using one segment that everything should map to. Or, you could use this as a fallback segment if you want all attachments that don't match a rule to map to a known segment.
+    + `resource-id` uses the resource associated with the attachment (for example, `vpc-1234567890123456`). Supports additional parameters:
+      + `operator` — The operation to perform. Must be one of `equals` \| `not-equals` \| `contains` \| `begins-with`.
+      + `value` — The resource ID value to match against.
+    + `region` — Matches based on the AWS region where the attachment is located. Supports additional parameters:
+      + `operator` — The operation to perform. Must be one of `equals` \| `not-equals` \| `contains` \| `begins-with`.
+      + `value` — The Region to match against (for example,` us-east-1`).
+    + `attachment-type` — Matches based on the type of attachment. Supports additional parameters:
+      + `operator` — The operation to perform. Must be one of `equals` \| `not-equals` \| `contains` \| `begins-with`.
+      + `value` — The attachment type to match against. Supported values are: `vpc`, `site-to-site-vpn`, `connect`, `transit-gateway-route-table`.
+    + `account` — Uses the account ID of the requesting attachment (for example, `111122223333`). Supports additional parameters:
+      + `operator` — The operation to perform. Must be one of `equals` \| `not-equals` \| `contains` \| `begins-with`.
+      + `value` — The account ID value to match against. 
+    + `tag-name` — Match attachments based on the presence of specific tag names without evaluating their values.
+    + `tag-value` — Match attachments based on the presence of specific tag values. Supports additional parameters: 
+      + `operator` — The operation to perform. Must be one of `equals` \| `not-equals` \| `contains` \| `begins-with`.
+      + `value` — The tag key value to match against. 
+  + `action` — One of the following actions to when a condition is true:
+    + `association-method` — Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment. 
+    + `segment` — The name of the segment to share as defined in the `segments` section. This is used only when the `association-method` is constant.
+    + `tag-value-of-key` — Maps the attachment to the value of a known key. This is used with the `association-method ` is `tag`. For example a tag of `"stage" : "test",` will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
+    + `require-acceptance` — Determines if this mapping should override the segment value for `require-attachment-acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require-attachment-acceptance` set to `false`. If the segment already has the default `require-attachment-acceptance`, you can set this to inherit segment's acceptance value. 
+    + `add-to-network-function-group` — The name of the network function group to attach to the attachment policy. The network function group must use `and` for the `condition-logic` and have an associated `Conditions` tag. 
 
-If you're creating a JSON policy for a network function group
-`and` and `or` are the only supported
-`condition-logic` options.
+      A network function group attachment policy requires that you use the `condition` option `tag-exists`, and then either `tag-name` or `tag-value`.
 
-- `conditions` — An array composed of one of the following types:
+      This following example attachment policy routes any attachment that has a `Location` tag to the `SendToInspectionVPC` network function group for traffic inspection, requiring manual acceptance before the attachment is processed:
 
-  - `type` - Specifies the kind of condition to evaluate
-    for matching attachments. The type determines what attribute of the
-    attachment will be examined and how the matching logic is
-    applied.
-
-    - `any` — This matches any request. For example,
-      you could use any if you're only using one segment that
-      everything should map to. Or, you could use this as a
-      fallback segment if you want all attachments that don't
-      match a rule to map to a known segment.
-    - `resource-id` uses the resource associated with
-      the attachment (for example,
-      `vpc-1234567890123456`). Supports additional
-      parameters:
-
-      - `operator` — The operation to perform.
-        Must be one of `equals` |
-        `not-equals` | `contains` |
-        `begins-with`.
-      - `value` — The resource ID value to
-        match against.
-
-    - `region` — Matches based on the AWS region
-      where the attachment is located. Supports additional
-      parameters:
-
-      - `operator` — The operation to perform.
-        Must be one of `equals` |
-        `not-equals` | `contains` |
-        `begins-with`.
-      - `value` — The Region to match against
-        (for example, `us-east-1`).
-
-    - `attachment-type` — Matches based on the type
-      of attachment. Supports additional parameters:
-
-      - `operator` — The operation to perform.
-        Must be one of `equals` |
-        `not-equals` | `contains` |
-        `begins-with`.
-      - `value` — The attachment type to match
-        against. Supported values are: `vpc`,
-        `site-to-site-vpn`,
-        `connect`,
-        `transit-gateway-route-table`.
-
-    - `account` — Uses the account ID of the
-      requesting attachment (for example,
-      `111122223333`). Supports additional
-      parameters:
-
-      - `operator` — The operation to perform.
-        Must be one of `equals` |
-        `not-equals` | `contains` |
-        `begins-with`.
-      - `value` — The account ID value to match
-        against.
-
-    - `tag-name` — Match attachments based on the
-      presence of specific tag names without evaluating their
-      values.
-    - `tag-value` — Match attachments based on the
-      presence of specific tag values. Supports additional
-      parameters:
-
-      - `operator` — The operation to perform.
-        Must be one of `equals` |
-        `not-equals` | `contains` |
-        `begins-with`.
-      - `value` — The tag key value to match
-        against.
-
-  - `action` — One of the following actions to when a
-    condition is true:
-
-    - `association-method` — Defines how a segment is
-      mapped. Values can be `constant` or
-      `tag`. `constant` statically
-      defines the segment to associate the attachment to.
-      `tag` uses the value of a tag to dynamically
-      try to map to a segment.
-    - `segment` — The name of the segment to share as
-      defined in the `segments` section. This is used
-      only when the `association-method` is
-      constant.
-    - `tag-value-of-key` — Maps the attachment to the
-      value of a known key. This is used with the
-      `association-method` is `tag`.
-      For example a tag of `"stage" : "test",` will map
-      to a segment named `test`. The value must exactly
-      match the name of a segment. This allows you to have many
-      segments, but use only a single rule without having to
-      define multiple nearly identical conditions. This prevents
-      creating many similar conditions that all use the same keys
-      to map to segments.
-    - `require-acceptance` — Determines if this
-      mapping should override the segment value for
-      `require-attachment-acceptance`. You can only
-      set this to `true`, indicating that this setting
-      applies only to segments that have
-      `require-attachment-acceptance` set to
-      `false`. If the segment already has the
-      default `require-attachment-acceptance`, you can
-      set this to inherit segment's acceptance value.
-    - `add-to-network-function-group` — The name of
-      the network function group to attach to the attachment
-      policy. The network function group must use `and`
-      for the `condition-logic` and have an associated
-      `Conditions` tag.
-
-    A network function group attachment policy requires that
-    you use the `condition` option
-    `tag-exists`, and then either
-    `tag-name` or `tag-value`.
-
-    This following example attachment policy routes any
-    attachment that has a `Location` tag to the
-    `SendToInspectionVPC` network function group
-    for traffic inspection, requiring manual acceptance before
-    the attachment is processed:
-
-    ```
-    {
-      "attachment-policies": [
-        {
-          "rule-number": 125,
-          "description": "Send traffic to inspection VPC",
-          "condition-logic": "and",
-          "conditions": [
-            {
-              "type": "tag-exists",
-              "key": "Location"
+      ```
+      {
+        "attachment-policies": [
+          {
+            "rule-number": 125,
+            "description": "Send traffic to inspection VPC",
+            "condition-logic": "and",
+            "conditions": [
+              {
+                "type": "tag-exists",
+                "key": "Location"
+              }
+            ],
+            "action": {
+              "add-to-network-function-group": "SendToInspectionVPC"
+              "require-acceptance": true
             }
-          ],
-          "action": {
-            "add-to-network-function-group": "SendToInspectionVPC"
-            "require-acceptance": true
           }
-        }
-    ```
+      ```
 
 ## `attachment-routing-policy-rules`
+<a name="cloudwan-attachment-routing-policy-rules-json"></a>
 
-`attachment-routing-policy-rules` defines how routing policies are associated
-with attachments using routing policy labels. This section works similarly to attachment
-policies but uses a new form of metadata called routing-policy-label instead of tags to
-map attachments to routing policies.
+`attachment-routing-policy-rules` defines how routing policies are associated with attachments using routing policy labels. This section works similarly to attachment policies but uses a new form of metadata called routing-policy-label instead of tags to map attachments to routing policies.
 
-This approach provides separation between segment association (via tags) and routing
-policy association (via labels), and ensures only the core network owner can manage
-routing policy associations.
+This approach provides separation between segment association (via tags) and routing policy association (via labels), and ensures only the core network owner can manage routing policy associations.
 
-Before you can create an attachment routing policy rule, you must have routing
-policies already defined in the `routing-policies` section, as the rules
-reference these policies by the routing policy names.
+Before you can create an attachment routing policy rule, you must have routing policies already defined in the `routing-policies` section, as the rules reference these policies by the routing policy names.
 
 `attachment-routing-policy-rules` is an optional section.
 
 ### Parameters
+<a name="cloudwan-attachment-routing-policy-rules-params"></a>
 
 The following parameters are used in `attachment-routing-policy-rules`:
++ `rule-number` — An integer from `1` to `65535` indicating the rule's processing order. Rules are processed from lowest to highest number.
++ `description` — (Optional) A user-defined description that helps identify the rule.
++ `edge-locations` — (Optional) An array of edge locations where the routing policy should be applied. This only works with Direct Connect attachments to apply policies to specific regions.
++ `conditions` — An array of conditions that must be met. (since attachments can only have a single routing policy label the conditions are always applied with an or operator) 
+  + `type` — The type of condition to evaluate. Only `routing-policy-label` is supported. This condition type enables the core network owner to control routing policy associations independently from segment associations, providing more granular control over how routing policies are applied to attachments without relying on potentially changeable tag values.
+  + `value` — The specific routing policy label identifier that attachments must have to match this condition.
++ `action` — Defines the action to take when conditions are met:
+  + `associate-routing-policies` — The list of routing policy names to be associated with the attachment label.
 
-- `rule-number` — An integer from `1` to
-  `65535` indicating the rule's processing order. Rules are
-  processed from lowest to highest number.
-- `description` — (Optional) A user-defined description
-  that helps identify the rule.
-- `edge-locations` — (Optional) An array of edge locations where
-  the routing policy should be applied. This only works with Direct
-  Connect attachments to apply policies to specific regions.
-- `conditions` — An array of conditions that must be
-  met. (since attachments can only have a single routing policy label the conditions
-  are always applied with an or operator)
-
-  - `type` — The type of condition to evaluate. Only
-    `routing-policy-label` is supported. This condition
-    type enables the core network owner to control routing policy
-    associations independently from segment associations, providing more
-    granular control over how routing policies are applied to
-    attachments without relying on potentially changeable tag
-    values.
-  - `value` — The specific routing policy label identifier
-    that attachments must have to match this condition.
-
-- `action` — Defines the action to take when conditions are met:
-
-  - `associate-routing-policies` — The list of routing
-    policy names to be associated with the attachment label.
-
-The following example applies the outbound routing policy `routingPolicyName` only to attachments in
-us-west-2 that have an `Environment` label:
+The following example applies the outbound routing policy `routingPolicyName` only to attachments in us-west-2 that have an `Environment` label: 
 
 ```
-
 "attachment-routing-policy-rules": [
   {
     "rule-number": 145,
@@ -846,122 +382,58 @@ us-west-2 that have an `Environment` label:
 ```
 
 ## `routing-policies`
+<a name="cloudwan-routing-policies-json"></a>
 
-`routing-policies` defines advanced routing controls that allow you to
-filter, modify, and control how routes are propagated throughout your core network.
-Routing policies provide fine-grained control over route advertisements between
-segments, edge locations, and attachments, enabling you to implement complex routing
-scenarios such as route filtering, path preferences, and route summarization.
+`routing-policies` defines advanced routing controls that allow you to filter, modify, and control how routes are propagated throughout your core network. Routing policies provide fine-grained control over route advertisements between segments, edge locations, and attachments, enabling you to implement complex routing scenarios such as route filtering, path preferences, and route summarization.
 
-Each routing policy contains rules that specify match conditions and actions to take on
-matching routes. Routing policies are directional (inbound or outbound) and can be associated
-with attachments, cross-region edge locations, and shared segments.
+Each routing policy contains rules that specify match conditions and actions to take on matching routes. Routing policies are directional (inbound or outbound) and can be associated with attachments, cross-region edge locations, and shared segments.
 
 `routing-policies` is an optional section.
 
 ### Parameters
+<a name="cloudwan-routing-policies-params"></a>
 
 The following parameters are used in `routing-policies`:
++ `routing-policy-name` — A unique identifier for the routing policy. Must contain no more than 100 characters and use only alphanumeric characters (a-z, A-Z, 0-9).
++ `routing-policy-description` — (Optional) A user-defined description that helps identify the purpose of the routing policy.
++ `routing-policy-direction` — Specifies the direction of route processing. Must be either `inbound` (for routes being learned from external sources) or `outbound` (for routes being advertised to external destinations).
++ `routing-policy-number` — An integer from `1` to `9999` that determines the priority order when multiple routing policies are associated with the same resource. Lower numbers have higher priority and are processed first.
++ `routing-policy-rules` — An array of rules that define the match conditions and actions for the routing policy. Each rule contains:
+  + `rule-number` — An integer from `1` to `9999` that determines the processing order within the policy. Rules are processed from lowest to highest number.
+  + `rule-definition` — Contains the match conditions and actions for the rule:
+    + `match-conditions` — An array of conditions that routes must match. Supported condition types include:
+      + `type` — Specifies the type of match condition.
+        +  `prefix-equals` — Match specific IPv4 or IPv6 prefixes
+        + `prefix-in-cidr` — Match prefixes within a CIDR range (prefixes that are a subset of the specified prefixes will be included only. If you also want to include the prefix specified you must also use the prefix-equals match condition)
+        + `prefix-in-prefix-list` — Match prefixes defined in a managed prefix list (must be tied to an existing prefix list alias for a core network prefix list association, see [AWS Cloud WAN prefix list associations](cloudwan-prefix-lists.md))
+        + `asn-in-as-path` — Match ASN in the AS path
+        + `community-in-list` — Match BGP communities
+        + `med-equals` — Match MED (Multi-Exit Discriminator) values
+      + `value` — The value to match against for the specified condition type.
+    + `condition-logic` — Specifies how multiple conditions are evaluated. Must be either `and` (all conditions must match) or `or` (any condition must match).
+    + `action` — Defines the action to take on matching routes. 
+      + `type` — The type of action to take for the condition logic. Supported actions include:
+**Important**  
+drop and allow result in terminal states, this means if a route matches a policy with a drop/allow action then no other routing poliy rules after that rule will be evaluated. For example, if you have a routing policy with the following rules:   
+Rule 1: drop, prefix-in-cidr 0.0.0.0/0
+Rule 2: allow, prefix-in-cidr 10.0.0.0/8
+Rule 3: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
+ The rule 1 drop rule would be terminal meaning all routes would be dropped and rule 2 and 3 will do nothing. If Rule 1 and 2 are reversed, then 10.0.0.0/8 will be allowed and not dropped but the local preference rule 3 will not work because allow is also terminal. The proper order would be as follows   
+Rule 1: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
+Rule 2: allow, prefix-in-cidr 10.0.0.0/8
+Rule 3: drop, prefix-in-cidr 0.0.0.0/0
+        +  `drop` — Drop matched routes
+        + `allow` — Allow specified routes that would otherwise be dropped by a drop rule. Allow rules should have a lower rule number than drop rules. 
+        + `summarize` — Summarize routes (outbound only)
+        + `prepend-asn-list` — Add ASNs to the beginning of the AS path to influence route selection
+        + `remove-asn-list` — Remove specific ASNs in the AS path
+        + `replace-asn-list` — Replace specific ASNs in the AS path with different values
+        + `add-community` — Add BGP community values to routes
+        + `remove-community` — Remove BGP community values from routes
+        + `set-med` — Set the MED value
+        + `set-local-preference` — Set local preference
 
-- `routing-policy-name` — A unique identifier for the routing
-  policy. Must contain no more than 100 characters and use only alphanumeric
-  characters (a-z, A-Z, 0-9).
-- `routing-policy-description` — (Optional) A user-defined
-  description that helps identify the purpose of the routing policy.
-- `routing-policy-direction` — Specifies the direction of route
-  processing. Must be either `inbound` (for routes being learned
-  from external sources) or `outbound` (for routes being advertised
-  to external destinations).
-- `routing-policy-number` — An integer from `1` to
-  `9999` that determines the priority order when multiple
-  routing policies are associated with the same resource. Lower numbers have
-  higher priority and are processed first.
-- `routing-policy-rules` — An array of rules that define the
-  match conditions and actions for the routing policy. Each rule contains:
-
-  - `rule-number` — An integer from `1` to
-    `9999` that determines the processing order within the
-    policy. Rules are processed from lowest to highest number.
-  - `rule-definition` — Contains the match conditions and
-    actions for the rule:
-
-    - `match-conditions` — An array of conditions
-      that routes must match. Supported condition types include:
-
-      - `type` — Specifies the type of match condition.
-
-        - `prefix-equals` — Match specific IPv4
-          or IPv6 prefixes
-        - `prefix-in-cidr` — Match prefixes
-          within a CIDR range (prefixes that are a subset of the specified
-          prefixes will be included only. If you also want to include the prefix
-          specified you must also use the prefix-equals match condition)
-        - `prefix-in-prefix-list` — Match
-          prefixes defined in a managed prefix list (must be tied to an existing prefix list alias for a core network prefix list association,
-          see [AWS Cloud WAN prefix list associations](cloudwan-prefix-lists.md "cloudwan-prefix-lists.md"))
-        - `asn-in-as-path` — Match ASN in
-          the AS path
-        - `community-in-list` — Match BGP
-          communities
-        - `med-equals` — Match MED
-          (Multi-Exit Discriminator) values
-
-      - `value` — The value to match against for the specified condition type.
-
-    - `condition-logic` — Specifies how multiple
-      conditions are evaluated. Must be either `and`
-      (all conditions must match) or `or` (any
-      condition must match).
-    - `action` — Defines the action to take on
-      matching routes.
-
-      - `type` — The type of action to take for
-        the condition logic. Supported actions
-        include:
-
-      ###### Important
-
-      drop and allow result in terminal states, this means if a route matches a policy with a drop/allow action then no other
-      routing poliy rules after that rule will be evaluated. For example, if you have a routing policy with the following rules:
-
-            + Rule 1: drop, prefix-in-cidr 0.0.0.0/0
-            + Rule 2: allow, prefix-in-cidr 10.0.0.0/8
-            + Rule 3: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
-
-      The rule 1 drop rule would be terminal meaning all routes would be dropped and rule 2 and 3 will do nothing. If Rule 1 and 2 are reversed,
-      then 10.0.0.0/8 will be allowed and not dropped but the local preference rule 3 will not work because allow is also terminal. The proper order would be as follows
-
-            + Rule 1: set-local-prefrence, prefix-in-cidr 10.0.0.0/8
-            + Rule 2: allow, prefix-in-cidr 10.0.0.0/8
-            + Rule 3: drop, prefix-in-cidr 0.0.0.0/0
-
-
-            + `drop` — Drop matched routes
-            + `allow` — Allow specified routes that would otherwise be dropped by a drop rule.
-             Allow rules should have a lower rule number than drop rules.
-            + `summarize` — Summarize routes
-             (outbound only)
-            + `prepend-asn-list` — Add ASNs to
-             the beginning of the AS path to influence route
-             selection
-            + `remove-asn-list` — Remove specific
-             ASNs in the AS path
-            + `replace-asn-list` — Replace
-             specific ASNs in the AS path with different
-             values
-            + `add-community` — Add BGP community values to routes
-            + `remove-community` — Remove BGP community values from routes
-            + `set-med` — Set the MED
-             value
-            + `set-local-preference` — Set
-             local preference
-
-The following example shows two inbound routing policies: `RP1` is a
-routing policy that matches on the prefix list alias `prefixListAlias`,
-drops any cidr that matches the cidrs in that prefix list, and has
-priority `100`, and `RP2` with priority 26
-includes a rule that allows routes withing the cidr block `10.0.0.0/24` using
-`and` condition logic.
+The following example shows two inbound routing policies: `RP1` is a routing policy that matches on the prefix list alias `prefixListAlias`, drops any cidr that matches the cidrs in that prefix list, and has priority `100`, and `RP2` with priority 26 includes a rule that allows routes withing the cidr block `10.0.0.0/24` using `and` condition logic. 
 
 ```
 {

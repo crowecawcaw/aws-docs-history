@@ -1,18 +1,9 @@
-# AWS Cloud WAN example: Distributed WAN without VPCs
 
-This network policy creates a network across four Regions for a global wide area network
-(WAN). This WAN has no connectivity to AWS workloads, and is using the AWS network only
-as transport between sites and for internet access for sales offices. The IoT network is
-still under security scrutiny, so attachments within the IoT segment cannot reach each
-other. However, in this example, SD-WAN has been deployed to the engineering sites and parts
-of the IoT network. Engineering needs direct access to the IoT network, which is currently a
-mixture of VPN and SD-WAN. In some cases, the SD-WAN network takes a direct route between
-sites. When crossing the engineering and IoT segments, it uses the AWS backbone as
-transport. Because the SD-WAN solution uses Transit Gateway Connect, there is a general pool
-assigned for Core Network Edge IP address pools. To reduce effort, the administrators
-allowed the `Assign-to` tag to define which segment the new attachments should be
-mapped to, but all attachments need to be approved (using the default value for
-`require-attachment-acceptance`).
+
+# AWS Cloud WAN example: Distributed WAN without VPCs
+<a name="cloudwan-policy-examples-distributed-wan"></a>
+
+This network policy creates a network across four Regions for a global wide area network (WAN). This WAN has no connectivity to AWS workloads, and is using the AWS network only as transport between sites and for internet access for sales offices. The IoT network is still under security scrutiny, so attachments within the IoT segment cannot reach each other. However, in this example, SD-WAN has been deployed to the engineering sites and parts of the IoT network. Engineering needs direct access to the IoT network, which is currently a mixture of VPN and SD-WAN. In some cases, the SD-WAN network takes a direct route between sites. When crossing the engineering and IoT segments, it uses the AWS backbone as transport. Because the SD-WAN solution uses Transit Gateway Connect, there is a general pool assigned for Core Network Edge IP address pools. To reduce effort, the administrators allowed the `Assign-to` tag to define which segment the new attachments should be mapped to, but all attachments need to be approved (using the default value for `require-attachment-acceptance`). 
 
 ```
 {

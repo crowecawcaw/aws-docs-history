@@ -1,16 +1,9 @@
-# AWS Cloud WAN example: Routing Policies
 
-In this policy example, there are three segments `hybrid`, `production` and `development` with on-premises
-networks onboarding to `hybrid` segment via VPN or Direct Connect attachments and VPCs onboarding to `production` and `development` segments.
-There are two routing policies defined for filtering routes. Routing policy `100` only allows inbound routes from CIDR ranges
-`10.10.0.0/16` and `172.16.0.0/16` and is applied via label `inboundRouteFilterHybrid` to all VPN and Direct Connect attachments
-that connect to remote sites and onboard to the `hybrid` segment (the allow rule will supersede the drop all routes rule that comes afterwards for all matching routes,
-thus allowing routes matching `10.10.0.0/16` and `172.16.0.0/16` and dropping everything else, the allow rule number must be lower than the drop rule number). Routing policy `200` only allows inbound routes from CIDR range
-`10.10.0.0/16` and is applied to the segment share between `production` and `hybrid` segment. As a result only `10.10.0.0/16` network
-routes from on-premises networks are learnt in the `production` segment and all other routes are filtered. Routing policy `300` will drop all routes contained in the prefix list
-referenced by the alias `prefixListAlias` see [AWS Cloud WAN prefix list associations](cloudwan-prefix-lists.md "cloudwan-prefix-lists.md") on how to setup a core network prefix list association. Routing policy `300`
-is applied to the segment `production` across the edge locations `us-east-2` and `us-west-2` since `us-east-2` is the first edge location in the segment action definition
-and the routing policy is inbounds the drop action will affect all routes coming from `us-west-2` going `us-east-2`.
+
+# AWS Cloud WAN example: Routing Policies
+<a name="cloudwan-policy-examples-routing-policies"></a>
+
+ In this policy example, there are three segments **hybrid**, **production** and **development** with on-premises networks onboarding to **hybrid** segment via VPN or Direct Connect attachments and VPCs onboarding to **production** and **development** segments. There are two routing policies defined for filtering routes. Routing policy `100` only allows inbound routes from CIDR ranges `10.10.0.0/16` and `172.16.0.0/16` and is applied via label **inboundRouteFilterHybrid** to all VPN and Direct Connect attachments that connect to remote sites and onboard to the **hybrid** segment (the allow rule will supersede the drop all routes rule that comes afterwards for all matching routes, thus allowing routes matching `10.10.0.0/16` and `172.16.0.0/16` and dropping everything else, the allow rule number must be lower than the drop rule number). Routing policy `200` only allows inbound routes from CIDR range `10.10.0.0/16` and is applied to the segment share between **production** and **hybrid** segment. As a result only `10.10.0.0/16` network routes from on-premises networks are learnt in the **production** segment and all other routes are filtered. Routing policy `300` will drop all routes contained in the prefix list referenced by the alias **prefixListAlias** see [AWS Cloud WAN prefix list associations](cloudwan-prefix-lists.md) on how to setup a core network prefix list association. Routing policy `300` is applied to the segment **production** across the edge locations `us-east-2` and `us-west-2` since `us-east-2` is the first edge location in the segment action definition and the routing policy is inbounds the drop action will affect all routes coming from `us-west-2` going `us-east-2`. 
 
 ```
 {

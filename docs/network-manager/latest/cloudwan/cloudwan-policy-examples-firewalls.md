@@ -1,20 +1,11 @@
+
+
 # AWS Cloud WAN example: Insert firewalls between on-premises and VPCs
+<a name="cloudwan-policy-examples-firewalls"></a>
 
-In this policy, the goal is to send all traffic from on-premises to AWS through a
-firewall. The customer has a VPC with a firewall (AWS Network Firewall, Gateway Load Balancer, or EC2/Marketplace
-offering) already configured in the VPC. The firewall is responsible for inspecting traffic
-from on-premises to AWS, and from AWS VPCs in the internalApps segment to the
-internet.
+In this policy, the goal is to send all traffic from on-premises to AWS through a firewall. The customer has a VPC with a firewall (AWS Network Firewall, Gateway Load Balancer, or EC2/Marketplace offering) already configured in the VPC. The firewall is responsible for inspecting traffic from on-premises to AWS, and from AWS VPCs in the internalApps segment to the internet.
 
-Similar to [Example: Edge
-consolidation](cloudwan-policy-examples-edge-consolidation.md "cloudwan-policy-examples-edge-consolidation.md"), the VPC and VPNs are mapped to segments based on the attachment
-type. The one exception is the firewall VPC, which needs its own specific segment so that it
-can be shared separately with the other segments. In order to force the traffic coming in
-from the VPN to a firewall, static routes are configured that point to the firewall. In this
-case, the AWS VPCs in the internalApps segment are using the `172.16.0.0/16`
-CIDR space. All other private (RFC1918) space is advertised from the VPN connection. In this
-case, the policy uses the share and static-route options to define how each of the three
-segments receive the correct routes to send traffic through a middle box.
+Similar to [Example: Edge consolidation](cloudwan-policy-examples-edge-consolidation.md), the VPC and VPNs are mapped to segments based on the attachment type. The one exception is the firewall VPC, which needs its own specific segment so that it can be shared separately with the other segments. In order to force the traffic coming in from the VPN to a firewall, static routes are configured that point to the firewall. In this case, the AWS VPCs in the internalApps segment are using the `172.16.0.0/16` CIDR space. All other private (RFC1918) space is advertised from the VPN connection. In this case, the policy uses the share and static-route options to define how each of the three segments receive the correct routes to send traffic through a middle box.
 
 ```
 {
