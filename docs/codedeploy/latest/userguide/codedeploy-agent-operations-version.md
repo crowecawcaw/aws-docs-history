@@ -1,30 +1,23 @@
+
+
 # Determine the version of the CodeDeploy agent
+<a name="codedeploy-agent-operations-version"></a>
 
-You can determine the version of the CodeDeploy agent running on your instance in two
-ways.
+You can determine the version of the CodeDeploy agent running on your instance in two ways.
 
-First, for version 2.0.x and later, use the `codedeploy-agent --version`
-command on all platforms.
+First, for version 2.0.x and later, use the `codedeploy-agent --version` command on all platforms.
 
-Second, you can view the version in a `.version` file on the instance. On
-Amazon Linux, RHEL, and Ubuntu Server the file is located at
-`/opt/codedeploy-agent/.version`, and on Windows Server at
-`C:\ProgramData\Amazon\CodeDeploy\.version`. The contents of the file differ by
-version:
+Second, you can view the version in a `.version` file on the instance. On Amazon Linux, RHEL, and Ubuntu Server the file is located at `/opt/codedeploy-agent/.version`, and on Windows Server at `C:\ProgramData\Amazon\CodeDeploy\.version`. The contents of the file differ by version:
++ For version 2.0.x and later, the file contains the bare version number, in the format `agent_version: 2.0.0`. This value matches the version that the agent reports to the CodeDeploy service.
++ For version 1.8.x and earlier, the version string uses the format `OFFICIAL_1.0.1.854_rpm` (or `_deb`, `_msi`).
 
-- For version 2.0.x and later, the file contains the bare version number, in the format
-  `agent_version: 2.0.0`. This value matches the version that the agent
-  reports to the CodeDeploy service.
-- For version 1.8.x and earlier, the version string uses the format
-  `OFFICIAL_1.0.1.854_rpm` (or `_deb`, `_msi`).
-
-###### Topics
-
-- [Determine the version on Amazon Linux or RHEL](#codedeploy-agent-operations-version-linux "#codedeploy-agent-operations-version-linux")
-- [Determine the version on Ubuntu Server](#codedeploy-agent-operations-version-ubuntu "#codedeploy-agent-operations-version-ubuntu")
-- [Determine the version on Windows Server](#codedeploy-agent-operations-version-windows "#codedeploy-agent-operations-version-windows")
+**Topics**
++ [Determine the version on Amazon Linux or RHEL](#codedeploy-agent-operations-version-linux)
++ [Determine the version on Ubuntu Server](#codedeploy-agent-operations-version-ubuntu)
++ [Determine the version on Windows Server](#codedeploy-agent-operations-version-windows)
 
 ## Determine the version on Amazon Linux or RHEL
+<a name="codedeploy-agent-operations-version-linux"></a>
 
 Sign in to the instance and run the following command:
 
@@ -39,6 +32,7 @@ sudo yum info codedeploy-agent
 ```
 
 ## Determine the version on Ubuntu Server
+<a name="codedeploy-agent-operations-version-ubuntu"></a>
 
 Sign in to the instance and run the following command:
 
@@ -53,6 +47,7 @@ sudo dpkg -s codedeploy-agent
 ```
 
 ## Determine the version on Windows Server
+<a name="codedeploy-agent-operations-version-windows"></a>
 
 Sign in to the instance and run the following command:
 

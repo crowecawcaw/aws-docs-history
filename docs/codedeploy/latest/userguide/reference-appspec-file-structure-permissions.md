@@ -1,157 +1,82 @@
+
+
 # AppSpec 'permissions' section (EC2/On-Premises deployments only)
+<a name="reference-appspec-file-structure-permissions"></a>
 
-The `'permissions'` section specifies how special permissions, if any, should
-be applied to the files and directories/folders in the `'files'` section after
-they are copied to the instance. You can specify multiple `object` instructions.
-This section is optional. It applies to Amazon Linux, Ubuntu Server, and RHEL instances only.
+The `'permissions'` section specifies how special permissions, if any, should be applied to the files and directories/folders in the `'files'` section after they are copied to the instance. You can specify multiple `object` instructions. This section is optional. It applies to Amazon Linux, Ubuntu Server, and RHEL instances only.
 
-###### Note
-
-The `'permissions'` section is used for EC2/On-Premises
-deployments only. It is not used for AWS Lambda or Amazon ECS
-deployments.
+**Note**  
+The `'permissions'` section is used for EC2/On-Premises deployments only. It is not used for AWS Lambda or Amazon ECS deployments.
 
 This section has the following structure:
 
 ```
 permissions:
-  - object: `object-specification`
-    pattern: `pattern-specification`
-    except: `exception-specification`
-    owner: `owner-account-name`
-    group: `group-name`
-    mode: `mode-specification`
-    acls:
-      - `acls-specification`
+  - object: {{object-specification}}
+    pattern: {{pattern-specification}}
+    except: {{exception-specification}}
+    owner: {{owner-account-name}}
+    group: {{group-name}}
+    mode: {{mode-specification}}
+    acls: 
+      - {{acls-specification}} 
     context:
-      user: `user-specification`
-      type: `type-specification`
-      range: `range-specification`
+      user: {{user-specification}}
+      type: {{type-specification}}
+      range: {{range-specification}}
     type:
-      - `object-type`
+      - {{object-type}}
 ```
 
 The instructions are as follows:
++ `object` – Required. This is a set of file system objects (files or directories/folders) that the specified permissions are applied to after the file system objects are copied to the instance.
 
-- `object` – Required. This is a set of file system objects (files or
-  directories/folders) that the specified permissions are applied to after the file system
-  objects are copied to the instance.
+  Specify `object` with a string.
++ `pattern` – Optional. Specifies a pattern to apply permissions. If not specified or specified with the special characters **"\*\*"**, the permissions are applied to all matching files or directories, depending on the `type`. 
 
-Specify `object` with a string.
+  Specify `pattern` with a string with quotation marks ("").
++ `except` – Optional. Specifies any files or directories that are exceptions to `pattern`. 
 
-- `pattern` – Optional. Specifies a pattern to apply permissions. If
-  not specified or specified with the special characters `"**"`, the
-  permissions are applied to all matching files or directories, depending on the
-  `type`.
+  Specify `except` with a comma-separated list of strings inside square brackets.
++ `owner` – Optional. The name of the owner of `object`. If not specified, all existing owners applied to the original file or directory/folder structure remain unchanged after the copy operation.
 
-Specify `pattern` with a string with quotation marks ("").
+  Specify `owner` with a string.
++ `group` – Optional. The name of the group for `object`. If not specified, all existing groups applied to the original file or directory/folder structure remain unchanged after the copy operation.
 
-- `except` – Optional. Specifies any files or directories that are
-  exceptions to `pattern`.
+  Specify `group` with a string.
++ `mode` – Optional. A numeric value specifying the permissions to be applied to `object`. The mode setting follows the Linux chmod command syntax.
+**Important**  
+If the value includes a leading zero, you must surround it with double-quotes, or remove the leading zero so that only three digits remain.
+**Note**  
+Symbolic notation such as **u\+x** is not supported for the `mode` setting.
 
-Specify `except` with a comma-separated list of strings inside square
-brackets.
-
-- `owner` – Optional. The name of the owner of `object`.
-  If not specified, all existing owners applied to the original file or directory/folder
-  structure remain unchanged after the copy operation.
-
-Specify `owner` with a string.
-
-- `group` – Optional. The name of the group for `object`.
-  If not specified, all existing groups applied to the original file or directory/folder
-  structure remain unchanged after the copy operation.
-
-Specify `group` with a string.
-
-- `mode` – Optional. A numeric value specifying the permissions to be
-  applied to `object`. The mode setting follows the Linux chmod command
-  syntax.
-
-###### Important
-
-If the value includes a leading zero, you must surround it with double-quotes, or
-remove the leading zero so that only three digits remain.
-
-###### Note
-
-Symbolic notation such as `u+x` is not supported for the
-`mode` setting.
-
-Examples:
-
-    + `mode: "0644"` gives read and write permissions to the owner of the
-     object (6), read-only permissions to the group (4), and read-only permissions to all
-     other users (4).
-    + `mode: 644` grants the same permissions as `mode:
-     "0644"`.
-    + `mode: 4755` sets the setuid attribute (4), gives full control
-     permissions to the owner (7), gives read and execute permissions to the group (5),
-     and gives read and execute permissions to all other users (5).
-
+  Examples:
+  + `mode: "0644"` gives read and write permissions to the owner of the object (6), read-only permissions to the group (4), and read-only permissions to all other users (4).
+  + `mode: 644` grants the same permissions as `mode: "0644"`.
+  + `mode: 4755` sets the setuid attribute (4), gives full control permissions to the owner (7), gives read and execute permissions to the group (5), and gives read and execute permissions to all other users (5).
 
     For more examples, see the Linux chmod command documentation.
 
+    If mode is not specified, all existing modes applied to the original file or folder structure remain unchanged after the copy operation.
++ `acls` – Optional. A list of character strings representing one or more access control list (ACL) entries applied to `object`. For example, **u:bob:rw** represents read and write permissions for user **bob**. (For more examples, see ACL entry format examples in the Linux `setfacl` command documentation.) You can specify multiple ACL entries. If `acls` is not specified, any existing ACLs applied to the original file or directory/folder structure remain unchanged after the copy operation. These replace any existing ACLs.
 
-    If mode is not specified, all existing modes applied to the original file or
-     folder structure remain unchanged after the copy operation.
+  Specify an `acls` with a dash (-), followed by a space, and then a string (for example, `- u:jane:rw`). If you have more than one ACL, each is specified on a separate line.
+**Note**  
+Setting unnamed users, unnamed groups, or other similar ACL entries causes the AppSpec file to fail. Use `mode` to specify these types of permissions instead.
++ `context` – Optional. For Security-Enhanced Linux (SELinux)-enabled instances, a list of security-relevant context labels to apply to the copied objects. Labels are specified as keys containing `user`, `type`, and `range`. (For more information, see the SELinux documentation.) Each key is entered with a string. If not specified, any existing labels applied to the original file or directory/folder structure remain unchanged after the copy operation.
+  + `user` – Optional. The SELinux user.
+  + `type` – Optional. The SELinux type name.
+  + `range` – Optional. The SELinux range specifier. This has no effect unless Multi-Level Security (MLS) and Multi-Category Security (MCS) are enabled on the machine. If not enabled, `range` defaults to **s0**.
 
-- `acls` – Optional. A list of character strings representing one or
-  more access control list (ACL) entries applied to `object`. For example,
-  `u:bob:rw` represents read and write permissions for user
-  `bob`. (For more examples, see ACL entry format examples in the
-  Linux `setfacl` command documentation.) You can specify multiple ACL entries.
-  If `acls` is not specified, any existing ACLs applied to the original file or
-  directory/folder structure remain unchanged after the copy operation. These replace any
-  existing ACLs.
+  Specify `context` with a string (for example, `user: unconfined_u`). Each `context` is specified on a seperate line.
++ `type` – Optional. The types of objects to which to apply the specified permissions. `type` is a string that can be set to **file** or **directory**. If **file** is specified, the permissions are applied only to files that are immediately contained in `object` after the copy operation (and not to `object` itself). If **directory** is specified, the permissions are recursively applied to all directories/folders that are anywhere in `object` after the copy operation (but not to `object` itself).
 
-Specify an `acls` with a dash (-), followed by a space, and then a string
-(for example, `- u:jane:rw`). If you have more than one ACL, each is
-specified on a separate line.
-
-###### Note
-
-Setting unnamed users, unnamed groups, or other similar ACL entries causes the
-AppSpec file to fail. Use `mode` to specify these types of permissions
-instead.
-
-- `context` – Optional. For Security-Enhanced Linux (SELinux)-enabled
-  instances, a list of security-relevant context labels to apply to the copied objects.
-  Labels are specified as keys containing `user`, `type`, and
-  `range`. (For more information, see the SELinux documentation.) Each key is
-  entered with a string. If not specified, any existing labels applied to the original
-  file or directory/folder structure remain unchanged after the copy operation.
-
-  - `user` – Optional. The SELinux user.
-  - `type` – Optional. The SELinux type name.
-  - `range` – Optional. The SELinux range specifier. This has no
-    effect unless Multi-Level Security (MLS) and Multi-Category Security (MCS) are
-    enabled on the machine. If not enabled, `range` defaults to
-    `s0`.
-    Specify `context` with a string (for example, `user:
- unconfined_u`). Each `context` is specified on a seperate
-    line.
-
-- `type` – Optional. The types of objects to which to apply the
-  specified permissions. `type` is a string that can be set to
-  `file` or `directory`. If
-  `file` is specified, the permissions are applied only to files
-  that are immediately contained in `object` after the copy operation (and not
-  to `object` itself). If `directory` is specified, the
-  permissions are recursively applied to all directories/folders that are anywhere in
-  `object` after the copy operation (but not to `object`
-  itself).
-
-Specify `type` with a dash (-), followed by a space, and then a string
-(for example, `- file`).
+  Specify `type` with a dash (-), followed by a space, and then a string (for example, `- file`).
 
 ## 'Permissions' section example
+<a name="reference-appspec-file-structure-permissions-example"></a>
 
-The following example shows how to specify the `'permissions'` section with
-the `object`, `pattern`, `except`, `owner`,
-`mode`, and `type` instructions. This example applies to Amazon Linux,
-Ubuntu Server, and RHEL instances only. In this example, assume the following files and
-folders are copied to the instance in this hierarchy:
+The following example shows how to specify the `'permissions'` section with the `object`, `pattern`, `except`, `owner`, `mode`, and `type` instructions. This example applies to Amazon Linux, Ubuntu Server, and RHEL instances only. In this example, assume the following files and folders are copied to the instance in this hierarchy:
 
 ```
 /tmp
@@ -170,8 +95,7 @@ folders are copied to the instance in this hierarchy:
 	           `-- my-folder-3
 ```
 
-The following AppSpec file shows how to set permissions on these files and folders
-after they are copied:
+The following AppSpec file shows how to set permissions on these files and folders after they are copied:
 
 ```
 version: 0.0
@@ -273,9 +197,7 @@ dr-xr-xr-x ec2-user root  my-folder-2
 dr-xrw-r-- root     wheel my-folder-3
 ```
 
-The following example shows how to specify the `'permissions'` section with
-the addition of the `acls` and `context` instructions. This example
-applies to Amazon Linux, Ubuntu Server, and RHEL instances only.
+The following example shows how to specify the `'permissions'` section with the addition of the `acls` and `context` instructions. This example applies to Amazon Linux, Ubuntu Server, and RHEL instances only.
 
 ```
 permissions:
@@ -285,7 +207,7 @@ permissions:
     owner: bob
     group: writers
     mode: 644
-    acls:
+    acls: 
       - u:mary:rw
       - u:sam:rw
       - m::rw

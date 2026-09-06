@@ -1,64 +1,42 @@
-# AppSpec 'files' section (EC2/On-Premises deployments only)
 
-Provides information to CodeDeploy about which files from your application revision should be
-installed on the instance during the deployment's **Install**
-event. This section is required only if you are copying files from your revision to
-locations on the instance during deployment.
+
+# AppSpec 'files' section (EC2/On-Premises deployments only)
+<a name="reference-appspec-file-structure-files"></a>
+
+Provides information to CodeDeploy about which files from your application revision should be installed on the instance during the deployment's **Install** event. This section is required only if you are copying files from your revision to locations on the instance during deployment. 
 
 This section has the following structure:
 
 ```
-
 files:
-  - source: `source-file-location-1`
-    destination: `destination-file-location-1`
-file_exists_behavior: `DISALLOW|OVERWRITE|RETAIN`
-
+  - source: {{source-file-location-1}}
+    destination: {{destination-file-location-1}}
+file_exists_behavior: {{DISALLOW|OVERWRITE|RETAIN}}
 ```
 
 Multiple `source` and `destination` pairs can be set.
 
-The `source` instruction identifies a file or directory from your revision to
-copy to the instance:
+The `source` instruction identifies a file or directory from your revision to copy to the instance:
++ If `source` refers to a file, only the specified files are copied to the instance.
++ If `source` refers to a directory, then all files in the directory are copied to the instance.
++ If `source` is a single slash ("/" for Amazon Linux, RHEL, and Ubuntu Server instances, or "\\" for Windows Server instances), then all of the files from your revision are copied to the instance.
 
-- If `source` refers to a file, only the specified files are copied to the
-  instance.
-- If `source` refers to a directory, then all files in the directory are
-  copied to the instance.
-- If `source` is a single slash ("/" for Amazon Linux, RHEL, and Ubuntu Server
-  instances, or "\" for Windows Server instances), then all of the files from your revision are
-  copied to the instance.
-  The paths used in `source` are relative to the `appspec.yml` file,
-  which should be at the root of your revision. For details on the file structure of a
-  revision, see [Plan a revision for CodeDeploy](application-revisions-plan.md "application-revisions-plan.md").
+The paths used in `source` are relative to the `appspec.yml` file, which should be at the root of your revision. For details on the file structure of a revision, see [Plan a revision for CodeDeploy](application-revisions-plan.md).
 
-The `destination` instruction identifies the location on the instance where
-the files should be copied. This must be a fully qualified path such as
-`/root/destination/directory` (on Linux, RHEL, and Ubuntu) or
-`c:\destination\folder` (on Windows).
+The `destination` instruction identifies the location on the instance where the files should be copied. This must be a fully qualified path such as `/root/destination/directory` (on Linux, RHEL, and Ubuntu) or `c:\destination\folder` (on Windows).
 
-`source` and `destination` are each specified with a
-string.
+`source` and `destination` are each specified with a string.
 
-The `file_exists_behavior` instruction is optional, and specifies how CodeDeploy
-handles files that already exist in a deployment target location but weren't part of the
-previous successful deployment. This setting can take any of the following values:
+The `file_exists_behavior` instruction is optional, and specifies how CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment. This setting can take any of the following values:
++ DISALLOW: The deployment fails. This is also the default behavior if no option is specified. 
++ OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance. 
++ RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.
 
-- DISALLOW: The deployment fails. This is also the default behavior if no option is
-  specified.
-- OVERWRITE: The version of the file from the application revision currently being
-  deployed replaces the version already on the instance.
-- RETAIN: The version of the file already on the instance is kept and used as part of
-  the new deployment.
-  When using the `file_exists_behavior` setting, understand that this
-  setting:
+When using the `file_exists_behavior` setting, understand that this setting:
++ can only be specified once, and applies to all files and directories listed under `files:`.
++ takes precedence over the `--file-exists-behavior` AWS CLI option and the `fileExistsBehavior` API option (both of which are also optional).
 
-- can only be specified once, and applies to all files and directories listed under
-  `files:`.
-- takes precedence over the `--file-exists-behavior` AWS CLI option and the
-  `fileExistsBehavior` API option (both of which are also optional).
-  Here's an example `files` section for an Amazon Linux, Ubuntu Server, or RHEL
-  instance.
+Here's an example `files` section for an Amazon Linux, Ubuntu Server, or RHEL instance.
 
 ```
 files:
@@ -70,29 +48,23 @@ files:
 
 In this example, the following two operations are performed during the **Install** event:
 
-1. Copy the `Config/config.txt` file in your revision to the
-   `/webapps/Config/config.txt` path on the instance.
-2. Recursively copy all of the files in your revision's `source`
-   directory to the `/webapps/myApp` directory on the instance.
+1. Copy the `Config/config.txt` file in your revision to the `/webapps/Config/config.txt` path on the instance.
+
+1. Recursively copy all of the files in your revision's `source` directory to the `/webapps/myApp` directory on the instance.
 
 ## 'Files' section examples
+<a name="reference-appspec-file-structure-files-examples"></a>
 
-The following examples show how to specify the `files` section. Although
-these examples describe Windows Server file and directory (folder) structures, they can easily
-be adapted for Amazon Linux, Ubuntu Server, and RHEL instances.
+The following examples show how to specify the `files` section. Although these examples describe Windows Server file and directory (folder) structures, they can easily be adapted for Amazon Linux, Ubuntu Server, and RHEL instances.
 
-###### Note
+**Note**  
+Only EC2/On-Premises deployments use the `files` section. It does not apply to AWS Lambda deployments.
 
-Only EC2/On-Premises deployments use the `files` section. It
-does not apply to AWS Lambda deployments.
-
-For the following examples, we assume these files appear in the bundle in the root of
-`source`:
-
-- `appspec.yml`
-- `my-file.txt`
-- `my-file-2.txt`
-- `my-file-3.txt`
+For the following examples, we assume these files appear in the bundle in the root of `source`:
++ `appspec.yml`
++ `my-file.txt`
++ `my-file-2.txt`
++ `my-file-3.txt`
 
 ```
 # 1) Copy only my-file.txt to the destination folder c:\temp.
@@ -133,17 +105,14 @@ files:
 #   c:\temp\my-file-3.txt
 ```
 
-For the following examples, we assume the `appspec.yml` appears in
-the bundle in the root of `source` along with a folder named
-`my-folder` that contains three files:
-
-- `appspec.yml`
-- `my-folder\my-file.txt`
-- `my-folder\my-file-2.txt`
-- `my-folder\my-file-3.txt`
+For the following examples, we assume the `appspec.yml` appears in the bundle in the root of `source` along with a folder named `my-folder` that contains three files:
++ `appspec.yml`
++ `my-folder\my-file.txt`
++ `my-folder\my-file-2.txt`
++ `my-folder\my-file-3.txt`
 
 ```
-# 4) Copy the 3 files in my-folder (but do not copy my-folder itself) to the destination folder c:\temp.
+# 4) Copy the 3 files in my-folder (but do not copy my-folder itself) to the destination folder c:\temp. 
 #
 files:
   - source: .\my-folder
@@ -178,7 +147,7 @@ files:
 # Result:
 #   c:\temp\other-folder\my-file.txt
 #   c:\temp\other-folder\my-file-2.txt
-#   c:\temp\other-folder\my-file-3.txt
+#   c:\temp\other-folder\my-file-3.txt	
 #
 # ---------------------
 #
