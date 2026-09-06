@@ -1,21 +1,18 @@
+
+
 # Use `PutObjectLegalHold` with an AWS SDK or CLI
+<a name="s3_example_s3_PutObjectLegalHold_section"></a>
 
 The following code examples show how to use `PutObjectLegalHold`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Lock Amazon S3 objects](s3_example_s3_Scenario_ObjectLock_section.md) 
 
-- [Lock Amazon S3 objects](s3_example_s3_Scenario_ObjectLock_section.md "s3_example_s3_Scenario_ObjectLock_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
 
 ```
     /// <summary>
@@ -50,48 +47,32 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
+```
++  For API details, see [PutObjectLegalHold](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObjectLegalHold) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To apply a Legal Hold to an object**  
+The following `put-object-legal-hold` example sets a Legal Hold on the object `doc1.rtf`.  
 
 ```
+aws s3api put-object-legal-hold \
+    --bucket {{amzn-s3-demo-bucket-with-object-lock}} \
+    --key {{doc1.rtf}} \
+    --legal-hold {{Status=ON}}
+```
+This command produces no output.  
++  For API details, see [PutObjectLegalHold](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-legal-hold.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutObjectLegalHold](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectLegalHold.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectLegalHold.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To apply a Legal Hold to an object**
-
-The following `put-object-legal-hold` example sets a Legal Hold on the object `doc1.rtf`.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
 ```
-`aws s3api put-object-legal-hold \
- --bucket `amzn-s3-demo-bucket-with-object-lock` \
- --key `doc1.rtf` \
- --legal-hold `Status=ON``
-
-```
-
-This command produces no output.
-
-- For API details, see
-  [PutObjectLegalHold](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-legal-hold.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-legal-hold.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples").
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -139,24 +120,14 @@ func (actor S3Actions) PutObjectLegalHold(ctx context.Context, bucket string, ke
 
 	return err
 }
-
-
-
 ```
++  For API details, see [PutObjectLegalHold](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLegalHold) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [PutObjectLegalHold](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLegalHold "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLegalHold")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
     // Set or modify a legal hold on an object in an S3 bucket.
@@ -181,23 +152,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         getClient().putObjectLegalHold(legalHoldRequest) ;
         System.out.println("Modified legal hold for "+ objectKey +" in "+bucketName +".");
     }
-
-
 ```
++  For API details, see [PutObjectLegalHold](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObjectLegalHold) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutObjectLegalHold](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectLegalHold.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectLegalHold.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 
 ```
 import {
@@ -286,25 +248,15 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
-
 ```
++  For API details, see [PutObjectLegalHold](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLegalHoldCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutObjectLegalHold](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLegalHoldCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLegalHoldCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples").
-
-Put an object legal hold.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples). 
+Put an object legal hold.  
 
 ```
 def set_legal_hold(s3_client, bucket: str, key: str) -> None:
@@ -332,25 +284,14 @@ def set_legal_hold(s3_client, bucket: str, key: str) -> None:
         logger.error(
             "Failed to set legal hold on file [%s] in bucket [%s]: %s", key, bucket, e
         )
-
-
-
-
 ```
++  For API details, see [PutObjectLegalHold](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutObjectLegalHold) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutObjectLegalHold](../../../goto/boto3/s3-2006-03-01/PutObjectLegalHold.md "../../../goto/boto3/s3-2006-03-01/PutObjectLegalHold.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -367,14 +308,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchkey.
         MESSAGE 'Object key does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutObjectLegalHold](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutObjectLegalHold](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

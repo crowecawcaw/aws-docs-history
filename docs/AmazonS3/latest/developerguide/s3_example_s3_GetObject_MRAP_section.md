@@ -1,18 +1,16 @@
+
+
 # Get an Amazon S3 object from a Multi-Region Access Point by using an AWS SDK
+<a name="s3_example_s3_GetObject_MRAP_section"></a>
 
 The following code example shows how to get an object from a Multi-Region Access Point.
 
-Kotlin
+------
+#### [ Kotlin ]
 
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
-
-Configure the S3 client to use the Asymmetric Sigv4 (Sigv4a) signing algorithm.
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
+Configure the S3 client to use the Asymmetric Sigv4 (Sigv4a) signing algorithm.  
 
 ```
         suspend fun createS3Client(): S3Client {
@@ -23,11 +21,8 @@ Configure the S3 client to use the Asymmetric Sigv4 (Sigv4a) signing algorithm.
             }
             return s3
         }
-
-
 ```
-
-Use the Multi-Region Access Point ARN instead of a bucket name to retrieve the object.
+Use the Multi-Region Access Point ARN instead of a bucket name to retrieve the object.  
 
 ```
     suspend fun getObjectFromMrap(
@@ -49,15 +44,10 @@ Use the Multi-Region Access Point ARN instead of a bucket name to retrieve the o
         }
         return stringObj
     }
-
-
 ```
++  For more information, see [AWS SDK for Kotlin developer guide](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/use-services-s3-mrap.html). 
++  For API details, see [GetObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For more information, see [AWS SDK for Kotlin developer guide](../../../sdk-for-kotlin/latest/developer-guide/use-services-s3-mrap.md "../../../sdk-for-kotlin/latest/developer-guide/use-services-s3-mrap.md").
-- For API details, see
-  [GetObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

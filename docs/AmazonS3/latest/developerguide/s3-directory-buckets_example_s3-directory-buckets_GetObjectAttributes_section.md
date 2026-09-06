@@ -1,21 +1,18 @@
+
+
 # Use `GetObjectAttributes` with an AWS SDK
+<a name="s3-directory-buckets_example_s3-directory-buckets_GetObjectAttributes_section"></a>
 
 The following code example shows how to use `GetObjectAttributes`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/directorybucket#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/directorybucket#code-examples").
-
-Get an object attributes from a directory bucket.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/directorybucket#code-examples). 
+Get an object attributes from a directory bucket.  
 
 ```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.regions.Region;
@@ -69,14 +66,9 @@ import static com.example.s3.util.S3DirectoryBucketUtils.putDirectoryBucketObjec
             return false;
         }
     }
-
-
 ```
++  For API details, see [GetObjectAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObjectAttributes) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetObjectAttributes](../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectAttributes.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectAttributes.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

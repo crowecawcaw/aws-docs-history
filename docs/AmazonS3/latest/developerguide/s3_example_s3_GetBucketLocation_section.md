@@ -1,83 +1,66 @@
+
+
 # Use `GetBucketLocation` with an AWS SDK or CLI
+<a name="s3_example_s3_GetBucketLocation_section"></a>
 
 The following code examples show how to use `GetBucketLocation`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-The following command retrieves the location constraint for a bucket named `amzn-s3-demo-bucket`, if a constraint exists:
-
-```
-`aws s3api get-bucket-location --bucket `amzn-s3-demo-bucket``
+**AWS CLI**  
+The following command retrieves the location constraint for a bucket named `amzn-s3-demo-bucket`, if a constraint exists:  
 
 ```
-
-Output:
+aws s3api get-bucket-location --bucket {{amzn-s3-demo-bucket}}
+```
+Output:  
 
 ```
 {
     "LocationConstraint": "us-west-2"
 }
 ```
++  For API details, see [GetBucketLocation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-location.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketLocation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-location.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-location.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command returns the location constraint for the bucket 'amzn-s3-demo-bucket', if a constraint exists.**
+**Tools for PowerShell V4**  
+**Example 1: This command returns the location constraint for the bucket 'amzn-s3-demo-bucket', if a constraint exists.**  
 
 ```
 Get-S3BucketLocation -BucketName 'amzn-s3-demo-bucket'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Value
 -----
 ap-south-1
 ```
++  For API details, see [GetBucketLocation](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetBucketLocation](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command returns the location constraint for the bucket 'amzn-s3-demo-bucket', if a constraint exists.**
+**Tools for PowerShell V5**  
+**Example 1: This command returns the location constraint for the bucket 'amzn-s3-demo-bucket', if a constraint exists.**  
 
 ```
 Get-S3BucketLocation -BucketName 'amzn-s3-demo-bucket'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Value
 -----
 ap-south-1
 ```
++  For API details, see [GetBucketLocation](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetBucketLocation](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 async fn show_buckets(
@@ -122,14 +105,9 @@ async fn show_buckets(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [GetBucketLocation](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_bucket_location) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [GetBucketLocation](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_bucket_location "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_bucket_location")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

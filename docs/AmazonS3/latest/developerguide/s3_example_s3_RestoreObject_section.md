@@ -1,16 +1,15 @@
+
+
 # Use `RestoreObject` with an AWS SDK or CLI
+<a name="s3_example_s3_RestoreObject_section"></a>
 
 The following code examples show how to use `RestoreObject`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
     using System;
@@ -90,49 +89,32 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"Restoration status: {restStatus}");
         }
     }
+```
++  For API details, see [RestoreObject](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/RestoreObject) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To create a restore request for an object**  
+The following `restore-object` example restores the specified Amazon S3 Glacier object for the bucket `my-glacier-bucket` for 10 days.  
 
 ```
+aws s3api restore-object \
+    --bucket {{my-glacier-bucket}} \
+    --key {{doc1.rtf}} \
+    --restore-request {{Days=10}}
+```
+This command produces no output.  
++  For API details, see [RestoreObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/restore-object.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [RestoreObject](../../../goto/DotNetSDKV3/s3-2006-03-01/RestoreObject.md "../../../goto/DotNetSDKV3/s3-2006-03-01/RestoreObject.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-CLI
-
-**AWS CLI**
-
-**To create a restore request for an object**
-
-The following `restore-object` example restores the specified Amazon S3 Glacier object for the bucket `my-glacier-bucket` for 10 days.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-`aws s3api restore-object \
- --bucket `my-glacier-bucket` \
- --key `doc1.rtf` \
- --restore-request `Days=10``
-
-```
-
-This command produces no output.
-
-- For API details, see
-  [RestoreObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/restore-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/restore-object.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.RestoreRequest;
@@ -211,14 +193,9 @@ public class RestoreObject {
         }
     }
 }
-
-
 ```
++  For API details, see [RestoreObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/RestoreObject) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [RestoreObject](../../../goto/SdkForJavaV2/s3-2006-03-01/RestoreObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/RestoreObject.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

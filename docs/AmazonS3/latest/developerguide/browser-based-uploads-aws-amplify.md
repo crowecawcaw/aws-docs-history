@@ -1,20 +1,19 @@
+
+
 # Browser-based uploads to Amazon S3 using the AWS Amplify library
+<a name="browser-based-uploads-aws-amplify"></a>
 
-This section describes how to upload files to Amazon S3 using the AWS Amplify JavaScript
-library.
+This section describes how to upload files to Amazon S3 using the AWS Amplify JavaScript library.
 
-For information about setting up the AWS Amplify library, see [AWS Amplify
-Installation and Configuration](https://aws.github.io/aws-amplify/ "https://aws.github.io/aws-amplify/").
+For information about setting up the AWS Amplify library, see [AWS Amplify Installation and Configuration](https://aws.github.io/aws-amplify/).
 
 ## Using the AWS Amplify JavaScript library to Upload Files to Amazon S3
+<a name="browser-based-uploads-aws-amplify-example"></a>
 
-The AWS Amplify library `Storage` module gives a simple browser-based
-upload mechanism for managing user content in public or private Amazon S3 storage.
+The AWS Amplify library `Storage` module gives a simple browser-based upload mechanism for managing user content in public or private Amazon S3 storage. 
 
-###### Example: AWS Amplify Manual Setup
-
-The following example shows the manual setup for using the AWS Amplify Storage module. The
-default implementation of the Storage module uses Amazon S3.
+**Example : AWS Amplify Manual Setup**  
+The following example shows the manual setup for using the AWS Amplify Storage module. The default implementation of the Storage module uses Amazon S3.   
 
 ```
 import Amplify from 'aws-amplify';
@@ -32,19 +31,15 @@ Amplify.configure(
 );
 ```
 
-###### Example: Put data into Amazon S3
-
-The following example shows how to `put` public data into
-Amazon S3.
+**Example : Put data into Amazon S3**  
+The following example shows how to `put` public data into Amazon S3.  
 
 ```
 Storage.put('test.txt', 'Hello')
         .then (result => console.log(result))
         .catch(err => console.log(err));
 ```
-
-The following example shows how to `put` private data into
-Amazon S3.
+The following example shows how to `put` private data into Amazon S3.  
 
 ```
 Storage.put('test.txt', 'Private Content', {
@@ -55,10 +50,9 @@ Storage.put('test.txt', 'Private Content', {
     .catch(err => console.log(err));
 ```
 
-For more information about using the AWS Amplify Storage module, see [AWS Amplify
-Storage](https://aws.github.io/aws-amplify/media/storage_guide.html "https://aws.github.io/aws-amplify/media/storage_guide.html").
+For more information about using the AWS Amplify Storage module, see [AWS Amplify Storage](https://aws.github.io/aws-amplify/media/storage_guide.html).
 
 ## More Info
+<a name="browser-based-uploads-moreinfo"></a>
 
-[AWS Amplify
-Quick Start](https://aws.github.io/aws-amplify/ "https://aws.github.io/aws-amplify/")
+[AWS Amplify Quick Start](https://aws.github.io/aws-amplify/)

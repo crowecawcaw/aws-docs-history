@@ -1,22 +1,19 @@
+
+
 # Use `AbortMultipartUpload` with an AWS SDK or CLI
+<a name="s3_example_s3_AbortMultipartUpload_section"></a>
 
 The following code examples show how to use `AbortMultipartUpload`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Delete incomplete multipart uploads](s3_example_s3_Scenario_AbortMultipartUpload_section.md) 
++  [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md) 
 
-- [Delete incomplete multipart uploads](s3_example_s3_Scenario_AbortMultipartUpload_section.md "s3_example_s3_Scenario_AbortMultipartUpload_section.md")
-- [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md "s3_example_s3_Scenario_ObjectIntegrity_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 //! Abort a multipart upload to an S3 bucket.
@@ -48,48 +45,32 @@ bool AwsDoc::S3::abortMultipartUpload(const Aws::String &bucket,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [AbortMultipartUpload](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/AbortMultipartUpload) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To abort the specified multipart upload**  
+The following `abort-multipart-upload` command aborts a multipart upload for the key `multipart/01` in the bucket `amzn-s3-demo-bucket`.  
 
 ```
+aws s3api abort-multipart-upload \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key {{multipart/01}} \
+    --upload-id {{dfRtDYU0WWCCcH43C3WFbkRONycyCpTJJvxu2i5GYkZljF.Yxwh6XG7WfS2vC4to6HiV6Yjlx.cph0gtNBtJ8P3URCSbB7rjxI5iEwVDmgaXZOGgkk5nVTW16HOQ5l0R}}
+```
+The upload ID required by this command is output by `create-multipart-upload` and can also be retrieved with `list-multipart-uploads`.  
++  For API details, see [AbortMultipartUpload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/abort-multipart-upload.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [AbortMultipartUpload](../../../goto/SdkForCpp/s3-2006-03-01/AbortMultipartUpload.md "../../../goto/SdkForCpp/s3-2006-03-01/AbortMultipartUpload.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-CLI
-
-**AWS CLI**
-
-**To abort the specified multipart upload**
-
-The following `abort-multipart-upload` command aborts a multipart upload for the key `multipart/01` in the bucket `amzn-s3-demo-bucket`.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-`aws s3api abort-multipart-upload \
- --bucket `amzn-s3-demo-bucket` \
- --key `multipart/01` \
- --upload-id `dfRtDYU0WWCCcH43C3WFbkRONycyCpTJJvxu2i5GYkZljF.Yxwh6XG7WfS2vC4to6HiV6Yjlx.cph0gtNBtJ8P3URCSbB7rjxI5iEwVDmgaXZOGgkk5nVTW16HOQ5l0R``
-
-```
-
-The upload ID required by this command is output by `create-multipart-upload` and can also be retrieved with `list-multipart-uploads`.
-
-- For API details, see
-  [AbortMultipartUpload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/abort-multipart-upload.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/abort-multipart-upload.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.exception.SdkException;
@@ -424,70 +405,48 @@ public class AbortMultipartUploadExamples {
         return fullFilePath;
     }
 }
-
-
 ```
++  For API details, see [AbortMultipartUpload](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/AbortMultipartUpload) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [AbortMultipartUpload](../../../goto/SdkForJavaV2/s3-2006-03-01/AbortMultipartUpload.md "../../../goto/SdkForJavaV2/s3-2006-03-01/AbortMultipartUpload.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command aborts multipart uploads created earlier than 5 days ago.**
+**Tools for PowerShell V4**  
+**Example 1: This command aborts multipart uploads created earlier than 5 days ago.**  
 
 ```
 Remove-S3MultipartUpload -BucketName amzn-s3-demo-bucket -DaysBefore 5
-
 ```
-
-**Example 2: This command aborts multipart uploads created earlier than January 2nd, 2014.**
+**Example 2: This command aborts multipart uploads created earlier than January 2nd, 2014.**  
 
 ```
 Remove-S3MultipartUpload -BucketName amzn-s3-demo-bucket -InitiatedDate "Thursday, January 02, 2014"
-
 ```
-
-**Example 3: This command aborts multipart uploads created earlier than January 2nd, 2014, 10:45:37.**
+**Example 3: This command aborts multipart uploads created earlier than January 2nd, 2014, 10:45:37.**  
 
 ```
 Remove-S3MultipartUpload -BucketName amzn-s3-demo-bucket -InitiatedDate "2014/01/02 10:45:37"
-
 ```
++  For API details, see [AbortMultipartUpload](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [AbortMultipartUpload](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command aborts multipart uploads created earlier than 5 days ago.**
+**Tools for PowerShell V5**  
+**Example 1: This command aborts multipart uploads created earlier than 5 days ago.**  
 
 ```
 Remove-S3MultipartUpload -BucketName amzn-s3-demo-bucket -DaysBefore 5
-
 ```
-
-**Example 2: This command aborts multipart uploads created earlier than January 2nd, 2014.**
+**Example 2: This command aborts multipart uploads created earlier than January 2nd, 2014.**  
 
 ```
 Remove-S3MultipartUpload -BucketName amzn-s3-demo-bucket -InitiatedDate "Thursday, January 02, 2014"
-
 ```
-
-**Example 3: This command aborts multipart uploads created earlier than January 2nd, 2014, 10:45:37.**
+**Example 3: This command aborts multipart uploads created earlier than January 2nd, 2014, 10:45:37.**  
 
 ```
 Remove-S3MultipartUpload -BucketName amzn-s3-demo-bucket -InitiatedDate "2014/01/02 10:45:37"
-
 ```
++  For API details, see [AbortMultipartUpload](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [AbortMultipartUpload](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

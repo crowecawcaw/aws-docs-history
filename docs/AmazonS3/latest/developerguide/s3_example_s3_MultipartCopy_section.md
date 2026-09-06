@@ -1,16 +1,15 @@
+
+
 # Perform a multipart copy of an Amazon S3 object using an AWS SDK
+<a name="s3_example_s3_MultipartCopy_section"></a>
 
 The following code example shows how to perform a multipart copy of an Amazon S3 object.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/MPUapiCopyObjExample#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/MPUapiCopyObjExample#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/MPUapiCopyObjExample#code-examples). 
 
 ```
     using System;
@@ -124,18 +123,13 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CompleteMultipartUpload](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/CompleteMultipartUpload)
+  + [CreateMultipartUpload](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/CreateMultipartUpload)
+  + [GetObjectMetadata](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObjectMetadata)
+  + [UploadPartCopy](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/UploadPartCopy)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
 
-  - [CompleteMultipartUpload](../../../goto/DotNetSDKV3/s3-2006-03-01/CompleteMultipartUpload.md "../../../goto/DotNetSDKV3/s3-2006-03-01/CompleteMultipartUpload.md")
-  - [CreateMultipartUpload](../../../goto/DotNetSDKV3/s3-2006-03-01/CreateMultipartUpload.md "../../../goto/DotNetSDKV3/s3-2006-03-01/CreateMultipartUpload.md")
-  - [GetObjectMetadata](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectMetadata.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectMetadata.md")
-  - [UploadPartCopy](../../../goto/DotNetSDKV3/s3-2006-03-01/UploadPartCopy.md "../../../goto/DotNetSDKV3/s3-2006-03-01/UploadPartCopy.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,24 +1,21 @@
+
+
 # Learn the basics of Amazon S3 with an AWS SDK
+<a name="s3_example_s3_Scenario_GettingStarted_section"></a>
 
 The following code examples show how to:
++ Create a bucket and upload a file to it.
++ Download an object from a bucket.
++ Copy an object to a subfolder in a bucket.
++ List the objects in a bucket.
++ Delete the bucket objects and the bucket.
 
-- Create a bucket and upload a file to it.
-- Download an object from a bucket.
-- Copy an object to a subfolder in a bucket.
-- List the objects in a bucket.
-- Delete the bucket objects and the bucket.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
-
-Run an interactive scenario demonstrating Amazon S3 features.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
+Run an interactive scenario demonstrating Amazon S3 features.  
 
 ```
 public class S3_Basics
@@ -328,12 +325,8 @@ public class S3_Basics
         }
     }
 }
-
-
-
 ```
-
-A wrapper class for Amazon S3 SDK methods.
+A wrapper class for Amazon S3 SDK methods.  
 
 ```
 using Amazon.S3;
@@ -613,30 +606,21 @@ public class S3Wrapper
     }
 
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/DeleteBucket)
+  + [DeleteObjects](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/DeleteObjects)
+  + [GetObject](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/GetObject)
+  + [ListObjectsV2](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/ListObjectsV2)
+  + [PutObject](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-  - [CopyObject](../../../goto/DotNetSDKV4/s3-2006-03-01/CopyObject.md "../../../goto/DotNetSDKV4/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/DotNetSDKV4/s3-2006-03-01/CreateBucket.md "../../../goto/DotNetSDKV4/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/DotNetSDKV4/s3-2006-03-01/DeleteBucket.md "../../../goto/DotNetSDKV4/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObjects](../../../goto/DotNetSDKV4/s3-2006-03-01/DeleteObjects.md "../../../goto/DotNetSDKV4/s3-2006-03-01/DeleteObjects.md")
-  - [GetObject](../../../goto/DotNetSDKV4/s3-2006-03-01/GetObject.md "../../../goto/DotNetSDKV4/s3-2006-03-01/GetObject.md")
-  - [ListObjectsV2](../../../goto/DotNetSDKV4/s3-2006-03-01/ListObjectsV2.md "../../../goto/DotNetSDKV4/s3-2006-03-01/ListObjectsV2.md")
-  - [PutObject](../../../goto/DotNetSDKV4/s3-2006-03-01/PutObject.md "../../../goto/DotNetSDKV4/s3-2006-03-01/PutObject.md")
-
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
 ```
 ###############################################################################
@@ -751,11 +735,8 @@ function s3_getting_started() {
 
   return $result
 }
-
-
 ```
-
-The Amazon S3 functions used in this scenario.
+The Amazon S3 functions used in this scenario.  
 
 ```
 ###############################################################################
@@ -1033,29 +1014,21 @@ function delete_bucket() {
     return 1
   fi
 }
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/DeleteBucket)
+  + [DeleteObjects](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/DeleteObjects)
+  + [GetObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/GetObject)
+  + [ListObjectsV2](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/ListObjectsV2)
+  + [PutObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-  - [CopyObject](../../../goto/aws-cli/s3-2006-03-01/CopyObject.md "../../../goto/aws-cli/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md "../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/aws-cli/s3-2006-03-01/DeleteBucket.md "../../../goto/aws-cli/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObjects](../../../goto/aws-cli/s3-2006-03-01/DeleteObjects.md "../../../goto/aws-cli/s3-2006-03-01/DeleteObjects.md")
-  - [GetObject](../../../goto/aws-cli/s3-2006-03-01/GetObject.md "../../../goto/aws-cli/s3-2006-03-01/GetObject.md")
-  - [ListObjectsV2](../../../goto/aws-cli/s3-2006-03-01/ListObjectsV2.md "../../../goto/aws-cli/s3-2006-03-01/ListObjectsV2.md")
-  - [PutObject](../../../goto/aws-cli/s3-2006-03-01/PutObject.md "../../../goto/aws-cli/s3-2006-03-01/PutObject.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 #include <iostream>
@@ -1323,34 +1296,24 @@ AwsDoc::S3::deleteBucket(const Aws::String &bucketName, Aws::S3::S3Client &clien
     }
     return outcome.IsSuccess();
 }
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/DeleteBucket)
+  + [DeleteObjects](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/DeleteObjects)
+  + [GetObject](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/GetObject)
+  + [ListObjectsV2](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/ListObjectsV2)
+  + [PutObject](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/PutObject)
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
+Define a struct that wraps bucket and object actions used by the scenario.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
-
-  - [CopyObject](../../../goto/SdkForCpp/s3-2006-03-01/CopyObject.md "../../../goto/SdkForCpp/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/SdkForCpp/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForCpp/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/SdkForCpp/s3-2006-03-01/DeleteBucket.md "../../../goto/SdkForCpp/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObjects](../../../goto/SdkForCpp/s3-2006-03-01/DeleteObjects.md "../../../goto/SdkForCpp/s3-2006-03-01/DeleteObjects.md")
-  - [GetObject](../../../goto/SdkForCpp/s3-2006-03-01/GetObject.md "../../../goto/SdkForCpp/s3-2006-03-01/GetObject.md")
-  - [ListObjectsV2](../../../goto/SdkForCpp/s3-2006-03-01/ListObjectsV2.md "../../../goto/SdkForCpp/s3-2006-03-01/ListObjectsV2.md")
-  - [PutObject](../../../goto/SdkForCpp/s3-2006-03-01/PutObject.md "../../../goto/SdkForCpp/s3-2006-03-01/PutObject.md")
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
-
-Define a struct that wraps bucket and object actions used by the scenario.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -1730,15 +1693,10 @@ func (basics BucketBasics) DeleteBucket(ctx context.Context, bucketName string) 
 	}
 	return err
 }
-
-
+```
+Run an interactive scenario that shows you how to work with S3 buckets and objects.  
 
 ```
-
-Run an interactive scenario that shows you how to work with S3 buckets and objects.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -1887,35 +1845,24 @@ func RunGetStartedScenario(ctx context.Context, sdkConfig aws.Config, questioner
 	log.Println("Thanks for watching!")
 	log.Println(strings.Repeat("-", 88))
 }
+```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [CopyObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CopyObject)
+  + [CreateBucket](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket)
+  + [DeleteBucket](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteBucket)
+  + [DeleteObjects](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteObjects)
+  + [GetObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObject)
+  + [ListObjectsV2](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectsV2)
+  + [PutObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObject)
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+A scenario example.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
-
-  - [CopyObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CopyObject "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CopyObject")
-  - [CreateBucket](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket")
-  - [DeleteBucket](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteBucket "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteBucket")
-  - [DeleteObjects](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteObjects "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteObjects")
-  - [GetObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObject "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObject")
-  - [ListObjectsV2](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectsV2 "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectsV2")
-  - [PutObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObject "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObject")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-A scenario example.
-
-```
-
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.UUID;
@@ -1979,18 +1926,18 @@ public class S3Scenario {
         logger.info(DASHES);
         logger.info("Welcome to the Amazon Simple Storage Service (S3) example scenario.");
         logger.info("""
-            Amazon S3 is a highly scalable and durable object storage
-            service provided by Amazon Web Services (AWS). It is designed to store and retrieve
+            Amazon S3 is a highly scalable and durable object storage 
+            service provided by Amazon Web Services (AWS). It is designed to store and retrieve 
             any amount of data, from anywhere on the web, at any time.
-
-            The `S3AsyncClient` interface in the AWS SDK for Java 2.x provides a set of methods to
-            programmatically interact with the Amazon S3 (Simple Storage Service) service. This allows
-            developers to automate the management and manipulation of S3 buckets and objects as
-            part of their application deployment pipelines. With S3, teams can focus on building
-            and deploying their applications without having to worry about the underlying storage
+                        
+            The `S3AsyncClient` interface in the AWS SDK for Java 2.x provides a set of methods to 
+            programmatically interact with the Amazon S3 (Simple Storage Service) service. This allows 
+            developers to automate the management and manipulation of S3 buckets and objects as 
+            part of their application deployment pipelines. With S3, teams can focus on building 
+            and deploying their applications without having to worry about the underlying storage 
             infrastructure required to host and manage large amounts of data.
-
-            This scenario walks you through how to perform key operations for this service.
+                        
+            This scenario walks you through how to perform key operations for this service.  
             Let's get started...
             """);
         waitForInputToContinue(scanner);
@@ -2227,11 +2174,8 @@ public class S3Scenario {
         }
     }
 }
-
-
 ```
-
-A wrapper class that contains the operations.
+A wrapper class that contains the operations.  
 
 ```
 public class S3Actions {
@@ -2590,31 +2534,22 @@ public class S3Actions {
         return buffer;
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/DeleteBucket)
+  + [DeleteObjects](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/DeleteObjects)
+  + [GetObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObject)
+  + [ListObjectsV2](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListObjectsV2)
+  + [PutObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [CopyObject](../../../goto/SdkForJavaV2/s3-2006-03-01/CopyObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteBucket.md "../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObjects](../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteObjects.md "../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteObjects.md")
-  - [GetObject](../../../goto/SdkForJavaV2/s3-2006-03-01/GetObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetObject.md")
-  - [ListObjectsV2](../../../goto/SdkForJavaV2/s3-2006-03-01/ListObjectsV2.md "../../../goto/SdkForJavaV2/s3-2006-03-01/ListObjectsV2.md")
-  - [PutObject](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObject.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-First, import all the necessary modules.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+First, import all the necessary modules.  
 
 ```
 // Used to check if currently running file is this file.
@@ -2636,11 +2571,8 @@ import {
   DeleteObjectsCommand,
   DeleteBucketCommand,
 } from "@aws-sdk/client-s3";
-
-
 ```
-
-The preceding imports reference some helper utilities. These utilities are local to the GitHub repository linked at the start of this section. For your reference, see the following implementations of those utilities.
+The preceding imports reference some helper utilities. These utilities are local to the GitHub repository linked at the start of this section. For your reference, see the following implementations of those utilities.  
 
 ```
 export const dirnameFromMetaUrl = (metaUrl) =>
@@ -2700,11 +2632,8 @@ export const wrapText = (text, char = "=") => {
   const rule = char.repeat(80);
   return `${rule}\n    ${text}\n${rule}\n`;
 };
-
-
 ```
-
-Objects are stored in 'buckets'. Let's define a function for creating a new bucket.
+Objects are stored in 'buckets'. Let's define a function for creating a new bucket.  
 
 ```
 export const createBucket = async () => {
@@ -2716,11 +2645,8 @@ export const createBucket = async () => {
   console.log("Bucket created successfully.\n");
   return bucketName;
 };
-
-
 ```
-
-Buckets contain 'objects'. This function uploads the contents of a directory to your bucket as objects.
+Buckets contain 'objects'. This function uploads the contents of a directory to your bucket as objects.  
 
 ```
 export const uploadFilesToBucket = async ({ bucketName, folderPath }) => {
@@ -2746,11 +2672,8 @@ export const uploadFilesToBucket = async ({ bucketName, folderPath }) => {
     console.log(`${file.Key} uploaded successfully.`);
   }
 };
-
-
 ```
-
-After uploading objects, check to confirm that they were uploaded correctly. You can use ListObjects for that. You'll be using the 'Key' property, but there are other useful properties in the response also.
+After uploading objects, check to confirm that they were uploaded correctly. You can use ListObjects for that. You'll be using the 'Key' property, but there are other useful properties in the response also.  
 
 ```
 export const listFilesInBucket = async ({ bucketName }) => {
@@ -2760,11 +2683,8 @@ export const listFilesInBucket = async ({ bucketName }) => {
   console.log("\nHere's a list of files in the bucket:");
   console.log(`${contentsList}\n`);
 };
-
-
 ```
-
-Sometimes you might want to copy an object from one bucket to another. Use the CopyObject command for that.
+Sometimes you might want to copy an object from one bucket to another. Use the CopyObject command for that.  
 
 ```
 export const copyFileFromBucket = async ({ destinationBucket }) => {
@@ -2805,11 +2725,8 @@ export const copyFileFromBucket = async ({ destinationBucket }) => {
   };
   await copy();
 };
-
-
 ```
-
-There's no SDK method for getting multiple objects from a bucket. Instead, you'll create a list of objects to download and iterate over them.
+There's no SDK method for getting multiple objects from a bucket. Instead, you'll create a list of objects to download and iterate over them.  
 
 ```
 export const downloadFilesFromBucket = async ({ bucketName }) => {
@@ -2831,11 +2748,8 @@ export const downloadFilesFromBucket = async ({ bucketName }) => {
   }
   console.log("Files downloaded successfully.\n");
 };
-
-
 ```
-
-It's time to clean up your resources. A bucket must be empty before it can be deleted. These two functions empty and delete the bucket.
+It's time to clean up your resources. A bucket must be empty before it can be deleted. These two functions empty and delete the bucket.  
 
 ```
 export const emptyBucket = async ({ bucketName }) => {
@@ -2856,11 +2770,8 @@ export const deleteBucket = async ({ bucketName }) => {
   await s3Client.send(command);
   console.log(`${bucketName} deleted successfully.\n`);
 };
-
-
 ```
-
-The 'main' function pulls everything together. If you run this file directly the main function will be called.
+The 'main' function pulls everything together. If you run this file directly the main function will be called.  
 
 ```
 const main = async () => {
@@ -2901,29 +2812,21 @@ const main = async () => {
     console.error(err);
   }
 };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand)
+  + [CreateBucket](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand)
+  + [DeleteBucket](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteBucketCommand)
+  + [DeleteObjects](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand)
+  + [GetObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand)
+  + [ListObjectsV2](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command)
+  + [PutObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-  - [CopyObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand.md")
-  - [CreateBucket](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand.md")
-  - [DeleteBucket](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteBucketCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteBucketCommand.md")
-  - [DeleteObjects](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand.md")
-  - [GetObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand.md")
-  - [ListObjectsV2](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command.md")
-  - [PutObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun main(args: Array<String>) {
@@ -2934,9 +2837,9 @@ suspend fun main(args: Array<String>) {
     Where:
         bucketName - The Amazon S3 bucket to create.
         key - The key to use.
-        objectPath - The path where the file is located (for example, C:/AWS/book2.pdf).
-        savePath - The path where the file is saved after it's downloaded (for example, C:/AWS/book2.pdf).
-        toBucket - An Amazon S3 bucket to where an object is copied to (for example, C:/AWS/book2.pdf).
+        objectPath - The path where the file is located (for example, C:/AWS/book2.pdf).   
+        savePath - The path where the file is saved after it's downloaded (for example, C:/AWS/book2.pdf).     
+        toBucket - An Amazon S3 bucket to where an object is copied to (for example, C:/AWS/book2.pdf). 
         """
 
     if (args.size != 4) {
@@ -3102,29 +3005,21 @@ suspend fun deleteBucket(bucketName: String?) {
         println("The $bucketName was successfully deleted!")
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CopyObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateBucket](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteBucket](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteObjects](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListObjectsV2](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [PutObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-  - [CopyObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateBucket](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteBucket](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteObjects](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListObjectsV2](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [PutObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 
 ```
         echo("\n");
@@ -3242,30 +3137,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
         }
 
         echo "Successfully ran the Amazon S3 with PHP demo.\n";
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for PHP API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/DeleteBucket)
+  + [DeleteObjects](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/DeleteObjects)
+  + [GetObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/GetObject)
+  + [ListObjectsV2](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/ListObjectsV2)
+  + [PutObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-  - [CopyObject](../../../goto/SdkForPHPV3/s3-2006-03-01/CopyObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/SdkForPHPV3/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForPHPV3/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteBucket.md "../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObjects](../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteObjects.md "../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteObjects.md")
-  - [GetObject](../../../goto/SdkForPHPV3/s3-2006-03-01/GetObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/GetObject.md")
-  - [ListObjectsV2](../../../goto/SdkForPHPV3/s3-2006-03-01/ListObjectsV2.md "../../../goto/SdkForPHPV3/s3-2006-03-01/ListObjectsV2.md")
-  - [PutObject](../../../goto/SdkForPHPV3/s3-2006-03-01/PutObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/PutObject.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 import io
@@ -3370,29 +3256,21 @@ def do_scenario(s3_resource):
 
 if __name__ == "__main__":
     do_scenario(boto3.resource("s3"))
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/DeleteBucket)
+  + [DeleteObjects](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/DeleteObjects)
+  + [GetObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/GetObject)
+  + [ListObjectsV2](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/ListObjectsV2)
+  + [PutObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-  - [CopyObject](../../../goto/boto3/s3-2006-03-01/CopyObject.md "../../../goto/boto3/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/boto3/s3-2006-03-01/CreateBucket.md "../../../goto/boto3/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/boto3/s3-2006-03-01/DeleteBucket.md "../../../goto/boto3/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObjects](../../../goto/boto3/s3-2006-03-01/DeleteObjects.md "../../../goto/boto3/s3-2006-03-01/DeleteObjects.md")
-  - [GetObject](../../../goto/boto3/s3-2006-03-01/GetObject.md "../../../goto/boto3/s3-2006-03-01/GetObject.md")
-  - [ListObjectsV2](../../../goto/boto3/s3-2006-03-01/ListObjectsV2.md "../../../goto/boto3/s3-2006-03-01/ListObjectsV2.md")
-  - [PutObject](../../../goto/boto3/s3-2006-03-01/PutObject.md "../../../goto/boto3/s3-2006-03-01/PutObject.md")
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -3542,34 +3420,24 @@ rescue Aws::Errors::ServiceError
 end
 
 run_scenario(ScenarioGettingStarted.new(Aws::S3::Resource.new)) if $PROGRAM_NAME == __FILE__
+```
++ For API details, see the following topics in *AWS SDK for Ruby API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/DeleteBucket)
+  + [DeleteObjects](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/DeleteObjects)
+  + [GetObject](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/GetObject)
+  + [ListObjectsV2](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/ListObjectsV2)
+  + [PutObject](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/PutObject)
 
+------
+#### [ Rust ]
+
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
+Code for the binary crate which runs the scenario.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Ruby API Reference_.
-
-  - [CopyObject](../../../goto/SdkForRubyV3/s3-2006-03-01/CopyObject.md "../../../goto/SdkForRubyV3/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/SdkForRubyV3/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForRubyV3/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/SdkForRubyV3/s3-2006-03-01/DeleteBucket.md "../../../goto/SdkForRubyV3/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObjects](../../../goto/SdkForRubyV3/s3-2006-03-01/DeleteObjects.md "../../../goto/SdkForRubyV3/s3-2006-03-01/DeleteObjects.md")
-  - [GetObject](../../../goto/SdkForRubyV3/s3-2006-03-01/GetObject.md "../../../goto/SdkForRubyV3/s3-2006-03-01/GetObject.md")
-  - [ListObjectsV2](../../../goto/SdkForRubyV3/s3-2006-03-01/ListObjectsV2.md "../../../goto/SdkForRubyV3/s3-2006-03-01/ListObjectsV2.md")
-  - [PutObject](../../../goto/SdkForRubyV3/s3-2006-03-01/PutObject.md "../../../goto/SdkForRubyV3/s3-2006-03-01/PutObject.md")
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
-
-Code for the binary crate which runs the scenario.
-
-```
-
 #![allow(clippy::result_large_err)]
 
 //!  Purpose
@@ -3631,11 +3499,8 @@ async fn run_s3_operations(
 
     Ok(())
 }
-
-
 ```
-
-Common actions used by the scenario.
+Common actions used by the scenario.  
 
 ```
 pub async fn create_bucket(
@@ -3807,29 +3672,21 @@ pub async fn delete_bucket(
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Rust API reference*.
+  + [CopyObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.copy_object)
+  + [CreateBucket](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket)
+  + [DeleteBucket](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_bucket)
+  + [DeleteObjects](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_objects)
+  + [GetObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_object)
+  + [ListObjectsV2](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_objects_v2)
+  + [PutObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.put_object)
 
-- For API details, see the following topics in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-  - [CopyObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.copy_object "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.copy_object")
-  - [CreateBucket](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket")
-  - [DeleteBucket](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_bucket "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_bucket")
-  - [DeleteObjects](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_objects "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_objects")
-  - [GetObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_object "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_object")
-  - [ListObjectsV2](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_objects_v2 "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_objects_v2")
-  - [PutObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.put_object "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.put_object")
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
@@ -3940,29 +3797,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++ For API details, see the following topics in *AWS SDK for SAP ABAP API reference*.
+  + [CopyObject](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [CreateBucket](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [DeleteBucket](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [DeleteObjects](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [GetObject](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [ListObjectsV2](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [PutObject](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-  - [CopyObject](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [CreateBucket](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [DeleteBucket](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [DeleteObjects](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [GetObject](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [ListObjectsV2](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [PutObject](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
 ```
 import AWSS3
@@ -3990,7 +3839,7 @@ public class ServiceHandler {
     ///            execute AWS operations.
     public init() async throws {
         do {
-            configuration = try await S3Client.S3ClientConfiguration()
+            configuration = try await S3Client.S3ClientConfiguration() 
          //   configuration.region = "us-east-2" // Uncomment this to set the region programmatically.
             client = S3Client(config: configuration)
         }
@@ -4010,7 +3859,7 @@ public class ServiceHandler {
         var input = CreateBucketInput(
             bucket: name
         )
-
+        
         // For regions other than "us-east-1", you must set the locationConstraint in the createBucketConfiguration.
         // For more information, see LocationConstraint in the S3 API guide.
         // https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html#API_CreateBucket_RequestBody
@@ -4146,7 +3995,7 @@ public class ServiceHandler {
         )
         do {
             let output = try await client.getObject(input: input)
-
+            
             guard let body = output.body else {
                 throw HandlerError.getObjectBody("GetObjectInput missing body.")
             }
@@ -4219,26 +4068,26 @@ public class ServiceHandler {
             let input = ListObjectsV2Input(
                 bucket: bucket
             )
-
+            
             // Use "Paginated" to get all the objects.
             // This lets the SDK handle the 'continuationToken' in "ListObjectsV2Output".
             let output = client.listObjectsV2Paginated(input: input)
             var names: [String] = []
-
+            
             for try await page in output {
                 guard let objList = page.contents else {
                     print("ERROR: listObjectsV2Paginated returned nil contents.")
                     continue
                 }
-
+                
                 for obj in objList {
                     if let objName = obj.key {
                         names.append(objName)
                     }
                 }
             }
-
-
+            
+            
             return names
         }
         catch {
@@ -4247,8 +4096,6 @@ public class ServiceHandler {
         }
     }
 }
-
-
 ```
 
 ```
@@ -4356,22 +4203,18 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Swift API reference*.
+  + [CopyObject](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/copyobject(input:))
+  + [CreateBucket](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:))
+  + [DeleteBucket](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deletebucket(input:))
+  + [DeleteObjects](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deleteobjects(input:))
+  + [GetObject](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/getobject(input:))
+  + [ListObjectsV2](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listobjectsv2(input:))
+  + [PutObject](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/putobject(input:))
 
-- For API details, see the following topics in _AWS SDK for Swift API reference_.
+------
 
-  - [CopyObject](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/copyobject(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/copyobject(input:)")
-  - [CreateBucket](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:)")
-  - [DeleteBucket](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deletebucket(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deletebucket(input:)")
-  - [DeleteObjects](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deleteobjects(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deleteobjects(input:)")
-  - [GetObject](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/getobject(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/getobject(input:)")
-  - [ListObjectsV2](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listobjectsv2(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listobjectsv2(input:)")
-  - [PutObject](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/putobject(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/putobject(input:)")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

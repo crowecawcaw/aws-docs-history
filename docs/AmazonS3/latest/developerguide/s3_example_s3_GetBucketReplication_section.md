@@ -1,19 +1,20 @@
+
+
 # Use `GetBucketReplication` with an AWS SDK or CLI
+<a name="s3_example_s3_GetBucketReplication_section"></a>
 
 The following code examples show how to use `GetBucketReplication`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-The following command retrieves the replication configuration for a bucket named `amzn-s3-demo-bucket`:
-
-```
-`aws s3api get-bucket-replication --bucket `amzn-s3-demo-bucket``
+**AWS CLI**  
+The following command retrieves the replication configuration for a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-Output:
+aws s3api get-bucket-replication --bucket {{amzn-s3-demo-bucket}}
+```
+Output:  
 
 ```
 {
@@ -33,20 +34,13 @@ Output:
     }
 }
 ```
++  For API details, see [GetBucketReplication](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-replication.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketReplication](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-replication.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-replication.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
     /**
@@ -73,42 +67,28 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.err.println("Failed to retrieve replication details: " + e.awsErrorDetails().errorMessage());
         }
     }
-
-
 ```
++  For API details, see [GetBucketReplication](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetBucketReplication) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetBucketReplication](../../../goto/SdkForJavaV2/s3-2006-03-01/GetBucketReplication.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetBucketReplication.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns the replication configuration information set on the bucket named 'amzn-s3-demo-bucket'.**
+**Tools for PowerShell V4**  
+**Example 1: Returns the replication configuration information set on the bucket named 'amzn-s3-demo-bucket'.**  
 
 ```
 Get-S3BucketReplication -BucketName amzn-s3-demo-bucket
-
 ```
++  For API details, see [GetBucketReplication](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetBucketReplication](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns the replication configuration information set on the bucket named 'amzn-s3-demo-bucket'.**
+**Tools for PowerShell V5**  
+**Example 1: Returns the replication configuration information set on the bucket named 'amzn-s3-demo-bucket'.**  
 
 ```
 Get-S3BucketReplication -BucketName amzn-s3-demo-bucket
-
 ```
++  For API details, see [GetBucketReplication](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetBucketReplication](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

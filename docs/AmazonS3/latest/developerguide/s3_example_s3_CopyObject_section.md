@@ -1,27 +1,23 @@
+
+
 # Use `CopyObject` with an AWS SDK or CLI
+<a name="s3_example_s3_CopyObject_section"></a>
 
 The following code examples show how to use `CopyObject`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md) 
++  [Get started with encryption](s3_example_s3_Encryption_section.md) 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
++  [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md) 
 
-- [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md "s3_example_s3_Scenario_GettingStarted_section.md")
-- [Get started with encryption](s3_example_s3_Encryption_section.md "s3_example_s3_Encryption_section.md")
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
-- [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md "s3_example_s3_Scenario_ConditionalRequests_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
 ```
-
     /// <summary>
     /// Copies an object in an Amazon S3 bucket to a folder within the
     /// same bucket.
@@ -56,24 +52,12 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/CopyObject) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CopyObject](../../../goto/DotNetSDKV4/s3-2006-03-01/CopyObject.md "../../../goto/DotNetSDKV4/s3-2006-03-01/CopyObject.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
-
-Copy an object using a conditional request.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
+Copy an object using a conditional request.  
 
 ```
     /// <summary>
@@ -140,23 +124,14 @@ Copy an object using a conditional request.
             return false;
         }
     }
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/CopyObject) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CopyObject](../../../goto/DotNetSDKV3/s3-2006-03-01/CopyObject.md "../../../goto/DotNetSDKV3/s3-2006-03-01/CopyObject.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
 ```
 ###############################################################################
@@ -199,23 +174,14 @@ function copy_item_in_bucket() {
     return 1
   fi
 }
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CopyObject) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CopyObject](../../../goto/aws-cli/s3-2006-03-01/CopyObject.md "../../../goto/aws-cli/s3-2006-03-01/CopyObject.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::copyObject(const Aws::String &objectKey, const Aws::String &fromBucket, const Aws::String &toBucket,
@@ -240,26 +206,19 @@ bool AwsDoc::S3::copyObject(const Aws::String &objectKey, const Aws::String &fro
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/CopyObject) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command copies an object from `bucket-1` to `bucket-2`:  
 
 ```
-
-- For API details, see
-  [CopyObject](../../../goto/SdkForCpp/s3-2006-03-01/CopyObject.md "../../../goto/SdkForCpp/s3-2006-03-01/CopyObject.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command copies an object from `bucket-1` to `bucket-2`:
-
+aws s3api copy-object --copy-source {{bucket-1/test.txt}} --key {{test.txt}} --bucket {{bucket-2}}
 ```
-`aws s3api copy-object --copy-source `bucket-1/test.txt` --key `test.txt` --bucket `bucket-2``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -270,23 +229,15 @@ Output:
     "VersionId": "YdnYvTCVDqRRFA.NFJjy36p0hxifMlkA"
 }
 ```
++  For API details, see [CopyObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CopyObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -337,29 +288,17 @@ func (basics BucketBasics) CopyToBucket(ctx context.Context, sourceBucket string
 	}
 	return err
 }
+```
++  For API details, see [CopyObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CopyObject) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Copy an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-- For API details, see
-  [CopyObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CopyObject "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CopyObject")
-  in _AWS SDK for Go API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Copy an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
     /**
      * Asynchronously copies an object from one S3 bucket to another.
      *
@@ -389,11 +328,8 @@ Copy an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/sof
         return response.thenApply(CopyObjectResponse::copyObjectResult)
             .thenApply(Object::toString);
     }
-
-
 ```
-
-Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html") to [copy an object](<https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#copy(software.amazon.awssdk.transfer.s3.CopyRequest)> "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#copy(software.amazon.awssdk.transfer.s3.CopyRequest)") from one bucket to another. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/ObjectCopy.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/ObjectCopy.java") and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java").
+Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [copy an object](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#copy(software.amazon.awssdk.transfer.s3.CopyRequest)) from one bucket to another. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/ObjectCopy.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java).  
 
 ```
 import org.slf4j.Logger;
@@ -425,25 +361,15 @@ import java.util.UUID;
         CompletedCopy completedCopy = copy.completionFuture().join();
         return completedCopy.response().copyObjectResult().eTag();
     }
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CopyObject) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CopyObject](../../../goto/SdkForJavaV2/s3-2006-03-01/CopyObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CopyObject.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Copy the object.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Copy the object.  
 
 ```
 import {
@@ -495,14 +421,10 @@ export const main = async ({
     }
   }
 };
-
+```
+Copy the object on condition its ETag does not match the one provided.  
 
 ```
-
-Copy the object on condition its ETag does not match the one provided.
-
-```
-
 import {
   CopyObjectCommand,
   NoSuchKey,
@@ -591,14 +513,10 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
+```
+Copy the object on condition its ETag does not match the one provided.  
 
 ```
-
-Copy the object on condition its ETag does not match the one provided.
-
-```
-
 import {
   CopyObjectCommand,
   NoSuchKey,
@@ -688,14 +606,10 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
+```
+Copy the object using on condition it has been created or modified in a given timeframe.  
 
 ```
-
-Copy the object using on condition it has been created or modified in a given timeframe.
-
-```
-
 import {
   CopyObjectCommand,
   NoSuchKey,
@@ -785,14 +699,10 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
+```
+Copy the object using on condition it has not been created or modified in a given timeframe.  
 
 ```
-
-Copy the object using on condition it has not been created or modified in a given timeframe.
-
-```
-
 import {
   CopyObjectCommand,
   NoSuchKey,
@@ -881,23 +791,14 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CopyObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun copyBucketObject(
@@ -922,25 +823,15 @@ suspend fun copyBucketObject(
         s3.copyObject(request)
     }
 }
-
-
 ```
++  For API details, see [CopyObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CopyObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
-
-Simple copy of an object.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
+Simple copy of an object.  
 
 ```
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
@@ -957,147 +848,98 @@ Simple copy of an object.
             echo "Failed to copy $fileName with error: " . $exception->getMessage();
             exit("Please fix error with object copying before continuing.");
         }
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/CopyObject) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CopyObject](../../../goto/SdkForPHPV3/s3-2006-03-01/CopyObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/CopyObject.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".**
+**Tools for PowerShell V4**  
+**Example 1: This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -DestinationKey sample-copy.txt
-
 ```
-
-**Example 2: This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".**
+**Example 2: This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-source-bucket -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket amzn-s3-demo-destination-bucket
-
 ```
-
-**Example 3: This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".**
+**Example 3: This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -LocalFile local-sample.txt
-
 ```
-
-**Example 4: Downloads the single object to the specified file. The downloaded file will be found at c:\downloads\data\archive.zip**
+**Example 4: Downloads the single object to the specified file. The downloaded file will be found at c:\\downloads\\data\\archive.zip**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key data/archive.zip -LocalFolder c:\downloads
-
 ```
-
-**Example 5: Downloads all objects that match the specified key prefix to the local folder. The relative key hierarchy will be preserved as subfolders in the overall download location.**
+**Example 5: Downloads all objects that match the specified key prefix to the local folder. The relative key hierarchy will be preserved as subfolders in the overall download location.**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data -LocalFolder c:\downloads
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CopyObject](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".**
+**Tools for PowerShell V5**  
+**Example 1: This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -DestinationKey sample-copy.txt
-
 ```
-
-**Example 2: This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".**
+**Example 2: This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-source-bucket -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket amzn-s3-demo-destination-bucket
-
 ```
-
-**Example 3: This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".**
+**Example 3: This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -LocalFile local-sample.txt
-
 ```
-
-**Example 4: Downloads the single object to the specified file. The downloaded file will be found at c:\downloads\data\archive.zip**
+**Example 4: Downloads the single object to the specified file. The downloaded file will be found at c:\\downloads\\data\\archive.zip**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key data/archive.zip -LocalFolder c:\downloads
-
 ```
-
-**Example 5: Downloads all objects that match the specified key prefix to the local folder. The relative key hierarchy will be preserved as subfolders in the overall download location.**
+**Example 5: Downloads all objects that match the specified key prefix to the local folder. The relative key hierarchy will be preserved as subfolders in the overall download location.**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data -LocalFolder c:\downloads
-
 ```
-
-**Example 6: Downloads a single object to a local file using multipart parallel download for improved performance on large files.**
+**Example 6: Downloads a single object to a local file using multipart parallel download for improved performance on large files.**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -LocalFile local-sample.txt -UseMultipartDownload
-
-
 ```
-
-**Example 7: Downloads a large object using RANGE mode with a custom 64MB part size. RANGE mode uses HTTP byte-range requests and works for all objects regardless of how they were uploaded.**
+**Example 7: Downloads a large object using RANGE mode with a custom 64MB part size. RANGE mode uses HTTP byte-range requests and works for all objects regardless of how they were uploaded.**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key large-file.zip -LocalFile local-large-file.zip -UseMultipartDownload -MultipartDownloadType RANGE -PartSize 64MB
-
-
 ```
-
-**Example 8: Downloads all objects matching the key prefix to a local folder using multipart download with concurrent file downloads.**
+**Example 8: Downloads all objects matching the key prefix to a local folder using multipart download with concurrent file downloads.**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data/ -LocalFolder C:\local-data -UseMultipartDownload -DownloadFilesConcurrently
-
-
 ```
-
-**Example 9: Downloads a single object using multipart download with 20 concurrent connections for maximum throughput on high-bandwidth networks.**
+**Example 9: Downloads a single object using multipart download with 20 concurrent connections for maximum throughput on high-bandwidth networks.**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -Key large-file.zip -LocalFile local-large-file.zip -UseMultipartDownload -ConcurrentServiceRequest 20
-
-
 ```
-
-**Example 10: Downloads all objects matching the key prefix to a local folder using multipart download, continuing past individual file failures instead of aborting.**
+**Example 10: Downloads all objects matching the key prefix to a local folder using multipart download, continuing past individual file failures instead of aborting.**  
 
 ```
 Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data/ -LocalFolder C:\local-data -UseMultipartDownload -FailurePolicy ContinueOnFailure
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CopyObject](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class ObjectWrapper:
@@ -1140,12 +982,8 @@ class ObjectWrapper:
                 dest_object.key,
             )
             raise
-
-
-
 ```
-
-Copy an object using a conditional request.
+Copy an object using a conditional request.  
 
 ```
 class S3ConditionalRequests:
@@ -1202,26 +1040,15 @@ class S3ConditionalRequests:
             else:
                 logger.error(f"Unexpected error: {error_code}")
                 raise
-
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CopyObject) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CopyObject](../../../goto/boto3/s3-2006-03-01/CopyObject.md "../../../goto/boto3/s3-2006-03-01/CopyObject.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
-
-Copy an object.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
+Copy an object.  
 
 ```
 require 'aws-sdk-s3'
@@ -1266,11 +1093,8 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
-
-Copy an object and add server-side encryption to the destination object.
+Copy an object and add server-side encryption to the destination object.  
 
 ```
 require 'aws-sdk-s3'
@@ -1317,23 +1141,14 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/CopyObject) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CopyObject](../../../goto/SdkForRubyV3/s3-2006-03-01/CopyObject.md "../../../goto/SdkForRubyV3/s3-2006-03-01/CopyObject.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 /// Copy an object from one bucket to another.
@@ -1363,23 +1178,14 @@ pub async fn copy_object(
     );
     Ok(())
 }
-
-
 ```
++  For API details, see [CopyObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.copy_object) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CopyObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.copy_object "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.copy_object")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -1393,23 +1199,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchkey.
         MESSAGE 'Object key does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CopyObject](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CopyObject](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
 ```
 import AWSS3
@@ -1430,14 +1227,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [CopyObject](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/copyobject(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CopyObject](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/copyobject(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/copyobject(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

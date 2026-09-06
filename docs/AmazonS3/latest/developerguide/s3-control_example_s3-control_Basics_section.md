@@ -1,18 +1,16 @@
+
+
 # Learn the basics of Amazon S3 Control with an AWS SDK
+<a name="s3-control_example_s3-control_Basics_section"></a>
 
 The following code examples show how to learn core operations for Amazon S3 Control.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples").
-
-Learn core operations.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples). 
+Learn core operations.  
 
 ```
 package com.example.s3.batch;
@@ -37,23 +35,23 @@ public class S3BatchScenario {
         System.out.println(DASHES);
         System.out.println("Welcome to the Amazon S3 Batch basics scenario.");
         System.out.println("""
-            S3 Batch operations enables efficient and cost-effective processing of large-scale
-            data stored in Amazon S3. It automatically scales resources to handle varying workloads
-            without the need for manual intervention.
-
-            One of the key features of S3 Batch is its ability to perform tagging operations on objects stored in
-            S3 buckets. Users can leverage S3 Batch to apply, update, or remove tags on thousands or millions of
-            objects in a single operation, streamlining the management and organization of their data.
-
-            This can be particularly useful for tasks such as cost allocation, lifecycle management, or
-            metadata-driven workflows, where consistent and accurate tagging is essential.
-            S3 Batch's scalability and serverless nature make it an ideal solution for organizations with
+            S3 Batch operations enables efficient and cost-effective processing of large-scale 
+            data stored in Amazon S3. It automatically scales resources to handle varying workloads 
+            without the need for manual intervention. 
+                        
+            One of the key features of S3 Batch is its ability to perform tagging operations on objects stored in 
+            S3 buckets. Users can leverage S3 Batch to apply, update, or remove tags on thousands or millions of 
+            objects in a single operation, streamlining the management and organization of their data. 
+                        
+            This can be particularly useful for tasks such as cost allocation, lifecycle management, or 
+            metadata-driven workflows, where consistent and accurate tagging is essential. 
+            S3 Batch's scalability and serverless nature make it an ideal solution for organizations with 
             growing data volumes and complex data management requirements.
-
-            This Java program walks you through Amazon S3 Batch operations.
-
+                        
+            This Java program walks you through Amazon S3 Batch operations. 
+                        
             Let's get started...
-
+                   
             """);
         waitForInputToContinue(scanner);
         // Use CloudFormation to stand up the resource required for this scenario.
@@ -100,14 +98,14 @@ public class S3BatchScenario {
         System.out.println(DASHES);
         System.out.println("2. Update an existing S3 Batch Operations job's priority");
         System.out.println("""
-             In this step, we modify the job priority value. The higher the number, the higher the priority.
-             So, a job with a priority of `30` would have a higher priority than a job with
-             a priority of `20`. This is a common way to represent the priority of a task
+             In this step, we modify the job priority value. The higher the number, the higher the priority. 
+             So, a job with a priority of `30` would have a higher priority than a job with 
+             a priority of `20`. This is a common way to represent the priority of a task 
              or job, with higher numbers indicating a higher priority.
-
-             Ensure that the job status allows for priority updates. Jobs in certain
-             states (e.g., Cancelled, Failed, or Completed) cannot have their priorities
-             updated. Only jobs in the Active or Suspended state typically allow priority
+             
+             Ensure that the job status allows for priority updates. Jobs in certain 
+             states (e.g., Cancelled, Failed, or Completed) cannot have their priorities 
+             updated. Only jobs in the Active or Suspended state typically allow priority 
              updates.
              """);
 
@@ -248,11 +246,8 @@ public class S3BatchScenario {
 
 
 }
-
-
 ```
-
-An action class that wraps operations.
+An action class that wraps operations.  
 
 ```
 public class S3BatchActions {
@@ -906,32 +901,23 @@ public class S3BatchActions {
         return callerIdentityResponse.account();
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/CreateJob)
+  + [DeleteJobTagging](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/DeleteJobTagging)
+  + [DescribeJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/DescribeJob)
+  + [GetJobTagging](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/GetJobTagging)
+  + [ListJobs](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/ListJobs)
+  + [PutJobTagging](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/PutJobTagging)
+  + [UpdateJobPriority](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/UpdateJobPriority)
+  + [UpdateJobStatus](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/UpdateJobStatus)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-  - [CreateJob](../../../goto/SdkForJavaV2/s3control-2018-08-20/CreateJob.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/CreateJob.md")
-  - [DeleteJobTagging](../../../goto/SdkForJavaV2/s3control-2018-08-20/DeleteJobTagging.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/DeleteJobTagging.md")
-  - [DescribeJob](../../../goto/SdkForJavaV2/s3control-2018-08-20/DescribeJob.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/DescribeJob.md")
-  - [GetJobTagging](../../../goto/SdkForJavaV2/s3control-2018-08-20/GetJobTagging.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/GetJobTagging.md")
-  - [ListJobs](../../../goto/SdkForJavaV2/s3control-2018-08-20/ListJobs.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/ListJobs.md")
-  - [PutJobTagging](../../../goto/SdkForJavaV2/s3control-2018-08-20/PutJobTagging.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/PutJobTagging.md")
-  - [UpdateJobPriority](../../../goto/SdkForJavaV2/s3control-2018-08-20/UpdateJobPriority.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/UpdateJobPriority.md")
-  - [UpdateJobStatus](../../../goto/SdkForJavaV2/s3control-2018-08-20/UpdateJobStatus.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/UpdateJobStatus.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples").
-
-Learn S3 Batch Basics Scenario.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples). 
+Learn S3 Batch Basics Scenario.  
 
 ```
 class S3BatchWrapper:
@@ -940,7 +926,7 @@ class S3BatchWrapper:
     def __init__(self, s3_client: Any, s3control_client: Any, sts_client: Any) -> None:
         """
         Initializes the S3BatchWrapper with AWS service clients.
-
+        
         :param s3_client: A Boto3 Amazon S3 client. This client provides low-level
                          access to AWS S3 services.
         :param s3control_client: A Boto3 Amazon S3 Control client. This client provides
@@ -1056,7 +1042,7 @@ class S3BatchWrapper:
                 Key=manifest_key
             )
             etag = manifest_obj['ETag'].strip('"')
-
+            
             response = self.s3control_client.create_job(
                 AccountId=account_id,
                 Operation={
@@ -1189,7 +1175,7 @@ class S3BatchWrapper:
             )
             current_status = response['Job']['Status']
             print(f"Current job status: {current_status}")
-
+            
             if current_status in ['Ready', 'Suspended']:
                 self.s3control_client.update_job_priority(
                     AccountId=account_id,
@@ -1197,7 +1183,7 @@ class S3BatchWrapper:
                     Priority=60
                 )
                 print("The job priority was updated")
-
+                
                 try:
                     self.s3control_client.update_job_status(
                         AccountId=account_id,
@@ -1218,7 +1204,7 @@ class S3BatchWrapper:
                     print("Job is currently running.")
             else:
                 print(f"Job is in '{current_status}' state - priority update not allowed")
-
+                
         except ClientError as e:
             print(f"Error updating job priority: {e}")
             print("Continuing with the scenario...")
@@ -1286,7 +1272,7 @@ class S3BatchWrapper:
         except ClientError as e:
             print(f"Error describing job: {e}")
             raise
-
+    
     def get_job_tags(self, job_id: str, account_id: str) -> None:
         """
         Get tags associated with a batch job.
@@ -1310,7 +1296,7 @@ class S3BatchWrapper:
         except ClientError as e:
             print(f"Error getting job tags: {e}")
             raise
-
+    
     def put_job_tags(self, job_id: str, account_id: str) -> None:
         """
         Add tags to a batch job.
@@ -1332,7 +1318,7 @@ class S3BatchWrapper:
         except ClientError as e:
             print(f"Error adding job tags: {e}")
             raise
-
+    
     def list_jobs(self, account_id: str) -> None:
         """
         List all batch jobs for the account.
@@ -1352,7 +1338,7 @@ class S3BatchWrapper:
         except ClientError as e:
             print(f"Error listing jobs: {e}")
             raise
-
+    
     def delete_job_tags(self, job_id: str, account_id: str) -> None:
         """
         Delete all tags from a batch job.
@@ -1404,21 +1390,17 @@ class S3BatchWrapper:
         except ClientError as e:
             print(f"Error in cleanup: {e}")
             raise
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateJob](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/CreateJob)
+  + [DeleteJobTagging](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/DeleteJobTagging)
+  + [DescribeJob](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/DescribeJob)
+  + [GetJobTagging](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/GetJobTagging)
+  + [ListJobs](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/ListJobs)
+  + [PutJobTagging](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/PutJobTagging)
+  + [UpdateJobPriority](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/UpdateJobPriority)
+  + [UpdateJobStatus](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/UpdateJobStatus)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateJob](../../../goto/boto3/s3control-2018-08-20/CreateJob.md "../../../goto/boto3/s3control-2018-08-20/CreateJob.md")
-  - [DeleteJobTagging](../../../goto/boto3/s3control-2018-08-20/DeleteJobTagging.md "../../../goto/boto3/s3control-2018-08-20/DeleteJobTagging.md")
-  - [DescribeJob](../../../goto/boto3/s3control-2018-08-20/DescribeJob.md "../../../goto/boto3/s3control-2018-08-20/DescribeJob.md")
-  - [GetJobTagging](../../../goto/boto3/s3control-2018-08-20/GetJobTagging.md "../../../goto/boto3/s3control-2018-08-20/GetJobTagging.md")
-  - [ListJobs](../../../goto/boto3/s3control-2018-08-20/ListJobs.md "../../../goto/boto3/s3control-2018-08-20/ListJobs.md")
-  - [PutJobTagging](../../../goto/boto3/s3control-2018-08-20/PutJobTagging.md "../../../goto/boto3/s3control-2018-08-20/PutJobTagging.md")
-  - [UpdateJobPriority](../../../goto/boto3/s3control-2018-08-20/UpdateJobPriority.md "../../../goto/boto3/s3control-2018-08-20/UpdateJobPriority.md")
-  - [UpdateJobStatus](../../../goto/boto3/s3control-2018-08-20/UpdateJobStatus.md "../../../goto/boto3/s3control-2018-08-20/UpdateJobStatus.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

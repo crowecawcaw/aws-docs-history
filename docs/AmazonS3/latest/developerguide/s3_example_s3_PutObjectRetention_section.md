@@ -1,21 +1,18 @@
+
+
 # Use `PutObjectRetention` with an AWS SDK or CLI
+<a name="s3_example_s3_PutObjectRetention_section"></a>
 
 The following code examples show how to use `PutObjectRetention`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Lock Amazon S3 objects](s3_example_s3_Scenario_ObjectLock_section.md) 
 
-- [Lock Amazon S3 objects](s3_example_s3_Scenario_ObjectLock_section.md "s3_example_s3_Scenario_ObjectLock_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
 
 ```
     /// <summary>
@@ -52,48 +49,32 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
+```
++  For API details, see [PutObjectRetention](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObjectRetention) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To set an object retention configuration for an object**  
+The following `put-object-retention` example sets an object retention configuration for the specified object until 2025-01-01.  
 
 ```
+aws s3api put-object-retention \
+    --bucket {{amzn-s3-demo-bucket-with-object-lock}} \
+    --key {{doc1.rtf}} \
+    --retention '{{{ "Mode": "GOVERNANCE", "RetainUntilDate": "2025-01-01T00:00:00" }}}'
+```
+This command produces no output.  
++  For API details, see [PutObjectRetention](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-retention.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutObjectRetention](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectRetention.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectRetention.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To set an object retention configuration for an object**
-
-The following `put-object-retention` example sets an object retention configuration for the specified object until 2025-01-01.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
 ```
-`aws s3api put-object-retention \
- --bucket `amzn-s3-demo-bucket-with-object-lock` \
- --key `doc1.rtf` \
- --retention '`{ "Mode": "GOVERNANCE", "RetainUntilDate": "2025-01-01T00:00:00" }`'`
-
-```
-
-This command produces no output.
-
-- For API details, see
-  [PutObjectRetention](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-retention.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-retention.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples").
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -140,24 +121,14 @@ func (actor S3Actions) PutObjectRetention(ctx context.Context, bucket string, ke
 
 	return err
 }
-
-
-
 ```
++  For API details, see [PutObjectRetention](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectRetention) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [PutObjectRetention](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectRetention "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectRetention")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
     // Set or modify a retention period on an object in an S3 bucket.
@@ -190,23 +161,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         getClient().putObjectRetention(retentionRequest);
         System.out.println("Set retention for "+objectKey +" in " +bucketName +" until "+ humanReadableDate +".");
     }
-
-
 ```
++  For API details, see [PutObjectRetention](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObjectRetention) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutObjectRetention](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectRetention.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectRetention.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 
 ```
 import {
@@ -288,53 +250,34 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
-
 ```
++  For API details, see [PutObjectRetention](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectRetentionCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutObjectRetention](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectRetentionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectRetentionCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: The command enables governance retention mode untill the date '31st Dec 2019 00:00:00' for 'testfile.txt' object in the given S3 bucket.**
+**Tools for PowerShell V4**  
+**Example 1: The command enables governance retention mode untill the date '31st Dec 2019 00:00:00' for 'testfile.txt' object in the given S3 bucket.**  
 
 ```
 Write-S3ObjectRetention -BucketName 'amzn-s3-demo-bucket' -Key 'testfile.txt' -Retention_Mode GOVERNANCE -Retention_RetainUntilDate "2019-12-31T00:00:00"
-
 ```
++  For API details, see [PutObjectRetention](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutObjectRetention](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: The command enables governance retention mode untill the date '31st Dec 2019 00:00:00' for 'testfile.txt' object in the given S3 bucket.**
+**Tools for PowerShell V5**  
+**Example 1: The command enables governance retention mode untill the date '31st Dec 2019 00:00:00' for 'testfile.txt' object in the given S3 bucket.**  
 
 ```
 Write-S3ObjectRetention -BucketName 'amzn-s3-demo-bucket' -Key 'testfile.txt' -Retention_Mode GOVERNANCE -Retention_RetainUntilDate "2019-12-31T00:00:00"
-
 ```
++  For API details, see [PutObjectRetention](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutObjectRetention](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples").
-
-Put an object retention.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples). 
+Put an object retention.  
 
 ```
             s3_client.put_object_retention(
@@ -344,23 +287,14 @@ Put an object retention.
                 Retention={"Mode": "GOVERNANCE", "RetainUntilDate": far_future_date},
                 BypassGovernanceRetention=True,
             )
-
-
 ```
++  For API details, see [PutObjectRetention](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutObjectRetention) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutObjectRetention](../../../goto/boto3/s3-2006-03-01/PutObjectRetention.md "../../../goto/boto3/s3-2006-03-01/PutObjectRetention.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -380,14 +314,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchkey.
         MESSAGE 'Object key does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutObjectRetention](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutObjectRetention](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

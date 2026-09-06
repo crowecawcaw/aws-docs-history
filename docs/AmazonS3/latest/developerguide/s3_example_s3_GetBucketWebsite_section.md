@@ -1,16 +1,15 @@
+
+
 # Use `GetBucketWebsite` with an AWS SDK or CLI
+<a name="s3_example_s3_GetBucketWebsite_section"></a>
 
 The following code examples show how to use `GetBucketWebsite`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
                 // Get the website configuration.
@@ -21,24 +20,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
                 GetBucketWebsiteResponse getResponse = await client.GetBucketWebsiteAsync(getRequest);
                 Console.WriteLine($"Index document: {getResponse.WebsiteConfiguration.IndexDocumentSuffix}");
                 Console.WriteLine($"Error document: {getResponse.WebsiteConfiguration.ErrorDocument}");
-
-
-
 ```
++  For API details, see [GetBucketWebsite](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetBucketWebsite) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetBucketWebsite](../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketWebsite.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketWebsite.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::getWebsiteConfig(const Aws::String &bucketName,
@@ -73,26 +62,19 @@ bool AwsDoc::S3::getWebsiteConfig(const Aws::String &bucketName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [GetBucketWebsite](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/GetBucketWebsite) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command retrieves the static website configuration for a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [GetBucketWebsite](../../../goto/SdkForCpp/s3-2006-03-01/GetBucketWebsite.md "../../../goto/SdkForCpp/s3-2006-03-01/GetBucketWebsite.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command retrieves the static website configuration for a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api get-bucket-website --bucket {{amzn-s3-demo-bucket}}
 ```
-`aws s3api get-bucket-website --bucket `amzn-s3-demo-bucket``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -104,22 +86,14 @@ Output:
     }
 }
 ```
++  For API details, see [GetBucketWebsite](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-website.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketWebsite](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-website.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-website.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Get the website configuration.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Get the website configuration.  
 
 ```
 import {
@@ -161,42 +135,28 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [GetBucketWebsite](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketWebsiteCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetBucketWebsite](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketWebsiteCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketWebsiteCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command returns the details of the static website configurations of the given S3 bucket.**
+**Tools for PowerShell V4**  
+**Example 1: This command returns the details of the static website configurations of the given S3 bucket.**  
 
 ```
 Get-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'
-
 ```
++  For API details, see [GetBucketWebsite](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetBucketWebsite](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command returns the details of the static website configurations of the given S3 bucket.**
+**Tools for PowerShell V5**  
+**Example 1: This command returns the details of the static website configurations of the given S3 bucket.**  
 
 ```
 Get-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'
-
 ```
++  For API details, see [GetBucketWebsite](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetBucketWebsite](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,22 +1,22 @@
+
+
 # Use `GetBucketPolicyStatus` with a CLI
+<a name="s3_example_s3_GetBucketPolicyStatus_section"></a>
 
 The following code examples show how to use `GetBucketPolicyStatus`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To retrieve the policy status for a bucket indicating whether the bucket is public**
-
-The following `get-bucket-policy-status` example retrieves the policy status for the bucket `amzn-s3-demo-bucket`.
-
-```
-`aws s3api get-bucket-policy-status \
- --bucket `amzn-s3-demo-bucket``
+**AWS CLI**  
+**To retrieve the policy status for a bucket indicating whether the bucket is public**  
+The following `get-bucket-policy-status` example retrieves the policy status for the bucket `amzn-s3-demo-bucket`.  
 
 ```
-
-Output:
+aws s3api get-bucket-policy-status \
+    --bucket {{amzn-s3-demo-bucket}}
+```
+Output:  
 
 ```
 {
@@ -25,39 +25,27 @@ Output:
     }
 }
 ```
++  For API details, see [GetBucketPolicyStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-policy-status.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketPolicyStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-policy-status.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-policy-status.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command returns policy status for the given S3 bucket, indicating whether the bucket is public.**
+**Tools for PowerShell V4**  
+**Example 1: This command returns policy status for the given S3 bucket, indicating whether the bucket is public.**  
 
 ```
 Get-S3BucketPolicyStatus -BucketName 'amzn-s3-demo-bucket'
-
 ```
++  For API details, see [GetBucketPolicyStatus](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetBucketPolicyStatus](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command returns policy status for the given S3 bucket, indicating whether the bucket is public.**
+**Tools for PowerShell V5**  
+**Example 1: This command returns policy status for the given S3 bucket, indicating whether the bucket is public.**  
 
 ```
 Get-S3BucketPolicyStatus -BucketName 'amzn-s3-demo-bucket'
-
 ```
++  For API details, see [GetBucketPolicyStatus](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetBucketPolicyStatus](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,22 +1,19 @@
+
+
 # Use `ListObjectVersions` with an AWS SDK or CLI
+<a name="s3_example_s3_ListObjectVersions_section"></a>
 
 The following code examples show how to use `ListObjectVersions`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
++  [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md) 
 
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
-- [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md "s3_example_s3_Scenario_ObjectVersioningUsage_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
     using System;
@@ -96,27 +93,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [ListObjectVersions](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/ListObjectVersions) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command retrieves version information for an object in a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [ListObjectVersions](../../../goto/DotNetSDKV3/s3-2006-03-01/ListObjectVersions.md "../../../goto/DotNetSDKV3/s3-2006-03-01/ListObjectVersions.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command retrieves version information for an object in a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api list-object-versions --bucket {{amzn-s3-demo-bucket}} --prefix {{index.html}}
 ```
-`aws s3api list-object-versions --bucket `amzn-s3-demo-bucket` --prefix `index.html``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -185,23 +174,15 @@ Output:
     ]
 }
 ```
++  For API details, see [ListObjectVersions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-object-versions.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListObjectVersions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-object-versions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-object-versions.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -247,24 +228,14 @@ func (actor S3Actions) ListObjectVersions(ctx context.Context, bucket string) ([
 	}
 	return versions, err
 }
-
-
-
 ```
++  For API details, see [ListObjectVersions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectVersions) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListObjectVersions](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectVersions "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectVersions")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 async fn show_versions(client: &Client, bucket: &str) -> Result<(), Error> {
@@ -278,23 +249,14 @@ async fn show_versions(client: &Client, bucket: &str) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListObjectVersions](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_object_versions) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListObjectVersions](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_object_versions "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_object_versions")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -305,14 +267,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListObjectVersions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListObjectVersions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,15 @@
+
+
 # Use `CreateSession` with an AWS SDK
+<a name="s3-directory-buckets_example_s3-directory-buckets_CreateSession_section"></a>
 
 The following code example shows how to use `CreateSession`.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3-directory-buckets#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3-directory-buckets#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3-directory-buckets#code-examples). 
 
 ```
 class S3ExpressWrapper:
@@ -50,15 +49,9 @@ class S3ExpressWrapper:
                 client_error.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [CreateSession](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CreateSession) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateSession](../../../goto/boto3/s3-2006-03-01/CreateSession.md "../../../goto/boto3/s3-2006-03-01/CreateSession.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

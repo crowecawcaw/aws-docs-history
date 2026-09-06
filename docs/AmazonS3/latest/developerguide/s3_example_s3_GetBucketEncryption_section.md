@@ -1,16 +1,15 @@
+
+
 # Use `GetBucketEncryption` with an AWS SDK or CLI
+<a name="s3_example_s3_GetBucketEncryption_section"></a>
 
 The following code examples show how to use `GetBucketEncryption`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/PutBucketEncryption#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/PutBucketEncryption#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/PutBucketEncryption#code-examples). 
 
 ```
     /// <summary>
@@ -44,29 +43,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
                 : $"Unable to get bucket encryption for bucket {bucketName}, {ex.Message}");
         }
     }
+```
++  For API details, see [GetBucketEncryption](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetBucketEncryption) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To retrieve the server-side encryption configuration for a bucket**  
+The following `get-bucket-encryption` example retrieves the server-side encryption configuration for the bucket `amzn-s3-demo-bucket`.  
 
 ```
-
-- For API details, see
-  [GetBucketEncryption](../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketEncryption.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketEncryption.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve the server-side encryption configuration for a bucket**
-
-The following `get-bucket-encryption` example retrieves the server-side encryption configuration for the bucket `amzn-s3-demo-bucket`.
-
+aws s3api get-bucket-encryption \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
-`aws s3api get-bucket-encryption \
- --bucket `amzn-s3-demo-bucket``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -81,39 +72,27 @@ Output:
     }
 }
 ```
++  For API details, see [GetBucketEncryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-encryption.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketEncryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-encryption.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-encryption.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command returns all the server side encryption rules associated with the given bucket.**
+**Tools for PowerShell V4**  
+**Example 1: This command returns all the server side encryption rules associated with the given bucket.**  
 
 ```
 Get-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket'
-
 ```
++  For API details, see [GetBucketEncryption](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetBucketEncryption](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command returns all the server side encryption rules associated with the given bucket.**
+**Tools for PowerShell V5**  
+**Example 1: This command returns all the server side encryption rules associated with the given bucket.**  
 
 ```
 Get-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket'
-
 ```
++  For API details, see [GetBucketEncryption](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetBucketEncryption](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

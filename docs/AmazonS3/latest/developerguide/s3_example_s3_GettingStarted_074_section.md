@@ -1,20 +1,18 @@
+
+
 # Getting started with document text extraction
+<a name="s3_example_s3_GettingStarted_074_section"></a>
 
 The following code example shows how to:
++ Create an S3 bucket
++ Upload a document to S3
++ Clean up resources
 
-- Create an S3 bucket
-- Upload a document to S3
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/074-amazon-textract-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/074-amazon-textract-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/074-amazon-textract-gs) repository. 
 
 ```
 #!/bin/bash
@@ -41,7 +39,7 @@ check_error() {
     local exit_code=$1
     local output=$2
     local cmd=$3
-
+    
     if [ $exit_code -ne 0 ] || echo "$output" | grep -i "error" > /dev/null; then
         echo "ERROR: Command failed: $cmd"
         echo "$output" | sed 's/\(aws_secret_access_key\|Authorization\|X-Amz-Security-Token\).*/\1=***REDACTED***/g'
@@ -53,21 +51,21 @@ check_error() {
 # Function to clean up resources on error
 cleanup_on_error() {
     echo "Error encountered. Cleaning up resources..."
-
+    
     # Clean up temporary JSON files
     if [ -f "document.json" ]; then
         rm -f document.json
     fi
-
+    
     if [ -f "features.json" ]; then
         rm -f features.json
     fi
-
+    
     if [ -n "${DOCUMENT_NAME:-}" ] && [ -n "${BUCKET_NAME:-}" ]; then
         echo "Deleting document from S3..."
         aws s3 rm "s3://${BUCKET_NAME}/${DOCUMENT_NAME}" || echo "Failed to delete document"
     fi
-
+    
     if [ -n "${BUCKET_NAME:-}" ] && [ "${BUCKET_IS_SHARED:-false}" = "false" ]; then
         echo "Deleting S3 bucket..."
         aws s3 rb "s3://${BUCKET_NAME}" --force || echo "Failed to delete bucket"
@@ -131,23 +129,23 @@ if [ "$BUCKET_IS_SHARED" = false ]; then
     CREATE_BUCKET_STATUS=$?
     echo "$CREATE_BUCKET_OUTPUT"
     check_error $CREATE_BUCKET_STATUS "$CREATE_BUCKET_OUTPUT" "aws s3 mb s3://$BUCKET_NAME"
-
+    
     aws s3api put-bucket-tagging \
         --bucket "$BUCKET_NAME" \
         --tagging 'TagSet=[{Key=project,Value=doc-smith},{Key=tutorial,Value=amazon-textract-gs}]'
-
+    
     # Apply security settings to bucket
     aws s3api put-bucket-versioning --bucket "$BUCKET_NAME" --versioning-configuration Status=Enabled 2>&1 || true
     aws s3api put-bucket-encryption --bucket "$BUCKET_NAME" --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}' 2>&1 || true
     aws s3api put-bucket-acl --bucket "$BUCKET_NAME" --acl private 2>&1 || true
-
+    
     RESOURCES_CREATED+=("S3 Bucket: $BUCKET_NAME")
 fi
 
 # Step 2: Check if sample document exists, if not create a simple one
 if [ ! -f "$DOCUMENT_NAME" ]; then
     echo "Sample document not found. Generating a sample document..."
-
+    
     # Create a simple PNG document using ImageMagick or convert
     if command -v convert &> /dev/null; then
         convert -size 400x300 xc:white -pointsize 20 -fill black -draw "text 50,50 'Sample Document'" "$DOCUMENT_NAME"
@@ -282,18 +280,15 @@ echo "The analysis results are available in textract-analysis-results.json"
 echo ""
 
 trap - EXIT
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AnalyzeDocument](https://docs.aws.amazon.com/goto/aws-cli/textract-2018-06-27/AnalyzeDocument)
+  + [Cp](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Cp)
+  + [Help](https://docs.aws.amazon.com/goto/aws-cli/textract-2018-06-27/Help)
+  + [Mb](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Mb)
+  + [Rb](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Rb)
+  + [Rm](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Rm)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AnalyzeDocument](../../../goto/aws-cli/textract-2018-06-27/AnalyzeDocument.md "../../../goto/aws-cli/textract-2018-06-27/AnalyzeDocument.md")
-  - [Cp](../../../goto/aws-cli/s3-2006-03-01/Cp.md "../../../goto/aws-cli/s3-2006-03-01/Cp.md")
-  - [Help](../../../goto/aws-cli/textract-2018-06-27/Help.md "../../../goto/aws-cli/textract-2018-06-27/Help.md")
-  - [Mb](../../../goto/aws-cli/s3-2006-03-01/Mb.md "../../../goto/aws-cli/s3-2006-03-01/Mb.md")
-  - [Rb](../../../goto/aws-cli/s3-2006-03-01/Rb.md "../../../goto/aws-cli/s3-2006-03-01/Rb.md")
-  - [Rm](../../../goto/aws-cli/s3-2006-03-01/Rm.md "../../../goto/aws-cli/s3-2006-03-01/Rm.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

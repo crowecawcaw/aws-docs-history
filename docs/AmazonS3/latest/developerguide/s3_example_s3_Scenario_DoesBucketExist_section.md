@@ -1,21 +1,18 @@
+
+
 # Check if a bucket exists
+<a name="s3_example_s3_Scenario_DoesBucketExist_section"></a>
 
 The following code example shows how to check if a bucket exists.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-You can use the following `doesBucketExists` method as a replacement for the the SDK for Java V1 [AmazonS3Client#doesBucketExistV2(String)](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3Client.md#doesBucketExistV2-java.lang.String- "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3Client.md#doesBucketExistV2-java.lang.String-") method.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+You can use the following `doesBucketExists` method as a replacement for the the SDK for Java V1 [AmazonS3Client\#doesBucketExistV2(String)](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3Client.html#doesBucketExistV2-java.lang.String-) method.  
 
 ```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.awscore.exception.AwsServiceException;
@@ -71,14 +68,9 @@ public class DoesBucketExist {
         }
     }
 }
-
-
 ```
++  For API details, see [GetBucketAcl](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetBucketAcl) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetBucketAcl](../../../goto/SdkForJavaV2/s3-2006-03-01/GetBucketAcl.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetBucketAcl.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

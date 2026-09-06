@@ -1,16 +1,15 @@
+
+
 # Use `PutBucketWebsite` with an AWS SDK or CLI
+<a name="s3_example_s3_PutBucketWebsite_section"></a>
 
 The following code examples show how to use `PutBucketWebsite`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
                 // Put the website configuration.
@@ -24,24 +23,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
                     },
                 };
                 PutBucketWebsiteResponse response = await client.PutBucketWebsiteAsync(putRequest);
-
-
-
 ```
++  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutBucketWebsite) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [PutBucketWebsite](../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketWebsite.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketWebsite.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::putWebsiteConfig(const Aws::String &bucketName,
@@ -76,26 +65,19 @@ bool AwsDoc::S3::putWebsiteConfig(const Aws::String &bucketName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/PutBucketWebsite) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The applies a static website configuration to a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [PutBucketWebsite](../../../goto/SdkForCpp/s3-2006-03-01/PutBucketWebsite.md "../../../goto/SdkForCpp/s3-2006-03-01/PutBucketWebsite.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The applies a static website configuration to a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api put-bucket-website --bucket {{amzn-s3-demo-bucket}} --website-configuration {{file://website.json}}
 ```
-`aws s3api put-bucket-website --bucket `amzn-s3-demo-bucket` --website-configuration `file://website.json``
-
-```
-
-The file `website.json` is a JSON document in the current folder that specifies index and error pages for the website:
+The file `website.json` is a JSON document in the current folder that specifies index and error pages for the website:  
 
 ```
 {
@@ -107,23 +89,15 @@ The file `website.json` is a JSON document in the current folder that specifies 
     }
 }
 ```
++  For API details, see [PutBucketWebsite](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-website.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutBucketWebsite](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-website.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-website.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.IndexDocument;
 import software.amazon.awssdk.services.s3.model.PutBucketWebsiteRequest;
@@ -195,25 +169,15 @@ public class SetWebsiteConfiguration {
         }
     }
 }
-
-
 ```
++  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketWebsite) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutBucketWebsite](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketWebsite.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketWebsite.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Set the website configuration.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Set the website configuration.  
 
 ```
 import {
@@ -269,52 +233,34 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-static-web-host.html#s3-example-static-web-host-set-website). 
++  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketWebsiteCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-static-web-host.md#s3-example-static-web-host-set-website "../../../sdk-for-javascript/v3/developer-guide/s3-example-static-web-host.md#s3-example-static-web-host-set-website").
-- For API details, see
-  [PutBucketWebsite](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketWebsiteCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketWebsiteCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: The command enables website hosting for the given bucket with the index document as 'index.html' and error document as 'error.html'.**
+**Tools for PowerShell V4**  
+**Example 1: The command enables website hosting for the given bucket with the index document as 'index.html' and error document as 'error.html'.**  
 
 ```
 Write-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket' -WebsiteConfiguration_IndexDocumentSuffix 'index.html' -WebsiteConfiguration_ErrorDocument 'error.html'
-
 ```
++  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutBucketWebsite](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: The command enables website hosting for the given bucket with the index document as 'index.html' and error document as 'error.html'.**
+**Tools for PowerShell V5**  
+**Example 1: The command enables website hosting for the given bucket with the index document as 'index.html' and error document as 'error.html'.**  
 
 ```
 Write-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket' -WebsiteConfiguration_IndexDocumentSuffix 'index.html' -WebsiteConfiguration_ErrorDocument 'error.html'
-
 ```
++  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutBucketWebsite](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -360,14 +306,9 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [PutBucketWebsite](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/PutBucketWebsite) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [PutBucketWebsite](../../../goto/SdkForRubyV3/s3-2006-03-01/PutBucketWebsite.md "../../../goto/SdkForRubyV3/s3-2006-03-01/PutBucketWebsite.md")
-  in _AWS SDK for Ruby API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

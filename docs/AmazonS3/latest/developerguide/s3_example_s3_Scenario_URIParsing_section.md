@@ -1,18 +1,16 @@
+
+
 # Parse Amazon S3 URIs using an AWS SDK
+<a name="s3_example_s3_Scenario_URIParsing_section"></a>
 
 The following code example shows how to parse Amazon S3 URIs to extract important components like the bucket name and object key.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Parse an Amazon S3 URI by using the [S3Uri](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Uri.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Uri.html") class.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Parse an Amazon S3 URI by using the [S3Uri](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Uri.html) class.  
 
 ```
 import org.slf4j.Logger;
@@ -92,7 +90,7 @@ import java.util.Map;
          * "https://s3.us-west-1.amazonaws.com/myBucket/object%20key?query=%5Bbrackets%5D"
          * Invalid:
          * "https://s3.us-west-1.amazonaws.com/myBucket/object key?query=[brackets]"
-         *
+         * 
          * Virtual-hosted-style URIs with bucket names that contain a dot, ".", the dot
          * must not be URL-encoded.
          * Valid: "https://my.Bucket.s3.us-west-1.amazonaws.com/key"
@@ -107,10 +105,8 @@ import java.util.Map;
             logger.info("{}: {}", s3UriElement, element);
         }
     }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

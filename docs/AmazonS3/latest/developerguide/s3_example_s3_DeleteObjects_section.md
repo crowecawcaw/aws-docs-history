@@ -1,26 +1,22 @@
+
+
 # Use `DeleteObjects` with an AWS SDK or CLI
+<a name="s3_example_s3_DeleteObjects_section"></a>
 
 The following code examples show how to use `DeleteObjects`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md) 
++  [Delete all objects in a bucket](s3_example_s3_Scenario_DeleteAllObjects_section.md) 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
 
-- [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md "s3_example_s3_Scenario_GettingStarted_section.md")
-- [Delete all objects in a bucket](s3_example_s3_Scenario_DeleteAllObjects_section.md "s3_example_s3_Scenario_DeleteAllObjects_section.md")
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
 ```
-
     /// <summary>
     /// Delete all of the objects stored in an existing Amazon S3 bucket.
     /// </summary>
@@ -52,24 +48,12 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/DeleteObjects) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../goto/DotNetSDKV4/s3-2006-03-01/DeleteObjects.md "../../../goto/DotNetSDKV4/s3-2006-03-01/DeleteObjects.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
-
-Delete multiple objects in a non-versioned S3 bucket.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
+Delete multiple objects in a non-versioned S3 bucket.  
 
 ```
     using System;
@@ -193,12 +177,8 @@ Delete multiple objects in a non-versioned S3 bucket.
             return keys;
         }
     }
-
-
-
 ```
-
-Delete multiple objects in a versioned S3 bucket.
+Delete multiple objects in a versioned S3 bucket.  
 
 ```
     using System;
@@ -454,24 +434,14 @@ Delete multiple objects in a versioned S3 bucket.
             return keys;
         }
     }
-
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/DeleteObjects) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../goto/DotNetSDKV3/s3-2006-03-01/DeleteObjects.md "../../../goto/DotNetSDKV3/s3-2006-03-01/DeleteObjects.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
 ```
 ###############################################################################
@@ -520,23 +490,14 @@ function delete_items_in_bucket() {
     return 1
   fi
 }
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/DeleteObjects) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../goto/aws-cli/s3-2006-03-01/DeleteObjects.md "../../../goto/aws-cli/s3-2006-03-01/DeleteObjects.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::deleteObjects(const std::vector<Aws::String> &objectKeys,
@@ -574,26 +535,19 @@ bool AwsDoc::S3::deleteObjects(const std::vector<Aws::String> &objectKeys,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/DeleteObjects) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command deletes an object from a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [DeleteObjects](../../../goto/SdkForCpp/s3-2006-03-01/DeleteObjects.md "../../../goto/SdkForCpp/s3-2006-03-01/DeleteObjects.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command deletes an object from a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api delete-objects --bucket {{amzn-s3-demo-bucket}} --delete {{file://delete.json}}
 ```
-`aws s3api delete-objects --bucket `amzn-s3-demo-bucket` --delete `file://delete.json``
-
-```
-
-`delete.json` is a JSON document in the current directory that specifies the object to delete:
+`delete.json` is a JSON document in the current directory that specifies the object to delete:  
 
 ```
 {
@@ -605,8 +559,7 @@ The following command deletes an object from a bucket named `amzn-s3-demo-bucket
   "Quiet": false
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -619,23 +572,15 @@ Output:
     ]
 }
 ```
++  For API details, see [DeleteObjects](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-objects.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteObjects](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-objects.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-objects.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -703,27 +648,16 @@ func (actor S3Actions) DeleteObjects(ctx context.Context, bucket string, objects
 	}
 	return err
 }
+```
++  For API details, see [DeleteObjects](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteObjects) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-
-- For API details, see
-  [DeleteObjects](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteObjects "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.DeleteObjects")
-  in _AWS SDK for Go API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-```
-
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -818,25 +752,15 @@ public class DeleteMultiObjects {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/DeleteObjects) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteObjects.md "../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteObjects.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Delete multiple objects.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Delete multiple objects.  
 
 ```
 import {
@@ -889,23 +813,14 @@ export const main = async ({ bucketName, keys }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun deleteBucketObjects(
@@ -933,25 +848,15 @@ suspend fun deleteBucketObjects(
         println("$objectName was deleted from $bucketName")
     }
 }
-
-
 ```
++  For API details, see [DeleteObjects](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteObjects](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
-
-Delete a set of objects from a list of keys.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
+Delete a set of objects from a list of keys.  
 
 ```
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
@@ -980,143 +885,100 @@ Delete a set of objects from a list of keys.
             echo "Failed to delete $fileName from $this->bucketName with error: " . $exception->getMessage();
             exit("Please fix error with object deletion before continuing.");
         }
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/DeleteObjects) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteObjects.md "../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteObjects.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command removes the object "sample.txt" from bucket "test-files". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.**
+**Tools for PowerShell V4**  
+**Example 1: This command removes the object "sample.txt" from bucket "test-files". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt
-
 ```
-
-**Example 2: This command removes the specified version of object "sample.txt" from bucket "test-files", assuming the bucket has been configured to enable object versions.**
+**Example 2: This command removes the specified version of object "sample.txt" from bucket "test-files", assuming the bucket has been configured to enable object versions.**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -VersionId HLbxnx6V9omT6AQYVpks8mmFKQcejpqt
-
 ```
-
-**Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.**
+**Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -KeyCollection @( "sample1.txt", "sample2.txt", "sample3.txt" )
-
 ```
-
-**Example 4: This example uses an inline expression with the -KeyCollection parameter to obtain the keys of the objects to delete. Get-S3Object returns a collection of Amazon.S3.Model.S3Object instances, each of which has a Key member of type string identifying the object.**
+**Example 4: This example uses an inline expression with the -KeyCollection parameter to obtain the keys of the objects to delete. Get-S3Object returns a collection of Amazon.S3.Model.S3Object instances, each of which has a Key member of type string identifying the object.**  
 
 ```
 Remove-S3Object -bucketname "amzn-s3-demo-bucket" -KeyCollection (Get-S3Object "test-files" -KeyPrefix "prefix/subprefix" | select -ExpandProperty Key)
-
 ```
-
-**Example 5: This example obtains all objects that have a key prefix "prefix/subprefix" in the bucket and deletes them. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**
+**Example 5: This example obtains all objects that have a key prefix "prefix/subprefix" in the bucket and deletes them. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
 ```
 Get-S3Object -BucketName "amzn-s3-demo-bucket" -KeyPrefix "prefix/subprefix" | Remove-S3Object -Force
-
 ```
-
-**Example 6: This example pipes a collection of Amazon.S3.Model.S3ObjectVersion instances that represent delete markers to the cmdlet for deletion. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**
+**Example 6: This example pipes a collection of Amazon.S3.Model.S3ObjectVersion instances that represent delete markers to the cmdlet for deletion. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
 ```
 (Get-S3Version -BucketName "amzn-s3-demo-bucket").Versions | Where {$_.IsDeleteMarker -eq "True"} | Remove-S3Object -Force
-
 ```
-
-**Example 7: This script shows how to perform a batch delete of a set of objects (in this case delete markers) by constructing an array of objects to be used with the -KeyAndVersionCollection parameter.**
+**Example 7: This script shows how to perform a batch delete of a set of objects (in this case delete markers) by constructing an array of objects to be used with the -KeyAndVersionCollection parameter.**  
 
 ```
 $keyVersions = @()
 $markers = (Get-S3Version -BucketName $BucketName).Versions | Where {$_.IsDeleteMarker -eq "True"}
 foreach ($marker in $markers) { $keyVersions += @{ Key = $marker.Key; VersionId = $marker.VersionId } }
 Remove-S3Object -BucketName $BucketName -KeyAndVersionCollection $keyVersions -Force
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteObjects](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command removes the object "sample.txt" from bucket "test-files". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.**
+**Tools for PowerShell V5**  
+**Example 1: This command removes the object "sample.txt" from bucket "test-files". You are prompted for confirmation before the command executes; to suppress the prompt use the -Force switch.**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt
-
 ```
-
-**Example 2: This command removes the specified version of object "sample.txt" from bucket "test-files", assuming the bucket has been configured to enable object versions.**
+**Example 2: This command removes the specified version of object "sample.txt" from bucket "test-files", assuming the bucket has been configured to enable object versions.**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -VersionId HLbxnx6V9omT6AQYVpks8mmFKQcejpqt
-
 ```
-
-**Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.**
+**Example 3: This command removes objects "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files" as a single batch operation. The service response will list all keys processed, regardless of the success or error status of the deletion. To obtain only errors for keys that were not able to be processed by the service add the -ReportErrorsOnly parameter (this parameter can also be specified with the alias -Quiet.**  
 
 ```
 Remove-S3Object -BucketName amzn-s3-demo-bucket -KeyCollection @( "sample1.txt", "sample2.txt", "sample3.txt" )
-
 ```
-
-**Example 4: This example uses an inline expression with the -KeyCollection parameter to obtain the keys of the objects to delete. Get-S3Object returns a collection of Amazon.S3.Model.S3Object instances, each of which has a Key member of type string identifying the object.**
+**Example 4: This example uses an inline expression with the -KeyCollection parameter to obtain the keys of the objects to delete. Get-S3Object returns a collection of Amazon.S3.Model.S3Object instances, each of which has a Key member of type string identifying the object.**  
 
 ```
 Remove-S3Object -bucketname "amzn-s3-demo-bucket" -KeyCollection (Get-S3Object "test-files" -KeyPrefix "prefix/subprefix" | select -ExpandProperty Key)
-
 ```
-
-**Example 5: This example obtains all objects that have a key prefix "prefix/subprefix" in the bucket and deletes them. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**
+**Example 5: This example obtains all objects that have a key prefix "prefix/subprefix" in the bucket and deletes them. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
 ```
 Get-S3Object -BucketName "amzn-s3-demo-bucket" -KeyPrefix "prefix/subprefix" | Remove-S3Object -Force
-
 ```
-
-**Example 6: This example pipes a collection of Amazon.S3.Model.S3ObjectVersion instances that represent delete markers to the cmdlet for deletion. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**
+**Example 6: This example pipes a collection of Amazon.S3.Model.S3ObjectVersion instances that represent delete markers to the cmdlet for deletion. Note that the incoming objects are processed one at a time. For large collections consider passing the collection to the cmdlet's -InputObject (alias -S3ObjectCollection) parameter to enable the deletion to occur as a batch with a single call to the service.**  
 
 ```
 (Get-S3Version -BucketName "amzn-s3-demo-bucket").Versions | Where {$_.IsDeleteMarker -eq "True"} | Remove-S3Object -Force
-
 ```
-
-**Example 7: This script shows how to perform a batch delete of a set of objects (in this case delete markers) by constructing an array of objects to be used with the -KeyAndVersionCollection parameter.**
+**Example 7: This script shows how to perform a batch delete of a set of objects (in this case delete markers) by constructing an array of objects to be used with the -KeyAndVersionCollection parameter.**  
 
 ```
 $keyVersions = @()
 $markers = (Get-S3Version -BucketName $BucketName).Versions | Where {$_.IsDeleteMarker -eq "True"}
 foreach ($marker in $markers) { $keyVersions += @{ Key = $marker.Key; VersionId = $marker.VersionId } }
 Remove-S3Object -BucketName $BucketName -KeyAndVersionCollection $keyVersions -Force
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteObjects](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
-
-Delete a set of objects by using a list of object keys.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
+Delete a set of objects by using a list of object keys.  
 
 ```
 class ObjectWrapper:
@@ -1167,12 +1029,8 @@ class ObjectWrapper:
             raise
         else:
             return response
-
-
-
 ```
-
-Delete all objects in a bucket.
+Delete all objects in a bucket.  
 
 ```
 class ObjectWrapper:
@@ -1200,12 +1058,8 @@ class ObjectWrapper:
         except ClientError:
             logger.exception("Couldn't empty bucket '%s'.", bucket.name)
             raise
-
-
-
 ```
-
-Permanently delete a versioned object by deleting all of its versions.
+Permanently delete a versioned object by deleting all of its versions.  
 
 ```
 def permanently_delete_object(bucket, object_key):
@@ -1223,25 +1077,14 @@ def permanently_delete_object(bucket, object_key):
     except ClientError:
         logger.exception("Couldn't delete all versions of %s.", object_key)
         raise
-
-
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/DeleteObjects) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../goto/boto3/s3-2006-03-01/DeleteObjects.md "../../../goto/boto3/s3-2006-03-01/DeleteObjects.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
   # Deletes the objects in an Amazon S3 bucket and deletes the bucket.
@@ -1260,23 +1103,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     puts("\t#{e.code}: #{e.message}")
     raise
   end
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/DeleteObjects) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../goto/SdkForRubyV3/s3-2006-03-01/DeleteObjects.md "../../../goto/SdkForRubyV3/s3-2006-03-01/DeleteObjects.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 /// Delete the objects in a bucket.
@@ -1312,23 +1146,14 @@ pub async fn delete_objects(
         .await?;
     Ok(())
 }
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_objects) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteObjects](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_objects "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.delete_objects")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -1339,23 +1164,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteObjects](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteObjects](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/DeleteObjects#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/DeleteObjects#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/DeleteObjects#code-examples). 
 
 ```
 import AWSS3
@@ -1376,14 +1192,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [DeleteObjects](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deleteobjects(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteObjects](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deleteobjects(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/deleteobjects(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

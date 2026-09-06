@@ -1,16 +1,15 @@
+
+
 # Use `DeleteBucketWebsite` with an AWS SDK or CLI
+<a name="s3_example_s3_DeleteBucketWebsite_section"></a>
 
 The following code examples show how to use `DeleteBucketWebsite`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::deleteBucketWebsite(const Aws::String &bucketName,
@@ -32,41 +31,27 @@ bool AwsDoc::S3::deleteBucketWebsite(const Aws::String &bucketName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeleteBucketWebsite](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/DeleteBucketWebsite) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command deletes a website configuration from a bucket named `amzn-s3-demo-bucket`:  
 
 ```
+aws s3api delete-bucket-website --bucket {{amzn-s3-demo-bucket}}
+```
++  For API details, see [DeleteBucketWebsite](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-website.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteBucketWebsite](../../../goto/SdkForCpp/s3-2006-03-01/DeleteBucketWebsite.md "../../../goto/SdkForCpp/s3-2006-03-01/DeleteBucketWebsite.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-CLI
-
-**AWS CLI**
-
-The following command deletes a website configuration from a bucket named `amzn-s3-demo-bucket`:
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-`aws s3api delete-bucket-website --bucket `amzn-s3-demo-bucket``
-
-```
-
-- For API details, see
-  [DeleteBucketWebsite](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-website.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-bucket-website.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.DeleteBucketWebsiteRequest;
@@ -130,25 +115,15 @@ public class DeleteWebsiteConfiguration {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteBucketWebsite](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/DeleteBucketWebsite) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteBucketWebsite](../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteBucketWebsite.md "../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteBucketWebsite.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Delete the website configuration from the bucket.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Delete the website configuration from the bucket.  
 
 ```
 import {
@@ -192,27 +167,20 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-static-web-host.html#s3-example-static-web-host-delete-website). 
++  For API details, see [DeleteBucketWebsite](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteBucketWebsiteCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-static-web-host.md#s3-example-static-web-host-delete-website "../../../sdk-for-javascript/v3/developer-guide/s3-example-static-web-host.md#s3-example-static-web-host-delete-website").
-- For API details, see
-  [DeleteBucketWebsite](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteBucketWebsiteCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteBucketWebsiteCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command disables the static website hosting property of the given S3 bucket.**
+**Tools for PowerShell V4**  
+**Example 1: This command disables the static website hosting property of the given S3 bucket.**  
 
 ```
 Remove-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -220,21 +188,15 @@ Are you sure you want to perform this action?
 Performing the operation "Remove-S3BucketWebsite (DeleteBucketWebsite)" on target "amzn-s3-demo-bucket".
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
 ```
++  For API details, see [DeleteBucketWebsite](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteBucketWebsite](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command disables the static website hosting property of the given S3 bucket.**
+**Tools for PowerShell V5**  
+**Example 1: This command disables the static website hosting property of the given S3 bucket.**  
 
 ```
 Remove-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -242,11 +204,8 @@ Are you sure you want to perform this action?
 Performing the operation "Remove-S3BucketWebsite (DeleteBucketWebsite)" on target "amzn-s3-demo-bucket".
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
 ```
++  For API details, see [DeleteBucketWebsite](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteBucketWebsite](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

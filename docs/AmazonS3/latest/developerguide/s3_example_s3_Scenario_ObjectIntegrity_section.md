@@ -1,18 +1,16 @@
+
+
 # Work with Amazon S3 object integrity features using an AWS SDK
+<a name="s3_example_s3_Scenario_ObjectIntegrity_section"></a>
 
 The following code example shows how to work with S3 object integrity features.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3/s3_object_integrity_workflow#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3/s3_object_integrity_workflow#code-examples").
-
-Run an interactive scenario demonstrating Amazon S3 object integrity features.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3/s3_object_integrity_workflow#code-examples). 
+Run an interactive scenario demonstrating Amazon S3 object integrity features.  
 
 ```
 //! Routine which runs the S3 object integrity workflow.
@@ -1154,20 +1152,16 @@ bool AwsDoc::S3::createLargeFileIfNotExists() {
 
     return true;
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [AbortMultipartUpload](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/AbortMultipartUpload)
+  + [CompleteMultipartUpload](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/CompleteMultipartUpload)
+  + [CreateMultipartUpload](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/CreateMultipartUpload)
+  + [DeleteObject](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/DeleteObject)
+  + [GetObjectAttributes](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/GetObjectAttributes)
+  + [PutObject](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/PutObject)
+  + [UploadPart](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/UploadPart)
 
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
+------
 
-  - [AbortMultipartUpload](../../../goto/SdkForCpp/s3-2006-03-01/AbortMultipartUpload.md "../../../goto/SdkForCpp/s3-2006-03-01/AbortMultipartUpload.md")
-  - [CompleteMultipartUpload](../../../goto/SdkForCpp/s3-2006-03-01/CompleteMultipartUpload.md "../../../goto/SdkForCpp/s3-2006-03-01/CompleteMultipartUpload.md")
-  - [CreateMultipartUpload](../../../goto/SdkForCpp/s3-2006-03-01/CreateMultipartUpload.md "../../../goto/SdkForCpp/s3-2006-03-01/CreateMultipartUpload.md")
-  - [DeleteObject](../../../goto/SdkForCpp/s3-2006-03-01/DeleteObject.md "../../../goto/SdkForCpp/s3-2006-03-01/DeleteObject.md")
-  - [GetObjectAttributes](../../../goto/SdkForCpp/s3-2006-03-01/GetObjectAttributes.md "../../../goto/SdkForCpp/s3-2006-03-01/GetObjectAttributes.md")
-  - [PutObject](../../../goto/SdkForCpp/s3-2006-03-01/PutObject.md "../../../goto/SdkForCpp/s3-2006-03-01/PutObject.md")
-  - [UploadPart](../../../goto/SdkForCpp/s3-2006-03-01/UploadPart.md "../../../goto/SdkForCpp/s3-2006-03-01/UploadPart.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

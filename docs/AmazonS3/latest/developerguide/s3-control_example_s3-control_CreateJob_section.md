@@ -1,54 +1,44 @@
+
+
 # Use `CreateJob` with an AWS SDK or CLI
+<a name="s3-control_example_s3-control_CreateJob_section"></a>
 
 The following code examples show how to use `CreateJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](s3-control_example_s3-control_Basics_section.md) 
 
-- [Learn the basics](s3-control_example_s3-control_Basics_section.md "s3-control_example_s3-control_Basics_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create an Amazon S3 batch operations job**
-
-The following `create-job` example creates an Amazon S3 batch operations job to tag objects as `confidential` in the bucket ``employee-records`.
+**AWS CLI**  
+**To create an Amazon S3 batch operations job**  
+The following `create-job` example creates an Amazon S3 batch operations job to tag objects as `confidential` in the bucket ``employee-records`.  
 
 ```
-`aws s3control create-job \
- --account-id `123456789012` \
- --operation '`{"S3PutObjectTagging": { "TagSet": [{"Key":"confidential", "Value":"true"}] }}`' \
- --report '`{"Bucket":"arn:aws:s3:::employee-records-logs","Prefix":"batch-op-create-job", "Format":"Report_CSV_20180820","Enabled":true,"ReportScope":"AllTasks"}`' \
- --manifest '`{"Spec":{"Format":"S3BatchOperations_CSV_20180820","Fields":["Bucket","Key"]},"Location":{"ObjectArn":"arn:aws:s3:::employee-records-logs/inv-report/7a6a9be4-072c-407e-85a2-ec3e982f773e.csv","ETag":"69f52a4e9f797e987155d9c8f5880897"}}`' \
- --priority `42` \
- --role-arn `arn:aws:iam::123456789012:role/S3BatchJobRole``
-
+aws s3control create-job \
+    --account-id {{123456789012}} \
+    --operation '{{{"S3PutObjectTagging": { "TagSet": [{"Key":"confidential", "Value":"true"}] }}}}' \
+    --report '{{{"Bucket":"arn:aws:s3:::employee-records-logs","Prefix":"batch-op-create-job", "Format":"Report_CSV_20180820","Enabled":true,"ReportScope":"AllTasks"}}}' \
+    --manifest '{{{"Spec":{"Format":"S3BatchOperations_CSV_20180820","Fields":["Bucket","Key"]},"Location":{"ObjectArn":"arn:aws:s3:::employee-records-logs/inv-report/7a6a9be4-072c-407e-85a2-ec3e982f773e.csv","ETag":"69f52a4e9f797e987155d9c8f5880897"}}}}' \
+    --priority {{42}} \
+    --role-arn {{arn:aws:iam::123456789012:role/S3BatchJobRole}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "JobId": "93735294-df46-44d5-8638-6356f335324e"
 }
 ```
++  For API details, see [CreateJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/create-job.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/create-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/create-job.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples").
-
-Create an asynchronous S3 job.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples). 
+Create an asynchronous S3 job.  
 
 ```
     /**
@@ -147,14 +137,10 @@ Create an asynchronous S3 job.
                 return jobId;
             });
     }
-
+```
+Create a compliance retention job.  
 
 ```
-
-Create a compliance retention job.
-
-```
-
     /**
      * Creates a compliance retention job in Amazon S3 Control.
      * <p>
@@ -225,14 +211,10 @@ Create a compliance retention job.
         CreateJobResponse result = s3ControlClient.createJob(request);
         return result.jobId();
     }
-
+```
+Create a legal hold off job.  
 
 ```
-
-Create a legal hold off job.
-
-```
-
     /**
      * Creates a compliance retention job in Amazon S3 Control.
      * <p>
@@ -303,11 +285,8 @@ Create a legal hold off job.
         CreateJobResponse result = s3ControlClient.createJob(request);
         return result.jobId();
     }
-
-
 ```
-
-Create a new governance retention job.
+Create a new governance retention job.  
 
 ```
 /**
@@ -406,23 +385,14 @@ public class CreateGovernanceRetentionJob {
         return result.jobId();
     }
 }
-
-
 ```
++  For API details, see [CreateJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/CreateJob) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateJob](../../../goto/SdkForJavaV2/s3control-2018-08-20/CreateJob.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/CreateJob.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples). 
 
 ```
     def create_s3_batch_job(self, account_id: str, role_arn: str, manifest_location: str,
@@ -450,7 +420,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
                 Key=manifest_key
             )
             etag = manifest_obj['ETag'].strip('"')
-
+            
             response = self.s3control_client.create_job(
                 AccountId=account_id,
                 Operation={
@@ -493,23 +463,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             if 'Message' in str(e):
                 print(f"Detailed error message: {e.response['Message']}")
             raise
-
-
 ```
++  For API details, see [CreateJob](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/CreateJob) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateJob](../../../goto/boto3/s3control-2018-08-20/CreateJob.md "../../../goto/boto3/s3control-2018-08-20/CreateJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples). 
 
 ```
     TRY.
@@ -567,14 +528,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         RAISE EXCEPTION TYPE /aws1/cx_rt_generic
           EXPORTING previous = lo_ex_srv.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

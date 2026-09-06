@@ -1,21 +1,18 @@
+
+
 # Make Amazon S3 conditional requests using an AWS SDK
+<a name="s3_example_s3_Scenario_ConditionalRequests_section"></a>
 
 The following code examples show how to add preconditions to Amazon S3 requests.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ConditionalRequestsScenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ConditionalRequestsScenario#code-examples").
-
-Run an interactive scenario demonstrating Amazon S3 conditional request features.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ConditionalRequestsScenario#code-examples). 
+Run an interactive scenario demonstrating Amazon S3 conditional request features.  
 
 ```
-
 using Amazon.S3;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,9 +30,9 @@ public static class S3ConditionalRequestsScenario
 
     This example demonstrates the use of conditional requests for S3 operations.
     You can use conditional requests to add preconditions to S3 read requests to return or copy
-    an object based on its Entity tag (ETag), or last modified date.
-    You can use a conditional write requests to prevent overwrites by ensuring
-    there is no existing object with the same key.
+    an object based on its Entity tag (ETag), or last modified date. 
+    You can use a conditional write requests to prevent overwrites by ensuring 
+    there is no existing object with the same key. 
    */
 
     public static S3ActionsWrapper _s3ActionsWrapper = null!;
@@ -358,14 +355,10 @@ public static class S3ConditionalRequestsScenario
         return answer;
     }
 }
-
+```
+A wrapper class for S3 functions.  
 
 ```
-
-A wrapper class for S3 functions.
-
-```
-
 using System.Net;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -729,28 +722,18 @@ public class S3ActionsWrapper
     }
 
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/CopyObject)
+  + [GetObject](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObject)
+  + [PutObject](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ JavaScript ]
 
-  - [CopyObject](../../../goto/DotNetSDKV3/s3-2006-03-01/CopyObject.md "../../../goto/DotNetSDKV3/s3-2006-03-01/CopyObject.md")
-  - [GetObject](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObject.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObject.md")
-  - [PutObject](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObject.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObject.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3/scenarios/conditional-requests#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3/scenarios/conditional-requests#code-examples").
-
-Entrypoint for the workflow (index.js). This orchestrates all of the steps.
-Visit GitHub to see the implementation details for Scenario, ScenarioInput, ScenarioOutput, and ScenarioAction.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3/scenarios/conditional-requests#code-examples). 
+Entrypoint for the workflow (index.js). This orchestrates all of the steps. Visit GitHub to see the implementation details for Scenario, ScenarioInput, ScenarioOutput, and ScenarioAction.   
 
 ```
 import * as Scenarios from "@aws-doc-sdk-examples/lib/scenario/index.js";
@@ -832,11 +815,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       "node index.js --scenario <deploy | demo | clean> [-h|--help] [-y|--yes] [-v|--verbose]",
   });
 }
-
-
 ```
-
-Output welcome messages to the console (welcome.steps.js).
+Output welcome messages to the console (welcome.steps.js).  
 
 ```
 /**
@@ -873,11 +853,8 @@ const welcomeContinue = (scenarios) =>
   );
 
 export { welcome, welcomeContinue };
-
-
 ```
-
-Deploy buckets and objects (setup.steps.js).
+Deploy buckets and objects (setup.steps.js).  
 
 ```
 import {
@@ -1024,14 +1001,10 @@ export {
   populateBuckets,
   populateBucketsAction,
 };
-
+```
+Get, copy, and put objects using S3 conditional requests (repl.steps.js).  
 
 ```
-
-Get, copy, and put objects using S3 conditional requests (repl.steps.js).
-
-```
-
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
@@ -1468,11 +1441,8 @@ export const replAction = (scenarios, client) =>
   );
 
 export { replInput, choices };
-
-
 ```
-
-Destroy all created resources (clean.steps.js).
+Destroy all created resources (clean.steps.js).  
 
 ```
 import {
@@ -1542,27 +1512,18 @@ const cleanupAction = (scenarios, client) =>
   });
 
 export { confirmCleanup, cleanupAction };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand)
+  + [GetObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand)
+  + [PutObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [CopyObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CopyObjectCommand.md")
-  - [GetObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand.md")
-  - [PutObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/conditional_requests#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/conditional_requests#code-examples").
-
-Run an interactive scenario demonstrating Amazon S3 conditional requests.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/conditional_requests#code-examples). 
+Run an interactive scenario demonstrating Amazon S3 conditional requests.  
 
 ```
 """
@@ -1821,13 +1782,13 @@ class ConditionalRequestsScenario:
             f"""\
         This example demonstrates the use of conditional requests for S3 operations.
         You can use conditional requests to add preconditions to S3 read requests to return or copy
-        an object based on its Entity tag (ETag), or last modified date.
-        You can use a conditional write requests to prevent overwrites by ensuring
-        there is no existing object with the same key.
-
+        an object based on its Entity tag (ETag), or last modified date. 
+        You can use a conditional write requests to prevent overwrites by ensuring 
+        there is no existing object with the same key. 
+        
         This example will allow you to perform conditional reads
         and writes that will succeed or fail based on your selected options.
-
+        
         Sample buckets and a sample object will be created as part of the example.
         """
         )
@@ -1853,14 +1814,10 @@ if __name__ == "__main__":
         S3ConditionalRequests.from_client(), boto3.client("s3")
     )
     scenario.run_scenario()
-
+```
+A wrapper class that defines the conditional request operations.  
 
 ```
-
-A wrapper class that defines the conditional request operations.
-
-```
-
 import boto3
 import logging
 
@@ -1988,17 +1945,12 @@ class S3ConditionalRequests:
             else:
                 logger.error(f"Unexpected error: {error_code}")
                 raise
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CopyObject)
+  + [GetObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/GetObject)
+  + [PutObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CopyObject](../../../goto/boto3/s3-2006-03-01/CopyObject.md "../../../goto/boto3/s3-2006-03-01/CopyObject.md")
-  - [GetObject](../../../goto/boto3/s3-2006-03-01/GetObject.md "../../../goto/boto3/s3-2006-03-01/GetObject.md")
-  - [PutObject](../../../goto/boto3/s3-2006-03-01/PutObject.md "../../../goto/boto3/s3-2006-03-01/PutObject.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

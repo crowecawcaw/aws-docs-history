@@ -1,40 +1,35 @@
+
+
 # Use `DeleteObjectTagging` with a CLI
+<a name="s3_example_s3_DeleteObjectTagging_section"></a>
 
 The following code examples show how to use `DeleteObjectTagging`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To delete the tag sets of an object**
-
-The following `delete-object-tagging` example deletes the tag with the specified key from the object `doc1.rtf`.
-
-```
-`aws s3api delete-object-tagging \
- --bucket `amzn-s3-demo-bucket` \
- --key `doc1.rtf``
+**AWS CLI**  
+**To delete the tag sets of an object**  
+The following `delete-object-tagging` example deletes the tag with the specified key from the object `doc1.rtf`.  
 
 ```
+aws s3api delete-object-tagging \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key {{doc1.rtf}}
+```
+This command produces no output.  
++  For API details, see [DeleteObjectTagging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-object-tagging.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DeleteObjectTagging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-object-tagging.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/delete-object-tagging.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command removes all the tags associated with the object with key 'testfile.txt' in the given S3 Bucket.**
+**Tools for PowerShell V4**  
+**Example 1: This command removes all the tags associated with the object with key 'testfile.txt' in the given S3 Bucket.**  
 
 ```
 Remove-S3ObjectTagSet -Key 'testfile.txt' -BucketName 'amzn-s3-demo-bucket' -Select '^Key'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -43,21 +38,15 @@ Performing the operation "Remove-S3ObjectTagSet (DeleteObjectTagging)" on target
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
 testfile.txt
 ```
++  For API details, see [DeleteObjectTagging](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteObjectTagging](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command removes all the tags associated with the object with key 'testfile.txt' in the given S3 Bucket.**
+**Tools for PowerShell V5**  
+**Example 1: This command removes all the tags associated with the object with key 'testfile.txt' in the given S3 Bucket.**  
 
 ```
 Remove-S3ObjectTagSet -Key 'testfile.txt' -BucketName 'amzn-s3-demo-bucket' -Select '^Key'
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -66,11 +55,8 @@ Performing the operation "Remove-S3ObjectTagSet (DeleteObjectTagging)" on target
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
 testfile.txt
 ```
++  For API details, see [DeleteObjectTagging](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteObjectTagging](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

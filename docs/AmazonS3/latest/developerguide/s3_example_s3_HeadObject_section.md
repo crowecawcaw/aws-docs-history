@@ -1,25 +1,24 @@
+
+
 # Use `HeadObject` with an AWS SDK or CLI
+<a name="s3_example_s3_HeadObject_section"></a>
 
 The following code examples show how to use `HeadObject`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Check if an object exists](s3_example_s3_Scenario_DoesObjectExist_section.md) 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
 
-- [Check if an object exists](s3_example_s3_Scenario_DoesObjectExist_section.md "s3_example_s3_Scenario_DoesObjectExist_section.md")
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-The following command retrieves metadata for an object in a bucket named `amzn-s3-demo-bucket`:
+**AWS CLI**  
+The following command retrieves metadata for an object in a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-`aws s3api head-object --bucket `amzn-s3-demo-bucket` --key `index.html``
-
+aws s3api head-object --bucket {{amzn-s3-demo-bucket}} --key {{index.html}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -32,25 +31,16 @@ Output:
     "Metadata": {}
 }
 ```
++  For API details, see [HeadObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/head-object.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [HeadObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/head-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/head-object.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Determine the content type of an object.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Determine the content type of an object.  
 
 ```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.HeadObjectRequest;
@@ -117,14 +107,10 @@ public class GetObjectContentType {
         }
     }
 }
-
+```
+Get the restore status of an object.  
 
 ```
-
-Get the restore status of an object.
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.HeadObjectRequest;
@@ -183,23 +169,14 @@ public class GetObjectRestoreStatus {
         }
     }
 }
-
-
 ```
++  For API details, see [HeadObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/HeadObject) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [HeadObject](../../../goto/SdkForJavaV2/s3-2006-03-01/HeadObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/HeadObject.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -236,14 +213,9 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [HeadObject](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/HeadObject) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [HeadObject](../../../goto/SdkForRubyV3/s3-2006-03-01/HeadObject.md "../../../goto/SdkForRubyV3/s3-2006-03-01/HeadObject.md")
-  in _AWS SDK for Ruby API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,15 @@
+
+
 # Use `ListBuckets` with an AWS SDK or CLI
+<a name="s3_example_s3_ListBuckets_section"></a>
 
 The following code examples show how to use `ListBuckets`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
 namespace ListBucketsExample
@@ -63,24 +62,14 @@ namespace ListBucketsExample
         }
     }
 }
-
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/ListBuckets) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/DotNetSDKV3/s3-2006-03-01/ListBuckets.md "../../../goto/DotNetSDKV3/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::listBuckets(const Aws::S3::S3ClientConfiguration &clientConfig) {
@@ -101,46 +90,29 @@ bool AwsDoc::S3::listBuckets(const Aws::S3::S3ClientConfiguration &clientConfig)
 
     return result;
 }
+```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/ListBuckets) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command uses the `list-buckets` command to display the names of all your Amazon S3 buckets (across all regions):  
 
 ```
+aws s3api list-buckets --query {{"Buckets[].Name"}}
+```
+The query option filters the output of `list-buckets` down to only the bucket names.  
+For more information about buckets, see Working with Amazon S3 Buckets in the *Amazon S3 Developer Guide*.  
++  For API details, see [ListBuckets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-buckets.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/SdkForCpp/s3-2006-03-01/ListBuckets.md "../../../goto/SdkForCpp/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-The following command uses the `list-buckets` command to display the names of all your Amazon S3 buckets (across all
-regions):
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
 ```
-`aws s3api list-buckets --query `"Buckets[].Name"``
-
-```
-
-The query option filters the output of `list-buckets` down to only the bucket names.
-
-For more information about buckets, see Working with Amazon S3 Buckets in the _Amazon S3 Developer Guide_.
-
-- For API details, see
-  [ListBuckets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-buckets.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-buckets.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -191,24 +163,14 @@ func (basics BucketBasics) ListBuckets(ctx context.Context) ([]types.Bucket, err
 	}
 	return buckets, err
 }
-
-
-
 ```
++  For API details, see [ListBuckets](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListBuckets) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListBuckets](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListBuckets "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListBuckets")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -243,25 +205,15 @@ public class ListBuckets {
         response.buckets().forEach(bucket ->
             System.out.println("Bucket Name: " + bucket.name()));
     }
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListBuckets) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/SdkForJavaV2/s3-2006-03-01/ListBuckets.md "../../../goto/SdkForJavaV2/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-List the buckets.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+List the buckets.  
 
 ```
 import {
@@ -308,66 +260,44 @@ export const main = async () => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.html#s3-example-creating-buckets-list-buckets). 
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/ListBucketsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-list-buckets "../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-list-buckets").
-- For API details, see
-  [ListBuckets](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListBucketsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListBucketsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command returns all S3 buckets.**
+**Tools for PowerShell V4**  
+**Example 1: This command returns all S3 buckets.**  
 
 ```
 Get-S3Bucket
-
 ```
-
-**Example 2: This command returns bucket named "test-files"**
+**Example 2: This command returns bucket named "test-files"**  
 
 ```
 Get-S3Bucket -BucketName amzn-s3-demo-bucket
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListBuckets](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command returns all S3 buckets.**
+**Tools for PowerShell V5**  
+**Example 1: This command returns all S3 buckets.**  
 
 ```
 Get-S3Bucket
-
 ```
-
-**Example 2: This command returns bucket named "test-files"**
+**Example 2: This command returns bucket named "test-files"**  
 
 ```
 Get-S3Bucket -BucketName amzn-s3-demo-bucket
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListBuckets](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class BucketWrapper:
@@ -400,24 +330,14 @@ class BucketWrapper:
             raise
         else:
             return buckets
-
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/ListBuckets) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/boto3/s3-2006-03-01/ListBuckets.md "../../../goto/boto3/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -455,23 +375,14 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/ListBuckets) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/SdkForRubyV3/s3-2006-03-01/ListBuckets.md "../../../goto/SdkForRubyV3/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 async fn show_buckets(
@@ -516,23 +427,14 @@ async fn show_buckets(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListBuckets](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_buckets) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListBuckets](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_buckets "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_buckets")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -543,23 +445,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rt_generic.
         MESSAGE 'Unable to list buckets.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListBuckets](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3#code-examples). 
 
 ```
 import AWSS3
@@ -571,14 +464,9 @@ import AWSS3
     public func getAllBuckets() async throws -> [S3ClientTypes.Bucket] {
         return try await client.listBuckets(input: ListBucketsInput())
     }
-
-
 ```
++  For API details, see [ListBuckets](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listbuckets(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListBuckets](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listbuckets(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listbuckets(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

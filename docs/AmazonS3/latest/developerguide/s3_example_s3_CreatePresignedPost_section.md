@@ -1,18 +1,16 @@
+
+
 # Use `CreatePresignedPost` with an AWS SDK
+<a name="s3_example_s3_CreatePresignedPost_section"></a>
 
 The following code example shows how to use `CreatePresignedPost`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
-
-Create a presigned POST URL.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
+Create a presigned POST URL.  
 
 ```
     /// <summary>
@@ -60,14 +58,9 @@ Create a presigned POST URL.
 
         return await s3Client.CreatePresignedPostAsync(request);
     }
-
-
 ```
++  For API details, see [CreatePresignedPost](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/CreatePresignedPost) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreatePresignedPost](../../../goto/DotNetSDKV4/s3-2006-03-01/CreatePresignedPost.md "../../../goto/DotNetSDKV4/s3-2006-03-01/CreatePresignedPost.md")
-  in _AWS SDK for .NET API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,20 @@
+
+
 # Use `CreateMultipartUpload` with an AWS SDK or CLI
+<a name="s3_example_s3_CreateMultipartUpload_section"></a>
 
 The following code examples show how to use `CreateMultipartUpload`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Perform a multipart copy](s3_example_s3_MultipartCopy_section.md) 
++  [Use checksums](s3_example_s3_Scenario_UseChecksums_section.md) 
++  [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md) 
 
-- [Perform a multipart copy](s3_example_s3_MultipartCopy_section.md "s3_example_s3_MultipartCopy_section.md")
-- [Use checksums](s3_example_s3_Scenario_UseChecksums_section.md "s3_example_s3_Scenario_UseChecksums_section.md")
-- [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md "s3_example_s3_Scenario_ObjectIntegrity_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 //! Create a multipart upload.
@@ -51,26 +48,19 @@ AwsDoc::S3::createMultipartUpload(const Aws::String &bucket, const Aws::String &
 
     return uploadID;
 }
+```
++  For API details, see [CreateMultipartUpload](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/CreateMultipartUpload) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command creates a multipart upload in the bucket `amzn-s3-demo-bucket` with the key `multipart/01`:  
 
 ```
-
-- For API details, see
-  [CreateMultipartUpload](../../../goto/SdkForCpp/s3-2006-03-01/CreateMultipartUpload.md "../../../goto/SdkForCpp/s3-2006-03-01/CreateMultipartUpload.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command creates a multipart upload in the bucket `amzn-s3-demo-bucket` with the key `multipart/01`:
-
+aws s3api create-multipart-upload --bucket {{amzn-s3-demo-bucket}} --key '{{multipart/01}}'
 ```
-`aws s3api create-multipart-upload --bucket `amzn-s3-demo-bucket` --key '`multipart/01`'`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -79,22 +69,14 @@ Output:
     "Key": "multipart/01"
 }
 ```
+The completed file will be named `01` in a folder called `multipart` in the bucket `amzn-s3-demo-bucket`. Save the upload ID, key and bucket name for use with the `upload-part` command.  
++  For API details, see [CreateMultipartUpload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html) in *AWS CLI Command Reference*. 
 
-The completed file will be named `01` in a folder called `multipart` in the bucket `amzn-s3-demo-bucket`. Save the upload ID, key and bucket name for use with the `upload-part` command.
+------
+#### [ Rust ]
 
-- For API details, see
-  [CreateMultipartUpload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html")
-  in _AWS CLI Command Reference_.
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
     // Create a multipart upload. Use UploadPart and CompleteMultipartUpload to
@@ -109,8 +91,6 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     let upload_id = multipart_upload_res.upload_id().ok_or(S3ExampleError::new(
         "Missing upload_id after CreateMultipartUpload",
     ))?;
-
-
 ```
 
 ```
@@ -149,8 +129,6 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
                 .build(),
         );
     }
-
-
 ```
 
 ```
@@ -167,14 +145,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
         .upload_id(upload_id)
         .send()
         .await?;
-
-
 ```
++  For API details, see [CreateMultipartUpload](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_multipart_upload) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateMultipartUpload](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_multipart_upload "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_multipart_upload")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,105 +1,83 @@
+
+
 # Making requests using AWS account or IAM user credentials
+<a name="AuthUsingAcctOrUserCredentials"></a>
 
-You can use your AWS account or IAM user security credentials to send authenticated
-requests to Amazon S3. This section provides examples of how you can send authenticated requests
-using the AWS SDK for Java, AWS SDK for .NET, and AWS SDK for PHP. For a list of available AWS SDKs, go to [Sample Code and Libraries](https://aws.amazon.com/code/ "https://aws.amazon.com/code/").
+You can use your AWS account or IAM user security credentials to send authenticated requests to Amazon S3. This section provides examples of how you can send authenticated requests using the AWS SDK for Java, AWS SDK for .NET, and AWS SDK for PHP. For a list of available AWS SDKs, go to [Sample Code and Libraries](https://aws.amazon.com/code/). 
 
-Each of these AWS SDKs uses an SDK-specific credentials provider chain to find and use
-credentials and perform actions on behalf of the credentials owner. What all these credentials
-provider chains have in common is that they all look for your local AWS credentials file.
+Each of these AWS SDKs uses an SDK-specific credentials provider chain to find and use credentials and perform actions on behalf of the credentials owner. What all these credentials provider chains have in common is that they all look for your local AWS credentials file. 
 
 For more information, see the topics below:
 
-###### Topics
-
-- [To create a local AWS credentials file](#create-local-aws-credentials-file "#create-local-aws-credentials-file")
-- [Sending authenticated requests using the AWS SDKs](#send-authenticated-request-SDKs "#send-authenticated-request-SDKs")
-- [Related resources](#RelatedResources002 "#RelatedResources002")
+**Topics**
++ [To create a local AWS credentials file](#create-local-aws-credentials-file)
++ [Sending authenticated requests using the AWS SDKs](#send-authenticated-request-SDKs)
++ [Related resources](#RelatedResources002)
 
 ## To create a local AWS credentials file
+<a name="create-local-aws-credentials-file"></a>
 
-The easiest way to configure credentials for your AWS SDKs is to use an AWS credentials
-file. If you use the AWS Command Line Interface (AWS CLI), you may already have a local AWS credentials file
-configured. Otherwise, use the following procedure to set up a credentials file:
+The easiest way to configure credentials for your AWS SDKs is to use an AWS credentials file. If you use the AWS Command Line Interface (AWS CLI), you may already have a local AWS credentials file configured. Otherwise, use the following procedure to set up a credentials file:
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. Create a new user with permissions limited to the services and actions that you want
-   your code to have access to. For more information about creating a new user, see [Creating IAM users
-   (Console)](../../../IAM/latest/UserGuide/id_users_create.md#id_users_create_console "../../../IAM/latest/UserGuide/id_users_create.md#id_users_create_console"), and follow the instructions through step 8.
-3. Choose **Download .csv** to save a local copy of your AWS
-   credentials.
-4. On your computer, navigate to your home directory, and create an
-   `.aws` directory. On Unix-based systems, such as Linux or OS X, this is
-   in the following location:
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-```
-~/.aws
-```
+1. Create a new user with permissions limited to the services and actions that you want your code to have access to. For more information about creating a new user, see [Creating IAM users (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console), and follow the instructions through step 8.
 
-On Windows, this is in the following location:
+1. Choose **Download .csv** to save a local copy of your AWS credentials.
 
-```
-%HOMEPATH%\.aws
-```
+1. On your computer, navigate to your home directory, and create an `.aws` directory. On Unix-based systems, such as Linux or OS X, this is in the following location:
 
-5. In the `.aws` directory, create a new file named
-   `credentials`.
-6. Open the credentials `.csv` file that you downloaded from the IAM
-   console, and copy its contents into the `credentials` file using the
-   following format:
+   ```
+   ~/.aws
+   ```
 
-```
-[default]
-aws_access_key_id = your_access_key_id
-aws_secret_access_key = your_secret_access_key
-```
+   On Windows, this is in the following location:
 
-7. Save the `credentials` file, and delete the `.csv`
-   file that you downloaded in step 3.
+   ```
+   %HOMEPATH%\.aws
+   ```
 
-Your shared credentials file is now configured on your local computer, and it's ready to be
-used with the AWS SDKs.
+1. In the `.aws` directory, create a new file named `credentials`.
+
+1. Open the credentials `.csv` file that you downloaded from the IAM console, and copy its contents into the `credentials` file using the following format:
+
+   ```
+   [default]
+   aws_access_key_id = your_access_key_id
+   aws_secret_access_key = your_secret_access_key
+   ```
+
+1. Save the `credentials` file, and delete the `.csv` file that you downloaded in step 3.
+
+Your shared credentials file is now configured on your local computer, and it's ready to be used with the AWS SDKs.
 
 ## Sending authenticated requests using the AWS SDKs
+<a name="send-authenticated-request-SDKs"></a>
 
-Use the AWS SDKs to send authenticated requests. For more information about sending authenticated requests, see [AWS security credentials](../../../IAM/latest/UserGuide/security-creds.md "../../../IAM/latest/UserGuide/security-creds.md") or [IAM Identity Center Authentication](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md").
+Use the AWS SDKs to send authenticated requests. For more information about sending authenticated requests, see [AWS security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html) or [IAM Identity Center Authentication](https://docs.aws.amazon.com/sdkref/latest/guide/access-sso.html).
 
-Java
-For information about authenticating requests using the AWS SDK for Java, see [Using shared config and credentials files to globally configure AWS SDKs and tools](../../../sdkref/latest/guide/file-format.md "../../../sdkref/latest/guide/file-format.md") and [Authentication and access using AWS SDKs and tools](../../../sdkref/latest/guide/access.md "../../../sdkref/latest/guide/access.md") in the AWS SDKs and Tools Reference Guide.
+------
+#### [ Java ]
 
-.NET
+For information about authenticating requests using the AWS SDK for Java, see [Using shared config and credentials files to globally configure AWS SDKs and tools](https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html) and [Authentication and access using AWS SDKs and tools](https://docs.aws.amazon.com/sdkref/latest/guide/access.html) in the AWS SDKs and Tools Reference Guide.
+
+------
+#### [ .NET ]
+
 To send authenticated requests using your AWS account or IAM user credentials:
++ Create an instance of the `AmazonS3Client` class. 
++ Run one of the `AmazonS3Client` methods to send requests to Amazon S3. The client generates the necessary signature from the credentials that you provide and includes it in the request it sends to Amazon S3. 
 
-- Create an instance of the `AmazonS3Client` class.
-- Run one of the `AmazonS3Client` methods to send requests to Amazon S3. The
-  client generates the necessary signature from the credentials that you provide and
-  includes it in the request it sends to Amazon S3.
+For more information, see [Making requests using AWS account or IAM user credentials ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/AuthUsingAcctOrUserCredentials.html)>. 
 
-For more information, see [Making requests using AWS account or IAM user credentials](../userguide/AuthUsingAcctOrUserCredentials.md "../userguide/AuthUsingAcctOrUserCredentials.md") >.
+**Note**  
+You can create the `AmazonS3Client` client without providing your security credentials. Requests sent using this client are anonymous requests, without a signature. Amazon S3 returns an error if you send anonymous requests for a resource that is not publicly available.
+You can create an AWS account and create the required users. You can also manage credentials for those users. You need these credentials to perform the task in the following example. For more information, see [Configure AWS credentials](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-config-creds.html) in the *SDK for .NET Developer Guide*.  
+You can then also configure your application to actively retrieve profiles and credentials, and then explicitly use those credentials when creating an AWS service client. For more information, see [Accessing credentials and profiles in an application](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/creds-locate.html) in the *SDK for .NET Developer Guide*.
 
-###### Note
+The following C\# example shows how to perform the preceding tasks. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-- You can create the `AmazonS3Client` client without providing your security
-  credentials. Requests sent using this client are anonymous requests, without a signature.
-  Amazon S3 returns an error if you send anonymous requests for a resource that is not publicly
-  available.
-- You can create an AWS account and create the required users. You can also manage credentials
-  for those users. You need these credentials to perform the task in the following
-  example. For more information, see [Configure
-  AWS credentials](../../../sdk-for-net/latest/developer-guide/net-dg-config-creds.md "../../../sdk-for-net/latest/developer-guide/net-dg-config-creds.md") in the _SDK for .NET Developer
-  Guide_.
-
-You can then also configure your application to actively retrieve profiles and credentials, and then explicitly
-use those credentials when creating an AWS service client. For more information, see
-[Accessing credentials and
-profiles in an application](../../../sdk-for-net/latest/developer-guide/creds-locate.md "../../../sdk-for-net/latest/developer-guide/creds-locate.md") in the _SDK for .NET Developer Guide_.
-
-The following C# example shows how to perform the preceding tasks. For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
-
-###### Example
+**Example**  
 
 ```
 using Amazon;
@@ -112,7 +90,7 @@ namespace Amazon.DocSamples.S3
 {
     class MakeS3RequestTest
     {
-        private const string bucketName = "*** bucket name ***";
+        private const string bucketName = "*** bucket name ***"; 
         // Specify your bucket region (an example region is shown).
         private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USWest2;
         private static IAmazonS3 client;
@@ -145,7 +123,7 @@ namespace Amazon.DocSamples.S3
                             entry.Key, entry.Size);
                     }
 
-                    // If the response is truncated, set the marker to get the next
+                    // If the response is truncated, set the marker to get the next 
                     // set of keys.
                     if (response.IsTruncated)
                     {
@@ -168,21 +146,19 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```
 
-PHP
-This section explains how to use a class from version 3 of the
-AWS SDK for PHP to send authenticated requests using your AWS account or IAM user credentials. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
+------
+#### [ PHP ]
 
-The following PHP example shows how the client makes a request using your security
-credentials to list all of the buckets for your account.
+This section explains how to use a class from version 3 of the AWS SDK for PHP to send authenticated requests using your AWS account or IAM user credentials. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).
 
-###### Example
+The following PHP example shows how the client makes a request using your security credentials to list all of the buckets for your account. 
+
+**Example**  
 
 ```
-
+ 
 require 'vendor/autoload.php';
 
 use Aws\S3\Exception\S3Exception;
@@ -213,40 +189,27 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-
-
 ```
 
-###### Note
+**Note**  
+You can create the `S3Client` client without providing your security credentials. Requests sent using this client are anonymous requests, without a signature. Amazon S3 returns an error if you send anonymous requests for a resource that is not publicly available. For more information, see [Creating Anonymous Clients](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials_anonymous.html) in the [AWS SDK for PHP Documentation](http://aws.amazon.com/documentation/sdk-for-php/).
 
-You can create the `S3Client` client without providing your security
-credentials. Requests sent using this client are anonymous requests, without a signature.
-Amazon S3 returns an error if you send anonymous requests for a resource that is not
-publicly available. For more information, see [Creating Anonymous Clients](../../../sdk-for-php/v3/developer-guide/guide_credentials_anonymous.md "../../../sdk-for-php/v3/developer-guide/guide_credentials_anonymous.md") in the [AWS SDK for PHP
-Documentation](http://aws.amazon.com/documentation/sdk-for-php/ "http://aws.amazon.com/documentation/sdk-for-php/").
+------
+#### [ Ruby ]
 
-Ruby
-Before you can use version 3 of the AWS SDK for Ruby to make calls to Amazon S3, you must set the AWS
-access credentials that the SDK uses to verify your access to your buckets and objects. If you
-have shared credentials set up in the AWS credentials profile on your local system, version 3 of
-the SDK for Ruby can use those credentials without your having to declare them in your code. For more
-information about setting up shared credentials, see [Making requests using AWS account or IAM user credentials](../userguide/AuthUsingAcctOrUserCredentials.md "../userguide/AuthUsingAcctOrUserCredentials.md") .
+Before you can use version 3 of the AWS SDK for Ruby to make calls to Amazon S3, you must set the AWS access credentials that the SDK uses to verify your access to your buckets and objects. If you have shared credentials set up in the AWS credentials profile on your local system, version 3 of the SDK for Ruby can use those credentials without your having to declare them in your code. For more information about setting up shared credentials, see [Making requests using AWS account or IAM user credentials ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/AuthUsingAcctOrUserCredentials.html).
 
-The following Ruby code snippet uses the credentials in a shared AWS credentials file on a
-local computer to authenticate a request to get all of the object key names in a specific
-bucket. It does the following:
+The following Ruby code snippet uses the credentials in a shared AWS credentials file on a local computer to authenticate a request to get all of the object key names in a specific bucket. It does the following:
 
-1. Creates an instance of the `Aws::S3::Client` class.
-2. Makes a request to Amazon S3 by enumerating objects in a bucket using the `list_objects_v2`
-   method of `Aws::S3::Client`. The client generates the necessary signature value
-   from the credentials in the AWS credentials file on your computer, and includes it in the
-   request it sends to Amazon S3.
-3. Prints the array of object key names to the terminal.
+1. Creates an instance of the `Aws::S3::Client` class. 
 
-###### Example
+1. Makes a request to Amazon S3 by enumerating objects in a bucket using the `list_objects_v2` method of `Aws::S3::Client`. The client generates the necessary signature value from the credentials in the AWS credentials file on your computer, and includes it in the request it sends to Amazon S3.
+
+1. Prints the array of object key names to the terminal.
+
+**Example**  
 
 ```
-
 # Prerequisites:
 #  - An existing Amazon S3 bucket.
 
@@ -290,21 +253,13 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
 
-If you don't have a local AWS credentials file, you can still create the
-`Aws::S3::Client` resource and run code against Amazon S3 buckets and objects.
-Requests that are sent using version 3 of the SDK for Ruby are anonymous, with no signature by
-default. Amazon S3 returns an error if you send anonymous requests for a resource that's not publicly
-available.
+If you don't have a local AWS credentials file, you can still create the `Aws::S3::Client` resource and run code against Amazon S3 buckets and objects. Requests that are sent using version 3 of the SDK for Ruby are anonymous, with no signature by default. Amazon S3 returns an error if you send anonymous requests for a resource that's not publicly available.
 
-You can use and expand the previous code snippet for SDK for Ruby applications, as in the
-following more robust example.
+You can use and expand the previous code snippet for SDK for Ruby applications, as in the following more robust example. 
 
 ```
-
 # Prerequisites:
 #  - An existing Amazon S3 bucket.
 
@@ -348,18 +303,15 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
 
-Go
+------
+#### [ Go ]
 
-###### Example
-
-The following example uses AWS credentials automatically loaded by the SDK for Go from the shared credentials file.
+**Example**  
+The following example uses AWS credentials automatically loaded by the SDK for Go from the shared credentials file.  
 
 ```
-
 package main
 
 import (
@@ -408,14 +360,12 @@ func main() {
 		}
 	}
 }
-
-
 ```
 
-## Related resources
+------
 
-- [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md")
-- [AWS SDK for PHP
-  for Amazon S3 Aws\S3\S3Client Class](../../../aws-sdk-php/v3/api/class-Aws.S3.S3Client.md "../../../aws-sdk-php/v3/api/class-Aws.S3.S3Client.md")
-- [AWS SDK for PHP
-  Documentation](http://aws.amazon.com/documentation/sdk-for-php/ "http://aws.amazon.com/documentation/sdk-for-php/")
+## Related resources
+<a name="RelatedResources002"></a>
++ [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md)
++ [AWS SDK for PHP for Amazon S3 Aws\\S3\\S3Client Class](https://docs.aws.amazon.com/aws-sdk-php/v3/api/class-Aws.S3.S3Client.html) 
++ [AWS SDK for PHP Documentation](http://aws.amazon.com/documentation/sdk-for-php/)

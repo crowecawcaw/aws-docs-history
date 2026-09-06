@@ -1,29 +1,25 @@
+
+
 # Use `CreateBucket` with an AWS SDK or CLI
+<a name="s3_example_s3_CreateBucket_section"></a>
 
 The following code examples show how to use `CreateBucket`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md) 
++  [Getting started with configuration management](s3_example_config_service_GettingStarted_053_section.md) 
++  [Getting started with machine learning feature stores](s3_example_iam_GettingStarted_028_section.md) 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
++  [Manage large messages using S3](s3_example_sqs_Scenario_SqsExtendedClient_section.md) 
++  [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md) 
 
-- [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md "s3_example_s3_Scenario_GettingStarted_section.md")
-- [Getting started with configuration management](s3_example_config_service_GettingStarted_053_section.md "s3_example_config_service_GettingStarted_053_section.md")
-- [Getting started with machine learning feature stores](s3_example_iam_GettingStarted_028_section.md "s3_example_iam_GettingStarted_028_section.md")
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
-- [Manage large messages using S3](s3_example_sqs_Scenario_SqsExtendedClient_section.md "s3_example_sqs_Scenario_SqsExtendedClient_section.md")
-- [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md "s3_example_s3_Scenario_ObjectVersioningUsage_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
 ```
-
     /// <summary>
     /// Shows how to create a new Amazon S3 bucket.
     /// </summary>
@@ -49,24 +45,12 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/CreateBucket) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/DotNetSDKV4/s3-2006-03-01/CreateBucket.md "../../../goto/DotNetSDKV4/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
-
-Create a bucket with object lock enabled.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
+Create a bucket with object lock enabled.  
 
 ```
     /// <summary>
@@ -97,23 +81,14 @@ Create a bucket with object lock enabled.
             return false;
         }
     }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/CreateBucket) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/DotNetSDKV3/s3-2006-03-01/CreateBucket.md "../../../goto/DotNetSDKV3/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
 ```
 ###############################################################################
@@ -218,23 +193,14 @@ function create_bucket() {
     return 1
   fi
 }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CreateBucket) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md "../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::createBucket(const Aws::String &bucketName,
@@ -263,104 +229,73 @@ bool AwsDoc::S3::createBucket(const Aws::String &bucketName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/CreateBucket) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create a bucket**  
+The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [CreateBucket](../../../goto/SdkForCpp/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForCpp/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a bucket**
-
-The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api create-bucket \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --region {{us-east-1}}
 ```
-`aws s3api create-bucket \
- --bucket `amzn-s3-demo-bucket` \
- --region `us-east-1``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "Location": "/amzn-s3-demo-bucket"
 }
 ```
-
-For more information, see [Creating a bucket](../userguide/create-bucket-overview.md "../userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
-
-**Example 2: To create a bucket with owner enforced**
-
-The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` that uses the bucket owner enforced setting for S3 Object Ownership.
+For more information, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon S3 User Guide*.  
+**Example 2: To create a bucket with owner enforced**  
+The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` that uses the bucket owner enforced setting for S3 Object Ownership.  
 
 ```
-`aws s3api create-bucket \
- --bucket `amzn-s3-demo-bucket` \
- --region `us-east-1` \
- --object-ownership `BucketOwnerEnforced``
-
+aws s3api create-bucket \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --region {{us-east-1}} \
+    --object-ownership {{BucketOwnerEnforced}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "Location": "/amzn-s3-demo-bucket"
 }
 ```
-
-For more information, see [Controlling ownership of objects and disabling ACLs](../userguide/about-object-ownership.md "../userguide/about-object-ownership.md") in the _Amazon S3 User Guide_.
-
-**Example 3: To create a bucket outside of the `us-east-1` region**
-
-The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` in the
-`eu-west-1` region. Regions outside of `us-east-1` require the appropriate
-`LocationConstraint` to be specified in order to create the bucket in the
-desired region.
+For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.  
+**Example 3: To create a bucket outside of the ``us-east-1`` region**  
+The following `create-bucket` example creates a bucket named `amzn-s3-demo-bucket` in the `eu-west-1` region. Regions outside of `us-east-1` require the appropriate `LocationConstraint` to be specified in order to create the bucket in the desired region.  
 
 ```
-`aws s3api create-bucket \
- --bucket `amzn-s3-demo-bucket` \
- --region `eu-west-1` \
- --create-bucket-configuration `LocationConstraint=eu-west-1``
-
+aws s3api create-bucket \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --region {{eu-west-1}} \
+    --create-bucket-configuration {{LocationConstraint=eu-west-1}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "Location": "http://amzn-s3-demo-bucket.s3.amazonaws.com/"
 }
 ```
+For more information, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon S3 User Guide*.  
++  For API details, see [CreateBucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Creating a bucket](../userguide/create-bucket-overview.md "../userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
+------
+#### [ Go ]
 
-- For API details, see
-  [CreateBucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
-
-Create a bucket with default configuration.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
+Create a bucket with default configuration.  
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -415,15 +350,10 @@ func (basics BucketBasics) CreateBucket(ctx context.Context, name string, region
 	}
 	return err
 }
-
-
+```
+Create a bucket with object locking and wait for it to exist.  
 
 ```
-
-Create a bucket with object locking and wait for it to exist.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -482,29 +412,17 @@ func (actor S3Actions) CreateBucketWithLock(ctx context.Context, bucket string, 
 
 	return bucket, err
 }
+```
++  For API details, see [CreateBucket](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Create a bucket.  
 
 ```
-
-- For API details, see
-  [CreateBucket](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.CreateBucket")
-  in _AWS SDK for Go API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Create a bucket.
-
-```
-
     /**
      * Creates an S3 bucket asynchronously.
      *
@@ -537,11 +455,8 @@ Create a bucket.
             }
         });
     }
-
-
 ```
-
-Create a bucket with object lock enabled.
+Create a bucket with object lock enabled.  
 
 ```
     // Create a new Amazon S3 bucket with object lock options.
@@ -561,25 +476,15 @@ Create a bucket with object lock enabled.
         s3Waiter.waitUntilBucketExists(bucketRequestWait);
         System.out.println(bucketName + " is ready");
     }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CreateBucket) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Create the bucket.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Create the bucket.  
 
 ```
 import {
@@ -626,24 +531,15 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.html#s3-example-creating-buckets-new-bucket-2). 
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-new-bucket-2 "../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-new-bucket-2").
-- For API details, see
-  [CreateBucket](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/CreateBucketCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun createNewBucket(bucketName: String) {
@@ -657,25 +553,15 @@ suspend fun createNewBucket(bucketName: String) {
         println("$bucketName is ready")
     }
 }
-
-
 ```
++  For API details, see [CreateBucket](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateBucket](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
-
-Create a bucket.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
+Create a bucket.  
 
 ```
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
@@ -690,25 +576,15 @@ Create a bucket.
             echo "Failed to create bucket $this->bucketName with error: " . $exception->getMessage();
             exit("Please fix error with bucket creation before continuing.");
         }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/CreateBucket) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/SdkForPHPV3/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForPHPV3/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
-
-Create a bucket with default settings.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
+Create a bucket with default settings.  
 
 ```
 class BucketWrapper:
@@ -748,12 +624,8 @@ class BucketWrapper:
                 region,
             )
             raise error
-
-
-
 ```
-
-Create a versioned bucket with a lifecycle configuration.
+Create a versioned bucket with a lifecycle configuration.  
 
 ```
 def create_versioned_bucket(bucket_name, prefix):
@@ -823,25 +695,14 @@ def create_versioned_bucket(bucket_name, prefix):
         )
 
     return bucket
-
-
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CreateBucket) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/boto3/s3-2006-03-01/CreateBucket.md "../../../goto/boto3/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -893,23 +754,14 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/CreateBucket) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateBucket](../../../goto/SdkForRubyV3/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForRubyV3/s3-2006-03-01/CreateBucket.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 pub async fn create_bucket(
@@ -941,23 +793,14 @@ pub async fn create_bucket(
         }
     })
 }
-
-
 ```
++  For API details, see [CreateBucket](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateBucket](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.create_bucket")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -981,23 +824,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_bktalrdyownedbyyou.
         MESSAGE 'Bucket already exists and is owned by you.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateBucket](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateBucket](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
 ```
 import AWSS3
@@ -1006,7 +840,7 @@ import AWSS3
         var input = CreateBucketInput(
             bucket: name
         )
-
+        
         // For regions other than "us-east-1", you must set the locationConstraint in the createBucketConfiguration.
         // For more information, see LocationConstraint in the S3 API guide.
         // https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html#API_CreateBucket_RequestBody
@@ -1028,14 +862,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [CreateBucket](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateBucket](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/createbucket(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

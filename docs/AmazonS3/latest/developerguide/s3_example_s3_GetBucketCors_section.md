@@ -1,19 +1,17 @@
+
+
 # Use `GetBucketCors` with an AWS SDK or CLI
+<a name="s3_example_s3_GetBucketCors_section"></a>
 
 The following code examples show how to use `GetBucketCors`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
-
         /// <summary>
         /// Retrieve the CORS configuration applied to the Amazon S3 bucket.
         /// </summary>
@@ -31,27 +29,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             PrintCORSRules(configuration);
             return configuration;
         }
+```
++  For API details, see [GetBucketCors](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetBucketCors) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command retrieves the Cross-Origin Resource Sharing configuration for a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [GetBucketCors](../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketCors.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketCors.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command retrieves the Cross-Origin Resource Sharing configuration for a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api get-bucket-cors --bucket {{amzn-s3-demo-bucket}}
 ```
-`aws s3api get-bucket-cors --bucket `amzn-s3-demo-bucket``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -88,22 +78,14 @@ Output:
     ]
 }
 ```
++  For API details, see [GetBucketCors](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-cors.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketCors](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-cors.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-cors.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Get the CORS policy for the bucket.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Get the CORS policy for the bucket.  
 
 ```
 import {
@@ -154,24 +136,15 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-configuring-buckets.html#s3-example-configuring-buckets-get-cors). 
++  For API details, see [GetBucketCors](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketCorsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-configuring-buckets.md#s3-example-configuring-buckets-get-cors "../../../sdk-for-javascript/v3/developer-guide/s3-example-configuring-buckets.md#s3-example-configuring-buckets-get-cors").
-- For API details, see
-  [GetBucketCors](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketCorsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketCorsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class BucketWrapper:
@@ -202,24 +175,14 @@ class BucketWrapper:
             raise
         else:
             return cors
-
-
-
 ```
++  For API details, see [GetBucketCors](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/GetBucketCors) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetBucketCors](../../../goto/boto3/s3-2006-03-01/GetBucketCors.md "../../../goto/boto3/s3-2006-03-01/GetBucketCors.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -244,23 +207,14 @@ class BucketCorsWrapper
   end
 
 end
-
-
 ```
++  For API details, see [GetBucketCors](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/GetBucketCors) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetBucketCors](../../../goto/SdkForRubyV3/s3-2006-03-01/GetBucketCors.md "../../../goto/SdkForRubyV3/s3-2006-03-01/GetBucketCors.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -270,14 +224,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetBucketCors](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetBucketCors](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,21 +1,18 @@
+
+
 # Use `PutObjectAcl` with an AWS SDK or CLI
+<a name="s3_example_s3_PutObjectAcl_section"></a>
 
 The following code examples show how to use `PutObjectAcl`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Manage access control lists (ACLs)](s3_example_s3_Scenario_ManageACLs_section.md) 
 
-- [Manage access control lists (ACLs)](s3_example_s3_Scenario_ManageACLs_section.md "s3_example_s3_Scenario_ManageACLs_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::putObjectAcl(const Aws::String &bucketName, const Aws::String &objectKey, const Aws::String &ownerID,
@@ -106,43 +103,26 @@ Aws::S3::Model::Type setGranteeType(const Aws::String &type) {
         return Aws::S3::Model::Type::Group;
     return Aws::S3::Model::Type::NOT_SET;
 }
+```
++  For API details, see [PutObjectAcl](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/PutObjectAcl) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command grants `full control` to two AWS users (*user1@example.com* and *user2@example.com*) and `read` permission to everyone:  
 
 ```
-
-- For API details, see
-  [PutObjectAcl](../../../goto/SdkForCpp/s3-2006-03-01/PutObjectAcl.md "../../../goto/SdkForCpp/s3-2006-03-01/PutObjectAcl.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command grants `full control` to two AWS users (*user1@example.com* and *user2@example.com*) and `read`
-permission to everyone:
-
+aws s3api put-object-acl --bucket {{amzn-s3-demo-bucket}} --key {{file.txt}} --grant-full-control {{emailaddress=user1@example.com,emailaddress=user2@example.com}} --grant-read {{uri=http://acs.amazonaws.com/groups/global/AllUsers}}
 ```
-`aws s3api put-object-acl --bucket `amzn-s3-demo-bucket` --key `file.txt` --grant-full-control `emailaddress=user1@example.com,emailaddress=user2@example.com` --grant-read `uri=http://acs.amazonaws.com/groups/global/AllUsers``
+See http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTacl.html for details on custom ACLs (the s3api ACL commands, such as `put-object-acl`, use the same shorthand argument notation).  
++  For API details, see [PutObjectAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-acl.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Python ]
 
-See http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTacl.html for details on custom ACLs (the s3api ACL
-commands, such as `put-object-acl`, use the same shorthand argument notation).
-
-- For API details, see
-  [PutObjectAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-acl.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-acl.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class ObjectWrapper:
@@ -180,24 +160,14 @@ class ObjectWrapper:
         except ClientError:
             logger.exception("Couldn't add ACL to object '%s'.", self.object.key)
             raise
-
-
-
 ```
++  For API details, see [PutObjectAcl](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutObjectAcl) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutObjectAcl](../../../goto/boto3/s3-2006-03-01/PutObjectAcl.md "../../../goto/boto3/s3-2006-03-01/PutObjectAcl.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -213,14 +183,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchkey.
         MESSAGE 'Object key does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutObjectAcl](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutObjectAcl](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

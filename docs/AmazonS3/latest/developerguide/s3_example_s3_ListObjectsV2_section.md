@@ -1,26 +1,22 @@
+
+
 # Use `ListObjectsV2` with an AWS SDK or CLI
+<a name="s3_example_s3_ListObjectsV2_section"></a>
 
 The following code examples show how to use `ListObjectsV2`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md) 
++  [Delete all objects in a bucket](s3_example_s3_Scenario_DeleteAllObjects_section.md) 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
 
-- [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md "s3_example_s3_Scenario_GettingStarted_section.md")
-- [Delete all objects in a bucket](s3_example_s3_Scenario_DeleteAllObjects_section.md "s3_example_s3_Scenario_DeleteAllObjects_section.md")
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
 ```
-
     /// <summary>
     /// Shows how to list the objects in an Amazon S3 bucket.
     /// </summary>
@@ -74,24 +70,12 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return null;
         }
     }
-
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/ListObjectsV2) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../goto/DotNetSDKV4/s3-2006-03-01/ListObjectsV2.md "../../../goto/DotNetSDKV4/s3-2006-03-01/ListObjectsV2.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
-
-List objects with a paginator.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
+List objects with a paginator.  
 
 ```
     using System;
@@ -140,24 +124,14 @@ List objects with a paginator.
             }
         }
     }
-
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/ListObjectsV2) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../goto/DotNetSDKV3/s3-2006-03-01/ListObjectsV2.md "../../../goto/DotNetSDKV3/s3-2006-03-01/ListObjectsV2.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
 ```
 ###############################################################################
@@ -202,23 +176,14 @@ function list_items_in_bucket() {
     return 1
   fi
 }
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/ListObjectsV2) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../goto/aws-cli/s3-2006-03-01/ListObjectsV2.md "../../../goto/aws-cli/s3-2006-03-01/ListObjectsV2.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::listObjects(const Aws::String &bucketName,
@@ -261,29 +226,21 @@ bool AwsDoc::S3::listObjects(const Aws::String &bucketName,
 
     return true;
 }
+```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/ListObjectsV2) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get a list of objects in a bucket**  
+The following `list-objects-v2` example lists the objects in the specified bucket.  
 
 ```
-
-- For API details, see
-  [ListObjectsV2](../../../goto/SdkForCpp/s3-2006-03-01/ListObjectsV2.md "../../../goto/SdkForCpp/s3-2006-03-01/ListObjectsV2.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get a list of objects in a bucket**
-
-The following `list-objects-v2` example lists the objects in the specified bucket.
-
+aws s3api list-objects-v2 \
+    --bucket {{amzn-s3-demo-bucket}}
 ```
-`aws s3api list-objects-v2 \
- --bucket `amzn-s3-demo-bucket``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -319,23 +276,15 @@ Output:
     ]
 }
 ```
++  For API details, see [ListObjectsV2](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects-v2.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListObjectsV2](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects-v2.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects-v2.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -387,27 +336,16 @@ func (basics BucketBasics) ListObjects(ctx context.Context, bucketName string) (
 	}
 	return objects, err
 }
+```
++  For API details, see [ListObjectsV2](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectsV2) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-
-- For API details, see
-  [ListObjectsV2](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectsV2 "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListObjectsV2")
-  in _AWS SDK for Go API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-```
-
     /**
      * Asynchronously lists all objects in the specified S3 bucket.
      *
@@ -431,14 +369,10 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw new RuntimeException("Failed to list objects", ex);
         });
     }
-
+```
+List objects using pagination.  
 
 ```
-
-List objects using pagination.
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
@@ -495,25 +429,15 @@ public class ListObjectsPaginated {
         }
     }
 }
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListObjectsV2) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../goto/SdkForJavaV2/s3-2006-03-01/ListObjectsV2.md "../../../goto/SdkForJavaV2/s3-2006-03-01/ListObjectsV2.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-List all of the objects in your bucket. If there is more than one object, IsTruncated and NextContinuationToken will be used to iterate over the full list.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+List all of the objects in your bucket. If there is more than one object, IsTruncated and NextContinuationToken will be used to iterate over the full list.  
 
 ```
 import {
@@ -562,23 +486,14 @@ export const main = async ({ bucketName, pageSize }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun listBucketObjects(bucketName: String) {
@@ -598,25 +513,15 @@ suspend fun listBucketObjects(bucketName: String) {
 }
 
 private fun calKb(intValue: Long): Long = intValue / 1024
-
-
 ```
++  For API details, see [ListObjectsV2](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListObjectsV2](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
-
-List objects in a bucket.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
+List objects in a bucket.  
 
 ```
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
@@ -633,23 +538,14 @@ List objects in a bucket.
             echo "Failed to list objects in $this->bucketName with error: " . $exception->getMessage();
             exit("Please fix error with listing objects before continuing.");
         }
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/ListObjectsV2) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../goto/SdkForPHPV3/s3-2006-03-01/ListObjectsV2.md "../../../goto/SdkForPHPV3/s3-2006-03-01/ListObjectsV2.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class ObjectWrapper:
@@ -686,24 +582,14 @@ class ObjectWrapper:
             raise
         else:
             return objects
-
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/ListObjectsV2) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../goto/boto3/s3-2006-03-01/ListObjectsV2.md "../../../goto/boto3/s3-2006-03-01/ListObjectsV2.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -746,23 +632,14 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/ListObjectsV2) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../goto/SdkForRubyV3/s3-2006-03-01/ListObjectsV2.md "../../../goto/SdkForRubyV3/s3-2006-03-01/ListObjectsV2.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 pub async fn list_objects(client: &aws_sdk_s3::Client, bucket: &str) -> Result<(), S3ExampleError> {
@@ -788,23 +665,14 @@ pub async fn list_objects(client: &aws_sdk_s3::Client, bucket: &str) -> Result<(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_objects_v2) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListObjectsV2](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_objects_v2 "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_objects_v2")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -814,23 +682,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListObjectsV2](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListObjectsV2](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
 ```
 import AWSS3
@@ -840,26 +699,26 @@ import AWSS3
             let input = ListObjectsV2Input(
                 bucket: bucket
             )
-
+            
             // Use "Paginated" to get all the objects.
             // This lets the SDK handle the 'continuationToken' in "ListObjectsV2Output".
             let output = client.listObjectsV2Paginated(input: input)
             var names: [String] = []
-
+            
             for try await page in output {
                 guard let objList = page.contents else {
                     print("ERROR: listObjectsV2Paginated returned nil contents.")
                     continue
                 }
-
+                
                 for obj in objList {
                     if let objName = obj.key {
                         names.append(objName)
                     }
                 }
             }
-
-
+            
+            
             return names
         }
         catch {
@@ -867,14 +726,9 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
++  For API details, see [ListObjectsV2](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listobjectsv2(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListObjectsV2](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listobjectsv2(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/listobjectsv2(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

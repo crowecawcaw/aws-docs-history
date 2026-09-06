@@ -1,16 +1,15 @@
+
+
 # Hello Amazon S3
+<a name="s3_example_s3_Hello_section"></a>
 
 The following code examples show how to get started using Amazon S3.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
 ```
 /// <summary>
@@ -73,25 +72,15 @@ public class HelloS3
         }
     }
 }
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/ListBuckets) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/DotNetSDKV4/s3-2006-03-01/ListBuckets.md "../../../goto/DotNetSDKV4/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3/hello_s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3/hello_s3#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3/hello_s3#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -132,11 +121,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_s3.cpp source file.
+Code for the hello\_s3.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -166,8 +152,8 @@ int main(int argc, char **argv) {
         Aws::Client::ClientConfiguration clientConfig;
         // Optional: Set to the AWS Region (overrides config file).
         // clientConfig.region = "us-east-1";
-
-        // You don't normally have to test that you are authenticated. But the S3 service permits anonymous requests, thus the s3Client will return "success" and 0 buckets even if you are unauthenticated, which can be confusing to a new user.
+               
+        // You don't normally have to test that you are authenticated. But the S3 service permits anonymous requests, thus the s3Client will return "success" and 0 buckets even if you are unauthenticated, which can be confusing to a new user. 
         auto provider = Aws::MakeShared<DefaultAWSCredentialsProviderChain>("alloc-tag");
         auto creds = provider->GetAWSCredentials();
         if (creds.IsEmpty()) {
@@ -192,26 +178,16 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return result;
 }
+```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/ListBuckets) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
 ```
-
-- For API details, see
-  [ListBuckets](../../../goto/SdkForCpp/s3-2006-03-01/ListBuckets.md "../../../goto/SdkForCpp/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
-
-```
-
 package main
 
 import (
@@ -260,27 +236,16 @@ func main() {
 		}
 	}
 }
+```
++  For API details, see [ListBuckets](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListBuckets) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-
-- For API details, see
-  [ListBuckets](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListBuckets "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.ListBuckets")
-  in _AWS SDK for Go API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.Bucket;
@@ -325,23 +290,14 @@ public class HelloS3 {
         }
     }
 }
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListBuckets) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/SdkForJavaV2/s3-2006-03-01/ListBuckets.md "../../../goto/SdkForJavaV2/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 
 ```
 import {
@@ -381,23 +337,14 @@ export const helloS3 = async () => {
     }
   }
 };
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/ListBucketsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListBucketsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListBucketsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
 
 ```
 use Aws\S3\S3Client;
@@ -405,23 +352,14 @@ use Aws\S3\S3Client;
 $client = new S3Client(['region' => 'us-west-2']);
 $results = $client->listBuckets();
 var_dump($results);
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/ListBuckets) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/SdkForPHPV3/s3-2006-03-01/ListBuckets.md "../../../goto/SdkForPHPV3/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3#code-examples). 
 
 ```
 import boto3
@@ -465,26 +403,16 @@ def hello_s3():
 
 if __name__ == "__main__":
     hello_s3()
+```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/ListBuckets) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
+
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
-
-- For API details, see
-  [ListBuckets](../../../goto/boto3/s3-2006-03-01/ListBuckets.md "../../../goto/boto3/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
-
-```
-
 # frozen_string_literal: true
 
 # S3Manager is a class responsible for managing S3 operations
@@ -518,24 +446,14 @@ if $PROGRAM_NAME == __FILE__
   manager = S3Manager.new(s3_client)
   manager.list_buckets
 end
-
-
-
 ```
++  For API details, see [ListBuckets](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/ListBuckets) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [ListBuckets](../../../goto/SdkForRubyV3/s3-2006-03-01/ListBuckets.md "../../../goto/SdkForRubyV3/s3-2006-03-01/ListBuckets.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 /// S3 Hello World Example using the AWS SDK for Rust.
@@ -610,11 +528,8 @@ async fn list_bucket_and_upload_object(
 
     Ok(())
 }
-
-
 ```
-
-S3ExampleError utilities.
+S3ExampleError utilities.  
 
 ```
 /// S3ExampleError provides a From<T: ProvideErrorMetadata> impl to extract
@@ -656,14 +571,9 @@ impl std::fmt::Display for S3ExampleError {
         write!(f, "{}", self.0)
     }
 }
-
-
 ```
++  For API details, see [ListBuckets](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_buckets) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListBuckets](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_buckets "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.list_buckets")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

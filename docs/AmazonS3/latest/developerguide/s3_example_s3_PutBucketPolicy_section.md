@@ -1,16 +1,15 @@
+
+
 # Use `PutBucketPolicy` with an AWS SDK or CLI
+<a name="s3_example_s3_PutBucketPolicy_section"></a>
 
 The following code examples show how to use `PutBucketPolicy`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::putBucketPolicy(const Aws::String &bucketName,
@@ -71,71 +70,56 @@ Aws::String getPolicyString(const Aws::String &userArn,
             "   ]\n"
             "}";
 }
+```
++  For API details, see [PutBucketPolicy](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/PutBucketPolicy) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+This example allows all users to retrieve any object in *amzn-s3-demo-bucket* except those in the *MySecretFolder*. It also grants `put` and `delete` permission to the root user of the AWS account `1234-5678-9012`:  
 
 ```
+aws s3api put-bucket-policy --bucket {{amzn-s3-demo-bucket}} --policy {{file://policy.json}}
 
-- For API details, see
-  [PutBucketPolicy](../../../goto/SdkForCpp/s3-2006-03-01/PutBucketPolicy.md "../../../goto/SdkForCpp/s3-2006-03-01/PutBucketPolicy.md")
-  in _AWS SDK for C++ API Reference_.
+{{policy.json:}}
+{{{}}
+   "Statement": {{[}}
+      {{{}}
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "s3:GetObject",
+         "Resource": {{"arn:aws:s3:::amzn-s3-demo-bucket/*"}}
+      {{},}}
+      {{{}}
+         "Effect": "Deny",
+         "Principal": "*",
+         "Action": "s3:GetObject",
+         "Resource": {{"arn:aws:s3:::amzn-s3-demo-bucket/MySecretFolder/*"}}
+      {{},}}
+      {{{}}
+         "Effect": "Allow",
+         "Principal": {{{}}
+            "AWS": {{"arn:aws:iam::123456789012:root"}}
+         {{},}}
+         "Action": {{[}}
+            "s3:DeleteObject",
+            {{"s3:PutObject"}}
+         {{],}}
+         "Resource": {{"arn:aws:s3:::amzn-s3-demo-bucket/*"}}
+      {{}}}
+   {{]}}
+{{}}}
+```
++  For API details, see [PutBucketPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-policy.html) in *AWS CLI Command Reference*. 
 
-CLI
+------
+#### [ Java ]
 
-**AWS CLI**
-
-This example allows all users to retrieve any object in _amzn-s3-demo-bucket_ except those in the _MySecretFolder_. It also
-grants `put` and `delete` permission to the root user of the AWS account `1234-5678-9012`:
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-`aws s3api put-bucket-policy --bucket `amzn-s3-demo-bucket` --policy `file://policy.json`
-
-`policy.json:`
-`{`
- "Statement": `[`
- `{`
- "Effect": "Allow",
- "Principal": "*",
- "Action": "s3:GetObject",
- "Resource": `"arn:aws:s3:::amzn-s3-demo-bucket/*"`
- `},`
- `{`
- "Effect": "Deny",
- "Principal": "*",
- "Action": "s3:GetObject",
- "Resource": `"arn:aws:s3:::amzn-s3-demo-bucket/MySecretFolder/*"`
- `},`
- `{`
- "Effect": "Allow",
- "Principal": `{`
- "AWS": `"arn:aws:iam::123456789012:root"`
- `},`
- "Action": `[`
- "s3:DeleteObject",
- `"s3:PutObject"`
- `],`
- "Resource": `"arn:aws:s3:::amzn-s3-demo-bucket/*"`
- `}`
- `]`
-`}``
-
-```
-
-- For API details, see
-  [PutBucketPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-policy.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-```
-
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutBucketPolicyRequest;
 import software.amazon.awssdk.services.s3.model.S3Exception;
@@ -248,25 +232,15 @@ public class SetBucketPolicy {
         return fileText.toString();
     }
 }
-
-
 ```
++  For API details, see [PutBucketPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketPolicy) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutBucketPolicy](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketPolicy.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketPolicy.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Add the policy.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Add the policy.  
 
 ```
 import {
@@ -324,24 +298,15 @@ export const main = async ({ bucketName, iamRoleArn }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-bucket-policies.html#s3-example-bucket-policies-set-policy). 
++  For API details, see [PutBucketPolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketPolicyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-bucket-policies.md#s3-example-bucket-policies-set-policy "../../../sdk-for-javascript/v3/developer-guide/s3-example-bucket-policies.md#s3-example-bucket-policies-set-policy").
-- For API details, see
-  [PutBucketPolicy](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketPolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketPolicyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class BucketWrapper:
@@ -369,24 +334,14 @@ class BucketWrapper:
         except ClientError:
             logger.exception("Couldn't apply policy to bucket '%s'.", self.bucket.name)
             raise
-
-
-
 ```
++  For API details, see [PutBucketPolicy](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutBucketPolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutBucketPolicy](../../../goto/boto3/s3-2006-03-01/PutBucketPolicy.md "../../../goto/boto3/s3-2006-03-01/PutBucketPolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 # Wraps an Amazon S3 bucket policy.
@@ -409,28 +364,19 @@ class BucketPolicyWrapper
   end
 
 end
-
-
 ```
++  For API details, see [PutBucketPolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/PutBucketPolicy) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [PutBucketPolicy](../../../goto/SdkForRubyV3/s3-2006-03-01/PutBucketPolicy.md "../../../goto/SdkForRubyV3/s3-2006-03-01/PutBucketPolicy.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
         " Example policy JSON string
-        " iv_policy = '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:user/user"},"Action":["s3:GetObject"],"Resource":["arn:aws:s3:::bucketname/*"]}]}'
+        " iv_policy = '{"Version":"2012-10-17",		 	 	 "Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:user/user"},"Action":["s3:GetObject"],"Resource":["arn:aws:s3:::bucketname/*"]}]}'
         lo_s3->putbucketpolicy(
           iv_bucket = iv_bucket_name
           iv_policy = iv_policy ).
@@ -438,14 +384,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutBucketPolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutBucketPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

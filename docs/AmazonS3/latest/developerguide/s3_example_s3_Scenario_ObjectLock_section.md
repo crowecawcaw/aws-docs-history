@@ -1,21 +1,18 @@
+
+
 # Work with Amazon S3 object lock features using an AWS SDK
+<a name="s3_example_s3_Scenario_ObjectLock_section"></a>
 
 The following code examples show how to work with S3 object lock features.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples").
-
-Run an interactive scenario demonstrating Amazon S3 object lock features.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
+Run an interactive scenario demonstrating Amazon S3 object lock features.  
 
 ```
-
 using Amazon.S3;
 using Amazon.S3.Model;
 using Microsoft.Extensions.Configuration;
@@ -442,14 +439,10 @@ public static class S3ObjectLockWorkflow
         return choiceNumber - 1;
     }
 }
-
+```
+A wrapper class for S3 functions.  
 
 ```
-
-A wrapper class for S3 functions.
-
-```
-
 using System.Net;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -855,33 +848,23 @@ public class S3ActionsWrapper
     }
 
 }
+```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [GetObjectLegalHold](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObjectLegalHold)
+  + [GetObjectLockConfiguration](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObjectLockConfiguration)
+  + [GetObjectRetention](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObjectRetention)
+  + [PutObjectLegalHold](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObjectLegalHold)
+  + [PutObjectLockConfiguration](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObjectLockConfiguration)
+  + [PutObjectRetention](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObjectRetention)
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
+Run an interactive scenario demonstrating Amazon S3 object lock features.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
-
-  - [GetObjectLegalHold](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectLegalHold.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectLegalHold.md")
-  - [GetObjectLockConfiguration](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectLockConfiguration.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectLockConfiguration.md")
-  - [GetObjectRetention](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectRetention.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectRetention.md")
-  - [PutObjectLegalHold](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectLegalHold.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectLegalHold.md")
-  - [PutObjectLockConfiguration](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectLockConfiguration.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectLockConfiguration.md")
-  - [PutObjectRetention](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectRetention.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectRetention.md")
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples").
-
-Run an interactive scenario demonstrating Amazon S3 object lock features.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -1254,15 +1237,10 @@ func (scenario *ObjectLockScenario) Run(ctx context.Context) {
 	log.Println("Thanks for watching!")
 	log.Println(strings.Repeat("-", 88))
 }
-
-
+```
+Define a struct that wraps S3 actions used in this example.  
 
 ```
-
-Define a struct that wraps S3 actions used in this example.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -1689,16 +1667,10 @@ func (actor S3Actions) DeleteObjects(ctx context.Context, bucket string, objects
 	}
 	return err
 }
-
-
-
+```
+Clean up resources.  
 
 ```
-
-Clean up resources.
-
-```
-
 import (
 	"context"
 	"log"
@@ -1833,31 +1805,21 @@ func (resources *Resources) deleteObjects(ctx context.Context, bucket *DemoBucke
 		}
 	}
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [GetObjectLegalHold](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectLegalHold)
+  + [GetObjectLockConfiguration](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectLockConfiguration)
+  + [GetObjectRetention](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectRetention)
+  + [PutObjectLegalHold](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLegalHold)
+  + [PutObjectLockConfiguration](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLockConfiguration)
+  + [PutObjectRetention](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectRetention)
 
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-  - [GetObjectLegalHold](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectLegalHold "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectLegalHold")
-  - [GetObjectLockConfiguration](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectLockConfiguration "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectLockConfiguration")
-  - [GetObjectRetention](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectRetention "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectRetention")
-  - [PutObjectLegalHold](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLegalHold "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLegalHold")
-  - [PutObjectLockConfiguration](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLockConfiguration "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLockConfiguration")
-  - [PutObjectRetention](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectRetention "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectRetention")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/lockscenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/lockscenario#code-examples").
-
-Run an interactive scenario demonstrating Amazon S3 object lock features.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/lockscenario#code-examples). 
+Run an interactive scenario demonstrating Amazon S3 object lock features.  
 
 ```
 import software.amazon.awssdk.services.s3.model.ObjectLockLegalHold;
@@ -1897,7 +1859,7 @@ public class S3ObjectLockWorkflow {
                 <bucketName> \s
 
             Where:
-                bucketName - The Amazon S3 bucket name.
+                bucketName - The Amazon S3 bucket name. 
            """;
 
         if (args.length != 1) {
@@ -2215,11 +2177,8 @@ public class S3ObjectLockWorkflow {
         return choiceNumber - 1;
     }
 }
-
-
 ```
-
-A wrapper class for S3 functions.
+A wrapper class for S3 functions.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -2550,31 +2509,21 @@ public class S3LockActions {
         System.out.println("\tRule: "+ response.objectLockConfiguration().rule().defaultRetention());
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [GetObjectLegalHold](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObjectLegalHold)
+  + [GetObjectLockConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObjectLockConfiguration)
+  + [GetObjectRetention](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObjectRetention)
+  + [PutObjectLegalHold](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObjectLegalHold)
+  + [PutObjectLockConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObjectLockConfiguration)
+  + [PutObjectRetention](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObjectRetention)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [GetObjectLegalHold](../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectLegalHold.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectLegalHold.md")
-  - [GetObjectLockConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectLockConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectLockConfiguration.md")
-  - [GetObjectRetention](../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectRetention.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectRetention.md")
-  - [PutObjectLegalHold](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectLegalHold.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectLegalHold.md")
-  - [PutObjectLockConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectLockConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectLockConfiguration.md")
-  - [PutObjectRetention](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectRetention.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectRetention.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3/scenarios/object-locking#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3/scenarios/object-locking#code-examples").
-
-Entrypoint for the scenario (index.js). This orchestrates all of the steps.
-Visit GitHub to see the implementation details for Scenario, ScenarioInput, ScenarioOutput, and ScenarioAction.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3/scenarios/object-locking#code-examples). 
+Entrypoint for the scenario (index.js). This orchestrates all of the steps. Visit GitHub to see the implementation details for Scenario, ScenarioInput, ScenarioOutput, and ScenarioAction.   
 
 ```
 import * as Scenarios from "@aws-doc-sdk-examples/lib/scenario/index.js";
@@ -2686,11 +2635,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       "node index.js --scenario <deploy | demo | clean> [-h|--help] [-y|--yes] [-v|--verbose]",
   });
 }
-
-
 ```
-
-Output welcome messages to the console (welcome.steps.js).
+Output welcome messages to the console (welcome.steps.js).  
 
 ```
 /**
@@ -2718,11 +2664,8 @@ const welcomeContinue = (scenarios) =>
   );
 
 export { welcome, welcomeContinue };
-
-
 ```
-
-Deploy buckets, objects, and file settings (setup.steps.js).
+Deploy buckets, objects, and file settings (setup.steps.js).  
 
 ```
 import {
@@ -3068,7 +3011,7 @@ const confirmSetRetentionPeriodFileEnabled = (scenarios) =>
   new scenarios.ScenarioInput(
     "confirmSetRetentionPeriodFileEnabled",
     (state) =>
-      `Would you like to add a 1 day Governance retention period to file1.txt in ${state.lockEnabledBucketName}?
+      `Would you like to add a 1 day Governance retention period to file1.txt in ${state.lockEnabledBucketName}? 
 Reminder: Only a user with the s3:BypassGovernanceRetention permission will be able to delete this file or its bucket until the retention period has expired.`,
     {
       type: "confirm",
@@ -3205,11 +3148,8 @@ export {
   confirmSetRetentionPeriodFileRetention,
   setRetentionPeriodFileRetentionAction,
 };
-
-
 ```
-
-View and delete files in the buckets (repl.steps.js).
+View and delete files in the buckets (repl.steps.js).  
 
 ```
 import {
@@ -3453,11 +3393,8 @@ Rule: ${JSON.stringify(bucketConfig.ObjectLockConfiguration?.Rule?.DefaultRetent
   );
 
 export { replInput, replAction, choices };
-
-
 ```
-
-Destroy all created resources (clean.steps.js).
+Destroy all created resources (clean.steps.js).  
 
 ```
 import {
@@ -3588,19 +3525,15 @@ const cleanupAction = (scenarios, client) =>
   });
 
 export { confirmCleanup, cleanupAction };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [GetObjectLegalHold](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectLegalHoldCommand)
+  + [GetObjectLockConfiguration](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectLockConfigurationCommand)
+  + [GetObjectRetention](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectRetentionCommand)
+  + [PutObjectLegalHold](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLegalHoldCommand)
+  + [PutObjectLockConfiguration](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLockConfigurationCommand)
+  + [PutObjectRetention](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectRetentionCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
 
-  - [GetObjectLegalHold](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectLegalHoldCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectLegalHoldCommand.md")
-  - [GetObjectLockConfiguration](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectLockConfigurationCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectLockConfigurationCommand.md")
-  - [GetObjectRetention](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectRetentionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectRetentionCommand.md")
-  - [PutObjectLegalHold](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLegalHoldCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLegalHoldCommand.md")
-  - [PutObjectLockConfiguration](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLockConfigurationCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLockConfigurationCommand.md")
-  - [PutObjectRetention](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectRetentionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectRetentionCommand.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

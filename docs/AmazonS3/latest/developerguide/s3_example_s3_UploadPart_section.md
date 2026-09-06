@@ -1,22 +1,19 @@
+
+
 # Use `UploadPart` with an AWS SDK or CLI
+<a name="s3_example_s3_UploadPart_section"></a>
 
 The following code examples show how to use `UploadPart`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Use checksums](s3_example_s3_Scenario_UseChecksums_section.md) 
++  [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md) 
 
-- [Use checksums](s3_example_s3_Scenario_UseChecksums_section.md "s3_example_s3_Scenario_UseChecksums_section.md")
-- [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md "s3_example_s3_Scenario_ObjectIntegrity_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 //! Upload a part to an S3 bucket.
@@ -73,50 +70,34 @@ Aws::S3::Model::UploadPartOutcome AwsDoc::S3::uploadPart(const Aws::String &buck
 
     return client.UploadPart(request);
 }
+```
++  For API details, see [UploadPart](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/UploadPart) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command uploads the first part in a multipart upload initiated with the `create-multipart-upload` command:  
 
 ```
-
-- For API details, see
-  [UploadPart](../../../goto/SdkForCpp/s3-2006-03-01/UploadPart.md "../../../goto/SdkForCpp/s3-2006-03-01/UploadPart.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command uploads the first part in a multipart upload initiated with the `create-multipart-upload` command:
-
+aws s3api upload-part --bucket {{amzn-s3-demo-bucket}} --key '{{multipart/01}}' --part-number {{1}} --body {{part01}} --upload-id  {{"dfRtDYU0WWCCcH43C3WFbkRONycyCpTJJvxu2i5GYkZljF.Yxwh6XG7WfS2vC4to6HiV6Yjlx.cph0gtNBtJ8P3URCSbB7rjxI5iEwVDmgaXZOGgkk5nVTW16HOQ5l0R"}}
 ```
-`aws s3api upload-part --bucket `amzn-s3-demo-bucket` --key '`multipart/01`' --part-number `1` --body `part01` --upload-id `"dfRtDYU0WWCCcH43C3WFbkRONycyCpTJJvxu2i5GYkZljF.Yxwh6XG7WfS2vC4to6HiV6Yjlx.cph0gtNBtJ8P3URCSbB7rjxI5iEwVDmgaXZOGgkk5nVTW16HOQ5l0R"``
-
-```
-
-The `body` option takes the name or path of a local file for upload (do not use the file:// prefix). The minimum part size is 5 MB. Upload ID is returned by `create-multipart-upload` and can also be retrieved with `list-multipart-uploads`. Bucket and key are specified when you create the multipart upload.
-
-Output:
+The `body` option takes the name or path of a local file for upload (do not use the file:// prefix). The minimum part size is 5 MB. Upload ID is returned by `create-multipart-upload` and can also be retrieved with `list-multipart-uploads`. Bucket and key are specified when you create the multipart upload.  
+Output:  
 
 ```
 {
     "ETag": "\"e868e0f4719e394144ef36531ee6824c\""
 }
 ```
+Save the ETag value of each part for later. They are required to complete the multipart upload.  
++  For API details, see [UploadPart](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/upload-part.html) in *AWS CLI Command Reference*. 
 
-Save the ETag value of each part for later. They are required to complete the multipart upload.
+------
+#### [ Rust ]
 
-- For API details, see
-  [UploadPart](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/upload-part.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/upload-part.html")
-  in _AWS CLI Command Reference_.
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
     let mut upload_parts: Vec<aws_sdk_s3::types::CompletedPart> = Vec::new();
@@ -154,8 +135,6 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
                 .build(),
         );
     }
-
-
 ```
 
 ```
@@ -171,8 +150,6 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
     let upload_id = multipart_upload_res.upload_id().ok_or(S3ExampleError::new(
         "Missing upload_id after CreateMultipartUpload",
     ))?;
-
-
 ```
 
 ```
@@ -189,14 +166,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
         .upload_id(upload_id)
         .send()
         .await?;
-
-
 ```
++  For API details, see [UploadPart](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.upload_part) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [UploadPart](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.upload_part "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.upload_part")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

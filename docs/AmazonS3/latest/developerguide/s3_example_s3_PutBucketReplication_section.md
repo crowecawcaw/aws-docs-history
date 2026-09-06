@@ -1,23 +1,23 @@
+
+
 # Use `PutBucketReplication` with an AWS SDK or CLI
+<a name="s3_example_s3_PutBucketReplication_section"></a>
 
 The following code examples show how to use `PutBucketReplication`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To configure replication for an S3 bucket**
-
-The following `put-bucket-replication` example applies a replication configuration to the specified S3 bucket.
-
-```
-`aws s3api put-bucket-replication \
- --bucket `amzn-s3-demo-bucket1` \
- --replication-configuration `file://replication.json``
+**AWS CLI**  
+**To configure replication for an S3 bucket**  
+The following `put-bucket-replication` example applies a replication configuration to the specified S3 bucket.  
 
 ```
-
-Contents of `replication.json`:
+aws s3api put-bucket-replication \
+    --bucket {{amzn-s3-demo-bucket1}} \
+    --replication-configuration {{file://replication.json}}
+```
+Contents of `replication.json`:  
 
 ```
 {
@@ -35,14 +35,12 @@ Contents of `replication.json`:
     ]
 }
 ```
-
-The destination bucket must have versioning enabled. The specified role must have permission to write to the destination bucket and have a trust relationship that allows Amazon S3 to assume the role.
-
-Example role permission policy:
+The destination bucket must have versioning enabled. The specified role must have permission to write to the destination bucket and have a trust relationship that allows Amazon S3 to assume the role.  
+Example role permission policy:  
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -77,12 +75,11 @@ Example role permission policy:
     ]
 }
 ```
-
-Example trust relationship policy:
+Example trust relationship policy:  
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -94,24 +91,15 @@ Example trust relationship policy:
     ]
 }
 ```
+This command produces no output.  
+For more information, see [This is the topic title](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-replication.html) in the *Amazon Simple Storage Service Console User Guide*.  
++  For API details, see [PutBucketReplication](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-replication.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Java ]
 
-For more information, see [This is the topic title](../user-guide/enable-replication.md "../user-guide/enable-replication.md") in the _Amazon Simple Storage Service Console User Guide_.
-
-- For API details, see
-  [PutBucketReplication](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-replication.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-replication.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
     /**
@@ -179,19 +167,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             System.err.println("SDK Exception: " + e.getMessage());
         }
     }
-
-
 ```
++  For API details, see [PutBucketReplication](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketReplication) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutBucketReplication](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketReplication.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketReplication.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example sets a replication configuration with a single rule enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with the key name prefix "TaxDocs" in the bucket 'amzn-s3-demo-bucket'.**
+**Tools for PowerShell V4**  
+**Example 1: This example sets a replication configuration with a single rule enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with the key name prefix "TaxDocs" in the bucket 'amzn-s3-demo-bucket'.**  
 
 ```
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
@@ -199,7 +182,7 @@ $rule1.ID = "Rule-1"
 $rule1.Status = "Enabled"
 $rule1.Prefix = "TaxDocs"
 $rule1.Destination = @{ BucketArn = "arn:aws:s3:::amzn-s3-demo-destination-bucket" }
-
+    
 $params = @{
     BucketName = "amzn-s3-demo-bucket"
     Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
@@ -207,10 +190,8 @@ $params = @{
 }
 
 Write-S3BucketReplication @params
-
 ```
-
-**Example 2: This example sets a replication configuration with multiple rules enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with either the key name prefix "TaxDocs" or "OtherDocs". The key prefixes must not overlap.**
+**Example 2: This example sets a replication configuration with multiple rules enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with either the key name prefix "TaxDocs" or "OtherDocs". The key prefixes must not overlap.**  
 
 ```
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
@@ -218,13 +199,13 @@ $rule1.ID = "Rule-1"
 $rule1.Status = "Enabled"
 $rule1.Prefix = "TaxDocs"
 $rule1.Destination = @{ BucketArn = "arn:aws:s3:::amzn-s3-demo-destination-bucket" }
-
+    
 $rule2 = New-Object Amazon.S3.Model.ReplicationRule
 $rule2.ID = "Rule-2"
 $rule2.Status = "Enabled"
 $rule2.Prefix = "OtherDocs"
 $rule2.Destination = @{ BucketArn = "arn:aws:s3:::amzn-s3-demo-destination-bucket" }
-
+    
 $params = @{
     BucketName = "amzn-s3-demo-bucket"
     Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
@@ -232,10 +213,8 @@ $params = @{
 }
 
 Write-S3BucketReplication @params
-
 ```
-
-**Example 3: This example updates the replication configuration on the specified bucket to disable the rule controlling replication of objects with the key name prefix "TaxDocs" to the bucket 'amzn-s3-demo-bucket'.**
+**Example 3: This example updates the replication configuration on the specified bucket to disable the rule controlling replication of objects with the key name prefix "TaxDocs" to the bucket 'amzn-s3-demo-bucket'.**  
 
 ```
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
@@ -243,7 +222,7 @@ $rule1.ID = "Rule-1"
 $rule1.Status = "Disabled"
 $rule1.Prefix = "TaxDocs"
 $rule1.Destination = @{ BucketArn = "arn:aws:s3:::amzn-s3-demo-destination-bucket" }
-
+    
 $params = @{
     BucketName = "amzn-s3-demo-bucket"
     Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
@@ -251,16 +230,11 @@ $params = @{
 }
 
 Write-S3BucketReplication @params
-
 ```
++  For API details, see [PutBucketReplication](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutBucketReplication](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example sets a replication configuration with a single rule enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with the key name prefix "TaxDocs" in the bucket 'amzn-s3-demo-bucket'.**
+**Tools for PowerShell V5**  
+**Example 1: This example sets a replication configuration with a single rule enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with the key name prefix "TaxDocs" in the bucket 'amzn-s3-demo-bucket'.**  
 
 ```
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
@@ -268,7 +242,7 @@ $rule1.ID = "Rule-1"
 $rule1.Status = "Enabled"
 $rule1.Prefix = "TaxDocs"
 $rule1.Destination = @{ BucketArn = "arn:aws:s3:::amzn-s3-demo-destination-bucket" }
-
+    
 $params = @{
     BucketName = "amzn-s3-demo-bucket"
     Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
@@ -276,10 +250,8 @@ $params = @{
 }
 
 Write-S3BucketReplication @params
-
 ```
-
-**Example 2: This example sets a replication configuration with multiple rules enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with either the key name prefix "TaxDocs" or "OtherDocs". The key prefixes must not overlap.**
+**Example 2: This example sets a replication configuration with multiple rules enabling replication to the 'amzn-s3-demo-bucket' bucket any new objects created with either the key name prefix "TaxDocs" or "OtherDocs". The key prefixes must not overlap.**  
 
 ```
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
@@ -287,13 +259,13 @@ $rule1.ID = "Rule-1"
 $rule1.Status = "Enabled"
 $rule1.Prefix = "TaxDocs"
 $rule1.Destination = @{ BucketArn = "arn:aws:s3:::amzn-s3-demo-destination-bucket" }
-
+    
 $rule2 = New-Object Amazon.S3.Model.ReplicationRule
 $rule2.ID = "Rule-2"
 $rule2.Status = "Enabled"
 $rule2.Prefix = "OtherDocs"
 $rule2.Destination = @{ BucketArn = "arn:aws:s3:::amzn-s3-demo-destination-bucket" }
-
+    
 $params = @{
     BucketName = "amzn-s3-demo-bucket"
     Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
@@ -301,10 +273,8 @@ $params = @{
 }
 
 Write-S3BucketReplication @params
-
 ```
-
-**Example 3: This example updates the replication configuration on the specified bucket to disable the rule controlling replication of objects with the key name prefix "TaxDocs" to the bucket 'amzn-s3-demo-bucket'.**
+**Example 3: This example updates the replication configuration on the specified bucket to disable the rule controlling replication of objects with the key name prefix "TaxDocs" to the bucket 'amzn-s3-demo-bucket'.**  
 
 ```
 $rule1 = New-Object Amazon.S3.Model.ReplicationRule
@@ -312,7 +282,7 @@ $rule1.ID = "Rule-1"
 $rule1.Status = "Disabled"
 $rule1.Prefix = "TaxDocs"
 $rule1.Destination = @{ BucketArn = "arn:aws:s3:::amzn-s3-demo-destination-bucket" }
-
+    
 $params = @{
     BucketName = "amzn-s3-demo-bucket"
     Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
@@ -320,13 +290,9 @@ $params = @{
 }
 
 Write-S3BucketReplication @params
-
 ```
++  For API details, see [PutBucketReplication](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutBucketReplication](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

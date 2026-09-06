@@ -1,21 +1,18 @@
+
+
 # Use checksums to work with an Amazon S3 object using an AWS SDK
+<a name="s3_example_s3_Scenario_UseChecksums_section"></a>
 
 The following code example shows how to use checksums to work with an Amazon S3 object.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-The code examples use a subset of the following imports.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+The code examples use a subset of the following imports.  
 
 ```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.exception.SdkException;
@@ -49,11 +46,8 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-
-
 ```
-
-Specify a checksum algorithm for the `putObject` method when you [build the `PutObjectRequest`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutObjectRequest.Builder.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutObjectRequest.Builder.html").
+Specify a checksum algorithm for the `putObject` method when you [build the `PutObjectRequest`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutObjectRequest.Builder.html).  
 
 ```
     public void putObjectWithChecksum(String bucketName, String key) {
@@ -63,11 +57,8 @@ Specify a checksum algorithm for the `putObject` method when you [build the `Put
                 .checksumAlgorithm(ChecksumAlgorithm.CRC32),
             RequestBody.fromString("This is a test"));
     }
-
-
 ```
-
-Verify the checksum for the `getObject` method when you [build the GetObjectRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/GetObjectRequest.Builder.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/GetObjectRequest.Builder.html").
+Verify the checksum for the `getObject` method when you [build the GetObjectRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/GetObjectRequest.Builder.html).  
 
 ```
     public GetObjectResponse getObjectWithChecksum(String bucketName, String key) {
@@ -77,11 +68,8 @@ Verify the checksum for the `getObject` method when you [build the GetObjectRequ
                 .checksumMode(ChecksumMode.ENABLED))
             .response();
     }
-
-
 ```
-
-Pre-calculate a checksum for the `putObject` method when you [build the `PutObjectRequest`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutObjectRequest.Builder.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutObjectRequest.Builder.html").
+Pre-calculate a checksum for the `putObject` method when you [build the `PutObjectRequest`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/model/PutObjectRequest.Builder.html).  
 
 ```
     public void putObjectWithPrecalculatedChecksum(String bucketName, String key, String filePath) {
@@ -93,13 +81,9 @@ Pre-calculate a checksum for the `putObject` method when you [build the `PutObje
                 .checksumSHA256(checksum)),
             RequestBody.fromFile(Paths.get(filePath)));
     }
-
-
 ```
-
-Use the [S3 Transfer Manager](../../../sdk-for-java/latest/developer-guide/transfer-manager.md "../../../sdk-for-java/latest/developer-guide/transfer-manager.md") on top of the [AWS CRT-based S3 client](../../../sdk-for-java/latest/developer-guide/crt-based-s3-client.md "../../../sdk-for-java/latest/developer-guide/crt-based-s3-client.md") to transparently perform a multipart upload when the size of the content exceeds a threshold. The default threshold size is 8 MB.
-
-You can specify a checksum algorithm for the SDK to use. By default, the SDK uses the CRC32 algorithm.
+Use the [S3 Transfer Manager](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/transfer-manager.html) on top of the [AWS CRT-based S3 client](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/crt-based-s3-client.html) to transparently perform a multipart upload when the size of the content exceeds a threshold. The default threshold size is 8 MB.  
+You can specify a checksum algorithm for the SDK to use. By default, the SDK uses the CRC32 algorithm.  
 
 ```
     public void multipartUploadWithChecksumTm(String bucketName, String key, String filePath) {
@@ -115,16 +99,8 @@ You can specify a checksum algorithm for the SDK to use. By default, the SDK use
         fileUpload.completionFuture().join();
         transferManager.close();
     }
-
-
 ```
-
-Use the [S3Client API](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html")
-or (S3AsyncClient API) to perform a multipart upload. If you specify
-an additional checksum, you must specify the algorithm to use on the initiation of the upload.
-You must also specify the algorithm for each part request and provide the checksum calculated
-for each part after it is
-uploaded.
+Use the [S3Client API](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html) or (S3AsyncClient API) to perform a multipart upload. If you specify an additional checksum, you must specify the algorithm to use on the initiation of the upload. You must also specify the algorithm for each part request and provide the checksum calculated for each part after it is uploaded.  
 
 ```
     public void multipartUploadWithChecksumS3Client(String bucketName, String key, String filePath) {
@@ -184,16 +160,12 @@ uploaded.
             .uploadId(uploadId)
             .multipartUpload(CompletedMultipartUpload.builder().parts(completedParts).build()));
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CompleteMultipartUpload](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CompleteMultipartUpload)
+  + [CreateMultipartUpload](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CreateMultipartUpload)
+  + [UploadPart](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/UploadPart)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [CompleteMultipartUpload](../../../goto/SdkForJavaV2/s3-2006-03-01/CompleteMultipartUpload.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CompleteMultipartUpload.md")
-  - [CreateMultipartUpload](../../../goto/SdkForJavaV2/s3-2006-03-01/CreateMultipartUpload.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CreateMultipartUpload.md")
-  - [UploadPart](../../../goto/SdkForJavaV2/s3-2006-03-01/UploadPart.md "../../../goto/SdkForJavaV2/s3-2006-03-01/UploadPart.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

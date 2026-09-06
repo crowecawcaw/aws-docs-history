@@ -1,19 +1,16 @@
+
+
 # Delete incomplete multipart uploads to Amazon S3 using an AWS SDK
+<a name="s3_example_s3_Scenario_AbortMultipartUpload_section"></a>
 
 The following code example shows how to how to delete or stop incomplete Amazon S3 multipart uploads.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-To stop multipart uploads that are in-progress or incomplete for any reason, you can get a list uploads and then delete them
-as shown in the following example.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+To stop multipart uploads that are in-progress or incomplete for any reason, you can get a list uploads and then delete them as shown in the following example.   
 
 ```
     /**
@@ -44,12 +41,8 @@ as shown in the following example.
             }
         }
     }
-
-
 ```
-
-To delete incomplete multipart uploads that were initiated before or after a date, you can selectively
-delete multipart uploads based on a point in time as shown in the following example.
+To delete incomplete multipart uploads that were initiated before or after a date, you can selectively delete multipart uploads based on a point in time as shown in the following example.   
 
 ```
     /**
@@ -84,11 +77,8 @@ delete multipart uploads based on a point in time as shown in the following exam
             }
         }
     }
-
-
 ```
-
-If you have access to the upload ID after you begin a multipart upload, you can delete the in-progress upload by using the ID.
+If you have access to the upload ID after you begin a multipart upload, you can delete the in-progress upload by using the ID.  
 
 ```
     /**
@@ -108,12 +98,8 @@ If you have access to the upload ID after you begin a multipart upload, you can 
             logger.info("Upload ID [{}] to bucket [{}] successfully aborted.", uploadId, bucketName);
         }
     }
-
-
 ```
-
-To consistently delete incomplete multipart uploads older that a certain number of days, set up a bucket lifecycle configuration for the bucket.
-The following example shows how to create a rule to delete incomplete uploads older than 7 days.
+To consistently delete incomplete multipart uploads older that a certain number of days, set up a bucket lifecycle configuration for the bucket. The following example shows how to create a rule to delete incomplete uploads older than 7 days.   
 
 ```
     /**
@@ -139,16 +125,12 @@ The following example shows how to create a rule to delete incomplete uploads ol
             logger.error("Unsuccessfully applied rule. HTTP status code is [{}]", response.sdkHttpResponse().statusCode());
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [AbortMultipartUpload](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/AbortMultipartUpload)
+  + [ListMultipartUploads](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListMultipartUploads)
+  + [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [AbortMultipartUpload](../../../goto/SdkForJavaV2/s3-2006-03-01/AbortMultipartUpload.md "../../../goto/SdkForJavaV2/s3-2006-03-01/AbortMultipartUpload.md")
-  - [ListMultipartUploads](../../../goto/SdkForJavaV2/s3-2006-03-01/ListMultipartUploads.md "../../../goto/SdkForJavaV2/s3-2006-03-01/ListMultipartUploads.md")
-  - [PutBucketLifecycleConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

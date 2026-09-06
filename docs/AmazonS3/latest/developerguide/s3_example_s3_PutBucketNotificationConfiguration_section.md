@@ -1,22 +1,19 @@
+
+
 # Use `PutBucketNotificationConfiguration` with an AWS SDK or CLI
+<a name="s3_example_s3_PutBucketNotificationConfiguration_section"></a>
 
 The following code examples show how to use `PutBucketNotificationConfiguration`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Process S3 event notifications](s3_example_s3_Scenario_ProcessS3EventNotification_section.md) 
++  [Send event notifications to EventBridge](s3_example_s3_Scenario_PutBucketNotificationConfiguration_section.md) 
 
-- [Process S3 event notifications](s3_example_s3_Scenario_ProcessS3EventNotification_section.md "s3_example_s3_Scenario_ProcessS3EventNotification_section.md")
-- [Send event notifications to EventBridge](s3_example_s3_Scenario_PutBucketNotificationConfiguration_section.md "s3_example_s3_Scenario_PutBucketNotificationConfiguration_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
     using System;
@@ -94,31 +91,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [PutBucketNotificationConfiguration](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutBucketNotificationConfiguration) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To enable the specified notifications to a bucket**  
+The following `put-bucket-notification-configuration` example applies a notification configuration to a bucket named `amzn-s3-demo-bucket`. The file `notification.json` is a JSON document in the current folder that specifies an SNS topic and an event type to monitor.  
 
 ```
-
-- For API details, see
-  [PutBucketNotificationConfiguration](../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketNotificationConfiguration.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketNotificationConfiguration.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To enable the specified notifications to a bucket**
-
-The following `put-bucket-notification-configuration` example applies a notification configuration to a bucket named `amzn-s3-demo-bucket`. The file `notification.json` is a JSON document in the current folder that specifies an SNS topic and an event type to monitor.
-
+aws s3api put-bucket-notification-configuration \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --notification-configuration {{file://notification.json}}
 ```
-`aws s3api put-bucket-notification-configuration \
- --bucket `amzn-s3-demo-bucket` \
- --notification-configuration `file://notification.json``
-
-```
-
-Contents of `notification.json`:
+Contents of `notification.json`:  
 
 ```
 {
@@ -132,12 +120,11 @@ Contents of `notification.json`:
     ]
 }
 ```
-
-The SNS topic must have an IAM policy attached to it that allows Amazon S3 to publish to it.
+The SNS topic must have an IAM policy attached to it that allows Amazon S3 to publish to it.  
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Id": "example-ID",
     "Statement": [
         {
@@ -159,11 +146,8 @@ The SNS topic must have an IAM policy attached to it that allows Amazon S3 to pu
     ]
 }
 ```
++  For API details, see [PutBucketNotificationConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-notification-configuration.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutBucketNotificationConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-notification-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-notification-configuration.html")
-  in _AWS CLI Command Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

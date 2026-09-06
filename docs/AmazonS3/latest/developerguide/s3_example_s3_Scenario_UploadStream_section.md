@@ -1,21 +1,18 @@
+
+
 # Upload a stream of unknown size to an Amazon S3 object using an AWS SDK
+<a name="s3_example_s3_Scenario_UploadStream_section"></a>
 
 The following code examples show how to upload a stream of unknown size to an Amazon S3 object.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Use the [AWS CRT-based S3 Client](../../../sdk-for-java/latest/developer-guide/crt-based-s3-client.md "../../../sdk-for-java/latest/developer-guide/crt-based-s3-client.md").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Use the [AWS CRT-based S3 Client](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/crt-based-s3-client.html).  
 
 ```
-
 import com.example.s3.util.AsyncExampleUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,14 +77,10 @@ public class PutObjectFromStreamAsync {
         return response;
     }
 }
-
+```
+Use the standard [ asynchronous S3 client with multipart upload enabled](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/s3-async-client-multipart.html#s3-async-client-mp-on).  
 
 ```
-
-Use the standard [asynchronous S3 client with multipart upload enabled](../../../sdk-for-java/latest/developer-guide/s3-async-client-multipart.md#s3-async-client-mp-on "../../../sdk-for-java/latest/developer-guide/s3-async-client-multipart.md#s3-async-client-mp-on").
-
-```
-
 import com.example.s3.util.AsyncExampleUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -152,14 +145,10 @@ public class PutObjectFromStreamAsyncMp {
         return response;
     }
 }
-
+```
+Use the [Amazon S3 Transfer Manager](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/transfer-manager.html).  
 
 ```
-
-Use the [Amazon S3 Transfer Manager](../../../sdk-for-java/latest/developer-guide/transfer-manager.md "../../../sdk-for-java/latest/developer-guide/transfer-manager.md").
-
-```
-
 import com.example.s3.util.AsyncExampleUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -224,19 +213,13 @@ public class UploadStream {
         return completedUpload;
     }
 }
-
-
 ```
 
-Swift
+------
+#### [ Swift ]
 
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/binary-streaming#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/binary-streaming#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/binary-streaming#code-examples). 
 
 ```
 import ArgumentParser
@@ -260,13 +243,13 @@ import SmithyStreams
         let fileName: String
 
         // If no key was provided, use the last component of the filename.
-
+        
         if key == nil {
             fileName = fileURL.lastPathComponent
         } else {
             fileName = key!
         }
-
+                
         let s3Client = try await S3Client()
 
         // Create a FileHandle for the source file.
@@ -285,7 +268,7 @@ import SmithyStreams
         // Create a `PutObjectInput` with the ByteStream as the body of the
         // request's data. The AWS SDK for Swift will handle sending the
         // entire file in chunks, regardless of its size.
-
+        
         let putInput = PutObjectInput(
             body: body,
             bucket: bucket,
@@ -300,10 +283,8 @@ import SmithyStreams
 
         print("File uploaded to \(fileURL.path).")
     }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

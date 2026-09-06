@@ -1,16 +1,15 @@
+
+
 # Download a stream of unknown size from an Amazon S3 object using an AWS SDK
+<a name="s3_example_s3_Scenario_DownloadStream_section"></a>
 
 The following code example shows how to download a stream of unknown size from an Amazon S3 object.
 
-Swift
+------
+#### [ Swift ]
 
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/binary-streaming#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/binary-streaming#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/binary-streaming#code-examples). 
 
 ```
 import ArgumentParser
@@ -34,7 +33,7 @@ import SmithyStreams
 
         // If no destination path was provided, use the key as the name to use
         // for the file in the downloads folder.
-
+        
         if destPath == nil {
             do {
                 try fileURL = FileManager.default.url(
@@ -49,7 +48,7 @@ import SmithyStreams
         } else {
             fileURL = URL(fileURLWithPath: destPath!)
         }
-
+                
         let config = try await S3Client.S3ClientConfiguration(region: region)
         let s3Client = S3Client(config: config)
 
@@ -60,7 +59,7 @@ import SmithyStreams
         let fileHandle = try FileHandle(forWritingTo: fileURL)
 
         // Download the file using `GetObject`.
-
+        
         let getInput = GetObjectInput(
             bucket: bucket,
             key: key
@@ -118,10 +117,8 @@ import SmithyStreams
 
         print("File downloaded to \(fileURL.path).")
     }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

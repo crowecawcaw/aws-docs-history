@@ -1,23 +1,19 @@
+
+
 # Use `PutObjectLockConfiguration` with an AWS SDK or CLI
+<a name="s3_example_s3_PutObjectLockConfiguration_section"></a>
 
 The following code examples show how to use `PutObjectLockConfiguration`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Lock Amazon S3 objects](s3_example_s3_Scenario_ObjectLock_section.md) 
 
-- [Lock Amazon S3 objects](s3_example_s3_Scenario_ObjectLock_section.md "s3_example_s3_Scenario_ObjectLock_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples").
-
-Set the object lock configuration of a bucket.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
+Set the object lock configuration of a bucket.  
 
 ```
     /// <summary>
@@ -59,11 +55,8 @@ Set the object lock configuration of a bucket.
             return false;
         }
     }
-
-
 ```
-
-Set the default retention period of a bucket.
+Set the default retention period of a bucket.  
 
 ```
     /// <summary>
@@ -117,49 +110,32 @@ Set the default retention period of a bucket.
             return false;
         }
     }
+```
++  For API details, see [PutObjectLockConfiguration](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObjectLockConfiguration) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To set an object lock configuration on a bucket**  
+The following `put-object-lock-configuration` example sets a 50-day object lock on the specified bucket.  
 
 ```
+aws s3api put-object-lock-configuration \
+    --bucket {{amzn-s3-demo-bucket-with-object-lock}} \
+    --object-lock-configuration '{{{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 50 }}}}}'
+```
+This command produces no output.  
++  For API details, see [PutObjectLockConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-lock-configuration.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutObjectLockConfiguration](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectLockConfiguration.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectLockConfiguration.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To set an object lock configuration on a bucket**
-
-The following `put-object-lock-configuration` example sets a 50-day object lock on the specified bucket.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
+Set the object lock configuration of a bucket.  
 
 ```
-`aws s3api put-object-lock-configuration \
- --bucket `amzn-s3-demo-bucket-with-object-lock` \
- --object-lock-configuration '`{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 50 }}}`'`
-
-```
-
-This command produces no output.
-
-- For API details, see
-  [PutObjectLockConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-lock-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object-lock-configuration.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples").
-
-Set the object lock configuration of a bucket.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -220,15 +196,10 @@ func (actor S3Actions) EnableObjectLockOnBucket(ctx context.Context, bucket stri
 
 	return err
 }
-
-
+```
+Set the default retention period of a bucket.  
 
 ```
-
-Set the default retention period of a bucket.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -279,26 +250,15 @@ func (actor S3Actions) ModifyDefaultBucketRetention(
 
 	return err
 }
-
-
-
 ```
++  For API details, see [PutObjectLockConfiguration](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLockConfiguration) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [PutObjectLockConfiguration](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLockConfiguration "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObjectLockConfiguration")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Set the object lock configuration of a bucket.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Set the object lock configuration of a bucket.  
 
 ```
     // Enable object lock on an existing bucket.
@@ -329,11 +289,8 @@ Set the object lock configuration of a bucket.
             System.out.println("Error modifying object lock: '" + ex.getMessage() + "'");
         }
     }
-
-
 ```
-
-Set the default retention period of a bucket.
+Set the default retention period of a bucket.  
 
 ```
     // Set or modify a retention period on an S3 bucket.
@@ -371,25 +328,15 @@ Set the default retention period of a bucket.
         getClient().putObjectLockConfiguration(putObjectLockConfigurationRequest) ;
         System.out.println("Added a default retention to bucket "+bucketName +".");
     }
-
-
 ```
++  For API details, see [PutObjectLockConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObjectLockConfiguration) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutObjectLockConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectLockConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObjectLockConfiguration.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Set the object lock configuration of a bucket.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Set the object lock configuration of a bucket.  
 
 ```
 import {
@@ -462,14 +409,10 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
+```
+Set the default retention period of a bucket.  
 
 ```
-
-Set the default retention period of a bucket.
-
-```
-
 import {
   PutObjectLockConfigurationCommand,
   S3Client,
@@ -560,48 +503,29 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
-
 ```
++  For API details, see [PutObjectLockConfiguration](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLockConfigurationCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [PutObjectLockConfiguration](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLockConfigurationCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectLockConfigurationCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples").
-
-Put object lock configuration.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/object-locking#code-examples). 
+Put object lock configuration.  
 
 ```
         s3_client.put_object_lock_configuration(
             Bucket=bucket,
             ObjectLockConfiguration={"ObjectLockEnabled": "Disabled", "Rule": {}},
         )
-
-
 ```
++  For API details, see [PutObjectLockConfiguration](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutObjectLockConfiguration) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutObjectLockConfiguration](../../../goto/boto3/s3-2006-03-01/PutObjectLockConfiguration.md "../../../goto/boto3/s3-2006-03-01/PutObjectLockConfiguration.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -615,14 +539,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutObjectLockConfiguration](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutObjectLockConfiguration](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

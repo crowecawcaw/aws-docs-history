@@ -1,33 +1,33 @@
+
+
 # Appendix: SelectObjectContent Response
+<a name="RESTSelectObjectAppendix"></a>
 
 ## Description
+<a name="RESTSelectObjectAppendix-description"></a>
 
-The Amazon S3 Select operation filters the contents of an Amazon S3 object based on a simple structured query
-language (SQL) statement. Given the response size of this operation is unknown, Amazon S3 Select streams the response as a
-series of messages and includes a `Transfer-Encoding` header with `chunked`
-as its value in the response.
+The Amazon S3 Select operation filters the contents of an Amazon S3 object based on a simple structured query language (SQL) statement. Given the response size of this operation is unknown, Amazon S3 Select streams the response as a series of messages and includes a `Transfer-Encoding` header with **chunked** as its value in the response. 
 
-For more information about Amazon S3 Select, see
-[Selecting Content from Objects](../userguide/selecting-content-from-objects.md "../userguide/selecting-content-from-objects.md")
-in the _Amazon Simple Storage Service User Guide_.
+For more information about Amazon S3 Select, see [Selecting Content from Objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html) in the *Amazon Simple Storage Service User Guide*.
 
-For more information about using SQL with Amazon S3 Select, see [SQL Reference for Amazon S3
-Select and Amazon Glacier Select](../userguide/s3-glacier-select-sql-reference.md "../userguide/s3-glacier-select-sql-reference.md") in the _Amazon Simple Storage Service User Guide_.
+For more information about using SQL with Amazon S3 Select, see [ SQL Reference for Amazon S3 Select and Amazon Glacier Select](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference.html) in the *Amazon Simple Storage Service User Guide*.
 
 ## Responses
+<a name="RESTSelectObjectAppendix-responses"></a>
 
 A successful Amazon S3 Select Operation returns `200 OK` status code.
 
 ### Response Headers
+<a name="RESTSelectObjectAppendix-responses-response-headers"></a>
 
-This implementation of the operation uses only response headers that are common to most responses. For more information, see [Common Response Headers](RESTCommonResponseHeaders.md "RESTCommonResponseHeaders.md").
+This implementation of the operation uses only response headers that are common to most responses. For more information, see [Common Response Headers](RESTCommonResponseHeaders.md).
 
 ### Response Body
+<a name="RESTSelectObjectAppendix-responses-response-elements"></a>
 
-Since the Amazon S3 Select response size is unknown, Amazon S3 streams the response as a series of messages and
-includes a `Transfer-Encoding` header with `chunked`
-as its value in the response. The following example shows the response format at the
-top level:
+Since the Amazon S3 Select response size is unknown, Amazon S3 streams the response as a series of messages and includes a `Transfer-Encoding` header with **chunked** as its value in the response. The following example shows the response format at the top level:
+
+
 
 ```
 <Message 1>
@@ -37,189 +37,128 @@ top level:
 <Message n>
 ```
 
-Each message consists of two sections: the prelude and the data. The prelude section consists of
+Each message consists of two sections: the prelude and the data. The prelude section consists of 1) the total byte-length of the message, and 2) the combined byte-length of all the headers. The data section consists of 1) the headers, and 2) a payload.
 
-1.  the total byte-length of the message, and 2) the combined byte-length of all the headers.
-    The data section consists of 1) the headers, and 2) a payload.
+Each section ends with a 4-byte big-endian integer checksum (CRC). Amazon S3 Select uses CRC32 (often referred to as GZIP CRC32) to calculate both CRCs. For more information about CRC32, see [*GZIP file format specification version 4.3*](https://www.ietf.org/rfc/rfc1952.txt).
 
-Each section ends with a 4-byte big-endian integer checksum (CRC). Amazon S3 Select uses CRC32
-(often referred to as GZIP CRC32) to calculate both CRCs. For more information about
-CRC32, see [_GZIP file
-format specification version 4.3_](https://www.ietf.org/rfc/rfc1952.txt "https://www.ietf.org/rfc/rfc1952.txt").
+Total message overhead including the prelude and both checksums is 16 bytes.
 
-Total message overhead including the prelude and
-both checksums is 16 bytes.
+**Note**  
+All `integer` values within messages are in network byte order, or big-endian order.
 
-###### Note
+The following diagram shows the components that make up a message and a header. Note that there are multiple headers per message.
 
-All `integer` values within messages are in network byte order, or big-endian
-order.
+![An example message structure showing total byte-length, header byte-length, prelude crc, header, payload, and message crc.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-frame-overview.png)
 
-The following diagram shows the components that make up a message and a header. Note that there are multiple
-headers per message.
 
-![An example message structure showing total byte-length, header byte-length, prelude crc, header, payload, and message crc.](images/s3select-frame-diagram-frame-overview.png)
+**Note**  
+For Amazon S3 Select, the header value type is always 7 (type=String). For this type, the header value consists of two components, a 2-byte big-endian integer length, and a UTF-8 string that is of that byte-length. The following diagram shows the components that make up Amazon S3 Select headers.
 
-###### Note
+![Headers structure showing header name byte-length, header name string, header value type, value byte-length and value string.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-headers-overview.png)
 
-For Amazon S3 Select, the header value type is always 7 (type=String). For this type, the
-header value consists of two components, a 2-byte big-endian integer length, and
-a UTF-8 string that is of that byte-length. The following diagram shows the
-components that make up Amazon S3 Select headers.
-
-![Headers structure showing header name byte-length, header name string, header value type, value byte-length and value string.](images/s3select-frame-diagram-headers-overview.png)
 
 Payload byte-length calculations (these two calculations are equivalent):
++ payload\_length = total\_length - header\_length - sizeOf(total\_length) - sizeOf(header\_length) - sizeOf(prelude\_crc) - sizeOf(message\_crc)
++ payload\_length = total\_length - header\_length - 16
 
-- payload\_length = total\_length - header\_length - sizeOf(total\_length) - sizeOf(header\_length) -
-  sizeOf(prelude\_crc) - sizeOf(message\_crc)
-- payload\_length = total\_length - header\_length - 16
+
 
 Each message contains the following components:
++ **Prelude**: Always fixed size of 8 bytes (two fields of 4 bytes each):
+  + *First four bytes*: Total byte-length: Big-endian integer byte-length of the entire message (including the 4-byte total length field itself).
+  + *Second four bytes*: Headers byte-length: Big-endian integer byte-length of the headers portion of the message (excluding the headers length field itself).
++ **Prelude CRC**: 4-byte big-endian integer checksum (CRC) for the prelude portion of the message (excluding the CRC itself). The prelude has a separate CRC from the message CRC (see below), to ensure that corrupted byte-length information can be detected immediately, without causing pathological buffering behavior.
++ **Headers**: A set of metadata annotating the message, such as the message type, payload format, and so on. Messages can have multiple headers, so this portion of the message can have different byte-lengths depending on the message type. Headers are key-value pairs, where both the key and value are UTF-8 strings. Headers can appear in any order within the headers portion of the message, and any given header type can only appear once.
 
-- **Prelude**: Always fixed size of 8 bytes (two fields of 4
-  bytes each):
-
-  - _First four bytes_: Total byte-length: Big-endian integer
-    byte-length of the entire message (including the 4-byte total length
-    field itself).
-  - _Second four bytes_: Headers byte-length: Big-endian integer
-    byte-length of the headers portion of the message (excluding the
-    headers length field itself).
-
-- **Prelude CRC**: 4-byte big-endian integer checksum (CRC)
-  for the prelude portion of the message (excluding the CRC itself). The
-  prelude has a separate CRC from the message CRC (see below), to ensure that
-  corrupted byte-length information can be detected immediately, without
-  causing pathological buffering behavior.
-- **Headers**: A set of metadata annotating the message, such as the message
-  type, payload format, and so on. Messages can have multiple headers, so this portion of the message can have
-  different byte-lengths depending on the message type. Headers are key-value pairs, where both the
-  key and value are UTF-8 strings. Headers can appear in any order within the headers portion of the message,
-  and any given header type can only appear once.
-
-For Amazon S3 Select, following is a list of header names and the set of valid values depending
-on the message type.
-
-    + *MessageType Header*:
-
-
-
-
-    	- HeaderName => ":message-type"
-    	- Valid HeaderValues => "error", "event"
-    + *EventType Header*:
-
-
-
-
-    	- HeaderName => ":event-type"
-    	- Valid HeaderValues => "Records", "Cont", "Progress", "Stats", "End"
-    + *ErrorCode Header*:
-
-
-
-
-    	- HeaderName => ":error-code"
-    	- Valid HeaderValues => Error Code from the table in the [List of SELECT Object Content Error Codes](ErrorResponses.md#SelectObjectContentErrorCodeList "ErrorResponses.md#SelectObjectContentErrorCodeList") section.
-    + *ErrorMessage Header*:
-
-
-
-
-    	- HeaderName => ":error-message"
-    	- Valid HeaderValues => Error message returned by the service, to help diagnose
-    	 request-level errors.
-
-- **Payload**: Can be anything.
-- **Message CRC**: 4-byte big-endian integer checksum (CRC)
-  from the start of the message to the start of the checksum (that is,
-  everything in the message excluding the message CRC itself).
+  For Amazon S3 Select, following is a list of header names and the set of valid values depending on the message type.
+  + *MessageType Header*:
+    + HeaderName => ":message-type"
+    + Valid HeaderValues => "error", "event"
+  + *EventType Header*:
+    + HeaderName => ":event-type"
+    + Valid HeaderValues => "Records", "Cont", "Progress", "Stats", "End"
+  + *ErrorCode Header*:
+    + HeaderName => ":error-code"
+    + Valid HeaderValues => Error Code from the table in the [List of SELECT Object Content Error Codes](ErrorResponses.md#SelectObjectContentErrorCodeList) section.
+  + *ErrorMessage Header*:
+    + HeaderName => ":error-message"
+    + Valid HeaderValues => Error message returned by the service, to help diagnose request-level errors.
++ **Payload**: Can be anything.
++ **Message CRC**: 4-byte big-endian integer checksum (CRC) from the start of the message to the start of the checksum (that is, everything in the message excluding the message CRC itself).
 
 Each header contains the following components. There can be multiple headers per message.
-
-- **Header Name Byte-Length**: Byte-length of the header name.
-- **Header Name**: Name of the header, indicating the header
-  type. Valid values: ":message-type" ":event-type" ":error-code"
-  ":error-message"
-- **Header Value Type**: Enum indicating the header value
-  type. For Amazon S3 Select, this is always 7.
-- **Value String Byte-Length**: (For Amazon S3 Select) Byte-length of the header value string.
-- **Header Value String**: (For Amazon S3 Select) Value of the header string. Valid values for this field
-  vary based on the type of the header. See the sections below for valid values for each header type and message type.
++ **Header Name Byte-Length**: Byte-length of the header name.
++ **Header Name**: Name of the header, indicating the header type. Valid values: ":message-type" ":event-type" ":error-code" ":error-message"
++ **Header Value Type**: Enum indicating the header value type. For Amazon S3 Select, this is always 7.
++ **Value String Byte-Length**: (For Amazon S3 Select) Byte-length of the header value string.
++ **Header Value String**: (For Amazon S3 Select) Value of the header string. Valid values for this field vary based on the type of the header. See the sections below for valid values for each header type and message type.
 
 For Amazon S3 Select, responses can be messages of the following types:
-
-- **Records message**: Can contain a single record, partial
-  records, or multiple records. Depending on the size of the result, a
-  response can contain one or more of these messages.
-- **Continuation message**: Amazon S3 periodically sends this
-  message to keep the TCP connection open. These messages appear in responses
-  at random. The client must detect the message type and process
-  accordingly.
-- **Progress message**: Amazon S3 periodically sends this message,
-  if requested. It contains information about the progress of a query that has
-  started but has not yet completed.
-- **Stats message**: Amazon S3 sends this message at the end of the
-  request. It contains statistics about the query.
-- **End message**: Indicates that the request is complete, and
-  no more messages will be sent. You should not assume that the request is
-  complete until the client receives an `End` message.
-- **RequestLevelError message**: Amazon S3 sends this message if
-  the request failed for any reason. It contains the error code and error
-  message for the failure. If Amazon S3 sends a `RequestLevelError`
-  message, it doesn't send an `End` message.
++ **Records message**: Can contain a single record, partial records, or multiple records. Depending on the size of the result, a response can contain one or more of these messages.
++ **Continuation message**: Amazon S3 periodically sends this message to keep the TCP connection open. These messages appear in responses at random. The client must detect the message type and process accordingly.
++ **Progress message**: Amazon S3 periodically sends this message, if requested. It contains information about the progress of a query that has started but has not yet completed.
++ **Stats message**: Amazon S3 sends this message at the end of the request. It contains statistics about the query.
++ **End message**: Indicates that the request is complete, and no more messages will be sent. You should not assume that the request is complete until the client receives an `End` message.
++ **RequestLevelError message**: Amazon S3 sends this message if the request failed for any reason. It contains the error code and error message for the failure. If Amazon S3 sends a `RequestLevelError` message, it doesn't send an `End` message.
 
 The following sections explain the structure of each message type in more detail.
 
-For sample code and unit tests that use this protocol, see [AWS C Event Stream](https://github.com/awslabs/aws-c-event-stream "https://github.com/awslabs/aws-c-event-stream")
-on the GitHub website.
+For sample code and unit tests that use this protocol, see [AWS C Event Stream](https://github.com/awslabs/aws-c-event-stream) on the GitHub website.
 
 #### Records Message
+<a name="s3select-frametype-record"></a>
 
 ##### Header specification
+<a name="s3select-frametype-record-header"></a>
 
 Records messages contain three headers, as follows:
 
-![An example message structure including the headers for this record type.](images/s3select-frame-diagram-record.png)
+![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-record.png)
+
 
 ##### Payload specification
+<a name="s3select-frametype-record-payload"></a>
 
 Records message payloads can contain a single record, partial records, or multiple records.
 
 #### Continuation Message
+<a name="s3select-frametype-cont"></a>
 
 ##### Header specification
+<a name="s3select-frametype-cont-header"></a>
 
 Continuation messages contain two headers, as follows:
 
-![An example message structure including the headers for this record type.](images/s3select-frame-diagram-cont.png)
+![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-cont.png)
+
 
 ##### Payload specification
+<a name="s3select-frametype-cont-payload"></a>
 
 Continuation messages have no payload.
 
 #### Progress Message
+<a name="s3select-frametype-progress"></a>
 
 ##### Header specification
+<a name="s3select-frametype-progress-header"></a>
 
 Progress messages contain three headers, as follows:
 
-![An example message structure including the headers for this record type.](images/s3select-frame-diagram-progress.png)
+![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-progress.png)
+
 
 ##### Payload specification
+<a name="s3select-frametype-progress-payload"></a>
 
 Progress message payload is an XML document containing information about the progress of a request.
++ *BytesScanned* => Number of bytes that have been processed before being uncompressed (if the file is compressed).
++ *BytesProcessed* => Number of bytes that have been processed after being uncompressed (if the file is compressed).
++ *BytesReturned* => Current number of bytes of records payload data returned by Amazon S3.
 
-- _BytesScanned_ => Number of bytes that have been processed before
-  being uncompressed (if the file is compressed).
-- _BytesProcessed_ => Number of bytes that have been processed after
-  being uncompressed (if the file is compressed).
-- _BytesReturned_ => Current number of bytes of records payload data
-  returned by Amazon S3.
+For uncompressed files, `BytesScanned` and `BytesProcessed` are equal.
 
-For uncompressed files, `BytesScanned` and `BytesProcessed` are
-equal.
+
 
 Example:
 
@@ -233,27 +172,27 @@ Example:
 ```
 
 #### Stats Message
+<a name="s3select-frametype-stats"></a>
 
 ##### Header specification
+<a name="s3select-frametype-stats-header"></a>
 
 Stats messages contain three headers, as follows:
 
-![An example message structure including the headers for this record type.](images/s3select-frame-diagram-stats.png)
+![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-stats.png)
+
 
 ##### Payload specification
+<a name="s3select-frametype-stats-payload"></a>
 
-Stats message payload is an XML document containing information about a request's stats
-when processing is complete.
+Stats message payload is an XML document containing information about a request's stats when processing is complete.
++ *BytesScanned* => Number of bytes that have been processed before being uncompressed (if the file is compressed).
++ *BytesProcessed* => Number of bytes that have been processed after being uncompressed (if the file is compressed).
++ *BytesReturned* => Total number of bytes of records payload data returned by Amazon S3.
 
-- _BytesScanned_ => Number of bytes that have been processed before
-  being uncompressed (if the file is compressed).
-- _BytesProcessed_ => Number of bytes that have been processed after
-  being uncompressed (if the file is compressed).
-- _BytesReturned_ => Total number of bytes of records payload data
-  returned by Amazon S3.
+For uncompressed files, `BytesScanned` and `BytesProcessed` are equal.
 
-For uncompressed files, `BytesScanned` and `BytesProcessed` are
-equal.
+
 
 Example:
 
@@ -267,34 +206,42 @@ Example:
 ```
 
 #### End Message
+<a name="s3select-frametype-end"></a>
 
 ##### Header specification
+<a name="s3select-frametype-end-header"></a>
 
 End messages contain two headers, as follows:
 
-![An example message structure including the headers for this record type.](images/s3select-frame-diagram-end.png)
+![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-end.png)
+
 
 ##### Payload specification
+<a name="s3select-frametype-end-payload"></a>
 
 End messages have no payload.
 
 #### Request Level Error Message
+<a name="s3select-frametype-requestlevel-error"></a>
 
 ##### Header specification
+<a name="s3select-frametype-requestlevel-error-header"></a>
 
 Request-level error messages contain three headers, as follows:
 
-![An example message structure including the headers for this record type.](images/s3select-frame-diagram-error.png)
+![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-error.png)
 
-For a list of possible error codes and error messages, see the [List of SELECT Object Content Error Codes](ErrorResponses.md#SelectObjectContentErrorCodeList "ErrorResponses.md#SelectObjectContentErrorCodeList").
+
+For a list of possible error codes and error messages, see the [List of SELECT Object Content Error Codes](ErrorResponses.md#SelectObjectContentErrorCodeList).
 
 ##### Payload specification
+<a name="s3select-frametype-requestlevel-error-payload"></a>
 
 Request-level error messages have no payload.
 
 ## Related Resources
-
-- [SelectObjectContent](../API/API_SelectObjectContent.md "../API/API_SelectObjectContent.md")
-- [GetObject](../API/API_GetObject.md "../API/API_GetObject.md")
-- [GetBucketLifecycleConfiguration](../API/API_GetBucketLifecycleConfiguration.md "../API/API_GetBucketLifecycleConfiguration.md")
-- [PutBucketLifecycleConfiguration](../API/API_PutBucketLifecycleConfiguration.md "../API/API_PutBucketLifecycleConfiguration.md")
+<a name="RESTSelectObjectAppendix-responses-related-resources-post-res"></a>
++  [SelectObjectContent](https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html) 
++  [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) 
++  [GetBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html) 
++  [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html) 

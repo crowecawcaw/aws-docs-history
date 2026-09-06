@@ -1,85 +1,46 @@
+
+
 # Making requests using federated user temporary credentials
+<a name="AuthUsingTempFederationToken"></a>
 
-You can request temporary security credentials and provide them to your federated users or
-applications who need to access your AWS resources. This section provides examples of how
-you can use the AWS SDK to obtain temporary security credentials for your federated users or
-applications and send authenticated requests to Amazon S3 using those credentials. For a list of
-available AWS SDKs, see [Sample Code and Libraries](https://aws.amazon.com/code/ "https://aws.amazon.com/code/").
+You can request temporary security credentials and provide them to your federated users or applications who need to access your AWS resources. This section provides examples of how you can use the AWS SDK to obtain temporary security credentials for your federated users or applications and send authenticated requests to Amazon S3 using those credentials. For a list of available AWS SDKs, see [Sample Code and Libraries](https://aws.amazon.com/code/). 
 
-###### Note
+**Note**  
+Both the AWS account and an IAM user can request temporary security credentials for federated users. However, for added security, only an IAM user with the necessary permissions should request these temporary credentials to ensure that the federated user gets at most the permissions of the requesting IAM user. In some applications, you might find it suitable to create an IAM user with specific permissions for the sole purpose of granting temporary security credentials to your federated users and applications.
 
-Both the AWS account and an IAM user can request temporary security credentials for
-federated users. However, for added security, only an IAM user with the necessary
-permissions should request these temporary credentials to ensure that the federated user
-gets at most the permissions of the requesting IAM user. In some applications, you
-might find it suitable to create an IAM user with specific permissions for the sole
-purpose of granting temporary security credentials to your federated users and
-applications.
+------
+#### [ Java ]
 
-Java
-You can provide temporary security credentials for your federated users and applications so
-that they can send authenticated requests to access your AWS resources. When requesting
-these temporary credentials, you must provide a user name and an IAM policy that
-describes the resource permissions that you want to grant. By default, the session
-duration is one hour. You can explicitly set a different duration value when requesting
-the temporary security credentials for federated users and applications.
+You can provide temporary security credentials for your federated users and applications so that they can send authenticated requests to access your AWS resources. When requesting these temporary credentials, you must provide a user name and an IAM policy that describes the resource permissions that you want to grant. By default, the session duration is one hour. You can explicitly set a different duration value when requesting the temporary security credentials for federated users and applications.
 
-###### Note
+**Note**  
+For added security when requesting temporary security credentials for federated users and applications, we recommend that you use a dedicated IAM user with only the necessary access permissions. The temporary user you create can never get more permissions than the IAM user who requested the temporary security credentials. For more information, see [AWS Identity and Access Management FAQs ](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials).
 
-For added security when requesting temporary security credentials for federated users and
-applications, we recommend that you use a dedicated IAM user with only the
-necessary access permissions. The temporary user you create can never get more
-permissions than the IAM user who requested the temporary security credentials.
-For more information, see [AWS Identity and Access Management FAQs](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials "https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials") .
+To provide security credentials and send authenticated request to access resources, do the following:
++ Create an instance of the `AWSSecurityTokenServiceClient` class.
++ Start a session by calling the `getFederationToken()` method of the Security Token Service (STS) client. Provide session information, including the user name and an IAM policy, that you want to attach to the temporary credentials. You can provide an optional session duration. This method returns your temporary security credentials.
++ Package the temporary security credentials in an instance of the `BasicSessionCredentials` object. You use this object to provide the temporary security credentials to your Amazon S3 client.
++ Create an instance of the `AmazonS3Client` class using the temporary security credentials. You send requests to Amazon S3 using this client. If you send requests using expired credentials, Amazon S3 returns an error. 
 
-To provide security credentials and send authenticated request to access resources, do the
-following:
-
-- Create an instance of the `AWSSecurityTokenServiceClient` class.
-- Start a session by calling the `getFederationToken()` method of the Security
-  Token Service (STS) client. Provide session information, including the user name
-  and an IAM policy, that you want to attach to the temporary credentials. You
-  can provide an optional session duration. This method returns your temporary
-  security credentials.
-- Package the temporary security credentials in an instance of the
-  `BasicSessionCredentials` object. You use this object to provide
-  the temporary security credentials to your Amazon S3 client.
-- Create an instance of the `AmazonS3Client` class using the temporary security
-  credentials. You send requests to Amazon S3 using this client. If you send requests
-  using expired credentials, Amazon S3 returns an error.
-
-###### Example
-
-The example lists keys in the specified S3 bucket. In the example, you obtain temporary
-security credentials for a two-hour session for your federated user and use the
-credentials to send authenticated requests to Amazon S3. To run the example, you need to
-create an IAM user with an attached policy that allows the user to request
-temporary security credentials and list your AWS resources. The following policy
-accomplishes this:
+**Example**  
+The example lists keys in the specified S3 bucket. In the example, you obtain temporary security credentials for a two-hour session for your federated user and use the credentials to send authenticated requests to Amazon S3. To run the example, you need to create an IAM user with an attached policy that allows the user to request temporary security credentials and list your AWS resources. The following policy accomplishes this:  
 
 ```
-{
-  "Statement":[{
-      "Action":["s3:ListBucket",
-        "sts:GetFederationToken*"
-      ],
-      "Effect":"Allow",
-      "Resource":"*"
-    }
-  ]
-}
+ 1. {
+ 2.   "Statement":[{
+ 3.       "Action":["s3:ListBucket",
+ 4.         "sts:GetFederationToken*"
+ 5.       ],
+ 6.       "Effect":"Allow",
+ 7.       "Resource":"*"
+ 8.     }
+ 9.   ]
+10. }
 ```
-
-For more information about how to create an IAM user, see [Creating
-Your First IAM user and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
-_IAM User Guide_.
-
-After creating an IAM user and attaching the preceding policy, you can run the following
-example. For instructions on creating and testing a working sample, see [Getting
-Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer Guide.
+For more information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*.   
+After creating an IAM user and attaching the preceding policy, you can run the following example. For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.  
 
 ```
-
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -158,280 +119,199 @@ public class MakingRequestsWithFederatedTempCredentials {
         }
     }
 }
-
-
 ```
 
-.NET
-You can provide temporary security credentials for your federated users and applications so
-that they can send authenticated requests to access your AWS resources. When requesting
-these temporary credentials, you must provide a user name and an IAM policy that
-describes the resource permissions that you want to grant. By default, the duration of a
-session is one hour. You can explicitly set a different duration value when requesting
-the temporary security credentials for federated users and applications. For information
-about sending authenticated requests, see [Making requests](MakingRequests.md "MakingRequests.md").
+------
+#### [ .NET ]
 
-###### Note
+You can provide temporary security credentials for your federated users and applications so that they can send authenticated requests to access your AWS resources. When requesting these temporary credentials, you must provide a user name and an IAM policy that describes the resource permissions that you want to grant. By default, the duration of a session is one hour. You can explicitly set a different duration value when requesting the temporary security credentials for federated users and applications. For information about sending authenticated requests, see [Making requests](MakingRequests.md).
 
-When requesting temporary security credentials for federated users and applications, for
-added security, use a dedicated IAM user with only the
-necessary access permissions. The temporary user you create can never get more
-permissions than the IAM user who requested the temporary security credentials.
-For more information, see [AWS Identity and Access Management FAQs](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials "https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials") .
+**Note**  
+When requesting temporary security credentials for federated users and applications, for added security, use a dedicated IAM user with only the necessary access permissions. The temporary user you create can never get more permissions than the IAM user who requested the temporary security credentials. For more information, see [AWS Identity and Access Management FAQs ](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials).
 
 You do the following:
++ Create an instance of the AWS Security Token Service client, `AmazonSecurityTokenServiceClient` class.
++ Start a session by calling the `GetFederationToken` method of the STS client. You need to provide session information, including the user name and an IAM policy that you want to attach to the temporary credentials. Optionally, you can provide a session duration. This method returns your temporary security credentials.
++ Package the temporary security credentials in an instance of the `SessionAWSCredentials` object. You use this object to provide the temporary security credentials to your Amazon S3 client.
++ Create an instance of the `AmazonS3Client` class by passing the temporary security credentials. You use this client to send requests to Amazon S3. If you send requests using expired credentials, Amazon S3 returns an error. 
 
-- Create an instance of the AWS Security Token Service client,
-  `AmazonSecurityTokenServiceClient` class.
-- Start a session by calling the `GetFederationToken` method of the STS client.
-  You need to provide session information, including the user name and an IAM
-  policy that you want to attach to the temporary credentials. Optionally, you can
-  provide a session duration. This method returns your temporary security
-  credentials.
-- Package the temporary security credentials in an instance of the
-  `SessionAWSCredentials` object. You use this object to provide
-  the temporary security credentials to your Amazon S3 client.
-- Create an instance of the `AmazonS3Client` class by passing the temporary
-  security credentials. You use this client to send requests to Amazon S3. If you send
-  requests using expired credentials, Amazon S3 returns an error.
+**Example**  
+The following C\# example lists the keys in the specified bucket. In the example, you obtain temporary security credentials for a two-hour session for your federated user (User1), and use the credentials to send authenticated requests to Amazon S3.   
++ For this exercise, you create an IAM user with minimal permissions. Using the credentials of this IAM user, you request temporary credentials for others. This example lists only the objects in a specific bucket. Create an IAM user with the following policy attached: 
 
-###### Example
+  ```
+   1. {
+   2.   "Statement":[{
+   3.       "Action":["s3:ListBucket",
+   4.         "sts:GetFederationToken*"
+   5.       ],
+   6.       "Effect":"Allow",
+   7.       "Resource":"*"
+   8.     }
+   9.   ]
+  10. }
+  ```
 
-The following C# example lists the keys in the specified bucket. In the example, you obtain
-temporary security credentials for a two-hour session for your federated user
-(User1), and use the credentials to send authenticated requests to Amazon S3.
+  The policy allows the IAM user to request temporary security credentials and access permission only to list your AWS resources. For more information about how to create an IAM user, see [Creating Your IAM user User and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*. 
++ Use the IAM user security credentials to test the following example. The example sends authenticated request to Amazon S3 using temporary security credentials. The example specifies the following policy when requesting temporary security credentials for the federated user (User1), which restricts access to listing objects in a specific bucket (`YourBucketName`). You must update the policy and provide your own existing bucket name.
 
-- For this exercise, you create an IAM user with minimal permissions. Using the
-  credentials of this IAM user, you request temporary credentials for
-  others. This example lists only the objects in a specific bucket. Create an
-  IAM user with the following policy attached:
+  ```
+   1. {
+   2.   "Statement":[
+   3.     {
+   4.       "Sid":"1",
+   5.       "Action":["s3:ListBucket"],
+   6.       "Effect":"Allow", 
+   7.       "Resource":"arn:aws:s3:::YourBucketName"
+   8.     }
+   9.   ]
+  10. }
+  ```
++   
+**Example**  
 
-```
-{
-  "Statement":[{
-      "Action":["s3:ListBucket",
-        "sts:GetFederationToken*"
-      ],
-      "Effect":"Allow",
-      "Resource":"*"
-    }
-  ]
-}
-```
+  Update the following sample and provide the bucket name that you specified in the preceding federated user access policy. For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
-The policy allows the IAM user to request temporary security credentials
-and access permission only to list your AWS resources. For more information
-about how to create an IAM user, see [Creating
-Your IAM user User and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
-_IAM User Guide_.
-
-- Use the IAM user security credentials to test the following example. The example sends
-  authenticated request to Amazon S3 using temporary security credentials. The
-  example specifies the following policy when requesting temporary security
-  credentials for the federated user (User1), which restricts access to
-  listing objects in a specific bucket (`YourBucketName`). You must
-  update the policy and provide your own existing bucket name.
-
-```
-{
-  "Statement":[
-    {
-      "Sid":"1",
-      "Action":["s3:ListBucket"],
-      "Effect":"Allow",
-      "Resource":"arn:aws:s3:::YourBucketName"
-    }
-  ]
-}
-```
-
-- ###### Example
-
-Update the following sample and provide the bucket name that you specified in the
-preceding federated user access policy. For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
-
-```
-using Amazon;
-using Amazon.Runtime;
-using Amazon.S3;
-using Amazon.S3.Model;
-using Amazon.SecurityToken;
-using Amazon.SecurityToken.Model;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Amazon.DocSamples.S3
-{
-    class TempFederatedCredentialsTest
-    {
-        private const string bucketName = "*** bucket name ***";
-        // Specify your bucket region (an example region is shown).
-        private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USWest2;
-        private static IAmazonS3 client;
-
-        public static void Main()
-        {
-            ListObjectsAsync().Wait();
-        }
-
-        private static async Task ListObjectsAsync()
-        {
-            try
-            {
-                Console.WriteLine("Listing objects stored in a bucket");
-                // Credentials use the default AWS SDK for .NET credential search chain.
-                // On local development machines, this is your default profile.
-                SessionAWSCredentials tempCredentials =
-                    await GetTemporaryFederatedCredentialsAsync();
-
-                // Create a client by providing temporary security credentials.
-                using (client = new AmazonS3Client(bucketRegion))
-                {
-                    ListObjectsRequest listObjectRequest = new ListObjectsRequest();
-                    listObjectRequest.BucketName = bucketName;
-
-                    ListObjectsResponse response = await client.ListObjectsAsync(listObjectRequest);
-                    List<S3Object> objects = response.S3Objects;
-                    Console.WriteLine("Object count = {0}", objects.Count);
-
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
-                }
-            }
-            catch (AmazonS3Exception e)
-            {
-                Console.WriteLine("Error encountered ***. Message:'{0}' when writing an object", e.Message);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Unknown encountered on server. Message:'{0}' when writing an object", e.Message);
-            }
-        }
-
-        private static async Task<SessionAWSCredentials> GetTemporaryFederatedCredentialsAsync()
-        {
-            AmazonSecurityTokenServiceConfig config = new AmazonSecurityTokenServiceConfig();
-            AmazonSecurityTokenServiceClient stsClient =
-                new AmazonSecurityTokenServiceClient(
-                                             config);
-
-            GetFederationTokenRequest federationTokenRequest =
-                                     new GetFederationTokenRequest();
-            federationTokenRequest.DurationSeconds = 7200;
-            federationTokenRequest.Name = "User1";
-            federationTokenRequest.Policy = @"{
-               ""Statement"":
-               [
-                 {
-                   ""Sid"":""Stmt1311212314284"",
-                   ""Action"":[""s3:ListBucket""],
-                   ""Effect"":""Allow"",
-                   ""Resource"":""arn:aws:s3:::" + bucketName + @"""
+  ```
+  using Amazon;
+  using Amazon.Runtime;
+  using Amazon.S3;
+  using Amazon.S3.Model;
+  using Amazon.SecurityToken;
+  using Amazon.SecurityToken.Model;
+  using System;
+  using System.Collections.Generic;
+  using System.Threading.Tasks;
+  
+  namespace Amazon.DocSamples.S3
+  {
+      class TempFederatedCredentialsTest
+      {
+          private const string bucketName = "*** bucket name ***";
+          // Specify your bucket region (an example region is shown).
+          private static readonly RegionEndpoint bucketRegion = RegionEndpoint.USWest2;
+          private static IAmazonS3 client;
+  
+          public static void Main()
+          {
+              ListObjectsAsync().Wait();
+          }
+  
+          private static async Task ListObjectsAsync()
+          {
+              try
+              {
+                  Console.WriteLine("Listing objects stored in a bucket");
+                  // Credentials use the default AWS SDK for .NET credential search chain. 
+                  // On local development machines, this is your default profile.
+                  SessionAWSCredentials tempCredentials =
+                      await GetTemporaryFederatedCredentialsAsync();
+  
+                  // Create a client by providing temporary security credentials.
+                  using (client = new AmazonS3Client(bucketRegion))
+                  {
+                      ListObjectsRequest listObjectRequest = new ListObjectsRequest();
+                      listObjectRequest.BucketName = bucketName;
+  
+                      ListObjectsResponse response = await client.ListObjectsAsync(listObjectRequest);
+                      List<S3Object> objects = response.S3Objects;
+                      Console.WriteLine("Object count = {0}", objects.Count);
+  
+                      Console.WriteLine("Press any key to continue...");
+                      Console.ReadKey();
                   }
-               ]
-             }
-            ";
+              }
+              catch (AmazonS3Exception e)
+              {
+                  Console.WriteLine("Error encountered ***. Message:'{0}' when writing an object", e.Message);
+              }
+              catch (Exception e)
+              {
+                  Console.WriteLine("Unknown encountered on server. Message:'{0}' when writing an object", e.Message);
+              }
+          }
+  
+          private static async Task<SessionAWSCredentials> GetTemporaryFederatedCredentialsAsync()
+          {
+              AmazonSecurityTokenServiceConfig config = new AmazonSecurityTokenServiceConfig();
+              AmazonSecurityTokenServiceClient stsClient =
+                  new AmazonSecurityTokenServiceClient(
+                                               config);
+  
+              GetFederationTokenRequest federationTokenRequest =
+                                       new GetFederationTokenRequest();
+              federationTokenRequest.DurationSeconds = 7200;
+              federationTokenRequest.Name = "User1";
+              federationTokenRequest.Policy = @"{
+                 ""Statement"":
+                 [
+                   {
+                     ""Sid"":""Stmt1311212314284"",
+                     ""Action"":[""s3:ListBucket""],
+                     ""Effect"":""Allow"",
+                     ""Resource"":""arn:aws:s3:::" + bucketName + @"""
+                    }
+                 ]
+               }
+              ";
+  
+              GetFederationTokenResponse federationTokenResponse =
+                          await stsClient.GetFederationTokenAsync(federationTokenRequest);
+              Credentials credentials = federationTokenResponse.Credentials;
+  
+              SessionAWSCredentials sessionCredentials =
+                  new SessionAWSCredentials(credentials.AccessKeyId,
+                                            credentials.SecretAccessKey,
+                                            credentials.SessionToken);
+              return sessionCredentials;
+          }
+      }
+  }
+  ```
 
-            GetFederationTokenResponse federationTokenResponse =
-                        await stsClient.GetFederationTokenAsync(federationTokenRequest);
-            Credentials credentials = federationTokenResponse.Credentials;
+------
+#### [ PHP ]
 
-            SessionAWSCredentials sessionCredentials =
-                new SessionAWSCredentials(credentials.AccessKeyId,
-                                          credentials.SecretAccessKey,
-                                          credentials.SessionToken);
-            return sessionCredentials;
-        }
-    }
-}
+This topic explains how to use classes from version 3 of the AWS SDK for PHP to request temporary security credentials for federated users and applications and use them to access resources stored in Amazon S3. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).
 
-```
+You can provide temporary security credentials to your federated users and applications so they can send authenticated requests to access your AWS resources. When requesting these temporary credentials, you must provide a user name and an IAM policy that describes the resource permissions that you want to grant. These credentials expire when the session duration expires. By default, the session duration is one hour. You can explicitly set a different value for the duration when requesting the temporary security credentials for federated users and applications. For more information about temporary security credentials, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) in the *IAM User Guide*. For information about providing temporary security credentials to your federated users and applications, see [Making requests](MakingRequests.md).
 
-PHP
-This topic explains how to use classes from version 3 of the AWS SDK for PHP to request
-temporary security credentials for federated users and applications and use them to
-access resources stored in Amazon S3. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
+For added security when requesting temporary security credentials for federated users and applications, we recommend using a dedicated IAM user with only the necessary access permissions. The temporary user you create can never get more permissions than the IAM user who requested the temporary security credentials. For information about identity federation, see [AWS Identity and Access Management FAQs](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials).
 
-You can provide temporary security credentials to your federated users and
-applications so they can send authenticated requests to access your AWS resources. When
-requesting these temporary credentials, you must provide a user name and an IAM policy
-that describes the resource permissions that you want to grant. These credentials expire
-when the session duration expires. By default, the session duration is one hour. You can
-explicitly set a different value for the duration when requesting the temporary security
-credentials for federated users and applications. For more information about temporary
-security credentials, see [Temporary
-Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _IAM User Guide_. For
-information about providing temporary security credentials to your federated users and
-applications, see [Making requests](MakingRequests.md "MakingRequests.md").
+For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).
 
-For added security when requesting temporary security credentials for federated users
-and applications, we recommend using a dedicated IAM user with only the necessary
-access permissions. The temporary user you create can never get more permissions than
-the IAM user who requested the temporary security credentials. For information about
-identity federation, see [AWS Identity and Access Management FAQs](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials "https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials").
-
-For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
-
-###### Example
-
-The following PHP example lists keys in the specified bucket. In the example, you
-obtain temporary security credentials for an hour session for your federated user
-(User1). Then you use the temporary security credentials to send authenticated
-requests to Amazon S3.
-
-For added security when requesting temporary credentials for others, you use the
-security credentials of an IAM user who has permissions to request temporary
-security credentials. To ensure that the IAM user grants only the minimum
-application-specific permissions to the federated user, you can also limit the
-access permissions of this IAM user. This example lists only objects in a specific
-bucket. Create an IAM user with the following policy attached:
-
-```
-{
-  "Statement":[{
-      "Action":["s3:ListBucket",
-        "sts:GetFederationToken*"
-      ],
-      "Effect":"Allow",
-      "Resource":"*"
-    }
-  ]
-}
-```
-
-The policy allows the IAM user to request temporary security credentials and
-access permission only to list your AWS resources. For more information about how to
-create an IAM user, see [Creating Your First
-IAM user and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
-_IAM User Guide_.
-
-You can now use the IAM user security credentials to test the following example.
-The example sends an authenticated request to Amazon S3 using temporary security
-credentials. When requesting temporary security credentials for the federated user
-(User1), the example specifies the following policy, which restricts access to list
-objects in a specific bucket. Update the policy with your bucket name.
+**Example**  
+The following PHP example lists keys in the specified bucket. In the example, you obtain temporary security credentials for an hour session for your federated user (User1). Then you use the temporary security credentials to send authenticated requests to Amazon S3.   
+For added security when requesting temporary credentials for others, you use the security credentials of an IAM user who has permissions to request temporary security credentials. To ensure that the IAM user grants only the minimum application-specific permissions to the federated user, you can also limit the access permissions of this IAM user. This example lists only objects in a specific bucket. Create an IAM user with the following policy attached:   
 
 ```
-{
-  "Statement":[
-    {
-      "Sid":"1",
-      "Action":["s3:ListBucket"],
-      "Effect":"Allow",
-      "Resource":"arn:aws:s3:::`YourBucketName`"
-    }
-  ]
-}
+ 1. {
+ 2.   "Statement":[{
+ 3.       "Action":["s3:ListBucket",
+ 4.         "sts:GetFederationToken*"
+ 5.       ],
+ 6.       "Effect":"Allow",
+ 7.       "Resource":"*"
+ 8.     }
+ 9.   ]
+10. }
 ```
+The policy allows the IAM user to request temporary security credentials and access permission only to list your AWS resources. For more information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*.   
+You can now use the IAM user security credentials to test the following example. The example sends an authenticated request to Amazon S3 using temporary security credentials. When requesting temporary security credentials for the federated user (User1), the example specifies the following policy, which restricts access to list objects in a specific bucket. Update the policy with your bucket name.  
 
-In the following example, when specifying the policy resource, replace
-`YourBucketName` with the name of your bucket.:
+```
+ 1. {
+ 2.   "Statement":[
+ 3.     {
+ 4.       "Sid":"1",
+ 5.       "Action":["s3:ListBucket"],
+ 6.       "Effect":"Allow", 
+ 7.       "Resource":"arn:aws:s3:::{{YourBucketName}}"
+ 8.     }
+ 9.   ]
+10. }
+```
+In the following example, when specifying the policy resource, replace `YourBucketName` with the name of your bucket.:  
 
 ```
  require 'vendor/autoload.php';
@@ -483,31 +363,18 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-
-
 ```
 
-Ruby
-You can provide temporary security credentials for your federated users and applications so
-that they can send authenticated requests to access your AWS resources. When requesting
-temporary credentials from the IAM service, you must provide a user name and an IAM policy
-that describes the resource permissions that you want to grant. By default, the session duration
-is one hour. However, if you are requesting temporary credentials using IAM user credentials,
-you can explicitly set a different duration value when requesting the temporary security
-credentials for federated users and applications. For information about temporary security
-credentials for your federated users and applications, see [Making requests](MakingRequests.md "MakingRequests.md").
+------
+#### [ Ruby ]
 
-###### Note
+You can provide temporary security credentials for your federated users and applications so that they can send authenticated requests to access your AWS resources. When requesting temporary credentials from the IAM service, you must provide a user name and an IAM policy that describes the resource permissions that you want to grant. By default, the session duration is one hour. However, if you are requesting temporary credentials using IAM user credentials, you can explicitly set a different duration value when requesting the temporary security credentials for federated users and applications. For information about temporary security credentials for your federated users and applications, see [Making requests](MakingRequests.md).
 
-For added security when you request temporary security credentials for federated users and
-applications, you might want to use a dedicated IAM user with only the necessary access
-permissions. The temporary user you create can never get more permissions than the IAM user
-who requested the temporary security credentials. For more information, see [AWS Identity and Access Management FAQs](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials "https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials") .
+**Note**  
+For added security when you request temporary security credentials for federated users and applications, you might want to use a dedicated IAM user with only the necessary access permissions. The temporary user you create can never get more permissions than the IAM user who requested the temporary security credentials. For more information, see [AWS Identity and Access Management FAQs ](https://aws.amazon.com/iam/faqs/#What_are_the_best_practices_for_using_temporary_security_credentials).
 
-###### Example
-
-The following Ruby code example allows a federated user with a limited set of permissions
-to lists keys in the specified bucket.
+**Example**  
+The following Ruby code example allows a federated user with a limited set of permissions to lists keys in the specified bucket.   
 
 ```
 # Prerequisites:
@@ -639,5 +506,6 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
 ```
+
+------

@@ -1,16 +1,15 @@
+
+
 # Manage access control lists (ACLs) for Amazon S3 buckets using an AWS SDK
+<a name="s3_example_s3_Scenario_ManageACLs_section"></a>
 
 The following code example shows how to manage access control lists (ACLs) for Amazon S3 buckets.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/ManageACLsExample#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/ManageACLsExample#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/ManageACLsExample#code-examples). 
 
 ```
     using System;
@@ -196,18 +195,13 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         }
 
     }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [GetBucketAcl](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetBucketAcl)
+  + [GetObjectAcl](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObjectAcl)
+  + [PutBucketAcl](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutBucketAcl)
+  + [PutObjectAcl](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObjectAcl)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
 
-  - [GetBucketAcl](../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketAcl.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketAcl.md")
-  - [GetObjectAcl](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectAcl.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectAcl.md")
-  - [PutBucketAcl](../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketAcl.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketAcl.md")
-  - [PutObjectAcl](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectAcl.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObjectAcl.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

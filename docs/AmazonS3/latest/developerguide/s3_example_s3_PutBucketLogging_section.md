@@ -1,16 +1,15 @@
+
+
 # Use `PutBucketLogging` with an AWS SDK or CLI
+<a name="s3_example_s3_PutBucketLogging_section"></a>
 
 The following code examples show how to use `PutBucketLogging`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
     using System;
@@ -163,35 +162,26 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
                 .Build();
         }
     }
+```
++  For API details, see [PutBucketLogging](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutBucketLogging) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**Example 1: To set bucket policy logging**  
+The following `put-bucket-logging` example sets the logging policy for *amzn-s3-demo-bucket*. First, grant the logging service principal permission in your bucket policy using the `put-bucket-policy` command.  
 
 ```
-
-- For API details, see
-  [PutBucketLogging](../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketLogging.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketLogging.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To set bucket policy logging**
-
-The following `put-bucket-logging` example sets the logging policy for _amzn-s3-demo-bucket_. First, grant the logging service principal permission in your bucket policy using the `put-bucket-policy` command.
-
+aws s3api put-bucket-policy \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --policy {{file://policy.json}}
 ```
-`aws s3api put-bucket-policy \
- --bucket `amzn-s3-demo-bucket` \
- --policy `file://policy.json``
-
-```
-
-Contents of `policy.json`:
+Contents of `policy.json`:  
 
 ```
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "S3ServerAccessLogsPolicy",
@@ -207,17 +197,14 @@ Contents of `policy.json`:
     ]
 }
 ```
-
-To apply the logging policy, use `put-bucket-logging`.
-
-```
-`aws s3api put-bucket-logging \
- --bucket `amzn-s3-demo-bucket` \
- --bucket-logging-status `file://logging.json``
+To apply the logging policy, use `put-bucket-logging`.  
 
 ```
-
-Contents of `logging.json`:
+aws s3api put-bucket-logging \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --bucket-logging-status {{file://logging.json}}
+```
+Contents of `logging.json`:  
 
 ```
 {
@@ -227,34 +214,25 @@ Contents of `logging.json`:
      }
  }
 ```
-
-The `put-bucket-policy` command is required to grant `s3:PutObject` permissions to the logging service principal.
-
-For more information, see [Amazon S3 Server Access Logging](../userguide/ServerLogs.md "../userguide/ServerLogs.md") in the _Amazon S3 User Guide_.
-
-**Example 2: To set a bucket policy for logging access to only a single user**
-
-The following `put-bucket-logging` example sets the logging policy for _amzn-s3-demo-bucket_. The AWS user *bob@example.com* will have full control over
-the log files, and no one else has any access. First, grant S3 permission with `put-bucket-acl`.
+The `put-bucket-policy` command is required to grant `s3:PutObject` permissions to the logging service principal.  
+For more information, see [Amazon S3 Server Access Logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html) in the *Amazon S3 User Guide*.  
+**Example 2: To set a bucket policy for logging access to only a single user**  
+The following `put-bucket-logging` example sets the logging policy for *amzn-s3-demo-bucket*. The AWS user *bob@example.com* will have full control over the log files, and no one else has any access. First, grant S3 permission with `put-bucket-acl`.  
 
 ```
-`aws s3api put-bucket-acl \
- --bucket `amzn-s3-demo-bucket` \
- --grant-write `URI=http://acs.amazonaws.com/groups/s3/LogDelivery` \
- --grant-read-acp `URI=http://acs.amazonaws.com/groups/s3/LogDelivery``
+aws s3api put-bucket-acl \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --grant-write {{URI=http://acs.amazonaws.com/groups/s3/LogDelivery}} \
+    --grant-read-acp {{URI=http://acs.amazonaws.com/groups/s3/LogDelivery}}
+```
+Then apply the logging policy using `put-bucket-logging`.  
 
 ```
-
-Then apply the logging policy using `put-bucket-logging`.
-
+aws s3api put-bucket-logging \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --bucket-logging-status {{file://logging.json}}
 ```
-`aws s3api put-bucket-logging \
- --bucket `amzn-s3-demo-bucket` \
- --bucket-logging-status `file://logging.json``
-
-```
-
-Contents of `logging.json`:
+Contents of `logging.json`:  
 
 ```
 {
@@ -273,15 +251,10 @@ Contents of `logging.json`:
     }
 }
 ```
+the `put-bucket-acl` command is required to grant S3's log delivery system the necessary permissions (write and read-acp permissions).  
+For more information, see [Amazon S3 Server Access Logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html) in the *Amazon S3 Developer Guide*.  
++  For API details, see [PutBucketLogging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-logging.html) in *AWS CLI Command Reference*. 
 
-the `put-bucket-acl` command is required to grant S3's log delivery system the necessary permissions (write and read-acp permissions).
+------
 
-For more information, see [Amazon S3 Server Access Logging](../userguide/ServerLogs.md "../userguide/ServerLogs.md") in the _Amazon S3 Developer Guide_.
-
-- For API details, see
-  [PutBucketLogging](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-logging.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-logging.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

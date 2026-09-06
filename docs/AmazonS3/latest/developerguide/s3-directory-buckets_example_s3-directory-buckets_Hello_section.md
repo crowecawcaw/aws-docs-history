@@ -1,19 +1,17 @@
+
+
 # Hello Amazon S3 directory buckets
+<a name="s3-directory-buckets_example_s3-directory-buckets_Hello_section"></a>
 
 The following code example shows how to get started using Amazon S3 directory buckets.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/directorybucket#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/directorybucket#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/directorybucket#code-examples). 
 
 ```
-
 package com.example.s3.directorybucket;
 
 
@@ -184,15 +182,11 @@ public class HelloS3DirectoryBuckets {
     }
 
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateBucket](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CreateBucket)
+  + [ListDirectoryBuckets](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListDirectoryBuckets)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [CreateBucket](../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md")
-  - [ListDirectoryBuckets](../../../goto/SdkForJavaV2/s3-2006-03-01/ListDirectoryBuckets.md "../../../goto/SdkForJavaV2/s3-2006-03-01/ListDirectoryBuckets.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

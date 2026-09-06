@@ -1,19 +1,20 @@
+
+
 # Use `PutBucketNotification` with a CLI
+<a name="s3_example_s3_PutBucketNotification_section"></a>
 
 The following code examples show how to use `PutBucketNotification`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-The applies a notification configuration to a bucket named `amzn-s3-demo-bucket`:
-
-```
-`aws s3api put-bucket-notification --bucket `amzn-s3-demo-bucket` --notification-configuration `file://notification.json``
+**AWS CLI**  
+The applies a notification configuration to a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-The file `notification.json` is a JSON document in the current folder that specifies an SNS topic and an event type to monitor:
+aws s3api put-bucket-notification --bucket {{amzn-s3-demo-bucket}} --notification-configuration {{file://notification.json}}
+```
+The file `notification.json` is a JSON document in the current folder that specifies an SNS topic and an event type to monitor:  
 
 ```
 {
@@ -23,12 +24,11 @@ The file `notification.json` is a JSON document in the current folder that speci
   }
 }
 ```
-
-The SNS topic must have an IAM policy attached to it that allows Amazon S3 to publish to it:
+The SNS topic must have an IAM policy attached to it that allows Amazon S3 to publish to it:  
 
 ```
 {
- "Version":"2012-10-17",
+ "Version":"2012-10-17",		 	 	 
  "Id": "example-ID",
  "Statement": [
   {
@@ -50,16 +50,13 @@ The SNS topic must have an IAM policy attached to it that allows Amazon S3 to pu
  ]
 }
 ```
++  For API details, see [PutBucketNotification](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-notification.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutBucketNotification](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-notification.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-notification.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example configures the SNS topic configuration for the S3 event ObjectRemovedDelete and enables notification for the given s3 bucket**
+**Tools for PowerShell V4**  
+**Example 1: This example configures the SNS topic configuration for the S3 event ObjectRemovedDelete and enables notification for the given s3 bucket**  
 
 ```
 $topic =  [Amazon.S3.Model.TopicConfiguration] @{
@@ -69,10 +66,8 @@ $topic =  [Amazon.S3.Model.TopicConfiguration] @{
 }
 
 Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -TopicConfiguration $topic
-
 ```
-
-**Example 2: This example enables notifications of ObjectCreatedAll for the given bucket sending it to Lambda function.**
+**Example 2: This example enables notifications of ObjectCreatedAll for the given bucket sending it to Lambda function.**  
 
 ```
 $lambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
@@ -90,10 +85,8 @@ $lambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
 }
 
 Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -LambdaFunctionConfiguration $lambdaConfig
-
 ```
-
-**Example 3: This example creates 2 different Lambda configuration on the basis of different key-suffix and configured both in a single command.**
+**Example 3: This example creates 2 different Lambda configuration on the basis of different key-suffix and configured both in a single command. **  
 
 ```
 #Lambda Config 1
@@ -129,16 +122,11 @@ $secondlambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
 }
 
 Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -LambdaFunctionConfiguration $firstLambdaConfig,$secondlambdaConfig
-
 ```
++  For API details, see [PutBucketNotification](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutBucketNotification](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example configures the SNS topic configuration for the S3 event ObjectRemovedDelete and enables notification for the given s3 bucket**
+**Tools for PowerShell V5**  
+**Example 1: This example configures the SNS topic configuration for the S3 event ObjectRemovedDelete and enables notification for the given s3 bucket**  
 
 ```
 $topic =  [Amazon.S3.Model.TopicConfiguration] @{
@@ -148,10 +136,8 @@ $topic =  [Amazon.S3.Model.TopicConfiguration] @{
 }
 
 Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -TopicConfiguration $topic
-
 ```
-
-**Example 2: This example enables notifications of ObjectCreatedAll for the given bucket sending it to Lambda function.**
+**Example 2: This example enables notifications of ObjectCreatedAll for the given bucket sending it to Lambda function.**  
 
 ```
 $lambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
@@ -169,10 +155,8 @@ $lambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
 }
 
 Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -LambdaFunctionConfiguration $lambdaConfig
-
 ```
-
-**Example 3: This example creates 2 different Lambda configuration on the basis of different key-suffix and configured both in a single command.**
+**Example 3: This example creates 2 different Lambda configuration on the basis of different key-suffix and configured both in a single command. **  
 
 ```
 #Lambda Config 1
@@ -208,13 +192,9 @@ $secondlambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
 }
 
 Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -LambdaFunctionConfiguration $firstLambdaConfig,$secondlambdaConfig
-
 ```
++  For API details, see [PutBucketNotification](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutBucketNotification](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

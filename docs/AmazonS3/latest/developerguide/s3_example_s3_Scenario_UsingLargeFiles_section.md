@@ -1,20 +1,18 @@
+
+
 # Upload or download large files to and from Amazon S3 using an AWS SDK
+<a name="s3_example_s3_Scenario_UsingLargeFiles_section"></a>
 
 The following code examples show how to upload or download large files to and from Amazon S3.
 
-For more information, see [Uploading an object using multipart upload](../userguide/mpu-upload-object.md "../userguide/mpu-upload-object.md").
+For more information, see [Uploading an object using multipart upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpu-upload-object.html).
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/#code-examples").
-
-Call functions that transfer files to and from an S3 bucket using the Amazon S3 TransferUtility.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/#code-examples). 
+Call functions that transfer files to and from an S3 bucket using the Amazon S3 TransferUtility.  
 
 ```
 global using System.Text;
@@ -208,15 +206,10 @@ static async Task DisplayBucketFiles(IAmazonS3 client, string bucketName, string
         request.ContinuationToken = response.NextContinuationToken;
     } while (response.IsTruncated);
 }
-
-
+```
+Upload a single file.  
 
 ```
-
-Upload a single file.
-
-```
-
         /// <summary>
         /// Uploads a single file from the local computer to an S3 bucket.
         /// </summary>
@@ -259,14 +252,10 @@ Upload a single file.
                 return false;
             }
         }
-
+```
+Upload an entire local directory.  
 
 ```
-
-Upload an entire local directory.
-
-```
-
         /// <summary>
         /// Uploads all the files in a local directory to a directory in an S3
         /// bucket.
@@ -312,15 +301,10 @@ Upload an entire local directory.
                 return false;
             }
         }
-
-
+```
+Download a single file.  
 
 ```
-
-Download a single file.
-
-```
-
         /// <summary>
         /// Download a single file from an S3 bucket to the local computer.
         /// </summary>
@@ -347,15 +331,10 @@ Download a single file.
 
             return (File.Exists($"{localPath}\\{keyName}"));
         }
-
-
+```
+Download contents of an S3 bucket.  
 
 ```
-
-Download contents of an S3 bucket.
-
-```
-
         /// <summary>
         /// Downloads the contents of a directory in an S3 bucket to a
         /// directory on the local computer.
@@ -406,12 +385,8 @@ Download contents of an S3 bucket.
             // were downloaded.
             return false;
         }
-
-
-
 ```
-
-Track the progress of an upload using the TransferUtility.
+Track the progress of an upload using the TransferUtility.  
 
 ```
     using System;
@@ -499,12 +474,8 @@ Track the progress of an upload using the TransferUtility.
             Console.WriteLine($"{e.TransferredBytes}/{e.TotalBytes}");
         }
     }
-
-
-
 ```
-
-Upload an object with encryption.
+Upload an object with encryption.  
 
 ```
     using System;
@@ -643,25 +614,16 @@ Upload an object with encryption.
             }
         }
     }
-
-
-
 ```
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
-
-Create functions that use upload and download managers to break the data into parts and transfer them concurrently.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
+Create functions that use upload and download managers to break the data into parts and transfer them concurrently.  
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -743,15 +705,10 @@ func (basics BucketBasics) DownloadLargeObject(ctx context.Context, bucketName s
 	}
 	return buffer.Bytes(), err
 }
-
-
+```
+Run an interactive scenario that shows you how to use the upload and download managers in context.  
 
 ```
-
-Run an interactive scenario that shows you how to use the upload and download managers in context.
-
-```
-
 import (
 	"context"
 	"crypto/rand"
@@ -856,22 +813,14 @@ func RunLargeObjectScenario(ctx context.Context, sdkConfig aws.Config, questione
 	log.Println("Thanks for watching!")
 	log.Println(strings.Repeat("-", 88))
 }
-
-
-
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Call functions that transfer files to and from an S3 bucket using the S3TransferManager.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Call functions that transfer files to and from an S3 bucket using the S3TransferManager.  
 
 ```
     public Integer downloadObjectsToDirectory(S3TransferManager transferManager,
@@ -886,11 +835,8 @@ Call functions that transfer files to and from an S3 bucket using the S3Transfer
                 .forEach(fail -> logger.warn("Object [{}] failed to transfer", fail.toString()));
         return completedDirectoryDownload.failedTransfers().size();
     }
-
-
 ```
-
-Upload an entire local directory.
+Upload an entire local directory.  
 
 ```
     public Integer uploadDirectory(S3TransferManager transferManager,
@@ -905,11 +851,8 @@ Upload an entire local directory.
                 .forEach(fail -> logger.warn("Object [{}] failed to transfer", fail.toString()));
         return completedDirectoryUpload.failedTransfers().size();
     }
-
-
 ```
-
-Upload a single file.
+Upload a single file.  
 
 ```
     public String uploadFile(S3TransferManager transferManager, String bucketName,
@@ -924,14 +867,10 @@ Upload a single file.
         CompletedFileUpload uploadResult = fileUpload.completionFuture().join();
         return uploadResult.response().eTag();
     }
-
+```
+The code examples use the following imports.  
 
 ```
-
-The code examples use the following imports.
-
-```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.exception.SdkException;
@@ -960,11 +899,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
-
-
 ```
-
-Use the [S3 Transfer Manager](../../../sdk-for-java/latest/developer-guide/transfer-manager.md "../../../sdk-for-java/latest/developer-guide/transfer-manager.md") on top of the [AWS CRT-based S3 client](../../../sdk-for-java/latest/developer-guide/crt-based-s3-client.md "../../../sdk-for-java/latest/developer-guide/crt-based-s3-client.md") to transparently perform a multipart upload when the size of the content exceeds a threshold. The default threshold size is 8 MB.
+Use the [S3 Transfer Manager](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/transfer-manager.html) on top of the [AWS CRT-based S3 client](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/crt-based-s3-client.html) to transparently perform a multipart upload when the size of the content exceeds a threshold. The default threshold size is 8 MB.  
 
 ```
     /**
@@ -986,11 +922,8 @@ Use the [S3 Transfer Manager](../../../sdk-for-java/latest/developer-guide/trans
         fileUpload.completionFuture().join();
         transferManager.close();
     }
-
-
 ```
-
-Use the [S3Client API](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html") to perform a multipart upload.
+Use the [S3Client API](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html) to perform a multipart upload.  
 
 ```
     /**
@@ -1053,12 +986,8 @@ Use the [S3Client API](https://sdk.amazonaws.com/java/api/latest/software/amazon
             .uploadId(uploadId)
             .multipartUpload(CompletedMultipartUpload.builder().parts(completedParts).build()));
     }
-
-
-
 ```
-
-Use the [S3AsyncClient API](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3AsyncClient.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3AsyncClient.html") with multipart support enabled to perform a multipart upload.
+Use the [S3AsyncClient API](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3AsyncClient.html) with multipart support enabled to perform a multipart upload.  
 
 ```
     /**
@@ -1082,21 +1011,14 @@ Use the [S3AsyncClient API](https://sdk.amazonaws.com/java/api/latest/software/a
         response.join();
         logger.info("File uploaded in multiple 8 MiB parts using S3AsyncClient.");
     }
-
-
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Upload a large file.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Upload a large file.  
 
 ```
 import { S3Client } from "@aws-sdk/client-s3";
@@ -1149,12 +1071,8 @@ export const main = async ({ bucketName, key }) => {
     }
   }
 };
-
-
-
 ```
-
-Download a large file.
+Download a large file.  
 
 ```
 import { fileURLToPath } from "node:url";
@@ -1234,21 +1152,14 @@ export const main = async ({ bucketName, key }) => {
     }
   }
 };
-
-
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/file_transfer#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/file_transfer#code-examples").
-
-Create functions that transfer files using several of the available transfer manager settings. Use a callback class to write callback progress during file transfer.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/file_transfer#code-examples). 
+Create functions that transfer files using several of the available transfer manager settings. Use a callback class to write callback progress during file transfer.  
 
 ```
 import sys
@@ -1451,13 +1362,8 @@ def download_with_sse(
         download_file_path, ExtraArgs=extra_args, Callback=transfer_callback
     )
     return transfer_callback.thread_info
-
-
-
-
 ```
-
-Demonstrate the transfer manager functions and report results.
+Demonstrate the transfer manager functions and report results.  
 
 ```
 import hashlib
@@ -1808,22 +1714,15 @@ if __name__ == "__main__":
             "To run this example, you must have valid credentials in "
             "a shared credential file or set in environment variables."
         )
-
-
 ```
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
-
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
@@ -1987,10 +1886,8 @@ async fn run_example() -> Result<(), S3ExampleError> {
 
     Ok(())
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

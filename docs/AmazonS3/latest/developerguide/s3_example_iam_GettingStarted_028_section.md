@@ -1,21 +1,19 @@
+
+
 # Getting started with machine learning feature stores
+<a name="s3_example_iam_GettingStarted_028_section"></a>
 
 The following code example shows how to:
++ Set up IAM permissions
++ Create a SageMaker execution role
++ Create feature groups
++ Clean up resources
 
-- Set up IAM permissions
-- Create a SageMaker execution role
-- Create feature groups
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/028-sagemaker-featurestore "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/028-sagemaker-featurestore")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/028-sagemaker-featurestore) repository. 
 
 ```
 #!/bin/bash
@@ -53,9 +51,9 @@ check_status() {
 wait_for_feature_group() {
     local feature_group_name=$1
     local status="Creating"
-
+    
     echo "Waiting for feature group ${feature_group_name} to be created..."
-
+    
     while [ "$status" = "Creating" ]; do
         sleep 5
         status=$(aws sagemaker describe-feature-group \
@@ -63,27 +61,27 @@ wait_for_feature_group() {
             --query 'FeatureGroupStatus' \
             --output text)
         echo "Current status: ${status}"
-
+        
         if [ "$status" = "Failed" ]; then
             handle_error "Feature group ${feature_group_name} creation failed"
         fi
     done
-
+    
     echo "Feature group ${feature_group_name} is now ${status}"
 }
 
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources..."
-
+    
     # Clean up in reverse order
     for ((i=${#CREATED_RESOURCES[@]}-1; i>=0; i--)); do
         resource="${CREATED_RESOURCES[$i]}"
         resource_type=$(echo "$resource" | cut -d: -f1)
         resource_name=$(echo "$resource" | cut -d: -f2)
-
+        
         echo "Deleting $resource_type: $resource_name"
-
+        
         case "$resource_type" in
             "FeatureGroup")
                 aws sagemaker delete-feature-group --feature-group-name "$resource_name"
@@ -111,12 +109,12 @@ cleanup_resources() {
 # Function to create SageMaker execution role
 create_sagemaker_role() {
     local role_name="SageMakerFeatureStoreRole-$(openssl rand -hex 4)"
-
+    
     echo "Creating SageMaker execution role: $role_name" >&2
-
+    
     # Create trust policy document
     local trust_policy='{
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -127,53 +125,53 @@ create_sagemaker_role() {
             }
         ]
     }'
-
+    
     # Create the role
     local role_result=$(aws iam create-role \
         --role-name "$role_name" \
         --assume-role-policy-document "$trust_policy" \
         --description "SageMaker execution role for Feature Store tutorial" 2>&1)
-
+    
     if echo "$role_result" | grep -i "error" > /dev/null; then
         handle_error "Failed to create IAM role: $role_result"
     fi
-
+    
     echo "Role created successfully" >&2
     CREATED_RESOURCES+=("IAMRole:$role_name")
-
+    
     # Tag the role
     echo "Tagging IAM role..." >&2
     aws iam tag-role --role-name "$role_name" --tags Key=project,Value=doc-smith Key=tutorial,Value=sagemaker-featurestore 2>&1
-
+    
     # Attach necessary policies
     echo "Attaching policies to role..." >&2
-
+    
     # SageMaker execution policy
     local policy1_result=$(aws iam attach-role-policy \
         --role-name "$role_name" \
         --policy-arn "arn:aws:iam::aws:policy/AmazonSageMakerFullAccess" 2>&1)
-
+    
     if echo "$policy1_result" | grep -i "error" > /dev/null; then
         handle_error "Failed to attach SageMaker policy: $policy1_result"
     fi
-
+    
     # S3 access policy
     local policy2_result=$(aws iam attach-role-policy \
         --role-name "$role_name" \
         --policy-arn "arn:aws:iam::aws:policy/AmazonS3FullAccess" 2>&1)
-
+    
     if echo "$policy2_result" | grep -i "error" > /dev/null; then
         handle_error "Failed to attach S3 policy: $policy2_result"
     fi
-
+    
     # Get account ID for role ARN
     local account_id=$(aws sts get-caller-identity --query Account --output text)
     local role_arn="arn:aws:iam::${account_id}:role/${role_name}"
-
+    
     echo "Role ARN: $role_arn" >&2
     echo "Waiting 10 seconds for role to propagate..." >&2
     sleep 10
-
+    
     # Return only the role ARN to stdout
     echo "$role_arn"
 }
@@ -189,7 +187,7 @@ if [ -z "$1" ]; then
     fi
 else
     ROLE_ARN="$1"
-
+    
     # Validate the role ARN
     ROLE_NAME=$(echo "$ROLE_ARN" | sed 's/.*role\///')
     ROLE_CHECK=$(aws iam get-role --role-name "$ROLE_NAME" 2>&1)
@@ -525,7 +523,7 @@ else
     echo "==========================================="
     echo "Do you want to clean up all created resources? (y/n): "
     read -r CLEANUP_CHOICE
-
+    
     if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
         echo "Starting cleanup..."
         cleanup_resources
@@ -544,26 +542,23 @@ else
 fi
 
 echo "Script completed at $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CreateBucket)
+  + [CreateFeatureGroup](https://docs.aws.amazon.com/goto/aws-cli/sagemaker-2017-07-24/CreateFeatureGroup)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/DeleteBucket)
+  + [DeleteFeatureGroup](https://docs.aws.amazon.com/goto/aws-cli/sagemaker-2017-07-24/DeleteFeatureGroup)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DescribeFeatureGroup](https://docs.aws.amazon.com/goto/aws-cli/sagemaker-2017-07-24/DescribeFeatureGroup)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [ListFeatureGroups](https://docs.aws.amazon.com/goto/aws-cli/sagemaker-2017-07-24/ListFeatureGroups)
+  + [PutPublicAccessBlock](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock)
+  + [Rm](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Rm)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateBucket](../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md "../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md")
-  - [CreateFeatureGroup](../../../goto/aws-cli/sagemaker-2017-07-24/CreateFeatureGroup.md "../../../goto/aws-cli/sagemaker-2017-07-24/CreateFeatureGroup.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [DeleteBucket](../../../goto/aws-cli/s3-2006-03-01/DeleteBucket.md "../../../goto/aws-cli/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteFeatureGroup](../../../goto/aws-cli/sagemaker-2017-07-24/DeleteFeatureGroup.md "../../../goto/aws-cli/sagemaker-2017-07-24/DeleteFeatureGroup.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DescribeFeatureGroup](../../../goto/aws-cli/sagemaker-2017-07-24/DescribeFeatureGroup.md "../../../goto/aws-cli/sagemaker-2017-07-24/DescribeFeatureGroup.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [ListFeatureGroups](../../../goto/aws-cli/sagemaker-2017-07-24/ListFeatureGroups.md "../../../goto/aws-cli/sagemaker-2017-07-24/ListFeatureGroups.md")
-  - [PutPublicAccessBlock](../../../goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock.md "../../../goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock.md")
-  - [Rm](../../../goto/aws-cli/s3-2006-03-01/Rm.md "../../../goto/aws-cli/s3-2006-03-01/Rm.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

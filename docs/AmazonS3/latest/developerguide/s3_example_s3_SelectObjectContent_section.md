@@ -1,46 +1,37 @@
+
+
 # Use `SelectObjectContent` with an AWS SDK or CLI
+<a name="s3_example_s3_SelectObjectContent_section"></a>
 
 The following code examples show how to use `SelectObjectContent`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To filter the contents of an Amazon S3 object based on an SQL statement**
-
-The following `select-object-content` example filters the object `my-data-file.csv` with the specified SQL statement and sends output to a file.
-
-```
-`aws s3api select-object-content \
- --bucket `amzn-s3-demo-bucket` \
- --key `my-data-file.csv` \
- --expression `"select * from s3object limit 100"` \
- --expression-type '`SQL`' \
- --input-serialization '`{"CSV": {}, "CompressionType": "NONE"}`' \
- --output-serialization '`{"CSV": {}}`' `"output.csv"``
+**AWS CLI**  
+**To filter the contents of an Amazon S3 object based on an SQL statement**  
+The following `select-object-content` example filters the object `my-data-file.csv` with the specified SQL statement and sends output to a file.  
 
 ```
+aws s3api select-object-content \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key {{my-data-file.csv}} \
+    --expression {{"select * from s3object limit 100"}} \
+    --expression-type '{{SQL}}' \
+    --input-serialization '{{{"CSV": {}, "CompressionType": "NONE"}}}' \
+    --output-serialization '{{{"CSV": {}}}}' {{"output.csv"}}
+```
+This command produces no output.  
++  For API details, see [SelectObjectContent](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/select-object-content.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Java ]
 
-- For API details, see
-  [SelectObjectContent](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/select-object-content.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/select-object-content.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-The following example shows a query using a JSON object. The [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/async/SelectObjectContentExample.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/async/SelectObjectContentExample.java") also shows the use of a CSV object.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+The following example shows a query using a JSON object. The [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/async/SelectObjectContentExample.java) also shows the use of a CSV object.  
 
 ```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.async.AsyncRequestBody;
@@ -204,14 +195,9 @@ public class SelectObjectContentExample {
             return stats;
         }
     }
-
-
 ```
++  For API details, see [SelectObjectContent](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/SelectObjectContent) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SelectObjectContent](../../../goto/SdkForJavaV2/s3-2006-03-01/SelectObjectContent.md "../../../goto/SdkForJavaV2/s3-2006-03-01/SelectObjectContent.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

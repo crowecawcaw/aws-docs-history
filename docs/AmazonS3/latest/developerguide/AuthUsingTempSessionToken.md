@@ -1,59 +1,37 @@
+
+
 # Making requests using IAM user temporary credentials
+<a name="AuthUsingTempSessionToken"></a>
 
-An AWS account or an IAM user can request temporary security credentials and use them
-to send authenticated requests to Amazon S3. This section provides examples of how to use the
-AWS SDK for Java, .NET, and PHP to obtain temporary security credentials and use them to
-authenticate your requests to Amazon S3.
+ An AWS account or an IAM user can request temporary security credentials and use them to send authenticated requests to Amazon S3. This section provides examples of how to use the AWS SDK for Java, .NET, and PHP to obtain temporary security credentials and use them to authenticate your requests to Amazon S3.
 
-Java
-An IAM user or an AWS account can request temporary security credentials
-(see [Making requests](MakingRequests.md "MakingRequests.md")) using the
-AWS SDK for Java and use them to access Amazon S3. These credentials expire after the
-specified session duration.
+------
+#### [ Java ]
 
-By default, the session duration is one hour. If you use IAM user
-credentials, you can specify the duration when requesting the temporary security
-credentials from 15 minutes to the maximum session duration for the role. For
-more information about temporary security credentials, see [Temporary Security
-Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _IAM User Guide_. For more
-information about making requests, see [Making requests](MakingRequests.md "MakingRequests.md").
+An IAM user or an AWS account can request temporary security credentials (see [Making requests](MakingRequests.md)) using the AWS SDK for Java and use them to access Amazon S3. These credentials expire after the specified session duration. 
 
-###### To get temporary security credentials and access Amazon S3
+By default, the session duration is one hour. If you use IAM user credentials, you can specify the duration when requesting the temporary security credentials from 15 minutes to the maximum session duration for the role. For more information about temporary security credentials, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) in the *IAM User Guide*. For more information about making requests, see [Making requests](MakingRequests.md).
+
+**To get temporary security credentials and access Amazon S3**
 
 1. Create an instance of the `AWSSecurityTokenService` class.
-2. Retrieve the temporary security credentials for the desired role by
-   calling the `assumeRole()` method of the Security Token
-   Service (STS) client.
-3. Package the temporary security credentials into a
-   `BasicSessionCredentials` object. You use this object to
-   provide the temporary security credentials to your Amazon S3 client.
-4. Create an instance of the `AmazonS3Client` class using the
-   temporary security credentials. You send requests to Amazon S3 using this
-   client. If you send requests using expired credentials, Amazon S3 will return
-   an error.
 
-###### Note
+1. Retrieve the temporary security credentials for the desired role by calling the `assumeRole()` method of the Security Token Service (STS) client.
 
-If you obtain temporary security credentials using your
-AWS account security credentials, the temporary credentials are valid for
-only one hour. You can specify the session duration only if you use IAM
-user credentials to request a session.
+1. Package the temporary security credentials into a `BasicSessionCredentials` object. You use this object to provide the temporary security credentials to your Amazon S3 client.
 
-The following example lists a set of object keys in the specified bucket. The
-example obtains temporary security credentials for a session and uses them to
-send an authenticated request to Amazon S3.
+1. Create an instance of the `AmazonS3Client` class using the temporary security credentials. You send requests to Amazon S3 using this client. If you send requests using expired credentials, Amazon S3 will return an error.
 
-If you want to test the sample by using IAM user credentials, you must create an
-IAM user under your AWS account. For more information about how to create an
-IAM user, see [Creating Your
-First IAM user and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
-_IAM User Guide_.
+**Note**  
+If you obtain temporary security credentials using your AWS account security credentials, the temporary credentials are valid for only one hour. You can specify the session duration only if you use IAM user credentials to request a session.
 
-For instructions on creating and testing a working sample, see [Getting
-Started](../../../sdk-for-java/v1/developer-guide/getting-started.md "../../../sdk-for-java/v1/developer-guide/getting-started.md") in the AWS SDK for Java Developer Guide.
+The following example lists a set of object keys in the specified bucket. The example obtains temporary security credentials for a session and uses them to send an authenticated request to Amazon S3.
+
+If you want to test the sample by using IAM user credentials, you must create an IAM user under your AWS account. For more information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*.
+
+For instructions on creating and testing a working sample, see [Getting Started](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/getting-started.html) in the AWS SDK for Java Developer Guide.
 
 ```
-
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -123,60 +101,35 @@ public class MakingRequestsWithIAMTempCredentials {
         }
     }
 }
-
-
 ```
 
-.NET
-An IAM user or an AWS account can request temporary security credentials
-using the AWS SDK for .NET and use them to access Amazon S3. These credentials expire after
-the session duration.
+------
+#### [ .NET ]
 
-By default, the session duration is one hour. If you use IAM user
-credentials, you can specify the duration when requesting the temporary security
-credentials from 15 minutes to the maximum session duration for the role. For
-more information about temporary security credentials, see [Temporary Security
-Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _IAM User Guide_. For more
-information about making requests, see [Making requests](MakingRequests.md "MakingRequests.md").
+An IAM user or an AWS account can request temporary security credentials using the AWS SDK for .NET and use them to access Amazon S3. These credentials expire after the session duration. 
 
-###### To get temporary security credentials and access Amazon S3
+By default, the session duration is one hour. If you use IAM user credentials, you can specify the duration when requesting the temporary security credentials from 15 minutes to the maximum session duration for the role. For more information about temporary security credentials, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) in the *IAM User Guide*. For more information about making requests, see [Making requests](MakingRequests.md).
 
-1. Create an instance of the AWS Security Token Service client,
-   `AmazonSecurityTokenServiceClient`.
-2. Start a session by calling the `GetSessionToken` method of
-   the STS client you created in the preceding step. You provide session
-   information to this method using a `GetSessionTokenRequest`
-   object.
+**To get temporary security credentials and access Amazon S3**
 
-The method returns your temporary security credentials. 3. Package the temporary security credentials in an instance of the
-`SessionAWSCredentials` object. You use this object to
-provide the temporary security credentials to your Amazon S3 client. 4. Create an instance of the `AmazonS3Client` class by passing
-in the temporary security credentials. You send requests to Amazon S3 using
-this client. If you send requests using expired credentials, Amazon S3
-returns an error.
+1. Create an instance of the AWS Security Token Service client, `AmazonSecurityTokenServiceClient`.
 
-###### Note
+1. Start a session by calling the `GetSessionToken` method of the STS client you created in the preceding step. You provide session information to this method using a `GetSessionTokenRequest` object. 
 
-If you obtain temporary security credentials using your
-AWS account security credentials, those credentials are valid for only one
-hour. You can specify a session duration only if you use IAM user
-credentials to request a session.
+   The method returns your temporary security credentials.
 
-The following C# example lists object keys in the specified bucket. For
-illustration, the example obtains temporary security credentials for a default
-one-hour session and uses them to send authenticated request to Amazon S3.
+1. Package the temporary security credentials in an instance of the `SessionAWSCredentials` object. You use this object to provide the temporary security credentials to your Amazon S3 client.
 
-If you want to test the sample by using IAM user credentials, you must create an
-IAM user under your AWS account. For more information about how to create an
-IAM user, see [Creating Your
-First IAM user and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
-_IAM User Guide_. For more information about making
-requests, see [Making requests](MakingRequests.md "MakingRequests.md").
+1. Create an instance of the `AmazonS3Client` class by passing in the temporary security credentials. You send requests to Amazon S3 using this client. If you send requests using expired credentials, Amazon S3 returns an error.
 
-For
-information about setting up and running the code examples, see [Getting Started
-with the AWS SDK for .NET](../../../sdk-for-net/latest/developer-guide/net-dg-setup.md "../../../sdk-for-net/latest/developer-guide/net-dg-setup.md") in the _AWS SDK for .NET Developer
-Guide_.
+**Note**  
+If you obtain temporary security credentials using your AWS account security credentials, those credentials are valid for only one hour. You can specify a session duration only if you use IAM user credentials to request a session.
+
+The following C\# example lists object keys in the specified bucket. For illustration, the example obtains temporary security credentials for a default one-hour session and uses them to send authenticated request to Amazon S3. 
+
+If you want to test the sample by using IAM user credentials, you must create an IAM user under your AWS account. For more information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*. For more information about making requests, see [Making requests](MakingRequests.md).
+
+ For information about setting up and running the code examples, see [Getting Started with the AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) in the *AWS SDK for .NET Developer Guide*. 
 
 ```
 using Amazon;
@@ -206,7 +159,7 @@ namespace Amazon.DocSamples.S3
         {
             try
             {
-                // Credentials use the default AWS SDK for .NET credential search chain.
+                // Credentials use the default AWS SDK for .NET credential search chain. 
                 // On local development machines, this is your default profile.
                 Console.WriteLine("Listing objects stored in a bucket");
                 SessionAWSCredentials tempCredentials = await GetTemporaryCredentialsAsync();
@@ -257,46 +210,23 @@ namespace Amazon.DocSamples.S3
         }
     }
 }
-
 ```
 
-PHP
-For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
+------
+#### [ PHP ]
 
-An IAM user or an AWS account can request temporary security credentials
-using version 3 of the AWS SDK for PHP. It can then use the temporary credentials to
-access Amazon S3. The credentials expire when the session duration expires.
+For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).
 
-By default, the session duration is one hour. If you use IAM user
-credentials, you can specify the duration when requesting the temporary security
-credentials from 15 minutes to the maximum session duration for the role. For
-more information about temporary security credentials, see [Temporary Security
-Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _IAM User Guide_. For more
-information about making requests, see [Making requests](MakingRequests.md "MakingRequests.md").
+An IAM user or an AWS account can request temporary security credentials using version 3 of the AWS SDK for PHP. It can then use the temporary credentials to access Amazon S3. The credentials expire when the session duration expires. 
 
-###### Note
+By default, the session duration is one hour. If you use IAM user credentials, you can specify the duration when requesting the temporary security credentials from 15 minutes to the maximum session duration for the role. For more information about temporary security credentials, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) in the *IAM User Guide*. For more information about making requests, see [Making requests](MakingRequests.md).
 
-If you obtain temporary security credentials using your
-AWS account security credentials, the temporary security credentials are
-valid for only one hour. You can specify the session duration only if you
-use IAM user credentials to request a session.
+**Note**  
+If you obtain temporary security credentials using your AWS account security credentials, the temporary security credentials are valid for only one hour. You can specify the session duration only if you use IAM user credentials to request a session.
 
-###### Example
-
-The following PHP example lists object keys in the specified bucket using
-temporary security credentials. The example obtains temporary security
-credentials for a default one-hour session, and uses them to send
-authenticated request to Amazon S3. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version
-2](../../../sdkforruby/api/index.md "../../../sdkforruby/api/index.md").
-
-If you want to test the example by using IAM user credentials, you must create an
-IAM user under your AWS account. For information about how to create an
-IAM user, see [Creating
-Your First IAM user and Administrators Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the
-_IAM User Guide_. For examples of setting the
-session duration when using IAM user credentials to request a session, see
-Making requests using IAM user temporary credentials.
+**Example**  
+The following PHP example lists object keys in the specified bucket using temporary security credentials. The example obtains temporary security credentials for a default one-hour session, and uses them to send authenticated request to Amazon S3. For more information about the AWS SDK for Ruby API, go to [AWS SDK for Ruby - Version 2](https://docs.aws.amazon.com/sdkforruby/api/index.html).  
+If you want to test the example by using IAM user credentials, you must create an IAM user under your AWS account. For information about how to create an IAM user, see [Creating Your First IAM user and Administrators Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *IAM User Guide*. For examples of setting the session duration when using IAM user credentials to request a session, see [Making requests using IAM user temporary credentials](#AuthUsingTempSessionToken).   
 
 ```
  require 'vendor/autoload.php';
@@ -341,36 +271,21 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-
-
 ```
 
-Ruby
-An IAM user or an AWS account can request temporary security credentials
-using AWS SDK for Ruby and use them to access Amazon S3. These credentials expire after the
-session duration.
+------
+#### [ Ruby ]
 
-By default, the session duration is one hour. If you use IAM user
-credentials, you can specify the duration when requesting the temporary security
-credentials from 15 minutes to the maximum session duration for the role. For
-more information about temporary security credentials, see [Temporary Security
-Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _IAM User Guide_. For more
-information about making requests, see [Making requests](MakingRequests.md "MakingRequests.md").
+An IAM user or an AWS account can request temporary security credentials using AWS SDK for Ruby and use them to access Amazon S3. These credentials expire after the session duration. 
 
-###### Note
+By default, the session duration is one hour. If you use IAM user credentials, you can specify the duration when requesting the temporary security credentials from 15 minutes to the maximum session duration for the role. For more information about temporary security credentials, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) in the *IAM User Guide*. For more information about making requests, see [Making requests](MakingRequests.md).
 
-If you obtain temporary security credentials using your
-AWS account security credentials, the temporary security credentials are
-valid for only one hour. You can specify session duration only if you use
-IAM user credentials to request a session.
+**Note**  
+If you obtain temporary security credentials using your AWS account security credentials, the temporary security credentials are valid for only one hour. You can specify session duration only if you use IAM user credentials to request a session.
 
-The following Ruby example creates a temporary user to list the items in a
-specified bucket for one hour. To use this example, you must have AWS
-credentials that have the necessary permissions to create new AWS Security Token Service (AWS STS)
-clients, and list Amazon S3 buckets.
+The following Ruby example creates a temporary user to list the items in a specified bucket for one hour. To use this example, you must have AWS credentials that have the necessary permissions to create new AWS Security Token Service (AWS STS) clients, and list Amazon S3 buckets.
 
 ```
-
 # Prerequisites:
 # - A user in AWS Identity and Access Management (IAM). This user must
 #   be able to assume the following IAM role. You must run this code example
@@ -522,5 +437,6 @@ def list_objects_in_bucket?(s3_client, bucket_name)
 rescue StandardError => e
   puts "Error while accessing the bucket named '#{bucket_name}': #{e.message}"
 end
-
 ```
+
+------

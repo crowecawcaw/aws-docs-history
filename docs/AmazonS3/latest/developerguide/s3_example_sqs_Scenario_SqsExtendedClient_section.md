@@ -1,16 +1,15 @@
+
+
 # Manage large Amazon SQS messages using Amazon S3 with an AWS SDK
+<a name="s3_example_sqs_Scenario_SqsExtendedClient_section"></a>
 
 The following code example shows how to use the Amazon SQS Extended Client Library to work with large Amazon SQS messages.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs#code-examples). 
 
 ```
 import com.amazon.sqs.javamessaging.AmazonSQSExtendedClient;
@@ -52,7 +51,7 @@ import java.util.UUID;
  */
 public class SqsExtendedClientExample {
     private static final Logger logger = LoggerFactory.getLogger(SqsExtendedClientExample.class);
-
+    
     private String s3BucketName;
     private String queueUrl;
     private final String queueName;
@@ -144,18 +143,14 @@ public class SqsExtendedClientExample {
             throw e;
         }
     }
-
-
 ```
++  For more information, see [AWS SDK for Java 2.x Developer Guide](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-s3-messages.html). 
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateBucket](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CreateBucket)
+  + [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration)
+  + [ReceiveMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage)
+  + [SendMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/SendMessage)
 
-- For more information, see [AWS SDK for Java 2.x Developer Guide](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-s3-messages.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-s3-messages.md").
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [CreateBucket](../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md")
-  - [PutBucketLifecycleConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration.md")
-  - [ReceiveMessage](../../../goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage.md")
-  - [SendMessage](../../../goto/SdkForJavaV2/sqs-2012-11-05/SendMessage.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/SendMessage.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,25 +1,21 @@
+
+
 # Use `GetBucketAcl` with an AWS SDK or CLI
+<a name="s3_example_s3_GetBucketAcl_section"></a>
 
 The following code examples show how to use `GetBucketAcl`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Check if a bucket exists](s3_example_s3_Scenario_DoesBucketExist_section.md) 
++  [Manage access control lists (ACLs)](s3_example_s3_Scenario_ManageACLs_section.md) 
 
-- [Check if a bucket exists](s3_example_s3_Scenario_DoesBucketExist_section.md "s3_example_s3_Scenario_DoesBucketExist_section.md")
-- [Manage access control lists (ACLs)](s3_example_s3_Scenario_ManageACLs_section.md "s3_example_s3_Scenario_ManageACLs_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
-
         /// <summary>
         /// Get the access control list (ACL) for the new bucket.
         /// </summary>
@@ -38,24 +34,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
             return getACLResponse.AccessControlList;
         }
-
-
-
 ```
++  For API details, see [GetBucketAcl](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetBucketAcl) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetBucketAcl](../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketAcl.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetBucketAcl.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::getBucketAcl(const Aws::String &bucketName,
@@ -166,27 +152,19 @@ Aws::String getPermissionString(const Aws::S3::Model::Permission &permission) {
 
     return "Permission unknown";
 }
+```
++  For API details, see [GetBucketAcl](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/GetBucketAcl) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command retrieves the access control list for a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [GetBucketAcl](../../../goto/SdkForCpp/s3-2006-03-01/GetBucketAcl.md "../../../goto/SdkForCpp/s3-2006-03-01/GetBucketAcl.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command retrieves the access control list for a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api get-bucket-acl --bucket {{amzn-s3-demo-bucket}}
 ```
-`aws s3api get-bucket-acl --bucket `amzn-s3-demo-bucket``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -205,23 +183,15 @@ Output:
     ]
 }
 ```
++  For API details, see [GetBucketAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-acl.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-acl.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-acl.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-
 import software.amazon.awssdk.services.s3.model.S3Exception;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -303,25 +273,15 @@ public class GetAcl {
         return "";
     }
 }
-
-
 ```
++  For API details, see [GetBucketAcl](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetBucketAcl) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetBucketAcl](../../../goto/SdkForJavaV2/s3-2006-03-01/GetBucketAcl.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetBucketAcl.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Get the ACL permissions.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Get the ACL permissions.  
 
 ```
 import {
@@ -362,47 +322,33 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-access-permissions.html#s3-example-access-permissions-get-acl). 
++  For API details, see [GetBucketAcl](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketAclCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-access-permissions.md#s3-example-access-permissions-get-acl "../../../sdk-for-javascript/v3/developer-guide/s3-example-access-permissions.md#s3-example-access-permissions-get-acl").
-- For API details, see
-  [GetBucketAcl](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketAclCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketAclCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V5**
-
-**Example 1: The command gets the details of the object owner of the S3 object.**
+**Tools for PowerShell V5**  
+**Example 1: The command gets the details of the object owner of the S3 object.**  
 
 ```
 (Get-S3BucketACL -BucketName 'amzn-s3-demo-bucket' -Select *).Owner
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DisplayName Id
 ----------- --
 testusername      9988776a6554433d22f1100112e334acb45566778899009e9887bd7f66c5f544
 ```
++  For API details, see [GetBucketAcl](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetBucketAcl](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class BucketWrapper:
@@ -433,24 +379,14 @@ class BucketWrapper:
             raise
         else:
             return acl
-
-
-
 ```
++  For API details, see [GetBucketAcl](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/GetBucketAcl) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetBucketAcl](../../../goto/boto3/s3-2006-03-01/GetBucketAcl.md "../../../goto/boto3/s3-2006-03-01/GetBucketAcl.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -460,14 +396,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetBucketAcl](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetBucketAcl](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

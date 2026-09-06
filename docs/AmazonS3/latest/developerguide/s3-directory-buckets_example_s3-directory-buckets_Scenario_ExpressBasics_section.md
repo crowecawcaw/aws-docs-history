@@ -1,27 +1,24 @@
+
+
 # Learn the basics of S3 Directory Buckets with an AWS SDK
+<a name="s3-directory-buckets_example_s3-directory-buckets_Scenario_ExpressBasics_section"></a>
 
 The following code examples show how to:
++ Set up a VPC and VPC Endpoint.
++ Set up the Policies, Roles, and User to work with S3 directory buckets and the S3 Express One Zone storage class.
++ Create two S3 Clients.
++ Create two buckets.
++ Create an object and copy it over.
++ Demonstrate performance difference.
++ Populate the buckets to show the lexicographical difference.
++ Prompt the user to see if they want to clean up the resources.
 
-- Set up a VPC and VPC Endpoint.
-- Set up the Policies, Roles, and User to work with S3 directory buckets and the S3 Express One Zone storage class.
-- Create two S3 Clients.
-- Create two buckets.
-- Create an object and copy it over.
-- Demonstrate performance difference.
-- Populate the buckets to show the lexicographical difference.
-- Prompt the user to see if they want to clean up the resources.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Run an interactive scenario demonstrating Amazon S3 features.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Run an interactive scenario demonstrating Amazon S3 features.  
 
 ```
 public class S3DirectoriesScenario {
@@ -128,19 +125,19 @@ public class S3DirectoriesScenario {
     private static void showLexicographicalDifferences(String bucketObject) {
         logger.info(DASHES);
         logger.info("""
-            7. Populate the buckets to show the lexicographical (alphabetical) difference
-            when object names are listed. Now let's explore how directory buckets store
-            objects in a different manner to regular buckets. The key is in the name
-            "Directory". Where regular buckets store their key/value pairs in a
-            flat manner, directory buckets use actual directories/folders.
-            This allows for more rapid indexing, traversing, and therefore
-            retrieval times!
-
-            The more segmented your bucket is, with lots of
-            directories, sub-directories, and objects, the more efficient it becomes.
-            This structural difference also causes `ListObject` operations to behave
-            differently, which can cause unexpected results. Let's add a few more
-            objects in sub-directories to see how the output of
+            7. Populate the buckets to show the lexicographical (alphabetical) difference 
+            when object names are listed. Now let's explore how directory buckets store 
+            objects in a different manner to regular buckets. The key is in the name 
+            "Directory". Where regular buckets store their key/value pairs in a 
+            flat manner, directory buckets use actual directories/folders. 
+            This allows for more rapid indexing, traversing, and therefore 
+            retrieval times! 
+                        
+            The more segmented your bucket is, with lots of 
+            directories, sub-directories, and objects, the more efficient it becomes. 
+            This structural difference also causes `ListObject` operations to behave 
+            differently, which can cause unexpected results. Let's add a few more 
+            objects in sub-directories to see how the output of 
             ListObjects changes.
             """);
 
@@ -190,8 +187,8 @@ public class S3DirectoriesScenario {
         }
 
         logger.info("""
-            Notice how the regular bucket lists objects in lexicographical order, while the directory bucket does not. This is
-            because the regular bucket considers the whole "key" to be the object identifier, while the directory bucket actually
+            Notice how the regular bucket lists objects in lexicographical order, while the directory bucket does not. This is 
+            because the regular bucket considers the whole "key" to be the object identifier, while the directory bucket actually 
             creates directories and uses the object "key" as a path to the object.
             """);
         waitForInputToContinue(scanner);
@@ -217,11 +214,11 @@ public class S3DirectoriesScenario {
         logger.info(DASHES);
         logger.info("6. Demonstrate the performance difference.");
         logger.info("""
-            Now, let's do a performance test. We'll download the same object from each
-            bucket repeatedly and compare the total time needed.
-
+            Now, let's do a performance test. We'll download the same object from each 
+            bucket repeatedly and compare the total time needed. 
+                        
             Note: the performance difference will be much more pronounced if this
-            example is run in an EC2 instance in the same Availability Zone as
+            example is run in an EC2 instance in the same Availability Zone as 
             the bucket.
             """);
         waitForInputToContinue(scanner);
@@ -313,10 +310,10 @@ public class S3DirectoriesScenario {
 
     private static String createSessionAddObjects() {
         logger.info(DASHES);
-        logger.info("""
+        logger.info("""    
             5. Create an object and copy it.
-            We'll create an object consisting of some text and upload it to the
-            regular bucket.
+            We'll create an object consisting of some text and upload it to the 
+            regular bucket. 
             """);
         waitForInputToContinue(scanner);
 
@@ -335,16 +332,16 @@ public class S3DirectoriesScenario {
                 logger.error("An unexpected error occurred: {}", cause.getMessage(), ce);
             }
         }
-        logger.info("""
-            It worked! This is because the S3Client that performed the copy operation
-            is the expressClient using the credentials for the user with permission to
-            work with directory buckets.
-
-            It's important to remember the user permissions when interacting with
-            directory buckets. Instead of validating permissions on every call as
-            regular buckets do, directory buckets utilize the user credentials and session
-            token to validate. This allows for much faster connection speeds on every call.
-            For single calls, this is low, but for many concurrent calls
+        logger.info(""" 
+            It worked! This is because the S3Client that performed the copy operation 
+            is the expressClient using the credentials for the user with permission to 
+            work with directory buckets. 
+                        
+            It's important to remember the user permissions when interacting with 
+            directory buckets. Instead of validating permissions on every call as 
+            regular buckets do, directory buckets utilize the user credentials and session 
+            token to validate. This allows for much faster connection speeds on every call. 
+            For single calls, this is low, but for many concurrent calls 
             this adds up to a lot of time saved.
             """);
         waitForInputToContinue(scanner);
@@ -394,10 +391,10 @@ public class S3DirectoriesScenario {
             logger.info("Skipping the VPC setup. Don't forget to use this in production!");
         }
         logger.info(DASHES);
-        logger.info("""
+        logger.info("""            
             2. Create a RegularUser and ExpressUser by using the AWS CDK.
-            One IAM User, named RegularUser, will have permissions to work only
-            with regular buckets and one IAM user, named ExpressUser, will have
+            One IAM User, named RegularUser, will have permissions to work only 
+            with regular buckets and one IAM user, named ExpressUser, will have 
             permissions to work only with directory buckets.
             """);
         waitForInputToContinue(scanner);
@@ -466,7 +463,7 @@ public class S3DirectoriesScenario {
         }
 
         logger.info(DASHES);
-        logger.info("""
+        logger.info("""            
             3. Create two S3Clients; one uses the ExpressUser's credentials and one uses the RegularUser's credentials.
             The 2 S3Clients will use different credentials.
             """);
@@ -485,19 +482,19 @@ public class S3DirectoriesScenario {
         }
 
         logger.info("""
-            We can now use the ExpressUser client to make calls to S3 Express operations.
+            We can now use the ExpressUser client to make calls to S3 Express operations. 
             """);
         waitForInputToContinue(locscanner);
         logger.info(DASHES);
         logger.info("""
             4. Create two buckets.
-            Now we will create a directory bucket which is the linchpin of the S3 Express One Zone service. Directory buckets
-            behave differently from regular S3 buckets which we will explore here. We'll also create a regular bucket, put
+            Now we will create a directory bucket which is the linchpin of the S3 Express One Zone service. Directory buckets 
+            behave differently from regular S3 buckets which we will explore here. We'll also create a regular bucket, put 
             an object into the regular bucket, and copy it to the directory bucket.
             """);
 
         logger.info("""
-            Now, let's choose an availability zone (AZ) for the directory bucket.
+            Now, let's choose an availability zone (AZ) for the directory bucket. 
             We'll choose one that is supported.
             """);
         String zoneId;
@@ -590,11 +587,8 @@ public class S3DirectoriesScenario {
         }
     }
 }
-
-
 ```
-
-A wrapper class for Amazon S3 SDK methods.
+A wrapper class for Amazon S3 SDK methods.  
 
 ```
 public class S3DirectoriesActions {
@@ -1099,31 +1093,22 @@ public class S3DirectoriesActions {
     }
 
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/DeleteBucket)
+  + [DeleteObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/DeleteObject)
+  + [GetObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObject)
+  + [ListObjects](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/ListObjects)
+  + [PutObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PHP ]
 
-  - [CopyObject](../../../goto/SdkForJavaV2/s3-2006-03-01/CopyObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForJavaV2/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteBucket.md "../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObject](../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/DeleteObject.md")
-  - [GetObject](../../../goto/SdkForJavaV2/s3-2006-03-01/GetObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetObject.md")
-  - [ListObjects](../../../goto/SdkForJavaV2/s3-2006-03-01/ListObjects.md "../../../goto/SdkForJavaV2/s3-2006-03-01/ListObjects.md")
-  - [PutObject](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObject.md")
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3/express#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3/express#code-examples").
-
-Run a scenario demonstrating the basics of Amazon S3 directory buckets and S3 Express One Zone.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3/express#code-examples). 
+Run a scenario demonstrating the basics of Amazon S3 directory buckets and S3 Express One Zone.  
 
 ```
         echo "\n";
@@ -1677,32 +1662,22 @@ class S3Service extends AWSServiceClass
     }
 
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for PHP API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/DeleteBucket)
+  + [DeleteObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/DeleteObject)
+  + [GetObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/GetObject)
+  + [ListObjects](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/ListObjects)
+  + [PutObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-  - [CopyObject](../../../goto/SdkForPHPV3/s3-2006-03-01/CopyObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/SdkForPHPV3/s3-2006-03-01/CreateBucket.md "../../../goto/SdkForPHPV3/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteBucket.md "../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObject](../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/DeleteObject.md")
-  - [GetObject](../../../goto/SdkForPHPV3/s3-2006-03-01/GetObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/GetObject.md")
-  - [ListObjects](../../../goto/SdkForPHPV3/s3-2006-03-01/ListObjects.md "../../../goto/SdkForPHPV3/s3-2006-03-01/ListObjects.md")
-  - [PutObject](../../../goto/SdkForPHPV3/s3-2006-03-01/PutObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/PutObject.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3-directory-buckets/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3-directory-buckets/#code-examples").
-
-Run a scenario demonstrating the basics of Amazon S3 directory buckets and S3 Express One Zone.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3-directory-buckets/#code-examples). 
+Run a scenario demonstrating the basics of Amazon S3 directory buckets and S3 Express One Zone.   
 
 ```
 class S3ExpressScenario:
@@ -1777,7 +1752,7 @@ bucket.
         # the need to pass through an internet gateway or NAT device.
         print(
             """
-1. First, we'll set up a new VPC and VPC Endpoint if this program is running in an EC2 instance in the same AZ as your
+1. First, we'll set up a new VPC and VPC Endpoint if this program is running in an EC2 instance in the same AZ as your 
 Directory buckets will be. Are you running this in an EC2 instance located in the same AZ as your intended Directory buckets?
 """
         )
@@ -1790,7 +1765,7 @@ Directory buckets will be. Are you running this in an EC2 instance located in th
         else:
             print("Skipping the VPC setup. Don't forget to use this in production!")
         print(
-            """
+            """            
 2. Policies, users, and roles with CDK.
 Now, we'll set up some policies, roles, and a user. This user will only have permissions to do S3 Express One Zone actions.
             """
@@ -1828,8 +1803,8 @@ Now, we'll set up some policies, roles, and a user. This user will only have per
         express_credentials = self.create_access_key(express_user_name)
         # 3. Create an additional client using the credentials with S3 Express permissions.
         print(
-            """
-3. Create an additional client using the credentials with S3 Express permissions. This client is created with the
+            """            
+3. Create an additional client using the credentials with S3 Express permissions. This client is created with the 
 credentials associated with the user account with the S3 Express policy attached, so it can perform S3 Express operations.
 """
         )
@@ -1844,7 +1819,7 @@ credentials associated with the user account with the S3 Express policy attached
         self.s3_express_wrapper = S3ExpressWrapper(s3_express_client)
         print(
             """
-All the roles and policies were created and attached to the user. Then a new S3 Client were created using
+All the roles and policies were created and attached to the user. Then a new S3 Client were created using 
 that user's credentials. We can now use this client to make calls to S3 Express operations. Keeping permissions in mind
 (and adhering to least-privilege) is crucial to S3 Express.
  """
@@ -1854,8 +1829,8 @@ that user's credentials. We can now use this client to make calls to S3 Express 
         print(
             """
 3. Create two buckets.
-Now we will create a Directory bucket which is the linchpin of the S3 Express One Zone service. Directory buckets
-behave in different ways from regular S3 buckets which we will explore here. We'll also create a normal bucket, put
+Now we will create a Directory bucket which is the linchpin of the S3 Express One Zone service. Directory buckets 
+behave in different ways from regular S3 buckets which we will explore here. We'll also create a normal bucket, put 
 an object into the normal bucket, and copy it over to the Directory bucket.
 """
         )
@@ -1928,10 +1903,10 @@ an object into the normal bucket, and copy it over to the Directory bucket.
         Create a session for the express S3 client and add objects to the buckets.
         """
         print(
-            """
+            """    
 5. Create an object and copy it over.
-We'll create a basic object consisting of some text and upload it to the normal bucket. Next we'll copy the object
-into the Directory bucket using the regular client. This works fine because copy operations are not restricted for
+We'll create a basic object consisting of some text and upload it to the normal bucket. Next we'll copy the object 
+into the Directory bucket using the regular client. This works fine because copy operations are not restricted for 
 Directory buckets.
         """
         )
@@ -1951,7 +1926,7 @@ Directory buckets.
             """
 It worked! It's important to remember the user permissions when interacting with Directory buckets. Instead of validating
 permissions on every call as normal buckets do, Directory buckets utilize the user credentials and session token to validate.
-This allows for much faster connection speeds on every call. For single calls, this is low, but for many concurrent calls
+This allows for much faster connection speeds on every call. For single calls, this is low, but for many concurrent calls 
 this adds up to a lot of time saved.
 """
         )
@@ -1967,7 +1942,7 @@ this adds up to a lot of time saved.
         print("6. Demonstrate performance difference.")
         print(
             """
-Now, let's do a performance test. We'll download the same object from each bucket 'downloads' times
+Now, let's do a performance test. We'll download the same object from each bucket 'downloads' times 
 and compare the total time needed. Note: the performance difference will be much more pronounced if this
 example is run in an EC2 instance in the same Availability Zone as the bucket.
 """
@@ -2026,11 +2001,11 @@ example is run in an EC2 instance in the same Availability Zone as the bucket.
         print(
             """
 7. Populate the buckets to show the lexicographical difference.
-Now let's explore how Directory buckets store objects in a different manner to regular buckets. The key is in the name
-"Directory". Where regular buckets store their key/value pairs in a flat manner, Directory buckets use actual
-directories/folders. This allows for more rapid indexing, traversing, and therefore retrieval times! The more segmented
-your bucket is, with lots of directories, sub-directories, and objects, the more efficient it becomes. This structural
-difference also causes ListObjects to behave differently, which can cause unexpected results. Let's add a few more
+Now let's explore how Directory buckets store objects in a different manner to regular buckets. The key is in the name 
+"Directory". Where regular buckets store their key/value pairs in a flat manner, Directory buckets use actual 
+directories/folders. This allows for more rapid indexing, traversing, and therefore retrieval times! The more segmented 
+your bucket is, with lots of directories, sub-directories, and objects, the more efficient it becomes. This structural 
+difference also causes ListObjects to behave differently, which can cause unexpected results. Let's add a few more 
 objects with layered directories to see how the output of ListObjects changes.
         """
         )
@@ -2065,8 +2040,8 @@ objects with layered directories to see how the output of ListObjects changes.
             print(f"   {bucket_object['Key']}")
         print(
             """
-Notice how the normal bucket lists objects in lexicographical order, while the directory bucket does not. This is
-because the normal bucket considers the whole "key" to be the object identifier, while the directory bucket actually
+Notice how the normal bucket lists objects in lexicographical order, while the directory bucket does not. This is 
+because the normal bucket considers the whole "key" to be the object identifier, while the directory bucket actually 
 creates directories and uses the object "key" as a path to the object.
             """
         )
@@ -2279,13 +2254,8 @@ creates directories and uses the object "key" as a path to the object.
                     self.vpc_id,
                     client_error.response["Error"]["Message"],
                 )
-
-
-
-
 ```
-
-A wrapper class for Amazon S3 Express SDK functions.
+A wrapper class for Amazon S3 Express SDK functions.  
 
 ```
 class S3ExpressWrapper:
@@ -2466,22 +2436,16 @@ class S3ExpressWrapper:
                 client_error.response["Error"]["Message"],
             )
             raise
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/DeleteBucket)
+  + [DeleteObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/DeleteObject)
+  + [GetObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/GetObject)
+  + [ListObjects](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/ListObjects)
+  + [PutObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutObject)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CopyObject](../../../goto/boto3/s3-2006-03-01/CopyObject.md "../../../goto/boto3/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/boto3/s3-2006-03-01/CreateBucket.md "../../../goto/boto3/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/boto3/s3-2006-03-01/DeleteBucket.md "../../../goto/boto3/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObject](../../../goto/boto3/s3-2006-03-01/DeleteObject.md "../../../goto/boto3/s3-2006-03-01/DeleteObject.md")
-  - [GetObject](../../../goto/boto3/s3-2006-03-01/GetObject.md "../../../goto/boto3/s3-2006-03-01/GetObject.md")
-  - [ListObjects](../../../goto/boto3/s3-2006-03-01/ListObjects.md "../../../goto/boto3/s3-2006-03-01/ListObjects.md")
-  - [PutObject](../../../goto/boto3/s3-2006-03-01/PutObject.md "../../../goto/boto3/s3-2006-03-01/PutObject.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

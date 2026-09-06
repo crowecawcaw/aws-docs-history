@@ -1,26 +1,22 @@
+
+
 # Use `PutBucketLifecycleConfiguration` with an AWS SDK or CLI
+<a name="s3_example_s3_PutBucketLifecycleConfiguration_section"></a>
 
 The following code examples show how to use `PutBucketLifecycleConfiguration`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Delete incomplete multipart uploads](s3_example_s3_Scenario_AbortMultipartUpload_section.md) 
++  [Manage large messages using S3](s3_example_sqs_Scenario_SqsExtendedClient_section.md) 
++  [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md) 
 
-- [Delete incomplete multipart uploads](s3_example_s3_Scenario_AbortMultipartUpload_section.md "s3_example_s3_Scenario_AbortMultipartUpload_section.md")
-- [Manage large messages using S3](s3_example_sqs_Scenario_SqsExtendedClient_section.md "s3_example_sqs_Scenario_SqsExtendedClient_section.md")
-- [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md "s3_example_s3_Scenario_ObjectVersioningUsage_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
-
         /// <summary>
         /// Adds lifecycle configuration information to the S3 bucket named in
         /// the bucketName parameter.
@@ -40,27 +36,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             };
             var response = await client.PutLifecycleConfigurationAsync(request);
         }
+```
++  For API details, see [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutBucketLifecycleConfiguration) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command applies a lifecycle configuration to a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [PutBucketLifecycleConfiguration](../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketLifecycleConfiguration.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketLifecycleConfiguration.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command applies a lifecycle configuration to a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api put-bucket-lifecycle-configuration --bucket {{amzn-s3-demo-bucket}} --lifecycle-configuration  {{file://lifecycle.json}}
 ```
-`aws s3api put-bucket-lifecycle-configuration --bucket `amzn-s3-demo-bucket` --lifecycle-configuration `file://lifecycle.json``
-
-```
-
-The file `lifecycle.json` is a JSON document in the current folder that specifies two rules:
+The file `lifecycle.json` is a JSON document in the current folder that specifies two rules:  
 
 ```
 {
@@ -90,25 +78,16 @@ The file `lifecycle.json` is a JSON document in the current folder that specifie
     ]
 }
 ```
+The first rule moves files with the prefix `rotated` to Glacier on the specified date. The second rule moves old object versions to Glacier when they are no longer current. For information on acceptable timestamp formats, see Specifying Parameter Values in the *AWS CLI User Guide*.  
++  For API details, see [PutBucketLifecycleConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-lifecycle-configuration.html) in *AWS CLI Command Reference*. 
 
-The first rule moves files with the prefix `rotated` to Glacier on the specified date. The second rule moves old object versions to Glacier when they are no longer current. For information on acceptable timestamp formats, see Specifying Parameter Values in the _AWS CLI User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [PutBucketLifecycleConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-lifecycle-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-lifecycle-configuration.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.LifecycleRuleFilter;
@@ -324,23 +303,14 @@ public class LifecycleConfiguration {
         }
     }
 }
-
-
 ```
++  For API details, see [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutBucketLifecycleConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketLifecycleConfiguration.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class BucketWrapper:
@@ -377,24 +347,14 @@ class BucketWrapper:
                 "Couldn't put lifecycle rules for bucket '%s'.", self.bucket.name
             )
             raise
-
-
-
 ```
++  For API details, see [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutBucketLifecycleConfiguration) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutBucketLifecycleConfiguration](../../../goto/boto3/s3-2006-03-01/PutBucketLifecycleConfiguration.md "../../../goto/boto3/s3-2006-03-01/PutBucketLifecycleConfiguration.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -407,14 +367,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutBucketLifecycleConfiguration](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

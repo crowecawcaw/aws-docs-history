@@ -1,43 +1,34 @@
+
+
 # Use `PutBucketVersioning` with an AWS SDK or CLI
+<a name="s3_example_s3_PutBucketVersioning_section"></a>
 
 The following code examples show how to use `PutBucketVersioning`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
 
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-The following command enables versioning on a bucket named `amzn-s3-demo-bucket`:
+**AWS CLI**  
+The following command enables versioning on a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-`aws s3api put-bucket-versioning --bucket `amzn-s3-demo-bucket` --versioning-configuration `Status=Enabled``
+aws s3api put-bucket-versioning --bucket {{amzn-s3-demo-bucket}} --versioning-configuration {{Status=Enabled}}
+```
+The following command enables versioning, and uses an mfa code  
 
 ```
-
-The following command enables versioning, and uses an mfa code
-
+aws s3api put-bucket-versioning --bucket {{amzn-s3-demo-bucket}} --versioning-configuration {{Status=Enabled}} --mfa {{"SERIAL 123456"}}
 ```
-`aws s3api put-bucket-versioning --bucket `amzn-s3-demo-bucket` --versioning-configuration `Status=Enabled` --mfa `"SERIAL 123456"``
++  For API details, see [PutBucketVersioning](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-versioning.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-- For API details, see
-  [PutBucketVersioning](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-versioning.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-versioning.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
     /**
@@ -59,51 +50,33 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         s3Client.putBucketVersioning(versioningRequest);
         System.out.println("Bucket versioning has been enabled for "+bucketName);
     }
-
-
 ```
++  For API details, see [PutBucketVersioning](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketVersioning) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutBucketVersioning](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketVersioning.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketVersioning.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: The command enables versioning for the given S3 bucket.**
+**Tools for PowerShell V4**  
+**Example 1: The command enables versioning for the given S3 bucket.**  
 
 ```
 Write-S3BucketVersioning -BucketName 'amzn-s3-demo-bucket' -VersioningConfig_Status Enabled
-
 ```
++  For API details, see [PutBucketVersioning](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutBucketVersioning](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: The command enables versioning for the given S3 bucket.**
+**Tools for PowerShell V5**  
+**Example 1: The command enables versioning for the given S3 bucket.**  
 
 ```
 Write-S3BucketVersioning -BucketName 'amzn-s3-demo-bucket' -VersioningConfig_Status Enabled
-
 ```
++  For API details, see [PutBucketVersioning](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutBucketVersioning](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -117,14 +90,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutBucketVersioning](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutBucketVersioning](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

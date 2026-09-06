@@ -1,24 +1,21 @@
+
+
 # Work with Amazon S3 versioned objects using an AWS SDK
+<a name="s3_example_s3_Scenario_ObjectVersioningUsage_section"></a>
 
 The following code example shows how to:
++ Create a versioned S3 bucket.
++ Get all versions of an object.
++ Roll an object back to a previous version.
++ Delete and restore a versioned object.
++ Permanently delete all versions of an object.
 
-- Create a versioned S3 bucket.
-- Get all versions of an object.
-- Roll an object back to a previous version.
-- Delete and restore a versioned object.
-- Permanently delete all versions of an object.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_versioning#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_versioning#code-examples").
-
-Create functions that wrap S3 actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_versioning#code-examples). 
+Create functions that wrap S3 actions.  
 
 ```
 def create_versioned_bucket(bucket_name, prefix):
@@ -197,13 +194,8 @@ def permanently_delete_object(bucket, object_key):
     except ClientError:
         logger.exception("Couldn't delete all versions of %s.", object_key)
         raise
-
-
-
-
 ```
-
-Upload the stanza of a poem to a versioned object and perform a series of actions on it.
+Upload the stanza of a poem to a versioned object and perform a series of actions on it.  
 
 ```
 def usage_demo_single_object(obj_prefix="demo-versioning/"):
@@ -296,19 +288,13 @@ def usage_demo_single_object(obj_prefix="demo-versioning/"):
     bucket.delete()
     print(f"{bucket.name} deleted.")
     print("Demo done!")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateBucket](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/CreateBucket)
+  + [DeleteObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/DeleteObject)
+  + [ListObjectVersions](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/ListObjectVersions)
+  + [PutBucketLifecycleConfiguration](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutBucketLifecycleConfiguration)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateBucket](../../../goto/boto3/s3-2006-03-01/CreateBucket.md "../../../goto/boto3/s3-2006-03-01/CreateBucket.md")
-  - [DeleteObject](../../../goto/boto3/s3-2006-03-01/DeleteObject.md "../../../goto/boto3/s3-2006-03-01/DeleteObject.md")
-  - [ListObjectVersions](../../../goto/boto3/s3-2006-03-01/ListObjectVersions.md "../../../goto/boto3/s3-2006-03-01/ListObjectVersions.md")
-  - [PutBucketLifecycleConfiguration](../../../goto/boto3/s3-2006-03-01/PutBucketLifecycleConfiguration.md "../../../goto/boto3/s3-2006-03-01/PutBucketLifecycleConfiguration.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,24 +1,22 @@
+
+
 # Getting started with object storage
+<a name="s3_example_s3_GettingStarted_section"></a>
 
 The following code example shows how to:
++ Create your first S3 bucket
++ Upload an object
++ Enable versioning
++ Configure default encryption
++ Add tags to your bucket
++ List objects and versions
++ Clean up resources
 
-- Create your first S3 bucket
-- Upload an object
-- Enable versioning
-- Configure default encryption
-- Add tags to your bucket
-- List objects and versions
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/003-s3-gettingstarted "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/003-s3-gettingstarted")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/003-s3-gettingstarted) repository. 
 
 ```
 #!/bin/bash
@@ -88,23 +86,23 @@ get_region() {
 delete_object_versions() {
     local bucket=$1
     local query=$2
-
+    
     local versions
     versions=$(aws s3api list-object-versions \
         --bucket "$bucket" \
         --query "$query" \
         --output json 2>&1) || return 0
-
+    
     if [ -z "$versions" ] || [ "$versions" = "null" ] || [ "$versions" = "[]" ]; then
         return 0
     fi
-
+    
     echo "$versions" | jq -r '.[] | "\(.Key)\t\(.VersionId)"' 2>/dev/null | while IFS=$'\t' read -r key version_id; do
         if [ -n "$key" ] && [ "$key" != "null" ]; then
             aws s3api delete-object --bucket "$bucket" --key "$key" --version-id "$version_id" >/dev/null 2>&1 || true
         fi
     done
-
+    
     return 0
 }
 
@@ -120,16 +118,16 @@ cleanup() {
 
     if [ "$BUCKET_IS_SHARED" = "false" ]; then
         echo "Deleting all object versions in bucket..."
-
+        
         delete_object_versions "$BUCKET_NAME" "Versions[].{Key:Key,VersionId:VersionId}" || true
-
+        
         delete_object_versions "$BUCKET_NAME" "DeleteMarkers[].{Key:Key,VersionId:VersionId}" || true
 
         echo "Deleting bucket: ${BUCKET_NAME}"
         if ! aws s3api delete-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
             echo "WARNING: Failed to delete bucket ${BUCKET_NAME}"
         fi
-
+        
         # Clean up logs bucket
         LOG_TARGET_BUCKET="${BUCKET_NAME}-logs"
         if aws s3api head-bucket --bucket "$LOG_TARGET_BUCKET" 2>/dev/null; then
@@ -192,7 +190,7 @@ if [ "$BUCKET_IS_SHARED" = "false" ]; then
     fi
     CREATED_RESOURCES+=("s3:bucket:${BUCKET_NAME}")
     echo "Bucket created."
-
+    
     if ! aws s3api put-bucket-tagging \
         --bucket "$BUCKET_NAME" \
         --tagging '{
@@ -364,7 +362,7 @@ if [ "$BUCKET_IS_SHARED" = "false" ]; then
             --region "$REGION" \
             --create-bucket-configuration LocationConstraint="$REGION" >/dev/null 2>&1 || true
     fi
-
+    
     if ! aws s3api put-bucket-tagging \
         --bucket "$LOG_TARGET_BUCKET" \
         --tagging '{
@@ -381,9 +379,9 @@ if [ "$BUCKET_IS_SHARED" = "false" ]; then
         }' >/dev/null 2>&1; then
         echo "WARNING: Failed to tag log bucket"
     fi
-
+    
     aws s3api put-bucket-acl --bucket "$LOG_TARGET_BUCKET" --acl log-delivery-write 2>/dev/null || true
-
+    
     if ! aws s3api put-bucket-logging \
         --bucket "$BUCKET_NAME" \
         --bucket-logging-status '{
@@ -488,25 +486,22 @@ cleanup
 
 echo ""
 echo "Done."
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CopyObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CopyObject)
+  + [CreateBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/CreateBucket)
+  + [DeleteBucket](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/DeleteBucket)
+  + [DeleteObjects](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/DeleteObjects)
+  + [GetObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/GetObject)
+  + [HeadObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/HeadObject)
+  + [ListObjectVersions](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/ListObjectVersions)
+  + [ListObjectsV2](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/ListObjectsV2)
+  + [PutBucketEncryption](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutBucketEncryption)
+  + [PutBucketTagging](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutBucketTagging)
+  + [PutBucketVersioning](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutBucketVersioning)
+  + [PutObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutObject)
+  + [PutPublicAccessBlock](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CopyObject](../../../goto/aws-cli/s3-2006-03-01/CopyObject.md "../../../goto/aws-cli/s3-2006-03-01/CopyObject.md")
-  - [CreateBucket](../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md "../../../goto/aws-cli/s3-2006-03-01/CreateBucket.md")
-  - [DeleteBucket](../../../goto/aws-cli/s3-2006-03-01/DeleteBucket.md "../../../goto/aws-cli/s3-2006-03-01/DeleteBucket.md")
-  - [DeleteObjects](../../../goto/aws-cli/s3-2006-03-01/DeleteObjects.md "../../../goto/aws-cli/s3-2006-03-01/DeleteObjects.md")
-  - [GetObject](../../../goto/aws-cli/s3-2006-03-01/GetObject.md "../../../goto/aws-cli/s3-2006-03-01/GetObject.md")
-  - [HeadObject](../../../goto/aws-cli/s3-2006-03-01/HeadObject.md "../../../goto/aws-cli/s3-2006-03-01/HeadObject.md")
-  - [ListObjectVersions](../../../goto/aws-cli/s3-2006-03-01/ListObjectVersions.md "../../../goto/aws-cli/s3-2006-03-01/ListObjectVersions.md")
-  - [ListObjectsV2](../../../goto/aws-cli/s3-2006-03-01/ListObjectsV2.md "../../../goto/aws-cli/s3-2006-03-01/ListObjectsV2.md")
-  - [PutBucketEncryption](../../../goto/aws-cli/s3-2006-03-01/PutBucketEncryption.md "../../../goto/aws-cli/s3-2006-03-01/PutBucketEncryption.md")
-  - [PutBucketTagging](../../../goto/aws-cli/s3-2006-03-01/PutBucketTagging.md "../../../goto/aws-cli/s3-2006-03-01/PutBucketTagging.md")
-  - [PutBucketVersioning](../../../goto/aws-cli/s3-2006-03-01/PutBucketVersioning.md "../../../goto/aws-cli/s3-2006-03-01/PutBucketVersioning.md")
-  - [PutObject](../../../goto/aws-cli/s3-2006-03-01/PutObject.md "../../../goto/aws-cli/s3-2006-03-01/PutObject.md")
-  - [PutPublicAccessBlock](../../../goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock.md "../../../goto/aws-cli/s3-2006-03-01/PutPublicAccessBlock.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

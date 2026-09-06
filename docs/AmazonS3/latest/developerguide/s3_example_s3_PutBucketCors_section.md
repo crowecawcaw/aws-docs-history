@@ -1,19 +1,17 @@
+
+
 # Use `PutBucketCors` with an AWS SDK or CLI
+<a name="s3_example_s3_PutBucketCors_section"></a>
 
 The following code examples show how to use `PutBucketCors`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
 
 ```
-
         /// <summary>
         /// Add CORS configuration to the Amazon S3 bucket.
         /// </summary>
@@ -30,62 +28,46 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
             _ = await client.PutCORSConfigurationAsync(request);
         }
+```
++  For API details, see [PutBucketCors](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutBucketCors) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following example enables `PUT`, `POST`, and `DELETE` requests from *www.example.com*, and enables `GET` requests from any domain:  
 
 ```
+aws s3api put-bucket-cors --bucket {{amzn-s3-demo-bucket}} --cors-configuration {{file://cors.json}}
 
-- For API details, see
-  [PutBucketCors](../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketCors.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutBucketCors.md")
-  in _AWS SDK for .NET API Reference_.
+{{cors.json:}}
+{{{}}
+  "CORSRules": {{[}}
+    {{{}}
+      "AllowedOrigins": ["http://www.example.com"],
+      "AllowedHeaders": ["*"],
+      "AllowedMethods": ["PUT", "POST", "DELETE"],
+      "MaxAgeSeconds": {{3000,}}
+      "ExposeHeaders": ["x-amz-server-side-encryption"]
+    {{},}}
+    {{{}}
+      "AllowedOrigins": ["*"],
+      "AllowedHeaders": ["Authorization"],
+      "AllowedMethods": ["GET"],
+      "MaxAgeSeconds": {{3000}}
+    {{}}}
+  {{]}}
+{{}}}
+```
++  For API details, see [PutBucketCors](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-cors.html) in *AWS CLI Command Reference*. 
 
-CLI
+------
+#### [ Java ]
 
-**AWS CLI**
-
-The following example enables `PUT`, `POST`, and `DELETE` requests from *www.example.com*, and enables `GET`
-requests from any domain:
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-`aws s3api put-bucket-cors --bucket `amzn-s3-demo-bucket` --cors-configuration `file://cors.json`
-
-`cors.json:`
-`{`
- "CORSRules": `[`
- `{`
- "AllowedOrigins": ["http://www.example.com"],
- "AllowedHeaders": ["*"],
- "AllowedMethods": ["PUT", "POST", "DELETE"],
- "MaxAgeSeconds": `3000,`
- "ExposeHeaders": ["x-amz-server-side-encryption"]
- `},`
- `{`
- "AllowedOrigins": ["*"],
- "AllowedHeaders": ["Authorization"],
- "AllowedMethods": ["GET"],
- "MaxAgeSeconds": `3000`
- `}`
- `]`
-`}``
-
-```
-
-- For API details, see
-  [PutBucketCors](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-cors.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-cors.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 
@@ -234,25 +216,15 @@ public class S3Cors {
         }
     }
 }
-
-
 ```
++  For API details, see [PutBucketCors](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketCors) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutBucketCors](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketCors.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketCors.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Add a CORS rule.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Add a CORS rule.  
 
 ```
 import {
@@ -311,24 +283,15 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-configuring-buckets.html#s3-example-configuring-buckets-put-cors). 
++  For API details, see [PutBucketCors](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketCorsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-configuring-buckets.md#s3-example-configuring-buckets-put-cors "../../../sdk-for-javascript/v3/developer-guide/s3-example-configuring-buckets.md#s3-example-configuring-buckets-put-cors").
-- For API details, see
-  [PutBucketCors](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketCorsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutBucketCorsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class BucketWrapper:
@@ -358,24 +321,14 @@ class BucketWrapper:
         except ClientError:
             logger.exception("Couldn't put CORS rules for bucket %s.", self.bucket.name)
             raise
-
-
-
 ```
++  For API details, see [PutBucketCors](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutBucketCors) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutBucketCors](../../../goto/boto3/s3-2006-03-01/PutBucketCors.md "../../../goto/boto3/s3-2006-03-01/PutBucketCors.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 require 'aws-sdk-s3'
@@ -414,23 +367,14 @@ class BucketCorsWrapper
   end
 
 end
-
-
 ```
++  For API details, see [PutBucketCors](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/PutBucketCors) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [PutBucketCors](../../../goto/SdkForRubyV3/s3-2006-03-01/PutBucketCors.md "../../../goto/SdkForRubyV3/s3-2006-03-01/PutBucketCors.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -443,14 +387,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [PutBucketCors](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutBucketCors](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

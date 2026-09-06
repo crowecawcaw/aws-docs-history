@@ -1,21 +1,18 @@
+
+
 # Delete all objects in a given Amazon S3 bucket using an AWS SDK
+<a name="s3_example_s3_Scenario_DeleteAllObjects_section"></a>
 
 The following code example shows how to delete all of the objects in an Amazon S3 bucket.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Delete all objects for a given Amazon S3 bucket.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Delete all objects for a given Amazon S3 bucket.  
 
 ```
-
 import {
   DeleteObjectsCommand,
   paginateListObjectsV2,
@@ -73,15 +70,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const { values } = parseArgs({ options });
   main(values);
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [DeleteObjects](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand)
+  + [ListObjectsV2](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
 
-  - [DeleteObjects](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/DeleteObjectsCommand.md")
-  - [ListObjectsV2](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/ListObjectsV2Command.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

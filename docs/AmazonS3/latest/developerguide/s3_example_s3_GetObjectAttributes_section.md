@@ -1,21 +1,18 @@
+
+
 # Use `GetObjectAttributes` with an AWS SDK or CLI
+<a name="s3_example_s3_GetObjectAttributes_section"></a>
 
 The following code examples show how to use `GetObjectAttributes`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md) 
 
-- [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md "s3_example_s3_Scenario_ObjectIntegrity_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 // ! Routine which retrieves the hash value of an object stored in an S3 bucket.
@@ -132,31 +129,23 @@ bool AwsDoc::S3::retrieveObjectHash(const Aws::String &bucket, const Aws::String
 
     return true;
 }
+```
++  For API details, see [GetObjectAttributes](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/GetObjectAttributes) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To retrieves metadata from an object without returning the object itself**  
+The following `get-object-attributes` example retrieves metadata from the object `doc1.rtf`.  
 
 ```
-
-- For API details, see
-  [GetObjectAttributes](../../../goto/SdkForCpp/s3-2006-03-01/GetObjectAttributes.md "../../../goto/SdkForCpp/s3-2006-03-01/GetObjectAttributes.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieves metadata from an object without returning the object itself**
-
-The following `get-object-attributes` example retrieves metadata from the object `doc1.rtf`.
-
+aws s3api get-object-attributes \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key {{doc1.rtf}} \
+    --object-attributes {{"StorageClass"}} {{"ETag"}} {{"ObjectSize"}}
 ```
-`aws s3api get-object-attributes \
- --bucket `amzn-s3-demo-bucket` \
- --key `doc1.rtf` \
- --object-attributes `"StorageClass"` `"ETag"` `"ObjectSize"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -167,13 +156,9 @@ Output:
     "ObjectSize": 405
 }
 ```
+For more information, see [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html) in the Amazon S3 API Reference.  
++  For API details, see [GetObjectAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-attributes.html) in *AWS CLI Command Reference*. 
 
-For more information, see [GetObjectAttributes](../API/API_GetObjectAttributes.md "../API/API_GetObjectAttributes.md") in the Amazon S3 API Reference.
+------
 
-- For API details, see
-  [GetObjectAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-attributes.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

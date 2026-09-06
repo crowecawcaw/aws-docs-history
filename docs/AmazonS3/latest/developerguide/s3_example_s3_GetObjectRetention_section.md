@@ -1,21 +1,18 @@
+
+
 # Use `GetObjectRetention` with an AWS SDK or CLI
+<a name="s3_example_s3_GetObjectRetention_section"></a>
 
 The following code examples show how to use `GetObjectRetention`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Lock Amazon S3 objects](s3_example_s3_Scenario_ObjectLock_section.md) 
 
-- [Lock Amazon S3 objects](s3_example_s3_Scenario_ObjectLock_section.md "s3_example_s3_Scenario_ObjectLock_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/scenarios/S3ObjectLockScenario#code-examples). 
 
 ```
     /// <summary>
@@ -46,30 +43,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return new ObjectLockRetention();
         }
     }
+```
++  For API details, see [GetObjectRetention](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObjectRetention) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To retrieve the object retention configuration for an object**  
+The following `get-object-retention` example retrieves the object retention configuration for the specified object.  
 
 ```
-
-- For API details, see
-  [GetObjectRetention](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectRetention.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectRetention.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To retrieve the object retention configuration for an object**
-
-The following `get-object-retention` example retrieves the object retention configuration for the specified object.
-
+aws s3api get-object-retention \
+    --bucket {{amzn-s3-demo-bucket-with-object-lock}} \
+    --key {{doc1.rtf}}
 ```
-`aws s3api get-object-retention \
- --bucket `amzn-s3-demo-bucket-with-object-lock` \
- --key `doc1.rtf``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -79,23 +68,15 @@ Output:
     }
 }
 ```
++  For API details, see [GetObjectRetention](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-retention.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetObjectRetention](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-retention.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-retention.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/s3_object_lock#code-examples). 
 
 ```
-
 import (
 	"bytes"
 	"context"
@@ -149,24 +130,14 @@ func (actor S3Actions) GetObjectRetention(ctx context.Context, bucket string, ke
 
 	return retention, err
 }
-
-
-
 ```
++  For API details, see [GetObjectRetention](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectRetention) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [GetObjectRetention](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectRetention "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObjectRetention")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
     // Get the retention period for an S3 object.
@@ -186,26 +157,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             return null;
         }
     }
+```
++  For API details, see [GetObjectRetention](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObjectRetention) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ JavaScript ]
+
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
 
 ```
-
-- For API details, see
-  [GetObjectRetention](../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectRetention.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetObjectRetention.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-```
-
 import {
   GetObjectRetentionCommand,
   S3Client,
@@ -278,42 +239,28 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
-
 ```
++  For API details, see [GetObjectRetention](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectRetentionCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetObjectRetention](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectRetentionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectRetentionCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: The command returns the mode and date till the object would be retained.**
+**Tools for PowerShell V4**  
+**Example 1: The command returns the mode and date till the object would be retained.**  
 
 ```
 Get-S3ObjectRetention -BucketName 'amzn-s3-demo-bucket' -Key 'testfile.txt'
-
 ```
++  For API details, see [GetObjectRetention](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetObjectRetention](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: The command returns the mode and date till the object would be retained.**
+**Tools for PowerShell V5**  
+**Example 1: The command returns the mode and date till the object would be retained.**  
 
 ```
 Get-S3ObjectRetention -BucketName 'amzn-s3-demo-bucket' -Key 'testfile.txt'
-
 ```
++  For API details, see [GetObjectRetention](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetObjectRetention](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

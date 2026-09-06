@@ -1,18 +1,16 @@
+
+
 # Example approaches for unit and integration testing with an AWS SDK
+<a name="s3_example_cross_Testing_section"></a>
 
 The following code example shows how to examples for best-practice techniques when writing unit and integration tests using an AWS SDK.
 
-Rust
+------
+#### [ Rust ]
 
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/testing#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/testing#code-examples").
-
-Cargo.toml for testing examples.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/testing#code-examples). 
+Cargo.toml for testing examples.  
 
 ```
 [package]
@@ -43,14 +41,10 @@ tracing-subscriber = { version = "0.3.15", features = ["env-filter"] }
 [[bin]]
 name = "main"
 path = "src/main.rs"
-
+```
+Unit testing example using automock and a service wrapper.  
 
 ```
-
-Unit testing example using automock and a service wrapper.
-
-```
-
 use aws_sdk_s3 as s3;
 #[allow(unused_imports)]
 use mockall::automock;
@@ -189,14 +183,10 @@ mod test {
         assert_eq!(19, size);
     }
 }
-
+```
+Integration testing example using StaticReplayClient.  
 
 ```
-
-Integration testing example using StaticReplayClient.
-
-```
-
 use aws_sdk_s3 as s3;
 
 #[allow(dead_code)]
@@ -328,10 +318,8 @@ mod test {
         replay_client.assert_requests_match(&[]);
     }
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

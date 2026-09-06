@@ -1,23 +1,21 @@
+
+
 # Getting started with query analytics
+<a name="s3_example_athena_GettingStarted_061_section"></a>
 
 The following code example shows how to:
++ Create an S3 bucket for query results
++ Create a database
++ Create a table
++ Run a query
++ Create and use named queries
++ Clean up resources
 
-- Create an S3 bucket for query results
-- Create a database
-- Create a table
-- Run a query
-- Create and use named queries
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/061-amazon-athena-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/061-amazon-athena-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/061-amazon-athena-gs) repository. 
 
 ```
 #!/bin/bash
@@ -62,7 +60,7 @@ handle_error() {
     if [ -n "${S3_BUCKET:-}" ]; then
         echo "- S3 Bucket: $S3_BUCKET"
     fi
-
+    
     echo "Exiting..."
     exit 1
 }
@@ -150,11 +148,11 @@ if [ "$BUCKET_IS_SHARED" = false ]; then
     if echo "$CREATE_BUCKET_RESULT" | grep -qi "error\|failed"; then
         handle_error "Failed to create S3 bucket: $CREATE_BUCKET_RESULT"
     fi
-
+    
     aws s3api put-bucket-tagging \
         --bucket "$S3_BUCKET" \
         --tagging 'TagSet=[{Key=project,Value=doc-smith},{Key=tutorial,Value=amazon-athena-gs}]'
-
+    
     # Security: Enable S3 bucket encryption with KMS validation
     echo "Enabling default encryption on S3 bucket..."
     if ! aws s3api put-bucket-encryption \
@@ -168,7 +166,7 @@ if [ "$BUCKET_IS_SHARED" = false ]; then
         }' 2>&1; then
         echo "Warning: Could not enable encryption on bucket"
     fi
-
+    
     # Security: Block public access
     echo "Blocking public access to S3 bucket..."
     if ! aws s3api put-public-access-block \
@@ -177,7 +175,7 @@ if [ "$BUCKET_IS_SHARED" = false ]; then
         "BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true" 2>&1; then
         echo "Warning: Could not block public access on bucket"
     fi
-
+    
     # Security: Enable versioning for data protection
     echo "Enabling versioning on S3 bucket..."
     if ! aws s3api put-bucket-versioning \
@@ -185,7 +183,7 @@ if [ "$BUCKET_IS_SHARED" = false ]; then
         --versioning-configuration Status=Enabled 2>&1; then
         echo "Warning: Could not enable versioning on bucket"
     fi
-
+    
     echo "S3 bucket created successfully: $S3_BUCKET"
 fi
 
@@ -253,7 +251,7 @@ CREATE_TABLE_QUERY="CREATE EXTERNAL TABLE IF NOT EXISTS $DATABASE_NAME.$TABLE_NA
   os STRING,
   Browser STRING,
   BrowserVersion STRING
-)
+) 
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
 WITH SERDEPROPERTIES (
   \"input.regex\" = \"^(?!#)([^ ]+)\\\\s+([^ ]+)\\\\s+([^ ]+)\\\\s+([^ ]+)\\\\s+([^ ]+)\\\\s+([^ ]+)\\\\s+([^ ]+)\\\\s+([^ ]+)\\\\s+([^ ]+)\\\\s+([^ ]+)\\\\s+[^\\\\(]+[\\\\(]([^\\\\;]+).*\\\\%20([^\\\\/]+)[\\\\/](.*)$\"
@@ -308,9 +306,9 @@ echo "$LIST_TABLE_RESULT"
 
 # Step 3: Query data
 echo "Step 3: Running a query on the table..."
-QUERY="SELECT os, COUNT(*) count
-FROM $DATABASE_NAME.$TABLE_NAME
-WHERE date BETWEEN date '2014-07-05' AND date '2014-08-05'
+QUERY="SELECT os, COUNT(*) count 
+FROM $DATABASE_NAME.$TABLE_NAME 
+WHERE date BETWEEN date '2014-07-05' AND date '2014-08-05' 
 GROUP BY os"
 
 QUERY_RESULT=$(aws athena start-query-execution \
@@ -485,7 +483,7 @@ CLEANUP_CHOICE="y"
 
 if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
     echo "Starting cleanup..."
-
+    
     # Delete named query
     echo "Deleting named query: $NAMED_QUERY_ID"
     DELETE_QUERY_RESULT=$(aws athena delete-named-query --named-query-id "$NAMED_QUERY_ID" \
@@ -495,21 +493,21 @@ if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
     else
         echo "Named query deleted successfully."
     fi
-
+    
     # Drop table
     echo "Dropping table: $TABLE_NAME"
     DROP_TABLE_RESULT=$(aws athena start-query-execution \
         --query-string "DROP TABLE IF EXISTS $DATABASE_NAME.$TABLE_NAME" \
         --result-configuration "OutputLocation=s3://$S3_BUCKET/output/" \
         --region "$AWS_REGION" 2>&1)
-
+    
     if echo "$DROP_TABLE_RESULT" | grep -qi "error\|failed"; then
         echo "Warning: Failed to drop table: $DROP_TABLE_RESULT"
     else
         QUERY_ID=$(echo "$DROP_TABLE_RESULT" | jq -r '.QueryExecutionId // empty' 2>/dev/null || echo "$DROP_TABLE_RESULT" | grep -o '"QueryExecutionId": "[^"]*' | cut -d'"' -f4)
         if [ -n "$QUERY_ID" ]; then
             echo "Waiting for table deletion to complete..."
-
+            
             ELAPSED=0
             while [ $ELAPSED -lt $WAIT_TIMEOUT ]; do
                 QUERY_STATUS=$(aws athena get-query-execution --query-execution-id "$QUERY_ID" \
@@ -527,21 +525,21 @@ if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
             done
         fi
     fi
-
+    
     # Drop database
     echo "Dropping database: $DATABASE_NAME"
     DROP_DB_RESULT=$(aws athena start-query-execution \
         --query-string "DROP DATABASE IF EXISTS $DATABASE_NAME" \
         --result-configuration "OutputLocation=s3://$S3_BUCKET/output/" \
         --region "$AWS_REGION" 2>&1)
-
+    
     if echo "$DROP_DB_RESULT" | grep -qi "error\|failed"; then
         echo "Warning: Failed to drop database: $DROP_DB_RESULT"
     else
         QUERY_ID=$(echo "$DROP_DB_RESULT" | jq -r '.QueryExecutionId // empty' 2>/dev/null || echo "$DROP_DB_RESULT" | grep -o '"QueryExecutionId": "[^"]*' | cut -d'"' -f4)
         if [ -n "$QUERY_ID" ]; then
             echo "Waiting for database deletion to complete..."
-
+            
             ELAPSED=0
             while [ $ELAPSED -lt $WAIT_TIMEOUT ]; do
                 QUERY_STATUS=$(aws athena get-query-execution --query-execution-id "$QUERY_ID" \
@@ -559,7 +557,7 @@ if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
             done
         fi
     fi
-
+    
     # Empty and delete S3 bucket (only if not shared)
     if [ "$BUCKET_IS_SHARED" = false ]; then
         echo "Emptying S3 bucket: $S3_BUCKET"
@@ -569,7 +567,7 @@ if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
         else
             echo "S3 bucket emptied successfully."
         fi
-
+        
         echo "Deleting S3 bucket: $S3_BUCKET"
         DELETE_BUCKET_RESULT=$(aws s3 rb "s3://$S3_BUCKET" 2>&1)
         if echo "$DELETE_BUCKET_RESULT" | grep -qi "error\|failed"; then
@@ -580,7 +578,7 @@ if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
     else
         echo "Skipping S3 bucket deletion (shared resource)"
     fi
-
+    
     # Security: Remove downloaded query results
     if [ -f "./query-results.csv" ]; then
         if command -v shred &>/dev/null; then
@@ -590,30 +588,27 @@ if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
         fi
         echo "Query results file securely removed."
     fi
-
+    
     echo "Cleanup completed."
 fi
 
 echo "Tutorial completed successfully!"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [Cp](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Cp)
+  + [CreateNamedQuery](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/CreateNamedQuery)
+  + [DeleteNamedQuery](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/DeleteNamedQuery)
+  + [GetNamedQuery](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/GetNamedQuery)
+  + [GetQueryExecution](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/GetQueryExecution)
+  + [GetQueryResults](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/GetQueryResults)
+  + [ListDatabases](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/ListDatabases)
+  + [ListNamedQueries](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/ListNamedQueries)
+  + [ListTableMetadata](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/ListTableMetadata)
+  + [Mb](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Mb)
+  + [Rb](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Rb)
+  + [Rm](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Rm)
+  + [StartQueryExecution](https://docs.aws.amazon.com/goto/aws-cli/athena-2017-05-18/StartQueryExecution)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [Cp](../../../goto/aws-cli/s3-2006-03-01/Cp.md "../../../goto/aws-cli/s3-2006-03-01/Cp.md")
-  - [CreateNamedQuery](../../../goto/aws-cli/athena-2017-05-18/CreateNamedQuery.md "../../../goto/aws-cli/athena-2017-05-18/CreateNamedQuery.md")
-  - [DeleteNamedQuery](../../../goto/aws-cli/athena-2017-05-18/DeleteNamedQuery.md "../../../goto/aws-cli/athena-2017-05-18/DeleteNamedQuery.md")
-  - [GetNamedQuery](../../../goto/aws-cli/athena-2017-05-18/GetNamedQuery.md "../../../goto/aws-cli/athena-2017-05-18/GetNamedQuery.md")
-  - [GetQueryExecution](../../../goto/aws-cli/athena-2017-05-18/GetQueryExecution.md "../../../goto/aws-cli/athena-2017-05-18/GetQueryExecution.md")
-  - [GetQueryResults](../../../goto/aws-cli/athena-2017-05-18/GetQueryResults.md "../../../goto/aws-cli/athena-2017-05-18/GetQueryResults.md")
-  - [ListDatabases](../../../goto/aws-cli/athena-2017-05-18/ListDatabases.md "../../../goto/aws-cli/athena-2017-05-18/ListDatabases.md")
-  - [ListNamedQueries](../../../goto/aws-cli/athena-2017-05-18/ListNamedQueries.md "../../../goto/aws-cli/athena-2017-05-18/ListNamedQueries.md")
-  - [ListTableMetadata](../../../goto/aws-cli/athena-2017-05-18/ListTableMetadata.md "../../../goto/aws-cli/athena-2017-05-18/ListTableMetadata.md")
-  - [Mb](../../../goto/aws-cli/s3-2006-03-01/Mb.md "../../../goto/aws-cli/s3-2006-03-01/Mb.md")
-  - [Rb](../../../goto/aws-cli/s3-2006-03-01/Rb.md "../../../goto/aws-cli/s3-2006-03-01/Rb.md")
-  - [Rm](../../../goto/aws-cli/s3-2006-03-01/Rm.md "../../../goto/aws-cli/s3-2006-03-01/Rm.md")
-  - [StartQueryExecution](../../../goto/aws-cli/athena-2017-05-18/StartQueryExecution.md "../../../goto/aws-cli/athena-2017-05-18/StartQueryExecution.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

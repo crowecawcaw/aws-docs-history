@@ -1,18 +1,16 @@
+
+
 # Receive and process Amazon S3 event notifications by using an AWS SDK
+<a name="s3_example_s3_Scenario_ProcessS3EventNotification_section"></a>
 
 The following code example shows how to work with S3 event notifications in an object-oriented way.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-This example show how to process S3 notification event by using Amazon SQS.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+This example show how to process S3 notification event by using Amazon SQS.  
 
 ```
     /**
@@ -110,18 +108,13 @@ This example show how to process S3 notification event by using Amazon SQS.
             throw new RuntimeException(e);
         }
     }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [DeleteMessageBatch](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch)
+  + [GetQueueAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/GetQueueAttributes)
+  + [PutBucketNotificationConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutBucketNotificationConfiguration)
+  + [ReceiveMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [DeleteMessageBatch](../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md")
-  - [GetQueueAttributes](../../../goto/SdkForJavaV2/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/GetQueueAttributes.md")
-  - [PutBucketNotificationConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketNotificationConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketNotificationConfiguration.md")
-  - [ReceiveMessage](../../../goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

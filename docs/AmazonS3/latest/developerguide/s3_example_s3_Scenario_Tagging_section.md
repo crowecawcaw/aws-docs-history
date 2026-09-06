@@ -1,16 +1,15 @@
+
+
 # Get started with tags for Amazon S3 objects using an AWS SDK
+<a name="s3_example_s3_Scenario_Tagging_section"></a>
 
 The following code example shows how to get started with tags for Amazon S3 objects.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/ObjectTagExample#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/ObjectTagExample#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3/ObjectTagExample#code-examples). 
 
 ```
     using System;
@@ -119,15 +118,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
-
-
-
 ```
++  For API details, see [GetObjectTagging](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObjectTagging) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetObjectTagging](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectTagging.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObjectTagging.md")
-  in _AWS SDK for .NET API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

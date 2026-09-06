@@ -1,16 +1,15 @@
+
+
 # Use `GetBucketPolicy` with an AWS SDK or CLI
+<a name="s3_example_s3_GetBucketPolicy_section"></a>
 
 The following code examples show how to use `GetBucketPolicy`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::getBucketPolicy(const Aws::String &bucketName,
@@ -40,71 +39,46 @@ bool AwsDoc::S3::getBucketPolicy(const Aws::String &bucketName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/GetBucketPolicy) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command retrieves the bucket policy for a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-- For API details, see
-  [GetBucketPolicy](../../../goto/SdkForCpp/s3-2006-03-01/GetBucketPolicy.md "../../../goto/SdkForCpp/s3-2006-03-01/GetBucketPolicy.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command retrieves the bucket policy for a bucket named `amzn-s3-demo-bucket`:
-
+aws s3api get-bucket-policy --bucket {{amzn-s3-demo-bucket}}
 ```
-`aws s3api get-bucket-policy --bucket `amzn-s3-demo-bucket``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "Policy": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Sid\":\"\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::amzn-s3-demo-bucket/*\"},{\"Sid\":\"\",\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::amzn-s3-demo-bucket/secret/*\"}]}"
 }
 ```
-
-Get and put a bucket policyThe following example shows how you can download an Amazon S3 bucket policy,
-make modifications to the file, and then use `put-bucket-policy` to
-apply the modified bucket policy. To download the bucket policy to a file,
-you can run:
+Get and put a bucket policyThe following example shows how you can download an Amazon S3 bucket policy, make modifications to the file, and then use `put-bucket-policy` to apply the modified bucket policy. To download the bucket policy to a file, you can run:  
 
 ```
 aws s3api get-bucket-policy --bucket amzn-s3-demo-bucket --query Policy --output text > policy.json
 ```
-
-You can then modify the `policy.json` file as needed. Finally you can apply
-this modified policy back to the S3 bucket by running:
-
-`policy.json` file as needed. Finally you can apply
-this modified policy back to the S3 bucket by running:
-
-file as needed. Finally you can apply
-this modified policy back to the S3 bucket by running:
+You can then modify the `policy.json` file as needed. Finally you can apply this modified policy back to the S3 bucket by running:  
+`policy.json` file as needed. Finally you can apply this modified policy back to the S3 bucket by running:  
+ file as needed. Finally you can apply this modified policy back to the S3 bucket by running:  
 
 ```
 aws s3api put-bucket-policy --bucket amzn-s3-demo-bucket --policy file://policy.json
 ```
++  For API details, see [GetBucketPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-policy.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-policy.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
 
 ```
-
 import software.amazon.awssdk.services.s3.model.S3Exception;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -175,25 +149,15 @@ public class GetBucketPolicy {
         return "";
     }
 }
-
-
 ```
++  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetBucketPolicy) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetBucketPolicy](../../../goto/SdkForJavaV2/s3-2006-03-01/GetBucketPolicy.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetBucketPolicy.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Get the bucket policy.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Get the bucket policy.  
 
 ```
 import {
@@ -233,24 +197,15 @@ export const main = async ({ bucketName }) => {
     }
   }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-bucket-policies.html#s3-example-bucket-policies-get-policy). 
++  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketPolicyCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-bucket-policies.md#s3-example-bucket-policies-get-policy "../../../sdk-for-javascript/v3/developer-guide/s3-example-bucket-policies.md#s3-example-bucket-policies-get-policy").
-- For API details, see
-  [GetBucketPolicy](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketPolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetBucketPolicyCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun getPolicy(bucketName: String): String? {
@@ -266,51 +221,33 @@ suspend fun getPolicy(bucketName: String): String? {
         return policyRes.policy
     }
 }
-
-
 ```
++  For API details, see [GetBucketPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [GetBucketPolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command outputs the bucket policy associated with the given S3 bucket.**
+**Tools for PowerShell V4**  
+**Example 1: This command outputs the bucket policy associated with the given S3 bucket.**  
 
 ```
 Get-S3BucketPolicy -BucketName 'amzn-s3-demo-bucket'
-
 ```
++  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetBucketPolicy](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command outputs the bucket policy associated with the given S3 bucket.**
+**Tools for PowerShell V5**  
+**Example 1: This command outputs the bucket policy associated with the given S3 bucket.**  
 
 ```
 Get-S3BucketPolicy -BucketName 'amzn-s3-demo-bucket'
-
 ```
++  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetBucketPolicy](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class BucketWrapper:
@@ -341,24 +278,14 @@ class BucketWrapper:
             raise
         else:
             return json.loads(policy.policy)
-
-
-
 ```
++  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/GetBucketPolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetBucketPolicy](../../../goto/boto3/s3-2006-03-01/GetBucketPolicy.md "../../../goto/boto3/s3-2006-03-01/GetBucketPolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
 
 ```
 # Wraps an Amazon S3 bucket policy.
@@ -382,23 +309,14 @@ class BucketPolicyWrapper
   end
 
 end
-
-
 ```
++  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/GetBucketPolicy) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetBucketPolicy](../../../goto/SdkForRubyV3/s3-2006-03-01/GetBucketPolicy.md "../../../goto/SdkForRubyV3/s3-2006-03-01/GetBucketPolicy.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -409,14 +327,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetBucketPolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetBucketPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

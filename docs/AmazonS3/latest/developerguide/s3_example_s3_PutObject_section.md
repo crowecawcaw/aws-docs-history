@@ -1,28 +1,24 @@
+
+
 # Use `PutObject` with an AWS SDK or CLI
+<a name="s3_example_s3_PutObject_section"></a>
 
 The following code examples show how to use `PutObject`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md) 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
++  [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md) 
++  [Track uploads and downloads](s3_example_s3_Scenario_TrackUploadDownload_section.md) 
++  [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md) 
 
-- [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md "s3_example_s3_Scenario_GettingStarted_section.md")
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
-- [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md "s3_example_s3_Scenario_ConditionalRequests_section.md")
-- [Track uploads and downloads](s3_example_s3_Scenario_TrackUploadDownload_section.md "s3_example_s3_Scenario_TrackUploadDownload_section.md")
-- [Work with Amazon S3 object integrity](s3_example_s3_Scenario_ObjectIntegrity_section.md "s3_example_s3_Scenario_ObjectIntegrity_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
 ```
-
     /// <summary>
     /// Shows how to upload a file from the local computer to an Amazon S3
     /// bucket.
@@ -57,24 +53,12 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/PutObject) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [PutObject](../../../goto/DotNetSDKV4/s3-2006-03-01/PutObject.md "../../../goto/DotNetSDKV4/s3-2006-03-01/PutObject.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
-
-Upload an object with server-side encryption.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
+Upload an object with server-side encryption.  
 
 ```
     using System;
@@ -142,12 +126,8 @@ Upload an object with server-side encryption.
             }
         }
     }
-
-
-
 ```
-
-Put an object using a conditional request.
+Put an object using a conditional request.  
 
 ```
     /// <summary>
@@ -187,23 +167,14 @@ Put an object using a conditional request.
             return string.Empty;
         }
     }
-
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/PutObject) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [PutObject](../../../goto/DotNetSDKV3/s3-2006-03-01/PutObject.md "../../../goto/DotNetSDKV3/s3-2006-03-01/PutObject.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
 ```
 ###############################################################################
@@ -246,23 +217,14 @@ function copy_file_to_bucket() {
     return 1
   fi
 }
-
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/PutObject) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PutObject](../../../goto/aws-cli/s3-2006-03-01/PutObject.md "../../../goto/aws-cli/s3-2006-03-01/PutObject.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::putObject(const Aws::String &bucketName,
@@ -301,64 +263,43 @@ bool AwsDoc::S3::putObject(const Aws::String &bucketName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [PutObject](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/PutObject) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: Upload an object to Amazon S3**  
+The following `put-object` command example uploads an object to Amazon S3.  
 
 ```
-
-- For API details, see
-  [PutObject](../../../goto/SdkForCpp/s3-2006-03-01/PutObject.md "../../../goto/SdkForCpp/s3-2006-03-01/PutObject.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: Upload an object to Amazon S3**
-
-The following `put-object` command example uploads an object to Amazon S3.
+aws s3api put-object \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key {{my-dir/MySampleImage.png}} \
+    --body {{MySampleImage.png}}
+```
+For more information about uploading objects, see Uploading Objects < http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html> in the *Amazon S3 Developer Guide*.  
+**Example 2: Upload a video file to Amazon S3**  
+The following `put-object` command example uploads a video file.  
 
 ```
-`aws s3api put-object \
- --bucket `amzn-s3-demo-bucket` \
- --key `my-dir/MySampleImage.png` \
- --body `MySampleImage.png``
+aws s3api put-object \
+    --bucket {{amzn-s3-demo-bucket}} \
+    --key {{my-dir/big-video-file.mp4}} \
+    --body {{/media/videos/f-sharp-3-data-services.mp4}}
+```
+For more information about uploading objects, see Uploading Objects < http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html> in the *Amazon S3 Developer Guide*.  
++  For API details, see [PutObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) in *AWS CLI Command Reference*. 
+
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
+Put an object in a bucket by using the low-level API.  
 
 ```
-
-For more information about uploading objects, see Uploading Objects < http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html> in the _Amazon S3 Developer Guide_.
-
-**Example 2: Upload a video file to Amazon S3**
-
-The following `put-object` command example uploads a video file.
-
-```
-`aws s3api put-object \
- --bucket `amzn-s3-demo-bucket` \
- --key `my-dir/big-video-file.mp4` \
- --body `/media/videos/f-sharp-3-data-services.mp4``
-
-```
-
-For more information about uploading objects, see Uploading Objects < http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html> in the _Amazon S3 Developer Guide_.
-
-- For API details, see
-  [PutObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
-
-Put an object in a bucket by using the low-level API.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -418,15 +359,10 @@ func (basics BucketBasics) UploadFile(ctx context.Context, bucketName string, ob
 	}
 	return err
 }
-
-
+```
+Upload an object to a bucket by using a transfer manager.  
 
 ```
-
-Upload an object to a bucket by using a transfer manager.
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -479,29 +415,17 @@ func (actor S3Actions) UploadObject(ctx context.Context, bucket string, key stri
 	}
 	return outKey, err
 }
+```
++  For API details, see [PutObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObject) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Upload a file to a bucket using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-- For API details, see
-  [PutObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObject "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.PutObject")
-  in _AWS SDK for Go API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Upload a file to a bucket using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
     /**
      * Uploads a local file to an AWS S3 bucket asynchronously.
      *
@@ -523,11 +447,8 @@ Upload a file to a bucket using an [S3Client](https://sdk.amazonaws.com/java/api
             }
         });
     }
-
-
 ```
-
-Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html") to [upload a file](<https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#uploadFile(software.amazon.awssdk.transfer.s3.UploadFileRequest)> "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#uploadFile(software.amazon.awssdk.transfer.s3.UploadFileRequest)") to a bucket. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/UploadFile.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/UploadFile.java") and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java").
+Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [upload a file](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#uploadFile(software.amazon.awssdk.transfer.s3.UploadFileRequest)) to a bucket. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/UploadFile.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java).  
 
 ```
 import org.slf4j.Logger;
@@ -555,11 +476,8 @@ import java.util.UUID;
         CompletedFileUpload uploadResult = fileUpload.completionFuture().join();
         return uploadResult.response().eTag();
     }
-
-
 ```
-
-Upload an object to a bucket and set tags using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
+Upload an object to a bucket and set tags using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
     /**
@@ -696,14 +614,10 @@ Upload an object to a bucket and set tags using an [S3Client](https://sdk.amazon
         return bytesArray;
     }
 }
-
+```
+Upload an object to a bucket and set metadata using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-Upload an object to a bucket and set metadata using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -783,14 +697,10 @@ public class PutObjectMetadata {
         }
     }
 }
-
+```
+Upload an object to a bucket and set an object retention value using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-Upload an object to a bucket and set an object retention value using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRetentionRequest;
@@ -877,25 +787,15 @@ public class PutObjectRetention {
         }
     }
 }
-
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/PutObject) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [PutObject](../../../goto/SdkForJavaV2/s3-2006-03-01/PutObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutObject.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Upload the object.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Upload the object.  
 
 ```
 import { readFile } from "node:fs/promises";
@@ -940,14 +840,10 @@ or the multipart upload API (5TB max).`,
     }
   }
 };
-
+```
+Upload the object on condition its ETag matches the one provided.  
 
 ```
-
-Upload the object on condition its ETag matches the one provided.
-
-```
-
 import {
   GetObjectCommand,
   NoSuchKey,
@@ -1023,24 +919,15 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.html#s3-example-creating-buckets-new-bucket-2). 
++  For API details, see [PutObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-new-bucket-2 "../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-new-bucket-2").
-- For API details, see
-  [PutObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/PutObjectCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun putS3Object(
@@ -1064,25 +951,15 @@ suspend fun putS3Object(
         println("Tag information is ${response.eTag}")
     }
 }
-
-
 ```
++  For API details, see [PutObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [PutObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
-
-Upload an object to a bucket.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
+Upload an object to a bucket.  
 
 ```
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
@@ -1099,149 +976,103 @@ Upload an object to a bucket.
             echo "Failed to upload $fileName with error: " . $exception->getMessage();
             exit("Please fix error with file upload before continuing.");
         }
-
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/PutObject) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [PutObject](../../../goto/SdkForPHPV3/s3-2006-03-01/PutObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/PutObject.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files".**
+**Tools for PowerShell V4**  
+**Example 1: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files".**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Key "sample.txt" -File .\local-sample.txt
-
 ```
-
-**Example 2: This command uploads the single file "sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files". If the -Key parameter is not supplied, the filename is used as the S3 object key.**
+**Example 2: This command uploads the single file "sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files". If the -Key parameter is not supplied, the filename is used as the S3 object key.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -File .\sample.txt
-
 ```
-
-**Example 3: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "prefix/to/sample.txt" in bucket "test-files".**
+**Example 3: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "prefix/to/sample.txt" in bucket "test-files".**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Key "prefix/to/sample.txt" -File .\local-sample.txt
-
 ```
-
-**Example 4: This command uploads all files in the subdirectory "Scripts" to the bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename" where 'filename' varies.**
+**Example 4: This command uploads all files in the subdirectory "Scripts" to the bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename" where 'filename' varies.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Folder .\Scripts -KeyPrefix SampleScripts\
-
 ```
-
-**Example 5: This command uploads all \*.ps1 files in the local director "Scripts" to bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename.ps1" where 'filename' varies.**
+**Example 5: This command uploads all \*.ps1 files in the local director "Scripts" to bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename.ps1" where 'filename' varies.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Folder .\Scripts -KeyPrefix SampleScripts\ -SearchPattern *.ps1
-
 ```
-
-**Example 6: This command creates a new S3 object containing the specified content string with key 'sample.txt'.**
+**Example 6: This command creates a new S3 object containing the specified content string with key 'sample.txt'.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Key "sample.txt" -Content "object contents"
-
 ```
-
-**Example 7: This command uploads the specified file (the filename is used as the key) and applies the specified tags to the new object.**
+**Example 7: This command uploads the specified file (the filename is used as the key) and applies the specified tags to the new object.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -File "sample.txt" -TagSet @{Key="key1";Value="value1"},@{Key="key2";Value="value2"}
-
 ```
-
-**Example 8: This command recursively uploads the specified folder and applies the specified tags to all the new objects.**
+**Example 8: This command recursively uploads the specified folder and applies the specified tags to all the new objects.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Folder . -KeyPrefix "TaggedFiles" -Recurse -TagSet @{Key="key1";Value="value1"},@{Key="key2";Value="value2"}
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PutObject](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files".**
+**Tools for PowerShell V5**  
+**Example 1: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files".**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Key "sample.txt" -File .\local-sample.txt
-
 ```
-
-**Example 2: This command uploads the single file "sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files". If the -Key parameter is not supplied, the filename is used as the S3 object key.**
+**Example 2: This command uploads the single file "sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files". If the -Key parameter is not supplied, the filename is used as the S3 object key.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -File .\sample.txt
-
 ```
-
-**Example 3: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "prefix/to/sample.txt" in bucket "test-files".**
+**Example 3: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "prefix/to/sample.txt" in bucket "test-files".**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Key "prefix/to/sample.txt" -File .\local-sample.txt
-
 ```
-
-**Example 4: This command uploads all files in the subdirectory "Scripts" to the bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename" where 'filename' varies.**
+**Example 4: This command uploads all files in the subdirectory "Scripts" to the bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename" where 'filename' varies.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Folder .\Scripts -KeyPrefix SampleScripts\
-
 ```
-
-**Example 5: This command uploads all \*.ps1 files in the local director "Scripts" to bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename.ps1" where 'filename' varies.**
+**Example 5: This command uploads all \*.ps1 files in the local director "Scripts" to bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename.ps1" where 'filename' varies.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Folder .\Scripts -KeyPrefix SampleScripts\ -SearchPattern *.ps1
-
 ```
-
-**Example 6: This command creates a new S3 object containing the specified content string with key 'sample.txt'.**
+**Example 6: This command creates a new S3 object containing the specified content string with key 'sample.txt'.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Key "sample.txt" -Content "object contents"
-
 ```
-
-**Example 7: This command uploads the specified file (the filename is used as the key) and applies the specified tags to the new object.**
+**Example 7: This command uploads the specified file (the filename is used as the key) and applies the specified tags to the new object.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -File "sample.txt" -TagSet @{Key="key1";Value="value1"},@{Key="key2";Value="value2"}
-
 ```
-
-**Example 8: This command recursively uploads the specified folder and applies the specified tags to all the new objects.**
+**Example 8: This command recursively uploads the specified folder and applies the specified tags to all the new objects.**  
 
 ```
 Write-S3Object -BucketName amzn-s3-demo-bucket -Folder . -KeyPrefix "TaggedFiles" -Recurse -TagSet @{Key="key1";Value="value1"},@{Key="key2";Value="value2"}
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PutObject](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class ObjectWrapper:
@@ -1290,12 +1121,8 @@ class ObjectWrapper:
         finally:
             if getattr(put_data, "close", None):
                 put_data.close()
-
-
-
 ```
-
-Upload an object using a conditional request.
+Upload an object using a conditional request.  
 
 ```
 class S3ConditionalRequests:
@@ -1337,26 +1164,15 @@ class S3ConditionalRequests:
             else:
                 logger.error(f"Unexpected error: {error_code}")
                 raise
-
-
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/PutObject) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [PutObject](../../../goto/boto3/s3-2006-03-01/PutObject.md "../../../goto/boto3/s3-2006-03-01/PutObject.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
-
-Upload a file using a managed uploader (Object.upload\_file).
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
+Upload a file using a managed uploader (Object.upload\_file).  
 
 ```
 require 'aws-sdk-s3'
@@ -1396,11 +1212,8 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
-
-Upload a file using Object.put.
+Upload a file using Object.put.  
 
 ```
 require 'aws-sdk-s3'
@@ -1439,11 +1252,8 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
-
-Upload a file using Object.put and add server-side encryption.
+Upload a file using Object.put and add server-side encryption.  
 
 ```
 require 'aws-sdk-s3'
@@ -1480,23 +1290,14 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/PutObject) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [PutObject](../../../goto/SdkForRubyV3/s3-2006-03-01/PutObject.md "../../../goto/SdkForRubyV3/s3-2006-03-01/PutObject.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 pub async fn upload_object(
@@ -1515,26 +1316,16 @@ pub async fn upload_object(
         .await
         .map_err(S3ExampleError::from)
 }
+```
++  For API details, see [PutObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.put_object) in *AWS SDK for Rust API reference*. 
 
+------
+#### [ SAP ABAP ]
+
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
-
-- For API details, see
-  [PutObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.put_object "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.put_object")
-  in _AWS SDK for Rust API reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
-
-```
-
     "Get contents of file from application server."
     DATA lv_body TYPE xstring.
     OPEN DATASET iv_file_name FOR INPUT IN BINARY MODE.
@@ -1551,24 +1342,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchbucket.
         MESSAGE 'Bucket does not exist.' TYPE 'E'.
     ENDTRY.
-
-
-
 ```
++  For API details, see [PutObject](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [PutObject](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
 ```
 import AWSS3
@@ -1593,8 +1374,6 @@ import Smithy
             throw error
         }
     }
-
-
 ```
 
 ```
@@ -1618,14 +1397,9 @@ import Smithy
             throw error
         }
     }
-
-
 ```
++  For API details, see [PutObject](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/putobject(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [PutObject](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/putobject(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/putobject(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

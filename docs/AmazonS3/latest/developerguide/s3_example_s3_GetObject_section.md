@@ -1,30 +1,26 @@
+
+
 # Use `GetObject` with an AWS SDK or CLI
+<a name="s3_example_s3_GetObject_section"></a>
 
 The following code examples show how to use `GetObject`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md) 
++  [Get an object from a bucket if it has been modified](s3_example_s3_GetObject_IfModifiedSince_section.md) 
++  [Get an object from a Multi-Region Access Point](s3_example_s3_GetObject_MRAP_section.md) 
++  [Get started with encryption](s3_example_s3_Encryption_section.md) 
++  [Getting started with object storage](s3_example_s3_GettingStarted_section.md) 
++  [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md) 
++  [Track uploads and downloads](s3_example_s3_Scenario_TrackUploadDownload_section.md) 
 
-- [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md "s3_example_s3_Scenario_GettingStarted_section.md")
-- [Get an object from a bucket if it has been modified](s3_example_s3_GetObject_IfModifiedSince_section.md "s3_example_s3_GetObject_IfModifiedSince_section.md")
-- [Get an object from a Multi-Region Access Point](s3_example_s3_GetObject_MRAP_section.md "s3_example_s3_GetObject_MRAP_section.md")
-- [Get started with encryption](s3_example_s3_Encryption_section.md "s3_example_s3_Encryption_section.md")
-- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
-- [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md "s3_example_s3_Scenario_ConditionalRequests_section.md")
-- [Track uploads and downloads](s3_example_s3_Scenario_TrackUploadDownload_section.md "s3_example_s3_Scenario_TrackUploadDownload_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/S3#code-examples). 
 
 ```
-
     /// <summary>
     /// Shows how to download an object from an Amazon S3 bucket to the
     /// local computer.
@@ -61,24 +57,12 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/goto/DotNetSDKV4/s3-2006-03-01/GetObject) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetObject](../../../goto/DotNetSDKV4/s3-2006-03-01/GetObject.md "../../../goto/DotNetSDKV4/s3-2006-03-01/GetObject.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples").
-
-Get an object using a conditional request.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/S3#code-examples). 
+Get an object using a conditional request.  
 
 ```
     /// <summary>
@@ -143,23 +127,14 @@ Get an object using a conditional request.
             return false;
         }
     }
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/goto/DotNetSDKV3/s3-2006-03-01/GetObject) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [GetObject](../../../goto/DotNetSDKV3/s3-2006-03-01/GetObject.md "../../../goto/DotNetSDKV3/s3-2006-03-01/GetObject.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/s3#code-examples). 
 
 ```
 ###############################################################################
@@ -202,23 +177,14 @@ function download_object_from_bucket() {
     return 1
   fi
 }
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/GetObject) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetObject](../../../goto/aws-cli/s3-2006-03-01/GetObject.md "../../../goto/aws-cli/s3-2006-03-01/GetObject.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3#code-examples). 
 
 ```
 bool AwsDoc::S3::getObject(const Aws::String &objectKey,
@@ -244,52 +210,34 @@ bool AwsDoc::S3::getObject(const Aws::String &objectKey,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [GetObject](https://docs.aws.amazon.com/goto/SdkForCpp/s3-2006-03-01/GetObject) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following example uses the `get-object` command to download an object from Amazon S3:  
 
 ```
-
-- For API details, see
-  [GetObject](../../../goto/SdkForCpp/s3-2006-03-01/GetObject.md "../../../goto/SdkForCpp/s3-2006-03-01/GetObject.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following example uses the `get-object` command to download an object from Amazon S3:
+aws s3api get-object --bucket {{text-content}} --key {{dir/my_images.tar.bz2}} {{my_images.tar.bz2}}
+```
+Note that the outfile parameter is specified without an option name such as "--outfile". The name of the output file must be the last parameter in the command.  
+The example below demonstrates the use of `--range` to download a specific byte range from an object. Note the byte ranges needs to be prefixed with "bytes=":  
 
 ```
-`aws s3api get-object --bucket `text-content` --key `dir/my_images.tar.bz2` `my_images.tar.bz2``
+aws s3api get-object --bucket {{text-content}} --key {{dir/my_data}} --range {{bytes=8888-9999}} {{my_data_range}}
+```
+For more information about retrieving objects, see Getting Objects in the *Amazon S3 Developer Guide*.  
++  For API details, see [GetObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object.html) in *AWS CLI Command Reference*. 
+
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples). 
 
 ```
-
-Note that the outfile parameter is specified without an option name such as "--outfile". The name of the output file must be the last parameter in the command.
-
-The example below demonstrates the use of `--range` to download a specific byte range from an object. Note the byte ranges needs to be prefixed with "bytes=":
-
-```
-`aws s3api get-object --bucket `text-content` --key `dir/my_data` --range `bytes=8888-9999` `my_data_range``
-
-```
-
-For more information about retrieving objects, see Getting Objects in the _Amazon S3 Developer Guide_.
-
-- For API details, see
-  [GetObject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3#code-examples").
-
-```
-
 import (
 	"bytes"
 	"context"
@@ -347,29 +295,17 @@ func (basics BucketBasics) DownloadFile(ctx context.Context, bucketName string, 
 	_, err = file.Write(body)
 	return err
 }
+```
++  For API details, see [GetObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObject) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples). 
+Read data as a byte array using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-- For API details, see
-  [GetObject](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObject "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3#Client.GetObject")
-  in _AWS SDK for Go API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3#code-examples").
-
-Read data as a byte array using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
     /**
      * Asynchronously retrieves the bytes of an object from an Amazon S3 bucket and writes them to a local file.
      *
@@ -400,14 +336,10 @@ Read data as a byte array using an [S3Client](https://sdk.amazonaws.com/java/api
             }
         });
     }
-
+```
+Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html) to [download an object](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#downloadFile(software.amazon.awssdk.transfer.s3.DownloadFileRequest)) in an S3 bucket to a local file. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/DownloadFile.java) and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java).  
 
 ```
-
-Use an [S3TransferManager](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html") to [download an object](<https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#downloadFile(software.amazon.awssdk.transfer.s3.DownloadFileRequest)> "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/transfer/s3/S3TransferManager.html#downloadFile(software.amazon.awssdk.transfer.s3.DownloadFileRequest)") in an S3 bucket to a local file. View the [complete file](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/DownloadFile.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/main/java/com/example/s3/transfermanager/DownloadFile.java") and [test](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/s3/src/test/java/TransferManagerTest.java").
-
-```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.exception.SdkException;
@@ -440,14 +372,10 @@ import java.util.UUID;
         logger.info("Content length [{}]", downloadResult.response().contentLength());
         return downloadResult.response().contentLength();
     }
-
+```
+Read tags that belong to an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-Read tags that belong to an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.GetObjectTaggingRequest;
@@ -522,14 +450,10 @@ public class GetObjectTags {
         }
     }
 }
-
+```
+Get a URL for an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-Get a URL for an object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.GetUrlRequest;
@@ -598,14 +522,10 @@ public class GetObjectUrl {
         }
     }
 }
-
+```
+Get an object by using the S3Presigner client object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-Get an object by using the S3Presigner client object using an [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -710,14 +630,10 @@ public class GetObjectPresignedUrl {
         }
     }
 }
-
+```
+Get an object by using a ResponseTransformer object and [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html).  
 
 ```
-
-Get an object by using a ResponseTransformer object and [S3Client](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/s3/S3Client.html").
-
-```
-
 import software.amazon.awssdk.core.ResponseBytes;
 import software.amazon.awssdk.core.sync.ResponseTransformer;
 import software.amazon.awssdk.regions.Region;
@@ -806,25 +722,15 @@ public class GetObjectData {
         }
     }
 }
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3-2006-03-01/GetObject) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetObject](../../../goto/SdkForJavaV2/s3-2006-03-01/GetObject.md "../../../goto/SdkForJavaV2/s3-2006-03-01/GetObject.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples").
-
-Download the object.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/s3#code-examples). 
+Download the object.  
 
 ```
 import {
@@ -865,14 +771,10 @@ export const main = async ({ bucketName, key }) => {
     }
   }
 };
-
+```
+Download the object on condition its ETag matches the one provided.  
 
 ```
-
-Download the object on condition its ETag matches the one provided.
-
-```
-
 import {
   GetObjectCommand,
   NoSuchKey,
@@ -948,14 +850,10 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
+```
+Download the object on condition its ETag does not match the one provided.  
 
 ```
-
-Download the object on condition its ETag does not match the one provided.
-
-```
-
 import {
   GetObjectCommand,
   NoSuchKey,
@@ -1031,14 +929,10 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
+```
+Download the object using on condition it has been created or modified in a given timeframe.  
 
 ```
-
-Download the object using on condition it has been created or modified in a given timeframe.
-
-```
-
 import {
   GetObjectCommand,
   NoSuchKey,
@@ -1111,14 +1005,10 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
+```
+Download the object using on condition it has not been created or modified in a given timeframe.  
 
 ```
-
-Download the object using on condition it has not been created or modified in a given timeframe.
-
-```
-
 import {
   GetObjectCommand,
   NoSuchKey,
@@ -1191,24 +1081,15 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.html#s3-example-creating-buckets-get-object). 
++  For API details, see [GetObject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-get-object "../../../sdk-for-javascript/v3/developer-guide/s3-example-creating-buckets.md#s3-example-creating-buckets-get-object").
-- For API details, see
-  [GetObject](../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/s3/command/GetObjectCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/s3#code-examples). 
 
 ```
 suspend fun getObjectBytes(
@@ -1230,25 +1111,15 @@ suspend fun getObjectBytes(
         }
     }
 }
-
-
 ```
++  For API details, see [GetObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [GetObject](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples").
-
-Get an object.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/s3#code-examples). 
+Get an object.  
 
 ```
         $s3client = new Aws\S3\S3Client(['region' => 'us-west-2']);
@@ -1265,119 +1136,78 @@ Get an object.
             echo "Failed to download $fileName from $this->bucketName with error: " . $exception->getMessage();
             exit("Please fix error with file downloading before continuing.");
         }
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/goto/SdkForPHPV3/s3-2006-03-01/GetObject) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [GetObject](../../../goto/SdkForPHPV3/s3-2006-03-01/GetObject.md "../../../goto/SdkForPHPV3/s3-2006-03-01/GetObject.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This command retrieves item "sample.txt" from bucket "amzn-s3-demo-bucket" and saves it to a file named "local-sample.txt" in the current location. The file "local-sample.txt" does not have to exist before this command is called.**
+**Tools for PowerShell V4**  
+**Example 1: This command retrieves item "sample.txt" from bucket "amzn-s3-demo-bucket" and saves it to a file named "local-sample.txt" in the current location. The file "local-sample.txt" does not have to exist before this command is called.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -File local-sample.txt
-
 ```
-
-**Example 2: This command retrieves virtual directory "DIR" from bucket "amzn-s3-demo-bucket" and saves it to a folder named "Local-DIR" in the current location. The folder "Local-DIR" does not have to exist before this command is called.**
+**Example 2: This command retrieves virtual directory "DIR" from bucket "amzn-s3-demo-bucket" and saves it to a folder named "Local-DIR" in the current location. The folder "Local-DIR" does not have to exist before this command is called.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix DIR -Folder Local-DIR
-
 ```
-
-**Example 3: Downloads all objects with keys ending in '.json' from buckets with 'config' in the bucket name to files in the specified folder. The object keys are used to set the filenames.**
+**Example 3: Downloads all objects with keys ending in '.json' from buckets with 'config' in the bucket name to files in the specified folder. The object keys are used to set the filenames.**  
 
 ```
 Get-S3Bucket | ? { $_.BucketName -like '*config*' } | Get-S3Object | ? { $_.Key -like '*.json' } | Read-S3Object -Folder C:\ConfigObjects
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetObject](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This command retrieves item "sample.txt" from bucket "amzn-s3-demo-bucket" and saves it to a file named "local-sample.txt" in the current location. The file "local-sample.txt" does not have to exist before this command is called.**
+**Tools for PowerShell V5**  
+**Example 1: This command retrieves item "sample.txt" from bucket "amzn-s3-demo-bucket" and saves it to a file named "local-sample.txt" in the current location. The file "local-sample.txt" does not have to exist before this command is called.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -File local-sample.txt
-
 ```
-
-**Example 2: This command retrieves virtual directory "DIR" from bucket "amzn-s3-demo-bucket" and saves it to a folder named "Local-DIR" in the current location. The folder "Local-DIR" does not have to exist before this command is called.**
+**Example 2: This command retrieves virtual directory "DIR" from bucket "amzn-s3-demo-bucket" and saves it to a folder named "Local-DIR" in the current location. The folder "Local-DIR" does not have to exist before this command is called.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix DIR -Folder Local-DIR
-
 ```
-
-**Example 3: Downloads all objects with keys ending in '.json' from buckets with 'config' in the bucket name to files in the specified folder. The object keys are used to set the filenames.**
+**Example 3: Downloads all objects with keys ending in '.json' from buckets with 'config' in the bucket name to files in the specified folder. The object keys are used to set the filenames.**  
 
 ```
 Get-S3Bucket | ? { $_.BucketName -like '*config*' } | Get-S3Object | ? { $_.Key -like '*.json' } | Read-S3Object -Folder C:\ConfigObjects
-
 ```
-
-**Example 4: Downloads a single object using multipart parallel download for improved performance on large files.**
+**Example 4: Downloads a single object using multipart parallel download for improved performance on large files.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -Key sample.txt -File local-sample.txt -UseMultipartDownload
-
-
 ```
-
-**Example 5: Downloads a large object using RANGE mode with a custom 64MB part size. RANGE mode uses HTTP byte-range requests and works for all objects regardless of how they were uploaded.**
+**Example 5: Downloads a large object using RANGE mode with a custom 64MB part size. RANGE mode uses HTTP byte-range requests and works for all objects regardless of how they were uploaded.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -Key large-file.zip -File local-large-file.zip -UseMultipartDownload -MultipartDownloadType RANGE -PartSize 64MB
-
-
 ```
-
-**Example 6: Downloads all objects with the key prefix "data/" to a local folder using multipart download with concurrent file downloads.**
+**Example 6: Downloads all objects with the key prefix "data/" to a local folder using multipart download with concurrent file downloads.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data/ -Folder C:\local-data -UseMultipartDownload -DownloadFilesConcurrently
-
-
 ```
-
-**Example 7: Downloads a single object using multipart download with 20 concurrent connections for maximum throughput on high-bandwidth networks.**
+**Example 7: Downloads a single object using multipart download with 20 concurrent connections for maximum throughput on high-bandwidth networks.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -Key large-file.zip -File local-large-file.zip -UseMultipartDownload -ConcurrentServiceRequest 20
-
-
 ```
-
-**Example 8: Downloads all objects with the key prefix "data/" to a local folder using multipart download, continuing past individual file failures instead of aborting.**
+**Example 8: Downloads all objects with the key prefix "data/" to a local folder using multipart download, continuing past individual file failures instead of aborting.**  
 
 ```
 Read-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data/ -Folder C:\local-data -UseMultipartDownload -FailurePolicy ContinueOnFailure
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetObject](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/s3_basics#code-examples). 
 
 ```
 class ObjectWrapper:
@@ -1414,12 +1244,8 @@ class ObjectWrapper:
             raise
         else:
             return body
-
-
-
 ```
-
-Get an object using a conditional request.
+Get an object using a conditional request.  
 
 ```
 class S3ConditionalRequests:
@@ -1473,26 +1299,15 @@ class S3ConditionalRequests:
             else:
                 logger.error(f"Unexpected error: {error_code}")
                 raise
-
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/goto/boto3/s3-2006-03-01/GetObject) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetObject](../../../goto/boto3/s3-2006-03-01/GetObject.md "../../../goto/boto3/s3-2006-03-01/GetObject.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples").
-
-Get an object.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/s3#code-examples). 
+Get an object.  
 
 ```
 require 'aws-sdk-s3'
@@ -1531,11 +1346,8 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
-
-Get an object and report its server-side encryption state.
+Get an object and report its server-side encryption state.  
 
 ```
 require 'aws-sdk-s3'
@@ -1573,23 +1385,14 @@ def run_demo
 end
 
 run_demo if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/goto/SdkForRubyV3/s3-2006-03-01/GetObject) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [GetObject](../../../goto/SdkForRubyV3/s3-2006-03-01/GetObject.md "../../../goto/SdkForRubyV3/s3-2006-03-01/GetObject.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/s3#code-examples). 
 
 ```
 async fn get_object(client: Client, opt: Opt) -> Result<usize, S3ExampleError> {
@@ -1626,23 +1429,14 @@ async fn get_object(client: Client, opt: Opt) -> Result<usize, S3ExampleError> {
 
     Ok(byte_count)
 }
-
-
 ```
++  For API details, see [GetObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_object) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [GetObject](https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_object "https://docs.rs/aws-sdk-s3/latest/aws_sdk_s3/client/struct.Client.html#method.get_object")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3#code-examples). 
 
 ```
     TRY.
@@ -1656,23 +1450,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_s3_nosuchkey.
         MESSAGE 'Object key does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetObject](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetObject](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/s3/basics#code-examples). 
 
 ```
 import AWSS3
@@ -1702,8 +1487,6 @@ import AWSS3
             throw error
         }
     }
-
-
 ```
 
 ```
@@ -1716,7 +1499,7 @@ import AWSS3
         )
         do {
             let output = try await client.getObject(input: input)
-
+            
             guard let body = output.body else {
                 throw HandlerError.getObjectBody("GetObjectInput missing body.")
             }
@@ -1732,15 +1515,9 @@ import AWSS3
             throw error
         }
    }
-
-
-
 ```
++  For API details, see [GetObject](https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/getobject(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [GetObject](<https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/getobject(input:)> "https://sdk.amazonaws.com/swift/api/awss3/latest/documentation/awss3/s3client/getobject(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

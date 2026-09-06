@@ -1,19 +1,20 @@
+
+
 # Use `GetBucketNotification` with a CLI
+<a name="s3_example_s3_GetBucketNotification_section"></a>
 
 The following code examples show how to use `GetBucketNotification`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-The following command retrieves the notification configuration for a bucket named `amzn-s3-demo-bucket`:
-
-```
-`aws s3api get-bucket-notification --bucket `amzn-s3-demo-bucket``
+**AWS CLI**  
+The following command retrieves the notification configuration for a bucket named `amzn-s3-demo-bucket`:  
 
 ```
-
-Output:
+aws s3api get-bucket-notification --bucket {{amzn-s3-demo-bucket}}
+```
+Output:  
 
 ```
 {
@@ -27,55 +28,41 @@ Output:
     }
 }
 ```
++  For API details, see [GetBucketNotification](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-notification.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetBucketNotification](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-notification.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-notification.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example retrieves notification configuration of the given bucket**
+**Tools for PowerShell V4**  
+**Example 1: This example retrieves notification configuration of the given bucket**  
 
 ```
 Get-S3BucketNotification -BucketName amzn-s3-demo-bucket | select -ExpandProperty TopicConfigurations
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Id   Topic
 --   -----
 mimo arn:aws:sns:eu-west-1:123456789012:topic-1
 ```
++  For API details, see [GetBucketNotification](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetBucketNotification](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example retrieves notification configuration of the given bucket**
+**Tools for PowerShell V5**  
+**Example 1: This example retrieves notification configuration of the given bucket**  
 
 ```
 Get-S3BucketNotification -BucketName amzn-s3-demo-bucket | select -ExpandProperty TopicConfigurations
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Id   Topic
 --   -----
 mimo arn:aws:sns:eu-west-1:123456789012:topic-1
 ```
++  For API details, see [GetBucketNotification](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetBucketNotification](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,15 @@
+
+
 # Hello Amazon S3 Control
+<a name="s3-control_example_s3-control_Hello_section"></a>
 
 The following code examples show how to get started using Amazon S3 Control.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3/batch#code-examples). 
 
 ```
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
@@ -128,23 +127,14 @@ public class HelloS3Batch {
             throw new RuntimeException(ex);
         });
     }
-
-
 ```
++  For API details, see [ListJobs](https://docs.aws.amazon.com/goto/SdkForJavaV2/s3control-2018-08-20/ListJobs) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListJobs](../../../goto/SdkForJavaV2/s3control-2018-08-20/ListJobs.md "../../../goto/SdkForJavaV2/s3control-2018-08-20/ListJobs.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/s3/scenarios/batch#code-examples). 
 
 ```
     def list_jobs(self, account_id: str) -> None:
@@ -166,14 +156,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
         except ClientError as e:
             print(f"Error listing jobs: {e}")
             raise
-
-
 ```
++  For API details, see [ListJobs](https://docs.aws.amazon.com/goto/boto3/s3control-2018-08-20/ListJobs) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListJobs](../../../goto/boto3/s3control-2018-08-20/ListJobs.md "../../../goto/boto3/s3control-2018-08-20/ListJobs.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
