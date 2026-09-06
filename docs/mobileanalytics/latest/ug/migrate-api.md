@@ -1,41 +1,41 @@
-# Migrating to the Amazon Pinpoint API
 
-After April 30, 2018, the Mobile Analytics REST API will automatically redirect requests to the Amazon Pinpoint
-API. Events that your application reports to Mobile Analytics are automatically sent to Amazon Pinpoint.
+
+# Migrating to the Amazon Pinpoint API
+<a name="migrate-api"></a>
+
+After April 30, 2018, the Mobile Analytics REST API will automatically redirect requests to the Amazon Pinpoint API. Events that your application reports to Mobile Analytics are automatically sent to Amazon Pinpoint.
 
 ## Migrating Off of the Mobile Analytics Querying API
+<a name="migrate-api-query"></a>
 
-After April 30, 2018, the Mobile Analytics Querying API will no longer be supported. Amazon Pinpoint offers an
-event streams feature that lets you stream events data in real time to Amazon Kinesis Data Streams or
-Amazon Data Firehose. Through a Firehose delivery stream, this data can be delivered to Amazon Redshift, Amazon S3, or
-Amazon OpenSearch Service. You can then access the data and use it to calculate the KPIs that are
-provided by the Querying API.
+After April 30, 2018, the Mobile Analytics Querying API will no longer be supported. Amazon Pinpoint offers an event streams feature that lets you stream events data in real time to Amazon Kinesis Data Streams or Amazon Data Firehose. Through a Firehose delivery stream, this data can be delivered to Amazon Redshift, Amazon S3, or Amazon OpenSearch Service. You can then access the data and use it to calculate the KPIs that are provided by the Querying API. 
 
 ### KPI Metrics Based on Event Data
+<a name="migrate-api-query-kpis"></a>
 
-Use the following table for guidance when you're calculating KPI metrics that are based on
-the event data that's streamed by Amazon Pinpoint.
+Use the following table for guidance when you're calculating KPI metrics that are based on the event data that's streamed by Amazon Pinpoint.
 
-| Metric                                   | Mobile Analytics KPI                                                                                                             | How to calculate with Amazon Pinpoint events                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Lifetime user count                      | `/kpis/new-users/lifetime-count`                                                                                                 | Obtain the total unique number of `client_id`<br>values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Daily active users (DAU)                 | `/kpis/dau/count`                                                                                                                | For each day, obtain the count of events that have an<br>`event_type` of `_session.start` and a<br>unique value for `client_id`.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Monthly active users (MAU)               | `/kpis/mau/count`                                                                                                                | For each 30-day interval, obtain the count of events that have an<br>`event_type` of `_session.start` and a<br>unique value for `client_id`.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| New users                                | `/kpis/new-users/count`                                                                                                          | For each day, obtain the count of events that have an `event_type` of<br>`_session.start` and a value for<br>`client_id` that wasn't reported<br>previously.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Session count                            | `/kpis/sessions/count`                                                                                                           | For each day, obtain the count of events that have an<br>`event_type` of<br>`_session.start`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Daily revenue                            | `/kpis/daily-revenue/sum`                                                                                                        | For each day, obtain the events that have an `event_type` of<br>`_monetization.purchase`, and compute the sum of<br>the values that are reported for the `_item_price`<br>attribute.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Paying daily active users (PDAU)         | `/kpis/pdau/count`                                                                                                               | For each day, calculate the DAU metric, but include only those<br>devices that have made one or more purchases in the past. A<br>purchase is indicated by an `event_type` of<br>`_monetization.purchase`.                                                                                                                                                                                                                                                                                                                                                                                      |
-| Paying monthly active users (PMAU)       | `/kpis/pmau/count`                                                                                                               | For each day, calculate the MAU metric, but include only those<br>devices that have made one or more purchases in the past. A<br>purchase is indicated by an `event_type` of<br>`_monetization.purchase`.                                                                                                                                                                                                                                                                                                                                                                                      |
-| Custom events count                      | `/events/`custom-event-name`/count`                                                                                              | For each day, obtain the count of events that have an `event_type` that<br>matches the name you that you assigned to the custom event.<br>Calculate max, min, and sum values by parsing the values that<br>are assigned to metrics and custom attributes.                                                                                                                                                                                                                                                                                                                                      |
-| Week 1, week 2, and week 3 retention     | `/kpis/week-1-retention/count`<br>`/kpis/week-2-retention/count`<br>`/kpis/week-3-retention/count`                               | To calculate the retention for a specific day:<br>1. Obtain the original active users for that day. Active<br>users are indicated by events that have an<br>`event_type` of<br>`_session.start` and a unique value for<br>`client_id`.<br>2. Obtain the subsequent active users from the weeks that followed the day that you're<br>measuring.<br>3. Compare the original active users with the subsequent<br>active users. The retention equals the number of<br>subsequent active users that match one of the original<br>active users. Identify matches by comparing<br>`client_id` values. |
-| Day 1, day 3, day 5, and day 7 retention | `/kpis/day-1-retention/count`<br>`/kpis/day-3-retention/count`<br>`/kpis/day-5-retention/count`<br>`/kpis/day-7-retention/count` | To calculate the retention for a specific day:<br>1. Obtain the original active users for that day. Active<br>users are indicated by events that have an<br>`event_type` of<br>`_session.start` and a unique value for<br>`client_id`.<br>2. Obtain the subsequent active users from the days that followed the day that you're<br>measuring.<br>3. Compare the original active users with the subsequent<br>active users. The retention equals the number of<br>subsequent active users that match one of the original<br>active users. Identify matches by comparing<br>`client_id` values.  |
+
+| Metric | Mobile Analytics KPI | How to calculate with Amazon Pinpoint events | 
+| --- | --- | --- | 
+| Lifetime user count | `/kpis/new-users/lifetime-count` | Obtain the total unique number of `client_id` values. | 
+| Daily active users (DAU) | `/kpis/dau/count` | For each day, obtain the count of events that have an `event_type` of `_session.start` and a unique value for `client_id`. | 
+| Monthly active users (MAU)<br />  | `/kpis/mau/count` | For each 30-day interval, obtain the count of events that have an `event_type` of `_session.start` and a unique value for `client_id`. | 
+| New users | `/kpis/new-users/count` | For each day, obtain the count of events that have an `event_type` of `_session.start` and a value for `client_id` that wasn't reported previously. | 
+| Session count | `/kpis/sessions/count` | For each day, obtain the count of events that have an `event_type` of `_session.start`. | 
+| Daily revenue | `/kpis/daily-revenue/sum` | For each day, obtain the events that have an `event_type` of `_monetization.purchase`, and compute the sum of the values that are reported for the `_item_price` attribute. | 
+| Paying daily active users (PDAU) | `/kpis/pdau/count` | For each day, calculate the DAU metric, but include only those devices that have made one or more purchases in the past. A purchase is indicated by an `event_type` of `_monetization.purchase`. | 
+| Paying monthly active users (PMAU) | `/kpis/pmau/count` | For each day, calculate the MAU metric, but include only those devices that have made one or more purchases in the past. A purchase is indicated by an `event_type` of `_monetization.purchase`. | 
+| Custom events count | `/events/{{custom-event-name}}/count` | For each day, obtain the count of events that have an `event_type` that matches the name you that you assigned to the custom event. Calculate max, min, and sum values by parsing the values that are assigned to metrics and custom attributes.  | 
+| Week 1, week 2, and week 3 retention | `/kpis/week-1-retention/count`<br />`/kpis/week-2-retention/count`<br />`/kpis/week-3-retention/count` | To calculate the retention for a specific day:1.  Obtain the original active users for that day. Active users are indicated by events that have an `event_type` of `_session.start` and a unique value for `client_id`. <br />2.  Obtain the subsequent active users from the weeks that followed the day that you're measuring. <br />3.  Compare the original active users with the subsequent active users. The retention equals the number of subsequent active users that match one of the original active users. Identify matches by comparing `client_id` values.  | 
+| Day 1, day 3, day 5, and day 7 retention | `/kpis/day-1-retention/count`<br />`/kpis/day-3-retention/count`<br />`/kpis/day-5-retention/count`<br />`/kpis/day-7-retention/count` | To calculate the retention for a specific day:1.  Obtain the original active users for that day. Active users are indicated by events that have an `event_type` of `_session.start` and a unique value for `client_id`. <br />2.  Obtain the subsequent active users from the days that followed the day that you're measuring. <br />3.  Compare the original active users with the subsequent active users. The retention equals the number of subsequent active users that match one of the original active users. Identify matches by comparing `client_id` values.  | 
 
 ### Example Events
+<a name="migrate-api-query-example-events"></a>
 
-The following examples demonstrate the JSON attributes that you can parse when you query
-the data store that holds your event data.
+The following examples demonstrate the JSON attributes that you can parse when you query the data store that holds your event data.
 
-###### Example Session Start Event
+**Example Session Start Event**  
 
 ```
 {
@@ -60,7 +60,7 @@ the data store that holds your event data.
   "user_agent": "aws-sdk-iOS/2.4.16 iOS/11.2.2 en_US",
   "app_title": "ExampleApp",
   "attributes": {
-    "_clientContext": `<client context>`,
+    "_clientContext": {{<client context>}},
     "_session.id": "70cf4faf-BAAABA8A-20180202-021524806",
     "_session.startTime": "1517537724811"
   },
@@ -68,7 +68,7 @@ the data store that holds your event data.
 }
 ```
 
-###### Example Monetization Event
+**Example Monetization Event**  
 
 ```
 {
@@ -96,7 +96,7 @@ the data store that holds your event data.
     "_currency": "CNY",
     "_product_id": "product_id",
     "_transaction_id": "123456789012345",
-    "_clientContext": `<client context>`,
+    "_clientContext": {{<client context>}},
     "_session.duration": "152021",
     "_session.id": "e79da94c-9BD1DF63-20180202-021345277",
     "_session.startTime": "1517537625277",
@@ -109,7 +109,4 @@ the data store that holds your event data.
 }
 ```
 
-In these examples, `<client context>` is the
-`x-amz-client-context` request header that you provide when you
-submit a `PutEvents` request to the Mobile Analytics REST API. For more information,
-see [PutEvents](PutEvents.md "PutEvents.md").
+In these examples, {{<client context>}} is the `x-amz-client-context` request header that you provide when you submit a `PutEvents` request to the Mobile Analytics REST API. For more information, see [PutEvents](PutEvents.md).

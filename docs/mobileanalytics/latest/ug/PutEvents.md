@@ -1,245 +1,157 @@
+
+
 # PutEvents
+<a name="PutEvents"></a>
 
-###### Note
+**Note**  
+Amazon Mobile Analytics was discontinued on April 30, 2018. The features that were previously provided by Mobile Analytics are now provided by Amazon Pinpoint. If you're new to Mobile Analytics, you should use Amazon Pinpoint instead. If you currently use Mobile Analytics, see [Migrating from Amazon Mobile Analytics to Amazon Pinpoint](migrate.md).
 
-Amazon Mobile Analytics was discontinued on April 30, 2018. The features that were
-previously provided by Mobile Analytics are now provided by Amazon Pinpoint. If you're new to
-Mobile Analytics, you should use Amazon Pinpoint instead. If you currently use Mobile Analytics, see
-[Migrating from Amazon Mobile Analytics to Amazon Pinpoint](migrate.md "migrate.md").
+The PutEvents operation records one or more events. You can have up to 1,500 unique custom events per app, any combination of up to 40 attributes and metrics per custom event, and an infinite number of attribute or metrics values.
 
-The PutEvents operation records one or more events. You
-can have up to 1,500 unique custom events per app, any combination of up to 40
-attributes and metrics per custom event, and an infinite number of attribute or metrics
-values.
-
-###### Topics
-
-- [Requests](#putEvents-requests "#putEvents-requests")
-- [Responses](#putEvents-preset-responses "#putEvents-preset-responses")
+**Topics**
++ [Requests](#putEvents-requests)
++ [Responses](#putEvents-preset-responses)
 
 ## Requests
+<a name="putEvents-requests"></a>
 
 ### Client Context Header
+<a name="putEvents-request-client-context-header"></a>
 
 #### Syntax
+<a name="putEvents-request-client-context-header-syntax"></a>
 
 ```
 x-amz-Client-Context: {
                         "client": {
-                                    "client_id":"`<client_id>`",
-                                    "app_title":"`<app_title>`",
-                                    "app_version_name":"`<app_version_name>`",
-                                    "app_version_code":"`<app_version_code>`",
-                                    "app_package_name":"`<app_package_name>`"
+                                    "client_id":"{{<client_id>}}",
+                                    "app_title":"{{<app_title>}}",
+                                    "app_version_name":"{{<app_version_name>}}",
+                                    "app_version_code":"{{<app_version_code>}}",
+                                    "app_package_name":"{{<app_package_name>}}"
                                   },
-
+                        
                         "custom": {},
-
+                        
                         "env":{
-                                "platform":"`<platform>`",
-                                "model":"`<model>`",
-                                "make":"`<make>`",
-                                "platform_version":"`<platform_version>`",
-                                "locale":"`<locale>`”
+                                "platform":"{{<platform>}}",
+                                "model":"{{<model>}}",
+                                "make":"{{<make>}}",
+                                "platform_version":"{{<platform_version>}}",
+                                "locale":"{{<locale>}}”
                               },
 
-                        "services": {
+                        "services": {                        
                                       "mobile_analytics": {
-                                                            "app_id":"`<mobile_analytics_app_id>`"
+                                                            "app_id":"{{<mobile_analytics_app_id>}}"
                                                           }
                                     }
                        }
 ```
 
 #### Description
-
-The operation takes the following request header.
-
-**x-amz-client-context**
-
-The request header.
-
-**client**
-
-Name-value pairs that describes the client
-application.
-
-**client\_id**
-
-A unique identifier representing this
-installation instance of your app.
-
-Type: String
-
-Default: None
-
-Required: Yes
-
-**app\_title**
-
-The title of your app. For example,
-`My App`.
-
-Type: String
-
-Default: None
-
-Required: Yes
-
-**app\_version\_name**
-
-The version of your app. For example,
-`V2.0`.
-
-Type: String
-
-Default: None
-
-Required: No
-
-**app\_version\_code**
-
-The version code for your app. For example,
-`3`.
-
-Type: String
-
-Default: None
-
-Required: No
-
-**app\_package\_name**
-
-The name of your package. For example,
-`com.example.my_app`.
-
-Type: String
-
-Default: None
-
-Required: No
-
-**custom**
-
-User defined name-value pairs that describe this
-installation of the application.
-
-Type: Map
-
-Default: None
-
-Required: No
-
-**env**
-
-Name-value pair that describes the device that
-runs the event.
-
-**platform**
-
-The operating system of the device. For
-example, `iphoneos`.
-
-Type: String
-
-Valid values: `iphoneos`,
-`android`, `windowsphone`,
-`blackberry`, `macos`,
-`windows`, `linux`
-
-Default: None
-
-Required: Yes
-
-**model**
-
-The model of the device. For example,
-`Nexus`.
-
-Type: String
-
-Default: None
-
-Required: No
-
-**make**
-
-The manufacturer of the device. For example,
-`Samsung`.
-
-Type: String
-
-Default: None
-
-Required: No
-
-**platform\_version**
-
-The version of the operating system of the
-device. For example, `4.0.4`.
-
-Type: String
-
-Default: None
-
-Required: No
-
-**locale**
-
-The locale of the device. For example,
-`en_US`.
-
-Type: String
-
-Default: None
-
-Required: No
-
-**services**
-
-Name-value pair that contains service specific
-sections.
-
-**mobile\_analytics**
-
-Name-value pair that describes service
-specific attributes.
-
-**app\_id**
-
-The value obtained from the Mobile Analytics console to
-record data to.
-
-Type: String
-
-Default: None
-
-Required: Yes
+<a name="putEvents-request-client-context-header-description"></a>
+
+ The operation takes the following request header. 
+
+** x-amz-client-context **  
+ The request header.     
+**client**  
+Name-value pairs that describes the client application.    
+** client\_id **  
+ A unique identifier representing this installation instance of your app.   
+ Type: String   
+ Default: None   
+ Required: Yes   
+** app\_title **  
+ The title of your app. For example, **My App**.   
+ Type: String   
+ Default: None   
+ Required: Yes   
+** app\_version\_name **  
+The version of your app. For example, **V2.0**.   
+ Type: String   
+ Default: None   
+ Required: No   
+** app\_version\_code **  
+ The version code for your app. For example, **3**.   
+ Type: String   
+ Default: None   
+ Required: No   
+** app\_package\_name **  
+The name of your package. For example, **com.example.my\_app**.  
+ Type: String   
+ Default: None   
+ Required: No   
+** custom **  
+ User defined name-value pairs that describe this installation of the application.   
+Type: Map  
+ Default: None   
+ Required: No   
+** env **  
+ Name-value pair that describes the device that runs the event.     
+** platform **  
+The operating system of the device. For example, **iphoneos**.   
+Type: String  
+ Valid values: `iphoneos`, `android`, `windowsphone`, `blackberry`, `macos`, `windows`, `linux`   
+ Default: None   
+ Required: Yes   
+** model **  
+The model of the device. For example, **Nexus**.  
+ Type: String   
+ Default: None   
+ Required: No   
+** make **  
+The manufacturer of the device. For example, **Samsung**.   
+ Type: String   
+ Default: None   
+ Required: No   
+** platform\_version **  
+The version of the operating system of the device. For example, **4.0.4**.   
+ Type: String   
+ Default: None   
+ Required: No   
+** locale **  
+ The locale of the device. For example, **en\_US**.   
+ Type: String   
+ Default: None   
+ Required: No   
+** services **  
+ Name-value pair that contains service specific sections.     
+** mobile\_analytics **  
+Name-value pair that describes service specific attributes.     
+**app\_id**  
+ The value obtained from the Mobile Analytics console to record data to.   
+ Type: String   
+ Default: None   
+ Required: Yes 
 
 ### Request Body
+<a name="putEvents-request-body"></a>
 
 #### Syntax
+<a name="putEvents-request-body-syntax"></a>
 
 ```
 {
   "events": [
     {
-      "eventType": "`<Event type>`",
-      "timestamp": "`<ISO 8601 date>`",
-      "version": "v2.0",
+      "eventType": "{{<Event type>}}",
+      "timestamp": "{{<ISO 8601 date>}}",
+      "version": "v2.0",		
       "session": {
-                  "id": "`<Session id>`",
-                  "startTimestamp": "`<ISO 8601 date>`"
+                  "id": "{{<Session id>}}",
+                  "startTimestamp": "{{<ISO 8601 date>}}"
       },
       "attributes": {
-                     "`<Optional string name>`": "`<Optional string value>`",
+                     "{{<Optional string name>}}": "{{<Optional string value>}}",
                      ...
-                     "`<Optional string name>`": "`<Optional string value>`"
+                     "{{<Optional string name>}}": "{{<Optional string value>}}"
       },
       "metrics": {
-                  "`<Optional string name>`": `<Optional numeric value>`,
+                  "{{<Optional string name>}}": {{<Optional numeric value>}},
                    ...
-                  "`<Optional string name>`": `<Optional numeric value>`
+                  "{{<Optional string name>}}": {{<Optional numeric value>}}
       }
     },
     ...
@@ -248,127 +160,59 @@ Required: Yes
 ```
 
 #### Description
+<a name="putEvents-request-body-description"></a>
 
-This operation takes the following request content.
+ This operation takes the following request content. 
 
-**Events**
-
-An array of JSON objects representing a batch of unique event
-occurrences in your app. Each JSON object in the array consists
-of the following:
-
-**eventType**
-
-A name signifying an event that occurred in your
-app. This is used for grouping and aggregating like
-events together for reporting purposes.
-
-Type: String
-
-Default: None
-
-Required: Yes
-
-**timestamp**
-
-The time the event occurred in ISO 8601 standard
-date time format. For example,
-`2014-06-30T19:07:47.885Z`
-
-Type: String
-
-Constraints: Must follow ISO 8601 format
-
-Default: None
-
-Required: Yes
-
-**attributes**
-
-A collection of key-value pairs that give
-additional context to the event. The key-value pairs
-are specified by the developer.
-
-This collection can be empty or the attribute
-object can be omitted.
-
-Type: JSON object of key-value pairs
-(String:String)
-
-Constraints: Key can be up to 50 characters or
-less and the value can be up to 200 characters.
-
-Default: None
-
-Required: No
-
-**metrics**
-
-A collection of key-value pairs that gives
-additional measurable context to the event. This key
-has the following key-values pairs. The pairs
-specified by the developer.
-
-This collection can be empty or the attribute
-object can be omitted.
-
-Type: JSON object of key value pairs
-(String:Number)
-
-Constraints: Key can be up to 50 characters.
-
-Default: None
-
-Required: No
-
-**session**
-
-Describes the session. Session information is
-required on events to be aggregated in console
-reports. Events submitted without session
-information are still exported to S3 or Redshift but
-are not aggregated for inclusion in reports. This
-key has the following key-value pairs.
-
-**id**
-
-A unique identifier for the session.
-
-Type: String
-
-Default: None
-
-Required: Yes
-
-**startTimestamp**
-
-The time the event occurred in ISO 8601
-standard date time format. For example,
-`2014-06-30T19:07:47.885Z`
-
-Type: String
-
-Constraints: Must follow ISO 8601 format
-
-Default: None
-
-Required: Yes
-
-**version**
-
-Describes the version. This value must always be
-`v2.0`.
-
-Type: String
-
-Constraints: Must always be
-`v2.0`.
-
-Default: None
-
-Required: Yes
+** Events **  
+ An array of JSON objects representing a batch of unique event occurrences in your app. Each JSON object in the array consists of the following:     
+** eventType **  
+ A name signifying an event that occurred in your app. This is used for grouping and aggregating like events together for reporting purposes.   
+ Type: String   
+ Default: None   
+ Required: Yes   
+** timestamp **  
+The time the event occurred in ISO 8601 standard date time format. For example, **2014-06-30T19:07:47.885Z**   
+ Type: String   
+ Constraints: Must follow ISO 8601 format   
+ Default: None   
+ Required: Yes   
+** attributes **  
+ A collection of key-value pairs that give additional context to the event. The key-value pairs are specified by the developer.   
+This collection can be empty or the attribute object can be omitted.  
+ Type: JSON object of key-value pairs (String:String)   
+ Constraints: Key can be up to 50 characters or less and the value can be up to 200 characters.   
+ Default: None   
+ Required: No   
+** metrics **  
+ A collection of key-value pairs that gives additional measurable context to the event. This key has the following key-values pairs. The pairs specified by the developer.   
+ This collection can be empty or the attribute object can be omitted.   
+ Type: JSON object of key value pairs (String:Number)   
+ Constraints: Key can be up to 50 characters.   
+ Default: None   
+ Required: No   
+** session **  
+ Describes the session. Session information is required on events to be aggregated in console reports. Events submitted without session information are still exported to S3 or Redshift but are not aggregated for inclusion in reports. This key has the following key-value pairs.     
+** id **  
+ A unique identifier for the session.   
+ Type: String   
+ Default: None   
+ Required: Yes   
+** startTimestamp **  
+The time the event occurred in ISO 8601 standard date time format. For example, **2014-06-30T19:07:47.885Z**   
+ Type: String   
+ Constraints: Must follow ISO 8601 format   
+ Default: None   
+ Required: Yes   
+** version **  
+ Describes the version. This value must always be **v2.0**.   
+ Type: String   
+ Constraints: Must always be **v2.0**.   
+ Default: None   
+ Required: Yes 
 
 #### JSON Example
+<a name="putEvents-json"></a>
 
 ```
 {"events":[
@@ -378,7 +222,7 @@ Required: Yes
                 "TimeInLevel":64
     },
     "session":{
-                "id" : "`<session id>`",
+                "id" : "{{<session id>}}",
                 "startTimestamp" : "2014-06-30T19:07:47.885Z"
     },
     "attributes":{
@@ -394,37 +238,32 @@ Required: Yes
 ```
 
 ## Responses
+<a name="putEvents-preset-responses"></a>
 
 ### Syntax
+<a name="putEvents-response-syntax"></a>
 
 ```
 HTTP/1.1 202
-x-amzn-RequestId: `<A request id>`
+x-amzn-RequestId: {{<A request id>}}
 Content-Type: application/json
 ```
 
 ### Response Headers
+<a name="putEvents-response-headers"></a>
 
-This operation has the following response codes.
+ This operation has the following response codes. 
 
-**202 Accepted**
+** 202 Accepted **  
+ The request has been accepted for processing, however the events have not been fully processed. 
 
-The request has been accepted for processing, however the events
-have not been fully processed.
+** 400 Bad Request **  
+ The x-amz-client-context header is missing or invalid.   
+ OR   
+ The event payload is missing or invalid. 
 
-**400 Bad Request**
+** 403 Forbidden**  
+ The request is not authorized to perform this action. 
 
-The x-amz-client-context header is missing or invalid.
-
-OR
-
-The event payload is missing or invalid.
-
-**403 Forbidden**
-
-The request is not authorized to perform this action.
-
-**413 Request Entity Too Large**
-
-The payload is too large. The payload cannot exceed 1024
-KB.
+** 413 Request Entity Too Large**  
+ The payload is too large. The payload cannot exceed 1024 KB.
