@@ -1,22 +1,19 @@
+
+
 # Use `CreateKey` with an AWS SDK or CLI
+<a name="example_kms_CreateKey_section"></a>
 
 The following code examples show how to use `CreateKey`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_kms_Scenario_Basics_section.md) 
++  [Work with table encryption](example_dynamodb_Scenario_EncryptionExamples_section.md) 
 
-- [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
-- [Work with table encryption](example_dynamodb_Scenario_EncryptionExamples_section.md "example_dynamodb_Scenario_EncryptionExamples_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples). 
 
 ```
     using System;
@@ -57,35 +54,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [CreateKey](https://docs.aws.amazon.com/goto/DotNetSDKV3/kms-2014-11-01/CreateKey) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**Example 1: To create a customer managed KMS key in AWS KMS**  
+The following `create-key` example creates a symmetric encryption KMS key.  
+To create the basic KMS key, a symmetric encryption key, you do not need to specify any parameters. The default values for those parameters create a symmetric encryption key.  
+Because this command doesn't specify a key policy, the KMS key gets the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) for programmatically created KMS keys. To view the key policy, use the `get-key-policy` command. To change the key policy, use the `put-key-policy` command.  
 
 ```
-
-- For API details, see
-  [CreateKey](../../../goto/DotNetSDKV3/kms-2014-11-01/CreateKey.md "../../../goto/DotNetSDKV3/kms-2014-11-01/CreateKey.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a customer managed KMS key in AWS KMS**
-
-The following `create-key` example creates a symmetric encryption KMS key.
-
-To create the basic KMS key, a symmetric encryption key, you do not need to specify any parameters. The default values for those parameters create a symmetric encryption key.
-
-Because this command doesn't specify a key policy, the KMS key gets the [default key policy](key-policies.md#key-policy-default "key-policies.md#key-policy-default") for programmatically created KMS keys. To view the key policy, use the `get-key-policy` command. To change the key policy, use the `put-key-policy` command.
-
+aws kms create-key
 ```
-`aws kms create-key`
-
-```
-
-The `create-key` command returns the key metadata, including the key ID and ARN of the new KMS key. You can use these values to identify the KMS key in other AWS KMS operations. The output does not include the tags. To view the tags for a KMS key, use the `list-resource-tags command`.
-
-Output:
+The `create-key` command returns the key metadata, including the key ID and ARN of the new KMS key. You can use these values to identify the KMS key in other AWS KMS operations. The output does not include the tags. To view the tags for a KMS key, use the `list-resource-tags command`.  
+Output:  
 
 ```
 {
@@ -110,23 +95,17 @@ Output:
     }
 }
 ```
-
-Note: The `create-key` command does not let you specify an alias, To create an alias for the new KMS key, use the `create-alias` command.
-
-For more information, see [Creating keys](create-keys.md "create-keys.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 2: To create an asymmetric RSA KMS key for encryption and decryption**
-
-The following `create-key` example creates a KMS key that contains an asymmetric RSA key pair for encryption and decryption. The key spec and key usage can't be changed after the key is created.:
+Note: The `create-key` command does not let you specify an alias, To create an alias for the new KMS key, use the `create-alias` command.  
+For more information, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 2: To create an asymmetric RSA KMS key for encryption and decryption**  
+The following `create-key` example creates a KMS key that contains an asymmetric RSA key pair for encryption and decryption. The key spec and key usage can't be changed after the key is created.:  
 
 ```
-`aws kms create-key \
- --key-spec `RSA_4096` \
- --key-usage `ENCRYPT_DECRYPT``
-
+aws kms create-key \
+   --key-spec {{RSA_4096}} \
+   --key-usage {{ENCRYPT_DECRYPT}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -151,21 +130,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Asymmetric keys in AWS KMS](symmetric-asymmetric.md "symmetric-asymmetric.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 3: To create an asymmetric elliptic curve KMS key for signing and verification**
-
-To create an asymmetric KMS key that contains an asymmetric elliptic curve (ECC) key pair for signing and verification. The `--key-usage` parameter is required even though `SIGN_VERIFY` is the only valid value for ECC KMS keys. The key spec and key usage can't be changed after the key is created.:
+For more information, see [Asymmetric keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 3: To create an asymmetric elliptic curve KMS key for signing and verification**  
+To create an asymmetric KMS key that contains an asymmetric elliptic curve (ECC) key pair for signing and verification. The `--key-usage` parameter is required even though `SIGN_VERIFY` is the only valid value for ECC KMS keys. The key spec and key usage can't be changed after the key is created.:  
 
 ```
-`aws kms create-key \
- --key-spec `ECC_NIST_P521` \
- --key-usage `SIGN_VERIFY``
-
+aws kms create-key \
+    --key-spec {{ECC_NIST_P521}} \
+    --key-usage {{SIGN_VERIFY}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -189,21 +163,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Asymmetric keys in AWS KMS](symmetric-asymmetric.md "symmetric-asymmetric.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 4: To create an asymmetric ML-DSA KMS key for signing and verification**
-
-This example creates a module-lattice digital signature algorithm (ML-DSA) key for signing and verification. The key-usage parameter is required even though `SIGN_VERIFY` is the only valid value for ML-DSA keys.
+For more information, see [Asymmetric keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 4: To create an asymmetric ML-DSA KMS key for signing and verification**  
+This example creates a module-lattice digital signature algorithm (ML-DSA) key for signing and verification. The key-usage parameter is required even though `SIGN_VERIFY` is the only valid value for ML-DSA keys.  
 
 ```
-`aws kms create-key \
- --key-spec `ML_DSA_65` \
- --key-usage `SIGN_VERIFY``
-
+aws kms create-key \
+    --key-spec {{ML_DSA_65}} \
+    --key-usage {{SIGN_VERIFY}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -226,21 +195,16 @@ Output:
     }
 }
 ```
-
-For more information, see [Asymmetric keys in AWS KMS](symmetric-asymmetric.md "symmetric-asymmetric.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 5: To create an HMAC KMS key**
-
-The following `create-key` example creates a 384-bit HMAC KMS key. The `GENERATE_VERIFY_MAC` value for the `--key-usage` parameter is required even though it's the only valid value for HMAC KMS keys.
+For more information, see [Asymmetric keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 5: To create an HMAC KMS key**  
+The following `create-key` example creates a 384-bit HMAC KMS key. The `GENERATE_VERIFY_MAC` value for the `--key-usage` parameter is required even though it's the only valid value for HMAC KMS keys.  
 
 ```
-`aws kms create-key \
- --key-spec `HMAC_384` \
- --key-usage `GENERATE_VERIFY_MAC``
-
+aws kms create-key \
+    --key-spec {{HMAC_384}} \
+    --key-usage {{GENERATE_VERIFY_MAC}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -264,20 +228,15 @@ Output:
     }
 }
 ```
-
-For more information, see [HMAC keys in AWS KMS](hmac.md "hmac.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 6: To create a multi-Region primary KMS key**
-
-The following `create-key` example creates a multi-Region primary symmetric encryption key. Because the default values for all parameters create a symmetric encryption key, only the `--multi-region` parameter is required for this KMS key. In the AWS CLI, to indicate that a Boolean parameter is true, just specify the parameter name.
+For more information, see [HMAC keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 6: To create a multi-Region primary KMS key**  
+The following `create-key` example creates a multi-Region primary symmetric encryption key. Because the default values for all parameters create a symmetric encryption key, only the `--multi-region` parameter is required for this KMS key. In the AWS CLI, to indicate that a Boolean parameter is true, just specify the parameter name.  
 
 ```
-`aws kms create-key \
- --multi-region`
-
+aws kms create-key \
+    --multi-region
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -310,20 +269,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Asymmetric keys in AWS KMS](symmetric-asymmetric.md "symmetric-asymmetric.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 7: To create a KMS key for imported key material**
-
-The following `create-key` example creates a creates a KMS key with no key material. When the operation is complete, you can import your own key material into the KMS key. To create this KMS key, set the `--origin` parameter to `EXTERNAL`.
+For more information, see [Asymmetric keys in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 7: To create a KMS key for imported key material**  
+The following `create-key` example creates a creates a KMS key with no key material. When the operation is complete, you can import your own key material into the KMS key. To create this KMS key, set the `--origin` parameter to `EXTERNAL`.  
 
 ```
-`aws kms create-key \
- --origin `EXTERNAL``
-
+aws kms create-key \
+    --origin {{EXTERNAL}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -347,21 +301,16 @@ Output:
      }
  }
 ```
-
-For more information, see [Importing key material in AWS KMS keys](importing-keys.md "importing-keys.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 6: To create a KMS key in an AWS CloudHSM key store**
-
-The following `create-key` example creates a creates a KMS key in the specified AWS CloudHSM key store. The operation creates the KMS key and its metadata in AWS KMS and creates the key material in the AWS CloudHSM cluster associated with the custom key store. The `--custom-key-store-id` and `--origin` parameters are required.
+For more information, see [Importing key material in AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 6: To create a KMS key in an AWS CloudHSM key store**  
+The following `create-key` example creates a creates a KMS key in the specified AWS CloudHSM key store. The operation creates the KMS key and its metadata in AWS KMS and creates the key material in the AWS CloudHSM cluster associated with the custom key store. The `--custom-key-store-id` and `--origin` parameters are required.  
 
 ```
-`aws kms create-key \
- --origin `AWS_CLOUDHSM` \
- --custom-key-store-id `cks-1234567890abcdef0``
-
+aws kms create-key \
+    --origin {{AWS_CLOUDHSM}} \
+    --custom-key-store-id {{cks-1234567890abcdef0}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -387,14 +336,10 @@ Output:
     }
 }
 ```
-
-For more information, see [AWS CloudHSM key stores](keystore-cloudhsm.md "keystore-cloudhsm.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 8: To create a KMS key in an external key store**
-
-The following `create-key` example creates a creates a KMS key in the specified external key store. The `--custom-key-store-id`, `--origin`, and `--xks-key-id` parameters are required in this command.
-
-The `--xks-key-id` parameter specifies the ID of an existing symmetric encryption key in your external key manager. This key serves as the external key material for the KMS key.The value of the `--origin` parameter must be `EXTERNAL_KEY_STORE`.The `custom-key-store-id` parameter must identify an external key store that is connected to its external key store proxy.
+For more information, see [AWS CloudHSM key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 8: To create a KMS key in an external key store**  
+The following `create-key` example creates a creates a KMS key in the specified external key store. The `--custom-key-store-id`, `--origin`, and `--xks-key-id` parameters are required in this command.  
+The `--xks-key-id` parameter specifies the ID of an existing symmetric encryption key in your external key manager. This key serves as the external key material for the KMS key.The value of the `--origin` parameter must be `EXTERNAL_KEY_STORE`.The `custom-key-store-id` parameter must identify an external key store that is connected to its external key store proxy.  
 
 ```
 aws kms create-key \
@@ -402,8 +347,7 @@ aws kms create-key \
     --custom-key-store-id cks-9876543210fedcba9 \
     --xks-key-id bb8562717f809024
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -431,22 +375,14 @@ Output:
     }
 }
 ```
+For more information, see [External key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html) in the *AWS Key Management Service Developer Guide*.  
++  For API details, see [CreateKey](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/create-key.html) in *AWS CLI Command Reference*. 
 
-For more information, see [External key stores](keystore-external.md "keystore-external.md") in the _AWS Key Management Service Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateKey](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/create-key.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/create-key.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
 ```
     /**
@@ -469,23 +405,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 throw new RuntimeException("An error occurred while creating the key: " + ex.getMessage(), ex);
             });
     }
-
-
 ```
++  For API details, see [CreateKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/CreateKey) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateKey](../../../goto/SdkForJavaV2/kms-2014-11-01/CreateKey.md "../../../goto/SdkForJavaV2/kms-2014-11-01/CreateKey.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples). 
 
 ```
 suspend fun createKey(keyDesc: String?): String? {
@@ -502,26 +429,16 @@ suspend fun createKey(keyDesc: String?): String? {
         return result.keyMetadata?.keyId
     }
 }
+```
++  For API details, see [CreateKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
+------
+#### [ PHP ]
+
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
 ```
-
-- For API details, see
-  [CreateKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples").
-
-```
-
     /***
      * @param string $keySpec
      * @param string $keyUsage
@@ -546,24 +463,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [CreateKey](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/CreateKey) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateKey](../../../goto/SdkForPHPV3/kms-2014-11-01/CreateKey.md "../../../goto/SdkForPHPV3/kms-2014-11-01/CreateKey.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class KeyManager:
@@ -599,27 +506,16 @@ class KeyManager:
                 err.response["Error"]["Message"],
             )
             raise
+```
++  For API details, see [CreateKey](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/CreateKey) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/kms#code-examples). 
 
 ```
-
-- For API details, see
-  [CreateKey](../../../goto/boto3/kms-2014-11-01/CreateKey.md "../../../goto/boto3/kms-2014-11-01/CreateKey.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/kms#code-examples").
-
-```
-
 require 'aws-sdk-kms' # v2: require 'aws-sdk'
 
 # Create a AWS KMS key.
@@ -640,23 +536,14 @@ resp = client.create_key({
                          })
 
 puts resp.key_metadata.key_id
-
-
 ```
++  For API details, see [CreateKey](https://docs.aws.amazon.com/goto/SdkForRubyV3/kms-2014-11-01/CreateKey) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateKey](../../../goto/SdkForRubyV3/kms-2014-11-01/CreateKey.md "../../../goto/SdkForRubyV3/kms-2014-11-01/CreateKey.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples). 
 
 ```
 async fn make_key(client: &Client) -> Result<(), Error> {
@@ -668,23 +555,14 @@ async fn make_key(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [CreateKey](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.create_key) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateKey](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.create_key "https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.create_key")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -696,14 +574,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmslimitexceededex.
         MESSAGE 'Limit exceeded for KMS resources.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateKey](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateKey](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

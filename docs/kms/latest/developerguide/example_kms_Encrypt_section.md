@@ -1,79 +1,62 @@
+
+
 # Use `Encrypt` with an AWS SDK or CLI
+<a name="example_kms_Encrypt_section"></a>
 
 The following code examples show how to use `Encrypt`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kms_Scenario_Basics_section.md) 
 
-- [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To encrypt the contents of a file on Linux or MacOS**
-
-The following `encrypt` command demonstrates the recommended way to encrypt data with the AWS CLI.
+**AWS CLI**  
+**Example 1: To encrypt the contents of a file on Linux or MacOS**  
+The following `encrypt` command demonstrates the recommended way to encrypt data with the AWS CLI.  
 
 ```
-`aws kms encrypt \
- --key-id `1234abcd-12ab-34cd-56ef-1234567890ab` \
- --plaintext `fileb://ExamplePlaintextFile` \
- --output `text` \
- --query `CiphertextBlob` `|` `base64` \
- --decode `>` `ExampleEncryptedFile``
+aws kms encrypt \
+    --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
+    --plaintext {{fileb://ExamplePlaintextFile}} \
+    --output {{text}} \
+    --query {{CiphertextBlob}} {{|}} {{base64}} \
+    --decode {{>}} {{ExampleEncryptedFile}}
+```
+The command does several things:  
+Uses the `--plaintext` parameter to indicate the data to encrypt. This parameter value must be base64-encoded.The value of the `plaintext` parameter must be base64-encoded, or you must use the `fileb://` prefix, which tells the AWS CLI to read binary data from the file.If the file is not in the current directory, type the full path to file. For example: `fileb:///var/tmp/ExamplePlaintextFile` or `fileb://C:\Temp\ExamplePlaintextFile`. For more information about reading AWS CLI parameter values from a file, see [Loading Parameters from a File](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-file) in the *AWS Command Line Interface User Guide* and [Best Practices for Local File Parameters](https://blogs.aws.amazon.com/cli/post/TxLWWN1O25V1HE/Best-Practices-for-Local-File-Parameters) on the AWS Command Line Tool Blog.Uses the `--output` and `--query` parameters to control the command's output.These parameters extract the encrypted data, called the *ciphertext*, from the command's output.For more information about controlling output, see [Controlling Command Output](https://docs.aws.amazon.com/cli/latest/userguide/controlling-output.html) in the *AWS Command Line Interface User Guide*.Uses the `base64` utility to decode the extracted output into binary data.The ciphertext that is returned by a successful `encrypt` command is base64-encoded text. You must decode this text before you can use the AWS CLI to decrypt it.Saves the binary ciphertext to a file.The final part of the command (`> ExampleEncryptedFile`) saves the binary ciphertext to a file to make decryption easier. For an example command that uses the AWS CLI to decrypt data, see the decrypt examples.  
+**Example 2: Using the AWS CLI to encrypt data on Windows**  
+This example is the same as the previous one, except that it uses the `certutil` tool instead of `base64`. This procedure requires two commands, as shown in the following example.  
 
 ```
+aws kms encrypt \
+    --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
+    --plaintext {{fileb://ExamplePlaintextFile}} \
+    --output {{text}} \
+    --query {{CiphertextBlob}} {{>}} C:\Temp\ExampleEncryptedFile.base64
 
-The command does several things:
-
-Uses the `--plaintext` parameter to indicate the data to encrypt. This parameter value must be base64-encoded.The value of the `plaintext` parameter must be base64-encoded, or you must use the `fileb://` prefix, which tells the AWS CLI to read binary data from the file.If the file is not in the current directory, type the full path to file. For example: `fileb:///var/tmp/ExamplePlaintextFile` or `fileb://C:\Temp\ExamplePlaintextFile`. For more information about reading AWS CLI parameter values from a file, see [Loading Parameters from a File](../../../cli/latest/userguide/cli-using-param.md#cli-using-param-file "../../../cli/latest/userguide/cli-using-param.md#cli-using-param-file") in the _AWS Command Line Interface User Guide_ and [Best Practices for Local File Parameters](https://blogs.aws.amazon.com/cli/post/TxLWWN1O25V1HE/Best-Practices-for-Local-File-Parameters "https://blogs.aws.amazon.com/cli/post/TxLWWN1O25V1HE/Best-Practices-for-Local-File-Parameters") on the AWS Command Line Tool Blog.Uses the `--output` and `--query` parameters to control the command's output.These parameters extract the encrypted data, called the _ciphertext_, from the command's output.For more information about controlling output, see [Controlling Command Output](../../../cli/latest/userguide/controlling-output.md "../../../cli/latest/userguide/controlling-output.md") in the _AWS Command Line Interface User Guide_.Uses the `base64` utility to decode the extracted output into binary data.The ciphertext that is returned by a successful `encrypt` command is base64-encoded text. You must decode this text before you can use the AWS CLI to decrypt it.Saves the binary ciphertext to a file.The final part of the command (`> ExampleEncryptedFile`) saves the binary ciphertext to a file to make decryption easier. For an example command that uses the AWS CLI to decrypt data, see the decrypt examples.
-
-**Example 2: Using the AWS CLI to encrypt data on Windows**
-
-This example is the same as the previous one, except that it uses the `certutil` tool instead of `base64`. This procedure requires two commands, as shown in the following example.
+{{certutil}} {{-decode}} C:\Temp\ExampleEncryptedFile.base64 C:\Temp\ExampleEncryptedFile
+```
+**Example 3: Encrypting with an asymmetric KMS key**  
+The following `encrypt` command shows how to encrypt plaintext with an asymmetric KMS key. The `--encryption-algorithm` parameter is required. As in all `encrypt` CLI commands, the `plaintext` parameter must be base64-encoded, or you must use the `fileb://` prefix, which tells the AWS CLI to read binary data from the file.  
 
 ```
-`aws kms encrypt \
- --key-id `1234abcd-12ab-34cd-56ef-1234567890ab` \
- --plaintext `fileb://ExamplePlaintextFile` \
- --output `text` \
- --query `CiphertextBlob` `>` C:\Temp\ExampleEncryptedFile.base64
-
-`certutil` `-decode` C:\Temp\ExampleEncryptedFile.base64 C:\Temp\ExampleEncryptedFile`
-
+aws kms encrypt \
+    --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
+    --encryption-algorithm {{RSAES_OAEP_SHA_256}} \
+    --plaintext {{fileb://ExamplePlaintextFile}} \
+    --output {{text}} \
+    --query {{CiphertextBlob}} {{|}} {{base64}} \
+    --decode {{>}} {{ExampleEncryptedFile}}
 ```
+This command produces no output.  
++  For API details, see [Encrypt](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/encrypt.html) in *AWS CLI Command Reference*. 
 
-**Example 3: Encrypting with an asymmetric KMS key**
+------
+#### [ Java ]
 
-The following `encrypt` command shows how to encrypt plaintext with an asymmetric KMS key. The `--encryption-algorithm` parameter is required. As in all `encrypt` CLI commands, the `plaintext` parameter must be base64-encoded, or you must use the `fileb://` prefix, which tells the AWS CLI to read binary data from the file.
-
-```
-`aws kms encrypt \
- --key-id `1234abcd-12ab-34cd-56ef-1234567890ab` \
- --encryption-algorithm `RSAES_OAEP_SHA_256` \
- --plaintext `fileb://ExamplePlaintextFile` \
- --output `text` \
- --query `CiphertextBlob` `|` `base64` \
- --decode `>` `ExampleEncryptedFile``
-
-```
-
-This command produces no output.
-
-- For API details, see
-  [Encrypt](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/encrypt.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/encrypt.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
 ```
     /**
@@ -100,23 +83,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         }).thenApply(EncryptResponse::ciphertextBlob);
     }
-
-
 ```
++  For API details, see [Encrypt](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/Encrypt) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Encrypt](../../../goto/SdkForJavaV2/kms-2014-11-01/Encrypt.md "../../../goto/SdkForJavaV2/kms-2014-11-01/Encrypt.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples). 
 
 ```
 suspend fun encryptData(keyIdValue: String): ByteArray? {
@@ -156,26 +130,16 @@ suspend fun decryptData(
         print(myVal)
     }
 }
+```
++  For API details, see [Encrypt](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
+------
+#### [ PHP ]
+
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
 ```
-
-- For API details, see
-  [Encrypt](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples").
-
-```
-
     /***
      * @param string $keyId
      * @param string $text
@@ -195,24 +159,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [Encrypt](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/Encrypt) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [Encrypt](../../../goto/SdkForPHPV3/kms-2014-11-01/Encrypt.md "../../../goto/SdkForPHPV3/kms-2014-11-01/Encrypt.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class KeyEncrypt:
@@ -255,24 +209,14 @@ class KeyEncrypt:
                     err.response["Error"]["Message"],
                 )
             raise
-
-
-
 ```
++  For API details, see [Encrypt](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/Encrypt) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Encrypt](../../../goto/boto3/kms-2014-11-01/Encrypt.md "../../../goto/boto3/kms-2014-11-01/Encrypt.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/kms#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/kms#code-examples). 
 
 ```
 require 'aws-sdk-kms' # v2: require 'aws-sdk'
@@ -295,23 +239,14 @@ resp = client.encrypt({
 # Display a readable version of the resulting encrypted blob.
 puts 'Blob:'
 puts resp.ciphertext_blob.unpack('H*')
-
-
 ```
++  For API details, see [Encrypt](https://docs.aws.amazon.com/goto/SdkForRubyV3/kms-2014-11-01/Encrypt) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [Encrypt](../../../goto/SdkForRubyV3/kms-2014-11-01/Encrypt.md "../../../goto/SdkForRubyV3/kms-2014-11-01/Encrypt.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples). 
 
 ```
 async fn encrypt_string(
@@ -341,23 +276,14 @@ async fn encrypt_string(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [Encrypt](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.encrypt) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [Encrypt](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.encrypt "https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.encrypt")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -375,14 +301,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmskmsinternalex.
         MESSAGE 'An internal error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [Encrypt](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [Encrypt](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

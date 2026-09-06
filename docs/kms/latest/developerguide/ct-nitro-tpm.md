@@ -1,19 +1,18 @@
+
+
 # Monitoring requests for NitroTPM
+<a name="ct-nitro-tpm"></a>
 
-For NitroTPM attestation, the CloudTrail log includes the module ID
-(`attestationDocumentModuleId`) and platform configuration registers
-(PCRs) from the attestation document.
+For NitroTPM attestation, the CloudTrail log includes the module ID (`attestationDocumentModuleId`) and platform configuration registers (PCRs) from the attestation document. 
 
-The module ID is the ID of the EC2 instance with NitroTPM with a TPM identifier.
-You can use the PCR values in [conditions for
-key policies and IAM policies](conditions-attestation.md "conditions-attestation.md").
+The module ID is the ID of the EC2 instance with NitroTPM with a TPM identifier. You can use the PCR values in [conditions for key policies and IAM policies](conditions-attestation.md).
 
-This section shows an example CloudTrail log entry for each of the supported NitroTPM
-requests to AWS KMS.
+This section shows an example CloudTrail log entry for each of the supported NitroTPM requests to AWS KMS.
 
 ## Decrypt (for a NitroTPM)
+<a name="ct-decrypt-nitrotpm"></a>
 
-The following example shows an AWS CloudTrail log entry of a [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md") operation for a NitroTPM.
+The following example shows an AWS CloudTrail log entry of a [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation for a NitroTPM.
 
 ```
 {
@@ -38,15 +37,15 @@ The following example shows an AWS CloudTrail log entry of a [Decrypt](../APIRef
     },
     "responseElements": null,
     "additionalEventData": {
-        **"recipient": {
- "attestationDocumentModuleId": "i-123456789abcde123-tpm0000000000000000",
- "attestationDocumentNitroTPMPCR4": "<AttestationDocument.PCR4>",
- "attestationDocumentNitroTPMPCR7": "<AttestationDocument.PCR7>",
- "attestationDocumentNitroTPMPCR8": "<AttestationDocument.PCR8>",
- "attestationDocumentNitroTPMPCR9": "<AttestationDocument.PCR9>",
- "attestationDocumentNitroTPMPCR16": "<AttestationDocument.PCR16>",
- "attestationDocumentNitroTPMPCR23": "<AttestationDocument.PCR23>"
- }**
+        "recipient": {
+           "attestationDocumentModuleId": "i-123456789abcde123-tpm0000000000000000",
+           "attestationDocumentNitroTPMPCR4": "<AttestationDocument.PCR4>",
+           "attestationDocumentNitroTPMPCR7": "<AttestationDocument.PCR7>",
+           "attestationDocumentNitroTPMPCR8": "<AttestationDocument.PCR8>",
+           "attestationDocumentNitroTPMPCR9": "<AttestationDocument.PCR9>",
+           "attestationDocumentNitroTPMPCR16": "<AttestationDocument.PCR16>",
+           "attestationDocumentNitroTPMPCR23": "<AttestationDocument.PCR23>"
+        }
     },
     "requestID": "b4a65126-30d5-4b28-98b9-9153da559963",
     "eventID": "e5a2f202-ba1a-467c-b4ba-f729d45ae521",
@@ -63,11 +62,10 @@ The following example shows an AWS CloudTrail log entry of a [Decrypt](../APIRef
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## GenerateDataKey (for a NitroTPM)
+<a name="ct-generate-data-key-nitrotpm"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md") operation for a NitroTPM.
+The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation for a NitroTPM.
 
 ```
 {
@@ -92,15 +90,15 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](.
     },
     "responseElements": null,
     "additionalEventData": {
-        **"recipient": {
- "attestationDocumentModuleId": "i-123456789abcde123-tpm0000000000000000",
- "attestationDocumentNitroTPMPCR4": "<AttestationDocument.PCR4>",
- "attestationDocumentNitroTPMPCR7": "<AttestationDocument.PCR7>",
- "attestationDocumentNitroTPMPCR8": "<AttestationDocument.PCR8>",
- "attestationDocumentNitroTPMPCR9": "<AttestationDocument.PCR9>",
- "attestationDocumentNitroTPMPCR16": "<AttestationDocument.PCR16>",
- "attestationDocumentNitroTPMPCR23": "<AttestationDocument.PCR23>"
- }**
+        "recipient": {
+           "attestationDocumentModuleId": "i-123456789abcde123-tpm0000000000000000",
+           "attestationDocumentNitroTPMPCR4": "<AttestationDocument.PCR4>",
+           "attestationDocumentNitroTPMPCR7": "<AttestationDocument.PCR7>",
+           "attestationDocumentNitroTPMPCR8": "<AttestationDocument.PCR8>",
+           "attestationDocumentNitroTPMPCR9": "<AttestationDocument.PCR9>",
+           "attestationDocumentNitroTPMPCR16": "<AttestationDocument.PCR16>",
+           "attestationDocumentNitroTPMPCR23": "<AttestationDocument.PCR23>"
+        }
     },
     "requestID": "e0eb83e3-63bc-11e4-bc2b-4198b6150d5c",
     "eventID": "a9dea4f9-8395-46c0-942c-f509c02c2b71",
@@ -114,11 +112,10 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](.
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## GenerateDataKeyPair (for a NitroTPM)
+<a name="ct-generatedatakeypair-nitrotpm"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md") operation for a NitroTPM.
+The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html) operation for a NitroTPM.
 
 ```
 {
@@ -146,15 +143,15 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPai
     },
     "responseElements": null,
     "additionalEventData": {
-        **"recipient": {
- "attestationDocumentModuleId": "i-123456789abcde123-tpm0000000000000000",
- "attestationDocumentNitroTPMPCR4": "<AttestationDocument.PCR4>",
- "attestationDocumentNitroTPMPCR7": "<AttestationDocument.PCR7>",
- "attestationDocumentNitroTPMPCR8": "<AttestationDocument.PCR8>",
- "attestationDocumentNitroTPMPCR9": "<AttestationDocument.PCR9>",
- "attestationDocumentNitroTPMPCR16": "<AttestationDocument.PCR16>",
- "attestationDocumentNitroTPMPCR23": "<AttestationDocument.PCR23>"
- }**
+        "recipient": {
+           "attestationDocumentModuleId": "i-123456789abcde123-tpm0000000000000000",
+           "attestationDocumentNitroTPMPCR4": "<AttestationDocument.PCR4>",
+           "attestationDocumentNitroTPMPCR7": "<AttestationDocument.PCR7>",
+           "attestationDocumentNitroTPMPCR8": "<AttestationDocument.PCR8>",
+           "attestationDocumentNitroTPMPCR9": "<AttestationDocument.PCR9>",
+           "attestationDocumentNitroTPMPCR16": "<AttestationDocument.PCR16>",
+           "attestationDocumentNitroTPMPCR23": "<AttestationDocument.PCR23>"
+        }
     },
     "requestID": "52fb127b-0fe5-42bb-8e5e-f560febde6b0",
     "eventID": "9b6bd6d2-529d-4890-a949-593b13800ad7",
@@ -171,11 +168,10 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPai
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## GenerateRandom (for a NitroTPM)
+<a name="ct-generate-random-nitrotpm"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateRandom](../APIReference/API_GenerateRandom.md "../APIReference/API_GenerateRandom.md") operation for a NitroTPM.
+The following example shows an AWS CloudTrail log entry of a [GenerateRandom](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html) operation for a NitroTPM.
 
 ```
 {
@@ -197,15 +193,15 @@ The following example shows an AWS CloudTrail log entry of a [GenerateRandom](..
     "requestParameters": null,
     "responseElements": null,
     "additionalEventData": {
-        **"recipient": {
- "attestationDocumentModuleId": "i-123456789abcde123-tpm0000000000000000",
- "attestationDocumentNitroTPMPCR4": "<AttestationDocument.PCR4>",
- "attestationDocumentNitroTPMPCR7": "<AttestationDocument.PCR7>",
- "attestationDocumentNitroTPMPCR8": "<AttestationDocument.PCR8>",
- "attestationDocumentNitroTPMPCR9": "<AttestationDocument.PCR9>",
- "attestationDocumentNitroTPMPCR16": "<AttestationDocument.PCR16>",
- "attestationDocumentNitroTPMPCR23": "<AttestationDocument.PCR23>"
- }**
+        "recipient": {
+           "attestationDocumentModuleId": "i-123456789abcde123-tpm0000000000000000",
+           "attestationDocumentNitroTPMPCR4": "<AttestationDocument.PCR4>",
+           "attestationDocumentNitroTPMPCR7": "<AttestationDocument.PCR7>",
+           "attestationDocumentNitroTPMPCR8": "<AttestationDocument.PCR8>",
+           "attestationDocumentNitroTPMPCR9": "<AttestationDocument.PCR9>",
+           "attestationDocumentNitroTPMPCR16": "<AttestationDocument.PCR16>",
+           "attestationDocumentNitroTPMPCR23": "<AttestationDocument.PCR23>"
+        }
     },
     "requestID": "df1e3de6-63bc-11e4-bc2b-4198b6150d5c",
     "eventID": "239cb9f7-ae05-4c94-9221-6ea30eef0442",
@@ -215,5 +211,3 @@ The following example shows an AWS CloudTrail log entry of a [GenerateRandom](..
     "recipientAccountId": "111122223333"
 }
 ```
-
-[Show moreShow less](# "#")

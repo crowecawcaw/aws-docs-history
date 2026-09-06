@@ -1,15 +1,13 @@
+
+
 # RotateKey
+<a name="ct-rotatekey"></a>
 
-These examples show the AWS CloudTrail log entries for the operations that rotate
-AWS KMS keys. For information about rotating KMS keys, see [Rotate AWS KMS keys](rotate-keys.md "rotate-keys.md").
+These examples show the AWS CloudTrail log entries for the operations that rotate AWS KMS keys. For information about rotating KMS keys, see [Rotate AWS KMS keys](rotate-keys.md).
 
-The following example shows a CloudTrail log entry for the operation that rotates a symmetric
-encryption KMS key on which automatic key rotation is enabled. For information about
-enabling automatic rotation, see
-[Rotate AWS KMS keys](rotate-keys.md "rotate-keys.md").
+The following example shows a CloudTrail log entry for the operation that rotates a symmetric encryption KMS key on which automatic key rotation is enabled. For information about enabling automatic rotation, see [Rotate AWS KMS keys](rotate-keys.md).
 
-For an example of the CloudTrail log entry that records the `EnableKeyRotation`
-operation, see [EnableKeyRotation](ct-enablekeyrotation.md "ct-enablekeyrotation.md").
+For an example of the CloudTrail log entry that records the `EnableKeyRotation` operation, see [EnableKeyRotation](ct-enablekeyrotation.md). 
 
 ```
 {
@@ -49,13 +47,9 @@ operation, see [EnableKeyRotation](ct-enablekeyrotation.md "ct-enablekeyrotation
 }
 ```
 
-The following example shows a CloudTrail log entry for an on-demand rotation initiated by the
-[RotateKeyOnDemand](../APIReference/API_RotateKeyOnDemand.md "../APIReference/API_RotateKeyOnDemand.md") operation. For information
-about rotating symmetric encryption KMS keys on demand, see
-[Perform on-demand key rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md").
+The following example shows a CloudTrail log entry for an on-demand rotation initiated by the [RotateKeyOnDemand](https://docs.aws.amazon.com/kms/latest/APIReference/API_RotateKeyOnDemand.html) operation. For information about rotating symmetric encryption KMS keys on demand, see [Perform on-demand key rotation](rotating-keys-on-demand.md).
 
-For an example of the CloudTrail log entry that records the `RotateKeyOnDemand`
-operation, see [RotateKeyOnDemand](ct-rotatekeyondemand.md "ct-rotatekeyondemand.md").
+For an example of the CloudTrail log entry that records the `RotateKeyOnDemand` operation, see [RotateKeyOnDemand](ct-rotatekeyondemand.md). 
 
 ```
 {

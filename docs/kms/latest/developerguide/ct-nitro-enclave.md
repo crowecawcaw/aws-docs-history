@@ -1,23 +1,18 @@
+
+
 # Monitoring requests for Nitro enclaves
+<a name="ct-nitro-enclave"></a>
 
-For Nitro enclave attestation, the CloudTrail log includes the module ID
-(`attestationDocumentModuleId`), image digest
-(`attestationDocumentEnclaveImageDigest`), and platform configuration
-registers (PCRs) from the attestation document.
+For Nitro enclave attestation, the CloudTrail log includes the module ID (`attestationDocumentModuleId`), image digest (`attestationDocumentEnclaveImageDigest`), and platform configuration registers (PCRs) from the attestation document.
 
-The module ID is the [enclave ID](../../../enclaves/latest/user/nitro-enclave-concepts.md#term-enclaveid "../../../enclaves/latest/user/nitro-enclave-concepts.md#term-enclaveid") of the Nitro enclave. The image digest is the SHA384 hash of
-the enclave image. You can use the image digest and PCR values in [conditions for key policies and IAM
-policies](conditions-attestation.md "conditions-attestation.md"). For information about the PCRs, see [Where to get an enclave's
-measurements](../../../enclaves/latest/user/set-up-attestation.md#where "../../../enclaves/latest/user/set-up-attestation.md#where") in the _AWS Nitro Enclaves User
-Guide_.
+The module ID is the [enclave ID](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-concepts.html#term-enclaveid) of the Nitro enclave. The image digest is the SHA384 hash of the enclave image. You can use the image digest and PCR values in [conditions for key policies and IAM policies](conditions-attestation.md). For information about the PCRs, see [Where to get an enclave's measurements](https://docs.aws.amazon.com/enclaves/latest/user/set-up-attestation.html#where) in the *AWS Nitro Enclaves User Guide*.
 
-This section shows an example CloudTrail log entry for each of the supported Nitro
-enclave requests to AWS KMS.
+This section shows an example CloudTrail log entry for each of the supported Nitro enclave requests to AWS KMS.
 
 ## Decrypt (for an enclave)
+<a name="ct-decrypt-enclave"></a>
 
-The following example shows an AWS CloudTrail log entry of a [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md") operation for an AWS Nitro
-enclave.
+The following example shows an AWS CloudTrail log entry of a [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation for an AWS Nitro enclave.
 
 ```
 {
@@ -42,15 +37,15 @@ enclave.
     },
     "responseElements": null,
     "additionalEventData": {
-        **"recipient": {
- "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
- "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
- "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
- "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
- "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
- "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
- "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
- }**
+        "recipient": {
+            "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
+            "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
+            "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
+            "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
+            "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
+            "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
+        }
     },
     "requestID": "b4a65126-30d5-4b28-98b9-9153da559963",
     "eventID": "e5a2f202-ba1a-467c-b4ba-f729d45ae521",
@@ -67,11 +62,10 @@ enclave.
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## GenerateDataKey (for an enclave)
+<a name="ct-generate-data-key-enclave"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md") operation for an AWS Nitro enclave.
+The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation for an AWS Nitro enclave.
 
 ```
 {
@@ -96,15 +90,15 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](.
     },
     "responseElements": null,
     "additionalEventData": {
-        **"recipient": {
- "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
- "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
- "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
- "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
- "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
- "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
- "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
- }**
+        "recipient": {
+            "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
+            "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
+            "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
+            "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
+            "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
+            "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
+        }
     },
     "requestID": "e0eb83e3-63bc-11e4-bc2b-4198b6150d5c",
     "eventID": "a9dea4f9-8395-46c0-942c-f509c02c2b71",
@@ -118,12 +112,10 @@ The following example shows an AWS CloudTrail log entry of a [GenerateDataKey](.
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## GenerateDataKeyPair (for an enclave)
+<a name="ct-generatedatakeypair-enclave"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md") operation for an AWS Nitro
-enclave.
+The following example shows an AWS CloudTrail log entry of a [GenerateDataKeyPair](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html) operation for an AWS Nitro enclave.
 
 ```
 {
@@ -151,15 +143,15 @@ enclave.
     },
     "responseElements": null,
     "additionalEventData": {
-        **"recipient": {
- "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
- "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
- "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
- "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
- "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
- "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
- "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
- }**
+        "recipient": {
+            "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
+            "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
+            "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
+            "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
+            "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
+            "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
+        }
     },
     "requestID": "52fb127b-0fe5-42bb-8e5e-f560febde6b0",
     "eventID": "9b6bd6d2-529d-4890-a949-593b13800ad7",
@@ -176,11 +168,10 @@ enclave.
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## GenerateRandom (for an enclave)
+<a name="ct-generate-random-enclave"></a>
 
-The following example shows an AWS CloudTrail log entry of a [GenerateRandom](../APIReference/API_GenerateRandom.md "../APIReference/API_GenerateRandom.md") operation for an AWS Nitro enclave.
+The following example shows an AWS CloudTrail log entry of a [GenerateRandom](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html) operation for an AWS Nitro enclave.
 
 ```
 {
@@ -202,15 +193,15 @@ The following example shows an AWS CloudTrail log entry of a [GenerateRandom](..
     "requestParameters": null,
     "responseElements": null,
     "additionalEventData": {
-        **"recipient": {
- "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
- "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
- "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
- "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
- "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
- "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
- "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
- }**
+        "recipient": {
+            "attestationDocumentModuleId": "i-123456789abcde123-enc123456789abcde12",
+            "attestationDocumentEnclaveImageDigest": "<AttestationDocument.PCR0>",
+            "attestationDocumentEnclavePCR1": "<AttestationDocument.PCR1>",
+            "attestationDocumentEnclavePCR2": "<AttestationDocument.PCR2>",
+            "attestationDocumentEnclavePCR3": "<AttestationDocument.PCR3>",
+            "attestationDocumentEnclavePCR4": "<AttestationDocument.PCR4>",
+            "attestationDocumentEnclavePCR8": "<AttestationDocument.PCR8>"
+        }
     },
     "requestID": "df1e3de6-63bc-11e4-bc2b-4198b6150d5c",
     "eventID": "239cb9f7-ae05-4c94-9221-6ea30eef0442",
@@ -220,5 +211,3 @@ The following example shows an AWS CloudTrail log entry of a [GenerateRandom](..
     "recipientAccountId": "111122223333"
 }
 ```
-
-[Show moreShow less](# "#")

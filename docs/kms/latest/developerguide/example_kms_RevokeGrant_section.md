@@ -1,44 +1,34 @@
+
+
 # Use `RevokeGrant` with an AWS SDK or CLI
+<a name="example_kms_RevokeGrant_section"></a>
 
 The following code examples show how to use `RevokeGrant`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kms_Scenario_Basics_section.md) 
 
-- [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To revoke a grant on a customer master key**
-
-The following `revoke-grant` example deletes a grant from a KMS key. The following example command specifies the `grant-id` and the `key-id` parameters. The value of the `key-id` parameter can be the key ID or key ARN of the KMS key.
+**AWS CLI**  
+**To revoke a grant on a customer master key**  
+The following `revoke-grant` example deletes a grant from a KMS key. The following example command specifies the `grant-id` and the `key-id` parameters. The value of the `key-id` parameter can be the key ID or key ARN of the KMS key.  
 
 ```
-`aws kms revoke-grant \
- --grant-id `1234a2345b8a4e350500d432bccf8ecd6506710e1391880c4f7f7140160c9af3` \
- --key-id `1234abcd-12ab-34cd-56ef-1234567890ab``
-
+aws kms revoke-grant \
+    --grant-id {{1234a2345b8a4e350500d432bccf8ecd6506710e1391880c4f7f7140160c9af3}} \
+    --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
 ```
+This command produces no output. To confirm that the grant was revoked, use the `list-grants` command.  
+For more information, see [Retiring and revoking grants](https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete) in the *AWS Key Management Service Developer Guide*.  
++  For API details, see [RevokeGrant](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/revoke-grant.html) in *AWS CLI Command Reference*. 
 
-This command produces no output. To confirm that the grant was revoked, use the `list-grants` command.
+------
+#### [ Java ]
 
-For more information, see [Retiring and revoking grants](grant-manage.md#grant-delete "grant-manage.md#grant-delete") in the _AWS Key Management Service Developer Guide_.
-
-- For API details, see
-  [RevokeGrant](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/revoke-grant.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/revoke-grant.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
 ```
     /**
@@ -75,24 +65,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         return responseFuture;
     }
-
-
-
 ```
++  For API details, see [RevokeGrant](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/RevokeGrant) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [RevokeGrant](../../../goto/SdkForJavaV2/kms-2014-11-01/RevokeGrant.md "../../../goto/SdkForJavaV2/kms-2014-11-01/RevokeGrant.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
 ```
     /***
@@ -112,24 +92,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [RevokeGrant](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/RevokeGrant) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [RevokeGrant](../../../goto/SdkForPHPV3/kms-2014-11-01/RevokeGrant.md "../../../goto/SdkForPHPV3/kms-2014-11-01/RevokeGrant.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class GrantManager:
@@ -163,25 +133,14 @@ class GrantManager:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
 ```
++  For API details, see [RevokeGrant](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/RevokeGrant) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [RevokeGrant](../../../goto/boto3/kms-2014-11-01/RevokeGrant.md "../../../goto/boto3/kms-2014-11-01/RevokeGrant.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -199,14 +158,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmskmsinternalex.
         MESSAGE 'An internal error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [RevokeGrant](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [RevokeGrant](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

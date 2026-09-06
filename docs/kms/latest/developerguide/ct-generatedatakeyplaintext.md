@@ -1,6 +1,9 @@
-# GenerateDataKeyWithoutPlaintext
 
-The following example shows an AWS CloudTrail log entry for the [GenerateDataKeyWithoutPlaintext](../APIReference/API_GenerateDataKeyWithoutPlaintext.md "../APIReference/API_GenerateDataKeyWithoutPlaintext.md") operation.
+
+# GenerateDataKeyWithoutPlaintext
+<a name="ct-generatedatakeyplaintext"></a>
+
+The following example shows an AWS CloudTrail log entry for the [GenerateDataKeyWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html) operation.
 
 ```
 {

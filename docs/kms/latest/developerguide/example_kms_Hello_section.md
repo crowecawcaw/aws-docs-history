@@ -1,16 +1,15 @@
+
+
 # Hello AWS Key Management Service
+<a name="example_kms_Hello_section"></a>
 
 The following code examples show how to get started using AWS Key Management Service.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
 ```
 import software.amazon.awssdk.services.kms.KmsAsyncClient;
@@ -64,23 +63,14 @@ public class HelloKMS {
         }
     }
 }
-
-
 ```
++  For API details, see [ListKeys](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/ListKeys) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListKeys](../../../goto/SdkForJavaV2/kms-2014-11-01/ListKeys.md "../../../goto/SdkForJavaV2/kms-2014-11-01/ListKeys.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
 ```
 include "vendor/autoload.php";
@@ -102,24 +92,14 @@ foreach($keysPaginator as $page){
     echo "End of page one of results. Alter the \$pageLength variable to see more results.\n";
     break;
 }
-
-
-
 ```
++  For API details, see [ListKeys](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/ListKeys) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ListKeys](../../../goto/SdkForPHPV3/kms-2014-11-01/ListKeys.md "../../../goto/SdkForPHPV3/kms-2014-11-01/ListKeys.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -128,14 +108,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmskmsinternalex.
         MESSAGE 'An internal error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListKeys](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListKeys](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

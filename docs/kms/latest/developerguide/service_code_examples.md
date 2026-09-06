@@ -1,53 +1,49 @@
+
+
 # Code examples for AWS KMS using AWS SDKs
+<a name="service_code_examples"></a>
 
-The following code examples show how to use AWS KMS with an AWS software development kit (SDK).
+The following code examples show how to use AWS KMS with an AWS software development kit (SDK). 
 
-_Basics_ are code examples that show you how to perform the essential operations within a service.
+*Basics* are code examples that show you how to perform the essential operations within a service.
 
-_Actions_ are code excerpts from larger programs and must be run in context. While actions show you how to call individual service functions, you can see actions in context in their related scenarios.
+*Actions* are code excerpts from larger programs and must be run in context. While actions show you how to call individual service functions, you can see actions in context in their related scenarios.
 
-_Scenarios_ are code examples that show you how to accomplish specific tasks by calling multiple functions within a service or combined with other AWS services.
+*Scenarios* are code examples that show you how to accomplish specific tasks by calling multiple functions within a service or combined with other AWS services.
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
 
-###### Code examples
-
-- [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
-
-  - [Hello AWS KMS](example_kms_Hello_section.md "example_kms_Hello_section.md")
-  - [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
-  - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
-
-    - [CreateAlias](example_kms_CreateAlias_section.md "example_kms_CreateAlias_section.md")
-    - [CreateGrant](example_kms_CreateGrant_section.md "example_kms_CreateGrant_section.md")
-    - [CreateKey](example_kms_CreateKey_section.md "example_kms_CreateKey_section.md")
-    - [Decrypt](example_kms_Decrypt_section.md "example_kms_Decrypt_section.md")
-    - [DeleteAlias](example_kms_DeleteAlias_section.md "example_kms_DeleteAlias_section.md")
-    - [DescribeKey](example_kms_DescribeKey_section.md "example_kms_DescribeKey_section.md")
-    - [DisableKey](example_kms_DisableKey_section.md "example_kms_DisableKey_section.md")
-    - [EnableKey](example_kms_EnableKey_section.md "example_kms_EnableKey_section.md")
-    - [EnableKeyRotation](example_kms_EnableKeyRotation_section.md "example_kms_EnableKeyRotation_section.md")
-    - [Encrypt](example_kms_Encrypt_section.md "example_kms_Encrypt_section.md")
-    - [GenerateDataKey](example_kms_GenerateDataKey_section.md "example_kms_GenerateDataKey_section.md")
-    - [GenerateDataKeyWithoutPlaintext](example_kms_GenerateDataKeyWithoutPlaintext_section.md "example_kms_GenerateDataKeyWithoutPlaintext_section.md")
-    - [GenerateRandom](example_kms_GenerateRandom_section.md "example_kms_GenerateRandom_section.md")
-    - [GetKeyPolicy](example_kms_GetKeyPolicy_section.md "example_kms_GetKeyPolicy_section.md")
-    - [ListAliases](example_kms_ListAliases_section.md "example_kms_ListAliases_section.md")
-    - [ListGrants](example_kms_ListGrants_section.md "example_kms_ListGrants_section.md")
-    - [ListKeyPolicies](example_kms_ListKeyPolicies_section.md "example_kms_ListKeyPolicies_section.md")
-    - [ListKeys](example_kms_ListKeys_section.md "example_kms_ListKeys_section.md")
-    - [PutKeyPolicy](example_kms_PutKeyPolicy_section.md "example_kms_PutKeyPolicy_section.md")
-    - [ReEncrypt](example_kms_ReEncrypt_section.md "example_kms_ReEncrypt_section.md")
-    - [RetireGrant](example_kms_RetireGrant_section.md "example_kms_RetireGrant_section.md")
-    - [RevokeGrant](example_kms_RevokeGrant_section.md "example_kms_RevokeGrant_section.md")
-    - [ScheduleKeyDeletion](example_kms_ScheduleKeyDeletion_section.md "example_kms_ScheduleKeyDeletion_section.md")
-    - [Sign](example_kms_Sign_section.md "example_kms_Sign_section.md")
-    - [TagResource](example_kms_TagResource_section.md "example_kms_TagResource_section.md")
-    - [UpdateAlias](example_kms_UpdateAlias_section.md "example_kms_UpdateAlias_section.md")
-    - [Verify](example_kms_Verify_section.md "example_kms_Verify_section.md")
-
-- [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
-
-  - [Work with table encryption](example_dynamodb_Scenario_EncryptionExamples_section.md "example_dynamodb_Scenario_EncryptionExamples_section.md")
+**Contents**
++ [Basics](service_code_examples_basics.md)
+  + [Hello AWS KMS](example_kms_Hello_section.md)
+  + [Learn the basics](example_kms_Scenario_Basics_section.md)
+  + [Actions](service_code_examples_actions.md)
+    + [`CreateAlias`](example_kms_CreateAlias_section.md)
+    + [`CreateGrant`](example_kms_CreateGrant_section.md)
+    + [`CreateKey`](example_kms_CreateKey_section.md)
+    + [`Decrypt`](example_kms_Decrypt_section.md)
+    + [`DeleteAlias`](example_kms_DeleteAlias_section.md)
+    + [`DescribeKey`](example_kms_DescribeKey_section.md)
+    + [`DisableKey`](example_kms_DisableKey_section.md)
+    + [`EnableKey`](example_kms_EnableKey_section.md)
+    + [`EnableKeyRotation`](example_kms_EnableKeyRotation_section.md)
+    + [`Encrypt`](example_kms_Encrypt_section.md)
+    + [`GenerateDataKey`](example_kms_GenerateDataKey_section.md)
+    + [`GenerateDataKeyWithoutPlaintext`](example_kms_GenerateDataKeyWithoutPlaintext_section.md)
+    + [`GenerateRandom`](example_kms_GenerateRandom_section.md)
+    + [`GetKeyPolicy`](example_kms_GetKeyPolicy_section.md)
+    + [`ListAliases`](example_kms_ListAliases_section.md)
+    + [`ListGrants`](example_kms_ListGrants_section.md)
+    + [`ListKeyPolicies`](example_kms_ListKeyPolicies_section.md)
+    + [`ListKeys`](example_kms_ListKeys_section.md)
+    + [`PutKeyPolicy`](example_kms_PutKeyPolicy_section.md)
+    + [`ReEncrypt`](example_kms_ReEncrypt_section.md)
+    + [`RetireGrant`](example_kms_RetireGrant_section.md)
+    + [`RevokeGrant`](example_kms_RevokeGrant_section.md)
+    + [`ScheduleKeyDeletion`](example_kms_ScheduleKeyDeletion_section.md)
+    + [`Sign`](example_kms_Sign_section.md)
+    + [`TagResource`](example_kms_TagResource_section.md)
+    + [`UpdateAlias`](example_kms_UpdateAlias_section.md)
+    + [`Verify`](example_kms_Verify_section.md)
++ [Scenarios](service_code_examples_scenarios.md)
+  + [Work with table encryption](example_dynamodb_Scenario_EncryptionExamples_section.md)

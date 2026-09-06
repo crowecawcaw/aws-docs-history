@@ -1,8 +1,11 @@
+
+
 # Sign
+<a name="ct-sign"></a>
 
-These examples show AWS CloudTrail log entries for the [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md") operation.
+These examples show AWS CloudTrail log entries for the [Sign](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html) operation.
 
-The following example shows an CloudTrail log entry for a [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md") operation that uses an asymmetric RSA KMS key to generate a digital signature for a file.
+The following example shows an CloudTrail log entry for a [Sign](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html) operation that uses an asymmetric RSA KMS key to generate a digital signature for a file.
 
 ```
 {

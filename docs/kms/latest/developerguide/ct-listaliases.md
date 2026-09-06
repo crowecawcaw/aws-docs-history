@@ -1,8 +1,9 @@
-# ListAliases
 
-The following example shows an AWS CloudTrail log entry for the [ListAliases](../APIReference/API_ListAliases.md "../APIReference/API_ListAliases.md") operation. Because this
-operation doesn't use any particular alias or AWS KMS key, the `resources` field is
-empty. For information about viewing aliases in AWS KMS, see [Find the alias name and alias ARN for a KMS key](alias-view.md "alias-view.md").
+
+# ListAliases
+<a name="ct-listaliases"></a>
+
+The following example shows an AWS CloudTrail log entry for the [ListAliases](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html) operation. Because this operation doesn't use any particular alias or AWS KMS key, the `resources` field is empty. For information about viewing aliases in AWS KMS, see [Find the alias name and alias ARN for a KMS key](alias-view.md).
 
 ```
 {

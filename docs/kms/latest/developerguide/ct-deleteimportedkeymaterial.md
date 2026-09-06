@@ -1,12 +1,11 @@
+
+
 # DeleteImportedKeyMaterial
+<a name="ct-deleteimportedkeymaterial"></a>
 
-If you import key material into a KMS key, you can delete the imported key material at
-any time by using the [DeleteImportedKeyMaterial](../APIReference/API_DeleteImportedKeyMaterial.md "../APIReference/API_DeleteImportedKeyMaterial.md") operation. When you delete imported key material from
-a KMS key, the key state of the KMS key changes to `PendingImport` and the
-KMS key cannot be used in any cryptographic operations. For details, see [Delete imported key material](importing-keys-delete-key-material.md "importing-keys-delete-key-material.md").
+If you import key material into a KMS key, you can delete the imported key material at any time by using the [DeleteImportedKeyMaterial](https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteImportedKeyMaterial.html) operation. When you delete imported key material from a KMS key, the key state of the KMS key changes to `PendingImport` and the KMS key cannot be used in any cryptographic operations. For details, see [Delete imported key material](importing-keys-delete-key-material.md).
 
-The following example shows an AWS CloudTrail log entry generated for the
-`DeleteImportedKeyMaterial` operation.
+The following example shows an AWS CloudTrail log entry generated for the `DeleteImportedKeyMaterial` operation.
 
 ```
 {

@@ -1,8 +1,9 @@
-# CreateAlias
 
-The following example shows an AWS CloudTrail log entry for the [CreateAlias](../APIReference/API_CreateAlias.md "../APIReference/API_CreateAlias.md") operation. The
-`resources` element includes fields for the alias and KMS key resources. For
-information about creating aliases in AWS KMS, see [Create aliases](alias-create.md "alias-create.md").
+
+# CreateAlias
+<a name="ct-createalias"></a>
+
+The following example shows an AWS CloudTrail log entry for the [CreateAlias](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html) operation. The `resources` element includes fields for the alias and KMS key resources. For information about creating aliases in AWS KMS, see [Create aliases](alias-create.md).
 
 CloudTrail log entries for this operation recorded on or after December 2022 include the key ARN of the affected KMS key in the `responseElements.keyId` value, even though this operation does not return the key ARN.
 

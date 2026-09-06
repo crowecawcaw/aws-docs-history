@@ -1,34 +1,30 @@
+
+
 # Use `Verify` with an AWS SDK or CLI
+<a name="example_kms_Verify_section"></a>
 
 The following code examples show how to use `Verify`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To verify a digital signature**
-
-The following `verify` command verifies a cryptographic signature for a short, Base64-encoded message. The key ID, message, message type, and signing algorithm must be same ones that were used to sign the message.
-
-In AWS CLI v2, the value of the `message` parameter must be Base64-encoded. Or, you can save the message in a file and use the `fileb://` prefix, which tells the AWS CLI to read binary data from the file.
-
-The signature that you specify cannot be base64-encoded. For help decoding the signature that the `sign` command returns, see the `sign` command examples.
-
-The output of the command includes a Boolean `SignatureValid` field that indicates that the signature was verified. If the signature validation fails, the `verify` command fails, too.
-
-Before running this command, replace the example key ID with a valid key ID from your AWS account.
+**AWS CLI**  
+**To verify a digital signature**  
+The following `verify` command verifies a cryptographic signature for a short, Base64-encoded message. The key ID, message, message type, and signing algorithm must be same ones that were used to sign the message.  
+In AWS CLI v2, the value of the `message` parameter must be Base64-encoded. Or, you can save the message in a file and use the `fileb://` prefix, which tells the AWS CLI to read binary data from the file.  
+The signature that you specify cannot be base64-encoded. For help decoding the signature that the `sign` command returns, see the `sign` command examples.  
+The output of the command includes a Boolean `SignatureValid` field that indicates that the signature was verified. If the signature validation fails, the `verify` command fails, too.  
+Before running this command, replace the example key ID with a valid key ID from your AWS account.  
 
 ```
-`aws kms verify \
- --key-id `1234abcd-12ab-34cd-56ef-1234567890ab` \
- --message `fileb://EncodedMessage` \
- --message-type `RAW` \
- --signing-algorithm `RSASSA_PKCS1_V1_5_SHA_256` \
- --signature `fileb://ExampleSignature``
-
+aws kms verify \
+    --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
+    --message {{fileb://EncodedMessage}} \
+    --message-type {{RAW}} \
+    --signing-algorithm {{RSASSA_PKCS1_V1_5_SHA_256}} \
+    --signature {{fileb://ExampleSignature}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -37,22 +33,14 @@ Output:
     "SigningAlgorithm": "RSASSA_PKCS1_V1_5_SHA_256"
 }
 ```
+For more information about using asymmetric KMS keys in AWS KMS, see [Using asymmetric keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *AWS Key Management Service Developer Guide*.  
++  For API details, see [Verify](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/verify.html) in *AWS CLI Command Reference*. 
 
-For more information about using asymmetric KMS keys in AWS KMS, see [Using asymmetric keys](symmetric-asymmetric.md "symmetric-asymmetric.md") in the _AWS Key Management Service Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [Verify](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/verify.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/verify.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class KeyEncrypt:
@@ -98,24 +86,14 @@ class KeyEncrypt:
                     err.response["Error"]["Message"],
                 )
             raise
-
-
-
 ```
++  For API details, see [Verify](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/Verify) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Verify](../../../goto/boto3/kms-2014-11-01/Verify.md "../../../goto/boto3/kms-2014-11-01/Verify.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -144,14 +122,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmskmsinternalex.
         MESSAGE 'An internal error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [Verify](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [Verify](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

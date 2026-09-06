@@ -1,21 +1,13 @@
+
+
 # Examining grants
+<a name="determining-access-grants"></a>
 
-Grants are advanced mechanisms for specifying permissions that you or an AWS service
-integrated with AWS KMS can use to specify how and when a KMS key can be used. Grants are attached
-to a KMS key, and each grant contains the principal who receives permission to use the KMS key and a
-list of operations that are allowed. Grants are an alternative to the key policy, and are
-useful for specific use cases. For more information, see [Grants in AWS KMS](grants.md "grants.md").
+Grants are advanced mechanisms for specifying permissions that you or an AWS service integrated with AWS KMS can use to specify how and when a KMS key can be used. Grants are attached to a KMS key, and each grant contains the principal who receives permission to use the KMS key and a list of operations that are allowed. Grants are an alternative to the key policy, and are useful for specific use cases. For more information, see [Grants in AWS KMS](grants.md).
 
-To get a list of grants for a KMS key, use the AWS KMS [ListGrants](../APIReference/API_ListGrants.md "../APIReference/API_ListGrants.md") operation. You can examine the
-grants for a KMS key to determine who or what currently has access to use the KMS key via those
-grants. For grants created with `GranteePrincipal`, look for the
-`"GranteePrincipal"` field in `ListGrants` response. For grants created with
-`GranteeServicePrincipal`, look for the `"GranteeServicePrincipal"`
-field in `ListGrants` response.
+To get a list of grants for a KMS key, use the AWS KMS [ListGrants](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html) operation. You can examine the grants for a KMS key to determine who or what currently has access to use the KMS key via those grants. For grants created with `GranteePrincipal`, look for the `"GranteePrincipal"` field in `ListGrants` response. For grants created with `GranteeServicePrincipal`, look for the `"GranteeServicePrincipal"` field in `ListGrants` response.
 
-For example, the following is a JSON representation of a grant that was obtained from
-the [list-grants](../../../cli/latest/reference/kms/list-grants.md "../../../cli/latest/reference/kms/list-grants.md") command in the
-AWS CLI.
+For example, the following is a JSON representation of a grant that was obtained from the [list-grants](https://docs.aws.amazon.com/cli/latest/reference/kms/list-grants.html) command in the AWS CLI.
 
 ```
 {"Grants": [{
@@ -23,7 +15,7 @@ AWS CLI.
   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
   "Name": "0d8aa621-43ef-4657-b29c-3752c41dc132",
   "RetiringPrincipal": "arn:aws:iam::123456789012:root",
-  **"GranteePrincipal": "arn:aws:sts::111122223333:assumed-role/aws:ec2-infrastructure/i-5d476fab",**
+  "GranteePrincipal": "arn:aws:sts::111122223333:assumed-role/aws:ec2-infrastructure/i-5d476fab",
   "GrantId": "dc716f53c93acacf291b1540de3e5a232b76256c83b2ecb22cdefa26576a2d3e",
   "IssuingAccount": "arn:aws:iam::111122223333:root",
   "CreationDate": 1.444151834E9,
@@ -31,47 +23,36 @@ AWS CLI.
 }]}
 ```
 
-To find out who or what has access to use the KMS key, look for the
-`"GranteePrincipal"` element. In the preceding example, the grantee principal is
-an assumed role user that is associated with the EC2 instance i-5d476fab. The EC2
-infrastructure uses this role to attach the encrypted EBS volume vol-5cccfb4e to the instance.
-In this case, the EC2 infrastructure role has permission to use the KMS key because you previously
-created an encrypted EBS volume that is protected by this KMS key. You then attached the volume to
-an EC2 instance.
+To find out who or what has access to use the KMS key, look for the `"GranteePrincipal"` element. In the preceding example, the grantee principal is an assumed role user that is associated with the EC2 instance i-5d476fab. The EC2 infrastructure uses this role to attach the encrypted EBS volume vol-5cccfb4e to the instance. In this case, the EC2 infrastructure role has permission to use the KMS key because you previously created an encrypted EBS volume that is protected by this KMS key. You then attached the volume to an EC2 instance.
 
-The following is another example of a JSON representation of a grant that was obtained
-from the [list-grants](../../../cli/latest/reference/kms/list-grants.md "../../../cli/latest/reference/kms/list-grants.md") command in the
-AWS CLI. In the following example, the grantee principal is another AWS account.
+The following is another example of a JSON representation of a grant that was obtained from the [list-grants](https://docs.aws.amazon.com/cli/latest/reference/kms/list-grants.html) command in the AWS CLI. In the following example, the grantee principal is another AWS account.
 
 ```
 {"Grants": [{
   "Operations": ["Encrypt"],
   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
   "Name": "",
-  **"GranteePrincipal": "arn:aws:iam::444455556666:root",**
+  "GranteePrincipal": "arn:aws:iam::444455556666:root",
   "GrantId": "f271e8328717f8bde5d03f4981f06a6b3fc18bcae2da12ac38bd9186e7925d11",
   "IssuingAccount": "arn:aws:iam::111122223333:root",
   "CreationDate": 1.444151269E9
 }]}
 ```
 
-The following example shows a grant created with `GranteeServicePrincipal`.
-Notice that the response includes a `GranteeServicePrincipal` field instead of
-`GranteePrincipal`, and the `Constraints` field contains a
-`SourceArn` value that restricts the grant to a specific AWS resource.
+The following example shows a grant created with `GranteeServicePrincipal`. Notice that the response includes a `GranteeServicePrincipal` field instead of `GranteePrincipal`, and the `Constraints` field contains a `SourceArn` value that restricts the grant to a specific AWS resource.
 
 ```
 {"Grants": [{
   "Operations": ["Encrypt", "Decrypt", "GenerateDataKey", "DescribeKey"],
   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
   "Name": "",
-  **"GranteeServicePrincipal": "`service-name`.amazonaws.com",**
+  "GranteeServicePrincipal": "{{service-name}}.amazonaws.com",
   "GrantId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
   "IssuingAccount": "arn:aws:iam::111122223333:root",
-  "RetiringServicePrincipal": "`service-name`.amazonaws.com",
-  **"Constraints": {
- "SourceArn": "arn:aws:dynamodb:us-east-1:111122223333:table/ExampleTable"
- },**
+  "RetiringServicePrincipal": "{{service-name}}.amazonaws.com",
+  "Constraints": {
+    "SourceArn": "arn:aws:dynamodb:us-east-1:111122223333:table/ExampleTable"
+  },
   "CreationDate": 1.718567315E9
 }]}
 ```

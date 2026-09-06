@@ -1,12 +1,13 @@
+
+
 # ScheduleKeyDeletion
+<a name="ct-schedule-key-deletion"></a>
 
-These examples show AWS CloudTrail log entries for the [ScheduleKeyDeletion](../APIReference/API_ScheduleKeyDeletion.md "../APIReference/API_ScheduleKeyDeletion.md") operation.
+These examples show AWS CloudTrail log entries for the [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operation. 
 
-For an example of the CloudTrail log entry that is written when the key is deleted, see [DeleteKey](ct-delete-key.md "ct-delete-key.md"). For information about deleting
-AWS KMS keys, see [Delete an AWS KMS key](deleting-keys.md "deleting-keys.md").
+For an example of the CloudTrail log entry that is written when the key is deleted, see [DeleteKey](ct-delete-key.md). For information about deleting AWS KMS keys, see [Delete an AWS KMS key](deleting-keys.md).
 
-The following example records a `ScheduleKeyDeletion` request for a
-single-Region KMS key.
+The following example records a `ScheduleKeyDeletion` request for a single-Region KMS key.
 
 ```
 {
@@ -49,13 +50,9 @@ single-Region KMS key.
 }
 ```
 
-The following example records a `ScheduleKeyDeletion` request for a multi-Region
-KMS key with replica keys.
+The following example records a `ScheduleKeyDeletion` request for a multi-Region KMS key with replica keys. 
 
-Because AWS KMS won't delete a multi-Region key until all of its replica keys are deleted,
-in the `responseElements` field, the `keyState` is
-`PendingReplicaDeletion` and the `deletionDate` field is
-omitted.
+Because AWS KMS won't delete a multi-Region key until all of its replica keys are deleted, in the `responseElements` field, the `keyState` is `PendingReplicaDeletion` and the `deletionDate` field is omitted.
 
 ```
 {
@@ -100,8 +97,7 @@ omitted.
 }
 ```
 
-The following example records a `ScheduleKeyDeletion` request for a KMS key
-in an AWS CloudHSM [custom key store](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview").
+The following example records a `ScheduleKeyDeletion` request for a KMS key in an AWS CloudHSM [custom key store](key-store-overview.md#custom-key-store-overview).
 
 ```
 {
@@ -133,7 +129,7 @@ in an AWS CloudHSM [custom key store](key-store-overview.md#custom-key-store-ove
     "additionalEventData": {
         "customKeyStoreId": "cks-1234567890abcdef0",
         "clusterId": "cluster-1a23b4cdefg",
-        "backingKeys": "[{\"backingKeyId\":\"`backing-key-id`\"}]"
+        "backingKeys": "[{\"backingKeyId\":\"{{backing-key-id}}\"}]"
     },
     "requestID": "abcd9f60-2c9c-4a0b-a456-d5d998f7f321",
     "eventID": "ca01996a-01b0-4edd-bbbb-25d7b6d1a6fa",

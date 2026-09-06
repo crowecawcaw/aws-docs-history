@@ -1,53 +1,42 @@
+
+
 # Use `GetKeyPolicy` with an AWS SDK or CLI
+<a name="example_kms_GetKeyPolicy_section"></a>
 
 The following code examples show how to use `GetKeyPolicy`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kms_Scenario_Basics_section.md) 
 
-- [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To copy a key policy from one KMS key to another KMS key**
-
-The following `get-key-policy` example gets the key policy from one KMS key and saves it in a text file. Then, it replaces the policy of a different KMS key using the text file as the policy input.
-
-Because the `--policy` parameter of `put-key-policy` requires a string, you must use the `--output text` option to return the output as a text string instead of JSON.
+**AWS CLI**  
+**To copy a key policy from one KMS key to another KMS key**  
+The following `get-key-policy` example gets the key policy from one KMS key and saves it in a text file. Then, it replaces the policy of a different KMS key using the text file as the policy input.  
+Because the `--policy` parameter of `put-key-policy` requires a string, you must use the `--output text` option to return the output as a text string instead of JSON.  
 
 ```
-`aws kms get-key-policy \
- --policy-name `default` \
- --key-id `1234abcd-12ab-34cd-56ef-1234567890ab` \
- --query `Policy` \
- --output `text` `>` `policy.txt`
+aws kms get-key-policy \
+    --policy-name {{default}} \
+    --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}} \
+    --query {{Policy}} \
+    --output {{text}} {{>}} {{policy.txt}}
 
-`aws` `kms` `put-key-policy` \
- --policy-name `default` \
- --key-id `0987dcba-09fe-87dc-65ba-ab0987654321` \
- --policy `file://policy.txt``
-
+{{aws}} {{kms}} {{put-key-policy}} \
+    --policy-name {{default}} \
+    --key-id {{0987dcba-09fe-87dc-65ba-ab0987654321}} \
+    --policy {{file://policy.txt}}
 ```
+This command produces no output.  
+For more information, see [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) in the *AWS KMS API Reference*.  
++  For API details, see [GetKeyPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/get-key-policy.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Python ]
 
-For more information, see [PutKeyPolicy](../APIReference/API_PutKeyPolicy.md "../APIReference/API_PutKeyPolicy.md") in the _AWS KMS API Reference_.
-
-- For API details, see
-  [GetKeyPolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/get-key-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/get-key-policy.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class KeyPolicy:
@@ -90,24 +79,14 @@ class KeyPolicy:
                 return policy
         else:
             print("Skipping get policy demo.")
-
-
-
 ```
++  For API details, see [GetKeyPolicy](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/GetKeyPolicy) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetKeyPolicy](../../../goto/boto3/kms-2014-11-01/GetKeyPolicy.md "../../../goto/boto3/kms-2014-11-01/GetKeyPolicy.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -122,14 +101,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmskmsinternalex.
         MESSAGE 'An internal error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetKeyPolicy](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [GetKeyPolicy](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

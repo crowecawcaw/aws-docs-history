@@ -1,8 +1,9 @@
-# ReEncrypt
 
-The following example shows an AWS CloudTrail log entry for the [ReEncrypt](../APIReference/API_ReEncrypt.md "../APIReference/API_ReEncrypt.md") operation. The
-`resources` field in this log entry specifies two AWS KMS keys, the
-source KMS key and the destination KMS key, in that order.
+
+# ReEncrypt
+<a name="ct-reencrypt"></a>
+
+The following example shows an AWS CloudTrail log entry for the [ReEncrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html) operation. The `resources` field in this log entry specifies two AWS KMS keys, the source KMS key and the destination KMS key, in that order.
 
 ```
 {
@@ -26,9 +27,9 @@ source KMS key and the destination KMS key, in that order.
         "sourceEncryptionContext": {
             "Project": "Alpha",
             "Department": "Engineering"
-        },
+        },        
         "destinationKeyId": "0987dcba-09fe-87dc-65ba-ab0987654321",
-        "destinationEncryptionAlgorithm": "SYMMETRIC_DEFAULT",
+        "destinationEncryptionAlgorithm": "SYMMETRIC_DEFAULT",        
         "destinationEncryptionContext": {
             "Level": "3A"
         }

@@ -1,26 +1,23 @@
+
+
 # Learn the basics of AWS KMS with an AWS SDK
+<a name="example_kms_Scenario_Basics_section"></a>
 
 The following code examples show how to:
++ Create a KMS key.
++ List KMS keys for your account and get details about them.
++ Enable and disable KMS keys.
++ Generate a symmetric data key that can be used for client-side encryption.
++ Generate an asymmetric key used to digitally sign data.
++ Tag keys.
++ Delete KMS keys.
 
-- Create a KMS key.
-- List KMS keys for your account and get details about them.
-- Enable and disable KMS keys.
-- Generate a symmetric data key that can be used for client-side encryption.
-- Generate an asymmetric key used to digitally sign data.
-- Tag keys.
-- Delete KMS keys.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples").
-
-Run a scenario at a command prompt.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
+Run a scenario at a command prompt.  
 
 ```
 import software.amazon.awssdk.core.SdkBytes;
@@ -64,7 +61,7 @@ public class KMSScenario {
             Usage: <granteePrincipal>
 
             Where:
-               granteePrincipal - The principal (user, service account, or group) to whom the grant or permission is being given.
+               granteePrincipal - The principal (user, service account, or group) to whom the grant or permission is being given. 
             """;
 
         if (args.length != 1) {
@@ -80,18 +77,18 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("""
             Welcome to the AWS Key Management SDK Basics scenario.
-
+                        
             This program demonstrates how to interact with AWS Key Management using the AWS SDK for Java (v2).
-            The AWS Key Management Service (KMS) is a secure and highly available service that allows you to create
-            and manage AWS KMS keys and control their use across a wide range of AWS services and applications.
-            KMS provides a centralized and unified approach to managing encryption keys, making it easier to meet your
+            The AWS Key Management Service (KMS) is a secure and highly available service that allows you to create 
+            and manage AWS KMS keys and control their use across a wide range of AWS services and applications. 
+            KMS provides a centralized and unified approach to managing encryption keys, making it easier to meet your 
             data protection and regulatory compliance requirements.
-
+                        
             This Basics scenario creates two key types:
-
+                        
             - A symmetric encryption key is used to encrypt and decrypt data.
-            - An asymmetric key used to digitally sign data.
-
+            - An asymmetric key used to digitally sign data. 
+                        
             Let's get started...
             """);
         waitForInputToContinue(scanner);
@@ -136,9 +133,9 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("""
             2. Enable a KMS key
-
-            By default, when the SDK creates an AWS key, it is enabled. The next bit of code checks to
-            determine if the key is enabled.
+                         
+            By default, when the SDK creates an AWS key, it is enabled. The next bit of code checks to 
+            determine if the key is enabled. 
              """);
         waitForInputToContinue(scanner);
         boolean isEnabled;
@@ -201,7 +198,7 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("4. Create an alias");
         logger.info("""
-
+             
             The alias name should be prefixed with 'alias/'.
             The default, 'alias/dev-encryption-key'.
              """);
@@ -248,10 +245,10 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("6. Enable automatic rotation of the KMS key");
         logger.info("""
-
+                        
             By default, when the SDK enables automatic rotation of a KMS key,
-            KMS rotates the key material of the KMS key one year (approximately 365 days) from the enable date and every year
-            thereafter.
+            KMS rotates the key material of the KMS key one year (approximately 365 days) from the enable date and every year 
+            thereafter. 
             """);
         waitForInputToContinue(scanner);
         try {
@@ -274,7 +271,7 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("""
             7. Create a grant
-
+                        
             A grant is a policy instrument that allows Amazon Web Services principals to use KMS keys.
             It also can allow them to view a KMS key (DescribeKey) and create and manage grants.
             When authorizing access to a KMS key, grants are considered along with key policies and IAM policies.
@@ -322,8 +319,8 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("9. Revoke the grant");
         logger.info("""
-            The revocation of a grant immediately removes the permissions and access that the grant had provided.
-            This means that any principal (user, role, or service) that was granted access to perform specific
+            The revocation of a grant immediately removes the permissions and access that the grant had provided. 
+            This means that any principal (user, role, or service) that was granted access to perform specific 
             KMS operations on a KMS key will no longer be able to perform those operations.
             """);
         waitForInputToContinue(scanner);
@@ -379,24 +376,24 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("11. Replace a key policy\n");
         logger.info("""
-            A key policy is a resource policy for a KMS key. Key policies are the primary way to control
-            access to KMS keys. Every KMS key must have exactly one key policy. The statements in the key policy
-            determine who has permission to use the KMS key and how they can use it.
-            You can also use IAM policies and grants to control access to the KMS key, but every KMS key
+            A key policy is a resource policy for a KMS key. Key policies are the primary way to control 
+            access to KMS keys. Every KMS key must have exactly one key policy. The statements in the key policy 
+            determine who has permission to use the KMS key and how they can use it. 
+            You can also use IAM policies and grants to control access to the KMS key, but every KMS key 
             must have a key policy.
-
-            By default, when you create a key by using the SDK, a policy is created that
+                        
+            By default, when you create a key by using the SDK, a policy is created that 
             gives the AWS account that owns the KMS key full access to the KMS key.
-
+                        
             Let's try to replace the automatically created policy with the following policy.
-
-                "Version":"2012-10-17",
+                    
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [{
                 "Effect": "Allow",
                 "Principal": {"AWS": "arn:aws:iam::0000000000:root"},
                 "Action": "kms:*",
                 "Resource": "*"
-                }]
+                }] 
             """);
 
         waitForInputToContinue(scanner);
@@ -449,10 +446,10 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("13. Create an asymmetric KMS key and sign your data\n");
         logger.info("""
-             Signing your data with an AWS key can provide several benefits that make it an attractive option
-             for your data signing needs. By using an AWS KMS key, you can leverage the
+             Signing your data with an AWS key can provide several benefits that make it an attractive option 
+             for your data signing needs. By using an AWS KMS key, you can leverage the 
              security controls and compliance features provided by AWS,
-             which can help you meet various regulatory requirements and enhance the overall security posture
+             which can help you meet various regulatory requirements and enhance the overall security posture 
              of your organization.
             """);
         waitForInputToContinue(scanner);
@@ -481,8 +478,8 @@ public class KMSScenario {
         logger.info(DASHES);
         logger.info("14. Tag your symmetric KMS Key\n");
         logger.info("""
-            By using tags, you can improve the overall management, security, and governance of your
-            KMS keys, making it easier to organize, track, and control access to your encrypted data within
+            By using tags, you can improve the overall management, security, and governance of your 
+            KMS keys, making it easier to organize, track, and control access to your encrypted data within 
             your AWS environment
             """);
         waitForInputToContinue(scanner);
@@ -511,11 +508,11 @@ public class KMSScenario {
         logger.info("15. Schedule the deletion of the KMS key\n");
         logger.info("""
             By default, KMS applies a waiting period of 30 days,
-            but you can specify a waiting period of 7-30 days. When this operation is successful,
-            the key state of the KMS key changes to PendingDeletion and the key can't be used in any
+            but you can specify a waiting period of 7-30 days. When this operation is successful, 
+            the key state of the KMS key changes to PendingDeletion and the key can't be used in any 
             cryptographic operations. It remains in this state for the duration of the waiting period.
-
-            Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key is deleted,
+                
+            Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key is deleted, 
             all data that was encrypted under the KMS key is unrecoverable.
             """);
         logger.info("Would you like to delete the Key Management resources? (y/n)");
@@ -633,11 +630,8 @@ public class KMSScenario {
         }
     }
 }
-
-
 ```
-
-Define a class that wraps KMS actions.
+Define a class that wraps KMS actions.  
 
 ```
 public class KMSActions {
@@ -1022,7 +1016,7 @@ public class KMSActions {
     public CompletableFuture<Boolean> replacePolicyAsync(String keyId, String policyName, String accountId) {
         String policy = """
     {
-      "Version":"2012-10-17",
+      "Version":"2012-10-17",		 	 	 
       "Statement": [{
         "Effect": "Allow",
         "Principal": {"AWS": "arn:aws:iam::%s:root"},
@@ -1240,46 +1234,37 @@ public class KMSActions {
         }
     }
 }
+```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateAlias](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/CreateAlias)
+  + [CreateGrant](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/CreateGrant)
+  + [CreateKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/CreateKey)
+  + [Decrypt](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/Decrypt)
+  + [DescribeKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/DescribeKey)
+  + [DisableKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/DisableKey)
+  + [EnableKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/EnableKey)
+  + [Encrypt](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/Encrypt)
+  + [GetKeyPolicy](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/GetKeyPolicy)
+  + [ListAliases](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/ListAliases)
+  + [ListGrants](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/ListGrants)
+  + [ListKeys](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/ListKeys)
+  + [RevokeGrant](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/RevokeGrant)
+  + [ScheduleKeyDeletion](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/ScheduleKeyDeletion)
+  + [Sign](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/Sign)
+  + [TagResource](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/TagResource)
 
+------
+#### [ PHP ]
+
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
-
-  - [CreateAlias](../../../goto/SdkForJavaV2/kms-2014-11-01/CreateAlias.md "../../../goto/SdkForJavaV2/kms-2014-11-01/CreateAlias.md")
-  - [CreateGrant](../../../goto/SdkForJavaV2/kms-2014-11-01/CreateGrant.md "../../../goto/SdkForJavaV2/kms-2014-11-01/CreateGrant.md")
-  - [CreateKey](../../../goto/SdkForJavaV2/kms-2014-11-01/CreateKey.md "../../../goto/SdkForJavaV2/kms-2014-11-01/CreateKey.md")
-  - [Decrypt](../../../goto/SdkForJavaV2/kms-2014-11-01/Decrypt.md "../../../goto/SdkForJavaV2/kms-2014-11-01/Decrypt.md")
-  - [DescribeKey](../../../goto/SdkForJavaV2/kms-2014-11-01/DescribeKey.md "../../../goto/SdkForJavaV2/kms-2014-11-01/DescribeKey.md")
-  - [DisableKey](../../../goto/SdkForJavaV2/kms-2014-11-01/DisableKey.md "../../../goto/SdkForJavaV2/kms-2014-11-01/DisableKey.md")
-  - [EnableKey](../../../goto/SdkForJavaV2/kms-2014-11-01/EnableKey.md "../../../goto/SdkForJavaV2/kms-2014-11-01/EnableKey.md")
-  - [Encrypt](../../../goto/SdkForJavaV2/kms-2014-11-01/Encrypt.md "../../../goto/SdkForJavaV2/kms-2014-11-01/Encrypt.md")
-  - [GetKeyPolicy](../../../goto/SdkForJavaV2/kms-2014-11-01/GetKeyPolicy.md "../../../goto/SdkForJavaV2/kms-2014-11-01/GetKeyPolicy.md")
-  - [ListAliases](../../../goto/SdkForJavaV2/kms-2014-11-01/ListAliases.md "../../../goto/SdkForJavaV2/kms-2014-11-01/ListAliases.md")
-  - [ListGrants](../../../goto/SdkForJavaV2/kms-2014-11-01/ListGrants.md "../../../goto/SdkForJavaV2/kms-2014-11-01/ListGrants.md")
-  - [ListKeys](../../../goto/SdkForJavaV2/kms-2014-11-01/ListKeys.md "../../../goto/SdkForJavaV2/kms-2014-11-01/ListKeys.md")
-  - [RevokeGrant](../../../goto/SdkForJavaV2/kms-2014-11-01/RevokeGrant.md "../../../goto/SdkForJavaV2/kms-2014-11-01/RevokeGrant.md")
-  - [ScheduleKeyDeletion](../../../goto/SdkForJavaV2/kms-2014-11-01/ScheduleKeyDeletion.md "../../../goto/SdkForJavaV2/kms-2014-11-01/ScheduleKeyDeletion.md")
-  - [Sign](../../../goto/SdkForJavaV2/kms-2014-11-01/Sign.md "../../../goto/SdkForJavaV2/kms-2014-11-01/Sign.md")
-  - [TagResource](../../../goto/SdkForJavaV2/kms-2014-11-01/TagResource.md "../../../goto/SdkForJavaV2/kms-2014-11-01/TagResource.md")
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples").
-
-```
-
         echo "\n";
         echo "--------------------------------------\n";
         echo <<<WELCOME
 Welcome to the AWS Key Management Service SDK Basics scenario.
-
+        
 This program demonstrates how to interact with AWS Key Management Service using the AWS SDK for PHP (v3).
 The AWS Key Management Service (KMS) is a secure and highly available service that allows you to create
 and manage AWS KMS keys and control their use across a wide range of AWS services and applications.
@@ -1369,7 +1354,7 @@ determine if the key is enabled. If it is not enabled, the code enables it.\n";
         echo "\n";
         echo "6. Enable automatic rotation of the KMS key.\n";
         echo "By default, when the SDK enables automatic rotation of a KMS key,
-KMS rotates the key material of the KMS key one year (approximately 365 days) from the enable date and every year
+KMS rotates the key material of the KMS key one year (approximately 365 days) from the enable date and every year 
 thereafter.";
         $this->pressEnter();
         $this->kmsService->enableKeyRotation($key['KeyId']);
@@ -1444,7 +1429,7 @@ When authorizing access to a KMS key, grants are considered along with key polic
         $accountId = $result['Account'];
         $keyPolicy = <<< KEYPOLICY
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [{
         "Effect": "Allow",
         "Principal": {"AWS": "arn:aws:iam::$accountId:root"},
@@ -1985,39 +1970,30 @@ class KmsService extends AWSServiceClass
 
 
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for PHP API Reference*.
+  + [CreateAlias](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/CreateAlias)
+  + [CreateGrant](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/CreateGrant)
+  + [CreateKey](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/CreateKey)
+  + [Decrypt](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/Decrypt)
+  + [DescribeKey](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/DescribeKey)
+  + [DisableKey](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/DisableKey)
+  + [EnableKey](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/EnableKey)
+  + [Encrypt](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/Encrypt)
+  + [GetKeyPolicy](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/GetKeyPolicy)
+  + [ListAliases](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/ListAliases)
+  + [ListGrants](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/ListGrants)
+  + [ListKeys](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/ListKeys)
+  + [RevokeGrant](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/RevokeGrant)
+  + [ScheduleKeyDeletion](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/ScheduleKeyDeletion)
+  + [Sign](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/Sign)
+  + [TagResource](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/TagResource)
 
-- For API details, see the following topics in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-  - [CreateAlias](../../../goto/SdkForPHPV3/kms-2014-11-01/CreateAlias.md "../../../goto/SdkForPHPV3/kms-2014-11-01/CreateAlias.md")
-  - [CreateGrant](../../../goto/SdkForPHPV3/kms-2014-11-01/CreateGrant.md "../../../goto/SdkForPHPV3/kms-2014-11-01/CreateGrant.md")
-  - [CreateKey](../../../goto/SdkForPHPV3/kms-2014-11-01/CreateKey.md "../../../goto/SdkForPHPV3/kms-2014-11-01/CreateKey.md")
-  - [Decrypt](../../../goto/SdkForPHPV3/kms-2014-11-01/Decrypt.md "../../../goto/SdkForPHPV3/kms-2014-11-01/Decrypt.md")
-  - [DescribeKey](../../../goto/SdkForPHPV3/kms-2014-11-01/DescribeKey.md "../../../goto/SdkForPHPV3/kms-2014-11-01/DescribeKey.md")
-  - [DisableKey](../../../goto/SdkForPHPV3/kms-2014-11-01/DisableKey.md "../../../goto/SdkForPHPV3/kms-2014-11-01/DisableKey.md")
-  - [EnableKey](../../../goto/SdkForPHPV3/kms-2014-11-01/EnableKey.md "../../../goto/SdkForPHPV3/kms-2014-11-01/EnableKey.md")
-  - [Encrypt](../../../goto/SdkForPHPV3/kms-2014-11-01/Encrypt.md "../../../goto/SdkForPHPV3/kms-2014-11-01/Encrypt.md")
-  - [GetKeyPolicy](../../../goto/SdkForPHPV3/kms-2014-11-01/GetKeyPolicy.md "../../../goto/SdkForPHPV3/kms-2014-11-01/GetKeyPolicy.md")
-  - [ListAliases](../../../goto/SdkForPHPV3/kms-2014-11-01/ListAliases.md "../../../goto/SdkForPHPV3/kms-2014-11-01/ListAliases.md")
-  - [ListGrants](../../../goto/SdkForPHPV3/kms-2014-11-01/ListGrants.md "../../../goto/SdkForPHPV3/kms-2014-11-01/ListGrants.md")
-  - [ListKeys](../../../goto/SdkForPHPV3/kms-2014-11-01/ListKeys.md "../../../goto/SdkForPHPV3/kms-2014-11-01/ListKeys.md")
-  - [RevokeGrant](../../../goto/SdkForPHPV3/kms-2014-11-01/RevokeGrant.md "../../../goto/SdkForPHPV3/kms-2014-11-01/RevokeGrant.md")
-  - [ScheduleKeyDeletion](../../../goto/SdkForPHPV3/kms-2014-11-01/ScheduleKeyDeletion.md "../../../goto/SdkForPHPV3/kms-2014-11-01/ScheduleKeyDeletion.md")
-  - [Sign](../../../goto/SdkForPHPV3/kms-2014-11-01/Sign.md "../../../goto/SdkForPHPV3/kms-2014-11-01/Sign.md")
-  - [TagResource](../../../goto/SdkForPHPV3/kms-2014-11-01/TagResource.md "../../../goto/SdkForPHPV3/kms-2014-11-01/TagResource.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class KMSScenario:
@@ -2214,7 +2190,7 @@ gives the AWS account that owns the KMS key full access to the KMS key.
 
 Let's try to replace the automatically created policy with the following policy.
 {
-"Version":"2012-10-17",
+"Version":"2012-10-17",		 	 	 
 "Statement": [{
 "Effect": "Allow",
 "Principal": {"AWS": "arn:aws:iam::0000000000:root"},
@@ -2227,7 +2203,7 @@ Let's try to replace the automatically created policy with the following policy.
         account_id = q.ask("Enter your account ID or press enter to skip: ")
         if account_id != "":
             policy = {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -2360,12 +2336,8 @@ if __name__ == "__main__":
         logging.exception("Something went wrong with the demo!")
         if kms_scenario is not None:
             kms_scenario.clean_up()
-
-
-
 ```
-
-Wrapper class and methods for KMS key management.
+Wrapper class and methods for KMS key management.  
 
 ```
 class KeyManager:
@@ -2504,12 +2476,8 @@ class KeyManager:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-Wrapper class and methods for KMS key aliases.
+Wrapper class and methods for KMS key aliases.   
 
 ```
 class AliasManager:
@@ -2593,13 +2561,8 @@ class AliasManager:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
 ```
-
-Wrapper class and methods for KMS key encryption.
+Wrapper class and methods for KMS key encryption.   
 
 ```
 class KeyEncrypt:
@@ -2714,12 +2677,8 @@ class KeyEncrypt:
                     err.response["Error"]["Message"],
                 )
             raise
-
-
-
 ```
-
-Wrapper class and methods for KMS key grants.
+Wrapper class and methods for KMS key grants.   
 
 ```
 class GrantManager:
@@ -2806,13 +2765,8 @@ class GrantManager:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
-
 ```
-
-Wrapper class and methods for KMS key policies.
+Wrapper class and methods for KMS key policies.   
 
 ```
 class KeyPolicy:
@@ -2878,30 +2832,25 @@ class KeyPolicy:
                 return policy
         else:
             print("Skipping get policy demo.")
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateAlias](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/CreateAlias)
+  + [CreateGrant](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/CreateGrant)
+  + [CreateKey](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/CreateKey)
+  + [Decrypt](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/Decrypt)
+  + [DescribeKey](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/DescribeKey)
+  + [DisableKey](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/DisableKey)
+  + [EnableKey](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/EnableKey)
+  + [Encrypt](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/Encrypt)
+  + [GetKeyPolicy](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/GetKeyPolicy)
+  + [ListAliases](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/ListAliases)
+  + [ListGrants](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/ListGrants)
+  + [ListKeys](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/ListKeys)
+  + [RevokeGrant](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/RevokeGrant)
+  + [ScheduleKeyDeletion](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/ScheduleKeyDeletion)
+  + [Sign](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/Sign)
+  + [TagResource](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/TagResource)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateAlias](../../../goto/boto3/kms-2014-11-01/CreateAlias.md "../../../goto/boto3/kms-2014-11-01/CreateAlias.md")
-  - [CreateGrant](../../../goto/boto3/kms-2014-11-01/CreateGrant.md "../../../goto/boto3/kms-2014-11-01/CreateGrant.md")
-  - [CreateKey](../../../goto/boto3/kms-2014-11-01/CreateKey.md "../../../goto/boto3/kms-2014-11-01/CreateKey.md")
-  - [Decrypt](../../../goto/boto3/kms-2014-11-01/Decrypt.md "../../../goto/boto3/kms-2014-11-01/Decrypt.md")
-  - [DescribeKey](../../../goto/boto3/kms-2014-11-01/DescribeKey.md "../../../goto/boto3/kms-2014-11-01/DescribeKey.md")
-  - [DisableKey](../../../goto/boto3/kms-2014-11-01/DisableKey.md "../../../goto/boto3/kms-2014-11-01/DisableKey.md")
-  - [EnableKey](../../../goto/boto3/kms-2014-11-01/EnableKey.md "../../../goto/boto3/kms-2014-11-01/EnableKey.md")
-  - [Encrypt](../../../goto/boto3/kms-2014-11-01/Encrypt.md "../../../goto/boto3/kms-2014-11-01/Encrypt.md")
-  - [GetKeyPolicy](../../../goto/boto3/kms-2014-11-01/GetKeyPolicy.md "../../../goto/boto3/kms-2014-11-01/GetKeyPolicy.md")
-  - [ListAliases](../../../goto/boto3/kms-2014-11-01/ListAliases.md "../../../goto/boto3/kms-2014-11-01/ListAliases.md")
-  - [ListGrants](../../../goto/boto3/kms-2014-11-01/ListGrants.md "../../../goto/boto3/kms-2014-11-01/ListGrants.md")
-  - [ListKeys](../../../goto/boto3/kms-2014-11-01/ListKeys.md "../../../goto/boto3/kms-2014-11-01/ListKeys.md")
-  - [RevokeGrant](../../../goto/boto3/kms-2014-11-01/RevokeGrant.md "../../../goto/boto3/kms-2014-11-01/RevokeGrant.md")
-  - [ScheduleKeyDeletion](../../../goto/boto3/kms-2014-11-01/ScheduleKeyDeletion.md "../../../goto/boto3/kms-2014-11-01/ScheduleKeyDeletion.md")
-  - [Sign](../../../goto/boto3/kms-2014-11-01/Sign.md "../../../goto/boto3/kms-2014-11-01/Sign.md")
-  - [TagResource](../../../goto/boto3/kms-2014-11-01/TagResource.md "../../../goto/boto3/kms-2014-11-01/TagResource.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

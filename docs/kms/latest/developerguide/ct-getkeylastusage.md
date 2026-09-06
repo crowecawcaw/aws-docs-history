@@ -1,9 +1,9 @@
-# GetKeyLastUsage
 
-The following example shows an AWS CloudTrail log entry for the [GetKeyLastUsage](../APIReference/API_GetKeyLastUsage.md "../APIReference/API_GetKeyLastUsage.md") operation. AWS KMS
-records an entry like the following one when you call the `GetKeyLastUsage`
-operation, or [view KMS key details](finding-keys.md "finding-keys.md") in the AWS KMS
-console.
+
+# GetKeyLastUsage
+<a name="ct-getkeylastusage"></a>
+
+The following example shows an AWS CloudTrail log entry for the [GetKeyLastUsage](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyLastUsage.html) operation. AWS KMS records an entry like the following one when you call the `GetKeyLastUsage` operation, or [view KMS key details](finding-keys.md) in the AWS KMS console.
 
 ```
 {

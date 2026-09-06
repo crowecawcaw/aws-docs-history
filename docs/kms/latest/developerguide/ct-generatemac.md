@@ -1,6 +1,9 @@
-# GenerateMac
 
-The following example shows an AWS CloudTrail log entry for the [GenerateMac](../APIReference/API_GenerateMac.md "../APIReference/API_GenerateMac.md") operation.
+
+# GenerateMac
+<a name="ct-generatemac"></a>
+
+The following example shows an AWS CloudTrail log entry for the [GenerateMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html) operation.
 
 ```
 {

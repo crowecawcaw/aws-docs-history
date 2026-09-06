@@ -1,7 +1,9 @@
-# ListGrants
 
-The following example shows an AWS CloudTrail log entry for the [ListGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") operation. For information
-about grants in AWS KMS, see [Grants in AWS KMS](grants.md "grants.md").
+
+# ListGrants
+<a name="ct-listgrants"></a>
+
+The following example shows an AWS CloudTrail log entry for the [ListGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) operation. For information about grants in AWS KMS, see [Grants in AWS KMS](grants.md).
 
 ```
 {

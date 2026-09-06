@@ -1,21 +1,18 @@
+
+
 # Use `DescribeKey` with an AWS SDK or CLI
+<a name="example_kms_DescribeKey_section"></a>
 
 The following code examples show how to use `DescribeKey`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kms_Scenario_Basics_section.md) 
 
-- [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples). 
 
 ```
     using System;
@@ -48,32 +45,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"{metadata.Description}");
         }
     }
+```
++  For API details, see [DescribeKey](https://docs.aws.amazon.com/goto/DotNetSDKV3/kms-2014-11-01/DescribeKey) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**Example 1: To find detailed information about a KMS key**  
+The following `describe-key` example gets detailed information about the AWS managed key for Amazon S3 in the example account and Region. You can use this command to find details about AWS managed keys and customer managed keys.  
+To specify the KMS key, use the `key-id` parameter. This example uses an alias name value, but you can use a key ID, key ARN, alias name, or alias ARN in this command.  
 
 ```
-
-- For API details, see
-  [DescribeKey](../../../goto/DotNetSDKV3/kms-2014-11-01/DescribeKey.md "../../../goto/DotNetSDKV3/kms-2014-11-01/DescribeKey.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To find detailed information about a KMS key**
-
-The following `describe-key` example gets detailed information about the AWS managed key for Amazon S3 in the example account and Region. You can use this command to find details about AWS managed keys and customer managed keys.
-
-To specify the KMS key, use the `key-id` parameter. This example uses an alias name value, but you can use a key ID, key ARN, alias name, or alias ARN in this command.
-
+aws kms describe-key \
+    --key-id {{alias/aws/s3}}
 ```
-`aws kms describe-key \
- --key-id `alias/aws/s3``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -96,20 +83,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Viewing keys](viewing-keys.md "viewing-keys.md") in the _AWS Key Management Service Developer Guide_.
-
-**Example 2: To get details about an RSA asymmetric KMS key**
-
-The following `describe-key` example gets detailed information about an asymmetric RSA KMS key used for signing and verification.
+For more information, see [Viewing keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide*.  
+**Example 2: To get details about an RSA asymmetric KMS key**  
+The following `describe-key` example gets detailed information about an asymmetric RSA KMS key used for signing and verification.  
 
 ```
-`aws kms describe-key \
- --key-id `1234abcd-12ab-34cd-56ef-1234567890ab``
-
+aws kms describe-key \
+    --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -138,18 +120,14 @@ Output:
     }
 }
 ```
-
-**Example 3: To get details about a multi-Region replica key**
-
-The following `describe-key` example gets metadata for a multi-Region replica key. This multi-Region key is a symmetric encryption key. The output of a `describe-key` command for any multi-Region key returns information about the primary key and all of its replicas.
+**Example 3: To get details about a multi-Region replica key**  
+The following `describe-key` example gets metadata for a multi-Region replica key. This multi-Region key is a symmetric encryption key. The output of a `describe-key` command for any multi-Region key returns information about the primary key and all of its replicas.  
 
 ```
-`aws kms describe-key \
- --key-id `arn:aws:kms:ap-northeast-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab``
-
+aws kms describe-key \
+    --key-id {{arn:aws:kms:ap-northeast-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -194,18 +172,14 @@ Output:
     }
 }
 ```
-
-**Example 4: To get details about an HMAC KMS key**
-
-The following `describe-key` example gets detailed information about an HMAC KMS key.
+**Example 4: To get details about an HMAC KMS key**  
+The following `describe-key` example gets detailed information about an HMAC KMS key.  
 
 ```
-`aws kms describe-key \
- --key-id `1234abcd-12ab-34cd-56ef-1234567890ab``
-
+aws kms describe-key \
+    --key-id {{1234abcd-12ab-34cd-56ef-1234567890ab}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -228,20 +202,13 @@ Output:
     }
 }
 ```
++  For API details, see [DescribeKey](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/describe-key.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeKey](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/describe-key.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/describe-key.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
 ```
     /**
@@ -271,23 +238,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         }).thenApply(resp -> resp.keyMetadata().keyState() == KeyState.ENABLED);
     }
-
-
 ```
++  For API details, see [DescribeKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/DescribeKey) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeKey](../../../goto/SdkForJavaV2/kms-2014-11-01/DescribeKey.md "../../../goto/SdkForJavaV2/kms-2014-11-01/DescribeKey.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples). 
 
 ```
 suspend fun describeSpecifcKey(keyIdVal: String?) {
@@ -302,26 +260,16 @@ suspend fun describeSpecifcKey(keyIdVal: String?) {
         println("The key ARN is ${response.keyMetadata?.arn}")
     }
 }
+```
++  For API details, see [DescribeKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
+------
+#### [ PHP ]
+
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples").
-
-```
-
     /***
      * @param string $keyId
      * @return array
@@ -340,24 +288,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [DescribeKey](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/DescribeKey) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DescribeKey](../../../goto/SdkForPHPV3/kms-2014-11-01/DescribeKey.md "../../../goto/SdkForPHPV3/kms-2014-11-01/DescribeKey.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class KeyManager:
@@ -394,24 +332,14 @@ class KeyManager:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DescribeKey](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/DescribeKey) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeKey](../../../goto/boto3/kms-2014-11-01/DescribeKey.md "../../../goto/boto3/kms-2014-11-01/DescribeKey.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -424,14 +352,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmskmsinternalex.
         MESSAGE 'An internal error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeKey](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeKey](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

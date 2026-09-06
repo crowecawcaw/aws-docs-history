@@ -1,25 +1,15 @@
+
+
 # Amazon EC2 example two
+<a name="ct-ec2two"></a>
 
-In the following example, an IAM principal running an Amazon EC2 instance creates and mounts a
-data volume that is encrypted under a KMS key. This action generates multiple CloudTrail log
-records. For more information on Amazon EBS and encryption, see [Requirements for Amazon EBS encryption](../../../ebs/latest/userguide/ebs-encryption-requirements.md#ebs-encryption-instance-permissions "../../../ebs/latest/userguide/ebs-encryption-requirements.md#ebs-encryption-instance-permissions").
+In the following example, an IAM principal running an Amazon EC2 instance creates and mounts a data volume that is encrypted under a KMS key. This action generates multiple CloudTrail log records. For more information on Amazon EBS and encryption, see [Requirements for Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption-instance-permissions).
 
-When the volume is created, Amazon EC2, acting on behalf of the customer, gets an encrypted data
-key from AWS KMS (`GenerateDataKeyWithoutPlaintext`). Then it creates a grant
-(`CreateGrant`) that allows it to decrypt the data key. When the volume is mounted,
-Amazon EC2 calls AWS KMS to decrypt the data key (`Decrypt`).
+When the volume is created, Amazon EC2, acting on behalf of the customer, gets an encrypted data key from AWS KMS (`GenerateDataKeyWithoutPlaintext`). Then it creates a grant (`CreateGrant`) that allows it to decrypt the data key. When the volume is mounted, Amazon EC2 calls AWS KMS to decrypt the data key (`Decrypt`).
 
-The `instanceId` of the Amazon EC2 instance, `"i-81e2f56c"`, appears in the
-`RunInstances` event. The same instance ID qualifies the
-`granteePrincipal` of the grant that is created
-(`"111122223333:aws:ec2-infrastructure:i-81e2f56c"`) and the assumed role
-that is the principal in the `Decrypt` call
-(`"arn:aws:sts::111122223333:assumed-role/aws:ec2-infrastructure/i-81e2f56c"`).
+The `instanceId` of the Amazon EC2 instance, `"i-81e2f56c"`, appears in the `RunInstances` event. The same instance ID qualifies the `granteePrincipal` of the grant that is created (`"111122223333:aws:ec2-infrastructure:i-81e2f56c"`) and the assumed role that is the principal in the `Decrypt` call (`"arn:aws:sts::111122223333:assumed-role/aws:ec2-infrastructure/i-81e2f56c"`). 
 
-The [key ARN](concepts.md#key-id-key-ARN "concepts.md#key-id-key-ARN") of the KMS key that protects the data
-volume, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`, appears in all three AWS KMS calls
-(`CreateGrant`, `GenerateDataKeyWithoutPlaintext`, and
-`Decrypt`).
+The [key ARN](concepts.md#key-id-key-ARN) of the KMS key that protects the data volume, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`, appears in all three AWS KMS calls (`CreateGrant`, `GenerateDataKeyWithoutPlaintext`, and `Decrypt`).
 
 ```
 {
@@ -109,7 +99,7 @@ volume, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345678
               },
               "amiLaunchIndex": 0,
               "productCodes": {
-
+                
               },
               "instanceType": "m3.medium",
               "launchTime": 1415223328000,
@@ -128,7 +118,7 @@ volume, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345678
               "rootDeviceType": "ebs",
               "rootDeviceName": "/dev/xvda",
               "blockDeviceMapping": {
-
+                
               },
               "virtualizationType": "hvm",
               "hypervisor": "xen",
@@ -142,7 +132,7 @@ volume, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345678
                 ]
               },
               "networkInterfaceSet": {
-
+                
               },
               "ebsOptimized": false
             }

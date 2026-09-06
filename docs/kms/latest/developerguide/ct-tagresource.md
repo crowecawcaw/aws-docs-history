@@ -1,11 +1,11 @@
+
+
 # TagResource
+<a name="ct-tagresource"></a>
 
-The following example shows an AWS CloudTrail log entry of a call to the [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") operation to add a tag with
-a tag key of `Department` and a tag value of `IT`.
+The following example shows an AWS CloudTrail log entry of a call to the [TagResource](https://docs.aws.amazon.com/kms/latest/APIReference/API_TagResource.html) operation to add a tag with a tag key of `Department` and a tag value of `IT`.
 
-For an example of an `UntagResource` CloudTrail log entry that is written when the
-key is rotated, see [UntagResource](ct-untagresource.md "ct-untagresource.md"). For
-information about tagging AWS KMS keys, see [Tags in AWS KMS](tagging-keys.md "tagging-keys.md").
+For an example of an `UntagResource` CloudTrail log entry that is written when the key is rotated, see [UntagResource](ct-untagresource.md). For information about tagging AWS KMS keys, see [Tags in AWS KMS](tagging-keys.md).
 
 ```
 {

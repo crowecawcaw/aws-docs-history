@@ -1,30 +1,27 @@
+
+
 # Use `ScheduleKeyDeletion` with an AWS SDK or CLI
+<a name="example_kms_ScheduleKeyDeletion_section"></a>
 
 The following code examples show how to use `ScheduleKeyDeletion`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kms_Scenario_Basics_section.md) 
 
-- [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To schedule the deletion of a customer managed KMS key.**
-
-The following `schedule-key-deletion` example schedules the specified customer managed KMS key to be deleted in 15 days.
-
-The `--key-id` parameter identifies the KMS key. This example uses a key ARN value, but you can use either the key ID or the ARN of the KMS key.The `--pending-window-in-days` parameter specifies the length of the 7-30 day waiting period. By default, the waiting period is 30 days. This example specifies a value of 15, which tells AWS to permanently delete the KMS key 15 days after the command completes.
+**AWS CLI**  
+**To schedule the deletion of a customer managed KMS key.**  
+The following `schedule-key-deletion` example schedules the specified customer managed KMS key to be deleted in 15 days.  
+The `--key-id` parameter identifies the KMS key. This example uses a key ARN value, but you can use either the key ID or the ARN of the KMS key.The `--pending-window-in-days` parameter specifies the length of the 7-30 day waiting period. By default, the waiting period is 30 days. This example specifies a value of 15, which tells AWS to permanently delete the KMS key 15 days after the command completes.  
 
 ```
 aws kms schedule-key-deletion \
     --key-id arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab \
     --pending-window-in-days 15
 ```
-
-The response includes the key ARN, key state, waiting period (`PendingWindowInDays`), and the deletion date in Unix time. To view the deletion date in local time, use the AWS KMS console.
-KMS keys in the `PendingDeletion` key state cannot be used in cryptographic operations.
+The response includes the key ARN, key state, waiting period (`PendingWindowInDays`), and the deletion date in Unix time. To view the deletion date in local time, use the AWS KMS console. KMS keys in the `PendingDeletion` key state cannot be used in cryptographic operations.  
 
 ```
 {
@@ -34,22 +31,14 @@ KMS keys in the `PendingDeletion` key state cannot be used in cryptographic oper
     "PendingWindowInDays": 15
 }
 ```
+For more information, see [Deleting keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) in the *AWS Key Management Service Developer Guide*.  
++  For API details, see [ScheduleKeyDeletion](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/schedule-key-deletion.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Deleting keys](deleting-keys.md "deleting-keys.md") in the _AWS Key Management Service Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ScheduleKeyDeletion](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/schedule-key-deletion.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/schedule-key-deletion.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
 ```
     /**
@@ -77,26 +66,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 throw new RuntimeException("Failed to schedule key deletion for key ID: " + keyId, throwable);
             });
     }
+```
++  For API details, see [ScheduleKeyDeletion](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/ScheduleKeyDeletion) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ PHP ]
+
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
 ```
-
-- For API details, see
-  [ScheduleKeyDeletion](../../../goto/SdkForJavaV2/kms-2014-11-01/ScheduleKeyDeletion.md "../../../goto/SdkForJavaV2/kms-2014-11-01/ScheduleKeyDeletion.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples").
-
-```
-
     /***
      * @param string $keyId
      * @param int $pendingWindowInDays
@@ -114,24 +93,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [ScheduleKeyDeletion](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/ScheduleKeyDeletion) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ScheduleKeyDeletion](../../../goto/SdkForPHPV3/kms-2014-11-01/ScheduleKeyDeletion.md "../../../goto/SdkForPHPV3/kms-2014-11-01/ScheduleKeyDeletion.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class KeyManager:
@@ -173,24 +142,14 @@ class KeyManager:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [ScheduleKeyDeletion](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/ScheduleKeyDeletion) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ScheduleKeyDeletion](../../../goto/boto3/kms-2014-11-01/ScheduleKeyDeletion.md "../../../goto/boto3/kms-2014-11-01/ScheduleKeyDeletion.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -206,14 +165,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmskmsinternalex.
         MESSAGE 'An internal error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ScheduleKeyDeletion](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ScheduleKeyDeletion](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

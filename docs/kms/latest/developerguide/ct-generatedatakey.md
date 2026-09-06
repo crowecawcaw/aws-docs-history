@@ -1,6 +1,9 @@
-# GenerateDataKey
 
-The following example shows an AWS CloudTrail log entry for the [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md") operation.
+
+# GenerateDataKey
+<a name="ct-generatedatakey"></a>
+
+The following example shows an AWS CloudTrail log entry for the [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation.
 
 ```
 {

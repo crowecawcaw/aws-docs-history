@@ -1,7 +1,9 @@
-# GetKeyRotationStatus
 
-The following example shows an AWS CloudTrail log entry for the [GetKeyRotationStatus](../APIReference/API_GetKeyRotationStatus.md "../APIReference/API_GetKeyRotationStatus.md") operation.
-For information about automatic and on-demand rotation of key material for a KMS key, see [Rotate AWS KMS keys](rotate-keys.md "rotate-keys.md").
+
+# GetKeyRotationStatus
+<a name="ct-getkeyrotationstatus"></a>
+
+The following example shows an AWS CloudTrail log entry for the [GetKeyRotationStatus](https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html) operation. For information about automatic and on-demand rotation of key material for a KMS key, see [Rotate AWS KMS keys](rotate-keys.md).
 
 ```
 {

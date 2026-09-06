@@ -1,7 +1,9 @@
-# ListKeyRotations
 
-The following example shows an AWS CloudTrail log entry for the [ListKeyRotations](../APIReference/API_ListKeyRotations.md "../APIReference/API_ListKeyRotations.md") operation.
-For information about automatic and on-demand rotation of key material for a KMS key, see [Rotate AWS KMS keys](rotate-keys.md "rotate-keys.md").
+
+# ListKeyRotations
+<a name="ct-listkeyrotations"></a>
+
+The following example shows an AWS CloudTrail log entry for the [ListKeyRotations](https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyRotations.html) operation. For information about automatic and on-demand rotation of key material for a KMS key, see [Rotate AWS KMS keys](rotate-keys.md).
 
 ```
 {

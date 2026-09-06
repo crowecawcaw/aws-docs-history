@@ -1,17 +1,19 @@
+
+
 # Work with DynamoDB table encryption using AWS Command Line Interface v2
+<a name="example_dynamodb_Scenario_EncryptionExamples_section"></a>
 
 The following code example shows how to manage encryption options for DynamoDB tables.
++ Create a table with default encryption.
++ Create a table with a customer managed CMK.
++ Update table encryption settings.
++ Describe table encryption.
 
-- Create a table with default encryption.
-- Create a table with a customer managed CMK.
-- Update table encryption settings.
-- Describe table encryption.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-Create a table with default encryption.
+**AWS CLI with Bash script**  
+Create a table with default encryption.  
 
 ```
 # Create a table with default encryption (AWS owned key)
@@ -23,11 +25,8 @@ aws dynamodb create-table \
         AttributeName=CustomerID,KeyType=HASH \
     --billing-mode PAY_PER_REQUEST \
     --sse-specification Enabled=true,SSEType=KMS
-
-
 ```
-
-Create a table with a customer managed CMK.
+Create a table with a customer managed CMK.  
 
 ```
 # Step 1: Create a customer managed key in KMS
@@ -48,39 +47,29 @@ aws dynamodb create-table \
         AttributeName=RecordID,KeyType=HASH \
     --billing-mode PAY_PER_REQUEST \
     --sse-specification Enabled=true,SSEType=KMS,KMSMasterKeyId=$KEY_ID
-
-
 ```
-
-Update table encryption.
+Update table encryption.  
 
 ```
 # Update a table to use a different KMS key
 aws dynamodb update-table \
     --table-name CustomerData \
     --sse-specification Enabled=true,SSEType=KMS,KMSMasterKeyId=$KEY_ID
-
-
 ```
-
-Describe table encryption.
+Describe table encryption.  
 
 ```
 # Describe the table to see encryption settings
 aws dynamodb describe-table \
     --table-name CustomerData \
     --query "Table.SSEDescription"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateKey](https://docs.aws.amazon.com/goto/aws-cli/kms-2014-11-01/CreateKey)
+  + [CreateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/CreateTable)
+  + [DescribeTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/DescribeTable)
+  + [UpdateTable](https://docs.aws.amazon.com/goto/aws-cli/dynamodb-2012-08-10/UpdateTable)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateKey](../../../goto/aws-cli/kms-2014-11-01/CreateKey.md "../../../goto/aws-cli/kms-2014-11-01/CreateKey.md")
-  - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
-  - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")
-  - [UpdateTable](../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/UpdateTable.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

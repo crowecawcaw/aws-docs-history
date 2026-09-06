@@ -1,6 +1,9 @@
-# VerifyMac
 
-The following example shows an AWS CloudTrail log entry for the [VerifyMac](../APIReference/API_VerifyMac.md "../APIReference/API_VerifyMac.md") operation.
+
+# VerifyMac
+<a name="ct-verifymac"></a>
+
+The following example shows an AWS CloudTrail log entry for the [VerifyMac](https://docs.aws.amazon.com/kms/latest/APIReference/API_VerifyMac.html) operation.
 
 ```
 {

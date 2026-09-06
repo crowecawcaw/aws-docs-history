@@ -1,8 +1,9 @@
-# DescribeKey
 
-The following example shows an AWS CloudTrail log entry for the [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") operation. AWS KMS records an entry
-like the following one when you call the `DescribeKey` operation or [view KMS keys](viewing-keys.md "viewing-keys.md") in the AWS KMS console. This call is the result of
-viewing a key in the AWS KMS management console.
+
+# DescribeKey
+<a name="ct-describekey"></a>
+
+The following example shows an AWS CloudTrail log entry for the [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) operation. AWS KMS records an entry like the following one when you call the `DescribeKey` operation or [view KMS keys](viewing-keys.md) in the AWS KMS console. This call is the result of viewing a key in the AWS KMS management console.
 
 ```
 {

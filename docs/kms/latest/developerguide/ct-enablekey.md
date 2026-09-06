@@ -1,7 +1,9 @@
-# EnableKey
 
-The following example shows an AWS CloudTrail log entry for the [EnableKey](../APIReference/API_EnableKey.md "../APIReference/API_EnableKey.md") operation. For information about
-enabling and disabling AWS KMS keys in AWS KMS, see [Enable and disable keys](enabling-keys.md "enabling-keys.md")..
+
+# EnableKey
+<a name="ct-enablekey"></a>
+
+The following example shows an AWS CloudTrail log entry for the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html) operation. For information about enabling and disabling AWS KMS keys in AWS KMS, see [Enable and disable keys](enabling-keys.md)..
 
 CloudTrail log entries for this operation recorded on or after December 2022 include the key ARN of the affected KMS key in the `responseElements.keyId` value, even though this operation does not return the key ARN.
 

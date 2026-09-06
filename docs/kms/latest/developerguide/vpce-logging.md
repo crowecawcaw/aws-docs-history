@@ -1,17 +1,13 @@
+
+
 # Logging AWS KMS requests that use a VPC endpoint
+<a name="vpce-logging"></a>
 
-AWS CloudTrail logs all operations that use the VPC endpoint. When a request to AWS KMS uses a VPC
-endpoint, the VPC endpoint ID appears in the [AWS CloudTrail
-log](logging-using-cloudtrail.md "logging-using-cloudtrail.md") entry that records the request. You can use the endpoint ID to audit the use of
-your AWS KMS VPC endpoint.
+AWS CloudTrail logs all operations that use the VPC endpoint. When a request to AWS KMS uses a VPC endpoint, the VPC endpoint ID appears in the [AWS CloudTrail log](logging-using-cloudtrail.md) entry that records the request. You can use the endpoint ID to audit the use of your AWS KMS VPC endpoint.
 
-However, your CloudTrail logs don't include operations requested by principals in other accounts
-or requests for AWS KMS operations on KMS keys and aliases in other accounts. Also, to protect
-your VPC, requests that are denied by a VPC endpoint
-policy, but otherwise would have been allowed, are not recorded in [AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+However, your CloudTrail logs don't include operations requested by principals in other accounts or requests for AWS KMS operations on KMS keys and aliases in other accounts. Also, to protect your VPC, requests that are denied by a VPC endpoint policy, but otherwise would have been allowed, are not recorded in [AWS CloudTrail](logging-using-cloudtrail.md).
 
-For example, this sample log entry records a [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md") request that used the
-VPC endpoint. The `vpcEndpointId` field appears at the end of the log entry.
+For example, this sample log entry records a [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) request that used the VPC endpoint. The `vpcEndpointId` field appears at the end of the log entry.
 
 ```
 {
@@ -45,6 +41,6 @@ VPC endpoint. The `vpcEndpointId` field appears at the end of the log entry.
   }],
   "eventType":"AwsApiCall",
   "recipientAccountId":"111122223333",
-  **"vpcEndpointId": "vpce-1234abcdf5678c90a"**
+  "vpcEndpointId": "vpce-1234abcdf5678c90a"
 }
 ```

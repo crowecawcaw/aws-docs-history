@@ -1,25 +1,24 @@
+
+
 # Decrypt
+<a name="ct-decrypt"></a>
 
-These examples show AWS CloudTrail log entries for the [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md") operation.
+These examples show AWS CloudTrail log entries for the [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) operation.
 
-The CloudTrail log entry for a `Decrypt` operation always includes the
-`encryptionAlgorithm` in the `requestParameters` even if the
-encryption algorithm wasn't specified in the request. The ciphertext in the request and the
-plaintext in the response are omitted.
+The CloudTrail log entry for a `Decrypt` operation always includes the `encryptionAlgorithm` in the `requestParameters` even if the encryption algorithm wasn't specified in the request. The ciphertext in the request and the plaintext in the response are omitted.
 
-###### Topics
-
-- [Decrypt with a standard symmetric encryption key](#ct-decrypt-default "#ct-decrypt-default")
-- [Decrypt failure with a standard symmetric encryption key](#ct-decrypt-fail "#ct-decrypt-fail")
-- [Decrypt with a KMS key in an AWS CloudHSM key store](#ct-decrypt-hsm "#ct-decrypt-hsm")
-- [Decrypt with a KMS key in an external key store](#ct-decrypt-xks "#ct-decrypt-xks")
-- [Decrypt failure with a KMS key in an external key store](#ct-decrypt-xks-fail "#ct-decrypt-xks-fail")
-- [Decrypt with a standard symmetric encryption key over a post-quantum TLS connection](#ct-decrypt-default-pqtls "#ct-decrypt-default-pqtls")
+**Topics**
++ [Decrypt with a standard symmetric encryption key](#ct-decrypt-default)
++ [Decrypt failure with a standard symmetric encryption key](#ct-decrypt-fail)
++ [Decrypt with a KMS key in an AWS CloudHSM key store](#ct-decrypt-hsm)
++ [Decrypt with a KMS key in an external key store](#ct-decrypt-xks)
++ [Decrypt failure with a KMS key in an external key store](#ct-decrypt-xks-fail)
++ [Decrypt with a standard symmetric encryption key over a post-quantum TLS connection](#ct-decrypt-default-pqtls)
 
 ## Decrypt with a standard symmetric encryption key
+<a name="ct-decrypt-default"></a>
 
-The following is an example CloudTrail log entry for a `Decrypt` operation with a
-standard symmetric encryption key.
+The following is an example CloudTrail log entry for a `Decrypt` operation with a standard symmetric encryption key. 
 
 ```
 {
@@ -44,7 +43,7 @@ standard symmetric encryption key.
         "encryptionContext": {
             "Department": "Engineering",
             "Project": "Alpha"
-        }
+        }        
     },
     "responseElements": null,
     "additionalEventData": {
@@ -73,15 +72,11 @@ standard symmetric encryption key.
 ```
 
 ## Decrypt failure with a standard symmetric encryption key
+<a name="ct-decrypt-fail"></a>
 
-The following example CloudTrail log entry records a failed `Decrypt` operation
-with a standard symmetric encryption KMS key. The exception (`errorCode`)
-and error message (`errorMessage`) are included help you to resolve the
-error.
+The following example CloudTrail log entry records a failed `Decrypt` operation with a standard symmetric encryption KMS key. The exception (`errorCode`) and error message (`errorMessage`) are included help you to resolve the error.
 
-In this case, the symmetric encryption KMS key specified in the `Decrypt`
-request was not the symmetric encryption KMS key that was used to encrypt the
-data.
+In this case, the symmetric encryption KMS key specified in the `Decrypt` request was not the symmetric encryption KMS key that was used to encrypt the data.
 
 ```
 {
@@ -100,15 +95,15 @@ data.
     "awsRegion": "us-west-2",
     "sourceIPAddress": "192.0.2.0",
     "userAgent": "AWS Internal",
-    **"errorCode": "IncorrectKeyException"
- "errorMessage": "The key ID in the request does not identify a CMK that can perform this operation.",**
+    "errorCode": "IncorrectKeyException"
+    "errorMessage": "The key ID in the request does not identify a CMK that can perform this operation.",
     "requestParameters": {
         "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
         "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
         "encryptionContext": {
             "Department": "Engineering",
             "Project": "Alpha"
-        }
+        }        
     },
     "responseElements": null,
     "requestID": "22345126-30d5-4b28-98b9-9153da559963",
@@ -127,14 +122,9 @@ data.
 ```
 
 ## Decrypt with a KMS key in an AWS CloudHSM key store
+<a name="ct-decrypt-hsm"></a>
 
-The following example CloudTrail log entry records a `Decrypt` operation with a
-KMS key in an [AWS CloudHSM key store](keystore-cloudhsm.md "keystore-cloudhsm.md"). All log
-entries for cryptographic operations with a KMS key in a custom key store include an
-`additionalEventData` field with the `customKeyStoreId` and
-`backingKeyId`. The value returned in the `backingKeyId` field
-is the CloudHSM key `id` attribute. The `additionalEventData` isn't
-specified in the request.
+The following example CloudTrail log entry records a `Decrypt` operation with a KMS key in an [AWS CloudHSM key store](keystore-cloudhsm.md). All log entries for cryptographic operations with a KMS key in a custom key store include an `additionalEventData` field with the `customKeyStoreId` and `backingKeyId`. The value returned in the `backingKeyId` field is the CloudHSM key `id` attribute. The `additionalEventData` isn't specified in the request.
 
 ```
 {
@@ -161,9 +151,9 @@ specified in the request.
         }
     },
     "responseElements": null,
-    **"additionalEventData": {
- "customKeyStoreId": "cks-1234567890abcdef0"
- },**
+    "additionalEventData": {
+        "customKeyStoreId": "cks-1234567890abcdef0"
+    },
     "requestID": "e1b881f8-2048-41f8-b6cc-382b7857ec61",
     "eventID": "a79603d5-4cde-46fc-819c-a7cf547b9df4",
     "readOnly": true,
@@ -177,18 +167,14 @@ specified in the request.
     "eventType": "AwsApiCall",
     "managementEvent": true,
     "recipientAccountId": "111122223333",
-    "eventCategory": "Management"
+    "eventCategory": "Management"    
 }
 ```
 
 ## Decrypt with a KMS key in an external key store
+<a name="ct-decrypt-xks"></a>
 
-The following example CloudTrail log entry records a `Decrypt` operation with a
-KMS key in an [external key store](keystore-external.md "keystore-external.md"). In addition
-to the `customKeyStoreId`, the `additionalEventData` field
-includes the [external key ID](keystore-external.md#concept-external-key "keystore-external.md#concept-external-key")
-(`XksKeyId`). The `additionalEventData` isn't specified in the
-request.
+The following example CloudTrail log entry records a `Decrypt` operation with a KMS key in an [external key store](keystore-external.md). In addition to the `customKeyStoreId`, the `additionalEventData` field includes the [external key ID](keystore-external.md#concept-external-key) (`XksKeyId`). The `additionalEventData` isn't specified in the request.
 
 ```
 {
@@ -215,10 +201,10 @@ request.
         }
     },
     "responseElements": null,
-    **"additionalEventData": {
- "customKeyStoreId": "cks-9876543210fedcba9",
- "xksKeyId": "abc01234567890fe"
- },**
+    "additionalEventData": {
+        "customKeyStoreId": "cks-9876543210fedcba9",
+        "xksKeyId": "abc01234567890fe"
+    },
     "requestID": "f1b881f8-2048-41f8-b6cc-382b7857ec61",
     "eventID": "b79603d5-4cde-46fc-819c-a7cf547b9df4",
     "readOnly": true,
@@ -237,19 +223,13 @@ request.
 ```
 
 ## Decrypt failure with a KMS key in an external key store
+<a name="ct-decrypt-xks-fail"></a>
 
-The following example CloudTrail log entry records a failed request for a
-`Decrypt` operation with a KMS key in an [external key store](keystore-external.md "keystore-external.md"). CloudWatch logs requests that fail,
-in addition to successful requests. When recording a failure, the CloudTrail log entry
-includes the exception (errorCode) and the accompanying error message
-(errorMessage).
+The following example CloudTrail log entry records a failed request for a `Decrypt` operation with a KMS key in an [external key store](keystore-external.md). CloudWatch logs requests that fail, in addition to successful requests. When recording a failure, the CloudTrail log entry includes the exception (errorCode) and the accompanying error message (errorMessage).
 
-If the failed request reached your external key store proxy, as in this example, you
-can use the `requestId` value to associate the failed request with a
-corresponding request your external key store proxy logs, if your proxy provides
-them.
+If the failed request reached your external key store proxy, as in this example, you can use the `requestId` value to associate the failed request with a corresponding request your external key store proxy logs, if your proxy provides them.
 
-For help with `Decrypt` requests in external key stores, see [Decryption errors](xks-troubleshooting.md#fix-xks-decrypt "xks-troubleshooting.md#fix-xks-decrypt").
+For help with `Decrypt` requests in external key stores, see [Decryption errors](xks-troubleshooting.md#fix-xks-decrypt).
 
 ```
 {
@@ -268,8 +248,8 @@ For help with `Decrypt` requests in external key stores, see [Decryption errors]
     "awsRegion": "us-west-2",
     "sourceIPAddress": "AWS Internal",
     "userAgent": "AWS Internal",
-    **"errorCode": "KMSInvalidStateException",
- "errorMessage": "The external key store proxy rejected the request because the specified ciphertext or additional authenticated data is corrupted, missing, or otherwise invalid.",**
+    "errorCode": "KMSInvalidStateException",
+    "errorMessage": "The external key store proxy rejected the request because the specified ciphertext or additional authenticated data is corrupted, missing, or otherwise invalid.",
     "requestParameters": {
         "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
         "keyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
@@ -301,19 +281,9 @@ For help with `Decrypt` requests in external key stores, see [Decryption errors]
 ```
 
 ## Decrypt with a standard symmetric encryption key over a post-quantum TLS connection
+<a name="ct-decrypt-default-pqtls"></a>
 
-The following is an example CloudTrail log entry for a `Decrypt` operation with a
-standard symmetric encryption key over a post-quantum TLS connection. The keyExchange
-field in the `tlsDetails` section mentions `X25519MLKEM768`. This
-is a _hybrid_ algorithm that combines
-[Elliptic Curve
-Diffie-Hellman](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman "https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman") (ECDH) over [Curve
-25519](https://en.wikipedia.org/wiki/Curve25519 "https://en.wikipedia.org/wiki/Curve25519"), a classic key exchange algorithm used today in TLS, with
-[Module-Lattice-Based
-Key-Encapsulation Mechanism](https://csrc.nist.gov/pubs/fips/203/final "https://csrc.nist.gov/pubs/fips/203/final") (ML-KEM), a public-key encryption and
-key-establishment algorithm that the National Institute for Standards and Technology (NIST)
-[has designated as its first
-standard](https://csrc.nist.gov/pubs/fips/203/final "https://csrc.nist.gov/pubs/fips/203/final") post-quantum key-agreement algorithm.
+The following is an example CloudTrail log entry for a `Decrypt` operation with a standard symmetric encryption key over a post-quantum TLS connection. The keyExchange field in the `tlsDetails` section mentions `X25519MLKEM768`. This is a *hybrid* algorithm that combines [Elliptic Curve Diffie-Hellman](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman) (ECDH) over [Curve 25519](https://en.wikipedia.org/wiki/Curve25519), a classic key exchange algorithm used today in TLS, with [Module-Lattice-Based Key-Encapsulation Mechanism](https://csrc.nist.gov/pubs/fips/203/final) (ML-KEM), a public-key encryption and key-establishment algorithm that the National Institute for Standards and Technology (NIST) [ has designated as its first standard](https://csrc.nist.gov/pubs/fips/203/final) post-quantum key-agreement algorithm.
 
 ```
 {

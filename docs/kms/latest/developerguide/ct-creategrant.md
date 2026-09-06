@@ -1,12 +1,13 @@
-# CreateGrant
 
-The following example shows an AWS CloudTrail log entry for the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md") operation. For information
-about creating grants in AWS KMS, see [Grants in AWS KMS](grants.md "grants.md").
+
+# CreateGrant
+<a name="ct-creategrant"></a>
+
+The following example shows an AWS CloudTrail log entry for the [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) operation. For information about creating grants in AWS KMS, see [Grants in AWS KMS](grants.md).
 
 CloudTrail log entries for this operation recorded on or after December 2022 include the key ARN of the affected KMS key in the `responseElements.keyId` value, even though this operation does not return the key ARN.
 
-The following example shows a `CreateGrant` log entry for a grant with an
-encryption context constraint.
+The following example shows a `CreateGrant` log entry for a grant with an encryption context constraint.
 
 ```
 {
@@ -36,7 +37,7 @@ encryption context constraint.
         "Encrypt",
         "RetireGrant"
       ],
-      "granteePrincipal": "`service-name`.amazonaws.com"
+      "granteePrincipal": "{{service-name}}.amazonaws.com"
   },
   "responseElements": {
       "grantId": "f020fe75197b93991dc8491d6f19dd3cebb24ee62277a05914386724f3d48758",
@@ -54,10 +55,7 @@ encryption context constraint.
 }
 ```
 
-The following example shows a `CreateGrant` log entry for a service principal
-grant. This grant uses the `GranteeServicePrincipal` parameter to specify an
-AWS service principal as the grantee, and includes a `SourceArn` grant
-constraint.
+The following example shows a `CreateGrant` log entry for a service principal grant. This grant uses the `GranteeServicePrincipal` parameter to specify an AWS service principal as the grantee, and includes a `SourceArn` grant constraint.
 
 ```
 {
@@ -86,8 +84,8 @@ constraint.
         "Decrypt",
         "GenerateDataKey"
       ],
-      "granteeServicePrincipal": "`service-name`.amazonaws.com",
-      "retiringServicePrincipal": "`service-name`.amazonaws.com"
+      "granteeServicePrincipal": "{{service-name}}.amazonaws.com",
+      "retiringServicePrincipal": "{{service-name}}.amazonaws.com"
   },
   "responseElements": {
       "grantId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
@@ -105,15 +103,5 @@ constraint.
 }
 ```
 
-###### Note
-
-When a grant is created with the
-`GranteeServicePrincipal` parameter, the CloudTrail log entry for the
-`CreateGrant` operation includes a `granteeServicePrincipal` field
-instead of `granteePrincipal`. Similarly, if a
-`RetiringServicePrincipal` is specified, the log entry includes a
-`retiringServicePrincipal` field instead of
-`retiringPrincipal`. This distinguishes grants that were explicitly
-created with `GranteeServicePrincipal` for an AWS [service
-principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services") from grants where an AWS service is represented in the
-`granteePrincipal` field.
+**Note**  
+When a grant is created with the `GranteeServicePrincipal` parameter, the CloudTrail log entry for the `CreateGrant` operation includes a `granteeServicePrincipal` field instead of `granteePrincipal`. Similarly, if a `RetiringServicePrincipal` is specified, the log entry includes a `retiringServicePrincipal` field instead of `retiringPrincipal`. This distinguishes grants that were explicitly created with `GranteeServicePrincipal` for an AWS [service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) from grants where an AWS service is represented in the `granteePrincipal` field.

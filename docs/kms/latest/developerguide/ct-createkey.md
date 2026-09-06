@@ -1,12 +1,13 @@
+
+
 # CreateKey
+<a name="ct-createkey"></a>
 
-These examples show AWS CloudTrail log entries for the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") operation.
+These examples show AWS CloudTrail log entries for the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation.
 
-A `CreateKey` log entry can result from a `CreateKey` request or the
-`CreateKey` operation for a [ReplicateKey](../APIReference/API_ReplicateKey.md "../APIReference/API_ReplicateKey.md") request.
+A `CreateKey` log entry can result from a `CreateKey` request or the `CreateKey` operation for a [ReplicateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReplicateKey.html) request.
 
-The following example shows an CloudTrail log entry for a [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") operation that creates a [symmetric encryption KMS key](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks"). For information about creating
-KMS keys, see [Create a KMS key](create-keys.md "create-keys.md").
+The following example shows an CloudTrail log entry for a [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) operation that creates a [symmetric encryption KMS key](symm-asymm-choose-key-spec.md#symmetric-cmks). For information about creating KMS keys, see [Create a KMS key](create-keys.md).
 
 ```
 {
@@ -70,9 +71,7 @@ KMS keys, see [Create a KMS key](create-keys.md "create-keys.md").
 }
 ```
 
-The following example shows the CloudTrail log of a `CreateKey` operation that
-creates a symmetric encryption KMS key in an [AWS CloudHSM key
-store](keystore-cloudhsm.md "keystore-cloudhsm.md").
+The following example shows the CloudTrail log of a `CreateKey` operation that creates a symmetric encryption KMS key in an [AWS CloudHSM key store](keystore-cloudhsm.md).
 
 ```
 {
@@ -123,7 +122,7 @@ store](keystore-cloudhsm.md "keystore-cloudhsm.md").
         }
     },
     "additionalEventData": {
-        "backingKey": "{\"backingKeyId\":\"`backing-key-id`\"}"
+        "backingKey": "{\"backingKeyId\":\"{{backing-key-id}}\"}"
     },
     "requestID": "4f0b185c-588c-4767-9e90-c618f7e13cad",
     "eventID": "c73964b8-703d-49e4-bd9e-f773d0ee1e65",
@@ -142,9 +141,7 @@ store](keystore-cloudhsm.md "keystore-cloudhsm.md").
 }
 ```
 
-The following example shows the CloudTrail log of a `CreateKey` operation that
-creates a symmetric encryption KMS key in an [external
-key store](keystore-external.md "keystore-external.md").
+The following example shows the CloudTrail log of a `CreateKey` operation that creates a symmetric encryption KMS key in an [external key store](keystore-external.md).
 
 ```
 {
@@ -167,7 +164,7 @@ key store](keystore-external.md "keystore-external.md").
         "tags": [],
         "keyUsage": "ENCRYPT_DECRYPT",
         "description": "",
-        "origin": "EXTERNAL_KEY_STORE",
+        "origin": "EXTERNAL_KEY_STORE",        
         "multiRegion": false,
         "keySpec": "SYMMETRIC_DEFAULT",
         "customerMasterKeySpec": "SYMMETRIC_DEFAULT",
@@ -194,7 +191,7 @@ key store](keystore-external.md "keystore-external.md").
                 "SYMMETRIC_DEFAULT"
             ],
             "multiRegion": false,
-            "xksKeyConfiguration": {
+            "xksKeyConfiguration": {                
                 "id": "bb8562717f809024"
             }
         }

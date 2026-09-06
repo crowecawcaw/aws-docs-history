@@ -1,7 +1,9 @@
-# GenerateDataKeyPairWithoutPlaintext
 
-The following example shows an AWS CloudTrail log entry for the [GenerateDataKeyPairWithoutPlaintext](../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md "../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md") operation. This example records an
-operation that generates an RSA key pair that is encrypted under a symmetric encryption AWS KMS key.
+
+# GenerateDataKeyPairWithoutPlaintext
+<a name="ct-generatedatakeypairwithoutplaintext"></a>
+
+The following example shows an AWS CloudTrail log entry for the [GenerateDataKeyPairWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPairWithoutPlaintext.html) operation. This example records an operation that generates an RSA key pair that is encrypted under a symmetric encryption AWS KMS key.
 
 ```
 {

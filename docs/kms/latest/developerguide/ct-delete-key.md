@@ -1,18 +1,15 @@
-# DeleteKey
 
-These examples show the AWS CloudTrail log entry that is generated when a KMS key is deleted.
-To delete a KMS key, you use the [ScheduleKeyDeletion](../APIReference/API_ScheduleKeyDeletion.md "../APIReference/API_ScheduleKeyDeletion.md") operation. After the specified waiting period expires,
-AWS KMS deletes the KMS key and records an entry like the following one in your CloudTrail log to
-record that event.
+
+# DeleteKey
+<a name="ct-delete-key"></a>
+
+These examples show the AWS CloudTrail log entry that is generated when a KMS key is deleted. To delete a KMS key, you use the [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operation. After the specified waiting period expires, AWS KMS deletes the KMS key and records an entry like the following one in your CloudTrail log to record that event. 
 
 CloudTrail log entries for this operation recorded on or after December 2022 include the key ARN of the affected KMS key in the `responseElements.keyId` value, even though this operation does not return the key ARN.
 
-For an example of the CloudTrail log entry for the `ScheduleKeyDeletion` operation,
-see [ScheduleKeyDeletion](ct-schedule-key-deletion.md "ct-schedule-key-deletion.md"). For
-information about deleting KMS keys, see [Delete an AWS KMS key](deleting-keys.md "deleting-keys.md").
+For an example of the CloudTrail log entry for the `ScheduleKeyDeletion` operation, see [ScheduleKeyDeletion](ct-schedule-key-deletion.md). For information about deleting KMS keys, see [Delete an AWS KMS key](deleting-keys.md).
 
-The following example CloudTrail log entry records a `DeleteKey` operation of a
-KMS key with key material in AWS KMS.
+The following example CloudTrail log entry records a `DeleteKey` operation of a KMS key with key material in AWS KMS. 
 
 ```
 {
@@ -45,8 +42,7 @@ KMS key with key material in AWS KMS.
 }
 ```
 
-The following CloudTrail log entry records a `DeleteKey` operation of a KMS key in
-an AWS CloudHSM [custom key store](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview").
+The following CloudTrail log entry records a `DeleteKey` operation of a KMS key in an AWS CloudHSM [custom key store](key-store-overview.md#custom-key-store-overview).
 
 ```
 {
@@ -68,8 +64,8 @@ an AWS CloudHSM [custom key store](key-store-overview.md#custom-key-store-overvi
     "additionalEventData": {
         "customKeyStoreId": "cks-1234567890abcdef0",
         "clusterId": "cluster-1a23b4cdefg",
-        "backingKeys": "[{\"backingKeyId\":\"`backing-key-id`\"}]",
-        "backingKeysDeletionStatus": "[{\"backingKeyId\":\"`backing-key-id`\",\"deletionStatus\":\"SUCCESS\"}]"
+        "backingKeys": "[{\"backingKeyId\":\"{{backing-key-id}}\"}]",
+        "backingKeysDeletionStatus": "[{\"backingKeyId\":\"{{backing-key-id}}\",\"deletionStatus\":\"SUCCESS\"}]"
     },
     "eventID": "1234585c-4b0c-4340-ab11-662414b79239",
     "readOnly": false,

@@ -1,21 +1,18 @@
+
+
 # Use `ListKeys` with an AWS SDK or CLI
+<a name="example_kms_ListKeys_section"></a>
 
 The following code examples show how to use `ListKeys`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_kms_Scenario_Basics_section.md) 
 
-- [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/KMS#code-examples). 
 
 ```
     using System;
@@ -52,29 +49,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             while (response.Truncated);
         }
     }
+```
++  For API details, see [ListKeys](https://docs.aws.amazon.com/goto/DotNetSDKV3/kms-2014-11-01/ListKeys) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To get the KMS keys in an account and Region**  
+The following `list-keys` example gets the KMS keys in an account and Region. This command returns both AWS managed keys and customer managed keys.  
 
 ```
-
-- For API details, see
-  [ListKeys](../../../goto/DotNetSDKV3/kms-2014-11-01/ListKeys.md "../../../goto/DotNetSDKV3/kms-2014-11-01/ListKeys.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get the KMS keys in an account and Region**
-
-The following `list-keys` example gets the KMS keys in an account and Region. This command returns both AWS managed keys and customer managed keys.
-
+aws kms list-keys
 ```
-`aws kms list-keys`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -94,22 +82,14 @@ Output:
     ]
 }
 ```
+For more information, see [Viewing Keys](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html) in the *AWS Key Management Service Developer Guide*.  
++  For API details, see [ListKeys](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/list-keys.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Viewing Keys](viewing-keys.md "viewing-keys.md") in the _AWS Key Management Service Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [ListKeys](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/list-keys.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/list-keys.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/kms#code-examples). 
 
 ```
 import software.amazon.awssdk.services.kms.KmsAsyncClient;
@@ -163,23 +143,14 @@ public class HelloKMS {
         }
     }
 }
-
-
 ```
++  For API details, see [ListKeys](https://docs.aws.amazon.com/goto/SdkForJavaV2/kms-2014-11-01/ListKeys) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListKeys](../../../goto/SdkForJavaV2/kms-2014-11-01/ListKeys.md "../../../goto/SdkForJavaV2/kms-2014-11-01/ListKeys.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/kms#code-examples). 
 
 ```
 suspend fun listAllKeys() {
@@ -196,26 +167,16 @@ suspend fun listAllKeys() {
         }
     }
 }
+```
++  For API details, see [ListKeys](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
+------
+#### [ PHP ]
+
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples). 
 
 ```
-
-- For API details, see
-  [ListKeys](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/kms#code-examples").
-
-```
-
     /***
      * @return array
      */
@@ -235,24 +196,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [ListKeys](https://docs.aws.amazon.com/goto/SdkForPHPV3/kms-2014-11-01/ListKeys) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [ListKeys](../../../goto/SdkForPHPV3/kms-2014-11-01/ListKeys.md "../../../goto/SdkForPHPV3/kms-2014-11-01/ListKeys.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/kms#code-examples). 
 
 ```
 class KeyManager:
@@ -295,24 +246,14 @@ class KeyManager:
                 "Couldn't list your keys. Here's why: %s",
                 err.response["Error"]["Message"],
             )
-
-
-
 ```
++  For API details, see [ListKeys](https://docs.aws.amazon.com/goto/boto3/kms-2014-11-01/ListKeys) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListKeys](../../../goto/boto3/kms-2014-11-01/ListKeys.md "../../../goto/boto3/kms-2014-11-01/ListKeys.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/kms#code-examples). 
 
 ```
 async fn show_keys(client: &Client) -> Result<(), Error> {
@@ -331,23 +272,14 @@ async fn show_keys(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListKeys](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.list_keys) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListKeys](https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.list_keys "https://docs.rs/aws-sdk-kms/latest/aws_sdk_kms/client/struct.Client.html#method.list_keys")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/kms#code-examples). 
 
 ```
     TRY.
@@ -356,14 +288,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_kmskmsinternalex.
         MESSAGE 'An internal error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListKeys](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListKeys](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
