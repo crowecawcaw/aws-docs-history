@@ -1,8 +1,9 @@
-# Example Security Lake queries for Security Hub CSPM findings
 
-Security Hub CSPM provides you with a comprehensive view of your security state in AWS and helps you check your environment
-against security industry standards and best practices. Security Hub CSPM produces findings for security checks and receives findings from
-third-party services.
+
+# Example Security Lake queries for Security Hub CSPM findings
+<a name="security-hub-query-examples-sourceversion2"></a>
+
+Security Hub CSPM provides you with a comprehensive view of your security state in AWS and helps you check your environment against security industry standards and best practices. Security Hub CSPM produces findings for security checks and receives findings from third-party services.
 
 Here are some example queries for Security Hub CSPM findings for AWS source version 2:
 
@@ -15,7 +16,7 @@ SELECT
     severity_id,
     status
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_sh_findings_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
     AND severity_id >= 3
     AND status = 'New'
 ORDER BY time DESC
@@ -25,7 +26,7 @@ LIMIT 25
 **Duplicate findings in the last 7 days**
 
 ```
-SELECT
+SELECT 
     finding_info.uid,
     MAX(time_dt) AS time,
     ARBITRARY(region) AS region,
@@ -41,7 +42,7 @@ LIMIT 25
 **All non-informational findings in the last 7 days**
 
 ```
-SELECT
+SELECT 
     time_dt,
     finding_info.title,
     finding_info,
@@ -90,7 +91,7 @@ LIMIT 25
 **Count of products that are sending findings from Security Hub CSPM in the last 7 days**
 
 ```
-SELECT
+SELECT 
     metadata.product.name,
     count(*)
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_sh_findings_2_0"
@@ -116,7 +117,7 @@ LIMIT 25
 **Vulnerable packages from findings in the last 7 days**
 
 ```
-SELECT
+SELECT 
     vulnerabilities
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_sh_findings_2_0"
 WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
@@ -127,7 +128,7 @@ LIMIT 25
 **Findings that have changed in the last 7 days**
 
 ```
-SELECT
+SELECT 
     status,
     finding_info.title,
     finding_info.created_time_dt,

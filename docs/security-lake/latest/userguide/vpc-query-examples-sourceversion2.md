@@ -1,4 +1,7 @@
+
+
 # Example Security Lake queries for Amazon VPC Flow Logs
+<a name="vpc-query-examples-sourceversion2"></a>
 
 Amazon Virtual Private Cloud (Amazon VPC) provides details about IP traffic going to and from network interfaces in your VPC.
 
@@ -9,7 +12,7 @@ Here are some example queries for Amazon VPC Flow Logs for AWS source version 2:
 ```
 SELECT *
     FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 AND region in ('us-east-1','us-east-2','us-west-2')
 LIMIT 25
 ```
@@ -19,7 +22,7 @@ LIMIT 25
 ```
 SELECT *
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 AND src_endpoint.ip = '192.0.2.1'
 AND src_endpoint.port = 22
 LIMIT 25
@@ -28,10 +31,10 @@ LIMIT 25
 **Count of distinct destination IP addresses in the last 7 days**
 
 ```
-SELECT
+SELECT 
     COUNT(DISTINCT dst_endpoint.ip) AS "Total"
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 LIMIT 25
 ```
 
@@ -40,7 +43,7 @@ LIMIT 25
 ```
 SELECT *
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 AND split_part(src_endpoint.ip,'.', 1)='198'AND split_part(src_endpoint.ip,'.', 2)='51'
 LIMIT 25
 ```
@@ -48,31 +51,31 @@ LIMIT 25
 **All HTTPS traffic in the last 7 days**
 
 ```
-SELECT
-    dst_endpoint.ip as dst,
-    src_endpoint.ip as src,
+SELECT 
+    dst_endpoint.ip as dst, 
+    src_endpoint.ip as src, 
     traffic.packets
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 AND dst_endpoint.port = 443
-GROUP BY
-    dst_endpoint.ip,
-    traffic.packets,
-    src_endpoint.ip
-ORDER BY traffic.packets DESC
+GROUP BY 
+    dst_endpoint.ip, 
+    traffic.packets, 
+    src_endpoint.ip 
+ORDER BY traffic.packets DESC 
 LIMIT 25
 ```
 
 **Order by packet count for connections destined to port `443` in the last 7 days**
 
 ```
-SELECT
+SELECT 
     traffic.packets,
     dst_endpoint.ip
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
-AND dst_endpoint.port = 443
-GROUP BY
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
+AND dst_endpoint.port = 443 
+GROUP BY 
     traffic.packets,
     dst_endpoint.ip
 ORDER BY traffic.packets DESC
@@ -82,10 +85,10 @@ LIMIT 25
 **All traffic between IP `192.0.2.1` and `192.0.2.2` in the last 7 days**
 
 ```
-SELECT
-    start_time_dt,
-    end_time_dt,
-    src_endpoint.interface_uid,
+SELECT 
+    start_time_dt, 
+    end_time_dt, 
+    src_endpoint.interface_uid, 
     connection_info.direction,
     src_endpoint.ip,
     dst_endpoint.ip,
@@ -94,7 +97,7 @@ SELECT
     traffic.packets,
     traffic.bytes
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 AND(
     src_endpoint.ip = '192.0.2.1'
 AND dst_endpoint.ip = '192.0.2.2')
@@ -110,7 +113,7 @@ LIMIT 25
 ```
 SELECT *
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 AND connection_info.direction = 'Inbound'
 LIMIT 25
 ```
@@ -120,7 +123,7 @@ LIMIT 25
 ```
 SELECT *
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 AND connection_info.direction = 'Outbound'
 LIMIT 25
 ```
@@ -130,7 +133,7 @@ LIMIT 25
 ```
 SELECT *
 FROM "amazon_security_lake_glue_db_us_east_1"."amazon_security_lake_table_us_east_1_vpc_flow_2_0"
-WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP
+WHERE time_dt BETWEEN CURRENT_TIMESTAMP - INTERVAL '7' DAY AND CURRENT_TIMESTAMP 
 AND action = 'Denied'
 LIMIT 25
 ```
