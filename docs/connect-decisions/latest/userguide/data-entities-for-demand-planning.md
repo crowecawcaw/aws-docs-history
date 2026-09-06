@@ -13,7 +13,7 @@ The following table lists the data entities and columns used by Demand Planning.
 
 **How is this data entity used?** Demand Planning uses this data as the primary source of historical demand for forecast. Additionally, fields selected as granularity are sent for training and are available as filters to review the demand plan.
 
-outbound\_order\_line columns| Column | Requirement | Forecasting usage |
+outbound\_order\_line columns| Column | Is the column required? | How is this column used in Forecasting? |
 | --- | --- | --- |
 | id | Required | _id_, _cust\_order\_id_, and *product\_id<br>• are used to uniquely identify a record in the data entity and this combination should always be unique. Make sure the column values do not have invalid characters such as asterisk and double-quotes. |
 | cust\_order\_id | Required |
@@ -35,7 +35,7 @@ outbound\_order\_line columns| Column | Requirement | Forecasting usage |
 
 Demand Planning uses the product attributes to establish hierarchy filters for demand plan review and for model training.
 
-product columns| Column | Requirement | Forecasting usage |
+product columns| Column | Is the column required? | How is this column used in Forecasting? |
 | --- | --- | --- |
 | id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Make sure the column values do not have duplicate IDs and special characters such as asterix and double-quotes. |
 | description | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). This column can contain special characters such as asterix, hyphen, quotes, and double-quotes. |
@@ -61,7 +61,7 @@ product columns| Column | Requirement | Forecasting usage |
 
 Demand Planning uses the data of product's predecessor(s) or alternate(s) to create forecast for new products. When data is ingested into the _product\_alternate_ data entity, Product lineage support for forecast is enabled. You can skip ingesting data into the _product\_alternate_ data entity and the forecast can still be generated.
 
-product\_alternate columns| Column | Requirement | Forecasting usage |
+product\_alternate columns| Column | Is the column required? | How is this column used in Forecasting? |
 | --- | --- | --- |
 | alternative\_product\_id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Unique record identifier. |
 | product\_id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). ID of the new product or new version of the product. Make sure *product\_id<br>• is populated in the *product<br>• data entity. |
@@ -77,7 +77,7 @@ product\_alternate columns| Column | Requirement | Forecasting usage |
 
 **How is this data entity used?** Demand Planning uses this data as the primary source for tagging casual factors such as promotional events, discounts, holidays, and so on.
 
-supplementary\_time\_series columns| Column | Requirement | Forecasting usage |
+supplementary\_time\_series columns| Column | Is the column required? | How is this column used in Forecasting? |
 | --- | --- | --- |
 | id | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Unique record identifier. |
 | order\_date | Required | Required for data ingestion into Supply Chain Data Lake (SCDL). Timestamp when the timeseries was recorded. |
@@ -129,10 +129,10 @@ Known covariates are supplementary time series values that are known or can be d
 
 ```
 id,order_date,time_series_name,time_series_value,product_id,site_id,channel_id,customer_tpartner_id
-1001,2025-02-01,discount_percentage,20.0,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
-1002,2025-02-14,discount_percentage,30.0,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
-1003,2025-02-01,holiday_indicator,0,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
-1004,2025-02-14,holiday_indicator,1,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
+        1001,2025-02-01,discount_percentage,20.0,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
+        1002,2025-02-14,discount_percentage,30.0,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
+        1003,2025-02-01,holiday_indicator,0,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
+        1004,2025-02-14,holiday_indicator,1,PROD_001,SITE_NYC,CHANNEL_ONLINE,CUST_12345
 ```
 
 This future data tells the model that a 20% discount is planned for February 1st and a 30% Valentine's Day promotion is scheduled for February 14th.
