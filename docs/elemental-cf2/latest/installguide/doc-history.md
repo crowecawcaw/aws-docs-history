@@ -1,15 +1,16 @@
-This is version 2.18 of the AWS Elemental Conductor File documentation. This is the
-latest version. For prior versions, see the _Archive_ section of
-[AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
+
+
+This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Document History for Installation Guide
+<a name="doc-history"></a>
 
 The following table describes the documentation for this release of AWS Elemental Conductor File.
++ **API version:** 2.18
++ **Release notes: **[AWS Elemental Conductor File Release Notes](https://docs.aws.amazon.com/elemental-onprem/latest/pdf/DOC-4369.pdf)
 
-- **API version:** 2.18
-- **Release notes:** [AWS Elemental Conductor File Release Notes](../../../elemental-onprem/latest/pdf/DOC-4369.pdf.md "../../../elemental-onprem/latest/pdf/DOC-4369.pdf.md")
-  The following table describes the documentation for this release of AWS Elemental Conductor File. For notification about updates to this documentation, you can subscribe to an RSS feed.
+The following table describes the documentation for this release of AWS Elemental Conductor File. For notification about updates to this documentation, you can subscribe to an RSS feed.
 
-| Change                                                  | Description                                         | Date         |
-| ------------------------------------------------------- | --------------------------------------------------- | ------------ |
-| [Version 2.18 release](about-cf-ig.md "about-cf-ig.md") | Minor changes to support the 2.18 software release. | June 7, 2024 |
+| Change | Description | Date | 
+| --- |--- |--- |
+| [Version 2.18 release](about-cf-ig.md) | Minor changes to support the 2.18 software release. | June 7, 2024 | 

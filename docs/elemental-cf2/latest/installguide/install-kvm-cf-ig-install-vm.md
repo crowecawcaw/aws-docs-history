@@ -1,42 +1,29 @@
-This is version 2.18 of the AWS Elemental Conductor File documentation. This is the
-latest version. For prior versions, see the _Archive_ section of
-[AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
+
+
+This is version 2.18 of the AWS Elemental Conductor File documentation. This is the latest version. For prior versions, see the *Archive* section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](https://docs.aws.amazon.com/elemental-server).
 
 # Step B: Deploy the KVM
+<a name="install-kvm-cf-ig-install-vm"></a>
 
 Perform these steps from your workstation.
 
 1. Place the OVA file in a convenient location accessible to the VM host.
-2. Start the Virtual Machine Manager client and choose **File**
 
-> **Create New Virtual Machine**.
+1. Start the Virtual Machine Manager client and choose **File** > **Create New Virtual Machine**. 
 
-3. In the **New VM** dialog, choose **Import existing
-   disk image** and select **Forward**.
-4. Complete the fields as described in the following table and then select
-   **Forward**.
+1. In the **New VM** dialog, choose **Import existing disk image** and select **Forward**.
 
-| Screen and Field                         | Action                                                      |
-| ---------------------------------------- | ----------------------------------------------------------- |
-| **Provide the existing storage<br>path** | Select the location where the OVA image file is<br>located. |
-| **OS type**                              | Select **Linux**.                                           |
-| **Version**                              | Select **CentOS 6.5**.                                      |
+1. Complete the fields as described in the following table and then select **Forward**.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/install-kvm-cf-ig-install-vm.html)
 
-5. Complete the memory and CPU fields as described in the following table and
-   then select **Forward**.
+1. Complete the memory and CPU fields as described in the following table and then select **Forward**.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/install-kvm-cf-ig-install-vm.html)
 
-| Screen and Field | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Memory (RAM)** | Choose a minimum of 15259 MiB (16GB). If your physical system<br>has additional RAM available, choose more for improved performance.NoteIf you oversubscribe your memory for your virtual<br>machine and there isn't enough for the host, then<br>you might see performance degradation in the<br>AWS Elemental Conductor File software.                                                                                                               |
-| **CPUs**         | Choose **24**.ImportantEnsure that the number of cores you select matches<br>your AWS Elemental licensing. To check the cores available with<br>your license, see the **Activations**<br>information at [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations"). |
+1. Complete the installation fields as described in the following table and choose **Finish**.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/install-kvm-cf-ig-install-vm.html)
 
-6. Complete the installation fields as described in the following table and
-   choose **Finish**.
+   The OVA is installed and the VM is created.
 
-| Screen and Field      | Action                                                                                                                |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **Name**              | Type a descriptive name for the VM. This will be the hostname<br>that you use to access AWS Elemental Conductor File. |
-| **Network selection** | Use this section to configure your system according to your<br>network setup.                                         |
+1. Before proceeding, take a snapshot of the VM, as described in the CentOS 7 online help.
 
-The OVA is installed and the VM is created. 7. Before proceeding, take a snapshot of the VM, as described in the CentOS 7
-online help. 8. Repeat these steps to install the OVA on all of the VM instances.
+1. Repeat these steps to install the OVA on all of the VM instances.
