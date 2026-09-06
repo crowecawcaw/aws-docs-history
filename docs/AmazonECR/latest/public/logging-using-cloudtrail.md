@@ -1,98 +1,58 @@
+
+
 # Logging Amazon ECR Public actions with AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Amazon ECR Public is integrated with AWS CloudTrail, a service that provides a record of actions
-taken by a user, a role, or an AWS service in Amazon ECR Public. When activity occurs in Amazon ECR
-Public, that activity is recorded in a CloudTrail event along with other AWS service events in
-**Event history**. You can view, search, and download recent events in
-your AWS account. Because Amazon ECR Public is a global service, events for the service are
-logged in **US East (N. Virginia)**.
+Amazon ECR Public is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, a role, or an AWS service in Amazon ECR Public. When activity occurs in Amazon ECR Public, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. Because Amazon ECR Public is a global service, events for the service are logged in **US East (N. Virginia)**.
 
-When a trail is created, you can enable continuous delivery of CloudTrail events to an Amazon S3
-bucket, including events for Amazon ECR Public. If you don't configure a trail, you can still
-view the most recent events in the CloudTrail console in **Event history**. Using
-this information, you can determine the request that was made to Amazon ECR Public, the
-originating IP address, who made the request, when it was made, and additional details.
+When a trail is created, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon ECR Public. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using this information, you can determine the request that was made to Amazon ECR Public, the originating IP address, who made the request, when it was made, and additional details. 
 
-For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+For more information, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Amazon ECR Public information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity
-occurs in Amazon ECR Public, that activity is recorded in a CloudTrail event along with other AWS
-service events in **Event history**. You can view, search, and download
-recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event
-History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Amazon ECR Public, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for Amazon ECR
-Public, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket.
-When you create a trail in the console, you can apply the trail to a single Region or to
-all Regions. The trail logs events in the AWS partition and delivers the log files to
-the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services
-to analyze and act upon the event data collected in CloudTrail logs. For more information,
-see:
+For an ongoing record of events in your AWS account, including events for Amazon ECR Public, create a trail. A trail enables CloudTrail to deliver log files to an Amazon S3 bucket. When you create a trail in the console, you can apply the trail to a single Region or to all Regions. The trail logs events in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to analyze and act upon the event data collected in CloudTrail logs. For more information, see: 
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [AWS service integrations with CloudTrail logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Creating a
-  trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS service integrations with CloudTrail logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Amazon ECR Public API actions are logged by CloudTrail and are documented in the [Amazon ECR Public API Reference](https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/Welcome.html). When you perform common tasks, sections are generated in the CloudTrail log files for each API action that is part of that task. For example, when you create a repository, `GetAuthorizationToken` and `CreateRepository` sections are generated in the CloudTrail log files. When you push an image to a repository, `InitiateLayerUpload`, `UploadLayerPart`, `CompleteLayerUpload`, and `PutImage` sections are generated. For examples of these common tasks, see [CloudTrail log entry examples](#cloudtrail-examples).
 
-All Amazon ECR Public API actions are logged by CloudTrail and are documented in the [Amazon ECR
-Public API Reference](../../../AmazonECRPublic/latest/APIReference/Welcome.md "../../../AmazonECRPublic/latest/APIReference/Welcome.md"). When you perform common tasks, sections are generated
-in the CloudTrail log files for each API action that is part of that task. For example, when
-you create a repository, `GetAuthorizationToken` and
-`CreateRepository` sections are generated in the CloudTrail log files. When you
-push an image to a repository, `InitiateLayerUpload`,
-`UploadLayerPart`, `CompleteLayerUpload`, and
-`PutImage` sections are generated. For examples of these common tasks,
-see [CloudTrail log entry examples](#cloudtrail-examples "#cloudtrail-examples").
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or IAM user credentials
++ Whether the request was made with temporary security credentials for a role or federated user
++ Whether the request was made by another AWS service
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or IAM user credentials
-- Whether the request was made with temporary security credentials for a role or
-  federated user
-- Whether the request was made by another AWS service
-
-For more information, see the [CloudTrail
-`userIdentity` element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail `userIdentity` element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding Amazon ECR Public log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and other information. CloudTrail
-log files are not an ordered stack trace of the public API calls, so they do not appear
-in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and other information. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order. 
 
-###### Important
-
-Because Amazon ECR Public is a global service, events for the service are logged in
-**US East (N. Virginia)**.
+**Important**  
+Because Amazon ECR Public is a global service, events for the service are logged in **US East (N. Virginia)**.
 
 ### CloudTrail log entry examples
+<a name="cloudtrail-examples"></a>
 
 The following are CloudTrail log entry examples for a few common Amazon ECR tasks.
 
-###### Note
+**Note**  
+These examples have been formatted for improved readability. In a CloudTrail log file, all entries and events are concatenated into a single line. In addition, this example has been limited to a single Amazon ECR Public entry. In a real CloudTrail log file, you see entries and events from multiple AWS services.
 
-These examples have been formatted for improved readability. In a CloudTrail log
-file, all entries and events are concatenated into a single line. In addition,
-this example has been limited to a single Amazon ECR Public entry. In a real CloudTrail log
-file, you see entries and events from multiple AWS services.
-
-###### Topics
-
-- [Example: Create repository action](#cloudtrail-examples-create-repository "#cloudtrail-examples-create-repository")
-- [Example: Image push action](#cloudtrail-examples-push-image "#cloudtrail-examples-push-image")
+**Topics**
++ [Example: Create repository action](#cloudtrail-examples-create-repository)
++ [Example: Image push action](#cloudtrail-examples-push-image)
 
 #### Example: Create repository action
+<a name="cloudtrail-examples-create-repository"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateRepository` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateRepository` action.
 
 ```
 {
@@ -141,15 +101,12 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 #### Example: Image push action
+<a name="cloudtrail-examples-push-image"></a>
 
-The following example shows a CloudTrail log entry that demonstrates an image push
-which uses the `PutImage` action.
+The following example shows a CloudTrail log entry that demonstrates an image push which uses the `PutImage` action.
 
-###### Note
-
-When pushing an image, you will also see `InitiateLayerUpload`,
-`UploadLayerPart`, and `CompleteLayerUpload`
-references in the CloudTrail logs.
+**Note**  
+When pushing an image, you will also see `InitiateLayerUpload`, `UploadLayerPart`, and `CompleteLayerUpload` references in the CloudTrail logs.
 
 ```
 {
