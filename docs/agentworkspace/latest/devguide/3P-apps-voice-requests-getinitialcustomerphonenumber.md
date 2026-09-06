@@ -1,31 +1,31 @@
+
+
 # Gets the phone number of the initial customer connection in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-getinitialcustomerphonenumber"></a>
 
-Gets the phone number of the initial customer connection. Applicable only for
-voice contacts.
+ Gets the phone number of the initial customer connection. Applicable only for voice contacts. 
 
-**Signature**
+ **Signature** 
 
 ```
 getInitialCustomerPhoneNumber(contactId: string): Promise<string>
-
 ```
 
-**Usage**
+ **Usage** 
 
 ```
-const initialCustomerPhoneNumber: string = await voiceClient.getInitialCustomerPhoneNumber(contactId);
-
+const initialCustomerPhoneNumber: string = await voiceClient.getInitialCustomerPhoneNumber(contactId);        
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**        | **Type** | **Description**                                        |
-| -------------------- | -------- | ------------------------------------------------------ |
-| contactId _Required_ | string   | The id of the contact for which the data is requested. |
 
-**Permissions required:**
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+|  contactId Required  |  string  |  The id of the contact for which the data is requested.  | 
+
+ **Permissions required:** 
 
 ```
-Contact.CustomerDetails.View
-
+Contact.CustomerDetails.View      
 ```

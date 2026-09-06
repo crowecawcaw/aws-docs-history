@@ -1,24 +1,23 @@
+
+
 # Creating a third-party service
+<a name="building-3P-services-creating"></a>
 
 ## Third-party service setup
+<a name="building-3P-services-setup"></a>
 
-Following the instructions here to properly integrate your service with the
-agent workspace. First, install the app package:
+Following the instructions here to properly integrate your service with the agent workspace. First, install the app package:
 
 ```
-
 % npm install --save @amazon-connect/app
 ```
 
-###### Note
-
-If you do not use NPM, refer to [Using
-Amazon Connect SDK without pacakage manager](sdk-without-package-manager.md "sdk-without-package-manager.md")
+**Note**  
+ If you do not use NPM, refer to [Using Amazon Connect SDK without pacakage manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
 
 Then, add the following initialization code to your app:
 
 ```
-
 import { AmazonConnectService } from "@amazon-connect/app";
 
 const { provider } = AmazonConnectService.init({
@@ -31,21 +30,19 @@ const { provider } = AmazonConnectService.init({
 
 When building a third-party service:
 
-1. Use AmazonConnectService from @amazon-connect/app to initialize your
-   service
-2. Complete all initialization within the timeout period (30 seconds)
+1. Use AmazonConnectService from @amazon-connect/app to initialize your service
 
-   1. This is a separate timeout from the initializationTimeout
-      configured for the service
-   2. initializationTimeout is the time the agent workspace will wait for a
-      service to successfully connect, before onCreate is triggered
+1. Complete all initialization within the timeout period (30 seconds)
 
-3. Handle initialization failures to prevent agent workspace loading issues
+   1. This is a separate timeout from the initializationTimeout configured for the service
+
+   1. initializationTimeout is the time the agent workspace will wait for a service to successfully connect, before onCreate is triggered
+
+1. Handle initialization failures to prevent agent workspace loading issues
 
 Here is an example of proper initialization with timeout handling:
 
 ```
-
 import { AmazonConnectService } from "@amazon-connect/app";
 
 export function initService() {
@@ -58,12 +55,12 @@ export function initService() {
       // - Load configurations
       // - etc.
       let timeoutId: NodeJS.Timeout;
-
+      
       const INIT_TIMEOUT = 25000; // 25 seconds
       const { context } = event;
       const { instanceId } = event.context;
       const provider = context.getProvider();
-
+      
       const cleanup = () => {
         if (timeoutId) {
           clearTimeout(timeoutId);
@@ -85,7 +82,7 @@ export function initService() {
           executeServiceCode(),
           timeoutPromise
         ]);
-
+        
         console.log('Service creation complete: ', instanceId);
 
       } catch (error) {
@@ -108,25 +105,12 @@ initService();
 ```
 
 ## AWS console setup
+<a name="building-3P-services-aws-console-setup"></a>
 
-Create a new third-party service by creating a third-party application with the
-following settings either via APIs or in the AWS Console:
+Create a new third-party service by creating a third-party application with the following settings either via APIs or in the AWS Console:
++ `isService` set to true
+  + An app that is configured as a service will be started when the agent workspace is loaded and will run hidden for the lifetime of the agent workspace. An application that runs as a service in the agent workspace must be integrated with the app Amazon Connect SDK package. If the service fails to start before the InitializationTimeout, then an error will be sent to agent workspace causing the agent workspace to fail
++ Set a `InitializationTimeout` in milliseconds up to 10000 (10 seconds)
+  + The InitializationTimeout parameter controls the maximum time allowed for the initial handshake/connection between the service and the agent workspace. This is required to be set for applications configured with isService to true.
 
-- `isService` set to true
-
-  - An app that is configured as a service will be started when the
-    agent workspace is loaded and will run hidden for the lifetime of
-    the agent workspace. An application that runs as a service in the
-    agent workspace must be integrated with the app Amazon Connect SDK package. If the
-    service fails to start before the InitializationTimeout, then an
-    error will be sent to agent workspace causing the agent workspace to fail
-
-- Set a `InitializationTimeout` in milliseconds up to 10000 (10
-  seconds)
-
-  - The InitializationTimeout parameter controls the maximum time
-    allowed for the initial handshake/connection between the service and
-    the agent workspace. This is required to be set for applications
-    configured with isService to true.
-
-![Screenshot of the AWS console that shows third-party application service selected.](images/building-3p-services-aws-console-setup-1.png)
+![Screenshot of the AWS console that shows third-party application service selected.](http://docs.aws.amazon.com/agentworkspace/latest/devguide/images/building-3p-services-aws-console-setup-1.png)

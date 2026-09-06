@@ -1,15 +1,17 @@
+
+
 # Check if the current user can be resumed from hold in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-canresumeself"></a>
 
-Checks whether the current user's participant can be resumed from hold for a specific
-contact.
+Checks whether the current user's participant can be resumed from hold for a specific contact.
 
-**Signature**
+ **Signature** 
 
 ```
 canResumeSelf(contactId: string): Promise<boolean>
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const canResume = await voiceClient.canResumeSelf("contact-123");
@@ -18,13 +20,13 @@ if (canResume) {
 }
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**        | **Type** | **Description**                       |
-| -------------------- | -------- | ------------------------------------- |
-| contactId _Required_ | string   | The unique identifier for the contact |
 
-**Output**
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| contactId Required | string | The unique identifier for the contact | 
 
-Returns a Promise that resolves to a boolean: true if the current user can be resumed,
-false otherwise
+ **Output** 
+
+Returns a Promise that resolves to a boolean: true if the current user can be resumed, false otherwise

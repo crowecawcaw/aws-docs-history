@@ -1,15 +1,17 @@
+
+
 # Unsubscribe from voice enhancement mode change events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-offvoiceenhancementmodechanged"></a>
 
-Unsubscribes a callback function registered for voice enhancements mode changed
-event.
+Unsubscribes a callback function registered for voice enhancements mode changed event.
 
-**Signature**
+ **Signature** 
 
 ```
 offVoiceEnhancementModeChanged(handler: VoiceEnhancementModeChangedHandler)
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const handler: VoiceEnhancementModeChangedHandler = async (data: VoiceEnhancementModeChanged) => {
@@ -23,7 +25,7 @@ voiceClient.onVoiceEnhancementModeChanged(handler);
 voiceClient.offVoiceEnhancementModeChanged(handler);
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
 *

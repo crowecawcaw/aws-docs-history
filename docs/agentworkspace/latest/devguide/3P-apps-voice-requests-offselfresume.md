@@ -1,8 +1,11 @@
+
+
 # Unsubscribe from self resume events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-offselfresume"></a>
 
 Unsubscribes from self resume events.
 
-**Signature**
+ **Signature** 
 
 ```
 offSelfResume(
@@ -11,15 +14,16 @@ offSelfResume(
 ): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 voiceClient.offSelfResume(handleSelfResume);
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**                 | **Description**                                                 |
-| ------------------ | ------------------------ | --------------------------------------------------------------- |
-| handler _Required_ | ParticipantResumeHandler | Event handler function to remove                                |
-| contactId          | string                   | Optional contact ID to unsubscribe from specific contact events |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | ParticipantResumeHandler | Event handler function to remove | 
+| contactId | string | Optional contact ID to unsubscribe from specific contact events | 

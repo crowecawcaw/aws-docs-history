@@ -1,8 +1,11 @@
+
+
 # Unsubscribe from participant resume events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-offparticipantresume"></a>
 
 Unsubscribes from participant resume events.
 
-**Signature**
+ **Signature** 
 
 ```
 offParticipantResume(
@@ -11,15 +14,16 @@ offParticipantResume(
 ): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 voiceClient.offParticipantResume(handleParticipantResume);
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**                 | **Description**                                                            |
-| ------------------ | ------------------------ | -------------------------------------------------------------------------- |
-| handler _Required_ | ParticipantResumeHandler | Event handler function to remove                                           |
-| participantId      | string                   | Optional participant ID to unsubscribe from specific participant<br>events |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | ParticipantResumeHandler | Event handler function to remove | 
+| participantId | string | Optional participant ID to unsubscribe from specific participant events | 

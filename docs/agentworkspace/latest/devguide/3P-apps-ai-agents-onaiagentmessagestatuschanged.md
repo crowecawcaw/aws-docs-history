@@ -1,16 +1,17 @@
+
+
 # Subscribe to AI Agent message status changes in Connect Customer agent workspace
+<a name="3P-apps-ai-agents-onaiagentmessagestatuschanged"></a>
 
-Subscribes to status lifecycle transitions for AI Agent messages. Use this to track
-whether messages have been received, succeeded, were blocked by guardrails, or
-failed.
+Subscribes to status lifecycle transitions for AI Agent messages. Use this to track whether messages have been received, succeeded, were blocked by guardrails, or failed.
 
-**Signature**
+ **Signature** 
 
 ```
 onAIAgentMessageStatusChanged(handler: AIAgentMessageStatusHandler, contactId?: string): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const handler: AIAgentMessageStatusHandler = (data: AIAgentMessageStatusEvent) => {
@@ -28,7 +29,7 @@ aiAgentsClient.onAIAgentMessageStatusChanged(handler, contactId);
 }
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
 *

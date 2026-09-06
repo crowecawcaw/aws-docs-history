@@ -1,55 +1,51 @@
+
+
 # Start uploading a file to Connect Customer agent workspace
+<a name="3P-apps-file-requests-startattachedfileupload"></a>
 
-Provides a pre-signed Amazon S3 URL in response to upload a new attached
-file.
+Provides a pre-signed Amazon S3 URL in response to upload a new attached file.
 
-**Signature**
+ **Signature** 
 
 ```
 startAttachedFileUpload(data: NewAttachment): Promise<UploadableAttachment>
 ```
 
-**UploadableAttachment Properties**
+ **UploadableAttachment Properties** 
 
-| **Parameter**         | **Type**               | **Description**                                                                                                                |
-| --------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| associatedResourceArn | string                 | Amazon Connect ARN of the resource that the file is attached to.<br>Could be a Connect Email Contact ARN or a Connect Case ARN |
-| fileId                | string                 | ID in Connect's File record                                                                                                    |
-| uploadUrl             | string                 | A pre-signed S3 URL that should be used for uploading the<br>attached file.                                                    |
-| uploadHeaders         | Record<string, string> | A map of headers that should be provided in the request when<br>uploading the attached file.                                   |
-| uploadMethod          | "PUT"                  | The upload request must be a PUT.                                                                                              |
-| fileStatus            | FileStatus             | The current status of the attached file. Supported values:<br>"APPROVED", "REJECTED", "PROCESSING", "FAILED"                   |
 
-**NewAttachment Properties**
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| associatedResourceArn | string | Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
+| fileId | string | ID in Connect's File record | 
+| uploadUrl | string | A pre-signed S3 URL that should be used for uploading the attached file. | 
+| uploadHeaders | Record<string, string> | A map of headers that should be provided in the request when uploading the attached file. | 
+| uploadMethod | "PUT" | The upload request must be a PUT. | 
+| fileStatus | FileStatus | The current status of the attached file. Supported values: "APPROVED", "REJECTED", "PROCESSING", "FAILED" | 
 
-| **Parameter**         | **Type**     | **Description**                                                                                                                           |
-| --------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| associatedResourceArn | string       | Amazon Connect ARN of the resource that the file is attached to.<br>This could be a Connect Email Contact ARN or a Connect Case<br>ARN    |
-| fileName              | string       | A case-sensitive name of the attached file being uploaded.<br>Minimum length of 1; Maximum length of 256. Supported pattern:<br>^\P{C}\*$ |
-| fileSizeInBytes       | number       | The size of the attached file in bytes. Minimum value of<br>1.                                                                            |
-| fileUseCaseType       | "ATTACHMENT" | The use case for the file. Must be "ATTACHMENT"                                                                                           |
+ **NewAttachment Properties** 
 
-**Error Handling**
 
-When beginning the process to upload attached files, agents may encounter issues.
-The @amazon-connect/file library provides methods to handle common errors:
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| associatedResourceArn | string | Amazon Connect ARN of the resource that the file is attached to. This could be a Connect Email Contact ARN or a Connect Case ARN | 
+| fileName | string | A case-sensitive name of the attached file being uploaded. Minimum length of 1; Maximum length of 256. Supported pattern: ^\\P{C}\*$ | 
+| fileSizeInBytes | number | The size of the attached file in bytes. Minimum value of 1. | 
+| fileUseCaseType | "ATTACHMENT" | The use case for the file. Must be "ATTACHMENT" | 
 
-- `isInvalidFileNameError()`: Handle errors when the name of the file
-  is not valid
-- `isInvalidFileTypeError()`: Handle errors when the file type is not
-  supported
-- `isInvalidFileSizeError()`: Handle errors when the size of the file
-  is invalid
-- `isTotalFileSizeExceededError()`: Handle errors when the total size
-  of all files (being uploaded) exceeds the limit.
-- `isTotalFileCountExceededError()`: Handle errors when the total
-  number of files (being uploaded) exceeds the limit.
+ **Error Handling** 
 
-**Usage**
+When beginning the process to upload attached files, agents may encounter issues. The @amazon-connect/file library provides methods to handle common errors:
++ `isInvalidFileNameError()`: Handle errors when the name of the file is not valid
++ `isInvalidFileTypeError()`: Handle errors when the file type is not supported
++ `isInvalidFileSizeError()`: Handle errors when the size of the file is invalid
++ `isTotalFileSizeExceededError()`: Handle errors when the total size of all files (being uploaded) exceeds the limit.
++ `isTotalFileCountExceededError()`: Handle errors when the total number of files (being uploaded) exceeds the limit.
+
+ **Usage** 
 
 ```
-
-import {
+import { 
     isInvalidFileNameError,
     isInvalidFileTypeError,
     isInvalidFileSizeError,

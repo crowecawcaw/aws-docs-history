@@ -1,33 +1,33 @@
+
+
 # Sets the agent state to Offline in Connect Customer agent workspace
+<a name="3P-apps-agent-requests-setoffline"></a>
 
-Sets the agent state to Offline. The promise resolves after the agent state is
-set in the backend.
+ Sets the agent state to Offline. The promise resolves after the agent state is set in the backend.
 
-**Signature**
+ **Signature** 
 
 ```
   setOffline(): Promise<SetAvailabilityStateResult>
-
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const availabilityStateResult: SetAvailabilityStateResult = await agentClient.setOffline();
-
 ```
 
-**Output - SetAvailabilityStateResult**
+ **Output - SetAvailabilityStateResult** 
 
-| **Parameter** | **Type**   | **Description**                                                                                                |
-| ------------- | ---------- | -------------------------------------------------------------------------------------------------------------- |
-| status        | string     | The status will be `updated` or `queued`<br>depending on if the agent is currently handling an active contact. |
-| current       | AgentState | Represents the current state of the agent.                                                                     |
-| next          | AgentState | It'll be the target state if the agent is handling active contact.<br>Applicable when the status is `queued`.  |
 
-**Permissions required:**
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+|  status  |  string  |  The status will be updated or queued depending on if the agent is currently handling an active contact. | 
+|  current  |  AgentState  |  Represents the current state of the agent.  | 
+|  next  |  AgentState  |  It'll be the target state if the agent is handling active contact. Applicable when the status is queued. | 
+
+ **Permissions required:** 
 
 ```
-User.Configuration.Edit
-
+User.Configuration.Edit              
 ```

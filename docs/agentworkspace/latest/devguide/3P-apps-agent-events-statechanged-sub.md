@@ -1,24 +1,22 @@
+
+
 # Subscribe a callback function when an Connect Customer agent workspace agent state changes - Deprecated
+<a name="3P-apps-agent-events-statechanged-sub"></a>
 
-###### Note
+**Note**  
+This API is deprecated, use [onAvailabilityStateChanged()](3P-apps-agent-events-availabilitystatechanged-sub.md) instead.
 
-This API is deprecated, use [onAvailabilityStateChanged()](3P-apps-agent-events-availabilitystatechanged-sub.md "3P-apps-agent-events-availabilitystatechanged-sub.md") instead.
+Subscribes a callback function to-be-invoked whenever an agent state changed event occurs in the Connect Customer agent workspace.
 
-Subscribes a callback function to-be-invoked whenever an agent state changed event
-occurs in the Connect Customer agent workspace.
-
-**Signature**
+ **Signature** 
 
 ```
-
 onStateChanged(handler: AgentStateChangedHandler)
-
 ```
 
-**Usage**
+ **Usage** 
 
 ```
-
 const handler: AgentStateChangedHandler = async (data: AgentStateChangedEventData) => {
     console.log("Agent state change occurred! " + data);
 };
@@ -32,13 +30,10 @@ agentClient.onStateChanged(handler);
     state: string;
   };
 }
-
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
-
-User.Status.View
-
+User.Status.View                
 ```

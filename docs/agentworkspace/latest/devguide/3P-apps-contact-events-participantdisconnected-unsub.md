@@ -1,26 +1,26 @@
+
+
 # Unsubscribe from participant disconnected events in Connect Customer agent workspace
+<a name="3P-apps-contact-events-participantdisconnected-unsub"></a>
 
 Unsubscribes from participant disconnected events.
 
-**Signature**
+ **Signature** 
 
 ```
-
 offParticipantDisconnected(handler: ParticipantDisconnectedHandler, contactId?: string): void
-
 ```
 
-**Usage**
+ **Usage** 
 
 ```
-
 contactClient.offParticipantDisconnected(handleParticipantDisconnected);
-
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**                       | **Description**                                                 |
-| ------------------ | ------------------------------ | --------------------------------------------------------------- |
-| handler _Required_ | ParticipantDisconnectedHandler | Event handler function to remove                                |
-| contactId          | string                         | Optional contact ID to unsubscribe from specific contact events |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | ParticipantDisconnectedHandler | Event handler function to remove | 
+| contactId | string | Optional contact ID to unsubscribe from specific contact events | 

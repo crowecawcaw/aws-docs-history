@@ -1,31 +1,31 @@
+
+
 # Close an application in Connect Customer agent workspace
+<a name="api-reference-3P-apps-app-controller-closeapp"></a>
 
-Closes the application for the given application instance ID in the Connect Customer
-agent workspace.
+Closes the application for the given application instance ID in the Connect Customer agent workspace.
 
-**Signature**
+ **Signature** 
 
 ```
-
 closeApp(instanceId: string): Promise<void>
 ```
 
-**Usage**
+ **Usage** 
 
 ```
-
 await appControllerClient.closeApp(appInstanceId);
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**            | **Type** | **Description**                    |
-| ------------------------ | -------- | ---------------------------------- |
-| appInstanceId _Required_ | string   | The instance ID of the application |
 
-**Permissions required:**
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| appInstanceId Required | string | The instance ID of the application | 
+
+ **Permissions required:** 
 
 ```
-
 *
 ```

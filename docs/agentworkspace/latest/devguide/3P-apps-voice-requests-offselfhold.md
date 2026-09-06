@@ -1,8 +1,11 @@
+
+
 # Unsubscribe from self hold events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-offselfhold"></a>
 
 Unsubscribes from self hold events.
 
-**Signature**
+ **Signature** 
 
 ```
 offSelfHold(
@@ -11,15 +14,16 @@ offSelfHold(
 ): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 voiceClient.offSelfHold(handleSelfHold);
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**               | **Description**                                                 |
-| ------------------ | ---------------------- | --------------------------------------------------------------- |
-| handler _Required_ | ParticipantHoldHandler | Event handler function to remove                                |
-| contactId          | string                 | Optional contact ID to unsubscribe from specific contact events |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | ParticipantHoldHandler | Event handler function to remove | 
+| contactId | string | Optional contact ID to unsubscribe from specific contact events | 

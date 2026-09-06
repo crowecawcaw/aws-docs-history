@@ -1,14 +1,17 @@
+
+
 # Get voice enhancement model paths in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-getvoiceenhancementpaths"></a>
 
 Returns the voice enhancements models static assets URL paths.
 
-**Signature**
+ **Signature** 
 
 ```
 async getVoiceEnhancementPaths(): Promise<VoiceEnhancementPaths>
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 voiceClient.getVoiceEnhancementPaths();
@@ -22,7 +25,7 @@ interface VoiceEnhancementPaths {
 }
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
 *

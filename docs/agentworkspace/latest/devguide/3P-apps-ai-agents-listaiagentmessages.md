@@ -1,15 +1,17 @@
+
+
 # List AI Agent messages for a contact
+<a name="3P-apps-ai-agents-listaiagentmessages"></a>
 
-Retrieves the AI Agent message history for a contact, ordered by sequence
-number.
+Retrieves the AI Agent message history for a contact, ordered by sequence number.
 
-**Signature**
+ **Signature** 
 
 ```
 listAIAgentMessages(params: ListAIAgentMessagesParams): Promise<ListAIAgentMessagesResult>
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const result = await aiAgentsClient.listAIAgentMessages({
@@ -30,7 +32,7 @@ console.log("Messages:", result.messages);
 }
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
 *

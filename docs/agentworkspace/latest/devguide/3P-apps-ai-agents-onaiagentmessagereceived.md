@@ -1,17 +1,17 @@
+
+
 # Subscribe to AI Agent message events in Connect Customer agent workspace
+<a name="3P-apps-ai-agents-onaiagentmessagereceived"></a>
 
-Subscribes to the unified AI Agents message stream. The handler fires for all message
-types including `USER_INPUT`, `RESPONSE_CHUNK`,
-`INTENT`, and `PREDEFINED`. Use the `contactId`
-parameter to scope the subscription to a specific contact.
+Subscribes to the unified AI Agents message stream. The handler fires for all message types including `USER_INPUT`, `RESPONSE_CHUNK`, `INTENT`, and `PREDEFINED`. Use the `contactId` parameter to scope the subscription to a specific contact.
 
-**Signature**
+ **Signature** 
 
 ```
 onAIAgentMessageReceived(handler: AIAgentMessageHandler, contactId?: string): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const handler: AIAgentMessageHandler = (data: AIAgentMessageEvent) => {
@@ -54,7 +54,7 @@ aiAgentsClient.onAIAgentMessageReceived(handler, contactId);
 }
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
 *

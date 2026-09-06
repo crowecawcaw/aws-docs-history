@@ -1,8 +1,11 @@
+
+
 # Subscribe to participant hold events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-onparticipanthold"></a>
 
 Subscribes to events when any participant is put on hold.
 
-**Signature**
+ **Signature** 
 
 ```
 onParticipantHold(
@@ -11,7 +14,7 @@ onParticipantHold(
 ): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const handleParticipantHold = (event) => {
@@ -24,9 +27,10 @@ voiceClient.onParticipantHold(handleParticipantHold);
 voiceClient.onParticipantHold(handleParticipantHold, "participant-456");
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**               | **Description**                                                     |
-| ------------------ | ---------------------- | ------------------------------------------------------------------- |
-| handler _Required_ | ParticipantHoldHandler | Event handler function to call when participants are put on hold    |
-| participantId      | string                 | Optional participant ID to filter events for a specific participant |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | ParticipantHoldHandler | Event handler function to call when participants are put on hold | 
+| participantId | string | Optional participant ID to filter events for a specific participant | 

@@ -1,30 +1,30 @@
+
+
 # Accept the incoming contact for the given contactId in Connect Customer agent workspace
+<a name="3P-apps-contact-requests-accept"></a>
 
 Accept the incoming contact for the given contactId.
 
-**Signature**
+ **Signature** 
 
 ```
-
-accept(contactId: string): Promise<void>
-
+accept(contactId: string): Promise<void>                
 ```
 
-**Usage**
+ **Usage** 
 
 ```
-
-await contactClient.accept(contactId);
-
+await contactClient.accept(contactId);   
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**        | **Type** | **Description**                                  |
-| -------------------- | -------- | ------------------------------------------------ |
-| contactId _Required_ | string   | The id of the contact that needs to be accepted. |
 
-**Permissions required:**
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+|  contactId Required  |  string  |  The id of the contact that needs to be accepted.  | 
+
+ **Permissions required:** 
 
 ```
 Contact.Details.Edit

@@ -1,9 +1,11 @@
+
+
 # Subscribe to self resume capability change events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-oncanresumeselfchanged"></a>
 
-Subscribes to events when the current user's capability to be resumed from hold
-changes.
+Subscribes to events when the current user's capability to be resumed from hold changes.
 
-**Signature**
+ **Signature** 
 
 ```
 onCanResumeSelfChanged(
@@ -12,7 +14,7 @@ onCanResumeSelfChanged(
 ): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const handleCanResumeSelfChanged = (event) => {
@@ -27,9 +29,10 @@ const handleCanResumeSelfChanged = (event) => {
 voiceClient.onCanResumeSelfChanged(handleCanResumeSelfChanged, "contact-123");
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**                           | **Description**                                             |
-| ------------------ | ---------------------------------- | ----------------------------------------------------------- |
-| handler _Required_ | CanResumeParticipantChangedHandler | Event handler function to call when the capability changes  |
-| contactId          | string                             | Optional contact ID to filter events for a specific contact |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | CanResumeParticipantChangedHandler | Event handler function to call when the capability changes | 
+| contactId | string | Optional contact ID to filter events for a specific contact | 

@@ -1,8 +1,11 @@
+
+
 # Subscribe to self hold events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-onselfhold"></a>
 
 Subscribes to events when the current user's participant is put on hold.
 
-**Signature**
+ **Signature** 
 
 ```
 onSelfHold(
@@ -11,7 +14,7 @@ onSelfHold(
 ): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const handleSelfHold = (event) => {
@@ -24,9 +27,10 @@ voiceClient.onSelfHold(handleSelfHold);
 voiceClient.onSelfHold(handleSelfHold, "contact-123");
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**               | **Description**                                                                      |
-| ------------------ | ---------------------- | ------------------------------------------------------------------------------------ |
-| handler _Required_ | ParticipantHoldHandler | Event handler function to call when the current user's participant is<br>put on hold |
-| contactId          | string                 | Optional contact ID to filter events for a specific contact                          |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | ParticipantHoldHandler | Event handler function to call when the current user's participant is put on hold | 
+| contactId | string | Optional contact ID to filter events for a specific contact | 

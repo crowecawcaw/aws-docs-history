@@ -1,15 +1,17 @@
+
+
 # Subscribe to session extension errors in Connect Customer agent workspace
+<a name="3P-apps-activity-onsessionextensionerror"></a>
 
-Subscribes a callback function to be invoked when an attempt to extend the agent's
-session fails.
+Subscribes a callback function to be invoked when an attempt to extend the agent's session fails.
 
-**Signature**
+ **Signature** 
 
 ```
 onSessionExtensionError(handler: SessionExtensionErrorHandler);
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const handler: SessionExtensionErrorHandler = (details: SessionExtensionErrorData) => {

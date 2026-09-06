@@ -1,21 +1,23 @@
+
+
 # Unsubscribe from AI Agent message events
+<a name="3P-apps-ai-agents-offaiagentmessagereceived"></a>
 
-Removes a previously registered `onAIAgentMessageReceived` handler
-subscription.
+Removes a previously registered `onAIAgentMessageReceived` handler subscription.
 
-**Signature**
+ **Signature** 
 
 ```
 offAIAgentMessageReceived(handler: AIAgentMessageHandler, contactId?: string): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 aiAgentsClient.offAIAgentMessageReceived(handler, contactId);
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
 *

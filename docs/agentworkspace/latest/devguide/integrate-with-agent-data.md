@@ -1,41 +1,32 @@
-# Integrate application with Connect Customer agent workspace agent data
 
-To integrate your application with agent data from the Connect Customer agent workspace,
-instantiate
-the agent client as follows:
+
+# Integrate application with Connect Customer agent workspace agent data
+<a name="integrate-with-agent-data"></a>
+
+To integrate your application with agent data from the Connect Customer agent workspace, instantiate the agent client as follows:
 
 ```
-
 import { AgentClient } from "@amazon-connect/contact";
 
 const agentClient = new AgentClient({ provider });
-
 ```
 
-###### Note
+**Note**  
+You must first instantiate the [ AmazonConnectApp](getting-started-initialize-sdk.md) which initializes the default AmazonConnectProvider and returns ` { provider } `. This is the recommended option.
 
-You must first instantiate the [AmazonConnectApp](getting-started-initialize-sdk.md "getting-started-initialize-sdk.md") which initializes the default AmazonConnectProvider and
-returns `{ provider }` . This is the recommended option.
+Alternatively, see the [API reference](api-reference-3P-apps-agent-client.md) to customize your client’s configuration.
 
-Alternatively, see the [API
-reference](api-reference-3P-apps-agent-client.md "api-reference-3P-apps-agent-client.md") to customize your client’s configuration.
-
-Once the agent client is instantiated, you can use it to subscribe to events and
-make requests.
+Once the agent client is instantiated, you can use it to subscribe to events and make requests.
 
 ## Example agent event
+<a name="integrate-agent-data-example-event"></a>
 
-The code sample below subscribes a callback to the state change event topic.
-Whenever the agent’s state is modified, the agent workspace will invoke your
-provided
-callback, passing in the event data payload for your function to operate on. In
-this example, it logs the event data to the console.
+The code sample below subscribes a callback to the state change event topic. Whenever the agent’s state is modified, the agent workspace will invoke your provided callback, passing in the event data payload for your function to operate on. In this example, it logs the event data to the console.
 
 ```
-
 import { AgentStateChanged } from "@amazon-connect/contact";
 
-// A simple callback that just console logs the state change event data
+// A simple callback that just console logs the state change event data 
 // returned by the workspace whenever the logged-in agent's state changes
 const handler = async (data: AgentStateChanged) => {
     console.log(data);
@@ -43,22 +34,17 @@ const handler = async (data: AgentStateChanged) => {
 
 // Subscribe to the state change topic using the above handler
 agentClient.onStateChanged(handler);
-
 ```
 
 ## Example agent request
+<a name="integrate-agent-data-example-request"></a>
 
-The following code sample submits a `getARN` request and then logs
-the returned data to the console.
+The following code sample submits a `getARN` request and then logs the returned data to the console.
 
 ```
-
 const arn = await agentClient.getARN();
 
 console.log(`Got the arn value: ${arn}`);
-
 ```
 
-The above agent event and request are non-exhaustive. For a full list of
-available agent events and requests, see the [API
-Reference](api-reference-3P-apps-events-and-requests.md "api-reference-3P-apps-events-and-requests.md").
+The above agent event and request are non-exhaustive. For a full list of available agent events and requests, see the [API Reference](api-reference-3P-apps-events-and-requests.md).

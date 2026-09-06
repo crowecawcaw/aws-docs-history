@@ -1,15 +1,17 @@
+
+
 # Send a message to the AI Agent
+<a name="3P-apps-ai-agents-sendaiagentmessage"></a>
 
-Sends a message to the AI Agent. Returns a handle containing the assigned
-`inputId` for correlating responses.
+Sends a message to the AI Agent. Returns a handle containing the assigned `inputId` for correlating responses.
 
-**Signature**
+ **Signature** 
 
 ```
 sendAIAgentMessage(params: SendAIAgentMessageParams): Promise<SendAIAgentMessageResult>
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const handle = await aiAgentsClient.sendAIAgentMessage({
@@ -38,20 +40,13 @@ console.log("Request ID:", handle.inputId);
 }
 ```
 
-###### Note
+**Note**  
+Responses to a sent message are delivered via the `onAIAgentMessageReceived` event. Use the `inputId` returned in the result to correlate incoming messages with the original request.
 
-Responses to a sent message are delivered via the `onAIAgentMessageReceived`
-event. Use the `inputId` returned in the result to correlate incoming
-messages with the original request.
+**Note**  
+The `text` field has a maximum length of 512 characters. The `metadata` object supports a maximum of 50 entries, with keys up to 4,096 characters and values up to 4,096 characters. Identifier fields such as `contactId` have a maximum length of 256 characters.
 
-###### Note
-
-The `text` field has a maximum length of 512 characters. The
-`metadata` object supports a maximum of 50 entries, with keys up to
-4,096 characters and values up to 4,096 characters. Identifier fields such as
-`contactId` have a maximum length of 256 characters.
-
-**Permissions required:**
+ **Permissions required:** 
 
 ```
 *

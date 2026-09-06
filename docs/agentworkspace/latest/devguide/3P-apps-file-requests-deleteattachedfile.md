@@ -1,24 +1,21 @@
+
+
 # Delete an attached file in Connect Customer agent workspace
+<a name="3P-apps-file-requests-deleteattachedfile"></a>
 
-Deletes an attached file along with the underlying S3 Object. The attached file is
-permanently deleted if S3 bucket versioning is not enabled. The request accepts an
-Attachment object, which has the following properties:
+Deletes an attached file along with the underlying S3 Object. The attached file is permanently deleted if S3 bucket versioning is not enabled. The request accepts an Attachment object, which has the following properties:
++ `associatedResourceArn: string`: Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN
++ `fileId: string`: ID in Connect's File record
 
-- `associatedResourceArn: string`: Amazon Connect ARN of the resource
-  that the file is attached to. Could be a Connect Email Contact ARN or a Connect
-  Case ARN
-- `fileId: string`: ID in Connect's File record
-
-**Signature**
+ **Signature** 
 
 ```
 deleteAttachedFile(data: Attachment): Promise<void>
 ```
 
-**Usage**
+ **Usage** 
 
 ```
-
 await fileClient.deleteAttachedFile({
   associatedResourceArn: sampleAssociatedResourceArn, // Get this from the response from `startAttachedFileUpload`
   fileId: sampleFileId // Get this from the response from `startAttachedFileUpload`

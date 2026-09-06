@@ -1,19 +1,21 @@
-# Using the SDK in a 3P app
 
-This section explains how to use the prebuilt bundle in a third-party application
-that runs within the Connect Customer agent workspace.
+
+# Using the SDK in a 3P app
+<a name="sdk-without-package-manager-3p-app"></a>
+
+This section explains how to use the prebuilt bundle in a third-party application that runs within the Connect Customer agent workspace.
 
 ## Prerequisites
+<a name="sdk-without-package-manager-3p-prerequisites"></a>
 
 The following prerequisites are required:
-
-- Your application is registered as a third-party app in Amazon Connect
-- The `connect-sdk-app.bundle.js` file from the building section
++ Your application is registered as a third-party app in Amazon Connect
++ The `connect-sdk-app.bundle.js` file from the building section
 
 ## HTML setup
+<a name="sdk-without-package-manager-3p-html"></a>
 
 ```
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,11 +34,11 @@ The following prerequisites are required:
 ```
 
 ## JavaScript implementation
+<a name="sdk-without-package-manager-3p-js"></a>
 
 In your `app.js` file:
 
 ```
-
 // Initialize the third-party app - this must be called first
 var initResult = AmazonConnectSDK.AmazonConnectApp.init({
   // Optional lifecycle callbacks
@@ -70,11 +72,12 @@ contactClient.onCleared(function (event) {
 ```
 
 ## Key points for third-party apps
+<a name="sdk-without-package-manager-3p-key-points"></a>
 
-1. Call `AmazonConnectSDK.AmazonConnectApp.init()` before using
-   any SDK functionality
-2. The `init()` function returns an object containing the `provider`
-3. Instantiate SDK clients with `new
- AmazonConnectSDK.ContactClient(provider)`
-4. Lifecycle callbacks (`onCreate`, `onDestroy`) are
-   optional but useful for managing app state
+1. Call `AmazonConnectSDK.AmazonConnectApp.init()` before using any SDK functionality
+
+1. The `init()` function returns an object containing the ` provider`
+
+1. Instantiate SDK clients with `new AmazonConnectSDK.ContactClient(provider)`
+
+1. Lifecycle callbacks (`onCreate`, `onDestroy`) are optional but useful for managing app state

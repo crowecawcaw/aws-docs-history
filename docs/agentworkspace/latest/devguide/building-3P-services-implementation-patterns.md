@@ -1,13 +1,14 @@
-# Service implementation patterns
 
-third-party services can implement various patterns to extend the agent workspace
-functionality. The following examples demonstrate some of our key Amazon Connect SDK
-capabilities:
+
+# Service implementation patterns
+<a name="building-3P-services-implementation-patterns"></a>
+
+third-party services can implement various patterns to extend the agent workspace functionality. The following examples demonstrate some of our key Amazon Connect SDK capabilities:
 
 ## Launching an application on startup
+<a name="building-3P-services-launching-app-on-startup"></a>
 
 ```
-
 import {
   AmazonConnectService,
   ServiceContext,
@@ -27,7 +28,7 @@ const onCreateHandler = async (event: ServiceCreatedEvent) => {
   const appName = 'TargetAppName';
   console.log(`Launching app in ACW`, { event: contactEvent, appName: appName });
   const appControllerClient = new AppControllerClient(context.getProvider());
-
+    
   // Get list of all applications available to the agent
   const apps: AppConfig[] = await appControllerClient.getAppCatalog();
 
@@ -40,14 +41,14 @@ const onCreateHandler = async (event: ServiceCreatedEvent) => {
     throw new Error(`${appName} not found!`);
   }
 
-  await appControllerClient.launchApp(appArn);
+  await appControllerClient.launchApp(appArn); 
 };
 ```
 
 ## Contact event listening with application launching functionality
+<a name="building-3P-services-contact-event-listening"></a>
 
 ```
-
 import {
   AmazonConnectService,
   ServiceContext,
@@ -79,23 +80,23 @@ async function registerEventHandlers() {
     const appName = 'TargetAppName';
     console.log(`Launching app in ACW`, { event: contactEvent, appName: appName });
     const appControllerClient = new AppControllerClient(provider);
-
+    
     // Get list of all applications available to the agent
     const apps: AppConfig[] = await appControllerClient.getAppCatalog();
-
+    
     // Find your application by name
     const appArn = apps.find(
         (app) => app.name === appName
     )?.arn;
-
+    
     if (!appArn) {
         throw new Error(`${appName} not found!`);
     }
-
-    await appControllerClient.launchApp(appArn);
-
+    
+    await appControllerClient.launchApp(appArn);   
+    
   });
-
+  
   // Listen for contacts that are cleared
   contactClient.onCleared(async (contactEvent) => {
     try {
@@ -113,9 +114,9 @@ async function registerEventHandlers() {
 ```
 
 ## Authentication popup functionality
+<a name="building-3P-services-authentication-popup"></a>
 
 ```
-
 import { AmazonConnectService } from "@amazon-connect/app";
 import { AppControllerClient } from "@amazon-connect/app-controller";
 import { AppConfig } from "@amazon-connect/workspace-types";
@@ -148,7 +149,7 @@ export function initIDPService() {
 
 const onCreateHandler = async () => {
   console.log(`${SDK_LOG_PREFIX} Service running...`);
-
+  
   try {
     // Start the authentication flow
     runIdpFlow();
@@ -164,7 +165,7 @@ const onCreateHandler = async () => {
 /**
   * Creates the IDP authentication popup
   * Returns a promise that resolves when authentication is complete
-  * or rejects if authentication fails/times out
+  * or rejects if authentication fails/times out 
   */
 export const initIdpSimulator = (): Promise<void> => {
   return new Promise((resolve, reject) => {
@@ -179,7 +180,7 @@ export const initIdpSimulator = (): Promise<void> => {
       if (event.data.type === 'IDP_MESSAGE') {
         // Implementation for a successful authentication
         console.log(`${SDK_LOG_PREFIX} Message received from IDP:`, event.data.payload);
-
+        
         try {
           // Launch the application after successful authentication
           await launchApp(APP_NAME);
@@ -198,10 +199,10 @@ export const initIdpSimulator = (): Promise<void> => {
     const openIdpPopup = () => {
       // https://developer.mozilla.org/en-US/docs/Web/API/Window/open
       const popup = window.open('/popup.html', // URL to your authentication page
-        IDP_POPUP_CONFIG.title,
+        IDP_POPUP_CONFIG.title, 
         `width=${IDP_POPUP_CONFIG.width},height=${IDP_POPUP_CONFIG.height}`
       );
-
+      
       if (!popup) {
         cleanup();
         reject(new Error('Failed to open IDP popup'));
@@ -213,13 +214,13 @@ export const initIdpSimulator = (): Promise<void> => {
     window.addEventListener('message', handleIdpMessage);
 
     // Open the popup
-    openIdpPopup();
+    openIdpPopup();    
   });
 };
 
 /**
   * Manages the complete authentication flow
-  * Handles errors and logging
+  * Handles errors and logging 
   */
 export const runIdpFlow = async () => {
   try {
@@ -234,24 +235,24 @@ export const runIdpFlow = async () => {
 
 /**
   * Launches the specified application using the AppController
-  * Verifies the app exists in the catalog before attempting to launch
+  * Verifies the app exists in the catalog before attempting to launch 
   */
 export async function launchApp(targetAppName: string) {
   const appControllerClient = new AppControllerClient(provider);
-
+  
   // Get list of all applications available to the agent
   const apps: AppConfig[] = await appControllerClient.getAppCatalog();
   console.log(`${SDK_LOG_PREFIX} App Catalog: `, apps);
-
+  
   // Find your application by name
   const testAppArn = apps.find(
     (app) => app.name === targetAppName
   )?.arn;
-
+  
   if (!testAppArn) {
     throw new Error(targetAppName + " not found!");
   }
-
+  
   await appControllerClient.launchApp(testAppArn);
 }
 ```
@@ -259,7 +260,6 @@ export async function launchApp(targetAppName: string) {
 This is the HTML template for the authentication popup:
 
 ```
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -297,7 +297,7 @@ This is the HTML template for the authentication popup:
           <button id="authButton">Authenticate</button>
       </div>
       <script>
-          // When authentication button is clicked, send success message
+          // When authentication button is clicked, send success message 
           // back to parent window
           document.getElementById('authButton').onclick = function() {
               window.opener.postMessage({

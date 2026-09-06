@@ -1,14 +1,15 @@
+
+
 # Creates a subscription whenever a contact cleared event occurs in Connect Customer agent workspace
+<a name="3P-apps-contact-requests-clearedsubscribing"></a>
 
-It creates a subscription whenever a contact cleared event occurs in Connect Customer
-agent workspace. If no contact ID is provided, then it uses the context of
-the current contact that the 3P app was opened on.
+ It creates a subscription whenever a contact cleared event occurs in Connect Customer agent workspace. If no contact ID is provided, then it uses the context of the current contact that the 3P app was opened on. 
 
-**Signature**
+ **Signature** 
 
-onCleared(handler: ContactClearedHandler, contactId?: string)
+ onCleared(handler: ContactClearedHandler, contactId?: string) 
 
-**Usage**
+ **Usage** 
 
 ```
 const handler: ContactClearedHandler = async (data: ContactCleared) => {
@@ -21,12 +22,10 @@ contactClient.onCleared(handler);
 {
     contactId: string;
 }
-
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
-Contact.Details.View
-
+Contact.Details.View              
 ```

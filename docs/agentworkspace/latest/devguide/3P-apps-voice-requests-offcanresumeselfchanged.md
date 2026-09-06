@@ -1,8 +1,11 @@
+
+
 # Unsubscribe from self resume capability change events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-offcanresumeselfchanged"></a>
 
 Unsubscribes from capability change events for the current user.
 
-**Signature**
+ **Signature** 
 
 ```
 offCanResumeSelfChanged(
@@ -11,15 +14,16 @@ offCanResumeSelfChanged(
 ): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 voiceClient.offCanResumeSelfChanged(handleCanResumeSelfChanged);
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**                           | **Description**                                                 |
-| ------------------ | ---------------------------------- | --------------------------------------------------------------- |
-| handler _Required_ | CanResumeParticipantChangedHandler | Event handler function to remove                                |
-| contactId          | string                             | Optional contact ID to unsubscribe from specific contact events |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | CanResumeParticipantChangedHandler | Event handler function to remove | 
+| contactId | string | Optional contact ID to unsubscribe from specific contact events | 

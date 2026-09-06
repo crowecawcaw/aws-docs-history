@@ -1,21 +1,19 @@
+
+
 # Subscribe to participant state change events in Connect Customer agent workspace
+<a name="3P-apps-contact-events-participantstatechanged-sub"></a>
 
-Subscribes to participant state change events. This event fires when a participant's
-state
-changes (e.g., from connecting to connected, or to hold).
+Subscribes to participant state change events. This event fires when a participant's state changes (e.g., from connecting to connected, or to hold).
 
-**Signature**
+ **Signature** 
 
 ```
-
 onParticipantStateChanged(handler: ParticipantStateChangedHandler, participantId?: string): void
-
 ```
 
-**Usage**
+ **Usage** 
 
 ```
-
     const handleStateChanged = (event) => {
     console.log(
     `Participant ${event.participantId} state changed to: ${event.state.value}`
@@ -33,28 +31,24 @@ onParticipantStateChanged(handler: ParticipantStateChangedHandler, participantId
 
     // Or subscribe to a specific participant
     contactClient.onParticipantStateChanged(handleStateChanged, "participant-456");
-
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**                       | **Description**                                                     |
-| ------------------ | ------------------------------ | ------------------------------------------------------------------- |
-| handler _Required_ | ParticipantStateChangedHandler | Event handler function to call when participant states change       |
-| participantId      | string                         | Optional participant ID to filter events for a specific participant |
 
-**Event Structure - ParticipantStateChanged**
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | ParticipantStateChangedHandler | Event handler function to call when participant states change | 
+| participantId | string | Optional participant ID to filter events for a specific participant | 
+
+ **Event Structure - ParticipantStateChanged** 
 
 The handler receives a ParticipantStateChanged event with:
++ `participantId`: string - The ID of the participant whose state changed
++ `state`: ParticipantState - The new state of the participant
 
-- `participantId`: string - The ID of the participant whose state
-  changed
-- `state`: ParticipantState - The new state of the participant
-
-**Permissions required:**
+ **Permissions required:** 
 
 ```
-
 Contact.Details.View
-
 ```

@@ -1,16 +1,17 @@
+
+
 # Unsubscribe a callback function from the expiration warning cleared event
+<a name="3P-apps-activity-offexpirationwarningcleared"></a>
 
-Unsubscribes a callback function from the expiration warning cleared event that is
-triggered when the expiration warning is dismissed due to the agent choosing to stay
-logged in.
+Unsubscribes a callback function from the expiration warning cleared event that is triggered when the expiration warning is dismissed due to the agent choosing to stay logged in.
 
-**Signature**
+ **Signature** 
 
 ```
 offExpirationWarningCleared(handler: ExpirationWarningClearedHandler);
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 sessionExpirationWarningClient.offExpirationWarningCleared(handler);

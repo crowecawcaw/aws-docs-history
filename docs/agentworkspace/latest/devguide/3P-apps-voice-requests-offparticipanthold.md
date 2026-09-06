@@ -1,8 +1,11 @@
+
+
 # Unsubscribe from participant hold events in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-offparticipanthold"></a>
 
 Unsubscribes from participant hold events.
 
-**Signature**
+ **Signature** 
 
 ```
 offParticipantHold(
@@ -11,15 +14,16 @@ offParticipantHold(
 ): void
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 voiceClient.offParticipantHold(handleParticipantHold);
 ```
 
-**Input**
+ **Input** 
 
-| **Parameter**      | **Type**               | **Description**                                                            |
-| ------------------ | ---------------------- | -------------------------------------------------------------------------- |
-| handler _Required_ | ParticipantHoldHandler | Event handler function to remove                                           |
-| participantId      | string                 | Optional participant ID to unsubscribe from specific participant<br>events |
+
+|  **Parameter**  |  **Type**  |  **Description**  | 
+| --- | --- | --- | 
+| handler Required | ParticipantHoldHandler | Event handler function to remove | 
+| participantId | string | Optional participant ID to unsubscribe from specific participant events | 

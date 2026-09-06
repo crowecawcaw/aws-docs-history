@@ -1,16 +1,17 @@
+
+
 # Retrieve knowledge article content
+<a name="3P-apps-ai-agents-getknowledgecontent"></a>
 
-Retrieves the full content of a knowledge article, including a pre-signed URL for
-rendering. Use this to display the source content referenced by citations in AI Agent
-responses.
+Retrieves the full content of a knowledge article, including a pre-signed URL for rendering. Use this to display the source content referenced by citations in AI Agent responses.
 
-**Signature**
+ **Signature** 
 
 ```
 getKnowledgeContent(params: GetContentParams): Promise<ContentResult>
 ```
 
-**Usage**
+ **Usage** 
 
 ```
 const content = await aiAgentsClient.getKnowledgeContent({
@@ -38,7 +39,7 @@ console.log("URL:", content.url);
 }
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
 *

@@ -1,20 +1,21 @@
-# Using the SDK with StreamsJS
 
-This section explains how to use the prebuilt bundle in a solution that uses Amazon
-Connect Streams (StreamsJS).
+
+# Using the SDK with StreamsJS
+<a name="sdk-without-package-manager-streamsjs"></a>
+
+This section explains how to use the prebuilt bundle in a solution that uses Amazon Connect Streams (StreamsJS).
 
 ## Prerequisites
+<a name="sdk-without-package-manager-streamsjs-prerequisites"></a>
 
 The following prerequisites are required:
-
-- The Amazon Connect Streams library loaded on your page
-- The `connect-sdk-streams.bundle.js` file from the building
-  section
++ The Amazon Connect Streams library loaded on your page
++ The `connect-sdk-streams.bundle.js` file from the building section
 
 ## HTML setup
+<a name="sdk-without-package-manager-streamsjs-html"></a>
 
 ```
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -36,11 +37,11 @@ The following prerequisites are required:
 ```
 
 ## JavaScript implementation
+<a name="sdk-without-package-manager-streamsjs-js"></a>
 
 In your `app.js` file:
 
 ```
-
 // Initialize the CCP
 var ccpContainer = document.getElementById("ccp-container");
 
@@ -76,13 +77,11 @@ connect.core.onInitialized(function () {
 ```
 
 ## Hosting Connect first-party apps (optional)
+<a name="sdk-without-package-manager-streamsjs-1p-apps"></a>
 
-If you want to host Connect first-party apps like Cases or Step-by-Step Guides
-alongside your CCP, include the `@amazon-connect/app-manager` package in
-your bundle and apply the plugin during CCP initialization:
+If you want to host Connect first-party apps like Cases or Step-by-Step Guides alongside your CCP, include the `@amazon-connect/app-manager` package in your bundle and apply the plugin during CCP initialization:
 
 ```
-
 connect.core.initCCP(ccpContainer, {
   ccpUrl: "https://your-instance.my.connect.aws/ccp-v2/",
   loginPopup: true,
@@ -93,10 +92,12 @@ connect.core.initCCP(ccpContainer, {
 ```
 
 ## Key points for StreamsJS integration
+<a name="sdk-without-package-manager-streamsjs-key-points"></a>
 
 1. Load the Streams library before the SDK bundle
-2. Retrieve the provider using `connect.core.getSDKClientConfig().provider` after CCP initializes
-3. Instantiate SDK clients with `new
- AmazonConnectSDK.ContactClient(provider)`
-4. The `AppManagerPlugin` is only required if hosting Connect
-   first-party apps
+
+1. Retrieve the provider using ` connect.core.getSDKClientConfig().provider` after CCP initializes
+
+1. Instantiate SDK clients with `new AmazonConnectSDK.ContactClient(provider)`
+
+1. The `AppManagerPlugin` is only required if hosting Connect first-party apps

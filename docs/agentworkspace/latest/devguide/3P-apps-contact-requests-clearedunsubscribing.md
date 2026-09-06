@@ -1,19 +1,18 @@
+
+
 # Unsubscribes the callback function from the contact cleared event in Connect Customer agent workspace
+<a name="3P-apps-contact-requests-clearedunsubscribing"></a>
 
-Unsubscribes the callback function from the contact cleared event in Connect Customer
-agent workspace.
+ Unsubscribes the callback function from the contact cleared event in Connect Customer agent workspace. 
 
-**Signature**
-
-```
-
-        offCleared(handler: ContactClearedHandler, contactId?: string)
+ **Signature** 
 
 ```
+        offCleared(handler: ContactClearedHandler, contactId?: string) 
+```
 
-**Usage**
+ **Usage** 
 
 ```
  contactClient.offCleared(handler);
-
 ```

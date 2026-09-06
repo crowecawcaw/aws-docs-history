@@ -1,14 +1,14 @@
-# Example implementation of dynamic application management with React
 
-The following example demonstrates how to dynamically manage AWS-managed applications
-in a React application. This implementation uses `onAppHostAdded` and `onAppHostRemoved` events to automatically update the user interface when
-applications are launched or destroyed. This example demonstrates how to position
-applications one after the other vertically on a web page.
+
+# Example implementation of dynamic application management with React
+<a name="integrate-aws-managed-apps-react-example"></a>
+
+The following example demonstrates how to dynamically manage AWS-managed applications in a React application. This implementation uses `onAppHostAdded` and ` onAppHostRemoved` events to automatically update the user interface when applications are launched or destroyed. This example demonstrates how to position applications one after the other vertically on a web page.
 
 ## Iframe container component
+<a name="integrate-aws-managed-apps-react-iframe-container"></a>
 
 ```
-
 const IFrameAppContainer: React.FC<{ appHost: AppHost }> = ({ appHost }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -36,10 +36,10 @@ const IFrameAppContainer: React.FC<{ appHost: AppHost }> = ({ appHost }) => {
 ```
 
 ## Application container component
+<a name="integrate-aws-managed-apps-react-app-container"></a>
 
 ```
-
-const ApplicationContainer: React.FC<{provider: AmazonConnectProvider}>
+const ApplicationContainer: React.FC<{provider: AmazonConnectProvider}> 
   = ({provider}) => {
 
   const [activeApps, setActiveApps] = useState<Set<AppHost>>(new Set());
@@ -71,7 +71,7 @@ const ApplicationContainer: React.FC<{provider: AmazonConnectProvider}>
     return () => {
         // Un-register event handlers
         appManager.offAppHostAdded(handleAppHostAdded);
-        appManager.offAppHostRemoved(handleAppHostRemoved);
+        appManager.offAppHostRemoved(handleAppHostRemoved);        
     }
 
   }, [provider.appManager]);

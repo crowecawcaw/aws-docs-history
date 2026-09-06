@@ -1,26 +1,24 @@
+
+
 # Gets the outbound call permission configured for the agent in Connect Customer agent workspace
+<a name="3P-apps-voice-requests-getoutboundcallpermission"></a>
 
-Gets true if the agent has the security profile permission for making outbound
-calls, false otherwise.
+Gets true if the agent has the security profile permission for making outbound calls, false otherwise.
 
-**Signature**
+ **Signature** 
 
 ```
 getOutboundCallPermission(): Promise<boolean>
-
 ```
 
-**Usage**
+ **Usage** 
 
 ```
-
 const outboundCallPermission: boolean = await voiceClient.getOutboundCallPermission();
-
 ```
 
-**Permissions required:**
+ **Permissions required:** 
 
 ```
-User.Configuration.View
-
+User.Configuration.View      
 ```
