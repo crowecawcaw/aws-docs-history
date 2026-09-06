@@ -1,9 +1,11 @@
+
+
 # Membership Events
+<a name="case-membership-events"></a>
 
 Membership Created
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -19,13 +21,11 @@ Membership Created
                 "membershipId": "m-1234567890abcdef0"
               }
             }
-
 ```
 
 Membership Updated
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -41,13 +41,11 @@ Membership Updated
                 "membershipId": "m-1234567890abcdef0"
               }
             }
-
 ```
 
 Membership Cancelled
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -63,13 +61,11 @@ Membership Cancelled
                 "membershipId": "m-1234567890abcdef0"
               }
             }
-
 ```
 
 Membership Terminated
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -85,5 +81,4 @@ Membership Terminated
                 "membershipId": "m-1234567890abcdef0"
               }
             }
-
 ```

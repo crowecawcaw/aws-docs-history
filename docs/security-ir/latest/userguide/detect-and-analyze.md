@@ -1,154 +1,126 @@
+
+
 # Detect and Analyze
+<a name="detect-and-analyze"></a>
+
+
 
 ## Reporting an event
+<a name="detect-analyze-reporting-an-event"></a>
 
 You can raise a security event through the AWS Security Incident Response portal. It's important not to wait during a security event. AWS Security Incident Response uses automated and manual techniques to investigate security events, analyze logs, and look for anomalous patterns. Your partnership and understanding of your environment accelerates this analysis.
 
 ## Enabling supported sources of detection
+<a name="detect-analyze-enable-supported-sources"></a>
 
-###### Note
+**Note**  
+ AWS Security Incident Response service costs do not include usage and other costs and fees associated with supported sources of detection or use of other AWS services. Please refer to individual feature or service pages for cost details. 
 
-AWS Security Incident Response service costs do not include usage and other costs and fees associated with supported sources of detection
-or use of other AWS services. Please refer to individual feature or service pages for cost details.
+ *Amazon GuardDuty* 
 
-_Amazon GuardDuty_
+ To enable GuardDuty across your organization, please see the `Setting up GuardDuty` section of the [Amazon GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_settingup.html#guardduty_enable-gd). 
 
-To enable GuardDuty across your organization, please see the `Setting up GuardDuty` section of the [Amazon GuardDuty User Guide](../../../guardduty/latest/ug/guardduty_settingup.md#guardduty_enable-gd "../../../guardduty/latest/ug/guardduty_settingup.md#guardduty_enable-gd").
+ AWS highly recommends that you enable GuardDuty in all supported AWS Regions. This enables GuardDuty to generate findings about unauthorized or unusual activity even in regions that you are not actively using. For more information, reference [Amazon GuardDuty Regions and endpoints](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html) 
 
-AWS highly recommends that you enable GuardDuty in all supported AWS Regions. This enables GuardDuty to generate
-findings about unauthorized or unusual activity even in regions that you are not actively using. For more information,
-reference
-[Amazon GuardDuty Regions and endpoints](../../../guardduty/latest/ug/guardduty_regions.md "../../../guardduty/latest/ug/guardduty_regions.md")
+ Enabling GuardDuty provides AWS Security Incident Response access to critical threat detection data, enhancing its ability to identify and respond to potential security issues in your AWS environment. 
 
-Enabling GuardDuty provides AWS Security Incident Response access to critical threat detection data, enhancing its ability to identify and
-respond to potential security issues in your AWS environment.
+*AWS Security Hub CSPM*
 
-_AWS Security Hub CSPM_
+ AWS Security Hub CSPM can ingest security findings from several AWS services and supported third-party security solutions. These integrations can help AWS Security Incident Response monitor and investigate findings coming from other detection tools. 
 
-AWS Security Hub CSPM can ingest security findings from several AWS services and supported third-party security solutions.
-These integrations can help AWS Security Incident Response monitor and investigate findings coming from other detection tools.
+ To enable Security Hub CSPM with Organizations integration please refer to the [AWS Security Hub CSPM User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html#securityhub-orgs-setup-overviews). 
 
-To enable Security Hub CSPM with Organizations integration please refer to the
-[AWS Security Hub CSPM User Guide](../../../securityhub/latest/userguide/securityhub-settingup.md#securityhub-orgs-setup-overviews "../../../securityhub/latest/userguide/securityhub-settingup.md#securityhub-orgs-setup-overviews").
+ There are multiple ways of enabling integrations on Security Hub CSPM. For third-party product integrations, you may need to purchase the integration from the AWS Marketplace, and then configure the integration. The integration information provides links to complete these tasks. Learn more about [ how to enable AWS Security Hub CSPM integrations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-integration-enable.html). 
 
-There are multiple ways of enabling integrations on Security Hub CSPM. For third-party product integrations, you may need to purchase
-the integration from the AWS Marketplace, and then configure the integration. The integration information provides links to complete
-these tasks. Learn more about [how to enable AWS Security Hub CSPM integrations](../../../securityhub/latest/userguide/securityhub-integration-enable.md "../../../securityhub/latest/userguide/securityhub-integration-enable.md").
+ AWS Security Incident Response can monitor and investigate findings from the following tools when they're integrated with AWS Security Hub CSPM: 
++ [CrowdStrike – CrowdStrike Falcon](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html#integration-crowdstrike-falcon)
++ [Lacework – Lacework](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html#integration-lacework)
++ [Trend Micro – Cloud One](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html#integration-trend-micro)
 
-AWS Security Incident Response can monitor and investigate findings from the following tools when they're integrated with AWS Security Hub CSPM:
-
-- [CrowdStrike – CrowdStrike Falcon](../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-crowdstrike-falcon "../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-crowdstrike-falcon")
-- [Lacework – Lacework](../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-lacework "../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-lacework")
-- [Trend Micro – Cloud One](../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-trend-micro "../../../securityhub/latest/userguide/securityhub-partner-providers.md#integration-trend-micro")
-
-By enabling these integrations, you can significantly enhance the scope and effectiveness of AWS Security Incident Response's monitoring and investigation capabilities.
+ By enabling these integrations, you can significantly enhance the scope and effectiveness of AWS Security Incident Response's monitoring and investigation capabilities. 
 
 ## Detection
+<a name="detect-analyze-detect"></a>
 
-With [Proactive Response](proactive-response-alert-triaging.md "proactive-response-alert-triaging.md"), AWS Security Incident Response ingests findings from Amazon GuardDuty and AWS Security Hub CSPM through Amazon EventBridge rules that are deployed to your accounts during onboarding.
+ With [Proactive Response](proactive-response-alert-triaging.md), AWS Security Incident Response ingests findings from Amazon GuardDuty and AWS Security Hub CSPM through Amazon EventBridge rules that are deployed to your accounts during onboarding. 
 
 ## Analysis: Automated triage
+<a name="detect-analyze-analysis-automated-triage"></a>
 
-AWS Security Incident Response automatically triages security findings. The triage process determines whether detected activity represents expected behavior, by analyzing data from multiple sources including the finding payload, AWS service metadata, AWS logging and monitoring data (such as AWS CloudTrail and VPC Flow Logs), AWS threat intelligence, and context that you are invited to provide about your AWS and on-premises environments.
+ AWS Security Incident Response automatically triages security findings. The triage process determines whether detected activity represents expected behavior, by analyzing data from multiple sources including the finding payload, AWS service metadata, AWS logging and monitoring data (such as AWS CloudTrail and VPC Flow Logs), AWS threat intelligence, and context that you are invited to provide about your AWS and on-premises environments. 
 
-If automated triage determines that the detected activity is expected, the system takes no further investigative action.
+ If automated triage determines that the detected activity is expected, the system takes no further investigative action. 
 
 ## Analysis: Incident response security investigation
+<a name="detect-analyze-analysis-incident-response-security-investigation"></a>
 
-AWS Security Incident Response Engineering is a global, always-available team of security professionals with expertise in AWS and security incident response. If automated triage cannot determine that the activity is expected, AWS Security Incident Response Engineering is engaged to perform a security investigation. If the event was ingested from Security Hub, a note is posted to the related finding stating that AWS Security Incident Response Engineering's investigation is underway.
+ AWS Security Incident Response Engineering is a global, always-available team of security professionals with expertise in AWS and security incident response. If automated triage cannot determine that the activity is expected, AWS Security Incident Response Engineering is engaged to perform a security investigation. If the event was ingested from Security Hub, a note is posted to the related finding stating that AWS Security Incident Response Engineering's investigation is underway. 
 
-AWS Security Incident Response Engineering conducts a hands-on security investigation by analyzing additional service metadata and threat intelligence, reviewing insights from past findings and investigations in your environment, and applying incident response expertise. Depending on your Containment preferences (see Contain) AWS Security Incident Response Engineering may engage your organization's Incident Response team through a Security Incident Response case in the AWS Security Incident Response console to verify whether the detected activity is expected and authorized [Responding to an AWS generated case](responding-to-an-aws-generated-case.md "responding-to-an-aws-generated-case.md").
+ AWS Security Incident Response Engineering conducts a hands-on security investigation by analyzing additional service metadata and threat intelligence, reviewing insights from past findings and investigations in your environment, and applying incident response expertise. Depending on your Containment preferences (see Contain) AWS Security Incident Response Engineering may engage your organization's Incident Response team through a Security Incident Response case in the AWS Security Incident Response console to verify whether the detected activity is expected and authorized [Responding to an AWS generated case](https://docs.aws.amazon.com/security-ir/latest/userguide/responding-to-an-aws-generated-case.html). 
 
-As part of a security investigation, AWS Security Incident Response can also collect investigative information from within Amazon Elastic Compute Cloud instances using EC2 Triage. When enabled, this capability allows AWS Security Incident Response responders to execute AWS Systems Manager Run Command on Amazon EC2 instances to gather investigative data, inspect running processes, and analyze system state — without requiring direct access to the instance.
+ As part of a security investigation, AWS Security Incident Response can also collect investigative information from within Amazon Elastic Compute Cloud instances using EC2 Triage. When enabled, this capability allows AWS Security Incident Response responders to execute AWS Systems Manager Run Command on Amazon EC2 instances to gather investigative data, inspect running processes, and analyze system state — without requiring direct access to the instance. 
 
 EC2 Triage supports the following operating systems:
 
-Linux
+Linux  
++ Amazon Linux 2, Amazon Linux 2023
++ Ubuntu 18.04, 20.04, 22.04, 24.04
++ Red Hat Enterprise Linux (RHEL) 7.x, 8.x, 9.x
++ CentOS 7.x, 8.x
++ SUSE Linux Enterprise Server (SLES) 12.x, 15.x
++ Debian 10, 11, 12
 
-- Amazon Linux 2, Amazon Linux 2023
-- Ubuntu 18.04, 20.04, 22.04, 24.04
-- Red Hat Enterprise Linux (RHEL) 7.x, 8.x, 9.x
-- CentOS 7.x, 8.x
-- SUSE Linux Enterprise Server (SLES) 12.x, 15.x
-- Debian 10, 11, 12
+Windows  
++ Windows Server 2012 R2
++ Windows Server 2016, 2019, 2022
 
-Windows
-
-- Windows Server 2012 R2
-- Windows Server 2016, 2019, 2022
-
-To use EC2 Triage, you must deploy the **Containment with EC2 Triage** CloudFormation template to your accounts. For more information, see [Deploy containment and EC2 Triage roles](working-with-stacksets.md "working-with-stacksets.md"). The target Amazon EC2 instances must have [SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") installed and running, and must be online and managed by AWS Systems Manager. For setup information, see [Setting up Systems Manager for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md").
+ To use EC2 Triage, you must deploy the **Containment with EC2 Triage** CloudFormation template to your accounts. For more information, see [Deploy containment and EC2 Triage roles](working-with-stacksets.md). The target Amazon EC2 instances must have [SSM Agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html) installed and running, and must be online and managed by AWS Systems Manager. For setup information, see [Setting up Systems Manager for Amazon EC2 instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-ec2.html). 
 
 ## Communicate
+<a name="detect-analyze-communicate"></a>
 
-AWS Security Incident Response keeps you informed during security investigations by engaging with your Incident Response team through a Security Incident Response case. Multiple AWS Security Incident Response Engineering members may support an investigation. Communication may include: acknowledgment or notification of the creation of a security investigation; establishing a call bridge; analysis of artifacts such as log files; requests for confirmation of expected activity; and sharing of investigation results.
+ AWS Security Incident Response keeps you informed during security investigations by engaging with your Incident Response team through a Security Incident Response case. Multiple AWS Security Incident Response Engineering members may support an investigation. Communication may include: acknowledgment or notification of the creation of a security investigation; establishing a call bridge; analysis of artifacts such as log files; requests for confirmation of expected activity; and sharing of investigation results. 
 
-When AWS Security Incident Response proactively engages your Incident Response team, a case is created in your AWS Security Incident Response Membership account, which centralizes communication for all Organizational accounts in one place. These cases contain the "[Proactive case]" prefix in their title, which identifies them as initiated by AWS Security Incident Response. By actively engaging and providing timely responses to these communications, your Incident Response team can assist AWS Security Incident Response to do the following:
+ When AWS Security Incident Response proactively engages your Incident Response team, a case is created in your AWS Security Incident Response Membership account, which centralizes communication for all Organizational accounts in one place. These cases contain the "[Proactive case]" prefix in their title, which identifies them as initiated by AWS Security Incident Response. By actively engaging and providing timely responses to these communications, your Incident Response team can assist AWS Security Incident Response to do the following: 
++ Ensure rapid response to genuine security incidents.
++ Understand your environment and expected behaviors.
++ Reduce false positive detections over time.
 
-- Ensure rapid response to genuine security incidents.
-- Understand your environment and expected behaviors.
-- Reduce false positive detections over time.
-
-The effectiveness of AWS Security Incident Response improves with your collaboration and results in a more effectively monitored and secure AWS environment.
+ The effectiveness of AWS Security Incident Response improves with your collaboration and results in a more effectively monitored and secure AWS environment. 
 
 ## Updating findings
+<a name="detect-analyze-update-findings"></a>
 
 **Updating Findings**
 
-AWS Security Incident Response manages findings differently depending on their source and triage
-outcome.
+AWS Security Incident Response manages findings differently depending on their source and triage outcome.
 
 **Amazon GuardDuty findings**
 
-AWS Security Incident Response archives Amazon GuardDuty findings only when triage determines that the detected
-activity is benign or associated with expected activity. Archiving behavior depends on
-the triage outcome category of each finding.
+AWS Security Incident Response archives Amazon GuardDuty findings only when triage determines that the detected activity is benign or associated with expected activity. Archiving behavior depends on the triage outcome category of each finding.
 
-_Findings that are archived:_
+*Findings that are archived:*
++ **Benign/Expected Activity (automated triage):** Activity determined by automated triage to be benign or associated with expected activity.
++ **Benign/Expected Activity (manual investigation):** Activity confirmed as benign or associated with expected activity after further analysis by AWS Security Incident Response.
 
-- **Benign/Expected Activity (automated triage):**
-  Activity determined by automated triage to be benign or associated with expected
-  activity.
-- **Benign/Expected Activity (manual investigation):**
-  Activity confirmed as benign or associated with expected activity after further analysis
-  by AWS Security Incident Response.
+*Findings that aren't archived:*
++ **Unconfirmed Activity:** Findings determined to require customer engagement and pending customer confirmation on whether the activity is expected or benign.
++ **Inappropriate/Unintended Activity:** Findings determined to represent confirmed inappropriate or unintended activity that requires customer review or action.
++ **Posture Related:** Finding relates to your security posture (for example, overly permissive policies, configuration, or missing encryption). These aren't threat findings, but they're retained without archiving by design.
 
-_Findings that aren't archived:_
+Findings that aren't archived remain visible in the GuardDuty console with their current status. The absence of archiving for these finding categories doesn't indicate that AWS Security Incident Response took no action — it reflects the design intent that these findings remain available for your review.
 
-- **Unconfirmed Activity:** Findings determined
-  to require customer engagement and pending customer confirmation on whether the activity
-  is expected or benign.
-- **Inappropriate/Unintended Activity:** Findings
-  determined to represent confirmed inappropriate or unintended activity that requires
-  customer review or action.
-- **Posture Related:** Finding relates to your
-  security posture (for example, overly permissive policies, configuration, or missing
-  encryption). These aren't threat findings, but they're retained without archiving by
-  design.
-
-Findings that aren't archived remain visible in the GuardDuty console with their current
-status. The absence of archiving for these finding categories doesn't indicate that
-AWS Security Incident Response took no action — it reflects the design intent that these findings remain
-available for your review.
-
-You can view archived findings in the GuardDuty console by selecting
-**Archived** on the status drop-down menu. For more information about
-working with archived findings, see
-[Working with
-findings](../../../guardduty/latest/ug/findings_managing.md "../../../guardduty/latest/ug/findings_managing.md") in the _Amazon GuardDuty User Guide_.
+You can view archived findings in the GuardDuty console by selecting **Archived** on the status drop-down menu. For more information about working with archived findings, see [Working with findings](https://docs.aws.amazon.com/guardduty/latest/ug/findings_managing.html) in the *Amazon GuardDuty User Guide*.
 
 **AWS Security Hub CSPM findings**
 
-When Security Hub CSPM findings are ingested, the system updates each finding with a note
-indicating that automated triage has begun. The workflow state changes from NEW to
-NOTIFIED, which removes the finding from the default Security Hub CSPM findings view. If triage
-determines that a finding is benign or associated with expected activity, the system adds
-a note to the finding and updates the workflow state to SUPPRESSED.
+When Security Hub CSPM findings are ingested, the system updates each finding with a note indicating that automated triage has begun. The workflow state changes from NEW to NOTIFIED, which removes the finding from the default Security Hub CSPM findings view. If triage determines that a finding is benign or associated with expected activity, the system adds a note to the finding and updates the workflow state to SUPPRESSED.
 
 ## Service tuning
+<a name="detect-analyze-service-tuning"></a>
 
 **Service Tuning**
 
-When your account service quotas permit, AWS Security Incident Response attempts to deploy an [Amazon GuardDuty suppression rule](../../../guardduty/latest/ug/findings_suppression-rule.md "../../../guardduty/latest/ug/findings_suppression-rule.md") or an [AWS Security Hub CSPM automation rule](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md"). These rules suppress future findings matching the type and source of known authorized activity (for example, source IP address, ASN, identity principal, or resource). AWS Security Hub CSPM rules are deployed with priority 10, which allows you to override these automations with self-defined rules if needed.
+ When your account service quotas permit, AWS Security Incident Response attempts to deploy an [Amazon GuardDuty suppression rule](https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html) or an [AWS Security Hub CSPM automation rule](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html). These rules suppress future findings matching the type and source of known authorized activity (for example, source IP address, ASN, identity principal, or resource). AWS Security Hub CSPM rules are deployed with priority 10, which allows you to override these automations with self-defined rules if needed. 
 
-In this way, AWS Security Incident Response tunes detection sources based on expected behavior in your AWS environment. Your Incident Response Team is notified of modifications to these rule-sets, and changes are rolled-back upon request.
+ In this way, AWS Security Incident Response tunes detection sources based on expected behavior in your AWS environment. Your Incident Response Team is notified of modifications to these rule-sets, and changes are rolled-back upon request. 

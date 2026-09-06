@@ -1,9 +1,11 @@
+
+
 # Case Events
+<a name="case-events"></a>
 
 Case Created by AWS Responder
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -20,13 +22,11 @@ Case Created by AWS Responder
                 "createdBy": "AWS Responder"
               }
             }
-
 ```
 
 Case Created by Service
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -43,13 +43,11 @@ Case Created by Service
                 "createdBy": "security-ir.amazonaws.com"
               }
             }
-
 ```
 
 Case Created by Customer
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -66,13 +64,11 @@ Case Created by Customer
                 "createdBy": "111122223333"
               }
             }
-
 ```
 
 Case Updated by AWS Responder
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -89,13 +85,11 @@ Case Updated by AWS Responder
                 "updatedBy": "AWS Responder"
               }
             }
-
 ```
 
 Case Updated by AWS Customer
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -112,13 +106,11 @@ Case Updated by AWS Customer
                 "updatedBy": "111122223333"
               }
             }
-
 ```
 
 Case Updated by AWS Security Incident Response Service
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -135,13 +127,11 @@ Case Updated by AWS Security Incident Response Service
                 "updatedBy": "security-ir.amazonaws.com"
               }
             }
-
 ```
 
 Case Closed
 
 ```
-
             {
               "version": "0",
               "id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
@@ -157,5 +147,4 @@ Case Closed
                 "caseId": "1234567890"
               }
             }
-
 ```

@@ -1,14 +1,17 @@
+
+
 # Containment with EC2 Triage
+<a name="containment-with-ec2-triage-template"></a>
 
 Use this template if you want both containment capabilities and the ability for AWS Security Incident Response engineers to investigate running instances during an incident.
 
 This template creates everything included in the containment-only template and adds the `AWSSecurityIncidentResponseInvestigationPolicy` to the `AWSSecurityIncidentResponseContainment` role. This policy grants the following permissions:
++ Describe Amazon EC2 instances and their status
++ Retrieve instance profile information
++ Verify Systems Manager Agent connectivity on target instances
++ Execute `ssm:SendCommand` to run investigative commands on instances
 
-- Describe Amazon EC2 instances and their status
-- Retrieve instance profile information
-- Verify Systems Manager Agent connectivity on target instances
-- Execute `ssm:SendCommand` to run investigative commands on instances
-  EC2 Triage allows AWS Security Incident Response engineers to collect volatile forensic data from running Amazon EC2 instances during an active security incident. This data can include running processes, network connections, logged-in users, and other operating system artifacts that would be lost if the instance were terminated or stopped.
+EC2 Triage allows AWS Security Incident Response engineers to collect volatile forensic data from running Amazon EC2 instances during an active security incident. This data can include running processes, network connections, logged-in users, and other operating system artifacts that would be lost if the instance were terminated or stopped.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -73,7 +76,7 @@ Resources:
           PolicyDocument:
             {
               'Version': '2012-10-17',
-              'Statement':
+              'Statement': 
                 [
                   {
                     'Effect': 'Allow',
@@ -299,5 +302,4 @@ Resources:
                   },
                 ],
             }
-
 ```
