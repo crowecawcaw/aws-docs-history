@@ -4,10 +4,10 @@ To attach files larger than 5 MB or more than 3 files to a support case, your AW
 
 The following table shows the required IAM actions for each attachment operation.
 
-| Operation            | Required IAM actions                                         |
-| -------------------- | ------------------------------------------------------------ |
-| Upload attachments   | `support:UploadAttachment`<br>`support:AddAttachmentsToSet`  |
-| Download attachments | `support:DownloadAttachment`<br>`support:DescribeAttachment` |
+| Operation            | Required IAM actions                                         | Grants access to                                                                             |
+| -------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| Upload attachments   | `support:UploadAttachment`<br>`support:AddAttachmentsToSet`  | `GetAttachmentUploadLinks`<br>`CompleteAttachmentUpload`<br>`DescribeAttachmentUploadStatus` |
+| Download attachments | `support:DownloadAttachment`<br>`support:DescribeAttachment` | `GetAttachmentDownloadLink`                                                                  |
 
 ###### Important
 
