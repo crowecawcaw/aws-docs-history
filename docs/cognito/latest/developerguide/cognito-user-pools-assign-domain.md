@@ -8,6 +8,10 @@ hosts the standard OpenID Connect (OIDC) endpoints like [authorize](authorizatio
 machine-to-machine (M2M) authorization and other OIDC and OAuth 2.0 authentication and
 authorization flows.
 
+M2M authorization is also available without a domain. You can request client-credentials
+access tokens with the [GetClientToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md") API operation, which uses the Amazon Cognito API instead of the token
+endpoint.
+
 Users authenticate with managed login pages at the domain associated with your user pool.
 You have two options for configuring this domain: you can either use the default Amazon Cognito
 hosted domain, or you can configure a custom domain that you own.

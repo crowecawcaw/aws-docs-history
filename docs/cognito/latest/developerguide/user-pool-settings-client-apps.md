@@ -284,8 +284,10 @@ API. Your app can request client credentials directly from the token endpoint an
 receive an access token. For more information, see _Client
 Credentials_ in [IETF RFC 6749
 #1.3.4](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.4 "https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.4"). You can only activate client-credentials grants in app clients that
-have a client secret and that don't support authorization-code or implicit
-grants.
+have a client secret and that don't support authorization-code or implicit grants. As
+an alternative that requires no user pool domain, an app client with a client secret
+and the `ALLOW_CLIENT_TOKEN_AUTH` authentication flow can obtain M2M access
+tokens with the [GetClientToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md") API operation.
 
 ###### Note
 

@@ -6,7 +6,8 @@ or `V1_0` pre token generation trigger event, you can customize the identity (ID
 token. In user pools with the Essentials or Plus feature plan, you can generate the version
 two or `V2_0` trigger event with access token customization, and the version
 three or `V3_0` trigger event with access token customization for
-machine-to-machine (M2M) client-credentials grants.
+machine-to-machine (M2M) authorization, including both client-credentials grants and the
+`GetClientToken` API operation.
 
 Amazon Cognito sends a `V1_0` event as a request to your function with data that it
 would write to the ID token. A `V2_0` or `V3_0` event is a single
@@ -158,9 +159,10 @@ With event versions two and three of the pre token generation Lambda trigger, yo
 customize the content of an access token from your user pool. The access token
 authorizes users to retrieve information from access-protected resources like Amazon Cognito
 token-authorized API operations and third-party APIs. For machine-to-machine (M2M)
-authorization with a client credentials grant, Amazon Cognito only invokes the pre token
-generation trigger when your user pool is configured for a version three
-(`V3_0`) event. For more information about access tokens, see [Understanding the access token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md").
+authorization, whether the access token comes from a client credentials grant or from the
+`GetClientToken` API operation, Amazon Cognito only invokes the pre token generation
+trigger when your user pool is configured for a version three (`V3_0`)
+event. For more information about access tokens, see [Understanding the access token](amazon-cognito-user-pools-using-the-access-token.md "amazon-cognito-user-pools-using-the-access-token.md").
 
 The uses of the pre token generation Lambda trigger with an access token include the
 following.

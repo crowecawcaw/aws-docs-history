@@ -4,6 +4,7 @@ Your app must successfully complete one of the following requests each time you 
 get a new JSON Web Token (JWT).
 
 - Request a client credentials or authorization code [grant](https://www.rfc-editor.org/rfc/rfc6749#section-1.3 "https://www.rfc-editor.org/rfc/rfc6749#section-1.3") from the [Token endpoint](token-endpoint.md "token-endpoint.md").
+- Request a client-credentials access token with the [GetClientToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md") API operation, which requires no user pool domain.
 - Request an implicit grant from your managed login pages.
 - Authenticate a local user in an Amazon Cognito API request like [InitiateAuth](../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md "../../../cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.md").
   You can configure your user pool to set tokens to expire in minutes, hours, or days. To

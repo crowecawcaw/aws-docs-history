@@ -68,14 +68,16 @@ clients authorize their requests with an access token, they perform _machine to 
 authorization, a shared secret replaces user credentials in access control.
 
 An application that accesses an API with M2M authorization must have a client ID and
-client secret. In your user pool, you must build an app client that supports client
-credentials grants. To support client credentials, your app client must have a client
-secret and you must have a user pool domain. In this flow, your machine identity
-requests an access token directly from the [Token endpoint](token-endpoint.md "token-endpoint.md"). You can authorize only custom scopes from [resource
-servers](#cognito-user-pools-define-resource-servers-about-resource-servers "#cognito-user-pools-define-resource-servers-about-resource-servers") in access tokens for client credentials grants. For more information
+client secret. In your user pool, build an app client that has a client secret. Your
+machine identity can then obtain an M2M access token in one of two ways: it can request a
+_client credentials grant_ from the [Token endpoint](token-endpoint.md "token-endpoint.md"), or it can call the [GetClientToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md") API operation. Both approaches issue an access token that
+authorizes only custom scopes from [resource
+servers](#cognito-user-pools-define-resource-servers-about-resource-servers "#cognito-user-pools-define-resource-servers-about-resource-servers"). They differ in setup: the token endpoint requires a user pool domain
+and suits applications that use an OIDC library, while `GetClientToken`
+requires no domain and works through the AWS SDK, AWS CLI, or API. For more information
 about setting up app clients, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
 
-The access token from a client credentials grant is a verifiable statement of the
+The M2M access token is a verifiable statement of the
 operations that you want to permit your machine identity to request from an API. To
 learn more about how access tokens authorize API requests, continue reading. For an
 example application, see [Amazon Cognito and API Gateway based machine to machine authorization using AWS
@@ -83,7 +85,8 @@ CDK](https://github.com/aws-samples/amazon-cognito-and-api-gateway-based-machine
 
 M2M authorization has a billing model that differs from the way that monthly active
 users (MAUs) are billed. Where user authentication carries a cost per active user, M2M
-billing reflects active client credentials app clients and total token-request volume.
+billing reflects active M2M app clients, whether they use client credentials grants or
+the `GetClientToken` API operation, and total token-request volume.
 For more information, see [Amazon Cognito
 Pricing](https://aws.amazon.com/cognito/pricing "https://aws.amazon.com/cognito/pricing"). To control costs for M2M authorization, optimize the duration of
 access tokens and the number of token requests that your applications make. See [Managing user pool token expiration and caching](amazon-cognito-user-pools-using-tokens-caching-tokens.md "amazon-cognito-user-pools-using-tokens-caching-tokens.md") for a way to use
@@ -108,6 +111,75 @@ see [Client credentials with basic authorization](token-endpoint.md#exchanging-c
 ```
 aws_client_metadata=%7B%22environment%22%3A%20%22dev%22,%20%22language%22%3A%20%22en-US%22%7D
 ```
+
+### Obtaining M2M access tokens with GetClientToken
+
+The [GetClientToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md") API operation issues an M2M access token for a confidential
+app client through the AWS SDK, AWS CLI, or API, without a user pool domain. It
+provides the same functionality as the client credentials grant from the token
+endpoint; both authorize an _application_ rather than a
+_user_.
+
+###### Note
+
+Amazon Cognito doesn't use AWS Identity and Access Management (IAM) identity-based policies to authorize
+`GetClientToken`. You can't use IAM credentials to authorize the
+request; authorization comes from the app client's client secret.
+
+To use `GetClientToken`, configure an app client that has a client secret
+and only the `ALLOW_CLIENT_TOKEN_AUTH` authentication flow. This flow is
+mutually exclusive with user authentication flows. An app client can have up to two
+active secrets. Associate your [resource
+server](#cognito-user-pools-define-resource-servers-about-resource-servers "#cognito-user-pools-define-resource-servers-about-resource-servers") custom scopes with the app client. The following AWS CLI example
+creates a compatible app client.
+
+```
+aws cognito-idp create-user-pool-client \
+    --user-pool-id `us-west-2_EXAMPLE` \
+    --client-name my-m2m-client \
+    --generate-secret \
+    --explicit-auth-flows ALLOW_CLIENT_TOKEN_AUTH \
+    --allowed-o-auth-scopes "`solar-system-data/asteroids.add`"
+```
+
+To get an access token, call `GetClientToken` with the app client ID, an
+active client secret, and the custom scopes that you want in the token.
+`GetClientToken` doesn't take a `UserPoolId` parameter;
+Amazon Cognito identifies the user pool from the client ID. If you don't specify
+`Scopes`, Amazon Cognito authorizes the scopes that are configured for the app
+client.
+
+```
+aws cognito-idp get-client-token \
+    --client-id `1example23456789` \
+    --secret `exampleClientSecret123EXAMPLE` \
+    --scopes "`solar-system-data/asteroids.add`"
+```
+
+The response contains the access token and its metadata in a
+`ClientAuthenticationResult` object.
+
+```
+{
+    "ClientAuthenticationResult": {
+        "AccessToken": "`eyJra456defEXAMPLE`",
+        "ExpiresIn": 3600,
+        "TokenType": "Bearer"
+    }
+}
+```
+
+Present the access token to your resource server, for example, in the
+`Authorization` header of a request to an Amazon API Gateway REST API. The
+resource server verifies the token signature and expiration, then authorizes the
+request based on the scopes in the token.
+
+To pass data to a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md "user-pool-lambda-pre-token-generation.md") that customizes the token,
+include a `ClientMetadata` map in your request with the
+`--client-metadata` parameter. Your pre token generation trigger must
+be configured for trigger event version 3 or later to receive client metadata in the
+M2M flow. Amazon Cognito doesn't store, validate, or encrypt this data, and makes it available
+only to Lambda triggers, so don't include sensitive information.
 
 ## About scopes
 
@@ -232,8 +304,9 @@ token authorize specific actions in your API. You can authorize any app client i
 your user pool to issue custom scopes from any of your resource servers. Associate
 your custom scopes with an app client and request those scopes in OAuth 2.0
 authorization code grants, implicit grants, and client credentials grants from the
-[Token endpoint](token-endpoint.md "token-endpoint.md"). Amazon Cognito adds
-custom scopes to the `scope` claim in an access token. A client can use
+[Token endpoint](token-endpoint.md "token-endpoint.md"). For M2M, you can
+also request custom scopes with the [GetClientToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md") API operation. Amazon Cognito adds custom scopes to the
+`scope` claim in an access token. A client can use
 the access token against its resource server, which makes the authorization decision
 based on the scopes present in the token. For more information about access token
 scope, see [Using
@@ -241,9 +314,10 @@ Tokens with User Pools](amazon-cognito-user-pools-using-tokens-with-identity-pro
 
 ![An overview of the flow of a resource server. The client requests a grant with a custom scope, the user pool returns an access token with the custom scope, and the client presents the access token to an API.](images/resource-servers.png)
 
-To get an access token with custom scopes, your app must make a request to the [Token endpoint](token-endpoint.md "token-endpoint.md") to redeem an authorization
+To get an access token with custom scopes, your app can make a request to the [Token endpoint](token-endpoint.md "token-endpoint.md") to redeem an authorization
 code or to request a client credentials grant. In managed login, you can also request
-custom scopes in an access token from an implicit grant.
+custom scopes in an access token from an implicit grant. For M2M authorization, your app
+can also request custom scopes with the [GetClientToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md") API operation.
 
 ###### Note
 

@@ -31,8 +31,9 @@ tenants.
 
 Request all scopes assigned to an app client in your authorization
 requests. To do this, omit the `scope` request parameter in your
-request to the [Token endpoint](token-endpoint.md "token-endpoint.md"). This model allows for app clients to store the access indicators that
-you want to add to your custom scopes.
+request to the [Token endpoint](token-endpoint.md "token-endpoint.md"). If you obtain M2M access tokens with the [GetClientToken](../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md "../../../cognito-user-identity-pools/latest/APIReference/API_GetClientToken.md") API operation, omit the `Scopes`
+parameter for the same result. This model allows for app clients to store the
+access indicators that you want to add to your custom scopes.
 
 In either case, your applications receive access tokens with scopes that indicate
 their privileges for data sources that they depend on. Scopes can also present other

@@ -10,7 +10,7 @@ combine the Amazon Cognito directory with an external identity provider. With yo
 you can choose the API authorization model that works best for your app. And you can add
 AWS Lambda functions that modify or overhaul the default behavior of Amazon Cognito.
 
-![A diagram with a high-level overview of how user pools work. Clients can sign in with applications build using an AWS SDK or with the OIDC IdP built in to user pools. User pools also unify sign-in processes for multiple social, OpenID Connect, and SAML 2.0 identity providers.](/images/cognito/latest/developerguide/images/scenario-authentication-cup.png)
+![A diagram with a high-level overview of how user pools work. Clients can sign in with applications build using an AWS SDK or with the OIDC IdP built in to user pools. User pools also unify sign-in processes for multiple social, OpenID Connect, and SAML 2.0 identity providers.](images/scenario-authentication-cup.png)
 
 ###### Topics
 
@@ -108,7 +108,8 @@ built in to Amazon Cognito, you can add the following integrations.
 Some sessions aren’t a human-to-machine interaction. You might need a service account
 that can authorize a request to an API by an automated process. To generate access tokens
 for machine-to-machine authorization with OAuth 2.0 scopes, you can add an app client that
-generates [client-credentials grants](https://www.rfc-editor.org/rfc/rfc6749#section-4.4 "https://www.rfc-editor.org/rfc/rfc6749#section-4.4").
+generates [client-credentials grants](https://www.rfc-editor.org/rfc/rfc6749#section-4.4 "https://www.rfc-editor.org/rfc/rfc6749#section-4.4") from the token endpoint, or call the
+`GetClientToken` API operation, which requires no user pool domain.
 
 ###### Related topics
 
