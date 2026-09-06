@@ -1,42 +1,35 @@
+
+
 # Setting flow maintenance windows
+<a name="setting-flow-maintenance"></a>
 
-You can set or change the maintenance window for a flow, regardless
-of whether the flow is active or stopped. You specify a preferred day and start
-hour, and MediaConnect performs maintenance within the two-hour window starting at that
-time.
+You can set or change the maintenance window for a flow, regardless of whether the flow is active or stopped. You specify a preferred day and start hour, and MediaConnect performs maintenance within the two-hour window starting at that time.
 
-###### Important
+**Important**  
+You cannot change the maintenance window for a flow within 4 hours of the scheduled maintenance start time, or while maintenance is in progress.
 
-You cannot change the maintenance window for a flow within 4 hours of the
-scheduled maintenance start time, or while maintenance is in progress.
+**To set a maintenance window (console)**
 
-###### To set a maintenance window (console)
+1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/).
 
-1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
-2. In the navigation pane, choose
-   **Flows**.
-3. Select the check box next to one or more flows that you want to
-   update.
-4. Choose **Flow actions**, and then choose
-   **Update maintenance window**.
-5. For **Start day**, choose the preferred
-   day of the week.
-6. For **Start hour**, choose the preferred
-   start time (UTC).
-7. (Optional) If maintenance is required for the flow, the
-   **Maintenance window date** field is available.
-   Select a specific date for the next maintenance event. The
-   selected date must be before the required-by deadline.
-8. Choose **Update**.
+1. In the navigation pane, choose **Flows**.
 
-###### To set a flow maintenance window (AWS CLI)
+1. Select the check box next to one or more flows that you want to update.
 
-Use the `update-flow` command with the
-`--maintenance` parameter to set the preferred maintenance day and
-start hour.
+1. Choose **Flow actions**, and then choose **Update maintenance window**.
 
-The following example sets the maintenance window for a flow to Tuesday at
-10:00 UTC:
+1. For **Start day**, choose the preferred day of the week.
+
+1. For **Start hour**, choose the preferred start time (UTC).
+
+1. (Optional) If maintenance is required for the flow, the **Maintenance window date** field is available. Select a specific date for the next maintenance event. The selected date must be before the required-by deadline.
+
+1. Choose **Update**.
+
+**To set a flow maintenance window (AWS CLI)**  
+Use the `update-flow` command with the `--maintenance` parameter to set the preferred maintenance day and start hour.
+
+The following example sets the maintenance window for a flow to Tuesday at 10:00 UTC:
 
 ```
 aws mediaconnect update-flow \
@@ -61,21 +54,13 @@ The following example shows the return value:
 }
 ```
 
-###### Setting a specific maintenance date
+**Setting a specific maintenance date**  
+If maintenance is required for a flow, you can specify a particular date for maintenance to occur by including the `MaintenanceScheduledDate` parameter. The selected date must be before the required-by deadline.
 
-If maintenance is required for a flow, you can specify a particular date
-for maintenance to occur by including the
-`MaintenanceScheduledDate` parameter. The selected date must be
-before the required-by deadline.
+**Note**  
+If you change the preferred day or start hour and a maintenance date is already scheduled, you must also update the scheduled date to match your new preferences.
 
-###### Note
-
-If you change the preferred day or start hour and a maintenance date is
-already scheduled, you must also update the scheduled date to match your new
-preferences.
-
-The following example sets the maintenance window to Friday at 01:00 UTC and
-schedules maintenance for June 5, 2026:
+The following example sets the maintenance window to Friday at 01:00 UTC and schedules maintenance for June 5, 2026:
 
 ```
 aws mediaconnect update-flow \

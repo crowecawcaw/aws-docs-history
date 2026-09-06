@@ -1,23 +1,30 @@
+
+
 # Requirements for thumbnails
+<a name="thumbnails-specifications"></a>
 
 ## Requirements for the video source
+<a name="thumbnails-source-video-requirements"></a>
 
-For MediaConnect to successfully generate thumbnails, make sure that the video source
-meets the following requirements.
+For MediaConnect to successfully generate thumbnails, make sure that the video source meets the following requirements.
 
-| Resolution, frame size and frame rate | Video codec               | Scan type                  | Profile and format                                                        | Level        | Chroma sampling | Bit depth    |
-| ------------------------------------- | ------------------------- | -------------------------- | ------------------------------------------------------------------------- | ------------ | --------------- | ------------ |
-| Maximum 4K UHD at 60 FPS (2160p60)    | AVC (H.264)               | Progressive or interlaced  | Baseline, Main, High, High 10, High 422, High 10 Intra, High 422<br>Intra | 1.0-5.2      | 4:2:0, 4:2:2    | 8 bit/10 bit |
-| HEVC (H.265)                          | Progressive only          | Main, Main 10, Main 422 10 | 1.0-5.2                                                                   | 4:2:0, 4:2:2 | 8 bit/10 bit    |
-| MPEG-2 (H.262)                        | Progressive or interlaced | Simple, Main, 422          | Low, Main, High1440, High                                                 | 4:2:0, 4:2:2 | 8 bit/10 bit    |
+
+
+- **Maximum 4K UHD at 60 FPS (2160p60)**
+  - **Video codec:** AVC (H.264) / **Scan type:** Progressive or interlaced / **Profile and format:** Baseline, Main, High, High 10, High 422, High 10 Intra, High 422 Intra / **Level:** 1.0-5.2 / **Chroma sampling:** 4:2:0, 4:2:2 / **Bit depth:** 8 bit/10 bit
+  - **Video codec:** HEVC (H.265) / **Scan type:** Progressive only / **Profile and format:** Main, Main 10, Main 422 10 / **Level:** 1.0-5.2 / **Chroma sampling:** 4:2:0, 4:2:2 / **Bit depth:** 8 bit/10 bit
+  - **Video codec:** MPEG-2 (H.262) / **Scan type:** Progressive or interlaced / **Profile and format:** Simple, Main, 422 / **Level:** Low, Main, High1440, High / **Chroma sampling:** 4:2:0, 4:2:2 / **Bit depth:** 8 bit/10 bit
+
+
 
 ## Requirements for the flow
+<a name="thumbnails-flow-requirements"></a>
 
-To successfully generate thumbnails, make sure that your flow meets the following
-requirements.
+To successfully generate thumbnails, make sure that your flow meets the following requirements.
 
-| Characteristic of the flow                                           | Requirement                                                                                               |
-| -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Type of flows that support thumbnails                                | Any type of flow except CDI flows.                                                                        |
-| Maximum number of outputs that can be attached to the<br>flow        | 10If the flow exceeds this limit, then MediaConnect won't generate<br>any thumbnails for this flow.       |
-| Maximum bitrate for all the outputs that are attached to the<br>flow | 400 MbpsIf the flow exceeds this limit, then MediaConnect won't<br>generate any thumbnails for this flow. |
+
+| Characteristic of the flow | Requirement | 
+| --- | --- | 
+| Type of flows that support thumbnails | Any type of flow except CDI flows. | 
+| Maximum number of outputs that can be attached to the flow | 10If the flow exceeds this limit, then MediaConnect won't generate any thumbnails for this flow. | 
+| Maximum bitrate for all the outputs that are attached to the flow | 400 MbpsIf the flow exceeds this limit, then MediaConnect won't generate any thumbnails for this flow. | 

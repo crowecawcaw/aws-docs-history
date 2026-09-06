@@ -1,49 +1,35 @@
+
+
 # Setting router I/O maintenance windows
+<a name="setting-router-io-maintenance"></a>
 
-You can configure a maintenance window for a router I/O when you create it, or
-update the window later. When creating a router I/O, you can specify a preferred
-day and time, or choose the default option to let MediaConnect select a schedule
-automatically.
+You can configure a maintenance window for a router I/O when you create it, or update the window later. When creating a router I/O, you can specify a preferred day and time, or choose the default option to let MediaConnect select a schedule automatically.
 
-###### Note
+**Note**  
+You cannot change the maintenance schedule for a router I/O while it is active. You must stop the I/O first (placing it in Standby state) before you can update its maintenance configuration. After the I/O starts, the maintenance schedule is locked until the I/O is stopped again.
 
-You cannot change the maintenance schedule for a router I/O while it is
-active. You must stop the I/O first (placing it in Standby state) before you
-can update its maintenance configuration. After the I/O starts, the
-maintenance schedule is locked until the I/O is stopped again.
+**To set or update a router I/O maintenance window (console)**
 
-###### To set or update a router I/O maintenance window (console)
+1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/).
 
-1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
-2. In the navigation pane, under **Global routing**,
-   choose **Router inputs** or
-   **Router outputs**.
-3. Choose the input or output name to open its details
-   page.
-4. Choose **Edit**.
-5. In the **Maintenance configuration** section,
-   for **Maintenance type**, choose one of the
-   following options:
+1. In the navigation pane, under **Global routing**, choose **Router inputs** or **Router outputs**.
 
-   - **Default** – Let MediaConnect select
-     maintenance scheduling preferences on your behalf.
-   - **Preferred day and time** –
-     Set a preferred day and time for scheduled
-     maintenance.
+1. Choose the input or output name to open its details page.
 
-6. If you chose **Preferred day and time**, specify
-   the **Maintenance day** and
-   **Maintenance time** (UTC).
-7. Choose **Save changes**.
+1. Choose **Edit**.
 
-###### To create a router I/O with a preferred maintenance window (AWS CLI)
+1. In the **Maintenance configuration** section, for **Maintenance type**, choose one of the following options:
+   + **Default** – Let MediaConnect select maintenance scheduling preferences on your behalf.
+   + **Preferred day and time** – Set a preferred day and time for scheduled maintenance.
 
-Use the `create-router-input` or `create-router-output`
-command with the `--maintenance-configuration` parameter to specify
-a preferred day and time for maintenance.
+1. If you chose **Preferred day and time**, specify the **Maintenance day** and **Maintenance time** (UTC).
 
-The following example creates a router input with a preferred maintenance window
-of Sunday at 04:00 UTC:
+1. Choose **Save changes**.
+
+**To create a router I/O with a preferred maintenance window (AWS CLI)**  
+Use the `create-router-input` or `create-router-output` command with the `--maintenance-configuration` parameter to specify a preferred day and time for maintenance.
+
+The following example creates a router input with a preferred maintenance window of Sunday at 04:00 UTC:
 
 ```
 aws mediaconnect create-router-input \
@@ -75,14 +61,10 @@ The response includes the maintenance configuration:
 }
 ```
 
-###### To create a router I/O with default maintenance (AWS CLI)
+**To create a router I/O with default maintenance (AWS CLI)**  
+Use the `create-router-input` or `create-router-output` command with `--maintenance-configuration '{"Default":{}}'` to let MediaConnect select a maintenance schedule automatically.
 
-Use the `create-router-input` or `create-router-output`
-command with `--maintenance-configuration '{"Default":{}}'` to let
-MediaConnect select a maintenance schedule automatically.
-
-The following example creates a router input with the default maintenance
-configuration:
+The following example creates a router input with the default maintenance configuration:
 
 ```
 aws mediaconnect create-router-input \
@@ -111,14 +93,10 @@ The response includes the maintenance configuration:
 }
 ```
 
-###### To update a router I/O maintenance window (AWS CLI)
+**To update a router I/O maintenance window (AWS CLI)**  
+Use the `update-router-input` or `update-router-output` command with the `--maintenance-configuration` parameter to change the maintenance window. The I/O must be in Standby state.
 
-Use the `update-router-input` or `update-router-output`
-command with the `--maintenance-configuration` parameter to change
-the maintenance window. The I/O must be in Standby state.
-
-The following example updates the maintenance window for a router input to
-Wednesday at 02:00 UTC:
+The following example updates the maintenance window for a router input to Wednesday at 02:00 UTC:
 
 ```
 aws mediaconnect update-router-input \

@@ -1,31 +1,24 @@
+
+
 # Viewing router I/O maintenance status
+<a name="viewing-router-io-maintenance"></a>
 
-You can view the maintenance status of your router I/Os in the MediaConnect console or
-by using the AWS CLI.
+You can view the maintenance status of your router I/Os in the MediaConnect console or by using the AWS CLI.
 
-###### To view router I/O maintenance status (console)
+**To view router I/O maintenance status (console)**
 
-1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
-2. In the navigation pane, under **Global routing**,
-   choose **Router inputs** or
-   **Router outputs**.
-3. The **Time until maintenance** column shows the
-   number of days remaining until the next scheduled maintenance, or
-   "No maintenance scheduled" if no maintenance is pending.
-4. Choose the number of days remaining to view additional details,
-   including the window start time, window end time, and scheduled
-   maintenance time.
+1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/).
 
-###### To view router I/O maintenance status (AWS CLI)
+1. In the navigation pane, under **Global routing**, choose **Router inputs** or **Router outputs**.
 
-Use the `list-router-inputs` or `list-router-outputs`
-command to see maintenance status across all router I/Os. You can also use the
-`get-router-input` or `get-router-output` command for a
-specific router I/O.
+1. The **Time until maintenance** column shows the number of days remaining until the next scheduled maintenance, or "No maintenance scheduled" if no maintenance is pending.
 
-The response includes maintenance details in the `Maintenance`-related
-fields. Active I/Os with scheduled maintenance include
-`MaintenanceScheduleType` and `MaintenanceSchedule`:
+1. Choose the number of days remaining to view additional details, including the window start time, window end time, and scheduled maintenance time.
+
+**To view router I/O maintenance status (AWS CLI)**  
+Use the `list-router-inputs` or `list-router-outputs` command to see maintenance status across all router I/Os. You can also use the `get-router-input` or `get-router-output` command for a specific router I/O.
+
+The response includes maintenance details in the `Maintenance`-related fields. Active I/Os with scheduled maintenance include `MaintenanceScheduleType` and `MaintenanceSchedule`:
 
 ```
 {

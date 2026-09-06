@@ -1,20 +1,17 @@
+
+
 # MediaConnect output health event
+<a name="monitoring-cloudwatch-events-output-health"></a>
 
-AWS Elemental MediaConnect publishes output health events after an output health indicator state
-changes.
+AWS Elemental MediaConnect publishes output health events after an output health indicator state changes.
 
-MediaConnect publishes this event any time there is a state change to one or more of the
-following output health indicators. This event publishes the current and previous
-state of the flow. Note that the output health event lists the affected flow and
-output in the `resources` section.
+ MediaConnect publishes this event any time there is a state change to one or more of the following output health indicators. This event publishes the current and previous state of the flow. Note that the output health event lists the affected flow and output in the `resources` section.
 
 The following are output health indicators:
++ **Output state**
+  + Possible states: `connected`, `sending`, `disconnected`, `idle`
 
-- **Output state**
-
-  - Possible states: `connected`, `sending`,
-    `disconnected`, `idle`
-    For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+For information about subscribing to this event, see [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 
 The following message is an example of this event.
 

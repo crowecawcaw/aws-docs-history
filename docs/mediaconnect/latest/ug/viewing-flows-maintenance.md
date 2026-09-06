@@ -1,27 +1,24 @@
+
+
 # Viewing flow maintenance status
+<a name="viewing-flows-maintenance"></a>
 
-You can view the maintenance status of your flows in the MediaConnect console or by
-using the AWS CLI.
+You can view the maintenance status of your flows in the MediaConnect console or by using the AWS CLI.
 
-###### To view flow maintenance status (console)
+**To view flow maintenance status (console)**
 
-1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
-2. In the navigation pane, choose
-   **Flows**.
-3. The **Maintenance window** column displays the
-   maintenance status for each flow. If maintenance is required, the
-   column shows the scheduled date.
-4. To view detailed maintenance information for a specific flow,
-   choose the flow name to open its details page.
+1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/).
 
-###### To view flow maintenance status (AWS CLI)
+1. In the navigation pane, choose **Flows**.
 
-Use the `list-flows` command to see maintenance status across all
-flows, or the `describe-flow` command for detailed information about
-a specific flow.
+1. The **Maintenance window** column displays the maintenance status for each flow. If maintenance is required, the column shows the scheduled date.
 
-The response includes maintenance details in the
-`Maintenance` object:
+1. To view detailed maintenance information for a specific flow, choose the flow name to open its details page.
+
+**To view flow maintenance status (AWS CLI)**  
+Use the `list-flows` command to see maintenance status across all flows, or the `describe-flow` command for detailed information about a specific flow.
+
+The response includes maintenance details in the `Maintenance` object:
 
 ```
 {

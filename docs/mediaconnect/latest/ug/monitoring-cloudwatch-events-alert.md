@@ -1,12 +1,11 @@
+
+
 # MediaConnect alert event
+<a name="monitoring-cloudwatch-events-alert"></a>
 
-AWS Elemental MediaConnect publishes an alert event when a resource encounters an error. The event
-contains an error code and a message that describes the issue. These alerts are
-visible on the MediaConnect console, or by using the `describe-flow` AWS Command Line Interface
-(AWS CLI) command. For more information about the `describe-flow` command,
-see [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediaconnect/describe-flow.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediaconnect/describe-flow.html").
+AWS Elemental MediaConnect publishes an alert event when a resource encounters an error. The event contains an error code and a message that describes the issue. These alerts are visible on the MediaConnect console, or by using the `describe-flow` AWS Command Line Interface (AWS CLI) command. For more information about the `describe-flow` command, see [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mediaconnect/describe-flow.html).
 
-For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+For information about subscribing to this event, see [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 
 The following message is an example of this event.
 

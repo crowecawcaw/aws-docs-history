@@ -1,33 +1,22 @@
+
+
 # MediaConnect source health event
+<a name="monitoring-cloudwatch-events-source-health"></a>
 
-AWS Elemental MediaConnect publishes source health events after a source health indicator state
-changes.
+AWS Elemental MediaConnect publishes source health events after a source health indicator state changes.
 
-MediaConnect publishes this event any time there is a state change to one or more of the
-following source health indicators. This event publishes the current and previous
-state of the flow. Note that the source health event lists the affected flow and
-source in the `resources` section.
+MediaConnect publishes this event any time there is a state change to one or more of the following source health indicators. This event publishes the current and previous state of the flow. Note that the source health event lists the affected flow and source in the `resources` section.
 
 The following are source health indicators:
++ **Source state**
+  + Possible states: `connected`, `receiving`, `disconnected`, `idle`
++ **TR-101**: TR-101 is an industry standard technical recommendation for the monitoring of transport streams (TS). The following events are only published for TS based protocols. 
+  + **TS sync loss** - true when source payloads do not look like a valid transport stream.
+  + **Continuity count error** - true when the source finds continuity count errors.
+  + **Transport error** - true when the TS has the transport indicator set.
+  + **PCR error** - true when there is a PCR discontinuity or a long gap in PCR packet reception.
 
-- **Source state**
-
-  - Possible states: `connected`, `receiving`,
-    `disconnected`, `idle`
-
-- **TR-101**: TR-101 is an industry standard
-  technical recommendation for the monitoring of transport streams (TS). The
-  following events are only published for TS based protocols.
-
-  - **TS sync loss** - true when source
-    payloads do not look like a valid transport stream.
-  - **Continuity count error** - true
-    when the source finds continuity count errors.
-  - **Transport error** - true when the
-    TS has the transport indicator set.
-  - **PCR error** - true when there is a
-    PCR discontinuity or a long gap in PCR packet reception.
-    For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+For information about subscribing to this event, see [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 
 The following message is an example of this event.
 

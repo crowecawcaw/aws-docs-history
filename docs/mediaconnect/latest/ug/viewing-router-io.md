@@ -1,83 +1,71 @@
-# Viewing router I/Os in MediaConnect
 
-You can view your router inputs and outputs in the MediaConnect console. For each input and
-output, you can see the status, connections, and monitoring details.
+
+# Viewing router I/Os in MediaConnect
+<a name="viewing-router-io"></a>
+
+You can view your router inputs and outputs in the MediaConnect console. For each input and output, you can see the status, connections, and monitoring details.
 
 ## Prerequisites
+<a name="viewing-router-io-prerequisites"></a>
 
-The following procedure assumes you have at least one router I/O in your
-AWS account.
+The following procedure assumes you have at least one router I/O in your AWS account.
 
 ## Procedure
+<a name="viewing-router-io-procedure"></a>
 
-Follow these steps to view the router I/Os that are available in your
-AWS account.
+Follow these steps to view the router I/Os that are available in your AWS account.
 
-1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
-2. In the navigation pane, choose **Router inputs**.
-3. Review the list of your inputs, which shows basic information such as the
-   following:
+### To view your router inputs
+<a name="view-router-inputs-section"></a><a name="view-router-inputs-procedure"></a>
 
-Router inputs list fields| Field | What it tells you |
-| --- | --- |
-| Name | The name that you gave this router input. |
-| Region | Where this input is located. |
-| Type | The type of router input. |
-| State | The current status of this router input.<br>For more information, see [MediaConnect router I/O states](io-state-changes.md "io-state-changes.md"). |
-| Routed outputs | The number of outputs that are currently taking this input. |
-| Time until maintenance | The countdown that shows when the next scheduled maintenance starts<br>for this input. | 4. To see more information about a router input, select an input and choose
-**View details**. 5. Use these tabs to find specific information about the router input:
+1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/).
 
-Router input details tabs| Tab | What you'll find here |
-| --- | --- |
-| Monitoring | Live status information including properties, thumbnail data,<br>maintenance schedule countdown, and alerts. |
-| Metrics | Performance data for this input. |
-| Assigned outputs | The outputs which are currently taking this input. |
-| Configuration | The current settings for this input. |
-| Tags | The tags that are currently applied to this input. |
+1. In the navigation pane, choose **Router inputs**.
 
-1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
-2. In the navigation pane, choose **Router outputs**.
-3. Review the list of your outputs, which shows basic information such as the
-   following.
+1. Review the list of your inputs, which shows basic information such as the following:  
+**Router inputs list fields**    
+<a name="router-inputs-list-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/mediaconnect/latest/ug/viewing-router-io.html)
 
-Router outputs list fields| Field | Description |
-| --- | --- |
-| Name | The name that you gave this output. |
-| Region | Where this output is located. |
-| Type | The type of output. |
-| State | The current status of this output. |
-| Routed state | The current routing status of the output.<br>• **Routing** - The output is in the<br>process of connecting to an input, or disconnecting from an<br>input.<br>• **Routed** - The output is<br>currently taking an input.<br>• **Unrouted** - The output is not<br>currently taking any input. |
-| Time until maintenance | The countdown that shows when the next scheduled maintenance starts<br>for this input. | 4. To see more information about a router output, select an output and choose
-**View details**. 5. Use these tabs to find specific information about the router output.
+1. To see more information about a router input, select an input and choose **View details**.
 
-Router output details tabs| Tab | **What you'll find here** |
-| --- | --- |
-| Monitoring | Live status information for the output, including health metrics and<br>alerts. |
-| Metrics | Performance data for this output. |
-| Assigned input | The current status of the input that this output is taking. |
-| Configuration | Your output's settings, network details, and tags. |
-| Tags | The tags that are currently assigned to this output. |
+1. Use these tabs to find specific information about the router input:  
+**Router input details tabs**    
+<a name="router-input-details-tabs-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/mediaconnect/latest/ug/viewing-router-io.html)
+
+### To view your router outputs
+<a name="view-router-outputs-section"></a><a name="view-router-outputs-procedure"></a>
+
+1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/).
+
+1. In the navigation pane, choose **Router outputs**.
+
+1. Review the list of your outputs, which shows basic information such as the following.  
+**Router outputs list fields**    
+<a name="router-outputs-list-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/mediaconnect/latest/ug/viewing-router-io.html)
+
+1. To see more information about a router output, select an output and choose **View details**.
+
+1. Use these tabs to find specific information about the router output.  
+**Router output details tabs**    
+<a name="router-output-details-tabs-table"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/mediaconnect/latest/ug/viewing-router-io.html)
 
 ## Next steps
+<a name="viewing-router-io-next-steps"></a>
 
-After reviewing your router inputs and outputs, you can perform the following
-actions:
-
-- [Starting a router I/O in MediaConnect](starting-router-io.md "starting-router-io.md")
-- [Managing routes in MediaConnect](assigning-route.md "assigning-route.md")
+After reviewing your router inputs and outputs, you can perform the following actions:
++ [Starting a router I/O in MediaConnect](starting-router-io.md)
++ [Managing routes in MediaConnect](assigning-route.md)
 
 ## Additional resources
+<a name="viewing-router-io-additional-resources"></a>
 
-To view router I/Os programmatically, see the following pages in the _MediaConnect API Reference_:
+To view router I/Os programmatically, see the following pages in the *MediaConnect API Reference*:
++ [ListRouterInputs](https://docs.aws.amazon.com/mediaconnect/latest/api/API_ListRouterInputs.html)
++ [ListRouterOutputs](https://docs.aws.amazon.com/mediaconnect/latest/api/API_ListRouterOutputs.html)
++ [GetRouterInput](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GetRouterInput.html)
++ [GetRouterInputThumbnail](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GetRouterInputThumbnail.html) 
++ [GetRouterOutput](https://docs.aws.amazon.com/mediaconnect/latest/api/API_GetRouterOutput.html)
++ [BatchGetRouterInput](https://docs.aws.amazon.com/mediaconnect/latest/api/API_BatchGetRouterInput.html)
++ [BatchGetRouterOutput](https://docs.aws.amazon.com/mediaconnect/latest/api/API_BatchGetRouterOutput.html)
 
-- [ListRouterInputs](../api/API_ListRouterInputs.md "../api/API_ListRouterInputs.md")
-- [ListRouterOutputs](../api/API_ListRouterOutputs.md "../api/API_ListRouterOutputs.md")
-- [GetRouterInput](../api/API_GetRouterInput.md "../api/API_GetRouterInput.md")
-- [GetRouterInputThumbnail](../api/API_GetRouterInputThumbnail.md "../api/API_GetRouterInputThumbnail.md")
-- [GetRouterOutput](../api/API_GetRouterOutput.md "../api/API_GetRouterOutput.md")
-- [BatchGetRouterInput](../api/API_BatchGetRouterInput.md "../api/API_BatchGetRouterInput.md")
-- [BatchGetRouterOutput](../api/API_BatchGetRouterOutput.md "../api/API_BatchGetRouterOutput.md")
-
-This includes information about how to use these operations and parameters in one of the
-language-specific AWS SDKs.
+This includes information about how to use these operations and parameters in one of the language-specific AWS SDKs.
