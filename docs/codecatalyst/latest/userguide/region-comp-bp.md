@@ -1,11 +1,11 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding region components to a blueprint
+<a name="region-comp-bp"></a>
 
-The region type can be added to your custom blueprint's `Options` interface to generate a
-component in the blueprint wizard you can input one or more AWS gions. The gion type can be
-imported from your base blueprint in your `blueprint.ts` file. For more
-information, see [AWS regions](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/").
+The region type can be added to your custom blueprint's `Options` interface to generate a component in the blueprint wizard you can input one or more AWS gions. The gion type can be imported from your base blueprint in your `blueprint.ts` file. For more information, see [AWS regions](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/).
 
 **To import Amazon CodeCatalyst blueprints region type**
 
@@ -15,32 +15,28 @@ In your `blueprint.ts` file, add the following:
 import { Region } from '@amazon-codecatalyst/blueprints.blueprint'
 ```
 
-The region type parameter is an array of AWS region codes to choose from, or you can use
-`*` to include all supported AWS regions.
+The region type parameter is an array of AWS region codes to choose from, or you can use `*` to include all supported AWS regions.
 
-###### Topics
-
-- [Annotations](#region-annotations-bp "#region-annotations-bp")
-- [Region components examples](#region-components-examples "#region-components-examples")
+**Topics**
++ [Annotations](#region-annotations-bp)
++ [Region components examples](#region-components-examples)
 
 ## Annotations
+<a name="region-annotations-bp"></a>
 
-JSDoc tags can be added to each field in the `Options` interface to customize how a field
-appears and behaves in the wizard. For the region type, the following tags are
-supported:
+JSDoc tags can be added to each field in the `Options` interface to customize how a field appears and behaves in the wizard. For the region type, the following tags are supported:
++ The `@displayName` annotation can be used to change the field's label in the wizard.
 
-- The `@displayName` annotation can be used to change the field's label in the wizard.
+  Example: `@displayName AWS Region`
++ The `@placeholder` annotation can be used to change the select/multiselect component's placeholder.
 
-Example: `@displayName AWS Region`
-
-- The `@placeholder` annotation can be used to change the select/multiselect
-  component's placeholder.
-
-Example: `@placeholder Choose AWS Region`
+  Example: `@placeholder Choose AWS Region`
 
 ## Region components examples
+<a name="region-components-examples"></a>
 
 ### Choosing a region from a specified list
+<a name="region-specified-list-bp"></a>
 
 ```
 export interface Options extends ParentOptions {
@@ -53,6 +49,7 @@ export interface Options extends ParentOptions {
 ```
 
 ### Choosing one or more regions from a specified list
+<a name="region-specified-list-bp"></a>
 
 ```
 export interface Options extends ParentOptions {
@@ -65,6 +62,7 @@ export interface Options extends ParentOptions {
 ```
 
 ### Choosing one AWS egion
+<a name="region-one-bp"></a>
 
 ```
 export interface Options extends ParentOptions {
@@ -77,6 +75,7 @@ export interface Options extends ParentOptions {
 ```
 
 ### Choosing one or more regions from a specified list
+<a name="region-specified-list-bp"></a>
 
 ```
 export interface Options extends ParentOptions {

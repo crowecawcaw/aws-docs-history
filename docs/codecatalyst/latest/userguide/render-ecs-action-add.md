@@ -1,109 +1,97 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding the 'Render Amazon ECS task definition' action
+<a name="render-ecs-action-add"></a>
 
-Use the following instructions to add the **Render Amazon ECS task
-definition** action to your workflow.
+ Use the following instructions to add the **Render Amazon ECS task definition** action to your workflow. 
 
-###### Prerequisite
+**Prerequisite**  
+Before you begin, make sure you have a workflow that includes a build action that dynamically generates a Docker image. See the preceding [example workflow](render-ecs-action-example-workflow.md) for details.
 
-Before you begin, make sure you have a workflow that includes a build action that
-dynamically generates a Docker image. See the preceding [example workflow](render-ecs-action-example-workflow.md "render-ecs-action-example-workflow.md") for details.
+------
+#### [ Visual ]
 
-Visual
+**To add the 'Render Amazon ECS task definition' action using the visual editor**
 
-###### To add the 'Render Amazon ECS task definition' action using the visual editor
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Choose your project.
-3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of your workflow. You can filter by the source
-   repository or branch name where the workflow is defined, or filter
-   by workflow name or status.
-5. Choose **Edit**.
-6. Choose **Visual**.
-7. At the top-left, choose **+ Actions** to open the action
-   catalog.
-8. From the drop-down list, choose **Amazon CodeCatalyst**.
-9. Search for the **Render Amazon ECS task definition** action, and do
-   one of the following:
+1. Choose your project.
 
-   - Choose the plus sign (**+**) to add the action to the
-     workflow diagram and open its configuration pane.
+1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
 
-   Or
-   - Choose **Render Amazon ECS task definition**. The action details
-     dialog box appears. On this dialog box:
+1. Choose the name of your workflow. You can filter by the source repository or branch name where the workflow is defined, or filter by workflow name or status.
 
-     - (Optional) Choose **View source** to [view the action's source
-       code](workflows-view-source.md#workflows-view-source.title "workflows-view-source.md#workflows-view-source.title").
-     - Choose **Add to workflow** to add the action to the
-       workflow diagram and open its configuration pane.
+1. Choose **Edit**.
 
-10. In the **Inputs** and **Configuration** tabs,
-    complete the fields according to your needs. For a description of each field, see
-    the ['Render Amazon ECS task definition' action YAML](render-ecs-action-ref.md "render-ecs-action-ref.md").
-    This reference provides detailed information about each field (and corresponding
-    YAML property value) as it appears in both the YAML and visual editors.
-11. (Optional) Choose **Validate** to validate the workflow's YAML
-    code before committing.
-12. Choose **Commit**, enter a commit message, and choose
-    **Commit** again.
+1. Choose **Visual**.
 
-YAML
+1. At the top-left, choose **\+ Actions** to open the action catalog.
 
-###### To add the 'Render Amazon ECS task definition' action using the YAML editor
+1. From the drop-down list, choose **Amazon CodeCatalyst**.
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Choose your project.
-3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of your workflow. You can filter by the source
-   repository or branch name where the workflow is defined, or filter
-   by workflow name or status.
-5. Choose **Edit**.
-6. Choose **YAML**.
-7. At the top-left, choose **+ Actions** to open the action
-   catalog.
-8. From the drop-down list, choose **Amazon CodeCatalyst**.
-9. Search for the **Render Amazon ECS task definition** action, and do
-   one of the following:
+1. Search for the **Render Amazon ECS task definition** action, and do one of the following:
+   + Choose the plus sign (**\+**) to add the action to the workflow diagram and open its configuration pane.
 
-   - Choose the plus sign (**+**) to add the action to the
-     workflow diagram and open its configuration pane.
+     Or
+   + Choose **Render Amazon ECS task definition**. The action details dialog box appears. On this dialog box:
+     + (Optional) Choose **View source** to [view the action's source code](workflows-view-source.md#workflows-view-source.title).
+     + Choose **Add to workflow** to add the action to the workflow diagram and open its configuration pane.
 
-   Or
-   - Choose **Render Amazon ECS task definition**. The action details
-     dialog box appears. On this dialog box:
+1. In the **Inputs** and **Configuration** tabs, complete the fields according to your needs. For a description of each field, see the ['Render Amazon ECS task definition' action YAML](render-ecs-action-ref.md). This reference provides detailed information about each field (and corresponding YAML property value) as it appears in both the YAML and visual editors.
 
-     - (Optional) Choose **View source** to [view the action's source
-       code](workflows-view-source.md#workflows-view-source.title "workflows-view-source.md#workflows-view-source.title").
-     - Choose **Add to workflow** to add the action to the
-       workflow diagram and open its configuration pane.
+1. (Optional) Choose **Validate** to validate the workflow's YAML code before committing.
 
-10. Modify the properties in the YAML code according to your needs. An explanation
-    of each available property is provided in the ['Render Amazon ECS task definition' action YAML](render-ecs-action-ref.md "render-ecs-action-ref.md").
-11. (Optional) Choose **Validate** to validate the workflow's YAML
-    code before committing.
-12. Choose **Commit**, enter a commit message, and choose
-    **Commit** again.
+1. Choose **Commit**, enter a commit message, and choose **Commit** again.
 
-###### Next steps
+------
+#### [ YAML ]
 
-After adding the render action, add the **Deploy to Amazon ECS** action to
-your workflow following the instructions in [Deploying to Amazon ECS with a workflow](deploy-action-ecs.md "deploy-action-ecs.md"). While adding the deploy action, do the
-following:
+**To add the 'Render Amazon ECS task definition' action using the YAML editor**
 
-1. In the **Inputs** tab of the deploy action, in **Artifacts -
-   optional**, select the artifact that was generated by the render action. It
-   contains the updated task definition file.
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-For more information about artifacts, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md"). 2. In the **Configuration** tab of the deploy action, in the
-**Task definition** field, specify the following action variable:
-`${`action-name`.task-definition}` where
-`action-name` is the name of your render action, for example,
-`RenderTaskDef`. The render action sets this variable to the new name of the
-task definition file.
+1. Choose your project.
 
-For more information about variables, see [Using variables in workflows](workflows-working-with-variables.md "workflows-working-with-variables.md").
+1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
 
-For more information about how to configure the deploy action, see the preceding [example workflow](render-ecs-action-example-workflow.md "render-ecs-action-example-workflow.md").
+1. Choose the name of your workflow. You can filter by the source repository or branch name where the workflow is defined, or filter by workflow name or status.
+
+1. Choose **Edit**.
+
+1. Choose **YAML**.
+
+1. At the top-left, choose **\+ Actions** to open the action catalog.
+
+1. From the drop-down list, choose **Amazon CodeCatalyst**.
+
+1. Search for the **Render Amazon ECS task definition** action, and do one of the following:
+   + Choose the plus sign (**\+**) to add the action to the workflow diagram and open its configuration pane.
+
+     Or
+   + Choose **Render Amazon ECS task definition**. The action details dialog box appears. On this dialog box:
+     + (Optional) Choose **View source** to [view the action's source code](workflows-view-source.md#workflows-view-source.title).
+     + Choose **Add to workflow** to add the action to the workflow diagram and open its configuration pane.
+
+1. Modify the properties in the YAML code according to your needs. An explanation of each available property is provided in the ['Render Amazon ECS task definition' action YAML](render-ecs-action-ref.md).
+
+1. (Optional) Choose **Validate** to validate the workflow's YAML code before committing.
+
+1. Choose **Commit**, enter a commit message, and choose **Commit** again.
+
+------
+
+**Next steps**
+
+After adding the render action, add the **Deploy to Amazon ECS** action to your workflow following the instructions in [Deploying to Amazon ECS with a workflow](deploy-action-ecs.md). While adding the deploy action, do the following:
+
+1. In the **Inputs** tab of the deploy action, in **Artifacts - optional**, select the artifact that was generated by the render action. It contains the updated task definition file.
+
+   For more information about artifacts, see [Sharing artifacts and files between actions](workflows-working-artifacts.md).
+
+1. In the **Configuration** tab of the deploy action, in the **Task definition** field, specify the following action variable: `${{{action-name}}.task-definition}` where {{action-name}} is the name of your render action, for example, `RenderTaskDef`. The render action sets this variable to the new name of the task definition file.
+
+   For more information about variables, see [Using variables in workflows](workflows-working-with-variables.md).
+
+   For more information about how to configure the deploy action, see the preceding [example workflow](render-ecs-action-example-workflow.md).

@@ -1,9 +1,11 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding workflow components to a blueprint
+<a name="comp-workflow-bp"></a>
 
-A workflow is used by Amazon CodeCatalyst projects to run actions based on triggers. You can use workflow components to
-build and put together workflow YAML files. For more information, see [Workflow YAML definition](workflow-reference.md "workflow-reference.md").
+A workflow is used by Amazon CodeCatalyst projects to run actions based on triggers. You can use workflow components to build and put together workflow YAML files. For more information, see [Workflow YAML definition](workflow-reference.md).
 
 **To import Amazon CodeCatalyst blueprints workflows components**
 
@@ -13,17 +15,17 @@ In your `blueprint.ts` file, add the following:
 import { WorkflowBuilder, Workflow } from '@amazon-codecatalyst/codecatalyst-workflows'
 ```
 
-###### Topics
-
-- [Workflow components examples](#comp-workflows-examples-bp "#comp-workflows-examples-bp")
-- [Connecting to an environment](#comp-workflows-connect-env-bp "#comp-workflows-connect-env-bp")
+**Topics**
++ [Workflow components examples](#comp-workflows-examples-bp)
++ [Connecting to an environment](#comp-workflows-connect-env-bp)
 
 ## Workflow components examples
+<a name="comp-workflows-examples-bp"></a>
 
 ### WorkflowBuilder component
+<a name="comp-workflows-workflowbuilder-bp"></a>
 
-You can use a class to build a workflow definition. The definition can be given to a workflow
-component for rendering in a repository.
+You can use a class to build a workflow definition. The definition can be given to a workflow component for rendering in a repository.
 
 ```
 import { WorkflowBuilder } from '@amazon-codecatalyst/codecatalyst-workflows'
@@ -66,6 +68,7 @@ workflowBuilder.addBuildAction({
 ```
 
 ### Workflow Projen component
+<a name="comp-workflows-projen-bp"></a>
 
 The following example shows how a Projen component can be used to write a workflow YAML to a repository:
 
@@ -86,9 +89,9 @@ new Workflow(blueprint, repo, {... some object ...});
 ```
 
 ## Connecting to an environment
+<a name="comp-workflows-connect-env-bp"></a>
 
-Many workflows need to run in an AWS account connection. Workflows handle this by allowing actions
-to connect to environments with account and role name specifications.
+Many workflows need to run in an AWS account connection. Workflows handle this by allowing actions to connect to environments with account and role name specifications.
 
 ```
 import { convertToWorkflowEnvironment } from '@amazon-codecatalyst/codecatalyst-workflows'

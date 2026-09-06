@@ -1,54 +1,46 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Specifying universal devfile images for a Dev Environment
+<a name="devenvironment-universal-image"></a>
 
-The default _universal image_ includes the most commonly used
-programming languages and related tools that can be used for your IDE. If no image is
-specified, CodeCatalyst provides this image and contains tools that are maintained by CodeCatalyst.
-To remain notified of
-new image releases, see [Subscribing to universal image notifications with SNS](#devenvironment-universal-notifications "#devenvironment-universal-notifications").
+The default *universal image* includes the most commonly used programming languages and related tools that can be used for your IDE. If no image is specified, CodeCatalyst provides this image and contains tools that are maintained by CodeCatalyst. To remain notified of new image releases, see [Subscribing to universal image notifications with SNS](#devenvironment-universal-notifications).
 
 Amazon CodeCatalyst actively supports the following devfile images:
 
-| Image version         | Image identifier                             |
-| --------------------- | -------------------------------------------- |
-| `Universal image 4.0` | `public.ecr.aws/aws-mde/universal-image:4.0` |
-| `Universal image 5.0` | `public.ecr.aws/aws-mde/universal-image:5.0` |
 
-###### Note
+| Image version | Image identifier | 
+| --- | --- | 
+| Universal image 4.0 | public.ecr.aws/aws-mde/universal-image:4.0 | 
+| Universal image 5.0 | public.ecr.aws/aws-mde/universal-image:5.0 | 
 
-You can also use `public.ecr.aws/aws-mde/universal-image:latest` to get the
-latest image, which is currently
-`public.ecr.aws/aws-mde/universal-image:5.0`.
+**Note**  
+You can also use `public.ecr.aws/aws-mde/universal-image:latest` to get the latest image, which is currently `public.ecr.aws/aws-mde/universal-image:5.0`.
 
-CodeCatalyst has deprecated the following images. You can still use these images, but they won't be
-cached on the build host and will result in increased Dev Environment start-up
-times.
+CodeCatalyst has deprecated the following images. You can still use these images, but they won't be cached on the build host and will result in increased Dev Environment start-up times.
 
-| Image version         | Image identifier                             | Deprecation date |
-| --------------------- | -------------------------------------------- | ---------------- |
-| `Universal image 1.0` | `public.ecr.aws/aws-mde/universal-image:1.0` | August 16, 2024  |
-| `Universal image 2.0` | `public.ecr.aws/aws-mde/universal-image:2.0` | August 16, 2024  |
-| `Universal image 3.0` | `public.ecr.aws/aws-mde/universal-image:3.0` | July 30, 2025    |
 
-###### Note
+| Image version | Image identifier | Deprecation date | 
+| --- | --- | --- | 
+| Universal image 1.0 | public.ecr.aws/aws-mde/universal-image:1.0 | August 16, 2024 | 
+| Universal image 2.0 | public.ecr.aws/aws-mde/universal-image:2.0 | August 16, 2024 | 
+| Universal image 3.0 | public.ecr.aws/aws-mde/universal-image:3.0 | July 30, 2025 | 
 
+**Note**  
 If you're using AWS Cloud9, auto-complete will not work for PHP, Ruby and CSS after upgrading to `universal-image:3.0`.
 
-###### Topics
-
-- [Subscribing to universal image notifications with SNS](#devenvironment-universal-notifications "#devenvironment-universal-notifications")
-- [Universal image 4.0 runtime versions](#devenvironment-universal-runtimes-4.0 "#devenvironment-universal-runtimes-4.0")
-- [Universal image 5.0 runtime versions](#devenvironment-universal-runtimes-5.0 "#devenvironment-universal-runtimes-5.0")
+**Topics**
++ [Subscribing to universal image notifications with SNS](#devenvironment-universal-notifications)
++ [Universal image 4.0 runtime versions](#devenvironment-universal-runtimes-4.0)
++ [Universal image 5.0 runtime versions](#devenvironment-universal-runtimes-5.0)
 
 ## Subscribing to universal image notifications with SNS
+<a name="devenvironment-universal-notifications"></a>
 
-CodeCatalyst provides a universal image notification service. You can use it to subscribe to
-an Amazon Simple Notification Service (SNS) topic that notifies you when CodeCatalyst universal image updates have been
-released. For more information about SNS topics, see [What is Amazon Simple Notification Service?](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md").
+CodeCatalyst provides a universal image notification service. You can use it to subscribe to an Amazon Simple Notification Service (SNS) topic that notifies you when CodeCatalyst universal image updates have been released. For more information about SNS topics, see [What is Amazon Simple Notification Service?](https://docs.aws.amazon.com/sns/latest/dg/welcome.html).
 
-Whenever new universal images are released, we send notifications to subscribers; this
-section describes how to subscribe to CodeCatalyst universal image updates.
+Whenever new universal images are released, we send notifications to subscribers; this section describes how to subscribe to CodeCatalyst universal image updates.
 
 **Sample message**
 
@@ -74,65 +66,106 @@ section describes how to subscribe to CodeCatalyst universal image updates.
 }
 ```
 
-###### To subscribe to CodeCatalyst universal image updates using the Amazon SNS console
+**To subscribe to CodeCatalyst universal image updates using the Amazon SNS console**
 
-1. Open the Amazon SNS console to the [Dashboard](https://console.aws.amazon.com/sns/v2/home "https://console.aws.amazon.com/sns/v2/home").
-2. In the navigation bar, choose your AWS Region.
-3. In the navigation pane, choose **Subscriptions**, and then choose
-   **Create subscription**.
-4. In **Topic ARN**, enter
-   `arn:aws:sns:us-east-1:089793673375:universal-image-updates`.
-5. In **Protocol**, choose **Email**.
-6. In **Endpoint**, provide an email address. This email address
-   will be used to receive notifications.
-7. Choose **Create subscription**.
-8. You will receive a confirmation email with the subject line "AWS Notification -
-   Subscription Confirmation". Open the email and choose **Confirm
-   subscription**.
+1. Open the Amazon SNS console to the [Dashboard](https://console.aws.amazon.com/sns/v2/home).
 
-###### To unsubscribe from CodeCatalyst universal image updates using the Amazon SNS console
+1. In the navigation bar, choose your AWS Region.
 
-1. Open the Amazon SNS console to the [Dashboard](https://console.aws.amazon.com/sns/v2/home "https://console.aws.amazon.com/sns/v2/home").
-2. In the navigation bar, choose your AWS Region.
-3. In the navigation pane, choose **Subscriptions** and then select
-   the subscription you want to unsubscribe from.
-4. Choose **Actions**, and then choose **Delete
-   subscriptions**.
-5. Choose **Delete**.
+1. In the navigation pane, choose **Subscriptions**, and then choose **Create subscription**.
+
+1. In **Topic ARN**, enter `arn:aws:sns:us-east-1:089793673375:universal-image-updates`.
+
+1. In **Protocol**, choose **Email**.
+
+1. In **Endpoint**, provide an email address. This email address will be used to receive notifications.
+
+1. Choose **Create subscription**.
+
+1. You will receive a confirmation email with the subject line "AWS Notification - Subscription Confirmation". Open the email and choose **Confirm subscription**.
+
+**To unsubscribe from CodeCatalyst universal image updates using the Amazon SNS console**
+
+1. Open the Amazon SNS console to the [Dashboard](https://console.aws.amazon.com/sns/v2/home).
+
+1. In the navigation bar, choose your AWS Region.
+
+1. In the navigation pane, choose **Subscriptions** and then select the subscription you want to unsubscribe from.
+
+1. Choose **Actions**, and then choose **Delete subscriptions**.
+
+1. Choose **Delete**.
 
 ## Universal image 4.0 runtime versions
+<a name="devenvironment-universal-runtimes-4.0"></a>
 
-The following table lists the available runtimes for
-`universal-image:4.0`.
+The following table lists the available runtimes for `universal-image:4.0`.
 
-`universal-image:4.0` runtime versions| Runtime name | Version | Specific major and latest minor version |
-| --- | --- | --- |
-| aws cli | 2.11 | `aws-cli: 2.x` |
-| docker compose | 2.17 | `docker-compose: 2.x` |
-| dotnet | 8.0 | `dotnet: 8.x` |
-| golang | 1.22 | `golang: 1.x` |
-| java | corretto21 | `java: corretto21.x` |
-| nodejs | 20.6 | `nodejs: 20.x` |
-| php | 8.2 | `php: 8.x` |
-| python | 3.9 | `python: 3.x` |
-| 3.12 |
-| ruby | 3.3 | `ruby: 3.x` |
-| terraform | 1.5 | `terraform: 1.x` |
+
+**`universal-image:4.0` runtime versions**  
+
+
+- **aws cli**
+  - **Version:** 2.11
+  - **Specific major and latest minor version:** `aws-cli: 2.x`
+
+- **docker compose**
+  - **Version:** 2.17
+  - **Specific major and latest minor version:** `docker-compose: 2.x`
+
+- **dotnet**
+  - **Version:** 8.0
+  - **Specific major and latest minor version:** `dotnet: 8.x`
+
+- **golang**
+  - **Version:** 1.22
+  - **Specific major and latest minor version:** `golang: 1.x`
+
+- **java**
+  - **Version:** corretto21
+  - **Specific major and latest minor version:** `java: corretto21.x`
+
+- **nodejs**
+  - **Version:** 20.6
+  - **Specific major and latest minor version:** `nodejs: 20.x`
+
+- **php**
+  - **Version:** 8.2
+  - **Specific major and latest minor version:** `php: 8.x`
+
+- **python**
+  - **Version:**
+    - 3.9
+    - 3.12
+  - **Specific major and latest minor version:** `python: 3.x`
+
+- **ruby**
+  - **Version:** 3.3
+  - **Specific major and latest minor version:** `ruby: 3.x`
+
+- **terraform**
+  - **Version:** 1.5
+  - **Specific major and latest minor version:** `terraform: 1.x`
+
+
 
 ## Universal image 5.0 runtime versions
+<a name="devenvironment-universal-runtimes-5.0"></a>
 
-The following table lists the available runtimes for
-`universal-image:5.0`.
+The following table lists the available runtimes for `universal-image:5.0`.
 
-`universal-image:5.0` runtime versions| Runtime name | Version | Specific major and latest minor version |
-| --- | --- | --- |
-| aws cli | 2.25 | `aws-cli: 2.x` |
-| docker compose | 2.34 | `docker-compose: 2.x` |
-| dotnet | 8.0 | `dotnet: 8.x` |
-| golang | 1.24 | `golang: 1.x` |
-| java | corretto21 | `java: corretto21.x` |
-| nodejs | 22.0 | `nodejs: 22.x` |
-| php | 8.3.16 | `php: 8.x` |
-| python | 3.12 | `python: 3.x` |
-| ruby | 3.4.2 | `ruby: 3.x` |
-| terraform | 1.10.5 | `terraform: 1.x` |
+
+**`universal-image:5.0` runtime versions**  
+
+| Runtime name  | Version | Specific major and latest minor version | 
+| --- | --- | --- | 
+| aws cli | 2.25 | `aws-cli: 2.x` | 
+| docker compose | 2.34 | `docker-compose: 2.x` | 
+| dotnet | 8.0 | `dotnet: 8.x` | 
+| golang | 1.24 | `golang: 1.x` | 
+| java | corretto21 | `java: corretto21.x` | 
+| nodejs | 22.0 | `nodejs: 22.x` | 
+| php | 8.3.16 | `php: 8.x` | 
+| python | 3.12 | `python: 3.x` | 
+| ruby | 3.4.2 | `ruby: 3.x` | 
+| terraform | 1.10.5 | `terraform: 1.x` | 

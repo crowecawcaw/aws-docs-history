@@ -1,42 +1,45 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Viewing deployment information
+<a name="deploy-view-deployment-info"></a>
 
 You can view the following information about a deployment in Amazon CodeCatalyst:
++ Deployment activity, including the deployment status, start time, end time, history, and duration of events.
++ Stack name, AWS Region, last update time, and associated workflows.
++ Commits and pull requests.
++ Action-specific information, for example, CloudFormation events and outputs.
 
-- Deployment activity, including the deployment status, start time, end time, history, and
-  duration of events.
-- Stack name, AWS Region, last update time, and associated workflows.
-- Commits and pull requests.
-- Action-specific information, for example, CloudFormation events and outputs.
-  You can view deployment information starting from a [workflow](workflow.md "workflow.md"), an [environment](deploy-environments.md "deploy-environments.md"), or a workflow [action](workflows-concepts.md#workflows-concepts-actions "workflows-concepts.md#workflows-concepts-actions").
+You can view deployment information starting from a [workflow](workflow.md), an [environment](deploy-environments.md), or a workflow [action](workflows-concepts.md#workflows-concepts-actions).
 
-###### To view deployment information starting from a workflow
+**To view deployment information starting from a workflow**
++ Go to the workflow run that deployed your application. For instructions, see [Viewing workflow run status and details](workflows-view-run.md). 
 
-- Go to the workflow run that deployed your application. For instructions, see [Viewing workflow run status and details](workflows-view-run.md "workflows-view-run.md").
+**To view deployment information starting from an environment**
 
-###### To view deployment information starting from an environment
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Choose your project.
-3. In the navigation pane, choose **CI/CD**, and then choose **Environments**.
-4. Choose the environment where your stack was deployed, for example,
-   `Production`.
-5. Choose **Deployment activity** to view the deployment history of your
-   stacks, the status of the deployments (for example, **SUCCEEDED** or
-   **FAILED**), and other deployment-related information.
-6. Choose **Deployment target** to view information about the stacks,
-   clusters, or other targets deployed into the environment. You can view information such as
-   the stack name, Region, provider, and identifier.
+1. Choose your project.
 
-###### To view deployment information starting from an action
+1. In the navigation pane, choose **CI/CD**, and then choose **Environments**.
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Choose your project.
-3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of your workflow. You can filter by the source
-   repository or branch name where the workflow is defined, or filter
-   by workflow name or status.
-5. In the workflow diagram, choose the workflow action that deployed your application. For
-   example, you might choose **DeployCloudFormationStack**.
-6. Review the contents in the right pane for action-specific deployment information.
+1. Choose the environment where your stack was deployed, for example, `Production`.
+
+1. Choose **Deployment activity** to view the deployment history of your stacks, the status of the deployments (for example, **SUCCEEDED** or **FAILED**), and other deployment-related information.
+
+1. Choose **Deployment target** to view information about the stacks, clusters, or other targets deployed into the environment. You can view information such as the stack name, Region, provider, and identifier.
+
+**To view deployment information starting from an action**
+
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
+
+1. Choose your project.
+
+1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
+
+1. Choose the name of your workflow. You can filter by the source repository or branch name where the workflow is defined, or filter by workflow name or status.
+
+1. In the workflow diagram, choose the workflow action that deployed your application. For example, you might choose **DeployCloudFormationStack**.
+
+1. Review the contents in the right pane for action-specific deployment information. 

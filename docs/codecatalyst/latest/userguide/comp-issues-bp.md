@@ -1,16 +1,13 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding issues components to a blueprint
+<a name="comp-issues-bp"></a>
 
-In CodeCatalyst, you can monitor features, tasks, bugs, and any other work involved in your project.
-Each piece of work is kept in a distinct recordcalled an issue. Each issue can have a description, assignee,
-status, and other properties, which you can search for, group and filter on. You can view your issues using
-the default views, or you can create your own views with custom filtering, sorting, or grouping. For more
-information about concepts related to issues, see [Issues concepts](issues-concepts.md "issues-concepts.md")
-and [Quotas for issues in CodeCatalyst](issues-quotas.md "issues-quotas.md").
+In CodeCatalyst, you can monitor features, tasks, bugs, and any other work involved in your project. Each piece of work is kept in a distinct recordcalled an issue. Each issue can have a description, assignee, status, and other properties, which you can search for, group and filter on. You can view your issues using the default views, or you can create your own views with custom filtering, sorting, or grouping. For more information about concepts related to issues, see [Issues concepts](issues-concepts.md) and [Quotas for issues in CodeCatalyst](issues-quotas.md).
 
-The issue component generates a JSON representation of an issue. The component takes in an ID field and issue
-definition as input.
+The issue component generates a JSON representation of an issue. The component takes in an ID field and issue definition as input.
 
 **To import Amazon CodeCatalyst blueprints issues components**
 
@@ -20,13 +17,14 @@ In your `blueprint.ts` file, add the following:
 import {...} from '@amazon-codecatalyst/blueprint-component.issues'
 ```
 
-###### Topics
-
-- [Issues components examples](#comp-issues-examples-bp "#comp-issues-examples-bp")
+**Topics**
++ [Issues components examples](#comp-issues-examples-bp)
 
 ## Issues components examples
+<a name="comp-issues-examples-bp"></a>
 
 ### Creating an issue
+<a name="comp-issues-create-bp"></a>
 
 ```
 import { Issue } from '@amazon-codecatalyst/blueprint-component.issues';
@@ -38,6 +36,7 @@ new Issue(this, 'myFirstIssue', {
 ```
 
 ### Creating a high-priority issue
+<a name="comp-issues-high-priority-bp"></a>
 
 ```
 import { Workflow } from '@amazon-codecatalyst/codecatalyst-workflows'
@@ -54,6 +53,7 @@ new Workflow(blueprint, repo, {... some object ...});
 ```
 
 ### Creating a low-priority issue with labels
+<a name="comp-issues-low-priority-bp"></a>
 
 ```
 import { Issue } from '@amazon-codecatalyst/blueprint-component.issues';

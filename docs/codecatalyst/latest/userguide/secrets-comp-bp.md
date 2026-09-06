@@ -1,10 +1,11 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding secrets components to a blueprint
+<a name="secrets-comp-bp"></a>
 
-Secrets can be used in CodeCatalyst to store sensitive data that can be referenced in workflows. You can add a
-secret to your custom blueprint and reference it in your workflow. For more information, see
-[Masking data using secrets](workflows-secrets.md "workflows-secrets.md").
+Secrets can be used in CodeCatalyst to store sensitive data that can be referenced in workflows. You can add a secret to your custom blueprint and reference it in your workflow. For more information, see [Masking data using secrets](workflows-secrets.md).
 
 **To import Amazon CodeCatalyst blueprints region type**
 
@@ -14,12 +15,12 @@ In your `blueprint.ts` file, add the following:
 import { Secret, SecretDefinition } from '@amazon-codecatalyst/blueprint-component.secrets'
 ```
 
-###### Topics
-
-- [Creating a secret](#comp-create-secrets-bp "#comp-create-secrets-bp")
-- [Referencing a secret in a workflow](#comp-reference-secrets-bp "#comp-reference-secrets-bp")
+**Topics**
++ [Creating a secret](#comp-create-secrets-bp)
++ [Referencing a secret in a workflow](#comp-reference-secrets-bp)
 
 ## Creating a secret
+<a name="comp-create-secrets-bp"></a>
 
 The following example creates a UI component that prompts the user to enter a secret value and optional description:
 
@@ -36,8 +37,7 @@ export class Blueprint extends ParentBlueprint {
 }
 ```
 
-The secret component requires a `name`. The following code is the minimum
-required default shape:
+The secret component requires a `name`. The following code is the minimum required default shape:
 
 ```
 {
@@ -50,9 +50,9 @@ required default shape:
 ```
 
 ## Referencing a secret in a workflow
+<a name="comp-reference-secrets-bp"></a>
 
-The following example blueprint creates a secret and a workflow that references the secret value. For
-more information, see [Referencing a secret in a workflow](workflows-secrets.using.md#workflows-using-secrets.using-identifier "workflows-secrets.using.md#workflows-using-secrets.using-identifier").
+The following example blueprint creates a secret and a workflow that references the secret value. For more information, see [Referencing a secret in a workflow](workflows-secrets.using.md#workflows-using-secrets.using-identifier).
 
 ```
 export interface Options extends ParentOptions {
@@ -99,4 +99,4 @@ export class Blueprint extends ParentBlueprint {
 }
 ```
 
-To learn more about using secrets in CodeCatalyst, see [Masking data using secrets](workflows-secrets.md "workflows-secrets.md").
+To learn more about using secrets in CodeCatalyst, see [Masking data using secrets](workflows-secrets.md).

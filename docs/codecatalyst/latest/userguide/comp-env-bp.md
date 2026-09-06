@@ -1,9 +1,11 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding environment components to a blueprint
+<a name="comp-env-bp"></a>
 
-The custom blueprint wizard is dynamically generated from the `Options` interface exposed through the wizard. Blueprints
-support generating user-interface (UI) components from exposed types.
+The custom blueprint wizard is dynamically generated from the `Options` interface exposed through the wizard. Blueprints support generating user-interface (UI) components from exposed types.
 
 **To import Amazon CodeCatalyst blueprints environment components**
 
@@ -13,13 +15,13 @@ In your `blueprint.ts` file, add the following:
 import {...} from '@amazon-codecatalyst/codecatalyst-environments'
 ```
 
-###### Topics
-
-- [Creating development environments](#create-dev-env-bp "#create-dev-env-bp")
-- [List of environments](#list-env-bp "#list-env-bp")
-- [Mock interface examples](#examples-comp-env-bp "#examples-comp-env-bp")
+**Topics**
++ [Creating development environments](#create-dev-env-bp)
++ [List of environments](#list-env-bp)
++ [Mock interface examples](#examples-comp-env-bp)
 
 ## Creating development environments
+<a name="create-dev-env-bp"></a>
 
 The following example shows how to deploy your application to the cloud:
 
@@ -34,17 +36,9 @@ export interface Options extends ParentOptions {
     }
 ```
 
-The interface generates a UI component that asks for a new environment
-(`myNewEnvironment`) with a single account connection
-(`thisIsMyFirstAccountConnection`. A role on the account connection
-(`thisIsARole`) is also generated with `['lambda', 's3', 'dynamo']` as
-the minimum required role capabilities. Not all users have account connections, so you should
-check for the case where a user doesn't connect an account or doesn't connect an account with
-a role. Roles can also be annotated with `@inlinePolicies`. For more information,
-see [@inlinePolicy ./path/to/policy/file.json](wizard-bp.md#inline-policy-tag "wizard-bp.md#inline-policy-tag").
+The interface generates a UI component that asks for a new environment (`myNewEnvironment`) with a single account connection (`thisIsMyFirstAccountConnection`. A role on the account connection (`thisIsARole`) is also generated with `['lambda', 's3', 'dynamo']` as the minimum required role capabilities. Not all users have account connections, so you should check for the case where a user doesn't connect an account or doesn't connect an account with a role. Roles can also be annotated with `@inlinePolicies`. For more information, see [@inlinePolicy ./path/to/policy/file.json](wizard-bp.md#inline-policy-tag).
 
-The environment component requires a `name` and `environmentType`.
-The following code is the minimum required default shape:
+The environment component requires a `name` and `environmentType`. The following code is the minimum required default shape:
 
 ```
 {
@@ -56,14 +50,12 @@ The following code is the minimum required default shape:
 }
 ```
 
-The UI component then prompts you for various fields. As you fill in the fields, the
-blueprint gets a fully expanded shape. It can be helpful for you to include the full mock in
-the `defaults.json` file for testing and development purposes.
+The UI component then prompts you for various fields. As you fill in the fields, the blueprint gets a fully expanded shape. It can be helpful for you to include the full mock in the `defaults.json` file for testing and development purposes.
 
 ## List of environments
+<a name="list-env-bp"></a>
 
-Specifying an array of type `EnvironmentDefinition` will generate a list of
-environments in the wizard UI.
+Specifying an array of type `EnvironmentDefinition` will generate a list of environments in the wizard UI.
 
 ```
 export interface Options extends ParentOptions {
@@ -99,8 +91,10 @@ The following example shows the defaults for an environment list:
 ```
 
 ## Mock interface examples
+<a name="examples-comp-env-bp"></a>
 
 ### Simple mock interface
+<a name="simple-comp-env-bp"></a>
 
 ```
 {
@@ -126,6 +120,7 @@ The following example shows the defaults for an environment list:
 ```
 
 ### Complex mock interface
+<a name="complex-comp-env-bp"></a>
 
 ```
 export interface Options extends ParentOptions {
@@ -173,6 +168,7 @@ export interface Options extends ParentOptions {
 ```
 
 ### Complete mock interface
+<a name="complete-comp-env-bp"></a>
 
 ```
 {

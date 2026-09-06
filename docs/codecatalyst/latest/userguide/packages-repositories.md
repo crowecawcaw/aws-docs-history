@@ -1,13 +1,13 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Configuring and using package repositories
+<a name="packages-repositories"></a>
 
-In CodeCatalyst, packages are stored and managed inside package repositories. To publish packages
-to CodeCatalyst or to consume packages from a CodeCatalyst (or any supported public package repositories), you
-must create a package repository and connect your package manager to it.
+In CodeCatalyst, packages are stored and managed inside package repositories. To publish packages to CodeCatalyst or to consume packages from a CodeCatalyst (or any supported public package repositories), you must create a package repository and connect your package manager to it.
 
-###### Topics
-
-- [Creating a package repository](packages-repositories-create.md "packages-repositories-create.md")
-- [Connecting to a package repository](packages-repositories-connect.md "packages-repositories-connect.md")
-- [Deleting a package repository](packages-repositories-delete.md "packages-repositories-delete.md")
+**Topics**
++ [Creating a package repository](packages-repositories-create.md)
++ [Connecting to a package repository](packages-repositories-connect.md)
++ [Deleting a package repository](packages-repositories-delete.md)

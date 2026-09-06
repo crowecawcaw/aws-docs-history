@@ -1,11 +1,13 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Specifying the action version to use
+<a name="workflows-action-versions"></a>
 
-By default, when you add an action to a workflow, Amazon CodeCatalyst adds the full version to
-the workflow definition file using the format:
+By default, when you add an action to a workflow, Amazon CodeCatalyst adds the full version to the workflow definition file using the format:
 
-`v`major`.`minor`.`patch``
+ `v{{major}}.{{minor}}.{{patch}}` 
 
 For example:
 
@@ -14,8 +16,7 @@ My-Build-Action:
   Identifier: aws/build@v1.0.0
 ```
 
-You can shorten the full version in the `Identifier` property so that the
-workflow always uses the latest minor or patch version of the action.
+You can shorten the full version in the `Identifier` property so that the workflow always uses the latest minor or patch version of the action.
 
 For example, if you specify:
 
@@ -24,59 +25,49 @@ My-CloudFormation-Action:
   Identifier: aws/cfn-deploy@v1.0
 ```
 
-...and the latest patch version is `1.0.4`, then the action will use
-`1.0.4`. If a later version is released, say `1.0.5`, then the
-action will use `1.0.5`. If a minor version is released, say
-`1.1.0`, then the action will continue to use `1.0.5`.
+...and the latest patch version is `1.0.4`, then the action will use `1.0.4`. If a later version is released, say `1.0.5`, then the action will use `1.0.5`. If a minor version is released, say `1.1.0`, then the action will continue to use `1.0.5`.
 
-For detailed instructions on specifying versions, see one of the following
-topics.
+For detailed instructions on specifying versions, see one of the following topics.
 
-Use the following instructions to indicate which version of an action you want your
-workflow to use. You can specify the latest major or minor version, or a specific patch
-version.
+Use the following instructions to indicate which version of an action you want your workflow to use. You can specify the latest major or minor version, or a specific patch version.
 
 We recommend using the latest minor or patch version of an action.
 
-Visual
+------
+#### [ Visual ]
 
-_Not available. Choose YAML to view the YAML
-instructions._
+ *Not available. Choose YAML to view the YAML instructions.* 
 
-YAML
+------
+#### [ YAML ]
 
-###### To configure a workflow to use the latest version of an action, or a specific patch version
+**To configure a workflow to use the latest version of an action, or a specific patch version**
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Choose your project.
-3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of your workflow. You can filter by the source
-   repository or branch name where the workflow is defined, or filter
-   by workflow name or status.
-5. Choose **Edit**.
-6. Choose **YAML**.
-7. Find the action whose version you want to edit.
-8. Find the action's `Identifier` property, and set the
-   version to one of the following:
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-   - action-identifier@v`major`
-     – Use this syntax to have the workflow use a specific
-     major version, and allow the latest minor and patch versions
-     to be chosen automatically.
-   - action-identifier@v`major`.`minor`
-     – Use this syntax to have the workflow use a specific
-     minor version, and allow the latest patch version to be
-     chosen automatically.
-   - action-identifier@v`major`.`minor`.`patch`
-     – Use this syntax to have the workflow use a specific
-     patch version.
+1. Choose your project.
 
-###### Note
+1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
 
-If you're not sure which versions are available, see [Listing the available action versions](workflows-action-versions-determine.md "workflows-action-versions-determine.md").
+1. Choose the name of your workflow. You can filter by the source repository or branch name where the workflow is defined, or filter by workflow name or status.
 
-###### Note
+1. Choose **Edit**.
 
-You cannot omit the major version. 9. (Optional) Choose **Validate** to validate the
-workflow's YAML code before committing. 10. Choose **Commit**, enter a commit message, and
-choose **Commit** again.
+1. Choose **YAML**.
+
+1. Find the action whose version you want to edit.
+
+1. Find the action's `Identifier` property, and set the version to one of the following:
+   + action-identifier@v{{major}} – Use this syntax to have the workflow use a specific major version, and allow the latest minor and patch versions to be chosen automatically.
+   + action-identifier@v{{major}}.{{minor}} – Use this syntax to have the workflow use a specific minor version, and allow the latest patch version to be chosen automatically.
+   + action-identifier@v{{major}}.{{minor}}.{{patch}} – Use this syntax to have the workflow use a specific patch version.
+**Note**  
+If you're not sure which versions are available, see [Listing the available action versions](workflows-action-versions-determine.md).
+**Note**  
+You cannot omit the major version.
+
+1. (Optional) Choose **Validate** to validate the workflow's YAML code before committing.
+
+1. Choose **Commit**, enter a commit message, and choose **Commit** again.
+
+------

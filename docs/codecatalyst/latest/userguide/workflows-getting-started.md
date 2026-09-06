@@ -1,170 +1,150 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Getting started with workflows
+<a name="workflows-getting-started"></a>
 
 In this tutorial, you'll learn how to create and configure your first workflow.
 
-###### Tip
+**Tip**  
+Prefer to start with a preconfigured workflow? See [Creating a project with a blueprint](projects-create.md#projects-create-console-template), which includes instructions for setting up a project with a functioning workflow, sample application, and other resources.
 
-Prefer to start with a preconfigured workflow? See [Creating a project with a blueprint](projects-create.md#projects-create-console-template "projects-create.md#projects-create-console-template"), which includes instructions for
-setting up a project with a functioning workflow, sample application, and other
-resources.
-
-###### Topics
-
-- [Prerequisites](#get-started-create-workflow-prerequisites "#get-started-create-workflow-prerequisites")
-- [Step 1: Create and configure your workflow](#get-started-create-workflow-create "#get-started-create-workflow-create")
-- [Step 2: Save your workflow with a commit](#get-started-create-workflow-commit "#get-started-create-workflow-commit")
-- [Step 3: View run results](#get-started-create-workflow-results "#get-started-create-workflow-results")
-- [(Optional) Step 4: Clean up](#get-started-create-workflow-cleanup "#get-started-create-workflow-cleanup")
+**Topics**
++ [Prerequisites](#get-started-create-workflow-prerequisites)
++ [Step 1: Create and configure your workflow](#get-started-create-workflow-create)
++ [Step 2: Save your workflow with a commit](#get-started-create-workflow-commit)
++ [Step 3: View run results](#get-started-create-workflow-results)
++ [(Optional) Step 4: Clean up](#get-started-create-workflow-cleanup)
 
 ## Prerequisites
+<a name="get-started-create-workflow-prerequisites"></a>
 
 Before you begin:
++ You need a CodeCatalyst **space**. For more information, see [Creating a space](spaces-create.md).
++ In your CodeCatalyst space, you need an empty project called:
 
-- You need a CodeCatalyst **space**. For more information, see
-  [Creating a space](spaces-create.md "spaces-create.md").
-- In your CodeCatalyst space, you need an empty project called:
+  ```
+  codecatalyst-project
+  ```
 
-```
-codecatalyst-project
-```
+   For more information, see [Creating an empty project in Amazon CodeCatalyst](projects-create.md#projects-create-empty).
++ In your project, you need a CodeCatalyst ** repository** called:
 
-For more information, see [Creating an empty project in Amazon CodeCatalyst](projects-create.md#projects-create-empty "projects-create.md#projects-create-empty").
+  ```
+  codecatalyst-source-repository
+  ```
 
-- In your project, you need a CodeCatalyst **repository** called:
+  For more information, see [Creating a source repository](source-repositories-create.md).
 
-```
-codecatalyst-source-repository
-```
-
-For more information, see [Creating a source repository](source-repositories-create.md "source-repositories-create.md").
-
-###### Note
-
-If you have an existing project and source repository, you can use them; however,
-creating new ones makes cleanup easier at the end of this tutorial.
+**Note**  
+If you have an existing project and source repository, you can use them; however, creating new ones makes cleanup easier at the end of this tutorial.
 
 ## Step 1: Create and configure your workflow
+<a name="get-started-create-workflow-create"></a>
 
-In this step, you create and configure a workflow that automatically builds and tests
-your source code when changes are made.
+In this step, you create and configure a workflow that automatically builds and tests your source code when changes are made.
 
-###### To create your workflow
+**To create your workflow**
 
 1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-2. Choose **Create workflow**.
 
-The workflow definition file appears in the CodeCatalyst console's YAML
-editor.
+1. Choose **Create workflow**.
 
-###### To configure your workflow
+   The workflow definition file appears in the CodeCatalyst console's YAML editor.
 
-You can configure your workflow in the **Visual** editor, or the
-**YAML** editor. Let's start with the YAML editor and then
-switch to the visual editor.
+**To configure your workflow**
 
-1. Choose **+ Actions** to see a list of workflow actions that you
-   can add to your workflow.
-2. In the **Build** action, choose **+** to add
-   the action's YAML to your workflow definition file. Your workflow now looks similar to the
-   following.
+You can configure your workflow in the **Visual** editor, or the **YAML** editor. Let's start with the YAML editor and then switch to the visual editor.
 
-```
-Name: Workflow_fe47
-SchemaVersion: "1.0"
+1. Choose **\+ Actions** to see a list of workflow actions that you can add to your workflow.
 
-# Optional - Set automatic triggers.
-Triggers:
-  - Type: Push
-    Branches:
-      - main
+1. In the **Build** action, choose **\+** to add the action's YAML to your workflow definition file. Your workflow now looks similar to the following.
 
-# Required - Define action configurations.
-Actions:
-  Build_f0:
-    Identifier: aws/build@v1
+   ```
+   Name: Workflow_fe47
+   SchemaVersion: "1.0"
+   
+   # Optional - Set automatic triggers.
+   Triggers:
+     - Type: Push
+       Branches:
+         - main
+   
+   # Required - Define action configurations.
+   Actions:
+     Build_f0:
+       Identifier: aws/build@v1
+   
+       Inputs:
+         Sources:
+           - WorkflowSource # This specifies that the action requires this workflow as a source
+   
+       Outputs:
+         AutoDiscoverReports:
+           Enabled: true
+           # Use as prefix for the report files
+           ReportNamePrefix: rpt
+   
+       Configuration:
+         Steps:
+           - Run: echo "Hello, World!"
+           - Run: echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" >> report.xml
+           - Run: echo "<testsuite tests=\"1\" name=\"TestAgentJunit\" >" >> report.xml
+           - Run: echo "<testcase classname=\"TestAgentJunit\" name=\"Dummy
+               Test\"/></testsuite>" >> report.xml
+   ```
 
-    Inputs:
-      Sources:
-        - WorkflowSource # This specifies that the action requires this workflow as a source
+   The workflow copies the files in the `WorkflowSource` source repository to the compute machine running the `Build_f0` action, prints `Hello, World!` to the logs, discovers test reports on the compute machine, and outputs them to the CodeCatalyst console's **Reports** page.
 
-    Outputs:
-      AutoDiscoverReports:
-        Enabled: true
-        # Use as prefix for the report files
-        ReportNamePrefix: rpt
-
-    Configuration:
-      Steps:
-        - Run: echo "Hello, World!"
-        - Run: echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" >> report.xml
-        - Run: echo "<testsuite tests=\"1\" name=\"TestAgentJunit\" >" >> report.xml
-        - Run: echo "<testcase classname=\"TestAgentJunit\" name=\"Dummy
-            Test\"/></testsuite>" >> report.xml
-```
-
-The workflow copies the files in the `WorkflowSource` source
-repository to the compute machine running the `Build_f0` action,
-prints `Hello, World!` to the logs, discovers test reports on the
-compute machine, and outputs them to the CodeCatalyst console's
-**Reports** page. 3. Choose **Visual** to view the workflow definition file in the
-visual editor. The fields in the visual editor let you configure the YAML
-properties shown in the YAML editor.
+1. Choose **Visual** to view the workflow definition file in the visual editor. The fields in the visual editor let you configure the YAML properties shown in the YAML editor.
 
 ## Step 2: Save your workflow with a commit
+<a name="get-started-create-workflow-commit"></a>
 
-In this step, you save your changes. Because workflows are stored as
-`.yaml` files in your repository, you save your changes with
-commits.
+In this step, you save your changes. Because workflows are stored as `.yaml` files in your repository, you save your changes with commits.
 
-###### To commit your workflow changes
+**To commit your workflow changes**
 
-1. (Optional) Choose **Validate** to make sure the workflow's
-   YAML code is valid.
-2. Choose **Commit**.
-3. In **Workflow file name**, enter a name for your workflow
-   configuration file, like `my-first-workflow`.
-4. In **Commit message**, enter a message to identify your
-   commit, like `create my-first-workflow.yaml`.
-5. In **Repository**, choose the repository you want to save the
-   workflow in (`codecatalyst-repository`).
-6. In **Branch name**, choose the branch you want to save the
-   workflow in (`main`).
-7. Choose **Commit**.
+1. (Optional) Choose **Validate** to make sure the workflow's YAML code is valid.
 
-Your new workflow appears in the list of workflows. It might take several moments to
-appear.
+1. Choose **Commit**.
 
-Because workflows are saved with commits, and because the workflow has a code push
-trigger configured, saving the workflow starts a workflow run automatically.
+1. In **Workflow file name**, enter a name for your workflow configuration file, like **my-first-workflow**.
+
+1. In **Commit message**, enter a message to identify your commit, like **create my-first-workflow.yaml**.
+
+1. In **Repository**, choose the repository you want to save the workflow in (`codecatalyst-repository`).
+
+1. In **Branch name**, choose the branch you want to save the workflow in (`main`).
+
+1. Choose **Commit**.
+
+Your new workflow appears in the list of workflows. It might take several moments to appear.
+
+Because workflows are saved with commits, and because the workflow has a code push trigger configured, saving the workflow starts a workflow run automatically.
 
 ## Step 3: View run results
+<a name="get-started-create-workflow-results"></a>
 
-In this step, you navigate to the run that was started from your commit and view the
-results.
+In this step, you navigate to the run that was started from your commit and view the results.
 
-###### To view run results
+**To view run results**
 
-1. Choose the name of your workflow, for example,
-   `Workflow_fe47`.
+1. Choose the name of your workflow, for example, `Workflow_fe47`.
 
-A workflow diagram showing the label of your source repository
-(**WorkflowSource**) and the build action (for example,
-**Build\_f0**). 2. In the workflow run diagram, choose the build action (for example,
-**Build\_f0**). 3. Review the contents of the **Logs**,
-**Reports**, **Configuration**, and
-**Variables** tabs. These tabs show you the results of your
-build action.
+   A workflow diagram showing the label of your source repository (**WorkflowSource**) and the build action (for example, **Build\_f0**).
 
-For more information, see [Viewing the results of a build action](build-view-results.md "build-view-results.md").
+1. In the workflow run diagram, choose the build action (for example, **Build\_f0**).
+
+1. Review the contents of the **Logs**, **Reports**, **Configuration**, and **Variables** tabs. These tabs show you the results of your build action.
+
+   For more information, see [Viewing the results of a build action](build-view-results.md).
 
 ## (Optional) Step 4: Clean up
+<a name="get-started-create-workflow-cleanup"></a>
 
 In this step, you clean up the resources that you created in this tutorial.
 
-###### To delete resources
-
-- If you created a new project for this tutorial, delete it. For instructions,
-  see [Deleting a project](projects-delete.md "projects-delete.md"). Deleting
-  the project also deletes the source repository and workflow.
+**To delete resources**
++ If you created a new project for this tutorial, delete it. For instructions, see [Deleting a project](projects-delete.md). Deleting the project also deletes the source repository and workflow. 

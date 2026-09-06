@@ -1,16 +1,16 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Connecting to a package repository
+<a name="packages-repositories-connect"></a>
 
-To publish to, or consume packages from CodeCatalyst, you must configure your package
-manager with your package repository endpoint information and CodeCatalyst credentials. If you haven't
-created a repository, you can do so by following the instructions in [Creating a package repository](packages-repositories-create.md "packages-repositories-create.md").
+To publish to, or consume packages from CodeCatalyst, you must configure your package manager with your package repository endpoint information and CodeCatalyst credentials. If you haven't created a repository, you can do so by following the instructions in [Creating a package repository](packages-repositories-create.md).
 
 For instructions on how to connect a package manager to a CodeCatalyst package repository, see the following documentation.
-
-- [Configuring and using Gradle Groovy](packages-maven-gradle.md "packages-maven-gradle.md")
-- [Configuring and using mvn](packages-maven-mvn.md "packages-maven-mvn.md")
-- [Configuring and using the nuget or dotnet CLI](packages-nuget-cli.md "packages-nuget-cli.md")
-- [Configuring and using npm](packages-npm-use.md "packages-npm-use.md")
-- [Configuring pip and installing Python packages](packages-python-pip.md "packages-python-pip.md")
-- [Configuring Twine and publishing Python packages](packages-python-twine.md "packages-python-twine.md")
++ [Configuring and using Gradle Groovy](packages-maven-gradle.md)
++ [Configuring and using mvn](packages-maven-mvn.md)
++ [Configuring and using the nuget or dotnet CLI](packages-nuget-cli.md)
++ [Configuring and using npm](packages-npm-use.md)
++ [Configuring pip and installing Python packages](packages-python-pip.md)
++ [Configuring Twine and publishing Python packages](packages-python-twine.md)

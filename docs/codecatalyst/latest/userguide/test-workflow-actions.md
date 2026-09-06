@@ -1,110 +1,85 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Testing with workflows
+<a name="test-workflow-actions"></a>
 
-In CodeCatalyst, you can run tests as part of different workflow actions, such as build and test.
-These workflow actions can all generate quality reports. A _test action_ is a
-workflow action that produces test, code coverage, software composition analysis, and static
-analysis reports. These reports are displayed in the CodeCatalyst console.
+In CodeCatalyst, you can run tests as part of different workflow actions, such as build and test. These workflow actions can all generate quality reports. A *test action* is a workflow action that produces test, code coverage, software composition analysis, and static analysis reports. These reports are displayed in the CodeCatalyst console.
 
-###### Topics
-
-- [Quality report types](#test-reporting "#test-reporting")
-- [Adding the test action](test-add-action.md "test-add-action.md")
-- [Viewing the results of a test action](test-view-results.md "test-view-results.md")
-- [Skipping failed tests in an action](test.error-handling.md "test.error-handling.md")
-- [Integrating with universal-test-runner](test.universal-test-runner.md "test.universal-test-runner.md")
-- [Configuring quality reports in an action](test-config-action.md "test-config-action.md")
-- [Best practices for testing](test-best-practices.md "test-best-practices.md")
-- [Supported SARIF properties](test.sarif.md "test.sarif.md")
+**Topics**
++ [Quality report types](#test-reporting)
++ [Adding the test action](test-add-action.md)
++ [Viewing the results of a test action](test-view-results.md)
++ [Skipping failed tests in an action](test.error-handling.md)
++ [Integrating with universal-test-runner](test.universal-test-runner.md)
++ [Configuring quality reports in an action](test-config-action.md)
++ [Best practices for testing](test-best-practices.md)
++ [Supported SARIF properties](test.sarif.md)
 
 ## Quality report types
+<a name="test-reporting"></a>
 
-The Amazon CodeCatalyst test action supports the following types of quality reports. For an example on how to
-format these reports in your YAML, see [Quality reports YAML example](test-config-action.md#test.success-criteria-example "test-config-action.md#test.success-criteria-example").
+The Amazon CodeCatalyst test action supports the following types of quality reports. For an example on how to format these reports in your YAML, see [Quality reports YAML example](test-config-action.md#test.success-criteria-example).
 
-###### Topics
-
-- [Test reports](#test-reports "#test-reports")
-- [Code coverage reports](#test-code-coverage-reports "#test-code-coverage-reports")
-- [Software composition analysis reports](#test-sca-reports "#test-sca-reports")
-- [Static analysis reports](#test-static-analysis-reports "#test-static-analysis-reports")
+**Topics**
++ [Test reports](#test-reports)
++ [Code coverage reports](#test-code-coverage-reports)
++ [Software composition analysis reports](#test-sca-reports)
++ [Static analysis reports](#test-static-analysis-reports)
 
 ### Test reports
+<a name="test-reports"></a>
 
-In CodeCatalyst, you can configure unit tests, integration tests, and system tests that run
-during builds. Then CodeCatalyst can create reports that contain the results of your tests.
+In CodeCatalyst, you can configure unit tests, integration tests, and system tests that run during builds. Then CodeCatalyst can create reports that contain the results of your tests.
 
-You can use a test report to help troubleshoot problems with your tests. If you have many
-test reports from multiple builds, you can use your test reports to view failure rates to
-help you optimize your builds.
+You can use a test report to help troubleshoot problems with your tests. If you have many test reports from multiple builds, you can use your test reports to view failure rates to help you optimize your builds.
 
 You can use the following test report file formats:
-
-- Cucumber JSON (.json)
-- JUnit XML (.xml)
-- NUnit XML (.xml)
-- NUnit3 XML (.xml)
-- TestNG XML (.xml)
-- Visual Studio TRX (.trx, .xml)
++ Cucumber JSON (.json)
++ JUnit XML (.xml)
++ NUnit XML (.xml)
++ NUnit3 XML (.xml)
++ TestNG XML (.xml)
++ Visual Studio TRX (.trx, .xml)
 
 ### Code coverage reports
+<a name="test-code-coverage-reports"></a>
 
-In CodeCatalyst, you can generate code coverage reports for your tests. CodeCatalyst provides the
-following code coverage metrics:
+In CodeCatalyst, you can generate code coverage reports for your tests. CodeCatalyst provides the following code coverage metrics:
 
-Line coverage
+Line coverage  
+Measures how many statements your tests cover. A statement is a single instruction, not including comments.  
+`line coverage = (total lines covered)/(total number of lines)`
 
-Measures how many statements your tests cover. A statement is a single
-instruction, not including comments.
-
-`line coverage = (total lines covered)/(total number of
- lines)`
-
-Branch coverage
-
-Measures how many branches your tests cover out of every possible branch of a
-control structure such as an `if` or `case`
-statement.
-
-`branch coverage = (total branches covered)/(total number of
- branches)`
+Branch coverage  
+Measures how many branches your tests cover out of every possible branch of a control structure such as an `if` or `case` statement.  
+`branch coverage = (total branches covered)/(total number of branches)`
 
 The following code coverage report file formats are supported:
-
-- JaCoCo XML (.xml)
-- SimpleCov JSON (generated by [simplecov](https://github.com/simplecov-ruby/simplecov "https://github.com/simplecov-ruby/simplecov"), not [simplecov-json](https://github.com/vicentllongo/simplecov-json "https://github.com/vicentllongo/simplecov-json"), .json)
-- Clover XML (version 3, .xml)
-- Cobertura XML (.xml)
-- LCOV (.info)
++ JaCoCo XML (.xml)
++ SimpleCov JSON (generated by [simplecov](https://github.com/simplecov-ruby/simplecov), not [simplecov-json](https://github.com/vicentllongo/simplecov-json), .json)
++ Clover XML (version 3, .xml)
++ Cobertura XML (.xml)
++ LCOV (.info)
 
 ### Software composition analysis reports
+<a name="test-sca-reports"></a>
 
-In CodeCatalyst, you can use software composition analysis (SCA) tools to analyze components of
-your application and check for known security vulnerabilities. You can discover and parse
-SARIF reports that detail vulnerabilities with varying severities and ways to fix them. Valid
-severity values, from most to least severe, are: `CRITICAL`, `HIGH`,
-`MEDIUM`, `LOW`, `INFORMATIONAL`.
+In CodeCatalyst, you can use software composition analysis (SCA) tools to analyze components of your application and check for known security vulnerabilities. You can discover and parse SARIF reports that detail vulnerabilities with varying severities and ways to fix them. Valid severity values, from most to least severe, are: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`.
 
 The following SCA report file formats are supported:
-
-- SARIF (.sarif, .json)
++ SARIF (.sarif, .json)
 
 ### Static analysis reports
+<a name="test-static-analysis-reports"></a>
 
-You can use static analysis (SA) reports to identify source-level code defects. In CodeCatalyst,
-you can generate SA reports to help resolve issues in your code before you deploy it. These
-issues include bugs, security vulnerabilities, quality issues, and other
-vulnerabilities. Valid severity values, from most to least severe, are: `CRITICAL`,
-`HIGH`, `MEDIUM`, `LOW`, and
-`INFORMATIONAL`.
+You can use static analysis (SA) reports to identify source-level code defects. In CodeCatalyst, you can generate SA reports to help resolve issues in your code before you deploy it. These issues include bugs, security vulnerabilities, quality issues, and other vulnerabilities. Valid severity values, from most to least severe, are: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, and `INFORMATIONAL`.
 
 CodeCatalyst provides the following SA metrics:
 
-Bugs
-
-Identifies a number of possible bugs found in your source code. These bugs can
-include issues regarding memory safety. The following is an example of a bug.
+Bugs  
+Identifies a number of possible bugs found in your source code. These bugs can include issues regarding memory safety. The following is an example of a bug.  
 
 ```
 // The while loop will inadvertently index into array x out-of-bounds
@@ -112,35 +87,25 @@ int x[64];
 while (int n = 0; n <= 64; n++) {
   x[n] = 0;
 }
-
 ```
 
-Security vulnerabilities
+Security vulnerabilities  
+Identifies a number of possible security vulnerabilities found in your source code. These security vulnerabilities can include issues such as storing your secret tokens in plaintext.
 
-Identifies a number of possible security vulnerabilities found in your source code. These security vulnerabilities can
-include issues such as storing your secret tokens in plaintext.
-
-Quality issues
-
-Identifies a number of possible quality issues found in your source code. These
-quality issues can include issues regarding style conventions. The following is an
-example of a quality issue.
+Quality issues  
+Identifies a number of possible quality issues found in your source code. These quality issues can include issues regarding style conventions. The following is an example of a quality issue.  
 
 ```
 // The function name doesn't adhere to the style convention of camelCase
 int SUBTRACT(int x, int y) {
   return x-y
 }
-
 ```
 
-Other vulnerabilities
-
-Identifies a number of possible other vulnerabilities found in your source
-code.
+Other vulnerabilities  
+Identifies a number of possible other vulnerabilities found in your source code.
 
 CodeCatalyst supports the following SA report file formats:
-
-- PyLint (.py)
-- ESLint (.js, .jsx, .ts, .tsx)
-- SARIF (.sarif, .json)
++ PyLint (.py)
++ ESLint (.js, .jsx, .ts, .tsx)
++ SARIF (.sarif, .json)

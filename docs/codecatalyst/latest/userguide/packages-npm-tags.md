@@ -1,56 +1,40 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # npm tag handling
+<a name="packages-npm-tags"></a>
 
-npm registries support _tags_, which are string aliases for package
-versions. You can use tags to provide an alias instead of using version numbers. For
-example, you have a project with multiple streams of development and you use a different
-tag for each stream (for example, `stable`, `beta`, `dev`,
-`canary`). For more information, see [dist-tag](https://docs.npmjs.com/cli/dist-tag "https://docs.npmjs.com/cli/dist-tag") on _npm
-Docs_.
+npm registries support *tags*, which are string aliases for package versions. You can use tags to provide an alias instead of using version numbers. For example, you have a project with multiple streams of development and you use a different tag for each stream (for example, `stable`, `beta`, `dev`, `canary`). For more information, see [dist-tag](https://docs.npmjs.com/cli/dist-tag) on *npm Docs*. 
 
-By default, npm uses the `latest` tag to identify the current version of a
-package. `npm install `pkg`` (without
- `@`version`` or
-`@`tag`` specifier) installs the latest tag.
-Typically, projects only use the latest tag for stable release versions. Other tags are
-used for unstable or prerelease versions.
+By default, npm uses the `latest` tag to identify the current version of a package. `npm install {{pkg}}` (without `@{{version}}` or `@{{tag}}` specifier) installs the latest tag. Typically, projects only use the latest tag for stable release versions. Other tags are used for unstable or prerelease versions. 
 
 ## Editing tags with the npm client
+<a name="editing-tags-with-the-npm-client"></a>
 
-The three `npm dist-tag` commands (`add`, `rm`,
-and `ls`) function the same way in CodeCatalyst package repositories as they
-function in the [default npm
-registry](https://registry.npmjs.com/ "https://registry.npmjs.com/").
+ The three `npm dist-tag` commands (`add`, `rm`, and `ls`) function the same way in CodeCatalyst package repositories as they function in the [default npm registry](https://registry.npmjs.com/).
 
 ## npm tags and upstream repositories
+<a name="packages-tags-and-upstreams"></a>
 
-When `npm` requests the tags for a package and versions of that package are
-also present in an upstream repository, CodeCatalyst merges the tags before returning them to the
-client. For example, a repository named `R` has an upstream repository named `U`.
-The following table shows the tags for a package named `web-helper` that's present in both
-repositories.
+When `npm` requests the tags for a package and versions of that package are also present in an upstream repository, CodeCatalyst merges the tags before returning them to the client. For example, a repository named `R` has an upstream repository named `U`. The following table shows the tags for a package named `web-helper` that's present in both repositories.
 
-| Repository | Package name | Package tags                           |
-| ---------- | ------------ | -------------------------------------- |
-| R          | `web-helper` | *latest<br>• (alias for version 1.0.0) |
-| U          | `web-helper` | *alpha<br>• (alias for version 1.0.1)  |
 
-In this case, when the npm client fetches the tags for the `web-helper`
-package from repository `R`, it receives both the _latest_ and
-_alpha_ tags. The versions the tags point to won't change.
 
-When the same tag is present on the same package in both the upstream and local
-repository, CodeCatalyst uses the tag that was _last updated_. For example, suppose that the tags on _webhelper_ have been
-modified to look like the following.
+| Repository | Package name | Package tags | 
+| --- | --- | --- | 
+| R | `web-helper` |  *latest* (alias for version 1.0.0) | 
+| U | `web-helper` |  *alpha* (alias for version 1.0.1) | 
 
-| Repository | Package name | Package tags                           | Last updated    |
-| ---------- | ------------ | -------------------------------------- | --------------- |
-| R          | `web-helper` | *latest<br>• (alias for version 1.0.0) | January 1, 2023 |
-| U          | `web-helper` | *latest<br>• (alias for version 1.0.1) | June 1, 2023    |
+In this case, when the npm client fetches the tags for the `web-helper` package from repository `R`, it receives both the *latest* and *alpha* tags. The versions the tags point to won't change.
 
-In this case, when the npm client fetches the tags for package
-_web-helper_ from repository `R`, the _latest_ tag
-will alias the version _1.0.1_ because it was updated last. This makes it easy to consume new package versions in an upstream repository
-that are not yet present in a local repository by running `npm
- update`.
+When the same tag is present on the same package in both the upstream and local repository, CodeCatalyst uses the tag that was *last updated*. For example, suppose that the tags on *webhelper* have been modified to look like the following.
+
+
+
+| Repository | Package name | Package tags | Last updated | 
+| --- | --- | --- | --- | 
+| R | `web-helper` |  *latest* (alias for version 1.0.0) | January 1, 2023 | 
+| U | `web-helper` |  *latest* (alias for version 1.0.1) | June 1, 2023 | 
+
+In this case, when the npm client fetches the tags for package *web-helper* from repository `R`, the *latest* tag will alias the version *1.0.1* because it was updated last. This makes it easy to consume new package versions in an upstream repository that are not yet present in a local repository by running `npm update`.

@@ -1,15 +1,13 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Accessing context objects for project details
+<a name="context-objects-lm"></a>
 
-As a blueprint author, you can access context from the blueprint’s project during synthesis to get information like space and project names,
-or existing files in a project’s source repository. You can also get details like the phase of resynthesis that the blueprint is generating. For
-example, you can access context to know if you’re resynthesizing to generate an ancestor bundle or proposed bundle. Existing code context can then
-be used to transform your code in your repository. For example, you can write your own resynthesis strategy to set specific code standards. The
-strategy can be added to the `blueprint.ts` file for small blueprints, or you can create a separate file for strategies.
+As a blueprint author, you can access context from the blueprint’s project during synthesis to get information like space and project names, or existing files in a project’s source repository. You can also get details like the phase of resynthesis that the blueprint is generating. For example, you can access context to know if you’re resynthesizing to generate an ancestor bundle or proposed bundle. Existing code context can then be used to transform your code in your repository. For example, you can write your own resynthesis strategy to set specific code standards. The strategy can be added to the `blueprint.ts` file for small blueprints, or you can create a separate file for strategies.
 
-The following example shows how you can find files in a project's context, set a workflow builder, and set a blueprint-vended resynthesis
-strategy for a particular file:
+The following example shows how you can find files in a project's context, set a workflow builder, and set a blueprint-vended resynthesis strategy for a particular file:
 
 ```
 const contextFiles = this.context.project.src.findAll({

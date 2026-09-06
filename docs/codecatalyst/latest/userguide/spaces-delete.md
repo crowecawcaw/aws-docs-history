@@ -1,40 +1,34 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Deleting a space
+<a name="spaces-delete"></a>
 
-You can delete a space to remove access to all of the space's resources. You must
-have the **Space administrator** role to delete a space.
+You can delete a space to remove access to all of the space's resources. You must have the **Space administrator** role to delete a space.
 
-###### Note
-
+**Note**  
 You cannot undo a space deletion.
 
-After you have deleted a space, all space members will be unable to access
-space resources. Billing for space resources will also stop, and any workflows that are
-prompted by third-party source repositories will be stopped.
+After you have deleted a space, all space members will be unable to access space resources. Billing for space resources will also stop, and any workflows that are prompted by third-party source repositories will be stopped.
 
-###### Note
-
+**Note**  
 Space names must be unique across CodeCatalyst. You cannot reuse names of deleted spaces.
 
-The information in this guide is provided for deleting spaces in CodeCatalyst that support
-AWS Builder ID users. To learn more about the steps to set up and administer a space that
-supports identity federation, see [Setup and administration for
-CodeCatalyst spaces](../adminguide/what-is.md "../adminguide/what-is.md") in the _Amazon CodeCatalyst Administrator
-Guide_.
+The information in this guide is provided for deleting spaces in CodeCatalyst that support AWS Builder ID users. To learn more about the steps to set up and administer a space that supports identity federation, see [Setup and administration for CodeCatalyst spaces](https://docs.aws.amazon.com/codecatalyst/latest/adminguide/what-is.html) in the *Amazon CodeCatalyst Administrator Guide*.
 
-###### To delete a space
+**To delete a space**
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Navigate to your space.
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-###### Tip
+1. Navigate to your space.
+**Tip**  
+If you belong to more than one space, choose a space in the top navigation bar.
 
-If you belong to more than one space, choose a space in the top navigation
-bar. 3. Choose **Settings**, and then choose **Delete**. 4. Type `delete` to confirm the deletion. 5. Choose **Delete**.
+1. Choose **Settings**, and then choose **Delete**.
 
-###### Note
+1. Type **delete** to confirm the deletion.
 
-If you belong to more than one space, you're redirected to the space overview
-page. If you belong to one space, you're redirected to the space creation
-page.
+1. Choose **Delete**.
+**Note**  
+If you belong to more than one space, you're redirected to the space overview page. If you belong to one space, you're redirected to the space creation page.

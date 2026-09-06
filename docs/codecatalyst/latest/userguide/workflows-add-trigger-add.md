@@ -1,276 +1,196 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding triggers to workflows
+<a name="workflows-add-trigger-add"></a>
 
-Use the following instructions to add a push, pull, or schedule trigger to your
-Amazon CodeCatalyst workflow.
+Use the following instructions to add a push, pull, or schedule trigger to your Amazon CodeCatalyst workflow.
 
-For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md "workflows-add-trigger.md").
+For more information about triggers, see [Starting a workflow run automatically using triggers](workflows-add-trigger.md).
 
-Visual
+------
+#### [ Visual ]<a name="workflows-add-trigger-add-console"></a>
 
-###### To add a trigger (visual editor)
+**To add a trigger (visual editor)**
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Choose your project.
-3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of your workflow. You can filter by the source
-   repository or branch name where the workflow is defined, or filter
-   by workflow name or status.
-5. Choose **Edit**.
-6. Choose **Visual**.
-7. In the workflow diagram, choose the **Source**
-   and **Triggers** box.
-8. In the configuration pane, Choose **Add
-   trigger**.
-9. In the **Add trigger** dialog box, supply
-   information in the fields, as follows.
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-**Trigger type**
+1. Choose your project.
 
-Specify the type of trigger. You can use one of the following values:
+1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
 
-    * **Push** (visual editor) or `PUSH` (YAML editor)
+1. Choose the name of your workflow. You can filter by the source repository or branch name where the workflow is defined, or filter by workflow name or status.
 
+1. Choose **Edit**.
 
-    A push trigger starts a workflow run when a change is pushed to your source repository.
-     The workflow run will use the files in the branch that you're pushing
-     *to* (that is, the destination branch).
-    * **Pull request** (visual editor) or `PULLREQUEST` (YAML
-     editor)
+1. Choose **Visual**.
 
+1. In the workflow diagram, choose the **Source** and **Triggers** box.
 
-    A pull request trigger starts a workflow run when a pull request is opened, updated, or
-     closed in your source repository. The workflow run will use the files in the branch that
-     you're pulling *from* (that is, the source branch).
-    * **Schedule** (visual editor) or `SCHEDULE` (YAML
-     editor)
+1. In the configuration pane, Choose **Add trigger**.
 
+1. In the **Add trigger** dialog box, supply information in the fields, as follows.
 
-    A schedule trigger starts workflow runs on a schedule defined by a cron expression that
-     you specify. A separate workflow run will start for each branch in your source repository
-     using the branch's files. (To limit the branches that the trigger activates on, use the
-     **Branches** field (visual editor) or `Branches` property
-     (YAML editor).)
+    **Trigger type** 
 
+   Specify the type of trigger. You can use one of the following values:
+   + **Push** (visual editor) or `PUSH` (YAML editor)
 
-    When configuring a schedule trigger, follow these guidelines:
+     A push trigger starts a workflow run when a change is pushed to your source repository. The workflow run will use the files in the branch that you're pushing *to* (that is, the destination branch).
+   + **Pull request** (visual editor) or `PULLREQUEST` (YAML editor)
 
+     A pull request trigger starts a workflow run when a pull request is opened, updated, or closed in your source repository. The workflow run will use the files in the branch that you're pulling *from* (that is, the source branch).
+   + **Schedule** (visual editor) or `SCHEDULE` (YAML editor)
 
+     A schedule trigger starts workflow runs on a schedule defined by a cron expression that you specify. A separate workflow run will start for each branch in your source repository using the branch's files. (To limit the branches that the trigger activates on, use the **Branches** field (visual editor) or `Branches` property (YAML editor).)
 
+     When configuring a schedule trigger, follow these guidelines:
+     + Only use one schedule trigger per workflow.
+     + If you've defined multiple workflows in your CodeCatalyst space, we recommend that you schedule no more than 10 of them to start concurrently.
+     + Make sure you configure the trigger's cron expression with adequate time between runs. For more information, see [Expression](workflow-reference.md#workflow.triggers.expression).
 
-    	+ Only use one schedule trigger per workflow.
-    	+ If you've defined multiple workflows in your CodeCatalyst space, we
-    	 recommend that you schedule no more than 10 of them to start
-    	 concurrently.
-    	+ Make sure you configure the trigger's cron expression with adequate time between
-    	 runs. For more information, see [Expression](workflow-reference.md#workflow.triggers.expression "workflow-reference.md#workflow.triggers.expression").
+   For examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md).
 
-For examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md").
+    **Events for pull request** 
 
-**Events for pull request**
+   This field only appears if you selected the **Pull request** trigger type.
 
-This field only appears if you selected the **Pull
-request** trigger type.
+   Specify the type of pull request events that will start a workflow run. The following are the valid values:
+   + **Pull request is created** (visual editor) or `OPEN` (YAML editor)
 
-Specify the type of pull request events that will start a workflow run. The following are
-the valid values:
+     The workflow run is started when a pull request is created.
+   + **Pull request is closed** (visual editor) or `CLOSED` (YAML editor)
 
-    * **Pull request is created** (visual editor) or `OPEN` (YAML
-     editor)
+     The workflow run is started when a pull request is closed. The `CLOSED` event's behavior is tricky, and is best understood through an example. See [Example: A trigger with a pull, branches, and a 'CLOSED' event](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-pull-close) for more information.
+   + **New revision is made to pull request** (visual editor) or `REVISION` (YAML editor)
 
+     The workflow run is started when a revision to a pull request is created. The first revision is created when the pull request is created. After that, a new revision is created every time someone pushes a new commit to the source branch specified in the pull request. If you include the `REVISION` event in your pull request trigger, you can omit the `OPEN` event, since `REVISION` is a superset of `OPEN`.
 
-    The workflow run is started when a pull request is created.
-    * **Pull request is closed** (visual editor) or `CLOSED` (YAML
-     editor)
+   You can specify multiple events in the same pull request trigger.
 
+   For examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md).
 
-    The workflow run is started when a pull request is closed. The `CLOSED`
-     event's behavior is tricky, and is best understood through an example. See [Example: A trigger with a pull, branches, and a 'CLOSED' event](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-pull-close "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-pull-close") for more
-     information.
-    * **New revision is made to pull request** (visual editor) or
-     `REVISION` (YAML editor)
+    **Schedule** 
 
+   This field only appears if you selected the **Schedule** trigger type.
 
-    The workflow run is started when a revision to a pull request is created. The first
-     revision is created when the pull request is created. After that, a new revision is created
-     every time someone pushes a new commit to the source branch specified in the pull
-     request. If you include the `REVISION` event in your pull request trigger, you
-     can omit the `OPEN` event, since `REVISION` is a superset of
-     `OPEN`.
+   Specify the cron expression that describes when you want your scheduled workflow runs to occur.
 
-You can specify multiple events in the same pull request trigger.
+   Cron expressions in CodeCatalyst use the following six-field syntax, where each field is separated by a space:
 
-For examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md").
+   {{minutes}} {{hours}} {{days-of-month}} {{month}} {{days-of-week}} {{year}}
 
-**Schedule**
+   **Examples of cron expressions**    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-add-trigger-add.html)
 
-This field only appears if you selected the
-**Schedule** trigger type.
+   When specifying cron expressions in CodeCatalyst, make sure you follow these guidelines:
+   + Specify a single cron expression per `SCHEDULE` trigger.
+   + Enclose the cron expression in double-quotes (`"`) in the YAML editor.
+   + Specify the time in Coordinated Universal Time (UTC). Other time zones are not supported.
+   + Configure at least 30 minutes between runs. A faster cadence is not supported.
+   + Specify the {{days-of-month}} or {{days-of-week}} field, but not both. If you specify a value or an asterisk (`*`) in one of the fields, you must use a question mark (`?`) in the other. The asterisk means 'all' and the question mark means 'any'.
 
-Specify the cron expression that describes when you want your scheduled workflow runs to
-occur.
+    For more examples of cron expressions and information about wildcards like `?`, `*`, and `L`, see the [Cron expressions reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html) in the *Amazon EventBridge User Guide*. Cron expressions in EventBridge and CodeCatalyst work exactly the same way.
 
-Cron expressions in CodeCatalyst use the following six-field syntax, where each field is separated
-by a space:
+   For examples of schedule triggers, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md).
 
-`minutes`
-`hours`
-`days-of-month`
-`month`
-`days-of-week`
-`year`
+    **Branches** and **Branch pattern** 
 
-**Examples of cron expressions**
+   (Optional)
 
-| Minutes | Hours | Days of month | Month | Days of week | Year      | Meaning                                                                                                                                    |
-| ------- | ----- | ------------- | ----- | ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0       | 0     | ?             | \*    | MON-FRI      | \*        | Runs a workflow at midnight (UTC+0) every Monday through Friday.                                                                           |
-| 0       | 2     | \*            | \*    | ?            | \*        | Runs a workflow at 2:00 am (UTC+0) every day.                                                                                              |
-| 15      | 22    | \*            | \*    | ?            | \*        | Runs a workflow at 10:15 pm (UTC+0) every day.                                                                                             |
-| 0/30    | 22-2  | ?             | \*    | SAT-SUN      | \*        | Runs a workflow every 30 minutes Saturday through Sunday between 10:00 pm on the<br>starting day and 2:00 am on the following day (UTC+0). |
-| 45      | 13    | L             | \*    | ?            | 2023-2027 | Runs a workflow at 1:45 pm (UTC+0) on the last day of the month between the years<br>2023 and 2027 inclusive.                              |
+   Specify the branches in your source repository that the trigger monitors in order to know when to start a workflow run. You can use regex patterns to define your branch names. For example, use `main.*` to match all branches beginning with `main`.
 
-When specifying cron expressions in CodeCatalyst, make sure you follow these guidelines:
+   The branches to specify are different depending on the trigger type:
+   + For a push trigger, specify the branches you're pushing *to*, that is, the *destination* branches. One workflow run will start per matched branch, using the files in the matched branch.
 
-    * Specify a single cron expression per `SCHEDULE` trigger.
-    * Enclose the cron expression in double-quotes (`"`) in the YAML editor.
-    * Specify the time in Coordinated Universal Time (UTC). Other time zones are not
-     supported.
-    * Configure at least 30 minutes between runs. A faster cadence is not supported.
-    * Specify the `days-of-month` or
-     `days-of-week` field, but not both. If you specify a value or an
-     asterisk (`*`) in one of the fields, you must use a question mark
-     (`?`) in the other. The asterisk means 'all' and the question mark means
-     'any'.
+     Examples: `main.*`, `mainline`
+   + For a pull request trigger, specify the branches you're pushing *to*, that is, the *destination* branches. One workflow run will start per matched branch, using the workflow definition file and source files in the **source** branch (*not* the matched branch).
 
-For more examples of cron expressions and information about wildcards like `?`,
-`*`, and `L`, see the [Cron expressions reference](../../../eventbridge/latest/userguide/eb-cron-expressions.md "../../../eventbridge/latest/userguide/eb-cron-expressions.md")
-in the _Amazon EventBridge User Guide_. Cron expressions in EventBridge and CodeCatalyst work
-exactly the same way.
+     Examples: `main.*`, `mainline`, `v1\-.*` (matches branches that start with `v1-`)
+   + For a schedule trigger, specify the branches that contain the files that you want your scheduled run to use. One workflow run will start per matched branch, using the the workflow definition file and source files in the matched branch.
 
-For examples of schedule triggers, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md").
+     Examples: `main.*`, `version\-1\.0`
+**Note**  
+If you *don't* specify branches, the trigger monitors all branches in your source repository, and will start a workflow run using the workflow definition file and source files in:  
+The branch you're pushing *to* (for push triggers). For more information, see [Example: A simple code push trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-simple).
+The branch you're pulling *from* (for pull request triggers). For more information, see [Example: A simple pull request trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-pull-simple).
+All branches (for schedule triggers). One workflow run will start per branch in your source repository. For more information, see [Example: A simple schedule trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-schedule-simple).
 
-**Branches** and **Branch
-pattern**
+   For more information about branches and triggers, see [Usage guidelines for triggers and branches](workflows-add-trigger-considerations.md).
 
-(Optional)
+   For more examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md).
 
-Specify the branches in your source repository that the trigger monitors in order to know
-when to start a workflow run. You can use regex patterns to define your branch names. For
-example, use `main.*` to match all branches beginning with
-`main`.
+    **Files changed** 
 
-The branches to specify are different depending on the trigger type:
+   This field only appears if you selected the **Push** or **Pull request** trigger type.
 
-    * For a push trigger, specify the branches you're pushing *to*,
-     that is, the *destination* branches. One workflow run will start
-     per matched branch, using the files in the matched branch.
+   Specify the files or folders in your source repository that the trigger monitors in order to know when to start a workflow run. You can use regular expressions to match file names or paths.
 
+   For examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md).
 
-    Examples: `main.*`, `mainline`
-    * For a pull request trigger, specify the branches you're pushing
-     *to*, that is, the *destination* branches.
-     One workflow run will start per matched branch, using the workflow definition file
-     and source files in the **source** branch
-     (*not* the matched branch).
+1. (Optional) Choose **Validate** to validate the workflow's YAML code before committing.
 
+1. Choose **Commit**, enter a commit message, and choose **Commit** again.
 
-    Examples: `main.*`, `mainline`, `v1\-.*` (matches
-     branches that start with `v1-`)
-    * For a schedule trigger, specify the branches that contain the files that you want
-     your scheduled run to use. One workflow run will start per matched branch, using the
-     the workflow definition file and source files in the matched branch.
+------
+#### [ YAML ]
 
+**To add a trigger (YAML editor)**
 
-    Examples: `main.*`, `version\-1\.0`
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-###### Note
+1. Choose your project.
 
-If you _don't_ specify branches, the trigger monitors all branches
-in your source repository, and will start a workflow run using the workflow definition
-file and source files in:
+1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
 
-    * The branch you're pushing *to* (for push triggers). For
-     more information, see [Example: A simple code push trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-push-simple").
-    * The branch you're pulling *from* (for pull request
-     triggers). For more information, see [Example: A simple pull request trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-pull-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-pull-simple").
-    * All branches (for schedule triggers). One workflow run will start per branch
-     in your source repository. For more information, see [Example: A simple schedule trigger](workflows-add-trigger-examples.md#workflows-add-trigger-examples-schedule-simple "workflows-add-trigger-examples.md#workflows-add-trigger-examples-schedule-simple").
+1. Choose the name of your workflow. You can filter by the source repository or branch name where the workflow is defined, or filter by workflow name or status.
 
-For more information about branches and triggers, see [Usage guidelines for triggers and branches](workflows-add-trigger-considerations.md "workflows-add-trigger-considerations.md").
+1. Choose **Edit**.
 
-For more examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md").
+1. Choose **YAML**.
 
-**Files changed**
+1. Add a `Triggers` section and underlying properties using the following example as a guide. For more information, see the [Triggers](workflow-reference.md#triggers-reference) in the [Workflow YAML definition](workflow-reference.md).
 
-This field only appears if you selected the
-**Push** or **Pull request**
-trigger type.
+   A code push trigger might look like this:
 
-Specify the files or folders in your source repository that the trigger monitors in order to
-know when to start a workflow run. You can use regular expressions to match file names or
-paths.
+   ```
+   Triggers:
+     - Type: PUSH
+       Branches:
+         - main
+   ```
 
-For examples, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md"). 10. (Optional) Choose **Validate** to validate the
-workflow's YAML code before committing. 11. Choose **Commit**, enter a commit message, and
-choose **Commit** again.
+   A pull request trigger might look like this:
 
-YAML
+   ```
+   Triggers:
+     - Type: PULLREQUEST
+       Branches:
+         - main.*
+       Events: 
+         - OPEN
+         - REVISION
+         - CLOSED
+   ```
 
-###### To add a trigger (YAML editor)
+   A schedule trigger might look like this:
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Choose your project.
-3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the name of your workflow. You can filter by the source
-   repository or branch name where the workflow is defined, or filter
-   by workflow name or status.
-5. Choose **Edit**.
-6. Choose **YAML**.
-7. Add a `Triggers` section and underlying properties
-   using the following example as a guide. For more information, see
-   the [Triggers](workflow-reference.md#triggers-reference "workflow-reference.md#triggers-reference") in the [Workflow YAML definition](workflow-reference.md "workflow-reference.md").
+   ```
+   Triggers:
+     - Type: SCHEDULE
+       Branches:
+         - main.*
+       # Run the workflow at 1:15 am (UTC+0) every Friday until the end of 2023
+       Expression: "15 1 ? * FRI 2022-2023"
+   ```
 
-A code push trigger might look like this:
+   For more examples of cron expressions you can use in the `Expression` property, see [Expression](workflow-reference.md#workflow.triggers.expression).
 
-```
-Triggers:
-  - Type: PUSH
-    Branches:
-      - main
-```
+   For more examples of push, pull request, and schedule triggers, see [Examples: Triggers in workflows](workflows-add-trigger-examples.md).
 
-A pull request trigger might look like this:
+1. (Optional) Choose **Validate** to validate the workflow's YAML code before committing.
 
-```
-Triggers:
-  - Type: PULLREQUEST
-    Branches:
-      - main.*
-    Events:
-      - OPEN
-      - REVISION
-      - CLOSED
+1. Choose **Commit**, enter a commit message, and choose **Commit** again.
 
-```
-
-A schedule trigger might look like this:
-
-```
-Triggers:
-  - Type: SCHEDULE
-    Branches:
-      - main.*
-    # Run the workflow at 1:15 am (UTC+0) every Friday until the end of 2023
-    Expression: "15 1 ? * FRI 2022-2023"
-
-```
-
-For more examples of cron expressions you can use in the
-`Expression` property, see [Expression](workflow-reference.md#workflow.triggers.expression "workflow-reference.md#workflow.triggers.expression").
-
-For more examples of push, pull request, and schedule triggers,
-see [Examples: Triggers in workflows](workflows-add-trigger-examples.md "workflows-add-trigger-examples.md"). 8. (Optional) Choose **Validate** to validate the
-workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message, and
-choose **Commit** again.
+------

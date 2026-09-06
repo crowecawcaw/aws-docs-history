@@ -1,11 +1,15 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Quotas for Dev Environments in CodeCatalyst
+<a name="devenvironment-limits"></a>
 
-The following table describes quotas and limits for Dev Environments in Amazon CodeCatalyst. For more information about quotas in Amazon CodeCatalyst, see [Quotas for CodeCatalyst](quotas.md "quotas.md").
+The following table describes quotas and limits for Dev Environments in Amazon CodeCatalyst. For more information about quotas in Amazon CodeCatalyst, see [Quotas for CodeCatalyst](quotas.md).
 
-|                                             |                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Number of Dev Environment hours per month   | Dev Environment hours are impacted by the overall storage limits for your<br>space. For more information, see [Pricing](https://codecatalyst.aws/explore/pricing "https://codecatalyst.aws/explore/pricing") and<br>[Troubleshooting problems with Dev Environments](devenvironments-troubleshooting.md "devenvironments-troubleshooting.md").  |
-| Amount of Dev Environment storage per space | Dev Environment storage us impacted by the overall storage limits for your<br>space. For more information, see [Pricing](https://codecatalyst.aws/explore/pricing "https://codecatalyst.aws/explore/pricing") and<br>[Troubleshooting problems with Dev Environments](devenvironments-troubleshooting.md "devenvironments-troubleshooting.md"). |
-| Amount of Dev Environment compute           | Dev Environment compute is impacted by the overall storage limits for your<br>space. For more information, see [Pricing](https://codecatalyst.aws/explore/pricing "https://codecatalyst.aws/explore/pricing") and<br>[Troubleshooting problems with Dev Environments](devenvironments-troubleshooting.md "devenvironments-troubleshooting.md"). |
+
+|  |  | 
+| --- |--- |
+| Number of Dev Environment hours per month | Dev Environment hours are impacted by the overall storage limits for your space. For more information, see [Pricing](https://codecatalyst.aws/explore/pricing) and [Troubleshooting problems with Dev Environments](devenvironments-troubleshooting.md). | 
+| Amount of Dev Environment storage per space | Dev Environment storage us impacted by the overall storage limits for your space. For more information, see [Pricing](https://codecatalyst.aws/explore/pricing) and [Troubleshooting problems with Dev Environments](devenvironments-troubleshooting.md). | 
+| Amount of Dev Environment compute  | Dev Environment compute is impacted by the overall storage limits for your space. For more information, see [Pricing](https://codecatalyst.aws/explore/pricing) and [Troubleshooting problems with Dev Environments](devenvironments-troubleshooting.md). | 

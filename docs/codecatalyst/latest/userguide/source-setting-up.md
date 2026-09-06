@@ -1,48 +1,48 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Setting up for working with source repositories
+<a name="source-setting-up"></a>
 
-When you work with source repositories in Amazon CodeCatalyst on your local machine, you can use
-Git either on its own or in a supported integrated development environment (IDE) to make
-code changes and push and pull your code. As a best practice, we recommend that you use the
-latest versions of Git and other software.
+When you work with source repositories in Amazon CodeCatalyst on your local machine, you can use Git either on its own or in a supported integrated development environment (IDE) to make code changes and push and pull your code. As a best practice, we recommend that you use the latest versions of Git and other software.
 
-###### Note
+**Note**  
+If you use Dev Environments, you do not have to install Git. A recent version of Git is included in your Dev Environment.
 
-If you use Dev Environments, you do not have to install Git. A recent version of Git is
-included in your Dev Environment.
 
-Version compatibility information for CodeCatalyst| Component | Version |
-| --- | --- |
-| Git | latest |
+**Version compatibility information for CodeCatalyst**  
+
+| Component | Version | 
+| --- | --- | 
+| Git | latest | 
 
 ## Install Git
+<a name="source-setting-up-git"></a>
 
-To work with files, commits, branches, and other information in source repositories
-from a Git client without an IDE, install Git on your local machine.
+To work with files, commits, branches, and other information in source repositories from a Git client without an IDE, install Git on your local machine. 
 
-To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads "http://git-scm.com/downloads").
+To install Git, we recommend websites such as [Git Downloads](http://git-scm.com/downloads).
 
 ## Create a personal access token
+<a name="source-setting-up-pat"></a>
 
-To clone source repositories to your local machine or to your preferred IDE, you must
-create a personal access token (PAT).
+To clone source repositories to your local machine or to your preferred IDE, you must create a personal access token (PAT).
 
-###### To create a personal access token (PAT)
+**To create a personal access token (PAT)**
 
-1. In the top menu bar, choose your profile badge, and then choose **My
-   settings**.
+1. In the top menu bar, choose your profile badge, and then choose **My settings**. 
+**Tip**  
+You can also find your user profile by going to the members page for a project or space and choosing your name from the members list.
 
-###### Tip
+1. In **PAT name**, enter a descriptive name for your PAT.
 
-You can also find your user profile by going to the members page for a project or
-space and choosing your name from the members list. 2. In **PAT name**, enter a descriptive name for your PAT. 3. In **Expiration date**, leave the default date or choose the calendar
-icon to select a custom date. The expiration date defaults to one year from the current
-date. 4. Choose **Create**.
+1. In **Expiration date**, leave the default date or choose the calendar icon to select a custom date. The expiration date defaults to one year from the current date.
 
-You can also create this token when you choose **Clone repository** for a
-source repository. 5. Save the PAT secret in a secure location.
+1. Choose **Create**.
 
-###### Important
+   You can also create this token when you choose **Clone repository** for a source repository.
 
-The PAT secret only displays once. You cannot retrieve it after you close the window.
+1. Save the PAT secret in a secure location. 
+**Important**  
+The PAT secret only displays once. You cannot retrieve it after you close the window. 

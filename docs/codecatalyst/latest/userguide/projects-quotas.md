@@ -1,13 +1,17 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Quotas for projects
+<a name="projects-quotas"></a>
 
-The following table describes quotas and limits for projects in Amazon CodeCatalyst. For more information about quotas in Amazon CodeCatalyst, see [Quotas for CodeCatalyst](quotas.md "quotas.md").
+The following table describes quotas and limits for projects in Amazon CodeCatalyst. For more information about quotas in Amazon CodeCatalyst, see [Quotas for CodeCatalyst](quotas.md).
 
-|                                                         |                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maximum number of projects per space                    | 100                                                                                                                                                                                                                                                                                                                                                                                         |
-| Maximum number of projects to which a user can belong   | 1,000                                                                                                                                                                                                                                                                                                                                                                                       |
-| Maximum number of members that can belong to a project. | 10,000                                                                                                                                                                                                                                                                                                                                                                                      |
-| Project names                                           | Project names must be unique within a space. Names must be<br>between 3 and 63 characters. Names are case sensitive. Project names<br>must begin with an alphanumeric character. Valid characters:<br>**A-Z, a-z, 0-9, spaces,*<br>• and **. , \_<br>(underscore)<br>• (hyphen)**<br>Project names cannot contain any of the following characters: `!<br>? @ # $ % ^ &<br>• ( ) + = { } [ ] | \ / > < ~ ` ' " ; :` |
-| Project descriptions                                    | Project descriptions can be up to 200 characters. Valid characters:<br>**A-Z, a-z, 0-9, spaces,*<br>• and **. , \_<br>(underscore)<br>• (hyphen)**. Project descriptions are<br>optional.                                                                                                                                                                                                   |
+
+|  |  | 
+| --- |--- |
+| Maximum number of projects per space | 100 | 
+| Maximum number of projects to which a user can belong | 1,000 | 
+| Maximum number of members that can belong to a project. | 10,000 | 
+| Project names | Project names must be unique within a space. Names must be between 3 and 63 characters. Names are case sensitive. Project names must begin with an alphanumeric character. Valid characters: **A-Z, a-z, 0-9, spaces,** and **. , \_ (underscore) - (hyphen)**<br />Project names cannot contain any of the following characters: `! ? @ # $ % ^ & * ( ) + = { } [ ] \| \ / > < ~ ` ' " ; : ` | 
+| Project descriptions | Project descriptions can be up to 200 characters. Valid characters: **A-Z, a-z, 0-9, spaces,** and **. , \_ (underscore) - (hyphen)**. Project descriptions are optional. | 

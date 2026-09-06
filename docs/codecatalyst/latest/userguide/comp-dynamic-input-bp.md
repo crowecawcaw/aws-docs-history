@@ -1,21 +1,20 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Generating inputs and rerendering front-end wizard elements
+<a name="comp-dynamic-input-bp"></a>
 
-You can generate wizard inputs with the DynamicKVInput and dynamically create front-end wizard
-elements for your custom blueprint.
+You can generate wizard inputs with the DynamicKVInput and dynamically create front-end wizard elements for your custom blueprint.
 
-###### Topics
-
-- [Creating development environments](#dynamickvinput-bp "#dynamickvinput-bp")
-- [Dynamically creating wizard elements](#create-wizard-elements-bp "#create-wizard-elements-bp")
+**Topics**
++ [Creating development environments](#dynamickvinput-bp)
++ [Dynamically creating wizard elements](#create-wizard-elements-bp)
 
 ## Creating development environments
+<a name="dynamickvinput-bp"></a>
 
-The DynamicKVInput type can be used to generate front-end wizard inputs using your custom bluerpint's
-defaults. To view the most up-to-date schema, see the
-[DynamicKVInput
-definition](https://github.com/aws/codecatalyst-blueprints/blob/main/packages/blueprints/blueprint/src/ui-selectors/dynamic-kv-input.ts "https://github.com/aws/codecatalyst-blueprints/blob/main/packages/blueprints/blueprint/src/ui-selectors/dynamic-kv-input.ts").
+The DynamicKVInput type can be used to generate front-end wizard inputs using your custom bluerpint's defaults. To view the most up-to-date schema, see the [DynamicKVInput definition](https://github.com/aws/codecatalyst-blueprints/blob/main/packages/blueprints/blueprint/src/ui-selectors/dynamic-kv-input.ts).
 
 The following example shows how you can use `Options` to shape an object:
 
@@ -32,7 +31,7 @@ export interface Options extends ParentOptions {
 The following example shows how you canset default parameters with several properties:
 
 ```
-{
+{ 
 "parameters": [
         {
             "key": "AWS_REGION",
@@ -222,9 +221,9 @@ The following example shows how you canset default parameters with several prope
 ```
 
 ## Dynamically creating wizard elements
+<a name="create-wizard-elements-bp"></a>
 
-The same schema as creating wizard inputs can be used to dynamically rerender a wizard
-during synthesis. That can be used to address follow-up questions by a user when necessary.
+The same schema as creating wizard inputs can be used to dynamically rerender a wizard during synthesis. That can be used to address follow-up questions by a user when necessary.
 
 ```
 //blueprint.ts
@@ -235,8 +234,7 @@ export interface Options extends ParentOptions {
 }
 ```
 
-The wizard can then be set during synthesis period by using an `Options`
-component.
+The wizard can then be set during synthesis period by using an `Options` component.
 
 ```
 import {

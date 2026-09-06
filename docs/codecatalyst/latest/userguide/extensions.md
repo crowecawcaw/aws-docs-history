@@ -1,127 +1,104 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Add functionality to projects with extensions in CodeCatalyst
+<a name="extensions"></a>
 
-Amazon CodeCatalyst includes extensions that help you add functionality and integrate with products outside of
-CodeCatalyst. With extensions from the CodeCatalyst catalog, teams can customize their experiences in CodeCatalyst.
+Amazon CodeCatalyst includes extensions that help you add functionality and integrate with products outside of CodeCatalyst. With extensions from the CodeCatalyst catalog, teams can customize their experiences in CodeCatalyst.
 
-###### Topics
-
-- [Available third-party extensions](#extensions-types "#extensions-types")
-- [Extensions concepts](extensions-concepts.md "extensions-concepts.md")
-- [Quickstart: Installing extensions, connecting providers, and linking resources in CodeCatalyst](extensions-quickstart.md "extensions-quickstart.md")
-- [Installing an extension in a space](install-extension.md "install-extension.md")
-- [Uninstalling an extension in a space](uninstall-extension.md "uninstall-extension.md")
-- [Connecting GitHub accounts, Bitbucket workspaces, GitLab users, and Jira sites CodeCatalyst](extensions-connect.md "extensions-connect.md")
-- [Disconnecting GitHub accounts, Bitbucket workspaces, GitLab users, and Jira sites CodeCatalyst](extensions-disconnect.md "extensions-disconnect.md")
-- [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md "extensions-link.md")
-- [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md")
-- [Viewing third-party repositories and searching Jira issues in CodeCatalyst](extensions-view-search.md "extensions-view-search.md")
-- [Automatically starting a workflow run after third-party repository events](extensions-workflow-repositories.md "extensions-workflow-repositories.md")
-- [Restricting IP access with third-party repository providers](extensions-restrict-ip-access.md "extensions-restrict-ip-access.md")
-- [Blocking third-party merges when workflows fail](extensions-block-merges.md "extensions-block-merges.md")
-- [Linking Jira issues to CodeCatalyst pull requests](link-jira-issues-pull-requests.md "link-jira-issues-pull-requests.md")
-- [Viewing CodeCatalyst events in Jira issues](view-codecatalyst-events-jira.md "view-codecatalyst-events-jira.md")
+**Topics**
++ [Available third-party extensions](#extensions-types)
++ [Extensions concepts](extensions-concepts.md)
++ [Quickstart: Installing extensions, connecting providers, and linking resources in CodeCatalyst](extensions-quickstart.md)
++ [Installing an extension in a space](install-extension.md)
++ [Uninstalling an extension in a space](uninstall-extension.md)
++ [Connecting GitHub accounts, Bitbucket workspaces, GitLab users, and Jira sites CodeCatalyst](extensions-connect.md)
++ [Disconnecting GitHub accounts, Bitbucket workspaces, GitLab users, and Jira sites CodeCatalyst](extensions-disconnect.md)
++ [Linking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-link.md)
++ [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md)
++ [Viewing third-party repositories and searching Jira issues in CodeCatalyst](extensions-view-search.md)
++ [Automatically starting a workflow run after third-party repository events](extensions-workflow-repositories.md)
++ [Restricting IP access with third-party repository providers](extensions-restrict-ip-access.md)
++ [Blocking third-party merges when workflows fail](extensions-block-merges.md)
++ [Linking Jira issues to CodeCatalyst pull requests](link-jira-issues-pull-requests.md)
++ [Viewing CodeCatalyst events in Jira issues](view-codecatalyst-events-jira.md)
 
 ## Available third-party extensions
+<a name="extensions-types"></a>
 
-You can add particular functionality to your CodeCatalyst project depending on the extension
-you choose to integrate resources with.
+You can add particular functionality to your CodeCatalyst project depending on the extension you choose to integrate resources with.
 
 ### Integrating GitHub repositories in CodeCatalyst
+<a name="extensions-types-github"></a>
 
-GitHub is a cloud-based service that helps developers store and manage their code. The
-**GitHub repositories** extension lets you use linked GitHub repositories in Amazon CodeCatalyst projects. You can also
-link GitHub repositories when creating a new CodeCatalyst project. For more information, see
-[Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
+GitHub is a cloud-based service that helps developers store and manage their code. The **GitHub repositories** extension lets you use linked GitHub repositories in Amazon CodeCatalyst projects. You can also link GitHub repositories when creating a new CodeCatalyst project. For more information, see [Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo).
 
-###### Note
-
-- You can't use empty or archived GitHub repositories with CodeCatalyst projects.
-- The **GitHub repositories** extension isn't compatible with GitHub Enterprise Server repositories.
+**Note**  
+You can't use empty or archived GitHub repositories with CodeCatalyst projects. 
+The **GitHub repositories** extension isn't compatible with GitHub Enterprise Server repositories.
 
 Once you install and configure the **GitHub repositories** extension, you will be able to:
-
-- View your GitHub repositories in the list of source repositories in CodeCatalyst
-- Store and manage workflow definition files in your GitHub repositories
-- Create, read, update, and delete files stored in linked GitHub repositories from CodeCatalyst Dev Environments
-- Store and index files from the linked GitHub repositories in CodeCatalyst
-- Create CodeCatalyst projects with existing repositories of connected GitHub accounts
-- Create a GitHub repository with code generated by a blueprint when creating a project with a blueprint
-  or adding a blueprint
-- Start CodeCatalyst workflow runs automatically when code is pushed to linked GitHub repositories, or when
-  pull requests are created, modified, or closed in linked GitHub repositories
-- Use linked GitHub repository source files in CodeCatalyst workflows
-- Read and execute GitHub actions in CodeCatalyst workflows
-- Send CodeCatalyst workflow run statuses to linked GitHub repositories, and block GitHub pull request
-  merges based on commit statuses
++ View your GitHub repositories in the list of source repositories in CodeCatalyst
++ Store and manage workflow definition files in your GitHub repositories
++ Create, read, update, and delete files stored in linked GitHub repositories from CodeCatalyst Dev Environments
++ Store and index files from the linked GitHub repositories in CodeCatalyst
++ Create CodeCatalyst projects with existing repositories of connected GitHub accounts
++ Create a GitHub repository with code generated by a blueprint when creating a project with a blueprint or adding a blueprint
++ Start CodeCatalyst workflow runs automatically when code is pushed to linked GitHub repositories, or when pull requests are created, modified, or closed in linked GitHub repositories
++ Use linked GitHub repository source files in CodeCatalyst workflows
++ Read and execute GitHub actions in CodeCatalyst workflows
++ Send CodeCatalyst workflow run statuses to linked GitHub repositories, and block GitHub pull request merges based on commit statuses
 
 ### Integrating Bitbucket repositories in CodeCatalyst
+<a name="extensions-types-bitbucket"></a>
 
-Bitbucket is a cloud-based service that helps developers store and manage their code. The
-**Bitbucket repositories** extension lets you use linked Bitbucket repositories in Amazon CodeCatalyst projects. You can also
-link Bitbucket repositories when creating a new CodeCatalyst project. For more information, see
-[Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
+Bitbucket is a cloud-based service that helps developers store and manage their code. The **Bitbucket repositories** extension lets you use linked Bitbucket repositories in Amazon CodeCatalyst projects. You can also link Bitbucket repositories when creating a new CodeCatalyst project. For more information, see [Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo).
 
-###### Note
-
-- You can't use empty or archived Bitbucket repositories with CodeCatalyst projects.
-- The **Bitbucket repositories** extension isn't compatible with Bitbucket Data Center repositories.
+**Note**  
+You can't use empty or archived Bitbucket repositories with CodeCatalyst projects. 
+The **Bitbucket repositories** extension isn't compatible with Bitbucket Data Center repositories.
 
 Once you install and configure the **Bitbucket repositories** extension, you will be able to:
-
-- View your Bitbucket repositories in the list of source repositories in CodeCatalyst
-- Store and manage workflow definition files in your Bitbucket repositories.
-- Create, read, update, and delete files stored in linked Bitbucket repositories from CodeCatalyst Dev Environments
-- Create CodeCatalyst projects with existing repositories of connected Bitbucket accounts
-- Store and index files from the linked Bitbucket repositories in CodeCatalyst
-- Create a Bitbucket repository with code generated by a blueprint when creating a project with a blueprint
-  or adding a blueprint
-- Start CodeCatalyst workflow runs automatically when code is pushed to linked Bitbucket repositories, or when
-  pull requests are created, modified, or closed in linked Bitbucket repositories
-- Use your linked Bitbucket repository source files in CodeCatalyst workflows
-- Send CodeCatalyst workflow run statuses to linked Bitbucket repositories, and block Bitbucket pull request
-  merges based on commit statuses
++ View your Bitbucket repositories in the list of source repositories in CodeCatalyst
++ Store and manage workflow definition files in your Bitbucket repositories.
++ Create, read, update, and delete files stored in linked Bitbucket repositories from CodeCatalyst Dev Environments
++ Create CodeCatalyst projects with existing repositories of connected Bitbucket accounts
++ Store and index files from the linked Bitbucket repositories in CodeCatalyst
++ Create a Bitbucket repository with code generated by a blueprint when creating a project with a blueprint or adding a blueprint
++ Start CodeCatalyst workflow runs automatically when code is pushed to linked Bitbucket repositories, or when pull requests are created, modified, or closed in linked Bitbucket repositories
++ Use your linked Bitbucket repository source files in CodeCatalyst workflows
++ Send CodeCatalyst workflow run statuses to linked Bitbucket repositories, and block Bitbucket pull request merges based on commit statuses
 
 ### Integrating GitLab repositories in CodeCatalyst
+<a name="extensions-types-gitlab"></a>
 
-GitLab is a cloud-based service that helps developers store and manage their code. The
-**GitLab repositories** extension lets you use linked GitLab project repositories in Amazon CodeCatalyst projects. You can also
-link GitLab project repositories when creating a new CodeCatalyst project. For more information, see
-[Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo "projects-create.md#projects-create-3p-repo").
+GitLab is a cloud-based service that helps developers store and manage their code. The **GitLab repositories** extension lets you use linked GitLab project repositories in Amazon CodeCatalyst projects. You can also link GitLab project repositories when creating a new CodeCatalyst project. For more information, see [Creating a project with a linked third-party repository](projects-create.md#projects-create-3p-repo).
 
-###### Note
-
-- You can't use empty or archived GitLab project repositories with CodeCatalyst projects.
-- The **GitLab repositories** extension isn't compatible with GitLab self-managed repositories.
+**Note**  
+You can't use empty or archived GitLab project repositories with CodeCatalyst projects. 
+The **GitLab repositories** extension isn't compatible with GitLab self-managed repositories.
 
 Once you install and configure the **GitLab repositories** extension, you will be able to:
-
-- View your GitLab project repositories in the list of source repositories in CodeCatalyst
-- Store and manage workflow definition files in your GitLab project repositories.
-- Create, read, update, and delete files stored in linked GitLab project repositories from CodeCatalyst Dev Environments
-- Create CodeCatalyst projects with existing repositories of connected GitLab users
-- Store and index files from the linked GitLab project repositories in CodeCatalyst
-- Create a GitLab project repository with code generated by a blueprint when creating a project with a blueprint
-  or adding a blueprint
-- Start CodeCatalyst workflow runs automatically when code is pushed to linked GitLab project repositories, or when
-  pull requests are created, modified, or closed in linked GitLab project repositories
-- Use your linked GitLab project repository source files in CodeCatalyst workflows
-- Send CodeCatalyst workflow run statuses to linked GitLab project repositories, and block GitLab merge requests
-  based on commit statuses
++ View your GitLab project repositories in the list of source repositories in CodeCatalyst
++ Store and manage workflow definition files in your GitLab project repositories.
++ Create, read, update, and delete files stored in linked GitLab project repositories from CodeCatalyst Dev Environments
++ Create CodeCatalyst projects with existing repositories of connected GitLab users
++ Store and index files from the linked GitLab project repositories in CodeCatalyst
++ Create a GitLab project repository with code generated by a blueprint when creating a project with a blueprint or adding a blueprint
++ Start CodeCatalyst workflow runs automatically when code is pushed to linked GitLab project repositories, or when pull requests are created, modified, or closed in linked GitLab project repositories
++ Use your linked GitLab project repository source files in CodeCatalyst workflows
++ Send CodeCatalyst workflow run statuses to linked GitLab project repositories, and block GitLab merge requests based on commit statuses
 
 ### Integrating Jira issues in CodeCatalyst
+<a name="extensions-types-jira"></a>
 
-Jira is a software application that helps agile development teams plan, assign, track,
-report, and manage work. The **Jira Software** extension lets you use Jira
-projects in Amazon CodeCatalyst projects.
+Jira is a software application that helps agile development teams plan, assign, track, report, and manage work. The **Jira Software** extension lets you use Jira projects in Amazon CodeCatalyst projects.
 
-###### Note
-
+**Note**  
 CodeCatalyst is only compatible with **Jira Software Cloud**.
 
 Once you install and configure the **Jira Software** extension for an Amazon CodeCatalyst project, you will be able to:
-
-- Access Jira projects from CodeCatalyst by linking them to CodeCatalyst projects
-- Update Jira issues with CodeCatalyst pull requests
-- View status and workflow runs of linked CodeCatalyst pull requests in Jira issues
++ Access Jira projects from CodeCatalyst by linking them to CodeCatalyst projects
++ Update Jira issues with CodeCatalyst pull requests
++ View status and workflow runs of linked CodeCatalyst pull requests in Jira issues

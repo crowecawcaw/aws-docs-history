@@ -1,266 +1,251 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Build and test actions YAML
+<a name="build-action-ref"></a><a name="test-action-ref"></a>
 
-The following is the YAML definition of the build and test actions. There is one reference
-for two actions because their YAML properties are very similar.
+The following is the YAML definition of the build and test actions. There is one reference for two actions because their YAML properties are very similar.
 
-This action definition exists as a section within a broader workflow definition file. For
-more information about this file, see [Workflow YAML definition](workflow-reference.md "workflow-reference.md").
+This action definition exists as a section within a broader workflow definition file. For more information about this file, see [Workflow YAML definition](workflow-reference.md).
 
 Choose a YAML property in the following code to see a description if it.
 
-###### Note
-
-Most of the YAML properties that follow have corresponding UI elements in the visual
-editor. To look up a UI element, use **Ctrl+F**. The element will be
-listed with its associated YAML property.
+**Note**  
+Most of the YAML properties that follow have corresponding UI elements in the visual editor. To look up a UI element, use **Ctrl\+F**. The element will be listed with its associated YAML property.
 
 ```
 # The workflow definition starts here.
 # See Top-level properties for details.
-
+        
 Name: MyWorkflow
-SchemaVersion: 1.0
+SchemaVersion: 1.0 
 Actions:
 
 # The action definition starts here.
-  `action-name`:
+  {{action-name}}:
     Identifier: aws/build@v1 | aws/managed-test@v1
     DependsOn:
-      - `dependent-action-name-1`
-    Compute:
-      Type: `EC2 | Lambda`
-      Fleet: `fleet-name`
-    Timeout: `timeout-minutes`
+      - {{dependent-action-name-1}}
+    Compute:  
+      Type: {{EC2 | Lambda}}
+      Fleet: {{fleet-name}}
+    Timeout: {{timeout-minutes}}
     Environment:
-      Name: `environment-name`
+      Name: {{environment-name}}
       Connections:
-        - Name: `account-connection-name`
-          Role: `iam-role-name`
-    Caching:
+        - Name: {{account-connection-name}}
+          Role: {{iam-role-name}}
+    Caching:  
       FileCaching:
-        `key-name-1:`
-          Path: `file1.txt`
+        {{key-name-1:}}
+          Path: {{file1.txt}}
           RestoreKeys:
-            - `restore-key-1`
+            - {{restore-key-1}}
     Inputs:
       Sources:
-        - `source-name-1`
-        - `source-name-2`
+        - {{source-name-1}}
+        - {{source-name-2}}
       Artifacts:
-        - `artifact-name`
+        - {{artifact-name}}
       Variables:
-        - Name: `variable-name-1`
-          Value: `variable-value-1`
-        - Name: `variable-name-2`
-          Value: `variable-value-2`
+        - Name: {{variable-name-1}}
+          Value: {{variable-value-1}}
+        - Name: {{variable-name-2}}
+          Value: {{variable-value-2}}   
     Outputs:
       Artifacts:
-        - Name: `output-artifact-1`
-          Files:
+        - Name: {{output-artifact-1}}
+          Files: 
             - build-output/artifact-1.jar
             - "build-output/build*"
-        - Name: `output-artifact-2`
+        - Name: {{output-artifact-2}}
           Files:
             - build-output/artifact-2.1.jar
             - build-output/artifact-2.2.jar
       Variables:
-        - `variable-name-1`
-        - `variable-name-2`
+        - {{variable-name-1}}
+        - {{variable-name-2}}
       AutoDiscoverReports:
-        Enabled: `true | false`
-        ReportNamePrefix: `AutoDiscovered`
+        Enabled: {{true | false}}
+        ReportNamePrefix: {{AutoDiscovered}}
         IncludePaths:
           - "**/*"
         ExcludePaths:
           - node_modules/cdk/junit.xml
         SuccessCriteria:
-          PassRate: `percent`
-          LineCoverage: `percent`
-          BranchCoverage: `percent`
+          PassRate: {{percent}}
+          LineCoverage: {{percent}}
+          BranchCoverage: {{percent}}
           Vulnerabilities:
-            Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-            Number: `whole-number`
+            Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+            Number: {{whole-number}}
           StaticAnalysisBug:
-            Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-            Number: `whole-number`
+            Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+            Number: {{whole-number}}
           StaticAnalysisSecurity:
-            Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-            Number: `whole-number`
+            Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+            Number: {{whole-number}}
           StaticAnalysisQuality:
-            Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-            Number: `whole-number`
+            Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+            Number: {{whole-number}}
           StaticAnalysisFinding:
-            Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-            Number: `whole-number`
+            Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+            Number: {{whole-number}}
       Reports:
-        `report-name-1:`
-          Format: `format`
+        {{report-name-1:}}
+          Format: {{format}}
           IncludePaths:
             - "*.xml"
           ExcludePaths:
             - report2.xml
             - report3.xml
           SuccessCriteria:
-            PassRate: `percent`
-            LineCoverage: `percent`
-            BranchCoverage: `percent`
+            PassRate: {{percent}}
+            LineCoverage: {{percent}}
+            BranchCoverage: {{percent}}
             Vulnerabilities:
-              Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-              Number: `whole-number`
+              Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+              Number: {{whole-number}}
             StaticAnalysisBug:
-                Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-                Number: `whole-number`
+                Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+                Number: {{whole-number}}
             StaticAnalysisSecurity:
-                Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-                Number: `whole-number`
+                Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+                Number: {{whole-number}}
             StaticAnalysisQuality:
-                Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-                Number: `whole-number`
+                Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+                Number: {{whole-number}}
             StaticAnalysisFinding:
-                Severity: `CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL`
-                Number: `whole-number`
+                Severity: {{CRITICAL | HIGH | MEDIUM | LOW | INFORMATIONAL}}
+                Number: {{whole-number}}
     Configuration:
       Container:
-        Registry: `registry`
-        Image: `image`
+        Registry: {{registry}}
+        Image: {{image}}
       Steps:
-        - Run: `"step 1"`
-        - Run: `"step 2"`
+        - Run: {{"step 1"}}
+        - Run: {{"step 2"}}
       Packages:
         NpmConfiguration:
           PackageRegistries:
-            - PackagesRepository: `package-repository`
+            - PackagesRepository: {{package-repository}}
               Scopes:
-                - `"@scope"`
-        ExportAuthorizationToken: `true | false`
+                - {{"@scope"}}
+        ExportAuthorizationToken: {{true | false}}
 ```
 
 ## action-name
+<a name="build.name"></a>
 
 (Required)
 
-Specify the name of the action. All action names must be unique within the workflow. Action names are limited to
-alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), and underscores (\_). Spaces are not allowed.
-You cannot use quotation marks to enable special characters and spaces in action names.
+Specify the name of the action. All action names must be unique within the workflow. Action names are limited to alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), and underscores (\_). Spaces are not allowed. You cannot use quotation marks to enable special characters and spaces in action names.
 
 Corresponding UI: Configuration tab/**Action name**
 
 ## Identifier
+<a name="build.identifier"></a>
 
-(`action-name`/**Identifier**)
+({{action-name}}/**Identifier**)
 
-Identifies the action. Do not change this property unless you want to change the version. For
-more information, see [Specifying the action version to use](workflows-action-versions.md "workflows-action-versions.md").
+Identifies the action. Do not change this property unless you want to change the version. For more information, see [Specifying the action version to use](workflows-action-versions.md).
 
 Use `aws/build@v1` for build actions.
 
 Use `aws/managed-test@v1` for test actions.
 
-Corresponding UI: Workflow
-diagram/Action-name/`aws/build@v1|aws/managed-test@v1`
-label
+Corresponding UI: Workflow diagram/Action-name/{{aws/build@v1\|aws/managed-test@v1}} label
 
 ## DependsOn
+<a name="build.depends-on"></a>
 
-(`action-name`/**DependsOn**)
+({{action-name}}/**DependsOn**)
 
 (Optional)
 
-Specify an action, action group, or gate that must run successfully in order for this action to
-run.
+Specify an action, action group, or gate that must run successfully in order for this action to run.
 
-For more information about the 'depends on' functionality, see [Sequencing actions](workflows-depends-on.md "workflows-depends-on.md").
+For more information about the 'depends on' functionality, see [Sequencing actions](workflows-depends-on.md).
 
 Corresponding UI: Inputs tab/**Depends on - optional**
 
 ## Compute
+<a name="build.computename"></a>
 
-(`action-name`/**Compute**)
+({{action-name}}/**Compute**)
 
 (Optional)
 
-The computing engine used to run your workflow actions. You can specify compute either at the workflow level or at the action level,
-but not both. When specified at the workflow level, the compute configuration applies to all actions defined in the workflow. At the workflow
-level, you can also run multiple actions on the same instance. For more information, see
-[Sharing compute across actions](compute-sharing.md "compute-sharing.md").
+The computing engine used to run your workflow actions. You can specify compute either at the workflow level or at the action level, but not both. When specified at the workflow level, the compute configuration applies to all actions defined in the workflow. At the workflow level, you can also run multiple actions on the same instance. For more information, see [Sharing compute across actions](compute-sharing.md).
 
-Corresponding UI: _none_
+Corresponding UI: *none*
 
 ## Type
+<a name="build.computetype"></a>
 
-(`action-name`/Compute/**Type**)
+({{action-name}}/Compute/**Type**)
 
-(Required if [Compute](#build.computename "#build.computename") is
-included)
+(Required if [Compute](#build.computename) is included)
 
 The type of compute engine. You can use one of the following values:
++ **EC2** (visual editor) or `EC2` (YAML editor)
 
-- **EC2** (visual editor) or `EC2` (YAML editor)
+  Optimized for flexibility during action runs.
++ **Lambda** (visual editor) or `Lambda` (YAML editor)
 
-Optimized for flexibility during action runs.
+  Optimized action start-up speeds.
 
-- **Lambda** (visual editor) or `Lambda` (YAML
-  editor)
-
-Optimized action start-up speeds.
-
-For more information about compute types, see [Compute types](workflows-working-compute.md#compute.types "workflows-working-compute.md#compute.types").
+For more information about compute types, see [Compute types](workflows-working-compute.md#compute.types).
 
 Corresponding UI: Configuration tab/**Compute type**
 
 ## Fleet
+<a name="build.computefleet"></a>
 
-(`action-name`/Compute/**Fleet**)
+({{action-name}}/Compute/**Fleet**)
 
 (Optional)
 
-Specify the machine or fleet that will run your workflow or workflow actions. With on-demand fleets, when an action starts, the workflow provisions the resources it needs, and the machines are destroyed when the action finishes. Examples of on-demand fleets: `Linux.x86-64.Large`, `Linux.x86-64.XLarge`. For more information about on-demand fleets, see [On-demand fleet properties](workflows-working-compute.md#compute.on-demand "workflows-working-compute.md#compute.on-demand").
+Specify the machine or fleet that will run your workflow or workflow actions. With on-demand fleets, when an action starts, the workflow provisions the resources it needs, and the machines are destroyed when the action finishes. Examples of on-demand fleets: `Linux.x86-64.Large`, `Linux.x86-64.XLarge`. For more information about on-demand fleets, see [On-demand fleet properties](workflows-working-compute.md#compute.on-demand).
 
-With provisioned fleets, you configure a set of dedicated machines to run your workflow actions. These machines remain idle, ready to process actions immediately. For more information about provisioned fleets, see [Provisioned fleet properties](workflows-working-compute.md#compute.provisioned-fleets "workflows-working-compute.md#compute.provisioned-fleets").
+With provisioned fleets, you configure a set of dedicated machines to run your workflow actions. These machines remain idle, ready to process actions immediately. For more information about provisioned fleets, see [Provisioned fleet properties](workflows-working-compute.md#compute.provisioned-fleets).
 
 If `Fleet` is omitted, the default is `Linux.x86-64.Large`.
 
 Corresponding UI: Configuration tab/**Compute fleet**
 
 ## Timeout
+<a name="build.timeout"></a>
 
-(`action-name`/**Timeout**)
+({{action-name}}/**Timeout**)
 
 (Optional)
 
-Specify the amount of time in minutes (YAML editor), or hours and minutes (visual editor),
-that the action can run before CodeCatalyst ends the action. The minimum is 5 minutes and the maximum is
-described in [Quotas for workflows in CodeCatalyst](workflows-quotas.md "workflows-quotas.md"). The default timeout is
-the same as the maximum timeout.
+Specify the amount of time in minutes (YAML editor), or hours and minutes (visual editor), that the action can run before CodeCatalyst ends the action. The minimum is 5 minutes and the maximum is described in [Quotas for workflows in CodeCatalyst](workflows-quotas.md). The default timeout is the same as the maximum timeout.
 
-Corresponding UI: Configuration tab/**Timeout - optional**
+Corresponding UI: Configuration tab/**Timeout - optional **
 
 ## Environment
+<a name="build.environment"></a>
 
-(`action-name`/**Environment**)
+({{action-name}}/**Environment**)
 
 (Optional)
 
-Specify the CodeCatalyst environment to use with the action. The action connects to
-the AWS account and optional Amazon VPC specified in the chosen environment. The action uses the
-default IAM role specified in the environment to connect to the AWS account, and uses the
-IAM role specified in the [Amazon VPC connection](../adminguide/managing-vpcs.add.md "../adminguide/managing-vpcs.add.md") to
-connect to the Amazon VPC.
+Specify the CodeCatalyst environment to use with the action. The action connects to the AWS account and optional Amazon VPC specified in the chosen environment. The action uses the default IAM role specified in the environment to connect to the AWS account, and uses the IAM role specified in the [Amazon VPC connection](https://docs.aws.amazon.com/codecatalyst/latest/adminguide/managing-vpcs.add.html) to connect to the Amazon VPC.
 
-###### Note
+**Note**  
+If the default IAM role does not have the permissions required by the action, you can configure the action to use a different role. For more information, see [Changing the IAM role of an action](deploy-environments-switch-role.md).
 
-If the default IAM role does not have the permissions required by the action, you can
-configure the action to use a different role. For more information, see [Changing the IAM role of an action](deploy-environments-switch-role.md "deploy-environments-switch-role.md").
-
-For more information about environments, see [Deploying into AWS accounts and VPCs](deploy-environments.md "deploy-environments.md") and [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md").
+For more information about environments, see [Deploying into AWS accounts and VPCs](deploy-environments.md) and [Creating an environment](deploy-environments-creating-environment.md).
 
 Corresponding UI: Configuration tab/**Environment**
 
 ## Name
+<a name="build.environment.name"></a>
 
-(`action-name`/Environment/**Name**)
+({{action-name}}/Environment/**Name**)
 
 (Optional)
 
@@ -269,209 +254,175 @@ Specify the name of an existing environment that you want to associate with the 
 Corresponding UI: Configuration tab/**Environment**
 
 ## Connections
+<a name="build.environment.connections"></a>
 
-(`action-name`/Environment/**Connections**)
+({{action-name}}/Environment/**Connections**)
 
 (Optional)
 
-Specify the account connection to associate with the action. You can specify a maximum of
-one account connection under `Environment`.
+Specify the account connection to associate with the action. You can specify a maximum of one account connection under `Environment`.
 
 If you do not specify an account connection:
++ The action uses the AWS account connection and default IAM role specified in the environment in the CodeCatalyst console. For information about adding an account connection and default IAM role to environment, see [Creating an environment](deploy-environments-creating-environment.md).
++ The default IAM role must include the policies and permissions required by the action. To determine what those policies and permissions are, see the description of the **Role** property in the action's YAML definition documentation.
 
-- The action uses the AWS account connection and default IAM role specified in the
-  environment in the CodeCatalyst console. For information about adding an account connection and
-  default IAM role to environment, see [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md").
-- The default IAM role must include the policies and permissions required by the action.
-  To determine what those policies and permissions are, see the description of the **Role** property in the action's YAML definition documentation.
+For more information about account connections, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md). For information about adding an account connection to an environment, see [Creating an environment](deploy-environments-creating-environment.md).
 
-For more information about account connections, see [Allowing access to AWS resources with connected AWS accounts](ipa-connect-account.md "ipa-connect-account.md"). For information about adding an account connection to
-an environment, see [Creating an environment](deploy-environments-creating-environment.md "deploy-environments-creating-environment.md").
-
-Corresponding UI: Configuration tab/Environment/What's in
-`my-environment`?/three dot menu/**Switch role**
+Corresponding UI: Configuration tab/Environment/What's in {{my-environment}}?/three dot menu/**Switch role**
 
 ## Name
+<a name="build.environment.connections.name"></a>
 
-(`action-name`/Environment/Connections/**Name**)
+({{action-name}}/Environment/Connections/**Name**)
 
-(Required if [Connections](#build.environment.connections "#build.environment.connections") is included)
+(Required if [Connections](#build.environment.connections) is included)
 
 Specify the name of the account connection.
 
-Corresponding UI: Configuration tab/Environment/What's in
-`my-environment`?/three dot menu/**Switch role**
+Corresponding UI: Configuration tab/Environment/What's in {{my-environment}}?/three dot menu/**Switch role**
 
 ## Role
+<a name="build.environment.connections.role"></a>
 
-(`action-name`/Environment/Connections/**Role**)
+({{action-name}}/Environment/Connections/**Role**)
 
-(Required if [Connections](#build.environment.connections "#build.environment.connections") is included)
+(Required if [Connections](#build.environment.connections) is included)
 
-Specify the name of the IAM role that this action uses in order to access and operate in
-AWS services such as Amazon S3 and Amazon ECR. Make sure this role is added to your AWS account
-connection in your space. To add an IAM role to an account connection, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md "ipa-connect-account-addroles.md").
+Specify the name of the IAM role that this action uses in order to access and operate in AWS services such as Amazon S3 and Amazon ECR. Make sure this role is added to your AWS account connection in your space. To add an IAM role to an account connection, see [Adding IAM roles to account connections](ipa-connect-account-addroles.md).
 
-If you do not specify an IAM role, then the action uses the default IAM role listed in
-the [environment](deploy-environments.md "deploy-environments.md") in the CodeCatalyst console. If you use the
-default role in the environment, make sure it has the following policies.
+If you do not specify an IAM role, then the action uses the default IAM role listed in the [environment](deploy-environments.md) in the CodeCatalyst console. If you use the default role in the environment, make sure it has the following policies.
 
-###### Note
+**Note**  
+You can use the `CodeCatalystWorkflowDevelopmentRole-{{spaceName}}` role with this action. For more information about this role, see [Creating the **CodeCatalystWorkflowDevelopmentRole-{{spaceName}}** role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create). Understand that the `CodeCatalystWorkflowDevelopmentRole-{{spaceName}}` role has full access permissions which may pose a security risk. We recommend that you only use this role in tutorials and scenarios where security is less of a concern. 
 
-You can use the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role with this action.
- For more information about this role, see [Creating the CodeCatalystWorkflowDevelopmentRole-spaceName role for your account and space](ipa-iam-roles.md#ipa-iam-roles-service-create "ipa-iam-roles.md#ipa-iam-roles-service-create"). Understand that the `CodeCatalystWorkflowDevelopmentRole-`spaceName`` role has
-full access permissions which may pose a security risk. We recommend that you only use this
-role in tutorials and scenarios where security is less of a concern.
+**Warning**  
+Limit the permissions to those required by the build and test actions. Using a role with broader permissions might pose a security risk.
 
-###### Warning
-
-Limit the permissions to those required by the build and test actions. Using a
-role with broader permissions might pose a security risk.
-
-Corresponding UI: Configuration tab/Environment/What's in
-`my-environment`?/three dot menu/**Switch role**
+Corresponding UI: Configuration tab/Environment/What's in {{my-environment}}?/three dot menu/**Switch role**
 
 ## Caching
+<a name="build.caching"></a>
 
-(`action-name`/**Caching**)
+({{action-name}}/**Caching**)
 
 (Optional)
 
 A section where you can specify a cache to save on-disk files and restore them from that cache in subsequent workflow runs.
 
-For more information about
-file caching, see [Caching files between workflow runs](workflows-caching.md "workflows-caching.md").
+For more information about file caching, see [Caching files between workflow runs](workflows-caching.md).
 
-Corresponding UI: Configuration tab/**File caching -
-optional**
+Corresponding UI: Configuration tab/**File caching - optional**
 
 ## FileCaching
+<a name="build.caching.filecaching"></a>
 
-(`action-name`/Caching/**FileCaching**)
+({{action-name}}/Caching/**FileCaching**)
 
 (Optional)
 
 A section that specifies the configuration for a sequence of caches.
 
-Corresponding UI: Configuration tab/File caching - optional/**Add
-cache**
+Corresponding UI: Configuration tab/File caching - optional/**Add cache**
 
 ## key-name-1
+<a name="build.caching.filecaching.key-name-1"></a>
 
-(`action-name`/Caching/FileCaching/**`key-name-1`**)
+({{action-name}}/Caching/FileCaching/**{{key-name-1}}**)
 
 (Optional)
 
-Specify the name of your primary cache property name. Cache
-property names must be unique within your workflow. Each action can
-have up to five entries in `FileCaching`.
+Specify the name of your primary cache property name. Cache property names must be unique within your workflow. Each action can have up to five entries in `FileCaching`.
 
-Corresponding UI: Configuration tab/File caching - optional/Add
-cache/**Key**
+Corresponding UI: Configuration tab/File caching - optional/Add cache/**Key**
 
 ## Path
+<a name="build.caching.filecaching.key-name-1.path"></a>
 
-(`action-name`/Caching/FileCaching/`key-name-1`/**Path**)
+({{action-name}}/Caching/FileCaching/{{key-name-1}}/**Path**)
 
 (Optional)
 
-Specify the associated path for your cache.
+Specify the associated path for your cache. 
 
-Corresponding UI: Configuration tab/File caching - optional/Add
-cache/**Path**
+Corresponding UI: Configuration tab/File caching - optional/Add cache/**Path**
 
 ## RestoreKeys
+<a name="build.caching.filecaching.key-name-1.restorekeys"></a>
 
-(`action-name`/Caching/FileCaching/`key-name-1`/**RestoreKeys**)
+({{action-name}}/Caching/FileCaching/{{key-name-1}}/**RestoreKeys**)
 
 (Optional)
 
-Specify the restore key to use as a fallback when the
-primary cache property can't be found. Restore key names must be
-unique within your workflow. Each cache can have up to five entries
-in `RestoreKeys`.
+Specify the restore key to use as a fallback when the primary cache property can't be found. Restore key names must be unique within your workflow. Each cache can have up to five entries in `RestoreKeys`.
 
-Corresponding UI: Configuration tab/File caching - optional/Add
-cache/**Restore keys - optional**
+Corresponding UI: Configuration tab/File caching - optional/Add cache/**Restore keys - optional**
 
 ## Inputs
+<a name="build.inputs"></a>
 
-(`action-name`/**Inputs**)
+({{action-name}}/**Inputs**)
 
 (Optional)
 
-The `Inputs` section defines the data that an action needs during a
-workflow run.
+The `Inputs` section defines the data that an action needs during a workflow run.
 
-###### Note
+**Note**  
+A maximum of four inputs (one source and three artifacts) are allowed per build action or test action. Variables do not count towards this total.
 
-A maximum of four inputs (one source and three artifacts) are allowed per build
-action or test action. Variables do not count towards this total.
-
-If you need to refer to files residing in different inputs (say a source and an
-artifact), the source input is the primary input, and the artifact is the secondary
-input. References to files in secondary inputs take a special prefix to distiguish them
-from the primary. For details, see [Example: Referencing files in multiple artifacts](workflows-working-artifacts-ex.md#workflows-working-artifacts-ex-ref-file "workflows-working-artifacts-ex.md#workflows-working-artifacts-ex-ref-file").
+If you need to refer to files residing in different inputs (say a source and an artifact), the source input is the primary input, and the artifact is the secondary input. References to files in secondary inputs take a special prefix to distiguish them from the primary. For details, see [Example: Referencing files in multiple artifacts](workflows-working-artifacts-ex.md#workflows-working-artifacts-ex-ref-file).
 
 Corresponding UI: **Inputs** tab
 
 ## Sources
+<a name="build.inputs.sources"></a>
 
-(`action-name`/Inputs/**Sources**)
+({{action-name}}/Inputs/**Sources**)
 
 (Optional)
 
-Specify the labels that represent the source repositories that will be needed by the action.
-Currently, the only supported label is `WorkflowSource`, which represents the source
-repository where your workflow definition file is stored.
+Specify the labels that represent the source repositories that will be needed by the action. Currently, the only supported label is `WorkflowSource`, which represents the source repository where your workflow definition file is stored.
 
-If you omit a source, then you must specify at least one input artifact under
-``action-name`/Inputs/Artifacts`.
+If you omit a source, then you must specify at least one input artifact under `{{action-name}}/Inputs/Artifacts`.
 
-For more information about sources, see [Connecting source repositories to workflows](workflows-sources.md "workflows-sources.md").
+For more information about sources, see [Connecting source repositories to workflows](workflows-sources.md).
 
-Corresponding UI: _none_
+Corresponding UI: *none*
 
 ## Artifacts - input
+<a name="build.inputs.artifacts"></a>
 
-(`action-name`/Inputs/**Artifacts**)
+({{action-name}}/Inputs/**Artifacts**)
 
 (Optional)
 
-Specify artifacts from previous actions that you want to provide as input to this action.
-These artifacts must already be defined as output artifacts in previous actions.
+Specify artifacts from previous actions that you want to provide as input to this action. These artifacts must already be defined as output artifacts in previous actions.
 
-If you do not specify any input artifacts, then you must specify at least one source
-repository under ``action-name`/Inputs/Sources`.
+If you do not specify any input artifacts, then you must specify at least one source repository under `{{action-name}}/Inputs/Sources`.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md).
 
-###### Note
-
-If the **Artifacts - optional** drop-down list is unavailable (visual
-editor), or if you get errors in when you validate your YAML (YAML editor), it might be because
-the action only supports one input. In this case, try removing the source input.
+**Note**  
+If the **Artifacts - optional** drop-down list is unavailable (visual editor), or if you get errors in when you validate your YAML (YAML editor), it might be because the action only supports one input. In this case, try removing the source input.
 
 Corresponding UI: Inputs tab/**Artifacts - optional**
 
 ## Variables - input
+<a name="build.inputs.variables"></a>
 
-(`action-name`/Inputs/**Variables**)
+({{action-name}}/Inputs/**Variables**)
 
 (Optional)
 
-Specify a sequence of name/value pairs that define the input variables that you want to make
-available to the action. Variable names are limited to alphanumeric characters (a-z, A-Z, 0-9),
-hyphens (-), and underscores (\_). Spaces are not allowed. You cannot use quotation marks to
-enable special characters and spaces in variable names.
+Specify a sequence of name/value pairs that define the input variables that you want to make available to the action. Variable names are limited to alphanumeric characters (a-z, A-Z, 0-9), hyphens (-), and underscores (\_). Spaces are not allowed. You cannot use quotation marks to enable special characters and spaces in variable names.
 
-For more information about variables, including examples, see [Using variables in workflows](workflows-working-with-variables.md "workflows-working-with-variables.md").
+For more information about variables, including examples, see [Using variables in workflows](workflows-working-with-variables.md).
 
 Corresponding UI: Inputs tab/**Variables - optional**
 
 ## Outputs
+<a name="build.outputs"></a>
 
-(`action-name`/**Outputs**)
+({{action-name}}/**Outputs**)
 
 (Optional)
 
@@ -480,128 +431,101 @@ Defines the data that is output by the action during a workflow run.
 Corresponding UI: **Outputs** tab
 
 ## Artifacts - output
+<a name="build.outputs.artifacts"></a>
 
-(`action-name`/Outputs/**Artifacts**)
+({{action-name}}/Outputs/**Artifacts**)
 
 (Optional)
 
-Specify the name of an artifact generated by the action. Artifact names must be unique
-within a workflow, and are limited to alphanumeric characters (a-z, A-Z, 0-9) and underscores (\_).
-Spaces, hyphens (-), and other special characters are not allowed. You cannot use quotation
-marks to enable spaces, hyphens, and other special characters in output artifact names.
+Specify the name of an artifact generated by the action. Artifact names must be unique within a workflow, and are limited to alphanumeric characters (a-z, A-Z, 0-9) and underscores (\_). Spaces, hyphens (-), and other special characters are not allowed. You cannot use quotation marks to enable spaces, hyphens, and other special characters in output artifact names.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md).
 
 Corresponding UI: Outputs tab/**Artifacts**
 
 ## Name
+<a name="build.outputs.artifacts.name"></a>
 
-(`action-name`/Outputs/Artifacts/**Name**)
+({{action-name}}/Outputs/Artifacts/**Name**)
 
-(Required if [Artifacts - output](#build.outputs.artifacts "#build.outputs.artifacts") is included)
+(Required if [Artifacts - output](#build.outputs.artifacts) is included)
 
-Specify the name of an artifact generated by the action. Artifact names must be unique
-within a workflow, and are limited to alphanumeric characters (a-z, A-Z, 0-9) and underscores (\_).
-Spaces, hyphens (-), and other special characters are not allowed. You cannot use quotation
-marks to enable spaces, hyphens, and other special characters in output artifact names.
+Specify the name of an artifact generated by the action. Artifact names must be unique within a workflow, and are limited to alphanumeric characters (a-z, A-Z, 0-9) and underscores (\_). Spaces, hyphens (-), and other special characters are not allowed. You cannot use quotation marks to enable spaces, hyphens, and other special characters in output artifact names.
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md).
 
-Corresponding UI: Outputs tab/Artifacts/New output/**Build artifact
-name**
+Corresponding UI: Outputs tab/Artifacts/New output/**Build artifact name**
 
 ## Files
+<a name="build.outputs.artifacts.files"></a>
 
-(`action-name`/Outputs/Artifacts/**Files**)
+({{action-name}}/Outputs/Artifacts/**Files**)
 
-(Required if [Artifacts - output](#build.outputs.artifacts "#build.outputs.artifacts") is included)
+(Required if [Artifacts - output](#build.outputs.artifacts) is included)
 
-Specify the files that CodeCatalyst includes in the artifact that is output by the action. These
-files are generated by the workflow action when it runs, and are also available in your source
-repository. File paths can reside in a source repository or an artifact from a previous
-action, and are relative to the source repository or artifact root. You can use glob patterns
-to specify paths. Examples:
+Specify the files that CodeCatalyst includes in the artifact that is output by the action. These files are generated by the workflow action when it runs, and are also available in your source repository. File paths can reside in a source repository or an artifact from a previous action, and are relative to the source repository or artifact root. You can use glob patterns to specify paths. Examples:
++ To specify a single file that is in the root of your build location or source repository location, use `my-file.jar`.
++ To specify a single file in a subdirectory, use `directory/my-file.jar` or `directory/subdirectory/my-file.jar`.
++ To specify all files, use `"**/*"`. The `**` glob pattern indicates to match any number of subdirectories.
++ To specify all files and directories in a directory named `directory`, use `"directory/**/*"`. The `**` glob pattern indicates to match any number of subdirectories.
++ To specify all files in a directory named `directory`, but not any of its subdirectories, use `"directory/*"`. 
 
-- To specify a single file that is in the root of your build location or source repository
-  location, use `my-file.jar`.
-- To specify a single file in a subdirectory, use
-  `directory/my-file.jar` or
-  `directory/subdirectory/my-file.jar`.
-- To specify all files, use `"**/*"`. The `**` glob pattern
-  indicates to match any number of subdirectories.
-- To specify all files and directories in a directory named
-  `directory`, use `"directory/**/*"`. The
-  `**` glob pattern indicates to match any number of subdirectories.
-- To specify all files in a directory named `directory`, but not any of
-  its subdirectories, use `"directory/*"`.
+**Note**  
+If your file path includes one or more asterisks (`*`) or other special character, enclose the path with double quotation marks (`""`). For more information about special characters, see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syntax.conv).
 
-###### Note
+For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md).
 
-If your file path includes one or more asterisks (`*`) or other special
-character, enclose the path with double quotation marks (`""`). For more
-information about special characters, see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syntax.conv "workflow-reference.md#workflow.terms.syntax.conv").
+**Note**  
+You may need to add a prefix to the file path to indicate which artifact or source to find it in. For more information, see [Referencing source repository files](workflows-sources-reference-files.md) and [Referencing files in an artifact](workflows-working-artifacts-refer-files.md).
 
-For more information about artifacts, including examples, see [Sharing artifacts and files between actions](workflows-working-artifacts.md "workflows-working-artifacts.md").
-
-###### Note
-
-You may need to add a prefix to the file path to indicate which artifact or source to find
-it in. For more information, see [Referencing source repository files](workflows-sources-reference-files.md "workflows-sources-reference-files.md") and [Referencing files in an artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md").
-
-Corresponding UI: Outputs tab/Artifacts/New output/**Files produced by
-build**
+Corresponding UI: Outputs tab/Artifacts/New output/**Files produced by build**
 
 ## Variables - output
+<a name="build.outputs.variables"></a>
 
-(`action-name`/Outputs/**Variables**)
+({{action-name}}/Outputs/**Variables**)
 
 (Optional)
 
-Specify the variables that you want the
-action to export so that they are available for use by subsequent actions.
+Specify the variables that you want the action to export so that they are available for use by subsequent actions.
 
-For more information about variables, including examples, see [Using variables in workflows](workflows-working-with-variables.md "workflows-working-with-variables.md").
+For more information about variables, including examples, see [Using variables in workflows](workflows-working-with-variables.md).
 
 Corresponding UI: Outputs tab/Variables/**Add variable**
 
 ## variable-name-1
+<a name="build.outputs.variables.name"></a>
 
-(`action-name`/Outputs/Variables/`variable-name-1`)
+({{action-name}}/Outputs/Variables/{{variable-name-1}})
 
 (Optional)
 
-Specify the name of a variable that you want the action to export. This variable must already be
-defined in the `Inputs` or `Steps` section of the same action.
+Specify the name of a variable that you want the action to export. This variable must already be defined in the `Inputs` or `Steps` section of the same action.
 
-For more information about variables, including examples, see [Using variables in workflows](workflows-working-with-variables.md "workflows-working-with-variables.md").
+For more information about variables, including examples, see [Using variables in workflows](workflows-working-with-variables.md).
 
 Corresponding UI: Outputs tab/Variables/Add variable/**Name**
 
 ## AutoDiscoverReports
+<a name="build.outputs.autodiscover"></a>
 
-(`action-name`/Outputs/**AutoDiscoverReports**)
+({{action-name}}/Outputs/**AutoDiscoverReports**)
 
 (Optional)
 
 Defines the configuration for the auto-discovery feature.
 
-When you enable auto-discovery, CodeCatalyst searches all `Inputs` passed into the action
-as well as all files generated by the action itself, looking for test, code coverage, and software
-composition analysis (SCA) reports. For each report that is found, CodeCatalyst transforms it into a
-CodeCatalyst report. A _CodeCatalyst report_ is a report that is fully integrated into the
-CodeCatalyst service and can be viewed and manipulated through the CodeCatalyst console.
+When you enable auto-discovery, CodeCatalyst searches all `Inputs` passed into the action as well as all files generated by the action itself, looking for test, code coverage, and software composition analysis (SCA) reports. For each report that is found, CodeCatalyst transforms it into a CodeCatalyst report. A *CodeCatalyst report* is a report that is fully integrated into the CodeCatalyst service and can be viewed and manipulated through the CodeCatalyst console.
 
-###### Note
+**Note**  
+By default, the auto-discover feature inspects all files. You can limit which files are inspected using the [IncludePaths](#build.reports.includepaths) or [ExcludePaths](#build.reports.excludepaths) properties. 
 
-By default, the auto-discover feature inspects all files. You can limit which
-files are inspected using the [IncludePaths](#build.reports.includepaths "#build.reports.includepaths") or [ExcludePaths](#build.reports.excludepaths "#build.reports.excludepaths") properties.
-
-Corresponding UI: Outputs tab/Reports/**Auto-discover
-reports**
+Corresponding UI: Outputs tab/Reports/**Auto-discover reports**
 
 ## Enabled
+<a name="build.outputs.autodiscover.enabled"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/**Enabled**)
+({{action-name}}/Outputs/AutoDiscoverReports/**Enabled**)
 
 (Optional)
 
@@ -611,333 +535,245 @@ Valid values are `true` or `false`.
 
 If `Enabled` is omitted, the default is `true`.
 
-Corresponding UI: Outputs tab/Reports/**Auto-discover
-reports**
+Corresponding UI: Outputs tab/Reports/**Auto-discover reports**
 
 ## ReportNamePrefix
+<a name="build.outputs.autodiscover.reportnameprefix"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/**ReportNamePrefix**)
+({{action-name}}/Outputs/AutoDiscoverReports/**ReportNamePrefix**)
 
-(Required if [AutoDiscoverReports](#build.outputs.autodiscover "#build.outputs.autodiscover") is included and enabled)
+(Required if [AutoDiscoverReports](#build.outputs.autodiscover) is included and enabled)
 
-Specify a prefix that CodeCatalyst prepends to all the reports it finds in order to name
-their associated CodeCatalyst reports. For example, if you specify a prefix of `AutoDiscovered`, and CodeCatalyst
-auto-discovers two test reports, `TestSuiteOne.xml` and
-`TestSuiteTwo.xml`, then the associated CodeCatalyst reports will be
-named `AutoDiscoveredTestSuiteOne` and
-`AutoDiscoveredTestSuiteTwo`.
+Specify a prefix that CodeCatalyst prepends to all the reports it finds in order to name their associated CodeCatalyst reports. For example, if you specify a prefix of `AutoDiscovered`, and CodeCatalyst auto-discovers two test reports, `TestSuiteOne.xml` and `TestSuiteTwo.xml`, then the associated CodeCatalyst reports will be named `AutoDiscoveredTestSuiteOne` and `AutoDiscoveredTestSuiteTwo`.
 
 Corresponding UI: Outputs tab/Reports/**Prefix name**
 
 ## IncludePaths
+<a name="build.reports.includepaths"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/**IncludePaths**)
+({{action-name}}/Outputs/AutoDiscoverReports/**IncludePaths**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/**IncludePaths**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/**IncludePaths**)
 
-(Required if [AutoDiscoverReports](#build.outputs.autodiscover "#build.outputs.autodiscover") is included and enabled, or if [Reports](#test.configuration.reports "#test.configuration.reports") is
-included)
+(Required if [AutoDiscoverReports](#build.outputs.autodiscover) is included and enabled, or if [Reports](#test.configuration.reports) is included)
 
-Specify the files and file paths that CodeCatalyst includes when searching for raw reports. For
-example, if you specify `"/test/report/*"`, CodeCatalyst searches the entire [build image](build-images.md "build-images.md") used by the action looking for the
-`/test/report/*` directory. When it finds that directory, CodeCatalyst then looks
-for reports in that directory.
+Specify the files and file paths that CodeCatalyst includes when searching for raw reports. For example, if you specify `"/test/report/*"`, CodeCatalyst searches the entire [build image](build-images.md) used by the action looking for the `/test/report/*` directory. When it finds that directory, CodeCatalyst then looks for reports in that directory.
 
-###### Note
+**Note**  
+If your file path includes one or more asterisks (`*`) or other special characters, enclose the path with double quotation marks (`""`). For more information about special characters, see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syntax.conv).
 
-If your file path includes one or more asterisks (`*`) or other special
-characters, enclose the path with double quotation marks (`""`). For more
-information about special characters, see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syntax.conv "workflow-reference.md#workflow.terms.syntax.conv").
+If this property is omitted, the default is `"**/*"`, meaning the search includes all files at all paths.
 
-If this property is omitted, the default is `"**/*"`, meaning the search
-includes all files at all paths.
-
-###### Note
-
-For manually configured reports, `IncludePaths` must be a glob pattern
-that matches a single file.
+**Note**  
+For manually configured reports, `IncludePaths` must be a glob pattern that matches a single file.
 
 Corresponding UI:
-
-- Outputs tab/Reports/Auto-discover reports/Include/exclude
-  paths/**Include paths**
-- Outputs tab/Reports/Manually configure
-  reports/`report-name-1`/Include/exclude
-  paths/**Include paths**
++ Outputs tab/Reports/Auto-discover reports/Include/exclude paths/**Include paths**
++ Outputs tab/Reports/Manually configure reports/{{report-name-1}}/Include/exclude paths/**Include paths**
 
 ## ExcludePaths
+<a name="build.reports.excludepaths"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/**ExcludePaths**)
+({{action-name}}/Outputs/AutoDiscoverReports/**ExcludePaths**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/**ExcludePaths**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/**ExcludePaths**)
 
 (Optional)
 
-Specify the files and file paths that CodeCatalyst excludes when searching for raw reports. For
-example, if you specify `"/test/my-reports/**/*"`, CodeCatalyst will not search for
-files in the `/test/my-reports/` directory. To ignore all files in a
-directory, use the `**/*` glob pattern.
+Specify the files and file paths that CodeCatalyst excludes when searching for raw reports. For example, if you specify `"/test/my-reports/**/*"`, CodeCatalyst will not search for files in the `/test/my-reports/` directory. To ignore all files in a directory, use the `**/*` glob pattern.
 
-###### Note
-
-If your file path includes one or more asterisks (`*`) or other special
-characters, enclose the path with double quotation marks (`""`). For more
-information about special characters, see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syntax.conv "workflow-reference.md#workflow.terms.syntax.conv").
+**Note**  
+If your file path includes one or more asterisks (`*`) or other special characters, enclose the path with double quotation marks (`""`). For more information about special characters, see [Syntax guidelines and conventions](workflow-reference.md#workflow.terms.syntax.conv).
 
 Corresponding UI:
-
-- Outputs tab/Reports/Auto-discover reports/Include/exclude
-  paths/**Exclude paths**
-- Outputs tab/Reports/Manually configure
-  reports/`report-name-1`/Include/exclude
-  paths/**Exclude paths**
++ Outputs tab/Reports/Auto-discover reports/Include/exclude paths/**Exclude paths**
++ Outputs tab/Reports/Manually configure reports/{{report-name-1}}/Include/exclude paths/**Exclude paths**
 
 ## SuccessCriteria
+<a name="build.reports.successcriteria"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/**SuccessCriteria**)
+({{action-name}}/Outputs/AutoDiscoverReports/**SuccessCriteria**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/**SuccessCriteria**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/**SuccessCriteria**)
 
 (Optional)
 
-Specify the success criteria for the test, code coverage, software
-composition analysis (SCA), and static analysis (SA) reports.
+Specify the success criteria for the test, code coverage, software composition analysis (SCA), and static analysis (SA) reports.
 
-For more information, see [Configuring success criteria for reports](test-config-action.md#test.success-criteria "test-config-action.md#test.success-criteria").
+For more information, see [Configuring success criteria for reports](test-config-action.md#test.success-criteria).
 
 Corresponding UI: Output tab/Reports/**Success criteria**
 
 ## PassRate
+<a name="build.reports.successcriteria.passrate"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/SuccessCriteria/**PassRate**)
+({{action-name}}/Outputs/AutoDiscoverReports/SuccessCriteria/**PassRate**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/SuccessCriteria/**PassRate**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/SuccessCriteria/**PassRate**)
 
 (Optional)
 
-Specify the percentage of tests in a test report that must pass for the associated CodeCatalyst
-report to be marked as passed. Valid values include decimal numbers. For example: `50`,
-`60.5`. The pass rate criteria are applied only to test reports. For more information about test reports, see [Test reports](test-workflow-actions.md#test-reports "test-workflow-actions.md#test-reports").
+Specify the percentage of tests in a test report that must pass for the associated CodeCatalyst report to be marked as passed. Valid values include decimal numbers. For example: `50`, `60.5`. The pass rate criteria are applied only to test reports. For more information about test reports, see [Test reports](test-workflow-actions.md#test-reports).
 
-Corresponding UI: Output tab/Reports/Success criteria/**Pass
-rate**
+Corresponding UI: Output tab/Reports/Success criteria/**Pass rate**
 
 ## LineCoverage
+<a name="build.reports.successcriteria.linecoverage"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/SuccessCriteria/**LineCoverage**)
+({{action-name}}/Outputs/AutoDiscoverReports/SuccessCriteria/**LineCoverage**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/SuccessCriteria/**LineCoverage**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/SuccessCriteria/**LineCoverage**)
 
 (Optional)
 
-Specify the percentage of lines in a code coverage report that must be covered for the
-associated CodeCatalyst report to be marked as passed. Valid values include decimal numbers. For
-example: `50`, `60.5`. Line coverage criteria are applied only to code
-coverage reports. For more information about code coverage reports, see [Code coverage reports](test-workflow-actions.md#test-code-coverage-reports "test-workflow-actions.md#test-code-coverage-reports").
+Specify the percentage of lines in a code coverage report that must be covered for the associated CodeCatalyst report to be marked as passed. Valid values include decimal numbers. For example: `50`, `60.5`. Line coverage criteria are applied only to code coverage reports. For more information about code coverage reports, see [Code coverage reports](test-workflow-actions.md#test-code-coverage-reports).
 
-Corresponding UI: Output tab/Reports/Success criteria/**Line
-coverage**
+Corresponding UI: Output tab/Reports/Success criteria/**Line coverage**
 
 ## BranchCoverage
+<a name="build.reports.successcriteria.branchcoverage"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/SuccessCriteria/**BranchCoverage**)
+({{action-name}}/Outputs/AutoDiscoverReports/SuccessCriteria/**BranchCoverage**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/SuccessCriteria/**BranchCoverage**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/SuccessCriteria/**BranchCoverage**)
 
 (Optional)
 
-Specify the percentage of branches in a code coverage report that must be covered for the
-associated CodeCatalyst report to be marked as passed. Valid values include decimal numbers. For
-example: `50`, `60.5`. Branch coverage criteria are applied only to code
-coverage reports. For more information about code coverage reports, see [Code coverage reports](test-workflow-actions.md#test-code-coverage-reports "test-workflow-actions.md#test-code-coverage-reports").
+Specify the percentage of branches in a code coverage report that must be covered for the associated CodeCatalyst report to be marked as passed. Valid values include decimal numbers. For example: `50`, `60.5`. Branch coverage criteria are applied only to code coverage reports. For more information about code coverage reports, see [Code coverage reports](test-workflow-actions.md#test-code-coverage-reports).
 
-Corresponding UI: Output tab/Reports/Success criteria/**Branch
-coverage**
+Corresponding UI: Output tab/Reports/Success criteria/**Branch coverage**
 
 ## Vulnerabilities
+<a name="build.reports.successcriteria.vulnerabilities"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/SuccessCriteria/**Vulnerabilities**)
+({{action-name}}/Outputs/AutoDiscoverReports/SuccessCriteria/**Vulnerabilities**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/SuccessCriteria/**Vulnerabilities**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/SuccessCriteria/**Vulnerabilities**)
 
 (Optional)
 
-Specify the maximum number and severity of vulnerabilities permitted in the SCA
-report for the associated CodeCatalyst report to be marked as passed. To specify vulnerabilities,
-you must specify:
+Specify the maximum number and severity of vulnerabilities permitted in the SCA report for the associated CodeCatalyst report to be marked as passed. To specify vulnerabilities, you must specify:
++ The minimum severity of the vulnerabilities you want to include in the count. Valid values, from most to least severe, are: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`.
 
-- The minimum severity of the vulnerabilities you want to include in the
-  count. Valid values, from most to least severe, are: `CRITICAL`,
-  `HIGH`, `MEDIUM`, `LOW`,
-  `INFORMATIONAL`.
+  For example, if you choose `HIGH`, then `HIGH` and `CRITICAL` vulnerabilities will be tallied.
++ The maximum number of vulnerabilities of the specified severity you want permit. Exceeding this number causes the CodeCatalyst report to be marked as failed. Valid values are whole numbers.
 
-For example, if you choose `HIGH`, then `HIGH` and
-`CRITICAL` vulnerabilities will be tallied.
+Vulnerabilities criteria are applied only to SCA reports. For more information about SCA reports, see [Software composition analysis reports](test-workflow-actions.md#test-sca-reports).
 
-- The maximum number of vulnerabilities of the specified severity you want
-  permit. Exceeding this number causes the CodeCatalyst report to be marked as
-  failed. Valid values are whole numbers.
+To specify the minimum severity, use the `Severity` property. To specify the maximum number of vulnerabilities, use the `Number` property.
 
-Vulnerabilities criteria are applied only to SCA reports. For more information about SCA reports, see [Software composition analysis reports](test-workflow-actions.md#test-sca-reports "test-workflow-actions.md#test-sca-reports").
-
-To specify the minimum severity, use the `Severity` property. To specify
-the maximum number of vulnerabilities, use the `Number` property.
-
-Corresponding UI: Output tab/Reports/Success
-criteria/**Vulnerabilities**
+Corresponding UI: Output tab/Reports/Success criteria/**Vulnerabilities**
 
 ## StaticAnalysisBug
+<a name="build.reports.successcriteria.bugs"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/SuccessCriteria/**StaticAnalysisBug**)
+({{action-name}}/Outputs/AutoDiscoverReports/SuccessCriteria/**StaticAnalysisBug**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/SuccessCriteria/**StaticAnalysisBug**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/SuccessCriteria/**StaticAnalysisBug**)
 
 (Optional)
 
-Specify the maximum number and severity of bugs permitted in the SA
-report for the associated CodeCatalyst report to be marked as passed. To specify bugs,
-you must specify:
+Specify the maximum number and severity of bugs permitted in the SA report for the associated CodeCatalyst report to be marked as passed. To specify bugs, you must specify:
++ The minimum severity of the bugs you want to include in the count. Valid values, from most to least severe, are: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`.
 
-- The minimum severity of the bugs you want to include in the
-  count. Valid values, from most to least severe, are: `CRITICAL`,
-  `HIGH`, `MEDIUM`, `LOW`,
-  `INFORMATIONAL`.
+  For example, if you choose `HIGH`, then `HIGH` and `CRITICAL` bugs will be tallied.
++ The maximum number of bugs of the specified severity you want permit. Exceeding this number causes the CodeCatalyst report to be marked as failed. Valid values are whole numbers.
 
-For example, if you choose `HIGH`, then `HIGH` and
-`CRITICAL` bugs will be tallied.
+Bugs criteria are applied only to PyLint and ESLint SA reports. For more information about SA reports, see [Static analysis reports](test-workflow-actions.md#test-static-analysis-reports).
 
-- The maximum number of bugs of the specified severity you want
-  permit. Exceeding this number causes the CodeCatalyst report to be marked as
-  failed. Valid values are whole numbers.
-
-Bugs criteria are applied only to PyLint and ESLint SA reports. For more information about SA reports, see [Static analysis reports](test-workflow-actions.md#test-static-analysis-reports "test-workflow-actions.md#test-static-analysis-reports").
-
-To specify the minimum severity, use the `Severity` property. To specify
-the maximum number of vulnerabilities, use the `Number` property.
+To specify the minimum severity, use the `Severity` property. To specify the maximum number of vulnerabilities, use the `Number` property.
 
 Corresponding UI: Output tab/Reports/Success criteria/**Bugs**
 
 ## StaticAnalysisSecurity
+<a name="build.reports.successcriteria.securityvulnerabilities"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/SuccessCriteria/**StaticAnalysisSecurity**)
+({{action-name}}/Outputs/AutoDiscoverReports/SuccessCriteria/**StaticAnalysisSecurity**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/SuccessCriteria/**StaticAnalysisSecurity**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/SuccessCriteria/**StaticAnalysisSecurity**)
 
 (Optional)
 
-Specify the maximum number and severity of security vulnerabilities permitted in the SA
-report for the associated CodeCatalyst report to be marked as passed. To specify security vulnerabilities,
-you must specify:
+Specify the maximum number and severity of security vulnerabilities permitted in the SA report for the associated CodeCatalyst report to be marked as passed. To specify security vulnerabilities, you must specify:
++ The minimum severity of the security vulnerabilities you want to include in the count. Valid values, from most to least severe, are: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`.
 
-- The minimum severity of the security vulnerabilities you want to include in the
-  count. Valid values, from most to least severe, are: `CRITICAL`,
-  `HIGH`, `MEDIUM`, `LOW`,
-  `INFORMATIONAL`.
+  For example, if you choose `HIGH`, then `HIGH` and `CRITICAL` security vulnerabilities will be tallied.
++ The maximum number of security vulnerabilities of the specified severity you want permit. Exceeding this number causes the CodeCatalyst report to be marked as failed. Valid values are whole numbers.
 
-For example, if you choose `HIGH`, then `HIGH` and
-`CRITICAL` security vulnerabilities will be tallied.
+Security vulnerabilities criteria are applied only to PyLint and ESLint SA reports. For more information about SA reports, see [Static analysis reports](test-workflow-actions.md#test-static-analysis-reports).
 
-- The maximum number of security vulnerabilities of the specified severity you want
-  permit. Exceeding this number causes the CodeCatalyst report to be marked as
-  failed. Valid values are whole numbers.
+To specify the minimum severity, use the `Severity` property. To specify the maximum number of vulnerabilities, use the `Number` property.
 
-Security vulnerabilities criteria are applied only to PyLint and ESLint SA reports. For more information about SA reports, see [Static analysis reports](test-workflow-actions.md#test-static-analysis-reports "test-workflow-actions.md#test-static-analysis-reports").
-
-To specify the minimum severity, use the `Severity` property. To specify
-the maximum number of vulnerabilities, use the `Number` property.
-
-Corresponding UI: Output tab/Reports/Success criteria/**Security
-vulnerabilities**
+Corresponding UI: Output tab/Reports/Success criteria/**Security vulnerabilities**
 
 ## StaticAnalysisQuality
+<a name="build.reports.successcriteria.qualityissues"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/SuccessCriteria/**StaticAnalysisQuality**)
+({{action-name}}/Outputs/AutoDiscoverReports/SuccessCriteria/**StaticAnalysisQuality**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/SuccessCriteria/**StaticAnalysisQuality**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/SuccessCriteria/**StaticAnalysisQuality**)
 
 (Optional)
 
-Specify the maximum number and severity of quality issues permitted in the SA
-report for the associated CodeCatalyst report to be marked as passed. To specify quality issues,
-you must specify:
+Specify the maximum number and severity of quality issues permitted in the SA report for the associated CodeCatalyst report to be marked as passed. To specify quality issues, you must specify:
++ The minimum severity of the quality issues you want to include in the count. Valid values, from most to least severe, are: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`.
 
-- The minimum severity of the quality issues you want to include in the
-  count. Valid values, from most to least severe, are: `CRITICAL`,
-  `HIGH`, `MEDIUM`, `LOW`,
-  `INFORMATIONAL`.
+  For example, if you choose `HIGH`, then `HIGH` and `CRITICAL` quality issues will be tallied.
++ The maximum number of quality issues of the specified severity you want permit. Exceeding this number causes the CodeCatalyst report to be marked as failed. Valid values are whole numbers.
 
-For example, if you choose `HIGH`, then `HIGH` and
-`CRITICAL` quality issues will be tallied.
+Quality issues criteria are applied only to PyLint and ESLint SA reports. For more information about SA reports, see [Static analysis reports](test-workflow-actions.md#test-static-analysis-reports).
 
-- The maximum number of quality issues of the specified severity you want
-  permit. Exceeding this number causes the CodeCatalyst report to be marked as
-  failed. Valid values are whole numbers.
+To specify the minimum severity, use the `Severity` property. To specify the maximum number of vulnerabilities, use the `Number` property.
 
-Quality issues criteria are applied only to PyLint and ESLint SA reports. For more information about SA reports, see [Static analysis reports](test-workflow-actions.md#test-static-analysis-reports "test-workflow-actions.md#test-static-analysis-reports").
-
-To specify the minimum severity, use the `Severity` property. To specify
-the maximum number of vulnerabilities, use the `Number` property.
-
-Corresponding UI: Output tab/Reports/Success criteria/**Quality
-issues**
+Corresponding UI: Output tab/Reports/Success criteria/**Quality issues**
 
 ## StaticAnalysisFinding
+<a name="build.reports.successcriteria.findings"></a>
 
-(`action-name`/Outputs/AutoDiscoverReports/SuccessCriteria/**StaticAnalysisFinding**)
+({{action-name}}/Outputs/AutoDiscoverReports/SuccessCriteria/**StaticAnalysisFinding**)
 
 Or
 
-(`action-name`/Outputs/Reports/`report-name-1`/SuccessCriteria/**StaticAnalysisFinding**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/SuccessCriteria/**StaticAnalysisFinding**)
 
 (Optional)
 
-Specify the maximum number and severity of findings permitted in the SA
-report for the associated CodeCatalyst report to be marked as passed. To specify findings,
-you must specify:
+Specify the maximum number and severity of findings permitted in the SA report for the associated CodeCatalyst report to be marked as passed. To specify findings, you must specify:
++ The minimum severity of the findings you want to include in the count. Valid values, from most to least severe, are: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`.
 
-- The minimum severity of the findings you want to include in the
-  count. Valid values, from most to least severe, are: `CRITICAL`,
-  `HIGH`, `MEDIUM`, `LOW`,
-  `INFORMATIONAL`.
+  For example, if you choose `HIGH`, then `HIGH` and `CRITICAL` findings will be tallied.
++ The maximum number of findings of the specified severity you want permit. Exceeding this number causes the CodeCatalyst report to be marked as failed. Valid values are whole numbers.
 
-For example, if you choose `HIGH`, then `HIGH` and
-`CRITICAL` findings will be tallied.
+Findings are applied only to SARIF SA reports. For more information about SA reports, see [Static analysis reports](test-workflow-actions.md#test-static-analysis-reports).
 
-- The maximum number of findings of the specified severity you want
-  permit. Exceeding this number causes the CodeCatalyst report to be marked as
-  failed. Valid values are whole numbers.
+To specify the minimum severity, use the `Severity` property. To specify the maximum number of vulnerabilities, use the `Number` property.
 
-Findings are applied only to SARIF SA reports. For more information about SA reports, see [Static analysis reports](test-workflow-actions.md#test-static-analysis-reports "test-workflow-actions.md#test-static-analysis-reports").
-
-To specify the minimum severity, use the `Severity` property. To specify
-the maximum number of vulnerabilities, use the `Number` property.
-
-Corresponding UI: Output tab/Reports/Success
-criteria/**Findings**
+Corresponding UI: Output tab/Reports/Success criteria/**Findings**
 
 ## Reports
+<a name="test.configuration.reports"></a>
 
-(`action-name`/Outputs/**Reports** )
+({{action-name}}/Outputs/**Reports** )
 
 (Optional)
 
@@ -946,171 +782,132 @@ A section that specifies the configuration for test reports.
 Corresponding UI: Outputs tab/**Reports**
 
 ## report-name-1
+<a name="test.configuration.reports.report-name-1"></a>
 
-(`action-name`/Outputs/Reports/**report-name-1** )
+({{action-name}}/Outputs/Reports/**report-name-1** )
 
-(Required if [Reports](#test.configuration.reports "#test.configuration.reports") is included)
+(Required if [Reports](#test.configuration.reports) is included)
 
-The name you want to give to the CodeCatalyst report that will be generated from your raw
-reports.
+The name you want to give to the CodeCatalyst report that will be generated from your raw reports.
 
-Corresponding UI: Outputs tab/Reports/Manually configure reports/**Report
-name**
+Corresponding UI: Outputs tab/Reports/Manually configure reports/**Report name**
 
 ## Format
+<a name="test.configuration.reports.name.testresults.format"></a>
 
-(`action-name`/Outputs/Reports/`report-name-1`/**Format**)
+({{action-name}}/Outputs/Reports/{{report-name-1}}/**Format**)
 
-(Required if [Reports](#test.configuration.reports "#test.configuration.reports") is included)
+(Required if [Reports](#test.configuration.reports) is included)
 
 Specify the file format that you're using for your reports. Possible values are as follows.
++ For test reports:
+  + For Cucumber JSON, specify **Cucumber** (visual editor) or `CUCUMBERJSON` (YAML editor).
+  + For JUnit XML, specify **JUnit** (visual editor) or `JUNITXML` (YAML editor).
+  + For NUnit XML, specify **NUnit** (visual editor) or `NUNITXML` (YAML editor).
+  + For NUnit 3 XML, specify **NUnit3** (visual editor) or `NUNIT3XML` (YAML editor).
+  + For Visual Studio TRX, specify **Visual Studio TRX** (visual editor) or `VISUALSTUDIOTRX` (YAML editor).
+  + For TestNG XML, specify **TestNG** (visual editor) or `TESTNGXML` (YAML editor).
++ For code coverage reports:
+  + For Clover XML, specify **Clover** (visual editor) or `CLOVERXML` (YAML editor).
+  + For Cobertura XML, specify **Cobertura** (visual editor) or `COBERTURAXML` (YAML editor).
+  + For JaCoCo XML, specify **JaCoCo** (visual editor) or `JACOCOXML` (YAML editor).
+  + For SimpleCov JSON generated by [simplecov](https://github.com/simplecov-ruby/simplecov), not [simplecov-json](https://github.com/vicentllongo/simplecov-json), specify **Simplecov** (visual editor) or `SIMPLECOV` (YAML editor).
++ For software composition analysis (SCA) reports:
+  + For SARIF, specify **SARIF** (visual editor) or `SARIFSCA` (YAML editor).
 
-- For test reports:
-
-  - For Cucumber JSON, specify **Cucumber** (visual editor) or `CUCUMBERJSON` (YAML editor).
-  - For JUnit XML, specify **JUnit** (visual editor) or `JUNITXML` (YAML editor).
-  - For NUnit XML, specify **NUnit** (visual editor) or `NUNITXML` (YAML editor).
-  - For NUnit 3 XML, specify **NUnit3** (visual editor) or `NUNIT3XML` (YAML editor).
-  - For Visual Studio TRX, specify **Visual Studio TRX** (visual editor) or `VISUALSTUDIOTRX` (YAML editor).
-  - For TestNG XML, specify **TestNG** (visual editor) or `TESTNGXML` (YAML editor).
-
-- For code coverage reports:
-
-  - For Clover XML, specify **Clover** (visual editor) or `CLOVERXML` (YAML editor).
-  - For Cobertura XML, specify **Cobertura** (visual editor) or `COBERTURAXML` (YAML editor).
-  - For JaCoCo XML, specify **JaCoCo** (visual editor) or `JACOCOXML` (YAML editor).
-  - For SimpleCov JSON generated by [simplecov](https://github.com/simplecov-ruby/simplecov "https://github.com/simplecov-ruby/simplecov"), not [simplecov-json](https://github.com/vicentllongo/simplecov-json "https://github.com/vicentllongo/simplecov-json"), specify **Simplecov** (visual editor) or `SIMPLECOV` (YAML editor).
-
-- For software composition analysis (SCA) reports:
-
-  - For SARIF, specify **SARIF** (visual editor) or `SARIFSCA` (YAML editor).
-
-Corresponding UI: Outputs tab/Reports/Manually configure reports/Add/configure
-reports/`report-name-1`/**Report type**
-and **Report format**
+Corresponding UI: Outputs tab/Reports/Manually configure reports/Add/configure reports/{{report-name-1}}/**Report type** and **Report format**
 
 ## Configuration
+<a name="build.configuration"></a>
 
-(`action-name`/**Configuration**)
+({{action-name}}/**Configuration**)
 
-(Required) A section where you can define the configuration properties of the action.
+(Required) A section where you can define the configuration properties of the action. 
 
 Corresponding UI: **Configuration** tab
 
 ## Container
+<a name="build.configuration.container"></a>
 
-(`action-name`/Configuration/**Container**)
+({{action-name}}/Configuration/**Container**)
 
 (Optional)
 
-Specify the Docker image, or _container_, that the action uses to
-complete its processing. You can specify one of the [active
-images](build-images.md#build-curated-images "build-images.md#build-curated-images") that come with CodeCatalyst, or you can use your own image. If you choose to use your
-own image, it can reside in Amazon ECR, Docker Hub, or another registry. If you don't specify a
-Docker image, the action uses one of the active images for its processing. For information about
-which active image is used by default, see [Active images](build-images.md#build-curated-images "build-images.md#build-curated-images").
+Specify the Docker image, or *container*, that the action uses to complete its processing. You can specify one of the [active images](build-images.md#build-curated-images) that come with CodeCatalyst, or you can use your own image. If you choose to use your own image, it can reside in Amazon ECR, Docker Hub, or another registry. If you don't specify a Docker image, the action uses one of the active images for its processing. For information about which active image is used by default, see [Active images](build-images.md#build-curated-images).
 
-For more information about specifying your own Docker image, see [Assigning a custom runtime environment Docker image to an action](build-images.md#build-images-specify "build-images.md#build-images-specify").
+For more information about specifying your own Docker image, see [Assigning a custom runtime environment Docker image to an action](build-images.md#build-images-specify).
 
-Corresponding UI: **Runtime environment Docker image -
-optional**
+Corresponding UI: **Runtime environment Docker image - optional**
 
 ## Registry
+<a name="build.configuration.container.registry"></a>
 
-(`action-name`/Configuration/Container/**Registry**)
+({{action-name}}/Configuration/Container/**Registry**)
 
 (Required if `Container` is included)
 
 Specify the registry where your image is stored. Valid values include:
++ `CODECATALYST` (YAML editor)
 
-- `CODECATALYST` (YAML
-  editor)
+  The image is stored in the CodeCatalyst registry.
++ **Docker Hub** (visual editor) or `DockerHub` (YAML editor)
 
-The image is stored in the CodeCatalyst registry.
+  The image is stored in the Docker Hub image registry.
++ **Other registry** (visual editor) or `Other` (YAML editor)
 
-- **Docker Hub** (visual editor) or `DockerHub` (YAML
-  editor)
+  The image is stored in a custom image registry. Any publicly available registry can be used.
++ **Amazon Elastic Container Registry** (visual editor) or `ECR` (YAML editor)
 
-The image is stored in the Docker Hub image registry.
+  The image is stored in an Amazon Elastic Container Registry image repository. To use an image in an Amazon ECR repository, this action needs access to Amazon ECR. To enable this access, you must create an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that includes the following permissions and custom trust policy. (You can modify an existing role to include the permissions and policy, if you want.)
 
-- **Other registry** (visual editor) or `Other` (YAML
-  editor)
+  The IAM role must include the following permissions in its role policy:
+  + `ecr:BatchCheckLayerAvailability`
+  + `ecr:BatchGetImage`
+  + `ecr:GetAuthorizationToken`
+  + `ecr:GetDownloadUrlForLayer`
 
-The image is stored in a custom image registry. Any publicly available registry can be
-used.
+  The IAM role must include the following custom trust policy:
 
-- **Amazon Elastic Container Registry** (visual editor) or `ECR` (YAML editor)
+  For more information about creating IAM roles, see [Creating a role using custom trust policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-custom.html) in the *IAM User Guide*.
 
-The image is stored in an Amazon Elastic Container Registry image repository. To use an image in an Amazon ECR
-repository, this action needs access to Amazon ECR. To enable this access, you must create an
-[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")
-that includes the following permissions and custom trust policy. (You can modify an existing
-role to include the permissions and policy, if you want.)
+  Once you have created the role, you must assign it to the action through an environment. For more information, see [Associating an environment with an action](deploy-environments-add-app-to-environment.md).
 
-The IAM role must include the following permissions in its role policy:
-
-    + `ecr:BatchCheckLayerAvailability`
-    + `ecr:BatchGetImage`
-    + `ecr:GetAuthorizationToken`
-    + `ecr:GetDownloadUrlForLayer`
-
-The IAM role must include the following custom trust policy:
-
-For more information about creating IAM roles, see [Creating a role using custom
-trust policies (console)](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") in the _IAM User Guide_.
-
-Once you have created the role, you must assign it to the action through an environment.
-For more information, see [Associating an environment with an action](deploy-environments-add-app-to-environment.md "deploy-environments-add-app-to-environment.md").
-
-Corresponding UI: **Amazon Elastic Container Registry**, **Docker Hub**, and
-**Other registry** options
+Corresponding UI: **Amazon Elastic Container Registry**, **Docker Hub**, and **Other registry** options
 
 ## Image
+<a name="build.configuration.container.image"></a>
 
-(`action-name`/Configuration/Container/**Image**)
+({{action-name}}/Configuration/Container/**Image**)
 
 (Required if `Container` is included)
 
 Specify one of the following:
++ If you are using a `CODECATALYST` registry, set the image to one of the of the following [active images](build-images.md#build-curated-images):
+  + `CodeCatalystLinux_x86_64:2024_03`
+  + `CodeCatalystLinux_x86_64:2022_11`
+  + `CodeCatalystLinux_Arm64:2024_03`
+  + `CodeCatalystLinux_Arm64:2022_11`
+  + `CodeCatalystLinuxLambda_x86_64:2024_03`
+  + `CodeCatalystLinuxLambda_x86_64:2022_11`
+  + `CodeCatalystLinuxLambda_Arm64:2024_03`
+  + `CodeCatalystLinuxLambda_Arm64:2022_11`
+  + `CodeCatalystWindows_x86_64:2022_11`
++ If you are using a Docker Hub registry, set the image to the Docker Hub image name and optional tag.
 
-- If you are using a `CODECATALYST` registry, set the image to one of the of
-  the following [active
-  images](build-images.md#build-curated-images "build-images.md#build-curated-images"):
+  Example: `postgres:latest`
++ If you are using an Amazon ECR registry, set the image to the Amazon ECR registry URI.
 
-  - `CodeCatalystLinux_x86_64:2024_03`
-  - `CodeCatalystLinux_x86_64:2022_11`
-  - `CodeCatalystLinux_Arm64:2024_03`
-  - `CodeCatalystLinux_Arm64:2022_11`
-  - `CodeCatalystLinuxLambda_x86_64:2024_03`
-  - `CodeCatalystLinuxLambda_x86_64:2022_11`
-  - `CodeCatalystLinuxLambda_Arm64:2024_03`
-  - `CodeCatalystLinuxLambda_Arm64:2022_11`
-  - `CodeCatalystWindows_x86_64:2022_11`
+  Example: `111122223333.dkr.ecr.us-west-2.amazonaws.com/codecatalyst-ecs-image-repo`
++ If you are using a custom registry, set the image to the value expected by the custom registry.
 
-- If you are using a Docker Hub registry, set the image to the Docker Hub image name and
-  optional tag.
-
-Example: `postgres:latest`
-
-- If you are using an Amazon ECR registry, set the image to the Amazon ECR registry URI.
-
-Example:
-`111122223333.dkr.ecr.us-west-2.amazonaws.com/codecatalyst-ecs-image-repo`
-
-- If you are using a custom registry, set the image to the value expected by the custom
-  registry.
-
-Corresponding UI: **Runtime environment docker image** (if the
-registry is `CODECATALYST`), **Docker Hub image** (if the
-registry is **Docker Hub**), **ECR image URL** (if the
-registry is **Amazon Elastic Container Registry**), and **Image URL** (if the
-registry is **Other registry**).
+Corresponding UI: **Runtime environment docker image** (if the registry is `CODECATALYST`), **Docker Hub image** (if the registry is **Docker Hub**), **ECR image URL** (if the registry is **Amazon Elastic Container Registry**), and **Image URL** (if the registry is **Other registry**).
 
 ## Steps
+<a name="build.configuration.steps"></a>
 
-(`action-name`/Configuration/**Steps**)
+({{action-name}}/Configuration/**Steps**)
 
-(Required)
+(Required) 
 
 Specify the shell commands that you want to run during the action to install, configure, and run your build tools.
 
@@ -1128,101 +925,94 @@ Here is an example of how to specify file paths:
 Steps:
   - Run: cd $ACTION_BUILD_SOURCE_PATH_WorkflowSource/app  && cat file2.txt
   - Run: cd $ACTION_BUILD_SOURCE_PATH_MyBuildArtifact/build-output/  && cat file.txt
-
 ```
 
-For more information about specifying file paths, see [Referencing source repository files](workflows-sources-reference-files.md "workflows-sources-reference-files.md") and [Referencing files in an artifact](workflows-working-artifacts-refer-files.md "workflows-working-artifacts-refer-files.md").
+For more information about specifying file paths, see [Referencing source repository files](workflows-sources-reference-files.md) and [Referencing files in an artifact](workflows-working-artifacts-refer-files.md).
 
 Corresponding UI: Configuration tab/**Shell commands**
 
 ## Packages
+<a name="build.configuration.packages"></a>
 
-(`action-name`/Configuration/**Packages**)
+({{action-name}}/Configuration/**Packages**)
 
-(Optional)
+(Optional) 
 
-A section where you can specify a package repository that the action uses
-to resolve dependencies. Packages allow you to securely store and share software packages used for
-application development.
+A section where you can specify a package repository that the action uses to resolve dependencies. Packages allow you to securely store and share software packages used for application development.
 
-For more information about packages, see [Publish and share software packages in CodeCatalyst](packages.md "packages.md").
+For more information about packages, see [Publish and share software packages in CodeCatalyst](packages.md).
 
 Corresponding UI: Configuration tab/**Packages**
 
 ## NpmConfiguration
+<a name="build.configuration.packages.npm"></a>
 
-(`action-name`/Configuration/Packages/**NpmConfiguration**)
+({{action-name}}/Configuration/Packages/**NpmConfiguration**)
 
-(Required if [Packages](#build.configuration.packages "#build.configuration.packages") is included)
+(Required if [Packages](#build.configuration.packages) is included)
 
-A section which defines the configuration for the npm package format.
-This configuration is used by an action during a workflow run.
+A section which defines the configuration for the npm package format. This configuration is used by an action during a workflow run.
 
-For more information about the npm package configuration, see [Using npm](packages-npm.md "packages-npm.md").
+For more information about the npm package configuration, see [Using npm](packages-npm.md).
 
-Corresponding UI: Configuration tab/Packages/Add
-configuration/**npm**
+Corresponding UI: Configuration tab/Packages/Add configuration/**npm**
 
 ## PackageRegistries
+<a name="build.configuration.packages.registry"></a>
 
-(`action-name`/Configuration/Packages/NpmConfiguration/**PackageRegistries**)
+({{action-name}}/Configuration/Packages/NpmConfiguration/**PackageRegistries**)
 
-(Required if [Packages](#build.configuration.packages "#build.configuration.packages") is included)
+(Required if [Packages](#build.configuration.packages) is included)
 
-A section where you can define the configuration properties of a sequence of package
-repositories.
+A section where you can define the configuration properties of a sequence of package repositories.
 
-Corresponding UI: Configuration tab/Packages/Add configuration/npm/**Add
-package repository**
+Corresponding UI: Configuration tab/Packages/Add configuration/npm/**Add package repository**
 
 ## PackagesRepository
+<a name="build.configuration.packages.repository"></a>
 
-(`action-name`/Configuration/Packages/NpmConfiguration/PackageRegistries/**PackagesRepository**)
+({{action-name}}/Configuration/Packages/NpmConfiguration/PackageRegistries/**PackagesRepository**)
 
-(Required if [Packages](#build.configuration.packages "#build.configuration.packages") is included)
+(Required if [Packages](#build.configuration.packages) is included)
 
-Specify the name of your CodeCatalyst _package repository_ that you want the action to use.
+Specify the name of your CodeCatalyst *package repository* that you want the action to use.
 
 If you specify multiple default repositories, the last repository will take priority.
 
-For more information about package repositories, see [Package repositories](packages-concepts.md#packages-concepts-repository "packages-concepts.md#packages-concepts-repository").
+For more information about package repositories, see [Package repositories](packages-concepts.md#packages-concepts-repository).
 
-Corresponding UI: Configuration tab/Packages/Add configuration/npm/Add package
-repository/**Package repository**
+Corresponding UI: Configuration tab/Packages/Add configuration/npm/Add package repository/**Package repository**
 
 ## Scopes
+<a name="build.configuration.packages.scope"></a>
 
-(`action-name`/Configuration/Packages/NpmConfiguration/PackageRegistries/**Scopes**)
+({{action-name}}/Configuration/Packages/NpmConfiguration/PackageRegistries/**Scopes**)
 
-(Optional)
+(Optional) 
 
-Specify a sequence of _scopes_ that you want to define in your package registry. When defining scopes, the
-specified package repository is configured as the registry for all listed scopes. If a package with the scope is requested through the npm client,
-it will use that repository instead of the default. Each scope name must be prefixed with "@".
+Specify a sequence of *scopes* that you want to define in your package registry. When defining scopes, the specified package repository is configured as the registry for all listed scopes. If a package with the scope is requested through the npm client, it will use that repository instead of the default. Each scope name must be prefixed with "@".
 
 If you include overriding scopes, the last repository will take priority.
 
 If `Scopes` is omitted, then the specified package repository is configured as the default registry for all packages used by the action.
 
-For more information about scopes, see [Package namespaces](packages-concepts.md#packages-concepts-package-namespaces "packages-concepts.md#packages-concepts-package-namespaces") and [Scoped packages](https://docs.npmjs.com/cli/v10/using-npm/scope "https://docs.npmjs.com/cli/v10/using-npm/scope").
+For more information about scopes, see [Package namespaces](packages-concepts.md#packages-concepts-package-namespaces) and [Scoped packages](https://docs.npmjs.com/cli/v10/using-npm/scope).
 
-Corresponding UI: Configuration tab/Packages/Add configuration/npm/Add package
-repository/**Scopes - optional**
+Corresponding UI: Configuration tab/Packages/Add configuration/npm/Add package repository/**Scopes - optional**
 
 ## ExportAuthorizationToken
+<a name="build.configuration.packages.exportauthtoken"></a>
 
-(`action-name`/Configuration/Packages/**ExportAuthorizationToken**)
+({{action-name}}/Configuration/Packages/**ExportAuthorizationToken**)
 
-(Optional)
+(Optional) 
 
-Enable or disable the export authorization token feature. If enabled, exported authorization tokens can
-be used to manually configure a package manager to authenticate with CodeCatalyst package repositories. You can
-use the token as an environment variable that can be referenced in your actions.
+Enable or disable the export authorization token feature. If enabled, exported authorization tokens can be used to manually configure a package manager to authenticate with CodeCatalyst package repositories. You can use the token as an environment variable that can be referenced in your actions.
 
 Valid values are `true` or `false`.
 
 If `ExportAuthorizationToken` is omitted, the default is `false`.
 
-For more information about the export authorization token, see [Using authorization tokens in workflow actions](workflows-package-export-token.md "workflows-package-export-token.md").
+For more information about the export authorization token, see [Using authorization tokens in workflow actions](workflows-package-export-token.md).
 
 Corresponding UI: Configuration tab/Packages/**Export authorization token**

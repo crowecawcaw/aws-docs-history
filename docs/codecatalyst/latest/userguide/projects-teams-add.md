@@ -1,26 +1,28 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Adding a team to a project
+<a name="projects-teams-add"></a>
 
 You can manage teams where the team members can access resources in your project.
 
-On the members page for space and project users, users can have multiple roles. Users
-with multiple roles will show an indicator when they have multiple roles, and they will be
-displayed with the role with the most permissions first.
+On the members page for space and project users, users can have multiple roles. Users with multiple roles will show an indicator when they have multiple roles, and they will be displayed with the role with the most permissions first.
 
-###### To add a team
+**To add a team**
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Navigate to your project. Choose **Project settings**, and then
-   choose **Teams**.
-3. Choose **Add team**.
-4. In **Team**, choose a team from the list of teams available.
-5. Under **Project role**, choose a role from the list of project roles
-   available in CodeCatalyst.
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-   - **Project administrator** — For details, see [Project administrator role](ipa-role-types.md#ipa-role-project-admin "ipa-role-types.md#ipa-role-project-admin").
-   - **Contributor** — For details, see [Contributor role](ipa-role-types.md#ipa-role-contributor "ipa-role-types.md#ipa-role-contributor").
-   - **Reviewer** — For details, see [Reviewer role](ipa-role-types.md#ipa-role-reviewer "ipa-role-types.md#ipa-role-reviewer").
-   - **Read only** — For details, see [Read only role](ipa-role-types.md#ipa-role-read-only "ipa-role-types.md#ipa-role-read-only").
+1. Navigate to your project. Choose **Project settings**, and then choose **Teams**.
 
-6. Choose **Add team**.
+1. Choose **Add team**.
+
+1. In **Team**, choose a team from the list of teams available.
+
+1. Under **Project role**, choose a role from the list of project roles available in CodeCatalyst.
+   + **Project administrator** — For details, see [Project administrator role](ipa-role-types.md#ipa-role-project-admin).
+   + **Contributor** — For details, see [Contributor role](ipa-role-types.md#ipa-role-contributor).
+   + **Reviewer** — For details, see [Reviewer role](ipa-role-types.md#ipa-role-reviewer).
+   + **Read only** — For details, see [Read only role](ipa-role-types.md#ipa-role-read-only).
+
+1. Choose **Add team**.

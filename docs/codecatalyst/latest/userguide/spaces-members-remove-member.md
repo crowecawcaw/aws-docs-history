@@ -1,30 +1,24 @@
-Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+
+Amazon CodeCatalyst is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [How to migrate from CodeCatalyst](migration.md).
 
 # Removing a space member
+<a name="spaces-members-remove-member"></a>
 
-You can remove a member of your space when they do not need to access any of the
-space resources. You must have the **Space administrator** role to remove a
-member from a space.
+You can remove a member of your space when they do not need to access any of the space resources. You must have the **Space administrator** role to remove a member from a space. 
 
-The **Space administrators** table shows users with the
-**Space administrator** role. These users are not shown in the **Space
-members** table because they are automatically (implicitly) assigned to all
-projects in the space and do not have a role in a project. You can only directly remove a
-member of your space in this table.
+The **Space administrators** table shows users with the **Space administrator** role. These users are not shown in the **Space members** table because they are automatically (implicitly) assigned to all projects in the space and do not have a role in a project. You can only directly remove a member of your space in this table.
 
-###### To remove a user from the **Project members** table
+**To remove a user from the **Project members** table**
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Navigate to your space.
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
-###### Tip
+1. Navigate to your space.
+**Tip**  
+If you belong to more than one space, choose a space in the top navigation bar.
 
-If you belong to more than one space, choose a space in the top navigation
-bar. 3. Choose **Settings**, and then choose
-**Members**. 4. Choose the user in the **Project members** table. Choose
-**Remove**.
+1. Choose **Settings**, and then choose **Members**.
 
-###### Note
-
-Removing a member from the space will remove the user from all projects in the
-space, along with permissions associated with the resources in those projects.
+1. Choose the user in the **Project members** table. Choose **Remove**.
+**Note**  
+Removing a member from the space will remove the user from all projects in the space, along with permissions associated with the resources in those projects.
