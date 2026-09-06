@@ -1,8 +1,12 @@
+
+
 # validate
+<a name="cfn-guard-validate"></a>
 
 Validates data against AWS CloudFormation Guard rules to determine success or failure.
 
 ## Syntax
+<a name="cfn-guard-validate-synopsis"></a>
 
 ```
 cfn-guard validate
@@ -14,6 +18,7 @@ cfn-guard validate
 ```
 
 ## Parameters
+<a name="cfn-guard-validate-flags"></a>
 
 `-a`, `--alphabetical`
 
@@ -39,14 +44,11 @@ For example:
 
 ```
 {"data": ["{\"Resources\":{\"NewVolume\":{\"Type\":\"AWS::EC2::Volume\",\"Properties\":{\"Size\":500,\"Encrypted\":false,\"AvailabilityZone\":\"us-west-2b\"}},\"NewVolume2\":{\"Type\":\"AWS::EC2::Volume\",\"Properties\":{\"Size\":50,\"Encrypted\":false,\"AvailabilityZone\":\"us-west-2c\"}}},\"Parameters\":{\"InstanceName\":\"TestInstance\"}}","{\"Resources\":{\"NewVolume\":{\"Type\":\"AWS::EC2::Volume\",\"Properties\":{\"Size\":500,\"Encrypted\":false,\"AvailabilityZone\":\"us-west-2b\"}},\"NewVolume2\":{\"Type\":\"AWS::EC2::Volume\",\"Properties\":{\"Size\":50,\"Encrypted\":false,\"AvailabilityZone\":\"us-west-2c\"}}},\"Parameters\":{\"InstanceName\":\"TestInstance\"}}"], "rules" : [ "Parameters.InstanceName == \"TestInstance\"","Parameters.InstanceName == \"TestInstance\"" ]}
-
 ```
 
-For "rules", specify a list of string version of rules files. For "data", specify a list of
-string version of data files.
+For "rules", specify a list of string version of rules files. For "data", specify a list of string version of data files.
 
-When `--payload` is specified `--rules` and `--data`
-cannot be specified.
+When `--payload` is specified `--rules` and `--data` cannot be specified.
 
 `-p`, `--print-json`
 
@@ -66,105 +68,82 @@ Increases the output verbosity. Can be specified multiple times.
 
 `-z`, `--structured`
 
-Prints out a list of structured and valid JSON/YAML. This argument conflicts with the
-following arguments: verbose, print-json, show-summary: all/fail/pass/skip, output-format:
-single-line-summary
+Prints out a list of structured and valid JSON/YAML. This argument conflicts with the following arguments: verbose, print-json, show-summary: all/fail/pass/skip, output-format: single-line-summary
 
 ## Options
+<a name="cfn-guard-validate-options"></a>
 
 `-d`, `--data` (string)
 
-Provides a data file or directory of data files in JSON or YAML. Supports passing multiple
-values by using this option repeatedly.
+Provides a data file or directory of data files in JSON or YAML. Supports passing multiple values by using this option repeatedly.
 
 Example: `--data template1.yaml --data ./data-dir1 --data template2.yaml`
 
-For directory arguments such as `data-dir1` above, scanning is only supported
-for files with following extensions: .yaml, .yml, .json, .jsn, .template
+For directory arguments such as `data-dir1` above, scanning is only supported for files with following extensions: .yaml, .yml, .json, .jsn, .template
 
-If you specify the `--payload` flag, don't specify the `--data`
-option.
+If you specify the `--payload` flag, don't specify the `--data` option.
 
 `-i`, `--input-parameters` (string)
 
-Provides a parameter file or directory of parameter files in JSON or YAML that specifies
-any additional parameters to use along with data files to be used as a combined context. All the
-parameter files passed as input get merged and this combined context is again merged with each
-file passed as an argument for `data`. Due to this, every file is expected to contain
-mutually exclusive properties, without any overlap. Supports passing multiple values by using
-this option repeatedly.
+Provides a parameter file or directory of parameter files in JSON or YAML that specifies any additional parameters to use along with data files to be used as a combined context. All the parameter files passed as input get merged and this combined context is again merged with each file passed as an argument for `data`. Due to this, every file is expected to contain mutually exclusive properties, without any overlap. Supports passing multiple values by using this option repeatedly.
 
-For directory arguments, scanning is only supported for files with following extensions:
-.yaml, .yml, .json, .jsn, .template
+For directory arguments, scanning is only supported for files with following extensions: .yaml, .yml, .json, .jsn, .template
 
 `-o`, `--output-format` (string)
 
 Specifies the format for the output.
 
-_Default_: `single-line-summary`
+*Default*: `single-line-summary`
 
-_Allowed values_: `json` | `yaml` |
-`single-line-summary` | `junit` | `sarif`
+*Allowed values*: `json` \| `yaml` \| `single-line-summary` \| `junit` \| `sarif`
 
 `-r`, `--rules` (string)
 
-Provides a rules file or a directory of rules files. Supports passing multiple values by
-using this option repeatedly.
+Provides a rules file or a directory of rules files. Supports passing multiple values by using this option repeatedly.
 
 Example: `--rules rule1.guard --rules ./rules-dir1 --rules rule2.guard`
 
-For directory arguments such as `rules-dir1` above, scanning is only supported
-for files with following extensions: .guard, .ruleset
+For directory arguments such as `rules-dir1` above, scanning is only supported for files with following extensions: .guard, .ruleset
 
-If you specify the `--payload` flag, do not specify the `--rules`
-option.
+If you specify the `--payload` flag, do not specify the `--rules` option.
 
 `--show-summary` (string)
 
-Controls if the summary table needs to be displayed. `--show-summary fail`
-(default) or `--show-summary pass,fail` (only show rules that did pass/fail) or
-`--show-summary none` (to turn it off) or `--show-summary all` (to show
-all the rules that pass, fail or skip).
+Controls if the summary table needs to be displayed. `--show-summary fail` (default) or `--show-summary pass,fail` (only show rules that did pass/fail) or `--show-summary none` (to turn it off) or `--show-summary all` (to show all the rules that pass, fail or skip).
 
-_Default_: `fail`
+*Default*: `fail`
 
-_Allowed values_: `none` | `all` |
-`pass` | `fail` | `skip`
+*Allowed values*: `none` \| `all` \| `pass` \| `fail` \| `skip`
 
 `-t`, `--type` (string)
 
-Provides the format of your input data. When you specify the input data type,
-Guard displays the logical names of CloudFormation template resources in the output. By
-default, Guard displays property paths and values, such as `Property
- [/Resources/vol2/Properties/Encrypted`.
+Provides the format of your input data. When you specify the input data type, Guard displays the logical names of CloudFormation template resources in the output. By default, Guard displays property paths and values, such as `Property [/Resources/vol2/Properties/Encrypted`.
 
-_Allowed values_: `CFNTemplate`
+*Allowed values*: `CFNTemplate`
 
 ## Example
+<a name="cfn-guard-validate-examples"></a>
 
 ```
-cfn-guard validate --data `example.json` --rules `rules.guard`
+cfn-guard validate --data {{example.json}} --rules {{rules.guard}}
 ```
 
 ## Output
+<a name="cfn-guard-validate-output"></a>
 
-If Guard successfully validates the templates, the `validate` command
-returns an exit status of `0` (`$?` in bash). If Guard
-identifies a rule violation, the `validate` command returns a status report of the
-rules that failed.
+If Guard successfully validates the templates, the `validate` command returns an exit status of `0` (`$?` in bash). If Guard identifies a rule violation, the `validate` command returns a status report of the rules that failed.
 
 ```
 example.json Status = FAIL
 FAILED rules
 rules.guard/policy_effect_is_deny    FAIL
 ---
-Evaluation of rules rules.guard against data example.json
+Evaluation of rules rules.guard against data example.json 
 --
 Property [/path/to/Effect] in data [example.json] is not compliant with [policy_effect_is_deny] because provided value ["Allow"] did not match expected value ["Deny"]. Error Message [ Policy statement "Effect" must be "Deny".]
 ```
 
 ## See also
-
-- [Validating input data against Guard rules](validating-rules.md "validating-rules.md")
-- [Using input parameters with Guard
-  rules](using-input-parameters.md "using-input-parameters.md")
+<a name="cfn-guard-validate-see-also"></a>
++ [Validating input data against Guard rules](validating-rules.md)
++ [Using input parameters with Guard rules](using-input-parameters.md)

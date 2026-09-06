@@ -1,30 +1,28 @@
+
+
 # Composing named-rule blocks in AWS CloudFormation Guard
+<a name="named-rule-block-composition"></a>
 
-When writing named-rule blocks using AWS CloudFormation Guard, you can use the following two
-styles of composition:
+When writing named-rule blocks using AWS CloudFormation Guard, you can use the following two styles of composition:
++ Conditional dependency
++ Correlational dependency
 
-- Conditional dependency
-- Correlational dependency
-  Using either of these styles of dependency composition helps promote reusability and
-  reduces verbosity and repetition in named-rule blocks.
+Using either of these styles of dependency composition helps promote reusability and reduces verbosity and repetition in named-rule blocks.
 
-###### Topics
-
-- [Prerequisites](#named-rules-prerequisites "#named-rules-prerequisites")
-- [Conditional dependency composition](#named-rules-conditional-dependency "#named-rules-conditional-dependency")
-- [Correlational dependency composition](#named-rules-correlational-dependency "#named-rules-correlational-dependency")
+**Topics**
++ [Prerequisites](#named-rules-prerequisites)
++ [Conditional dependency composition](#named-rules-conditional-dependency)
++ [Correlational dependency composition](#named-rules-correlational-dependency)
 
 ## Prerequisites
+<a name="named-rules-prerequisites"></a>
 
-Learn about named-rule blocks in [Writing
-rules](writing-rules.md#named-rule-blocks "writing-rules.md#named-rule-blocks").
+Learn about named-rule blocks in [Writing rules](writing-rules.md#named-rule-blocks).
 
 ## Conditional dependency composition
+<a name="named-rules-conditional-dependency"></a>
 
-In this style of composition, the evaluation of a `when` block or a
-named-rule block has a conditional dependency on the evaluation result of one or more
-other named-rule blocks or clauses. The following example Guard rules file
-contains named-rule blocks that demonstrate conditional dependencies.
+In this style of composition, the evaluation of a `when` block or a named-rule block has a conditional dependency on the evaluation result of one or more other named-rule blocks or clauses. The following example Guard rules file contains named-rule blocks that demonstrate conditional dependencies.
 
 ```
 # Named-rule block, rule_name_A
@@ -41,7 +39,7 @@ rule rule_name_B when rule_name_A {
     ...
 }
 
-# Example-2, `when` block takes a conditional dependency on rule_name_A
+# Example-2, when block takes a conditional dependency on rule_name_A
 when rule_name_A {
     Guard_rule_3
     Guard_rule_4
@@ -67,56 +65,43 @@ rule rule_name_D when rule_name_A OR
 }
 ```
 
-In the preceding example rules file, `Example-1` has the following possible
-outcomes:
+In the preceding example rules file, `Example-1` has the following possible outcomes:
++ If `rule_name_A` evaluates to `PASS`, the Guard rules encapsulated by `rule_name_B` are evaluated.
++ If `rule_name_A` evaluates to `FAIL`, the Guard rules encapsulated by `rule_name_B` are not evaluated. `rule_name_B` evaluates to `SKIP`.
++ If `rule_name_A` evaluates to `SKIP`, the Guard rules encapsulated by `rule_name_B` are not evaluated. `rule_name_B` evaluates to `SKIP`.
+**Note**  
+This case happens if `rule_name_A` conditionally depends on a rule that evaluates to `FAIL` and results in `rule_name_A` evaluating to `SKIP`.
 
-- If `rule_name_A` evaluates to `PASS`, the Guard
-  rules encapsulated by `rule_name_B` are evaluated.
-- If `rule_name_A` evaluates to `FAIL`, the Guard
-  rules encapsulated by `rule_name_B` are not evaluated.
-  `rule_name_B` evaluates to `SKIP`.
-- If `rule_name_A` evaluates to `SKIP`, the Guard
-  rules encapsulated by `rule_name_B` are not evaluated.
-  `rule_name_B` evaluates to `SKIP`.
-
-###### Note
-
-This case happens if `rule_name_A` conditionally depends on a
-rule that evaluates to `FAIL` and results in
-`rule_name_A` evaluating to `SKIP`.
-
-Following is an example of a configuration management database (CMDB) configuration
-item from an AWS Config item for ingress and egress security groups information. This
-example demonstrates conditional dependency composition.
+Following is an example of a configuration management database (CMDB) configuration item from an AWS Config item for ingress and egress security groups information. This example demonstrates conditional dependency composition.
 
 ```
 rule check_resource_type_and_parameter {
     resourceType == /AWS::EC2::SecurityGroup/
-    InputParameters.TcpBlockedPorts NOT EMPTY
+    InputParameters.TcpBlockedPorts NOT EMPTY 
 }
 
 rule check_parameter_validity when check_resource_type_and_parameter {
     InputParameters.TcpBlockedPorts[*] {
-        this in r[0,65535]
+        this in r[0,65535] 
     }
 }
 
 rule check_ip_procotol_and_port_range_validity when check_parameter_validity {
     let ports = InputParameters.TcpBlockedPorts[*]
 
-    #
+    # 
     # select all ipPermission instances that can be reached by ANY IP address
     # IPv4 or IPv6 and not UDP
     #
-    let configuration = configuration.ipPermissions[
+    let configuration = configuration.ipPermissions[ 
         some ipv4Ranges[*].cidrIp == "0.0.0.0/0" or
         some ipv6Ranges[*].cidrIpv6 == "::/0"
-        ipProtocol != 'udp' ]
+        ipProtocol != 'udp' ] 
     when %configuration !empty {
         %configuration {
             ipProtocol != '-1'
 
-            when fromPort exists
+            when fromPort exists 
                 toPort exists {
                 let ip_perm_block = this
                 %ports {
@@ -129,11 +114,7 @@ rule check_ip_procotol_and_port_range_validity when check_parameter_validity {
 }
 ```
 
-In the preceding example, `check_parameter_validity` is conditionally
-dependent on `check_resource_type_and_parameter` and
-`check_ip_procotol_and_port_range_validity` is conditionally dependent on
-`check_parameter_validity`. The following is a configuration management
-database (CMDB) configuration item that conforms to the preceding rules.
+In the preceding example, `check_parameter_validity` is conditionally dependent on `check_resource_type_and_parameter` and `check_ip_procotol_and_port_range_validity` is conditionally dependent on `check_parameter_validity`. The following is a configuration management database (CMDB) configuration item that conforms to the preceding rules.
 
 ```
 ---
@@ -191,10 +172,9 @@ resourceTransitionStatus: None
 ```
 
 ## Correlational dependency composition
+<a name="named-rules-correlational-dependency"></a>
 
-In this style of composition, the evaluation of a `when` block or a
-named-rule block has a correlational dependency on the evaluation result of one or more
-other Guard rules. Correlational dependency can be achieved as follows.
+In this style of composition, the evaluation of a `when` block or a named-rule block has a correlational dependency on the evaluation result of one or more other Guard rules. Correlational dependency can be achieved as follows.
 
 ```
 # Named-rule block, rule_name_A, takes a correlational dependency on all of the Guard rules encapsulated by the named-rule block
@@ -204,7 +184,7 @@ rule rule_name_A {
     ...
 }
 
-# `when` block takes a correlational dependency on all of the Guard rules encapsulated by the `when` block
+# when block takes a correlational dependency on all of the Guard rules encapsulated by the when block
 when condition {
     Guard_rule_1
     Guard_rule_2
@@ -212,20 +192,19 @@ when condition {
 }
 ```
 
-To help you understand correlational dependency composition, review the following
-example of a Guard rules file.
+To help you understand correlational dependency composition, review the following example of a Guard rules file.
 
 ```
 #
-# Allowed valid protocols for `AWS::ElasticLoadBalancingV2::Listener` resources
+# Allowed valid protocols for AWS::ElasticLoadBalancingV2::Listener resources
 #
 let allowed_protocols = [ "HTTPS", "TLS" ]
 
 let elbs = Resources.*[ Type == 'AWS::ElasticLoadBalancingV2::Listener' ]
 
 #
-# If there are `AWS::ElasticLoadBalancingV2::Listener` resources present, ensure that they have protocols specified from the
-# list of allowed protocols and that the `Certificates` property is not empty
+# If there are AWS::ElasticLoadBalancingV2::Listener resources present, ensure that they have protocols specified from the 
+# list of allowed protocols and that the Certificates property is not empty
 #
 rule ensure_all_elbs_are_secure when %elbs !empty {
     %elbs.Properties {
@@ -234,8 +213,8 @@ rule ensure_all_elbs_are_secure when %elbs !empty {
     }
 }
 
-#
-# In addition to secure settings, ensure that `AWS::ElasticLoadBalancingV2::Listener` resources are private
+# 
+# In addition to secure settings, ensure that AWS::ElasticLoadBalancingV2::Listener resources are private
 #
 rule ensure_elbs_are_internal_and_secure when %elbs !empty {
     ensure_all_elbs_are_secure
@@ -243,9 +222,7 @@ rule ensure_elbs_are_internal_and_secure when %elbs !empty {
 }
 ```
 
-In the preceding rules file, `ensure_elbs_are_internal_and_secure` has a
-correlational dependency on `ensure_all_elbs_are_secure`. The following is an
-example CloudFormation template that conforms to the preceding rules.
+In the preceding rules file, `ensure_elbs_are_internal_and_secure` has a correlational dependency on `ensure_all_elbs_are_secure`. The following is an example CloudFormation template that conforms to the preceding rules.
 
 ```
 Resources:

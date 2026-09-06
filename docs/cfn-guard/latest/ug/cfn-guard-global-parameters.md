@@ -1,4 +1,7 @@
+
+
 # Guard CLI global parameters
+<a name="cfn-guard-global-parameters"></a>
 
 You can use the following parameters with any AWS CloudFormation Guard CLI command.
 
