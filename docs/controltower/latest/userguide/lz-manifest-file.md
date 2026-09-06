@@ -36,10 +36,15 @@ To see a full landing zone schema example, see [Landing zone schemas](landing-zo
    }
 ```
 
+###### Note
+
+The `organizationStructure` field is not present in landing zone version
+4.0 and later.
+
 **centralizedLogging** – Configuration for AWS CloudTrail
 
 - **Type:** Object
-- **Required:** Yes
+- **Required:** No (version 4.0 and later). Yes (version 3.3 and earlier).
 - **Properties:**
 
   - _accountId_ - a `String` the represents the AWS account into
@@ -54,7 +59,8 @@ To see a full landing zone schema example, see [Landing zone schemas](landing-zo
       `Number`
     - `kmsKeyArn` - an optional `String`
 
-  - _enabled_ - an optional `Boolean`
+  - _enabled_ - a `Boolean` (required in
+    version 4.0 and later, optional in version 3.3 and earlier)
 
 - **Example:**
 
@@ -74,19 +80,37 @@ To see a full landing zone schema example, see [Landing zone schemas](landing-zo
    }
 ```
 
-**securityRoles** – Choose where to deploy the logging resource
+###### Note
+
+In landing zone version 4.0 and later, `accountId` is only required when
+`enabled` is set to `true`. The `enabled` field is
+required.
+
+**securityRoles** – Choose where to deploy central resources for security monitoring within your organization
 
 - **Type:** Object
-- **Required:** Yes
-- **Properties:** _accountId_ - a `String` that represents the AWS account into
-  which the logging resource should be deployed
+- **Required:** No (version 4.0 and later). Yes (version 3.3 and earlier).
+- **Properties:**
+
+  - _accountId_ - a `String` that represents the AWS account into
+    which the central security monitoring resources should be deployed. Required when `enabled` is `true`.
+  - _enabled_ - a `Boolean` (required in
+    version 4.0 and later)
+
 - **Example:**
 
 ```
 "securityRoles": {
-        "accountId": "333333333333"
+        "accountId": "333333333333",
+        "enabled": true
    }
 ```
+
+###### Note
+
+In landing zone version 4.0 and later, `securityRoles` includes a required
+`enabled` Boolean property. The `accountId` is only required when
+`enabled` is set to `true`.
 
 **accessManagement** – Choose whether to enable access management
 
@@ -134,3 +158,45 @@ To see a full landing zone schema example, see [Landing zone schemas](landing-zo
     "enabled": true
 }
 ```
+
+**config** – Configuration for AWS Config with AWS Control Tower
+
+- **Type:** Object
+- **Required:** No
+- **Properties:**
+
+  - _accountId_ - a `String` that represents the AWS account into
+    which the AWS Config resources should be deployed. Required when `enabled` is
+    `true`.
+  - _configurations_ - an optional `Object` with three properties
+
+    - `loggingBucket` - an object with one property,
+      `retentionDays`, which takes a `Number`
+    - `accessLoggingBucket` - an object with one property,
+      `retentionDays`, which takes a `Number`
+    - `kmsKeyArn` - an optional `String`
+
+  - _enabled_ - a required `Boolean`
+
+- **Example:**
+
+```
+"config": {
+    "accountId": "444444444444",
+    "configurations": {
+        "loggingBucket": {
+            "retentionDays": 60
+        },
+        "accessLoggingBucket": {
+            "retentionDays": 60
+        },
+        "kmsKeyArn": "arn:aws:kms:us-west-1:123456789123:key/e84XXXXX-6bXX-49XX-9eXX-ecfXXXXXXXXX"
+    },
+    "enabled": true
+}
+```
+
+###### Note
+
+The `config` field is only available in landing zone version 4.0 and
+later.

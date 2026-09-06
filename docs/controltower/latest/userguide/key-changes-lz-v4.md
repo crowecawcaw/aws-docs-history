@@ -58,9 +58,10 @@ or the Backup account. To access the Config or Backup account through IAM Identi
 create permission sets manually using the IAM Identity Center resources that AWS Control Tower deployed.
 
 - **Drift Notifications:** AWS Control Tower will stop sending drift notifications to
-  SNS topic for all customers on landing zone 4.0 without the `AWSControlTowerBaseline` enabled, and will start
-  sending drift notifications to EventBridge in the management account instead. To review sample events and guidance
-  on how to receive drift notifications through EventBridge, please check [this guide](governance-drift.md "governance-drift.md").
+  the SNS topic for all customers on landing zone 4.0 and later, and will start sending drift notifications to
+  EventBridge in the management account instead. To receive these notifications, create an EventBridge rule in the
+  management account. Then configure a target, such as an SNS topic or a Lambda function. For more information about
+  drift notifications and sample EventBridge events, see [Types of governance drift](governance-drift.md "governance-drift.md").
 - **Optional Service Integrations:** You now have the ability to enable/disable all AWS Control Tower integrations including AWS Config, AWS CloudTrail, SecurityRoles,
   and AWS Backup. These integrations also now have optionally required `enabled` flags in the API. The baselines
   that may apply to your landing zone or shared accounts now have dependencies on one another. The Integrations specific dependencies are:

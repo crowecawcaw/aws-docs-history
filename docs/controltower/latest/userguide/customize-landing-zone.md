@@ -17,7 +17,8 @@ offers a GitOps-style, automated process. You can reshape your landing zone to m
 business requirements.
 
 This _infrastructure-as-code_ customization process
-integrates AWS CloudFormation templates with AWS service control policies (SCPs) and AWS Control Tower
+integrates AWS CloudFormation templates with AWS service control policies (SCPs), resource
+control policies (RCPs), and AWS Control Tower
 [lifecycle events](lifecycle-events.md "lifecycle-events.md"), so that your resource
 deployments remain synchronized with your landing zone. For example, when you create a
 new account with Account Factory, the resources attached to the account and the OU can

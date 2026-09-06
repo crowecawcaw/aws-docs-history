@@ -28,7 +28,7 @@ this document.
   functionality of stacks so that you can create, update, or delete stacks across
   multiple accounts and Regions with a single operation and a single CloudFormation
   template.
-- A  [stack instance](../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md#stacksets-concepts-stackinstances "../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md#stacksets-concepts-stackinstances") is a reference to a stack in a target account within a
+- A [stack instance](../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md#stacksets-concepts-stackinstances "../../../AWSCloudFormation/latest/UserGuide/stacksets-concepts.md#stacksets-concepts-stackinstances") is a reference to a stack in a target account within a
   Region.
 - A [stack](../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#w2ab1b5c15b "../../../AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.md#w2ab1b5c15b") is a collection of AWS resources that you can manage as a
   single unit.
@@ -88,7 +88,8 @@ this document.
   AWS Control Tower by means of an account enrollment or OU registration process.
 - **Control:** A control (also known as a _guardrail_) is a high-level rule that provides ongoing
   governance for your overall AWS Control Tower environment. Each control enforces a single
-  rule. Preventive controls are implemented with SCPs. Detective controls are
+  rule. Preventive controls are implemented with service control policies (SCPs),
+  resource control policies (RCPs), and declarative policies. Detective controls are
   implemented with AWS Config rules. Proactive controls are implemented with CloudFormation hooks.
   For more information, see [How controls work](how-controls-work.md "how-controls-work.md").
 - **Control Catalog:** The AWS Control Tower control catalog is the compendium of all controls that are available through AWS Control Tower, in the console and APIs. It formerly was called the Control Library. We aligned the terminology to the name of the namespace, _controlcatalog_.

@@ -45,8 +45,8 @@ also learn more about deploying AFT by following the [Introduction to AFT](https
 
 **Step 1: Launch your AWS Control Tower landing zone**
 
-Complete the steps in [Getting
-started with AWS Control Tower](https://catalog.workshops.aws/control-tower/en-US/customization/aft "https://catalog.workshops.aws/control-tower/en-US/customization/aft"). This is where you create the AWS Control Tower
+For instructions on getting started with AWS Control Tower, see [Getting
+started with AWS Control Tower](getting-started-with-control-tower.md "getting-started-with-control-tower.md"). This is where you create the AWS Control Tower
 management account and set up your AWS Control Tower landing zone.
 
 ###### Note

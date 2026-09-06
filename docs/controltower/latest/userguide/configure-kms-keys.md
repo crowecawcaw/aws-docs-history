@@ -44,6 +44,9 @@ following information:
   Region that you will select when setting up AWS Control Tower.
 - **`YOUR-KMS-KEY-ID`** – the
   KMS key ID that will be used with the policy.
+- **`PARTITION`** – the partition
+  of the AWS Region where you set up AWS Control Tower, such as `aws`,
+  `aws-us-gov`, `aws-cn`, or `aws-eusc`.
 
 ###### To update the KMS key policy
 
@@ -71,7 +74,7 @@ following information:
         "kms:Decrypt",
         "kms:GenerateDataKey"
     ],
-    "Resource": "arn:aws:kms:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:key/`YOUR-KMS-KEY-ID`"
+    "Resource": "arn:`PARTITION`:kms:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:key/`YOUR-KMS-KEY-ID`"
 }
 ```
 
@@ -88,13 +91,13 @@ following information:
         "kms:GenerateDataKey*",
         "kms:Decrypt"
     ],
-    "Resource": "arn:aws:kms:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:key/`YOUR-KMS-KEY-ID`",
+    "Resource": "arn:`PARTITION`:kms:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:key/`YOUR-KMS-KEY-ID`",
     "Condition": {
         "StringEquals": {
-            "aws:SourceArn": "arn:aws:cloudtrail:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:trail/aws-controltower-BaselineCloudTrail"
+            "aws:SourceArn": "arn:`PARTITION`:cloudtrail:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:trail/aws-controltower-BaselineCloudTrail"
         },
         "StringLike": {
-            "kms:EncryptionContext:aws:cloudtrail:arn": "arn:aws:cloudtrail:*:`YOUR-MANAGEMENT-ACCOUNT-ID`:trail/*"
+            "kms:EncryptionContext:aws:cloudtrail:arn": "arn:`PARTITION`:cloudtrail:*:`YOUR-MANAGEMENT-ACCOUNT-ID`:trail/*"
         }
     }
 }
@@ -127,7 +130,7 @@ default KMS key policy.
                 "kms:Decrypt",
                 "kms:GenerateDataKey"
             ],
-            "Resource": "arn:PARTITION:kms:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:key/`YOUR-KMS-KEY-ID`"
+            "Resource": "arn:`PARTITION`:kms:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:key/`YOUR-KMS-KEY-ID`"
         },
         {
             "Sid": "Allow CloudTrail to use KMS for encryption",
@@ -139,13 +142,13 @@ default KMS key policy.
                 "kms:GenerateDataKey*",
                 "kms:Decrypt"
               ],
-            "Resource": "arn:PARTITION:kms:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:key/`YOUR-KMS-KEY-ID`",
+            "Resource": "arn:`PARTITION`:kms:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:key/`YOUR-KMS-KEY-ID`",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceArn": "arn:PARTITION:cloudtrail:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:trail/aws-controltower-BaselineCloudTrail"
+                    "aws:SourceArn": "arn:`PARTITION`:cloudtrail:`YOUR-HOME-REGION`:`YOUR-MANAGEMENT-ACCOUNT-ID`:trail/aws-controltower-BaselineCloudTrail"
                 },
                 "StringLike": {
-                    "kms:EncryptionContext:aws:cloudtrail:arn": "arn:PARTITION:cloudtrail:*:`YOUR-MANAGEMENT-ACCOUNT-ID`:trail/*"
+                    "kms:EncryptionContext:aws:cloudtrail:arn": "arn:`PARTITION`:cloudtrail:*:`YOUR-MANAGEMENT-ACCOUNT-ID`:trail/*"
                 }
             }
         }

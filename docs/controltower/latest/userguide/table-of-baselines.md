@@ -43,9 +43,8 @@ If you update your landing zone to a version that supports a newer
 is compatible with your existing baseline version, your OU state changes to **Update
 available**.
 
-- You can continue to use account factory and other features without updating the OU
-  baseline immediately, except in the case of a landing zone update from 2.x to
-  3.x.
+- You can continue to use Account Factory and other features without updating the
+  organizational unit (OU) baseline immediately.
 - New accounts enrolled in this OU receive resources based on the existing baseline
   version until the baseline version is updated (with the **Extend
   governance** feature in the console, or by means of the

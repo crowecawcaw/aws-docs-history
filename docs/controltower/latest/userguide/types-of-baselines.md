@@ -66,6 +66,15 @@ as part of enabling ConfigBaseline.
 **Limitation**: AWSControlTowerBaseline and ConfigBaseline cannot
 be enabled on the same OU. Only one of them is allowed on an OU.
 
+###### ConfigBaseline status of "Not enabled"
+
+If your OU has `AWSControlTowerBaseline` enabled, the
+`ConfigBaseline` status shows as "Not enabled." This is expected
+behavior. `AWSControlTowerBaseline` includes AWS Config
+functionality. You do not need to separately enable
+`ConfigBaseline` on OUs that already have
+`AWSControlTowerBaseline`.
+
 - **Name**: `BackupBaseline`
 
 **Description**: This baseline sets up resources and controls

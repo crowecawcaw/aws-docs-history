@@ -34,8 +34,8 @@ place.
 
 - A fully deployed AFT. For information about how to deploy, see [Configure and launch your AWS Control Tower Account Factory for Terraform](aft-getting-started.md#aft-configure-and-launch "aft-getting-started.md#aft-configure-and-launch").
 - Pre-populated `git` repositories for global customizations and
-  account customizations in your environment. See _Step 3:
-  Populate each repository_ in [Post-deployment steps](aft-post-deployment.md "aft-post-deployment.md") for more information.
+  account customizations in your environment. See _Populate
+  each repository_ in [Post-deployment steps](aft-post-deployment.md "aft-post-deployment.md") for more information.
 
 ## Apply global customizations
 
