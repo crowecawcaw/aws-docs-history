@@ -24,4 +24,4 @@ Following are requirements and considerations for enabling your users to use dra
   To get started with using drawing tablets during application streaming
   sessions, users connect their drawing tablet to their local computer with
   USB, share the device with WorkSpaces Applications if required for pressure sensitivity detection, and then use the WorkSpaces Applications client or a [supported web
-  browser](drawing-tablet-support-web-access-admin.md "drawing-tablet-support-web-access-admin.md") to start an WorkSpaces Applications streaming session.
+  browser](drawing-tablet-support-web-access-admin.md "drawing-tablet-support-web-access-admin.md") to start a WorkSpaces Applications streaming session.

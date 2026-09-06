@@ -11,17 +11,17 @@ Operating system versions that are no longer supported by the vendor are not
 guaranteed to work and are not supported by AWS Support.
 
 - Windows Server 2025 Base — Available on the following image types: Base,
-  Graphics G4dn, Graphics G5, and Graphics G6
+  Graphics G4dn, Graphics G5, Graphics G6, and Graphics G7
 - Windows Server 2022 Base — Available on the following image types: Base,
-  Graphics G4dn, Graphics G5, and Graphics G6
+  Graphics G4dn, Graphics G5, Graphics G6, and Graphics G7
 - Windows Server 2019 Base — Available on the following image types: Base,
   Graphics G4dn and Graphics G5
 - Windows Server 2016 Base — Available on the following image types: Base,
   Graphics G4dn and Graphics G5
 - Red Hat Enterprise Linux 8 – Available on the following image types: Base,
-  Graphics G4dn, Graphics G5, and Graphics G6
+  Graphics G4dn, Graphics G5, Graphics G6, and Graphics G7
 - Rocky Linux 8 – Available on the following image types: Base, Graphics G4dn,
-  Graphics G5, and Graphics G6
+  Graphics G5, Graphics G6, and Graphics G7
   After you create your own image that includes your own applications, you are responsible
   for installing and maintaining the updates for the operating system, your applications, and
   their dependencies. WorkSpaces Applications provides an automated way to update your image using managed
@@ -53,6 +53,7 @@ after 04/15/2026 due End of Support for Amazon Linux 2 (AL2) for Amazon WorkSpac
 | Graphics G4dn | • AppStream-Graphics-G4dn-WinServer2025-12-18-2025<br>• AppStream-Graphics-G4dn-WinServer2022-11-10-2025<br>• AppStream-Graphics-G4dn-WinServer2019-11-10-2025<br>• AppStream-Graphics-G4dn-WinServer2016-11-10-2025<br>• AppStream-Graphics-G4dn-RHEL8-02-18-2026<br>• AppStream-Graphics-G4dn-RockyLinux8-02-18-2026 |
 | Graphics G5   | • AppStream-Graphics-G5-WinServer2025-12-18-2025<br>• AppStream-Graphics-G5-WinServer2022-11-10-2025<br>• AppStream-Graphics-G5-WinServer2019-11-10-2025<br>• AppStream-Graphics-G5-WinServer2016-11-10-2025<br>• AppStream-Graphics-G5-RHEL8-02-18-2026<br>• AppStream-Graphics-G5-RockyLinux8-02-18-2026             |
 | Graphics G6   | • AppStream-Graphics-G6-WinServer2025-12-18-2025<br>• AppStream-Graphics-G6-WinServer2022-11-10-2025<br>• AppStream-Graphics-G6-RHEL8-02-18-2026<br>• AppStream-Graphics-G6-RockyLinux8-02-18-2026                                                                                                                     |
+| Graphics G7   | • AppStream-Graphics-G7-WinServer2025-08-31-2026<br>• AppStream-Graphics-G7-WinServer2022-08-31-2026<br>• AppStream-Graphics-G7-RHEL8-08-31-2026<br>• AppStream-Graphics-G7-RockyLinux8-08-31-2026                                                                                                                     |
 | Sample apps   | Amazon-AppStream2-Sample-Image-06-17-2024<br>For information about how to access this base image, see [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md "getting-started.md").                                                                                     |
 
 The following table lists the software components for the latest released base images and

@@ -16,24 +16,35 @@ more information, see [WorkSpaces Applications Interface VPC Endpoints](interfac
 
 For IPV4 support, you must allow the following domain on the network from which users initiate access to the streaming instances. It is region based and follows the following format: `*.streaming.{region}.appstream2.amazonappstream.com` and `*.dcv-streaming.{region}.appstream2.amazonappstream.com`. If its a FIPS compliant region, it will also need another endpoint with the format `*.streaming.{region}.appstream2-fips.amazonappstream.com` and `*.dcv-streaming.{region}.appstream2-fips.amazonappstream.com`. Check table below.
 
+###### Note
+
+`*.streaming.*` URLs are not supported for the Asia Pacific (Malaysia), Asia Pacific (Osaka), Canada West (Calgary), Europe (Milan), Europe (Spain), Europe (Zurich), and Israel (Tel Aviv) Regions. For these Regions, allow only the `*.dcv-streaming.*` URLs listed in the table below.
+
 | Region                    | Domain                                                                                                                                                                                                                                                             |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | US East (N. Virginia)     | \*.streaming.us-east-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.us-east-1.appstream2.amazonappstream.com<br>\*.streaming.us-east-1.appstream2-fips.amazonappstream.com<br>\*.dcv-streaming.us-east-1.appstream2-fips.amazonappstream.com                 |
 | US East (Ohio)            | \*.streaming.us-east-2.appstream2.amazonappstream.com<br>\*.dcv-streaming.us-east-2.appstream2.amazonappstream.com                                                                                                                                                 |
 | US West (Oregon)          | \*.streaming.us-west-2.appstream2.amazonappstream.com<br>\*.dcv-streaming.us-west-2.appstream2.amazonappstream.com<br>\*.streaming.us-west-2.appstream2-fips.amazonappstream.com<br>\*.dcv-streaming.us-west-2.appstream2-fips.amazonappstream.com                 |
+| Asia Pacific (Malaysia)   | \*.dcv-streaming.ap-southeast-5.appstream2.amazonappstream.com                                                                                                                                                                                                     |
 | Asia Pacific (Mumbai)     | \*.streaming.ap-south-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.ap-south-1.appstream2.amazonappstream.com                                                                                                                                               |
 | Asia Pacific (Seoul)      | \*.streaming.ap-northeast-2.appstream2.amazonappstream.com<br>\*.dcv-streaming.ap-northeast-2.appstream2.amazonappstream.com                                                                                                                                       |
 | Asia Pacific (Singapore)  | \*.streaming.ap-southeast-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.ap-southeast-1.appstream2.amazonappstream.com                                                                                                                                       |
 | Asia Pacific (Sydney)     | \*.streaming.ap-southeast-2.appstream2.amazonappstream.com<br>\*.dcv-streaming.ap-southeast-2.appstream2.amazonappstream.com                                                                                                                                       |
 | Asia Pacific (Tokyo)      | \*.streaming.ap-northeast-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.ap-northeast-1.appstream2.amazonappstream.com                                                                                                                                       |
+| Asia Pacific (Osaka)      | \*.dcv-streaming.ap-northeast-3.appstream2.amazonappstream.com                                                                                                                                                                                                     |
 | Canada (Central)          | \*.streaming.ca-central-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.ca-central-1.appstream2.amazonappstream.com                                                                                                                                           |
+| Canada West (Calgary)     | \*.dcv-streaming.ca-west-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.ca-west-1.appstream2-fips.amazonappstream.com                                                                                                                                        |
 | Europe (Frankfurt)        | \*.streaming.eu-central-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.eu-central-1.appstream2.amazonappstream.com                                                                                                                                           |
 | Europe (London)           | \*.streaming.eu-west-2.appstream2.amazonappstream.com<br>\*.dcv-streaming.eu-west-2.appstream2.amazonappstream.com                                                                                                                                                 |
 | Europe (Ireland)          | \*.streaming.eu-west-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.eu-west-1.appstream2.amazonappstream.com                                                                                                                                                 |
 | Europe (Paris)            | \*.streaming.eu-west-3.appstream2.amazonappstream.com<br>\*.dcv-streaming.eu-west-3.appstream2.amazonappstream.com                                                                                                                                                 |
+| Europe (Milan)            | \*.dcv-streaming.eu-south-1.appstream2.amazonappstream.com                                                                                                                                                                                                         |
+| Europe (Spain)            | \*.dcv-streaming.eu-south-2.appstream2.amazonappstream.com                                                                                                                                                                                                         |
+| Europe (Zurich)           | \*.dcv-streaming.eu-central-2.appstream2.amazonappstream.com                                                                                                                                                                                                       |
 | AWS GovCloud (US-East)    | \*.streaming.us-gov-east-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.us-gov-east-1.appstream2.amazonappstream.com<br>\*.streaming.us-gov-east-1.appstream2-fips.amazonappstream.com<br>\*.dcv-streaming.us-gov-east-1.appstream2-fips.amazonappstream.com |
 | AWS GovCloud (US-West)    | \*.streaming.us-gov-west-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.us-gov-west-1.appstream2.amazonappstream.com<br>\*.streaming.us-gov-west-1.appstream2-fips.amazonappstream.com<br>\*.dcv-streaming.us-gov-west-1.appstream2-fips.amazonappstream.com |
 | South America (São Paulo) | \*.streaming.sa-east-1.appstream2.amazonappstream.com<br>\*.dcv-streaming.sa-east-1.appstream2.amazonappstream.com                                                                                                                                                 |
+| Israel (Tel Aviv)         | \*.dcv-streaming.il-central-1.appstream2.amazonappstream.com                                                                                                                                                                                                       |
 
 For IPV6 support, you must allow the following domain on the network from which users initiate access to the streaming instances. It is region based and follows the following format: `*.streaming.appstream2.{region}.on.aws` and `*.dcv-streaming.appstream2.{region}.on.aws`. If its a FIPS compliant region, it will also need another endpoint with the format `*.streaming.appstream2-fips.{region}.on.aws` and `*.dcv-streaming.appstream2-fips.{region}.on.aws`. Check table below.
 
@@ -44,19 +55,26 @@ In order to use IPV6 address your base images must be updated to the images publ
 | US East (N. Virginia)     | \*.streaming.appstream2.us-east-1.on.aws<br>\*.dcv-streaming.appstream2.us-east-1.on.aws<br>\*.streaming.appstream2-fips.us-east-1.on.aws<br>\*.dcv-streaming.appstream2-fips.us-east-1.on.aws                 |
 | US East (Ohio)            | \*.streaming.appstream2.us-east-2.on.aws<br>\*.dcv-streaming.appstream2.us-east-2.on.aws                                                                                                                       |
 | US West (Oregon)          | \*.streaming.appstream2.us-west-2.on.aws<br>\*.dcv-streaming.appstream2.us-west-2.on.aws<br>\*.streaming.appstream2-fips.us-west-2.on.aws<br>\*.dcv-streaming.appstream2-fips.us-west-2.on.aws                 |
+| Asia Pacific (Malaysia)   | \*.dcv-streaming.appstream2.ap-southeast-5.on.aws                                                                                                                                                              |
 | Asia Pacific (Mumbai)     | \*.streaming.appstream2.ap-south-1.on.aws<br>\*.dcv-streaming.appstream2.ap-south-1.on.aws                                                                                                                     |
 | Asia Pacific (Seoul)      | \*.streaming.appstream2.ap-northeast-2.on.aws<br>\*.dcv-streaming.appstream2.ap-northeast-2.on.aws                                                                                                             |
 | Asia Pacific (Singapore)  | \*.streaming.appstream2.ap-southeast-1.on.aws<br>\*.dcv-streaming.appstream2.ap-southeast-1.on.aws                                                                                                             |
 | Asia Pacific (Sydney)     | \*.streaming.appstream2.ap-southeast-2.on.aws<br>\*.dcv-streaming.appstream2.ap-southeast-2.on.aws                                                                                                             |
 | Asia Pacific (Tokyo)      | \*.streaming.appstream2.ap-northeast-1.on.aws<br>\*.dcv-streaming.appstream2.ap-northeast-1.on.aws                                                                                                             |
+| Asia Pacific (Osaka)      | \*.dcv-streaming.appstream2.ap-northeast-3.on.aws                                                                                                                                                              |
 | Canada (Central)          | \*.streaming.appstream2.ca-central-1.on.aws<br>\*.dcv-streaming.appstream2.ca-central-1.on.aws                                                                                                                 |
+| Canada West (Calgary)     | \*.dcv-streaming.appstream2.ca-west-1.on.aws<br>\*.dcv-streaming.appstream2-fips.ca-west-1.on.aws                                                                                                              |
 | Europe (Frankfurt)        | \*.streaming.appstream2.eu-central-1.on.aws<br>\*.dcv-streaming.appstream2.eu-central-1.on.aws                                                                                                                 |
 | Europe (London)           | \*.streaming.appstream2.eu-west-2.on.aws<br>\*.dcv-streaming.appstream2.eu-west-2.on.aws                                                                                                                       |
 | Europe (Ireland)          | \*.streaming.appstream2.eu-west-1.on.aws<br>\*.dcv-streaming.appstream2.eu-west-1.on.aws                                                                                                                       |
 | Europe (Paris)            | \*.streaming.appstream2.eu-west-3.on.aws<br>\*.dcv-streaming.appstream2.eu-west-3.on.aws                                                                                                                       |
+| Europe (Milan)            | \*.dcv-streaming.appstream2.eu-south-1.on.aws                                                                                                                                                                  |
+| Europe (Spain)            | \*.dcv-streaming.appstream2.eu-south-2.on.aws                                                                                                                                                                  |
+| Europe (Zurich)           | \*.dcv-streaming.appstream2.eu-central-2.on.aws                                                                                                                                                                |
 | AWS GovCloud (US-East)    | \*.streaming.appstream2.us-gov-east-1.on.aws<br>\*.dcv-streaming.appstream2.us-gov-east-1.on.aws<br>\*.streaming.appstream2-fips.us-gov-east-1.on.aws<br>\*.dcv-streaming.appstream2-fips.us-gov-east-1.on.aws |
 | AWS GovCloud (US-West)    | \*.streaming.appstream2.us-gov-west-1.on.aws<br>\*.dcv-streaming.appstream2.us-gov-west-1.on.aws<br>\*.streaming.appstream2-fips.us-gov-west-1.on.aws<br>\*.dcv-streaming.appstream2-fips.us-gov-west-1.on.aws |
 | South America (São Paulo) | \*.streaming.appstream2.sa-east-1.on.aws<br>\*.dcv-streaming.appstream2.sa-east-1.on.aws                                                                                                                       |
+| Israel (Tel Aviv)         | \*.dcv-streaming.appstream2.il-central-1.on.aws                                                                                                                                                                |
 
 ## User Authentication
 
@@ -75,13 +93,16 @@ Regions where WorkSpaces Applications is deployed.
 | Asia Pacific (Singapore)  | \*.appstream2.ap-southeast-1.aws.amazon.com      |
 | Asia Pacific (Sydney)     | \*.appstream2.ap-southeast-2.aws.amazon.com      |
 | Asia Pacific (Tokyo)      | \*.appstream2.ap-northeast-1.aws.amazon.com      |
+| Asia Pacific (Osaka)      | \*.appstream2.ap-northeast-3.aws.amazon.com      |
 | Canada (Central)          | \*.appstream2.ca-central-1.aws.amazon.com        |
+| Canada West (Calgary)     | \*.appstream2.ca-west-1.aws.amazon.com           |
 | Europe (Frankfurt)        | \*.appstream2.eu-central-1.aws.amazon.com        |
 | Europe (London)           | \*.appstream2.eu-west-2.aws.amazon.com           |
 | Europe (Ireland)          | \*.appstream2.eu-west-1.aws.amazon.com           |
 | Europe (Milan)            | \*.appstream2.eu-south-1.aws.amazon.com          |
 | Europe (Paris)            | \*.appstream2.eu-west-3.aws.amazon.com           |
 | Europe (Spain)            | \*.appstream2.eu-south-2.aws.amazon.com          |
+| Europe (Zurich)           | \*.appstream2.eu-central-2.aws.amazon.com        |
 | AWS GovCloud (US-East)    | \*.appstream2.us-gov-east-1.amazonaws-us-gov.com |
 | AWS GovCloud (US-West)    | \*.appstream2.us-gov-west-1.amazonaws-us-gov.com |
 | South America (São Paulo) | \*.appstream2.sa-east-1.aws.amazon.com           |

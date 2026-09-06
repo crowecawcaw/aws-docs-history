@@ -106,7 +106,7 @@ to the internet.
 6. In the upper right area of the image builder desktop, choose **Admin Commands**,
    **Switch User**.
 
-![Admin Commands menu with Switch User option highlighted.](images/admin-commands-switch-user.png) 7. This disconnects your current session and opens the login menu. Do
+![Admin Commands menu with Switch User option highlighted.](/images/appstream2/latest/developerguide/images/admin-commands-switch-user.png) 7. This disconnects your current session and opens the login menu. Do
 either of the following:
 
     * If your image builder is not joined to an Active Directory domain, on the **Local

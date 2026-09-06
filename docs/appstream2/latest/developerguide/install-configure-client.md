@@ -11,7 +11,7 @@ The following topics describe how to install and configure the WorkSpaces Applic
 ###### Contents
 
 - [Have Your Users Install the WorkSpaces Applications Client Themselves](user-install-client.md "user-install-client.md")
-- [Tutorial: Install the Amazon WorkSpaces Applications Client And Customize the Client Experience for Your Users](install-client-configure-settings.md "install-client-configure-settings.md")
+- [Tutorial: Install the Amazon WorkSpaces Applications Client and Customize the Client Experience for Your Users](install-client-configure-settings.md "install-client-configure-settings.md")
 - [Update the WorkSpaces Applications Enterprise Deployment Tool, Client, and USB Driver Manually](update-enterprise-deployment-tool-client-usb-driver-manually.md "update-enterprise-deployment-tool-client-usb-driver-manually.md")
 - [Qualify USB Devices for Use with Streaming Applications](qualify-usb-devices.md "qualify-usb-devices.md")
 - [Configure a Connection Method for Your WorkSpaces Applications Client Users](use-client-start-streaming-session.md "use-client-start-streaming-session.md")

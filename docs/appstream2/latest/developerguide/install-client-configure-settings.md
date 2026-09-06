@@ -1,4 +1,4 @@
-# Tutorial: Install the Amazon WorkSpaces Applications Client And Customize the Client Experience for Your Users
+# Tutorial: Install the Amazon WorkSpaces Applications Client and Customize the Client Experience for Your Users
 
 The following sections describe how to install the WorkSpaces Applications client and customize the client experience for your users. If you plan to download and install the client for your users, first download the Enterprise
 Deployment Tool. You can then run PowerShell scripts to install the WorkSpaces Applications client and configure client settings remotely.
@@ -35,12 +35,12 @@ installation files and a Group Policy administrative template.
    opens a .zip file that contains the required files for the latest
    version of the tool.
 2. To extract the required files, navigate to the location where you downloaded the tool, right-click the
-   **AmazonAppStreamClient\_EnterpriseSetup\_<version>**
-   folder, and choose **Extract All**. The folder contains
+   **AmazonWorkSpacesApplicationsClient\_EnterpriseSetup\_<version>.zip**
+   file, and choose **Extract All**. The .zip file contains
    two installation programs and a Group Policy administrative
    template:
 
-   - WorkSpaces Applications client installer (AmazonAppStreamClientSetup\_<version>.msi) — Installs the
+   - WorkSpaces Applications client installer (AmazonWorkSpacesApplicationsClientSetup\_<version>.msi) — Installs the
      WorkSpaces Applications client.
    - WorkSpaces Applications USB driver installer (AmazonAppStreamUsbDriverSetup\_<version>.exe) — Installs the WorkSpaces Applications USB driver that is required to use USB devices with applications streamed through WorkSpaces Applications.
    - WorkSpaces Applications client Group Policy administrative template (as2\_client\_config.adm) — Lets you configure the WorkSpaces Applications client through Group Policy.
@@ -48,7 +48,7 @@ installation files and a Group Policy administrative template.
 ## Install the WorkSpaces Applications Client and USB Driver
 
 After you download the WorkSpaces Applications client installation files, run the following
-PowerShell script on users' computers to install the WorkSpaces Applications client installation file, AppStreamClient.exe, and the USB
+PowerShell script on your users' computers to install the WorkSpaces Applications client and the USB
 driver silently.
 
 ###### Note
@@ -57,23 +57,17 @@ To run this script, you must be logged in to the applicable computer with Admini
 permissions. You can also run the script remotely under the System account
 on startup.
 
-```
-Start-Process msiexec.exe -Wait -ArgumentList  '/i AmazonAppStreamClientSetup_<version>.msi /quiet'
-
-Start-Process AmazonAppStreamUsbDriverSetup_<version>.exe -Wait -ArgumentList  '/quiet'
-```
-
-After you install the Enterprise Deployment Tool on a user's computer, the WorkSpaces Applications client is installed as follows:
-
-1. The WorkSpaces Applications client installation file is copied to the following path on the user's computer: C:\Program Files (x86)\Amazon WorkSpaces Applications Client Installer\AppStreamClient.exe.
-2. The first time the user logs on to their computer after the Enterprise Deployment Tool is installed, the WorkSpaces Applications client is installed.
-
 ###### Note
 
-If the Enterprise Deployment Tool detects that the WorkSpaces Applications Client folder, **AppStreamClient**, already exists in **%localappdata%**, the tool does not install the client.
+The WorkSpaces Applications client requires a 64-bit (x64) version of Windows.
 
-If a user uninstalls the WorkSpaces Applications client, the client isn’t installed again until you
-update the WorkSpaces Applications Enterprise Deployment Tool.
+```
+Start-Process msiexec.exe -Wait -ArgumentList '/i AmazonWorkSpacesApplicationsClientSetup_<version>.msi ALLUSERS=1 /quiet'
+
+Start-Process AmazonAppStreamUsbDriverSetup_<version>.exe -Wait -ArgumentList '/quiet'
+```
+
+After installation completes, the installer places the WorkSpaces Applications client in the following location on your users' computers: `C:\Program Files\Amazon Web Services, Inc\Amazon WorkSpaces Applications\`. The installer automatically registers and starts the auto-update service.
 
 ## Accessing WorkSpaces Applications with the WorkSpaces Applications Client
 
@@ -225,7 +219,7 @@ Keep in mind the following requirements and considerations for creating a DNS TX
 
 ## Disable DNS TXT Record Lookup for Trusted Domains
 
-By default, when users launch the WorkSpaces Applications and specify a URL that is not an WorkSpaces Applications domain, the client performs a DNS TXT record lookup. The lookup is performed on the second-level domain of the URL so that the client can determine whether the domain is included in the `AS2TrustedDomains` list. This behavior lets users connect to domains that are not specified in the `StartURL` or `TrustedDomains` registry keys, or WorkSpaces Applications domains.
+By default, when users launch the WorkSpaces Applications client and specify a URL that is not an WorkSpaces Applications domain, the client performs a DNS TXT record lookup. The lookup is performed on the second-level domain of the URL so that the client can determine whether the domain is included in the `AS2TrustedDomains` list. This behavior lets users connect to domains that are not specified in the `StartURL` or `TrustedDomains` registry keys, or WorkSpaces Applications domains.
 
 You can disable this behavior by setting the value for the
 `DnsTxtRecordQueryDisabled` registry key to `true`.
@@ -367,7 +361,7 @@ New-ItemProperty -Path $registryPath -Name "PrinterRedirectionDisabled" -Value "
 By default, smart card redirection is enabled for the WorkSpaces Applications client. When this feature is enabled, users can use smart card readers that are connected to their local computers and their smart cards during WorkSpaces Applications streaming sessions without USB redirection. During WorkSpaces Applications streaming sessions, users' smart card readers and smart cards remain accessible for use with local applications. The client redirects the smart card API calls from users’ streaming applications to their local smart card. You can disable smart card redirection by setting the value for the `SmartCardRedirectionDisabled` registry key to `true`. You can create this HKLM registry key when you install the WorkSpaces Applications client.
 
 If the value is set to `true`, your users can't use their smart
-card readers and smart cards during an WorkSpaces Applications streaming session without USB
+card readers and smart cards during a WorkSpaces Applications streaming session without USB
 redirection. In this case, users can't sign in to their streaming applications
 by using a smart card that is connected to their local computer unless you [qualify the device](qualify-usb-devices.md "qualify-usb-devices.md"). After you qualify
 the device, users must [share the
@@ -399,7 +393,7 @@ The WorkSpaces Applications client uses registry keys to configure the following
 - WorkSpaces Applications client End-User License Agreement (EULA) acceptance
 - WorkSpaces Applications client EULA version accepted
 - Automatic diagnostic log uploads for the WorkSpaces Applications client
-- Automatic updates for the USB driver that is used to pass USB drivers to WorkSpaces Applications
+- Automatic updates for the USB driver that is used to pass USB devices to WorkSpaces Applications
 - Enabling hardware rendering in the WorkSpaces Applications client
 - Setting custom folder paths for file system redirection in the WorkSpaces Applications client
 - Opening URL for your identity provider (IdP) in system default
@@ -412,16 +406,16 @@ The following table summarizes the registry values for additional client setting
 
 These values are case sensitive.
 
-| Value                                 | Registry path                           | Type   | Description                                                                                                                                                                                                                                | Data                                                                                 |
-| ------------------------------------- | --------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `EULAAccepted`                        | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to accept the WorkSpaces Applications client EULA on behalf of your users.                                                                                                                                        | `true`/`false`                                                                       |
-| `AcceptedEULAVersion`                 | `HKCU\Software\Amazon\Appstream Client` | String | The version of EULA that is accepted. If the current version of<br>the WorkSpaces Applications client EULA is different from the version of the EULA<br>that is accepted, users are prompted to accept the current<br>version of the EULA. | `1.0`                                                                                |
-| `DiagnosticInfoCollectionAllowed`     | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable WorkSpaces Applications to<br>automatically send diagnostic logs from the WorkSpaces Applications client to<br>WorkSpaces Applications (AWS).                                                           | `true`/`false`                                                                       |
-| `USBDriverOptIn`                      | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable WorkSpaces Applications to automatically update the USB driver that is used to pass USB drivers to WorkSpaces Applications.                                                                             | `true`/`false`                                                                       |
-| `HardwareRenderingEnabled`            | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable hardware<br>rendering in the WorkSpaces Applications client.                                                                                                                                            | `true`/`false`                                                                       |
-| `FileRedirectionCustomDefaultFolders` | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to include at least one folder path for file<br>system redirection. Separate multiple folder paths by using '                                                                                                               | '.<br>By default, the following folder paths are specified:<br>%USERPROFILE%\Desktop | %USERPROFILE%\Documents | %USERPROFILE%\Downloads | `Valid folder path` |
-| `OpenIdpUrlInSystemBrowser`           | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable the WorkSpaces Applications<br>client to open the IdP URL in a system default browser. This<br>feature is supported on client version 1.1.1360 and<br>later.                                            | `true`/`false`                                                                       |
-| `DataLossIndicator`                   | `HKLM\Software\Amazon\Appstream Client` | String | Set this value to SHOW\_ON\_LOSSY to include a red warning indicator when there is streaming data loss. Set this value to SHOW\_ON\_LOSSLESS to include a green healthy indicator when there is no streaming data loss.                    | `DISABLED/SHOW_ON_LOSSY/SHOW_ON_LOSSLESS`                                            |
+| Value                                 | Registry path                           | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Data                                                                                 |
+| ------------------------------------- | --------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `EULAAccepted`                        | `HKCU\Software\Amazon\AppStream Client` | String | Set this value to `true` to accept the WorkSpaces Applications client EULA on behalf of your users.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `true`/`false`                                                                       |
+| `AcceptedEULAVersion`                 | `HKCU\Software\Amazon\AppStream Client` | String | The version of EULA that is accepted. If the current version of<br>the WorkSpaces Applications client EULA is different from the version of the EULA<br>that is accepted, users are prompted to accept the current<br>version of the EULA.                                                                                                                                                                                                                                                                                                                                                                          | `1.0`                                                                                |
+| `DiagnosticInfoCollectionAllowed`     | `HKCU\Software\Amazon\AppStream Client` | String | Set this value to `true` to enable WorkSpaces Applications to<br>automatically send diagnostic logs from the WorkSpaces Applications client to<br>WorkSpaces Applications (AWS).                                                                                                                                                                                                                                                                                                                                                                                                                                    | `true`/`false`                                                                       |
+| `USBDriverOptIn`                      | `HKCU\Software\Amazon\AppStream Client` | String | Set this value to `true` to enable WorkSpaces Applications to automatically update the USB driver that is used to pass USB devices to WorkSpaces Applications.                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `true`/`false`                                                                       |
+| `HardwareRenderingEnabled`            | `HKCU\Software\Amazon\AppStream Client` | String | Set this value to `true` to enable hardware<br>rendering in the WorkSpaces Applications client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `true`/`false`                                                                       |
+| `FileRedirectionCustomDefaultFolders` | `HKCU\Software\Amazon\AppStream Client` | String | Set this value to include at least one folder path for file<br>system redirection. Separate multiple folder paths by using '                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | '.<br>By default, the following folder paths are specified:<br>%USERPROFILE%\Desktop | %USERPROFILE%\Documents | %USERPROFILE%\Downloads | `Valid folder path` |
+| `OpenIdpUrlInSystemBrowser`           | `HKLM\Software\Amazon\AppStream Client` | String | Set this value to `true` to enable the WorkSpaces Applications<br>client to open the IdP URL in a system default browser. This<br>setting applies only when the URL that the client connects to is<br>not an WorkSpaces Applications URL. In that case, you must also set the<br>`StartUrl` or `TrustedDomains`<br>registry value for your IdP domain. When the client opens the<br>IdP URL in the system default browser, the client closes.<br>After authentication completes in the browser, the streaming<br>session opens the client again. This feature is supported on<br>client version 1.1.1360 and later. | `true`/`false`                                                                       |
+| `DataLossIndicator`                   | `HKLM\Software\Amazon\AppStream Client` | String | Set this value to SHOW\_ON\_LOSSY to include a red warning indicator when there is streaming data loss. Set this value to SHOW\_ON\_LOSSLESS to include a green healthy indicator when there is no streaming data loss.                                                                                                                                                                                                                                                                                                                                                                                             | `DISABLED/SHOW_ON_LOSSY/SHOW_ON_LOSSLESS`                                            |
 
 After the WorkSpaces Applications client is installed, you can run the following PowerShell script to
 create these registry keys. If you don’t want to create all of the registry keys,
@@ -442,12 +436,12 @@ New-ItemProperty -Path $registryPath -Name "DiagnosticInfoCollectionAllowed" -Va
 New-ItemProperty -Path $registryPath -Name "USBDriverOptIn" -Value "true" -PropertyType String -Force | Out-Null
 New-ItemProperty -Path $registryPath -Name "HardwareRenderingEnabled" -Value "true" -PropertyType String -Force | Out-Null
 New-ItemProperty -Path $registryPath -Name "FileRedirectionCustomDefaultFolders" -Value "%USERPROFILE%\Desktop|%USERPROFILE%\Documents|%USERPROFILE%\Downloads" -PropertyType String -Force | Out-Null
-New-ItemProperty -Path $registryPath -Name "OpenIdpUrlInSystemBrowser" -Value "true" -PropertyType String -Force | Out-Null
 ```
 
-To set the `DataLossIndicator` registry value, run the following
-PowerShell script. This value is stored in the HKLM registry path and requires
-Administrator permissions.
+To set the `OpenIdpUrlInSystemBrowser` and
+`DataLossIndicator` registry values, run the following PowerShell script.
+These values are stored in the HKLM registry path and require Administrator
+permissions.
 
 ###### Note
 
@@ -459,6 +453,7 @@ account on startup.
 $registryPath="HKLM:\Software\Amazon\AppStream Client"
 New-Item -Path "HKLM:\Software\Amazon" -Name "AppStream Client" -Force
 
+New-ItemProperty -Path $registryPath -Name "OpenIdpUrlInSystemBrowser" -Value "true" -PropertyType String -Force | Out-Null
 New-ItemProperty -Path $registryPath -Name "DataLossIndicator" -Value "SHOW_ON_LOSSY" -PropertyType String -Force | Out-Null
 ```
 

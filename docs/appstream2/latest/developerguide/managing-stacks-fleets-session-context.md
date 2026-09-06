@@ -3,7 +3,7 @@
 You can pass parameters to your streaming application by using either of the following
 methods:
 
-- Specify session content in the CreateStreamingURL WorkSpaces Applications API operation. For
+- Specify session context in the CreateStreamingURL WorkSpaces Applications API operation. For
   more information, see [CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md").
 - Add the sts:TagSession permission to your IAM role's trust policy and specify
   the session context as a SAML assertion in your SAML 2.0 identity provider's

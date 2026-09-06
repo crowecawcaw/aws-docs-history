@@ -116,7 +116,7 @@ The following instance types are available for BYOL Amazon WorkSpaces Applicatio
 - **Standard:** stream.standard.medium, stream.standard.large, stream.standard.xlarge, stream.standard.2xlarge
 - **Compute-optimized:** stream.compute.large, stream.compute.xlarge, stream.compute.2xlarge, stream.compute.4xlarge, stream.compute.8xlarge
 - **Memory-optimized:** stream.memory.large, stream.memory.xlarge, stream.memory.2xlarge, stream.memory.4xlarge, stream.memory.8xlarge
-- **Graphics (requires separate approval):** stream.graphics.g6 families
+- **Graphics (requires separate approval):** stream.graphics.g6 and stream.graphics.g7 families
 
 ## Region availability
 

@@ -119,7 +119,7 @@ device, and the WorkSpaces Applications streaming instance.
 You can disable smart card redirection during client installation
 on managed devices. For more information, see [Choose Whether to Disable Smart Card Redirection](install-client-configure-settings.md#disable-local-smart-card-support-client "install-client-configure-settings.md#disable-local-smart-card-support-client"). If
 you disable smart card redirection, your users can't use their smart
-card reader and smart card during an WorkSpaces Applications streaming session
+card reader and smart card during a WorkSpaces Applications streaming session
 without USB redirection. In this case, you must [qualify the device](qualify-usb-devices.md "qualify-usb-devices.md"). After
 you qualify the device, users must [share the device with WorkSpaces Applications](client-application-windows-how-to-share-usb-devices-user.md "client-application-windows-how-to-share-usb-devices-user.md"). When smart card
 redirection is disabled, during users' WorkSpaces Applications streaming sessions,

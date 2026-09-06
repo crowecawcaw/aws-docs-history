@@ -91,6 +91,6 @@ the software must not interfere with the following folders:
 
 WorkSpaces Applications will create new unique instances each time a user connects beyond
 the idle and disconnect timeouts. The instances will have a unique name and will build up in
-endpoint security management condoles. Setting unused aged machines over 4 or more days old
+endpoint security management consoles. Setting unused aged machines over 4 or more days old
 (or lower depending on WorkSpaces Applications session timeouts) to be deleted will minimize the
 number of expired instances in the console.

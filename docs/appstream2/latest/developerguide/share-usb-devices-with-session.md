@@ -7,5 +7,5 @@ detected by WorkSpaces Applications and cannot be shared with the session. For m
 
 ###### Note
 
-Sharing a USB device with an WorkSpaces Applications streaming session is not supported on the
+Sharing a USB device with a WorkSpaces Applications streaming session is not supported on the
 macOS client.

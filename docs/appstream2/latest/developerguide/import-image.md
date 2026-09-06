@@ -73,7 +73,7 @@ Library Support
 - Ports: Ports 8000, 8300, and 8443 must be unblocked and unoccupied
 - Boot Mode: UEFI
 
-If you want to use image with graphics instances such as Accelerated.g4dn, Accelerated.g5, Accelerated.G6, or Accelerated.G6e you must install proper GRID driver on your AMI. For more details please refer to [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvidia-GRID-driver.html](../../../AWSEC2/latest/UserGuide/nvidia-GRID-driver.md "../../../AWSEC2/latest/UserGuide/nvidia-GRID-driver.md"). If the drivers are not setup correctly the streaming will work, however, graphics card may not be available.
+If you want to use image with graphics instances such as Accelerated.g4dn, Accelerated.g5, Accelerated.g6, Accelerated.g6e, or Accelerated.g7 you must install proper GRID driver on your AMI. For more details please refer to [Install NVIDIA GRID drivers](../../../AWSEC2/latest/UserGuide/nvidia-GRID-driver.md "../../../AWSEC2/latest/UserGuide/nvidia-GRID-driver.md"). If the drivers are not setup correctly the streaming will work, however, graphics card may not be available.
 
 ###### Important
 

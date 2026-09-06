@@ -128,7 +128,7 @@ The following is the example script that uses system context.
 
 ```
 # Define the target application path
-$targetPathes = "<SMB-PATH>"
+$targetPaths = "<SMB-PATH>"
 
 # Define the shortcut location
 $symlinkLocation = "C:\Users\$Env:AppStream_Session_UserName\My Files\Custom Folder"
@@ -138,13 +138,13 @@ New-Item -ItemType SymbolicLink -Path $symlinkLocation -Target $targetPaths
 ```
 
 1. Mount SMB shared folders by creating a symbolic fink to a file or folder. For more
-   information, see [Example 7: Create a symbolic link to a file or folder](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell. management/new-item?view=powershell-7.4#example-7-create-a-symbolic-link-to-a-file-or-folder "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell. management/new-item?view=powershell-7.4#example-7-create-a-symbolic-link-to-a-file-or-folder")
-2. [Assign user logon scripts.](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server- 2012-r2-and-2012/dn789196(v=ws.11)#how-to-assign-user-logon-scripts "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server- 2012-r2-and-2012/dn789196(v=ws.11)#how-to-assign-user-logon-scripts")
+   information, see [Example 7: Create a symbolic link to a file or folder](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.4#example-7-create-a-symbolic-link-to-a-file-or-folder "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.4#example-7-create-a-symbolic-link-to-a-file-or-folder")
+2. [Assign user logon scripts.](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn789196(v=ws.11)#how-to-assign-user-logon-scripts> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn789196(v=ws.11)#how-to-assign-user-logon-scripts")
 3. Add the following script to create a junction for Custom Home Folders, under My Files.
 
 ```
 # Define the target application path
-$targetPathes = "<SMB-PATH>"
+$targetPaths = "<SMB-PATH>"
 
 # Define the shortcut location
 $symlinkLocation = "C:\Users\$env:Username\My Files\Custom Folder"
