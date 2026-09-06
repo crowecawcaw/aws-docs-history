@@ -65,7 +65,7 @@ in which the Recovery instances are deployed. AWS Elastic Disaster Recovery must
 selected Region and initiated in your account. You must initialize Elastic Disaster Recovery for this
 action to work.
 
-###### Important
+###### Note
 
 Ensure that you review the costs associated with AWS Elastic Disaster Recovery in the [service pricing
 documentation](https://aws.amazon.com/disaster-recovery/pricing/ "https://aws.amazon.com/disaster-recovery/pricing/").

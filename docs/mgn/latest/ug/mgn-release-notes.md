@@ -4,6 +4,11 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## August 2026
 
+- Amazon FSx for NetApp ONTAP support as a target storage type is now generally available.
+  You can migrate block storage workloads directly to FSx for ONTAP as part of the
+  same migration wave, without intermediate storage or separate migration tools.
+  For setup instructions, see
+  [FSx for ONTAP configuration](fsx-ontap.md "fsx-ontap.md").
 - Added support for the following operating systems:
 
   - Amazon Linux 2023 with kernel 6.18
@@ -15,7 +20,22 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 - The user-provided ID for a source server is now case insensitive. For more
   information, see [Edit server](add-server-server-page.md#server-edit-main "add-server-server-page.md#server-edit-main").
 - Resolved an issue that caused the MS-SQL license conversion post-launch
-  action to fail for SQL Server named instances.
+  action to fail for SQL Server named instances. For more information, see
+  [Convert MS-SQL
+  license](predefined-post-launch-actions.md#predefined-windows-ms-sql-conversion "predefined-post-launch-actions.md#predefined-windows-ms-sql-conversion").
+- The inventory import and export feature now supports additional parameters,
+  including replication settings, launch settings, and post-launch actions settings.
+  This expands the range of server settings you can update in bulk across your
+  inventory. For the full list of supported parameters, see
+  [Inventory Import parameters](import-parameters.md "import-parameters.md").
+- MGN connector setup has been simplified. The MGN console can now automatically
+  create the required IAM roles for the connector, in an individual account or across
+  all member accounts of your AWS Organization. The
+  **MGNConnectorInstallerRole** is no longer required; its
+  permissions are now included in the
+  **AWSApplicationMigrationConnectorManagementRole**. For
+  more information, see
+  [Set up the MGN Connector](mgn-connector-setup-instructions.md "mgn-connector-setup-instructions.md").
 
 ## July 2026
 
@@ -101,7 +121,7 @@ Added support for the following operating systems:
 
 ## September 2025
 
-- Specify your operating system licensing approach (BYOL / LI) and tenancy when importing inventory. Learn more in [Import parameters](import-main.md#import-parameters "import-main.md#import-parameters").
+- Specify your operating system licensing approach (BYOL / LI) and tenancy when importing inventory. Learn more in [Inventory Import parameters](import-parameters.md "import-parameters.md").
 - Added support for Windows Server 2025 operating system.
 
 ## August 2025
@@ -390,7 +410,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 
 - Service launch in the following regions: Europe (Paris), Europe (Milan), Middle East (Bahrain),
   and Africa (Cape Town).
-- Application Migration Service now supports an additional replication method that does not
+- MGN now supports an additional replication method that does not
   require agent installation on each source server. This option is available for source servers
   running on VMware vCenter versions 6.7 and 7.0. [Learn more about
   agentless replication](agentless-mgn.md "agentless-mgn.md").

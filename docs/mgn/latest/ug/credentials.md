@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 In order to install the AWS Replication Agent, you must first generate the required
 AWS credentials.
 
-###### Important
+###### Note
 
 Temporary credentials have many advantages. You don't need to rotate them or revoke them
 when they're no longer needed, and they cannot be reused after they expire. You can specify

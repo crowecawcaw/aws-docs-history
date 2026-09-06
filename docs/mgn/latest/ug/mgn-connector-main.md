@@ -11,13 +11,12 @@ The **MGN Connectors** page displays the list of MGN connectors, and supports ad
 
 The **MGN Connectors** page provides information for each MGN connector, including:
 
-- **MGN Connector name** - The unique name for each MGN connector. Additional details of the MGN connector are available in the MGN details page. Choose the MGN connector name, to view its details.
+- **MGN Connector name** - The unique name for each MGN connector. Additional details of the MGN connector are available in the MGN details page. Click the MGN connector name, to view its details.
 - **Registered servers** - The number of registered source servers managed by this MGN connector.
 - **Last seen** - The last time AWS Transform MGN communicated with the MGN connector.
 
 ###### Topics
 
-- [Add MGN connector](add-connector.md "add-connector.md")
 - [Edit connector](edit-connector.md "edit-connector.md")
 - [Delete MGN connector](delete-connector.md "delete-connector.md")
 - [Register server credentials](connector-register-server-credentials.md "connector-register-server-credentials.md")

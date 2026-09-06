@@ -14,7 +14,7 @@ If you are using the
 [Global view](global-view.md "global-view.md")
 feature, which provides cross-account view and operations, you will have at least one staging VPC per member account.
 
-You will also need to designate a VPC in the management account to allow the MGN connector to communicate
+You will also need to designate a VPC in the management account in order to allow the MGN connector to communicate
 with AWS services via PrivateLink. If you are migrating some of your source servers into the management account,
 you can use the same VPC as a staging VPC.
 
@@ -76,7 +76,7 @@ Create the following interface endpoints:
 ```
 
 For more information, see
-[Creating an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint")
+[Creating an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html")
 in the _Amazon VPC User Guide_.
 
 ## Create a Route 53 inbound endpoint
@@ -102,7 +102,7 @@ in the _Amazon Route 53 User Guide_.
 
 ## Modify replication settings
 
-To allow the AWS Replication Agent to communicate with the replication server without using the public internet,
+In order to allow the AWS Replication Agent to communicate with the replication server without using the public internet,
 you must use Private IP for data replication. The replication server requires access to the EC2 service. Therefore:
 
 - If your staging area VPC has a VPC endpoint for
@@ -122,4 +122,4 @@ Ensure that the security groups associated with the MGN VPC endpoint allow inbou
 ## Verify VPC endpoints are being used
 
 Use CloudTrail to verify that calls to AWS services from the MGN connector and its associated source servers,
-are made via the **vpcEndpointId** values of the VPC endpoints you have created.
+are made via the **vpcEndpointId**s of the VPC endpoints you have created.

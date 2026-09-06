@@ -16,7 +16,7 @@ configurations.
 
 ###### Topics
 
+- [Editing your configuration](configuration-editing.md "configuration-editing.md")
 - [Importing your data inventory](import-main.md "import-main.md")
 - [Exporting your data inventory](export-main.md "export-main.md")
-- [Editing your configuration](configuration-editing.md "configuration-editing.md")
 - [View export history](export-history.md "export-history.md")

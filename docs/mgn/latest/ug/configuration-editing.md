@@ -19,6 +19,8 @@ When processing the inventory file import, values provided in the file overwrite
 _Cells that are empty are ignored_. This allows you, when editing the file, to include values only
 in the inventory columns that you want to overwrite.
 
+## Deleting values from the inventory file
+
 To delete a value replace the existing
 value with the string `[RESET_VALUE]` and then save and upload the file. This
 clears the value in the MGN resource or the Amazon EC2 launch template.
@@ -32,8 +34,11 @@ Using `[RESET_VALUE]` is available for these parameters:
 - mgn:launch:nic:0:subnet-id
 - mgn:launch:tag:instance:key1
 - mgn:launch:volume:/dev/sda:type
-  You can also delete tag fields. To delete the tag value replace the existing value with the string `[RESET_VALUE]`.
-  To delete both the key and the value replace the existing value with the string `[DELETE_TAG]`.
+
+## Deleting tags from the inventory file
+
+You can also delete tag fields. To delete the tag value replace the existing value with the string `[RESET_VALUE]`.
+To delete both the key and the value replace the existing value with the string `[DELETE_TAG]`.
 
 ###### Note
 

@@ -53,3 +53,7 @@ This diagram illustrates the high level interaction between the different
 agentless replication system components:
 
 ![Architecture showing data flow from corporate data center through MGN Connector to staging area and migrated resources in AWS.](images/agentless-architecture.png)
+
+## Prerequisites
+
+1. Ensure that you have initialized AWS Transform MGN before installing the MGN vCenter Client.

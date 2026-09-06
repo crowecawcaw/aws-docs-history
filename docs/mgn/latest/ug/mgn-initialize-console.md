@@ -17,7 +17,7 @@ During the initialization process:
 Once you create the replication template, the initialization process takes place
 automatically.
 
-###### Important
+###### Note
 
 The AWS Transform MGN can only be initialized by the IAM user with the "AdministratorAccess"
 managed policy attached in your AWS account.
@@ -74,7 +74,7 @@ following predefined managed IAM policies:
 
 You can find all of these policies in the [IAM Console](https://console.aws.amazon.com/iam/home?region=us-east-1 "https://console.aws.amazon.com/iam/home?region=us-east-1").
 
-###### Important
+###### Note
 
 You must attach the AWSApplicationMigrationFullAccess and the
 AWSApplicationMigrationEC2Access policies to your users and roles to be able to launch

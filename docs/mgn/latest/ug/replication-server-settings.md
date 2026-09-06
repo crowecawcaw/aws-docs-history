@@ -142,29 +142,28 @@ available only when the staging area subnet is in a supported Local Zone. For
 more information about local snapshots in Local Zones, see [Local snapshots in Local Zones](../../../ebs/latest/userguide/snapshots-localzones.md "../../../ebs/latest/userguide/snapshots-localzones.md") in the Amazon EBS User
 Guide.
 
-## Always use Application Migration Service security group
+## Always use AWS Transform MGN security group
 
 Choose whether you would like to **Always use the
-Application Migration Service security group**.
+AWS Transform MGN security group**.
 
 A security group acts as a virtual firewall, which controls the inbound and
 outbound traffic of the staging area subnet.
 
 The best practice is to have AWS Transform MGN automatically attach and monitor the
-default Application Migration Service Security Group. This group opens inbound
+default AWS Transform MGN security group. This group opens inbound
 TCP Port 1500 for receiving the transferred replicated data. When the default
-Application Migration Service Security Group is activated, MGN will constantly
+AWS Transform MGN security group is activated, MGN will constantly
 monitor whether the rules within this security group are enforced, in order to
 maintain uninterrupted data replication. If these rules are altered, MGN will
 automatically fix the issue.
 
-Select the **Always use Application Migration Service
-security group** option to allow data to flow from your source
-servers to the replication servers, and that the replication servers can
+Select the **Always use AWS Transform MGN
+security group** check box to allow data to flow from your source
+servers to the replication servers, and to allow the replication servers to
 communicate their state to the AWS Transform MGN servers.
 
-Otherwise, select the **Do not use Application Migration
-Service security group option**. Selecting this option is not
+To opt out, clear the check box. Clearing the check box is not
 recommended.
 
 Additional security groups can be chosen from the Additional security groups
@@ -177,9 +176,9 @@ You can add security groups via the AWS Management Console, and they will appear
 security group drop-down list in the AWS Transform MGN Console. Learn more about AWS
 security groups in [this VPC article](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md").
 
-You can use the default Application Migration Service security group, or you
+You can use the default AWS Transform MGN security group, or you
 can select another security group. However, take into consideration that any
-selected security group that is not the Application Migration Service default,
+selected security group that is not the AWS Transform MGN default,
 will be added to the default group, since the default security group is
 essential for the operation of MGN.
 

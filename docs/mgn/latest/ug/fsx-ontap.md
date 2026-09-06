@@ -4,10 +4,6 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## Overview
 
-###### Note
-
-This feature is available as a **Public Preview**.
-
 This page provides step-by-step instructions for configuring Amazon FSx for NetApp ONTAP
 (FSx for ONTAP) as a storage migration target for AWS Transform MGN (MGN) when migrating to AWS. With
 this setup, you can use the enterprise file storage capabilities of FSx for ONTAP for your
@@ -29,7 +25,7 @@ Do not rename or modify MGN-managed FSx for ONTAP resources (LUNs, igroups, snap
 Changes to these resources disrupt migration and require restarting the migration from
 the beginning.
 
-### Known limitations (Public Preview)
+### Known limitations
 
 - **FSx for ONTAP backups can block volume cleanup**.
   FSx for ONTAP file systems have automatic backups enabled by default. Backups taken on
@@ -242,7 +238,7 @@ will launch target instances.
   capacity if needed. As a guideline, provision 3x the size of the planned migration
   data. The 3x factor accounts for three concurrent storage consumers during migration: the
   replicated data, the converted volumes used for launch, and the original volumes pending
-  deletion. Volume deletion in FSx for ONTAP is a background operation — freed capacity is not
+  deletion. Volume deletion in FSx for ONTAP is a background operation, so freed capacity is not
   available immediately after deletion, so headroom must be provisioned upfront. As a best
   practice, keep the file system at or below 80% SSD capacity utilization throughout the
   migration. For second-generation file systems
