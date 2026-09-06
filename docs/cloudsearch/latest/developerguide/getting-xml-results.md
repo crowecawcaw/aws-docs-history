@@ -1,14 +1,15 @@
+
+
 # Getting Results as XML in Amazon CloudSearch
+<a name="getting-xml-results"></a>
 
-By default, Amazon CloudSearch search responses are formatted in JSON. To get results as XML,
-specify the query parameter `format=xml` in your search request:
+By default, Amazon CloudSearch search responses are formatted in JSON. To get results as XML, specify the query parameter `format=xml` in your search request:
 
 ```
-search?q=star wars&return=_no_fields&**format=xml**
+search?q=star wars&return=_no_fields&format=xml
 ```
 
-Search responses formatted in XML contain exactly the same information as a JSON
-response:
+Search responses formatted in XML contain exactly the same information as a JSON response: 
 
 ```
 <results>
@@ -27,5 +28,4 @@ response:
 </results>
 ```
 
-For detailed information about the JSON and XML response formats for search requests,
-see [Search Response](search-api.md#search-response "search-api.md#search-response").
+For detailed information about the JSON and XML response formats for search requests, see [Search Response](search-api.md#search-response).
