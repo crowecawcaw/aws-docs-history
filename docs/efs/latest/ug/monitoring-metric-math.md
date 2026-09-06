@@ -1,171 +1,154 @@
-# Using metric math with CloudWatch metrics
 
-Using metric math, you can query multiple Amazon CloudWatch metrics and use math expressions to
-create new time series based on these metrics. You can visualize the resulting time series
-in the CloudWatch console and add them to dashboards. For example, you can use Amazon EFS metrics to
-take the sample count of `DataRead` operations divided by 60. The result is the
-average number of reads per second on your file system for a given 1-minute period. For more
-information on metric math, see [Using math expressions
-with CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md "../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md") in the _Amazon CloudWatch User Guide._
+
+# Using metric math with CloudWatch metrics
+<a name="monitoring-metric-math"></a>
+
+Using metric math, you can query multiple Amazon CloudWatch metrics and use math expressions to create new time series based on these metrics. You can visualize the resulting time series in the CloudWatch console and add them to dashboards. For example, you can use Amazon EFS metrics to take the sample count of `DataRead` operations divided by 60. The result is the average number of reads per second on your file system for a given 1-minute period. For more information on metric math, see [Using math expressions with CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html) in the * Amazon CloudWatch User Guide.*
 
 Following, find some useful metric math expressions for Amazon EFS.
 
-###### Topics
-
-- [Metric math: Throughput in MiBps](#metric-math-throughput-mib "#metric-math-throughput-mib")
-- [Metric math: Percent throughput](#metric-math-throughput-percent "#metric-math-throughput-percent")
-- [Metric math: Percentage of permitted throughput utilization](#metric-math-throughput-utilization "#metric-math-throughput-utilization")
-- [Metric math: Throughput IOPS](#metric-math-throughput-iops "#metric-math-throughput-iops")
-- [Metric math: Percentage of IOPS](#metric-math-iops-percent "#metric-math-iops-percent")
-- [Metric math: Average I/O size in KiB](#metric-math-average-io "#metric-math-average-io")
-- [Using metric math through an CloudFormation template for Amazon EFS](#metric-math-cloudformation-template "#metric-math-cloudformation-template")
+**Topics**
++ [Metric math: Throughput in MiBps](#metric-math-throughput-mib)
++ [Metric math: Percent throughput](#metric-math-throughput-percent)
++ [Metric math: Percentage of permitted throughput utilization](#metric-math-throughput-utilization)
++ [Metric math: Throughput IOPS](#metric-math-throughput-iops)
++ [Metric math: Percentage of IOPS](#metric-math-iops-percent)
++ [Metric math: Average I/O size in KiB](#metric-math-average-io)
++ [Using metric math through an CloudFormation template for Amazon EFS](#metric-math-cloudformation-template)
 
 ## Metric math: Throughput in MiBps
+<a name="metric-math-throughput-mib"></a>
 
-To calculate the average throughput (in MiBps) for a time period, first choose a sum
-statistic (`DataReadIOBytes`, `DataWriteIOBytes`,
-`MetadataIOBytes`, or `TotalIOBytes`). Then convert the value to
-MiB, and divide that by the number of seconds in the period.
+To calculate the average throughput (in MiBps) for a time period, first choose a sum statistic (`DataReadIOBytes`, `DataWriteIOBytes`, `MetadataIOBytes`, or `TotalIOBytes`). Then convert the value to MiB, and divide that by the number of seconds in the period.
 
-Suppose that your example logic is this: (sum of `TotalIOBytes` ÷ 1,048,576
-(to convert to MiB)) ÷ seconds in the period
+Suppose that your example logic is this: (sum of `TotalIOBytes` ÷ 1,048,576 (to convert to MiB)) ÷ seconds in the period
 
 Then your CloudWatch metric information is the following.
 
-| ID  | Usable metrics                                                                         | Statistic | Period   |
-| --- | -------------------------------------------------------------------------------------- | --------- | -------- |
-| m1  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes`<br>• `TotalIOBytes` | sum       | 1 minute |
+
+| ID | Usable metrics | Statistic | Period | 
+| --- | --- | --- | --- | 
+| m1 |  +  `DataReadIOBytes` <br />+  `DataWriteIOBytes` <br />+  `MetadataIOBytes` <br />+  `TotalIOBytes`   | sum | 1 minute | 
 
 Your metric math ID and expression are the following.
 
-| ID  | Expression                |
-| --- | ------------------------- |
-| e1  | `(m1/1048576)/PERIOD(m1)` |
+
+| ID | Expression | 
+| --- | --- | 
+| e1 | (m1/1048576)/PERIOD(m1) | 
 
 ## Metric math: Percent throughput
+<a name="metric-math-throughput-percent"></a>
 
-This metric math expression calculates the percent of overall throughput used for the
-different I/O types—for example, the percentage of total throughput that is driven
-by read requests. To calculate the percent of overall throughput used by one of the I/O
-types (`DataReadIOBytes`, `DataWriteIOBytes`,
-or `MetadataIOBytes`) for a time period, first multiply the respective
-sum statistic by 100. Then divide the result by the sum statistic of
-`TotalIOBytes` for the same period.
+This metric math expression calculates the percent of overall throughput used for the different I/O types—for example, the percentage of total throughput that is driven by read requests. To calculate the percent of overall throughput used by one of the I/O types (`DataReadIOBytes`, `DataWriteIOBytes`, or `MetadataIOBytes`) for a time period, first multiply the respective sum statistic by 100. Then divide the result by the sum statistic of `TotalIOBytes` for the same period.
 
-Suppose that your example logic is this: (sum of `DataReadIOBytes` x 100
-(to convert to percentage)) ÷ sum of `TotalIOBytes`
+Suppose that your example logic is this: (sum of `DataReadIOBytes` x 100 (to convert to percentage)) ÷ sum of `TotalIOBytes`
 
 Then your CloudWatch metric information is the following.
 
-| ID  | Usable metric or metrics | Statistic | Period   |
-| --- | ------------------------ | --------- | -------- |
-| m1  | • `TotalIOBytes`         | sum       | 1 minute |
-| m2  | • `DataReadIOBytes`      | sum       | 1 minute |
+
+| ID | Usable metric or metrics | Statistic | Period | 
+| --- | --- | --- | --- | 
+| m1 | +  `TotalIOBytes`   | sum | 1 minute | 
+| m2 | +  `DataReadIOBytes`   | sum | 1 minute | 
 
 Your metric math ID and expression are the following.
 
-| ID  | Expression    |
-| --- | ------------- |
-| e1  | `(m2*100)/m1` |
+
+| ID | Expression | 
+| --- | --- | 
+| e1 | (m2\*100)/m1 | 
 
 ## Metric math: Percentage of permitted throughput utilization
+<a name="metric-math-throughput-utilization"></a>
 
-To calculate the percentage of permitted throughput utilization
-(`MeteredIOBytes`) for a time period, first multiply the throughput in MiBps
-by 100. Then divide the result by the a average statistic of
-`PermittedThroughput` converted to MiB for the same period.
+To calculate the percentage of permitted throughput utilization (`MeteredIOBytes`) for a time period, first multiply the throughput in MiBps by 100. Then divide the result by the a average statistic of `PermittedThroughput` converted to MiB for the same period.
 
-Suppose that your example logic is this: (metric math expression for throughput in
-MiBps x 100 (to convert to percentage)) ÷ (sum of `PermittedThroughput` ÷
-1,048,576 (to convert bytes to MiB))
+Suppose that your example logic is this: (metric math expression for throughput in MiBps x 100 (to convert to percentage)) ÷ (sum of `PermittedThroughput` ÷ 1,048,576 (to convert bytes to MiB))
 
 Then your CloudWatch metric information is the following.
 
-| ID  | Usable metric or metrics | Statistic | Period   |
-| --- | ------------------------ | --------- | -------- |
-| m1  | `MeteredIOBytes`         | sum       | 1 minute |
-| m2  | `PermittedThroughput`    | average   | 1 minute |
+
+| ID | Usable metric or metrics | Statistic | Period | 
+| --- | --- | --- | --- | 
+| m1 | `MeteredIOBytes` | sum | 1 minute | 
+| m2 | `PermittedThroughput` | average | 1 minute | 
 
 Your metric math ID and expression are the following.
 
-| ID  | Expression              |
-| --- | ----------------------- |
-| e1  | (m1/1048576)/PERIOD(m1) |
-| e2  | m2/1048576              |
-| e3  | `((e1)*100)/(e2)`       |
+
+| ID | Expression | 
+| --- | --- | 
+| e1 |  (m1/1048576)/PERIOD(m1) | 
+| e2 | m2/1048576 | 
+| e3 | ((e1)\*100)/(e2) | 
 
 ## Metric math: Throughput IOPS
+<a name="metric-math-throughput-iops"></a>
 
-To calculate the average operations per second (IOPS) for a time period, divide the
-sample count statistic (`DataReadIOBytes`, `DataWriteIOBytes`,
-`MetadataIOBytes`, or `TotalIOBytes`) by the number of seconds in
-the period.
+To calculate the average operations per second (IOPS) for a time period, divide the sample count statistic (`DataReadIOBytes`, `DataWriteIOBytes`, `MetadataIOBytes`, or `TotalIOBytes`) by the number of seconds in the period.
 
-Suppose that your example logic is this: sample count of `DataWriteIOBytes`
-÷ seconds in the period
+Suppose that your example logic is this: sample count of `DataWriteIOBytes` ÷ seconds in the period
 
 Then your CloudWatch metric information is the following.
 
-| ID  | Usable metrics                                                                         | Statistic    | Period   |
-| --- | -------------------------------------------------------------------------------------- | ------------ | -------- |
-| m1  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes`<br>• `TotalIOBytes` | sample count | 1 minute |
+
+| ID | Usable metrics | Statistic | Period | 
+| --- | --- | --- | --- | 
+| m1 | +  `DataReadIOBytes` <br />+  `DataWriteIOBytes` <br />+  `MetadataIOBytes` <br />+  `TotalIOBytes`   | sample count | 1 minute | 
 
 Your metric math ID and expression are the following.
 
-| ID  | Expression      |
-| --- | --------------- |
-| e1  | `m1/PERIOD(m1)` |
+
+| ID | Expression | 
+| --- | --- | 
+| e1 | m1/PERIOD(m1) | 
 
 ## Metric math: Percentage of IOPS
+<a name="metric-math-iops-percent"></a>
 
-To calculate the percentage of IOPS per second of the different I/O types
-(`DataReadIOBytes`, `DataWriteIOBytes`, or
-`MetadataIOBytes`) for a time period, first multiply the respective sample
-count statistic by 100. Then divide that value by the sample count statistic of
-`TotalIOBytes` for the same period.
+To calculate the percentage of IOPS per second of the different I/O types (`DataReadIOBytes`, `DataWriteIOBytes`, or `MetadataIOBytes`) for a time period, first multiply the respective sample count statistic by 100. Then divide that value by the sample count statistic of `TotalIOBytes` for the same period.
 
-Suppose that your example logic is this: (sample count of `MetadataIOBytes`
-x 100 (to convert to percentage)) ÷ sample count of `TotalIOBytes`
+Suppose that your example logic is this: (sample count of `MetadataIOBytes` x 100 (to convert to percentage)) ÷ sample count of `TotalIOBytes`
 
 Then your CloudWatch metric information is the following.
 
-| ID  | Usable metrics                                                     | Statistic    | Period   |
-| --- | ------------------------------------------------------------------ | ------------ | -------- |
-| m1  | • `TotalIOBytes`                                                   | sample count | 1 minute |
-| m2  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes` | sample count | 1 minute |
+
+| ID | Usable metrics | Statistic | Period | 
+| --- | --- | --- | --- | 
+| m1 | +  `TotalIOBytes`   | sample count | 1 minute | 
+| m2 | +  `DataReadIOBytes` <br />+  `DataWriteIOBytes` <br />+  `MetadataIOBytes`   | sample count | 1 minute | 
 
 Your metric math ID and expression are the following.
 
-| ID  | Expression   |
-| --- | ------------ |
-| e1  | (m2\*100)/m1 |
+
+| ID | Expression | 
+| --- | --- | 
+| e1 | (m2\*100)/m1 | 
 
 ## Metric math: Average I/O size in KiB
+<a name="metric-math-average-io"></a>
 
-To calculate the average I/O size (in KiB) for a period, divide the respective sum
-statistic for the `DataReadIOBytes`, `DataWriteIOBytes`, or
-`MetadataIOBytes` metric by the same sample count statistic of that
-metric.
+To calculate the average I/O size (in KiB) for a period, divide the respective sum statistic for the `DataReadIOBytes`, `DataWriteIOBytes`, or `MetadataIOBytes` metric by the same sample count statistic of that metric.
 
-Suppose that your example logic is this: (sum of `DataReadIOBytes` ÷ 1,024
-(to convert to KiB)) ÷ sample count of  `DataReadIOBytes`
+Suppose that your example logic is this: (sum of `DataReadIOBytes` ÷ 1,024 (to convert to KiB)) ÷ sample count of  `DataReadIOBytes`
 
 Then your CloudWatch metric information is the following.
 
-| ID  | Usable metrics                                                     | Statistic    | Period   |
-| --- | ------------------------------------------------------------------ | ------------ | -------- |
-| m1  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes` | sum          | 1 minute |
-| m2  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes` | sample count | 1 minute |
+
+| ID | Usable metrics | Statistic | Period | 
+| --- | --- | --- | --- | 
+| m1 | +  `DataReadIOBytes` <br />+  `DataWriteIOBytes` <br />+  `MetadataIOBytes`   | sum | 1 minute | 
+| m2 | +  `DataReadIOBytes` <br />+  `DataWriteIOBytes` <br />+  `MetadataIOBytes`   | sample count | 1 minute | 
 
 Your metric math ID and expression are the following.
 
-| ID  | Expression     |
-| --- | -------------- |
-| e1  | `(m1/1024)/m2` |
+
+| ID | Expression | 
+| --- | --- | 
+| e1 | (m1/1024)/m2 | 
 
 ## Using metric math through an CloudFormation template for Amazon EFS
+<a name="metric-math-cloudformation-template"></a>
 
-You can also create metric math expressions through CloudFormation templates. One such template
-is available for you to download and customize for use from the [Amazon EFS tutorials](https://github.com/aws-samples/amazon-efs-tutorial "https://github.com/aws-samples/amazon-efs-tutorial") on
-GitHub. For more information about using CloudFormation templates, see [Working with CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the
-_AWS CloudFormation User Guide._
+You can also create metric math expressions through CloudFormation templates. One such template is available for you to download and customize for use from the [Amazon EFS tutorials](https://github.com/aws-samples/amazon-efs-tutorial) on GitHub. For more information about using CloudFormation templates, see [Working with CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *AWS CloudFormation User Guide.*
