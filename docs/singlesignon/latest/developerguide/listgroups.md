@@ -1,82 +1,70 @@
-# ListGroups
 
-You can use the `/Groups` endpoint to filter queries on a list of existing
-groups by making a `GET` request with additional filter information. A maximum of 100 results can be returned per page. See the
-**Constraints** section for a list of available
-filters.
+
+# ListGroups
+<a name="listgroups"></a>
+
+You can use the `/Groups` endpoint to filter queries on a list of existing groups by making a `GET` request with additional filter information. A maximum of 100 results can be returned per page. See the **Constraints** section for a list of available filters.
 
 ## Not supported
+<a name="not-supported-listgroups"></a>
 
-The IAM Identity Center SCIM implementation does not support the following aspects of this API
-operation.
-
-- `GetGroup` and `ListGroups` return an empty member
-  list. To see group info for a certain member, call `ListGroups`
-  with a member filter. (See the examples that follow.)
+The IAM Identity Center SCIM implementation does not support the following aspects of this API operation.
++ `GetGroup` and `ListGroups` return an empty member list. To see group info for a certain member, call `ListGroups` with a member filter. (See the examples that follow.)
 
 ## Query Parameters
+<a name="query-parameters-listgroups"></a>
 
 ListGroups currently supports the following optional query parameters:
-
-- `cursor` used to specify which page to retrieve in paginated API calls.
-
-  - Pattern: [-a-zA-Z0-9+=/:\_]\*
-  - Response format: Including the cursor parameter changes the default response format from non-paginated (with totalResults, startIndex, and itemsPerPage fields) to cursor-based paginated results (with itemsPerPage and nextCursor fields)
-
-- `count` used to specify the maximum number of results per page
-
-  - Valid Range: Minimum value of 1. Maximum value of 100.
-  - Default: 100
-
-- `filter` used to filter out specific groups
++ `cursor` used to specify which page to retrieve in paginated API calls.
+  + Pattern: [-a-zA-Z0-9\+=/:\_]\*
+  + Response format: Including the cursor parameter changes the default response format from non-paginated (with totalResults, startIndex, and itemsPerPage fields) to cursor-based paginated results (with itemsPerPage and nextCursor fields)
++ `count` used to specify the maximum number of results per page
+  + Valid Range: Minimum value of 1. Maximum value of 100.
+  + Default: 100
++ `filter` used to filter out specific groups
 
 ## Constraints
+<a name="constraints-listgroups"></a>
 
-The IAM Identity Center SCIM implementation has the following constraints for this API
-operation.
-
-- The `ListGroups` API is capable of returning up to a maximum of 100 results per page.
-- Supported filter combinations: (`displayName`), (`externalId`), (`members.value`),
-  (`id` and `member`), and (`member` and
-  `id`). Note that the use of id as an individual filter, while
-  valid, should be avoided as there is already a getGroup endpoint
-  available.
-- Pagination requests must include `cursor` in the query parameters
-
-  - The first request made with cursor must be empty (eg. https://.../Groups?cursor)
-  - If the response includes a nextCursor field, its value can be used as the cursor value to retrieve the next page of results
-
-- Paginated calls may return less results than count but as long as nextCursor is present in the response, additional pages are available.
-- Supported comparison operator in filters: `eq`
-- Filter must be specified as: `<filterAttribute> eq
- "<filterValue>"`
+The IAM Identity Center SCIM implementation has the following constraints for this API operation.
++ The `ListGroups` API is capable of returning up to a maximum of 100 results per page.
++ Supported filter combinations: (`displayName`), (`externalId`), (`members.value`), (`id` and `member`), and (`member` and `id`). Note that the use of id as an individual filter, while valid, should be avoided as there is already a getGroup endpoint available.
++ Pagination requests must include `cursor` in the query parameters
+  + The first request made with cursor must be empty (eg. https://.../Groups?cursor)
+  + If the response includes a nextCursor field, its value can be used as the cursor value to retrieve the next page of results
++ Paginated calls may return less results than count but as long as nextCursor is present in the response, additional pages are available.
++ Supported comparison operator in filters: `eq`
++ Filter must be specified as: `<filterAttribute> eq "<filterValue>"`
 
 ## Errors
+<a name="errors-listgroups"></a>
 
-The following IAM Identity Center SCIM implementation errors are common for this API
-operation.
+The following IAM Identity Center SCIM implementation errors are common for this API operation.
 
-| Error                       | Condition                                                                                                                                                                                                | HTTP Status Code |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `ValidationException`       | Request cannot be parsed, is syntactically incorrect, or violates<br>schema. This error also occurs if the operation is<br>unsupported, or if filter parameters are changed between pagination requests. | 400              |
-| `UnauthorizedException`     | Authorization header is invalid or missing. This error also<br>occurs if the tenant ID is incorrect.                                                                                                     | 401              |
-| `AccessDeniedException`     | Operation is not permitted based on the supplied<br>authorization.                                                                                                                                       | 403              |
-| `ResourceNotFoundException` | When filter querying with a nonexisting member.                                                                                                                                                          | 404              |
-| `ThrottlingException`       | Too many requests exceeded the limits.                                                                                                                                                                   | 429              |
-| `InternalServerException`   | Service failed to process the request.                                                                                                                                                                   | 500              |
+
+| Error | Condition | HTTP Status Code | 
+| --- | --- | --- | 
+| ValidationException | Request cannot be parsed, is syntactically incorrect, or violates schema. This error also occurs if the operation is unsupported, or if filter parameters are changed between pagination requests. | 400 | 
+| UnauthorizedException | Authorization header is invalid or missing. This error also occurs if the tenant ID is incorrect. | 401 | 
+| AccessDeniedException | Operation is not permitted based on the supplied authorization. | 403 | 
+| ResourceNotFoundException | When filter querying with a nonexisting member. | 404 | 
+| ThrottlingException | Too many requests exceeded the limits. | 429 | 
+| InternalServerException | Service failed to process the request. | 500 | 
 
 ## Pagination Examples
+<a name="pagination-examples-listgroups"></a>
 
 ### Example Request For Getting the First Page
+<a name="pagination-first-page-listgroups"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups?cursor
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -92,17 +80,18 @@ Authorization: Bearer <bearer_token>
 ```
 
 ### Example Request For Getting the Next Page
+<a name="pagination-next-page-listgroups"></a>
 
-_Note: the example does not include a `nextCursor` field since the current page is the last page of results_
+*Note: the example does not include a `nextCursor` field since the current page is the last page of results*
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups?cursor=VGVzdEdyb3VwQ3Vyc29y
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -117,10 +106,11 @@ Authorization: Bearer <bearer_token>
 ```
 
 ## Examples
+<a name="examples-listgroups"></a>
 
 Following are example requests and responses for this API operation.
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups
@@ -128,7 +118,7 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 HTTP/1.1 200
@@ -228,15 +218,14 @@ HTTP/1.1 200
 ```
 
 ## Filter examples
+<a name="examples-filter-listgroups"></a>
 
-For the ListGroup endpoint we support three different combinations of filters as
-follows:
-
-- `displayName`
-- `externalId`
-- `members.value`
-- `id` and `member`
-- `member` and `id`
+For the ListGroup endpoint we support three different combinations of filters as follows:
++ `displayName`
++ `externalId`
++ `members.value`
++ `id` and `member`
++ `member` and `id`
 
 The filters can be applied in the formats as shown.
 
@@ -255,8 +244,9 @@ filter=<filterAttribute1> eq "<filterValue1>" and <filterAttribute2> eq "<filter
 See the following examples.
 
 ### displayName
+<a name="examples-filter-displayname-listgroups"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups?filter=displayName eq "Group Bar"
@@ -264,7 +254,7 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 HTTP/1.1 200
@@ -298,8 +288,9 @@ x-amzn-RequestId: 45995b44-02cd-419f-87f4-ff8fa323448d
 ```
 
 ### externalId
+<a name="examples-filter-externalId"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups?filter=externalId eq "705167"
@@ -307,7 +298,7 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 HTTP/1.1 200
@@ -342,17 +333,19 @@ x-amzn-RequestId: 45995b44-02cd-419f-87f4-ff8fa323448d
 ```
 
 ### members.value
+<a name="examples-filter-membersvalue-listgroups"></a>
 
 #### Example Request Without Pagination
+<a name="examples-filter-membersvalue-without-pagination-listgroups"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups?filter=members.value eq "04285428-40b1-7000-1624-dbde7efebbbf"
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -383,15 +376,16 @@ Authorization: Bearer <bearer_token>
 ```
 
 #### Example Request With Pagination
+<a name="examples-filter-membersvalue-with-pagination-listgroups"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups?cursor&filter=members.value eq "04285428-40b1-7000-1624-dbde7efebbbf"
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -407,15 +401,16 @@ Authorization: Bearer <bearer_token>
 ```
 
 #### Example Request For Getting the Next Page
+<a name="examples-filter-membersvalue-next-page-listgroups"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups?cursor=Q3Vyc29yR3JvdXBzRmlsdGVy&filter=members.value eq "04285428-40b1-7000-1624-dbde7efebbbf"
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -430,11 +425,11 @@ Authorization: Bearer <bearer_token>
 ```
 
 ### Group id and members
+<a name="examples-filter-groupidmember-listgroups"></a>
 
-Both group `id` and `members` are interchangeable in
-order.
+Both group `id` and `members` are interchangeable in order.
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups?filter=id eq "90677c608a-a9f17294-7931-41a5-9c00-6e7ace3c2c11" and members eq "90677c608a-787142a0-3f27-4cd3-afb6-8aed7ce87094"
@@ -442,7 +437,7 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 HTTP/1.1 200

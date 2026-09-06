@@ -1,56 +1,50 @@
-# PutUser
 
-An existing user can be overwritten by making a `PUT` request to the
-`/Users` endpoint with the user ID.
+
+# PutUser
+<a name="putuser"></a>
+
+An existing user can be overwritten by making a `PUT` request to the `/Users` endpoint with the user ID.
 
 ## Not supported
+<a name="not-supported-putuser"></a>
 
-The IAM Identity Center SCIM implementation does not support the following aspects of this API
-operation.
-
-- `ims`, `photos`, `x509Certificates`,
-  `entitlements`, and `password` attributes
-- `displayName` subattribute for manager
-- `display` subattribute for `emails`,
-  `addresses`, and `phoneNumbers`
+The IAM Identity Center SCIM implementation does not support the following aspects of this API operation.
++ `ims`, `photos`, `x509Certificates`, `entitlements`, and `password` attributes
++ `displayName` subattribute for manager
++ `display` subattribute for `emails`, `addresses`, and `phoneNumbers`
 
 ## Constraints
+<a name="constraints-putuser"></a>
 
-The IAM Identity Center SCIM implementation has the following constraints for this API
-operation.
-
-- `givenName`, `familyName`, `userName`,
-  and `displayName` are required.
-- The `addresses` field can contain letters, accented characters,
-  symbols, numbers, punctuation, space (normal and nonbreaking).
-- IAM Identity Center does not support multiple values in multi-value attributes (such as
-  `emails`, `addresses`, `phoneNumbers`).
-  Only single values are permitted.
-- The `emails` attribute value must be marked as primary.
-- `groups` cannot be specified with `createUser`
-  request.
-- The `userName` field can contain letters, accented characters,
-  symbols, numbers, punctuation, space (normal and nonbreaking).
+The IAM Identity Center SCIM implementation has the following constraints for this API operation.
++ `givenName`, `familyName`, `userName`, and `displayName` are required.
++ The `addresses` field can contain letters, accented characters, symbols, numbers, punctuation, space (normal and nonbreaking).
++ IAM Identity Center does not support multiple values in multi-value attributes (such as `emails`, `addresses`, `phoneNumbers`). Only single values are permitted.
++ The `emails` attribute value must be marked as primary.
++ `groups` cannot be specified with `createUser` request.
++ The `userName` field can contain letters, accented characters, symbols, numbers, punctuation, space (normal and nonbreaking).
 
 ## Errors
+<a name="errors-putuser"></a>
 
-The following IAM Identity Center SCIM implementation errors are common for this API
-operation.
+The following IAM Identity Center SCIM implementation errors are common for this API operation.
 
-| Error                     | Condition                                                                                                                               | HTTP Status Code |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `ValidationException`     | Request cannot be parsed, is syntactically incorrect, or violates<br>schema. This error also occurs if the operation is<br>unsupported. | 400              |
-| `UnauthorizedException`   | Authorization header is invalid or missing. This error also<br>occurs if the tenant ID is incorrect.                                    | 401              |
-| `AccessDeniedException`   | Operation is not permitted based on the supplied<br>authorization.                                                                      | 403              |
-| `ConflictException`       | User already exists.                                                                                                                    | 409              |
-| `ThrottlingException`     | Too many requests exceeded the limits.                                                                                                  | 429              |
-| `InternalServerException` | Service failed to process the request.                                                                                                  | 500              |
+
+| Error | Condition | HTTP Status Code | 
+| --- | --- | --- | 
+| ValidationException | Request cannot be parsed, is syntactically incorrect, or violates schema. This error also occurs if the operation is unsupported. | 400 | 
+| UnauthorizedException | Authorization header is invalid or missing. This error also occurs if the tenant ID is incorrect. | 401 | 
+| AccessDeniedException | Operation is not permitted based on the supplied authorization. | 403 | 
+| ConflictException | User already exists. | 409 | 
+| ThrottlingException | Too many requests exceeded the limits. | 429 | 
+| InternalServerException | Service failed to process the request. | 500 | 
 
 ## Examples
+<a name="examples-putuser"></a>
 
 Following are example requests and responses for this API operation.
 
-###### Example Request
+**Example Request**  
 
 ```
 PUT https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users/9067729b3d-94f1e0b3-c394-48d5-8ab1-2c122a167074
@@ -117,10 +111,10 @@ Authorization: Bearer <bearer_token>
 }
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
-HTTP/1.1 201
+HTTP/1.1 201 
 Date: Tue, 31 Mar 2020 02:36:15 GMT
 Content-Type: application/json
 x-amzn-RequestId: abbf9e53-9ecc-46d2-8efe-104a66ff128f

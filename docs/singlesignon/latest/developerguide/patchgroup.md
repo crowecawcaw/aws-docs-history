@@ -1,45 +1,44 @@
-# PatchGroup
 
-Existing groups can be updated by calling upon the PATCH operation to replace specific
-attribute values. For more information, see the **Examples** section.
+
+# PatchGroup
+<a name="patchgroup"></a>
+
+Existing groups can be updated by calling upon the PATCH operation to replace specific attribute values. For more information, see the **Examples** section.
 
 ## Not supported
+<a name="not-supported-patchgroup"></a>
 
-The IAM Identity Center SCIM implementation does not support the following aspects of this API
-operation.
-
-- If you attempt to replace or remove all group memberships as part of a single request the result will be a
-  `ValidationException` (HTTP/400).
+The IAM Identity Center SCIM implementation does not support the following aspects of this API operation.
++ If you attempt to replace or remove all group memberships as part of a single request the result will be a `ValidationException` (HTTP/400).
 
 ## Constraints
+<a name="constraints-patchgroup"></a>
 
-The IAM Identity Center SCIM implementation has the following constraints for this API
-operation.
-
-- Only `displayName`, `members`, and
-  `externalId` attributes are allowed in the request.
-- A maximum of 100 membership changes are allowed in a single
-  request.
+The IAM Identity Center SCIM implementation has the following constraints for this API operation.
++ Only `displayName`, `members`, and `externalId` attributes are allowed in the request.
++ A maximum of 100 membership changes are allowed in a single request.
 
 ## Errors
+<a name="errors-patchgroup"></a>
 
-The following IAM Identity Center SCIM implementation errors are common for this API
-operation.
+The following IAM Identity Center SCIM implementation errors are common for this API operation.
 
-| Error                       | Condition                                                                                                                               | HTTP Status Code |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `ValidationException`       | Request cannot be parsed, is syntactically incorrect, or violates<br>schema. This error also occurs if the operation is<br>unsupported. | 400              |
-| `UnauthorizedException`     | Authorization header is invalid or missing. This error also<br>occurs if the tenant ID is incorrect.                                    | 401              |
-| `AccessDeniedException`     | Operation is not permitted based on the supplied<br>authorization.                                                                      | 403              |
-| `ResourceNotFoundException` | Specified group does not exist.                                                                                                         | 404              |
-| `ThrottlingException`       | Too many requests exceeded the limits.                                                                                                  | 429              |
-| `InternalServerException`   | Service failed to process the request.                                                                                                  | 500              |
+
+| Error | Condition | HTTP Status Code | 
+| --- | --- | --- | 
+| ValidationException | Request cannot be parsed, is syntactically incorrect, or violates schema. This error also occurs if the operation is unsupported. | 400 | 
+| UnauthorizedException | Authorization header is invalid or missing. This error also occurs if the tenant ID is incorrect. | 401 | 
+| AccessDeniedException | Operation is not permitted based on the supplied authorization. | 403 | 
+| ResourceNotFoundException | Specified group does not exist. | 404 | 
+| ThrottlingException | Too many requests exceeded the limits. | 429 | 
+| InternalServerException | Service failed to process the request. | 500 | 
 
 ## Examples
+<a name="examples-patchgroup"></a>
 
 Following are example requests and responses for this API operation.
 
-###### Example Request
+**Example Request**  
 
 ```
 PATCH https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d
@@ -59,42 +58,36 @@ Authorization: Bearer <bearer_token>
 }
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
-HTTP/1.1 204
+HTTP/1.1 204 
 Date: Tue, 07 Apr 2020 23:59:09 GMT
 Content-Type: application/json
 x-amzn-RequestId: dad0c91c-1ea8-4b36-9fdb-4f099b59c1c9
 ```
 
 ## Member operations examples
+<a name="examples-member-operations"></a>
 
-The following member operations are supported using the patch
-operation for a group.
-
-- Add members to a group
-- Remove members from a group
+The following member operations are supported using the patch operation for a group. 
++ Add members to a group
++ Remove members from a group
 
 These member operations can be applied using the examples below.
 
 ### Add members to a group
+<a name="examples-member-operations-add"></a>
 
-In the value field, provide a list of objects containing the value of the user
-**id**. Multiple members can be added at a time. For
-example, if you have a user with the **id**
-`906722b2be-ee23ed58-6e4e-4b2f-a94a-3ace8456a36c` that you want to
-add to the group with an **id** of
-`9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d`, use the
-following call:
+In the value field, provide a list of objects containing the value of the user **id**. Multiple members can be added at a time. For example, if you have a user with the **id** `906722b2be-ee23ed58-6e4e-4b2f-a94a-3ace8456a36c` that you want to add to the group with an **id** of `9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d`, use the following call:
 
-###### Example Request
+**Example Request**  
 
 ```
 PATCH  https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d
 User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
-
+ 
 {
    "schemas":[
       "urn:ietf:params:scim:api:messages:2.0:PatchOp"
@@ -113,7 +106,7 @@ Authorization: Bearer <bearer_token>
 }
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 HTTP/1.1  204
@@ -123,19 +116,13 @@ x-amzn-RequestId: 1e9abe4c-b6e1-4d3b-bb86-73ca6187e08b
 ```
 
 ### Remove members from a group
+<a name="examples-member-operations-remove"></a>
 
-In the value field, provide a list of objects containing the value of the user
-id. Multiple members can be removed at a time, but you can remove up to 100 members in one API call,
-and providing an empty list in the request (with the intent of deleting all) is not supported.
+In the value field, provide a list of objects containing the value of the user id. Multiple members can be removed at a time, but you can remove up to 100 members in one API call, and providing an empty list in the request (with the intent of deleting all) is not supported.
 
-For example, if you want to remove two users, one with the
-**id**
-`906722b2be-61c204e7-56d0-4dad-882d-f41911b31ccb` and another with
-the **id**
-`906722b2be-da1f7ef3-3e37-473e-95be-df2efaa2590d`, use the following
-call:
+For example, if you want to remove two users, one with the **id** `906722b2be-61c204e7-56d0-4dad-882d-f41911b31ccb` and another with the **id** `906722b2be-da1f7ef3-3e37-473e-95be-df2efaa2590d`, use the following call:
 
-###### Example Request
+**Example Request**  
 
 ```
 PATCH https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Groups/9067729b3d-f987ac4d-a175-44f0-a528-6d23c5d2ec4d
@@ -163,7 +150,7 @@ Authorization: Bearer <bearer_token>
 }
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 HTTP/1.1  204

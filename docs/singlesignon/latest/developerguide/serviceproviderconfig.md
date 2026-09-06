@@ -1,40 +1,41 @@
-# ServiceProviderConfig
 
-You can use the `/ServiceProviderConfig` endpoint for `GET`
-requests to view additional information about the IAM Identity Center SCIM implementation. The
-`/ServiceProviderConfig` endpoint is read only.
+
+# ServiceProviderConfig
+<a name="serviceproviderconfig"></a>
+
+You can use the `/ServiceProviderConfig` endpoint for `GET` requests to view additional information about the IAM Identity Center SCIM implementation. The `/ServiceProviderConfig` endpoint is read only. 
 
 ## Not supported
+<a name="not-supported-serviceproviderconfig"></a>
 
-The IAM Identity Center SCIM implementation does not support the following aspects of this API
-operation.
-
-- None
+The IAM Identity Center SCIM implementation does not support the following aspects of this API operation.
++ None
 
 ## Constraints
+<a name="constraints-serviceproviderconfig"></a>
 
-The IAM Identity Center SCIM implementation has the following constraints for this API
-operation.
-
-- None
+The IAM Identity Center SCIM implementation has the following constraints for this API operation.
++ None
 
 ## Errors
+<a name="errors-serviceproviderconfig"></a>
 
-The following IAM Identity Center SCIM implementation errors are common for this API
-operation.
+The following IAM Identity Center SCIM implementation errors are common for this API operation.
 
-| Error                     | Condition                                                                                            | HTTP Status Code |
-| ------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------- |
-| `UnauthorizedException`   | Authorization header is invalid or missing. This error also<br>occurs if the tenant ID is incorrect. | 401              |
-| `AccessDeniedException`   | Operation is not permitted based on the supplied<br>authorization.                                   | 403              |
-| `ThrottlingException`     | Too many requests were made that exceed the limits.                                                  | 429              |
-| `InternalServerException` | Service failed to process the request.                                                               | 500              |
+
+| Error | Condition | HTTP Status Code | 
+| --- | --- | --- | 
+| UnauthorizedException | Authorization header is invalid or missing. This error also occurs if the tenant ID is incorrect. | 401 | 
+| AccessDeniedException | Operation is not permitted based on the supplied authorization. | 403 | 
+| ThrottlingException | Too many requests were made that exceed the limits. | 429 | 
+| InternalServerException | Service failed to process the request. | 500 | 
 
 ## Examples
+<a name="examples-serviceproviderconfig"></a>
 
 Following are example requests and responses for this API operation.
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/ServiceProviderConfig
@@ -42,10 +43,10 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
-HTTP/1.1 200
+HTTP/1.1 200 
 Date: Thu, 13 Aug 2020 21:11:26 GMT
 Content-Type: application/json
 x-amzn-RequestId: d0f671f1-3217-4b0f-b310-82a0b6861967

@@ -1,81 +1,69 @@
-# ListUsers
 
-This endpoint provides the ability to perform filter queries on an existing list of
-users through a `GET` request to `/Users` by inserting additional
-filters. A maximum of 100 results can be returned per page. See the **Constraints** section for more
-information.
+
+# ListUsers
+<a name="listusers"></a>
+
+This endpoint provides the ability to perform filter queries on an existing list of users through a `GET` request to `/Users` by inserting additional filters. A maximum of 100 results can be returned per page. See the **Constraints** section for more information.
 
 ## Not supported
+<a name="not-supported-listusers"></a>
 
-The IAM Identity Center SCIM implementation does not support the following aspects of this API
-operation.
-
-- `startIndex`, `attributes`, and
-  `excludedAttributes` (despite being listed in the SCIM
-  protocol)
+The IAM Identity Center SCIM implementation does not support the following aspects of this API operation.
++ `startIndex`, `attributes`, and `excludedAttributes` (despite being listed in the SCIM protocol)
 
 ## Query Parameters
+<a name="query-parameters-listusers"></a>
 
 ListUsers currently supports the following optional query parameters:
-
-- `cursor` used to specify the next page for paginated calls
-
-  - Pattern: [-a-zA-Z0-9+=/:\_]\*
-  - Response format: Including the cursor parameter changes the default response format from non-paginated (with totalResults, startIndex, and itemsPerPage fields) to cursor-based paginated results (with itemsPerPage and nextCursor fields)
-
-- `count` used to specify the maximum number of results per page
-
-  - Valid Range: Minimum value of 1. Maximum value of 100.
-  - Default: 100
-
-- `filter` used to filter out specific users
++ `cursor` used to specify the next page for paginated calls
+  + Pattern: [-a-zA-Z0-9\+=/:\_]\*
+  + Response format: Including the cursor parameter changes the default response format from non-paginated (with totalResults, startIndex, and itemsPerPage fields) to cursor-based paginated results (with itemsPerPage and nextCursor fields)
++ `count` used to specify the maximum number of results per page
+  + Valid Range: Minimum value of 1. Maximum value of 100.
+  + Default: 100
++ `filter` used to filter out specific users
 
 ## Constraints
+<a name="constraints-listusers"></a>
 
-The IAM Identity Center SCIM implementation has the following constraints for this API
-operation.
-
-- The `ListUsers` API is capable of returning up to a maximum of 100 results per page.
-- Supported filter combinations: (`userName`),
-  (`externalId`), (`groups.value`), (`id` and `manager`),
-  (`manager` and `id`). Note that the use of
-  `id` as an individual filter, though valid, should be avoided
-  as a `getUser` endpoint is already available.
-- Pagination requests must include `cursor` in the query parameters
-
-  - The first request made with cursor must be empty (eg. https://.../Users?cursor)
-  - If the response includes a nextCursor field, its value can be used as the cursor value to retrieve the next page of results
-
-- Paginated calls may return less results than count but as long as nextCursor is present in the response, additional pages are available.
-- Supported comparison operator in filters: `eq`
-- Filter must be specified as follows: `<filterAttribute> eq
- "<filterValue>"`
+The IAM Identity Center SCIM implementation has the following constraints for this API operation.
++ The `ListUsers` API is capable of returning up to a maximum of 100 results per page.
++ Supported filter combinations: (`userName`), (`externalId`), (`groups.value`), (`id` and `manager`), (`manager` and `id`). Note that the use of `id` as an individual filter, though valid, should be avoided as a `getUser` endpoint is already available.
++ Pagination requests must include `cursor` in the query parameters
+  + The first request made with cursor must be empty (eg. https://.../Users?cursor)
+  + If the response includes a nextCursor field, its value can be used as the cursor value to retrieve the next page of results
++ Paginated calls may return less results than count but as long as nextCursor is present in the response, additional pages are available.
++ Supported comparison operator in filters: `eq`
++ Filter must be specified as follows: `<filterAttribute> eq "<filterValue>"`
 
 ## Errors
+<a name="errors-listusers"></a>
 
-The following IAM Identity Center SCIM implementation errors are common for this API
-operation.
+The following IAM Identity Center SCIM implementation errors are common for this API operation.
 
-| Error                     | Condition                                                                                                                                                                                                | HTTP Status Code |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `ValidationException`     | Request cannot be parsed, is syntactically incorrect, or violates<br>schema. This error also occurs if the operation is<br>unsupported, or if filter parameters are changed between pagination requests. | 400              |
-| `UnauthorizedException`   | Authorization header is invalid or missing. This error also<br>occurs if the tenant ID is incorrect.                                                                                                     | 401              |
-| `AccessDeniedException`   | Operation is not permitted based on the supplied<br>authorization.                                                                                                                                       | 403              |
-| `ThrottlingException`     | Too many requests exceeded the limits.                                                                                                                                                                   | 429              |
-| `InternalServerException` | Service failed to process the request.                                                                                                                                                                   | 500              |
+
+| Error | Condition | HTTP Status Code | 
+| --- | --- | --- | 
+| ValidationException | Request cannot be parsed, is syntactically incorrect, or violates schema. This error also occurs if the operation is unsupported, or if filter parameters are changed between pagination requests. | 400 | 
+| UnauthorizedException | Authorization header is invalid or missing. This error also occurs if the tenant ID is incorrect. | 401 | 
+| AccessDeniedException | Operation is not permitted based on the supplied authorization. | 403 | 
+| ThrottlingException | Too many requests exceeded the limits. | 429 | 
+| InternalServerException | Service failed to process the request. | 500 | 
 
 ## Pagination Examples
+<a name="pagination-examples-listusers"></a>
 
 ### Example Request For First Page
+<a name="pagination-first-page-listusers"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users?cursor
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -91,17 +79,18 @@ Authorization: Bearer <bearer_token>
 ```
 
 ### Example Request For Getting the Next Page
+<a name="pagination-next-page-listusers"></a>
 
-_Note: the example does not include a `nextCursor` field since the current page is the last page of results_
+*Note: the example does not include a `nextCursor` field since the current page is the last page of results*
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users?cursor=VGVzdFVzZXJDdXJzb3I
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -116,10 +105,11 @@ Authorization: Bearer <bearer_token>
 ```
 
 ## Examples
+<a name="examples-listusers"></a>
 
 Following are example requests and responses for this API operation.
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users
@@ -127,10 +117,10 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
-HTTP/1.1 200
+HTTP/1.1 200 
 Date: Thu, 23 Jul 2020 00:15:28 GMT
 Content-Type: application/json
 x-amzn-RequestId: 88204ccc-30cd-4010-b3ac-b4a12cc31e8b
@@ -314,14 +304,14 @@ x-amzn-RequestId: 88204ccc-30cd-4010-b3ac-b4a12cc31e8b
 ```
 
 ## Filter examples
+<a name="examples-filter-listusers"></a>
 
-The following four different filter combinations are supported.
-
-- `externalId`
-- `userName`
-- `groups.value`
-- `id` and `manager`
-- `manager` and `id`
+The following four different filter combinations are supported. 
++ `externalId`
++ `userName`
++ `groups.value`
++ `id` and `manager`
++ `manager` and `id`
 
 The filters can be applied in the formats as shown.
 
@@ -338,8 +328,9 @@ filter=<filterAttribute1> eq "<filterValue1>" and <filterAttribute2> eq "<filter
 ```
 
 ### externalId
+<a name="examples-filter-externalid-listusers"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users?filter=externalId eq "705167"
@@ -347,10 +338,10 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
-HTTP/1.1 200
+HTTP/1.1 200 
 Date: Wed, 22 Jul 2020 22:57:01 GMT
 Content-Type: application/json
 x-amzn-RequestId: c482800a-f6ba-4979-91d0-72d3a7b496cb
@@ -403,8 +394,9 @@ x-amzn-RequestId: c482800a-f6ba-4979-91d0-72d3a7b496cb
 ```
 
 ### userName
+<a name="examples-filter-username-listusers"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users?filter=userName eq "jdoe"
@@ -412,10 +404,10 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
-HTTP/1.1 200
+HTTP/1.1 200 
 Date: Wed, 22 Jul 2020 22:53:33 GMT
 Content-Type: application/json
 x-amzn-RequestId: a8764ca2-899f-4362-871d-3f255671ca1f
@@ -468,17 +460,19 @@ x-amzn-RequestId: a8764ca2-899f-4362-871d-3f255671ca1f
 ```
 
 ### groups.value
+<a name="examples-filter-groupsvalue-listusers"></a>
 
 #### Example Request Without Pagination
+<a name="examples-filter-groupsvalue-without-pagination-listusers"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users?filter=groups.value eq "0458a488-2081-70c8-4b0b-3e4b2b10ddb5"
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -558,15 +552,16 @@ Authorization: Bearer <bearer_token>
 ```
 
 #### Example Request With Pagination
+<a name="examples-filter-groupsvalue-with-pagination-listusers"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users?cursor&filter=groups.value eq "0458a488-2081-70c8-4b0b-3e4b2b10ddb5"
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -582,15 +577,16 @@ Authorization: Bearer <bearer_token>
 ```
 
 #### Example Request For Getting the Next Page
+<a name="examples-filter-groupsvalue-next-page-listusers"></a>
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users?cursor=Q3Vyc29yVXNlckZpbHRlcg&filter=groups.value eq "0458a488-2081-70c8-4b0b-3e4b2b10ddb5"
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
 {
@@ -605,11 +601,11 @@ Authorization: Bearer <bearer_token>
 ```
 
 ### User id and manager
+<a name="examples-filter-idmanager-listusers"></a>
 
-Both `id` and `manager` can be used together, and their
-order can be interchanged.
+Both `id` and `manager` can be used together, and their order can be interchanged.
 
-###### Example Request
+**Example Request**  
 
 ```
 GET https://scim.us-east-1.amazonaws.com/{tenant_id}/scim/v2/Users?filter=id eq "90677c608a-7afcdc23-0bd4-4fb7-b2ff-10ccffdff447" and manager eq "9067729b3d-ee533c18-538a-4cd3-a572-63fb863ed734"
@@ -617,10 +613,10 @@ User-Agent: Mozilla/5.0
 Authorization: Bearer <bearer_token>
 ```
 
-###### Example Response
+**Example Response**  
 
 ```
-HTTP/1.1 200
+HTTP/1.1 200 
 Date: Wed, 22 Jul 2020 22:42:29 GMT
 Content-Type: application/json
 x-amzn-RequestId: 23178777-466c-44fb-b5b4-7efc12a766aa
