@@ -1,748 +1,760 @@
+
+
 # Specifications for Amazon EC2 accelerated computing instances
+<a name="ac"></a>
 
-Accelerated computing instances use hardware accelerators, or co-processors, to perform functions,
-such as floating point number calculations, graphics processing, or data pattern matching, more
-efficiently than is possible in software running on CPUs.
+Accelerated computing instances use hardware accelerators, or co-processors, to perform functions, such as floating point number calculations, graphics processing, or data pattern matching, more efficiently than is possible in software running on CPUs.
 
-For information on previous generation instance types of this category, such as G3 instances,
-see [Specifications for Amazon EC2 previous generation instances](pg.md "pg.md").
+For information on previous generation instance types of this category, such as G3 instances, see [Specifications for Amazon EC2 previous generation instances](pg.md).
 
-###### Contents
+**Topics**
++ [Instance families and instance types](#ac-sizes)
++ [Instance family summary](#ac_summary)
++ [Performance specifications](#ac_hardware)
++ [Network specifications](#ac_network)
++ [Amazon EBS specifications](#ac_storage-ebs)
++ [Instance store specifications](#ac_instance-store)
++ [Security specifications](#ac_security)
 
-- [Instance families and instance types](#ac-sizes "#ac-sizes")
-- [Instance family summary](#ac_summary "#ac_summary")
-- [Performance specifications](#ac_hardware "#ac_hardware")
-- [Network specifications](#ac_network "#ac_network")
-- [Amazon EBS specifications](#ac_storage-ebs "#ac_storage-ebs")
-- [Instance store specifications](#ac_instance-store "#ac_instance-store")
-- [Security specifications](#ac_security "#ac_security")
-
-###### Pricing
-
-For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2/pricing/on-demand/").
+**Pricing**  
+For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand/).
 
 ## Instance families and instance types
+<a name="ac-sizes"></a>
 
-| Instance family | Available instance types |
-| --------------- | ------------------------ |
-| DL1             | `dl1.24xlarge`           |
-| DL2q            | `dl2q.24xlarge`          |
-| F2              | `f2.6xlarge`             | `f2.12xlarge`   | `f2.48xlarge`   |
-| G4ad            | `g4ad.xlarge`            | `g4ad.2xlarge`  | `g4ad.4xlarge`  | `g4ad.8xlarge`  | `g4ad.16xlarge` |
-| G4dn            | `g4dn.xlarge`            | `g4dn.2xlarge`  | `g4dn.4xlarge`  | `g4dn.8xlarge`  | `g4dn.12xlarge` | `g4dn.16xlarge` | `g4dn.metal`   |
-| G5              | `g5.xlarge`              | `g5.2xlarge`    | `g5.4xlarge`    | `g5.8xlarge`    | `g5.12xlarge`   | `g5.16xlarge`   | `g5.24xlarge`  | `g5.48xlarge`  |
-| G5g             | `g5g.xlarge`             | `g5g.2xlarge`   | `g5g.4xlarge`   | `g5g.8xlarge`   | `g5g.16xlarge`  | `g5g.metal`     |
-| G6              | `g6.xlarge`              | `g6.2xlarge`    | `g6.4xlarge`    | `g6.8xlarge`    | `g6.12xlarge`   | `g6.16xlarge`   | `g6.24xlarge`  | `g6.48xlarge`  |
-| G6e             | `g6e.xlarge`             | `g6e.2xlarge`   | `g6e.4xlarge`   | `g6e.8xlarge`   | `g6e.12xlarge`  | `g6e.16xlarge`  | `g6e.24xlarge` | `g6e.48xlarge` |
-| G6f             | `g6f.large`              | `g6f.xlarge`    | `g6f.2xlarge`   | `g6f.4xlarge`   |
-| Gr6             | `gr6.4xlarge`            | `gr6.8xlarge`   |
-| Gr6f            | `gr6f.4xlarge`           |
-| G7              | `g7.2xlarge`             | `g7.4xlarge`    | `g7.8xlarge`    | `g7.12xlarge`   | `g7.24xlarge`   | `g7.48xlarge`   |
-| G7e             | `g7e.2xlarge`            | `g7e.4xlarge`   | `g7e.8xlarge`   | `g7e.12xlarge`  | `g7e.24xlarge`  | `g7e.48xlarge`  |
-| Inf1            | `inf1.xlarge`            | `inf1.2xlarge`  | `inf1.6xlarge`  | `inf1.24xlarge` |
-| Inf2            | `inf2.xlarge`            | `inf2.8xlarge`  | `inf2.24xlarge` | `inf2.48xlarge` |
-| P4d             | `p4d.24xlarge`           |
-| P4de            | `p4de.24xlarge`          |
-| P5              | `p5.4xlarge`             | `p5.48xlarge`   |
-| P5e             | `p5e.48xlarge`           |
-| P5en            | `p5en.48xlarge`          |
-| P6-B200         | `p6-b200.48xlarge`       |
-| P6-B300         | `p6-b300.48xlarge`       |
-| P6e-GB200       | `p6e-gb200.36xlarge`     |
-| Trn1            | `trn1.2xlarge`           | `trn1.32xlarge` |
-| Trn1n           | `trn1n.32xlarge`         |
-| Trn2            | `trn2.3xlarge`           | `trn2.48xlarge` |
-| Trn2u           | `trn2u.48xlarge`         |
-| VT1             | `vt1.3xlarge`            | `vt1.6xlarge`   | `vt1.24xlarge`  |
+
+| Instance family | Available instance types | 
+| --- | --- | 
+| DL1 | dl1.24xlarge | 
+| DL2q | dl2q.24xlarge | 
+| F2 | f2.6xlarge \| f2.12xlarge \| f2.48xlarge | 
+| G4ad | g4ad.xlarge \| g4ad.2xlarge \| g4ad.4xlarge \| g4ad.8xlarge \| g4ad.16xlarge | 
+| G4dn | g4dn.xlarge \| g4dn.2xlarge \| g4dn.4xlarge \| g4dn.8xlarge \| g4dn.12xlarge \| g4dn.16xlarge \| g4dn.metal | 
+| G5 | g5.xlarge \| g5.2xlarge \| g5.4xlarge \| g5.8xlarge \| g5.12xlarge \| g5.16xlarge \| g5.24xlarge \| g5.48xlarge | 
+| G5g | g5g.xlarge \| g5g.2xlarge \| g5g.4xlarge \| g5g.8xlarge \| g5g.16xlarge \| g5g.metal | 
+| G6 | g6.xlarge \| g6.2xlarge \| g6.4xlarge \| g6.8xlarge \| g6.12xlarge \| g6.16xlarge \| g6.24xlarge \| g6.48xlarge | 
+| G6e | g6e.xlarge \| g6e.2xlarge \| g6e.4xlarge \| g6e.8xlarge \| g6e.12xlarge \| g6e.16xlarge \| g6e.24xlarge \| g6e.48xlarge | 
+| G6f | g6f.large \| g6f.xlarge \| g6f.2xlarge \| g6f.4xlarge | 
+| Gr6 | gr6.4xlarge \| gr6.8xlarge | 
+| Gr6f | gr6f.4xlarge | 
+| G7 | g7.2xlarge \| g7.4xlarge \| g7.8xlarge \| g7.12xlarge \| g7.24xlarge \| g7.48xlarge | 
+| G7e | g7e.2xlarge \| g7e.4xlarge \| g7e.8xlarge \| g7e.12xlarge \| g7e.24xlarge \| g7e.48xlarge | 
+| Inf1 | inf1.xlarge \| inf1.2xlarge \| inf1.6xlarge \| inf1.24xlarge | 
+| Inf2 | inf2.xlarge \| inf2.8xlarge \| inf2.24xlarge \| inf2.48xlarge | 
+| P4d | p4d.24xlarge | 
+| P4de | p4de.24xlarge | 
+| P5 | p5.4xlarge \| p5.48xlarge | 
+| P5e | p5e.48xlarge | 
+| P5en | p5en.48xlarge | 
+| P6-B200 | p6-b200.48xlarge | 
+| P6-B300 | p6-b300.48xlarge | 
+| P6e-GB200 | p6e-gb200.36xlarge | 
+| Trn1 | trn1.2xlarge \| trn1.32xlarge | 
+| Trn1n | trn1n.32xlarge | 
+| Trn2 | trn2.3xlarge \| trn2.48xlarge | 
+| Trn2u | trn2u.48xlarge | 
+| VT1 | vt1.3xlarge \| vt1.6xlarge \| vt1.24xlarge | 
 
 ## Instance family summary
+<a name="ac_summary"></a>
 
-| Instance family | Hypervisor                                                  | Processor type (architecture) | Metal instances available | Dedicated Hosts support | Spot support | Hibernation support | Supported operating systems |
-| --------------- | ----------------------------------------------------------- | ----------------------------- | ------------------------- | ----------------------- | ------------ | ------------------- | --------------------------- |
-| DL1             | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| DL2q            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| F2              | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| G4ad            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| G4dn            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| G5              | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| G5g             | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| G6              | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| G6e             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| G6f             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| Gr6             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| Gr6f            | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| G7              | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| G7e             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux   |
-| Inf1            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| Inf2            | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| P4d             | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| P4de            | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
-| P5              | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Windows (`p5.4xlarge` only) | Linux 1 |
-| P5e             | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | AMD (x86\_64)                 | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
-| P5en            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
-| P6-B200         | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
-| P6-B300         | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
-| P6e-GB200       | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | NVIDIA Grace (arm64)          | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Linux                       |
-| Trn1            | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
-| Trn1n           | [Nitro v4](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
-| Trn2            | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✓ Yes        | ✗ No                | Linux                       |
-| Trn2u           | [Nitro v5](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Linux                       |
-| VT1             | [Nitro v3](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86\_64)               | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✗ No                | Linux                       |
 
-###### Note
+| Instance family | Hypervisor | Processor type (architecture) | Metal instances available | Dedicated Hosts support | Spot support | Hibernation support | Supported operating systems | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| DL1 | [Nitro v3](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Linux | 
+| DL2q | [Nitro v3](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Linux | 
+| F2 | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Linux | 
+| G4ad | [Nitro v3](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
+| G4dn | [Nitro v3](ec2-nitro-instances.md) | Intel (x86\_64) | ✓ Yes | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
+| G5 | [Nitro v3](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
+| G5g | [Nitro v2](ec2-nitro-instances.md) | AWS Graviton (arm64) | ✓ Yes | ✓ Yes | ✓ Yes | ✗ No | Linux | 
+| G6 | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
+| G6e | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
+| G6f | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Windows \| Linux | 
+| Gr6 | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Windows \| Linux | 
+| Gr6f | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Windows \| Linux | 
+| G7 | [Nitro v6](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
+| G7e | [Nitro v6](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Windows \| Linux | 
+| Inf1 | [Nitro v3](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Linux | 
+| Inf2 | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Linux | 
+| P4d | [Nitro v3](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Linux | 
+| P4de | [Nitro v3](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Linux | 
+| P5 | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Windows (p5.4xlarge only) \| Linux 1 | 
+| P5e | [Nitro v4](ec2-nitro-instances.md) | AMD (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Linux | 
+| P5en | [Nitro v5](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Linux | 
+| P6-B200 | [Nitro v6](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Linux | 
+| P6-B300 | [Nitro v6](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Linux | 
+| P6e-GB200 | [Nitro v5](ec2-nitro-instances.md) | NVIDIA Grace (arm64) | ✗ No | ✗ No | ✗ No | ✗ No | Linux | 
+| Trn1 | [Nitro v4](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Linux | 
+| Trn1n | [Nitro v4](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Linux | 
+| Trn2 | [Nitro v5](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✓ Yes | ✗ No | Linux | 
+| Trn2u | [Nitro v5](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✗ No | ✗ No | ✗ No | Linux | 
+| VT1 | [Nitro v3](ec2-nitro-instances.md) | Intel (x86\_64) | ✗ No | ✓ Yes | ✓ Yes | ✗ No | Linux | 
 
-1 `p5.4xlarge` supports both Windows and
-Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
+**Note**  
+1 `p5.4xlarge` supports both Windows and Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 
 ## Performance specifications
+<a name="ac_hardware"></a>
 
-| Instance type      | Memory (GiB) | Processor                   | vCPUs | CPU cores | Threads per core | Accelerators                                      | Accelerator memory      |
-| ------------------ | ------------ | --------------------------- | ----- | --------- | ---------------- | ------------------------------------------------- | ----------------------- |
-| **DL1**            |
-| dl1.24xlarge       | 768.00       | Intel Xeon Platinum 8275CL  | 96    | 48        | 2                | 8 x Habana Gaudi HL-205 GPU                       | 256 GiB (8 x 32 GiB)    |
-| **DL2q**           |
-| dl2q.24xlarge      | 768.00       | Intel Xeon Cascade Lake     | 96    | 48        | 2                | 8 x Qualcomm Qualcomm AI100 inference accelerator | 125 GiB (8 x 15 GiB)    |
-| **F2**             |
-| f2.6xlarge         | 256.00       | AMD EPYC 7R13               | 24    | 12        | 2                | 1 x Xilinx Virtex UltraScale+ (VU47P) FPGA        | 80 GiB (1 x 80 GiB)     |
-| f2.12xlarge        | 512.00       | AMD EPYC 7R13               | 48    | 24        | 2                | 2 x Xilinx Virtex UltraScale+ (VU47P) FPGA        | 160 GiB (2 x 80 GiB)    |
-| f2.48xlarge        | 2048.00      | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x Xilinx Virtex UltraScale+ (VU47P) FPGA        | 640 GiB (8 x 80 GiB)    |
-| **G4ad**           |
-| g4ad.xlarge        | 16.00        | 2nd Gen AMD EPYC 7R32       | 4     | 2         | 2                | 1 x AMD Radeon Pro V520 GPU                       | 8 GiB (1 x 8 GiB)       |
-| g4ad.2xlarge       | 32.00        | 2nd Gen AMD EPYC 7R32       | 8     | 4         | 2                | 1 x AMD Radeon Pro V520 GPU                       | 8 GiB (1 x 8 GiB)       |
-| g4ad.4xlarge       | 64.00        | 2nd Gen AMD EPYC 7R32       | 16    | 8         | 2                | 1 x AMD Radeon Pro V520 GPU                       | 8 GiB (1 x 8 GiB)       |
-| g4ad.8xlarge       | 128.00       | 2nd Gen AMD EPYC 7R32       | 32    | 16        | 2                | 2 x AMD Radeon Pro V520 GPU                       | 16 GiB (2 x 8 GiB)      |
-| g4ad.16xlarge      | 256.00       | 2nd Gen AMD EPYC 7R32       | 64    | 32        | 2                | 4 x AMD Radeon Pro V520 GPU                       | 32 GiB (4 x 8 GiB)      |
-| **G4dn**           |
-| g4dn.xlarge        | 16.00        | Intel Xeon P-8259L          | 4     | 2         | 2                | 1 x NVIDIA T4 GPU                                 | 16 GiB (1 x 16 GiB)     |
-| g4dn.2xlarge       | 32.00        | Intel Xeon P-8259L          | 8     | 4         | 2                | 1 x NVIDIA T4 GPU                                 | 16 GiB (1 x 16 GiB)     |
-| g4dn.4xlarge       | 64.00        | Intel Xeon P-8259L          | 16    | 8         | 2                | 1 x NVIDIA T4 GPU                                 | 16 GiB (1 x 16 GiB)     |
-| g4dn.8xlarge       | 128.00       | Intel Xeon P-8259L          | 32    | 16        | 2                | 1 x NVIDIA T4 GPU                                 | 16 GiB (1 x 16 GiB)     |
-| g4dn.12xlarge      | 192.00       | Intel Xeon P-8259L          | 48    | 24        | 2                | 4 x NVIDIA T4 GPU                                 | 64 GiB (4 x 16 GiB)     |
-| g4dn.16xlarge      | 256.00       | Intel Xeon P-8259L          | 64    | 32        | 2                | 1 x NVIDIA T4 GPU                                 | 16 GiB (1 x 16 GiB)     |
-| g4dn.metal         | 384.00       | Intel Xeon P-8259L          | 96    | 48        | 2                | 8 x NVIDIA T4 GPU                                 | 128 GiB (8 x 16 GiB)    |
-| **G5**             |
-| g5.xlarge          | 16.00        | 2nd Gen AMD EPYC 7R32       | 4     | 2         | 2                | 1 x NVIDIA A10G GPU                               | 22 GiB (1 x 22 GiB)     |
-| g5.2xlarge         | 32.00        | 2nd Gen AMD EPYC 7R32       | 8     | 4         | 2                | 1 x NVIDIA A10G GPU                               | 22 GiB (1 x 22 GiB)     |
-| g5.4xlarge         | 64.00        | 2nd Gen AMD EPYC 7R32       | 16    | 8         | 2                | 1 x NVIDIA A10G GPU                               | 22 GiB (1 x 22 GiB)     |
-| g5.8xlarge         | 128.00       | 2nd Gen AMD EPYC 7R32       | 32    | 16        | 2                | 1 x NVIDIA A10G GPU                               | 22 GiB (1 x 22 GiB)     |
-| g5.12xlarge        | 192.00       | 2nd Gen AMD EPYC 7R32       | 48    | 24        | 2                | 4 x NVIDIA A10G GPU                               | 89 GiB (4 x 22 GiB)     |
-| g5.16xlarge        | 256.00       | 2nd Gen AMD EPYC 7R32       | 64    | 32        | 2                | 1 x NVIDIA A10G GPU                               | 22 GiB (1 x 22 GiB)     |
-| g5.24xlarge        | 384.00       | 2nd Gen AMD EPYC 7R32       | 96    | 48        | 2                | 4 x NVIDIA A10G GPU                               | 89 GiB (4 x 22 GiB)     |
-| g5.48xlarge        | 768.00       | 2nd Gen AMD EPYC 7R32       | 192   | 96        | 2                | 8 x NVIDIA A10G GPU                               | 178 GiB (8 x 22 GiB)    |
-| **G5g**            |
-| g5g.xlarge         | 8.00         | AWS Graviton2 Processor     | 4     | 4         | 1                | 1 x NVIDIA T4g GPU                                | 16 GiB (1 x 16 GiB)     |
-| g5g.2xlarge        | 16.00        | AWS Graviton2 Processor     | 8     | 8         | 1                | 1 x NVIDIA T4g GPU                                | 16 GiB (1 x 16 GiB)     |
-| g5g.4xlarge        | 32.00        | AWS Graviton2 Processor     | 16    | 16        | 1                | 1 x NVIDIA T4g GPU                                | 16 GiB (1 x 16 GiB)     |
-| g5g.8xlarge        | 64.00        | AWS Graviton2 Processor     | 32    | 32        | 1                | 1 x NVIDIA T4g GPU                                | 16 GiB (1 x 16 GiB)     |
-| g5g.16xlarge       | 128.00       | AWS Graviton2 Processor     | 64    | 64        | 1                | 2 x NVIDIA T4g GPU                                | 32 GiB (2 x 16 GiB)     |
-| g5g.metal          | 128.00       | AWS Graviton2 Processor     | 64    | 64        | 1                | 2 x NVIDIA T4g GPU                                | 32 GiB (2 x 16 GiB)     |
-| **G6**             |
-| g6.xlarge          | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
-| g6.2xlarge         | 32.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
-| g6.4xlarge         | 64.00        | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
-| g6.8xlarge         | 128.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
-| g6.12xlarge        | 192.00       | AMD EPYC 7R13               | 48    | 24        | 2                | 4 x NVIDIA L4 GPU                                 | 89 GiB (4 x 22 GiB)     |
-| g6.16xlarge        | 256.00       | AMD EPYC 7R13               | 64    | 32        | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
-| g6.24xlarge        | 384.00       | AMD EPYC 7R13               | 96    | 48        | 2                | 4 x NVIDIA L4 GPU                                 | 89 GiB (4 x 22 GiB)     |
-| g6.48xlarge        | 768.00       | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x NVIDIA L4 GPU                                 | 178 GiB (8 x 22 GiB)    |
-| **G6e**            |
-| g6e.xlarge         | 32.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 1 x NVIDIA L40S GPU                               | 44 GiB (1 x 44 GiB)     |
-| g6e.2xlarge        | 64.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 1 x NVIDIA L40S GPU                               | 44 GiB (1 x 44 GiB)     |
-| g6e.4xlarge        | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA L40S GPU                               | 44 GiB (1 x 44 GiB)     |
-| g6e.8xlarge        | 256.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x NVIDIA L40S GPU                               | 44 GiB (1 x 44 GiB)     |
-| g6e.12xlarge       | 384.00       | AMD EPYC 7R13               | 48    | 24        | 2                | 4 x NVIDIA L40S GPU                               | 178 GiB (4 x 44 GiB)    |
-| g6e.16xlarge       | 512.00       | AMD EPYC 7R13               | 64    | 32        | 2                | 1 x NVIDIA L40S GPU                               | 44 GiB (1 x 44 GiB)     |
-| g6e.24xlarge       | 768.00       | AMD EPYC 7R13               | 96    | 48        | 2                | 4 x NVIDIA L40S GPU                               | 178 GiB (4 x 44 GiB)    |
-| g6e.48xlarge       | 1536.00      | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x NVIDIA L40S GPU                               | 357 GiB (8 x 44 GiB)    |
-| **G6f**            |
-| g6f.large          | 8.00         | AMD EPYC 7R13               | 2     | 1         | 2                | 0.125 x NVIDIA L4 GPU                             | 2.79 GiB                |
-| g6f.xlarge         | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 0.125 x NVIDIA L4 GPU                             | 2.79 GiB                |
-| g6f.2xlarge        | 32.00        | AMD EPYC 7R13               | 8     | 4         | 2                | 0.25 x NVIDIA L4 GPU                              | 5.59 GiB                |
-| g6f.4xlarge        | 64.00        | AMD EPYC 7R13               | 16    | 8         | 2                | 0.5 x NVIDIA L4 GPU                               | 11.18 GiB               |
-| **Gr6**            |
-| gr6.4xlarge        | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
-| gr6.8xlarge        | 256.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x NVIDIA L4 GPU                                 | 22 GiB (1 x 22 GiB)     |
-| **Gr6f**           |
-| gr6f.4xlarge       | 128.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 0.5 x NVIDIA L4 GPU                               | 11.18 GiB               |
-| **G7**             |
-| g7.2xlarge         | 32.00        | Intel Xeon Granite Rapids   | 8     | 8         | 1                | 1 x NVIDIA RTX PRO 4500 GPU                       | 32 GiB (1 x 32 GiB)     |
-| g7.4xlarge         | 64.00        | Intel Xeon Granite Rapids   | 16    | 16        | 1                | 1 x NVIDIA RTX PRO 4500 GPU                       | 32 GiB (1 x 32 GiB)     |
-| g7.8xlarge         | 128.00       | Intel Xeon Granite Rapids   | 32    | 32        | 1                | 1 x NVIDIA RTX PRO 4500 GPU                       | 32 GiB (1 x 32 GiB)     |
-| g7.12xlarge        | 192.00       | Intel Xeon Granite Rapids   | 48    | 48        | 1                | 2 x NVIDIA RTX PRO 4500 GPU                       | 64 GiB (2 x 32 GiB)     |
-| g7.24xlarge        | 384.00       | Intel Xeon Granite Rapids   | 96    | 96        | 1                | 4 x NVIDIA RTX PRO 4500 GPU                       | 128 GiB (4 x 32 GiB)    |
-| g7.48xlarge        | 768.00       | Intel Xeon Granite Rapids   | 192   | 192       | 1                | 8 x NVIDIA RTX PRO 4500 GPU                       | 256 GiB (8 x 32 GiB)    |
-| **G7e**            |
-| g7e.2xlarge        | 64.00        | Intel Xeon Emerald Rapids   | 8     | 4         | 2                | 1 x NVIDIA RTX PRO Server 6000 GPU                | 96 GiB (1 x 96 GiB)     |
-| g7e.4xlarge        | 128.00       | Intel Xeon Emerald Rapids   | 16    | 8         | 2                | 1 x NVIDIA RTX PRO Server 6000 GPU                | 96 GiB (1 x 96 GiB)     |
-| g7e.8xlarge        | 256.00       | Intel Xeon Emerald Rapids   | 32    | 16        | 2                | 1 x NVIDIA RTX PRO Server 6000 GPU                | 96 GiB (1 x 96 GiB)     |
-| g7e.12xlarge       | 512.00       | Intel Xeon Emerald Rapids   | 48    | 24        | 2                | 2 x NVIDIA RTX PRO Server 6000 GPU                | 192 GiB (2 x 96 GiB)    |
-| g7e.24xlarge       | 1024.00      | Intel Xeon Emerald Rapids   | 96    | 48        | 2                | 4 x NVIDIA RTX PRO Server 6000 GPU                | 384 GiB (4 x 96 GiB)    |
-| g7e.48xlarge       | 2048.00      | Intel Xeon Emerald Rapids   | 192   | 96        | 2                | 8 x NVIDIA RTX PRO Server 6000 GPU                | 768 GiB (8 x 96 GiB)    |
-| **Inf1**           |
-| inf1.xlarge        | 8.00         | Intel Xeon P-8259L          | 4     | 2         | 2                | 1 x AWS Inferentia inference accelerator          | 8 GiB (1 x 8 GiB)       |
-| inf1.2xlarge       | 16.00        | Intel Xeon P-8259L          | 8     | 4         | 2                | 1 x AWS Inferentia inference accelerator          | 8 GiB (1 x 8 GiB)       |
-| inf1.6xlarge       | 48.00        | Intel Xeon P-8259L          | 24    | 12        | 2                | 4 x AWS Inferentia inference accelerator          | 32 GiB (4 x 8 GiB)      |
-| inf1.24xlarge      | 192.00       | Intel Xeon P-8259L          | 96    | 48        | 2                | 16 x AWS Inferentia inference accelerator         | 128 GiB (16 x 8 GiB)    |
-| **Inf2**           |
-| inf2.xlarge        | 16.00        | AMD EPYC 7R13               | 4     | 2         | 2                | 1 x AWS Inferentia2 inference accelerator         | 32 GiB (1 x 32 GiB)     |
-| inf2.8xlarge       | 128.00       | AMD EPYC 7R13               | 32    | 16        | 2                | 1 x AWS Inferentia2 inference accelerator         | 32 GiB (1 x 32 GiB)     |
-| inf2.24xlarge      | 384.00       | AMD EPYC 7R13               | 96    | 48        | 2                | 6 x AWS Inferentia2 inference accelerator         | 192 GiB (6 x 32 GiB)    |
-| inf2.48xlarge      | 768.00       | AMD EPYC 7R13               | 192   | 96        | 2                | 12 x AWS Inferentia2 inference accelerator        | 384 GiB (12 x 32 GiB)   |
-| **P4d**            |
-| p4d.24xlarge       | 1152.00      | Intel Xeon Platinum 8275CL  | 96    | 48        | 2                | 8 x NVIDIA A100 GPU                               | 320 GiB (8 x 40 GiB)    |
-| **P4de**           |
-| p4de.24xlarge      | 1152.00      | Intel Xeon Platinum 8275CL  | 96    | 48        | 2                | 8 x NVIDIA A100 GPU                               | 640 GiB (8 x 80 GiB)    |
-| **P5**             |
-| p5.4xlarge         | 256.00       | AMD EPYC 7R13               | 16    | 8         | 2                | 1 x NVIDIA H100 GPU                               | 80 GiB (1 x 80 GiB)     |
-| p5.48xlarge        | 2048.00      | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x NVIDIA H100 GPU                               | 640 GiB (8 x 80 GiB)    |
-| **P5e**            |
-| p5e.48xlarge       | 2048.00      | AMD EPYC 7R13               | 192   | 96        | 2                | 8 x NVIDIA H200 GPU                               | 1128 GiB (8 x 141 GiB)  |
-| **P5en**           |
-| p5en.48xlarge      | 2048.00      | Intel Xeon Sapphire Rapids  | 192   | 96        | 2                | 8 x NVIDIA H200 GPU                               | 1128 GiB (8 x 141 GiB)  |
-| **P6-B200**        |
-| p6-b200.48xlarge   | 2048.00      | Intel Xeon Emerald Rapids   | 192   | 96        | 2                | 8 x NVIDIA B200 GPU                               | 1432 GiB (8 x 179 GiB)  |
-| **P6-B300**        |
-| p6-b300.48xlarge   | 4096.00      | Intel Xeon Emerald Rapids   | 192   | 96        | 2                | 8 x NVIDIA B300 GPU                               | 2148 GiB (8 x 268 GiB)  |
-| **P6e-GB200**      |
-| p6e-gb200.36xlarge | 960.00       | Nvidia Grace CPU            | 144   | 144       | 1                | 4 x NVIDIA B200 GPU                               | 740 GiB (4 x 185 GiB)   |
-| **Trn1**           |
-| trn1.2xlarge       | 32.00        | Intel Xeon Ice Lake 8375C   | 8     | 4         | 2                | 1 x AWS Trainium accelerators                     | 32 GiB (1 x 32 GiB)     |
-| trn1.32xlarge      | 512.00       | Intel Xeon Ice Lake 8375C   | 128   | 64        | 2                | 16 x AWS Trainium accelerators                    | 512 GiB (16 x 32 GiB)   |
-| **Trn1n**          |
-| trn1n.32xlarge     | 512.00       | Intel Xeon Ice Lake         | 128   | 64        | 2                | 16 x AWS Trainium accelerators                    | 512 GiB (16 x 32 GiB)   |
-| **Trn2**           |
-| trn2.3xlarge       | 128.00       | Intel Xeon Sapphire Rapids  | 12    | 6         | 2                | 1 x AWS Trainium2 accelerators                    | 512 GiB (1 x 512 GiB)   |
-| trn2.48xlarge      | 2048.00      | Intel Xeon Sapphire Rapids  | 192   | 96        | 2                | 16 x AWS Trainium2 accelerators                   | 8192 GiB (16 x 512 GiB) |
-| **Trn2u**          |
-| trn2u.48xlarge     | 2048.00      | Intel Xeon Sapphire Rapids  | 192   | 96        | 2                | ✗ No                                              | ✗ No                    |
-| **VT1**            |
-| vt1.3xlarge        | 24.00        | Intel Cascade Lake P-8259CL | 12    | 6         | 2                | 1 x Xilinx U30 media accelerator                  | 24 GiB (1 x 24 GiB)     |
-| vt1.6xlarge        | 48.00        | Intel Cascade Lake P-8259CL | 24    | 12        | 2                | 2 x Xilinx U30 media accelerator                  | 48 GiB (2 x 24 GiB)     |
-| vt1.24xlarge       | 192.00       | Intel Cascade Lake P-8259CL | 96    | 48        | 2                | 8 x Xilinx U30 media accelerator                  | 192 GiB (8 x 24 GiB)    |
+
+<table>
+<thead>
+  <tr><th>Instance type</th><th>Memory (GiB)</th><th>Processor</th><th>vCPUs</th><th>CPU cores</th><th>Threads per core</th><th>Accelerators</th><th>Accelerator memory</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="8"><b>DL1</b></td></tr>
+  <tr><td>dl1.24xlarge</td><td>768.00</td><td>Intel Xeon Platinum 8275CL</td><td>96</td><td>48</td><td>2</td><td>8 x Habana Gaudi HL-205 GPU</td><td>256 GiB (8 x 32 GiB)</td></tr>
+  <tr><td colspan="8"><b>DL2q</b></td></tr>
+  <tr><td>dl2q.24xlarge</td><td>768.00</td><td>Intel Xeon Cascade Lake</td><td>96</td><td>48</td><td>2</td><td>8 x Qualcomm Qualcomm AI100 inference accelerator</td><td>125 GiB (8 x 15 GiB)</td></tr>
+  <tr><td colspan="8"><b>F2</b></td></tr>
+  <tr><td>f2.6xlarge</td><td>256.00</td><td>AMD EPYC 7R13</td><td>24</td><td>12</td><td>2</td><td>1 x Xilinx Virtex UltraScale+ (VU47P) FPGA</td><td>80 GiB (1 x 80 GiB)</td></tr>
+  <tr><td>f2.12xlarge</td><td>512.00</td><td>AMD EPYC 7R13</td><td>48</td><td>24</td><td>2</td><td>2 x Xilinx Virtex UltraScale+ (VU47P) FPGA</td><td>160 GiB (2 x 80 GiB)</td></tr>
+  <tr><td>f2.48xlarge</td><td>2048.00</td><td>AMD EPYC 7R13</td><td>192</td><td>96</td><td>2</td><td>8 x Xilinx Virtex UltraScale+ (VU47P) FPGA</td><td>640 GiB (8 x 80 GiB)</td></tr>
+  <tr><td colspan="8"><b>G4ad</b></td></tr>
+  <tr><td>g4ad.xlarge</td><td>16.00</td><td>2nd Gen AMD EPYC 7R32</td><td>4</td><td>2</td><td>2</td><td>1 x AMD Radeon Pro V520 GPU</td><td>8 GiB (1 x 8 GiB)</td></tr>
+  <tr><td>g4ad.2xlarge</td><td>32.00</td><td>2nd Gen AMD EPYC 7R32</td><td>8</td><td>4</td><td>2</td><td>1 x AMD Radeon Pro V520 GPU</td><td>8 GiB (1 x 8 GiB)</td></tr>
+  <tr><td>g4ad.4xlarge</td><td>64.00</td><td>2nd Gen AMD EPYC 7R32</td><td>16</td><td>8</td><td>2</td><td>1 x AMD Radeon Pro V520 GPU</td><td>8 GiB (1 x 8 GiB)</td></tr>
+  <tr><td>g4ad.8xlarge</td><td>128.00</td><td>2nd Gen AMD EPYC 7R32</td><td>32</td><td>16</td><td>2</td><td>2 x AMD Radeon Pro V520 GPU</td><td>16 GiB (2 x 8 GiB)</td></tr>
+  <tr><td>g4ad.16xlarge</td><td>256.00</td><td>2nd Gen AMD EPYC 7R32</td><td>64</td><td>32</td><td>2</td><td>4 x AMD Radeon Pro V520 GPU</td><td>32 GiB (4 x 8 GiB)</td></tr>
+  <tr><td colspan="8"><b>G4dn</b></td></tr>
+  <tr><td>g4dn.xlarge</td><td>16.00</td><td>Intel Xeon P-8259L</td><td>4</td><td>2</td><td>2</td><td>1 x NVIDIA T4 GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g4dn.2xlarge</td><td>32.00</td><td>Intel Xeon P-8259L</td><td>8</td><td>4</td><td>2</td><td>1 x NVIDIA T4 GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g4dn.4xlarge</td><td>64.00</td><td>Intel Xeon P-8259L</td><td>16</td><td>8</td><td>2</td><td>1 x NVIDIA T4 GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g4dn.8xlarge</td><td>128.00</td><td>Intel Xeon P-8259L</td><td>32</td><td>16</td><td>2</td><td>1 x NVIDIA T4 GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g4dn.12xlarge</td><td>192.00</td><td>Intel Xeon P-8259L</td><td>48</td><td>24</td><td>2</td><td>4 x NVIDIA T4 GPU</td><td>64 GiB (4 x 16 GiB)</td></tr>
+  <tr><td>g4dn.16xlarge</td><td>256.00</td><td>Intel Xeon P-8259L</td><td>64</td><td>32</td><td>2</td><td>1 x NVIDIA T4 GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g4dn.metal</td><td>384.00</td><td>Intel Xeon P-8259L</td><td>96</td><td>48</td><td>2</td><td>8 x NVIDIA T4 GPU</td><td>128 GiB (8 x 16 GiB)</td></tr>
+  <tr><td colspan="8"><b>G5</b></td></tr>
+  <tr><td>g5.xlarge</td><td>16.00</td><td>2nd Gen AMD EPYC 7R32</td><td>4</td><td>2</td><td>2</td><td>1 x NVIDIA A10G GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g5.2xlarge</td><td>32.00</td><td>2nd Gen AMD EPYC 7R32</td><td>8</td><td>4</td><td>2</td><td>1 x NVIDIA A10G GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g5.4xlarge</td><td>64.00</td><td>2nd Gen AMD EPYC 7R32</td><td>16</td><td>8</td><td>2</td><td>1 x NVIDIA A10G GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g5.8xlarge</td><td>128.00</td><td>2nd Gen AMD EPYC 7R32</td><td>32</td><td>16</td><td>2</td><td>1 x NVIDIA A10G GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g5.12xlarge</td><td>192.00</td><td>2nd Gen AMD EPYC 7R32</td><td>48</td><td>24</td><td>2</td><td>4 x NVIDIA A10G GPU</td><td>89 GiB (4 x 22 GiB)</td></tr>
+  <tr><td>g5.16xlarge</td><td>256.00</td><td>2nd Gen AMD EPYC 7R32</td><td>64</td><td>32</td><td>2</td><td>1 x NVIDIA A10G GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g5.24xlarge</td><td>384.00</td><td>2nd Gen AMD EPYC 7R32</td><td>96</td><td>48</td><td>2</td><td>4 x NVIDIA A10G GPU</td><td>89 GiB (4 x 22 GiB)</td></tr>
+  <tr><td>g5.48xlarge</td><td>768.00</td><td>2nd Gen AMD EPYC 7R32</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA A10G GPU</td><td>178 GiB (8 x 22 GiB)</td></tr>
+  <tr><td colspan="8"><b>G5g</b></td></tr>
+  <tr><td>g5g.xlarge</td><td>8.00</td><td>AWS Graviton2 Processor</td><td>4</td><td>4</td><td>1</td><td>1 x NVIDIA T4g GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g5g.2xlarge</td><td>16.00</td><td>AWS Graviton2 Processor</td><td>8</td><td>8</td><td>1</td><td>1 x NVIDIA T4g GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g5g.4xlarge</td><td>32.00</td><td>AWS Graviton2 Processor</td><td>16</td><td>16</td><td>1</td><td>1 x NVIDIA T4g GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g5g.8xlarge</td><td>64.00</td><td>AWS Graviton2 Processor</td><td>32</td><td>32</td><td>1</td><td>1 x NVIDIA T4g GPU</td><td>16 GiB (1 x 16 GiB)</td></tr>
+  <tr><td>g5g.16xlarge</td><td>128.00</td><td>AWS Graviton2 Processor</td><td>64</td><td>64</td><td>1</td><td>2 x NVIDIA T4g GPU</td><td>32 GiB (2 x 16 GiB)</td></tr>
+  <tr><td>g5g.metal</td><td>128.00</td><td>AWS Graviton2 Processor</td><td>64</td><td>64</td><td>1</td><td>2 x NVIDIA T4g GPU</td><td>32 GiB (2 x 16 GiB)</td></tr>
+  <tr><td colspan="8"><b>G6</b></td></tr>
+  <tr><td>g6.xlarge</td><td>16.00</td><td>AMD EPYC 7R13</td><td>4</td><td>2</td><td>2</td><td>1 x NVIDIA L4 GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g6.2xlarge</td><td>32.00</td><td>AMD EPYC 7R13</td><td>8</td><td>4</td><td>2</td><td>1 x NVIDIA L4 GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g6.4xlarge</td><td>64.00</td><td>AMD EPYC 7R13</td><td>16</td><td>8</td><td>2</td><td>1 x NVIDIA L4 GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g6.8xlarge</td><td>128.00</td><td>AMD EPYC 7R13</td><td>32</td><td>16</td><td>2</td><td>1 x NVIDIA L4 GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g6.12xlarge</td><td>192.00</td><td>AMD EPYC 7R13</td><td>48</td><td>24</td><td>2</td><td>4 x NVIDIA L4 GPU</td><td>89 GiB (4 x 22 GiB)</td></tr>
+  <tr><td>g6.16xlarge</td><td>256.00</td><td>AMD EPYC 7R13</td><td>64</td><td>32</td><td>2</td><td>1 x NVIDIA L4 GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>g6.24xlarge</td><td>384.00</td><td>AMD EPYC 7R13</td><td>96</td><td>48</td><td>2</td><td>4 x NVIDIA L4 GPU</td><td>89 GiB (4 x 22 GiB)</td></tr>
+  <tr><td>g6.48xlarge</td><td>768.00</td><td>AMD EPYC 7R13</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA L4 GPU</td><td>178 GiB (8 x 22 GiB)</td></tr>
+  <tr><td colspan="8"><b>G6e</b></td></tr>
+  <tr><td>g6e.xlarge</td><td>32.00</td><td>AMD EPYC 7R13</td><td>4</td><td>2</td><td>2</td><td>1 x NVIDIA L40S GPU</td><td>44 GiB (1 x 44 GiB)</td></tr>
+  <tr><td>g6e.2xlarge</td><td>64.00</td><td>AMD EPYC 7R13</td><td>8</td><td>4</td><td>2</td><td>1 x NVIDIA L40S GPU</td><td>44 GiB (1 x 44 GiB)</td></tr>
+  <tr><td>g6e.4xlarge</td><td>128.00</td><td>AMD EPYC 7R13</td><td>16</td><td>8</td><td>2</td><td>1 x NVIDIA L40S GPU</td><td>44 GiB (1 x 44 GiB)</td></tr>
+  <tr><td>g6e.8xlarge</td><td>256.00</td><td>AMD EPYC 7R13</td><td>32</td><td>16</td><td>2</td><td>1 x NVIDIA L40S GPU</td><td>44 GiB (1 x 44 GiB)</td></tr>
+  <tr><td>g6e.12xlarge</td><td>384.00</td><td>AMD EPYC 7R13</td><td>48</td><td>24</td><td>2</td><td>4 x NVIDIA L40S GPU</td><td>178 GiB (4 x 44 GiB)</td></tr>
+  <tr><td>g6e.16xlarge</td><td>512.00</td><td>AMD EPYC 7R13</td><td>64</td><td>32</td><td>2</td><td>1 x NVIDIA L40S GPU</td><td>44 GiB (1 x 44 GiB)</td></tr>
+  <tr><td>g6e.24xlarge</td><td>768.00</td><td>AMD EPYC 7R13</td><td>96</td><td>48</td><td>2</td><td>4 x NVIDIA L40S GPU</td><td>178 GiB (4 x 44 GiB)</td></tr>
+  <tr><td>g6e.48xlarge</td><td>1536.00</td><td>AMD EPYC 7R13</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA L40S GPU</td><td>357 GiB (8 x 44 GiB)</td></tr>
+  <tr><td colspan="8"><b>G6f</b></td></tr>
+  <tr><td>g6f.large</td><td>8.00</td><td>AMD EPYC 7R13</td><td>2</td><td>1</td><td>2</td><td>0.125 x NVIDIA L4 GPU</td><td>2.79 GiB</td></tr>
+  <tr><td>g6f.xlarge</td><td>16.00</td><td>AMD EPYC 7R13</td><td>4</td><td>2</td><td>2</td><td>0.125 x NVIDIA L4 GPU</td><td>2.79 GiB</td></tr>
+  <tr><td>g6f.2xlarge</td><td>32.00</td><td>AMD EPYC 7R13</td><td>8</td><td>4</td><td>2</td><td>0.25 x NVIDIA L4 GPU</td><td>5.59 GiB</td></tr>
+  <tr><td>g6f.4xlarge</td><td>64.00</td><td>AMD EPYC 7R13</td><td>16</td><td>8</td><td>2</td><td>0.5 x NVIDIA L4 GPU</td><td>11.18 GiB</td></tr>
+  <tr><td colspan="8"><b>Gr6</b></td></tr>
+  <tr><td>gr6.4xlarge</td><td>128.00</td><td>AMD EPYC 7R13</td><td>16</td><td>8</td><td>2</td><td>1 x NVIDIA L4 GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td>gr6.8xlarge</td><td>256.00</td><td>AMD EPYC 7R13</td><td>32</td><td>16</td><td>2</td><td>1 x NVIDIA L4 GPU</td><td>22 GiB (1 x 22 GiB)</td></tr>
+  <tr><td colspan="8"><b>Gr6f</b></td></tr>
+  <tr><td>gr6f.4xlarge</td><td>128.00</td><td>AMD EPYC 7R13</td><td>16</td><td>8</td><td>2</td><td>0.5 x NVIDIA L4 GPU</td><td>11.18 GiB</td></tr>
+  <tr><td colspan="8"><b>G7</b></td></tr>
+  <tr><td>g7.2xlarge</td><td>32.00</td><td>Intel Xeon Granite Rapids</td><td>8</td><td>8</td><td>1</td><td>1 x NVIDIA RTX PRO 4500 GPU</td><td>32 GiB (1 x 32 GiB)</td></tr>
+  <tr><td>g7.4xlarge</td><td>64.00</td><td>Intel Xeon Granite Rapids</td><td>16</td><td>16</td><td>1</td><td>1 x NVIDIA RTX PRO 4500 GPU</td><td>32 GiB (1 x 32 GiB)</td></tr>
+  <tr><td>g7.8xlarge</td><td>128.00</td><td>Intel Xeon Granite Rapids</td><td>32</td><td>32</td><td>1</td><td>1 x NVIDIA RTX PRO 4500 GPU</td><td>32 GiB (1 x 32 GiB)</td></tr>
+  <tr><td>g7.12xlarge</td><td>192.00</td><td>Intel Xeon Granite Rapids</td><td>48</td><td>48</td><td>1</td><td>2 x NVIDIA RTX PRO 4500 GPU</td><td>64 GiB (2 x 32 GiB)</td></tr>
+  <tr><td>g7.24xlarge</td><td>384.00</td><td>Intel Xeon Granite Rapids</td><td>96</td><td>96</td><td>1</td><td>4 x NVIDIA RTX PRO 4500 GPU</td><td>128 GiB (4 x 32 GiB)</td></tr>
+  <tr><td>g7.48xlarge</td><td>768.00</td><td>Intel Xeon Granite Rapids</td><td>192</td><td>192</td><td>1</td><td>8 x NVIDIA RTX PRO 4500 GPU</td><td>256 GiB (8 x 32 GiB)</td></tr>
+  <tr><td colspan="8"><b>G7e</b></td></tr>
+  <tr><td>g7e.2xlarge</td><td>64.00</td><td>Intel Xeon Emerald Rapids</td><td>8</td><td>4</td><td>2</td><td>1 x NVIDIA RTX PRO Server 6000 GPU</td><td>96 GiB (1 x 96 GiB)</td></tr>
+  <tr><td>g7e.4xlarge</td><td>128.00</td><td>Intel Xeon Emerald Rapids</td><td>16</td><td>8</td><td>2</td><td>1 x NVIDIA RTX PRO Server 6000 GPU</td><td>96 GiB (1 x 96 GiB)</td></tr>
+  <tr><td>g7e.8xlarge</td><td>256.00</td><td>Intel Xeon Emerald Rapids</td><td>32</td><td>16</td><td>2</td><td>1 x NVIDIA RTX PRO Server 6000 GPU</td><td>96 GiB (1 x 96 GiB)</td></tr>
+  <tr><td>g7e.12xlarge</td><td>512.00</td><td>Intel Xeon Emerald Rapids</td><td>48</td><td>24</td><td>2</td><td>2 x NVIDIA RTX PRO Server 6000 GPU</td><td>192 GiB (2 x 96 GiB)</td></tr>
+  <tr><td>g7e.24xlarge</td><td>1024.00</td><td>Intel Xeon Emerald Rapids</td><td>96</td><td>48</td><td>2</td><td>4 x NVIDIA RTX PRO Server 6000 GPU</td><td>384 GiB (4 x 96 GiB)</td></tr>
+  <tr><td>g7e.48xlarge</td><td>2048.00</td><td>Intel Xeon Emerald Rapids</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA RTX PRO Server 6000 GPU</td><td>768 GiB (8 x 96 GiB)</td></tr>
+  <tr><td colspan="8"><b>Inf1</b></td></tr>
+  <tr><td>inf1.xlarge</td><td>8.00</td><td>Intel Xeon P-8259L</td><td>4</td><td>2</td><td>2</td><td>1 x AWS Inferentia inference accelerator</td><td>8 GiB (1 x 8 GiB)</td></tr>
+  <tr><td>inf1.2xlarge</td><td>16.00</td><td>Intel Xeon P-8259L</td><td>8</td><td>4</td><td>2</td><td>1 x AWS Inferentia inference accelerator</td><td>8 GiB (1 x 8 GiB)</td></tr>
+  <tr><td>inf1.6xlarge</td><td>48.00</td><td>Intel Xeon P-8259L</td><td>24</td><td>12</td><td>2</td><td>4 x AWS Inferentia inference accelerator</td><td>32 GiB (4 x 8 GiB)</td></tr>
+  <tr><td>inf1.24xlarge</td><td>192.00</td><td>Intel Xeon P-8259L</td><td>96</td><td>48</td><td>2</td><td>16 x AWS Inferentia inference accelerator</td><td>128 GiB (16 x 8 GiB)</td></tr>
+  <tr><td colspan="8"><b>Inf2</b></td></tr>
+  <tr><td>inf2.xlarge</td><td>16.00</td><td>AMD EPYC 7R13</td><td>4</td><td>2</td><td>2</td><td>1 x AWS Inferentia2 inference accelerator</td><td>32 GiB (1 x 32 GiB)</td></tr>
+  <tr><td>inf2.8xlarge</td><td>128.00</td><td>AMD EPYC 7R13</td><td>32</td><td>16</td><td>2</td><td>1 x AWS Inferentia2 inference accelerator</td><td>32 GiB (1 x 32 GiB)</td></tr>
+  <tr><td>inf2.24xlarge</td><td>384.00</td><td>AMD EPYC 7R13</td><td>96</td><td>48</td><td>2</td><td>6 x AWS Inferentia2 inference accelerator</td><td>192 GiB (6 x 32 GiB)</td></tr>
+  <tr><td>inf2.48xlarge</td><td>768.00</td><td>AMD EPYC 7R13</td><td>192</td><td>96</td><td>2</td><td>12 x AWS Inferentia2 inference accelerator</td><td>384 GiB (12 x 32 GiB)</td></tr>
+  <tr><td colspan="8"><b>P4d</b></td></tr>
+  <tr><td>p4d.24xlarge</td><td>1152.00</td><td>Intel Xeon Platinum 8275CL</td><td>96</td><td>48</td><td>2</td><td>8 x NVIDIA A100 GPU</td><td>320 GiB (8 x 40 GiB)</td></tr>
+  <tr><td colspan="8"><b>P4de</b></td></tr>
+  <tr><td>p4de.24xlarge</td><td>1152.00</td><td>Intel Xeon Platinum 8275CL</td><td>96</td><td>48</td><td>2</td><td>8 x NVIDIA A100 GPU</td><td>640 GiB (8 x 80 GiB)</td></tr>
+  <tr><td colspan="8"><b>P5</b></td></tr>
+  <tr><td>p5.4xlarge</td><td>256.00</td><td>AMD EPYC 7R13</td><td>16</td><td>8</td><td>2</td><td>1 x NVIDIA H100 GPU</td><td>80 GiB (1 x 80 GiB)</td></tr>
+  <tr><td>p5.48xlarge</td><td>2048.00</td><td>AMD EPYC 7R13</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA H100 GPU</td><td>640 GiB (8 x 80 GiB)</td></tr>
+  <tr><td colspan="8"><b>P5e</b></td></tr>
+  <tr><td>p5e.48xlarge</td><td>2048.00</td><td>AMD EPYC 7R13</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA H200 GPU</td><td>1128 GiB (8 x 141 GiB)</td></tr>
+  <tr><td colspan="8"><b>P5en</b></td></tr>
+  <tr><td>p5en.48xlarge</td><td>2048.00</td><td>Intel Xeon Sapphire Rapids</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA H200 GPU</td><td>1128 GiB (8 x 141 GiB)</td></tr>
+  <tr><td colspan="8"><b>P6-B200</b></td></tr>
+  <tr><td>p6-b200.48xlarge</td><td>2048.00</td><td>Intel Xeon Emerald Rapids</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA B200 GPU</td><td>1432 GiB (8 x 179 GiB)</td></tr>
+  <tr><td colspan="8"><b>P6-B300</b></td></tr>
+  <tr><td>p6-b300.48xlarge</td><td>4096.00</td><td>Intel Xeon Emerald Rapids</td><td>192</td><td>96</td><td>2</td><td>8 x NVIDIA B300 GPU</td><td>2148 GiB (8 x 268 GiB)</td></tr>
+  <tr><td colspan="8"><b>P6e-GB200</b></td></tr>
+  <tr><td>p6e-gb200.36xlarge</td><td>960.00</td><td>Nvidia Grace CPU</td><td>144</td><td>144</td><td>1</td><td>4 x NVIDIA B200 GPU</td><td>740 GiB (4 x 185 GiB)</td></tr>
+  <tr><td colspan="8"><b>Trn1</b></td></tr>
+  <tr><td>trn1.2xlarge</td><td>32.00</td><td>Intel Xeon Ice Lake 8375C</td><td>8</td><td>4</td><td>2</td><td>1 x AWS Trainium accelerators</td><td>32 GiB (1 x 32 GiB)</td></tr>
+  <tr><td>trn1.32xlarge</td><td>512.00</td><td>Intel Xeon Ice Lake 8375C</td><td>128</td><td>64</td><td>2</td><td>16 x AWS Trainium accelerators</td><td>512 GiB (16 x 32 GiB)</td></tr>
+  <tr><td colspan="8"><b>Trn1n</b></td></tr>
+  <tr><td>trn1n.32xlarge</td><td>512.00</td><td>Intel Xeon Ice Lake</td><td>128</td><td>64</td><td>2</td><td>16 x AWS Trainium accelerators</td><td>512 GiB (16 x 32 GiB)</td></tr>
+  <tr><td colspan="8"><b>Trn2</b></td></tr>
+  <tr><td>trn2.3xlarge</td><td>128.00</td><td>Intel Xeon Sapphire Rapids</td><td>12</td><td>6</td><td>2</td><td>1 x AWS Trainium2 accelerators</td><td>512 GiB (1 x 512 GiB)</td></tr>
+  <tr><td>trn2.48xlarge</td><td>2048.00</td><td>Intel Xeon Sapphire Rapids</td><td>192</td><td>96</td><td>2</td><td>16 x AWS Trainium2 accelerators</td><td>8192 GiB (16 x 512 GiB)</td></tr>
+  <tr><td colspan="8"><b>Trn2u</b></td></tr>
+  <tr><td>trn2u.48xlarge</td><td>2048.00</td><td>Intel Xeon Sapphire Rapids</td><td>192</td><td>96</td><td>2</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td colspan="8"><b>VT1</b></td></tr>
+  <tr><td>vt1.3xlarge</td><td>24.00</td><td>Intel Cascade Lake P-8259CL</td><td>12</td><td>6</td><td>2</td><td>1 x Xilinx U30 media accelerator</td><td>24 GiB (1 x 24 GiB)</td></tr>
+  <tr><td>vt1.6xlarge</td><td>48.00</td><td>Intel Cascade Lake P-8259CL</td><td>24</td><td>12</td><td>2</td><td>2 x Xilinx U30 media accelerator</td><td>48 GiB (2 x 24 GiB)</td></tr>
+  <tr><td>vt1.24xlarge</td><td>192.00</td><td>Intel Cascade Lake P-8259CL</td><td>96</td><td>48</td><td>2</td><td>8 x Xilinx U30 media accelerator</td><td>192 GiB (8 x 24 GiB)</td></tr>
+</tbody>
+</table>
+
 
 ## Network specifications
+<a name="ac_network"></a>
 
-| Instance type        | Baseline / Burst bandwidth (Gbps) | EFA   | ENA   | ENA Express | ENA queues per interface (Default/Maximum) | Network cards | Max. network interfaces | IP addresses per interface | IPv6  |
-| -------------------- | --------------------------------- | ----- | ----- | ----------- | ------------------------------------------ | ------------- | ----------------------- | -------------------------- | ----- |
-| **DL1**              |
-| dl1.24xlarge 2       | 4x 100 Gigabit                    | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 4             | 60                      | 50                         | ✓ Yes |
-| **DL2q**             |
-| dl2q.24xlarge 2      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
-| **F2**               |
-| f2.6xlarge 2         | 12.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| f2.12xlarge 2        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| f2.48xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
-| **G4ad**             |
-| g4ad.xlarge 1 2      | 2.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 2                       | 4                          | ✓ Yes |
-| g4ad.2xlarge 1 2     | 4.167 / 10.0                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 2                       | 4                          | ✓ Yes |
-| g4ad.4xlarge 1 2     | 8.333 / 10.0                      | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 3                       | 10                         | ✓ Yes |
-| g4ad.8xlarge 2       | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 15                         | ✓ Yes |
-| g4ad.16xlarge 2      | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
-| **G4dn**             |
-| g4dn.xlarge 1 2      | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
-| g4dn.2xlarge 1 2     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 3                       | 10                         | ✓ Yes |
-| g4dn.4xlarge 1 2     | 20.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 3                       | 10                         | ✓ Yes |
-| g4dn.8xlarge 2       | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 15                         | ✓ Yes |
-| g4dn.12xlarge 2      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
-| g4dn.16xlarge 2      | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 15                         | ✓ Yes |
-| g4dn.metal 2         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
-| **G5**               |
-| g5.xlarge 1 2        | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g5.2xlarge 1 2       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g5.4xlarge 1 2       | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
-| g5.8xlarge 2         | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
-| g5.12xlarge 2        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
-| g5.16xlarge 2        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
-| g5.24xlarge 2        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 15                      | 50                         | ✓ Yes |
-| g5.48xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 7                       | 50                         | ✓ Yes |
-| **G5g**              |
-| g5g.xlarge 1 2       | 1.25 / 10.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g5g.2xlarge 1 2      | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g5g.4xlarge 1 2      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| g5g.8xlarge 2        | 12 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| g5g.16xlarge 2       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
-| g5g.metal 2          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
-| **G6**               |
-| g6.xlarge 1 2        | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g6.2xlarge 1 2       | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g6.4xlarge 1 2       | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| g6.8xlarge 2         | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| g6.12xlarge 2        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| g6.16xlarge 2        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
-| g6.24xlarge 2        | 50 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
-| g6.48xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
-| **G6e**              |
-| g6e.xlarge 1 2       | 2.5 / 20.0                        | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g6e.2xlarge 1 2      | 5.0 / 20.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g6e.4xlarge 2        | 20 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| g6e.8xlarge 2        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| g6e.12xlarge 2       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 10                      | 30                         | ✓ Yes |
-| g6e.16xlarge 2       | 35 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
-| g6e.24xlarge 2       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 2             | 20                      | 50                         | ✓ Yes |
-| g6e.48xlarge 2       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 4             | 40                      | 50                         | ✓ Yes |
-| **G6f**              |
-| g6f.large 1 2        | 1.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 2                                          | 1             | 2                       | 10                         | ✓ Yes |
-| g6f.xlarge 1 2       | 2.5 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g6f.2xlarge 1 2      | 5.0 / 10.0                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| g6f.4xlarge 1 2      | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| **Gr6**              |
-| gr6.4xlarge 1 2      | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| gr6.8xlarge 2        | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| **Gr6f**             |
-| gr6f.4xlarge 1 2     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| **G7**               |
-| g7.2xlarge 1         | 40.0 / 60.0                       | ✗ No  | ✓ Yes | ✗ No        | 8 / 8                                      | 1             | 4                       | 64                         | ✓ Yes |
-| g7.4xlarge 1         | 80.0 / 100.0                      | ✗ No  | ✓ Yes | ✗ No        | 8 / 16                                     | 1             | 8                       | 64                         | ✓ Yes |
-| g7.8xlarge           | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 8 / 32                                     | 1             | 10                      | 64                         | ✓ Yes |
-| g7.12xlarge          | 175 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16 / 64                                    | 1             | 12                      | 64                         | ✓ Yes |
-| g7.24xlarge          | 350 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16 / 128                                   | 1             | 24                      | 64                         | ✓ Yes |
-| g7.48xlarge          | 700 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32 / 128                                   | 2             | 24                      | 64                         | ✓ Yes |
-| **G7e**              |
-| g7e.2xlarge 2        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 64                         | ✓ Yes |
-| g7e.4xlarge 2        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 16                                         | 1             | 8                       | 64                         | ✓ Yes |
-| g7e.8xlarge 2        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 64                         | ✓ Yes |
-| g7e.12xlarge 2       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 1             | 10                      | 64                         | ✓ Yes |
-| g7e.24xlarge 2       | 800 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 2             | 20                      | 64                         | ✓ Yes |
-| g7e.48xlarge 2       | 1600 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 4             | 40                      | 64                         | ✓ Yes |
-| **Inf1**             |
-| inf1.xlarge 1 2      | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 10                         | ✓ Yes |
-| inf1.2xlarge 1 2     | 5.0 / 25.0                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 4                       | 10                         | ✓ Yes |
-| inf1.6xlarge 2       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 32                                         | 1             | 8                       | 30                         | ✓ Yes |
-| inf1.24xlarge 2      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 1             | 11                      | 30                         | ✓ Yes |
-| **Inf2**             |
-| inf2.xlarge 1 2      | 2.083 / 15.0                      | ✗ No  | ✓ Yes | ✗ No        | 4                                          | 1             | 4                       | 15                         | ✓ Yes |
-| inf2.8xlarge 1 2     | 16.667 / 25.0                     | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| inf2.24xlarge 2      | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
-| inf2.48xlarge 2      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✗ No        | 16                                         | 1             | 15                      | 50                         | ✓ Yes |
-| **P4d**              |
-| p4d.24xlarge 2       | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 4             | 60                      | 50                         | ✓ Yes |
-| **P4de**             |
-| p4de.24xlarge 2      | 4x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 4             | 60                      | 50                         | ✓ Yes |
-| **P5**               |
-| p5.4xlarge 2         | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 16                                         | 1             | 4                       | 30                         | ✓ Yes |
-| p5.48xlarge 2        | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 32            | 64                      | 50                         | ✓ Yes |
-| **P5e**              |
-| p5e.48xlarge 2       | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 32            | 64                      | 50                         | ✓ Yes |
-| **P5en**             |
-| p5en.48xlarge 2      | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 16            | 64                      | 50                         | ✓ Yes |
-| **P6-B200**          |
-| p6-b200.48xlarge 2   | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 8             | 32                      | 50                         | ✓ Yes |
-| **P6-B300**          |
-| p6-b300.48xlarge 2   | 6400 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 17            | 68                      | 50                         | ✓ Yes |
-| **P6e-GB200**        |
-| p6e-gb200.36xlarge 2 | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 32                                         | 17            | 39                      | 50                         | ✓ Yes |
-| **Trn1**             |
-| trn1.2xlarge 1 2     | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| trn1.32xlarge 2      | 8x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 8             | 40                      | 50                         | ✓ Yes |
-| **Trn1n**            |
-| trn1n.32xlarge 2     | 16x 100 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 16            | 80                      | 50                         | ✓ Yes |
-| **Trn2**             |
-| trn2.3xlarge 2       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 16                                         | 1             | 2                       | 15                         | ✓ Yes |
-| trn2.48xlarge 2      | 16x 200 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 16            | 32                      | 50                         | ✓ Yes |
-| **Trn2u**            |
-| trn2u.48xlarge 2     | 16x 200 Gigabit                   | ✓ Yes | ✓ Yes | ✗ No        | 32                                         | 16            | 32                      | 50                         | ✓ Yes |
-| **VT1**              |
-| vt1.3xlarge 2        | 3.12 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 4                       | 15                         | ✓ Yes |
-| vt1.6xlarge 2        | 6.25 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 8                                          | 1             | 8                       | 30                         | ✓ Yes |
-| vt1.24xlarge 2       | 25 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 8                                          | 1             | 15                      | 50                         | ✓ Yes |
 
-###### Note
+<table>
+<thead>
+  <tr><th>Instance type</th><th>Baseline / Burst bandwidth (Gbps)</th><th>EFA</th><th>ENA</th><th>ENA Express</th><th>ENA queues per interface (Default/Maximum)</th><th>Network cards</th><th>Max. network interfaces</th><th>IP addresses per interface</th><th>IPv6</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="10"><b>DL1</b></td></tr>
+  <tr><td>dl1.24xlarge 2</td><td>4x 100 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>4</td><td>60</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>DL2q</b></td></tr>
+  <tr><td>dl2q.24xlarge 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>F2</b></td></tr>
+  <tr><td>f2.6xlarge 2</td><td>12.5 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>f2.12xlarge 2</td><td>25 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>f2.48xlarge 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>16</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G4ad</b></td></tr>
+  <tr><td>g4ad.xlarge 1 2</td><td>2.0 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>2</td><td>4</td><td>✓ Yes</td></tr>
+  <tr><td>g4ad.2xlarge 1 2</td><td>4.167 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>2</td><td>4</td><td>✓ Yes</td></tr>
+  <tr><td>g4ad.4xlarge 1 2</td><td>8.333 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>3</td><td>10</td><td>✓ Yes</td></tr>
+  <tr><td>g4ad.8xlarge 2</td><td>15 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g4ad.16xlarge 2</td><td>25 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G4dn</b></td></tr>
+  <tr><td>g4dn.xlarge 1 2</td><td>5.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>3</td><td>10</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.2xlarge 1 2</td><td>10.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>3</td><td>10</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.4xlarge 1 2</td><td>20.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>3</td><td>10</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.8xlarge 2</td><td>50 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.12xlarge 2</td><td>50 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.16xlarge 2</td><td>50 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.metal 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G5</b></td></tr>
+  <tr><td>g5.xlarge 1 2</td><td>2.5 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g5.2xlarge 1 2</td><td>5.0 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g5.4xlarge 1 2</td><td>10.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g5.8xlarge 2</td><td>25 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g5.12xlarge 2</td><td>40 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td>g5.16xlarge 2</td><td>25 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g5.24xlarge 2</td><td>50 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td>g5.48xlarge 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>7</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G5g</b></td></tr>
+  <tr><td>g5g.xlarge 1 2</td><td>1.25 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g5g.2xlarge 1 2</td><td>2.5 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g5g.4xlarge 1 2</td><td>5.0 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g5g.8xlarge 2</td><td>12 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g5g.16xlarge 2</td><td>25 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td>g5g.metal 2</td><td>25 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G6</b></td></tr>
+  <tr><td>g6.xlarge 1 2</td><td>2.5 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>4</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g6.2xlarge 1 2</td><td>5.0 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g6.4xlarge 1 2</td><td>10.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g6.8xlarge 2</td><td>25 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g6.12xlarge 2</td><td>40 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g6.16xlarge 2</td><td>25 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td>g6.24xlarge 2</td><td>50 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>16</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td>g6.48xlarge 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>16</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G6e</b></td></tr>
+  <tr><td>g6e.xlarge 1 2</td><td>2.5 / 20.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>4</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.2xlarge 1 2</td><td>5.0 / 20.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.4xlarge 2</td><td>20 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.8xlarge 2</td><td>25 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.12xlarge 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>1</td><td>10</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.16xlarge 2</td><td>35 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.24xlarge 2</td><td>200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>2</td><td>20</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.48xlarge 2</td><td>400 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>4</td><td>40</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G6f</b></td></tr>
+  <tr><td>g6f.large 1 2</td><td>1.5 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>2</td><td>1</td><td>2</td><td>10</td><td>✓ Yes</td></tr>
+  <tr><td>g6f.xlarge 1 2</td><td>2.5 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>4</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g6f.2xlarge 1 2</td><td>5.0 / 10.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>g6f.4xlarge 1 2</td><td>10.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>Gr6</b></td></tr>
+  <tr><td>gr6.4xlarge 1 2</td><td>10.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>gr6.8xlarge 2</td><td>25 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>Gr6f</b></td></tr>
+  <tr><td>gr6f.4xlarge 1 2</td><td>10.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G7</b></td></tr>
+  <tr><td>g7.2xlarge 1</td><td>40.0 / 60.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8 / 8</td><td>1</td><td>4</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7.4xlarge 1</td><td>80.0 / 100.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8 / 16</td><td>1</td><td>8</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7.8xlarge</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>8 / 32</td><td>1</td><td>10</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7.12xlarge</td><td>175 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>16 / 64</td><td>1</td><td>12</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7.24xlarge</td><td>350 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>16 / 128</td><td>1</td><td>24</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7.48xlarge</td><td>700 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32 / 128</td><td>2</td><td>24</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>G7e</b></td></tr>
+  <tr><td>g7e.2xlarge 2</td><td>50 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.4xlarge 2</td><td>50 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>16</td><td>1</td><td>8</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.8xlarge 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>8</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.12xlarge 2</td><td>400 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>1</td><td>10</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.24xlarge 2</td><td>800 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>2</td><td>20</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.48xlarge 2</td><td>1600 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>4</td><td>40</td><td>64</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>Inf1</b></td></tr>
+  <tr><td>inf1.xlarge 1 2</td><td>5.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>4</td><td>10</td><td>✓ Yes</td></tr>
+  <tr><td>inf1.2xlarge 1 2</td><td>5.0 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>4</td><td>10</td><td>✓ Yes</td></tr>
+  <tr><td>inf1.6xlarge 2</td><td>25 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>inf1.24xlarge 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>1</td><td>11</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>Inf2</b></td></tr>
+  <tr><td>inf2.xlarge 1 2</td><td>2.083 / 15.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>4</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>inf2.8xlarge 1 2</td><td>16.667 / 25.0</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>inf2.24xlarge 2</td><td>50 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>16</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td>inf2.48xlarge 2</td><td>100 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>16</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>P4d</b></td></tr>
+  <tr><td>p4d.24xlarge 2</td><td>4x 100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>4</td><td>60</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>P4de</b></td></tr>
+  <tr><td>p4de.24xlarge 2</td><td>4x 100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>4</td><td>60</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>P5</b></td></tr>
+  <tr><td>p5.4xlarge 2</td><td>100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>16</td><td>1</td><td>4</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>p5.48xlarge 2</td><td>3200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>32</td><td>64</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>P5e</b></td></tr>
+  <tr><td>p5e.48xlarge 2</td><td>3200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>32</td><td>64</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>P5en</b></td></tr>
+  <tr><td>p5en.48xlarge 2</td><td>3200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>16</td><td>64</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>P6-B200</b></td></tr>
+  <tr><td>p6-b200.48xlarge 2</td><td>3200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>8</td><td>32</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>P6-B300</b></td></tr>
+  <tr><td>p6-b300.48xlarge 2</td><td>6400 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>17</td><td>68</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>P6e-GB200</b></td></tr>
+  <tr><td>p6e-gb200.36xlarge 2</td><td>3200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>32</td><td>17</td><td>39</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>Trn1</b></td></tr>
+  <tr><td>trn1.2xlarge 1 2</td><td>3.125 / 12.5</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>trn1.32xlarge 2</td><td>8x 100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>8</td><td>40</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>Trn1n</b></td></tr>
+  <tr><td>trn1n.32xlarge 2</td><td>16x 100 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>16</td><td>80</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>Trn2</b></td></tr>
+  <tr><td>trn2.3xlarge 2</td><td>200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>16</td><td>1</td><td>2</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>trn2.48xlarge 2</td><td>16x 200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>16</td><td>32</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>Trn2u</b></td></tr>
+  <tr><td>trn2u.48xlarge 2</td><td>16x 200 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>32</td><td>16</td><td>32</td><td>50</td><td>✓ Yes</td></tr>
+  <tr><td colspan="10"><b>VT1</b></td></tr>
+  <tr><td>vt1.3xlarge 2</td><td>3.12 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>4</td><td>15</td><td>✓ Yes</td></tr>
+  <tr><td>vt1.6xlarge 2</td><td>6.25 Gigabit</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>8</td><td>30</td><td>✓ Yes</td></tr>
+  <tr><td>vt1.24xlarge 2</td><td>25 Gigabit</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>8</td><td>1</td><td>15</td><td>50</td><td>✓ Yes</td></tr>
+</tbody>
+</table>
 
-1 These instances have a baseline bandwidth and can
-use a network I/O credit mechanism to burst beyond their baseline bandwidth on a best effort basis.
-Other instances types can sustain their maximum performance indefinitely. For more information,
-see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md "../../../AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.md").
 
+**Note**  
+1 These instances have a baseline bandwidth and can use a network I/O credit mechanism to burst beyond their baseline bandwidth on a best effort basis. Other instances types can sustain their maximum performance indefinitely. For more information, see [ instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html).  
 2 These instance types do not support configurable ENA queue allocation.
 
 ## Amazon EBS specifications
+<a name="ac_storage-ebs"></a>
 
-The following table indicates which instance types are Amazon EBS optimized by default and which
-optionally support it. It also describes their EBS-optimized performance, including dedicated bandwidth to Amazon EBS, the
-typical maximum aggregate throughput that can be achieved on that dedicated connection with a streaming read workload
-and 128 KiB I/O size, and the maximum IOPS the instance type can support when using a 16 KiB I/O size. Instance types
-not listed do not support Amazon EBS optimization.
+The following table indicates which instance types are Amazon EBS optimized by default and which optionally support it. It also describes their EBS-optimized performance, including dedicated bandwidth to Amazon EBS, the typical maximum aggregate throughput that can be achieved on that dedicated connection with a streaming read workload and 128 KiB I/O size, and the maximum IOPS the instance type can support when using a 16 KiB I/O size. Instance types not listed do not support Amazon EBS optimization.
 
-###### Important
+**Important**  
+An instance's EBS performance is bounded by the instance's performance limits, or the aggregated performance of its attached volumes, whichever is smaller. To achieve maximum EBS performance, an instance must have attached volumes that provide a combined performance equal to or greater than the maximum instance performance. For example, to achieve `80,000` IOPS for `r6i.16xlarge`, the instance must have at least `5` `gp3` volumes provisioned with `16,000` IOPS each (`5` volumes x `16,000` IOPS = `80,000` IOPS).  
+We recommend that you choose an EBS–optimized instance type that provides more dedicated Amazon EBS throughput than your application needs; otherwise, the connection between Amazon EBS and Amazon EC2 can become a performance bottleneck.
 
-An instance's EBS performance is bounded by the instance's performance limits, or the
-aggregated performance of its attached volumes, whichever is smaller. To achieve maximum
-EBS performance, an instance must have attached volumes that provide a combined performance
-equal to or greater than the maximum instance performance. For example, to achieve
-`80,000` IOPS for `r6i.16xlarge`, the instance must have at least
-`5` `gp3` volumes provisioned with `16,000` IOPS each
-(`5` volumes x `16,000` IOPS = `80,000` IOPS).
 
-We recommend that you choose an EBS–optimized instance type that provides more
-dedicated Amazon EBS throughput than your application needs; otherwise, the connection between
-Amazon EBS and Amazon EC2 can become a performance bottleneck.
+<table>
+<thead>
+  <tr><th>Instance type</th><th>Baseline / Maximum bandwidth (Mbps)</th><th>Baseline / Maximum throughput (MB/s, 128 KiB I/O)</th><th>Baseline / Maximum IOPS (16 KiB I/O)</th><th>NVMe</th><th>Multiple EBS cards</th><th>EBS volume limit</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="7"><b>DL1</b></td></tr>
+  <tr><td>dl1.24xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 28 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>DL2q</b></td></tr>
+  <tr><td>dl2q.24xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 19 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>F2</b></td></tr>
+  <tr><td>f2.6xlarge</td><td>7500.00</td><td>937.50</td><td>30000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>f2.12xlarge</td><td>15000.00</td><td>1875.00</td><td>60000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>f2.48xlarge</td><td>60000.00</td><td>7500.00</td><td>240000.00</td><td>✓ Yes</td><td>✗ No</td><td>128 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G4ad</b></td></tr>
+  <tr><td>g4ad.xlarge 1</td><td>400.00 / 3170.00</td><td>50.00 / 396.25</td><td>1700.00 / 13333.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4ad.2xlarge 1</td><td>800.00 / 3170.00</td><td>100.00 / 396.25</td><td>3400.00 / 13333.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4ad.4xlarge 1</td><td>1580.00 / 3170.00</td><td>197.50 / 396.25</td><td>6700.00 / 13333.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4ad.8xlarge</td><td>3170.00</td><td>396.25</td><td>13333.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 24 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4ad.16xlarge</td><td>6300.00</td><td>787.50</td><td>26667.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 21 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G4dn</b></td></tr>
+  <tr><td>g4dn.xlarge 1</td><td>950.00 / 3500.00</td><td>118.75 / 437.50</td><td>3000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4dn.2xlarge 1</td><td>1150.00 / 3500.00</td><td>143.75 / 437.50</td><td>6000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4dn.4xlarge</td><td>4750.00</td><td>593.75</td><td>20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4dn.8xlarge</td><td>9500.00</td><td>1187.50</td><td>40000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4dn.12xlarge</td><td>9500.00</td><td>1187.50</td><td>40000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 22 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4dn.16xlarge</td><td>9500.00</td><td>1187.50</td><td>40000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g4dn.metal</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 31 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G5</b></td></tr>
+  <tr><td>g5.xlarge 1</td><td>700.00 / 3500.00</td><td>87.50 / 437.50</td><td>3000.00 / 15000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5.2xlarge 1</td><td>850.00 / 3500.00</td><td>106.25 / 437.50</td><td>3500.00 / 15000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5.4xlarge</td><td>4750.00</td><td>593.75</td><td>20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5.8xlarge</td><td>16000.00</td><td>2000.00</td><td>65000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5.12xlarge</td><td>16000.00</td><td>2000.00</td><td>65000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 22 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5.16xlarge</td><td>16000.00</td><td>2000.00</td><td>65000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5.24xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 22 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5.48xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 9 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G5g</b></td></tr>
+  <tr><td>g5g.xlarge 1</td><td>1188.00 / 4750.00</td><td>148.50 / 593.75</td><td>6000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5g.2xlarge 1</td><td>2375.00 / 4750.00</td><td>296.88 / 593.75</td><td>12000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5g.4xlarge</td><td>4750.00</td><td>593.75</td><td>20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5g.8xlarge</td><td>9500.00</td><td>1187.50</td><td>40000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5g.16xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>g5g.metal</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 31 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G6</b></td></tr>
+  <tr><td>g6.xlarge 1</td><td>1000.00 / 5000.00</td><td>125.00 / 625.00</td><td>4000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6.2xlarge 1</td><td>2000.00 / 5000.00</td><td>250.00 / 625.00</td><td>8000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6.4xlarge</td><td>8000.00</td><td>1000.00</td><td>32000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6.8xlarge</td><td>16000.00</td><td>2000.00</td><td>64000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6.12xlarge</td><td>20000.00</td><td>2500.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6.16xlarge</td><td>20000.00</td><td>2500.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>48 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6.24xlarge</td><td>30000.00</td><td>3750.00</td><td>120000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6.48xlarge</td><td>60000.00</td><td>7500.00</td><td>240000.00</td><td>✓ Yes</td><td>✗ No</td><td>128 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G6e</b></td></tr>
+  <tr><td>g6e.xlarge 1</td><td>1000.00 / 5000.00</td><td>125.00 / 625.00</td><td>4000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6e.2xlarge 1</td><td>2000.00 / 5000.00</td><td>250.00 / 625.00</td><td>8000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6e.4xlarge</td><td>8000.00</td><td>1000.00</td><td>32000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6e.8xlarge</td><td>16000.00</td><td>2000.00</td><td>64000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6e.12xlarge</td><td>20000.00</td><td>2500.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6e.16xlarge</td><td>20000.00</td><td>2500.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>48 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6e.24xlarge</td><td>30000.00</td><td>3750.00</td><td>120000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6e.48xlarge</td><td>60000.00</td><td>7500.00</td><td>240000.00</td><td>✓ Yes</td><td>✗ No</td><td>128 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G6f</b></td></tr>
+  <tr><td>g6f.large 1</td><td>936.00 / 5000.00</td><td>117.00 / 625.00</td><td>3750.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6f.xlarge 1</td><td>1000.00 / 5000.00</td><td>125.00 / 625.00</td><td>4000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6f.2xlarge 1</td><td>2000.00 / 5000.00</td><td>250.00 / 625.00</td><td>8000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g6f.4xlarge</td><td>6000.00</td><td>750.00</td><td>24000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>Gr6</b></td></tr>
+  <tr><td>gr6.4xlarge</td><td>8000.00</td><td>1000.00</td><td>32000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>gr6.8xlarge</td><td>16000.00</td><td>2000.00</td><td>64000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>Gr6f</b></td></tr>
+  <tr><td>gr6f.4xlarge</td><td>8000.00</td><td>1000.00</td><td>32000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G7</b></td></tr>
+  <tr><td>g7.2xlarge 1</td><td>4000.00 / 8000.00</td><td>500.00 / 1000.00</td><td>16000.00 / 32000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7.4xlarge</td><td>8000.00</td><td>1000.00</td><td>32000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7.8xlarge</td><td>16000.00</td><td>2000.00</td><td>64000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7.12xlarge</td><td>20000.00</td><td>2500.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7.24xlarge</td><td>40000.00</td><td>5000.00</td><td>160000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7.48xlarge</td><td>80000.00</td><td>10000.00</td><td>320000.00</td><td>✓ Yes</td><td>✓ Yes (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs_cards.html">2 EBS cards</a>)</td><td>128 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>G7e</b></td></tr>
+  <tr><td>g7e.2xlarge 1</td><td>2000.00 / 5000.00</td><td>250.00 / 625.00</td><td>8000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7e.4xlarge</td><td>8000.00</td><td>1000.00</td><td>32000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7e.8xlarge</td><td>16000.00</td><td>2000.00</td><td>64000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7e.12xlarge</td><td>25000.00</td><td>3125.00</td><td>100000.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7e.24xlarge</td><td>50000.00</td><td>6250.00</td><td>200000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>g7e.48xlarge</td><td>100000.00</td><td>12500.00</td><td>400000.00</td><td>✓ Yes</td><td>✗ No</td><td>128 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>Inf1</b></td></tr>
+  <tr><td>inf1.xlarge 1</td><td>1190.00 / 4750.00</td><td>148.75 / 593.75</td><td>4000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>inf1.2xlarge 1</td><td>1190.00 / 4750.00</td><td>148.75 / 593.75</td><td>6000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>inf1.6xlarge</td><td>4750.00</td><td>593.75</td><td>20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 23 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>inf1.24xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 11 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>Inf2</b></td></tr>
+  <tr><td>inf2.xlarge 1</td><td>1250.00 / 10000.00</td><td>156.25 / 1250.00</td><td>6000.00 / 40000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>inf2.8xlarge</td><td>10000.00</td><td>1250.00</td><td>40000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 26 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>inf2.24xlarge</td><td>30000.00</td><td>3750.00</td><td>120000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 28 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>inf2.48xlarge</td><td>60000.00</td><td>7500.00</td><td>240000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 28 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>P4d</b></td></tr>
+  <tr><td>p4d.24xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>28 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>P4de</b></td></tr>
+  <tr><td>p4de.24xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>28 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>P5</b></td></tr>
+  <tr><td>p5.4xlarge</td><td>10000.00</td><td>1250.00</td><td>32500.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>p5.48xlarge</td><td>80000.00</td><td>10000.00</td><td>260000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>P5e</b></td></tr>
+  <tr><td>p5e.48xlarge</td><td>80000.00</td><td>10000.00</td><td>260000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>P5en</b></td></tr>
+  <tr><td>p5en.48xlarge</td><td>100000.00</td><td>12500.00</td><td>400000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>P6-B200</b></td></tr>
+  <tr><td>p6-b200.48xlarge</td><td>100000.00</td><td>12500.00</td><td>400000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>P6-B300</b></td></tr>
+  <tr><td>p6-b300.48xlarge</td><td>100000.00</td><td>12500.00</td><td>400000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>P6e-GB200</b></td></tr>
+  <tr><td>p6e-gb200.36xlarge</td><td>60000.00</td><td>7500.00</td><td>240000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>Trn1</b></td></tr>
+  <tr><td>trn1.2xlarge 1</td><td>5000.00 / 20000.00</td><td>625.00 / 2500.00</td><td>16250.00 / 65000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>trn1.32xlarge</td><td>80000.00</td><td>10000.00</td><td>260000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 28 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>Trn1n</b></td></tr>
+  <tr><td>trn1n.32xlarge</td><td>80000.00</td><td>10000.00</td><td>260000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 28 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td colspan="7"><b>Trn2</b></td></tr>
+  <tr><td>trn2.3xlarge</td><td>5000.00</td><td>625.00</td><td>16250.00</td><td>✓ Yes</td><td>✗ No</td><td>32 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td>trn2.48xlarge</td><td>80000.00</td><td>10000.00</td><td>260000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>Trn2u</b></td></tr>
+  <tr><td>trn2u.48xlarge</td><td>80000.00</td><td>10000.00</td><td>260000.00</td><td>✓ Yes</td><td>✗ No</td><td>64 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#dedicated-limit">Dedicated limit</a>)</td></tr>
+  <tr><td colspan="7"><b>VT1</b></td></tr>
+  <tr><td>vt1.3xlarge 1</td><td>2375.00 / 4750.00</td><td>296.88 / 593.75</td><td>10000.00 / 20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 25 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>vt1.6xlarge</td><td>4750.00</td><td>593.75</td><td>20000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 23 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+  <tr><td>vt1.24xlarge</td><td>19000.00</td><td>2375.00</td><td>80000.00</td><td>✓ Yes</td><td>✗ No</td><td>Up to 27 (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html#shared-limit">Shared limit</a>)</td></tr>
+</tbody>
+</table>
 
-| Instance type      | Baseline / Maximum bandwidth (Mbps) | Baseline / Maximum throughput (MB/s, 128 KiB I/O) | Baseline / Maximum IOPS (16 KiB I/O) | NVMe  | Multiple EBS cards                                                                                                   | EBS volume limit                                                                                                                                               |
-| ------------------ | ----------------------------------- | ------------------------------------------------- | ------------------------------------ | ----- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **DL1**            |
-| dl1.24xlarge       | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **DL2q**           |
-| dl2q.24xlarge      | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 19 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **F2**             |
-| f2.6xlarge         | 7500.00                             | 937.50                                            | 30000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| f2.12xlarge        | 15000.00                            | 1875.00                                           | 60000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| f2.48xlarge        | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
-| **G4ad**           |
-| g4ad.xlarge 1      | 400.00 / 3170.00                    | 50.00 / 396.25                                    | 1700.00 / 13333.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4ad.2xlarge 1     | 800.00 / 3170.00                    | 100.00 / 396.25                                   | 3400.00 / 13333.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4ad.4xlarge 1     | 1580.00 / 3170.00                   | 197.50 / 396.25                                   | 6700.00 / 13333.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4ad.8xlarge       | 3170.00                             | 396.25                                            | 13333.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 24 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4ad.16xlarge      | 6300.00                             | 787.50                                            | 26667.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 21 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **G4dn**           |
-| g4dn.xlarge 1      | 950.00 / 3500.00                    | 118.75 / 437.50                                   | 3000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4dn.2xlarge 1     | 1150.00 / 3500.00                   | 143.75 / 437.50                                   | 6000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4dn.4xlarge       | 4750.00                             | 593.75                                            | 20000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4dn.8xlarge       | 9500.00                             | 1187.50                                           | 40000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4dn.12xlarge      | 9500.00                             | 1187.50                                           | 40000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 22 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4dn.16xlarge      | 9500.00                             | 1187.50                                           | 40000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g4dn.metal         | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 31 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **G5**             |
-| g5.xlarge 1        | 700.00 / 3500.00                    | 87.50 / 437.50                                    | 3000.00 / 15000.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5.2xlarge 1       | 850.00 / 3500.00                    | 106.25 / 437.50                                   | 3500.00 / 15000.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5.4xlarge         | 4750.00                             | 593.75                                            | 20000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5.8xlarge         | 16000.00                            | 2000.00                                           | 65000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5.12xlarge        | 16000.00                            | 2000.00                                           | 65000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 22 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5.16xlarge        | 16000.00                            | 2000.00                                           | 65000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5.24xlarge        | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 22 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5.48xlarge        | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 9 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))      |
-| **G5g**            |
-| g5g.xlarge 1       | 1188.00 / 4750.00                   | 148.50 / 593.75                                   | 6000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5g.2xlarge 1      | 2375.00 / 4750.00                   | 296.88 / 593.75                                   | 12000.00 / 20000.00                  | ✓ Yes | ✗ No                                                                                                                 | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5g.4xlarge        | 4750.00                             | 593.75                                            | 20000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5g.8xlarge        | 9500.00                             | 1187.50                                           | 40000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5g.16xlarge       | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| g5g.metal          | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 31 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **G6**             |
-| g6.xlarge 1        | 1000.00 / 5000.00                   | 125.00 / 625.00                                   | 4000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6.2xlarge 1       | 2000.00 / 5000.00                   | 250.00 / 625.00                                   | 8000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6.4xlarge         | 8000.00                             | 1000.00                                           | 32000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6.8xlarge         | 16000.00                            | 2000.00                                           | 64000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6.12xlarge        | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6.16xlarge        | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6.24xlarge        | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6.48xlarge        | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
-| **G6e**            |
-| g6e.xlarge 1       | 1000.00 / 5000.00                   | 125.00 / 625.00                                   | 4000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6e.2xlarge 1      | 2000.00 / 5000.00                   | 250.00 / 625.00                                   | 8000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6e.4xlarge        | 8000.00                             | 1000.00                                           | 32000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6e.8xlarge        | 16000.00                            | 2000.00                                           | 64000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6e.12xlarge       | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6e.16xlarge       | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6e.24xlarge       | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6e.48xlarge       | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
-| **G6f**            |
-| g6f.large 1        | 936.00 / 5000.00                    | 117.00 / 625.00                                   | 3750.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6f.xlarge 1       | 1000.00 / 5000.00                   | 125.00 / 625.00                                   | 4000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6f.2xlarge 1      | 2000.00 / 5000.00                   | 250.00 / 625.00                                   | 8000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g6f.4xlarge        | 6000.00                             | 750.00                                            | 24000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **Gr6**            |
-| gr6.4xlarge        | 8000.00                             | 1000.00                                           | 32000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| gr6.8xlarge        | 16000.00                            | 2000.00                                           | 64000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **Gr6f**           |
-| gr6f.4xlarge       | 8000.00                             | 1000.00                                           | 32000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **G7**             |
-| g7.2xlarge 1       | 4000.00 / 8000.00                   | 500.00 / 1000.00                                  | 16000.00 / 32000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7.4xlarge         | 8000.00                             | 1000.00                                           | 32000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7.8xlarge         | 16000.00                            | 2000.00                                           | 64000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7.12xlarge        | 20000.00                            | 2500.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7.24xlarge        | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7.48xlarge        | 80000.00                            | 10000.00                                          | 320000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
-| **G7e**            |
-| g7e.2xlarge 1      | 2000.00 / 5000.00                   | 250.00 / 625.00                                   | 8000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7e.4xlarge        | 8000.00                             | 1000.00                                           | 32000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7e.8xlarge        | 16000.00                            | 2000.00                                           | 64000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7e.12xlarge       | 25000.00                            | 3125.00                                           | 100000.00                            | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7e.24xlarge       | 50000.00                            | 6250.00                                           | 200000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| g7e.48xlarge       | 100000.00                           | 12500.00                                          | 400000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
-| **Inf1**           |
-| inf1.xlarge 1      | 1190.00 / 4750.00                   | 148.75 / 593.75                                   | 4000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| inf1.2xlarge 1     | 1190.00 / 4750.00                   | 148.75 / 593.75                                   | 6000.00 / 20000.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| inf1.6xlarge       | 4750.00                             | 593.75                                            | 20000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 23 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| inf1.24xlarge      | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 11 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **Inf2**           |
-| inf2.xlarge 1      | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| inf2.8xlarge       | 10000.00                            | 1250.00                                           | 40000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 26 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| inf2.24xlarge      | 30000.00                            | 3750.00                                           | 120000.00                            | ✓ Yes | ✗ No                                                                                                                 | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| inf2.48xlarge      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **P4d**            |
-| p4d.24xlarge       | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 28 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **P4de**           |
-| p4de.24xlarge      | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | 28 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **P5**             |
-| p5.4xlarge         | 10000.00                            | 1250.00                                           | 32500.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| p5.48xlarge        | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **P5e**            |
-| p5e.48xlarge       | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **P5en**           |
-| p5en.48xlarge      | 100000.00                           | 12500.00                                          | 400000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **P6-B200**        |
-| p6-b200.48xlarge   | 100000.00                           | 12500.00                                          | 400000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **P6-B300**        |
-| p6-b300.48xlarge   | 100000.00                           | 12500.00                                          | 400000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **P6e-GB200**      |
-| p6e-gb200.36xlarge | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **Trn1**           |
-| trn1.2xlarge 1     | 5000.00 / 20000.00                  | 625.00 / 2500.00                                  | 16250.00 / 65000.00                  | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| trn1.32xlarge      | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | ✗ No                                                                                                                 | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **Trn1n**          |
-| trn1n.32xlarge     | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | ✗ No                                                                                                                 | Up to 28 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| **Trn2**           |
-| trn2.3xlarge       | 5000.00                             | 625.00                                            | 16250.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| trn2.48xlarge      | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **Trn2u**          |
-| trn2u.48xlarge     | 80000.00                            | 10000.00                                          | 260000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
-| **VT1**            |
-| vt1.3xlarge 1      | 2375.00 / 4750.00                   | 296.88 / 593.75                                   | 10000.00 / 20000.00                  | ✓ Yes | ✗ No                                                                                                                 | Up to 25 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| vt1.6xlarge        | 4750.00                             | 593.75                                            | 20000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 23 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
-| vt1.24xlarge       | 19000.00                            | 2375.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 27 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 
-###### Note
-
-1 These instances can support maximum performance for 30 minutes at least once every
-24 hours, after which they revert to their baseline performance. Other instances can sustain the maximum performance
-indefinitely. If your workload requires sustained maximum performance for longer than 30 minutes, use one of these
-instances.
+**Note**  
+1 These instances can support maximum performance for 30 minutes at least once every 24 hours, after which they revert to their baseline performance. Other instances can sustain the maximum performance indefinitely. If your workload requires sustained maximum performance for longer than 30 minutes, use one of these instances.
 
 ## Instance store specifications
+<a name="ac_instance-store"></a>
 
-The following table shows the instance store volume configuration for supported instance types,
-along with the aggregated IOPS performance with 4,096 byte block size at queue depth saturation.
+The following table shows the instance store volume configuration for supported instance types, along with the aggregated IOPS performance with 4,096 byte block size at queue depth saturation. 
 
-| Instance type      | Instance store volumes | Instance store type | 100% random read IOPS / Write IOPS | Needs initialization 1 | TRIM support 2 |
-| ------------------ | ---------------------- | ------------------- | ---------------------------------- | ---------------------- | -------------- |
-| **DL1**            |
-| dl1.24xlarge       | 4 x 1000 GB            | NVMe SSD            | 1,000,000 / 800,000                |                        | ✓ Yes          |
-| **F2**             |
-| f2.6xlarge         | 1 x 940 GB             | NVMe SSD            | 400,000 / 125,000                  |                        | ✓ Yes          |
-| f2.12xlarge        | 2 x 940 GB             | NVMe SSD            | 800,000 / 250,000                  |                        | ✓ Yes          |
-| f2.48xlarge        | 8 x 940 GB             | NVMe SSD            | 3,200,000 / 1,000,000              |                        | ✓ Yes          |
-| **G4ad**           |
-| g4ad.xlarge        | 1 x 150 GB             | NVMe SSD            | 10,417 / 8,333                     |                        | ✓ Yes          |
-| g4ad.2xlarge       | 1 x 300 GB             | NVMe SSD            | 20,833 / 16,667                    |                        | ✓ Yes          |
-| g4ad.4xlarge       | 1 x 600 GB             | NVMe SSD            | 41,667 / 33,333                    |                        | ✓ Yes          |
-| g4ad.8xlarge       | 1 x 1200 GB            | NVMe SSD            | 83,333 / 66,667                    |                        | ✓ Yes          |
-| g4ad.16xlarge      | 2 x 1200 GB            | NVMe SSD            | 166,666 / 133,332                  |                        | ✓ Yes          |
-| **G4dn**           |
-| g4dn.xlarge        | 1 x 125 GB             | NVMe SSD            | 42,500 / 32,500                    |                        | ✓ Yes          |
-| g4dn.2xlarge       | 1 x 225 GB             | NVMe SSD            | 42,500 / 32,500                    |                        | ✓ Yes          |
-| g4dn.4xlarge       | 1 x 225 GB             | NVMe SSD            | 85,000 / 65,000                    |                        | ✓ Yes          |
-| g4dn.8xlarge       | 1 x 900 GB             | NVMe SSD            | 250,000 / 200,000                  |                        | ✓ Yes          |
-| g4dn.12xlarge      | 1 x 900 GB             | NVMe SSD            | 250,000 / 200,000                  |                        | ✓ Yes          |
-| g4dn.16xlarge      | 1 x 900 GB             | NVMe SSD            | 250,000 / 200,000                  |                        | ✓ Yes          |
-| g4dn.metal         | 2 x 900 GB             | NVMe SSD            | 500,000 / 400,000                  |                        | ✓ Yes          |
-| **G5**             |
-| g5.xlarge          | 1 x 250 GB             | NVMe SSD            | 40,625 / 20,313                    |                        | ✓ Yes          |
-| g5.2xlarge         | 1 x 450 GB             | NVMe SSD            | 40,625 / 20,313                    |                        | ✓ Yes          |
-| g5.4xlarge         | 1 x 600 GB             | NVMe SSD            | 125,000 / 62,500                   |                        | ✓ Yes          |
-| g5.8xlarge         | 1 x 900 GB             | NVMe SSD            | 250,000 / 125,000                  |                        | ✓ Yes          |
-| g5.12xlarge        | 1 x 3800 GB            | NVMe SSD            | 312,500 / 156,250                  |                        | ✓ Yes          |
-| g5.16xlarge        | 1 x 1900 GB            | NVMe SSD            | 250,000 / 125,000                  |                        | ✓ Yes          |
-| g5.24xlarge        | 1 x 3800 GB            | NVMe SSD            | 312,500 / 156,250                  |                        | ✓ Yes          |
-| g5.48xlarge        | 2 x 3800 GB            | NVMe SSD            | 625,000 / 312,500                  |                        | ✓ Yes          |
-| **G6**             |
-| g6.xlarge          | 1 x 250 GB             | NVMe SSD            | 40,625 / 20,000                    |                        | ✓ Yes          |
-| g6.2xlarge         | 1 x 450 GB             | NVMe SSD            | 40,625 / 20,000                    |                        | ✓ Yes          |
-| g6.4xlarge         | 1 x 600 GB             | NVMe SSD            | 125,000 / 40,000                   |                        | ✓ Yes          |
-| g6.8xlarge         | 2 x 450 GB             | NVMe SSD            | 250,000 / 80,000                   |                        | ✓ Yes          |
-| g6.12xlarge        | 4 x 940 GB             | NVMe SSD            | 312,500 / 125,000                  |                        | ✓ Yes          |
-| g6.16xlarge        | 2 x 940 GB             | NVMe SSD            | 250,000 / 80,000                   |                        | ✓ Yes          |
-| g6.24xlarge        | 4 x 940 GB             | NVMe SSD            | 312,500 / 156,248                  |                        | ✓ Yes          |
-| g6.48xlarge        | 8 x 940 GB             | NVMe SSD            | 625,000 / 312,496                  |                        | ✓ Yes          |
-| **G6e**            |
-| g6e.xlarge         | 1 x 250 GB             | NVMe SSD            | 40,625 / 20,000                    |                        | ✓ Yes          |
-| g6e.2xlarge        | 1 x 450 GB             | NVMe SSD            | 40,625 / 20,000                    |                        | ✓ Yes          |
-| g6e.4xlarge        | 1 x 600 GB             | NVMe SSD            | 125,000 / 40,000                   |                        | ✓ Yes          |
-| g6e.8xlarge        | 2 x 450 GB             | NVMe SSD            | 250,000 / 80,000                   |                        | ✓ Yes          |
-| g6e.12xlarge       | 2 x 1900 GB            | NVMe SSD            | 312,500 / 125,000                  |                        | ✓ Yes          |
-| g6e.16xlarge       | 2 x 950 GB             | NVMe SSD            | 250,000 / 80,000                   |                        | ✓ Yes          |
-| g6e.24xlarge       | 2 x 1900 GB            | NVMe SSD            | 312,500 / 156,250                  |                        | ✓ Yes          |
-| g6e.48xlarge       | 4 x 1900 GB            | NVMe SSD            | 625,000 / 312,500                  |                        | ✓ Yes          |
-| **G6f**            |
-| g6f.large          | 1 x 100 GB             | NVMe SSD            | 16,250 / 8,000                     |                        | ✓ Yes          |
-| g6f.xlarge         | 1 x 100 GB             | NVMe SSD            | 27,100 / 13,333                    |                        | ✓ Yes          |
-| g6f.2xlarge        | 1 x 200 GB             | NVMe SSD            | 40,625 / 20,000                    |                        | ✓ Yes          |
-| g6f.4xlarge        | 1 x 450 GB             | NVMe SSD            | 125,000 / 40,000                   |                        | ✓ Yes          |
-| **Gr6**            |
-| gr6.4xlarge        | 1 x 600 GB             | NVMe SSD            | 125,000 / 40,000                   |                        | ✓ Yes          |
-| gr6.8xlarge        | 2 x 450 GB             | NVMe SSD            | 250,000 / 80,000                   |                        | ✓ Yes          |
-| **Gr6f**           |
-| gr6f.4xlarge       | 1 x 450 GB             | NVMe SSD            | 125,000 / 40,000                   |                        | ✓ Yes          |
-| **G7**             |
-| g7.2xlarge         | 1 x 440 GB             | NVMe SSD            | 127,368 / 98,421                   |                        | ✓ Yes          |
-| g7.4xlarge         | 1 x 875 GB             | NVMe SSD            | 253,375 / 195,789                  |                        | ✓ Yes          |
-| g7.8xlarge         | 1 x 930 GB             | NVMe SSD            | 269,211 / 208,026                  |                        | ✓ Yes          |
-| g7.12xlarge        | 1 x 1900 GB            | NVMe SSD            | 550,000 / 425,000                  |                        | ✓ Yes          |
-| g7.24xlarge        | 1 x 3800 GB            | NVMe SSD            | 1,100,000 / 850,000                |                        | ✓ Yes          |
-| g7.48xlarge        | 2 x 3800 GB            | NVMe SSD            | 2,200,000 / 1,700,000              |                        | ✓ Yes          |
-| **G7e**            |
-| g7e.2xlarge        | 1 x 1900 GB            | NVMe SSD            | 275,000 / 137,500                  |                        | ✓ Yes          |
-| g7e.4xlarge        | 1 x 1900 GB            | NVMe SSD            | 275,000 / 137,500                  |                        | ✓ Yes          |
-| g7e.8xlarge        | 1 x 1900 GB            | NVMe SSD            | 275,000 / 137,500                  |                        | ✓ Yes          |
-| g7e.12xlarge       | 1 x 3800 GB            | NVMe SSD            | 550,000 / 275,000                  |                        | ✓ Yes          |
-| g7e.24xlarge       | 2 x 3800 GB            | NVMe SSD            | 1,100,000 / 550,000                |                        | ✓ Yes          |
-| g7e.48xlarge       | 4 x 3800 GB            | NVMe SSD            | 2,200,000 / 1,100,000              |                        | ✓ Yes          |
-| **P4d**            |
-| p4d.24xlarge       | 8 x 1000 GB            | NVMe SSD            | 2,000,000 / 1,600,000              |                        | ✓ Yes          |
-| **P4de**           |
-| p4de.24xlarge      | 8 x 1000 GB            | NVMe SSD            | 2,000,000 / 1,600,000              |                        | ✓ Yes          |
-| **P5**             |
-| p5.4xlarge         | 1 x 3800 GB            | NVMe SSD            | 550,000 / 275,000                  |                        | ✓ Yes          |
-| p5.48xlarge        | 8 x 3800 GB            | NVMe SSD            | 4,400,000 / 2,200,000              |                        | ✓ Yes          |
-| **P5e**            |
-| p5e.48xlarge       | 8 x 3800 GB            | NVMe SSD            | 4,400,000 / 2,200,000              |                        | ✓ Yes          |
-| **P5en**           |
-| p5en.48xlarge      | 8 x 3800 GB            | NVMe SSD            | 4,400,000 / 2,200,000              |                        | ✓ Yes          |
-| **P6-B200**        |
-| p6-b200.48xlarge   | 8 x 3800 GB            | NVMe SSD            | 4,400,000 / 2,200,000              |                        | ✓ Yes          |
-| **P6-B300**        |
-| p6-b300.48xlarge   | 8 x 3800 GB            | NVMe SSD            | 4,400,000 / 2,200,000              |                        | ✓ Yes          |
-| **P6e-GB200**      |
-| p6e-gb200.36xlarge | 3 x 7500 GB            | NVMe SSD            | 2,550,000 / 2,400,000              |                        | ✓ Yes          |
-| **Trn1**           |
-| trn1.2xlarge       | 1 x 474 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
-| trn1.32xlarge      | 4 x 1900 GB            | NVMe SSD            | 1,720,000 / 720,000                |                        | ✓ Yes          |
-| **Trn1n**          |
-| trn1n.32xlarge     | 4 x 1900 GB            | NVMe SSD            | 1,720,000 / 720,000                |                        | ✓ Yes          |
-| **Trn2**           |
-| trn2.3xlarge       | 1 x 470 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
-| trn2.48xlarge      | 4 x 1900 GB            | NVMe SSD            | 1,720,000 / 720,000                |                        | ✓ Yes          |
-| **Trn2u**          |
-| trn2u.48xlarge     | 4 x 1900 GB            | NVMe SSD            | 1,720,000 / 720,000                |                        | ✓ Yes          |
 
-1 Volumes attached to certain instances suffer a first-write
-penalty unless initialized. For more information, see [Optimize disk performance for
-instance store volumes](../../../AWSEC2/latest/UserGuide/disk-performance.md "../../../AWSEC2/latest/UserGuide/disk-performance.md").
+<table>
+<thead>
+  <tr><th>Instance type</th><th>Instance store volumes</th><th>Instance store type</th><th>100% random read IOPS / Write IOPS</th><th>Needs initialization 1</th><th>TRIM support 2</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="6"><b>DL1</b></td></tr>
+  <tr><td>dl1.24xlarge</td><td>4 x 1000 GB</td><td>NVMe SSD</td><td>1,000,000 / 800,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>F2</b></td></tr>
+  <tr><td>f2.6xlarge</td><td>1 x 940 GB</td><td>NVMe SSD</td><td>400,000 / 125,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>f2.12xlarge</td><td>2 x 940 GB</td><td>NVMe SSD</td><td>800,000 / 250,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>f2.48xlarge</td><td>8 x 940 GB</td><td>NVMe SSD</td><td>3,200,000 / 1,000,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>G4ad</b></td></tr>
+  <tr><td>g4ad.xlarge</td><td>1 x 150 GB</td><td>NVMe SSD</td><td>10,417 / 8,333</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4ad.2xlarge</td><td>1 x 300 GB</td><td>NVMe SSD</td><td>20,833 / 16,667</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4ad.4xlarge</td><td>1 x 600 GB</td><td>NVMe SSD</td><td>41,667 / 33,333</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4ad.8xlarge</td><td>1 x 1200 GB</td><td>NVMe SSD</td><td>83,333 / 66,667</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4ad.16xlarge</td><td>2 x 1200 GB</td><td>NVMe SSD</td><td>166,666 / 133,332</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>G4dn</b></td></tr>
+  <tr><td>g4dn.xlarge</td><td>1 x 125 GB</td><td>NVMe SSD</td><td>42,500 / 32,500</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.2xlarge</td><td>1 x 225 GB</td><td>NVMe SSD</td><td>42,500 / 32,500</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.4xlarge</td><td>1 x 225 GB</td><td>NVMe SSD</td><td>85,000 / 65,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.8xlarge</td><td>1 x 900 GB</td><td>NVMe SSD</td><td>250,000 / 200,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.12xlarge</td><td>1 x 900 GB</td><td>NVMe SSD</td><td>250,000 / 200,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.16xlarge</td><td>1 x 900 GB</td><td>NVMe SSD</td><td>250,000 / 200,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.metal</td><td>2 x 900 GB</td><td>NVMe SSD</td><td>500,000 / 400,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>G5</b></td></tr>
+  <tr><td>g5.xlarge</td><td>1 x 250 GB</td><td>NVMe SSD</td><td>40,625 / 20,313</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g5.2xlarge</td><td>1 x 450 GB</td><td>NVMe SSD</td><td>40,625 / 20,313</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g5.4xlarge</td><td>1 x 600 GB</td><td>NVMe SSD</td><td>125,000 / 62,500</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g5.8xlarge</td><td>1 x 900 GB</td><td>NVMe SSD</td><td>250,000 / 125,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g5.12xlarge</td><td>1 x 3800 GB</td><td>NVMe SSD</td><td>312,500 / 156,250</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g5.16xlarge</td><td>1 x 1900 GB</td><td>NVMe SSD</td><td>250,000 / 125,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g5.24xlarge</td><td>1 x 3800 GB</td><td>NVMe SSD</td><td>312,500 / 156,250</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g5.48xlarge</td><td>2 x 3800 GB</td><td>NVMe SSD</td><td>625,000 / 312,500</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>G6</b></td></tr>
+  <tr><td>g6.xlarge</td><td>1 x 250 GB</td><td>NVMe SSD</td><td>40,625 / 20,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6.2xlarge</td><td>1 x 450 GB</td><td>NVMe SSD</td><td>40,625 / 20,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6.4xlarge</td><td>1 x 600 GB</td><td>NVMe SSD</td><td>125,000 / 40,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6.8xlarge</td><td>2 x 450 GB</td><td>NVMe SSD</td><td>250,000 / 80,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6.12xlarge</td><td>4 x 940 GB</td><td>NVMe SSD</td><td>312,500 / 125,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6.16xlarge</td><td>2 x 940 GB</td><td>NVMe SSD</td><td>250,000 / 80,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6.24xlarge</td><td>4 x 940 GB</td><td>NVMe SSD</td><td>312,500 / 156,248</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6.48xlarge</td><td>8 x 940 GB</td><td>NVMe SSD</td><td>625,000 / 312,496</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>G6e</b></td></tr>
+  <tr><td>g6e.xlarge</td><td>1 x 250 GB</td><td>NVMe SSD</td><td>40,625 / 20,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6e.2xlarge</td><td>1 x 450 GB</td><td>NVMe SSD</td><td>40,625 / 20,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6e.4xlarge</td><td>1 x 600 GB</td><td>NVMe SSD</td><td>125,000 / 40,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6e.8xlarge</td><td>2 x 450 GB</td><td>NVMe SSD</td><td>250,000 / 80,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6e.12xlarge</td><td>2 x 1900 GB</td><td>NVMe SSD</td><td>312,500 / 125,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6e.16xlarge</td><td>2 x 950 GB</td><td>NVMe SSD</td><td>250,000 / 80,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6e.24xlarge</td><td>2 x 1900 GB</td><td>NVMe SSD</td><td>312,500 / 156,250</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6e.48xlarge</td><td>4 x 1900 GB</td><td>NVMe SSD</td><td>625,000 / 312,500</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>G6f</b></td></tr>
+  <tr><td>g6f.large</td><td>1 x 100 GB</td><td>NVMe SSD</td><td>16,250 / 8,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6f.xlarge</td><td>1 x 100 GB</td><td>NVMe SSD</td><td>27,100 / 13,333</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6f.2xlarge</td><td>1 x 200 GB</td><td>NVMe SSD</td><td>40,625 / 20,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g6f.4xlarge</td><td>1 x 450 GB</td><td>NVMe SSD</td><td>125,000 / 40,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>Gr6</b></td></tr>
+  <tr><td>gr6.4xlarge</td><td>1 x 600 GB</td><td>NVMe SSD</td><td>125,000 / 40,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>gr6.8xlarge</td><td>2 x 450 GB</td><td>NVMe SSD</td><td>250,000 / 80,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>Gr6f</b></td></tr>
+  <tr><td>gr6f.4xlarge</td><td>1 x 450 GB</td><td>NVMe SSD</td><td>125,000 / 40,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>G7</b></td></tr>
+  <tr><td>g7.2xlarge</td><td>1 x 440 GB</td><td>NVMe SSD</td><td>127,368 / 98,421</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7.4xlarge</td><td>1 x 875 GB</td><td>NVMe SSD</td><td>253,375 / 195,789</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7.8xlarge</td><td>1 x 930 GB</td><td>NVMe SSD</td><td>269,211 / 208,026</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7.12xlarge</td><td>1 x 1900 GB</td><td>NVMe SSD</td><td>550,000 / 425,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7.24xlarge</td><td>1 x 3800 GB</td><td>NVMe SSD</td><td>1,100,000 / 850,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7.48xlarge</td><td>2 x 3800 GB</td><td>NVMe SSD</td><td>2,200,000 / 1,700,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>G7e</b></td></tr>
+  <tr><td>g7e.2xlarge</td><td>1 x 1900 GB</td><td>NVMe SSD</td><td>275,000 / 137,500</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7e.4xlarge</td><td>1 x 1900 GB</td><td>NVMe SSD</td><td>275,000 / 137,500</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7e.8xlarge</td><td>1 x 1900 GB</td><td>NVMe SSD</td><td>275,000 / 137,500</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7e.12xlarge</td><td>1 x 3800 GB</td><td>NVMe SSD</td><td>550,000 / 275,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7e.24xlarge</td><td>2 x 3800 GB</td><td>NVMe SSD</td><td>1,100,000 / 550,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>g7e.48xlarge</td><td>4 x 3800 GB</td><td>NVMe SSD</td><td>2,200,000 / 1,100,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>P4d</b></td></tr>
+  <tr><td>p4d.24xlarge</td><td>8 x 1000 GB</td><td>NVMe SSD</td><td>2,000,000 / 1,600,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>P4de</b></td></tr>
+  <tr><td>p4de.24xlarge</td><td>8 x 1000 GB</td><td>NVMe SSD</td><td>2,000,000 / 1,600,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>P5</b></td></tr>
+  <tr><td>p5.4xlarge</td><td>1 x 3800 GB</td><td>NVMe SSD</td><td>550,000 / 275,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>p5.48xlarge</td><td>8 x 3800 GB</td><td>NVMe SSD</td><td>4,400,000 / 2,200,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>P5e</b></td></tr>
+  <tr><td>p5e.48xlarge</td><td>8 x 3800 GB</td><td>NVMe SSD</td><td>4,400,000 / 2,200,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>P5en</b></td></tr>
+  <tr><td>p5en.48xlarge</td><td>8 x 3800 GB</td><td>NVMe SSD</td><td>4,400,000 / 2,200,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>P6-B200</b></td></tr>
+  <tr><td>p6-b200.48xlarge</td><td>8 x 3800 GB</td><td>NVMe SSD</td><td>4,400,000 / 2,200,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>P6-B300</b></td></tr>
+  <tr><td>p6-b300.48xlarge</td><td>8 x 3800 GB</td><td>NVMe SSD</td><td>4,400,000 / 2,200,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>P6e-GB200</b></td></tr>
+  <tr><td>p6e-gb200.36xlarge</td><td>3 x 7500 GB</td><td>NVMe SSD</td><td>2,550,000 / 2,400,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>Trn1</b></td></tr>
+  <tr><td>trn1.2xlarge</td><td>1 x 474 GB</td><td>NVMe SSD</td><td>107,500 / 45,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>trn1.32xlarge</td><td>4 x 1900 GB</td><td>NVMe SSD</td><td>1,720,000 / 720,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>Trn1n</b></td></tr>
+  <tr><td>trn1n.32xlarge</td><td>4 x 1900 GB</td><td>NVMe SSD</td><td>1,720,000 / 720,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>Trn2</b></td></tr>
+  <tr><td>trn2.3xlarge</td><td>1 x 470 GB</td><td>NVMe SSD</td><td>107,500 / 45,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td>trn2.48xlarge</td><td>4 x 1900 GB</td><td>NVMe SSD</td><td>1,720,000 / 720,000</td><td> </td><td>✓ Yes</td></tr>
+  <tr><td colspan="6"><b>Trn2u</b></td></tr>
+  <tr><td>trn2u.48xlarge</td><td>4 x 1900 GB</td><td>NVMe SSD</td><td>1,720,000 / 720,000</td><td> </td><td>✓ Yes</td></tr>
+</tbody>
+</table>
 
-2 For more information, see [Instance
-store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.md#InstanceStoreTrimSupport "../../../AWSEC2/latest/UserGuide/ssd-instance-store.md#InstanceStoreTrimSupport").
+
+1 Volumes attached to certain instances suffer a first-write penalty unless initialized. For more information, see [Optimize disk performance for instance store volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disk-performance.html).
+
+2 For more information, see [Instance store volume TRIM support](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#InstanceStoreTrimSupport).
 
 ## Security specifications
+<a name="ac_security"></a>
 
-| Instance type      | EBS encryption | Instance store encryption    | Encryption in transit | AMD SEV-SNP | NitroTPM | Nitro Enclaves |
-| ------------------ | -------------- | ---------------------------- | --------------------- | ----------- | -------- | -------------- |
-| **DL1**            |
-| dl1.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
-| **DL2q**           |
-| dl2q.24xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
-| **F2**             |
-| f2.6xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| f2.12xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| f2.48xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **G4ad**           |
-| g4ad.xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| g4ad.2xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| g4ad.4xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| g4ad.8xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| g4ad.16xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| **G4dn**           |
-| g4dn.xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g4dn.2xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g4dn.4xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g4dn.8xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g4dn.12xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g4dn.16xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g4dn.metal         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| **G5**             |
-| g5.xlarge          | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g5.2xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g5.4xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g5.8xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g5.12xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g5.16xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g5.24xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g5.48xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **G5g**            |
-| g5g.xlarge         | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| g5g.2xlarge        | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| g5g.4xlarge        | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| g5g.8xlarge        | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| g5g.16xlarge       | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| g5g.metal          | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
-| **G6**             |
-| g6.xlarge          | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6.2xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6.4xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6.8xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6.12xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6.16xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6.24xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6.48xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **G6e**            |
-| g6e.xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6e.2xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6e.4xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6e.8xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6e.12xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6e.16xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6e.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6e.48xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **G6f**            |
-| g6f.large          | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| g6f.xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6f.2xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g6f.4xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **Gr6**            |
-| gr6.4xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| gr6.8xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **Gr6f**           |
-| gr6f.4xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **G7**             |
-| g7.2xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7.4xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7.8xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7.12xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7.24xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7.48xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **G7e**            |
-| g7e.2xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7e.4xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7e.8xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7e.12xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7e.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| g7e.48xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **Inf1**           |
-| inf1.xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| inf1.2xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| inf1.6xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| inf1.24xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **Inf2**           |
-| inf2.xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| inf2.8xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| inf2.24xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| inf2.48xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **P4d**            |
-| p4d.24xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
-| **P4de**           |
-| p4de.24xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
-| **P5**             |
-| p5.4xlarge         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| p5.48xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **P5e**            |
-| p5e.48xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **P5en**           |
-| p5en.48xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **P6-B200**        |
-| p6-b200.48xlarge   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
-| **P6-B300**        |
-| p6-b300.48xlarge   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **P6e-GB200**      |
-| p6e-gb200.36xlarge | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **Trn1**           |
-| trn1.2xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| trn1.32xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| **Trn1n**          |
-| trn1n.32xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| **Trn2**           |
-| trn2.3xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✓ Yes          |
-| trn2.48xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **Trn2u**          |
-| trn2u.48xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
-| **VT1**            |
-| vt1.3xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| vt1.6xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
-| vt1.24xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+
+<table>
+<thead>
+  <tr><th>Instance type</th><th>EBS encryption</th><th>Instance store encryption</th><th>Encryption in transit</th><th>AMD SEV-SNP</th><th>NitroTPM</th><th>Nitro Enclaves</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="7"><b>DL1</b></td></tr>
+  <tr><td>dl1.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>DL2q</b></td></tr>
+  <tr><td>dl2q.24xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>F2</b></td></tr>
+  <tr><td>f2.6xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>f2.12xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>f2.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>G4ad</b></td></tr>
+  <tr><td>g4ad.xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g4ad.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g4ad.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g4ad.8xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g4ad.16xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td colspan="7"><b>G4dn</b></td></tr>
+  <tr><td>g4dn.xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.8xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.12xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.16xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g4dn.metal</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td colspan="7"><b>G5</b></td></tr>
+  <tr><td>g5.xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g5.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g5.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g5.8xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g5.12xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g5.16xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g5.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g5.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>G5g</b></td></tr>
+  <tr><td>g5g.xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g5g.2xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g5g.4xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g5g.8xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g5g.16xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>g5g.metal</td><td>✓ Yes</td><td>Instance store not supported</td><td>✗ No</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td colspan="7"><b>G6</b></td></tr>
+  <tr><td>g6.xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6.8xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6.12xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6.16xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>G6e</b></td></tr>
+  <tr><td>g6e.xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.8xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.12xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.16xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6e.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>G6f</b></td></tr>
+  <tr><td>g6f.large</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td>g6f.xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6f.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g6f.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>Gr6</b></td></tr>
+  <tr><td>gr6.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>gr6.8xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>Gr6f</b></td></tr>
+  <tr><td>gr6f.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>G7</b></td></tr>
+  <tr><td>g7.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7.8xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7.12xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>G7e</b></td></tr>
+  <tr><td>g7e.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.8xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.12xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>g7e.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>Inf1</b></td></tr>
+  <tr><td>inf1.xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>inf1.2xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>inf1.6xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>inf1.24xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>Inf2</b></td></tr>
+  <tr><td>inf2.xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>inf2.8xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>inf2.24xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>inf2.48xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>P4d</b></td></tr>
+  <tr><td>p4d.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>P4de</b></td></tr>
+  <tr><td>p4de.24xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>P5</b></td></tr>
+  <tr><td>p5.4xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td>p5.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>P5e</b></td></tr>
+  <tr><td>p5e.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>P5en</b></td></tr>
+  <tr><td>p5en.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>P6-B200</b></td></tr>
+  <tr><td>p6-b200.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✗ No</td></tr>
+  <tr><td colspan="7"><b>P6-B300</b></td></tr>
+  <tr><td>p6-b300.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>P6e-GB200</b></td></tr>
+  <tr><td>p6e-gb200.36xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>Trn1</b></td></tr>
+  <tr><td>trn1.2xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>trn1.32xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td colspan="7"><b>Trn1n</b></td></tr>
+  <tr><td>trn1n.32xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td colspan="7"><b>Trn2</b></td></tr>
+  <tr><td>trn2.3xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✓ Yes</td></tr>
+  <tr><td>trn2.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>Trn2u</b></td></tr>
+  <tr><td>trn2u.48xlarge</td><td>✓ Yes</td><td>✓ Yes</td><td>✓ Yes</td><td>✗ No</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+  <tr><td colspan="7"><b>VT1</b></td></tr>
+  <tr><td>vt1.3xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>vt1.6xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+  <tr><td>vt1.24xlarge</td><td>✓ Yes</td><td>Instance store not supported</td><td>✓ Yes</td><td>✗ No</td><td>✗ No</td><td>✗ No</td></tr>
+</tbody>
+</table>
