@@ -1,18 +1,14 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Examples of `Fn::ForEach` in the `Conditions` section
+<a name="intrinsic-function-reference-foreach-example-conditions"></a>
 
-These examples demonstrate using the `Fn::ForEach` intrinsic function in the
-`Conditions` section. For more information about this section, see [Conditions](../UserGuide/conditions-section-structure.md "../UserGuide/conditions-section-structure.md")
-in the _AWS CloudFormation User Guide_.
+These examples demonstrate using the `Fn::ForEach` intrinsic function in the `Conditions` section. For more information about this section, see [Conditions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html) in the *AWS CloudFormation User Guide*.
 
-###### Important
-
-`Conditions` must be the second property listed, or later. Stack creation
-will fail if `Conditions` is the first property listed within the template
-fragment parameter of `Fn::ForEach`.
+**Important**  
+`Conditions` must be the second property listed, or later. Stack creation will fail if `Conditions` is the first property listed within the template fragment parameter of `Fn::ForEach`.
 
 ```
 Resources:
@@ -26,8 +22,7 @@ Resources:
           TopicName: !Sub 'My${LogicalId}'
 ```
 
-`Conditions` must be added as the second key, or later, for stack creation to
-succeed:
+`Conditions` must be added as the second key, or later, for stack creation to succeed: 
 
 ```
 Resources:
@@ -41,17 +36,16 @@ Resources:
           TopicName: !Sub 'My${LogicalId}'
 ```
 
-###### Topics
-
-- [Replicate a single condition](#intrinsic-function-reference-foreach-example-replicated-single-condition "#intrinsic-function-reference-foreach-example-replicated-single-condition")
+**Topics**
++ [Replicate a single condition](#intrinsic-function-reference-foreach-example-replicated-single-condition)
 
 ## Replicate a single condition
+<a name="intrinsic-function-reference-foreach-example-replicated-single-condition"></a>
 
-This example uses the `Fn::ForEach` intrinsic function in the
-`Conditions` section to replicate multiple similar conditions with different
-properties.
+This example uses the `Fn::ForEach` intrinsic function in the `Conditions` section to replicate multiple similar conditions with different properties.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-conditions.json"></a>
 
 ```
 {
@@ -110,6 +104,7 @@ properties.
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-conditions.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -139,8 +134,8 @@ Conditions:
   'Fn::ForEach::CheckTrue':
     - Identifier
     - [A, B, C, D]
-    - 'IsParam${Identifier}Enabled': !Equals
-        - !Ref
+    - 'IsParam${Identifier}Enabled': !Equals 
+        - !Ref 
           'Fn::Sub': 'Param${Identifier}'
         - 'true'
 Resources:
@@ -174,16 +169,16 @@ Parameters:
       - 'true'
       - 'false'
 Conditions:
-  IsParamAEnabled: !Equals
+  IsParamAEnabled: !Equals 
     - !Ref ParamA
     - 'true'
-  IsParamBEnabled: !Equals
+  IsParamBEnabled: !Equals 
     - !Ref ParamB
     - 'true'
-  IsParamCEnabled: !Equals
+  IsParamCEnabled: !Equals 
     - !Ref ParamC
     - 'true'
-  IsParamDEnabled: !Equals
+  IsParamDEnabled: !Equals 
     - !Ref ParamD
     - 'true'
 Resources:

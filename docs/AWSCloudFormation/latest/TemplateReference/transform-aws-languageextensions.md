@@ -1,105 +1,76 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::LanguageExtensions` transform
+<a name="transform-aws-languageextensions"></a>
 
-This topic describes how to use the `AWS::LanguageExtensions` transform to
-enable additional functions and capabilities that are not available by default.
+This topic describes how to use the `AWS::LanguageExtensions` transform to enable additional functions and capabilities that are not available by default. 
 
-The `AWS::LanguageExtensions` is a CloudFormation macro that, when referenced in
-your stack template, updates any intrinsic function defined by the transform to its resolved
-value within the template when you create or update a stack using a change set.
+The `AWS::LanguageExtensions` is a CloudFormation macro that, when referenced in your stack template, updates any intrinsic function defined by the transform to its resolved value within the template when you create or update a stack using a change set. 
 
-By including this transform in your CloudFormation template, you can access additional
-features, such as `Fn::ForEach`, which allows for more advanced operations like
-iteration. You can also use intrinsic functions in places where they're typically not
-allowed, such as in `Ref` and `Fn::GetAtt` functions.
+By including this transform in your CloudFormation template, you can access additional features, such as `Fn::ForEach`, which allows for more advanced operations like iteration. You can also use intrinsic functions in places where they're typically not allowed, such as in `Ref` and `Fn::GetAtt` functions.
 
 ## Usage
+<a name="aws-languageextensions-usage"></a>
 
-To use the `AWS::LanguageExtensions` transform, you must declare it at the
-top level of your CloudFormation template. You can't use
-`AWS::LanguageExtensions` as a transform embedded in any other template
-section.
+To use the `AWS::LanguageExtensions` transform, you must declare it at the top level of your CloudFormation template. You can't use `AWS::LanguageExtensions` as a transform embedded in any other template section.
 
-The declaration must use the literal string `AWS::LanguageExtensions` as
-its value. You can't use a parameter or function to specify a transform value.
+The declaration must use the literal string `AWS::LanguageExtensions` as its value. You can't use a parameter or function to specify a transform value.
 
 ### Syntax
+<a name="aws-languageextensions-syntax"></a>
 
-To declare this transform in your CloudFormation template, use the following
-syntax:
+To declare this transform in your CloudFormation template, use the following syntax:
 
 ### JSON
+<a name="aws-languageextensions-syntax.json"></a>
 
 ```
 {
   "Transform":"AWS::LanguageExtensions",
   "Resources":{
-    `...`
+    {{...}}
   }
 }
 ```
 
 ### YAML
+<a name="aws-languageextensions-syntax.yaml"></a>
 
 ```
 Transform: AWS::LanguageExtensions
 Resources:
-  `...`
+  {{...}}
 ```
 
-The `AWS::LanguageExtensions` transform is a standalone declaration with no
-additional parameters.
+The `AWS::LanguageExtensions` transform is a standalone declaration with no additional parameters.
 
 ## Support for additional functions
+<a name="aws-languageextensions-supported-functions"></a>
 
-The `AWS::LanguageExtensions` transform supports the following additional
-functions:
-
-- [Fn::ForEach](intrinsic-function-reference-foreach.md "intrinsic-function-reference-foreach.md")
-- [Fn::Length](intrinsic-function-reference-length.md "intrinsic-function-reference-length.md")
-- [Fn::ToJsonString](intrinsic-function-reference-ToJsonString.md "intrinsic-function-reference-ToJsonString.md")
+The `AWS::LanguageExtensions` transform supports the following additional functions:
++ [`Fn::ForEach`](intrinsic-function-reference-foreach.md)
++ [`Fn::Length`](intrinsic-function-reference-length.md)
++ [`Fn::ToJsonString`](intrinsic-function-reference-ToJsonString.md)
 
 ## Considerations
+<a name="aws-languageextensions-considerations"></a>
 
-When using the `AWS::LanguageExtensions` transform, keep the following
-considerations in mind:
-
-- When you update a stack that uses the `AWS::LanguageExtensions`
-  transform, we recommend that you don't use the **Use existing template** option in
-  the CloudFormation console, or the equivalent command line option
-  `--use-previous-template`. The `AWS::LanguageExtensions`
-  transform resolves parameters to literal values during processing. When you use
-  `--use-previous-template`, CloudFormation uses this processed template
-  with the old literal values, preventing new parameter values and Systems Manager parameter
-  updates from being applied. Instead, provide the original template to ensure
-  parameters are re-resolved with current values.
-- Short-form YAML syntax isn't supported within a template for intrinsic
-  functions that are only available in the `AWS::LanguageExtensions`
-  transform. Use explicit references to these functions. For example, use
-  `Fn::Length` instead of `!Length`.
-- The AWS SAM CLI currently doesn't support the `Fn::ForEach` intrinsic
-  function of the `AWS::LanguageExtensions` transform.
-- If you're using multiple transforms, use a list format. If you're using custom
-  macros, place AWS-provided transforms after your custom macros. If you're
-  using both the `AWS::LanguageExtensions` and
-  `AWS::Serverless` transforms, the
-  `AWS::LanguageExtensions` transform must come before the
-  `AWS::Serverless` transform in the list.
-- Functions and attributes provided by the `AWS::LanguageExtensions`
-  transform are only supported in the `Resources`,
-  `Conditions`, and `Outputs` sections of your
-  template.
+When using the `AWS::LanguageExtensions` transform, keep the following considerations in mind:
++ When you update a stack that uses the `AWS::LanguageExtensions` transform, we recommend that you don't use the **Use existing template** option in the CloudFormation console, or the equivalent command line option `--use-previous-template`. The `AWS::LanguageExtensions` transform resolves parameters to literal values during processing. When you use `--use-previous-template`, CloudFormation uses this processed template with the old literal values, preventing new parameter values and Systems Manager parameter updates from being applied. Instead, provide the original template to ensure parameters are re-resolved with current values.
++ Short-form YAML syntax isn't supported within a template for intrinsic functions that are only available in the `AWS::LanguageExtensions` transform. Use explicit references to these functions. For example, use `Fn::Length` instead of `!Length`.
++ The AWS SAM CLI currently doesn't support the `Fn::ForEach` intrinsic function of the `AWS::LanguageExtensions` transform.
++ If you're using multiple transforms, use a list format. If you're using custom macros, place AWS-provided transforms after your custom macros. If you're using both the `AWS::LanguageExtensions` and `AWS::Serverless` transforms, the `AWS::LanguageExtensions` transform must come before the `AWS::Serverless` transform in the list.
++ Functions and attributes provided by the `AWS::LanguageExtensions` transform are only supported in the `Resources`, `Conditions`, and `Outputs` sections of your template.
 
 ## Examples
+<a name="aws-languageextensions-examples"></a>
 
-The following examples show how to use the `AWS::LanguageExtensions`
-transform to use the `Fn::Length` intrinsic function, defined by the
-transform.
+The following examples show how to use the `AWS::LanguageExtensions` transform to use the `Fn::Length` intrinsic function, defined by the transform.
 
 ### JSON
+<a name="aws-languageextensions-example.json"></a>
 
 ```
 {
@@ -133,6 +104,7 @@ transform.
 ```
 
 ### YAML
+<a name="aws-languageextensions-example.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -153,16 +125,14 @@ Resources:
 ```
 
 ## Related resources
+<a name="aws-languageextensions-related-resources"></a>
 
 For more examples, see the following topics.
++ [`Fn::ForEach`](intrinsic-function-reference-foreach.md)
++ [`Fn::Length`](intrinsic-function-reference-length.md)
++ [`Fn::ToJsonString`](intrinsic-function-reference-ToJsonString.md)
++ [`Ref`](intrinsic-function-reference-ref.md)
++ [`Fn::GetAtt`](intrinsic-function-reference-getatt.md)
++ [`Fn::FindInMap enhancements`](intrinsic-function-reference-findinmap-enhancements.md)
 
-- [Fn::ForEach](intrinsic-function-reference-foreach.md "intrinsic-function-reference-foreach.md")
-- [Fn::Length](intrinsic-function-reference-length.md "intrinsic-function-reference-length.md")
-- [Fn::ToJsonString](intrinsic-function-reference-ToJsonString.md "intrinsic-function-reference-ToJsonString.md")
-- [Ref](intrinsic-function-reference-ref.md "intrinsic-function-reference-ref.md")
-- [Fn::GetAtt](intrinsic-function-reference-getatt.md "intrinsic-function-reference-getatt.md")
-- [Fn::FindInMap enhancements](intrinsic-function-reference-findinmap-enhancements.md "intrinsic-function-reference-findinmap-enhancements.md")
-
-For general information about using macros, see [Perform custom processing on CloudFormation
-templates with template macros](../UserGuide/template-macros.md "../UserGuide/template-macros.md") in the
-_AWS CloudFormation User Guide_.
+For general information about using macros, see [Perform custom processing on CloudFormation templates with template macros](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) in the *AWS CloudFormation User Guide*.

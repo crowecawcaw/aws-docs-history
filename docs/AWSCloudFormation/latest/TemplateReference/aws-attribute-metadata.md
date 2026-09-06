@@ -1,34 +1,27 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Metadata` attribute
+<a name="aws-attribute-metadata"></a>
 
-The `Metadata` attribute enables you to associate structured data with a
-resource. By adding a `Metadata` attribute to a resource, you can add data in JSON
-or YAML to the resource declaration. In addition, you can use intrinsic functions (such as
-[Fn::GetAtt](intrinsic-function-reference-getatt.md "intrinsic-function-reference-getatt.md") and [Ref](intrinsic-function-reference-ref.md "intrinsic-function-reference-ref.md")), parameters, and pseudo parameters within the `Metadata` attribute to add those
-interpreted values.
+The `Metadata` attribute enables you to associate structured data with a resource. By adding a `Metadata` attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as [`Fn::GetAtt`](intrinsic-function-reference-getatt.md) and [`Ref`](intrinsic-function-reference-ref.md)), parameters, and pseudo parameters within the `Metadata` attribute to add those interpreted values.
 
-###### Note
-
+**Note**  
 CloudFormation doesn't validate the syntax within the metadata attribute.
 
-###### Important
+**Important**  
+CloudFormation doesn't redact or obfuscate any information you include in the metadata attribute. We strongly recommend you don't use this section to store sensitive information, such as passwords or secrets.
 
-CloudFormation doesn't redact or obfuscate any information you include in the metadata
-attribute. We strongly recommend you don't use this section to store sensitive information,
-such as passwords or secrets.
-
-You can retrieve this data using the [describe-stack-resource](../../../cli/latest/reference/cloudformation/describe-stack-resource.md "../../../cli/latest/reference/cloudformation/describe-stack-resource.md") CLI command or the [DescribeStackResource](../APIReference/API_DescribeStackResource.md "../APIReference/API_DescribeStackResource.md") API
-operation.
+You can retrieve this data using the [describe-stack-resource](https://docs.aws.amazon.com/cli/latest/reference/cloudformation/describe-stack-resource.html) CLI command or the [DescribeStackResource](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html) API operation.
 
 ## Example
+<a name="aws-attribute-metadata-example"></a>
 
-The following template contains an Amazon S3 bucket resource with a `Metadata`
-attribute.
+The following template contains an Amazon S3 bucket resource with a `Metadata` attribute.
 
 ### JSON
+<a name="aws-attribute-metadata-example.json"></a>
 
 ```
 {
@@ -36,9 +29,9 @@ attribute.
    "Resources" : {
       "MyBucket" : {
          "Type" : "AWS::S3::Bucket",
-         "Metadata" : {
+         "Metadata" : { 
             "Object1" : "Location1",
-            "Object2" : "Location2"
+            "Object2" : "Location2" 
          }
       }
    }
@@ -46,70 +39,59 @@ attribute.
 ```
 
 ### YAML
+<a name="aws-attribute-metadata-example.yaml"></a>
 
 ```
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  MyBucket:
-    Type: AWS::S3::Bucket
-    Metadata:
-      Object1: Location1
-      Object2: Location2
+1. AWSTemplateFormatVersion: '2010-09-09'
+2. Resources:
+3.   MyBucket:
+4.     Type: AWS::S3::Bucket
+5.     Metadata:
+6.       Object1: Location1
+7.       Object2: Location2
 ```
 
 ## `Metadata Context` schema
+<a name="aws-attribute-metadata-context-schema"></a>
 
-The `Metadata Context` schema defines an optional structured convention for
-preserving design intent and operational context in a CloudFormation template. Add a
-`com.aws.cloudformation.Context` object to the template-level
-`Metadata` section to record architecture and cross-cutting constraints. At
-the resource level, add the object to a resource's `Metadata` attribute to record
-its rationale, invariants, change-safety guidance, provenance, and operational details.
-Tools and AI agents can retrieve this context with the template to make safer changes
-across sessions. Use the template's `Description` field for the stack's
-purpose.
+The `Metadata Context` schema defines an optional structured convention for preserving design intent and operational context in a CloudFormation template. Add a `com.aws.cloudformation.Context` object to the template-level `Metadata` section to record architecture and cross-cutting constraints. At the resource level, add the object to a resource's `Metadata` attribute to record its rationale, invariants, change-safety guidance, provenance, and operational details. Tools and AI agents can retrieve this context with the template to make safer changes across sessions. Use the template's `Description` field for the stack's purpose.
 
-To have an AI agent retrieve and preserve context when it authors or updates a
-template, use the [CloudFormation authoring skill](https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/core-skills/aws-cloudformation/SKILL.md "https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/core-skills/aws-cloudformation/SKILL.md") in the Agent Toolkit for AWS.
+To have an AI agent retrieve and preserve context when it authors or updates a template, use the [CloudFormation authoring skill](https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/core-skills/aws-cloudformation/SKILL.md) in the Agent Toolkit for AWS.
 
 ### Example template
+<a name="aws-attribute-metadata-context-example"></a>
 
-The following example records architecture at the template level and rationale,
-constraints, and change-safety guidance at the resource level.
+The following example records architecture at the template level and rationale, constraints, and change-safety guidance at the resource level.
 
 ```
-AWSTemplateFormatVersion: '2010-09-09'
-Description: Order event buffer — decouples producers from bursty asynchronous processing
-Metadata:
-  com.aws.cloudformation.Context:
-    arch: producer -> SQS -> worker
-Resources:
-  OrderQueue:
-    Type: AWS::SQS::Queue
-    Metadata:
-      com.aws.cloudformation.Context:
-        why: decouple producers from bursty worker traffic
-        must:
-          - VisTimeout >= 6x worker timeout, else dup on retry
-        mutable: change-with-constraints
-    Properties:
-      SqsManagedSseEnabled: true
-      VisibilityTimeout: 180
+ 1. AWSTemplateFormatVersion: '2010-09-09'
+ 2. Description: Order event buffer — decouples producers from bursty asynchronous processing
+ 3. Metadata:
+ 4.   com.aws.cloudformation.Context:
+ 5.     arch: producer -> SQS -> worker
+ 6. Resources:
+ 7.   OrderQueue:
+ 8.     Type: AWS::SQS::Queue
+ 9.     Metadata:
+10.       com.aws.cloudformation.Context:
+11.         why: decouple producers from bursty worker traffic
+12.         must:
+13.           - VisTimeout >= 6x worker timeout, else dup on retry
+14.         mutable: change-with-constraints
+15.     Properties:
+16.       SqsManagedSseEnabled: true
+17.       VisibilityTimeout: 180
 ```
 
 ### Schema definition
+<a name="aws-attribute-metadata-context-schema-definition"></a>
 
-For client-side validation, select `#/$defs/TemplateContext` for a
-template-level block. Select `#/$defs/ResourceContext` for a resource-level
-block.
+For client-side validation, select `#/$defs/TemplateContext` for a template-level block. Select `#/$defs/ResourceContext` for a resource-level block.
 
-###### Note
+**Note**  
+The schema is advisory and intended for client-side validation. CloudFormation doesn't validate or enforce `Metadata Context`.
 
-The schema is advisory and intended for client-side validation. CloudFormation doesn't
-validate or enforce `Metadata Context`.
-
-The following JSON Schema uses JSON Schema Draft 2020-12 and defines version 1 of
-`Metadata Context`.
+The following JSON Schema uses JSON Schema Draft 2020-12 and defines version 1 of `Metadata Context`.
 
 ```
 {
@@ -244,5 +226,4 @@ The following JSON Schema uses JSON Schema Draft 2020-12 and defines version 1 o
     }
   }
 }
-
 ```

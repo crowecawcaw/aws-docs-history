@@ -1,253 +1,141 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Specification format
+<a name="cfn-resource-specification-format"></a>
 
-CloudFormation creates a specification for each resource type, such as `AWS::S3::Bucket` or `AWS::EC2::Instance`. The following sections describe the format and each field
-within the specification.
+CloudFormation creates a specification for each resource type, such as `AWS::S3::Bucket` or `AWS::EC2::Instance`. The following sections describe the format and each field within the specification.
 
-###### Topics
-
-- [Specification sections](#w2aac37b9c23b7 "#w2aac37b9c23b7")
-- [Property specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes")
-- [Resource specification](#cfn-resource-specification-format-resourcetype "#cfn-resource-specification-format-resourcetype")
-- [Example resource specification](#w2aac37b9c23c13 "#w2aac37b9c23c13")
+**Topics**
++ [Specification sections](#w2aac37b9c23b7)
++ [Property specification](#cfn-resource-specification-format-propertytypes)
++ [Resource specification](#cfn-resource-specification-format-resourcetype)
++ [Example resource specification](#w2aac37b9c23c13)
 
 ## Specification sections
+<a name="w2aac37b9c23b7"></a>
 
-The formal definition for each resource type is organized into three main sections:
-`PropertyTypes`, `ResourceSpecificationVersion`, and `ResourceTypes`, as shown in the following
-example:
+The formal definition for each resource type is organized into three main sections: `PropertyTypes`, `ResourceSpecificationVersion`, and `ResourceTypes`, as shown in the following example:
 
 ```
 {
   "PropertyTypes": {
-    Property specifications
+    {{Property specifications}}
   },
-  "ResourceSpecificationVersion": "`Specification version number`",
+  "ResourceSpecificationVersion": "{{Specification version number}}",
   "ResourceTypes": {
-    Resource specification
+    {{Resource specification}}
   }
 }
 ```
 
-`PropertyTypes`
-
-For resources that have properties within a property (also known as
-subproperties), a list of subproperty specifications, such as which properties are
-required, the type of allowed value for each property, and their update behavior. For
-more information, see [Property specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes").
-
+`PropertyTypes`  <a name="specification-section-property-types"></a>
+For resources that have properties within a property (also known as subproperties), a list of subproperty specifications, such as which properties are required, the type of allowed value for each property, and their update behavior. For more information, see [Property specification](#cfn-resource-specification-format-propertytypes).  
 If a resource doesn't have subproperties, this section is omitted.
 
-`ResourceSpecificationVersion`
+`ResourceSpecificationVersion`  <a name="specification-section-resource-version"></a>
+The version of the resource specification. The version format is `{{majorVersion}}.{{minorVersion}}.{{patch}}`, where each release increments the version number. All resources have the same version number regardless of whether the resource was updated.  
+CloudFormation increments the patch number when the service makes a backwards-compatible bug fix, such as fixing a broken documentation link. When CloudFormation adds resources or properties that are backwards compatible, it increments the minor version number. For example, later versions of a specification might add additional resource properties to support new features of an AWS service.  
+Backwards incompatible changes increment the major version number. A backwards incompatible change can result from a change in the resource specification, such as a name change to a field, or a change to a resource, such as the making an optional resource property required.
 
-The version of the resource specification. The version format is
-``majorVersion`.`minorVersion`.`patch``,
-where each release increments the version number. All resources have the same version
-number regardless of whether the resource was updated.
-
-CloudFormation increments the patch number when the service makes a backwards-compatible
-bug fix, such as fixing a broken documentation link. When CloudFormation adds resources or
-properties that are backwards compatible, it increments the minor version number. For
-example, later versions of a specification might add additional resource properties to
-support new features of an AWS service.
-
-Backwards incompatible changes increment the major version number. A backwards
-incompatible change can result from a change in the resource specification, such as a
-name change to a field, or a change to a resource, such as the making an optional
-resource property required.
-
-`ResourceTypes`
-
-The list of resources and information about each resource's properties, such as
-its property names, which properties are required, and their update behavior. For more
-information, see [Resource specification](#cfn-resource-specification-format-resourcetype "#cfn-resource-specification-format-resourcetype").
-
-###### Note
-
-If you view a file that contains the definition of one resource type, this
-property name is `ResourceType` (singular).
+`ResourceTypes`  <a name="specification-section-resource-types"></a>
+The list of resources and information about each resource's properties, such as its property names, which properties are required, and their update behavior. For more information, see [Resource specification](#cfn-resource-specification-format-resourcetype).  
+If you view a file that contains the definition of one resource type, this property name is `ResourceType` (singular).
 
 ## Property specification
+<a name="cfn-resource-specification-format-propertytypes"></a>
 
-The specification for each property includes the following fields. For subproperties,
-the property name uses the
-``resourceType`.`subpropertyName``
-format.
+The specification for each property includes the following fields. For subproperties, the property name uses the `{{resourceType}}.{{subpropertyName}}` format.
 
 ```
-"`Property name`": {
-  "Documentation": "`Link to the relevant documentation`"
-  "DuplicatesAllowed": "`true or false`",
-  "ItemType": "`Type of list or map (non-primitive)`",
-  "PrimitiveItemType": "`Type of list or map (primitive)`",
-  "PrimitiveType": "`Type of value (primitive)`",
-  "Required": "`true or false`",
-  "Type": "`Type of value (non-primitive)`",
-  "UpdateType": "`Mutable, Immutable, or Conditional`",
+"{{Property name}}": {
+  "Documentation": "{{Link to the relevant documentation}}"
+  "DuplicatesAllowed": "{{true or false}}",
+  "ItemType": "{{Type of list or map (non-primitive)}}",
+  "PrimitiveItemType": "{{Type of list or map (primitive)}}",
+  "PrimitiveType": "{{Type of value (primitive)}}",
+  "Required": "{{true or false}}",
+  "Type": "{{Type of value (non-primitive)}}",
+  "UpdateType": "{{Mutable, Immutable, or Conditional}}",
 }
 ```
 
-`Documentation`
+`Documentation`  <a name="property-specification-documentation"></a>
+A link to the *AWS CloudFormation User Guide* that provides information about the property.
 
-A link to the _AWS CloudFormation User Guide_ that provides information
-about the property.
+`DuplicatesAllowed`  <a name="property-specification-duplicates-allowed"></a>
+If the value of the `Type` field is `List`, indicates whether CloudFormation allows duplicate values. If the value is `true`, CloudFormation ignores duplicate values. If the value is `false`, CloudFormation returns an error if you submit duplicate values.
 
-`DuplicatesAllowed`
+`ItemType`  <a name="property-specification-item-type"></a>
+If the value of the `Type` field is `List` or `Map`, indicates the type of list or map if they contain non-primitive types. Otherwise, this field is omitted. For lists or maps that contain primitive types, the `PrimitiveItemType` property indicates the valid value type.  
+A subproperty name is a valid item type. For example, if the type value is `List` and the item type value is `PortMapping`, you can specify a list of port mapping properties.
 
-If the value of the `Type` field is `List`, indicates
-whether CloudFormation allows duplicate values. If the value is `true`, CloudFormation
-ignores duplicate values. If the value is `false`, CloudFormation returns an error
-if you submit duplicate values.
+`PrimitiveItemType`  <a name="property-specification-primitive-item-type"></a>
+If the value of the `Type` field is `List` or `Map`, indicates the type of list or map if they contain primitive types. Otherwise, this field is omitted. For lists or maps that contain non-primitive types, the `ItemType` property indicates the valid value type.  
+The valid primitive types for lists and maps are `String`, `Long`, `Integer`, `Double`, `Boolean`, or `Timestamp`.  
+For example, if the type value is `List` and the item type value is `String`, you can specify a list of strings for the property. If the type value is `Map` and the item type value is `Boolean`, you can specify a string to Boolean mapping for the property.
 
-`ItemType`
+`PrimitiveType`  <a name="property-specification-primitive-type"></a>
+For primitive values, the valid primitive type for the property. A primitive type is a basic data type for resource property values. The valid primitive types are `String`, `Long`, `Integer`, `Double`, `Boolean`, `Timestamp` or `Json`. If valid values are a non-primitive type, this field is omitted and the `Type` field indicates the valid value type.
 
-If the value of the `Type` field is `List` or
-`Map`, indicates the type of list or map if they contain non-primitive
-types. Otherwise, this field is omitted. For lists or maps that contain primitive
-types, the `PrimitiveItemType` property indicates the valid value
-type.
-
-A subproperty name is a valid item type. For example, if the type value is
-`List` and the item type value is `PortMapping`, you can
-specify a list of port mapping properties.
-
-`PrimitiveItemType`
-
-If the value of the `Type` field is `List` or
-`Map`, indicates the type of list or map if they contain primitive types.
-Otherwise, this field is omitted. For lists or maps that contain non-primitive types,
-the `ItemType` property indicates the valid value type.
-
-The valid primitive types for lists and maps are `String`,
-`Long`, `Integer`, `Double`, `Boolean`,
-or `Timestamp`.
-
-For example, if the type value is `List` and the item type value is
-`String`, you can specify a list of strings for the property. If the type
-value is `Map` and the item type value is `Boolean`, you can
-specify a string to Boolean mapping for the property.
-
-`PrimitiveType`
-
-For primitive values, the valid primitive type for the property. A primitive type
-is a basic data type for resource property values. The valid primitive types are
-`String`, `Long`, `Integer`, `Double`,
-`Boolean`, `Timestamp` or `Json`. If valid values
-are a non-primitive type, this field is omitted and the `Type` field
-indicates the valid value type.
-
-`Required`
-
+`Required`  <a name="property-specification-required"></a>
 Indicates whether the property is required.
 
-`Type`
+`Type`  <a name="property-specification-type"></a>
+For non-primitive types, valid values for the property. The valid types are a subproperty name, `List` or `Map`. If valid values are a primitive type, this field is omitted and the `PrimitiveType` field indicates the valid value type.  
+A list is a comma-separated list of values. A map is a set of key-value pairs, where the keys are always strings. The value type for lists and maps are indicated by the `ItemType` or `PrimitiveItemType` field.
 
-For non-primitive types, valid values for the property. The valid types are a
-subproperty name, `List` or `Map`. If valid values are a
-primitive type, this field is omitted and the `PrimitiveType` field
-indicates the valid value type.
-
-A list is a comma-separated list of values. A map is a set of key-value pairs,
-where the keys are always strings. The value type for lists and maps are indicated by
-the `ItemType` or `PrimitiveItemType` field.
-
-`UpdateType`
-
-During a stack update, the update behavior when you add, remove, or modify the
-property. CloudFormation replaces the resource when you change immutable properties. CloudFormation
-doesn't replace the resource when you change mutable properties. Conditional updates
-can be mutable or immutable, depending on, for example, which other properties you
-updated. For more information, see [AWS resource and property types reference](aws-template-resource-type-ref.md "aws-template-resource-type-ref.md").
+`UpdateType`  <a name="property-specification-update-type"></a>
+During a stack update, the update behavior when you add, remove, or modify the property. CloudFormation replaces the resource when you change immutable properties. CloudFormation doesn't replace the resource when you change mutable properties. Conditional updates can be mutable or immutable, depending on, for example, which other properties you updated. For more information, see [AWS resource and property types reference](aws-template-resource-type-ref.md).
 
 ## Resource specification
+<a name="cfn-resource-specification-format-resourcetype"></a>
 
 The specification for each resource type includes the following fields.
 
 ```
-"`Resource type name`": {
+"{{Resource type name}}": {
   "Attributes": {
-    "`AttributeName`": {
-      "ItemType": "`Return list or map type (non-primitive)`",
-      "PrimitiveItemType": "`Return list or map type (primitive)`",
-      "PrimitiveType": "`Return value type (primitive)`",
-      "Type": "`Return value type (non-primitive)`",
+    "{{AttributeName}}": {
+      "ItemType": "{{Return list or map type (non-primitive)}}",
+      "PrimitiveItemType": "{{Return list or map type (primitive)}}",
+      "PrimitiveType": "{{Return value type (primitive)}}",
+      "Type": "{{Return value type (non-primitive)}}",
     }
   },
-  "Documentation": "`Link to the relevant documentation`",
+  "Documentation": "{{Link to the relevant documentation}}",
   "Properties": {
-    Property specifications
+    {{Property specifications}}
   }
 }
 ```
 
-`Attributes`
+`Attributes`  <a name="resource-type-specification-attributes"></a>
+A list of resource attributes that you can use in an [`Fn::GetAtt`](intrinsic-function-reference-getatt.md) function. For each attribute, this section provides the attribute name and the type of value that CloudFormation returns.    
+`ItemType`  <a name="resource-type-specification-item-type"></a>
+If the value of the `Type` field is `List`, indicates the type of list that the `Fn::GetAtt` function returns for the attribute if the list contains non-primitive types. The valid type is a name of a property.  
+`PrimitiveItemType`  <a name="resource-type-specification-primitive-item-type"></a>
+If the value of the `Type` field is `List`, indicates the type of list that the `Fn::GetAtt` function returns for the attribute if the list contains primitive types. For lists that contain non-primitive types, the `ItemType` property indicates the valid value type. The valid primitive types for lists are `String`, `Long`, `Integer`, `Double`, `Boolean`, or `Timestamp`.  
+For example, if the type value is `List` and the primitive item type value is `String`, the `Fn::GetAtt` function returns a list of strings.  
+`PrimitiveType`  <a name="resource-type-specification-primitive-type"></a>
+For primitive return values, the type of primitive value that the `Fn::GetAtt` function returns for the attribute. A primitive type is a basic data type for resource property values. The valid primitive types are `String`, `Long`, `Integer`, `Double`, `Boolean`, `Timestamp` or `Json`.  
+`Type`  <a name="resource-type-specification-type"></a>
+For non-primitive return values, the type of value that the `Fn::GetAtt` function returns for the attribute. The valid types are a property name or `List`.  
+A list is a comma-separated list of values. The value type for lists are indicated by the `ItemType` or `PrimitiveItemType` field.
 
-A list of resource attributes that you can use in an [Fn::GetAtt](intrinsic-function-reference-getatt.md "intrinsic-function-reference-getatt.md")
-function. For each attribute, this section provides the attribute name and the type of
-value that CloudFormation returns.
+`Documentation`  <a name="resource-type-specification-documentation"></a>
+A link to the *AWS CloudFormation User Guide* for information about the resource.
 
-`ItemType`
-
-If the value of the `Type` field is `List`, indicates
-the type of list that the `Fn::GetAtt` function returns for the
-attribute if the list contains non-primitive types. The valid type is a name of
-a property.
-
-`PrimitiveItemType`
-
-If the value of the `Type` field is `List`, indicates
-the type of list that the `Fn::GetAtt` function returns for the
-attribute if the list contains primitive types. For lists that contain
-non-primitive types, the `ItemType` property indicates the valid
-value type. The valid primitive types for lists are `String`,
-`Long`, `Integer`, `Double`,
-`Boolean`, or `Timestamp`.
-
-For example, if the type value is `List` and the primitive item
-type value is `String`, the `Fn::GetAtt` function returns
-a list of strings.
-
-`PrimitiveType`
-
-For primitive return values, the type of primitive value that the
-`Fn::GetAtt` function returns for the attribute. A primitive type
-is a basic data type for resource property values. The valid primitive types are
-`String`, `Long`, `Integer`,
-`Double`, `Boolean`, `Timestamp` or
-`Json`.
-
-`Type`
-
-For non-primitive return values, the type of value that the
-`Fn::GetAtt` function returns for the attribute. The valid types
-are a property name or `List`.
-
-A list is a comma-separated list of values. The value type for lists are
-indicated by the `ItemType` or `PrimitiveItemType`
-field.
-
-`Documentation`
-
-A link to the _AWS CloudFormation User Guide_ for information about the
-resource.
-
-`Properties`
-
-A list of property specifications for the resource. For details, see [Property specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes").
+`Properties`  <a name="resource-type-specification-properties"></a>
+A list of property specifications for the resource. For details, see [Property specification](#cfn-resource-specification-format-propertytypes).
 
 ## Example resource specification
+<a name="w2aac37b9c23c13"></a>
 
-The following examples highlight and explain parts of the [AWS::Elasticsearch::Domain](aws-resource-elasticsearch-domain.md "aws-resource-elasticsearch-domain.md") resource specification.
+The following examples highlight and explain parts of the [AWS::Elasticsearch::Domain](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticsearch-domain.html) resource specification.
 
-The `AWS::Elasticsearch::Domain` resource type contains subproperties, so the
-specification includes a `PropertyTypes` section. This section is followed by the
-`ResourceSpecificationVersion` section, which shows the specification version
-as `1.0.0`. After the specification version is the `ResourceType`
-section that specifies the resource type, provides a documentation link, and details the
-resource's properties.
+The `AWS::Elasticsearch::Domain` resource type contains subproperties, so the specification includes a `PropertyTypes` section. This section is followed by the `ResourceSpecificationVersion` section, which shows the specification version as `1.0.0`. After the specification version is the `ResourceType` section that specifies the resource type, provides a documentation link, and details the resource's properties.
 
 ```
 {
@@ -269,18 +157,9 @@ resource's properties.
 }
 ```
 
-Focusing on the `ResourceType` section, the following example shows two
-properties of the `AWS::Elasticsearch::Domain` resource type. The
-`AdvancedOptions` property isn't required and accepts a string to string map. A
-map is a collection of key-value pairs, where the keys are always strings. The value type is
-indicated by the `ItemType` field, which is `String`. Therefore, the
-type is a string to string map. The update behavior for this property is mutable. If update
-this property, CloudFormation keeps the resource instead of creating a new one and then deleting the
-old one (an immutable update).
+Focusing on the `ResourceType` section, the following example shows two properties of the `AWS::Elasticsearch::Domain` resource type. The `AdvancedOptions` property isn't required and accepts a string to string map. A map is a collection of key-value pairs, where the keys are always strings. The value type is indicated by the `ItemType` field, which is `String`. Therefore, the type is a string to string map. The update behavior for this property is mutable. If update this property, CloudFormation keeps the resource instead of creating a new one and then deleting the old one (an immutable update).
 
-The `SnapshotOptions` property isn't required and accepts a subproperty named
-`SnapshotOptions`. Details of the `SnapshotOptions` subproperty is
-provided in the `PropertyTypes` section.
+The `SnapshotOptions` property isn't required and accepts a subproperty named `SnapshotOptions`. Details of the `SnapshotOptions` subproperty is provided in the `PropertyTypes` section.
 
 ```
 {
@@ -319,11 +198,7 @@ provided in the `PropertyTypes` section.
 }
 ```
 
-In the `PropertyTypes`, the specification lists all the subproperties of a
-resource (including nested subproperties). The following example details the
-`AWS::Elasticsearch::Domain.SnapshotOptions` subproperty. It contains one
-property named `AutomatedSnapshotStartHour`, which isn't required and accepts
-integer value types.
+In the `PropertyTypes`, the specification lists all the subproperties of a resource (including nested subproperties). The following example details the `AWS::Elasticsearch::Domain.SnapshotOptions` subproperty. It contains one property named `AutomatedSnapshotStartHour`, which isn't required and accepts integer value types.
 
 ```
 "PropertyTypes": {
@@ -341,12 +216,11 @@ integer value types.
     }
   },
   ...
-
+    
 }
 ```
 
-For your reference, the following example provides the entire
-`AWS::Elasticsearch::Domain` resource specification.
+For your reference, the following example provides the entire `AWS::Elasticsearch::Domain` resource specification.
 
 ```
 {

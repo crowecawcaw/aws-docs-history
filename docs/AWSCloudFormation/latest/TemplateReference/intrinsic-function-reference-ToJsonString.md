@@ -1,61 +1,64 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::ToJsonString`
+<a name="intrinsic-function-reference-ToJsonString"></a>
 
-The `Fn::ToJsonString` intrinsic function converts an object or array to its
-corresponding JSON string.
+The `Fn::ToJsonString` intrinsic function converts an object or array to its corresponding JSON string.
 
-###### Important
-
-You must use the [AWS::LanguageExtensions transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md") to use the
-`Fn::ToJsonString` intrinsic function.
+**Important**  
+You must use the [`AWS::LanguageExtensions` transform](transform-aws-languageextensions.md) to use the `Fn::ToJsonString` intrinsic function.
 
 ## Declaration
+<a name="tojsonstring-declaration"></a>
 
 ### JSON
+<a name="intrinsic-function-reference-tojsonstring-syntax.json"></a>
 
 ```
-{ "Fn::ToJsonString": `Object` }
+{ "Fn::ToJsonString": {{Object}} }
 ```
 
 ```
-{ "Fn::ToJsonString": `Array` }
+{ "Fn::ToJsonString": {{Array}} }
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-tojsonstring-syntax.yaml"></a>
 
 ```
-Fn::ToJsonString: `Object`
+Fn::ToJsonString: {{Object}}
 ```
 
 ```
-Fn::ToJsonString: `Array`
+Fn::ToJsonString: {{Array}}
 ```
 
 ## Parameters
+<a name="tojsonstring-parameters"></a>
 
-`Object`
-
+`Object`  
 The object you want to convert to a JSON string.
 
-`Array`
-
+`Array`  
 The array you want to convert to a JSON string.
 
 ## Return value
+<a name="intrinsic-function-reference-tojsonstring-return"></a>
 
-The object or array converted to a JSON string.
+The object or array converted to a JSON string. 
 
 ## Examples
+<a name="intrinsic-function-reference-tojsonstring-examples"></a>
 
 ### Convert an object to a JSON string
+<a name="intrinsic-function-reference-tojsonstring-example-subsection"></a>
 
-This example snippet converts the object passed to the intrinsic function to a
-JSON string.
+This example snippet converts the object passed to the intrinsic function to a JSON string.
 
 #### JSON
+<a name="intrinsic-function-reference-tojsonstring-example.json"></a>
 
 ```
 {
@@ -64,7 +67,7 @@ JSON string.
     //...
         "Fn::ToJsonString": {
             "key1": "value1",
-            "key2": {
+            "key2": { 
                 "Ref": "ParameterName"
             }
         }
@@ -73,30 +76,30 @@ JSON string.
 ```
 
 #### YAML
+<a name="intrinsic-function-reference-tojsonstring-example.yaml"></a>
 
 ```
 Transform: 'AWS::LanguageExtensions'
 #...
-  Fn::ToJsonString:
+  Fn::ToJsonString: 
     key1: value1
     key2: !Ref ParameterName
 #...
 ```
 
-In both of these examples, if the `Ref` to
-`ParameterName` resolves to `resolvedValue`, the
-function resolves to the following JSON string:
+In both of these examples, if the `Ref` to `ParameterName` resolves to `resolvedValue`, the function resolves to the following JSON string:
 
 ```
 "{\"key1\":\"value1\",\"key2\":\"resolvedValue\"}"
 ```
 
 ### Convert an array to a JSON string
+<a name="intrinsic-function-reference-tojsonstring-example2"></a>
 
-This example snippet converts the array passed to the intrinsic function to a JSON
-string.
+This example snippet converts the array passed to the intrinsic function to a JSON string.
 
 #### JSON
+<a name="intrinsic-function-reference-tojsonstring-example2.json"></a>
 
 ```
 {
@@ -105,8 +108,8 @@ string.
     //...
         "Fn::ToJsonString": [{
             "key1": "value1",
-            "key2": {
-                "Ref": "ParameterName"
+            "key2": { 
+                "Ref": "ParameterName" 
             }
         }]
 //...
@@ -114,39 +117,37 @@ string.
 ```
 
 #### YAML
+<a name="intrinsic-function-reference-tojsonstring-example2.yaml"></a>
 
 ```
 Transform: 'AWS::LanguageExtensions'
 #...
-  Fn::ToJsonString:
+  Fn::ToJsonString: 
     - key1: value1
       key2: !Ref ParameterName
 #...
 ```
 
-In both of these examples, if the `Ref` to
-`ParameterName` resolves to `resolvedValue`, the
-function resolves to the following JSON String:
+In both of these examples, if the `Ref` to `ParameterName` resolves to `resolvedValue`, the function resolves to the following JSON String:
 
 ```
 "[{\"key1\":\"value1\"},{\"key2\":\"resolvedValue\"}]"
 ```
 
 ## Supported functions
+<a name="tojsonstring-supported-functions"></a>
 
-You can use the following functions in the `Fn::ToJsonString` intrinsic
-function or array:
-
-- `Fn::Base64`
-- `Fn::FindInMap`
-- `Fn::GetAtt`
-- `Fn::GetAZs`
-- `Fn::If`
-- `Fn::ImportValue`
-- `Fn::Join`
-- `Fn::Length`
-- `Fn::Select`
-- `Fn::Split`
-- `Fn::Sub`
-- `Fn::ToJsonString`
-- `Ref`
+You can use the following functions in the `Fn::ToJsonString` intrinsic function or array:
++ `Fn::Base64`
++ `Fn::FindInMap`
++ `Fn::GetAtt`
++ `Fn::GetAZs`
++ `Fn::If`
++ `Fn::ImportValue`
++ `Fn::Join`
++ `Fn::Length`
++ `Fn::Select`
++ `Fn::Split`
++ `Fn::Sub`
++ `Fn::ToJsonString`
++ `Ref`

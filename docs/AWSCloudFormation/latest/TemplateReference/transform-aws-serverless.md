@@ -1,57 +1,56 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `AWS::Serverless` transform
+<a name="transform-aws-serverless"></a>
 
-This topic describes how to use the `AWS::Serverless` transform to process a
-template written in the AWS Serverless Application Model (AWS SAM) syntax and transform it into a compliant CloudFormation
-template.
+This topic describes how to use the `AWS::Serverless` transform to process a template written in the AWS Serverless Application Model (AWS SAM) syntax and transform it into a compliant CloudFormation template. 
 
-For more information about using the `AWS::Serverless` transform, see [AWS SAM transform](https://github.com/aws/serverless-application-model "https://github.com/aws/serverless-application-model") on
-GitHub.
+For more information about using the `AWS::Serverless` transform, see [AWS SAM transform](https://github.com/aws/serverless-application-model) on GitHub.
 
 ## Usage
+<a name="aws-serverless-usage"></a>
 
-To use the `AWS::Serverless` transform, you must declare it at the top level of
-your CloudFormation template. You can't use `AWS::Serverless` as a transform embedded
-in any other template section.
+To use the `AWS::Serverless` transform, you must declare it at the top level of your CloudFormation template. You can't use `AWS::Serverless` as a transform embedded in any other template section.
 
-The declaration must use the literal string `AWS::Serverless-2016-10-31` as its
-value. You can't use a parameter or function to specify a transform value.
+The declaration must use the literal string `AWS::Serverless-2016-10-31` as its value. You can't use a parameter or function to specify a transform value.
 
 ### Syntax
+<a name="aws-serverless-syntax"></a>
 
 To declare this transform in your CloudFormation template, use the following syntax:
 
 #### JSON
+<a name="aws-serverless-syntax.json"></a>
 
 ```
 {
   "Transform":"AWS::Serverless-2016-10-31",
   "Resources":{
-    `...`
+    {{...}}
   }
 }
 ```
 
 #### YAML
+<a name="aws-serverless-syntax.yaml"></a>
 
 ```
 Transform: AWS::Serverless-2016-10-31
 Resources:
-  `...`
+  {{...}}
 ```
 
-The `AWS::Serverless` transform is a standalone declaration with no
-additional parameters.
+The `AWS::Serverless` transform is a standalone declaration with no additional parameters.
 
 ## Examples
+<a name="aws-serverless-examples"></a>
 
-The following examples show how to use the `AWS::Serverless` transform and
-AWS SAM syntax to simplify the declaration of a Lambda function and its execution role.
+The following examples show how to use the `AWS::Serverless` transform and AWS SAM syntax to simplify the declaration of a Lambda function and its execution role.
 
 ### JSON
+<a name="aws-serverless-example.json"></a>
 
 ```
 {
@@ -60,9 +59,9 @@ AWS SAM syntax to simplify the declaration of a Lambda function and its executio
     "MyFunction":{
       "Type":"AWS::Serverless::Function",
       "Properties":{
-        "Handler":"`index.handler`",
-        "Runtime":"`nodejs20.x`",
-        "CodeUri":"`s3://amzn-s3-demo-bucket/MySourceCode.zip`"
+        "Handler":"{{index.handler}}",
+        "Runtime":"{{nodejs20.x}}",
+        "CodeUri":"{{s3://amzn-s3-demo-bucket/MySourceCode.zip}}"
       }
     }
   }
@@ -70,6 +69,7 @@ AWS SAM syntax to simplify the declaration of a Lambda function and its executio
 ```
 
 ### YAML
+<a name="aws-serverless-example.yaml"></a>
 
 ```
 Transform: AWS::Serverless-2016-10-31
@@ -77,15 +77,12 @@ Resources:
   MyFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: `index.handler`
-      Runtime: `nodejs20.x`
-      CodeUri: '`s3://amzn-s3-demo-bucket/MySourceCode.zip`'
+      Handler: {{index.handler}}
+      Runtime: {{nodejs20.x}}
+      CodeUri: '{{s3://amzn-s3-demo-bucket/MySourceCode.zip}}'
 ```
 
-When creating a change set from the template, CloudFormation expands the AWS SAM syntax, as
-defined by the transform. The processed template expands the
-`AWS::Serverless::Function` resource, declaring a Lambda function and an execution
-role.
+When creating a change set from the template, CloudFormation expands the AWS SAM syntax, as defined by the transform. The processed template expands the `AWS::Serverless::Function` resource, declaring a Lambda function and an execution role.
 
 ```
 {
@@ -93,15 +90,15 @@ role.
     "MyFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
-        "Handler": "`index.handler`",
+        "Handler": "{{index.handler}}",
         "Code": {
-          "S3Bucket": "`amzn-s3-demo-bucket`",
-          "S3Key": "`MySourceCode.zip`"
+          "S3Bucket": "{{amzn-s3-demo-bucket}}",
+          "S3Key": "{{MySourceCode.zip}}"
         },
         "Role": {
           "Fn::GetAtt": ["MyFunctionRole", "Arn"]
         },
-        "Runtime": "`nodejs20.x`"
+        "Runtime": "{{nodejs20.x}}"
       }
     },
     "MyFunctionRole": {
@@ -109,7 +106,7 @@ role.
       "Properties": {
         "ManagedPolicyArns": ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"],
         "AssumeRolePolicyDocument": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [{
             "Action": ["sts:AssumeRole"],
             "Effect": "Allow",
@@ -125,30 +122,21 @@ role.
 ```
 
 ## Using `AWS::Serverless` with `AWS::LanguageExtensions`
+<a name="aws-serverless-language-extensions"></a>
 
-When using both `AWS::Serverless` and `AWS::LanguageExtensions`
-transforms, referencing resources like `AWS::ApiGateway::Stage` requires special
-syntax when the stage name is passed as a non-`NoEcho` parameter value.
+When using both `AWS::Serverless` and `AWS::LanguageExtensions` transforms, referencing resources like `AWS::ApiGateway::Stage` requires special syntax when the stage name is passed as a non-`NoEcho` parameter value.
 
-Instead of using the AWS SAM syntax for the reference
-(``MyApi`.Stage`), use `Fn::Sub` to
-generate the logical ID reference. For example, `"Ref": {"Fn::Sub":
- `"${`MyApi`}`${`StageName`}Stage"}`.
-This builds the correct logical ID at runtime.
+Instead of using the AWS SAM syntax for the reference (`{{MyApi}}.Stage`), use `Fn::Sub` to generate the logical ID reference. For example, `"Ref": {"Fn::Sub": "${{{MyApi}}}${{{StageName}}}Stage"}`. This builds the correct logical ID at runtime.
 
-The reason for this special format is because these two transforms handle values
-differently:
-
-- `AWS::LanguageExtensions` resolves intrinsic functions to their actual
-  values.
-- `AWS::Serverless` creates different logical IDs depending on whether it
-  receives a static value or an intrinsic function.
+The reason for this special format is because these two transforms handle values differently:
++ `AWS::LanguageExtensions` resolves intrinsic functions to their actual values.
++ `AWS::Serverless` creates different logical IDs depending on whether it receives a static value or an intrinsic function.
 
 ## Related resources
+<a name="aws-serverless-related-resources"></a>
 
-For more information about serverless applications and the AWS Serverless Application Model (AWS SAM), see [AWS Serverless Application Model Developer Guide](../../../serverless-application-model/latest/developerguide/what-is-sam.md "../../../serverless-application-model/latest/developerguide/what-is-sam.md").
+For more information about serverless applications and the AWS Serverless Application Model (AWS SAM), see [AWS Serverless Application Model Developer Guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html).
 
-For the resource and property types that are specific to AWS SAM, see [AWS SAM resources and properties](../../../serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.md "../../../serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.md") in the _AWS Serverless Application Model Developer Guide_.
+For the resource and property types that are specific to AWS SAM, see [AWS SAM resources and properties](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html) in the *AWS Serverless Application Model Developer Guide*.
 
-For general information about using macros, see [Perform custom processing on CloudFormation templates with
-template macros](../UserGuide/template-macros.md "../UserGuide/template-macros.md") in the _AWS CloudFormation User Guide_.
+For general information about using macros, see [Perform custom processing on CloudFormation templates with template macros](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html) in the *AWS CloudFormation User Guide*.

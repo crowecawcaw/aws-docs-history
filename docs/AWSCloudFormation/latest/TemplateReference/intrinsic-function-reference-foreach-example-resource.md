@@ -1,40 +1,31 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Examples of `Fn::ForEach` in the `Resources` section
+<a name="intrinsic-function-reference-foreach-example-resource"></a>
 
-These examples demonstrate using the `Fn::ForEach` intrinsic function in the
-`Resources` section. For more information about this section, see [Resources](../UserGuide/resources-section-structure.md "../UserGuide/resources-section-structure.md") in
-the _AWS CloudFormation User Guide_.
+These examples demonstrate using the `Fn::ForEach` intrinsic function in the `Resources` section. For more information about this section, see [Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html) in the *AWS CloudFormation User Guide*.
 
-###### Topics
-
-- [Replicate an Amazon SNS resource](#intrinsic-function-reference-foreach-example-replicate-resource "#intrinsic-function-reference-foreach-example-replicate-resource")
-- [Replicate an Amazon DynamoDB resource](#intrinsic-function-reference-foreach-example-replicate-ddb-resource "#intrinsic-function-reference-foreach-example-replicate-ddb-resource")
-- [Replicate multiple resources](#intrinsic-function-reference-foreach-example-replicate-multiple-resources "#intrinsic-function-reference-foreach-example-replicate-multiple-resources")
-- [Replicate multiple resources using a nested Fn::ForEach loops](#intrinsic-function-reference-foreach-example-nested-loop-resources "#intrinsic-function-reference-foreach-example-nested-loop-resources")
-- [Reference replicated properties for an Amazon EC2 resource](#intrinsic-function-reference-foreach-example-reference-replicated-resource "#intrinsic-function-reference-foreach-example-reference-replicated-resource")
-- [Replicate properties for an Amazon EC2 resource](#intrinsic-function-reference-foreach-example-replicate-resource-properties "#intrinsic-function-reference-foreach-example-replicate-resource-properties")
-- [Passing non-alphanumeric characters within the Collection for Fn::ForEach](#intrinsic-function-reference-foreach-example-non-alphanumeric "#intrinsic-function-reference-foreach-example-non-alphanumeric")
+**Topics**
++ [Replicate an Amazon SNS resource](#intrinsic-function-reference-foreach-example-replicate-resource)
++ [Replicate an Amazon DynamoDB resource](#intrinsic-function-reference-foreach-example-replicate-ddb-resource)
++ [Replicate multiple resources](#intrinsic-function-reference-foreach-example-replicate-multiple-resources)
++ [Replicate multiple resources using a nested `Fn::ForEach` loops](#intrinsic-function-reference-foreach-example-nested-loop-resources)
++ [Reference replicated properties for an Amazon EC2 resource](#intrinsic-function-reference-foreach-example-reference-replicated-resource)
++ [Replicate properties for an Amazon EC2 resource](#intrinsic-function-reference-foreach-example-replicate-resource-properties)
++ [Passing non-alphanumeric characters within the `Collection` for `Fn::ForEach`](#intrinsic-function-reference-foreach-example-non-alphanumeric)
 
 ## Replicate an Amazon SNS resource
+<a name="intrinsic-function-reference-foreach-example-replicate-resource"></a>
 
-This example snippet returns a list of four Amazon SNS topics, with the logical ID
-corresponding to the items in the collection (`Success`, `Failure`,
-`Timeout`, `Unknown`), with a matching `TopicName` and
-`FifoTopic` set to `true`.
+This example snippet returns a list of four Amazon SNS topics, with the logical ID corresponding to the items in the collection (`Success`, `Failure`, `Timeout`, `Unknown`), with a matching `TopicName` and `FifoTopic` set to `true`.
 
-###### Note
-
-For templates that need to work with both FIFO and standard topics, you can use the
-`DisplayName` property instead of `TopicName`. This allows
-CloudFormation to automatically generate topic names with the appropriate `.fifo`
-suffix when `FifoTopic` is `true`. Simply replace
-`TopicName` with `DisplayName: !Ref TopicName` in the
-`Properties` section.
+**Note**  
+For templates that need to work with both FIFO and standard topics, you can use the `DisplayName` property instead of `TopicName`. This allows CloudFormation to automatically generate topic names with the appropriate `.fifo` suffix when `FifoTopic` is `true`. Simply replace `TopicName` with `DisplayName: !Ref TopicName` in the `Properties` section.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-replicate-resource.json"></a>
 
 ```
 {
@@ -59,6 +50,7 @@ suffix when `FifoTopic` is `true`. Simply replace
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-replicate-resource.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -99,15 +91,15 @@ Resources:
     Properties:
       TopicName: Unknown.fifo
       FifoTopic: true
-
 ```
 
 ## Replicate an Amazon DynamoDB resource
+<a name="intrinsic-function-reference-foreach-example-replicate-ddb-resource"></a>
 
-This example snippet creates four [AWS::DynamoDB::Table](aws-resource-dynamodb-table.md "aws-resource-dynamodb-table.md") resources
-with names such as `Points`, `Score`, etc.
+This example snippet creates four [AWS::DynamoDB::Table](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-dynamodb-table.html) resources with names such as `Points`, `Score`, etc.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-replicate-ddb-resource.json"></a>
 
 ```
 {
@@ -149,6 +141,7 @@ with names such as `Points`, `Score`, etc.
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-replicate-ddb-resource.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -233,19 +226,14 @@ Resources:
 ```
 
 ## Replicate multiple resources
+<a name="intrinsic-function-reference-foreach-example-replicate-multiple-resources"></a>
 
-This example creates multiple instances of [AWS::EC2::NatGateway](aws-resource-ec2-natgateway.md "aws-resource-ec2-natgateway.md") and
-[AWS::EC2::EIP](aws-resource-ec2-eip.md "aws-resource-ec2-eip.md") using a naming convention of `"{ResourceType}${Identifier}"`. You
-can declare multiple resource types under one `Fn::ForEach` loop to take
-advantage of a single identifier.
+This example creates multiple instances of [AWS::EC2::NatGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-natgateway.html) and [AWS::EC2::EIP](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-eip.html) using a naming convention of `"{ResourceType}${Identifier}"`. You can declare multiple resource types under one `Fn::ForEach` loop to take advantage of a single identifier.
 
-Unique values for each element in the collection are defined within the `Mappings`
-section, where the [Fn::FindInMap](intrinsic-function-reference-findinmap.md "intrinsic-function-reference-findinmap.md") intrinsic function is used to
-reference the corresponding value. If `Fn::FindInMap` is unable to find the
-corresponding identifier, the `Condition` property will not be set resolving
-to `!Ref AWS:::NoValue`.
+Unique values for each element in the collection are defined within the `Mappings` section, where the [`Fn::FindInMap`](intrinsic-function-reference-findinmap.md) intrinsic function is used to reference the corresponding value. If `Fn::FindInMap` is unable to find the corresponding identifier, the `Condition` property will not be set resolving to `!Ref AWS:::NoValue`.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-replicate-multiple-resources.json"></a>
 
 ```
 {
@@ -318,6 +306,7 @@ to `!Ref AWS:::NoValue`.
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-replicate-multiple-resources.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -453,11 +442,12 @@ Resources:
 ```
 
 ## Replicate multiple resources using a nested `Fn::ForEach` loops
+<a name="intrinsic-function-reference-foreach-example-nested-loop-resources"></a>
 
-This example uses nested `Fn::ForEach` loops to map three resources (
-[AWS::EC2::NetworkAcl](aws-resource-ec2-natgateway.md "aws-resource-ec2-natgateway.md"), [AWS::EC2::Subnet](aws-resource-ec2-subnet.md "aws-resource-ec2-subnet.md"), and [AWS::EC2::SubnetNetworkAclAssociation](aws-resource-ec2-subnetnetworkaclassociation.md "aws-resource-ec2-subnetnetworkaclassociation.md")) with each other.
+This example uses nested `Fn::ForEach` loops to map three resources ( [AWS::EC2::NetworkAcl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-natgateway.html), [AWS::EC2::Subnet](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-subnet.html), and [AWS::EC2::SubnetNetworkAclAssociation](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-subnetnetworkaclassociation.html)) with each other.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-nested-loop-resources.json"></a>
 
 ```
 {
@@ -527,6 +517,7 @@ This example uses nested `Fn::ForEach` loops to map three resources (
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-nested-loop-resources.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -638,11 +629,12 @@ Resources:
 ```
 
 ## Reference replicated properties for an Amazon EC2 resource
+<a name="intrinsic-function-reference-foreach-example-reference-replicated-resource"></a>
 
-This example uses the `Fn::ForEach` intrinsic function to reference
-replicated [AWS::EC2::Instance](aws-resource-ec2-instance.md "aws-resource-ec2-instance.md") resources.
+This example uses the `Fn::ForEach` intrinsic function to reference replicated [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html) resources.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-reference-replicated-resource.json"></a>
 
 ```
 {
@@ -654,7 +646,7 @@ replicated [AWS::EC2::Instance](aws-resource-ec2-instance.md "aws-resource-ec2-i
         "B": "m5.4xlarge",
         "C": "c5.2xlarge"
       },
-      "ImageId": {"A": "`ami-id1`"}
+      "ImageId": {"A": "{{ami-id1}}"}
     }
   },
   "Resources": {
@@ -670,7 +662,7 @@ replicated [AWS::EC2::Instance](aws-resource-ec2-instance.md "aws-resource-ec2-i
           "Type": "AWS::EC2::Instance",
           "Properties": {
             "InstanceType": {"Fn::FindInMap": ["Instances", "InstanceType", {"Ref": "Identifier"}, {"DefaultValue": "m5.xlarge"}]},
-            "ImageId": {"Fn::FindInMap": ["Instances", "ImageId", {"Ref": "Identifier"}, {"DefaultValue": "`ami-id-default`"}]}
+            "ImageId": {"Fn::FindInMap": ["Instances", "ImageId", {"Ref": "Identifier"}, {"DefaultValue": "{{ami-id-default}}"}]}
           }
         }
       }
@@ -695,6 +687,7 @@ replicated [AWS::EC2::Instance](aws-resource-ec2-instance.md "aws-resource-ec2-i
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-reference-replicated-resource.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -705,7 +698,7 @@ Mappings:
       B: m5.4xlarge
       C: c5.2xlarge
     ImageId:
-      A: `ami-id1`
+      A: {{ami-id1}}
 Resources:
   'Fn::ForEach::Instances':
   - Identifier
@@ -714,7 +707,7 @@ Resources:
       Type: AWS::EC2::Instance
       Properties:
         InstanceType: !FindInMap [Instances, InstanceType, !Ref 'Identifier', {DefaultValue: m5.xlarge}]
-        ImageId: !FindInMap [Instances, ImageId, !Ref 'Identifier', {DefaultValue: `ami-id-default`}]
+        ImageId: !FindInMap [Instances, ImageId, !Ref 'Identifier', {DefaultValue: {{ami-id-default}}}]
 Outputs:
   SecondInstanceId:
     Description: Instance Id for InstanceB
@@ -734,17 +727,17 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: m5.xlarge
-      ImageId: `ami-id1`
+      ImageId: {{ami-id1}}
   InstanceB:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: m5.4xlarge
-      ImageId: `ami-id-default`
+      ImageId: {{ami-id-default}}
   InstanceC:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: c5.2xlarge
-      ImageId: `ami-id-default`
+      ImageId: {{ami-id-default}}
 Outputs:
   SecondInstanceId:
     Description: Instance Id for InstanceB
@@ -755,13 +748,12 @@ Outputs:
 ```
 
 ## Replicate properties for an Amazon EC2 resource
+<a name="intrinsic-function-reference-foreach-example-replicate-resource-properties"></a>
 
-This example uses the `Fn::ForEach` intrinsic function to repeat some
-properties like `ImageId`, `InstanceType`, and
-`AvailabilityZone` to an [AWS::EC2::Instance](aws-resource-ec2-instance.md "aws-resource-ec2-instance.md")
-resource.
+This example uses the `Fn::ForEach` intrinsic function to repeat some properties like `ImageId`, `InstanceType`, and `AvailabilityZone` to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html) resource.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-replicate-resource-properties.json"></a>
 
 ```
 {
@@ -770,18 +762,18 @@ resource.
   "Mappings": {
     "InstanceA": {
       "Properties": {
-        "ImageId": "`ami-id1`",
+        "ImageId": "{{ami-id1}}",
         "InstanceType": "m5.xlarge"
       }
     },
     "InstanceB": {
       "Properties": {
-        "ImageId": "`ami-id2`"
+        "ImageId": "{{ami-id2}}"
       }
     },
     "InstanceC": {
       "Properties": {
-        "ImageId": "`ami-id3`",
+        "ImageId": "{{ami-id3}}",
         "InstanceType": "m5.2xlarge",
         "AvailabilityZone": "us-east-1a"
       }
@@ -836,6 +828,7 @@ resource.
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-replicate-resource-properties.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -843,14 +836,14 @@ Transform: AWS::LanguageExtensions
 Mappings:
   InstanceA:
     Properties:
-      ImageId: `ami-id1`
+      ImageId: {{ami-id1}}
       InstanceType: m5.xlarge
   InstanceB:
     Properties:
-      ImageId: `ami-id2`
+      ImageId: {{ami-id2}}
   InstanceC:
     Properties:
-      ImageId: `ami-id3`
+      ImageId: {{ami-id3}}
       InstanceType: m5.2xlarge
       AvailabilityZone: us-east-1a
 Resources:
@@ -891,7 +884,7 @@ Resources:
     Properties:
       DisableApiTermination: true
       UserData:
-        Fn::Base64:
+        Fn::Base64: 
           !Sub |
             #!/bin/bash
             yum update -y
@@ -899,14 +892,14 @@ Resources:
             systemctl start httpd.service
             systemctl enable httpd.service
             echo "Hello World from $(hostname -f)" > /var/www/html/index.html
-      ImageId: `ami-id1`
+      ImageId: {{ami-id1}}
       InstanceType: m5.xlarge
   InstanceB:
     Type: AWS::EC2::Instance
     Properties:
       DisableApiTermination: true
       UserData:
-        Fn::Base64:
+        Fn::Base64: 
           !Sub |
             #!/bin/bash
             yum update -y
@@ -914,13 +907,13 @@ Resources:
             systemctl start httpd.service
             systemctl enable httpd.service
             echo "Hello World from $(hostname -f)" > /var/www/html/index.html
-      ImageId: `ami-id2`
+      ImageId: {{ami-id2}}
   InstanceC:
     Type: AWS::EC2::Instance
     Properties:
       DisableApiTermination: true
       UserData:
-        Fn::Base64:
+        Fn::Base64: 
           !Sub |
             #!/bin/bash
             yum update -y
@@ -928,18 +921,18 @@ Resources:
             systemctl start httpd.service
             systemctl enable httpd.service
             echo "Hello World from $(hostname -f)" > /var/www/html/index.html
-      ImageId: `ami-id3`
+      ImageId: {{ami-id3}}
       InstanceType: m5.2xlarge
       AvailabilityZone: us-east-1a
 ```
 
 ## Passing non-alphanumeric characters within the `Collection` for `Fn::ForEach`
+<a name="intrinsic-function-reference-foreach-example-non-alphanumeric"></a>
 
-This example uses the `&{}` syntax, which allows the non-alphanumeric
-characters (`.` and `/`) in the IP addresses to be passed within the
-`Collection`.
+This example uses the `&{}` syntax, which allows the non-alphanumeric characters (`.` and `/`) in the IP addresses to be passed within the `Collection`.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-non-alphanumeric-json.json"></a>
 
 ```
 {
@@ -984,6 +977,7 @@ characters (`.` and `/`) in the IP addresses to be passed within the
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-non-alphanumeric-yaml.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09

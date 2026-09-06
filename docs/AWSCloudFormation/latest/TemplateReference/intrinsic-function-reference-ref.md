@@ -1,98 +1,86 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Ref`
+<a name="intrinsic-function-reference-ref"></a>
 
-The intrinsic function `Ref` returns the value of a specified parameter,
-resource, or another intrinsic function. This function is commonly used to create references
-between resources within a CloudFormation template.
+The intrinsic function `Ref` returns the value of a specified parameter, resource, or another intrinsic function. This function is commonly used to create references between resources within a CloudFormation template. 
 
 ## Declaration
+<a name="ref-declaration"></a>
 
 ### JSON
+<a name="intrinsic-function-reference-ref-syntax.json"></a>
 
 ```
-{ "Ref" : "`logicalName`" }
+{ "Ref" : "{{logicalName}}" }
 ```
 
 ```
-{ "Ref" : "`IntrinsicFunction`" }
+{ "Ref" : "{{IntrinsicFunction}}" }
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-ref-syntax.yaml"></a>
 
 Syntax for the full function name:
 
 ```
-Ref: `logicalName`
+Ref: {{logicalName}}
 ```
 
 ```
 Ref:
-   `IntrinsicFunction`
+   {{IntrinsicFunction}}
 ```
 
 Syntax for the short form:
 
 ```
-!Ref `logicalName`
+!Ref {{logicalName}}
 ```
 
 ```
 !Ref
-   `IntrinsicFunction`
+   {{IntrinsicFunction}}
 ```
 
 ## Parameters
+<a name="ref-parameters"></a>
 
-logicalName
+logicalName  
+The logical name of the resource or parameter you want to reference.
 
-The logical name of the resource or parameter you want to
-reference.
-
-IntrinsicFunction
-
-The intrinsic function that resolves to a valid string. It should contain
-references to parameters or identifiers, and should not contain resource
-logical identifiers.
+IntrinsicFunction  
+The intrinsic function that resolves to a valid string. It should contain references to parameters or identifiers, and should not contain resource logical identifiers.
 
 ## Return value
+<a name="ref-return-value"></a>
 
-The return value of `Ref` depends on the type of entity being
-referenced:
-
-- When you specify a parameter's logical name, it returns the value of the
-  parameter. For more information, see [CloudFormation template
-  Parameters syntax](../UserGuide/parameters-section-structure.md "../UserGuide/parameters-section-structure.md").
-- When you specify a resource's logical name, it returns a value that you use to
-  identify that resource. Usually, that's the name of the resource. However, for
-  some resources, an identifier is returned that has another significant meaning
-  in the context of the resource. For example, the `AWS::EC2::EIP`
-  resource returns the IP address, and the `AWS::EC2::Instance` returns
-  the instance ID. For more information about `Ref` return values for a
-  resource, see the documentation for that resource in the [Resource and property reference](aws-template-resource-type-ref.md "aws-template-resource-type-ref.md").
-- When you specify an intrinsic function, it returns the output of that
-  function.
+The return value of `Ref` depends on the type of entity being referenced:
++ When you specify a parameter's logical name, it returns the value of the parameter. For more information, see [CloudFormation template Parameters syntax](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html).
++ When you specify a resource's logical name, it returns a value that you use to identify that resource. Usually, that's the name of the resource. However, for some resources, an identifier is returned that has another significant meaning in the context of the resource. For example, the `AWS::EC2::EIP` resource returns the IP address, and the `AWS::EC2::Instance` returns the instance ID. For more information about `Ref` return values for a resource, see the documentation for that resource in the [Resource and property reference](aws-template-resource-type-ref.md).
++ When you specify an intrinsic function, it returns the output of that function.
 
 ## Examples
+<a name="ref-examples"></a>
 
 ### Create references between resources
+<a name="intrinsic-function-reference-ref-example"></a>
 
-The following resource declaration for an Elastic IP address needs the instance ID
-of an EC2 instance. It uses the `Ref` function to specify the instance ID
-of the `MyEC2Instance` resource declared elsewhere in the
-template.
+The following resource declaration for an Elastic IP address needs the instance ID of an EC2 instance. It uses the `Ref` function to specify the instance ID of the `MyEC2Instance` resource declared elsewhere in the template.
 
 #### JSON
+<a name="intrinsic-function-reference-ref-example.json"></a>
 
 ```
 {
   "AWSTemplateFormatVersion":"2010-09-09",
   "Resources":{
-
-      `...`
-
+  
+      {{...}}
+  
     "MyEIP":{
       "Type":"AWS::EC2::EIP",
       "Properties":{
@@ -106,12 +94,13 @@ template.
 ```
 
 #### YAML
+<a name="intrinsic-function-reference-ref-example.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
 
-  `...`
+  {{...}}
 
   MyEIP:
     Type: AWS::EC2::EIP
@@ -120,11 +109,12 @@ Resources:
 ```
 
 ### Return a resource identifier as stack output
+<a name="intrinsic-function-reference-ref-example-2"></a>
 
-The following examples show how to use the `Ref` function to return the
-name of an Amazon S3 bucket with the logical name `MyBucket` as stack output.
+The following examples show how to use the `Ref` function to return the name of an Amazon S3 bucket with the logical name `MyBucket` as stack output. 
 
 #### JSON
+<a name="intrinsic-function-reference-ref-example-2.json"></a>
 
 ```
 {
@@ -151,6 +141,7 @@ name of an Amazon S3 bucket with the logical name `MyBucket` as stack output.
 ```
 
 #### YAML
+<a name="intrinsic-function-reference-ref-example-2.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -167,23 +158,15 @@ Outputs:
 ```
 
 ### Use `Fn::Join` intrinsic function inside `Ref` function
+<a name="ref-example-intrinsic-functions-multiple-stages"></a>
 
-###### Note
+**Note**  
+When you use the `AWS::LanguageExtensions` transform, you can use `Ref` in combination with other intrinsic functions. For supported functions, see [Supported functions](#ref-supported-functions).
 
-When you use the `AWS::LanguageExtensions` transform, you can use
-`Ref` in combination with other intrinsic functions. For
-supported functions, see [Supported functions](#ref-supported-functions "#ref-supported-functions").
-
-The following examples show how to set identifiers of resources using the
-`Fn::Sub` intrinsic function, conditions, and the input for the
-`Stage` parameter. The `Ref` and the
-`Fn::GetAtt` functions then reference the appropriate values, based
-on the stage. `Fn::Sub` is first used with `Fn::GetAtt` to
-obtain the ARN of the appropriate Amazon SQS queue to set the dimensions of the Amazon CloudWatch
-alarm. Next, [Fn::Join](intrinsic-function-reference-join.md "intrinsic-function-reference-join.md") is used with `Ref` to
-create the name of the SNS topic for the `AlarmActions` property.
+The following examples show how to set identifiers of resources using the `Fn::Sub` intrinsic function, conditions, and the input for the `Stage` parameter. The `Ref` and the `Fn::GetAtt` functions then reference the appropriate values, based on the stage. `Fn::Sub` is first used with `Fn::GetAtt` to obtain the ARN of the appropriate Amazon SQS queue to set the dimensions of the Amazon CloudWatch alarm. Next, [`Fn::Join`](intrinsic-function-reference-join.md) is used with `Ref` to create the name of the SNS topic for the `AlarmActions` property. 
 
 #### JSON
+<a name="ref-example-intrinsic-functions-multiple-stages.json"></a>
 
 ```
 {
@@ -265,6 +248,7 @@ create the name of the SNS topic for the `AlarmActions` property.
 ```
 
 #### YAML
+<a name="ref-example-intrinsic-functions-multiple-stages.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -277,10 +261,10 @@ Parameters:
       - Dev
       - Prod
 Conditions:
-  isProd: !Equals
+  isProd: !Equals 
     - !Ref Stage
     - Prod
-  isDev: !Equals
+  isDev: !Equals 
     - !Ref Stage
     - Dev
 Resources:
@@ -308,7 +292,7 @@ Resources:
       MetricName: ApproximateNumberOfMessagesVisible
       Dimensions:
         - Name: !Sub '${Stage}Queue'
-          Value: !GetAtt
+          Value: !GetAtt 
             - !Sub '${Stage}Queue'
             - QueueName
       Statistic: Sum
@@ -317,7 +301,7 @@ Resources:
       Threshold: 10
       ComparisonOperator: GreaterThanThreshold
       AlarmActions:
-        - !Ref
+        - !Ref 
           'Fn::Join':
             - ''
             - - !Ref Stage
@@ -325,15 +309,14 @@ Resources:
 ```
 
 ## Supported functions
+<a name="ref-supported-functions"></a>
 
-When you use the [AWS::LanguageExtensions transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md"), you can use the
-following functions within the `Ref` function.
-
-- [Fn::Base64](intrinsic-function-reference-base64.md "intrinsic-function-reference-base64.md")
-- [Fn::FindInMap](intrinsic-function-reference-findinmap.md "intrinsic-function-reference-findinmap.md")
-- [Fn::If](intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if "intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if")
-- [Fn::ImportValue](intrinsic-function-reference-importvalue.md "intrinsic-function-reference-importvalue.md")
-- [Fn::Join](intrinsic-function-reference-join.md "intrinsic-function-reference-join.md")
-- [Fn::Sub](intrinsic-function-reference-sub.md "intrinsic-function-reference-sub.md")
-- [Fn::ToJsonString](intrinsic-function-reference-ToJsonString.md "intrinsic-function-reference-ToJsonString.md")
-- `Ref`
+When you use the [AWS::LanguageExtensions transform](transform-aws-languageextensions.md), you can use the following functions within the `Ref` function.
++ [`Fn::Base64`](intrinsic-function-reference-base64.md)
++ [`Fn::FindInMap`](intrinsic-function-reference-findinmap.md)
++ [`Fn::If`](intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if)
++ [`Fn::ImportValue`](intrinsic-function-reference-importvalue.md)
++ [`Fn::Join`](intrinsic-function-reference-join.md)
++ [`Fn::Sub`](intrinsic-function-reference-sub.md)
++ [`Fn::ToJsonString`](intrinsic-function-reference-ToJsonString.md)
++ `Ref`

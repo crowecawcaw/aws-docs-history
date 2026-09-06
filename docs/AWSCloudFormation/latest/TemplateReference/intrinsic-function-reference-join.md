@@ -1,75 +1,80 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # `Fn::Join`
+<a name="intrinsic-function-reference-join"></a>
 
-The intrinsic function `Fn::Join` appends a set of values into a single value,
-separated by the specified delimiter. If a delimiter is the empty string, the set of values
-are concatenated with no delimiter.
+The intrinsic function `Fn::Join` appends a set of values into a single value, separated by the specified delimiter. If a delimiter is the empty string, the set of values are concatenated with no delimiter.
 
 ## Declaration
+<a name="w2aac24c53b5"></a>
 
 ### JSON
+<a name="intrinsic-function-reference-join-syntax.json"></a>
 
 ```
-{ "Fn::Join" : [ "`delimiter`", [ `comma-delimited list of values` ] ] }
+{ "Fn::Join" : [ "delimiter", [ {{comma-delimited list of values}} ] ] }
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-join-syntax.yaml"></a>
 
 Syntax for the full function name:
 
 ```
-Fn::Join: [ `delimiter`, [ `comma-delimited list of values` ] ]
+Fn::Join: [ delimiter, [ {{comma-delimited list of values}} ] ]
 ```
 
 Syntax for the short form:
 
 ```
-!Join [ `delimiter`, [ `comma-delimited list of values` ] ]
+!Join [ delimiter, [ {{comma-delimited list of values}} ] ]
 ```
 
 ## Parameters
+<a name="intrinsic-function-reference-join-parameters"></a>
 
-delimiter
+delimiter  
+The value you want to occur between fragments. The delimiter will occur between fragments only. It won't terminate the final value.
 
-The value you want to occur between fragments. The delimiter will occur between
-fragments only. It won't terminate the final value.
-
-ListOfValues
-
+ListOfValues  
 The list of values you want combined.
 
 ## Return value
+<a name="intrinsic-function-reference-join-returnvalues"></a>
 
 The combined string.
 
 ## Examples
+<a name="intrinsic-function-reference-join-examples"></a>
 
 ### Join a simple string array
+<a name="intrinsic-function-reference-join-example1"></a>
 
 The following example returns: `"a:b:c"`.
 
 #### JSON
+<a name="intrinsic-function-reference-join-example1.json"></a>
 
 ```
 "Fn::Join" : [ ":", [ "a", "b", "c" ] ]
 ```
 
 #### YAML
+<a name="intrinsic-function-reference-join-example1.yaml"></a>
 
 ```
 !Join [ ":", [ a, b, c ] ]
 ```
 
 ### Join using the ref function with parameters
+<a name="intrinsic-function-reference-join-example2"></a>
 
-The following example uses `Fn::Join` to construct a string value. It uses
-the `Ref` function with the `AWS::Partition` parameter and the
-`AWS::AccountId` pseudo parameter.
+The following example uses `Fn::Join` to construct a string value. It uses the `Ref` function with the `AWS::Partition` parameter and the `AWS::AccountId` pseudo parameter.
 
 #### JSON
+<a name="intrinsic-function-reference-join-example2.json"></a>
 
 ```
 {
@@ -89,6 +94,7 @@ the `Ref` function with the `AWS::Partition` parameter and the
 ```
 
 #### YAML
+<a name="intrinsic-function-reference-join-example2.yaml"></a>
 
 ```
 !Join
@@ -99,27 +105,23 @@ the `Ref` function with the `AWS::Partition` parameter and the
     - !Ref AWS::AccountId
 ```
 
-###### Note
-
-Also see the [Fn::Sub](intrinsic-function-reference-sub.md "intrinsic-function-reference-sub.md") function for similar
-functionality.
+**Note**  
+Also see the [`Fn::Sub`](intrinsic-function-reference-sub.md) function for similar functionality.
 
 ## Supported functions
+<a name="intrinsic-function-reference-join-supportedfunctions"></a>
 
-For the `Fn::Join` delimiter, you can't use any functions. You must specify a
-string value.
+For the `Fn::Join` delimiter, you can't use any functions. You must specify a string value.
 
-For the `Fn::Join` list of values, you can use the following
-functions:
-
-- `Fn::Base64`
-- `Fn::FindInMap`
-- `Fn::GetAtt`
-- `Fn::GetAZs`
-- `Fn::If`
-- `Fn::ImportValue`
-- `Fn::Join`
-- `Fn::Split`
-- `Fn::Select`
-- `Fn::Sub`
-- `Ref`
+For the `Fn::Join` list of values, you can use the following functions:
++ `Fn::Base64`
++ `Fn::FindInMap`
++ `Fn::GetAtt`
++ `Fn::GetAZs`
++ `Fn::If`
++ `Fn::ImportValue`
++ `Fn::Join`
++ `Fn::Split`
++ `Fn::Select`
++ `Fn::Sub`
++ `Ref`

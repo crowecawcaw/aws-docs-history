@@ -1,24 +1,23 @@
-This is the new _CloudFormation Template Reference Guide_.
-Please update your bookmarks and links. For help getting started with CloudFormation, see the
-[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+
+This is the new *CloudFormation Template Reference Guide*. Please update your bookmarks and links. For help getting started with CloudFormation, see the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
 # Examples of `Fn::ForEach` in the `Outputs` section
+<a name="intrinsic-function-reference-foreach-example-outputs"></a>
 
-These examples demonstrate using the `Fn::ForEach` intrinsic function in the
-`Outputs` section. For more information about this section, see [Outputs](../UserGuide/outputs-section-structure.md "../UserGuide/outputs-section-structure.md") in the
-_AWS CloudFormation User Guide_.
+These examples demonstrate using the `Fn::ForEach` intrinsic function in the `Outputs` section. For more information about this section, see [Outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) in the *AWS CloudFormation User Guide*.
 
-###### Topics
-
-- [Reference replicated AWS::S3::Bucket resources](#intrinsic-function-reference-foreach-example-replicate-outputs "#intrinsic-function-reference-foreach-example-replicate-outputs")
-- [Reference replicated AWS::EC2::Instance resources](#intrinsic-function-reference-foreach-example-replicate-conditions "#intrinsic-function-reference-foreach-example-replicate-conditions")
+**Topics**
++ [Reference replicated `AWS::S3::Bucket` resources](#intrinsic-function-reference-foreach-example-replicate-outputs)
++ [Reference replicated `AWS::EC2::Instance` resources](#intrinsic-function-reference-foreach-example-replicate-conditions)
 
 ## Reference replicated `AWS::S3::Bucket` resources
+<a name="intrinsic-function-reference-foreach-example-replicate-outputs"></a>
 
-This example uses nested `Fn::ForEach` loops in the `Outputs`
-section to reduce the template length.
+This example uses nested `Fn::ForEach` loops in the `Outputs` section to reduce the template length.
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-replicate-outputs.json"></a>
 
 ```
 {
@@ -82,6 +81,7 @@ section to reduce the template length.
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-outputs.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -201,11 +201,12 @@ Outputs:
 ```
 
 ## Reference replicated `AWS::EC2::Instance` resources
+<a name="intrinsic-function-reference-foreach-example-replicate-conditions"></a>
 
-This example references replicated resources in the `Resources` section
-using the generated logical IDs.
+This example references replicated resources in the `Resources` section using the generated logical IDs. 
 
 ### JSON
+<a name="intrinsic-function-reference-foreach-example-replicate-conditions.json"></a>
 
 ```
 {
@@ -217,7 +218,7 @@ using the generated logical IDs.
         "B": "m5.4xlarge",
         "C": "c5.2xlarge"
       },
-      "ImageId": {"A": "`ami-id1`"}
+      "ImageId": {"A": "{{ami-id1}}"}
     }
   },
   "Resources": {
@@ -229,7 +230,7 @@ using the generated logical IDs.
           "Type": "AWS::EC2::Instance",
           "Properties": {
             "InstanceType": {"Fn::FindInMap": ["Instances", "InstanceType", {"Ref": "Identifier"}, {"DefaultValue": "m5.xlarge"}]},
-            "ImageId": {"Fn::FindInMap": ["Instances", "ImageId", {"Ref": "Identifier"}, {"DefaultValue": "`ami-id-default`"}]}
+            "ImageId": {"Fn::FindInMap": ["Instances", "ImageId", {"Ref": "Identifier"}, {"DefaultValue": "{{ami-id-default}}"}]}
           }
         }
       }
@@ -254,6 +255,7 @@ using the generated logical IDs.
 ```
 
 ### YAML
+<a name="intrinsic-function-reference-foreach-example-replicate-conditions.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -264,7 +266,7 @@ Mappings:
       B: m5.4xlarge
       C: c5.2xlarge
     ImageId:
-      A: `ami-id1`
+      A: {{ami-id1}}
 Resources:
   'Fn::ForEach::Instances':
     - Identifier
@@ -273,7 +275,7 @@ Resources:
         Type: AWS::EC2::Instance
         Properties:
           InstanceType: !FindInMap [Instances, InstanceType, !Ref Identifier, DefaultValue: m5.xlarge]
-          ImageId: !FindInMap [Instances, ImageId, !Ref Identifier, DefaultValue: `ami-id-default`]
+          ImageId: !FindInMap [Instances, ImageId, !Ref Identifier, DefaultValue: {{ami-id-default}}]
 Outputs:
   SecondInstanceId:
     Description: Instance Id for InstanceB
@@ -293,17 +295,17 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: m5.xlarge
-      ImageId: `ami-id1`
+      ImageId: {{ami-id1}}
   InstanceB:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: m5.4xlarge
-      ImageId: `ami-id-default`
+      ImageId: {{ami-id-default}}
   InstanceC:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: c5.2xlarge
-      ImageId: `ami-id-default`
+      ImageId: {{ami-id-default}}
 Outputs:
   SecondInstanceId:
     Description: Instance Id for InstanceB
