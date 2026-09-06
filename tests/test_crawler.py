@@ -3,49 +3,15 @@ import tempfile
 from pathlib import Path
 from unittest.mock import Mock
 
-from bs4 import BeautifulSoup
-
 from crawler import (
-    build_local_image_path,
-    IMAGE_PATH_PREFIX,
     looks_like_api_doc,
     looks_like_non_service,
     looks_like_unwanted_guide,
     url_to_output_path,
     url_to_markdown_url,
-    extract_main_content,
-    convert_html_to_markdown,
     AwsDocsCrawler,
     LinkChecker,
 )
-
-
-class TestImagePaths(unittest.TestCase):
-    """Test image path building functionality."""
-
-    def test_build_local_image_path_places_asset_within_output(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            output_root = Path(tmp) / "docs"
-            image_path = "/images/deadline-cloud/latest/userguide/images/monitor-job-status.png"
-
-            local_path = build_local_image_path(image_path, output_root)
-
-            expected = output_root / "deadline-cloud/latest/userguide/images/monitor-job-status.png"
-            self.assertEqual(local_path, expected)
-
-    def test_build_local_image_path_rejects_missing_prefix(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            with self.assertRaises(ValueError):
-                build_local_image_path("/assets/example.png", Path(tmp))
-
-    def test_build_local_image_path_ignores_traversal(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            image_path = f"{IMAGE_PATH_PREFIX}../deadline-cloud/./latest/userguide/images/example.png"
-
-            local_path = build_local_image_path(image_path, Path(tmp))
-
-            expected = Path(tmp) / "deadline-cloud/latest/userguide/images/example.png"
-            self.assertEqual(local_path, expected)
 
 
 class TestServiceFiltering(unittest.TestCase):
@@ -237,138 +203,6 @@ class TestMarkdownDownload(unittest.TestCase):
             output = output_dir / "AmazonS3/latest/userguide/Welcome.md"
             self.assertEqual(output.read_text(), response.text)
             self.assertEqual(crawler.visited_urls, [page_url])
-
-
-class TestHtmlToMarkdownConversion(unittest.TestCase):
-    """Test HTML to Markdown conversion with real AWS documentation patterns."""
-
-    def test_extract_main_content_finds_awsdocs_content(self):
-        html = """
-        <html>
-            <head><title>Test</title></head>
-            <body>
-                <nav>Navigation</nav>
-                <div id="awsdocs-content">
-                    <h1>Main Content</h1>
-                    <p>This is the documentation.</p>
-                </div>
-                <footer>Footer</footer>
-            </body>
-        </html>
-        """
-        soup = BeautifulSoup(html, "html.parser")
-
-        main = extract_main_content(soup)
-
-        self.assertIn("Main Content", main.get_text())
-        self.assertNotIn("Navigation", main.get_text())
-
-    def test_convert_html_to_markdown_preserves_structure(self):
-        html = """
-        <h1>Amazon S3 Overview</h1>
-        <p>Amazon Simple Storage Service (Amazon S3) is an object storage service.</p>
-        <h2>Key Features</h2>
-        <ul>
-            <li>Durability</li>
-            <li>Scalability</li>
-            <li>Security</li>
-        </ul>
-        <pre><code>aws s3 cp myfile.txt s3://mybucket/</code></pre>
-        """
-
-        markdown = convert_html_to_markdown(html)
-
-        self.assertIn("# Amazon S3 Overview", markdown)
-        self.assertIn("## Key Features", markdown)
-        self.assertIn("* Durability", markdown)
-        self.assertIn("* Scalability", markdown)
-        self.assertIn("```", markdown)
-        self.assertIn("aws s3 cp myfile.txt s3://mybucket/", markdown)
-
-    def test_convert_html_to_markdown_handles_tables(self):
-        html = """
-        <table>
-            <tr><th>Service</th><th>Use Case</th></tr>
-            <tr><td>S3</td><td>Object storage</td></tr>
-            <tr><td>EC2</td><td>Compute instances</td></tr>
-        </table>
-        """
-
-        markdown = convert_html_to_markdown(html)
-
-        self.assertIn("|", markdown)
-        self.assertIn("Service", markdown)
-        self.assertIn("S3", markdown)
-        self.assertIn("Object storage", markdown)
-
-    def test_convert_html_to_markdown_handles_complex_tables_with_long_content(self):
-        """Test table conversion with real HTML from SimpleDB DataModel page.
-
-        This tests the fix for tables that have:
-        - Multiple columns (8 in this case)
-        - Some cells with long content
-        - Empty cells
-        - Content that should appear after the table
-
-        The bug was that _reflow_markdown_tables would allow expected_pipe_count
-        to increase based on any row, causing the table structure to become
-        corrupted with inconsistent pipe counts.
-
-        Uses real HTML from the SimpleDB DataModel documentation page which
-        previously had a malformed table in the generated markdown.
-        """
-        # Load the real HTML that caused the bug
-        test_data_path = Path(__file__).parent / "data" / "simpledb_datamodel_table.html"
-        with open(test_data_path, 'r') as f:
-            html = f.read()
-
-        markdown = convert_html_to_markdown(html)
-
-        # Verify table structure - all rows must have consistent pipe counts
-        lines = markdown.strip().split("\n")
-        table_lines = [line for line in lines if line.strip().startswith("|")]
-
-        # All table rows should have the same number of pipes
-        if table_lines:
-            # Count pipes in header row (first table line)
-            expected_pipes = table_lines[0].count("|")
-
-            for i, line in enumerate(table_lines):
-                # Skip separator rows (rows with only dashes and pipes)
-                if all(c in "|-: \t" for c in line):
-                    continue
-
-                pipe_count = line.count("|")
-                self.assertEqual(
-                    pipe_count,
-                    expected_pipes,
-                    f"Row {i} has {pipe_count} pipes but expected {expected_pipes}: {line[:100]}"
-                )
-
-        # Verify content is present (note: underscores are escaped in markdown)
-        self.assertIn("ID", markdown)
-        self.assertIn("Category", markdown)
-        self.assertTrue("Item_01" in markdown or "Item\\_01" in markdown)
-        self.assertIn("Cathair Sweater", markdown)
-        self.assertTrue("Item_07" in markdown or "Item\\_07" in markdown)
-        self.assertIn("Leather Pants", markdown)
-
-        # Verify that content after the table is not included in table rows
-        self.assertIn("Regardless of how you store your data", markdown)
-
-        # The paragraph should appear on its own line(s), not in a table row
-        paragraph_line = None
-        for line in lines:
-            if "Regardless of how you store your data" in line:
-                paragraph_line = line
-                break
-
-        self.assertIsNotNone(paragraph_line, "Paragraph should be present in output")
-        # The paragraph should not start with a pipe (not be part of the table)
-        self.assertFalse(
-            paragraph_line.strip().startswith("|"),
-            "Paragraph after table should not be part of a table row"
-        )
 
 
 class TestLinkChecker(unittest.TestCase):
