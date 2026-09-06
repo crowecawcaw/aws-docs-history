@@ -1,32 +1,30 @@
+
+
 # Example AWS FIS experiment templates
+<a name="experiment-template-example"></a>
 
-If you're using the AWS FIS API or a command line tool to create an experiment template,
-you can construct the template in JavaScript Object Notation (JSON). For more information
-about the components of an experiment template, see [AWS FIS experiment template components](experiment-templates.md "experiment-templates.md").
+If you're using the AWS FIS API or a command line tool to create an experiment template, you can construct the template in JavaScript Object Notation (JSON). For more information about the components of an experiment template, see [AWS FIS experiment template components](experiment-templates.md).
 
-To create an experiment using one of the example templates, save it to a JSON file (for example,
-`my-template.json`), replace the placeholder values in `italics`
-with your own values, and then run the following [create-experiment-template](../../../cli/latest/reference/fis/create-experiment-template.md "../../../cli/latest/reference/fis/create-experiment-template.md") command.
+To create an experiment using one of the example templates, save it to a JSON file (for example, `my-template.json`), replace the placeholder values in {{italics}} with your own values, and then run the following [create-experiment-template](https://docs.aws.amazon.com/cli/latest/reference/fis/create-experiment-template.html) command.
 
 ```
-aws fis create-experiment-template --cli-input-json file://`my-template`.json
+aws fis create-experiment-template --cli-input-json file://{{my-template}}.json
 ```
 
-###### Example templates
-
-- [Stop EC2 instances based on filters](#stop-instances-filters "#stop-instances-filters")
-- [Stop a specified number of EC2 instances](#stop-instances-count "#stop-instances-count")
-- [Run a pre-configured AWS FIS SSM document](#cpu-fault-injection "#cpu-fault-injection")
-- [Run a predefined Automation runbook](#run-automation-runbook "#run-automation-runbook")
-- [Throttle API actions on EC2 instances with the target IAM role](#inject-api-throttle "#inject-api-throttle")
-- [Stress test CPU of pods in a Kubernetes cluster](#stress-test "#stress-test")
-- [Provisioned throughput exception for specified number of Kinesis Data Streams](#throughput-kinesis "#throughput-kinesis")
-- [Experiment role permissions example](#permissions-example "#permissions-example")
+**Topics**
++ [Stop EC2 instances based on filters](#stop-instances-filters)
++ [Stop a specified number of EC2 instances](#stop-instances-count)
++ [Run a pre-configured AWS FIS SSM document](#cpu-fault-injection)
++ [Run a predefined Automation runbook](#run-automation-runbook)
++ [Throttle API actions on EC2 instances with the target IAM role](#inject-api-throttle)
++ [Stress test CPU of pods in a Kubernetes cluster](#stress-test)
++ [Provisioned throughput exception for specified number of Kinesis Data Streams](#throughput-kinesis)
++ [Experiment role permissions example](#permissions-example)
 
 ## Stop EC2 instances based on filters
+<a name="stop-instances-filters"></a>
 
-The following example stops all running Amazon EC2 instances in the specified Region
-with the specified tag in the specified VPC. It restarts them after two minutes.
+The following example stops all running Amazon EC2 instances in the specified Region with the specified tag in the specified VPC. It restarts them after two minutes.
 
 ```
 {
@@ -38,23 +36,23 @@ with the specified tag in the specified VPC. It restarts them after two minutes.
         "myInstances": {
             "resourceType": "aws:ec2:instance",
             "resourceTags": {
-                "`env`": "`prod`"
+                "{{env}}": "{{prod}}"
             },
             "filters": [
                 {
                     "path": "Placement.AvailabilityZone",
-                    "values": ["`us-east-1b`"]
+                    "values": ["{{us-east-1b}}"]
                 },
                 {
                     "path": "State.Name",
-                    "values": ["`running`"]
+                    "values": ["{{running}}"]
                 },
                 {
                     "path": "VpcId",
-                    "values": [ "`vpc-aabbcc11223344556`"]
+                    "values": [ "{{vpc-aabbcc11223344556}}"]
                 }
             ],
-            "selectionMode": "`ALL`"
+            "selectionMode": "{{ALL}}"
         }
     },
     "actions": {
@@ -62,7 +60,7 @@ with the specified tag in the specified VPC. It restarts them after two minutes.
             "actionId": "aws:ec2:stop-instances",
             "description": "stop the instances",
             "parameters": {
-                "startInstancesAfterDuration": "`PT2M`"
+                "startInstancesAfterDuration": "{{PT2M}}"
             },
             "targets": {
                 "Instances": "myInstances"
@@ -72,17 +70,17 @@ with the specified tag in the specified VPC. It restarts them after two minutes.
     "stopConditions": [
         {
             "source": "aws:cloudwatch:alarm",
-            "value": "arn:aws:cloudwatch:`us-east-1`:`111122223333`:alarm:`alarm-name`"
+            "value": "arn:aws:cloudwatch:{{us-east-1}}:{{111122223333}}:alarm:{{alarm-name}}"
         }
     ],
-    "roleArn": "arn:aws:iam::`111122223333`:role/`role-name`"
+    "roleArn": "arn:aws:iam::{{111122223333}}:role/{{role-name}}"
 }
 ```
 
 ## Stop a specified number of EC2 instances
+<a name="stop-instances-count"></a>
 
-The following example stops three instances with the specified tag. AWS FIS selects the
-specific instances to stop at random. It restarts these instances after two minutes.
+The following example stops three instances with the specified tag. AWS FIS selects the specific instances to stop at random. It restarts these instances after two minutes.
 
 ```
 {
@@ -94,9 +92,9 @@ specific instances to stop at random. It restarts these instances after two minu
         "myInstances": {
             "resourceType": "aws:ec2:instance",
             "resourceTags": {
-                "`env`": "`prod`"
+                "{{env}}": "{{prod}}"
             },
-            "selectionMode": "`COUNT(3)`"
+            "selectionMode": "{{COUNT(3)}}"
         }
     },
     "actions": {
@@ -104,7 +102,7 @@ specific instances to stop at random. It restarts these instances after two minu
             "actionId": "aws:ec2:stop-instances",
             "description": "stop the instances",
             "parameters": {
-                "startInstancesAfterDuration": "`PT2M`"
+                "startInstancesAfterDuration": "{{PT2M}}"
             },
             "targets": {
                 "Instances": "myInstances"
@@ -114,17 +112,17 @@ specific instances to stop at random. It restarts these instances after two minu
     "stopConditions": [
         {
             "source": "aws:cloudwatch:alarm",
-            "value": "arn:aws:cloudwatch:`us-east-1`:`111122223333`:alarm:`alarm-name`"
+            "value": "arn:aws:cloudwatch:{{us-east-1}}:{{111122223333}}:alarm:{{alarm-name}}"
         }
     ],
-    "roleArn": "arn:aws:iam::`111122223333`:role/`role-name`"
+    "roleArn": "arn:aws:iam::{{111122223333}}:role/{{role-name}}"
 }
 ```
 
 ## Run a pre-configured AWS FIS SSM document
+<a name="cpu-fault-injection"></a>
 
-The following example runs a CPU fault injection for 60 seconds on the specified EC2 instance
-using a pre-configured AWS FIS SSM document, [AWSFIS-Run-CPU-Stress](actions-ssm-agent.md#awsfis-run-cpu-stress "actions-ssm-agent.md#awsfis-run-cpu-stress"). AWS FIS monitors the experiment for two minutes.
+The following example runs a CPU fault injection for 60 seconds on the specified EC2 instance using a pre-configured AWS FIS SSM document, [AWSFIS-Run-CPU-Stress](actions-ssm-agent.md#awsfis-run-cpu-stress). AWS FIS monitors the experiment for two minutes.
 
 ```
 {
@@ -135,8 +133,8 @@ using a pre-configured AWS FIS SSM document, [AWSFIS-Run-CPU-Stress](actions-ssm
     "targets": {
         "myInstance": {
             "resourceType": "aws:ec2:instance",
-            "resourceArns": ["arn:aws:ec2:`us-east-1`:`111122223333`:instance/`instance-id`"],
-            "selectionMode": "`ALL`"
+            "resourceArns": ["arn:aws:ec2:{{us-east-1}}:{{111122223333}}:instance/{{instance-id}}"],
+            "selectionMode": "{{ALL}}"
         }
     },
     "actions": {
@@ -144,9 +142,9 @@ using a pre-configured AWS FIS SSM document, [AWSFIS-Run-CPU-Stress](actions-ssm
             "actionId": "aws:ssm:send-command",
             "description": "run cpu stress using ssm",
             "parameters": {
-                "duration": "`PT2M`",
-                "documentArn": "arn:aws:ssm:`us-east-1`::document/`AWSFIS-Run-CPU-Stress`",
-                "documentParameters": "{\"DurationSeconds\": \"`60`\", \"InstallDependencies\": \"`True`\", \"CPU\": \"`0`\"}"
+                "duration": "{{PT2M}}",
+                "documentArn": "arn:aws:ssm:{{us-east-1}}::document/{{AWSFIS-Run-CPU-Stress}}",
+                "documentParameters": "{\"DurationSeconds\": \"{{60}}\", \"InstallDependencies\": \"{{True}}\", \"CPU\": \"{{0}}\"}"
             },
             "targets": {
                 "Instances": "myInstance"
@@ -156,18 +154,17 @@ using a pre-configured AWS FIS SSM document, [AWSFIS-Run-CPU-Stress](actions-ssm
     "stopConditions": [
         {
             "source": "aws:cloudwatch:alarm",
-            "value": "arn:aws:cloudwatch:`us-east-1`:`111122223333`:alarm:`alarm-name`"
+            "value": "arn:aws:cloudwatch:{{us-east-1}}:{{111122223333}}:alarm:{{alarm-name}}"
         }
     ],
-    "roleArn": "arn:aws:iam::`111122223333`:role/`role-name`"
+    "roleArn": "arn:aws:iam::{{111122223333}}:role/{{role-name}}"
 }
 ```
 
 ## Run a predefined Automation runbook
+<a name="run-automation-runbook"></a>
 
-The following example publishes a notification to Amazon SNS using a runbook provided by Systems Manager,
-[AWS-PublishSNSNotification](../../../systems-manager-automation-runbooks/latest/userguide/automation-aws-publishsnsnotification.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-aws-publishsnsnotification.md"). The role must have permissions to publish notifications to the
-specified SNS topic.
+The following example publishes a notification to Amazon SNS using a runbook provided by Systems Manager, [AWS-PublishSNSNotification](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-publishsnsnotification.html). The role must have permissions to publish notifications to the specified SNS topic.
 
 ```
 {
@@ -184,25 +181,25 @@ specified SNS topic.
             "actionId": "aws:ssm:start-automation-execution",
             "description": "Publish message to SNS",
             "parameters": {
-                "documentArn": "arn:aws:ssm:`us-east-1`::document/AWS-PublishSNSNotification",
-                "documentParameters": "{\"Message\": \"`Hello, world`\", \"TopicArn\": \"arn:aws:sns:`us-east-1`:`111122223333`:`topic-name`\"}",
-                "maxDuration": "`PT1M`"
+                "documentArn": "arn:aws:ssm:{{us-east-1}}::document/AWS-PublishSNSNotification",
+                "documentParameters": "{\"Message\": \"{{Hello, world}}\", \"TopicArn\": \"arn:aws:sns:{{us-east-1}}:{{111122223333}}:{{topic-name}}\"}",
+                "maxDuration": "{{PT1M}}"
             },
             "targets": {
             }
         }
     },
-    "roleArn": "arn:aws:iam::`111122223333`:role/`role-name`"
+    "roleArn": "arn:aws:iam::{{111122223333}}:role/{{role-name}}"
 }
 ```
 
 ## Throttle API actions on EC2 instances with the target IAM role
+<a name="inject-api-throttle"></a>
 
 The following example throttles 100% of the API calls specified in the action definition for API calls made by the IAM role(s) specified in the target definition.
 
-###### Note
-
-If you wish to target EC2 instances that are members of an Auto Scaling group, please use the **aws:ec2:asg-insufficient-instance-capacity-error** action, and target by Auto Scaling group instead. For more information, see [aws:ec2:asg-insufficient-instance-capacity-error](fis-actions-reference.md#asg-ice "fis-actions-reference.md#asg-ice").
+**Note**  
+If you wish to target EC2 instances that are members of an Auto Scaling group, please use the **aws:ec2:asg-insufficient-instance-capacity-error** action, and target by Auto Scaling group instead. For more information, see [aws:ec2:asg-insufficient-instance-capacity-error](fis-actions-reference.md#asg-ice).
 
 ```
 {
@@ -213,8 +210,8 @@ If you wish to target EC2 instances that are members of an Auto Scaling group, p
     "targets": {
         "myRole": {
             "resourceType": "aws:iam:role",
-            "resourceArns": ["arn:aws:iam::`111122223333`:role/`role-name`"],
-            "selectionMode": "`ALL`"
+            "resourceArns": ["arn:aws:iam::{{111122223333}}:role/{{role-name}}"],
+            "selectionMode": "{{ALL}}"
         }
     },
     "actions": {
@@ -223,9 +220,9 @@ If you wish to target EC2 instances that are members of an Auto Scaling group, p
             "description": "Throttle APIs for 5 minutes",
             "parameters": {
                 "service": "ec2",
-                "operations": "`DescribeInstances,DescribeVolumes`",
-                "percentage": "`100`",
-                "duration": "`PT2M`"
+                "operations": "{{DescribeInstances,DescribeVolumes}}",
+                "percentage": "{{100}}",
+                "duration": "{{PT2M}}"
             },
             "targets": {
                 "Roles": "myRole"
@@ -235,14 +232,15 @@ If you wish to target EC2 instances that are members of an Auto Scaling group, p
     "stopConditions": [
         {
             "source": "aws:cloudwatch:alarm",
-            "value": "arn:aws:cloudwatch:`us-east-1`:`111122223333`:alarm:`alarm-name`"
+            "value": "arn:aws:cloudwatch:{{us-east-1}}:{{111122223333}}:alarm:{{alarm-name}}"
         }
     ],
-    "roleArn": "arn:aws:iam::`111122223333`:role/`role-name`"
+    "roleArn": "arn:aws:iam::{{111122223333}}:role/{{role-name}}"
 }
 ```
 
 ## Stress test CPU of pods in a Kubernetes cluster
+<a name="stress-test"></a>
 
 The following example uses Chaos Mesh to stress test the CPU of pods in an Amazon EKS Kubernetes cluster for one minute.
 
@@ -253,16 +251,16 @@ The following example uses Chaos Mesh to stress test the CPU of pods in an Amazo
         "Cluster-Target-1": {
             "resourceType": "aws:eks:cluster",
             "resourceArns": [
-                "arn:aws:eks:arn:aws::`111122223333`:cluster/`cluster-id`"
+                "arn:aws:eks:arn:aws::{{111122223333}}:cluster/{{cluster-id}}"
             ],
-            "selectionMode": "`ALL`"
+            "selectionMode": "{{ALL}}"
         }
     },
     "actions": {
         "TestCPUStress": {
             "actionId": "aws:eks:inject-kubernetes-custom-resource",
             "parameters": {
-                "maxDuration": "`PT2M`",
+                "maxDuration": "{{PT2M}}",
                 "kubernetesApiVersion": "chaos-mesh.org/v1alpha1",
                 "kubernetesKind": "StressChaos",
                 "kubernetesNamespace": "default",
@@ -276,7 +274,7 @@ The following example uses Chaos Mesh to stress test the CPU of pods in an Amazo
     "stopConditions": [{
         "source": "none"
     }],
-    "roleArn": "arn:aws:iam::`111122223333`:role/`role-name`",
+    "roleArn": "arn:aws:iam::{{111122223333}}:role/{{role-name}}",
     "tags": {}
 }
 ```
@@ -290,16 +288,16 @@ The following example uses Litmus to stress test the CPU of pods in an Amazon EK
         "MyCluster": {
             "resourceType": "aws:eks:cluster",
             "resourceArns": [
-                "arn:aws:eks:arn:aws::`111122223333`:cluster/`cluster-id`"
+                "arn:aws:eks:arn:aws::{{111122223333}}:cluster/{{cluster-id}}"
             ],
-            "selectionMode": "`ALL`"
+            "selectionMode": "{{ALL}}"
         }
     },
     "actions": {
         "MyAction": {
             "actionId": "aws:eks:inject-kubernetes-custom-resource",
             "parameters": {
-                "maxDuration": "`PT2M`",
+                "maxDuration": "{{PT2M}}",
                 "kubernetesApiVersion": "litmuschaos.io/v1alpha1",
                 "kubernetesKind": "ChaosEngine",
                 "kubernetesNamespace": "litmus",
@@ -313,12 +311,13 @@ The following example uses Litmus to stress test the CPU of pods in an Amazon EK
     "stopConditions": [{
         "source": "none"
     }],
-    "roleArn": "arn:aws:iam::`111122223333`:role/`role-name`",
+    "roleArn": "arn:aws:iam::{{111122223333}}:role/{{role-name}}",
     "tags": {}
 }
 ```
 
 ## Provisioned throughput exception for specified number of Kinesis Data Streams
+<a name="throughput-kinesis"></a>
 
 The following example throws a provisioned throughput exception for 100% of requests up to five Kinesis Data Streams with the specified tag. AWS FIS selects the streams to affect at random. After 5 minutes the fault is removed.
 
@@ -358,20 +357,18 @@ The following example throws a provisioned throughput exception for 100% of requ
    "experimentOptions": {
        "accountTargeting": "single-account",
        "emptyTargetResolutionMode": "fail"
-   }
+   }    
 }
 ```
 
 ## Experiment role permissions example
+<a name="permissions-example"></a>
 
-The following permission allows you to run the
-`aws:kinesis:stream-provisioned-throughput-exception` and
-`aws:kinesis:stream-expired-iterator-exception` actions on a specific
-stream impacting 50% of requests.
+The following permission allows you to run the `aws:kinesis:stream-provisioned-throughput-exception` and `aws:kinesis:stream-expired-iterator-exception` actions on a specific stream impacting 50% of requests.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
      "Statement": [
         {
             "Effect": "Allow",
@@ -381,7 +378,7 @@ stream impacting 50% of requests.
                 "ForAllValues:StringEquals": {
                     "kinesis:FisActionId": [
                         "aws:kinesis:stream-provisioned-throughput-exception",
-                        "aws:kinesis:stream-expired-iterator-exception"
+                        "aws:kinesis:stream-expired-iterator-exception" 
                     ],
                     "kinesis:FisTargetArns": [
                         "arn:aws:kinesis:us-east-1:111122223333:stream/stream-name"

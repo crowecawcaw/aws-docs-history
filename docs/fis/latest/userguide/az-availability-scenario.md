@@ -1,290 +1,306 @@
-# AZ Availability: Power Interruption
 
-You can use the AZ Availability: Power Interruption scenario to induce the expected symptoms of a complete interruption of power in an Availability Zone (AZ).
+
+# AZ Availability: Power Interruption
+<a name="az-availability-scenario"></a>
+
+ You can use the AZ Availability: Power Interruption scenario to induce the expected symptoms of a complete interruption of power in an Availability Zone (AZ).
 
 This scenario can be used to demonstrate that multi-AZ applications operate as expected during a single, complete AZ power interruption. It includes loss of zonal compute (Amazon EC2, EKS, and ECS), no re-scaling of compute in the AZ, subnet connectivity loss, RDS failover, ElastiCache failover, impaired access to S3 Express One Zone directory buckets, and unresponsive EBS volumes. By default, actions for which no targets are found will be skipped.
 
 ## Actions
+<a name="az-availability-scenario-actions"></a>
 
 Together, the following actions create many of the expected symptoms of a complete power interruption in a single AZ. AZ Availability: Power Interruption only affects services that are expected to see impact during a single AZ power interruption. By default, the scenario injects power interruption symptoms for 30 minutes and then, for an additional 30 minutes, injects symptoms that may occur during recovery.
 
 ### Stop-Instances
+<a name="az-availability-scenario-actions-stop-instances"></a>
 
-During an AZ power interruption, EC2 instances in the affected AZ will shut down. After power is restored instances will reboot. AZ Availability: Power Interruption includes [aws:ec2:stop-instances](fis-actions-reference.md#stop-instances "fis-actions-reference.md#stop-instances") to stop all instances in the affected AZ for the interruption duration. After the duration, the instances are restarted. Stopping EC2 instances managed by Amazon EKS causes dependent EKS pods to be deleted. Stopping EC2 instances managed by Amazon ECS causes dependent ECS tasks to be stopped.
+During an AZ power interruption, EC2 instances in the affected AZ will shut down. After power is restored instances will reboot. AZ Availability: Power Interruption includes [aws:ec2:stop-instances](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#stop-instances) to stop all instances in the affected AZ for the interruption duration. After the duration, the instances are restarted. Stopping EC2 instances managed by Amazon EKS causes dependent EKS pods to be deleted. Stopping EC2 instances managed by Amazon ECS causes dependent ECS tasks to be stopped.
 
 This action targets EC2 instances running in the affected AZ. By default, it targets instances with a tag named `AzImpairmentPower` with a value of `StopInstances`. You can add this tag to your instances or replace the default tag with your own tag in the experiment template. By default, if no valid instances are found this action will be skipped.
 
 ### Stop-ASG-Instances
+<a name="az-availability-scenario-actions-stop-asg-instances"></a>
 
-During an AZ power interruption, EC2 instances managed by an Auto Scaling group in the affected AZ will shut down. After power is restored instances will reboot. AZ Availability: Power Interruption includes [aws:ec2:stop-instances](fis-actions-reference.md#stop-instances "fis-actions-reference.md#stop-instances") to stop all instances, including those managed by Auto Scaling, in the affected AZ for the interruption duration. After the duration, the instances are restarted.
+During an AZ power interruption, EC2 instances managed by an Auto Scaling group in the affected AZ will shut down. After power is restored instances will reboot. AZ Availability: Power Interruption includes [aws:ec2:stop-instances](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#stop-instances) to stop all instances, including those managed by Auto Scaling, in the affected AZ for the interruption duration. After the duration, the instances are restarted.
 
 This action targets EC2 instances running in the affected AZ. By default, it targets instances with a tag named `AzImpairmentPower` with a value of `IceAsg`. You can add this tag to your instances or replace the default tag with your own tag in the experiment template. By default, if no valid instances are found this action will be skipped.
 
 ### Pause Instance Launches
+<a name="az-availability-scenario-actions-pause-instance-launches"></a>
 
-During an AZ power interruption, EC2 API calls to provision capacity in the AZ will fail. In particular, the following APIs will be impacted: `ec2:StartInstances`, `ec2:CreateFleet`, and `ec2:RunInstances`. AZ Availability: Power Interruption includes includes [aws:ec2:api-insufficient-instance-capacity-error](fis-actions-reference.md#api-ice "fis-actions-reference.md#api-ice") to prevent new instances from being provisioned in the affected AZ.
+During an AZ power interruption, EC2 API calls to provision capacity in the AZ will fail. In particular, the following APIs will be impacted: `ec2:StartInstances`, `ec2:CreateFleet`, and `ec2:RunInstances`. AZ Availability: Power Interruption includes includes [aws:ec2:api-insufficient-instance-capacity-error](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#api-ice) to prevent new instances from being provisioned in the affected AZ.
 
 This action targets IAM roles used to provision instances. These must be targeted using an ARN. By default, if no valid IAM roles are found this action will be skipped.
 
 ### Pause ASG Scaling
+<a name="az-availability-scenario-actions-pause-asg-scaling"></a>
 
-During an AZ power interruption, EC2 API calls made by the Auto Scaling control plane to recover lost capacity in the AZ will fail. In particular, the following APIs will be impacted: `ec2:StartInstances`, `ec2:CreateFleet`, and `ec2:RunInstances`. AZ Availability: Power Interruption includes [aws:ec2:asg-insufficient-instance-capacity-error](fis-actions-reference.md#asg-ice "fis-actions-reference.md#asg-ice") to prevent new instances from being provisioned in the affected AZ. This also prevents Amazon EKS and Amazon ECS from scaling in the affected AZ.
+ During an AZ power interruption, EC2 API calls made by the Auto Scaling control plane to recover lost capacity in the AZ will fail. In particular, the following APIs will be impacted: `ec2:StartInstances`, `ec2:CreateFleet`, and `ec2:RunInstances`. AZ Availability: Power Interruption includes [aws:ec2:asg-insufficient-instance-capacity-error](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#asg-ice) to prevent new instances from being provisioned in the affected AZ. This also prevents Amazon EKS and Amazon ECS from scaling in the affected AZ.
 
 This action targets Auto Scaling groups. By default, it targets Auto Scaling groups with a tag named `AzImpairmentPower` with a value of `IceAsg`. You can add this tag to your Auto Scaling groups or replace the default tag with your own tag in the experiment template. By default, if no valid Auto Scaling groups are found this action will be skipped.
 
 ### Pause Network Connectivity
+<a name="az-availability-scenario-actions-pause-network-connectivity"></a>
 
-During an AZ power interruption, networking in the AZ will be unavailable. When this happens some AWS services may take up to a few minutes to update DNS to reflect that private endpoints in the affected AZ are not available. During this time, DNS lookups may return inaccessible IP addresses. AZ Availability: Power Interruption includes [aws:network:disrupt-connectivity](fis-actions-reference.md#network-actions-reference "fis-actions-reference.md#network-actions-reference") to block all network connectivity for all subnets in the affected AZ for 2 minutes. This will force timeouts and DNS refreshes for most applications. Ending the action after 2 minutes allows for subsequent recovery of regional service DNS while the AZ continues to be unavailable.
+During an AZ power interruption, networking in the AZ will be unavailable. When this happens some AWS services may take up to a few minutes to update DNS to reflect that private endpoints in the affected AZ are not available. During this time, DNS lookups may return inaccessible IP addresses. AZ Availability: Power Interruption includes [aws:network:disrupt-connectivity](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#network-actions-reference) to block all network connectivity for all subnets in the affected AZ for 2 minutes. This will force timeouts and DNS refreshes for most applications. Ending the action after 2 minutes allows for subsequent recovery of regional service DNS while the AZ continues to be unavailable.
 
 This action targets subnets. By default, it targets clusters with a tag named `AzImpairmentPower` with a value of `DisruptSubnet`. You can add this tag to your subnets or replace the default tag with your own tag in the experiment template. By default, if no valid subnets are found this action will be skipped.
 
 ### Failover RDS
+<a name="az-availability-scenario-actions-failover-rds"></a>
 
-During an AZ power interruption, RDS nodes in the affected AZ will shut down. Single AZ RDS nodes in the affected AZ will be fully unavailable. For multi-AZ clusters, the writer node will failover into an unaffected AZ and reader nodes in the affected AZ will be unavailable. For multi-AZ clusters, AZ Availability: Power Interruption includes [aws:rds:failover-db-cluster](fis-actions-reference.md#failover-db-cluster "fis-actions-reference.md#failover-db-cluster") to failover if the writer is in the affected AZ.
+During an AZ power interruption, RDS nodes in the affected AZ will shut down. Single AZ RDS nodes in the affected AZ will be fully unavailable. For multi-AZ clusters, the writer node will failover into an unaffected AZ and reader nodes in the affected AZ will be unavailable. For multi-AZ clusters, AZ Availability: Power Interruption includes [aws:rds:failover-db-cluster](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#failover-db-cluster) to failover if the writer is in the affected AZ.
 
 This action targets RDS clusters. By default, it targets clusters with a tag named `AzImpairmentPower` with a value of `DisruptRds`. You can add this tag to your clusters or replace the default tag with your own tag in the experiment template. By default, if no valid clusters are found this action will be skipped.
 
 ### Pause ElastiCache Replication Group
+<a name="az-availability-scenario-actions-pause-elasticache"></a>
 
-During an AZ power interruption, ElastiCache nodes in the AZ are unavailable. AZ Availability: Power Interruption includes [aws:elasticache:replicationgroup-interrupt-az-power](fis-actions-reference.md#interrupt-elasticache "fis-actions-reference.md#interrupt-elasticache") to terminate ElastiCache nodes in the affected AZ. For the duration of the interruption, new instances will not be provisioned in the affected AZ, so the replication group will remain at reduced capacity.
+During an AZ power interruption, ElastiCache nodes in the AZ are unavailable. AZ Availability: Power Interruption includes [aws:elasticache:replicationgroup-interrupt-az-power](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#interrupt-elasticache) to terminate ElastiCache nodes in the affected AZ. For the duration of the interruption, new instances will not be provisioned in the affected AZ, so the replication group will remain at reduced capacity.
 
 This action targets ElastiCache replication groups. By default, it targets replication groups with a tag named `AzImpairmentPower` with a value of `ElasticacheImpact`. You can add this tag to your replication groups or replace the default tag with your own tag in the experiment template. By default, if no valid replication groups are found this action will be skipped. Note that only replication groups with nodes in the affected AZ will be considered valid targets.
 
 ### Start ARC Zonal Autoshift
+<a name="az-availability-scenario-actions-zonal-autoshift"></a>
 
 Five minutes after the AZ power interruption begins, the recovery action `aws:arc:start-zonal-autoshift` automatically shifts resource traffic away from the specified AZ for the remaining 25 minutes of the power interruption. After that duration, traffic shifts back to the original AZ. Note that during a real-world AZ power interruption AWS will detect the impairment and shift resource traffic if autoshift is enabled. While the timing of this shift varies it is estimated to occur five minutes from the impairment commencing.
 
 This action targets Amazon Application Recovery Controller (ARC) autoshift-enabled resources. By default, it targets resources with the tag key `AzImpairmentPower` and value `RecoverAutoshiftResources`. You can add this tag to your resources or replace the default tag with your own tag in the experiment template. For example, you may want to use an application-specific tag. By default, if no valid resources are found this action will be skipped.
 
 ### Pause EBS I/O
+<a name="az-availability-scenario-actions-pause-ebs-io"></a>
 
-After an AZ power interruption, once power is restored a very small percentage of instances may experience unresponsive EBS volumes. AZ Availability: Power Interruption includes [aws:ebs:pause-io](fis-actions-reference.md#ebs-actions-reference "fis-actions-reference.md#ebs-actions-reference") to leave 1 EBS volume in an unresponsive state.
+After an AZ power interruption, once power is restored a very small percentage of instances may experience unresponsive EBS volumes. AZ Availability: Power Interruption includes [aws:ebs:pause-io](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#ebs-actions-reference) to leave 1 EBS volume in an unresponsive state.
 
 By default, only volumes set to persist after the instance is terminated are targeted. This action targets volumes with a tag named `AzImpairmentPower` with a value of `APIPauseVolume`. You can add this tag to your volumes or replace the default tag with your own tag in the experiment template. By default, if no valid volumes are found this action will be skipped.
 
 ### Disrupt connectivity to S3 Express One Zone directory buckets
+<a name="az-availability-scenario-actions-pause-network-connectivity-s3-express"></a>
 
-During an AZ power interruption, data stored in S3 Express One Zone directory buckets in the AZ is not accessible. AZ Availability: Power Interruption includes [aws:network:disrupt-connectivity](fis-actions-reference.md#network-actions-reference "fis-actions-reference.md#network-actions-reference") to disrupt connectivity between subnets and One Zone directory buckets in the affected AZ for the duration of the experiment, resulting in timeouts to Zonal endpoint data plane API operations. Use this action to test disruption when compute is co-located with storage in an AZ.
+During an AZ power interruption, data stored in S3 Express One Zone directory buckets in the AZ is not accessible. AZ Availability: Power Interruption includes [aws:network:disrupt-connectivity](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#network-actions-reference) to disrupt connectivity between subnets and One Zone directory buckets in the affected AZ for the duration of the experiment, resulting in timeouts to Zonal endpoint data plane API operations. Use this action to test disruption when compute is co-located with storage in an AZ.
 
 This action targets subnets. By default, it targets subnets with a tag named `AzImpairmentPower` with a value of `DisruptSubnet`. You can add this tag to your subnets or replace the default tag with your own tag in the experiment template. By default, if no valid subnets are found this action will be skipped.
 
 ## Limitations
-
-- This scenario does not include [stop conditions](stop-conditions.md "stop-conditions.md"). The correct stop conditions for your application should be added to the experiment template.
-- In the targeted AZ, Amazon EKS Pods running on EC2 will be terminated with EC2 worker nodes and
-  starting of new EC2 nodes will be blocked. However, Amazon EKS Pods running on AWS Fargate are
-  not supported.
-- In the targeted AZ, Amazon ECS tasks running on EC2 will be terminated with EC2 worker nodes
-  and starting of new EC2 nodes will be blocked. However, Amazon ECS tasks running on AWS Fargate
-  are not supported.
-- [Amazon RDS Multi-AZ](../../../AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.md#multi-az-db-clusters-migrating-to-with-read-replica "../../../AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.md#multi-az-db-clusters-migrating-to-with-read-replica") with two readable standby DB instances is not supported. In this case, the instances will be terminated, RDS will failover, and capacity will immediately be provisioned back in the affected AZ. The readable standby in the affected AZ will remain available.
+<a name="az-availability-scenario-limitations"></a>
++ This scenario does not include [stop conditions](https://docs.aws.amazon.com/fis/latest/userguide/stop-conditions.html). The correct stop conditions for your application should be added to the experiment template.
++  In the targeted AZ, Amazon EKS Pods running on EC2 will be terminated with EC2 worker nodes and starting of new EC2 nodes will be blocked. However, Amazon EKS Pods running on AWS Fargate are not supported. 
++  In the targeted AZ, Amazon ECS tasks running on EC2 will be terminated with EC2 worker nodes and starting of new EC2 nodes will be blocked. However, Amazon ECS tasks running on AWS Fargate are not supported. 
++ [Amazon RDS Multi-AZ](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-with-read-replica) with two readable standby DB instances is not supported. In this case, the instances will be terminated, RDS will failover, and capacity will immediately be provisioned back in the affected AZ. The readable standby in the affected AZ will remain available.
 
 ## Requirements
-
-- Add the required permission to the AWS FIS [experiment role](getting-started-iam-service-role.md "getting-started-iam-service-role.md").
-- Resource tags must be applied to resources that are to be targeted by the experiment. These can use your own tagging convention or the default tags defined in the scenario.
+<a name="az-availability-scenario-requirements"></a>
++ Add the required permission to the AWS FIS [experiment role](https://docs.aws.amazon.com/fis/latest/userguide/getting-started-iam-service-role.html).
++ Resource tags must be applied to resources that are to be targeted by the experiment. These can use your own tagging convention or the default tags defined in the scenario.
 
 ## Permissions
+<a name="az-availability-scenario-permissions"></a>
 
-ARC zonal autoshift uses an IAM service-linked role `AWSServiceRoleForZonalAutoshiftPracticeRun` to perform zonal shift on your behalf. This role uses the IAM managed policy [`AWSZonalAutoshiftPracticeRunSLRPolicy`](../../../aws-managed-policy/latest/reference/AWSZonalAutoshiftPracticeRunSLRPolicy.md "../../../aws-managed-policy/latest/reference/AWSZonalAutoshiftPracticeRunSLRPolicy.md"). You don’t need to create the role manually. When you create an experiment template from the AZ Power Interruption scenario in the AWS Management Console, the AWS CLI, or an AWS SDK, ARC creates the service-linked role for you. For more information, see [Using the service-linked role for zonal autoshift in ARC](../../../r53recovery/latest/dg/using-service-linked-roles-zonal-autoshift.md "../../../r53recovery/latest/dg/using-service-linked-roles-zonal-autoshift.md").
+ARC zonal autoshift uses an IAM service-linked role `AWSServiceRoleForZonalAutoshiftPracticeRun` to perform zonal shift on your behalf. This role uses the IAM managed policy [`AWSZonalAutoshiftPracticeRunSLRPolicy`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSZonalAutoshiftPracticeRunSLRPolicy.html). You don’t need to create the role manually. When you create an experiment template from the AZ Power Interruption scenario in the AWS Management Console, the AWS CLI, or an AWS SDK, ARC creates the service-linked role for you. For more information, see [Using the service-linked role for zonal autoshift in ARC](https://docs.aws.amazon.com/r53recovery/latest/dg/using-service-linked-roles-zonal-autoshift.html).
 
-The following policy grants AWS FIS the necessary permissions to execute an experiment with the AZ Availability: Power Interruption scenario. This policy must be attached to the [experiment role](getting-started-iam-service-role.md "getting-started-iam-service-role.md").
+The following policy grants AWS FIS the necessary permissions to execute an experiment with the AZ Availability: Power Interruption scenario. This policy must be attached to the [experiment role](https://docs.aws.amazon.com/fis/latest/userguide/getting-started-iam-service-role.html).
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowFISExperimentLoggingActionsCloudwatch",
- "Effect": "Allow",
- "Action": [
- "logs:CreateLogDelivery",
- "logs:PutResourcePolicy",
- "logs:DescribeResourcePolicies",
- "logs:DescribeLogGroups"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "ec2:CreateTags",
- "Resource": "arn:aws:ec2:*:*:network-acl/*",
- "Condition": {
- "StringEquals": {
- "ec2:CreateAction": "CreateNetworkAcl",
- "aws:RequestTag/managedByFIS": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": "ec2:CreateNetworkAcl",
- "Resource": "arn:aws:ec2:*:*:network-acl/*",
- "Condition": {
- "StringEquals": {
- "aws:RequestTag/managedByFIS": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:CreateNetworkAclEntry",
- "ec2:DeleteNetworkAcl"
- ],
- "Resource": [
- "arn:aws:ec2:*:*:network-acl/*",
- "arn:aws:ec2:*:*:vpc/*"
- ],
- "Condition": {
- "StringEquals": {
- "ec2:ResourceTag/managedByFIS": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": "ec2:CreateNetworkAcl",
- "Resource": "arn:aws:ec2:*:*:vpc/*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:DescribeVpcs",
- "ec2:DescribeManagedPrefixLists",
- "ec2:DescribeSubnets",
- "ec2:DescribeNetworkAcls"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "ec2:ReplaceNetworkAclAssociation",
- "Resource": [
- "arn:aws:ec2:*:*:subnet/*",
- "arn:aws:ec2:*:*:network-acl/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "rds:FailoverDBCluster"
- ],
- "Resource": [
- "arn:aws:rds:*:*:cluster:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "rds:RebootDBInstance"
- ],
- "Resource": [
- "arn:aws:rds:*:*:db:*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "elasticache:DescribeReplicationGroups",
- "elasticache:InterruptClusterAzPower"
- ],
- "Resource": [
- "arn:aws:elasticache:*:*:replicationgroup:*"
- ]
- },
- {
- "Sid": "TargetResolutionByTags",
- "Effect": "Allow",
- "Action": [
- "tag:GetResources"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:StartInstances",
- "ec2:StopInstances"
- ],
- "Resource": "arn:aws:ec2:*:*:instance/*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:DescribeInstances"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "kms:CreateGrant"
- ],
- "Resource": [
- "arn:aws:kms:*:*:key/*"
- ],
- "Condition": {
- "StringLike": {
- "kms:ViaService": "ec2.*.amazonaws.com"
- },
- "Bool": {
- "kms:GrantIsForAWSResource": "true"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:DescribeVolumes"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ec2:PauseVolumeIO"
- ],
- "Resource": "arn:aws:ec2:*:*:volume/*"
- },
- {
- "Sid": "AllowInjectAPI",
- "Effect": "Allow",
- "Action": [
- "ec2:InjectApiError"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "ForAnyValue:StringEquals": {
- "ec2:FisActionId": [
- "aws:ec2:api-insufficient-instance-capacity-error",
- "aws:ec2:asg-insufficient-instance-capacity-error"
- ]
- }
- }
- },
- {
- "Sid": "DescribeAsg",
- "Effect": "Allow",
- "Action": [
- "autoscaling:DescribeAutoScalingGroups"
- ],
- "Resource": [
- "*"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "AllowFISExperimentLoggingActionsCloudwatch",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogDelivery",
+                "logs:PutResourcePolicy",
+                "logs:DescribeResourcePolicies",
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:CreateTags",
+            "Resource": "arn:aws:ec2:*:*:network-acl/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:CreateAction": "CreateNetworkAcl",
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:CreateNetworkAcl",
+            "Resource": "arn:aws:ec2:*:*:network-acl/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateNetworkAclEntry",
+                "ec2:DeleteNetworkAcl"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:network-acl/*",
+                "arn:aws:ec2:*:*:vpc/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/managedByFIS": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:CreateNetworkAcl",
+            "Resource": "arn:aws:ec2:*:*:vpc/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeVpcs",
+                "ec2:DescribeManagedPrefixLists",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeNetworkAcls"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:ReplaceNetworkAclAssociation",
+            "Resource": [
+                "arn:aws:ec2:*:*:subnet/*",
+                "arn:aws:ec2:*:*:network-acl/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "rds:FailoverDBCluster"
+            ],
+            "Resource": [
+                "arn:aws:rds:*:*:cluster:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "rds:RebootDBInstance"
+            ],
+            "Resource": [
+                "arn:aws:rds:*:*:db:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "elasticache:DescribeReplicationGroups",
+                "elasticache:InterruptClusterAzPower"
+            ],
+            "Resource": [
+                "arn:aws:elasticache:*:*:replicationgroup:*"
+            ]
+        },
+        {
+            "Sid": "TargetResolutionByTags",
+            "Effect": "Allow",
+            "Action": [
+                "tag:GetResources"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances"
+            ],
+            "Resource": "arn:aws:ec2:*:*:instance/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:CreateGrant"
+            ],
+            "Resource": [
+                "arn:aws:kms:*:*:key/*"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "kms:ViaService": "ec2.*.amazonaws.com"
+                },
+                "Bool": {
+                    "kms:GrantIsForAWSResource": "true"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeVolumes"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:PauseVolumeIO"
+            ],
+            "Resource": "arn:aws:ec2:*:*:volume/*"
+        },
+        {
+            "Sid": "AllowInjectAPI",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:InjectApiError"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "ec2:FisActionId": [
+                        "aws:ec2:api-insufficient-instance-capacity-error",
+                        "aws:ec2:asg-insufficient-instance-capacity-error"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "DescribeAsg",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingGroups"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+------
 
 ## Scenario Content
+<a name="az-availability-scenario-content"></a>
 
-The following content defines the scenario. This JSON can be saved and used to create an [experiment template](experiment-templates.md "experiment-templates.md") using the [create-experiment-template](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/fis/create-experiment-template.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/fis/create-experiment-template.html") command from the AWS Command Line Interface (AWS CLI). For the most recent version of the scenario, visit the scenario library in the FIS console.
+The following content defines the scenario. This JSON can be saved and used to create an [experiment template](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html) using the [create-experiment-template](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/fis/create-experiment-template.html) command from the AWS Command Line Interface (AWS CLI). For the most recent version of the scenario, visit the scenario library in the FIS console.
 
 ```
 {
@@ -500,5 +516,4 @@ The following content defines the scenario. This JSON can be saved and used to c
     },
     "description": "Affect multiple resource types in a single AZ, targeting by tags and explicit ARNs, to approximate power interruption in one AZ."
 }
-
 ```
