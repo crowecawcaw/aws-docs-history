@@ -1,9 +1,11 @@
+
+
 # Metrics export schema
+<a name="metrics-export-json-schema"></a>
 
 See the following schema for batched metrics export data.
 
 ```
-
 {
  "version": "1.0",
  "metrics": [
@@ -11,9 +13,9 @@ See the following schema for batched metrics export data.
  "name": "{metricName}",
  "thing": "{thingName}",
  "value": {
- # a list of Classless Inter-Domain Routings (CIDR) specifying metric
+ # a list of Classless Inter-Domain Routings (CIDR) specifying metric 
 # source-ip-address and destination-ip-address
- "cidrs": ["string"],
+ "cidrs": ["string"], 
  # a single metric value for cloud/device metrics
  "count": number,
  # a single metric value for custom metric
@@ -25,8 +27,8 @@ See the following schema for batched metrics export data.
  # a list of strings for custom metrics
  "strings": ["string"]
  },
- # In some rare cases we may send multiple values for the same thing, metric and timestamp.
- # When there are multiple values, please use the value with highest version number
+ # In some rare cases we may send multiple values for the same thing, metric and timestamp. 
+ # When there are multiple values, please use the value with highest version number 
  # and discard other values.
  "version": number,
  # For cloud-side metrics, this is the time when AWS IoT Device Defender Detect aggregates the

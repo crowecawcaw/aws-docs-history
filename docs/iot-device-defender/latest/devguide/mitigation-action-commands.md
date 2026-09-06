@@ -1,19 +1,20 @@
+
+
 # Mitigation action commands
+<a name="mitigation-action-commands"></a>
 
-You can use these mitigation action commands to define a set of actions for your AWS account
-that you can later apply to one or more sets of audit findings. There are three command
-categories:
+You can use these mitigation action commands to define a set of actions for your AWS account that you can later apply to one or more sets of audit findings. There are three command categories: 
++ Those used to define and manage actions.
++ Those used to start and manage the application of those actions to Audit findings.
++ Those used to start and manage the application of those actions to Detect alarms.
 
-- Those used to define and manage actions.
-- Those used to start and manage the application of those actions to Audit
-  findings.
-- Those used to start and manage the application of those actions to Detect
-  alarms.
 
-Mitigation action commands| Define and manage actions | Start and manage Audit execution | Start and manage Detect execution |
-| --- | --- | --- |
-| [CreateMitigationAction](../../../iot/latest/apireference/API_CreateMitigationAction.md "../../../iot/latest/apireference/API_CreateMitigationAction.md") | [CancelAuditMitigationActionsTask](../../../iot/latest/apireference/API_CancelAuditMitigationActionsTask.md "../../../iot/latest/apireference/API_CancelAuditMitigationActionsTask.md") | [CancelDetectMitigationActionsTask](../../../iot/latest/apireference/API_CancelDetectMitigationActionsTask4e.md "../../../iot/latest/apireference/API_CancelDetectMitigationActionsTask4e.md") |
-| [DeleteMitigationAction](../../../iot/latest/apireference/API_DeleteMitigationAction.md "../../../iot/latest/apireference/API_DeleteMitigationAction.md") | [DescribeAuditMitigationActionsTask](../../../iot/latest/apireference/API_DescribeAuditMitigationActionsTask.md "../../../iot/latest/apireference/API_DescribeAuditMitigationActionsTask.md") | [DescribeDetectMitigationActionsTask](../../../iot/latest/apireference/API_DescribeDetectMitigationActionsTask.md "../../../iot/latest/apireference/API_DescribeDetectMitigationActionsTask.md") |
-| [DescribeMitigationAction](../../../iot/latest/apireference/API_DescribeMitigationAction.md "../../../iot/latest/apireference/API_DescribeMitigationAction.md") | [ListAuditMitigationActionsTasks](../../../iot/latest/apireference/API_ListAuditMitigationActionsTasks.md "../../../iot/latest/apireference/API_ListAuditMitigationActionsTasks.md") | [ListDetectMitigationActionsTasks](../../../iot/latest/apireference/API_ListDetectMitigationActionsTasks.md "../../../iot/latest/apireference/API_ListDetectMitigationActionsTasks.md") |
-| [ListMitigationActions](../../../iot/latest/apireference/API_ListMitigationActions.md "../../../iot/latest/apireference/API_ListMitigationActions.md") | [StartAuditMitigationActionsTask](../../../iot/latest/apireference/API_StartAuditMitigationActionsTask.md "../../../iot/latest/apireference/API_StartAuditMitigationActionsTask.md") | [StartDetectMitigationActionsTask](../../../iot/latest/apireference/API_StartDetectMitigationActionsTask.md "../../../iot/latest/apireference/API_StartDetectMitigationActionsTask.md") |
-| [UpdateMitigationAction](../../../iot/latest/apireference/API_UpdateMitigationAction.md "../../../iot/latest/apireference/API_UpdateMitigationAction.md") | [ListAuditMitigationActionsExecutions](../../../iot/latest/apireference/API_ListAuditMitigationActionsExecutions.md "../../../iot/latest/apireference/API_ListAuditMitigationActionsExecutions.md") | [ListDetectMitigationActionsExecutions](../../../iot/latest/apireference/API_ListDetectMitigationActionsExecutions.md "../../../iot/latest/apireference/API_ListDetectMitigationActionsExecutions.md") |
+**Mitigation action commands**  
+
+|  Define and manage actions  |  Start and manage Audit execution  |  Start and manage Detect execution  | 
+| --- | --- | --- | 
+| [CreateMitigationAction](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateMitigationAction.html) | [CancelAuditMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_CancelAuditMitigationActionsTask.html) | [CancelDetectMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_CancelDetectMitigationActionsTask4e.html)<br /> | 
+| [DeleteMitigationAction](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteMitigationAction.html) | [DescribeAuditMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditMitigationActionsTask.html) | [DescribeDetectMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeDetectMitigationActionsTask.html) | 
+| [DescribeMitigationAction](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeMitigationAction.html) | [ListAuditMitigationActionsTasks](https://docs.aws.amazon.com/iot/latest/apireference/API_ListAuditMitigationActionsTasks.html) | [ListDetectMitigationActionsTasks](https://docs.aws.amazon.com/iot/latest/apireference/API_ListDetectMitigationActionsTasks.html) | 
+| [ListMitigationActions](https://docs.aws.amazon.com/iot/latest/apireference/API_ListMitigationActions.html) | [StartAuditMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_StartAuditMitigationActionsTask.html) | [StartDetectMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_StartDetectMitigationActionsTask.html) | 
+| [UpdateMitigationAction](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateMitigationAction.html) | [ListAuditMitigationActionsExecutions](https://docs.aws.amazon.com/iot/latest/apireference/API_ListAuditMitigationActionsExecutions.html) | [ListDetectMitigationActionsExecutions](https://docs.aws.amazon.com/iot/latest/apireference/API_ListDetectMitigationActionsExecutions.html) | 

@@ -1,55 +1,73 @@
+
+
 # Detect commands
+<a name="detect-commands"></a>
 
-###### Note
+**Note**  
+The AWS IoT Device Defender detect feature is no longer available to new customers. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/dd-detect-availability-change.html). There is no change to AWS IoT Device Defender audit availability.
 
-The AWS IoT Device Defender detect feature is no longer available to new customers. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](dd-detect-availability-change.md "dd-detect-availability-change.md"). There is no change to AWS IoT Device Defender audit availability.
+You can use the Detect commands in this section to configure ML Detect or Rules Detect Security Profiles, to identify and monitor unusual behaviors that may indicate a compromised device.
 
-You can use the Detect commands in this section to configure ML Detect or Rules Detect
-Security Profiles, to identify and monitor unusual behaviors that may indicate a compromised
-device.
 
-DetectMitigation action commands| Start and manage Detect execution |
-| --- |
-| [CancelDetectMitigationActionsTask](../../../iot/latest/apireference/API_CancelDetectMitigationActionsTask.md "../../../iot/latest/apireference/API_CancelDetectMitigationActionsTask.md") |
-| [DescribeDetectMitigationActionsTask](../../../iot/latest/apireference/API_DescribeDetectMitigationActionsTask.md "../../../iot/latest/apireference/API_DescribeDetectMitigationActionsTask.md") |
-| [ListDetectMitigationActionsTasks](../../../iot/latest/apireference/API_ListDetectMitigationActionsTasks.md "../../../iot/latest/apireference/API_ListDetectMitigationActionsTasks.md") |
-| [StartDetectMitigationActionsTask](../../../iot/latest/apireference/API_StartDetectMitigationActionsTask.md "../../../iot/latest/apireference/API_StartDetectMitigationActionsTask.md") |
-| [ListDetectMitigationActionsExecutions](../../../iot/latest/apireference/API_ListDetectMitigationActionsExecutions.md "../../../iot/latest/apireference/API_ListDetectMitigationActionsExecutions.md") |
+**DetectMitigation action commands**  
 
-Dimension action commands| Start and manage Dimension execution |
-| --- |
-| [CreateDimension](../../../iot/latest/apireference/API_CreateDimension.md "../../../iot/latest/apireference/API_CreateDimension.md") |
-| [DescribeDimension](../../../iot/latest/apireference/API_DescribeDimension.md "../../../iot/latest/apireference/API_DescribeDimension.md") |
-| [ListDimensions](../../../iot/latest/apireference/API_ListDimensions.md "../../../iot/latest/apireference/API_ListDimensions.md") |
-| [DeleteDimension](../../../iot/latest/apireference/API_DeleteDimension.md "../../../iot/latest/apireference/API_DeleteDimension.md") |
-| [UpdateDimension](../../../iot/latest/apireference/API_UpdateDimension.md "../../../iot/latest/apireference/API_UpdateDimension.md") |
+|  Start and manage Detect execution  | 
+| --- | 
+| [CancelDetectMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_CancelDetectMitigationActionsTask.html) | 
+| [DescribeDetectMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeDetectMitigationActionsTask.html) | 
+| [ListDetectMitigationActionsTasks](https://docs.aws.amazon.com/iot/latest/apireference/API_ListDetectMitigationActionsTasks.html) | 
+| [StartDetectMitigationActionsTask](https://docs.aws.amazon.com/iot/latest/apireference/API_StartDetectMitigationActionsTask.html) | 
+| [ListDetectMitigationActionsExecutions](https://docs.aws.amazon.com/iot/latest/apireference/API_ListDetectMitigationActionsExecutions.html) | 
 
-CustomMetric action commands| Start and manage CustomMetric execution |
-| --- |
-| [CreateCustomMetric](../../../iot/latest/apireference/API_CreateCustomMetric.md "../../../iot/latest/apireference/API_CreateCustomMetric.md") |
-| [UpdateCustomMetric](../../../iot/latest/apireference/API_UpdateCustomMetric.md "../../../iot/latest/apireference/API_UpdateCustomMetric.md") |
-| [DescribeCustomMetric](../../../iot/latest/apireference/API_DescribeCustomMetric.md "../../../iot/latest/apireference/API_DescribeCustomMetric.md") |
-| [ListCustomMetrics](../../../iot/latest/apireference/API_ListCustomMetrics.md "../../../iot/latest/apireference/API_ListCustomMetrics.md") |
-| [DeleteCustomMetric](../../../iot/latest/apireference/API_DeleteCustomMetric.md "../../../iot/latest/apireference/API_DeleteCustomMetric.md") |
 
-Security Profile action commands| Start and manage Security Profile execution |
-| --- |
-| [CreateSecurityProfile](../../../iot/latest/apireference/API_CreateSecurityProfile.md "../../../iot/latest/apireference/API_CreateSecurityProfile.md") |
-| [AttachSecurityProfile](../../../iot/latest/apireference/API_AttachSecurityProfile.md "../../../iot/latest/apireference/API_AttachSecurityProfile.md") |
-| [DetachSecurityProfile](../../../iot/latest/apireference/API_DetachSecurityProfile.md "../../../iot/latest/apireference/API_DetachSecurityProfile.md") |
-| [DeleteSecurityProfile](../../../iot/latest/apireference/API_DeleteSecurityProfile.md "../../../iot/latest/apireference/API_DeleteSecurityProfile.md") |
-| [DescribeSecurityProfile](../../../iot/latest/apireference/API_DescribeSecurityProfile.md "../../../iot/latest/apireference/API_DescribeSecurityProfile.md") |
-| [ListTargetsForSecurityProfile](../../../iot/latest/apireference/API_ListTargetsForSecurityProfile.md "../../../iot/latest/apireference/API_ListTargetsForSecurityProfile.md") |
-| [UpdateSecurityProfile](../../../iot/latest/apireference/API_UpdateSecurityProfile.md "../../../iot/latest/apireference/API_UpdateSecurityProfile.md") |
-| [ValidateSecurityProfileBehaviors](../../../iot/latest/apireference/API_ValidateSecurityProfileBehaviors.md "../../../iot/latest/apireference/API_ValidateSecurityProfileBehaviors.md") |
-| [ListSecurityProfilesForTarget](../../../iot/latest/apireference/API_ListSecurityProfilesForTarget.md "../../../iot/latest/apireference/API_ListSecurityProfilesForTarget.md") |
+**Dimension action commands**  
 
-Alarm action commands| Manage alarms and targets |
-| --- |
-| [ListActiveViolations](../../../iot/latest/apireference/API_ListActiveViolations.md "../../../iot/latest/apireference/API_ListActiveViolations.md") |
-| [ListViolationEvents](../../../iot/latest/apireference/API_ListViolationEvents.md "../../../iot/latest/apireference/API_ListViolationEvents.md") |
-| [PutVerificationStateOnViolation](../../../iot/latest/apireference/API_PutVerificationStateOnViolation.md "../../../iot/latest/apireference/API_PutVerificationStateOnViolation.md") |
+|  Start and manage Dimension execution  | 
+| --- | 
+|  [CreateDimension](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateDimension.html)  | 
+|  [DescribeDimension](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeDimension.html)  | 
+|  [ListDimensions](https://docs.aws.amazon.com/iot/latest/apireference/API_ListDimensions.html)  | 
+|  [DeleteDimension](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteDimension.html)  | 
+|  [UpdateDimension](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateDimension.html)  | 
 
-ML Detect action commands| List ML model training data |
-| --- |
-| [GetBehaviorModelTrainingSummaries](../../../iot/latest/apireference/API_GetBehaviorModelTrainingSummaries.md "../../../iot/latest/apireference/API_GetBehaviorModelTrainingSummaries.md") |
+
+**CustomMetric action commands**  
+
+|  Start and manage CustomMetric execution  | 
+| --- | 
+| [CreateCustomMetric](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCustomMetric.html) | 
+| [UpdateCustomMetric](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateCustomMetric.html)  | 
+| [DescribeCustomMetric](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeCustomMetric.html)  | 
+| [ListCustomMetrics](https://docs.aws.amazon.com/iot/latest/apireference/API_ListCustomMetrics.html) | 
+| [DeleteCustomMetric](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteCustomMetric.html)  | 
+
+
+**Security Profile action commands**  
+
+|  Start and manage Security Profile execution  | 
+| --- | 
+| [CreateSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateSecurityProfile.html)  | 
+| [AttachSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_AttachSecurityProfile.html)  | 
+| [DetachSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_DetachSecurityProfile.html) | 
+| [DeleteSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteSecurityProfile.html)  | 
+| [DescribeSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeSecurityProfile.html) | 
+| [ListTargetsForSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_ListTargetsForSecurityProfile.html) | 
+| [UpdateSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateSecurityProfile.html) | 
+| [ValidateSecurityProfileBehaviors](https://docs.aws.amazon.com/iot/latest/apireference/API_ValidateSecurityProfileBehaviors.html) | 
+|  [ListSecurityProfilesForTarget](https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfilesForTarget.html)  | 
+
+
+**Alarm action commands**  
+
+|  Manage alarms and targets  | 
+| --- | 
+| [ListActiveViolations](https://docs.aws.amazon.com/iot/latest/apireference/API_ListActiveViolations.html)  | 
+| [ListViolationEvents](https://docs.aws.amazon.com/iot/latest/apireference/API_ListViolationEvents.html) | 
+| [PutVerificationStateOnViolation](https://docs.aws.amazon.com/iot/latest/apireference/API_PutVerificationStateOnViolation.html) | 
+
+
+**ML Detect action commands**  
+
+|  List ML model training data  | 
+| --- | 
+| [GetBehaviorModelTrainingSummaries](https://docs.aws.amazon.com/iot/latest/apireference/API_GetBehaviorModelTrainingSummaries.html)  | 

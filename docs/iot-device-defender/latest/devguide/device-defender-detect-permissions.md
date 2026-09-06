@@ -1,78 +1,96 @@
+
+
 # Permissions
+<a name="device-defender-detect-permissions"></a>
 
-###### Note
+**Note**  
+The AWS IoT Device Defender detect feature is no longer available to new customers. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/dd-detect-availability-change.html). There is no change to AWS IoT Device Defender audit availability.
 
-The AWS IoT Device Defender detect feature is no longer available to new customers. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](dd-detect-availability-change.md "dd-detect-availability-change.md"). There is no change to AWS IoT Device Defender audit availability.
-
-This section contains information about how to set up the IAM roles and policies
-required to manage AWS IoT Device Defender Detect. For more information, see the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
+This section contains information about how to set up the IAM roles and policies required to manage AWS IoT Device Defender Detect. For more information, see the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
 
 ## Give AWS IoT Device Defender detect permission to publish alarms to an SNS topic
+<a name="device-defender-detect-permissions-publish"></a>
 
-If you use the `alertTargets` parameter in [CreateSecurityProfile](../../../iot/latest/apireference/API_CreateSecurityProfile.md "../../../iot/latest/apireference/API_CreateSecurityProfile.md"), you must specify an IAM role with
-two policies: a permissions policy and a trust policy. The permissions policy grants
-permission to AWS IoT Device Defender to publish notifications to your SNS topic. The trust policy grants
-AWS IoT Device Defender permission to assume the required role.
+If you use the `alertTargets` parameter in [CreateSecurityProfile](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateSecurityProfile.html), you must specify an IAM role with two policies: a permissions policy and a trust policy. The permissions policy grants permission to AWS IoT Device Defender to publish notifications to your SNS topic. The trust policy grants AWS IoT Device Defender permission to assume the required role.
 
-JSON
+### Permission policy
+<a name="detect-account-sns-permissions-policy"></a>
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sns:Publish"
- ],
- "Resource": [
- "arn:aws:sns:us-east-1:123456789012:`your-topic-name`"
- ]
- }
- ]
-}`
+------
+#### [ JSON ]
+
+****  
 
 ```
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "",
- "Effect": "Allow",
- "Principal": {
- "Service": "iot.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sns:Publish"
+            ],
+            "Resource": [
+                "arn:aws:sns:us-east-1:123456789012:{{your-topic-name}}"
+            ]
+        }
+    ]
+}
 ```
 
-You also need an IAM permissions policy attached to the IAM user that allows the
-user to pass roles. See [Granting a User
-Permissions to Pass a Role to an AWS Service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md").
+------
 
-JSON
+### Trust policy
+<a name="detect-account-sns-trust-policy"></a>
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "",
- "Effect": "Allow",
- "Action": [
- "iam:GetRole",
- "iam:PassRole"
- ],
- "Resource": "arn:aws:iam::123456789012:role/Role_To_Pass"
- }
- ]
-}`
+------
+#### [ JSON ]
+
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "iot.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+------
+
+### Pass role policy
+<a name="detect-account-passrole-policy"></a>
+
+You also need an IAM permissions policy attached to the IAM user that allows the user to pass roles. See [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole",
+                "iam:PassRole"
+            ],
+            "Resource": "arn:aws:iam::123456789012:role/Role_To_Pass"
+        }
+    ]
+}
+```
+
+------

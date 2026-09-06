@@ -1,35 +1,26 @@
-# Device certificate age check
 
-This audit check alerts you when a device certificate has been active for a number of
-days greater than or equal to the number you specify. This check helps you stay informed
-about your certificates’ status, enabling timely action on a periodic basis, regardless
-of when the certificate reaches the end of its lifespan, improving security by reducing
-the risk of certificate compromise.
+
+# Device certificate age check
+<a name="device-certificate-age-check"></a>
+
+This audit check alerts you when a device certificate has been active for a number of days greater than or equal to the number you specify. This check helps you stay informed about your certificates’ status, enabling timely action on a periodic basis, regardless of when the certificate reaches the end of its lifespan, improving security by reducing the risk of certificate compromise.
 
 The certificate age check threshold can be configured between 30 days (minimum) and 3652 days (10 years, maximum), with a default value of 365 days.
 
-This check appears as `DEVICE_CERTIFICATE_AGE_CHECK` in the CLI and API.
-This check is disabled by default Severity: **Low**
+This check appears as `DEVICE_CERTIFICATE_AGE_CHECK` in the CLI and API. This check is disabled by default Severity: **Low** 
 
 ## Details
+<a name="w2aab9c11c45b9"></a>
 
-This check applies to device certificates that are ACTIVE or PENDING\_TRANSFER. The
-following reason codes are returned when this check finds a noncompliant device
-certificate:
-
-- CERTIFICATE\_PAST\_AGE\_THRESHOLD
+This check applies to device certificates that are ACTIVE or PENDING\_TRANSFER. The following reason codes are returned when this check finds a noncompliant device certificate: 
++ CERTIFICATE\_PAST\_AGE\_THRESHOLD
 
 ## Configuring the device certificate age check
+<a name="w2aab9c11c45c11"></a>
 
-This configuration allows you to tailor certificate rotation alerts to the
-specific needs of your fleet, helping you maintain a strong security posture across
-all devices. You can configure this check using the
-`UpdateAccountAuditConfiguration` API. For example, if you want to be
-alerted when certificates have been active for more than 365 days, you can configure
-the check as follows:
+This configuration allows you to tailor certificate rotation alerts to the specific needs of your fleet, helping you maintain a strong security posture across all devices. You can configure this check using the `UpdateAccountAuditConfiguration` API. For example, if you want to be alerted when certificates have been active for more than 365 days, you can configure the check as follows:
 
 ```
-
 {
     "roleArn": "your-audit-role-arn",
     "auditCheckConfigurations": {
@@ -41,5 +32,4 @@ the check as follows:
         }
     }
 }
-
 ```
