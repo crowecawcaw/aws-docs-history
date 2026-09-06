@@ -1,20 +1,13 @@
+
+
 # Submitting from JavaScript
+<a name="mturk-hits-defining-questions-html-javascript"></a>
 
-In some cases, it's necessary to collect data using mechanisms other than form fields.
-For example, a task interface that prompts workers to draw a bounding box on an image
-would capture the coordinates of the box workers drew as a JavaScript variable. To allow
-workers to submit the data, you must place it in a `form` element that can be
-submitted to Mechanical Turk.
+In some cases, it's necessary to collect data using mechanisms other than form fields. For example, a task interface that prompts workers to draw a bounding box on an image would capture the coordinates of the box workers drew as a JavaScript variable. To allow workers to submit the data, you must place it in a `form` element that can be submitted to Mechanical Turk. 
 
-There are two common ways to do this. The first is using a hidden form value within
-your task as shown in the following code excerpt. The form includes hidden values for the
-`assignmentId` and coordinates that we want to return. When workers choose
-the **Submit** button, the `handleFormSubmit` function is
-called. The function populates the values in the hidden form elements and then submits the
-form.
+There are two common ways to do this. The first is using a hidden form value within your task as shown in the following code excerpt. The form includes hidden values for the `assignmentId` and coordinates that we want to return. When workers choose the **Submit** button, the `handleFormSubmit` function is called. The function populates the values in the hidden form elements and then submits the form. 
 
 ```
-
 <html>
 ...
 <button onclick="handleFormSubmit()">Submit</button>
@@ -31,21 +24,13 @@ function handleFormSubmit() {
   document.getElementById('mturk_form').submit()
 }
 </script>
-
 ```
 
-You must include a value for `assignmentId` in your form submission so that
-Mechanical Turk can correctly associate the response with the correct worker and HIT.
+You must include a value for `assignmentId` in your form submission so that Mechanical Turk can correctly associate the response with the correct worker and HIT. 
 
-In cases where you don't want to include the form and hidden inputs in the HTML, you
-can instead create and populate the elements dynamically from your JavaScript code as
-shown in the following example. Note that in the following code, we're assigning the value
-for action based on the `turkSubmitTo` value from the URL search parameters for
-the task. This sets the correct value based on whether or not you are working in the
-production or sandbox environment.
+In cases where you don't want to include the form and hidden inputs in the HTML, you can instead create and populate the elements dynamically from your JavaScript code as shown in the following example. Note that in the following code, we're assigning the value for action based on the `turkSubmitTo` value from the URL search parameters for the task. This sets the correct value based on whether or not you are working in the production or sandbox environment. 
 
 ```
-
 const handleClick = () => {
   const urlParams = new URLSearchParams(window.location.search)
  
@@ -72,5 +57,4 @@ const handleClick = () => {
   document.body.appendChild(form)
   form.submit()
 }
-
 ```

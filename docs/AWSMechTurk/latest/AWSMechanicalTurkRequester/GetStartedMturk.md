@@ -1,41 +1,38 @@
+
+
 # Get Started with Amazon Mechanical Turk
+<a name="GetStartedMturk"></a>
 
-Use the hands-on tutorials in this section to help you get started and learn more about
-Amazon Mechanical Turk.
+Use the hands-on tutorials in this section to help you get started and learn more about Amazon Mechanical Turk.
 
-###### Topics
-
-- [Prerequisites](#get-started-prereq "#get-started-prereq")
-- [Step 1: Create a task](#get-started-create-task "#get-started-create-task")
-- [Step 2: Check task status](#get-started-task-status "#get-started-task-status")
-- [Step 3: Retrieve results](#get-started-retrieve-result "#get-started-retrieve-result")
-- [Step 4: Approve Assignments](#get-started-approve-assignments "#get-started-approve-assignments")
+**Topics**
++ [Prerequisites](#get-started-prereq)
++ [Step 1: Create a task](#get-started-create-task)
++ [Step 2: Check task status](#get-started-task-status)
++ [Step 3: Retrieve results](#get-started-retrieve-result)
++ [Step 4: Approve Assignments](#get-started-approve-assignments)
 
 ## Prerequisites
+<a name="get-started-prereq"></a>
 
-Before you begin, you should familiarize yourself with the basic concepts in Amazon Mechanical Turk.
-For more information, see [The Amazon Mechanical Turk marketplace](IntroMarketplace.md "IntroMarketplace.md") and [Amazon Mechanical Turk core concepts](IntroCoreConcepts.md "IntroCoreConcepts.md").
+Before you begin, you should familiarize yourself with the basic concepts in Amazon Mechanical Turk. For more information, see [The Amazon Mechanical Turk marketplace](IntroMarketplace.md) and [Amazon Mechanical Turk core concepts](IntroCoreConcepts.md). 
 
-Additional, complete the steps in [Set up Amazon Mechanical Turk](SetUpMturk.md "SetUpMturk.md") before completing this tutorial.
+Additional, complete the steps in [Set up Amazon Mechanical Turk](SetUpMturk.md) before completing this tutorial. 
 
 ## Step 1: Create a task
+<a name="get-started-create-task"></a>
 
-In this step we create a task in Mechanical Turk that asks workers to describe the current
-weather where they live. The task interface for this will be created using the [HTMLQuestion](../AWSMturkAPI/ApiReference_HTMLQuestionArticle.md "../AWSMturkAPI/ApiReference_HTMLQuestionArticle.md") data structure and we'll make use of [Crowd HTML Elements](../AWSMturkAPI/ApiReference_HTMLQuestionArticle.md#ApiReference_HTMLQuestionArticle-crowd "../AWSMturkAPI/ApiReference_HTMLQuestionArticle.md#ApiReference_HTMLQuestionArticle-crowd") to simplify the task HTML.
+In this step we create a task in Mechanical Turk that asks workers to describe the current weather where they live. The task interface for this will be created using the [HTMLQuestion](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_HTMLQuestionArticle.html) data structure and we'll make use of [Crowd HTML Elements](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_HTMLQuestionArticle.html#ApiReference_HTMLQuestionArticle-crowd) to simplify the task HTML. 
 
-###### Important
-
-Completing the steps in this tutorial results in a charge of $0.60 to your
-account.
+**Important**  
+Completing the steps in this tutorial results in a charge of $0.60 to your account.
 
 ### Question definition
+<a name="get-started-question-def"></a>
 
-The most common way to define tasks in Mechanical Turkis using the `HTMLQuestion` data
-structure, which is defined as XML that encapsulates the HTML that is displayed to
-the worker. For this task, we use the following definition.
+The most common way to define tasks in Mechanical Turkis using the `HTMLQuestion` data structure, which is defined as XML that encapsulates the HTML that is displayed to the worker. For this task, we use the following definition. 
 
 ```
-
 <HTMLQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd">
     <HTMLContent><![CDATA[
         <!DOCTYPE html>
@@ -48,58 +45,44 @@ the worker. For this task, we use the following definition.
     </HTMLContent>
     <FrameHeight>0</FrameHeight>
 </HTMLQuestion>
-
 ```
 
-Note that the HTML includes a reference to the `crowd-html-elements.js`
-library which includes the `crowd-form` element. We use the
-`crowd-form` element in place of the standard `form`
-element because it removes the need to specify the endpoint for the form to submit
-results. It also automatically appends a **Submit** button if one
-isn't present. More information about this library can be found in [Crowd HTML Elements](../../../sagemaker/latest/dg/sms-ui-template-reference.md "../../../sagemaker/latest/dg/sms-ui-template-reference.md").
+Note that the HTML includes a reference to the `crowd-html-elements.js` library which includes the `crowd-form` element. We use the `crowd-form` element in place of the standard `form` element because it removes the need to specify the endpoint for the form to submit results. It also automatically appends a **Submit** button if one isn't present. More information about this library can be found in [Crowd HTML Elements](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html). 
 
-We've also set the value of `FrameHeight` to zero, which directs the
-marketplace website to render the task interface using the full browser window.
+We've also set the value of `FrameHeight` to zero, which directs the marketplace website to render the task interface using the full browser window. 
 
 ### Task attributes
+<a name="get-started-task-attr"></a>
 
-Next, we can define the attributes for our task. We'll use the following attributes:
+ Next, we can define the attributes for our task. We'll use the following attributes: 
 
-| Attribute                     | Value                                       |
-| ----------------------------- | ------------------------------------------- |
-| Title                         | Describe the weather                        |
-| Description                   | Describe the current weather where you live |
-| Reward                        | 0.1                                         |
-| `MaxAssignments`              | 5                                           |
-| `LifetimeInSeconds`           | 14,400                                      |
-| `AssignmentDurationInSeconds` | 300                                         |
-| `AutoApprovalDelayInSeconds`  | 259,200                                     |
 
-Here, we give an accurate description of our task and indicate that we will reward
-each worker with 10 cents for each successful completion. In addition, we set the
-`MaxAssignments` to `5` to indicate that we would like to
-get five responses from different workers. Finally, we set the lifetime and
-assignment duration to four hours and five minutes respectively. Workers have five
-minutes to complete the assignment before it expires and becomes available to other
-workers. If, after four hours, we haven't yet gotten a response, the task is
-automatically removed from the Mechanical Turk marketplace. We've also set the
-`AutoApprovalDelay` at three days which means that an assignment is
-automatically approved after three days if we don't take any action to approve or
-reject it before then.
 
-For more detail on the attributes that can be specified for a HIT, visit the [CreateHIT](../AWSMturkAPI/ApiReference_CreateHITOperation.md "../AWSMturkAPI/ApiReference_CreateHITOperation.md") documentation.
+|  Attribute  |  Value  | 
+| --- | --- | 
+|  Title  |  Describe the weather  | 
+|  Description  |  Describe the current weather where you live  | 
+|  Reward  |  0.1  | 
+|  MaxAssignments  |  5  | 
+|  LifetimeInSeconds  |  14,400  | 
+|  AssignmentDurationInSeconds  |  300  | 
+|  AutoApprovalDelayInSeconds  |  259,200  | 
+
+Here, we give an accurate description of our task and indicate that we will reward each worker with 10 cents for each successful completion. In addition, we set the `MaxAssignments` to `5` to indicate that we would like to get five responses from different workers. Finally, we set the lifetime and assignment duration to four hours and five minutes respectively. Workers have five minutes to complete the assignment before it expires and becomes available to other workers. If, after four hours, we haven't yet gotten a response, the task is automatically removed from the Mechanical Turk marketplace. We've also set the `AutoApprovalDelay` at three days which means that an assignment is automatically approved after three days if we don't take any action to approve or reject it before then. 
+
+For more detail on the attributes that can be specified for a HIT, visit the [CreateHIT](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_CreateHITOperation.html) documentation. 
 
 ### Post the task
+<a name="getting-started-post-task"></a>
 
-You can post a task using the AWS CLI or a language-specific AWS SDK. Select a tab in
-the following table to see an example of how you can post a task using the AWS CLI and the
-AWS SDK for Python (Boto3).
+You can post a task using the AWS CLI or a language-specific AWS SDK. Select a tab in the following table to see an example of how you can post a task using the AWS CLI and the AWS SDK for Python (Boto3).
 
-AWS CLI
-The following AWS CLI example creates a new task using [`create-hit`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/create-hit.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/create-hit.html").
+------
+#### [ AWS CLI ]
+
+The following AWS CLI example creates a new task using [`create-hit`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/create-hit.html). 
 
 ```
-
 $ aws mturk create-hit \
      --title "Describe the weather" \
      --description "Describe the current weather where you live" \
@@ -121,13 +104,11 @@ $ aws mturk create-hit \
                 <FrameHeight>0</FrameHeight>
                 </HTMLQuestion>'
  
-
 ```
 
-Using `create-hit` returns the following sample result.
+ Using `create-hit` returns the following sample result. 
 
 ```
-
 {
     "HIT": {
         "HITId": "3TL87MO8CLOFYXKXNRLMZO1MOK4FL5",
@@ -150,17 +131,14 @@ Using `create-hit` returns the following sample result.
         "NumberOfAssignmentsCompleted": 0
     }
 } 
-
 ```
 
-SDK for Python (Boto3)
-The following Python code creates a new task using
-[`create_hit`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.create_hit "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.create_hit"). This code can be run within
-a Jupyter Notebook or IPython as is, or can be incorporated into a Python
-script and executed.
+------
+#### [ SDK for Python (Boto3) ]
+
+The following Python code creates a new task using [`create_hit`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.create_hit). This code can be run within a Jupyter Notebook or IPython as is, or can be incorporated into a Python script and executed. 
 
 ```
-
 import boto3
  
 mturk = boto3.client('mturk')
@@ -191,44 +169,35 @@ response = mturk.create_hit(
 
 hit_id = response['HIT']['HITId']
 print('Created HIT: {}'.format(hit_id))
-
 ```
 
-This creates the HIT in the marketplace and displays the following.
+This creates the HIT in the marketplace and displays the following. 
 
 ```
-
 Created HIT: 3QQUBC64ZDDMMJE3ZX577RS5PMNNXJ
-
 ```
 
-After creating the HIT, capture the `HITId` that was created
-and proceed to Step 2: Check task status.
+After creating the HIT, capture the `HITId` that was created and proceed to Step 2: Check task status. 
+
+------
 
 ## Step 2: Check task status
+<a name="get-started-task-status"></a>
 
-In this step, we check the status of a task we created in Mechanical Turk. We poll the API for
-the status of our HIT using the `HITId` from the previous step. You need to
-capture that identifier and insert it in the following appropriate location to retrieve
-your results.
+In this step, we check the status of a task we created in Mechanical Turk. We poll the API for the status of our HIT using the `HITId` from the previous step. You need to capture that identifier and insert it in the following appropriate location to retrieve your results. 
 
-The code block examples in this section have been spaced out for readability.
+The code block examples in this section have been spaced out for readability. 
 
-AWS CLI
-The following AWS CLI command retrieves the current state of a HIT using [`get-hit`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/get-hit.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/get-hit.html").
+------
+#### [ AWS CLI ]
+
+ The following AWS CLI command retrieves the current state of a HIT using [`get-hit`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/get-hit.html).
 
 ```
-
 $ aws mturk get-hit --hit-id 3QQUBC64ZDDMMJE3ZX577RS5PMNNXJ
-
 ```
 
-Using `get-hit` immediately after creating the HIT returns the following
-result. The CLI returns the same information that was returned when you
-first created the HIT. This includes all of the attributes for the HIT and
-its current state. As you can see in the highlighted lines below, all five
-assignments are available to be requested by workers and the
-`HITStatus` is `Assignable`.
+Using `get-hit` immediately after creating the HIT returns the following result. The CLI returns the same information that was returned when you first created the HIT. This includes all of the attributes for the HIT and its current state. As you can see in the highlighted lines below, all five assignments are available to be requested by workers and the `HITStatus` is `Assignable`. 
 
 ```
  
@@ -258,18 +227,11 @@ assignments are available to be requested by workers and the
         "NumberOfAssignmentsCompleted": 0
     }
 }
-
 ```
 
-If you run the same `get-hit` command again after about five to ten
-minutes, the results will likely match the following example. As you can see
-in the highlighted sections, the `HITStatus` is now
-`Reviewable` and there are no longer any assignments
-available or pending with workers. However, the completed count is still
-zero because none of the work has been approved yet.
+If you run the same `get-hit` command again after about five to ten minutes, the results will likely match the following example. As you can see in the highlighted sections, the `HITStatus` is now `Reviewable` and there are no longer any assignments available or pending with workers. However, the completed count is still zero because none of the work has been approved yet. 
 
 ```
-
 {
     "HIT": {
         "HITId": "3TL87MO8CLOFYXKXNRLMZO1MOK4FL5",
@@ -299,34 +261,25 @@ zero because none of the work has been approved yet.
         "NumberOfAssignmentsCompleted": 0
     }
 }
-
 ```
 
-Python SDK (Boto3)
-The following Python code retrieves the state of a HIT using [`get_hit`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.get_hit "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.get_hit"). This code can be run within a Jupyter
-Notebook or IPython as is, or can be incorporated into a Python script and
-executed.
+------
+#### [ Python SDK (Boto3) ]
+
+The following Python code retrieves the state of a HIT using [`get_hit`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.get_hit). This code can be run within a Jupyter Notebook or IPython as is, or can be incorporated into a Python script and executed. 
 
 ```
-
 import boto3
  
 mturk = boto3.client('mturk')
  
 response = mturk.get_hit(HITId='3QQUBC64ZDDMMJE3ZX577RS5PMNNXJ')
 response['HIT']
-
 ```
 
-Using `get_hit` immediately after creating the HIT returns the following
-result. The command returns the same information that was returned when you
-first created the HIT. That includes all of the attributes for the HIT and
-its current state. As you can see in the highlighted lines below, all five
-assignments are available to be requested by workers and the
-`HITStatus` is `Assignable`.
+Using `get_hit` immediately after creating the HIT returns the following result. The command returns the same information that was returned when you first created the HIT. That includes all of the attributes for the HIT and its current state. As you can see in the highlighted lines below, all five assignments are available to be requested by workers and the `HITStatus` is `Assignable`. 
 
 ```
-
 {
     'HITId': '3TL87MO8CLOFYXKXNRLMZO1MOK4FL5',
     'HITTypeId': '3AKE04YHPN13791QQA6BU4GMS7CHZJ',
@@ -354,15 +307,9 @@ assignments are available to be requested by workers and the
 }
 ```
 
-If you run the same `get_hit` command again after about five minutes, the
-results will likely appear as shown below. As you can see in the highlighted
-sections, the `HITStatus` is now `Reviewable` and
-there are no longer any assignments available or pending with workers.
-However, the completed count is still zero because none of the work has been
-approved yet.
+If you run the same `get_hit` command again after about five minutes, the results will likely appear as shown below. As you can see in the highlighted sections, the `HITStatus` is now `Reviewable` and there are no longer any assignments available or pending with workers. However, the completed count is still zero because none of the work has been approved yet. 
 
 ```
-
 {
      'HITId': '3TL87MO8CLOFYXKXNRLMZO1MOK4FL5',
      'HITTypeId': '3AKE04YHPN13791QQA6BU4GMS7CHZJ',
@@ -387,43 +334,29 @@ approved yet.
      'NumberOfAssignmentsAvailable': 0,
      'NumberOfAssignmentsCompleted': 0
 }
-
 ```
 
-Now that we've confirmed that the HIT is in the `Reviewable` state, we can
-proceed to Step 3: Retrieve Results.
+ Now that we've confirmed that the HIT is in the `Reviewable` state, we can proceed to Step 3: Retrieve Results. 
+
+------
 
 ## Step 3: Retrieve results
+<a name="get-started-retrieve-result"></a>
 
-In this step, we retrieve the results of a task we created in Mechanical Turk. We use the
-`HITId` from that was generated in Step 1. You need to capture that
-identifier and insert it in the appropriate location below to retrieve your results.
-Before running the commands in this step, you should confirm the `HITStatus`
-is `Reviewable` as shown in Step 2, or you may get incomplete results.
+In this step, we retrieve the results of a task we created in Mechanical Turk. We use the `HITId` from that was generated in Step 1. You need to capture that identifier and insert it in the appropriate location below to retrieve your results. Before running the commands in this step, you should confirm the `HITStatus` is `Reviewable` as shown in Step 2, or you may get incomplete results. 
 
-AWS CLI
-The following AWS CLI command retrieves all of the submitted assignments
-for your HIT using [`list-assignments-for-hit`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/list-assignments-for-hit.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/list-assignments-for-hit.html").
+------
+#### [ AWS CLI ]
+
+ The following AWS CLI command retrieves all of the submitted assignments for your HIT using [`list-assignments-for-hit`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/list-assignments-for-hit.html). 
 
 ```
-
 $ aws mturk list-assignments-for-hit --hit-id 3TL87MO8CLOFYXKXNRLMZO1MOK4FL5
-
 ```
 
-Using `list-assignments-for-hit` returns an array of results
-similar to those shown below. Each assignment has an
-`AssignmentId` and includes information about the Worker who
-submitted it, when they first accepted it, and when they submitted their
-answer. The answer information is captured in a `QuestionFormAnswers` XML data structure that you can
-read in to extract the results. For example, the first assignment below was
-submitted by the worker with `WorkerId` A1KYPXUBSBWJBY, it took
-them 25 seconds to complete it, and their answer was "Its currently
-raining lightly". Scrolling through the other assignments, you can see
-how other workers answered this question.
+Using `list-assignments-for-hit` returns an array of results similar to those shown below. Each assignment has an `AssignmentId` and includes information about the Worker who submitted it, when they first accepted it, and when they submitted their answer. The answer information is captured in a `[QuestionFormAnswers](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_QuestionFormAnswersDataStructureArticle.html)` XML data structure that you can read in to extract the results. For example, the first assignment below was submitted by the worker with `WorkerId` A1KYPXUBSBWJBY, it took them 25 seconds to complete it, and their answer was "Its currently raining lightly". Scrolling through the other assignments, you can see how other workers answered this question. 
 
 ```
-
 {
     "Assignments": [
         {
@@ -479,30 +412,23 @@ how other workers answered this question.
     ]
 }
  
-
 ```
 
-Note that the AWS CLI supports various output formats as well as a option
-[`--query`](../../../cli/latest/userguide/cli-usage-output.md#cli-usage-output-filter "../../../cli/latest/userguide/cli-usage-output.md#cli-usage-output-filter") that can be used to filter your
-results. For example, the following only returns a list of the
-`WorkerId`s that completed the HIT.
+Note that the AWS CLI supports various output formats as well as a option [`--query`](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-output.html#cli-usage-output-filter) that can be used to filter your results. For example, the following only returns a list of the `WorkerId`s that completed the HIT. 
 
 ```
-
 $ aws mturk list-assignments-for-hit \
         --hit-id 3TL87MO8CLOFYXKXNRLMZO1MOK4FL5 \
         --query 'Assignments[*].WorkerId'
  
 ```
 
-SDK for Python (Boto3)
-The following Python code retrieves all of the submitted assignments for
-your HIT using [`list_assignments_for_hit`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.list_assignments_for_hit "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.list_assignments_for_hit") This code can be run
-within a Jupyter Notebook or IPython as is, or can be incorporated into a
-Python script and executed.
+------
+#### [ SDK for Python (Boto3) ]
+
+The following Python code retrieves all of the submitted assignments for your HIT using [`list_assignments_for_hit`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.list_assignments_for_hit) This code can be run within a Jupyter Notebook or IPython as is, or can be incorporated into a Python script and executed. 
 
 ```
-
 import boto3
  
 mturk = boto3.client('mturk')
@@ -512,19 +438,9 @@ response['Assignments']
  
 ```
 
-Using `list_assignments_for_hit` returns an array of results
-similar to those shown below. Each assignment has an
-`AssignmentId` and includes information about the worker who
-submitted it, when they first accepted it, and when they submitted their
-answer. The answer information is captured in a `QuestionFormAnswers` XML data structure that you can
-read in to extract the results. For example, the first assignment below was
-submitted by the Worker with `WorkerId` AIDACKCEVSQ6C2EXAMPLE, it
-took them 25 seconds to complete it, and their answer was "Its
-currently raining lightly". Scrolling through the other assignments,
-you can see how other workers answered this question.
+Using `list_assignments_for_hit` returns an array of results similar to those shown below. Each assignment has an `AssignmentId` and includes information about the worker who submitted it, when they first accepted it, and when they submitted their answer. The answer information is captured in a `[QuestionFormAnswers](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_QuestionFormAnswersDataStructureArticle.html)` XML data structure that you can read in to extract the results. For example, the first assignment below was submitted by the Worker with `WorkerId` AIDACKCEVSQ6C2EXAMPLE, it took them 25 seconds to complete it, and their answer was "Its currently raining lightly". Scrolling through the other assignments, you can see how other workers answered this question. 
 
 ```
-
 [
      {'AssignmentId': '3IOEN3P9S7I9CGLBJQ50ANAQJXB16B',
       'WorkerId': 'AIDACKCEVSQ6C2EXAMPLE,
@@ -573,19 +489,11 @@ you can see how other workers answered this question.
     }
 ]
  
-
 ```
 
-This information is returned in a Python dict that can be used to access
-any of the relevant values for each assignment. In addition, you can use the
-[ElementTree](https://docs.python.org/3.8/library/xml.etree.elementtree.html "https://docs.python.org/3.8/library/xml.etree.elementtree.html") library as shown below to parse the Answer XML into
-a format that can be more easily viewed. This code works well with tasks
-that use the `crowd-form` element as we did in this in this
-tutorial, but may need to be modified if you use a standard
-`form` element.
+This information is returned in a Python dict that can be used to access any of the relevant values for each assignment. In addition, you can use the [ElementTree](https://docs.python.org/3.8/library/xml.etree.elementtree.html) library as shown below to parse the Answer XML into a format that can be more easily viewed. This code works well with tasks that use the `crowd-form` element as we did in this in this tutorial, but may need to be modified if you use a standard `form` element. 
 
 ```
-
 import xml.etree.ElementTree as ET
 import json
  
@@ -597,43 +505,33 @@ for assignment in response['Assignments']:
     answers.append(json.loads(assignment_answer.find('mt:FreeText', namespace).text))
 
 print(answers)
-
 ```
 
-Now that we've reviewed the results of our HIT, we can proceed to Step 4: Approve
-Assignments.
+ Now that we've reviewed the results of our HIT, we can proceed to Step 4: Approve Assignments. 
+
+------
 
 ## Step 4: Approve Assignments
+<a name="get-started-approve-assignments"></a>
 
-In this step, we approve the assignments submitted by workers so that the reward is
-transferred to their account. In Step 1, we set the Auto Approval Delay so that if we do
-nothing, workers are paid automatically after three days. However, it is always a best
-practice to approve work quickly if at all possible so that workers don't have to wait
-for the time to expire. Alternatively, if you plan to approve all of the assignments
-that are submitted, the Auto Approval Delay can be set to 0 and you can skip this step.
+In this step, we approve the assignments submitted by workers so that the reward is transferred to their account. In Step 1, we set the Auto Approval Delay so that if we do nothing, workers are paid automatically after three days. However, it is always a best practice to approve work quickly if at all possible so that workers don't have to wait for the time to expire. Alternatively, if you plan to approve all of the assignments that are submitted, the Auto Approval Delay can be set to 0 and you can skip this step. 
 
-We use the same `HITId` that was generated in Step 1. You will need to
-capture that identifier and insert it in the appropriate location below to approve the
-results.
+We use the same `HITId` that was generated in Step 1. You will need to capture that identifier and insert it in the appropriate location below to approve the results. 
 
-AWS CLI To approve the assignments, we need to start by retrieving a list of the
-`AssignmentId`s. We begin by getting a list of the
-`AssignmentId`s using a variation of the query we used in
-Step 3 to retrieve results.
+------
+#### [ AWS CLI ]
+
+To approve the assignments, we need to start by retrieving a list of the `AssignmentId`s. We begin by getting a list of the `AssignmentId`s using a variation of the query we used in Step 3 to retrieve results.
 
 ```
-
 $ aws mturk list-assignments-for-hit \
 --hit-id 3TL87MO8CLOFYXKXNRLMZO1MOK4FL5 \
 --query 'Assignments[*].AssignmentId'
-
 ```
 
-This returns a list of the `AssignmentId`s for our HIT as
-shown below.
+ This returns a list of the `AssignmentId`s for our HIT as shown below. 
 
 ```
-
 [
     "3IOEN3P9S7I9CGLBJQ50ANAQJXB16B",
     "32AT8R96GL8U8BA6SRINMUBFCJ5USP",
@@ -641,28 +539,24 @@ shown below.
     "3DI28L7YXADDPVEQP8OYMB230VZE19",
     "3LO69W1SU3COZGELODW56TWTBHJLG3"
 ]
-
 ```
 
-Now we can use the [`approve-assignment`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/approve-assignment.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/approve-assignment.html") operation to approve each
-of the assignments.
+ Now we can use the [`approve-assignment`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mturk/approve-assignment.html) operation to approve each of the assignments. 
 
 ```
-
 $ aws mturk approve-assignment --assignment-id 3IOEN3P9S7I9CGLBJQ50ANAQJXB16B
 $ aws mturk approve-assignment –-assignment-id 32AT8R96GL8U8BA6SRINMUBFCJ5USP
 $ aws mturk approve-assignment –-assignment-id 3FTOP5WARFNLTMF07QVP5MWL0BPJ0W
 $ aws mturk approve-assignment –-assignment-id 3DI28L7YXADDPVEQP8OYMB230VZE19
 $ aws mturk approve-assignment –-assignment-id 3LO69W1SU3COZGELODW56TWTBHJLG3
-
 ```
 
-SDK for Python (Boto3)
-To approve the assignments, retrieve the list of assignments using the
-`HITId` and iterating through the results to call the [`approve_assignment`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.approve_assignment "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.approve_assignment") operation.
+------
+#### [ SDK for Python (Boto3) ]
+
+To approve the assignments, retrieve the list of assignments using the `HITId` and iterating through the results to call the [`approve_assignment`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Client.approve_assignment) operation. 
 
 ```
-
 import boto3
  
 mturk = boto3.client('mturk')
@@ -671,5 +565,6 @@ response = mturk.list_assignments_for_hit(HITId='3TL87MO8CLOFYXKXNRLMZO1MOK4FL5'
 
 for assignment in response['Assignments']:
     mturk.approve_assignment(AssignmentId=assignment['AssignmentId'])
-
 ```
+
+------
