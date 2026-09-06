@@ -1,22 +1,25 @@
+
+
 # Logging AWS Partner Central API calls with AWS CloudTrail
+<a name="aws-cloudtrail-logging"></a>
 
-AWS Partner Central is integrated with [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/"), a service that provides a record of actions taken by a user, role, or an AWS service in AWS Partner Central. CloudTrail captures calls from the AWS Partner Central console and code calls to the AWS Partner Central API operations as events.
+AWS Partner Central is integrated with [AWS CloudTrail](https://aws.amazon.com/cloudtrail/), a service that provides a record of actions taken by a user, role, or an AWS service in AWS Partner Central. CloudTrail captures calls from the AWS Partner Central console and code calls to the AWS Partner Central API operations as events.
 
-CloudTrail is active in your AWS account when you create it and doesn't require any manual setup. Supported event activity in AWS Partner Central is recorded in a CloudTrail event, along with other AWS service events, on the **Event history** page of the [CloudTrail console](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/"). There you can view, search, and download events in your AWS account.
+CloudTrail is active in your AWS account when you create it and doesn't require any manual setup. Supported event activity in AWS Partner Central is recorded in a CloudTrail event, along with other AWS service events, on the **Event history** page of the [CloudTrail console](https://console.aws.amazon.com/cloudtrail/). There you can view, search, and download events in your AWS account.
 
 Every event or log entry contains the identity of the user who generated the request. This information helps you determine if the request was made by any of the following:
++ A user with root or AWS Identity and Access Management user credentials.
++ A user with temporary security credentials for a role, or a federated user.
++ Another AWS service.
 
-- A user with root or AWS Identity and Access Management user credentials.
-- A user with temporary security credentials for a role, or a federated user.
-- Another AWS service.
-  AWS Partner Central supports logging the `partnerCentralAccountManagement` operation as events in CloudTrail log files with `eventSource` `partnercentral-account-management.amazonaws.com`
+AWS Partner Central supports logging the `partnerCentralAccountManagement` operation as events in CloudTrail log files with `eventSource` `partnercentral-account-management.amazonaws.com`
 
-###### Topics
-
-- [AWS Partner Central log file entry examples](#entry-examples "#entry-examples")
-- [Related topics](#logging-related-topics "#logging-related-topics")
+**Topics**
++ [AWS Partner Central log file entry examples](#entry-examples)
++ [Related topics](#logging-related-topics)
 
 ## AWS Partner Central log file entry examples
+<a name="entry-examples"></a>
 
 **Example: `AssociatePartnerAccount`**
 
@@ -49,7 +52,6 @@ Every event or log entry contains the identity of the user who generated the req
    "recipientAccountId":"123456789012",
    "eventCategory":"Management"
 }
-
 ```
 
 **Example: `DisassociatePartnerUser`**
@@ -85,15 +87,14 @@ Every event or log entry contains the identity of the user who generated the req
    "recipientAccountId":"123456789012",
    "eventCategory":"Management"
 }
-
 ```
 
 ## Related topics
+<a name="logging-related-topics"></a>
 
-For more information, refer to the following sections in the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md"):
-
-- [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS service integrations with CloudTrail logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md")
+For more information, refer to the following sections in the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/):
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [AWS service integrations with CloudTrail logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html)
++ [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)
