@@ -1,29 +1,27 @@
+
+
 # Use `CreateDistribution` with an AWS SDK or CLI
+<a name="example_cloudfront_CreateDistribution_section"></a>
 
 The following code examples show how to use `CreateDistribution`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create a multi-tenant distribution and distribution tenant](example_cloudfront_CreateSaasResources_section.md) 
++  [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md) 
 
-- [Create a multi-tenant distribution and distribution tenant](example_cloudfront_CreateSaasResources_section.md "example_cloudfront_CreateSaasResources_section.md")
-- [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a CloudFront distribution**
-
-The following `create-distribution` example creates a distribution for an S3 bucket named `amzn-s3-demo-bucket`, and also specifies `index.html` as the default root object, using command line arguments.
+**AWS CLI**  
+**Example 1: To create a CloudFront distribution**  
+The following `create-distribution` example creates a distribution for an S3 bucket named `amzn-s3-demo-bucket`, and also specifies `index.html` as the default root object, using command line arguments.  
 
 ```
-`aws cloudfront create-distribution \
- --origin-domain-name `amzn-s3-demo-bucket.s3.amazonaws.com` \
- --default-root-object `index.html``
-
+aws cloudfront create-distribution \
+    --origin-domain-name {{amzn-s3-demo-bucket.s3.amazonaws.com}} \
+    --default-root-object {{index.html}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -141,18 +139,14 @@ Output:
     }
 }
 ```
-
-**Example 2: To create a CloudFront distribution using a JSON file**
-
-The following `create-distribution` example creates a distribution for an S3 bucket named `amzn-s3-demo-bucket`, and also specifies `index.html` as the default root object, using a JSON file.
+**Example 2: To create a CloudFront distribution using a JSON file**  
+The following `create-distribution` example creates a distribution for an S3 bucket named `amzn-s3-demo-bucket`, and also specifies `index.html` as the default root object, using a JSON file.  
 
 ```
-`aws cloudfront create-distribution \
- --distribution-config `file://dist-config.json``
-
+aws cloudfront create-distribution \
+    --distribution-config {{file://dist-config.json}}
 ```
-
-Contents of `dist-config.json`:
+Contents of `dist-config.json`:  
 
 ```
 {
@@ -254,20 +248,15 @@ Contents of `dist-config.json`:
     "IsIPV6Enabled": true
 }
 ```
-
-See Example 1 for sample output.
-
-**Example 3: To create a CloudFront multi-tenant distribution with a certificate**
-
-The following `create-distribution` example creates a CloudFront distribution with multi-tenant support and a specifies a TLS certificate.
+See Example 1 for sample output.  
+**Example 3: To create a CloudFront multi-tenant distribution with a certificate**  
+The following `create-distribution` example creates a CloudFront distribution with multi-tenant support and a specifies a TLS certificate.  
 
 ```
-`aws cloudfront create-distribution \
- --distribution-config `file://dist-config.json``
-
+aws cloudfront create-distribution \
+    --distribution-config {{file://dist-config.json}}
 ```
-
-Contents of `dist-config.json`:
+Contents of `dist-config.json`:  
 
 ```
 {
@@ -326,8 +315,7 @@ Contents of `dist-config.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -453,20 +441,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Working with distributions](distribution-working-with.md "distribution-working-with.md") in the _Amazon CloudFront Developer Guide_.
-
-**Example 4: To create a CloudFront multi-tenant distribution without a certificate**
-
-The following `create-distribution` example creates a CloudFront distribution with multi-tenant support but without a TLS certificate.
+For more information, see [Working with distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.html) in the *Amazon CloudFront Developer Guide*.  
+**Example 4: To create a CloudFront multi-tenant distribution without a certificate**  
+The following `create-distribution` example creates a CloudFront distribution with multi-tenant support but without a TLS certificate.  
 
 ```
-`aws cloudfront create-distribution \
- --distribution-config `file://dist-config.json``
-
+aws cloudfront create-distribution \
+    --distribution-config {{file://dist-config.json}}
 ```
-
-Contents of `dist-config.json`:
+Contents of `dist-config.json`:  
 
 ```
 {
@@ -527,8 +510,7 @@ Contents of `dist-config.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -658,29 +640,18 @@ Output:
     }
 }
 ```
+For more information, see [Configure distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.html) in the *Amazon CloudFront Developer Guide*.  
++  For API details, see [CreateDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/create-distribution.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Configure distributions](distribution-working-with.md "distribution-working-with.md") in the _Amazon CloudFront Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/create-distribution.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/create-distribution.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples").
-
-The following example uses an Amazon Simple Storage Service (Amazon S3) bucket as a content origin.
-
-After creating the distribution, the code creates a [CloudFrontWaiter](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/waiters/CloudFrontWaiter.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/waiters/CloudFrontWaiter.html") to wait until the distribution is deployed before returning the distribution.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples). 
+The following example uses an Amazon Simple Storage Service (Amazon S3) bucket as a content origin.  
+After creating the distribution, the code creates a [CloudFrontWaiter](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/waiters/CloudFrontWaiter.html) to wait until the distribution is deployed before returning the distribution.  
 
 ```
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.internal.waiters.ResponseOrException;
@@ -784,19 +755,14 @@ public class CreateDistribution {
                 return distribution;
         }
 }
-
-
 ```
++  For API details, see [CreateDistribution](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudfront-2020-05-31/CreateDistribution) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateDistribution](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CreateDistribution.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CreateDistribution.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Creates a basic CloudFront distribution, configured with logging and caching.**
+**Tools for PowerShell V4**  
+**Example 1: Creates a basic CloudFront distribution, configured with logging and caching.**  
 
 ```
 $origin = New-Object Amazon.CloudFront.Model.Origin
@@ -826,16 +792,11 @@ New-CFDistribution `
       -DistributionConfig_PriceClass "PriceClass_All" `
       -CacheBehaviors_Quantity 0 `
       -Aliases_Quantity 0
-
 ```
++  For API details, see [CreateDistribution](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateDistribution](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Creates a basic CloudFront distribution, configured with logging and caching.**
+**Tools for PowerShell V5**  
+**Example 1: Creates a basic CloudFront distribution, configured with logging and caching.**  
 
 ```
 $origin = New-Object Amazon.CloudFront.Model.Origin
@@ -865,13 +826,9 @@ New-CFDistribution `
       -DistributionConfig_PriceClass "PriceClass_All" `
       -CacheBehaviors_Quantity 0 `
       -Aliases_Quantity 0
-
 ```
++  For API details, see [CreateDistribution](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateDistribution](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

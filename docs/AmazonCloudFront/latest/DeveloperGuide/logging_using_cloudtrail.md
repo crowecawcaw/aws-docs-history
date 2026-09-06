@@ -1,111 +1,73 @@
+
+
 # Logging Amazon CloudFront API calls using AWS CloudTrail
+<a name="logging_using_cloudtrail"></a>
 
-CloudFront is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service
-that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures
+CloudFront is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for CloudFront as events. The calls captured include calls from the CloudFront console and code calls to the CloudFront API operations. Using the information collected by CloudTrail, you can determine the request that was made to CloudFront, the IP address from which the request was made, when it was made, and additional details.
 
-all API calls for CloudFront as events. The calls captured include calls from the CloudFront console and
-code calls to the CloudFront API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to CloudFront, the IP address from which the request was made,
-when it was made, and additional details.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root user or user credentials.
++ Whether the request was made on behalf of an IAM Identity Center user.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The identity
-information helps you determine the following:
+CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
-- Whether the request was made with root user or user credentials.
-- Whether the request was made on behalf of an IAM Identity Center user.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-  CloudTrail is active in your AWS account when you create the account and you automatically have
-  access to the CloudTrail **Event history**. The CloudTrail **Event
-  history** provides a viewable, searchable, downloadable, and immutable record of
-  the past 90 days of recorded management events in an AWS Region. For more information, see
-  [Working with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the
-  _AWS CloudTrail User Guide_. There are no CloudTrail charges for viewing the
-  **Event history**.
+For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
-For an ongoing record of events in your AWS account past 90 days, create a trail or a
-[CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+**CloudTrail trails**  
+A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) and [Creating a trail for an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*.  
+You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-**CloudTrail trails**
+**CloudTrail Lake event data stores**  
+*CloudTrail Lake* lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [ Apache ORC](https://orc.apache.org/) format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into *event data stores*, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-concepts.html#adv-event-selectors). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) in the *AWS CloudTrail User Guide*.  
+CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html#cloudtrail-lake-manage-costs-pricing-option) you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [Creating a trail for an organization](../../../awscloudtrail/latest/userguide/creating-trail-organization.md "../../../awscloudtrail/latest/userguide/creating-trail-organization.md") in the _AWS CloudTrail User Guide_.
-
-You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
-
-**CloudTrail Lake event data stores**
-
-_CloudTrail Lake_ lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [Apache ORC](https://orc.apache.org/ "https://orc.apache.org/") format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into _event data stores_, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors "../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors"). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") in the _AWS CloudTrail User Guide_.
-
-CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
-
-###### Note
-
-CloudFront is a global service. CloudTrail records events for CloudFront in the US East (N. Virginia) Region. For more
-information, see [Global service events](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-global-service-events "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-global-service-events") in the _AWS CloudTrail User Guide_.
-
-If you use temporary security credentials by using AWS Security Token Service, calls to regional
-endpoints, such as `us-west-2`, are logged in CloudTrail to their appropriate Region.
-
-For more information about CloudFront endpoints, see [CloudFront endpoints and
-quotas](../../../general/latest/gr/cf_region.md "../../../general/latest/gr/cf_region.md") in the _AWS General Reference_.
+**Note**  
+CloudFront is a global service. CloudTrail records events for CloudFront in the US East (N. Virginia) Region. For more information, see [Global service events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-global-service-events) in the *AWS CloudTrail User Guide*.  
+If you use temporary security credentials by using AWS Security Token Service, calls to regional endpoints, such as `us-west-2`, are logged in CloudTrail to their appropriate Region.   
+For more information about CloudFront endpoints, see [CloudFront endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/cf_region.html) in the *AWS General Reference*.
 
 ## CloudFront data events in CloudTrail
+<a name="cloudtrail-data-events"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or
-in a resource (for example, reading or writing to a CloudFront
-distribution). These are also known as
-data plane operations. Data events are often high-volume activities. By default, CloudTrail
-doesn’t log data events. The CloudTrail **Event history** doesn't record data
-events.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource (for example, reading or writing to a CloudFront distribution). These are also known as data plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log data events. The CloudTrail **Event history** doesn't record data events.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can log data events for the CloudFront resource types by using the CloudTrail console, AWS CLI, or
-CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
-_AWS CloudTrail User Guide_.
+You can log data events for the CloudFront resource types by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-The following table lists the CloudFront resource types for which you can log data events. The
-**Data event type (console)** column shows the value to
-choose from the **Data event type** list on the CloudTrail console. The
-**resources.type value** column shows the
-`resources.type` value, which you would specify when configuring advanced
-event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to
-CloudTrail** column shows the API calls logged to CloudTrail for the resource type.
+The following table lists the CloudFront resource types for which you can log data events. The **Data event type (console)** column shows the value to choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type` value, which you would specify when configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail for the resource type. 
 
-| Data event type (console)    | resources.type value             | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CloudFront KeyValueStore** | `AWS::CloudFront::KeyValueStore` | • [DeleteKeys](../../../cloudfront/latest/APIReference/API_kvs_DeleteKey.md "../../../cloudfront/latest/APIReference/API_kvs_DeleteKey.md")<br>• [DescribeKeyValueStore](../../../cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.md "../../../cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.md")<br>• [GetKey](../../../cloudfront/latest/APIReference/API_kvs_GetKey.md "../../../cloudfront/latest/APIReference/API_kvs_GetKey.md")<br>• [ListKeys](../../../cloudfront/latest/APIReference/API_kvs_ListKeys.md "../../../cloudfront/latest/APIReference/API_kvs_ListKeys.md")<br>• [PutKeys](../../../cloudfront/latest/APIReference/API_kvs_PutKey.md "../../../cloudfront/latest/APIReference/API_kvs_PutKey.md")<br>• [UpdateKeys](../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md "../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md") |
 
-You can configure advanced event selectors to filter on the `eventName`,
-`readOnly`, and `resources.ARN` fields to log only those events
-that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
-_AWS CloudTrail API Reference_.
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail | 
+| --- | --- | --- | 
+| CloudFront KeyValueStore |  AWS::CloudFront::KeyValueStore  |  +  [DeleteKeys](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_DeleteKey.html) <br />+  [DescribeKeyValueStore](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_DescribeKeyValueStore.html) <br />+  [GetKey](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_GetKey.html) <br />+  [ListKeys](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_ListKeys.html) <br />+  [PutKeys](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_PutKey.html) <br />+  [UpdateKeys](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_UpdateKeys.html)   | 
+
+You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
 ## CloudFront management events in CloudTrail
+<a name="cloudtrail-management-events"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-Amazon CloudFront logs all CloudFront control plane operations as management events. For a list of
-the Amazon CloudFront control plane operations that CloudFront logs to CloudTrail, see the [Amazon CloudFront API Reference](../../../cloudfront/latest/APIReference/API_Operations_Amazon_CloudFront.md "../../../cloudfront/latest/APIReference/API_Operations_Amazon_CloudFront.md").
+Amazon CloudFront logs all CloudFront control plane operations as management events. For a list of the Amazon CloudFront control plane operations that CloudFront logs to CloudTrail, see the [Amazon CloudFront API Reference](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_Operations_Amazon_CloudFront.html).
 
 ## CloudFront event examples
+<a name="cloudtrail-event-examples"></a>
 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
-###### Contents
-
-- [Example: UpdateDistribution](logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log")
-- [Example: UpdateKeys](logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log")
+**Contents**
++ [Example: UpdateDistribution](#example-cloudfront-service-cloudtrail-log)
++ [Example: UpdateKeys](#example-cloudfront-kvs-cloudtrail-log)
 
 ### Example: UpdateDistribution
+<a name="example-cloudfront-service-cloudtrail-log"></a>
 
-The following example shows a CloudTrail event that demonstrates the [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") operation.
+The following example shows a CloudTrail event that demonstrates the [UpdateDistribution](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html) operation.
 
-For calls to the CloudFront API, the `eventSource` is
-`cloudfront.amazonaws.com`.
+For calls to the CloudFront API, the `eventSource` is `cloudfront.amazonaws.com`.
 
 ```
 {
@@ -446,12 +408,11 @@ For calls to the CloudFront API, the `eventSource` is
 ```
 
 ### Example: UpdateKeys
+<a name="example-cloudfront-kvs-cloudtrail-log"></a>
 
-The following example shows a CloudTrail event that demonstrates the [UpdateKeys](../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md "../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md") operation.
+The following example shows a CloudTrail event that demonstrates the [UpdateKeys](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_kvs_UpdateKeys.html) operation.
 
-For calls to the CloudFront KeyValueStore API, the `eventSource` is
-`edgekeyvaluestore.amazonaws.com` instead of
-`cloudfront.amazonaws.com`.
+For calls to the CloudFront KeyValueStore API, the `eventSource` is `edgekeyvaluestore.amazonaws.com` instead of `cloudfront.amazonaws.com`.
 
 ```
 {
@@ -516,4 +477,4 @@ For calls to the CloudFront KeyValueStore API, the `eventSource` is
 }
 ```
 
-For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
+For information about CloudTrail record contents, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the *AWS CloudTrail User Guide*.

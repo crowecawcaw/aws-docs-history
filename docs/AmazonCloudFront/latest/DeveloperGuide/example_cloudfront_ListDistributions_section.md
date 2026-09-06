@@ -1,26 +1,24 @@
+
+
 # Use `ListDistributions` with an AWS SDK or CLI
+<a name="example_cloudfront_ListDistributions_section"></a>
 
 The following code examples show how to use `ListDistributions`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with web application firewalls](example_wafv2_GettingStarted_052_section.md) 
 
-- [Getting started with web application firewalls](example_wafv2_GettingStarted_052_section.md "example_wafv2_GettingStarted_052_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To list CloudFront distributions**
-
-The following example gets a list of the CloudFront distributions in your AWS account.
+**AWS CLI**  
+**To list CloudFront distributions**  
+The following example gets a list of the CloudFront distributions in your AWS account.  
 
 ```
-`aws cloudfront list-distributions`
-
+aws cloudfront list-distributions
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -126,48 +124,32 @@ Output:
     }
 }
 ```
++  For API details, see [ListDistributions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/list-distributions.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListDistributions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/list-distributions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/list-distributions.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Returns distributions.**
+**Tools for PowerShell V4**  
+**Example 1: Returns distributions.**  
 
 ```
 Get-CFDistributionList
-
 ```
++  For API details, see [ListDistributions](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListDistributions](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Returns distributions.**
+**Tools for PowerShell V5**  
+**Example 1: Returns distributions.**  
 
 ```
 Get-CFDistributionList
-
 ```
++  For API details, see [ListDistributions](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListDistributions](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudfront#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudfront#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudfront#code-examples). 
 
 ```
 class CloudFrontWrapper:
@@ -198,24 +180,14 @@ class CloudFrontWrapper:
                 print("")
         else:
             print("No CloudFront distributions detected.")
-
-
-
 ```
++  For API details, see [ListDistributions](https://docs.aws.amazon.com/goto/boto3/cloudfront-2020-05-31/ListDistributions) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListDistributions](../../../goto/boto3/cloudfront-2020-05-31/ListDistributions.md "../../../goto/boto3/cloudfront-2020-05-31/ListDistributions.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/fnt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/fnt#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/fnt#code-examples). 
 
 ```
     TRY.
@@ -224,14 +196,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_fntinvalidargument.
         MESSAGE 'Invalid argument provided.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListDistributions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListDistributions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

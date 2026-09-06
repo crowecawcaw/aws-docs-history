@@ -1,35 +1,29 @@
-# Create a URL signature using C# and the .NET Framework
 
-The C# examples in this section implement an example application that demonstrates how to
-create the signatures for CloudFront private distributions using canned and custom policy
-statements. The examples include utility functions based on the [AWS SDK for .NET](https://aws.amazon.com/sdkfornet "https://aws.amazon.com/sdkfornet") that can be useful in .NET
-applications.
 
-You can also create signed URLs and signed cookies by using the SDK for .NET. In the _SDK for .NET API Reference_, see the following topics:
+# Create a URL signature using C\# and the .NET Framework
+<a name="CreateSignatureInCSharp"></a>
 
-- **Signed URLs** – [AmazonCloudFrontUrlSigner](../../../sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontUrlSigner.md "../../../sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontUrlSigner.md")
-- **Signed cookies** – [AmazonCloudFrontCookieSigner](../../../sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontCookieSigner.md "../../../sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontCookieSigner.md")
-  To download the code, go to [Signature Code in C#](samples/AWS_PrivateCF_Distributions.zip.md "samples/AWS_PrivateCF_Distributions.zip.md").
+The C\# examples in this section implement an example application that demonstrates how to create the signatures for CloudFront private distributions using canned and custom policy statements. The examples include utility functions based on the [AWS SDK for .NET](https://aws.amazon.com/sdkfornet) that can be useful in .NET applications.
 
-###### Notes
+You can also create signed URLs and signed cookies by using the SDK for .NET. In the *SDK for .NET API Reference*, see the following topics:
++ **Signed URLs** – [AmazonCloudFrontUrlSigner](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontUrlSigner.html) 
++ **Signed cookies** – [AmazonCloudFrontCookieSigner](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/CloudFront/TCloudFrontCookieSigner.html) 
 
-- The `AmazonCloudFrontUrlSigner` and
-  `AmazonCloudFrontCookieSigner` classes have moved to a
-  separate package. For more information about using them, see [CookieSigner and UrlSigner](../../../sdk-for-net/v4/developer-guide/net-dg-v4.md#net-dg-v4-CookieSigner-UrlSigner "../../../sdk-for-net/v4/developer-guide/net-dg-v4.md#net-dg-v4-CookieSigner-UrlSigner") in the
-  _AWS SDK for .NET (V4) Developer Guide_.
-- Creating a URL signature is just one part of the process of serving
-  private content using a signed URL. For more information, see [Use signed URLs](private-content-signed-urls.md "private-content-signed-urls.md"). For more information
-  about using signed cookies, see [Use signed cookies](private-content-signed-cookies.md "private-content-signed-cookies.md").
-- In the RSA signing call, note that `SHA1` can be replaced with `SHA256` in the hash algorithm parameter.
+To download the code, go to [Signature Code in C\#](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/samples/AWS_PrivateCF_Distributions.zip).
+
+**Notes**  
+The `AmazonCloudFrontUrlSigner` and `AmazonCloudFrontCookieSigner` classes have moved to a separate package. For more information about using them, see [CookieSigner and UrlSigner](https://docs.aws.amazon.com/sdk-for-net/v4/developer-guide/net-dg-v4.html#net-dg-v4-CookieSigner-UrlSigner) in the *AWS SDK for .NET (V4) Developer Guide*. 
+Creating a URL signature is just one part of the process of serving private content using a signed URL. For more information, see [Use signed URLs](private-content-signed-urls.md). For more information about using signed cookies, see [Use signed cookies](private-content-signed-cookies.md).
+In the RSA signing call, note that `SHA1` can be replaced with `SHA256` in the hash algorithm parameter.
 
 ## Use an RSA key in the .NET Framework
+<a name="rsa-key-sdk-net"></a>
 
-To use an RSA key in the .NET Framework, you must convert the AWS supplied .pem file to
-the XML format that the .NET Framework uses.
+To use an RSA key in the .NET Framework, you must convert the AWS supplied .pem file to the XML format that the .NET Framework uses.
 
 After conversion, the RSA private key file is in the following format:
 
-###### Example: RSA private key in the XML .NET Framework format
+**Example : RSA private key in the XML .NET Framework format**  <a name="RSAPrivateKeyXML.NETFrameworkFormat"></a>
 
 ```
 <RSAKeyValue>
@@ -66,31 +60,21 @@ After conversion, the RSA private key file is in the following format:
 </RSAKeyValue>
 ```
 
-## Canned policy signing method in C#
+## Canned policy signing method in C\#
+<a name="canned-policy-signed-url-net"></a>
 
-The following C# code creates a signed URL that uses a canned policy by doing
-the following:
+The following C\# code creates a signed URL that uses a canned policy by doing the following:
++ Creates a policy statement.
++ Hashes the policy statement using SHA1, and signs the result using RSA and the private key whose corresponding public key is in a trusted key group.
++ Base64-encodes the hashed and signed policy statement and replaces special characters to make the string safe to use as a URL request parameter.
++ Concatenates the values.
 
-- Creates a policy statement.
-- Hashes the policy statement using SHA1, and signs the result using RSA
-  and the private key whose corresponding public key is in a trusted key
-  group.
-- Base64-encodes the hashed and signed policy statement and replaces
-  special characters to make the string safe to use as a URL request
-  parameter.
-- Concatenates the values.
+For the complete implementation, see the example at [Signature Code in C\#](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/samples/AWS_PrivateCF_Distributions.zip). 
 
-For the complete implementation, see the example at [Signature Code in
-C#](samples/AWS_PrivateCF_Distributions.zip.md "samples/AWS_PrivateCF_Distributions.zip.md").
+**Note**  
+The `keyId` is returned when you upload a public key to CloudFront. For more information, see ![6](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/callouts/6.png)[ &Key-Pair-Id](private-content-creating-signed-url-canned-policy.md).
 
-###### Note
-
-The `keyId` is returned when you upload a public key to CloudFront.
-For more information, see
-![6](images/callouts/6.png)
-[&Key-Pair-Id](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
-
-###### Example: Canned policy signing method in C#
+**Example : Canned policy signing method in C\#**  <a name="ExampleCannedPolicySigningMethod-CSharp"></a>
 
 ```
 public static string ToUrlSafeBase64String(byte[] bytes)
@@ -101,23 +85,23 @@ public static string ToUrlSafeBase64String(byte[] bytes)
         .Replace('/', '~');
 }
 
-public static string CreateCannedPrivateURL(string urlString,
-    string durationUnits, string durationNumber, string pathToPolicyStmnt,
+public static string CreateCannedPrivateURL(string urlString, 
+    string durationUnits, string durationNumber, string pathToPolicyStmnt, 
     string pathToPrivateKey, string keyId)
 {
-    // args[] 0-thisMethod, 1-resourceUrl, 2-seconds-minutes-hours-days
-    // to expiration, 3-numberOfPreviousUnits, 4-pathToPolicyStmnt,
+    // args[] 0-thisMethod, 1-resourceUrl, 2-seconds-minutes-hours-days 
+    // to expiration, 3-numberOfPreviousUnits, 4-pathToPolicyStmnt, 
     // 5-pathToPrivateKey, 6-keyId
 
     TimeSpan timeSpanInterval = GetDuration(durationUnits, durationNumber);
 
     // Create the policy statement.
     string strPolicy = CreatePolicyStatement(pathToPolicyStmnt,
-        urlString,
-        DateTime.Now,
-        DateTime.Now.Add(timeSpanInterval),
+        urlString, 
+        DateTime.Now, 
+        DateTime.Now.Add(timeSpanInterval), 
         "0.0.0.0/0");
-    if ("Error!" == strPolicy) return "Invalid time frame." +
+    if ("Error!" == strPolicy) return "Invalid time frame." + 
         "Start time cannot be greater than end time.";
 
     // Copy the expiration time defined by policy statement.
@@ -127,7 +111,7 @@ public static string CreateCannedPrivateURL(string urlString,
     byte[] bufferPolicy = Encoding.ASCII.GetBytes(strPolicy);
 
     // Initialize the SHA1CryptoServiceProvider object and hash the policy data.
-    using (SHA1CryptoServiceProvider
+    using (SHA1CryptoServiceProvider 
         cryptoSHA1 = new SHA1CryptoServiceProvider())
     {
         bufferPolicy = cryptoSHA1.ComputeHash(bufferPolicy);
@@ -136,63 +120,57 @@ public static string CreateCannedPrivateURL(string urlString,
         RSACryptoServiceProvider providerRSA = new RSACryptoServiceProvider();
         XmlDocument xmlPrivateKey = new XmlDocument();
 
-        // Load your private key, which you created by converting your
-        // .pem file to the XML format that the .NET framework uses.
-        // Several tools are available.
+        // Load your private key, which you created by converting your 
+        // .pem file to the XML format that the .NET framework uses.  
+        // Several tools are available. 
         xmlPrivateKey.Load(pathToPrivateKey);
 
-        // Format the RSACryptoServiceProvider providerRSA and
+        // Format the RSACryptoServiceProvider providerRSA and 
         // create the signature.
         providerRSA.FromXmlString(xmlPrivateKey.InnerXml);
-        RSAPKCS1SignatureFormatter rsaFormatter =
+        RSAPKCS1SignatureFormatter rsaFormatter = 
             new RSAPKCS1SignatureFormatter(providerRSA);
         rsaFormatter.SetHashAlgorithm("SHA1");
         byte[] signedPolicyHash = rsaFormatter.CreateSignature(bufferPolicy);
 
-        // Convert the signed policy to URL-safe base64 encoding and
+        // Convert the signed policy to URL-safe base64 encoding and 
         // replace unsafe characters + = / with the safe characters - _ ~
         string strSignedPolicy = ToUrlSafeBase64String(signedPolicyHash);
 
-        // Concatenate the URL, the timestamp, the signature,
+        // Concatenate the URL, the timestamp, the signature, 
         // and the key pair ID to form the signed URL.
-        return urlString +
-            "?Expires=" +
-            strExpiration +
-            "&Signature=" +
-            strSignedPolicy +
-            "&Key-Pair-Id=" +
+        return urlString + 
+            "?Expires=" + 
+            strExpiration + 
+            "&Signature=" + 
+            strSignedPolicy + 
+            "&Key-Pair-Id=" + 
             keyId;
     }
 }
 ```
 
-## Custom policy signing method in C#
+## Custom policy signing method in C\#
+<a name="custom-policy-signed-url-net"></a>
 
-The following C# code creates a signed URL that uses a custom policy by doing
-the following:
+The following C\# code creates a signed URL that uses a custom policy by doing the following:
 
 1. Creates a policy statement.
-2. Base64-encodes the policy statement and replaces special characters to
-   make the string safe to use as a URL request parameter.
-3. Hashes the policy statement using SHA1, and encrypts the result using
-   RSA and the private key whose corresponding public key is in a trusted
-   key group.
-4. Base64-encodes the hashed policy statement and replacing special
-   characters to make the string safe to use as a URL request
-   parameter.
-5. Concatenates the values.
 
-For the complete implementation, see the example at [Signature Code in
-C#](samples/AWS_PrivateCF_Distributions.zip.md "samples/AWS_PrivateCF_Distributions.zip.md").
+1. Base64-encodes the policy statement and replaces special characters to make the string safe to use as a URL request parameter.
 
-###### Note
+1. Hashes the policy statement using SHA1, and encrypts the result using RSA and the private key whose corresponding public key is in a trusted key group.
 
-The `keyId` is returned when you upload a public key to CloudFront.
-For more information, see
-![6](images/callouts/6.png)
-[&Key-Pair-Id](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
+1. Base64-encodes the hashed policy statement and replacing special characters to make the string safe to use as a URL request parameter.
 
-###### Example: Custom policy signing method in C#
+1. Concatenates the values.
+
+For the complete implementation, see the example at [Signature Code in C\#](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/samples/AWS_PrivateCF_Distributions.zip). 
+
+**Note**  
+The `keyId` is returned when you upload a public key to CloudFront. For more information, see ![6](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/callouts/6.png)[ &Key-Pair-Id](private-content-creating-signed-url-canned-policy.md).
+
+**Example : Custom policy signing method in C\#**  <a name="ExampleCustomPolicySigningMethod-CSharp"></a>
 
 ```
 public static string ToUrlSafeBase64String(byte[] bytes)
@@ -203,37 +181,37 @@ public static string ToUrlSafeBase64String(byte[] bytes)
         .Replace('/', '~');
 }
 
-public static string CreateCustomPrivateURL(string urlString,
-    string durationUnits, string durationNumber, string startIntervalFromNow,
-    string ipaddress, string pathToPolicyStmnt, string pathToPrivateKey,
+public static string CreateCustomPrivateURL(string urlString, 
+    string durationUnits, string durationNumber, string startIntervalFromNow, 
+    string ipaddress, string pathToPolicyStmnt, string pathToPrivateKey, 
     string keyId)
 {
-    // args[] 0-thisMethod, 1-resourceUrl, 2-seconds-minutes-hours-days
-    // to expiration, 3-numberOfPreviousUnits, 4-starttimeFromNow,
+    // args[] 0-thisMethod, 1-resourceUrl, 2-seconds-minutes-hours-days 
+    // to expiration, 3-numberOfPreviousUnits, 4-starttimeFromNow, 
     // 5-ip_address, 6-pathToPolicyStmt, 7-pathToPrivateKey, 8-keyId
 
     TimeSpan timeSpanInterval = GetDuration(durationUnits, durationNumber);
-    TimeSpan timeSpanToStart = GetDurationByUnits(durationUnits,
+    TimeSpan timeSpanToStart = GetDurationByUnits(durationUnits, 
         startIntervalFromNow);
-    if (null == timeSpanToStart)
-        return "Invalid duration units." +
+    if (null == timeSpanToStart) 
+        return "Invalid duration units." + 
             "Valid options: seconds, minutes, hours, or days";
-
+            
     string strPolicy = CreatePolicyStatement(
-        pathToPolicyStmnt, urlString, DateTime.Now.Add(timeSpanToStart),
+        pathToPolicyStmnt, urlString, DateTime.Now.Add(timeSpanToStart), 
         DateTime.Now.Add(timeSpanInterval), ipaddress);
 
     // Read the policy into a byte buffer.
     byte[] bufferPolicy = Encoding.ASCII.GetBytes(strPolicy);
 
-    // Convert the policy statement to URL-safe base64 encoding and
+    // Convert the policy statement to URL-safe base64 encoding and 
     // replace unsafe characters + = / with the safe characters - _ ~
 
     string urlSafePolicy = ToUrlSafeBase64String(bufferPolicy);
 
     // Initialize the SHA1CryptoServiceProvider object and hash the policy data.
     byte[] bufferPolicyHash;
-    using (SHA1CryptoServiceProvider cryptoSHA1 =
+    using (SHA1CryptoServiceProvider cryptoSHA1 = 
         new SHA1CryptoServiceProvider())
     {
         bufferPolicyHash = cryptoSHA1.ComputeHash(bufferPolicy);
@@ -242,48 +220,48 @@ public static string CreateCustomPrivateURL(string urlString,
         RSACryptoServiceProvider providerRSA = new RSACryptoServiceProvider();
         XmlDocument xmlPrivateKey = new XmlDocument();
 
-        // Load your private key, which you created by converting your
-        // .pem file to the XML format that the .NET framework uses.
-        // Several tools are available.
+        // Load your private key, which you created by converting your 
+        // .pem file to the XML format that the .NET framework uses.  
+        // Several tools are available. 
         xmlPrivateKey.Load(pathToPrivateKey);
 
-        // Format the RSACryptoServiceProvider providerRSA
+        // Format the RSACryptoServiceProvider providerRSA 
         // and create the signature.
         providerRSA.FromXmlString(xmlPrivateKey.InnerXml);
-        RSAPKCS1SignatureFormatter RSAFormatter =
+        RSAPKCS1SignatureFormatter RSAFormatter = 
             new RSAPKCS1SignatureFormatter(providerRSA);
         RSAFormatter.SetHashAlgorithm("SHA1");
         byte[] signedHash = RSAFormatter.CreateSignature(bufferPolicyHash);
 
-        // Convert the signed policy to URL-safe base64 encoding and
+        // Convert the signed policy to URL-safe base64 encoding and 
         // replace unsafe characters + = / with the safe characters - _ ~
         string strSignedPolicy = ToUrlSafeBase64String(signedHash);
 
-        return urlString +
-            "?Policy=" +
-            urlSafePolicy +
-            "&Signature=" +
-            strSignedPolicy +
-            "&Key-Pair-Id=" +
+        return urlString + 
+            "?Policy=" + 
+            urlSafePolicy + 
+            "&Signature=" + 
+            strSignedPolicy + 
+            "&Key-Pair-Id=" + 
             keyId;
     }
 }
 ```
 
 ## Utility methods for signature generation
+<a name="utility-methods-signed-url"></a>
 
-The following methods get the policy statement from a file and parse time intervals for signature
-generation.
+The following methods get the policy statement from a file and parse time intervals for signature generation.
 
-###### Example: Utility methods for signature generation
+**Example : Utility methods for signature generation**  <a name="UtilityMethodsForSignatureGeneration"></a>
 
 ```
-public static string CreatePolicyStatement(string policyStmnt,
-   string resourceUrl,
-   DateTime startTime,
-   DateTime endTime,
+public static string CreatePolicyStatement(string policyStmnt, 
+   string resourceUrl, 
+   DateTime startTime, 
+   DateTime endTime, 
    string ipAddress)
-
+   
 {
    // Create the policy statement.
    FileStream streamPolicy = new FileStream(policyStmnt, FileMode.Open, FileAccess.Read);
@@ -293,11 +271,11 @@ public static string CreatePolicyStatement(string policyStmnt,
 
       TimeSpan startTimeSpanFromNow = (startTime - DateTime.Now);
       TimeSpan endTimeSpanFromNow = (endTime - DateTime.Now);
-      TimeSpan intervalStart =
-         (DateTime.UtcNow.Add(startTimeSpanFromNow)) -
+      TimeSpan intervalStart = 
+         (DateTime.UtcNow.Add(startTimeSpanFromNow)) - 
          new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-      TimeSpan intervalEnd =
-         (DateTime.UtcNow.Add(endTimeSpanFromNow)) -
+      TimeSpan intervalEnd = 
+         (DateTime.UtcNow.Add(endTimeSpanFromNow)) - 
          new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
       int startTimestamp = (int)intervalStart.TotalSeconds; // START_TIME
@@ -313,7 +291,7 @@ public static string CreatePolicyStatement(string policyStmnt,
       strPolicy = strPolicy.Replace("IP_ADDRESS", ipAddress);
       strPolicy = strPolicy.Replace("EXPIRES", endTimestamp.ToString());
       return strPolicy;
-   }
+   }   
 }
 
 public static TimeSpan GetDuration(string units, string numUnits)
@@ -334,14 +312,14 @@ public static TimeSpan GetDuration(string units, string numUnits)
          timeSpanInterval = new TimeSpan(int.Parse(numUnits),0 ,0 ,0);
          break;
       default:
-         Console.WriteLine("Invalid time units;" +
+         Console.WriteLine("Invalid time units;" + 
             "use seconds, minutes, hours, or days");
          break;
    }
    return timeSpanInterval;
 }
 
-private static TimeSpan GetDurationByUnits(string durationUnits,
+private static TimeSpan GetDurationByUnits(string durationUnits, 
    string startIntervalFromNow)
 {
    switch (durationUnits)
@@ -362,24 +340,23 @@ private static TimeSpan GetDurationByUnits(string durationUnits,
 public static string CopyExpirationTimeFromPolicy(string policyStatement)
 {
    int startExpiration = policyStatement.IndexOf("EpochTime");
-   string strExpirationRough = policyStatement.Substring(startExpiration +
+   string strExpirationRough = policyStatement.Substring(startExpiration + 
       "EpochTime".Length);
    char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-
+         
    List<char> listDigits = new List<char>(digits);
    StringBuilder buildExpiration = new StringBuilder(20);
-
+         
    foreach (char c in strExpirationRough)
    {
       if (listDigits.Contains(c))
          buildExpiration.Append(c);
    }
-   return buildExpiration.ToString();
+   return buildExpiration.ToString();   
 }
 ```
 
 See also
-
-- [Create a URL signature using Perl](CreateURLPerl.md "CreateURLPerl.md")
-- [Create a URL signature using PHP](CreateURL_PHP.md "CreateURL_PHP.md")
-- [Create a URL signature using Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")
++ [Create a URL signature using Perl](CreateURLPerl.md)
++ [Create a URL signature using PHP](CreateURL_PHP.md)
++ [Create a URL signature using Java](CFPrivateDistJavaDevelopment.md)

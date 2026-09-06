@@ -1,135 +1,78 @@
+
+
 # HTTP 503 status code (Service Unavailable)
+<a name="http-503-service-unavailable"></a>
 
-An HTTP 503 status code (Service Unavailable) typically indicates a performance
-issue on the origin server. In rare cases, it indicates that CloudFront temporarily can't
-satisfy a request because of resource constraints at an edge location.
+An HTTP 503 status code (Service Unavailable) typically indicates a performance issue on the origin server. In rare cases, it indicates that CloudFront temporarily can't satisfy a request because of resource constraints at an edge location.
 
-If you are using Lambda@Edge or CloudFront Functions, the issue might be an execution
-error or a Lambda@Edge limit exceeded error.
+If you are using Lambda@Edge or CloudFront Functions, the issue might be an execution error or a Lambda@Edge limit exceeded error.
 
-If you are using origin mutual TLS (origin mTLS), the issue might be due to
-repeated failed attempts to establish a connection with a specific certificate.
+If you are using origin mutual TLS (origin mTLS), the issue might be due to repeated failed attempts to establish a connection with a specific certificate.
 
-###### Topics
-
-- [Origin server does not have enough capacity to support the request rate](#http-503-service-unavailable-not-enough-origin-capacity "#http-503-service-unavailable-not-enough-origin-capacity")
-- [CloudFront caused the error due to resource constraints at the edge location](#http-503-service-unavailable-limited-resources-at-edge-location "#http-503-service-unavailable-limited-resources-at-edge-location")
-- [CloudFront caused the error for an origin configured with mutual TLS](#http-503-service-unavailable-origin-mtls "#http-503-service-unavailable-origin-mtls")
-- [Lambda@Edge or CloudFront Function execution error](#http-503-lambda-execution-error "#http-503-lambda-execution-error")
-- [Lambda@Edge limit exceeded](#http-503-lambda-limit-exceeded-error "#http-503-lambda-limit-exceeded-error")
+**Topics**
++ [Origin server does not have enough capacity to support the request rate](#http-503-service-unavailable-not-enough-origin-capacity)
++ [CloudFront caused the error due to resource constraints at the edge location](#http-503-service-unavailable-limited-resources-at-edge-location)
++ [CloudFront caused the error for an origin configured with mutual TLS](#http-503-service-unavailable-origin-mtls)
++ [Lambda@Edge or CloudFront Function execution error](#http-503-lambda-execution-error)
++ [Lambda@Edge limit exceeded](#http-503-lambda-limit-exceeded-error)
 
 ## Origin server does not have enough capacity to support the request rate
+<a name="http-503-service-unavailable-not-enough-origin-capacity"></a>
 
-When an origin server is unavailable or unable to serve incoming requests, it
-returns an HTTP 503 status code (Service Unavailable). CloudFront then relays the
-error back to the user. To resolve this issue, try the following
-solutions:
+When an origin server is unavailable or unable to serve incoming requests, it returns an HTTP 503 status code (Service Unavailable). CloudFront then relays the error back to the user. To resolve this issue, try the following solutions:
++ **If you use Amazon S3 as your origin server**:
+  + You can send 3,500 PUT/COPY/POST/DELETE or 5,500 GET/HEAD requests per second per partitioned Amazon S3 prefix. When Amazon S3 returns a 503 Slow Down response, this typically indicates an excessive request rate against a specific Amazon S3 prefix.
 
-- **If you use Amazon S3 as your origin
-  server**:
+    Because request rates apply per prefix in an S3 bucket, objects should be distributed across multiple prefixes. As the request rate on the prefixes gradually increases, Amazon S3 scales up to handle requests for each of the prefixes separately. As a result, the overall request rate that the bucket handles is a multiple of the number of prefixes.
+  + For more information, see [Optimizing Amazon S3 performance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance.html) in the *Amazon Simple Storage Service User Guide*.
++ **If you use Elastic Load Balancing as your origin server**:
+  + Make sure that your backend instances can respond to health checks.
+  + Make sure that your load balancer and backend instances can handle the load.
 
-  - You can send 3,500 PUT/COPY/POST/DELETE or 5,500 GET/HEAD
-    requests per second per partitioned Amazon S3 prefix. When Amazon S3
-    returns a 503 Slow Down response, this typically indicates an
-    excessive request rate against a specific Amazon S3 prefix.
-
-  Because request rates apply per prefix in an S3 bucket,
-  objects should be distributed across multiple prefixes. As the
-  request rate on the prefixes gradually increases, Amazon S3 scales up
-  to handle requests for each of the prefixes separately. As a
-  result, the overall request rate that the bucket handles is a
-  multiple of the number of prefixes.
-  - For more information, see [Optimizing Amazon S3 performance](../../../AmazonS3/latest/userguide/optimizing-performance.md "../../../AmazonS3/latest/userguide/optimizing-performance.md") in
-    the _Amazon Simple Storage Service User Guide_.
-
-- **If you use Elastic Load Balancing as your origin
-  server**:
-
-  - Make sure that your backend instances can respond to health
-    checks.
-  - Make sure that your load balancer and backend instances can
-    handle the load.
-    For more information, see:
-
-  - [How do I troubleshoot 503 errors returned while using
-    Classic Load Balancer?](https://repost.aws/knowledge-center/503-error-classic "https://repost.aws/knowledge-center/503-error-classic")
-  - [How do I troubleshoot 503 (service unavailable) errors from
-    my Application Load Balancer?](https://repost.aws/knowledge-center/alb-troubleshoot-503-errors "https://repost.aws/knowledge-center/alb-troubleshoot-503-errors")
-
-- **If you use a custom origin**:
-
-  - Examine the application logs to ensure that your origin has
-    sufficient resources, such as memory, CPU, and disk size.
-  - If you use Amazon EC2 as the backend, make sure that the instance
-    type has the appropriate resources to fulfill the incoming
-    requests. For more information, see [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in the
-    _Amazon EC2 User Guide_.
-
-- **If you use API Gateway**:
-
-  - This error is related to the backend integration when the
-    API Gateway API is unable to receive a response. The backend server
-    might be:
-
-    - Overloaded beyond capacity and unable to process new
-      client requests.
-    - Under temporary maintenance.
-
-  - To resolve this error, look at your API Gateway application logs to
-    determine if there is an issue with backend capacity,
-    integration, or something else.
+  For more information, see:
+  + [How do I troubleshoot 503 errors returned while using Classic Load Balancer?](https://repost.aws/knowledge-center/503-error-classic)
+  + [How do I troubleshoot 503 (service unavailable) errors from my Application Load Balancer?](https://repost.aws/knowledge-center/alb-troubleshoot-503-errors)
++ **If you use a custom origin**:
+  + Examine the application logs to ensure that your origin has sufficient resources, such as memory, CPU, and disk size.
+  + If you use Amazon EC2 as the backend, make sure that the instance type has the appropriate resources to fulfill the incoming requests. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
++ **If you use API Gateway**:
+  + This error is related to the backend integration when the API Gateway API is unable to receive a response. The backend server might be:
+    + Overloaded beyond capacity and unable to process new client requests.
+    + Under temporary maintenance.
+  + To resolve this error, look at your API Gateway application logs to determine if there is an issue with backend capacity, integration, or something else.
 
 ## CloudFront caused the error due to resource constraints at the edge location
+<a name="http-503-service-unavailable-limited-resources-at-edge-location"></a>
 
-You will receive this error in the rare situation that CloudFront can't route
-requests to the next best available edge location, and so can't satisfy a
-request. This error is common when you perform load testing on your CloudFront
-distribution. To help prevent this, follow the [Load testing CloudFront](load-testing.md "load-testing.md")
-guidelines for avoiding 503 (capacity exceeded) errors.
+You will receive this error in the rare situation that CloudFront can't route requests to the next best available edge location, and so can't satisfy a request. This error is common when you perform load testing on your CloudFront distribution. To help prevent this, follow the [Load testing CloudFront](load-testing.md) guidelines for avoiding 503 (capacity exceeded) errors.
 
-If this happens in your production environment, contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+If this happens in your production environment, contact [Support](https://console.aws.amazon.com/support/home#/).
 
 ## CloudFront caused the error for an origin configured with mutual TLS
+<a name="http-503-service-unavailable-origin-mtls"></a>
 
-If your distribution uses mutual TLS (mTLS) to connect to a custom origin,
-CloudFront may return an HTTP 503 status code when it is unable to establish
-connections to the origin. This can happen when the origin repeatedly fails to
-complete TLS handshakes or is unreachable due to DNS or connectivity issues.
-This condition is temporary — CloudFront automatically resumes normal traffic once
-the origin is reachable again.
+If your distribution uses mutual TLS (mTLS) to connect to a custom origin, CloudFront may return an HTTP 503 status code when it is unable to establish connections to the origin. This can happen when the origin repeatedly fails to complete TLS handshakes or is unreachable due to DNS or connectivity issues. This condition is temporary — CloudFront automatically resumes normal traffic once the origin is reachable again.
 
 To resolve this issue:
++ Confirm that the correct client certificate is associated with your distribution and that it has not expired. If you recently updated the certificate, allow time for the change to propagate before it takes effect.
++ Confirm that the origin is reachable and that DNS records resolve correctly.
 
-- Confirm that the correct client certificate is associated with your
-  distribution and that it has not expired. If you recently updated the
-  certificate, allow time for the change to propagate before it takes
-  effect.
-- Confirm that the origin is reachable and that DNS records resolve
-  correctly.
-
-If the issue persists despite configuring the proper certificate in your
-production environment, contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+If the issue persists despite configuring the proper certificate in your production environment, contact [Support](https://console.aws.amazon.com/support/home#/).
 
 ## Lambda@Edge or CloudFront Function execution error
+<a name="http-503-lambda-execution-error"></a>
 
-If you're using Lambda@Edge or CloudFront Functions, an HTTP 503 status code can
-indicate that your function returned an execution error.
+If you're using Lambda@Edge or CloudFront Functions, an HTTP 503 status code can indicate that your function returned an execution error. 
 
-For more details about how to identify and resolve Lambda@Edge errors, see
-[Test and debug Lambda@Edge functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md").
+For more details about how to identify and resolve Lambda@Edge errors, see [Test and debug Lambda@Edge functions](lambda-edge-testing-debugging.md).
 
-For more information about testing CloudFront Functions, see [Test functions](test-function.md "test-function.md").
+For more information about testing CloudFront Functions, see [Test functions](test-function.md).
 
 ## Lambda@Edge limit exceeded
+<a name="http-503-lambda-limit-exceeded-error"></a>
 
-If you're using Lambda@Edge, an HTTP 503 status code can indicate that Lambda
-returned an error. The error might be caused by one of the following:
+If you're using Lambda@Edge, an HTTP 503 status code can indicate that Lambda returned an error. The error might be caused by one of the following:
++ The number of function executions exceeded one of the quotas that Lambda sets to throttle executions in an AWS Region (concurrent executions or invocation frequency).
++ The function exceeded the Lambda function timeout quota.
 
-- The number of function executions exceeded one of the quotas that
-  Lambda sets to throttle executions in an AWS Region (concurrent
-  executions or invocation frequency).
-- The function exceeded the Lambda function timeout quota.
-
-For more information about the Lambda@Edge quotas, see [Quotas on Lambda@Edge](cloudfront-limits.md#limits-lambda-at-edge "cloudfront-limits.md#limits-lambda-at-edge"). For
-more details about how to identify and resolve Lambda@Edge errors, see [Test and debug Lambda@Edge functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md"). You can also see the [Lambda
-service quotas](../../../lambda/latest/dg/gettingstarted-limits.md "../../../lambda/latest/dg/gettingstarted-limits.md") in the _AWS Lambda Developer Guide_.
+For more information about the Lambda@Edge quotas, see [Quotas on Lambda@Edge](cloudfront-limits.md#limits-lambda-at-edge). For more details about how to identify and resolve Lambda@Edge errors, see [Test and debug Lambda@Edge functions](lambda-edge-testing-debugging.md). You can also see the [Lambda service quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html) in the *AWS Lambda Developer Guide*. 

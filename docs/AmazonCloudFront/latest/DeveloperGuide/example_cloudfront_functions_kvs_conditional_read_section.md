@@ -1,19 +1,18 @@
+
+
 # Rewrite a request URI based on KeyValueStore configuration for a CloudFront Functions viewer request event
+<a name="example_cloudfront_functions_kvs_conditional_read_section"></a>
 
 The following code example shows how to rewrite a request URI based on KeyValueStore configuration for a CloudFront Functions viewer request event.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**JavaScript runtime 2.0 for CloudFront Functions**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/kvs-conditional-read "https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/kvs-conditional-read")
-repository.
+**JavaScript runtime 2.0 for CloudFront Functions**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/kvs-conditional-read) repository. 
 
 ```
-import cf from 'cloudfront';
+import cf from 'cloudfront'; 
 
 // (Optional) Replace KVS_ID with actual KVS ID
 const kvsId = "KVS_ID";
@@ -21,21 +20,21 @@ const kvsId = "KVS_ID";
 const stickinessCookieName = "appversion";
 // set to true to enable console logging
 const loggingEnabled = false;
-
+   
 // function rewrites the request uri based on configuration in KVS
 // example config in KVS in key:value format
 // "latest": {"a_weightage": .8, "a_url": "v1", "b_url": "v2"}
-// given above key and value in KVS the request uri will be rewritten
+// given above key and value in KVS the request uri will be rewritten 
 // for example http(s)://domain/latest/something/else will be rewritten as http(s)://domain/v1/something/else or http(s)://domain/v2/something/else depending on weightage
 // if no configuration is found, then the request is returned as is
 async function handler(event) {
-    // NOTE: This example function is for a viewer request event trigger.
-    // Choose viewer request for event trigger when you associate this function with a distribution.
+    // NOTE: This example function is for a viewer request event trigger. 
+    // Choose viewer request for event trigger when you associate this function with a distribution. 
     const request = event.request;
     const pathSegments = request.uri.split('/');
     const key = pathSegments[1];
-
-    // if empty path segment or if there is valid stickiness cookie
+    
+    // if empty path segment or if there is valid stickiness cookie 
     // then skip call to KVS and let the request continue.
     if (!key || hasValidSticknessCookie(request.cookies[stickinessCookieName], key)) {
         return event.request;
@@ -47,7 +46,7 @@ async function handler(event) {
         if (!replacement) {
             return event.request;
         }
-        //Replace the first path with the replacement
+        //Replace the first path with the replacement 
         pathSegments[1] = replacement;
         log(`using prefix ${pathSegments[1]}`)
         const newUri = pathSegments.join('/');
@@ -59,7 +58,7 @@ async function handler(event) {
         // No change to the path if the key is not found or any other error
         log(`request uri: ${request.uri}, error: ${err}`);
     }
-    // no change to path - return request
+    // no change to path - return request 
     return event.request;
 }
 
@@ -69,10 +68,10 @@ async function getPathPrefixByWeightage(key) {
     // get the weightage config from KVS
     const kvsResponse = await kvsHandle.get(key);
     const weightageConfig = JSON.parse(kvsResponse);
-    // no configuration - return null
+    // no configuration - return null    
     if (!weightageConfig || !isFinite(weightageConfig.a_weightage)) {
         return null;
-    }
+    } 
     // return the url based on weightage
     // return null if no url is configured
     if (Math.random() <= weightageConfig.a_weightage) {
@@ -93,10 +92,8 @@ function log(message) {
         console.log(message);
     }
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

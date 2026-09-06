@@ -1,25 +1,21 @@
+
+
 # Create a URL signature using Perl
+<a name="CreateURLPerl"></a>
 
-This section includes a Perl script for Linux/Mac platforms that you can use to create the signature for private
-content. To create the signature, run the script with command line arguments that specify the CloudFront URL, the path
-to the private key of the signer, the key ID, and an expiration date for the URL. The tool can also decode signed
-URLs.
+This section includes a Perl script for Linux/Mac platforms that you can use to create the signature for private content. To create the signature, run the script with command line arguments that specify the CloudFront URL, the path to the private key of the signer, the key ID, and an expiration date for the URL. The tool can also decode signed URLs. 
 
-###### Notes
+**Notes**  
+Creating a URL signature is just one part of the process of serving private content using a signed URL. For more information about the end-to-end process, see [Use signed URLs](private-content-signed-urls.md). 
+In the signing command, note that `sha1` can be replaced with `sha256` in the `openssl dgst` call.
 
-- Creating a URL signature is just one part of the process of serving private content using a signed URL. For
-  more information about the end-to-end process, see [Use signed URLs](private-content-signed-urls.md "private-content-signed-urls.md").
-- In the signing command, note that `sha1` can be replaced with `sha256` in the `openssl dgst` call.
-
-###### Topics
-
-- [Source for the Perl script to create a signed URL](#CreateURLPerlScriptSource "#CreateURLPerlScriptSource")
+**Topics**
++ [Source for the Perl script to create a signed URL](#CreateURLPerlScriptSource)
 
 ## Source for the Perl script to create a signed URL
+<a name="CreateURLPerlScriptSource"></a>
 
-The following Perl source code can be used to create a signed URL for CloudFront. Comments in
-the code include information about the command line switches and the features of
-the tool.
+The following Perl source code can be used to create a signed URL for CloudFront. Comments in the code include information about the command line switches and the features of the tool.
 
 ```
 #!/usr/bin/perl -w
@@ -40,7 +36,7 @@ cfsign.pl - A tool to generate and verify Amazon CloudFront signed URLs
 
 This script uses an existing RSA key pair to sign and verify Amazon CloudFront signed URLs
 
-View the script source for details as to which CPAN packages are required beforehand.
+View the script source for details as to which CPAN packages are required beforehand. 
 
 For help, try:
 
@@ -102,7 +98,7 @@ The CloudFront policy document.
 =item B<--expires>
 
 The Unix epoch time when the URL is to expire. If both this option and
-the --policy option are specified, --policy will be used. Otherwise, this
+the --policy option are specified, --policy will be used. Otherwise, this 
 option alone will use a canned policy.
 
 =back
@@ -123,7 +119,7 @@ use MIME::Base64 qw(encode_base64 decode_base64);
 use Pod::Usage;
 use URI;
 
-my $CANNED_POLICY
+my $CANNED_POLICY 
     = '{"Statement":[{"Resource":"<RESOURCE>","Condition":{"DateLessThan":{"AWS:EpochTime":<EXPIRES>}}}]}';
 
 my $POLICY_PARAM      = "Policy";
@@ -177,22 +173,22 @@ if ($stream ne "") {
     # The signing mechanism is identical, so from here on just pretend we're
     # dealing with a URL
     $url = $stream;
-}
+} 
 
 if ($action eq "encode") {
-    # The encode action will generate a private content URL given a base URL,
+    # The encode action will generate a private content URL given a base URL, 
     # a policy file (or an expires timestamp) and a key pair id parameter
     my $private_key;
     my $public_key;
     my $public_key_file;
-
+    
     my $policy;
     if ($policy_filename eq "") {
         if ($expires_epoch == 0) {
-            print STDERR "Must include policy filename with --policy argument or an expires" .
-                          "time using --expires\n";
+            print STDERR "Must include policy filename with --policy argument or an expires" . 
+                          "time using --expires\n";            
         }
-
+        
         $policy = $CANNED_POLICY;
         $policy =~ s/<EXPIRES>/$expires_epoch/g;
         $policy =~ s/<RESOURCE>/$url/g;
@@ -229,7 +225,7 @@ if ($action eq "encode") {
 
     if ($stream ne "") {
         print "Encoded stream (for use within a swf):\n" . $generated_url . "\n";
-        print "Encoded and escaped stream (for use on a webpage):\n" .  escape_url_for_webpage($generated_url) . "\n";
+        print "Encoded and escaped stream (for use on a webpage):\n" .  escape_url_for_webpage($generated_url) . "\n"; 
     } else {
         print "Encoded URL:\n" . $generated_url . "\n";
     }
@@ -275,26 +271,26 @@ sub decode_url {
         } else {
             if (!exists $params{$EXPIRES_PARAM}) {
                 print STDERR "Either the Policy or Expires URL parameter needs to be specified\n";
-                return 0;
+                return 0;    
             }
-
+            
             my $expires = $params{$EXPIRES_PARAM};
-
+            
             my $policy = $CANNED_POLICY;
             $policy =~ s/<EXPIRES>/$expires/g;
-
+            
             my $url_without_cf_params = $url;
             $url_without_cf_params =~ s/$SIGNATURE_PARAM=[^&]*&?//g;
             $url_without_cf_params =~ s/$POLICY_PARAM=[^&]*&?//g;
             $url_without_cf_params =~ s/$EXPIRES_PARAM=[^&]*&?//g;
             $url_without_cf_params =~ s/$KEY_PAIR_ID_PARAM=[^&]*&?//g;
-
+            
             if ($url_without_cf_params =~ /(.*)\?$/) {
                 $url_without_cf_params = $1;
             }
-
+            
             $policy =~ s/<RESOURCE>/$url_without_cf_params/g;
-
+            
             $encoded_policy = url_safe_base64_encode($policy);
         }
 
@@ -354,7 +350,7 @@ sub url_safe_base64_decode {
 # Create a private content URL
 sub create_url {
     my ($path, $policy, $signature, $key_pair_id, $expires) = @_;
-
+    
     my $result;
     my $separator = $path =~ /\?/ ? '&' : '?';
     if ($expires) {

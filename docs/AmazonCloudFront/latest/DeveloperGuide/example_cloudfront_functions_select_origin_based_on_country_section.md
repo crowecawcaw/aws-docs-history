@@ -1,16 +1,15 @@
+
+
 # Route requests to an origin closer to the viewer in a CloudFront Functions viewer request event
+<a name="example_cloudfront_functions_select_origin_based_on_country_section"></a>
 
 The following code example shows how to route requests to an origin closer to the viewer in a CloudFront Functions viewer request event.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**JavaScript runtime 2.0 for CloudFront Functions**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/select-origin-based-on-country "https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/select-origin-based-on-country")
-repository.
+**JavaScript runtime 2.0 for CloudFront Functions**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/select-origin-based-on-country) repository. 
 
 ```
 import cf from 'cloudfront';
@@ -51,9 +50,8 @@ function handler(event) {
 
     return request;
 }
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

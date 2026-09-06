@@ -1,52 +1,35 @@
+
+
 # Use `DeleteDistribution` with an AWS SDK or CLI
+<a name="example_cloudfront_DeleteDistribution_section"></a>
 
 The following code examples show how to use `DeleteDistribution`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md) 
 
-- [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To delete a CloudFront distribution**
-
-The following example deletes the CloudFront distribution with the ID
-`EDFDVBD6EXAMPLE`. Before you can delete a distribution, you must disable it.
-To disable a distribution, use the update-distribution command. For more information, see the
-update-distribution examples.
-
-When a distribution is disabled, you can delete it. To delete a distribution,
-you must use the `--if-match` option to provide the distribution's `ETag`.
-To get the `ETag`, use the get-distribution or
-get-distribution-config command.
+**AWS CLI**  
+**To delete a CloudFront distribution**  
+The following example deletes the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`. Before you can delete a distribution, you must disable it. To disable a distribution, use the update-distribution command. For more information, see the update-distribution examples.  
+When a distribution is disabled, you can delete it. To delete a distribution, you must use the `--if-match` option to provide the distribution's `ETag`. To get the `ETag`, use the get-distribution or get-distribution-config command.  
 
 ```
-`aws cloudfront delete-distribution \
- --id `EDFDVBD6EXAMPLE` \
- --if-match `E2QWRUHEXAMPLE``
-
+aws cloudfront delete-distribution \
+    --id {{EDFDVBD6EXAMPLE}} \
+    --if-match {{E2QWRUHEXAMPLE}}
 ```
+When successful, this command has no output.  
++  For API details, see [DeleteDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/delete-distribution.html) in *AWS CLI Command Reference*. 
 
-When successful, this command has no output.
+------
+#### [ Java ]
 
-- For API details, see
-  [DeleteDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/delete-distribution.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/delete-distribution.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples").
-
-The following code example updates a distribution to _disabled_, uses a waiter that waits for the change to be deployed, then deletes the distribution.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples). 
+The following code example updates a distribution to *disabled*, uses a waiter that waits for the change to be deployed, then deletes the distribution.  
 
 ```
 import org.slf4j.Logger;
@@ -110,14 +93,9 @@ public class DeleteDistribution {
                 }
         }
 }
-
-
 ```
++  For API details, see [DeleteDistribution](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteDistribution) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteDistribution](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteDistribution.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteDistribution.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

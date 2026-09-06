@@ -1,16 +1,15 @@
+
+
 # Redirect to a new URL in a CloudFront Functions viewer request event
+<a name="example_cloudfront_functions_redirect_based_on_country_section"></a>
 
 The following code example shows how to redirect to a new URL in a CloudFront Functions viewer request event.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**JavaScript runtime 2.0 for CloudFront Functions**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/redirect-based-on-country "https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/redirect-based-on-country")
-repository.
+**JavaScript runtime 2.0 for CloudFront Functions**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/redirect-based-on-country) repository. 
 
 ```
 async function handler(event) {
@@ -18,8 +17,8 @@ async function handler(event) {
     var headers = request.headers;
     var host = request.headers.host.value;
     var country = 'DE' // Choose a country code
-    var newurl = `https://${host}/de/index.html`; // Change the redirect URL to your choice
-
+    var newurl = `https://${host}/de/index.html`; // Change the redirect URL to your choice 
+  
     if (headers['cloudfront-viewer-country']) {
         var countryCode = headers['cloudfront-viewer-country'].value;
         if (countryCode === country) {
@@ -35,10 +34,8 @@ async function handler(event) {
     }
     return request;
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

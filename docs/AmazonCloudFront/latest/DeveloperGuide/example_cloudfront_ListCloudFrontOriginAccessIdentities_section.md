@@ -1,22 +1,21 @@
+
+
 # Use `ListCloudFrontOriginAccessIdentities` with a CLI
+<a name="example_cloudfront_ListCloudFrontOriginAccessIdentities_section"></a>
 
 The following code examples show how to use `ListCloudFrontOriginAccessIdentities`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list CloudFront origin access identities**
-
-The following example gets a list of the CloudFront origin access identities
-(OAIs) in your AWS account:
+**AWS CLI**  
+**To list CloudFront origin access identities**  
+The following example gets a list of the CloudFront origin access identities (OAIs) in your AWS account:  
 
 ```
-`aws cloudfront list-cloud-front-origin-access-identities`
-
+aws cloudfront list-cloud-front-origin-access-identities
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -41,23 +40,18 @@ Output:
     }
 }
 ```
++  For API details, see [ListCloudFrontOriginAccessIdentities](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/list-cloud-front-origin-access-identities.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListCloudFrontOriginAccessIdentities](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/list-cloud-front-origin-access-identities.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/list-cloud-front-origin-access-identities.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.**
+**Tools for PowerShell V4**  
+**Example 1: This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.**  
 
 ```
 Get-CFCloudFrontOriginAccessIdentityList -MaxItem 2
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 IsTruncated : True
@@ -67,21 +61,15 @@ MaxItems    : 2
 NextMarker  : E1YXXXXXXXXX9B
 Quantity    : 2
 ```
++  For API details, see [ListCloudFrontOriginAccessIdentities](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ListCloudFrontOriginAccessIdentities](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.**
+**Tools for PowerShell V5**  
+**Example 1: This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.**  
 
 ```
 Get-CFCloudFrontOriginAccessIdentityList -MaxItem 2
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 IsTruncated : True
@@ -91,11 +79,8 @@ MaxItems    : 2
 NextMarker  : E1YXXXXXXXXX9B
 Quantity    : 2
 ```
++  For API details, see [ListCloudFrontOriginAccessIdentities](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ListCloudFrontOriginAccessIdentities](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

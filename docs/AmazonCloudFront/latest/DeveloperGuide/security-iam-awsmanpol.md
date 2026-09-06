@@ -1,243 +1,154 @@
+
+
 # AWS managed policies for Amazon CloudFront
+<a name="security-iam-awsmanpol"></a>
 
-To add permissions to users, groups, and roles, it’s easier to use AWS managed policies
-than to write policies yourself. It takes time and expertise to [create IAM customer
-managed policies](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") that provide your users with only the permissions they need. To
-get started quickly, you can use our AWS managed policies. These policies cover common use
-cases and are available in your AWS account. For more information about AWS managed
-policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
+To add permissions to users, groups, and roles, it’s easier to use AWS managed policies than to write policies yourself. It takes time and expertise to [create IAM customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html) that provide your users with only the permissions they need. To get started quickly, you can use our AWS managed policies. These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) in the *IAM User Guide*.
 
-AWS services maintain and update AWS managed policies. You can’t change the permissions
-in AWS managed policies. Services occasionally add additional permissions to an AWS
-managed policy to support new features. This type of update affects all identities (users,
-groups, and roles) where the policy is attached. Services are most likely to update an AWS
-managed policy when a new feature is launched or when new permissions become available.
-Services do not remove permissions from an AWS managed policy, so policy updates won’t break
-your existing permissions.
+AWS services maintain and update AWS managed policies. You can’t change the permissions in AWS managed policies. Services occasionally add additional permissions to an AWS managed policy to support new features. This type of update affects all identities (users, groups, and roles) where the policy is attached. Services are most likely to update an AWS managed policy when a new feature is launched or when new permissions become available. Services do not remove permissions from an AWS managed policy, so policy updates won’t break your existing permissions.
 
-Additionally, AWS supports managed policies for job functions that span multiple
-services. For example, the **ReadOnlyAccess** AWS managed
-policy provides read-only access to all AWS services and resources. When a service launches
-a new feature, AWS adds read-only permissions for new operations and resources. For a list
-and descriptions of job function policies, see [AWS managed policies for
-job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
+Additionally, AWS supports managed policies for job functions that span multiple services. For example, the **ReadOnlyAccess** AWS managed policy provides read-only access to all AWS services and resources. When a service launches a new feature, AWS adds read-only permissions for new operations and resources. For a list and descriptions of job function policies, see [AWS managed policies for job functions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html) in the *IAM User Guide*.
 
-###### Topics
+**Topics**
++ [AWS managed policy: CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only)
++ [AWS managed policy: CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access)
++ [AWS managed policy: AWSCloudFrontLogger](#security-iam-awsmanpol-cloudfront-logger)
++ [AWS managed policy: AWSLambdaReplicator](#security-iam-awsmanpol-lambda-replicator)
++ [AWS managed policy: AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin)
++ [CloudFront updates to AWS managed policies](#security-iam-awsmanpol-updates)
 
-- [AWS managed policy: CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")
-- [AWS managed policy: CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")
-- [AWS managed policy: AWSCloudFrontLogger](#security-iam-awsmanpol-cloudfront-logger "#security-iam-awsmanpol-cloudfront-logger")
-- [AWS managed policy: AWSLambdaReplicator](#security-iam-awsmanpol-lambda-replicator "#security-iam-awsmanpol-lambda-replicator")
-- [AWS managed policy: AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin "#security-iam-awsmanpol-vpc-origin")
-- [CloudFront updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+
+
+
+
+
 
 ## AWS managed policy: CloudFrontReadOnlyAccess
+<a name="security-iam-awsmanpol-cloudfront-read-only"></a>
 
-You can attach the **CloudFrontReadOnlyAccess** policy to
-your IAM identities. This policy allows read-only permissions to CloudFront resources. It also
-allows read-only permissions to other AWS service resources that are related to CloudFront and
-that are visible in the CloudFront console.
+You can attach the **CloudFrontReadOnlyAccess** policy to your IAM identities. This policy allows read-only permissions to CloudFront resources. It also allows read-only permissions to other AWS service resources that are related to CloudFront and that are visible in the CloudFront console.
 
 **Permissions details**
 
 This policy includes the following permissions.
++ `cloudfront:Describe*` – Allows principals to get information about metadata about CloudFront resources.
++ `cloudfront:Get*` – Allows principals to get detailed information and configurations for CloudFront resources.
++ `cloudfront:List*` – Allows principals to get lists of CloudFront resources.
++ `cloudfront-keyvaluestore:Describe*` - Allows principals to get information about the key value store.
++ `cloudfront-keyvaluestore:Get*` - Allows principals to get detailed information and configurations for the key value store.
++ `cloudfront-keyvaluestore:List*` - Allows principals to get lists of the key value stores.
++ `acm:DescribeCertificate` – Allows principals to get details about an ACM certificate.
++ `acm:ListCertificates` – Allows principals to get a list of ACM certificates.
++ `iam:ListServerCertificates` – Allows principals to get a list of server certificates stored in IAM.
++ `route53:List*` – Allows principals to get lists of Route 53 resources.
++ `waf:ListWebACLs` – Allows principals to get a list of web ACLs in AWS WAF.
++ `waf:GetWebACL` – Allows principals to get detailed information about web ACLs in AWS WAF.
++ `wafv2:ListWebACLs` – Allows principals to get a list of web ACLs in AWS WAF.
++ `wafv2:GetWebACL` – Allows principals to get detailed information about web ACLs in AWS WAF.
++ `pricingplanmanager:GetSubscription` – Allows principals read-only access to get details about pricing plan subscriptions.
++ `pricingplanmanager:ListSubscriptions` – Allows principals read-only access to list pricing plan subscriptions.
++ `ec2:DescribeIpamPools` – Allows principals to get detailed information about your IPAM pools.
++ `ec2:GetIpamPoolCidrs` – Allows principals to get the CIDRs provisioned to an IPAM pool.
 
-- `cloudfront:Describe*` – Allows principals to get information about
-  metadata about CloudFront resources.
-- `cloudfront:Get*` – Allows principals to get detailed information and
-  configurations for CloudFront resources.
-- `cloudfront:List*` – Allows principals to get lists of CloudFront
-  resources.
-- `cloudfront-keyvaluestore:Describe*` - Allows principals to get
-  information about the key value store.
-- `cloudfront-keyvaluestore:Get*` - Allows principals to get detailed
-  information and configurations for the key value store.
-- `cloudfront-keyvaluestore:List*` - Allows principals to get lists of
-  the key value stores.
-- `acm:DescribeCertificate` – Allows principals to get details
-  about an ACM certificate.
-- `acm:ListCertificates` – Allows principals to get a list of ACM
-  certificates.
-- `iam:ListServerCertificates` – Allows principals to get a list of
-  server certificates stored in IAM.
-- `route53:List*` – Allows principals to get lists of Route 53
-  resources.
-- `waf:ListWebACLs` – Allows principals to get a list of web ACLs in
-  AWS WAF.
-- `waf:GetWebACL` – Allows principals to get detailed information about
-  web ACLs in AWS WAF.
-- `wafv2:ListWebACLs` – Allows principals to get a list of web ACLs in
-  AWS WAF.
-- `wafv2:GetWebACL` – Allows principals to get detailed information about
-  web ACLs in AWS WAF.
-- `pricingplanmanager:GetSubscription` – Allows principals
-  read-only access to get details about pricing plan subscriptions.
-- `pricingplanmanager:ListSubscriptions` – Allows principals
-  read-only access to list pricing plan subscriptions.
-- `ec2:DescribeIpamPools` – Allows principals to get detailed information
-  about your IPAM pools.
-- `ec2:GetIpamPoolCidrs` – Allows principals to get the CIDRs provisioned
-  to an IPAM pool.
-
-To view the permissions for this policy, see [CloudFrontReadOnlyAccess](../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md") in the _AWS Managed Policy
-Reference_.
+To view the permissions for this policy, see [CloudFrontReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: CloudFrontFullAccess
+<a name="security-iam-awsmanpol-cloudfront-full-access"></a>
 
-You can attach the **CloudFrontFullAccess** policy to your
-IAM identities. This policy allows administrative permissions to CloudFront resources. It also
-allows read-only permissions to other AWS service resources that are related to CloudFront and
-that are visible in the CloudFront console.
+You can attach the **CloudFrontFullAccess** policy to your IAM identities. This policy allows administrative permissions to CloudFront resources. It also allows read-only permissions to other AWS service resources that are related to CloudFront and that are visible in the CloudFront console.
 
 **Permissions details**
 
 This policy includes the following permissions.
++ `s3:ListAllMyBuckets` – Allows principals to get a list of all Amazon S3 buckets.
++ `acm:DescribeCertificate` – Allows principals to get details about an ACM certificate.
++ `acm:ListCertificates` – Allows principals to get a list of ACM certificates.
++ `acm:RequestCertificate` – Allows principals to request managed certificates from ACM.
++ `cloudfront:*` – Allows principals to perform all actions on all CloudFront resources.
++ `cloudfront-keyvaluestore:*` - Allows principals to perform all actions on the key value store.
++ `iam:ListServerCertificates` – Allows principals to get a list of server certificates stored in IAM.
++ `waf:ListWebACLs` – Allows principals to get a list of web ACLs in AWS WAF.
++ `waf:GetWebACL` – Allows principals to get detailed information about web ACLs in AWS WAF.
++ `waf:CreateWebACLs` – Allows principals to create a web ACL in AWS WAF.
++ `wafv2:ListWebACLs` – Allows principals to get a list of web ACLs in AWS WAF.
++ `wafv2:GetWebACL` – Allows principals to get detailed information about web ACLs in AWS WAF.
++ `kinesis:ListStreams` – Allows principals to get a list of Amazon Kinesis streams.
++ `elasticloadbalancing:DescribeLoadBalancers` - Allows principals to get detailed information about load balancers in Elastic Load Balancing.
++ `kinesis:DescribeStream` – Allows principals to get detailed information about a Kinesis stream.
++ `iam:ListRoles` – Allows principals to get a list of roles in IAM.
++ `pricingplanmanager:AssociateResourcesToSubscription` - Allows principals to associate resources to a subscription. This enables the resources to be covered by the subscription's pricing plan.
++ `pricingplanmanager:CancelSubscription` - Allows principals to cancel an existing subscription.
++ `pricingplanmanager:CancelSubscriptionChange` - Allows principals to cancel a pending change to an existing subscription, such as a plan upgrade, before the change is applied.
++ `pricingplanmanager:CreateSubscription` - Allows principals to create a subscription to a pricing plan.
++ `pricingplanmanager:DisassociateResourcesFromSubscription` - Allows principals to remove the association between resources and an existing subscription.
++ `pricingplanmanager:UpdateSubscription` - Allows principals to modify an existing subscription, such as changing the pricing plan.
++ `pricingplanmanager:GetSubscription` – Allows principals read-only access to get details about pricing plan subscriptions.
++ `pricingplanmanager:ListSubscriptions` – Allows principals read-only access to list pricing plan subscriptions.
++ `pricingplanmanager:ApprovePaidSubscription` – Allows principals to approve a paid subscription and start billing.
++ `freetier:GetAccountPlanState` – Allows principals to get the AWS Free Tier plan state for the account, used to determine eligibility for flat-rate pricing plans.
++ `cloudwatch:GetMetricData` – Allows principals to retrieve CloudWatch metric data, used to determine eligibility for flat-rate pricing plans.
++ `shield:ListProtections` – Allows principals to list AWS Shield protections, used to determine eligibility for flat-rate pricing plans.
++ `ec2:DescribeInstances` - Allows principals to get detailed information about instances in Amazon EC2.
++ `ec2:DescribeInternetGateways` - Allows principals to get detailed information about internet gateways in Amazon EC2.
++ `ec2:DescribeIpamPools` – Allows principals to get detailed information about your IPAM pools.
++ `ec2:GetIpamPoolCidrs` – Allows principals to get the CIDRs provisioned to an IPAM pool.
 
-- `s3:ListAllMyBuckets` – Allows principals to get a list of all Amazon S3
-  buckets.
-- `acm:DescribeCertificate` – Allows principals to get details
-  about an ACM certificate.
-- `acm:ListCertificates` – Allows principals to get a list of ACM
-  certificates.
-- `acm:RequestCertificate` – Allows principals to request managed
-  certificates from ACM.
-- `cloudfront:*` – Allows principals to perform all actions on all CloudFront
-  resources.
-- `cloudfront-keyvaluestore:*` - Allows principals to perform all actions
-  on the key value store.
-- `iam:ListServerCertificates` – Allows principals to get a list of
-  server certificates stored in IAM.
-- `waf:ListWebACLs` – Allows principals to get a list of web ACLs in
-  AWS WAF.
-- `waf:GetWebACL` – Allows principals to get detailed information about
-  web ACLs in AWS WAF.
-- `waf:CreateWebACLs` – Allows principals to create a web ACL in
-  AWS WAF.
-- `wafv2:ListWebACLs` – Allows principals to get a list of web ACLs in
-  AWS WAF.
-- `wafv2:GetWebACL` – Allows principals to get detailed information about
-  web ACLs in AWS WAF.
-- `kinesis:ListStreams` – Allows principals to get a list of Amazon Kinesis
-  streams.
-- `elasticloadbalancing:DescribeLoadBalancers` - Allows principals to get
-  detailed information about load balancers in Elastic Load Balancing.
-- `kinesis:DescribeStream` – Allows principals to get detailed
-  information about a Kinesis stream.
-- `iam:ListRoles` – Allows principals to get a list of roles in
-  IAM.
-- `pricingplanmanager:AssociateResourcesToSubscription` - Allows
-  principals to associate resources to a subscription. This enables the resources to be
-  covered by the subscription's pricing plan.
-- `pricingplanmanager:CancelSubscription` - Allows principals to cancel
-  an existing subscription.
-- `pricingplanmanager:CancelSubscriptionChange` - Allows principals to
-  cancel a pending change to an existing subscription, such as a plan upgrade, before
-  the change is applied.
-- `pricingplanmanager:CreateSubscription` - Allows principals to create a
-  subscription to a pricing plan.
-- `pricingplanmanager:DisassociateResourcesFromSubscription` - Allows
-  principals to remove the association between resources and an existing
-  subscription.
-- `pricingplanmanager:UpdateSubscription` - Allows principals to modify
-  an existing subscription, such as changing the pricing plan.
-- `pricingplanmanager:GetSubscription` – Allows principals
-  read-only access to get details about pricing plan subscriptions.
-- `pricingplanmanager:ListSubscriptions` – Allows principals
-  read-only access to list pricing plan subscriptions.
-- `pricingplanmanager:ApprovePaidSubscription` – Allows principals
-  to approve a paid subscription and start billing.
-- `freetier:GetAccountPlanState` – Allows principals to get the
-  AWS Free Tier plan state for the account, used to determine eligibility for
-  flat-rate pricing plans.
-- `cloudwatch:GetMetricData` – Allows principals to retrieve
-  CloudWatch metric data, used to determine eligibility for flat-rate pricing plans.
-- `shield:ListProtections` – Allows principals to list AWS
-  Shield protections, used to determine eligibility for flat-rate pricing plans.
-- `ec2:DescribeInstances` - Allows principals to get detailed information
-  about instances in Amazon EC2.
-- `ec2:DescribeInternetGateways` - Allows principals to get detailed
-  information about internet gateways in Amazon EC2.
-- `ec2:DescribeIpamPools` – Allows principals to get detailed information
-  about your IPAM pools.
-- `ec2:GetIpamPoolCidrs` – Allows principals to get the CIDRs provisioned
-  to an IPAM pool.
+To view the permissions for this policy, see [CloudFrontFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudFrontFullAccess.html) in the *AWS Managed Policy Reference*.
 
-To view the permissions for this policy, see [CloudFrontFullAccess](../../../aws-managed-policy/latest/reference/CloudFrontFullAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontFullAccess.md") in the _AWS Managed Policy
-Reference_.
+**Note**  
+The **CloudFrontFullAccess** policy includes the `pricingplanmanager:ApprovePaidSubscription` permission, which commits your account to charges for paid plans that can't be canceled until the end of the current billing period. For automated workflows—such as deployment pipelines, agents, or service roles—we recommend a scoped-down policy that grants `pricingplanmanager:CreateSubscription` without `pricingplanmanager:ApprovePaidSubscription`, so that a human authorizes billing. For more information, see [Getting started with the PricingPlanManager API](https://docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/plan-management.html).
 
-###### Note
-
-The **CloudFrontFullAccess** policy includes the
-`pricingplanmanager:ApprovePaidSubscription` permission, which commits your
-account to charges for paid plans that can't be canceled until the end of the current
-billing period. For automated workflows—such as deployment pipelines, agents, or
-service roles—we recommend a scoped-down policy that grants
-`pricingplanmanager:CreateSubscription` without
-`pricingplanmanager:ApprovePaidSubscription`, so that a human authorizes
-billing. For more information, see [Getting started with
-the PricingPlanManager API](../../../PricingPlanManager/latest/UserGuide/plan-management.md "../../../PricingPlanManager/latest/UserGuide/plan-management.md").
-
-###### Important
-
-If you want CloudFront to create and save access logs, you need to grant additional
-permissions. For more information, see [Permissions](standard-logging-legacy-s3.md#AccessLogsBucketAndFileOwnership "standard-logging-legacy-s3.md#AccessLogsBucketAndFileOwnership").
+**Important**  
+If you want CloudFront to create and save access logs, you need to grant additional permissions. For more information, see [Permissions](standard-logging-legacy-s3.md#AccessLogsBucketAndFileOwnership).
 
 ## AWS managed policy: AWSCloudFrontLogger
+<a name="security-iam-awsmanpol-cloudfront-logger"></a>
 
-You can’t attach the **AWSCloudFrontLogger** policy to your
-IAM identities. This policy is attached to a service-linked role that allows CloudFront to
-perform actions on your behalf. For more information, see [Service-linked roles for Lambda@Edge](lambda-edge-permissions.md#using-service-linked-roles-lambda-edge "lambda-edge-permissions.md#using-service-linked-roles-lambda-edge").
+You can’t attach the **AWSCloudFrontLogger** policy to your IAM identities. This policy is attached to a service-linked role that allows CloudFront to perform actions on your behalf. For more information, see [Service-linked roles for Lambda@Edge](lambda-edge-permissions.md#using-service-linked-roles-lambda-edge).
 
-This policy allows CloudFront to push log files to Amazon CloudWatch. For details about the permissions
-included in this policy, see [Service-linked role permissions for CloudFront logger](lambda-edge-permissions.md#slr-permissions-cloudfront-logger "lambda-edge-permissions.md#slr-permissions-cloudfront-logger").
+This policy allows CloudFront to push log files to Amazon CloudWatch. For details about the permissions included in this policy, see [Service-linked role permissions for CloudFront logger](lambda-edge-permissions.md#slr-permissions-cloudfront-logger).
 
-To view the permissions for this policy, see [AWSCloudFrontLogger](../../../aws-managed-policy/latest/reference/AWSCloudFrontLogger.md "../../../aws-managed-policy/latest/reference/AWSCloudFrontLogger.md") in the _AWS Managed Policy
-Reference_.
+To view the permissions for this policy, see [AWSCloudFrontLogger](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloudFrontLogger.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: AWSLambdaReplicator
+<a name="security-iam-awsmanpol-lambda-replicator"></a>
 
-You can’t attach the **AWSLambdaReplicator** policy to your
-IAM identities. This policy is attached to a service-linked role that allows CloudFront to
-perform actions on your behalf. For more information, see [Service-linked roles for Lambda@Edge](lambda-edge-permissions.md#using-service-linked-roles-lambda-edge "lambda-edge-permissions.md#using-service-linked-roles-lambda-edge").
+You can’t attach the **AWSLambdaReplicator** policy to your IAM identities. This policy is attached to a service-linked role that allows CloudFront to perform actions on your behalf. For more information, see [Service-linked roles for Lambda@Edge](lambda-edge-permissions.md#using-service-linked-roles-lambda-edge).
 
-This policy allows CloudFront to create, delete, and disable functions in AWS Lambda to
-replicate Lambda@Edge functions to AWS Regions. For details about the permissions
-included in this policy, see [Service-linked role permissions for Lambda replicator](lambda-edge-permissions.md#slr-permissions-lambda-replicator "lambda-edge-permissions.md#slr-permissions-lambda-replicator").
+This policy allows CloudFront to create, delete, and disable functions in AWS Lambda to replicate Lambda@Edge functions to AWS Regions. For details about the permissions included in this policy, see [Service-linked role permissions for Lambda replicator](lambda-edge-permissions.md#slr-permissions-lambda-replicator).
 
-To view the permissions for this policy, see [AWSLambdaReplicator](../../../aws-managed-policy/latest/reference/AWSLambdaReplicator.md "../../../aws-managed-policy/latest/reference/AWSLambdaReplicator.md") in the _AWS Managed Policy
-Reference_.
+To view the permissions for this policy, see [AWSLambdaReplicator](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaReplicator.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: AWSCloudFrontVPCOriginServiceRolePolicy
+<a name="security-iam-awsmanpol-vpc-origin"></a>
 
-You can't attach the **AWSCloudFrontVPCOriginServiceRolePolicy** policy to your IAM entities. This
-policy is attached to a service-linked role that allows CloudFront to perform actions on your
-behalf. For more information, see [Use service-linked roles for CloudFront](using-service-linked-roles.md "using-service-linked-roles.md").
+You can't attach the **AWSCloudFrontVPCOriginServiceRolePolicy** policy to your IAM entities. This policy is attached to a service-linked role that allows CloudFront to perform actions on your behalf. For more information, see [Use service-linked roles for CloudFront](using-service-linked-roles.md).
 
-This policy allows CloudFront to manage EC2 elastic network interfaces and security groups on
-your behalf. For details about the permissions included in this policy, see [Service-linked role permissions for CloudFront VPC Origins](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
+This policy allows CloudFront to manage EC2 elastic network interfaces and security groups on your behalf. For details about the permissions included in this policy, see [Service-linked role permissions for CloudFront VPC Origins](using-service-linked-roles.md#slr-permissions).
 
-To view the permissions for this policy, see [AWSCloudFrontVPCOriginServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.md") in the _AWS Managed Policy
-Reference_.
+To view the permissions for this policy, see [AWSCloudFrontVPCOriginServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.html) in the *AWS Managed Policy Reference*.
 
 ## CloudFront updates to AWS managed policies
+<a name="security-iam-awsmanpol-updates"></a>
 
-View details about updates to AWS managed policies for CloudFront since this service
-began tracking these changes. For automatic alerts about changes to this page, subscribe to
-the RSS feed on the CloudFront [Document history](WhatsNew.md "WhatsNew.md") page.
+View details about updates to AWS managed policies for CloudFront since this service began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the CloudFront [Document history](WhatsNew.md) page.
 
-| Change                                                                                                                                                                                                                                                                                       | Description                                                                                                                                                                                                                                                                                                          | Date              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for flat-rate pricing plan<br>eligibility and subscription approval.<br>The new permissions allow principals to use the<br>`pricingplanmanager:ApprovePaidSubscription`,<br>`freetier:GetAccountPlanState`,<br>`cloudwatch:GetMetricData`, and<br>`shield:ListProtections` actions. | July 29, 2026     |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for Amazon EC2.<br>The new permissions allow principals to use the<br>`ec2:DescribeIpamPools` and `ec2:GetIpamPoolCidrs`<br>actions.                                                                                                                                                | November 24, 2025 |
-| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for Amazon EC2.<br>The new permissions allow principals to use the<br>`ec2:DescribeIpamPools` and `ec2:GetIpamPoolCidrs`<br>actions.                                                                                                                                                | November 24, 2025 |
-| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added a new permission to create an AWS WAF ACL resource, and<br>added create, update, delete, and read permissions to AWS Pricing Plan<br>Manager.                                                                                                                                                       | November 18, 2025 |
-| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added a new permission to create an AWS WAF ACL resource, and<br>added create, update, delete, and read permissions to AWS Pricing Plan<br>Manager.                                                                                                                                                       | November 18, 2025 |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for read-only access to AWS Pricing<br>Plan Manager.                                                                                                                                                                                                                                | November 18, 2025 |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for read-only access to AWS Pricing<br>Plan Manager.                                                                                                                                                                                                                                | November 18, 2025 |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permission for ACM.<br>The new permission allows principals to get details about an ACM<br>certificate.                                                                                                                                                                                         | April 28, 2025    |
-| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for ACM.<br>The new permissions allow principals to get details about an ACM<br>certificate and to request a managed certificate from ACM.                                                                                                                                          | April 28, 2025    |
-| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")<br>– Update to existing policy                                                                                                                                       | CloudFront added new permissions for Amazon EC2 and Elastic Load Balancing.<br>The new permissions allow CloudFront to get detailed information about load<br>balancers in Elastic Load Balancing and instances and internet gateways in Amazon EC2.                                                                 | November 20, 2024 |
-| [AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin "#security-iam-awsmanpol-vpc-origin") – New<br>policy                                                                                                                                                           | CloudFront added a new policy.<br>This policy allows CloudFront to manage EC2 elastic network interfaces and<br>security groups on your behalf.                                                                                                                                                                      | November 20, 2024 |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only") and<br>[CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access") -<br>Update to two existing policies. | CloudFront added new permissions for key value stores.<br>The new permissions allow users to get information about, and take action<br>on, key value stores.                                                                                                                                                         | December 19, 2023 |
-| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only") –<br>Update to an existing policy                                                                                                                                    | CloudFront added a new permission to describe CloudFront Functions.<br>This permission allows the user, group, or role to read information and<br>metadata about a function, but not the function’s code.                                                                                                            | September 8, 2021 |
-| CloudFront started tracking changes                                                                                                                                                                                                                                                          | CloudFront started tracking changes for its AWS managed policies.                                                                                                                                                                                                                                                    | September 8, 2021 |
+
+
+
+| Change | Description | Date | 
+| --- | --- | --- | 
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access) – Update to existing policy | CloudFront added new permissions for flat-rate pricing plan eligibility and subscription approval.<br />The new permissions allow principals to use the `pricingplanmanager:ApprovePaidSubscription`, `freetier:GetAccountPlanState`, `cloudwatch:GetMetricData`, and `shield:ListProtections` actions. | July 29, 2026 | 
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only) – Update to existing policy | CloudFront added new permissions for Amazon EC2.<br />The new permissions allow principals to use the `ec2:DescribeIpamPools` and `ec2:GetIpamPoolCidrs` actions. | November 24, 2025 | 
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access) – Update to existing policy | CloudFront added new permissions for Amazon EC2.<br />The new permissions allow principals to use the `ec2:DescribeIpamPools` and `ec2:GetIpamPoolCidrs` actions. | November 24, 2025 | 
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access) – Update to existing policy | CloudFront added a new permission to create an AWS WAF ACL resource, and added create, update, delete, and read permissions to AWS Pricing Plan Manager. | November 18, 2025 | 
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access) – Update to existing policy | CloudFront added a new permission to create an AWS WAF ACL resource, and added create, update, delete, and read permissions to AWS Pricing Plan Manager. | November 18, 2025 | 
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only) – Update to existing policy | CloudFront added new permissions for read-only access to AWS Pricing Plan Manager. | November 18, 2025 | 
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only) – Update to existing policy | CloudFront added new permissions for read-only access to AWS Pricing Plan Manager. | November 18, 2025 | 
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only) – Update to existing policy | CloudFront added new permission for ACM.<br />The new permission allows principals to get details about an ACM certificate. | April 28, 2025 | 
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access) – Update to existing policy | CloudFront added new permissions for ACM.<br />The new permissions allow principals to get details about an ACM certificate and to request a managed certificate from ACM. | April 28, 2025 | 
+| [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access) – Update to existing policy | CloudFront added new permissions for Amazon EC2 and Elastic Load Balancing.<br />The new permissions allow CloudFront to get detailed information about load balancers in Elastic Load Balancing and instances and internet gateways in Amazon EC2. | November 20, 2024 | 
+| [AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin) – New policy | CloudFront added a new policy.<br />This policy allows CloudFront to manage EC2 elastic network interfaces and security groups on your behalf. | November 20, 2024 | 
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only) and [CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access) - Update to two existing policies. | CloudFront added new permissions for key value stores.<br />The new permissions allow users to get information about, and take action on, key value stores. | December 19, 2023 | 
+| [CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only) – Update to an existing policy | CloudFront added a new permission to describe CloudFront Functions.<br />This permission allows the user, group, or role to read information and metadata about a function, but not the function’s code. | September 8, 2021 | 
+| CloudFront started tracking changes | CloudFront started tracking changes for its AWS managed policies. | September 8, 2021 | 

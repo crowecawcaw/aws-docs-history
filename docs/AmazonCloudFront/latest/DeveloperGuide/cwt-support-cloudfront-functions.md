@@ -1,12 +1,11 @@
+
+
 # CWT support for CloudFront Functions
+<a name="cwt-support-cloudfront-functions"></a>
 
-This section provides details on support for CBOR Web Tokens (CWT) in your CloudFront
-Functions, which enables secure token-based authentication and authorization at CloudFront
-Edge Locations. This support is provided as a module, accessible in your CloudFront
-Function.
+This section provides details on support for CBOR Web Tokens (CWT) in your CloudFront Functions, which enables secure token-based authentication and authorization at CloudFront Edge Locations. This support is provided as a module, accessible in your CloudFront Function. 
 
-To use this module, create a CloudFront Function using JavaScript runtime 2.0 and include
-the following statement in the first line of the function code:
+To use this module, create a CloudFront Function using JavaScript runtime 2.0 and include the following statement in the first line of the function code: 
 
 ```
 import cf from 'cloudfront';
@@ -18,102 +17,91 @@ The methods associated to this module are accessible through (where \* is a wild
 cf.cwt.*
 ```
 
-For more information, see [JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
+For more information, see [JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md).
 
 Currently, the module only support MAC0 structure with HS256 (HMAC-SHA256) algorithm with a limit of 1KB for the maximum token size.
 
 ## Token structure
+<a name="token-structure"></a>
 
-This section covers the token structure that is expected by the CWT module. The module
-expects the token to be correctly tagged and identifiable (e.g. COSE MAC0). Moreover, as
-for the structure of the token, the module follows the standards set by [CBOR Object
-Signing and Encryption (COSE) [RFC 8152]](https://datatracker.ietf.org/doc/html/rfc8152 "https://datatracker.ietf.org/doc/html/rfc8152").
+This section covers the token structure that is expected by the CWT module. The module expects the token to be correctly tagged and identifiable (e.g. COSE MAC0). Moreover, as for the structure of the token, the module follows the standards set by [CBOR Object Signing and Encryption (COSE) [RFC 8152]](https://datatracker.ietf.org/doc/html/rfc8152).
 
 ```
-( // CWT Tag (Tag value: 61) --- optional
-    ( // COSE MAC0 Structure Tag (Tag value: 17) --- required
-        [
-            protectedHeaders,
-            unprotectedHeaders,
-            payload,
-            tag,
-        ]
+( // CWT Tag (Tag value: 61) --- optional    
+    ( // COSE MAC0 Structure Tag (Tag value: 17) --- required        
+        [            
+            protectedHeaders,            
+            unprotectedHeaders,            
+            payload,            
+            tag,        
+        ]    
     )
 )
 ```
 
-###### Example: CWT using the COSE MAC0 structure
+**Example : CWT using the COSE MAC0 structure**  
 
 ```
-61( // CWT tag
-    17( // COSE_MAC0 tag
-        [
-            { // Protected Headers
-                1: 4  // algorithm : HMAC-256-64
-            },
-            { // Unprotected Headers
-                4: h'53796d6d6574726963323536' // kid : Symmetric key id
-            },
-            { // Payload
-                1: "https://iss.example.com", // iss
-                2: "exampleUser", // sub
-                3: "https://aud.example.com", // aud
-                4: 1444064944, // exp
-                5: 1443944944, // nbf
-                6: 1443944944, // iat
-            },
-            h'093101ef6d789200' // tag
-        ]
-    )
+61( // CWT tag     
+    17( // COSE_MAC0 tag       
+        [         
+            { // Protected Headers           
+                1: 4  // algorithm : HMAC-256-64         
+            },         
+            { // Unprotected Headers           
+                4: h'53796d6d6574726963323536' // kid : Symmetric key id          
+            },         
+            { // Payload           
+                1: "https://iss.example.com", // iss           
+                2: "exampleUser", // sub           
+                3: "https://aud.example.com", // aud           
+                4: 1444064944, // exp           
+                5: 1443944944, // nbf           
+                6: 1443944944, // iat         
+            },         
+            h'093101ef6d789200' // tag       
+        ]     
+    )   
 )
 ```
-
-###### Note
-
-The CWT tag is optional when generating tokens. However, the COSE structure
-tag is required.
+The CWT tag is optional when generating tokens. However, the COSE structure tag is required.
 
 ## validateToken() method
+<a name="validatetoken-method"></a>
 
 The function decodes and validates a CWT token using the specified key. If validation is successful, it returns the decoded CWT token. Otherwise, it throws an error. Please note that this function does no validation on the claim set.
 
 ### Request
+<a name="validatetoken-request"></a>
 
 ```
 cf.cwt.validateToken(token, handlerContext{key})
-```
+```Parameters
 
-###### Parameters
-
-**token (required)**
-
+**token (required)**  
 Encoded token for validation. This must be a JavaScript Buffer.
 
-**handlerContext (Required)**
+**handlerContext (Required)**  
+A JavaScript Object that stores context for the validateToken call. At present, only the key property is supported.
 
-A JavaScript Object that stores context for the validateToken call. At
-present, only the key property is supported.
-
-**key (Required)**
-
-Secret key for message digest computation. Can be provided either as a
-string or JavaScript Buffer.
+**key (Required)**  
+Secret key for message digest computation. Can be provided either as a string or JavaScript Buffer.
 
 ### Response
+<a name="validatetoken-response"></a>
 
-When the `validateToken()` method returns a successfully validated
-token, the response from the function is a `CWTObject` in the following
-format. Once decoded, all claim keys are represented as strings.
+When the `validateToken()` method returns a successfully validated token, the response from the function is a `CWTObject` in the following format. Once decoded, all claim keys are represented as strings.
 
 ```
-CWTObject {
-    protectedHeaders,
-    unprotectedHeaders,
+CWTObject {    
+    protectedHeaders,    
+    unprotectedHeaders,    
     payload
 }
 ```
 
 ### Example - Validate token with kid sent as part of the token
+<a name="validatetoken-example"></a>
 
 This example demonstrates CWT token validation, where the kid is extracted from the header. The kid is then passed into CloudFront Functions KeyValueStore to fetch the secret key used to validate the token.
 
@@ -131,20 +119,20 @@ async function handler(event) {
         let request = event.request;
         let encodedToken = request.headers['x-cwt-token'].value;
         let kid = request.headers['x-cwt-kid'].value;
-
+                
         // Retrieve the secret key from the kvs
         let secretKey = await cf.kvs().get(kid);
-
+                 
         // Now you can use the secretKey to decode & validate the token.
         let tokenBuffer = Buffer.from(encodedToken, 'base64url');
-
+                
         let handlerContext = {
            key: secretKey,
         }
-
+                
         try {
             let cwtObj = cf.cwt.validateToken(tokenBuffer, handlerContext);
-
+                        
             // Check if token is expired
             const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
             if (cwtObj[CwtClaims.exp] && cwtObj[CwtClaims.exp] < currentTime) {
@@ -170,47 +158,35 @@ async function handler(event) {
 ```
 
 ## generateToken() method
+<a name="generatetoken-method"></a>
 
 This function generates a new CWT token using the provided payload and context settings.
 
 ### Request
+<a name="generatetoken-request"></a>
 
 ```
 cf.cwt.generateToken(generatorContext, payload)
-```
+```Parameters
 
-###### Parameters
+**generatorContext (Required)**  
+This a JavaScript Object that is used as the context for generating the token and contains the following key value pairs:    
+**cwtTag (Optional)**  
+This value is a boolean, which if `true` specifies the `cwtTag` should be added.  
+**coseTag (Required)**  
+Specifies the COSE tag type. Currently only supports `MAC0`.  
+**key (Required)**  
+Secret key to compute message digest. This value can be either a string or JavaScript `Buffer`.
 
-**generatorContext (Required)**
-
-This a JavaScript Object that is used as the context for generating
-the token and contains the following key value pairs:
-
-**cwtTag (Optional)**
-
-This value is a boolean, which if `true`
-specifies the `cwtTag` should be added.
-
-**coseTag (Required)**
-
-Specifies the COSE tag type. Currently only supports
-`MAC0`.
-
-**key (Required)**
-
-Secret key to compute message digest. This value can be
-either a string or JavaScript `Buffer`.
-
-**payload (Required)**
-
-Token payload for encoding. The payload must be in
-`CWTObject` format.
+**payload (Required)**  
+Token payload for encoding. The payload must be in `CWTObject` format.
 
 ### Response
+<a name="generatetoken-response"></a>
 
 Returns a JavaScript Buffer containing the encoded token.
 
-###### Example: Generate a CWT token
+**Example : Generate a CWT token**  
 
 ```
 import cf from 'cloudfront';
@@ -253,7 +229,7 @@ async function handler(event) {
             statusDescription: 'OK',
             headers: {}
         };
-
+        
         const commonAccessToken = {
             protected: {
                 1: "5",
@@ -293,28 +269,28 @@ async function handler(event) {
                 }
             }
         };
-
+        
         if (!request.headers['x-cwt-kid']) {
             throw new Error('Missing x-cwt-kid header');
         }
-
+        
         const kid = request.headers['x-cwt-kid'].value;
         const secretKey = await cf.kvs().get(kid);
-
+        
         if (!secretKey) {
             throw new Error('Secret key not found for provided kid');
         }
-
+        
         try {
             const genContext = {
                 cwtTag: true,
                 coseTag: "MAC0",
                 key: secretKey
             };
-
+            
             const tokenBuffer = cf.cwt.generateToken(commonAccessToken, genContext);
             response.headers['x-generated-cwt-token'] = { value: tokenBuffer.toString('base64url') };
-
+                        
             return response;
         } catch (tokenError) {
             return {
@@ -331,7 +307,7 @@ async function handler(event) {
 }
 ```
 
-###### Example: Refresh token based on some logic
+**Example : Refresh token based on some logic**  
 
 ```
 import cf from 'cloudfront'
@@ -348,28 +324,28 @@ async function handler(event) {
         let encodedToken = request.headers['x-cwt-token'].value;
         let kid = request.headers['x-cwt-kid'].value;
         let secretKey = await cf.kvs().get(kid); // Retrieve the secret key from the kvs
-
+                
         // Now you can use the secretKey to decode & validate the token.
         let tokenBuffer = Buffer.from(encodedToken, 'base64url');
-
+                
         let handlerContext = {
            key: secretKey,
         }
-
+                
         try {
             let cwtJSON = cf.cwt.validateToken(tokenBuffer, handlerContext);
-
+                        
             // Check if token is expired
             const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
             if (cwtJSON[CwtClaims.exp] && cwtJSON[CwtClaims.exp] < currentTime) {
                 // We can regnerate the token and add 8 hours to the expiry time
                 cwtJSON[CwtClaims.exp] = Math.floor(Date.now() / 1000) + (8 * 60 * 60);
-
+                                
                 let genContext = {
                   coseTag: "MAC0",
                   key: secretKey
                 }
-
+                                
                 let newTokenBuffer = cf.cwt.generateToken(cwtJSON, genContext);
                  request.headers['x-cwt-regenerated-token'] = newTokenBuffer.toString('base64url');
             }

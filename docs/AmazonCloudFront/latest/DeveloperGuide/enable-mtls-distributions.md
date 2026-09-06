@@ -1,49 +1,60 @@
+
+
 # Enable mutual TLS for CloudFront distributions
+<a name="enable-mtls-distributions"></a>
 
 ## Prerequisites and requirements
+<a name="mtls-prerequisites-requirements"></a>
 
 CloudFront's mutual TLS verify mode requires all clients to present valid certificates during the TLS handshake and rejects connections without valid certificates. Before enabling mutual TLS on a CloudFront distribution, ensure you have:
++ Created a trust store with your Certificate Authority certificates
++ Associated the trust store with your CloudFront distribution
++ Ensured all distribution cache behaviors use an HTTPS-only viewer protocol policy
++ Ensured your distribution is using HTTP/2 (the default setting, Viewer mTLS is not supported on HTTP/3)
 
-- Created a trust store with your Certificate Authority certificates
-- Associated the trust store with your CloudFront distribution
-- Ensured all distribution cache behaviors use an HTTPS-only viewer protocol policy
-- Ensured your distribution is using HTTP/2 (the default setting, Viewer mTLS is not supported on HTTP/3)
-
-###### Note
-
+**Note**  
 Mutual TLS authentication requires HTTPS connections between viewers and CloudFront. You cannot enable mTLS on a distribution with any cache behaviors that support HTTP connections.
 
 ## Enable mutual TLS (Console)
+<a name="enable-mtls-console"></a>
 
 ### For new distributions
+<a name="enable-mtls-new-distributions"></a>
 
 Viewer mTLS cannot be configured in the process of creating a new distribution in the CloudFront console. First create the distribution by any means (console, CLI, API), then edit the distribution settings to enable Viewer mTLS per the existing distributions instructions below.
 
 ### For existing distributions
+<a name="enable-mtls-existing-distributions"></a>
 
-1. Sign in to the AWS Management Console and open the CloudFront console at
-   [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
-2. From the distribution list, select the distribution you want to modify.
-3. Ensure the Viewer protocol policy is set to **Redirect HTTP to
-   HTTPS** or **HTTPS Only** for all cache
-   behaviors. (You can choose the **Cache behaviors** tab
-   to view and update any cache behaviors with HTTP protocol
-   policies.)
-4. Choose the **General** tab.
-5. In the **Settings** section, choose
-   **Edit**.
-6. In the **Connectivity** section, find
-   **Viewer mutual authentication (mTLS)**.
-7. Toggle **Enable mutual authentication** to On.
-8. For **Client certificate validation mode**, select **Required** (all clients must present certificates) or **Optional** (clients can optionally present certificates).
-9. For **Trust store**, select your previously created trust store.
-10. (Optional) Toggle **Advertise trust store CA names** if you want CloudFront to send CA names to clients during the TLS handshake.
-11. (Optional) Toggle **Ignore certificate expiration date** if you want to allow connections with expired certificates.
-12. Choose **Save changes**.
+1. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home).
+
+1. From the distribution list, select the distribution you want to modify.
+
+1. Ensure the Viewer protocol policy is set to **Redirect HTTP to HTTPS** or **HTTPS Only** for all cache behaviors. (You can choose the **Cache behaviors** tab to view and update any cache behaviors with HTTP protocol policies.)
+
+1. Choose the **General** tab.
+
+1. In the **Settings** section, choose **Edit**.
+
+1. In the **Connectivity** section, find **Viewer mutual authentication (mTLS)**.
+
+1. Toggle **Enable mutual authentication** to On.
+
+1. For **Client certificate validation mode**, select **Required** (all clients must present certificates) or **Optional** (clients can optionally present certificates).
+
+1. For **Trust store**, select your previously created trust store.
+
+1. (Optional) Toggle **Advertise trust store CA names** if you want CloudFront to send CA names to clients during the TLS handshake.
+
+1. (Optional) Toggle **Ignore certificate expiration date** if you want to allow connections with expired certificates.
+
+1. Choose **Save changes**.
 
 ## Enable mutual TLS (AWS CLI)
+<a name="enable-mtls-cli"></a>
 
 ### For new distributions
+<a name="enable-mtls-cli-new"></a>
 
 The following example shows how to create a distribution configuration file (distribution-config.json) that includes mTLS settings:
 
@@ -79,7 +90,7 @@ The following example shows how to create a distribution configuration file (dis
     "CloudFrontDefaultCertificate": true
   },
   "ViewerMtlsConfig": {
-    "Mode": "required",
+    "Mode": "required", 
     "TrustStoreConfig": {
         "TrustStoreId": {TRUST_STORE_ID},
         "AdvertiseTrustStoreCaNames": true,
@@ -97,6 +108,7 @@ aws cloudfront create-distribution --distribution-config file://distribution-con
 ```
 
 ### For existing distributions
+<a name="enable-mtls-cli-existing"></a>
 
 Get the current distribution configuration using the following example command:
 
@@ -108,7 +120,7 @@ Edit the file to add mTLS settings. Add the following example section to your di
 
 ```
 "ViewerMtlsConfig": {
-    "Mode": "required",
+    "Mode": "required", 
     "TrustStoreConfig": {
         "TrustStoreId": {TRUST_STORE_ID},
         "AdvertiseTrustStoreCaNames": true,
@@ -129,20 +141,16 @@ aws cloudfront update-distribution \
 ```
 
 ## Viewer protocol policies
+<a name="viewer-protocol-policies"></a>
 
 When using mutual TLS, all distribution cache behaviors must be configured with an HTTPS-only viewer protocol policy:
++ **Redirect HTTP to HTTPS** - Redirects HTTP requests to HTTPS before performing certificate validation.
++ **HTTPS Only** - Only accepts HTTPS requests and performs certificate validation.
 
-- **Redirect HTTP to HTTPS** - Redirects HTTP requests to HTTPS before performing certificate validation.
-- **HTTPS Only** - Only accepts HTTPS requests and performs certificate validation.
-
-###### Note
-
+**Note**  
 The HTTP and HTTPS viewer protocol policy is not supported with mutual TLS since HTTP connections cannot perform certificate validation.
 
 ## Next steps
+<a name="enable-mtls-next-steps"></a>
 
-After enabling Viewer TLS on your CloudFront distribution, you can associate
-Connection Functions to implement custom certificate validation logic.
-Connection Functions allow you to extend the built-in mTLS authentication
-capabilities with custom validation rules, certificate revocation checking, and
-logging. For details on creating and associating Connection Functions, see [Associate a CloudFront Connection Function](connection-functions.md "connection-functions.md").
+After enabling Viewer TLS on your CloudFront distribution, you can associate Connection Functions to implement custom certificate validation logic. Connection Functions allow you to extend the built-in mTLS authentication capabilities with custom validation rules, certificate revocation checking, and logging. For details on creating and associating Connection Functions, see [Associate a CloudFront Connection Function](connection-functions.md).

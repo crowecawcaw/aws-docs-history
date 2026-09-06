@@ -1,16 +1,15 @@
+
+
 # Delete CloudFront signing resources using AWS SDK
+<a name="example_cloudfront_DeleteSigningResources_section"></a>
 
 The following code example shows how to delete resources that are used to gain access to restricted content in an Amazon Simple Storage Service (Amazon S3) bucket.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples). 
 
 ```
 import org.slf4j.Logger;
@@ -61,16 +60,12 @@ public class DeleteSigningResources {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [DeleteKeyGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteKeyGroup)
+  + [DeleteOriginAccessControl](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteOriginAccessControl)
+  + [DeletePublicKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudfront-2020-05-31/DeletePublicKey)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [DeleteKeyGroup](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteKeyGroup.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteKeyGroup.md")
-  - [DeleteOriginAccessControl](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteOriginAccessControl.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteOriginAccessControl.md")
-  - [DeletePublicKey](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeletePublicKey.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeletePublicKey.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

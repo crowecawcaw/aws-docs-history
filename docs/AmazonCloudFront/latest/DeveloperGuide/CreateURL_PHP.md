@@ -1,39 +1,29 @@
+
+
 # Create a URL signature using PHP
+<a name="CreateURL_PHP"></a>
 
-Any web server that runs PHP can use this PHP example code to create policy
-statements and signatures for private CloudFront distributions. The full example creates a
-functioning webpage with signed URL links that play a video stream using CloudFront
-streaming. You can download the full example from the [demo-php.zip](samples/demo-php.zip.md "samples/demo-php.zip.md") file.
+Any web server that runs PHP can use this PHP example code to create policy statements and signatures for private CloudFront distributions. The full example creates a functioning webpage with signed URL links that play a video stream using CloudFront streaming. You can download the full example from the [demo-php.zip](samples/demo-php.zip) file.
 
-###### Notes
+**Notes**  
+Creating a URL signature is just one part of the process of serving private content using a signed URL. For more information about the entire process, see [Use signed URLs](private-content-signed-urls.md). 
+You can also create signed URLs by using the `UrlSigner` class in the AWS SDK for PHP. For more information, see [Class UrlSigner](https://docs.aws.amazon.com/aws-sdk-php/v3/api/class-Aws.CloudFront.UrlSigner.html) in the *AWS SDK for PHP API Reference*.
+In the `openssl_sign` call, note that passing `OPENSSL_ALGO_SHA256` as the fourth argument switches to SHA-256. (See also the [Create signed cookies using PHP](signed-cookies-PHP.md) for a full example.)
 
-- Creating a URL signature is just one part of the process of serving
-  private content using a signed URL. For more information about the
-  entire process, see [Use signed URLs](private-content-signed-urls.md "private-content-signed-urls.md").
-- You can also create signed URLs by using the `UrlSigner`
-  class in the AWS SDK for PHP. For more information, see [Class UrlSigner](../../../aws-sdk-php/v3/api/class-Aws.CloudFront.UrlSigner.md "../../../aws-sdk-php/v3/api/class-Aws.CloudFront.UrlSigner.md") in the
-  _AWS SDK for PHP API Reference_.
-- In the `openssl_sign` call, note that passing `OPENSSL_ALGO_SHA256` as the fourth argument switches to SHA-256. (See also the [Create signed cookies using PHP](signed-cookies-PHP.md "signed-cookies-PHP.md") for a full example.)
+**Topics**
++ [Create the RSA SHA-1 signature](#sample-rsa-sign)
++ [Create a canned policy](#sample-canned-policy)
++ [Create a custom policy](#sample-custom-policy)
++ [Full code example](#full-example)
 
-###### Topics
-
-- [Create the RSA SHA-1 signature](#sample-rsa-sign "#sample-rsa-sign")
-- [Create a canned policy](#sample-canned-policy "#sample-canned-policy")
-- [Create a custom policy](#sample-custom-policy "#sample-custom-policy")
-- [Full code example](#full-example "#full-example")
-  The following sections breaks down the code example into individual parts. You can
-  find the [Full code example](#full-example "#full-example") below.
+The following sections breaks down the code example into individual parts. You can find the [Full code example](#full-example) below.
 
 ## Create the RSA SHA-1 signature
+<a name="sample-rsa-sign"></a>
 
 This code example does the following:
-
-- The function `rsa_sha1_sign` hashes and signs the policy
-  statement. The arguments required are a policy statement and the private
-  key that corresponds with a public key that’s in a trusted key group for
-  your distribution.
-- Next, the `url_safe_base64_encode` function creates a
-  URL-safe version of the signature.
++ The function `rsa_sha1_sign` hashes and signs the policy statement. The arguments required are a policy statement and the private key that corresponds with a public key that’s in a trusted key group for your distribution. 
++ Next, the `url_safe_base64_encode` function creates a URL-safe version of the signature.
 
 ```
 function rsa_sha1_sign($policy, $private_key_filename) {
@@ -56,7 +46,7 @@ function rsa_sha1_sign($policy, $private_key_filename) {
 
 function url_safe_base64_encode($value) {
     $encoded = base64_encode($value);
-    // replace unsafe characters +, = and / with
+    // replace unsafe characters +, = and / with 
     // the safe characters -, _ and ~
     return str_replace(
         array('+', '=', '/'),
@@ -65,25 +55,17 @@ function url_safe_base64_encode($value) {
 }
 ```
 
-The following code snippet uses the functions
-`get_canned_policy_stream_name()` and
-`get_custom_policy_stream_name()` to create a canned and custom
-policy. CloudFront uses the policies to create the URL for streaming the video,
-including specifying the expiration time.
+The following code snippet uses the functions `get_canned_policy_stream_name()` and `get_custom_policy_stream_name()` to create a canned and custom policy. CloudFront uses the policies to create the URL for streaming the video, including specifying the expiration time. 
 
-You can then used a canned policy or a custom policy to determine how to
-manage access to your content. For more information about which one to choose,
-see the [Decide to use canned or custom policies for signed URLs](private-content-signed-urls.md#private-content-choosing-canned-custom-policy "private-content-signed-urls.md#private-content-choosing-canned-custom-policy") section.
+You can then used a canned policy or a custom policy to determine how to manage access to your content. For more information about which one to choose, see the [Decide to use canned or custom policies for signed URLs](private-content-signed-urls.md#private-content-choosing-canned-custom-policy) section.
 
 ## Create a canned policy
+<a name="sample-canned-policy"></a>
 
-The following example code constructs a _canned_ policy
-statement for the signature.
+The following example code constructs a *canned* policy statement for the signature. 
 
-###### Note
-
-The `$expires` variable is a date/time stamp that must be an
-integer, not a string.
+**Note**  
+The `$expires` variable is a date/time stamp that must be an integer, not a string.
 
 ```
 function get_canned_policy_stream_name($video_path, $private_key_filename, $key_pair_id, $expires) {
@@ -103,12 +85,12 @@ function get_canned_policy_stream_name($video_path, $private_key_filename, $key_
 }
 ```
 
-For more information about canned policies, see [Create a signed URL using a canned policy](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
+For more information about canned policies, see [Create a signed URL using a canned policy](private-content-creating-signed-url-canned-policy.md).
 
 ## Create a custom policy
+<a name="sample-custom-policy"></a>
 
-The following example code constructs a _custom_ policy
-statement for the signature.
+The following example code constructs a *custom* policy statement for the signature. 
 
 ```
 function get_custom_policy_stream_name($video_path, $private_key_filename, $key_pair_id, $policy) {
@@ -126,18 +108,14 @@ function get_custom_policy_stream_name($video_path, $private_key_filename, $key_
 }
 ```
 
-For more information about custom policies, see [Create a signed URL using a custom policy](private-content-creating-signed-url-custom-policy.md "private-content-creating-signed-url-custom-policy.md").
+For more information about custom policies, see [Create a signed URL using a custom policy](private-content-creating-signed-url-custom-policy.md).
 
 ## Full code example
+<a name="full-example"></a>
 
-The following example code provides a complete demonstration of creating CloudFront
-signed URLs with PHP. You can download the full example from the [demo-php.zip](samples/demo-php.zip.md "samples/demo-php.zip.md") file.
+The following example code provides a complete demonstration of creating CloudFront signed URLs with PHP. You can download the full example from the [demo-php.zip](samples/demo-php.zip) file.
 
-In the following example, you can modify the `$policy`
-`Condition` element to allow both IPv4 and IPv6 address ranges. For
-an example, see [Using IPv6
-addresses in IAM policies](../../../AmazonS3/latest/userguide/ipv6-access.md#ipv6-access-iam "../../../AmazonS3/latest/userguide/ipv6-access.md#ipv6-access-iam") in the
-_Amazon Simple Storage Service User Guide_.
+In the following example, you can modify the `$policy` `Condition` element to allow both IPv4 and IPv6 address ranges. For an example, see [Using IPv6 addresses in IAM policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ipv6-access.html#ipv6-access-iam) in the *Amazon Simple Storage Service User Guide*.
 
 ```
 <?php
@@ -262,7 +240,7 @@ $custom_policy_stream_name = get_custom_policy_stream_name($video_path, $private
     <br />
 
     <div id='canned'>The canned policy video will be here: <br>
-
+    
         <video width="640" height="360" autoplay muted controls>
         <source src="<?php echo $canned_policy_stream_name; ?>" type="video/mp4">
         Your browser does not support the video tag.
@@ -277,7 +255,7 @@ $custom_policy_stream_name = get_custom_policy_stream_name($video_path, $private
          <source src="<?php echo $custom_policy_stream_name; ?>" type="video/mp4">
          Your browser does not support the video tag.
         </video>
-    </div>
+    </div> 
 
 </body>
 
@@ -285,9 +263,8 @@ $custom_policy_stream_name = get_custom_policy_stream_name($video_path, $private
 ```
 
 For additional URL signature examples, see the following topics:
++ [Create a URL signature using Perl](CreateURLPerl.md)
++ [Create a URL signature using C\# and the .NET Framework](CreateSignatureInCSharp.md)
++ [Create a URL signature using Java](CFPrivateDistJavaDevelopment.md)
 
-- [Create a URL signature using Perl](CreateURLPerl.md "CreateURLPerl.md")
-- [Create a URL signature using C# and the .NET Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
-- [Create a URL signature using Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")
-  Instead of using signed URLs to create the signature, you can use signed cookies.
-  For more information, see [Create signed cookies using PHP](signed-cookies-PHP.md "signed-cookies-PHP.md").
+Instead of using signed URLs to create the signature, you can use signed cookies. For more information, see [Create signed cookies using PHP](signed-cookies-PHP.md).

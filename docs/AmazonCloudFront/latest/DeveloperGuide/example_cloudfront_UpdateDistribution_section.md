@@ -1,28 +1,26 @@
+
+
 # Use `UpdateDistribution` with an AWS SDK or CLI
+<a name="example_cloudfront_UpdateDistribution_section"></a>
 
 The following code examples show how to use `UpdateDistribution`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md) 
 
-- [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To update a CloudFront distribution's default root object**
-
-The following example updates the default root object to `index.html` for the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`.
+**AWS CLI**  
+**Example 1: To update a CloudFront distribution's default root object**  
+The following example updates the default root object to `index.html` for the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`.  
 
 ```
-`aws cloudfront update-distribution \
- --id `EDFDVBD6EXAMPLE` \
- --default-root-object `index.html``
-
+aws cloudfront update-distribution \
+    --id {{EDFDVBD6EXAMPLE}} \
+    --default-root-object {{index.html}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -153,24 +151,17 @@ Output:
     }
 }
 ```
-
-**Example 2: To update a CloudFront distribution**
-
-The following example disables the CloudFront distribution with the ID `EMLARXS9EXAMPLE` by providing the distribution configuration in a JSON file named `dist-config-disable.json`. To update a distribution, you must use the `--if-match` option to provide the distribution's `ETag`. To get the
-`ETag`, use the get-distribution or get-distribution-config command. Note that the `Enabled` field is set to
-`false` in the JSON file.
-
-After you use the following example to disable a distribution, you can use the delete-distribution command to delete it.
+**Example 2: To update a CloudFront distribution**  
+The following example disables the CloudFront distribution with the ID `EMLARXS9EXAMPLE` by providing the distribution configuration in a JSON file named `dist-config-disable.json`. To update a distribution, you must use the `--if-match` option to provide the distribution's `ETag`. To get the `ETag`, use the get-distribution or get-distribution-config command. Note that the `Enabled` field is set to `false` in the JSON file.  
+After you use the following example to disable a distribution, you can use the delete-distribution command to delete it.  
 
 ```
-`aws cloudfront update-distribution \
- --id `EMLARXS9EXAMPLE` \
- --if-match `E2QWRUHEXAMPLE` \
- --distribution-config `file://dist-config-disable.json``
-
+aws cloudfront update-distribution \
+    --id {{EMLARXS9EXAMPLE}} \
+    --if-match {{E2QWRUHEXAMPLE}} \
+    --distribution-config {{file://dist-config-disable.json}}
 ```
-
-Contents of `dist-config-disable.json`:
+Contents of `dist-config-disable.json`:  
 
 ```
 {
@@ -272,8 +263,7 @@ Contents of `dist-config-disable.json`:
     "IsIPV6Enabled": true
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -390,20 +380,13 @@ Output:
     }
 }
 ```
++  For API details, see [UpdateDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/update-distribution.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [UpdateDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/update-distribution.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/update-distribution.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -494,23 +477,14 @@ public class ModifyDistribution {
         }
     }
 }
-
-
 ```
++  For API details, see [UpdateDistribution](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudfront-2020-05-31/UpdateDistribution) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UpdateDistribution](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/UpdateDistribution.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/UpdateDistribution.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudfront#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudfront#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudfront#code-examples). 
 
 ```
 class CloudFrontWrapper:
@@ -546,25 +520,14 @@ class CloudFrontWrapper:
             IfMatch=distribution_etag,
         )
         print("Done!")
-
-
-
-
 ```
++  For API details, see [UpdateDistribution](https://docs.aws.amazon.com/goto/boto3/cloudfront-2020-05-31/UpdateDistribution) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateDistribution](../../../goto/boto3/cloudfront-2020-05-31/UpdateDistribution.md "../../../goto/boto3/cloudfront-2020-05-31/UpdateDistribution.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/fnt#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/fnt#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/fnt#code-examples). 
 
 ```
     TRY.
@@ -607,14 +570,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_fntinvalidifmatchvrs.
         MESSAGE 'Invalid If-Match version.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateDistribution](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UpdateDistribution](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

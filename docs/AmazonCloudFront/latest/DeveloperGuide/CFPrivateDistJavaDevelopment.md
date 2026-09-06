@@ -1,18 +1,17 @@
+
+
 # Create a URL signature using Java
+<a name="CFPrivateDistJavaDevelopment"></a>
 
-In addition to the following code example, you can use [the `CloudFrontUrlSigner` utility class in the AWS SDK for Java (version 1)](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/cloudfront/CloudFrontUrlSigner.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/cloudfront/CloudFrontUrlSigner.md") to create [CloudFront signed
-URLs](private-content-signed-urls.md "private-content-signed-urls.md").
+In addition to the following code example, you can use [the `CloudFrontUrlSigner` utility class in the AWS SDK for Java (version 1)](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/cloudfront/CloudFrontUrlSigner.html) to create [CloudFront signed URLs](private-content-signed-urls.md).
 
-For more examples, see [Create signed URLs and cookies using an AWS SDK](../../../code-library/latest/ug/cloudfront_example_cloudfront_CloudFrontUtilities_section.md "../../../code-library/latest/ug/cloudfront_example_cloudfront_CloudFrontUtilities_section.md") in the
-_AWS SDK Code Examples Code Library_.
+For more examples, see [Create signed URLs and cookies using an AWS SDK](https://docs.aws.amazon.com/code-library/latest/ug/cloudfront_example_cloudfront_CloudFrontUtilities_section.html) in the *AWS SDK Code Examples Code Library*. 
 
-###### Notes
+**Notes**  
+Creating a signed URL is just one part of the process of [serving private content with CloudFront](PrivateContent.md). For more information about the entire process, see [Use signed URLs](private-content-signed-urls.md).
+In the `Signature.getInstance` call, note that `SHA1withRSA` can be replaced with `SHA256withRSA`.
 
-- Creating a signed URL is just one part of the process of [serving private content with CloudFront](PrivateContent.md "PrivateContent.md"). For more
-  information about the entire process, see [Use signed URLs](private-content-signed-urls.md "private-content-signed-urls.md").
-- In the `Signature.getInstance` call, note that `SHA1withRSA` can be replaced with `SHA256withRSA`.
-
-###### Example Java policy and signature encryption methods
+**Example Java policy and signature encryption methods**  <a name="ExampleJavaPolicyAndSignatureEncryptionMethods"></a>
 
 ```
 package org.example;
@@ -42,10 +41,9 @@ public class Main {
 
     }
 }
-
 ```
 
-###### Example Canned Policy Signing with SHA256 in Java
+**Example Canned Policy Signing with SHA256 in Java**  <a name="ExampleJavaPolicySHA256AndSignatureEncryptionMethods"></a>
 
 ```
 package org.example;
@@ -113,11 +111,9 @@ public class Main {
                 .generatePrivate(new PKCS8EncodedKeySpec(keyBytes));
     }
 }
-
 ```
 
 See also:
-
-- [Create a URL signature using Perl](CreateURLPerl.md "CreateURLPerl.md")
-- [Create a URL signature using PHP](CreateURL_PHP.md "CreateURL_PHP.md")
-- [Create a URL signature using C# and the .NET Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
++ [Create a URL signature using Perl](CreateURLPerl.md)
++ [Create a URL signature using PHP](CreateURL_PHP.md)
++ [Create a URL signature using C\# and the .NET Framework](CreateSignatureInCSharp.md)

@@ -1,16 +1,15 @@
+
+
 # Validate a simple token in a CloudFront Functions viewer request
+<a name="example_cloudfront_functions_kvs_jwt_verify_section"></a>
 
 The following code example shows how to validate a simple token in a CloudFront Functions viewer request.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**JavaScript runtime 2.0 for CloudFront Functions**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/kvs-jwt-verify "https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/kvs-jwt-verify")
-repository.
+**JavaScript runtime 2.0 for CloudFront Functions**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [CloudFront Functions examples](https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/kvs-jwt-verify) repository. 
 
 ```
 import crypto from 'crypto';
@@ -22,7 +21,7 @@ const response401 = {
     statusDescription: 'Unauthorized'
 };
 
-// Remember to associate the KVS with your function before calling the const kvsKey = 'jwt.secret'.
+// Remember to associate the KVS with your function before calling the const kvsKey = 'jwt.secret'. 
 // https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-associate.html
 const kvsKey = 'jwt.secret';
 // set to true to enable console logging
@@ -124,7 +123,7 @@ async function handler(event) {
 
     const jwtToken = request.querystring.jwt.value;
 
-    try{
+    try{ 
         jwt_decode(jwtToken, secret_key);
     }
     catch(e) {
@@ -138,9 +137,9 @@ async function handler(event) {
     return request;
 }
 
-// get secret from key value store
+// get secret from key value store 
 async function getSecret() {
-    // initialize cloudfront kv store and get the key value
+    // initialize cloudfront kv store and get the key value 
     try {
         const kvsHandle = cf.kvs();
         return await kvsHandle.get(kvsKey);
@@ -156,10 +155,8 @@ function log(message) {
         console.log(message);
     }
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

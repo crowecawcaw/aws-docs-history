@@ -1,27 +1,25 @@
+
+
 # Use `GetDistribution` with a CLI
+<a name="example_cloudfront_GetDistribution_section"></a>
 
 The following code examples show how to use `GetDistribution`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md) 
 
-- [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To get a CloudFront distribution**
-
-The following `get-distribution` example gets the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`, including its `ETag`. The distribution ID is returned in the create-distribution and list-distributions commands.
+**AWS CLI**  
+**To get a CloudFront distribution**  
+The following `get-distribution` example gets the CloudFront distribution with the ID `EDFDVBD6EXAMPLE`, including its `ETag`. The distribution ID is returned in the create-distribution and list-distributions commands.  
 
 ```
-`aws cloudfront get-distribution \
- --id `EDFDVBD6EXAMPLE``
-
+aws cloudfront get-distribution \
+    --id {{EDFDVBD6EXAMPLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -138,39 +136,27 @@ Output:
     }
 }
 ```
++  For API details, see [GetDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/get-distribution.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetDistribution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/get-distribution.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/get-distribution.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Retrieves the information for a specific distribution.**
+**Tools for PowerShell V4**  
+**Example 1: Retrieves the information for a specific distribution.**  
 
 ```
 Get-CFDistribution -Id EXAMPLE0000ID
-
 ```
++  For API details, see [GetDistribution](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetDistribution](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Retrieves the information for a specific distribution.**
+**Tools for PowerShell V5**  
+**Example 1: Retrieves the information for a specific distribution.**  
 
 ```
 Get-CFDistribution -Id EXAMPLE0000ID
-
 ```
++  For API details, see [GetDistribution](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetDistribution](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

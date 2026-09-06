@@ -1,21 +1,19 @@
+
+
 # Get started with a basic content distribution network
+<a name="example_cloudfront_GettingStarted_section"></a>
 
 The following code example shows how to:
++ Create an Amazon S3 bucket
++ Upload content to the bucket
++ Create a CloudFront distribution with OAC
++ Clean up resources
 
-- Create an Amazon S3 bucket
-- Upload content to the bucket
-- Create a CloudFront distribution with OAC
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/005-cloudfront-gettingstarted "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/005-cloudfront-gettingstarted")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/005-cloudfront-gettingstarted) repository. 
 
 ```
 #!/bin/bash
@@ -45,7 +43,7 @@ handle_error() {
     if [ -n "${DISTRIBUTION_ID:-}" ]; then
         echo "- CloudFront Distribution: $DISTRIBUTION_ID"
     fi
-
+    
     echo "Attempting to clean up resources..."
     cleanup
     exit 1
@@ -54,37 +52,37 @@ handle_error() {
 # Function to clean up resources
 cleanup() {
     echo "Cleaning up resources..."
-
+    
     if [ -n "${DISTRIBUTION_ID:-}" ]; then
         echo "Disabling CloudFront distribution $DISTRIBUTION_ID..."
-
+        
         # Get the current configuration and ETag in one call
         DIST_CONFIG=$(aws cloudfront get-distribution-config --id "$DISTRIBUTION_ID" 2>/dev/null) || {
             echo "Failed to get distribution config. Continuing with cleanup..."
             DIST_CONFIG=""
         }
-
+        
         if [ -n "$DIST_CONFIG" ]; then
             ETAG=$(echo "$DIST_CONFIG" | jq -r '.ETag')
-
+            
             # Modify and update distribution in one pipeline
             if echo "$DIST_CONFIG" | jq '.DistributionConfig.Enabled = false' | \
                 aws cloudfront update-distribution \
                     --id "$DISTRIBUTION_ID" \
                     --distribution-config "$(cat)" \
                     --if-match "$ETAG" 2>/dev/null; then
-
+                
                 echo "Waiting for distribution to be disabled (this may take several minutes)..."
                 aws cloudfront wait distribution-deployed --id "$DISTRIBUTION_ID" 2>/dev/null || {
                     echo "Distribution deployment wait timed out. Proceeding with deletion..."
                 }
-
+                
                 # Get fresh ETag for deletion
                 DIST_CONFIG=$(aws cloudfront get-distribution-config --id "$DISTRIBUTION_ID" 2>/dev/null) || {
                     echo "Failed to get updated config. Skipping distribution deletion..."
                     DIST_CONFIG=""
                 }
-
+                
                 if [ -n "$DIST_CONFIG" ]; then
                     ETAG=$(echo "$DIST_CONFIG" | jq -r '.ETag')
                     aws cloudfront delete-distribution --id "$DISTRIBUTION_ID" --if-match "$ETAG" 2>/dev/null && \
@@ -96,14 +94,14 @@ cleanup() {
             fi
         fi
     fi
-
+    
     if [ -n "${OAC_ID:-}" ]; then
         echo "Deleting Origin Access Control $OAC_ID..."
         OAC_DATA=$(aws cloudfront get-origin-access-control --id "$OAC_ID" 2>/dev/null) || {
             echo "Failed to get Origin Access Control. You may need to delete it manually."
             OAC_DATA=""
         }
-
+        
         if [ -n "$OAC_DATA" ]; then
             OAC_ETAG=$(echo "$OAC_DATA" | jq -r '.ETag')
             aws cloudfront delete-origin-access-control --id "$OAC_ID" --if-match "$OAC_ETAG" 2>/dev/null && \
@@ -111,18 +109,18 @@ cleanup() {
                 echo "Failed to delete Origin Access Control. You may need to delete it manually."
         fi
     fi
-
+    
     if [ -n "${BUCKET_NAME:-}" ] && [ "$BUCKET_IS_SHARED" != "true" ]; then
         echo "Deleting S3 bucket $BUCKET_NAME and its contents..."
         aws s3 rm "s3://$BUCKET_NAME" --recursive 2>/dev/null || {
             echo "Failed to remove bucket contents. Continuing with bucket deletion..."
         }
-
+        
         aws s3 rb "s3://$BUCKET_NAME" 2>/dev/null && \
             echo "S3 bucket deleted." || \
             echo "Failed to delete bucket. You may need to delete it manually."
     fi
-
+    
     # Clean up temporary files
     rm -f temp_disabled_config.json distribution-config.json bucket-policy.json 2>/dev/null || true
     rm -rf temp_content 2>/dev/null || true
@@ -198,9 +196,9 @@ if [ "$BUCKET_IS_SHARED" != "true" ]; then
     if [ $? -ne 0 ]; then
         handle_error "Failed to create S3 bucket"
     fi
-
+    
     aws s3api put-bucket-tagging --bucket "$BUCKET_NAME" --tagging 'TagSet=[{Key=project,Value=doc-smith},{Key=tutorial,Value=cloudfront-gettingstarted}]'
-
+    
     # Batch bucket configuration calls for efficiency
     aws s3api put-bucket-versioning --bucket "$BUCKET_NAME" --versioning-configuration Status=Enabled &
     aws s3api put-public-access-block \
@@ -365,7 +363,7 @@ echo "Updating S3 bucket policy..."
 
 cat > bucket-policy.json << EOF
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "AllowCloudFrontServicePrincipal",
@@ -415,21 +413,18 @@ echo "To clean up resources, run: cleanup"
 echo ""
 
 echo "Tutorial completed at $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateDistribution](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/CreateDistribution)
+  + [CreateOriginAccessControl](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/CreateOriginAccessControl)
+  + [DeleteDistribution](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/DeleteDistribution)
+  + [DeleteOriginAccessControl](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/DeleteOriginAccessControl)
+  + [GetDistribution](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/GetDistribution)
+  + [GetDistributionConfig](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/GetDistributionConfig)
+  + [GetOriginAccessControl](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/GetOriginAccessControl)
+  + [UpdateDistribution](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/UpdateDistribution)
+  + [WaitDistributionDeployed](https://docs.aws.amazon.com/goto/aws-cli/cloudfront-2020-05-31/WaitDistributionDeployed)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateDistribution](../../../goto/aws-cli/cloudfront-2020-05-31/CreateDistribution.md "../../../goto/aws-cli/cloudfront-2020-05-31/CreateDistribution.md")
-  - [CreateOriginAccessControl](../../../goto/aws-cli/cloudfront-2020-05-31/CreateOriginAccessControl.md "../../../goto/aws-cli/cloudfront-2020-05-31/CreateOriginAccessControl.md")
-  - [DeleteDistribution](../../../goto/aws-cli/cloudfront-2020-05-31/DeleteDistribution.md "../../../goto/aws-cli/cloudfront-2020-05-31/DeleteDistribution.md")
-  - [DeleteOriginAccessControl](../../../goto/aws-cli/cloudfront-2020-05-31/DeleteOriginAccessControl.md "../../../goto/aws-cli/cloudfront-2020-05-31/DeleteOriginAccessControl.md")
-  - [GetDistribution](../../../goto/aws-cli/cloudfront-2020-05-31/GetDistribution.md "../../../goto/aws-cli/cloudfront-2020-05-31/GetDistribution.md")
-  - [GetDistributionConfig](../../../goto/aws-cli/cloudfront-2020-05-31/GetDistributionConfig.md "../../../goto/aws-cli/cloudfront-2020-05-31/GetDistributionConfig.md")
-  - [GetOriginAccessControl](../../../goto/aws-cli/cloudfront-2020-05-31/GetOriginAccessControl.md "../../../goto/aws-cli/cloudfront-2020-05-31/GetOriginAccessControl.md")
-  - [UpdateDistribution](../../../goto/aws-cli/cloudfront-2020-05-31/UpdateDistribution.md "../../../goto/aws-cli/cloudfront-2020-05-31/UpdateDistribution.md")
-  - [WaitDistributionDeployed](../../../goto/aws-cli/cloudfront-2020-05-31/WaitDistributionDeployed.md "../../../goto/aws-cli/cloudfront-2020-05-31/WaitDistributionDeployed.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

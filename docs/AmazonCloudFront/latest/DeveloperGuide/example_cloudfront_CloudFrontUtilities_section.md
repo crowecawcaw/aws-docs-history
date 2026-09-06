@@ -1,20 +1,16 @@
+
+
 # Create signed URLs and cookies using an AWS SDK
+<a name="example_cloudfront_CloudFrontUtilities_section"></a>
 
 The following code example shows how to create signed URLs and cookies that allow access to restricted resources.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples").
-
-Use the [CannedSignerRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/model/CannedSignerRequest.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/model/CannedSignerRequest.html")
-
-class to sign URLs or cookies with a _canned_ policy.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples). 
+Use the [CannedSignerRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/model/CannedSignerRequest.html) class to sign URLs or cookies with a *canned* policy.  
 
 ```
 import software.amazon.awssdk.services.cloudfront.model.CannedSignerRequest;
@@ -45,11 +41,8 @@ public class CreateCannedPolicyRequest {
                 .build();
     }
 }
-
-
 ```
-
-Use the [CustomSignerRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/model/CustomSignerRequest.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/model/CustomSignerRequest.html") class to sign URLs or cookies with a _custom_ policy. The `activeDate` and `ipRange` are optional methods.
+Use the [CustomSignerRequest](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/model/CustomSignerRequest.html) class to sign URLs or cookies with a *custom* policy. The `activeDate` and `ipRange` are optional methods.  
 
 ```
 import software.amazon.awssdk.services.cloudfront.model.CustomSignerRequest;
@@ -85,11 +78,8 @@ public class CreateCustomPolicyRequest {
                 .build();
     }
 }
-
-
 ```
-
-The following example demonstrates the use of the [CloudFrontUtilities](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/CloudFrontUtilities.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/CloudFrontUtilities.html") class to produce signed cookies and URLs. [View](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/cloudfront/src/main/java/com/example/cloudfront/SigningUtilities.java "https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/cloudfront/src/main/java/com/example/cloudfront/SigningUtilities.java") this code example on GitHub.
+The following example demonstrates the use of the [CloudFrontUtilities](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cloudfront/CloudFrontUtilities.html) class to produce signed cookies and URLs. [View](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/javav2/example_code/cloudfront/src/main/java/com/example/cloudfront/SigningUtilities.java) this code example on GitHub.  
 
 ```
 import org.slf4j.Logger;
@@ -135,14 +125,9 @@ public class SigningUtilities {
         return cookiesForCustomPolicy;
     }
 }
-
-
 ```
++  For API details, see [CloudFrontUtilities](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudfront-2020-05-31/CloudFrontUtilities) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CloudFrontUtilities](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CloudFrontUtilities.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CloudFrontUtilities.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

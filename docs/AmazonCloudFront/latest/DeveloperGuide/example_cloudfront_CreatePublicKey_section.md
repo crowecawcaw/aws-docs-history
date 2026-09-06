@@ -1,27 +1,22 @@
+
+
 # Use `CreatePublicKey` with an AWS SDK or CLI
+<a name="example_cloudfront_CreatePublicKey_section"></a>
 
 The following code examples show how to use `CreatePublicKey`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To create a CloudFront public key**
-
-The following example creates a CloudFront public key by providing the
-parameters in a JSON file named `pub-key-config.json`. Before you can use
-this command, you must have a PEM-encoded public key. For more information, see
-[Create an RSA Key Pair](field-level-encryption.md#field-level-encryption-setting-up-step1 "field-level-encryption.md#field-level-encryption-setting-up-step1")
-in the _Amazon CloudFront Developer Guide_.
+**AWS CLI**  
+**To create a CloudFront public key**  
+The following example creates a CloudFront public key by providing the parameters in a JSON file named `pub-key-config.json`. Before you can use this command, you must have a PEM-encoded public key. For more information, see [Create an RSA Key Pair](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html#field-level-encryption-setting-up-step1) in the *Amazon CloudFront Developer Guide*.  
 
 ```
-`aws cloudfront create-public-key \
- --public-key-config `file://pub-key-config.json``
-
+aws cloudfront create-public-key \
+    --public-key-config {{file://pub-key-config.json}}
 ```
-
-The file `pub-key-config.json` is a JSON document in the current folder that
-contains the following. Note that the public key is encoded in PEM format.
+The file `pub-key-config.json` is a JSON document in the current folder that contains the following. Note that the public key is encoded in PEM format.  
 
 ```
 {
@@ -31,8 +26,7 @@ contains the following. Note that the public key is encoded in PEM format.
     "Comment": "example public key"
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -50,22 +44,14 @@ Output:
     }
 }
 ```
++  For API details, see [CreatePublicKey](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/create-public-key.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreatePublicKey](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/create-public-key.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/create-public-key.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples").
-
-The following code example reads in a public key and uploads it to Amazon CloudFront.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudfront#code-examples). 
+The following code example reads in a public key and uploads it to Amazon CloudFront.  
 
 ```
 import org.slf4j.Logger;
@@ -98,14 +84,9 @@ public class CreatePublicKey {
         }
     }
 }
-
-
 ```
++  For API details, see [CreatePublicKey](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudfront-2020-05-31/CreatePublicKey) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreatePublicKey](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CreatePublicKey.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CreatePublicKey.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using CloudFront with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
