@@ -73,7 +73,7 @@ The following example shows an Amazon S3 bucket policy that allows AWS B2B Data 
         "StringEquals": {
           "aws:SourceAccount": "`123456789012`"
         },
-        "StringLike": {
+        "ArnLike": {
           "aws:SourceArn": "arn:aws:b2bi:*:`123456789012`:*"
         }
       }
@@ -106,7 +106,7 @@ The following example shows a AWS KMS key policy that allows AWS B2B Data Interc
         "StringEquals": {
           "aws:SourceAccount": "`123456789012`"
         },
-        "StringLike": {
+        "ArnLike": {
           "aws:SourceArn": "arn:aws:b2bi:*:`123456789012`:*"
         }
       }

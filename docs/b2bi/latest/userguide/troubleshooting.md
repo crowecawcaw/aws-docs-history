@@ -82,9 +82,8 @@ affect AWS B2B Data Interchange operations when you manage a large number of res
 
 1. Sign in to AWS CLI.
 2. Add the following policy to enable B2B Data Interchange to deliver logs to resource log
-   groups using the following command. Replace `REGION`
-   and `ACCOUNT_ID` with your actual values for region and
-   AWS account ID. For the policy name, we suggest using
+   groups using the following command. Replace the Region and AWS account ID in
+   the example with your actual values. For the policy name, we suggest using
    `AWSLogsDeliveryWriteB2Bi`, but you can choose your own
    name for the policy.
 
@@ -106,13 +105,13 @@ aws logs put-resource-policy \
                 "logs:CreateLogStream",
                 "logs:PutLogEvents"
             ],
-            "Resource": "arn:aws:logs:`REGION`:`ACCOUNT_ID`:log-group:/aws/vendedlogs/b2bi/*",
+            "Resource": "arn:aws:logs:`us-east-1`:`111122223333`:log-group:/aws/vendedlogs/b2bi/*",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "`ACCOUNT_ID`"
+                    "aws:SourceAccount": "`111122223333`"
                 },
                 "ArnLike": {
-                    "aws:SourceArn": "arn:aws:logs:`REGION`:`ACCOUNT_ID`:*"
+                    "aws:SourceArn": "arn:aws:logs:`us-east-1`:`111122223333`:*"
                 }
             }
         }
