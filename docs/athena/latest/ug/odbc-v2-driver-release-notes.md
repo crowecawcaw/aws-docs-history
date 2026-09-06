@@ -3,60 +3,6 @@
 These release notes provide details of enhancements, features, known issues, and workflow
 changes in the Amazon Athena ODBC 2.x driver.
 
-## 2.3.0.0
-
-Released 2026-08-21
-
-### Fixes
-
-- Fixed an issue that caused `SQLTables` and
-  `SQLColumns` to omit tables beyond the first 200 in a
-  schema when a metadata results page was empty.
-- Fixed an issue that caused empty string filter patterns from
-  ADO.NET applications such as Power
-  BI to return zero rows instead of all rows.
-- Fixed an issue that caused `SQLColumns` to fail on
-  column types that the driver does not recognize, such as
-  `uuid` or `json`. These columns are now
-  reported as `VARCHAR`.
-- Fixed an issue that caused connections that use the
-  `SageMakerBrowserIdc` authentication plugin to hang when
-  the `SSOOIDCEndpointOverride` or
-  `SSOEndpointOverride` parameter was set.
-- Fixed an issue that caused connections through a proxy server to
-  fail with DNS resolution errors when the proxy performs DNS
-  resolution. HTTP clients that the AWS SDK creates internally now
-  use the proxy configuration from your DSN.
-
-###### Note
-
-On Windows, the driver now verifies SSL certificates against
-the Windows system certificate store and does not use the
-`TrustedCerts` parameter.
-
-- Fixed an issue that caused TLS certificate verification to fail
-  on some Linux distributions when the `TrustedCerts`
-  parameter was not set. The driver now locates the CA bundle at
-  runtime and honors the `CURL_CA_BUNDLE` and
-  `SSL_CERT_FILE` environment variables.
-- Fixed an issue that caused the driver to send requests to
-  identity providers without a `User-Agent`
-  header.
-
-###### Important
-
-Action required: This release
-changes the `User-Agent` header value that the
-driver sends on requests to AWS services and to identity
-providers, except Windows Integrated Authentication requests,
-which continue to use a browser `User-Agent`
-value. If you match on the driver's `User-Agent`
-value in IAM `aws:UserAgent` policy conditions,
-log filters, or identity provider sign-on rules, update them
-to match `*lib/AmazonAthenaODBC#*`.
-
-To download the new ODBC v2 driver, see [ODBC 2.x driver download](odbc-v2-driver.md#odbc-v2-driver-download "odbc-v2-driver.md#odbc-v2-driver-download"). For connection information, see [Amazon Athena ODBC 2.x](odbc-v2-driver.md "odbc-v2-driver.md").
-
 ## 2.2.0.1
 
 Released 2026-07-06
