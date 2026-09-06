@@ -1,53 +1,49 @@
+
+
 # Prerequisites
+<a name="resource-tagging-prerequisites"></a>
 
 Before implementing Partner Revenue Measurement, you must have:
 
 1. **AWS Partner Central and AWS account linking**
 
-Before linking accounts, AWS Partners must understand that this linked AWS account will become the primary account for managing all APN activities in Partner Central. This account will:
+   Before linking accounts, AWS Partners must understand that this linked AWS account will become the primary account for managing all APN activities in Partner Central. This account will:
+   + Determine Partner Revenue Measurement compliance for APN funding benefits eligibility
+   + Serve as the primary account for the migration to the new Partner Central experience and all Partner Central users will need to be provisioned access
+   + Be billed for the annual APN membership fee
 
-    * Determine Partner Revenue Measurement compliance for APN funding benefits eligibility
-    * Serve as the primary account for the migration to the new Partner Central experience and all Partner Central users will need to be provisioned access
-    * Be billed for the annual APN membership fee
+   When determining which AWS account to link, consider these options:
 
-When determining which AWS account to link, consider these options:
+   **Option A. Partners with one AWS Marketplace account**
 
-**Option A. Partners with one AWS Marketplace account**
+   Evaluate your existing AWS Marketplace account against the [account selection guidance criteria](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started) (Partner Central login required). Link your AWS Marketplace account if you're comfortable with:
+   + Provisioning Partner Central user access to this account
+   + Using this account as your primary account for APN engagements
+   + Being billed the APN membership fee on this account
 
-Evaluate your existing AWS Marketplace account against the [account selection guidance criteria](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started") (Partner Central login required). Link your AWS Marketplace account if you're comfortable with:
+   If you prefer not to designate your AWS Marketplace account as your primary account, create a new AWS account or link an existing non-AWS Marketplace account that meets the above criteria.
 
-    * Provisioning Partner Central user access to this account
-    * Using this account as your primary account for APN engagements
-    * Being billed the APN membership fee on this account
+   **Option B. Partners with multiple AWS Marketplace accounts**
 
-If you prefer not to designate your AWS Marketplace account as your primary account, create a new AWS account or link an existing non-AWS Marketplace account that meets the above criteria.
-
-**Option B. Partners with multiple AWS Marketplace accounts**
-
-Evaluate your AWS Marketplace accounts against the [account selection guidance criteria](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started") (Partner Central login required).
-
-###### Note
-
+   Evaluate your AWS Marketplace accounts against the [account selection guidance criteria](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started) (Partner Central login required).
+**Note**  
 AWS recommends creating and linking a new AWS account to represent your global business, then connecting all individual AWS Marketplace accounts to your primary account using Subsidiary Account Connections (accessible only after migrating to the new Partner Central experience).
 
-Complete these three steps:
+   Complete these three steps:
 
-    1. [Create and link](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started") an AWS account (which will become your primary account) to your Partner Central account
-    2. [Migrate](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started "https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started") to the new Partner Central experience (Partner Central login required)
-    3. Link all AWS Marketplace accounts to your primary AWS account through [Subsidiary Account Connections](../../../partner-central/latest/getting-started/manage-subsidiary.md "../../../partner-central/latest/getting-started/manage-subsidiary.md") (Partner Central login required)
+   1. [Create and link](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started) an AWS account (which will become your primary account) to your Partner Central account
 
-2. **Product listing on AWS Marketplace**
+   1. [Migrate](https://partnercentral.awspartner.com/partnercentral2/s/article?category=Introductory_resources&article=AWS-Partner-Central-and-AWS-account-linking-How-to-Get-Started) to the new Partner Central experience (Partner Central login required)
 
-See the [AWS Marketplace Seller Guide](../../../marketplace/latest/userguide/user-guide-for-sellers.md "../../../marketplace/latest/userguide/user-guide-for-sellers.md") for general information. For product-specific listing guide instructions:
+   1. Link all AWS Marketplace accounts to your primary AWS account through [Subsidiary Account Connections](https://docs.aws.amazon.com/partner-central/latest/getting-started/manage-subsidiary.html) (Partner Central login required)
 
-| Product Type               | Listing Guide                                                                                                                                                                                               |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SaaS                       | [SaaS Product Listing Guide](../../../marketplace/latest/userguide/saas-create-product.md "../../../marketplace/latest/userguide/saas-create-product.md")                                                   |
-| Amazon Machine Image (AMI) | [AMI Product Listing Guide](../../../marketplace/latest/userguide/ami-single-ami-products.md#ami-create-product "../../../marketplace/latest/userguide/ami-single-ami-products.md#ami-create-product")      |
-| Machine Learning (ML)      | [ML Product Listing Guide](../../../marketplace/latest/userguide/ml-publishing-your-product-in-aws-marketplace.md "../../../marketplace/latest/userguide/ml-publishing-your-product-in-aws-marketplace.md") |
-| Professional Services      | [Professional Services Listing Guide](../../../marketplace/latest/userguide/proserv-getting-started.md#proserv-create "../../../marketplace/latest/userguide/proserv-getting-started.md#proserv-create")    |
+1. **Product listing on AWS Marketplace**
 
-3. **Product that uses one or more of the [supported AWS services](included-aws-services.md "included-aws-services.md")**
-4. **Ensure that Cost Explorer is enabled**
+   See the [AWS Marketplace Seller Guide](https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html) for general information. For product-specific listing guide instructions:    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/resource-tagging-prerequisites.html)
 
-To learn how to enable Cost Explorer, see [Enabling Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md").
+1. **Product that uses one or more of the [supported AWS services](included-aws-services.md)**
+
+1. **Ensure that Cost Explorer is enabled**
+
+   To learn how to enable Cost Explorer, see [Enabling Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html).

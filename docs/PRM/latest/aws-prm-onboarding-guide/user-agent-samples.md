@@ -1,12 +1,15 @@
+
+
 # Implementation Samples
+<a name="user-agent-samples"></a>
 
 This section provides code samples for implementing User Agent strings across different programming languages and AWS SDKs. Each sample demonstrates how to configure the User Agent string format `APN_1.1/pc_<YOUR-PRODUCT-CODE>$` for AWS services.
 
-###### Note
-
+**Note**  
 Replace the example product code `5ugbbrmu7ud3u5hsipfzug61p` with your actual AWS Marketplace product code retrieved from the AWS Marketplace Management Portal.
 
 ## Python (boto3)
+<a name="python-sample"></a>
 
 ```
 import boto3
@@ -25,6 +28,7 @@ s3 = boto3.client('s3', config=session_config)
 ```
 
 ## Java (AWS SDK v2)
+<a name="java-sample"></a>
 
 ```
 import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
@@ -56,6 +60,7 @@ public class AwsCustomUserAgentExample {
 ```
 
 ## .NET (AWS SDK)
+<a name="dotnet-sample"></a>
 
 ```
 using Amazon;
@@ -87,6 +92,7 @@ class Program
 ```
 
 ## Node.js (AWS SDK v3)
+<a name="nodejs-sample"></a>
 
 ```
 const { EC2Client } = require("@aws-sdk/client-ec2");
@@ -101,7 +107,7 @@ function addPRMUserAgent(client, productCode) {
             if (!args.request.headers) args.request.headers = {};
             const existing = args.request.headers["User-Agent"] || "";
             const prmUAString = `APN_1.1/pc_${productCode}$`;
-            args.request.headers["User-Agent"] = existing
+            args.request.headers["User-Agent"] = existing 
                 ? `${existing} ${prmUAString}`
                 : prmUAString;
             return next(args);
@@ -116,6 +122,7 @@ const s3Client = addPRMUserAgent(new S3Client({ region: REGION }), PRODUCT_CODE)
 ```
 
 ## Go (AWS SDK v2)
+<a name="go-sample"></a>
 
 ```
 package main
@@ -154,6 +161,7 @@ func main() {
 ```
 
 ## Ruby (AWS SDK v3)
+<a name="ruby-sample"></a>
 
 ```
 require 'aws-sdk-ec2'
@@ -172,14 +180,16 @@ s3_client = Aws::S3::Client.new
 ```
 
 ## Terraform
+<a name="terraform-user-agent-sample"></a>
 
 The Terraform AWS provider supports three ways to inject custom User Agent information:
 
-| Method                                | Scope                  | Recommended |
-| ------------------------------------- | ---------------------- | ----------- |
-| `provider_meta` `user_agent` argument | Declaring module only  | Yes         |
-| `user_agent` provider argument        | Provider block         | No          |
-| `TF_APPEND_USER_AGENT` env var        | Global (all API calls) | No          |
+
+| Method | Scope | Recommended | 
+| --- | --- | --- | 
+| provider\_meta user\_agent argument | Declaring module only | Yes | 
+| user\_agent provider argument | Provider block | No | 
+| TF\_APPEND\_USER\_AGENT env var | Global (all API calls) | No | 
 
 `provider_meta` is scoped to the declaring module only, ensuring correct attribution without collision when multiple partner modules are used in the same Terraform configuration.
 
@@ -206,14 +216,10 @@ terraform {
 
 Replace `5ugbbrmu7ud3u5hsipfzug61p` with your actual product code. The `$` is a required end delimiter, do not omit it.
 
-###### Important
+**Important**  
+User Agent attribution requires ongoing API or CLI interaction with AWS resources. Terraform typically interacts with resources only during `plan`, `apply`, and `destroy` operations. If the partner solution provisions static, long-running resources with limited ongoing API activity, consider using [tag-based attribution with Terraform](automated-tagging.md#terraform-tagging) instead.
 
-User Agent attribution requires ongoing API or CLI interaction with AWS resources. Terraform typically interacts with resources only during `plan`, `apply`, and `destroy` operations. If the partner solution provisions static, long-running resources with limited ongoing API activity, consider using [tag-based attribution with Terraform](automated-tagging.md#terraform-tagging "automated-tagging.md#terraform-tagging") instead.
-
-###### Note
-
-Do not declare a `provider "aws" {}` block in your module. The provider configuration should be controlled by the root module (the customer). Your module should only use `provider_meta`.
-
-`provider_meta` user-agent does **not** inherit to child modules. If your module calls other modules that also need attribution, each module must declare its own `provider_meta`.
-
+**Note**  
+Do not declare a `provider "aws" {}` block in your module. The provider configuration should be controlled by the root module (the customer). Your module should only use `provider_meta`.  
+`provider_meta` user-agent does **not** inherit to child modules. If your module calls other modules that also need attribution, each module must declare its own `provider_meta`.  
 If both provider-level `user_agent` and `provider_meta` are present, the provider-level User Agent appears first in the header, followed by `provider_meta`.
