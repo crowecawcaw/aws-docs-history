@@ -1,10 +1,13 @@
+
+
 # Connecting your JMS application
+<a name="rabbitmq-tutorial-jms"></a>
 
-This tutorial shows you how to connect your JMS application to Amazon MQ for RabbitMQ broker using the RabbitMQ JMS client. You will learn how to create a producer to send messages and a consumer to receive messages from RabbitMQ queues.
+ This tutorial shows you how to connect your JMS application to Amazon MQ for RabbitMQ broker using the RabbitMQ JMS client. You will learn how to create a producer to send messages and a consumer to receive messages from RabbitMQ queues. 
 
-Before you begin, add the appropriate RabbitMQ JMS dependency to your Maven project:
+ Before you begin, add the appropriate RabbitMQ JMS dependency to your Maven project: 
 
-For JMS 1.1 and 2.0:
+ For JMS 1.1 and 2.0: 
 
 ```
 <dependencies>
@@ -18,7 +21,7 @@ For JMS 1.1 and 2.0:
 </dependencies>
 ```
 
-For JMS 3.1:
+ For JMS 3.1: 
 
 ```
 <dependencies>
@@ -33,8 +36,9 @@ For JMS 3.1:
 ```
 
 ## Create a producer
+<a name="rabbitmq-tutorial-jms-producer"></a>
 
-The following code example shows how to write to a RabbitMQ queue using JMS:
+ The following code example shows how to write to a RabbitMQ queue using JMS: 
 
 ```
 import jakarta.jms.*;
@@ -69,8 +73,9 @@ System.out.printf("Published to AMQP queue '%s': %s", queueName, msg_content);
 ```
 
 ## Create a consumer
+<a name="rabbitmq-tutorial-jms-consumer"></a>
 
-The following code example shows how to read from a RabbitMQ queue using JMS:
+ The following code example shows how to read from a RabbitMQ queue using JMS: 
 
 ```
 import jakarta.jms.*;

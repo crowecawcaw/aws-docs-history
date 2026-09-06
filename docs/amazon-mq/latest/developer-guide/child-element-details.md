@@ -1,37 +1,35 @@
+
+
 # Amazon MQ Child Element Attributes
+<a name="child-element-details"></a>
 
-The following is a detailed explanation of child element attributes. For more
-information, see [XML
-Configuration](https://activemq.apache.org/xml-configuration.html "https://activemq.apache.org/xml-configuration.html") in the Apache ActiveMQ documentation.
+The following is a detailed explanation of child element attributes. For more information, see [XML Configuration](https://activemq.apache.org/xml-configuration.html) in the Apache ActiveMQ documentation.
 
-###### Topics
-
-- [authorizationEntry](#authorizationEntry "#authorizationEntry")
-- [networkConnector](#networkConnector "#networkConnector")
-- [kahaDB](#kahaDB "#kahaDB")
-- [systemUsage](#systemUsage "#systemUsage")
+**Topics**
++ [authorizationEntry](#authorizationEntry)
++ [networkConnector](#networkConnector)
++ [kahaDB](#kahaDB)
++ [systemUsage](#systemUsage)
 
 ## authorizationEntry
+<a name="authorizationEntry"></a>
 
-`authorizationEntry` is a child of the
-`authorizationEntries` child collection element.
+`authorizationEntry` is a child of the `authorizationEntries` child collection element.
 
 ### Attributes
+<a name="admin-read-write-attributes"></a>
 
-#### admin|read|write
+#### admin\|read\|write
+<a name="admin-read-write"></a>
 
-The permissions granted to a group of users.
-For more information, see
-[Always configure an authorization map](using-amazon-mq-securely.md#always-configure-authorization-map "using-amazon-mq-securely.md#always-configure-authorization-map").
+The permissions granted to a group of users. For more information, see [Always configure an authorization map](using-amazon-mq-securely.md#always-configure-authorization-map).
 
-If you specify an authorization map which doesn't include the
-`activemq-webconsole` group, you can't use the ActiveMQ Web Console because the group isn't authorized to send
-messages to, or receive messages from, the Amazon MQ broker.
+If you specify an authorization map which doesn't include the `activemq-webconsole` group, you can't use the ActiveMQ Web Console because the group isn't authorized to send messages to, or receive messages from, the Amazon MQ broker.
 
-**Default:**
-`null`
+**Default:** `null`
 
 ### Example Configuration
+<a name="admin-read-write-example"></a>
 
 ```
 <authorizationPlugin>
@@ -46,93 +44,69 @@ messages to, or receive messages from, the Amazon MQ broker.
                                 </authorizationPlugin>
 ```
 
-###### Note
-
-The `activemq-webconsole` group in ActiveMQ on Amazon MQ has admin permissions on all queues and topics.
-All users in this group will have admin access.
+**Note**  
+ The `activemq-webconsole` group in ActiveMQ on Amazon MQ has admin permissions on all queues and topics. All users in this group will have admin access. 
 
 ## networkConnector
+<a name="networkConnector"></a>
 
-`networkConnector` is a child of the `networkConnectors`
-child collection element.
+`networkConnector` is a child of the `networkConnectors` child collection element.
 
-###### Topics
-
-- [Attributes](#networkConnector-attributes "#networkConnector-attributes")
-- [Example Configurations](#networkConnector-example "#networkConnector-example")
+**Topics**
++ [Attributes](#networkConnector-attributes)
++ [Example Configurations](#networkConnector-example)
 
 ### Attributes
+<a name="networkConnector-attributes"></a>
 
 #### conduitSubscriptions
+<a name="conduitSubscriptions"></a>
 
-Specifies whether a network connection in a network of brokers treats
-multiple consumers subscribed to the same destination as one consumer. For
-example, if `conduitSubscriptions` is set to `true`
-and two consumers connect to broker B and consume from a destination, broker
-B combines the subscriptions into a single logical subscription over the
-network connection to broker A, so that only a single copy of a message is
-forwarded from broker A to broker B.
+Specifies whether a network connection in a network of brokers treats multiple consumers subscribed to the same destination as one consumer. For example, if `conduitSubscriptions` is set to `true` and two consumers connect to broker B and consume from a destination, broker B combines the subscriptions into a single logical subscription over the network connection to broker A, so that only a single copy of a message is forwarded from broker A to broker B. 
 
-###### Note
+**Note**  
+Setting `conduitSubscriptions` to `true` can reduce redundant network traffic. However, using this attribute can have implications for the load-balancing of messages across consumers and might cause incorrect behavior in certain scenarios (for example, with JMS message selectors or with durable topics).
 
-Setting `conduitSubscriptions` to `true` can
-reduce redundant network traffic. However, using this attribute can have
-implications for the load-balancing of messages across consumers and
-might cause incorrect behavior in certain scenarios (for example, with
-JMS message selectors or with durable topics).
-
-**Default:**
-`true`
+**Default:** `true`
 
 #### duplex
+<a name="duplex"></a>
 
-Specifies whether the connection in the network of brokers is used to
-produce _and_ consume messages. For example, if broker A
-creates a connection to broker B in non-duplex mode, messages can be
-forwarded only from broker A to broker B. However, if broker A creates a
-duplex connection to broker B, then broker B can forward messages to broker
-A without having to configure a `<networkConnector>`.
+Specifies whether the connection in the network of brokers is used to produce *and* consume messages. For example, if broker A creates a connection to broker B in non-duplex mode, messages can be forwarded only from broker A to broker B. However, if broker A creates a duplex connection to broker B, then broker B can forward messages to broker A without having to configure a `<networkConnector>`.
 
-**Default:**
-`false`
+**Default:** `false`
 
 #### name
+<a name="name"></a>
 
 The name of the bridge in the network of brokers.
 
-**Default:**
-`bridge`
+**Default:** `bridge`
 
 #### uri
+<a name="uri"></a>
 
-The wire-level protocol endpoint for one of two brokers (or for multiple
-brokers) in a network of brokers.
+The wire-level protocol endpoint for one of two brokers (or for multiple brokers) in a network of brokers.
 
-**Default:**
-`null`
+**Default:** `null`
 
 #### username
+<a name="username"></a>
 
 The username common to the brokers in a network of brokers.
 
-**Default:**
-`null`
+**Default:** `null`
 
 ### Example Configurations
+<a name="networkConnector-example"></a>
 
-###### Note
-
-When using a `networkConnector` to define a network of brokers,
-don't include the password for the user common to your brokers.
+**Note**  
+When using a `networkConnector` to define a network of brokers, don't include the password for the user common to your brokers.
 
 #### A Network of Brokers with Two Brokers
+<a name="example-network-of-brokers-two-brokers"></a>
 
-In this configuration, two brokers are connected in a network of brokers.
-The name of the network connector is `connector_1_to_2`, the
-username common to the brokers is `myCommonUser`, the connection
-is `duplex`, and the OpenWire endpoint URI is prefixed by
-`static:`, indicating a one-to-one connection between the
-brokers.
+In this configuration, two brokers are connected in a network of brokers. The name of the network connector is `connector_1_to_2`, the username common to the brokers is `myCommonUser`, the connection is `duplex`, and the OpenWire endpoint URI is prefixed by `static:`, indicating a one-to-one connection between the brokers.
 
 ```
 <networkConnectors>
@@ -141,17 +115,12 @@ brokers.
                                     </networkConnectors>
 ```
 
-For more information, see [Configure Network Connectors for Your Broker](amazon-mq-creating-configuring-network-of-brokers.md#creating-configuring-network-of-brokers-configure-network-connectors "amazon-mq-creating-configuring-network-of-brokers.md#creating-configuring-network-of-brokers-configure-network-connectors").
+For more information, see [Step 2: Configure Network Connectors for Your Broker](amazon-mq-creating-configuring-network-of-brokers.md#creating-configuring-network-of-brokers-configure-network-connectors).
 
 #### A Network of Brokers with Multiple Brokers
+<a name="example-network-of-brokers-multiple-brokers"></a>
 
-In this configuration, multiple brokers are connected in a network of
-brokers. The name of the network connector is `connector_1_to_2`,
-the username common to the brokers is `myCommonUser`, the
-connection is `duplex`, and the comma-separated list of OpenWire
-endpoint URIs is prefixed by `masterslave:`, indicating a
-failover connection between the brokers. The failover from broker to broker
-isn't randomized and reconnection attempts continue indefinitely.
+In this configuration, multiple brokers are connected in a network of brokers. The name of the network connector is `connector_1_to_2`, the username common to the brokers is `myCommonUser`, the connection is `duplex`, and the comma-separated list of OpenWire endpoint URIs is prefixed by `masterslave:`, indicating a failover connection between the brokers. The failover from broker to broker isn't randomized and reconnection attempts continue indefinitely.
 
 ```
 <networkConnectors>
@@ -161,85 +130,68 @@ isn't randomized and reconnection attempts continue indefinitely.
                                     </networkConnectors>
 ```
 
-###### Note
+**Note**  
+We recommend using the `masterslave:` prefix for networks of brokers. The prefix is identical to the more explicit `static:failover:()?randomize=false&maxReconnectAttempts=0` syntax.
 
-We recommend using the `masterslave:` prefix for networks
-of brokers. The prefix is identical to the more explicit
-`static:failover:()?randomize=false&maxReconnectAttempts=0`
-syntax.
-
-###### Note
-
+**Note**  
 This XML configuration does not allow spaces.
 
 ## kahaDB
+<a name="kahaDB"></a>
 
-`kahaDB` is a child of the `persistenceAdapter` child
-collection element.
+`kahaDB` is a child of the `persistenceAdapter` child collection element.
 
 ### Attributes
+<a name="kahaDB-attributes"></a>
 
 #### concurrentStoreAndDispatchQueues
+<a name="concurrentStoreAndDispatchQueues"></a>
 
-Specifies whether to use concurrent store and dispatch for queues. For
-more information, see [Disable Concurrent Store and Dispatch for Queues with Slow Consumers](best-practices-activemq.md#disable-concurrent-store-and-dispatch-queues-flag-slow-consumers "best-practices-activemq.md#disable-concurrent-store-and-dispatch-queues-flag-slow-consumers").
+Specifies whether to use concurrent store and dispatch for queues. For more information, see [Disable Concurrent Store and Dispatch for Queues with Slow Consumers](best-practices-activemq.md#disable-concurrent-store-and-dispatch-queues-flag-slow-consumers).
 
-**Default:**
-`true`
+**Default:** `true`
 
 #### cleanupOnStop
+<a name="cleanupOnStop"></a>
 
-###### Supported in
-
+**Supported in**  
 Apache ActiveMQ 15.16.x and above
 
-If deactivated, garbage collection and cleanup does not take place when the broker is stopped, which speeds up the shutdown process.
-The increased speed is useful in cases with large databases or scheduler databases.
+If deactivated, garbage collection and cleanup does not take place when the broker is stopped, which speeds up the shutdown process. The increased speed is useful in cases with large databases or scheduler databases.
 
-**Default:**
-`true`
+**Default:** `true`
 
 #### journalDiskSyncInterval
+<a name="journalDiskSyncInterval"></a>
 
-Interval (ms) for when to perform a disk sync if
-`journalDiskSyncStrategy=periodic`. For more information, see
-the [Apache ActiveMQ kahaDB
-documentation](https://activemq.apache.org/kahadb "https://activemq.apache.org/kahadb").
+Interval (ms) for when to perform a disk sync if `journalDiskSyncStrategy=periodic`. For more information, see the [Apache ActiveMQ kahaDB documentation](https://activemq.apache.org/kahadb).
 
-**Default:**
-`1000`
+**Default:** `1000`
 
 #### journalDiskSyncStrategy
+<a name="journalDiskSyncStrategy"></a>
 
-###### Supported in
-
+**Supported in**  
 Apache ActiveMQ 15.14.x and above
 
-Configures the disk sync policy. For more information, see the [Apache ActiveMQ kahaDB documentation](https://activemq.apache.org/kahadb "https://activemq.apache.org/kahadb").
+Configures the disk sync policy. For more information, see the [Apache ActiveMQ kahaDB documentation](https://activemq.apache.org/kahadb).
 
-**Default:**
-`always`
+**Default:** `always`
 
-###### Note
-
-The [ActiveMQ
-documentation](https://activemq.apache.org/kahadb "https://activemq.apache.org/kahadb") states that the data loss is limited to the
-duration of `journalDiskSyncInterval`, which has a default of
-1s. The data loss can be longer than the interval, but it is difficult
-to be precise. Use caution.
+**Note**  
+The [ActiveMQ documentation](https://activemq.apache.org/kahadb) states that the data loss is limited to the duration of `journalDiskSyncInterval`, which has a default of 1s. The data loss can be longer than the interval, but it is difficult to be precise. Use caution. 
 
 #### preallocationStrategy
+<a name="preallocationStrategy"></a>
 
-Configures how the broker will try to preallocate the journal files when a
-new journal file is needed. For more information, see the [Apache ActiveMQ kahaDB
-documentation](https://activemq.apache.org/kahadb "https://activemq.apache.org/kahadb").
+Configures how the broker will try to preallocate the journal files when a new journal file is needed. For more information, see the [Apache ActiveMQ kahaDB documentation](https://activemq.apache.org/kahadb).
 
-**Default:**
-`sparse_file`
+**Default:** `sparse_file`
 
 ### Example Configuration
+<a name="kahaDB-example"></a>
 
-###### Example
+**Example**  
 
 ```
 <broker xmlns="http://activemq.apache.org/schema/core">
@@ -250,54 +202,52 @@ documentation](https://activemq.apache.org/kahadb "https://activemq.apache.org/k
 ```
 
 ## systemUsage
+<a name="systemUsage"></a>
 
-`systemUsage` is a child of the `systemUsage` child
-collection element. It controls the maximum amount of space the broker will use
-before slowing down producers. For more information, see [Producer Flow
-Control](https://activemq.apache.org/producer-flow-control.html "https://activemq.apache.org/producer-flow-control.html") in the Apache ActiveMQ documentation.
+`systemUsage` is a child of the `systemUsage` child collection element. It controls the maximum amount of space the broker will use before slowing down producers. For more information, see [Producer Flow Control](https://activemq.apache.org/producer-flow-control.html) in the Apache ActiveMQ documentation. 
 
 ### Child Element
+<a name="systemUsage-child"></a>
 
 #### memoryUsage
+<a name="memoryUsage"></a>
 
-`memoryUsage` is a child of the `systemUsage` child
-element. It manages memory usage. Use `memoryUsage` to keep track
-of how much of something is being used so that you can control working set
-usage productively. For more information, see [the schema](https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html "https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html") in the Apache ActiveMQ documentation.
+ `memoryUsage` is a child of the `systemUsage` child element. It manages memory usage. Use `memoryUsage` to keep track of how much of something is being used so that you can control working set usage productively. For more information, see [the schema](https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html) in the Apache ActiveMQ documentation.
 
 ##### Child Element
+<a name="memoryUsage-child"></a>
 
-`memoryUsage` is a child of the `memoryUsage`
-child element.
+ `memoryUsage` is a child of the `memoryUsage` child element. 
 
 ##### Attribute
+<a name="memeoryUsage-attribute"></a>
 
 ##### percentOfJvmHeap
+<a name="percentOfJvmHeap"></a>
 
 Integer between 0 (inclusive) and 70 (inclusive).
 
-_Default:_
-`70`
+*Default:* `70` 
 
 ### Attributes
+<a name="systemUsage-attributes"></a>
 
 #### sendFailIfNoSpace
+<a name="sendFailIfNoSpace"></a>
 
-Sets whether a `send()` method should fail if there is no space
-free. The default value is false, which blocks the `send()`
-method until space becomes available. For more information, see the [schema](https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html "https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html") in the Apache Active MQ documentation.
+Sets whether a `send()` method should fail if there is no space free. The default value is false, which blocks the `send()` method until space becomes available. For more information, see the [schema](https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html) in the Apache Active MQ documentation.
 
-**Default:**
-`false`
+**Default:** `false`
 
 #### sendFailIfNoSpaceAfterTimeout
+<a name="sendFailIfNoSpaceAfterTimeout"></a>
 
-**Default:**
-`null`
+**Default:** `null`
 
 #### Example Configuration
+<a name="systemUsage-example"></a>
 
-###### Example
+**Example**  
 
 ```
 <broker xmlns="http://activemq.apache.org/schema/core">
