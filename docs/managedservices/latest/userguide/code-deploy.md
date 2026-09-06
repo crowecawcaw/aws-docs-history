@@ -1,36 +1,21 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS CodeDeploy in your AMS account
+<a name="code-deploy"></a>
 
-Use AMS Self-Service Provisioning (SSP) mode to access AWS CodeDeploy capabilities directly in your AMS managed account. AWS CodeDeploy is a fully managed deployment service that automates software deployments to a variety of compute
-services such as Amazon EC2, AWS Fargate, AWS Lambda, and your on-premises servers.
-AWS CodeDeploy helps you to rapidly release new features, helps you avoid downtime during application deployment,
-and handles the complexity of updating your applications.
-You can use AWS CodeDeploy to automate software deployments, eliminating the need for error-prone manual operations.
-The service scales to match your deployment needs.
-To learn more, see [AWS CodeDeploy](https://aws.amazon.com/codedeploy/ "https://aws.amazon.com/codedeploy/").
+Use AMS Self-Service Provisioning (SSP) mode to access AWS CodeDeploy capabilities directly in your AMS managed account. AWS CodeDeploy is a fully managed deployment service that automates software deployments to a variety of compute services such as Amazon EC2, AWS Fargate, AWS Lambda, and your on-premises servers. AWS CodeDeploy helps you to rapidly release new features, helps you avoid downtime during application deployment, and handles the complexity of updating your applications. You can use AWS CodeDeploy to automate software deployments, eliminating the need for error-prone manual operations. The service scales to match your deployment needs. To learn more, see [AWS CodeDeploy](https://aws.amazon.com/codedeploy/).
 
-###### Note
-
-To onboard CodeCommit, CodeBuild, CodeDeploy, and CodePipeline with a single RFC, submit the
-Management | AWS service | Self-provisioned service | Add (managed automation) (ct-3qe6io8t6jtny) change
-type and request the three services: CodeBuild, CodeDeploy and CodePipeline. Then, all three roles,
-`customer_codebuild_service_role`, `customer_codedeploy_service_role`,
-and `aws_code_pipeline_service_role` are provisioned in your account. After provisioning in your
-account, you must onboard the role in your federation solution.
+**Note**  
+To onboard CodeCommit, CodeBuild, CodeDeploy, and CodePipeline with a single RFC, submit the Management \| AWS service \| Self-provisioned service \| Add (managed automation) (ct-3qe6io8t6jtny) change type and request the three services: CodeBuild, CodeDeploy and CodePipeline. Then, all three roles, `customer_codebuild_service_role`, `customer_codedeploy_service_role`, and `aws_code_pipeline_service_role` are provisioned in your account. After provisioning in your account, you must onboard the role in your federation solution.
 
 ## CodeDeploy in AWS Managed Services FAQ
+<a name="set-code-deploy-faqs"></a>
 
 **Q: How do I request access to CodeDeploy in my AMS account?**
 
-Request access to CodeDeploy by submitting an RFC with the Management | AWS
-service | Self-provisioned service | Add (ct-1w8z66n899dct) change type.
-This RFC provisions the following IAM roles to your account:
-`customer_codedeploy_console_role` and `customer_codedeploy_service_role`. After it's provisioned in
-your account, you must onboard the `customer_codedeploy_console_role` role in your federation solution.
+Request access to CodeDeploy by submitting an RFC with the Management \| AWS service \| Self-provisioned service \| Add (ct-1w8z66n899dct) change type. This RFC provisions the following IAM roles to your account: `customer_codedeploy_console_role` and `customer_codedeploy_service_role`. After it's provisioned in your account, you must onboard the `customer_codedeploy_console_role` role in your federation solution.
 
 **Q: What are the restrictions to using CodeDeploy in my AMS account?**
 

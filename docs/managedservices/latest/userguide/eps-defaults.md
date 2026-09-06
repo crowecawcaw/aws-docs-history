@@ -1,90 +1,119 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Endpoint Security (EPS)
+<a name="eps-defaults"></a>
 
-Resources that you provision in your AMS Advanced environment automatically include the
-installation of an endpoint security (EPS) monitoring client. This process ensures that the
-AMS Advanced-managed resources are monitored and supported 24x7. In addition, AMS Advanced monitors all
-agent activity, and an incident is created if any security event is detected.
+Resources that you provision in your AMS Advanced environment automatically include the installation of an endpoint security (EPS) monitoring client. This process ensures that the AMS Advanced-managed resources are monitored and supported 24x7. In addition, AMS Advanced monitors all agent activity, and an incident is created if any security event is detected.
 
-###### Note
-
-Security incidents are handled as incidents; for more information,
-see [Incident response](sec-incident-response.md "sec-incident-response.md").
+**Note**  
+Security incidents are handled as incidents; for more information, see [Incident response](https://docs.aws.amazon.com/managedservices/latest/userguide/sec-incident-response.html).
 
 Endpoint security provides anti-malware protection, specifically, the following actions are supported:
++ EC2 instances register with EPS
++ EC2 instances deregister from EPS
++ EC2 instances real-time anti-malware protection
++ EPS agent-initiated heartbeat
++ EPS restore quarantined file
++ EPS event notification
++ EPS reporting
 
-- EC2 instances register with EPS
-- EC2 instances deregister from EPS
-- EC2 instances real-time anti-malware protection
-- EPS agent-initiated heartbeat
-- EPS restore quarantined file
-- EPS event notification
-- EPS reporting
-  AMS Advanced uses Trend Micro for endpoint security (EPS). These are the default
-  EPS settings. To learn more about Trend Micro, see the
-  [Trend Micro Deep Security Help Center](https://help.deepsecurity.trendmicro.com/aws/welcome.html?redirected=true "https://help.deepsecurity.trendmicro.com/aws/welcome.html?redirected=true");
-  note that non-Amazon links may change without notice to us.
+AMS Advanced uses Trend Micro for endpoint security (EPS). These are the default EPS settings. To learn more about Trend Micro, see the [Trend Micro Deep Security Help Center](https://help.deepsecurity.trendmicro.com/aws/welcome.html?redirected=true); note that non-Amazon links may change without notice to us.
 
-AMS Advanced Multi-Account Landing Zone (MALZ) default settings are described in the following sections; for
-non-default AMS multi-account landing zone EPS settings, see [AMS Advanced Multi-Account Landing Zone EPS non-default settings](security-mgmt.md#malz-eps-settings "security-mgmt.md#malz-eps-settings").
+AMS Advanced Multi-Account Landing Zone (MALZ) default settings are described in the following sections; for non-default AMS multi-account landing zone EPS settings, see [ AMS Advanced Multi-Account Landing Zone EPS non-default settings](https://docs.aws.amazon.com/managedservices/latest/userguide/security-mgmt.html#malz-eps-settings).
 
-###### Note
-
-You can bring your own EPS, see
-[AMS bring your own EPS](ams-byoeps.md "ams-byoeps.md").
+**Note**  
+You can bring your own EPS, see [AMS bring your own EPS](https://docs.aws.amazon.com/managedservices/latest/userguide/ams-byoeps.html).
 
 ## General EPS settings
+<a name="general-eps-defaults"></a>
 
 Endpoint security general network settings.
 
-EPS defaults| Setting | Default |
-| --- | --- |
-| Firewall Ports (Instances’ Security Group) | EPS Deep Security Manager agents (DSMs) must have port 4120 open for the Agent/Relay to Manager communication,<br>and port 4119 for the Manager Console. EPS Relays must have port 4122 open for the Manager/Agent to Relay communication.<br>No specific ports should be open for customer instance inbound communication because agents initiate all requests. |
-| Communication Direction | Agent/Appliance Initiated |
-| Heartbeat Interval | Ten minutes |
-| Number of missed heartbeats before an alert | Two |
-| Maximum allowed drift (difference) between server times | Unlimited |
-| Raise offline errors for inactive (registered, but not online) virtual machines | No |
-| Default policy | Base policy (described next) |
-| Activation of multiple computers with the same host name | Is allowed |
-| Alerts for pending updates are raised | After seven days |
-| Update schedule | AMS targets a monthly release cycle for Trend Micro Deep Security Manager (DSM) / Deep Security Agent (DSA) software updates. However, AMS doesn't maintain an SLA for updates. Updates are performed fleet-wide by AMS developer teams during a deployment.<br>DSA/DSA updates are logged in Trend Micro DSM system events that AMS retains locally by default for 13 weeks. For vendor documentation, see [System events](https://help.deepsecurity.trendmicro.com/12_0/aws/Events-Alerts/ref-events-system.html "https://help.deepsecurity.trendmicro.com/12_0/aws/Events-Alerts/ref-events-system.html") in the Trend Micro Deep Security Help Center. Logs are also exported to log group /aws/ams/eps/var/log/DSM.log in Amazon CloudWatch. |
-| Update source | Trend Micro Update Server (https://ipv6-iaus.trendmicro.com/iau\_server.dll/) |
-| Event or log data deletion | Events and logs are deleted from the DSM database after seven days. |
-| Agent software versions are held | Up to five |
-| Most recent rule updates are held | Up to ten |
-| Logs storage | By default, log files are stored securely in Amazon S3, but you can also archive them to<br>Amazon Glacier to help meet audit and compliance requirements. |
+
+**EPS defaults**  
+
+| Setting | Default | 
+| --- | --- | 
+| Firewall Ports (Instances’ Security Group) | EPS Deep Security Manager agents (DSMs) must have port 4120 open for the Agent/Relay to Manager communication, and port 4119 for the Manager Console. EPS Relays must have port 4122 open for the Manager/Agent to Relay communication. No specific ports should be open for customer instance inbound communication because agents initiate all requests. | 
+| Communication Direction | Agent/Appliance Initiated | 
+| Heartbeat Interval | Ten minutes | 
+| Number of missed heartbeats before an alert | Two | 
+| Maximum allowed drift (difference) between server times | Unlimited | 
+| Raise offline errors for inactive (registered, but not online) virtual machines | No | 
+| Default policy | Base policy (described next) | 
+| Activation of multiple computers with the same host name | Is allowed | 
+| Alerts for pending updates are raised | After seven days | 
+| Update schedule | AMS targets a monthly release cycle for Trend Micro Deep Security Manager (DSM) / Deep Security Agent (DSA) software updates. However, AMS doesn't maintain an SLA for updates. Updates are performed fleet-wide by AMS developer teams during a deployment.<br />DSA/DSA updates are logged in Trend Micro DSM system events that AMS retains locally by default for 13 weeks. For vendor documentation, see [System events](https://help.deepsecurity.trendmicro.com/12_0/aws/Events-Alerts/ref-events-system.html) in the Trend Micro Deep Security Help Center. Logs are also exported to log group /aws/ams/eps/var/log/DSM.log in Amazon CloudWatch. | 
+| Update source | Trend Micro Update Server (https://ipv6-iaus.trendmicro.com/iau\_server.dll/) | 
+| Event or log data deletion | Events and logs are deleted from the DSM database after seven days. | 
+| Agent software versions are held | Up to five | 
+| Most recent rule updates are held | Up to ten | 
+| Logs storage | By default, log files are stored securely in Amazon S3, but you can also archive them to Amazon Glacier to help meet audit and compliance requirements. | 
 
 ## Base policy
+<a name="base-eps-policy"></a>
 
 Endpoint security base policy default settings.
 
-EPS base policy| Setting | Default |
-| --- | --- |
-| Enabled Modules | Anti-Malware |
-| Disabled Modules | Web Reputation |
-| Firewall |
-| Intrusion Protection |
-| Integrity Monitoring |
-| Log Inspection |
-| Application Control |
+
+**EPS base policy**  
+
+
+- **Enabled Modules**
+  - Anti-Malware
+
+- **Disabled Modules**
+  - Web Reputation
+  - Firewall
+  - Intrusion Protection
+  - Integrity Monitoring
+  - Log Inspection
+  - Application Control
+
+
 
 ## Anti-malware
+<a name="eps-anti-malware-defaults"></a>
 
 Endpoint security anti-malware settings.
 
-EPS anti-malware defaults| Setting | Default | Notes |
-| --- | --- | --- |
-| Real-Time Scan | Scan everything | Quarantine all suspected viruses. Enable IntelliTrap and spyware/grayware protection.<br>Spyware and Grayware trigger Anti-Malware and result in a quarantine of the item. |
-| Every Day/All Day (24 hours) |
-| Manual Scan | Scan everything | Must be requested, then follows default real-time scan configuration. |
-| Scheduled Scan | Scan everything | Set for the last Sunday of every month, 6am. |
-| Smart Protection | Disabled | N/A |
-| Quarantined Files | Trend Micro Deep Security Manager (DSM) | Appx 1GB of disk reserved for quarantine. |
-| Scan Limitation | Trend Micro DSM | Scan files of all sizes. |
-| Allowed Spyware or Grayware | None | N/A |
-| Local Event Notification | Yes | N/A |
+
+**EPS anti-malware defaults**  
+
+
+- **Real-Time Scan**
+  - **Default:**
+    - Scan everything
+    - Every Day/All Day (24 hours)
+  - **Notes:** Quarantine all suspected viruses. Enable IntelliTrap and spyware/grayware protection.<br />Spyware and Grayware trigger Anti-Malware and result in a quarantine of the item.
+
+- **Manual Scan**
+  - **Default:** Scan everything
+  - **Notes:** Must be requested, then follows default real-time scan configuration.
+
+- **Scheduled Scan**
+  - **Default:** Scan everything
+  - **Notes:** Set for the last Sunday of every month, 6am.
+
+- **Smart Protection**
+  - **Default:** Disabled
+  - **Notes:** N/A
+
+- **Quarantined Files**
+  - **Default:** Trend Micro Deep Security Manager (DSM)
+  - **Notes:** Appx 1GB of disk reserved for quarantine.
+
+- **Scan Limitation**
+  - **Default:** Trend Micro DSM
+  - **Notes:** Scan files of all sizes.
+
+- **Allowed Spyware or Grayware**
+  - **Default:** None
+  - **Notes:** N/A
+
+- **Local Event Notification**
+  - **Default:** Yes
+  - **Notes:** N/A
+

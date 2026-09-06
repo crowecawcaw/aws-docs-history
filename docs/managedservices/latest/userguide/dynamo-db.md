@@ -1,32 +1,26 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon DynamoDB in your AMS account
+<a name="dynamo-db"></a>
 
-Use AMS Self-Service Provisioning (SSP) mode to access Amazon DynamoDB (DynamoDB) capabilities directly in your AMS managed account. Amazon DynamoDB is a key value and document database that delivers single-digit millisecond performance at any scale. It's a fully managed, multi-region, multi-active database with built-in security, backup and restore,
-and in-memory caching for internet scale applications.
-To learn more, see [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/").
+Use AMS Self-Service Provisioning (SSP) mode to access Amazon DynamoDB (DynamoDB) capabilities directly in your AMS managed account. Amazon DynamoDB is a key value and document database that delivers single-digit millisecond performance at any scale. It's a fully managed, multi-region, multi-active database with built-in security, backup and restore, and in-memory caching for internet scale applications. To learn more, see [Amazon DynamoDB](https://aws.amazon.com/dynamodb/).
 
-Amazon DynamoDB Accelerator (DAX) is a write-through caching service that is designed to simplify the process of adding a cache to
-DynamoDB tables. DAX is intended for applications that require high-performance reads.
+Amazon DynamoDB Accelerator (DAX) is a write-through caching service that is designed to simplify the process of adding a cache to DynamoDB tables. DAX is intended for applications that require high-performance reads.
 
 ## DynamoDB in AWS Managed Services FAQ
+<a name="set-dynamo-db-faqs"></a>
 
 **Q: How do I request access to DynamoDB and DAX in my AMS account?**
 
-Request access to DynamoDB and DAX by submitting an RFC with the Management | AWS
-service | Self-provisioned service | Add (ct-1w8z66n899dct) change type.
-This RFC provisions the following IAM roles and policies to your account:
+Request access to DynamoDB and DAX by submitting an RFC with the Management \| AWS service \| Self-provisioned service \| Add (ct-1w8z66n899dct) change type. This RFC provisions the following IAM roles and policies to your account:
++ DynamoDB role name: `customer_dynamodb_role`
 
-- DynamoDB role name: `customer_dynamodb_role`
+  DAX service role name: `customer_dax_service_role`
++ DynamoDB policy name: `customer_dynamodb_policy`
 
-DAX service role name: `customer_dax_service_role`
-
-- DynamoDB policy name: `customer_dynamodb_policy`
-
-DAX service policy: `customer_dax_service_policy`
+  DAX service policy: `customer_dax_service_policy`
 
 Once provisioned in your account, you must onboard the `customer_dynamodb_role` in your federation solution.
 
@@ -34,13 +28,11 @@ Once provisioned in your account, you must onboard the `customer_dynamodb_role` 
 
 All DynamoDB functionality are supported including DynamoDB Accelerator (DAX).
 
-When creating alarms for any given table, the alarm name must be prefixed with "customer\*"; for example,
-`customer-employee-table-high-put-latency`.
+When creating alarms for any given table, the alarm name must be prefixed with "customer\*"; for example, `customer-employee-table-high-put-latency`.
 
 When creating an Amazon SNS topic for DynamoDB, it must be named: `dynamodb`.
 
-To delete the Amazon SNS topic created by DynamoDB, submit a Management | Other |
-Other | Update change type RFC.
+To delete the Amazon SNS topic created by DynamoDB, submit a Management \| Other \| Other \| Update change type RFC.
 
 **Q: What are the prerequisites or dependencies to using DynamoDB in my AMS account?**
 

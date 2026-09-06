@@ -1,23 +1,20 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon DevOps Guru in your AMS account
+<a name="devops-guru"></a>
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon DevOps Guru capabilities directly in your AMS managed account. Amazon DevOps Guru is a fully managed operations service that makes it easy for developers and operators to improve the performance and availability of their applications. DevOps Guru lets you offload the administrative tasks associated with identifying operational issues so that you can quickly implement recommendations to improve your application. DevOps Guru creates reactive insights you can use to improve your application now. It also creates proactive insights to help you avoid operational issues that might affect your application in the future. DevOps Guru applies machine learning to analyze your operational data and application metrics and events to identify behaviors that deviate from normal operating patterns. You are notified when DevOps Guru detects an operational issue or risk. For each issue, DevOps Guru presents intelligent recommendations to address current and predicted future operational issues.
 
-To learn more, see
-[What is Amazon DevOps Guru](../../../devops-guru/latest/userguide/welcome.md "../../../devops-guru/latest/userguide/welcome.md").
+To learn more, see [What is Amazon DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html).
 
 ## Amazon DevOps Guru in AWS Managed Services FAQ
+<a name="devops-guru-faqs"></a>
 
 **Q: How do I request access to Amazon DevOps Guru in my AMS account?**
 
-To request access, submit a Management | AWS service | Self-provisioned service | Add (managed automation) (ct-3qe6io8t6jtny) change type.
-This RFC provisions the following IAM role to your account:
-`customer_devopsguru_role`. After it's provisioned in your
-account, you must onboard the role in your federation solution.
+To request access, submit a Management \| AWS service \| Self-provisioned service \| Add (managed automation) (ct-3qe6io8t6jtny) change type. This RFC provisions the following IAM role to your account: `customer_devopsguru_role`. After it's provisioned in your account, you must onboard the role in your federation solution.
 
 **Q: What are the restrictions to using Amazon DevOps Guru in my AMS account?**
 

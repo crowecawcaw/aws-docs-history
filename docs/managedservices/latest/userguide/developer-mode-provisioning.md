@@ -1,17 +1,12 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Provisioning infrastructure in AMS Developer mode
+<a name="developer-mode-provisioning"></a>
 
-Users that don't have the Developer mode IAM role, `AWSManagedServicesDevelopmentRole`, in
-accounts where Developer mode is enabled, are required to follow the AMS Advanced change
-management process that leverages AMS Advanced AMIs. Users with correct role (**MALZ**:
-`AWSManagedServicesDevelopmentRole`, **SALZ**: `customer_developer_role`)
-can use the AMS Advanced change management system and AMS Advanced AMIs but are not required to.
+Users that don't have the Developer mode IAM role, `AWSManagedServicesDevelopmentRole`, in accounts where Developer mode is enabled, are required to follow the AMS Advanced change management process that leverages AMS Advanced AMIs. Users with correct role (**MALZ**: `AWSManagedServicesDevelopmentRole`, **SALZ**: `customer_developer_role`) can use the AMS Advanced change management system and AMS Advanced AMIs but are not required to. 
 
-###### Note
+**Note**  
+An AWS AMI, that has not been processed through AMS Advanced workload ingestion, or created in an AMS Advanced account, will not include AMS Advanced-required configurations.
 
-An AWS AMI, that has not been processed through AMS Advanced workload ingestion, or created in
-an AMS Advanced account, will not include AMS Advanced-required configurations.

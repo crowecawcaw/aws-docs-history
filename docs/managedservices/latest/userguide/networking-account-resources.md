@@ -1,13 +1,10 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Resources in the networking account
+<a name="networking-account-resources"></a>
 
-As shown in the networking account diagram, the following components are created in the account
-and require your input.
+As shown in the networking account diagram, the following components are created in the account and require your input.
 
-The Networking account contains two VPCs: **Egress VPC** and
-**DMZ VPC** also known as the
-**Perimeter** VPC.
+The Networking account contains two VPCs: **Egress VPC** and **DMZ VPC** also known as the **Perimeter** VPC.

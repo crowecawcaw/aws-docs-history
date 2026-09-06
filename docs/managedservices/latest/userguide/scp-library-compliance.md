@@ -1,34 +1,25 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Curated SCPs and Config Rules
+<a name="scp-library-compliance"></a>
 
 Curated SCPs and Config Rules for AMS Advanced.
++ **Service control policies (SCPs)**: The provided SCPs are in addition to default AMS ones.
 
-- **Service control policies (SCPs)**: The provided SCPs are in addition to default AMS ones.
+  You can use these library controls in tandem with the default ones to meet specific security requirements.
++ **Config Rules**: As a baseline measure, AMS recommends applying Conformance Packs (see [Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html) in the AWS Config guide) in addition to the default AMS config rules (see AMS Artifacts for default rules). The Conformance Packs cover a majority of compliance requirements and AWS regularly updates them.
 
-You can use these library controls in tandem with the default ones to meet specific security requirements.
+  The rules listed here can be used to cover use-case specific gaps that aren’t covered by Conformance Packs
 
-- **Config Rules**: As a baseline measure, AMS recommends applying Conformance Packs (see
-  [Conformance Packs](../../../config/latest/developerguide/conformance-packs.md "../../../config/latest/developerguide/conformance-packs.md") in the AWS Config guide)
-  in addition to the default AMS config rules (see AMS Artifacts for default rules). The Conformance Packs cover a majority of compliance
-  requirements and AWS regularly updates them.
-
-The rules listed here can be used to cover use-case specific gaps that aren’t covered by Conformance Packs
-
-###### Note
-
-As AMS default rules and conformance packs get updated over time, you might see duplicates of these rules.
-
-AMS recommends doing periodic clean-up of duplicate Config Rules in general.
-
-For AMS Advanced, Config Rules should not use auto-remediations (see
-[Remediating Noncompliant AWS Resources by AWS Config Rules](../../../config/latest/developerguide/remediation.md "../../../config/latest/developerguide/remediation.md"))
-in order to avoid out-of-band changes.
+**Note**  
+As AMS default rules and conformance packs get updated over time, you might see duplicates of these rules.  
+AMS recommends doing periodic clean-up of duplicate Config Rules in general.  
+For AMS Advanced, Config Rules should not use auto-remediations (see [Remediating Noncompliant AWS Resources by AWS Config Rules](https://docs.aws.amazon.com/config/latest/developerguide/remediation.html)) in order to avoid out-of-band changes.
 
 ## SCP-AMS-001: Restrict EBS creation
+<a name="scp-ebs-create"></a>
 
 Prevent the creation of EBS volumes if you don’t have encryption enabled.
 
@@ -46,9 +37,9 @@ Prevent the creation of EBS volumes if you don’t have encryption enabled.
 ```
 
 ## SCP-AMS-002: Restrict EC2 launch
+<a name="scp-ec2-launch"></a>
 
-Prevent the launch of an EC2 instance if the EBS volume is unencrypted.
-This includes denying an EC2 launch from unencrypted AMIs because this SCP also applies to root volumes.
+Prevent the launch of an EC2 instance if the EBS volume is unencrypted. This includes denying an EC2 launch from unencrypted AMIs because this SCP also applies to root volumes.
 
 ```
 {
@@ -64,18 +55,16 @@ This includes denying an EC2 launch from unencrypted AMIs because this SCP also 
 ```
 
 ## SCP-ADV-001: Restrict RFC submissions
+<a name="scp-restrict-rfcs"></a>
 
-Restrict default AMS roles from submitting specific automated RFCs like **Create VPC** or
-**Delete VPC**. This is helpful if you want to apply more granular permissions to your federated roles.
+Restrict default AMS roles from submitting specific automated RFCs like **Create VPC** or **Delete VPC**. This is helpful if you want to apply more granular permissions to your federated roles.
 
-For example, you might want the default `AWSManagedServicesChangeManagement Role` to be able to submit most of the
-available RFCs except the ones that allow for the creation and deletion of a VPC, creation of additional subnets, offboarding of an
-application account, updating or deleting SAML identity providers:
+For example, you might want the default `AWSManagedServicesChangeManagement Role` to be able to submit most of the available RFCs except the ones that allow for the creation and deletion of a VPC, creation of additional subnets, offboarding of an application account, updating or deleting SAML identity providers:
 
 ## SCP-AMS-003: Restrict EC2 or RDS creation in AMS
+<a name="scp-restrict-ec2-rds-creation"></a>
 
-Prevent creation of Amazon EC2 and RDS instances that don't have specific tags, while allowing the AMS default
-`AMS Backup IAM` role to do so. This is needed for disaster recover or DR.
+Prevent creation of Amazon EC2 and RDS instances that don't have specific tags, while allowing the AMS default `AMS Backup IAM` role to do so. This is needed for disaster recover or DR.
 
 ```
 {
@@ -104,6 +93,7 @@ Prevent creation of Amazon EC2 and RDS instances that don't have specific tags, 
 ```
 
 ## SCP-AMS-004: Restrict S3 uploads
+<a name="scp-prevent-s3-uploads"></a>
 
 Prevent uploads of unencrypted S3 objects.
 
@@ -127,10 +117,12 @@ Prevent uploads of unencrypted S3 objects.
 ```
 
 ## SCP-AMS-005: Restrict API and console access
+<a name="scp-prevent-access"></a>
 
 Prevent AWS Console and API access for requests coming from known bad IP addresses as determined customer InfoSec.
 
 ## SCP-AMS-006: Prevent IAM entity from removing member account from the organization
+<a name="scp-prevent-iam-entity"></a>
 
 Prevent an AWS Identity and Access Management entity from removing member accounts from the organization.
 
@@ -143,11 +135,11 @@ Prevent an AWS Identity and Access Management entity from removing member accoun
 ```
 
 ## SCP-AMS-007: Prevent sharing resources to accounts outside your organization
+<a name="scp-prevent-sharing-resources"></a>
 
 Prevent sharing resources with external accounts outside your AWS organization
 
 ```
-
   {
     "Effect": "Deny",
     "Action": [
@@ -175,10 +167,10 @@ Prevent sharing resources with external accounts outside your AWS organization
       }
     }
   }
-
 ```
 
 ## SCP-AMS-008: Prevent sharing with organizations or organizational units (OUs)
+<a name="scp-prevent-sharing-with-organizations"></a>
 
 Prevent sharing resources with an account and/or OU that's in an organization.
 
@@ -202,6 +194,7 @@ Prevent sharing resources with an account and/or OU that's in an organization.
 ```
 
 ## SCP-AMS-009: Prevent users from accepting resource share invitations
+<a name="scp-prevent-resource-share-acceptance"></a>
 
 Prevent member accounts from accepting invitations from AWS RAM to join resource shares. This API doesn't support any conditions and prevents shares only from external accounts.
 
@@ -214,6 +207,7 @@ Prevent member accounts from accepting invitations from AWS RAM to join resource
 ```
 
 ## SCP-AMS-010: Prevent account Region enable and disable actions
+<a name="scp-prevent-account-region-enable-disable"></a>
 
 Prevent enabling or disabling any new AWS Regions for your AWS accounts.
 
@@ -229,6 +223,7 @@ Prevent enabling or disabling any new AWS Regions for your AWS accounts.
 ```
 
 ## SCP-AMS-011: Prevent billing modification actions
+<a name="scp-prevent-billing-modification"></a>
 
 Prevent modifications to billing and payment configuration.
 
@@ -245,6 +240,7 @@ Prevent modifications to billing and payment configuration.
 ```
 
 ## SCP-AMS-012: Prevent deletion or modification to specific CloudTrails
+<a name="scp-prevent-cloudtrail-modification"></a>
 
 Prevent modifications to specific AWS CloudTrail trails.
 
@@ -267,6 +263,7 @@ Prevent modifications to specific AWS CloudTrail trails.
 ```
 
 ## SCP-AMS-013: Prevent disabling default EBS encryption
+<a name="scp-prevent-disable-ebs-encryption"></a>
 
 Prevent disabling of default Amazon EBS encryption.
 
@@ -281,6 +278,7 @@ Prevent disabling of default Amazon EBS encryption.
 ```
 
 ## SCP-AMS-014: Prevent creating default VPC and subnet
+<a name="scp-prevent-default-vpc-subnet-creation"></a>
 
 Prevent the creation of a default Amazon VPC and subnets.
 
@@ -296,6 +294,7 @@ Prevent the creation of a default Amazon VPC and subnets.
 ```
 
 ## SCP-AMS-015: Prevent disabling and modifying GuardDuty
+<a name="scp-prevent-default-vpc-subnet-creation"></a>
 
 Prevent Amazon GuardDuty from being modified or disabled.
 
@@ -344,6 +343,7 @@ Prevent Amazon GuardDuty from being modified or disabled.
 ```
 
 ## SCP-AMS-016: Prevent root user activity
+<a name="scp-prevent-root-user-activity"></a>
 
 Prevent the root user from performing any action.
 
@@ -363,6 +363,7 @@ Prevent the root user from performing any action.
 ```
 
 ## SCP-AMS-017: Prevent creating access keys for the root user
+<a name="scp-prevent-access-key-creation"></a>
 
 Prevent the creation of access keys for the root user.
 
@@ -375,6 +376,7 @@ Prevent the creation of access keys for the root user.
 ```
 
 ## SCP-AMS-018: Prevent disabling S3 account public access block
+<a name="scp-prevent-disabling-s3-public-access-block"></a>
 
 Prevent disabling an Amazon S3 account public access block. This prevents any bucket in the account from becoming public.
 
@@ -382,11 +384,12 @@ Prevent disabling an Amazon S3 account public access block. This prevents any bu
 {
   "Effect": "Deny",
   "Action": "s3:PutAccountPublicAccessBlock",
-  "Resource": "*"
+  "Resource": "*"    
 }
 ```
 
 ## SCP-AMS-019: Prevent disabling AWS Config or modifying Config rules
+<a name="scp-prevent-modifying-config-rules"></a>
 
 Prevent disabling or modifying AWS Config rules.
 
@@ -405,6 +408,7 @@ Prevent disabling or modifying AWS Config rules.
 ```
 
 ## SCP-AMS-020: Prevent all IAM actions
+<a name="scp-prevent-iam-actions"></a>
 
 Prevent all IAM actions.
 
@@ -419,6 +423,7 @@ Prevent all IAM actions.
 ```
 
 ## SCP-AMS-021: Prevent deleting CloudWatch Logs groups and streams
+<a name="scp-prevent-iam-actions"></a>
 
 Prevent deleting Amazon CloudWatch Logs groups and streams.
 
@@ -434,6 +439,7 @@ Prevent deleting Amazon CloudWatch Logs groups and streams.
 ```
 
 ## SCP-AMS-022: Prevent Glacier deletion
+<a name="scp-prevent-glacier-deletion"></a>
 
 Prevent Amazon Glacier deletion.
 
@@ -449,6 +455,7 @@ Prevent Amazon Glacier deletion.
 ```
 
 ## SCP-AMS-023: Prevent deletion of IAM Access Analyzer
+<a name="scp-prevent-iam-access-analyzer-deletion"></a>
 
 Prevent the deletion of IAM Access Analyzer.
 
@@ -463,6 +470,7 @@ Prevent the deletion of IAM Access Analyzer.
 ```
 
 ## SCP-AMS-024: Prevent modifications to Security Hub CSPM
+<a name="scp-prevent-security-hub-modification"></a>
 
 Prevent the deletion of AWS Security Hub CSPM.
 
@@ -481,6 +489,7 @@ Prevent the deletion of AWS Security Hub CSPM.
 ```
 
 ## SCP-AMS-025: Prevent deletion under Directory Service
+<a name="scp-prevent-directory-service-deletion"></a>
 
 Prevent the deletion of resources under Directory Service.
 
@@ -504,41 +513,40 @@ Prevent the deletion of resources under Directory Service.
 ```
 
 ## SCP-AMS-026: Prevent use of denylisted service
+<a name="scp-prevent-denylisted-service"></a>
 
 Prevent the use of denylisted services.
 
-###### Note
-
-Replace `service1` and `service2` with your service names. Example `access-analyzer` or `IAM`.
+**Note**  
+Replace {{service1}} and {{service2}} with your service names. Example {{access-analyzer}} or {{IAM}}.
 
 ```
 {
   "Effect": "Deny",
   "Resource": "*",
-  "Action": ["`service1`:*", "`service2`:*"]
+  "Action": ["{{service1}}:*", "{{service2}}:*"]
 }
 ```
 
 ## SCP-AMS-027: Prevent use of denylisted service in specific Regions
+<a name="scp-prevent-denylisted-service-specifc-regions"></a>
 
 Prevent the use of denylisted services in specific AWS Regions.
 
-###### Note
-
-Replace `service1` and `service2` with your service names. Example `access-analyzer` or `IAM`.
-
-Replace `region1` and `region2` with your service names. Example `us-west-2` or `use-east-1`.
+**Note**  
+Replace {{service1}} and {{service2}} with your service names. Example {{access-analyzer}} or {{IAM}}.  
+Replace {{region1}} and {{region2}} with your service names. Example {{us-west-2}} or {{use-east-1}}.
 
 ```
 {
   "Effect": "Deny",
   "Resource": "*",
-  "Action": ["`service1`:*", "`service2`:*"],
+  "Action": ["{{service1}}:*", "{{service2}}:*"],
   "Condition": {
     "StringEquals": {
       "aws:RequestedRegion": [
-        "`region1`",
-        "`region2`"
+        "{{region1}}",
+        "{{region2}}"
       ]
     }
   }
@@ -546,11 +554,11 @@ Replace `region1` and `region2` with your service names. Example `us-west-2` or 
 ```
 
 ## SCP-AMS-028: Prevent tags from being modified except by authorized principals
+<a name="scp-prevent-tag-modifications"></a>
 
 Prevent tag modifications by any user except the authorized principals. Use authorization tags to authorize principals. Authorization tags must be associated with resources and with principals. A user/role is only considered authorized if the tag on both the resource and the principal match. For more information, see the following resources:
-
-- [Securing resource tags used for authorization using a service control policy in AWS Organizations](https://aws.amazon.com/blogs/security/securing-resource-tags-used-for-authorization-using-service-control-policy-in-aws-organizations/ "https://aws.amazon.com/blogs/security/securing-resource-tags-used-for-authorization-using-service-control-policy-in-aws-organizations/")
-- [Prevent tags from being modified except by authorized principals](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md#example-require-restrict-tag-mods-to-admin")
++ [Securing resource tags used for authorization using a service control policy in AWS Organizations](https://aws.amazon.com/blogs/security/securing-resource-tags-used-for-authorization-using-service-control-policy-in-aws-organizations/)
++ [Prevent tags from being modified except by authorized principals](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.html#example-require-restrict-tag-mods-to-admin)
 
 ```
 {
@@ -565,7 +573,7 @@ Prevent tag modifications by any user except the authorized principals. Use auth
   "Condition": {
     "StringNotEquals": {
       "ec2:ResourceTag/access-project": "${aws:PrincipalTag/access-project}",
-      "aws:PrincipalArn": "arn:aws:iam::{`ACCOUNT_ID`}:{`RESOURCE_TYPE`}/{`RESOURCE_NAME`}"
+      "aws:PrincipalArn": "arn:aws:iam::{{{ACCOUNT_ID}}}:{{{RESOURCE_TYPE}}}/{{{RESOURCE_NAME}}}"
     },
     "Null": {
       "ec2:ResourceTag/access-project": false
@@ -584,36 +592,37 @@ Prevent tag modifications by any user except the authorized principals. Use auth
   "Condition": {
     "StringNotEquals": {
       "aws:RequestTag/access-project": "${aws:PrincipalTag/access-project}",
-      "aws:PrincipalArn": "arn:aws:iam::{`ACCOUNT_ID`}:{`RESOURCE_TYPE`}/{`RESOURCE_NAME`}"
+      "aws:PrincipalArn": "arn:aws:iam::{{{ACCOUNT_ID}}}:{{{RESOURCE_TYPE}}}/{{{RESOURCE_NAME}}}"
     },
     "ForAnyValue:StringEquals": {
       "aws:TagKeys": [
         "access-project"
-      ]
-    }
+      ]   
+    }   
   }
 },
-{
-  "Effect": "Deny",
+{       
+  "Effect": "Deny", 
   "Action": [
     "ec2:CreateTags",
     "ec2:DeleteTags"
-  ],
+  ],      
   "Resource": [
-    "*"
-  ],
+    "*"     
+  ],      
   "Condition": {
     "StringNotEquals": {
-      "aws:PrincipalArn": "arn:aws:iam::{`ACCOUNT_ID`}:{`RESOURCE_TYPE`}/{`RESOURCE_NAME`}"
-    },
+      "aws:PrincipalArn": "arn:aws:iam::{{{ACCOUNT_ID}}}:{{{RESOURCE_TYPE}}}/{{{RESOURCE_NAME}}}"
+    },      
     "Null": {
       "aws:PrincipalTag/access-project": true
-    }
-  }
+    }       
+  }       
 }
 ```
 
 ## SCP-AMS-029: Prevent users from deleting Amazon VPC Flow Logs
+<a name="scp-prevent-vpc-flow-log-deletion"></a>
 
 Prevent the deletion of Amazon VPC Flow Logs.
 
@@ -635,12 +644,12 @@ Prevent the deletion of Amazon VPC Flow Logs.
 ```
 
 ## SCP-AMS-030: Prevent sharing VPC subnet with account other than network account
+<a name="scp-prevent-sharing-vpc-subnet"></a>
 
 Prevent sharing Amazon VPC subnets with accounts other than the network account.
 
-###### Note
-
-Replace `NETWORK_ACCOUNT_ID` with your network account ID.
+**Note**  
+Replace {{NETWORK\_ACCOUNT\_ID}} with your network account ID.
 
 ```
 {
@@ -652,7 +661,7 @@ Replace `NETWORK_ACCOUNT_ID` with your network account ID.
   "Resource": "*",
   "Condition": {
     "StringNotEquals": {
-      "ram:Principal": "`NETWORK_ACCOUNT_ID`"
+      "ram:Principal": "{{NETWORK_ACCOUNT_ID}}"
     },
     "StringEquals": {
       "ram:RequestedResourceType": "ec2:Subnet"
@@ -662,12 +671,12 @@ Replace `NETWORK_ACCOUNT_ID` with your network account ID.
 ```
 
 ## SCP-AMS-031: Prevent launching instances with prohibited instance types
+<a name="scp-prevent-launching-prohibited-instances"></a>
 
 Prevent launcing prohibited Amazon EC2 instance types.
 
-###### Note
-
-Replace `instance_type1` and `instance_type2` with the instance types that you want to restrict, such as `t2.micro` or a wildcard string such as `*.nano`.
+**Note**  
+Replace {{instance\_type1}} and {{instance\_type2}} with the instance types that you want to restrict, such as {{t2.micro}} or a wildcard string such as {{\*.nano}}.
 
 ```
 {
@@ -679,8 +688,8 @@ Replace `instance_type1` and `instance_type2` with the instance types that you w
   "Condition": {
     "ForAnyValue:StringLike": {
       "ec2:InstanceType": [
-        "`instance_type1`",
-        "`instance_type2`"
+        "{{instance_type1}}", 
+        "{{instance_type2}}"
       ]
     }
   }
@@ -688,6 +697,7 @@ Replace `instance_type1` and `instance_type2` with the instance types that you w
 ```
 
 ## SCP-AMS-032: Prevent launching instances without IMDSv2
+<a name="scp-prevent-launching-instances-without-imdsv2"></a>
 
 Prevent Amazon EC2 instances without IMDSv2.
 
@@ -732,6 +742,7 @@ Prevent Amazon EC2 instances without IMDSv2.
 ```
 
 ## SCP-AMS-033: Prevent modifications to specific IAM role
+<a name="scp-prevent-modifications-to-iam-roles"></a>
 
 Prevent modifications to specified IAM roles.
 
@@ -752,13 +763,14 @@ Prevent modifications to specified IAM roles.
     "iam:UpdateRoleDescription"
   ],
   "Resource": [
-     "arn:aws:iam::{`ACCOUNT_ID`}:role/{`RESOURCE_NAME`}"
+     "arn:aws:iam::{{{ACCOUNT_ID}}}:role/{{{RESOURCE_NAME}}}"
   ],
   "Effect": "Deny"
 }
 ```
 
 ## SCP-AMS-034: Prevent AssumeRolePolicy modification on specific IAM roles
+<a name="scp-prevent-assumerolepolicy-modifications"></a>
 
 Prevent modifications to the AssumeRolePolicy for specified IAM roles.
 
@@ -768,16 +780,16 @@ Prevent modifications to the AssumeRolePolicy for specified IAM roles.
     "iam:UpdateAssumeRolePolicy"
   ],
   "Resource": [
-     "arn:aws:iam::{`ACCOUNT_ID`}:role/{`RESOURCE_NAME`}"
+     "arn:aws:iam::{{{ACCOUNT_ID}}}:role/{{{RESOURCE_NAME}}}"
   ],
   "Effect": "Deny"
 }
 ```
 
 ## ConfigRule: Required tags
+<a name="cnfgrl-required-tags"></a>
 
-Check whether EC2 instances have custom tags that you have required.
-In addition to InfoSec, this is also useful for your Cost Management
+Check whether EC2 instances have custom tags that you have required. In addition to InfoSec, this is also useful for your Cost Management
 
 ```
 ConfigRuleName: required-tags
@@ -795,6 +807,7 @@ ConfigRuleName: required-tags
 ```
 
 ## ConfigRule: Access key rotated
+<a name="cnfgrl-access-key-rotate"></a>
 
 Check that access keys are being rotated within the specified time period. This is usually set to be 90 days per typical compliance requirements.
 
@@ -814,6 +827,7 @@ ConfigRuleName: access-keys-rotated
 ```
 
 ## ConfigRule: IAM root access key in AMS
+<a name="cnfgrl-iam-root-rotate"></a>
 
 Check that a root access key is not present on an account. For AMS Advanced accounts, this is expected to be compliant out-of-the-box.
 
@@ -828,6 +842,7 @@ ConfigRuleName: iam-root-access-key-check
 ```
 
 ## ConfigRule: SSM managed EC2
+<a name="cnfgrl-ssm-managed"></a>
 
 Check that your EC2s are being managed by SSM Systems Manager.
 
@@ -846,9 +861,9 @@ ConfigRuleName: ec2-instance-managed-by-systems-manager
 ```
 
 ## ConfigRule: Unused IAM user in AMS
+<a name="cnfgrl-unused-user"></a>
 
-Check for IAM user credentials that have not been used for a specified duration. Like the key-rotation check, this usually
-defaults to 90 days per typical compliance requirements.
+Check for IAM user credentials that have not been used for a specified duration. Like the key-rotation check, this usually defaults to 90 days per typical compliance requirements.
 
 ```
 ConfigRuleName: iam-user-unused-credentials-check
@@ -865,6 +880,7 @@ ConfigRuleName: iam-user-unused-credentials-check
 ```
 
 ## ConfigRule: S3 bucket logging
+<a name="cnfgrl-s3-logging"></a>
 
 Check that logging has been enabled for S3 buckets in the account.
 
@@ -881,6 +897,7 @@ ConfigRuleName: s3-bucket-logging-enabled
 ```
 
 ## ConfigRule: S3 bucket versioning
+<a name="cnfgrl-s3-versioning"></a>
 
 Check that versioning and MFA-delete (optional) is enabled on all S3 buckets
 
@@ -898,6 +915,7 @@ ConfigRuleName: s3-bucket-versioning-enabled
 ```
 
 ## ConfigRule: S3 public access
+<a name="cnfgrl-s3-public-access"></a>
 
 Check that public access settings (Public ACL, Public Policy, Public Buckets) are restricted across the account
 
@@ -922,9 +940,9 @@ ConfigRuleName: s3-account-level-public-access-blocks
 ```
 
 ## ConfigRule: Non-archived GuardDuty findings
+<a name="cnfgrl-gd-findings"></a>
 
-Check for any non-archived GuardDuty findings that are older than the
-specified duration. The default duration is 30 days for low-sev, 7 days for medium-sev and 1 day for high-sev findings.
+Check for any non-archived GuardDuty findings that are older than the specified duration. The default duration is 30 days for low-sev, 7 days for medium-sev and 1 day for high-sev findings.
 
 ```
 ConfigRuleName: guardduty-non-archived-findings
@@ -943,9 +961,9 @@ ConfigRuleName: guardduty-non-archived-findings
 ```
 
 ## ConfigRule: CMK deletion
+<a name="cnfgrl-cmk-deletion"></a>
 
-Check for any AWS Key Management Service custom master keys (CMKs) that are scheduled (aka pending) for deletion.
-This is crucial as unawareness around CMK deletion can lead to data being unrecoverable
+Check for any AWS Key Management Service custom master keys (CMKs) that are scheduled (aka pending) for deletion. This is crucial as unawareness around CMK deletion can lead to data being unrecoverable
 
 ```
 ConfigRuleName: kms-cmk-not-scheduled-for-deletion
@@ -960,6 +978,7 @@ ConfigRuleName: kms-cmk-not-scheduled-for-deletion
 ```
 
 ## ConfigRule: CMK rotation
+<a name="cnfgrl-cmk-rotation"></a>
 
 Check that auto-rotation is enabled for every CMK in the account
 

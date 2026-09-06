@@ -1,44 +1,43 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Incident report (weekly)
+<a name="weekly-incident-report"></a>
 
 This report provides the aggregated list of incidents along with its priority, severity and latest status, including:
++ Data on support cases categorized as incidents on the managed account
++ Incident information required to visualize the incident metrics for the managed account
++ Data on incident categories and remediation status of every incident
 
-- Data on support cases categorized as incidents on the managed account
-- Incident information required to visualize the incident metrics for the managed account
-- Data on incident categories and remediation status of every incident
-  Both visualization and data are available for the Weekly incident report.
+Both visualization and data are available for the Weekly incident report.
++ Visualization can be accessed through the AMS console in the account through the **Reports** page.
++ Dataset with the following schema, can be accessed through S3 bucket in the managed account.
++ Use the provided date fields to filter incidents based on the month, quarter, week, and/or day that the incident was created or resolved.
 
-- Visualization can be accessed through the AMS console in the account through the
-  **Reports** page.
-- Dataset with the following schema, can be accessed through S3 bucket in the managed account.
-- Use the provided date fields to filter incidents based on the month, quarter, week, and/or day that the incident was created or resolved.
 
-| **Field Name**        | **Dataset Field Name**  | **Definition**                                                                                                                                                                                                                                                                         |
-| --------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Report Datetime       | dataset\_datetime       | The date and time the report was generated.                                                                                                                                                                                                                                            |
-| Account Id            | aws\_account\_id        | AWS Account ID to which the incident belongs.                                                                                                                                                                                                                                          |
-| Admin Account Id      | aws\_admin\_account\_id | Trusted AWS Organizations account enabled by you.                                                                                                                                                                                                                                      |
-| Account Name          | account\_name           | AWS account name.                                                                                                                                                                                                                                                                      |
-| Case Id               | case\_id                | The ID of the incident.                                                                                                                                                                                                                                                                |
-| Created Month         | created\_month          | The month when the incident was created.                                                                                                                                                                                                                                               |
-| Priority              | priority                | The priority of the incident.                                                                                                                                                                                                                                                          |
-| Severity              | severity                | The severity of the incident.                                                                                                                                                                                                                                                          |
-| Status                | status                  | The status of the incident.                                                                                                                                                                                                                                                            |
-| Category              | yuma\_category          | The category of the incident.                                                                                                                                                                                                                                                          |
-| Created Day           | created\_day            | The day when the incident was created in YYYY-MM-DD format.                                                                                                                                                                                                                            |
-| Created Week          | created\_wk             | The week when the incident was created in YYYY-WW format. Sunday to Saturday is counted as the beginning and end of a week. Week is from 01 to 52. Week 01 is always the week that<br>contains the first day of the year. For example, 2023-12-31 and 2024-01-01 are in week 2024-01.  |
-| Created Quarter       | created\_qtr            | The quarter when the incident was created in YYYY-Q format. 01/01 to 03/31 is defined as Q1, and so on.                                                                                                                                                                                |
-| Resolved Day          | resolved\_day           | The day when the incident was resolved in YYYY-MM-DD format.                                                                                                                                                                                                                           |
-| Resolved Week         | resolved\_wk            | The week when the incident was resolved in YYYY-WW format. Sunday to Saturday is counted as the beginning and end of a week. Week is from 01 to 52. Week 01 is always the week that<br>contains the first day of the year. For exmaple, 2023-12-31 and 2024-01-01 are in week 2024-01. |
-| Resolved Month        | resolved\_month         | The month when the incident was resolved in YYYY-MM format.                                                                                                                                                                                                                            |
-| Resolved Quarter      | resolved\_qtr           | The quarter when the incident was resolved in YYYY-Q format. 01/01 to 03/31 is defined as Q1, and so on.                                                                                                                                                                               |
-| Created Grouping rule | grouping\_rule          | The grouping rule that applies to the incident. Either "no\_grouping" or "instance\_grouping".                                                                                                                                                                                         |
-| Instance IDs          | instance\_ids           | The instance associated with the incident.                                                                                                                                                                                                                                             |
-| Number of alerts      | number\_of\_alerts      | The number of alerts associated with that incident. If you have grouping enabled, then this number can be greater than 1.<br>If you do not have grouping enabled, then it will always be 1.                                                                                            |
-| Created at            | created\_at             | The timestamp when the incident was created.                                                                                                                                                                                                                                           |
-| Alarm ARNs            | alarm\_arns             | The Amazon Resource Name ("arn") of the alarms associated with your incident.                                                                                                                                                                                                          |
-| Related alarms        | related\_alarms         | The human-readable names of all the alarms associated with the incident.                                                                                                                                                                                                               |
+| **Field Name** | **Dataset Field Name** | **Definition** | 
+| --- | --- | --- | 
+| Report Datetime | dataset\_datetime | The date and time the report was generated. | 
+| Account Id | aws\_account\_id | AWS Account ID to which the incident belongs. | 
+| Admin Account Id | aws\_admin\_account\_id | Trusted AWS Organizations account enabled by you. | 
+| Account Name | account\_name | AWS account name. | 
+| Case Id | case\_id | The ID of the incident. | 
+| Created Month | created\_month | The month when the incident was created. | 
+| Priority | priority | The priority of the incident. | 
+| Severity | severity | The severity of the incident. | 
+| Status | status | The status of the incident. | 
+| Category | yuma\_category | The category of the incident. | 
+| Created Day | created\_day | The day when the incident was created in YYYY-MM-DD format. | 
+| Created Week | created\_wk | The week when the incident was created in YYYY-WW format. Sunday to Saturday is counted as the beginning and end of a week. Week is from 01 to 52. Week 01 is always the week that contains the first day of the year. For example, 2023-12-31 and 2024-01-01 are in week 2024-01. | 
+| Created Quarter | created\_qtr | The quarter when the incident was created in YYYY-Q format. 01/01 to 03/31 is defined as Q1, and so on. | 
+| Resolved Day | resolved\_day | The day when the incident was resolved in YYYY-MM-DD format. | 
+| Resolved Week | resolved\_wk | The week when the incident was resolved in YYYY-WW format. Sunday to Saturday is counted as the beginning and end of a week. Week is from 01 to 52. Week 01 is always the week that contains the first day of the year. For exmaple, 2023-12-31 and 2024-01-01 are in week 2024-01. | 
+| Resolved Month | resolved\_month | The month when the incident was resolved in YYYY-MM format. | 
+| Resolved Quarter | resolved\_qtr | The quarter when the incident was resolved in YYYY-Q format. 01/01 to 03/31 is defined as Q1, and so on. | 
+| Created Grouping rule | grouping\_rule | The grouping rule that applies to the incident. Either "no\_grouping" or "instance\_grouping". | 
+| Instance IDs | instance\_ids | The instance associated with the incident. | 
+| Number of alerts | number\_of\_alerts | The number of alerts associated with that incident. If you have grouping enabled, then this number can be greater than 1. If you do not have grouping enabled, then it will always be 1. | 
+| Created at | created\_at | The timestamp when the incident was created. | 
+| Alarm ARNs | alarm\_arns | The Amazon Resource Name ("arn") of the alarms associated with your incident. | 
+| Related alarms | related\_alarms | The human-readable names of all the alarms associated with the incident. | 

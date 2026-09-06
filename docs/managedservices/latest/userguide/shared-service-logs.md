@@ -1,26 +1,32 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS shared services logs
+<a name="shared-service-logs"></a>
 
 The following table describes the logs, and log location, for the AMS Shared Services in your account.
 
 To access your logs, ensure that you have one of the required IAM roles and are in your AMS account. Then navigate to the directory shown.
 
-AMS single-account landing zone Shared Services Logging| | Shared service name | Log details | Log location |
-| --- | --- | --- | --- |
-| 1 | Bastion Hosts | Information regarding users accessing the bastion host. | **Linux Bastions**:<br>CloudWatch Logs: /{instance id}/var/log/secure<br>CloudWatch Logs: /{instance id}/var/log/audit/audit.log<br>**Windows Bastions**:<br>CloudWatch Logs: /{instance id}/SecurityEventLog |
-| 2 | Management Hosts | Output of scripts, which assist in automated access management actions within the<br>account. | CloudWatch Logs: /{instance id}/ApplicationEventLog |
-| 4 | EPS Hosts (DSM) | Information regarding the enrollment of instances onto the Deep Security Management<br>platform. | CloudWatch Logs: /{instance id}/var/log/DSM.log |
-| 5 | Directory Services | Information regarding account login, account management, detailed tracking, object access,<br>policy change, and privilege use within the account’s directory.<br>You must explicitly enable Directory Services logging. For information, see<br>[Enabling logging for supported services](log-customize-enable-service.md "log-customize-enable-service.md"). | CloudWatch Logs: /aws/directoryservice/{directory id}-{directory dns name} |
-| 6 | Lambdas | Output of various lambdas, which assist in automated operational actions within the<br>account. | CloudWatch Logs: /aws/lambda/{lambda name} |
 
-AMS multi-account landing zone Shared Services Logging| | Shared service name | Log details | Log location |
-| --- | --- | --- | --- |
-| 1 | Bastions | Output of instance logins and authentication failures. | *_Linux Bastions_<br>• CloudWatch Logs: /{`instance_ID`}/var/log/secure.log<br>*_Windows Bastions_<br>• CloudWatch Logs: /{`instance_ID`}/SecurityEventLog |
-| 2 | Management Hosts | Output of scriptsy, which assist in automated access management actions within the<br>account. | CloudWatch Logs: /{`instance_ID`}/ApplicationEventLog |
-| 3 | EPS Hosts (DSM) | Information regarding the enrollment of instances onto the Deep Security Management<br>platform. | CloudWatch Logs: /{`instance_ID`}/var/log/DSM.log |
-| 4 | Directory Services | Information regarding account login, account management, detailed tracking, object access,<br>policy change, and privilege use within the account’s directory.<br>You must explicitly enable Directory Services logging. For information,<br>see [Enabling logging for supported services](log-customize-enable-service.md "log-customize-enable-service.md"). | CloudWatch Logs: /aws/directoryservice/{`directory_ID`}-{`directory_DNS_name`} |
-| 5 | Lambdas | Output of various lambdas, which assist in automated operational actions within the<br>account. | CloudWatch Logs: /aws/lambda/{`Lambda_name`} |
+**AMS single-account landing zone Shared Services Logging**  
+
+|   | Shared service name | Log details | Log location | 
+| --- | --- | --- | --- | 
+| 1 | Bastion Hosts | Information regarding users accessing the bastion host. | **Linux Bastions**:<br />CloudWatch Logs: /{instance id}/var/log/secure<br />CloudWatch Logs: /{instance id}/var/log/audit/audit.log<br />**Windows Bastions**:<br />CloudWatch Logs: /{instance id}/SecurityEventLog | 
+| 2 | Management Hosts | Output of scripts, which assist in automated access management actions within the account. | CloudWatch Logs: /{instance id}/ApplicationEventLog | 
+| 4 | EPS Hosts (DSM) | Information regarding the enrollment of instances onto the Deep Security Management platform. | CloudWatch Logs: /{instance id}/var/log/DSM.log | 
+| 5 | Directory Services | Information regarding account login, account management, detailed tracking, object access, policy change, and privilege use within the account’s directory.<br />You must explicitly enable Directory Services logging. For information, see [Enabling logging for supported services](log-customize-enable-service.md). | CloudWatch Logs: /aws/directoryservice/{directory id}-{directory dns name} | 
+| 6 | Lambdas | Output of various lambdas, which assist in automated operational actions within the account. | CloudWatch Logs: /aws/lambda/{lambda name} | 
+
+
+**AMS multi-account landing zone Shared Services Logging**  
+
+|   | Shared service name | Log details | Log location | 
+| --- | --- | --- | --- | 
+| 1 | Bastions | Output of instance logins and authentication failures. | **Linux Bastions** CloudWatch Logs: /{{{instance\_ID}}}/var/log/secure.log<br />**Windows Bastions** CloudWatch Logs: /{{{instance\_ID}}}/SecurityEventLog | 
+| 2 | Management Hosts | Output of scriptsy, which assist in automated access management actions within the account. | CloudWatch Logs: /{{{instance\_ID}}}/ApplicationEventLog | 
+| 3 | EPS Hosts (DSM) | Information regarding the enrollment of instances onto the Deep Security Management platform. | CloudWatch Logs: /{{{instance\_ID}}}/var/log/DSM.log | 
+| 4 | Directory Services | Information regarding account login, account management, detailed tracking, object access, policy change, and privilege use within the account’s directory.<br />You must explicitly enable Directory Services logging. For information, see [Enabling logging for supported services](log-customize-enable-service.md). | CloudWatch Logs: /aws/directoryservice/{{{directory\_ID}}}-{{{directory\_DNS\_name}}} | 
+| 5 | Lambdas | Output of various lambdas, which assist in automated operational actions within the account. | CloudWatch Logs: /aws/lambda/{{{Lambda\_name}}} | 

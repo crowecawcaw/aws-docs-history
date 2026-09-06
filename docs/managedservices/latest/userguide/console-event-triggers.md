@@ -1,34 +1,27 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Email notifications
+<a name="console-event-triggers"></a>
 
-You can add email addresses to receive RFC state changes to an RFC that you create in the AMS console,
-or by using the AMS API/CLI.
+You can add email addresses to receive RFC state changes to an RFC that you create in the AMS console, or by using the AMS API/CLI.
 
-In the AMS console, use the **Email notifications** option, on the second page of the
-Create RFC wizard:
+In the AMS console, use the **Email notifications** option, on the second page of the Create RFC wizard:
 
-![Email notification options are under general configurations.](images/emailNoticeOption2.png)
-In the AMS API/CLI, add a line like this to the RFC parameters section of your RFC (do not add the line
-to the run parameters section):
+![Email notification options are under general configurations.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/emailNoticeOption2.png)
+
+
+In the AMS API/CLI, add a line like this to the RFC parameters section of your RFC (do not add the line to the run parameters section):
 
 ```
 --notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"
 ```
 
 The behavior of the notifications varies depending the RFC scheduling type:
++ Scheduled RFCs receive email notifications on : Submitted, Scheduled, InProgress, Completed, Rejected, Canceled, Auto-Rejected, or Auto-Canceled.
++ ASAP RFCs receive email notification on: Submitted, InProgress, Completed, Rejected, Canceled, AutoRejected, or Auto-Canceled.
 
-- Scheduled RFCs receive email notifications on : Submitted, Scheduled, InProgress, Completed,
-  Rejected, Canceled, Auto-Rejected, or Auto-Canceled.
-- ASAP RFCs receive email notification on: Submitted, InProgress, Completed, Rejected, Canceled,
-  AutoRejected, or Auto-Canceled.
-
-###### Note
-
-- Email notifications are sent from this address:
-  `no-reply@managedservices.amazonaws.com`.
-- Special characters and URLs in your RFC title are redacted in the emails we send. This is a
-  security measure.
+**Note**  
+Email notifications are sent from this address: `no-reply@managedservices.amazonaws.com`.
+Special characters and URLs in your RFC title are redacted in the emails we send. This is a security measure.

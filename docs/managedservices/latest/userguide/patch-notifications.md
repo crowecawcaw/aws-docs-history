@@ -1,31 +1,30 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Patch notifications
+<a name="patch-notifications"></a>
 
-###### Important
-
+**Important**  
 Beginning February 1, 2025, AMS customers will no longer receive notifications for empty Patch Maintenance Windows in their managed accounts.
 
 The subscribed email addresses (up to five) receive an email similar to the following just before the patch maintenance window start:
 
 ```
 Dear Customer,
-The AMS Patch Maintenance Window `THE_MAINTENANCE_WINDOW_NAME` was started at: 2020-02-21T12:02:18.196Z.
+The AMS Patch Maintenance Window {{THE_MAINTENANCE_WINDOW_NAME}} was started at: 2020-02-21T12:02:18.196Z.
 Details:
-    Maintenance Window AccountId:   `YOUR_ACCOUNT_ID`
-    Maintenance Window Region:      `YOUR_ACCOUNT_REGION`
-    Maintenance Window Id:          `THE_MAINTENANCE_WINDOW_ID`
-    Maintenance Window Name:        `THE_MAINTENANCE_WINDOW_NAME`
-    Maintenance Window Description: MaintenanceWindow for patching patch Group `PATCH_GROUP_NAME`
-    Maintenance Window Patch Group: `PATCH_GROUP_NAME`
-    Maintenance Window ExecutionId: `THE_EXECUTION_ID`
+    Maintenance Window AccountId:   {{YOUR_ACCOUNT_ID}}
+    Maintenance Window Region:      {{YOUR_ACCOUNT_REGION}}
+    Maintenance Window Id:          {{THE_MAINTENANCE_WINDOW_ID}}
+    Maintenance Window Name:        {{THE_MAINTENANCE_WINDOW_NAME}}
+    Maintenance Window Description: MaintenanceWindow for patching patch Group {{PATCH_GROUP_NAME}}
+    Maintenance Window Patch Group: {{PATCH_GROUP_NAME}}
+    Maintenance Window ExecutionId: {{THE_EXECUTION_ID}}
 Targets:
     InstanceId           InstanceName        StackId
     -------------------  --------------      -----------------------
-    `THE_INSTANCE_ID`      `THE_INSTANCE_NAME`   `THE_STACK_NAME`
+    {{THE_INSTANCE_ID}}      {{THE_INSTANCE_NAME}}   {{THE_STACK_NAME}}
 
 A follow-up message with a detailed report is sent as soon as the maintenance window is over.
 
@@ -43,19 +42,19 @@ At the end of the patch activity, the subscribed email addresses receive an emai
 
 ```
 Dear Customer,
-The AMS Patch Maintenance Window `THE_MAINTENANCE_WINDOW_NAME` ended at: 2020-02-21T12:03:20.058Z, with status: SUCCESS.
+The AMS Patch Maintenance Window {{THE_MAINTENANCE_WINDOW_NAME}} ended at: 2020-02-21T12:03:20.058Z, with status: SUCCESS.
 Details:
-    Maintenance Window AccountId:   `YOUR_ACCOUNT_ID`
-    Maintenance Window Region:      `YOUR_ACCOUNT_REGION`
-    Maintenance Window Id:          `THE_MAINTENANCE_WINDOW_ID`
-    Maintenance Window Name:        `THE_MAINTENANCE_WINDOW_NAME`
-    Maintenance Window Description: MaintenanceWindow for patching patch Group `PATCH_GROUP_NAME`
-    Maintenance Window Patch Group: `PATCH_GROUP_NAME`
-    Maintenance Window ExecutionId: `THE_EXECUTION_ID`
+    Maintenance Window AccountId:   {{YOUR_ACCOUNT_ID}}
+    Maintenance Window Region:      {{YOUR_ACCOUNT_REGION}}
+    Maintenance Window Id:          {{THE_MAINTENANCE_WINDOW_ID}}
+    Maintenance Window Name:        {{THE_MAINTENANCE_WINDOW_NAME}}
+    Maintenance Window Description: MaintenanceWindow for patching patch Group {{PATCH_GROUP_NAME}}
+    Maintenance Window Patch Group: {{PATCH_GROUP_NAME}}
+    Maintenance Window ExecutionId: {{THE_EXECUTION_ID}}
 Targets:
     RfcId                        InstanceId        InstanceName          StackId              Status
     -----------------------  -------------------  --------------    -----------------------  --------
-    `THE_RFC_ID`        `THE_INSTANCE_ID`     `THE_INSTANCE_NAME THE_STACK_NAME`           `STATUS`
+    {{THE_RFC_ID}}        {{THE_INSTANCE_ID}}     {{THE_INSTANCE_NAME THE_STACK_NAME}}           {{STATUS}}
 
 You can view the current Patch Compliance of your Amazon EC2 Instances by following this URL:
 https://console.aws.amazon.com/systems-manager/compliance?region=YOUR_ACCOUNT_REGION
@@ -70,31 +69,29 @@ Amazon Managed Services
 Patch Team
 ```
 
-Every 96 hours AMS patching system identifies all upcoming patch managed maintenance windows within that 96 hours and sends
-a reminder notification to all subscribed email addresses that fall within that 96 hour window. This could be as little as one hours
-before the window, or the full 96 hours. For example:
+Every 96 hours AMS patching system identifies all upcoming patch managed maintenance windows within that 96 hours and sends a reminder notification to all subscribed email addresses that fall within that 96 hour window. This could be as little as one hours before the window, or the full 96 hours. For example:
 
 ```
 Dear Customer,
-The AMS Patch Maintenance Window `THE_MAINTENANCE_WINDOW_NAME` will start at: 2020-05-06T16:35:36.523Z.
+The AMS Patch Maintenance Window {{THE_MAINTENANCE_WINDOW_NAME}} will start at: 2020-05-06T16:35:36.523Z.
 Details:
-    Maintenance Window AccountId:   `YOUR_ACCOUNT_ID`
-    Maintenance Window Region:      `YOUR_ACCOUNT_REGION`
-    Maintenance Window Id:          `THE_MAINTENANCE_WINDOW_ID`
-    Maintenance Window Name:        `THE_MAINTENANCE_WINDOW_NAME`
-    Maintenance Window Description: MaintenanceWindow for patching patch Group `PATCH_GROUP_NAME`
-    Maintenance Window Patch Group: `PATCH_GROUP_NAME`
+    Maintenance Window AccountId:   {{YOUR_ACCOUNT_ID}}
+    Maintenance Window Region:      {{YOUR_ACCOUNT_REGION}}
+    Maintenance Window Id:          {{THE_MAINTENANCE_WINDOW_ID}}
+    Maintenance Window Name:        {{THE_MAINTENANCE_WINDOW_NAME}}
+    Maintenance Window Description: MaintenanceWindow for patching patch Group {{PATCH_GROUP_NAME}}
+    Maintenance Window Patch Group: {{PATCH_GROUP_NAME}}
     Maintenance Window Next Start Time: 2020-05-06T16:35:36.523Z
     Maintenance Window Schedule:        rate(24 hours)
-    Maintenance Window Timezone:        `THE_TIMEZONE`
-At this time, these are the instances in the "`PATCH_GROUP_NAME`" Patch Group:
+    Maintenance Window Timezone:        {{THE_TIMEZONE}}
+At this time, these are the instances in the "{{PATCH_GROUP_NAME}}" Patch Group:
     InstanceId           InstanceName    StackId                  InstanceState
-
+    
 -------------------------------------------------------------------------------------------------
-
-    `THE_INSTANCE_ID`      `THE_INSTANCE_NAME`   `THE_STACK_NAME`  running/stopped
-    `THE_INSTANCE_ID`      `THE_INSTANCE_NAME`   `THE_STACK_NAME`  running/stopped
-    `THE_INSTANCE_ID`      `THE_INSTANCE_NAME`   `THE_STACK_NAME`  running/stopped
+    
+    {{THE_INSTANCE_ID}}      {{THE_INSTANCE_NAME}}   {{THE_STACK_NAME}}  running/stopped
+    {{THE_INSTANCE_ID}}      {{THE_INSTANCE_NAME}}   {{THE_STACK_NAME}}  running/stopped
+    {{THE_INSTANCE_ID}}      {{THE_INSTANCE_NAME}}   {{THE_STACK_NAME}}  running/stopped
 
 A notification message is sent as soon as the maintenance window starts.
 

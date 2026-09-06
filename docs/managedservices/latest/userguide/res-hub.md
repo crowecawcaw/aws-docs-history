@@ -1,35 +1,30 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Resilience Hub in your AMS account
+<a name="res-hub"></a>
 
-Use AMS Self-Service Provisioning (SSP) mode to access AWS Resilience Hub capabilities directly in your AMS managed account. AWS Resilience Hub helps you proactively prepare and protect your AWS applications from disruptions. The Resilience Hub offers resiliency assessment and validation that integrate into your software development lifecycle to uncover resiliency weaknesses. Resilience Hub helps you estimate whether or not your applications can meet the recovery time objective (RTO) and recovery point objective (RPO) targets, and helps resolve issues before they are released into production.
-After you deploy an AWS application into production, you can use Resilience Hub to continue tracking the resiliency posture of your application. If an outage occurs, Resilience Hub sends a notification to the operator to launch the associated recovery process.
+Use AMS Self-Service Provisioning (SSP) mode to access AWS Resilience Hub capabilities directly in your AMS managed account. AWS Resilience Hub helps you proactively prepare and protect your AWS applications from disruptions. The Resilience Hub offers resiliency assessment and validation that integrate into your software development lifecycle to uncover resiliency weaknesses. Resilience Hub helps you estimate whether or not your applications can meet the recovery time objective (RTO) and recovery point objective (RPO) targets, and helps resolve issues before they are released into production. After you deploy an AWS application into production, you can use Resilience Hub to continue tracking the resiliency posture of your application. If an outage occurs, Resilience Hub sends a notification to the operator to launch the associated recovery process.
 
 ## AWS Resilience Hub in AWS Managed Services FAQ
+<a name="set-res-hub-faqs"></a>
 
 Common questions and answers:
 
 **Q: How do I request access to AWS Resilience Hub in my AMS account?**
 
-Request access to Resilience Hub by submitting an RFC with the Management | AWS service | Self-provisioned
-service | Add (ct-1w8z66n899dct) change type.
-This RFC provisions the following IAM roles and policies to your account:
+Request access to Resilience Hub by submitting an RFC with the Management \| AWS service \| Self-provisioned service \| Add (ct-1w8z66n899dct) change type. This RFC provisions the following IAM roles and policies to your account:
 
-###### IAM roles
+**IAM roles**
++ `customer_resiliencehub_console_role`
++ `customer_resiliencehub_service_role`
 
-- `customer_resiliencehub_console_role`
-- `customer_resiliencehub_service_role`
+**Policies**
++ `customer_resiliencehub_console_policy`
++ `customer_resiliencehub_service_policy`
 
-###### Policies
-
-- `customer_resiliencehub_console_policy`
-- `customer_resiliencehub_service_policy`
-
-After the role is provisioned in your account, you must onboard the role `customer_resiliencehub_console_role` in your
-federation solution.
+After the role is provisioned in your account, you must onboard the role `customer_resiliencehub_console_role` in your federation solution.
 
 **Q: What are the restrictions to using AWS Resilience Hub in my AMS account?**
 

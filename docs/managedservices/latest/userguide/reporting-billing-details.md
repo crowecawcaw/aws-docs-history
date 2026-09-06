@@ -1,29 +1,29 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Billing Charges Details report
+<a name="reporting-billing-details"></a>
 
 AWS Managed Services (AMS) Billing Charges Details report provides details about AMS billing charges with linked accounts and respective AWS services, including:
++ AMS service-level charges, uplift percentages, account-level AMS service tiers and AMS fees.
++ Linked accounts and AWS usage charges
 
-- AMS service-level charges, uplift percentages, account-level AMS service tiers and AMS fees.
-- Linked accounts and AWS usage charges
 
-| **Field Name**                   | **Definition**                                                                                                       |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| Billing Month                    | The month and year of the service billed                                                                             |
-| Payer Account ID                 | The 12 digit ID identifying the account that will be responsible for paying the AMS charges                          |
-| Linked Account ID                | The 12 digit ID identifying the AMS account that<br>consumes services that generates expenses                        |
-| AWS Service Name                 | The AWS service that was used                                                                                        |
-| AWS Charges                      | The AWS charges for the AWS service name listed in AWS Service Name                                                  |
-| Pricing Plan                     | The name of the pricing plan associated with the linked account                                                      |
-| Uplift Proportion                | The uplift percentage (as a decimal V.WXYZ) based on pricing\_plan, SLA, and AWS service                             |
-| Adjusted AWS Charges             | AWS usage adjusted for AMS                                                                                           |
-| Uplifted AWS Charges             | The percentage of AWS charges to be charged for AMS; adjusted\_aws\_charges \<br>• uplift\_percent                   |
-| Instances EC2 RDS Spend          | Spend on EC2 and RDS instances                                                                                       |
-| AMS Charges                      | Total AMS charges for the product; uplifted\_aws\_charges + instance\_ec2\_rds\_spend + uplifted\_ris + uplifted\_sp |
-| Prorated Minimum Fee             | The amount we charge to meet the contractual minimum                                                                 |
-| Minimum Fee                      | AMS Minimum Fees (if applicable)                                                                                     |
-| Linked Account Total AMS Charges | Sum of all charges for the linked\_account                                                                           |
-| Payer Account Total AMS Charges  | Sum of all charges for payer account                                                                                 |
+| **Field Name** | **Definition** | 
+| --- | --- | 
+| Billing Month | The month and year of the service billed | 
+| Payer Account ID | The 12 digit ID identifying the account that will be responsible for paying the AMS charges | 
+| Linked Account ID | The 12 digit ID identifying the AMS account that consumes services that generates expenses | 
+| AWS Service Name | The AWS service that was used | 
+| AWS Charges | The AWS charges for the AWS service name listed in AWS Service Name | 
+| Pricing Plan | The name of the pricing plan associated with the linked account | 
+| Uplift Proportion | The uplift percentage (as a decimal V.WXYZ) based on pricing\_plan, SLA, and AWS service | 
+| Adjusted AWS Charges | AWS usage adjusted for AMS | 
+| Uplifted AWS Charges | The percentage of AWS charges to be charged for AMS; adjusted\_aws\_charges \* uplift\_percent | 
+| Instances EC2 RDS Spend |  Spend on EC2 and RDS instances | 
+| AMS Charges | Total AMS charges for the product; uplifted\_aws\_charges \+ instance\_ec2\_rds\_spend \+ uplifted\_ris \+ uplifted\_sp | 
+| Prorated Minimum Fee | The amount we charge to meet the contractual minimum | 
+| Minimum Fee | AMS Minimum Fees (if applicable) | 
+| Linked Account Total AMS Charges | Sum of all charges for the linked\_account | 
+| Payer Account Total AMS Charges | Sum of all charges for payer account | 
