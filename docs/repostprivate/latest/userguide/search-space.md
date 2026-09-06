@@ -1,9 +1,9 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AWS re:Post Private. After June 30, 2027, you will
-no longer be able to access the re:Post Private console or re:Post Private resources.
-For more information, see [AWS re:Post Private end of support](repost-private-end-of-support.md "repost-private-end-of-support.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Search within your private re:Post
+<a name="search-space"></a>
 
 Intelligent Search is a natural language search feature that helps you quickly find relevant answers across your AWS re:Post community, AWS documentation, and AWS Knowledge Center articles. This AI-powered tool is available in your re:Post Private space when enabled by your administrator.
 
@@ -12,19 +12,26 @@ To find the most relevant results to your query, Intelligent Search uses machine
 To use Intelligent Search, complete the following steps:
 
 1. Open your re:Post Private instance.
-2. Choose the search bar at the top of the page.
-3. Enter your question in natural language. For example, you might enter, “How do I set up IAM Identity Center with Azure AD?”.
-4. Press **Enter** or choose the search icon.
-5. Intelligent Search ranks relevant responses, indicates content type and source (AWS, internal, or community), and summarizes key points from the results.
 
-###### Note
+1. Choose the search bar at the top of the page.
 
-If you don’t see Intelligent Search, your administrator might not have enabled AI features. For setup guidance, see [Configuring AI integration for re:Post Private](../adminguide/enable-artificial-intelligence.md "../adminguide/enable-artificial-intelligence.md").
+1. Enter your question in natural language. For example, you might enter, “How do I set up IAM Identity Center with Azure AD?”.
+
+1. Press **Enter** or choose the search icon.
+
+1. Intelligent Search ranks relevant responses, indicates content type and source (AWS, internal, or community), and summarizes key points from the results.
+
+**Note**  
+If you don’t see Intelligent Search, your administrator might not have enabled AI features. For setup guidance, see [Configuring AI integration for re:Post Private](https://docs.aws.amazon.com/repostprivate/latest/adminguide/enable-artificial-intelligence.html).
 
 To turn off Intelligent Search so that your queries return only standard keyword-based results, complete the following steps:
 
 1. Open your re:Post Private instance.
-2. Choose your profile icon in the upper right corner of your re:Post Private instance, and then select **Settings**.
-3. Scroll to the **AI Settings** section.
-4. Turn off **Enable AI-generated responses in your search results**.
-   To re-enable Intelligent Search return to your settings. and turn on **Enable AI-generated responses in your search results**.
+
+1. Choose your profile icon in the upper right corner of your re:Post Private instance, and then select **Settings**.
+
+1. Scroll to the **AI Settings** section.
+
+1. Turn off **Enable AI-generated responses in your search results**.
+
+To re-enable Intelligent Search return to your settings. and turn on **Enable AI-generated responses in your search results**.
