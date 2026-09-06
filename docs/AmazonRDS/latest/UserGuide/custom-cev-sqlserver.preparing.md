@@ -28,7 +28,7 @@ The following steps use an AMI with **Windows Server 2019 Base** as an example.
 
 ###### Note
 
-If you're building a CEV using SQL Server Developer edition, you may need to obtain the installation media using your [Microsoft Visual Studio subscription](https://my.visualstudio.com/Downloads?q=sqlserver%20developer "https://my.visualstudio.com/Downloads?q=sqlserver%20developer"). 8. Install SQL Server. Make sure that you do the following:
+If you're building a CEV using SQL Server Developer edition, you might need to obtain the installation media using your [Microsoft Visual Studio subscription](https://my.visualstudio.com/Downloads?q=sqlserver%20developer "https://my.visualstudio.com/Downloads?q=sqlserver%20developer"). 8. Install SQL Server. Make sure that you do the following:
 
     1. Review [Requirements for BYOM for RDS Custom for SQL Server](custom-sqlserver.byom.md#custom-sqlserver.byom.requirements "custom-sqlserver.byom.md#custom-sqlserver.byom.requirements") and [Version support for RDS Custom for SQL Server CEVs](#custom-cev-sqlserver.preparing.VersionSupport "#custom-cev-sqlserver.preparing.VersionSupport").
     2. Set the instance root directory to the default `C:\Program
@@ -131,13 +131,13 @@ database editions:
 
 - For CEVs using pre-installed media:
 
-  - SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, and CU25.
+  - SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, and CU25-GDR.
   - SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 
 - For CEVs using bring your own media (BYOM):
 
   - SQL Server 2022 Enterprise, Standard, or Developer, with CU9, CU13,
-    CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, and CU25.
+    CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, and CU25-GDR.
   - SQL Server 2019 Enterprise, Standard, or Developer, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 
 - For CEVs using pre-installed media or bring your own media (BYOM), Windows

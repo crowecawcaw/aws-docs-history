@@ -134,7 +134,7 @@ logic, and workload type. For example, you can do the following:
 
 - Redesign your table and data logic to reduce high concurrency.
 - Change the application logic to reduce high concurrency at the row level.
-- Leverage and redesign queries with row-level locks.
+- Use and redesign queries with row-level locks.
 - Use the `NOWAIT` clause with retry operations.
 - Consider using optimistic and hybrid-locking logic concurrency control.
 - Consider changing the database isolation level.

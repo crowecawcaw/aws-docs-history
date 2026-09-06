@@ -271,7 +271,7 @@ version 10.11 or higher.
 
 - **Replication**
   **improvement**s – MariaDB version 10.11
-  DB instances use GTID replication by default if the master supports it. Also,
+  DB instances use GTID replication by default if the source supports it. Also,
   `Seconds_Behind_Master` is more precise.
 - **Clients** – You can use new
   command-line options for `mysqlbinglog` and

@@ -44,7 +44,7 @@ specify this option when copying across Regions. For more information, see
 
 ###### Note
 
-The destination AWS Region must have the same database engine version available as the source AWS Region. 7. For **New DB snapshot identifier**, type the name of the DB snapshot copy.
+The destination AWS Region must have the same database engine version available as the source AWS Region. 7. For **New DB snapshot identifier**, enter the name of the DB snapshot copy.
 
 You can make multiple copies of an automated backup or manual snapshot, but each copy must have a unique
 identifier. 8. (Optional) Select **Copy Tags** to copy tags and values from the snapshot to the copy of the snapshot. 9. (Optional) For **Encryption**, do the following:

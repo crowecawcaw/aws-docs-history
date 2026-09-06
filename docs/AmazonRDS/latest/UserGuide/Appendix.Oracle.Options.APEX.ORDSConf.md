@@ -158,7 +158,7 @@ documentation.
 
     Enter the temporary tablespace for ORDS\_PUBLIC\_USER [TEMP].
     * Enter 1 if you want to use PL/SQL Gateway or 2 to skip this step. If
-     you're using Oracle Application Express or migrating from mod\_plsql, you
+     you're using Oracle APEX or migrating from mod\_plsql, you
      must enter 1 [1].
 
 

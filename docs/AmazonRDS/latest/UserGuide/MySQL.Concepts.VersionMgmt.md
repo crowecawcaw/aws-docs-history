@@ -99,7 +99,7 @@ Amazon RDS Extended Support.
 
 Minor versions can reach end of Extended Support before major versions do. For
 example, minor version 5.7.44-RDS.20240529 reaches its end of Extended Support date in September 2025
-while major version 5.7 reaches this date on February 28, 2027. RDS will generate and release additional
+while major version 5.7 reaches this date on June 30, 2029. RDS will generate and release additional
 5.7.44-RDS.xxyyzz minor versions between these dates. We recommend that you upgrade to
 the latest available minor version as often as possible for all major versions.
 

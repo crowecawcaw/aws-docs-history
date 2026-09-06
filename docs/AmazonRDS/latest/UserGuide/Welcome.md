@@ -145,7 +145,7 @@ from the internet are permitted.
 
 The primary DB instance replicates to another DB instance, called a _read
 replica_. Both DB instances are in private subnets within the VPC,
-which means that Internet users can't access them directly.
+which means that internet users can't access them directly.
 
 ### DB engines
 

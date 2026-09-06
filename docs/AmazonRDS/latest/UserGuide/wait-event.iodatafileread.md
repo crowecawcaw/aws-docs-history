@@ -338,7 +338,7 @@ should progress faster, leading to fewer wait events. For more information, see 
 
 - Whenever possible, take advantage of read replicas for
   RDS for PostgreSQL. When your application runs a read-only operation, send these requests to the
-  read replica(s). This technique reduces the I/O pressure on
+  read replicas. This technique reduces the I/O pressure on
   the primary (writer) node.
 - Consider scaling up your DB instance. A higher-capacity instance class gives more memory,
   which gives RDS for PostgreSQL a larger shared buffer pool to hold pages. The larger size also gives the

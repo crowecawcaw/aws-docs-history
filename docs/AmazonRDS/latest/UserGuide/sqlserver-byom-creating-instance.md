@@ -4,7 +4,7 @@ You can create BYOM instances through the Amazon RDS console or the AWS CLI.
 
 **Console:** From the Create database page, you can create a BYOM instance the same way you would create a License Included (LI) instance. The console creates the BYOM engine version behind the scenes on your behalf. Note that building the engine version from your provided installation media adds approximately 20 minutes to the overall instance creation time.
 
-To avoid this additional wait, you can pre-create the BYOM engine version from the Custom engine versions page. Once the engine version is created, launching instances against it follows the same timeline as LI instances.
+To avoid this additional wait, you can pre-create the BYOM engine version from the Custom engine versions page. After the engine version is created, launching instances against it follows the same timeline as LI instances.
 
 **CLI:** Through the AWS CLI, you first call `create-custom-db-engine-version` to create the BYOM engine version, then call `create-db-instance` to launch your database. This two-step process also applies when you modify existing BYOM instances to a new minor version: create the target BYOM engine version first, wait for it to reach `Available` status, and then call `modify-db-instance` to upgrade.
 

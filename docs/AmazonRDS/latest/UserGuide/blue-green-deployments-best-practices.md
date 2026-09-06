@@ -60,14 +60,10 @@ RDS for MySQL DB instance.
     catches up, revert to the default value of `1` before switchover. If an
     unexpected shutdown or crash occurs with the temporary parameter value, rebuild the
     green environment to avoid undetected data corruption.
-  - To reduce write latency and improve replication throughput, temporarily change
-    green Multi-AZ DB instances to Single-AZ DB instances. Re-enable Multi-AZ right
-    before switchover.
 
 - Monitor the following CloudWatch metrics to identify periods of low activity in your production environment:
 
   - `DatabaseConnections`
-  - `ActiveTransactions`
     Schedule the blue/green switchover during your planned maintenance window or during a period of low activity.
 
 - Blue/Green switchover duration varies based on your workload and the number of secondary regions. When you initiate a blue/green switchover, the service waits for replica lag to reach zero before proceeding. We recommend checking replica lag before initiating a switchover.

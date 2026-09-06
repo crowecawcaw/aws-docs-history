@@ -161,7 +161,7 @@ set by using `daemon_memcached_options` are available as individual
   instance is restarted.
 - `BACKLOG_QUEUE_LIMIT` – an integer that specifies how many
   network connections can be waiting to be processed by
-  `memcached`. Increasing this limit may reduce errors received by
+  `memcached`. Increasing this limit might reduce errors received by
   a client that is not able to connect to the `memcached` instance,
   but does not improve the performance of the server. The allowed values are 1
   to 2048; the default is 1024. The option does not take effect until the

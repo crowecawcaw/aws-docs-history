@@ -259,6 +259,24 @@ Cipher suites supported by RDS Proxy| # | TLS Version | Cipher in OpenSSL Format
 | 12 | TLS 1.3 | TLS\_AES\_256\_GCM\_SHA384 | TLS\_AES\_256\_GCM\_SHA384 |
 | 13 | TLS 1.3 | TLS\_AES\_128\_GCM\_SHA256 | TLS\_AES\_128\_GCM\_SHA256 |
 
+### Hybrid Post-quantum Cryptography (ML-KEM) Support in RDS Proxy
+
+TLS 1.3 supports hybrid post-quantum key exchange through named groups. These named groups
+combine the post-quantum key exchange algorithm ML-KEM with a classical Elliptic Curve
+Diffie-Hellman (ECDH) key exchange algorithm—such as `X25519MLKEM768` and
+`SecP256r1MLKEM768`.
+
+RDS Proxy does not currently support these hybrid post-quantum named groups. Post-quantum
+key-exchange negotiation applies only to direct connections to your database, not to
+connections through RDS Proxy.
+
+When you connect through RDS Proxy:
+
+- Clients that offer both post-quantum and classical key-exchange groups negotiate a
+  classical group with RDS Proxy and connect successfully.
+- Clients configured to offer only post-quantum key-exchange groups (with no classical
+  fallback) cannot connect to RDS Proxy; the TLS handshake fails.
+
 ## Failover
 
 _Failover_ is a high-availability feature that replaces a

@@ -32,3 +32,4 @@ model for new databases.
 - [Using SQL Server Agent for Amazon RDS](Appendix.SQLServer.CommonDBATasks.Agent.md "Appendix.SQLServer.CommonDBATasks.Agent.md")
 - [Working with Amazon RDS for Microsoft SQL Server logs](Appendix.SQLServer.CommonDBATasks.Logs.md "Appendix.SQLServer.CommonDBATasks.Logs.md")
 - [Working with trace and dump files for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.TraceFiles.md "Appendix.SQLServer.CommonDBATasks.TraceFiles.md")
+- [Setting trace flags in RDS for Microsoft SQL Server](Appendix.SQLServer.CommonDBATasks.TraceFlags.md "Appendix.SQLServer.CommonDBATasks.TraceFlags.md")

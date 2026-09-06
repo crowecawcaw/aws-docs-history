@@ -27,7 +27,7 @@ modify-db-instance --engine-version `name` --option-group-name `name` ...
 ```
 
 Your update strategy depends on whether you want to upgrade your database and time
-zone file together or perform just one of these operations. Keep in mind that if you
+zone file together or perform only one of these operations. Keep in mind that if you
 update your option group and then upgrade your DB engine in separate API operations, it's
 possible for a time zone file update to be currently in progress when you upgrade your
 DB engine.

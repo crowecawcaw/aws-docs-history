@@ -7,7 +7,7 @@ server. If you don't enforce the match verification, then SSL performs the
 check but allows the connection, regardless if there is a match. If you do not
 enforce the match, you allow the server to potentially fake its identity.
 
-To enforce DN matching, add the DN match property and use the connection string specified below.
+To enforce DN matching, add the DN match property and use the connection string specified in the following example.
 
 Add the property to the client connection to enforce DN matching.
 

@@ -22,7 +22,7 @@ For information on version and Region availability, see
 
 Amazon RDS uses mixed mode for Windows Authentication. This approach means that the _master user_ (the name and password used to create your SQL
 Server DB instance) uses SQL Authentication. Because the master user account is a privileged
-credential, you should restrict access to this account.
+credential, restrict access to this account.
 
 To get Windows Authentication using an on-premises or self-hosted Microsoft Active Directory,
 create a forest trust. The trust can be one-way or two-way. For more information on setting

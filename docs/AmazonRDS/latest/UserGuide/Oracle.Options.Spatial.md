@@ -15,8 +15,8 @@ engine version contains all of the RU patches plus additional supplemental patch
 your DB instance uses Oracle Spatial and you require additional patches related to the
 Spatial option, use the SPB release. For example, 19.0.0.0.ru-2026-04.spb-1.r1 is a
 minor engine version that contains the RU patches in engine version
-19.0.0.0.ru-2026-04.rur-2026-04.r1 plus supplemental patches. SPBs are supported only
-for Oracle Database 19c.
+19.0.0.0.ru-2026-04.rur-2026-04.r1 plus supplemental patches. SPBs are supported
+for Oracle Database 19c and Oracle Database 26ai.
 
 ###### Note
 

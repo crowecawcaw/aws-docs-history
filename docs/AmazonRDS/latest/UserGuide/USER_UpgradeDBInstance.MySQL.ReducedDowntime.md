@@ -13,7 +13,6 @@ new DB instance without making any changes to your existing DB instance.
 
 The following procedure shows an example of upgrading from MySQL version 5.7 to MySQL
 version 8.0. You can use the same general steps for upgrades to other major versions.
-You can use the same general steps for upgrades to other major versions.
 
 ###### Note
 

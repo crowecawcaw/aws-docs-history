@@ -27,7 +27,7 @@ Consider the following when you enable extended data types for your DB instance:
 
 ###### Important
 
-Enabling extended data types is irreversible. After you set `MAX_STRING_SIZE` to `EXTENDED`, you cannot revert to `STANDARD`. This means you cannot downgrade to an engine version that does not support extended data types, and logical exports (Data Pump) of tables using extended columns may not be importable into databases using `STANDARD` mode.
+Enabling extended data types is irreversible. After you set `MAX_STRING_SIZE` to `EXTENDED`, you cannot revert to `STANDARD`. This means you cannot downgrade to an engine version that does not support extended data types, and logical exports (Data Pump) of tables using extended columns might not be importable into databases using `STANDARD` mode.
 
 - When you restore a DB instance that uses extended data types, you must specify a
   parameter group with the `MAX_STRING_SIZE` parameter set to

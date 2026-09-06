@@ -247,9 +247,9 @@ For more information, see [Factors that affect database performance](#CHAP_Stora
 
 | DB engine                           | Storage size   | Baseline storage performance | Range of Provisioned IOPS | Range of provisioned storage throughput |
 | ----------------------------------- | -------------- | ---------------------------- | ------------------------- | --------------------------------------- |
-| Db2, MariaDB, MySQL, and PostgreSQL | 20–399 GiB     | 3,000 IOPS/125 MiB/s         | N/A                       | N/A                                     |
+| Db2, MariaDB, MySQL, and PostgreSQL | 20–399 GiB     | 3,000 IOPS/125 MiB/s         | Not applicable            | Not applicable                          |
 | Db2, MariaDB, MySQL, and PostgreSQL | 400–65,536 GiB | 12,000 IOPS/500 MiB/s        | 12,000–64,000 IOPS        | 500–4,000 MiB/s                         |
-| Oracle                              | 20–199 GiB     | 3,000 IOPS/125 MiB/s         | N/A                       | N/A                                     |
+| Oracle                              | 20–199 GiB     | 3,000 IOPS/125 MiB/s         | Not applicable            | Not applicable                          |
 | Oracle                              | 200–65,536 GiB | 12,000 IOPS/500 MiB/s        | 12,000–64,000 IOPS        | 500–4,000 MiB/s                         |
 | SQL Server                          | 20–65,536 GiB  | 3,000 IOPS/125 MiB/s         | 3,000–80,000 IOPS         | 125–2,000 MiB/s                         |
 
@@ -652,17 +652,17 @@ The following table shows some exceptions for maximum storage (in TiB). All
 RDS for Microsoft SQL Server DB instances apart from io2 Block Express storage have a maximum storage
 of 16 TiB, so there are no entries for SQL Server.
 
-| Instance class                                         | Db2 | MariaDB | MySQL | Oracle | PostgreSQL |
-| ------------------------------------------------------ | --- | ------- | ----- | ------ | ---------- |
+| Instance class                                         | Db2            | MariaDB | MySQL | Oracle         | PostgreSQL |
+| ------------------------------------------------------ | -------------- | ------- | ----- | -------------- | ---------- |
 | **db.m3 –<br>standard instance classes**               |
 | **db.t4g –<br>burstable-performance instance classes** |
-| db.t4g.medium                                          | N/A | 16      | 16    | N/A    | 32         |
-| db.t4g.small                                           | N/A | 16      | 16    | N/A    | 16         |
-| db.t4g.micro                                           | N/A | 6       | 6     | N/A    | 6          |
+| db.t4g.medium                                          | Not applicable | 16      | 16    | Not applicable | 32         |
+| db.t4g.small                                           | Not applicable | 16      | 16    | Not applicable | 16         |
+| db.t4g.micro                                           | Not applicable | 6       | 6     | Not applicable | 6          |
 | **db.t3 –<br>burstable-performance instance classes**  |
-| db.t3.medium                                           | 32  | 16      | 16    | 32     | 32         |
-| db.t3.small                                            | 32  | 16      | 16    | 32     | 16         |
-| db.t3.micro                                            | N/A | 6       | 6     | 32     | 6          |
+| db.t3.medium                                           | 32             | 16      | 16    | 32             | 32         |
+| db.t3.small                                            | 32             | 16      | 16    | 32             | 16         |
+| db.t3.micro                                            | Not applicable | 6       | 6     | 32             | 6          |
 | **db.t2 –<br>burstable-performance instance classes**  |
 
 For more details about all instance classes supported, see [Previous generation DB instances](https://aws.amazon.com/rds/previous-generation/ "https://aws.amazon.com/rds/previous-generation/").

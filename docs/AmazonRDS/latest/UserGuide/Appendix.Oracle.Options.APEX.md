@@ -1,9 +1,9 @@
-# Oracle Application Express (APEX)
+# Oracle APEX
 
-Amazon RDS supports Oracle Application Express (APEX) through the use of the `APEX`
+Amazon RDS supports Oracle APEX through the use of the `APEX`
 and `APEX-DEV` options. You can deploy Oracle APEX as a runtime environment or as
 a full development environment for web-based applications. Using Oracle APEX, you can build
-applications entirely within the web browser. For more information, see [Oracle application Express](https://apex.oracle.com/ "https://apex.oracle.com/") in the Oracle
+applications entirely within the web browser. For more information, see [Oracle APEX](https://apex.oracle.com/ "https://apex.oracle.com/") in the Oracle
 documentation.
 
 ###### Topics

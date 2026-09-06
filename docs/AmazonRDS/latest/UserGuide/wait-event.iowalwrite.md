@@ -20,7 +20,7 @@ release the transaction's COMMIT call.
 
 ## Likely causes of increased waits
 
-If this wait event occurs often, you should review your workload and the
+If this wait event occurs often, review your workload and the
 type of updates that your workload performs and their frequency. In particular,
 look for the following types of activity.
 

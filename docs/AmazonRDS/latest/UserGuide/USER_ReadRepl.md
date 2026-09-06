@@ -65,7 +65,7 @@ variety of scenarios, including the following:
   your source DB instance might not be able to take I/O requests, for example due to I/O
   suspension for backups or scheduled maintenance. In these cases, you can direct
   read traffic to your read replicas. For this use case, keep in mind that the
-  data on the read replica might be "stale" because the source DB instance is
+  data on the read replica might be stale because the source DB instance is
   unavailable.
 - Business reporting or data warehousing scenarios where you might want business
   reporting queries to run against a read replica, rather than your production

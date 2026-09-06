@@ -136,8 +136,7 @@ conditions.
 System tables in the `mysql` schema can be in MyISAM storage.
 
 If you want to convert existing MyISAM tables to InnoDB tables, you can use the
-`ALTER TABLE` command (for example, `alter table TABLE_NAME engine=innodb;`). Bear in
-mind that MyISAM and InnoDB have different strengths and weaknesses, so you should
+`ALTER TABLE` command (for example, `alter table TABLE_NAME engine=innodb;`). Note that MyISAM and InnoDB have different strengths and weaknesses, so you should
 fully evaluate the impact of making this switch on your applications before doing
 so.
 

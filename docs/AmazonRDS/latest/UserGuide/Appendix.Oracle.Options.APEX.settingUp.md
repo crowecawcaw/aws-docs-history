@@ -139,7 +139,7 @@ passwd apexuser;
    `/home/apexuser` directory:
 
    - [http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html](http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html")
-   - [Oracle application Express prior release archives](http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html")
+   - [Oracle APEX prior release archives](http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html")
 
 4. Unzip the file in the `/home/apexuser` directory.
 
@@ -194,7 +194,7 @@ passwd apexuser;
    from Oracle to your `/home/apexuser` directory:
 
    - [http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html](http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html")
-   - [Oracle application Express prior release archives](http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html")
+   - [Oracle APEX prior release archives](http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html")
 
 4. Unzip the file in the `/home/apexuser` directory.
 
@@ -248,11 +248,11 @@ INFO: Please complete configuration at: http://localhost:8080/apex/listenerConfi
 Database is not yet configured
 ```
 
-4. Leave Oracle APEX Listener running so that you can use Oracle Application
-   Express. When you have finished this configuration procedure, you can run
+4. Leave Oracle APEX Listener running so that you can use Oracle
+   APEX. When you have finished this configuration procedure, you can run
    the listener in the background.
 5. From your web browser, go to the URL provided by the Oracle APEX
-   Listener program. The Oracle Application Express Listener
+   Listener program. The Oracle APEX Listener
    administration window appears. Enter the following information:
 
    - Username –

@@ -7,7 +7,7 @@ options that you can add to Amazon RDS instances running the Oracle DB engine.
 
 - [Overview of Oracle DB options](Appendix.Oracle.Options.overview.md "Appendix.Oracle.Options.overview.md")
 - [Amazon S3 integration](oracle-s3-integration.md "oracle-s3-integration.md")
-- [Oracle Application Express (APEX)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
+- [Oracle APEX](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")
 - [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md")
 - [Oracle Java virtual machine](oracle-options-java.md "oracle-options-java.md")
 - [Oracle Enterprise Manager](Oracle.Options.OEM.md "Oracle.Options.OEM.md")

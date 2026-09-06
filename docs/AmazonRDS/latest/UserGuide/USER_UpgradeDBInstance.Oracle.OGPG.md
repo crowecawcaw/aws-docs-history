@@ -109,7 +109,7 @@ engine version 19.0.0.0.ru-2025-01.rur-2025-01.r1 plus supplemental patches.
 
 When you upgrade your database to SPBs, consider the following:
 
-- SPBs are supported only for Oracle Database 19c.
+- SPBs are supported for Oracle Database 19c and Oracle Database 26ai.
 - If you enable automatic minor version upgrade for your DB instance, your upgrade path
   depends on whether your instance currently uses an SPB or RU. If your
   instance uses an SPB, RDS automatically upgrades your instance to the latest SPB. If

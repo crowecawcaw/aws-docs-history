@@ -34,9 +34,9 @@ documentation.
 
 For more information, see [Amazon Bedrock integration for RDS for Oracle](Oracle.BedrockIntegration.md "Oracle.BedrockIntegration.md").
 
-- Oracle Application Express (APEX)
+- Oracle APEX
 
-For more information, see [Oracle Application Express (APEX)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md").
+For more information, see [Oracle APEX](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md").
 
 - Automatic Memory Management
 - Automatic SQL Error Mitigation (Oracle Database 26ai and higher)

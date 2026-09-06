@@ -86,7 +86,7 @@ start EABC
 
 ## Running the Oracle GoldenGate REPLICAT utility
 
-The `REPLICAT` utility "pushes" transaction information in the trail files to the
+The `REPLICAT` utility pushes transaction information in the trail files to the
 target database.
 
 The following steps enable and start the `REPLICAT` utility so that it can

@@ -34,7 +34,7 @@ Make sure that you meet the following network requirements:
   Transit Gateway.
 - For VPC security groups, the default security group for your default VPC
   is already added to your RDS for Db2 DB instance in the console. Make sure that
-  the security group and the VPC network ACLs for the subnet(s) where you're
+  the security group and the VPC network ACLs for the subnets where you're
   creating your RDS for Db2 DB instance allow traffic on the ports identified in
   the following table.
 

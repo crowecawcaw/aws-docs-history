@@ -101,7 +101,7 @@ Before you upgrade to Oracle Database 26ai, review the following changes:
     option settings, specifically the allowed cipher suites and TLS versions.
     For more information, see [Oracle Management Agent for Enterprise Manager Cloud Control](Oracle.Options.OEMAgent.md "Oracle.Options.OEMAgent.md") and [Oracle Secure Sockets Layer](Appendix.Oracle.Options.SSL.md "Appendix.Oracle.Options.SSL.md").
   - Oracle Database 26ai supports only Oracle APEX version 24.1.v1 and higher. For
-    more information, see [Oracle Application Express (APEX)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md").
+    more information, see [Oracle APEX](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md").
   - For the NNE option, Amazon RDS has desupported older hash functions and
     cryptographic algorithms for Oracle Database 26ai. For more information, see [Oracle native network encryption](Appendix.Oracle.Options.NetworkEncryption.md "Appendix.Oracle.Options.NetworkEncryption.md").
 

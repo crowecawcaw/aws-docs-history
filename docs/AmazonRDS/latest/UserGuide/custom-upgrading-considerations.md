@@ -13,7 +13,7 @@ If you plan to upgrade your database, consider the following:
   releases that support Oracle Linux 8. To migrate to the latest Oracle Linux 8 AMI,
   upgrade your OS to the latest AMI. For more information, see [Upgrading an RDS Custom for Oracle DB instance](custom-upgrading-modify.md "custom-upgrading-modify.md").
 
-Oracle Linux 7.9 ended support on Dec 31, 2024. To continue running Oracle Linux 7
+Oracle Linux 7.9 ended support on December 31, 2024. To continue running Oracle Linux 7
 after the end of support, purchase an Oracle Extended Support license. You're
 responsible for security updates and must patch your RDS Custom for Oracle instances manually.
 For more information, see [Lifetime

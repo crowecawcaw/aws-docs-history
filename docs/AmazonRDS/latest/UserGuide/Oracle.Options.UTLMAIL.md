@@ -31,7 +31,7 @@ in the [Amazon trust services repository](https://www.amazontrust.com/repository
 
 ###### Important
 
-We recommend that you enable Oracle's built-in auditing feature
+We recommend that you enable the built-in auditing feature in Oracle
 to track the use of UTL\_MAIL procedures.
 
 ## Prerequisites for Oracle UTL\_MAIL

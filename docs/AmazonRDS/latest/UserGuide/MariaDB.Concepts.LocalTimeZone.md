@@ -1,7 +1,6 @@
 # Local time zone for MariaDB DB instances
 
-By default, the time zone for a MariaDB DB instance is Universal Time Coordinated
-(UTC). You can set the time zone for your DB instance to the local time zone for your application instead.
+By default, the time zone for a MariaDB DB instance is UTC. You can set the time zone for your DB instance to the local time zone for your application instead.
 
 To set the local time zone for a DB instance, set the `time_zone` parameter
 in the parameter group for your DB instance to one of the supported values listed later

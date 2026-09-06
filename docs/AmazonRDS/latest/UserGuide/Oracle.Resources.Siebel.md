@@ -35,7 +35,7 @@ For more information, see
 
 Before you begin, you need an Amazon VPC.
 Because your Amazon RDS DB instance needs to be available only to your Siebel Enterprise Server,
-and not to the public Internet, your Amazon RDS DB instance is hosted in a private subnet, providing greater security.
+and not to the public internet, your Amazon RDS DB instance is hosted in a private subnet, providing greater security.
 
 For information about how to create an Amazon VPC for use with Siebel CRM, see
 [Creating and connecting to an Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.Oracle.md "CHAP_GettingStarted.CreatingConnecting.Oracle.md").

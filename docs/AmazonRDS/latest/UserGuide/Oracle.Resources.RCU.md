@@ -32,7 +32,7 @@ Amazon RDS supports Oracle database version upgrades as needed. For more informa
 ## Requirements and limitations for RCU
 
 To use RCU, you need an Amazon VPC. Your Amazon RDS DB instance must be available only to your Fusion
-Middleware components, and not to the public Internet. Thus, host your Amazon RDS DB instance in a
+Middleware components, and not to the public internet. Thus, host your Amazon RDS DB instance in a
 private subnet, which provides greater security. You also need an RDS for Oracle DB instance. For more
 information, see [Creating and connecting to an Oracle DB instance](CHAP_GettingStarted.CreatingConnecting.Oracle.md "CHAP_GettingStarted.CreatingConnecting.Oracle.md").
 

@@ -16,7 +16,7 @@ You can add the following options for Oracle DB instances.
 | Option                                                                                                                                           | Option ID                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- |
 | [Amazon S3 integration](oracle-s3-integration.md "oracle-s3-integration.md")                                                                     | `S3_INTEGRATION`            |
-| [Oracle Application Express (APEX)](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")                                           | `APEX`<br>`APEX-DEV`        |
+| [Oracle APEX](Appendix.Oracle.Options.APEX.md "Appendix.Oracle.Options.APEX.md")                                                                 | `APEX`<br>`APEX-DEV`        |
 | [Oracle Enterprise Manager](Oracle.Options.OEM.md "Oracle.Options.OEM.md")                                                                       | `OEM`<br>`OEM_AGENT`        |
 | [Oracle Java virtual machine](oracle-options-java.md "oracle-options-java.md")                                                                   | `JVM`                       |
 | [Oracle Label Security](Oracle.Options.OLS.md "Oracle.Options.OLS.md")                                                                           | `OLS`                       |

@@ -9,7 +9,7 @@ DB instance. SSL/TLS support is available in all AWS Regions for MySQL.
 With Amazon RDS, you can secure data in transit by encrypting client connections to MySQL DB
 instances with SSL/TLS, requiring SSL/TLS for all connections to a MySQL DB instance, and
 connecting from the MySQL command-line client with SSL/TLS (encrypted). The following
-sections provide guidance on configuring and utilizing SSL/TLS encryption for MySQL DB
+sections provide guidance on configuring and using SSL/TLS encryption for MySQL DB
 instances on Amazon RDS.
 
 ###### Topics

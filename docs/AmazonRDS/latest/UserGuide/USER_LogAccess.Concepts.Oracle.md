@@ -139,7 +139,7 @@ SPOOL OFF;
 
 Trace files can accumulate and consume disk space. Amazon RDS purges trace files by default and
 log files that are older than seven days. You can view and set the trace file
-retention period using the `show_configuration` procedure. You should run
+retention period using the `show_configuration` procedure. Run
 the command `SET SERVEROUTPUT ON` so that you can view the configuration
 results.
 

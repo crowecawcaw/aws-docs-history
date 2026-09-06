@@ -42,8 +42,8 @@ Bundle (SPB) is an RU engine version that includes additional database patches
 recommended by Oracle for specific use cases, such as Oracle Spatial, Oracle Data Pump,
 and Oracle GoldenGate. For example, the SPB named
 19.0.0.0.ru-2026-04.spb-1.r1 includes all patches in the corresponding RU
-19.0.0.0.ru-2026-04.rur-2026-04.r1 plus supplemental patches. SPBs are supported only
-for Oracle Database 19c.
+19.0.0.0.ru-2026-04.rur-2026-04.r1 plus supplemental patches. SPBs are supported
+for Oracle Database 19c and Oracle Database 26ai.
 
 When your instance is configured for automatic minor version upgrades, RUs and SPBs
 are on separate upgrade paths. Typically, an SPB is released 2–3 weeks after its

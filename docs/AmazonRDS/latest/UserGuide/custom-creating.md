@@ -390,8 +390,8 @@ DB instance.
 
 In a newly created DB instance, your database environment includes Oracle binaries, a database,
 and a database listener. You might want to install additional software on the host operating
-system of the DB instance. For example, you might want to install Oracle Application Express
-(APEX), the Oracle Enterprise Manager (OEM) agent, or the Guardium S-TAP agent. For
+system of the DB instance. For example, you might want to install Oracle APEX, the Oracle
+Enterprise Manager (OEM) agent, or the Guardium S-TAP agent. For
 guidelines and high-level instructions, see the detailed AWS blog post [Install additional software components on Amazon RDS Custom for Oracle](https://aws.amazon.com/blogs/database/install-additional-software-components-on-amazon-rds-custom-for-oracle/ "https://aws.amazon.com/blogs/database/install-additional-software-components-on-amazon-rds-custom-for-oracle/").
 
 ## Connecting to your RDS Custom DB instance using SSH
