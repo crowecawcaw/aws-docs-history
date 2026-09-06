@@ -1,45 +1,44 @@
+
+
 # Your first RFDK app
+<a name="first-rfdk-app"></a>
 
-###### Important
+**Important**  
+On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
 
-On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/ "https://aws.amazon.com/deadline-cloud/") for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com "mailto:support@awsthinkbox.zendesk.com") or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html "https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html").
-
-Now that you have installed the [Prerequisites](getting-started.md#prerequisites "getting-started.md#prerequisites") and have completed [Onboarding to CDK](getting-started.md#onboarding-to-cdk "getting-started.md#onboarding-to-cdk"), let’s get started on your first RFDK app — a simple render farm using
-[AWS Thinkbox Deadline](https://www.awsthinkbox.com/deadline "https://www.awsthinkbox.com/deadline"). In this tutorial, you will learn how to:
+Now that you have installed the [Prerequisites](getting-started.md#prerequisites) and have completed [Onboarding to CDK](getting-started.md#onboarding-to-cdk), let’s get started on your first RFDK app — a simple render farm using [AWS Thinkbox Deadline](https://www.awsthinkbox.com/deadline). In this tutorial, you will learn how to:
 
 1. Initialize an RFDK app.
-2. Stage the Docker recipes used for various Deadline components.
-3. Add code that defines a simple Deadline render farm.
-4. Build and deploy your RFDK render farm to your AWS account.
-   Your RFDK render farm will be deployed as a single CloudFormation stack that will contain:
 
-- A VPC
-- The back-end of the farm
+1. Stage the Docker recipes used for various Deadline components.
 
-  - Database and file system — Deadline Repository
-  - Central service — Deadline Render Queue
+1. Add code that defines a simple Deadline render farm.
 
-- The render nodes — Deadline Worker Fleet
+1. Build and deploy your RFDK render farm to your AWS account.
 
-**Estimated time: 75-90 minutes** Approximately 60 minutes of this will be waiting for AWS CloudFormation to deploy and destroy your resources.
+Your RFDK render farm will be deployed as a single CloudFormation stack that will contain:
++ A VPC
++ The back-end of the farm
+  + Database and file system — Deadline Repository
+  + Central service — Deadline Render Queue
++ The render nodes — Deadline Worker Fleet
 
-###### Important
+ **Estimated time: 75-90 minutes** Approximately 60 minutes of this will be waiting for AWS CloudFormation to deploy and destroy your resources.
 
-This guide is written assuming you are working on an EC2 instance running on Linux, but you can also use your local machine if desired.
-It also assumes that you have installed the [Prerequisites](getting-started.md#prerequisites "getting-started.md#prerequisites") and have completed [Onboarding to CDK](getting-started.md#onboarding-to-cdk "getting-started.md#onboarding-to-cdk") on this instance.
+**Important**  
+This guide is written assuming you are working on an EC2 instance running on Linux, but you can also use your local machine if desired. It also assumes that you have installed the [Prerequisites](getting-started.md#prerequisites) and have completed [Onboarding to CDK](getting-started.md#onboarding-to-cdk) on this instance.
 
 ## Initialize the RFDK app
+<a name="_initialize_the_rfdk_app"></a>
 
-You can create your RFDK app anywhere on your machine, but each RFDK app should be in its own directory.
-Create a new directory for your app and enter it:
+You can create your RFDK app anywhere on your machine, but each RFDK app should be in its own directory. Create a new directory for your app and enter it:
 
 ```
 mkdir hello-rfdk
 cd hello-rfdk
 ```
 
-First, you must determine the latest version of RFDK available.
-The following command uses `npm` (bundled with Node.js) to look-up the latest version of the `aws-rfdk` package, store it in the `RFDK_VERSION` shell variable, and output a message indicating the version:
+First, you must determine the latest version of RFDK available. The following command uses `npm` (bundled with Node.js) to look-up the latest version of the `aws-rfdk` package, store it in the `RFDK_VERSION` shell variable, and output a message indicating the version:
 
 ```
 RFDK_VERSION=$(npm view aws-rfdk version)
@@ -53,35 +52,40 @@ CDK_VERSION=$(npm view aws-rfdk 'dependencies.aws-cdk-lib')
 echo "Using CDK version ${CDK_VERSION}"
 ```
 
-###### Note
-
+**Note**  
 It is important that the version of the `aws-cdk` packages installed in your project match the version of `aws-cdk` packages required by the RFDK version used in your app.
 
 Now, initialize the app using the CDK toolkit’s `cdk init` command:
 
-Python
+------
+#### [ Python ]
 
 ```
 npx cdk@${CDK_VERSION} init app --language python
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 npx cdk@${CDK_VERSION} init app --language typescript
 ```
 
+------
+
 With the CDK project initialized, install the `aws-rfdk` package:
 
-Python
-Modify `setup.py` in the root of the app directory to add an entry for `aws-rfdk` to the `install_requires` list. Replace `RFDK_VERSION` with the version output in the previous step:
+------
+#### [ Python ]
+
+Modify `setup.py` in the root of the app directory to add an entry for `aws-rfdk` to the `install_requires` list. Replace {{RFDK\_VERSION}} with the version output in the previous step:
 
 ```
 setup(
     # ...
     install_requires=[
         # ...
-        "aws-rfdk==`RFDK_VERSION`",
+        "aws-rfdk=={{RFDK_VERSION}}",
         # ...
     ],
     # ...
@@ -95,7 +99,8 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 npm install --save aws-rfdk@${RFDK_VERSION}
@@ -107,12 +112,16 @@ To install all of the peer dependencies required by RFDK, use the following comm
 npm view --json aws-rfdk@${RFDK_VERSION} peerDependencies | jq '. | to_entries[] | .key + "@" + .value' | xargs npm i --save
 ```
 
+------
+
 ## Setup the environment
+<a name="_setup_the_environment"></a>
 
-Each application needs to be associated with an [AWS environment](../../../cdk/latest/guide/environments.md "../../../cdk/latest/guide/environments.md"): the target Account and Region into which the
-stack is intended to be deployed. You can specify the exact values for Account and Region or use the environment variables as in the example below:
+Each application needs to be associated with an [AWS environment](https://docs.aws.amazon.com/cdk/latest/guide/environments.html): the target Account and Region into which the stack is intended to be deployed. You can specify the exact values for Account and Region or use the environment variables as in the example below:
 
-Python
+------
+#### [ Python ]
+
 In `app.py`:
 
 ```
@@ -128,7 +137,9 @@ app = cdk.App()
 HelloRfdkStack(app, "hello-rfdk", env=env)
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `bin/hello-rfdk.ts`:
 
 ```
@@ -139,12 +150,16 @@ new HelloRfdkStack(app, 'hello-rfdk', {
 }});
 ```
 
+------
+
 ## Define a Deadline render farm
+<a name="_define_a_deadline_render_farm"></a>
 
-Now you are ready to start building your render farm. The first thing you will need is a [`Vpc`](../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.md "../../../cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.md") construct instance for your render farm. The `Vpc` provides the foundational
-networking that will be used by all other components in the farm.
+Now you are ready to start building your render farm. The first thing you will need is a [`Vpc`](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.Vpc.html) construct instance for your render farm. The `Vpc` provides the foundational networking that will be used by all other components in the farm.
 
-Python
+------
+#### [ Python ]
+
 In `hello_rfdk/hello_rfdk_stack.py`:
 
 ```
@@ -160,7 +175,9 @@ class HelloRfdkStack(cdk.Stack):
         vpc = ec2.Vpc(self, "Vpc")
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `lib/hello-rfdk-stack.ts`:
 
 ```
@@ -177,13 +194,13 @@ export class HelloRfdkStack extends cdk.Stack {
 }
 ```
 
-The next thing you will need to do is select a version of AWS Thinkbox Deadline to use for your Render Farm.
-For more details, see the full documentation about [Using AWS Thinkbox ECR Repositories](work-with-rfdk.md#using-aws-thinkbox-ecr-repositories "work-with-rfdk.md#using-aws-thinkbox-ecr-repositories").
-Once you have selected a Deadline version (`DEADLINE_VERSION`), create a
-[`VersionQuery`](../../api/latest/docs/aws-rfdk.deadline.VersionQuery.md "../../api/latest/docs/aws-rfdk.deadline.VersionQuery.md") construct in your
-CDK app.
+------
 
-Python
+The next thing you will need to do is select a version of AWS Thinkbox Deadline to use for your Render Farm. For more details, see the full documentation about [Using AWS Thinkbox ECR Repositories](work-with-rfdk.md#using-aws-thinkbox-ecr-repositories). Once you have selected a Deadline version ({{DEADLINE\_VERSION}}), create a [`VersionQuery`](https://docs.aws.amazon.com/rfdk/api/latest/docs/aws-rfdk.deadline.VersionQuery.html) construct in your CDK app.
+
+------
+#### [ Python ]
+
 In `hello_rfdk/hello_rfdk_stack.py`:
 
 ```
@@ -197,11 +214,13 @@ class HelloRfdkStack(cdk.Stack):
 
         # Pin to the 10.2.0.x Deadline release. Release patches are applied with each CDK deployment
         version = rfdk_deadline.VersionQuery(self, "Version",
-            version=`"10.2.0"`,
+            version={{"10.2.0"}},
         )
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `lib/hello-rfdk-stack.ts`:
 
 ```
@@ -215,22 +234,22 @@ export class HelloRfdkStack extends cdk.Stack {
 
     // Pin to the 10.2.0.x Deadline release. Release patches are applied with each CDK deployment
     const version = new deadline.VersionQuery(this, 'Version', {
-      version: `'10.2.0'`,
+      version: {{'10.2.0'}},
     });
   }
 }
 ```
 
-Next, let’s add in a [`Repository`](../../api/latest/docs/aws-rfdk.deadline.Repository.md "../../api/latest/docs/aws-rfdk.deadline.Repository.md").
-This construct creates the database and file system that make up the back-end storage of your render farm.
-Then, it configures them with the [Deadline Repository](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/overview.html#components "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/overview.html#components") installer.
-By default, an [Amazon DocumentDB](https://aws.amazon.com/documentdb/ "https://aws.amazon.com/documentdb/") and [Amazon Elastic File System (EFS)](https://aws.amazon.com/efs/ "https://aws.amazon.com/efs/") are created.
+------
 
-###### Tip
+Next, let’s add in a [`Repository`](https://docs.aws.amazon.com/rfdk/api/latest/docs/aws-rfdk.deadline.Repository.html). This construct creates the database and file system that make up the back-end storage of your render farm. Then, it configures them with the [Deadline Repository](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/overview.html#components) installer. By default, an [Amazon DocumentDB](https://aws.amazon.com/documentdb/) and [Amazon Elastic File System (EFS)](https://aws.amazon.com/efs/) are created.
 
+**Tip**  
 In the Deadline documentation, the Database and Repository are two separate concepts. The RFDK combines the two concepts and calls it the Repository.
 
-Python
+------
+#### [ Python ]
+
 In `hello_rfdk/hello_rfdk_stack.py`:
 
 ```
@@ -246,7 +265,9 @@ class HelloRfdkStack(cdk.Stack):
         )
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `lib/hello-rfdk-stack.ts`:
 
 ```
@@ -265,13 +286,15 @@ export class HelloRfdkStack extends cdk.Stack {
 }
 ```
 
-AWS Thinkbox publishes Deadline container images into a publicly-available **Elastic Container Registry (ECR)** Repository.
-RFDK provides the [`ThinkboxDockerImages`](../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerImages.md "../../api/latest/docs/aws-rfdk.deadline.ThinkboxDockerImages.md") construct that can be used to deploy these container images using **AWS Elastic Container Service (ECS)**.
+------
 
-To use these images, add a `ThinkboxDockerImages` instance to your CDK app. For this, you will need to read and accept
-the terms of the [AWS Customer Agreement](https://aws.amazon.com/agreement/ "https://aws.amazon.com/agreement/") and [AWS Intellectual Property License](https://aws.amazon.com/legal/aws-ip-license-terms/ "https://aws.amazon.com/legal/aws-ip-license-terms/").
+AWS Thinkbox publishes Deadline container images into a publicly-available **Elastic Container Registry (ECR)** Repository. RFDK provides the [`ThinkboxDockerImages`](https://docs.aws.amazon.com/rfdk/api/latest/docs/aws-rfdk.deadline.ThinkboxDockerImages.html) construct that can be used to deploy these container images using **AWS Elastic Container Service (ECS)**.
 
-Python
+To use these images, add a `ThinkboxDockerImages` instance to your CDK app. For this, you will need to read and accept the terms of the [AWS Customer Agreement](https://aws.amazon.com/agreement/) and [AWS Intellectual Property License](https://aws.amazon.com/legal/aws-ip-license-terms/).
+
+------
+#### [ Python ]
+
 In `hello_rfdk/hello_rfdk_stack.py`:
 
 ```
@@ -289,11 +312,13 @@ class HelloRfdkStack(cdk.Stack):
             # is AWS Content as defined in those Agreements.
             # Please set the user_aws_customer_agreement_and_ip_license_acceptance property to
             # USER_ACCEPTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE to signify your acceptance of these terms.
-            user_aws_customer_agreement_and_ip_license_acceptance=rfdk_deadline.AwsCustomerAgreementAndIpLicenseAcceptance.`USER_REJECTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE`
+            user_aws_customer_agreement_and_ip_license_acceptance=rfdk_deadline.AwsCustomerAgreementAndIpLicenseAcceptance.{{USER_REJECTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE}}
         )
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `lib/hello-rfdk-stack.ts`:
 
 ```
@@ -314,22 +339,22 @@ export class HelloRfdkStack extends cdk.Stack {
        * Please set the userAwsCustomerAgreementAndIpLicenseAcceptance property to
        * USER_ACCEPTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE to signify your acceptance of these terms.
        */
-      userAwsCustomerAgreementAndIpLicenseAcceptance: deadline.AwsCustomerAgreementAndIpLicenseAcceptance.`USER_REJECTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE`,
+      userAwsCustomerAgreementAndIpLicenseAcceptance: deadline.AwsCustomerAgreementAndIpLicenseAcceptance.{{USER_REJECTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE}},
     });
   }
 }
 ```
 
-Now that you have Deadline container images and a Deadline Repository, you will need to add a [`RenderQueue`](../../api/latest/docs/aws-rfdk.deadline.RenderQueue.md "../../api/latest/docs/aws-rfdk.deadline.RenderQueue.md").
-The `RenderQueue` acts as the central service of your render farm that clients and render nodes can connect to.
-This construct creates a fleet of [Deadline Remote Connection Servers](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/remote-connection-server.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/remote-connection-server.html") running in [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/ "https://aws.amazon.com/ecs/").
+------
 
-###### Tip
+Now that you have Deadline container images and a Deadline Repository, you will need to add a [`RenderQueue`](https://docs.aws.amazon.com/rfdk/api/latest/docs/aws-rfdk.deadline.RenderQueue.html). The `RenderQueue` acts as the central service of your render farm that clients and render nodes can connect to. This construct creates a fleet of [Deadline Remote Connection Servers](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/remote-connection-server.html) running in [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
 
-This example explicitly turns [deletion protection](../../../elasticloadbalancing/latest/application/application-load-balancers.md#deletion-protection "../../../elasticloadbalancing/latest/application/application-load-balancers.md#deletion-protection")
-off so this stack can be easily cleaned up. By default, it is turned on to prevent accidental deletion of your `RenderQueue`.
+**Tip**  
+This example explicitly turns [deletion protection](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#deletion-protection) off so this stack can be easily cleaned up. By default, it is turned on to prevent accidental deletion of your `RenderQueue`.
 
-Python
+------
+#### [ Python ]
+
 In `hello_rfdk/hello_rfdk_stack.py`:
 
 ```
@@ -348,7 +373,9 @@ class HelloRfdkStack(cdk.Stack):
         )
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `lib/hello-rfdk-stack.ts`:
 
 ```
@@ -370,20 +397,16 @@ export class HelloRfdkStack extends cdk.Stack {
 }
 ```
 
-The last thing you need to add is a fleet of render nodes with the [`WorkerInstanceFleet`](../../api/latest/docs/aws-rfdk.deadline.WorkerInstanceFleet.md "../../api/latest/docs/aws-rfdk.deadline.WorkerInstanceFleet.md") construct, which creates a fleet of instances running
-[Deadline Worker](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/worker.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/worker.html") in an
-[Amazon EC2 Auto Scaling Group](../../../autoscaling/ec2/userguide/AutoScalingGroup.md "../../../autoscaling/ec2/userguide/AutoScalingGroup.md").
+------
 
-###### Important
+The last thing you need to add is a fleet of render nodes with the [`WorkerInstanceFleet`](https://docs.aws.amazon.com/rfdk/api/latest/docs/aws-rfdk.deadline.WorkerInstanceFleet.html) construct, which creates a fleet of instances running [Deadline Worker](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/worker.html) in an [Amazon EC2 Auto Scaling Group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html).
 
-The `WorkerInstanceFleet` construct requires an [Amazon Machine Image (AMI)](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md") with
-the Deadline Worker application installed. Substitute `your-ami-id` with your desired AMI ID in the code below. Conveniently,
-AWS Thinkbox creates public AWS Portal AMIs you can use for this. Follow the steps in the Deadline guide for
-[finding AWS Portal AMIs](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/aws-custom-ami.html#finding-which-ami-to-start-from "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/aws-custom-ami.html#finding-which-ami-to-start-from")
-(these steps instruct you to specifically search for _“Deadline Worker Base”_ images, but you can use any Linux-based Deadline Worker image for this tutorial) and copy
-over your desired AMI ID.
+**Important**  
+The `WorkerInstanceFleet` construct requires an [Amazon Machine Image (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) with the Deadline Worker application installed. Substitute {{your-ami-id}} with your desired AMI ID in the code below. Conveniently, AWS Thinkbox creates public AWS Portal AMIs you can use for this. Follow the steps in the Deadline guide for [finding AWS Portal AMIs](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/aws-custom-ami.html#finding-which-ami-to-start-from) (these steps instruct you to specifically search for *“Deadline Worker Base”* images, but you can use any Linux-based Deadline Worker image for this tutorial) and copy over your desired AMI ID.
 
-Python
+------
+#### [ Python ]
+
 In `hello_rfdk/hello_rfdk_stack.py`:
 
 ```
@@ -398,12 +421,14 @@ class HelloRfdkStack(cdk.Stack):
             render_queue=render_queue,
             worker_machine_image=ec2.MachineImage.generic_linux({
                 # TODO: Replace your-ami-id with your chosen AMI ID
-                cdk.Stack.of(self).region: `"your-ami-id"`
+                cdk.Stack.of(self).region: {{"your-ami-id"}}
             })
         )
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `lib/hello-rfdk-stack.ts`:
 
 ```
@@ -419,28 +444,35 @@ export class HelloRfdkStack extends cdk.Stack {
       renderQueue,
       workerMachineImage: ec2.MachineImage.genericLinux({
         // TODO: Replace your-ami-id with your chosen AMI ID
-        [this.region]: `'your-ami-id'`,
+        [this.region]: {{'your-ami-id'}},
       }),
     });
   }
 }
 ```
 
+------
+
 ## Deploy the render farm
+<a name="_deploy_the_render_farm"></a>
 
 With the render farm fully defined in code, you can now build and deploy it. First, build the app with:
 
-Python
+------
+#### [ Python ]
+
 No build step is necessary.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 npm run build
 ```
 
-You can optionally synthesize the CloudFormation template for your app if you are curious to see it (the generated CloudFormation template is
-around _3300_ lines long):
+------
+
+You can optionally synthesize the CloudFormation template for your app if you are curious to see it (the generated CloudFormation template is around *3300* lines long):
 
 ```
 npx cdk@${CDK_VERSION} synth
@@ -455,19 +487,17 @@ npx cdk@${CDK_VERSION} deploy
 This deployment will take approximately 30 minutes since the render farm contains many resources.
 
 ## Update the render farm
+<a name="update-the-render-farm"></a>
 
 You can update properties of the deployed render farm by making changes to your app and deploying again.
 
-By default, the RFDK will setup resources such that you cannot accidentally destroy important components by tearing down your CloudFormation stack. For instance, the
-**Repository** contains information about your render farm and any work done with it, which is data that can be useful to keep (e.g. to start up your render farm again
-in the same state it was in previously). For more details, see [Managing resources](best-practices.md#managing-resources "best-practices.md#managing-resources").
+By default, the RFDK will setup resources such that you cannot accidentally destroy important components by tearing down your CloudFormation stack. For instance, the **Repository** contains information about your render farm and any work done with it, which is data that can be useful to keep (e.g. to start up your render farm again in the same state it was in previously). For more details, see [Managing resources](best-practices.md#managing-resources).
 
-We don’t need to retain any render farm information for this tutorial, so let’s update the
-[removal policies](../../../cdk/api/latest/docs/@aws-cdk_core.RemovalPolicy.md "../../../cdk/api/latest/docs/@aws-cdk_core.RemovalPolicy.md") to set the
-[Deletion Policy](../../../AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.md") in the CloudFormation template of the
-database and file system of your **Repository** so they are destroyed:
+We don’t need to retain any render farm information for this tutorial, so let’s update the [removal policies](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_core.RemovalPolicy.html) to set the [Deletion Policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) in the CloudFormation template of the database and file system of your **Repository** so they are destroyed:
 
-Python
+------
+#### [ Python ]
+
 In `hello_rfdk/hello_rfdk_stack.py`:
 
 ```
@@ -488,7 +518,9 @@ class HelloRfdkStack(cdk.Stack):
         )
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `lib/hello-rfdk-stack.ts`:
 
 ```
@@ -514,9 +546,13 @@ export class HelloRfdkStack extends cdk.Stack {
 }
 ```
 
+------
+
 Let’s also scale down your `WorkerInstanceFleet` to 0 so that all workers are terminated to save on costs:
 
-Python
+------
+#### [ Python ]
+
 In `hello_rfdk/hello_rfdk_stack.py`:
 
 ```
@@ -531,7 +567,7 @@ class HelloRfdkStack(cdk.Stack):
             render_queue=render_queue,
             worker_machine_image=ec2.MachineImage.generic_linux({
                 # TODO: Replace your-ami-id with your chosen AMI ID
-                cdk.Stack.of(self).region: `"your-ami-id"`
+                cdk.Stack.of(self).region: {{"your-ami-id"}}
             }),
             # Scale capacity down to 0
             desired_capacity=0,
@@ -540,7 +576,9 @@ class HelloRfdkStack(cdk.Stack):
         )
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
+
 In `lib/hello-rfdk-stack.ts`:
 
 ```
@@ -556,7 +594,7 @@ export class HelloRfdkStack extends cdk.Stack {
       renderQueue,
       workerMachineImage: ec2.MachineImage.genericLinux({
         // TODO: Replace your-ami-id with your chosen AMI ID
-        [this.region]: `'your-ami-id'`,
+        [this.region]: {{'your-ami-id'}},
       }),
       // Scale capacity down to 0
       desiredCapacity: 0,
@@ -567,16 +605,23 @@ export class HelloRfdkStack extends cdk.Stack {
 }
 ```
 
+------
+
 Build your app again to incorporate your changes:
 
-Python
+------
+#### [ Python ]
+
 No build step is necessary.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 npm run build
 ```
+
+------
 
 You can optionally run `cdk diff` to see the changes in the CloudFormation template that will be applied:
 
@@ -590,76 +635,76 @@ Now let’s deploy these changes:
 npx cdk@${CDK_VERSION} deploy
 ```
 
-You can verify these changes were applied by navigating to your `HelloRfdkStack` in the CloudFormation web console and viewing the updated resources.
-They should have the **Status** field set to `UPDATE_COMPLETE`.
+You can verify these changes were applied by navigating to your `HelloRfdkStack` in the CloudFormation web console and viewing the updated resources. They should have the **Status** field set to `UPDATE_COMPLETE`.
 
 ## (Optional) Submit a job to the render farm
+<a name="_optional_submit_a_job_to_the_render_farm"></a>
 
-###### Note
-
-This is an optional step that shows you how to use your render farm but does not cover any new concepts in RFDK.
-Feel free to skip this step and proceed with [tearing down your render farm](#tear-down-the-render-farm "#tear-down-the-render-farm").
+**Note**  
+This is an optional step that shows you how to use your render farm but does not cover any new concepts in RFDK. Feel free to skip this step and proceed with [tearing down your render farm](#tear-down-the-render-farm).
 
 ### Setting up the connection
+<a name="_setting_up_the_connection"></a>
 
-###### Important
+**Important**  
+In order to submit a job, you will need to [create a secure connection to your render](connecting-to-render-farm.md). The rest of this chapter will not work if you don’t set up this connection.
 
-In order to submit a job, you will need to [create a secure connection to your render](connecting-to-render-farm.md "connecting-to-render-farm.md").
-The rest of this chapter will not work if you don’t set up this connection.
-
-Once you set up the connection to the render farm and [allow the connection to the render queue](connecting-to-render-farm.md#allowing-connection-to-the-render-queue "connecting-to-render-farm.md#allowing-connection-to-the-render-queue"), you can build and deploy your changes.
+Once you set up the connection to the render farm and [allow the connection to the render queue](connecting-to-render-farm.md#allowing-connection-to-the-render-queue), you can build and deploy your changes.
 
 ```
 npm run build
 npx cdk@${CDK_VERSION} deploy
 ```
 
-When the changes are deployed, [get remote connection server address](connecting-to-render-farm.md#getting-remote-connection-server-address "connecting-to-render-farm.md#getting-remote-connection-server-address") and save it for later.
+When the changes are deployed, [get remote connection server address](connecting-to-render-farm.md#getting-remote-connection-server-address) and save it for later.
 
 ```
-RQ_DNS_NAME=`load-balancer-dns-name`
-
+RQ_DNS_NAME={{load-balancer-dns-name}}
 ```
 
 ### Connecting Deadline Client to your render farm
+<a name="_connecting_deadline_client_to_your_render_farm"></a>
 
-You need to install [Deadline](https://www.awsthinkbox.com/deadline "https://www.awsthinkbox.com/deadline") Client on the machine you are submitting the job from.
-You can download Deadline installers from the [AWS Thinkbox downloads page](https://downloads.thinkboxsoftware.com/ "https://downloads.thinkboxsoftware.com/").
+You need to install [Deadline](https://www.awsthinkbox.com/deadline) Client on the machine you are submitting the job from. You can download Deadline installers from the [AWS Thinkbox downloads page](https://downloads.thinkboxsoftware.com/).
 
-Once you have downloaded an archive, extract the files and install Deadline Client.
-For more information, please visit [Deadline Client Installation (Quick)](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/quick-install-client.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/quick-install-client.html") page.
-Here is how you can install Deadline client in a silent mode on Amazon Linux 2 (AL2):
+Once you have downloaded an archive, extract the files and install Deadline Client. For more information, please visit [Deadline Client Installation (Quick)](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/quick-install-client.html) page. Here is how you can install Deadline client in a silent mode on Amazon Linux 2 (AL2):
 
 ```
 yum install lsb
 
-DEADLINE_VERSION=`deadline-version`
+DEADLINE_VERSION={{deadline-version}}
 tar -xvf Deadline-$DEADLINE_VERSION-linux-installers.tar
 ./DeadlineClient-$DEADLINE_VERSION-linux-x64-installer.run --mode text
 ```
 
 You can now connect Deadline Client to your render farm.
 
-New Deadline Client Installation
+------
+#### [ New Deadline Client Installation ]
 
-1. When prompted for the Repository Connection Type, select `Remote Connection Server`.
-2. When prompted for the Remote Connection Server address, enter `$RQ_DNS_NAME:8080`.
+1. When prompted for the Repository Connection Type, select **Remote Connection Server**.
 
-Existing Deadline Client (Command Line)
+1. When prompted for the Remote Connection Server address, enter **$RQ\_DNS\_NAME:8080**.
+
+------
+#### [ Existing Deadline Client (Command Line) ]
 
 1. Navigate to `bin` folder in your Deadline Client installation directory. For example:
 
-```
-cd /opt/Thinkbox/Deadline10/bin
-```
+   ```
+   cd /opt/Thinkbox/Deadline10/bin
+   ```
 
-2. Change the repository you are connected to with Deadline Command:
+1. Change the repository you are connected to with Deadline Command:
 
-```
-./deadlinecommand ChangeRepository Remote $RQ_DNS_NAME:8080
-```
+   ```
+   ./deadlinecommand ChangeRepository Remote $RQ_DNS_NAME:8080
+   ```
+
+------
 
 ### Submitting a job to your render farm
+<a name="_submitting_a_job_to_your_render_farm"></a>
 
 Let’s submit a simple command line job that calls `ping` command.
 
@@ -671,6 +716,7 @@ cd /opt/Thinkbox/Deadline10/bin
 ```
 
 ### Viewing Render Farm Statistics
+<a name="_viewing_render_farm_statistics"></a>
 
 The easiest way to check the result of the submitted job is to use another deadline command:
 
@@ -679,25 +725,25 @@ cd /opt/Thinkbox/Deadline10/bin
 ./deadlinecommand GetFarmStatistics
 ```
 
-You should now have `Completed Jobs= 1` in the output.
-Optionally, you can get the job id with `GetJobIds` and then use that id with `GetJob` command to view all the job details.
-Find more [Deadline commands here](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/command.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/command.html").
+You should now have `Completed Jobs= 1` in the output. Optionally, you can get the job id with `GetJobIds` and then use that id with `GetJob` command to view all the job details. Find more [Deadline commands here](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/manual/command.html).
 
 ### Viewing job output in CloudWatch
+<a name="_viewing_job_output_in_cloudwatch"></a>
 
 You can also view the output of the job you submitted in the Deadline Worker logs that can be found in CloudWatch.
 
-1. Open the [AWS Web Console](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home").
-2. Navigate to `Services` > `CloudWatch` > `Log groups`.
-3. Open the log group for your Deadline Worker fleet. By default, this will be of the form `/renderfarm/WorkerFleet`.
-4. Open the logs for your Worker instance. This will be of the form WorkerLogs-`ec2-instance-id`.
-   The `ec2-instance-id` is the ID of the `hello-rfdk/WorkerFleet/Default` instance.
-   You can find this ID in the AWS Web Console for EC2 Service.
-5. You should be able to find a line in the logs that contains `localhost ping`.
-   You can use `Filter events` input field to easily find it.
-   This is the output of Deadline Worker completing the job you submitted.
+1. Open the [AWS Web Console](https://console.aws.amazon.com/console/home).
+
+1. Navigate to `Services` > `CloudWatch` > `Log groups`.
+
+1. Open the log group for your Deadline Worker fleet. By default, this will be of the form `/renderfarm/WorkerFleet`.
+
+1. Open the logs for your Worker instance. This will be of the form WorkerLogs-{{ec2-instance-id}}. The {{ec2-instance-id}} is the ID of the `hello-rfdk/WorkerFleet/Default` instance. You can find this ID in the AWS Web Console for EC2 Service.
+
+1. You should be able to find a line in the logs that contains `localhost ping`. You can use `Filter events` input field to easily find it. This is the output of Deadline Worker completing the job you submitted.
 
 ## Tear down the render farm
+<a name="tear-down-the-render-farm"></a>
 
 When you’re done with your render farm, you can destroy it:
 
@@ -705,16 +751,14 @@ When you’re done with your render farm, you can destroy it:
 npx cdk@${CDK_VERSION} destroy
 ```
 
-If you have issues destroying your farm, ensure you have completed the [Update the render farm](#update-the-render-farm "#update-the-render-farm") section where we update properties that would
-prevent some resources from being destroyed. Otherwise, refer to your `HelloRfdkStack` in the
-[CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md "../../../AWSCloudFormation/latest/UserGuide/cfn-using-console.md") to resolve any issues.
+If you have issues destroying your farm, ensure you have completed the [Update the render farm](#update-the-render-farm) section where we update properties that would prevent some resources from being destroyed. Otherwise, refer to your `HelloRfdkStack` in the [CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console.html) to resolve any issues.
 
 ## Next steps
+<a name="_next_steps"></a>
 
 Now that you have seen RFDK in action, you can:
++ Learn about [Working with the RFDK](work-with-rfdk.md) in more depth
++ Explore the [API reference](https://docs.aws.amazon.com/rfdk/api/latest/) to discover all of the constructs and classes that RFDK offers
++ Learn about [Best practices while using the RFDK](best-practices.md) and [Security in the RFDK](security-considerations.md) to help make your render farm ready for production
 
-- Learn about [Working with the RFDK](work-with-rfdk.md "work-with-rfdk.md") in more depth
-- Explore the [API reference](../../api/latest.md "../../api/latest.md") to discover all of the constructs and classes that RFDK offers
-- Learn about [Best practices while using the RFDK](best-practices.md "best-practices.md") and [Security in the RFDK](security-considerations.md "security-considerations.md") to help make your render farm ready for production
-
-The RFDK is an open-source project. We would be happy to have you [contribute](https://github.com/aws/aws-rfdk/blob/mainline/CONTRIBUTING.md "https://github.com/aws/aws-rfdk/blob/mainline/CONTRIBUTING.md")!
+The RFDK is an open-source project. We would be happy to have you [contribute](https://github.com/aws/aws-rfdk/blob/mainline/CONTRIBUTING.md)\!

@@ -1,34 +1,28 @@
+
+
 # What is the Render Farm Deployment Kit on AWS?
+<a name="what-is-rfdk"></a>
 
-###### Important
+**Important**  
+On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
 
-On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/ "https://aws.amazon.com/deadline-cloud/") for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com "mailto:support@awsthinkbox.zendesk.com") or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html "https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html").
+The Render Farm Deployment Kit (RFDK) on AWS is an open-source software development kit that can be used to deploy, configure, and manage your render farm infrastructure in the cloud. The RFDK is built to operate with the [AWS Cloud Development Kit (CDK)](https://docs.aws.amazon.com/cdk/latest/guide/home.html) and provides a library of classes, called constructs, that each deploy and configure a component of your cloud-based render farm. The current version of the RFDK supports render farms built using [AWS Thinkbox Deadline](https://www.awsthinkbox.com/deadline) render management software, and provides the ability for you to easily go from nothing to a production-ready render farm in the cloud.
 
-The Render Farm Deployment Kit (RFDK) on AWS is an open-source software development kit that can be used to deploy, configure, and manage your render farm infrastructure in the cloud.
-The RFDK is built to operate with the [AWS Cloud Development Kit (CDK)](../../../cdk/latest/guide/home.md "../../../cdk/latest/guide/home.md") and provides a library of classes, called constructs,
-that each deploy and configure a component of your cloud-based render farm. The current version of the RFDK supports render farms built using
-[AWS Thinkbox Deadline](https://www.awsthinkbox.com/deadline "https://www.awsthinkbox.com/deadline") render management software, and provides the ability for you to easily go from nothing to a production-ready render
-farm in the cloud.
-
-You can model, deploy, configure, and update your AWS render farm infrastructure by writing an application for the
-[CDK toolkit](../../../cdk/latest/guide/cli.md "../../../cdk/latest/guide/cli.md") using the libraries provided by the CDK and RFDK together and with other CDK-compatible libraries.
-The RFDK supports applications written in either [Python](https://www.python.org/ "https://www.python.org/") or [Node.js](https://nodejs.org/en/ "https://nodejs.org/en/").
-Your application is written in an object-oriented style where creation of an object from the CDK and RFDK libraries represents the creation of a resource, or collection of
-resources, in your AWS account when the CDK toolkit deploys your application with [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
-The parameters of an object’s creation control the configuration of the resource.
+You can model, deploy, configure, and update your AWS render farm infrastructure by writing an application for the [CDK toolkit](https://docs.aws.amazon.com/cdk/latest/guide/cli.html) using the libraries provided by the CDK and RFDK together and with other CDK-compatible libraries. The RFDK supports applications written in either [Python](https://www.python.org/) or [Node.js](https://nodejs.org/en/). Your application is written in an object-oriented style where creation of an object from the CDK and RFDK libraries represents the creation of a resource, or collection of resources, in your AWS account when the CDK toolkit deploys your application with [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html). The parameters of an object’s creation control the configuration of the resource.
 
 ## Why use the RFDK?
+<a name="why-use-the-rfdk"></a>
 
 With the RFDK, you can easily model the cloud components of your render farm as object-oriented code. This gives you the benefits of infrastructure as code:
-
-- **Visibility**: Your render farm infrastructure is available as an easy-to-understand application that makes it easy for anyone on your team to see and understand what has been deployed.
-- **Stability**: Combining infrastructure as code with version control, like git, makes accidental errors, like an incorrect setting, harder to make and easier to recover from.
-- **Scalability**: Your application can be deployed repeatedly within the same region, in other regions, or even in other AWS accounts. This means that once you have modeled your render farm using the RFDK then you can create as many exact copies of that render farm as you need and be sure that they have all been created to your specifications.
-- **Security**: The RFDK and CDK are built with security as a top priority so that your render farm is built on a secure foundation. Each component’s configuration can be customized to meet your organizations security requirements. If you create one well secured render farm using the RFDK then you can reuse it and know that every deployed version is meeting the same security requirements.
++  **Visibility**: Your render farm infrastructure is available as an easy-to-understand application that makes it easy for anyone on your team to see and understand what has been deployed.
++  **Stability**: Combining infrastructure as code with version control, like git, makes accidental errors, like an incorrect setting, harder to make and easier to recover from.
++  **Scalability**: Your application can be deployed repeatedly within the same region, in other regions, or even in other AWS accounts. This means that once you have modeled your render farm using the RFDK then you can create as many exact copies of that render farm as you need and be sure that they have all been created to your specifications.
++  **Security**: The RFDK and CDK are built with security as a top priority so that your render farm is built on a secure foundation. Each component’s configuration can be customized to meet your organizations security requirements. If you create one well secured render farm using the RFDK then you can reuse it and know that every deployed version is meeting the same security requirements.
 
 To use the RFDK to create the components of your cloud render farm, you will write simple and easy to understand code like in the example shown below. Creating an equivalent AWS CloudFormation template directly would require provisioning and correctly configuring 106 separate resources of 42 different types; the resulting template would be around three thousand lines long.
 
-Python
+------
+#### [ Python ]
 
 ```
 # A simple AWS CloudFormation stack that creates a bare-bones infrastructure with
@@ -44,7 +38,7 @@ class BareBonesDeadlineRenderFarm(cdk.Stack):
 
         # Specify version of AWS Thinkbox Deadline to use
         version = rfdk_deadline.VersionQuery(self, "Version",
-            version=`"10.2.0"`,
+            version={{"10.2.0"}},
         )
 
         # Use AWS Thinkbox published Deadline container images for specified Deadline version
@@ -56,7 +50,7 @@ class BareBonesDeadlineRenderFarm(cdk.Stack):
             # is AWS Content as defined in those Agreements.
             # Please set the user_aws_customer_agreement_and_ip_license_acceptance property to
             # USER_ACCEPTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE to signify your acceptance of these terms.
-            user_aws_customer_agreement_and_ip_license_acceptance=rfdk_deadline.AwsCustomerAgreementAndIpLicenseAcceptance.`USER_REJECTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE`
+            user_aws_customer_agreement_and_ip_license_acceptance=rfdk_deadline.AwsCustomerAgreementAndIpLicenseAcceptance.{{USER_REJECTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE}}
         )
 
         # To operate Deadline you will need a backing-store for Deadline files
@@ -100,7 +94,7 @@ class BareBonesDeadlineRenderFarm(cdk.Stack):
           render_queue=render_queue,
           worker_machine_image=ec2.MachineImage.generic_linux({
               # Fill in your AMI id here
-              f"{cdk.Stack.of(self).region}": `"ami-00000000000000000"`
+              f"{cdk.Stack.of(self).region}": {{"ami-00000000000000000"}}
           }),
           min_capacity=5,
           instance_type=ec2.InstanceType("c5.large"),
@@ -124,7 +118,8 @@ class BareBonesDeadlineRenderFarm(cdk.Stack):
         ).mount_to_linux_instance(workers.fleet, location="/mnt/assets")
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // A simple CloudFormation stack that creates a bare-bones infrastructure with
@@ -140,7 +135,7 @@ export class BareBonesDeadlineRenderFarm extends cdk.Stack {
 
     // Specify version of AWS Thinkbox Deadline to use
     const version = rfdkDeadline.VersionQuery(this, 'Version', {
-      version: `'10.2.0'`,
+      version: {{'10.2.0'}},
     });
 
     // Use AWS Thinkbox published Deadline container images for specified Deadline version
@@ -154,7 +149,7 @@ export class BareBonesDeadlineRenderFarm extends cdk.Stack {
        * Please set the userAwsCustomerAgreementAndIpLicenseAcceptance property to
        * USER_ACCEPTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE to signify your acceptance of these terms.
        */
-      userAwsCustomerAgreementAndIpLicenseAcceptance: rfdkDeadline.AwsCustomerAgreementAndIpLicenseAcceptance.`USER_REJECTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE`,
+      userAwsCustomerAgreementAndIpLicenseAcceptance: rfdkDeadline.AwsCustomerAgreementAndIpLicenseAcceptance.{{USER_REJECTS_AWS_CUSTOMER_AGREEMENT_AND_IP_LICENSE}},
     });
 
     // To operate Deadline you will need a backing-store for Deadline files
@@ -225,34 +220,35 @@ export class BareBonesDeadlineRenderFarm extends cdk.Stack {
 }
 ```
 
+------
+
 ## Where can I get the RFDK?
+<a name="where-can-i-get-the-rfdk"></a>
 
 The RFDK is available today on:
-
-- The official RFDK GitHub — https://github.com/aws/aws-rfdk  — contributions welcome!
-- [pypi.org](http://pypi.org/ "http://pypi.org/") for Python developers to use via pip — https://pypi.org/project/aws-rfdk
-- [npmjs.org](http://npmjs.org/ "http://npmjs.org/") for Node.js developers to use via npm — https://www.npmjs.com/package/aws-rfdk
++ The official RFDK GitHub — https://github.com/aws/aws-rfdk  — contributions welcome\!
++  [pypi.org](http://pypi.org/) for Python developers to use via pip — https://pypi.org/project/aws-rfdk
++  [npmjs.org](http://npmjs.org/) for Node.js developers to use via npm — https://www.npmjs.com/package/aws-rfdk
 
 ## Additional documentation and resources
-
-- [RFDK API Reference](../../api/latest.md "../../api/latest.md")
-- [RFDK on GitHub](https://github.com/aws/aws-rfdk "https://github.com/aws/aws-rfdk")
-
-  - [Issues](https://github.com/aws/aws-rfdk/issues "https://github.com/aws/aws-rfdk/issues")
-  - [Example applications](https://github.com/aws/aws-rfdk/tree/mainline/examples "https://github.com/aws/aws-rfdk/tree/mainline/examples")
-  - [License](https://github.com/aws/aws-rfdk/blob/mainline/LICENSE "https://github.com/aws/aws-rfdk/blob/mainline/LICENSE")
-  - [Releases](https://github.com/aws/aws-rfdk/releases "https://github.com/aws/aws-rfdk/releases")
-
-- [CDK Workshop](https://cdkworkshop.com/ "https://cdkworkshop.com/")
-- [CDK User Guide](../../../cdk/latest/guide/home.md "../../../cdk/latest/guide/home.md")
-- [CDK API Reference](../../../cdk/api/latest/docs/aws-construct-library.md "../../../cdk/api/latest/docs/aws-construct-library.md")
-- [CloudFormation Documentation](../../../cloudformation/index.md "../../../cloudformation/index.md")
-- [Deadline Documentation](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/index.html "https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/index.html")
+<a name="additional-documentation-and-resources"></a>
++  [RFDK API Reference](https://docs.aws.amazon.com/rfdk/api/latest/) 
++  [RFDK on GitHub](https://github.com/aws/aws-rfdk) 
+  +  [Issues](https://github.com/aws/aws-rfdk/issues) 
+  +  [Example applications](https://github.com/aws/aws-rfdk/tree/mainline/examples) 
+  +  [License](https://github.com/aws/aws-rfdk/blob/mainline/LICENSE) 
+  +  [Releases](https://github.com/aws/aws-rfdk/releases) 
++  [CDK Workshop](https://cdkworkshop.com/) 
++  [CDK User Guide](https://docs.aws.amazon.com/cdk/latest/guide/home.html) 
++  [CDK API Reference](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-construct-library.html) 
++  [CloudFormation Documentation](https://docs.aws.amazon.com/cloudformation/index.html) 
++  [Deadline Documentation](https://docs.thinkboxsoftware.com/products/deadline/10.2/1_User%20Manual/index.html) 
 
 ## About Amazon Web Services
+<a name="about-amazon-web-services"></a>
 
 Amazon Web Services (AWS) is a collection of digital infrastructure services that developers can use when developing their applications. The services include computing, storage, database, and application synchronization (messaging and queuing).
 
-AWS uses a pay-as-you-go service model. You are charged only for the services that you — or your applications — use. Also, to make AWS useful as a platform for prototyping and experimentation, AWS offers a free usage tier, in which services are free below a certain level of usage. For more information about AWS costs and the free usage tier, see [Test-Driving AWS in the Free Usage Tier](../../../awsaccountbilling/latest/aboutv2/billing-free-tier.md "../../../awsaccountbilling/latest/aboutv2/billing-free-tier.md").
+AWS uses a pay-as-you-go service model. You are charged only for the services that you — or your applications — use. Also, to make AWS useful as a platform for prototyping and experimentation, AWS offers a free usage tier, in which services are free below a certain level of usage. For more information about AWS costs and the free usage tier, see [Test-Driving AWS in the Free Usage Tier](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html).
 
-To obtain an AWS account, go to [aws.amazon.com](https://aws.amazon.com/ "https://aws.amazon.com/"), and then choose **Create an AWS Account**.
+To obtain an AWS account, go to [aws.amazon.com](https://aws.amazon.com/), and then choose **Create an AWS Account**.

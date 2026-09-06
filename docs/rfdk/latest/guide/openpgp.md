@@ -1,22 +1,26 @@
+
+
 # OpenPGP keys for the RFDK
+<a name="openpgp"></a>
 
-###### Important
-
-On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/ "https://aws.amazon.com/deadline-cloud/") for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com "mailto:support@awsthinkbox.zendesk.com") or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html "https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html").
+**Important**  
+On November 7, 2025, AWS Thinkbox Deadline 10 will enter maintenance mode. We recommend exploring [AWS Deadline Cloud](https://aws.amazon.com/deadline-cloud/) for render management. For questions, contact [support@awsthinkbox.zendesk.com](mailto:support@awsthinkbox.zendesk.com) or refer to the [Maintenance Mode FAQ](https://docs.thinkboxsoftware.com/products/deadline/latest/1_User%20Manual/manual/maintenance-mode-faq.html).
 
 This topic contains the OpenPGP key for the RFDK. This key is used to code-sign the bundles that are published to the RFDK GitHub releases.
 
 ## RFDK OpenPGP key
+<a name="rfdk-openpgp-key"></a>
 
-|                 |                                                                                                                 |
-| --------------- | --------------------------------------------------------------------------------------------------------------- |
-| Key ID          | 0x83279914D7C7367B                                                                                              |
-| Type            | RSA                                                                                                             |
-| Size            | 4096/4096                                                                                                       |
-| Created         | 2024-10-23                                                                                                      |
-| Expires         | 2028-10-22                                                                                                      |
-| User ID         | AWS Render Farm Deployment Kit <[aws-rfdk@amazon.com](mailto:aws-rfdk@amazon.com "mailto:aws-rfdk@amazon.com")> |
-| Key fingerprint | 7348 7BEE 7A43 90F4 8758 8EA3 8327 9914 D7C7 367B                                                               |
+
+|  |  | 
+| --- |--- |
+| Key ID | 0x83279914D7C7367B | 
+| Type | RSA | 
+| Size | 4096/4096 | 
+| Created | 2024-10-23 | 
+| Expires | 2028-10-22 | 
+| User ID | AWS Render Farm Deployment Kit <[aws-rfdk@amazon.com](mailto:aws-rfdk@amazon.com)> | 
+| Key fingerprint | 7348 7BEE 7A43 90F4 8758 8EA3 8327 9914 D7C7 367B | 
 
 Select the "Copy" icon to copy the following OpenPGP key:
 
@@ -53,6 +57,7 @@ dN+TZKTNlkvaUJXrZjN4eUB3UFQ7mjXE02WRXcsNm8Q=
 ```
 
 ## Verifying the integrity of GitHub release downloads
+<a name="verifying-the-integrity-of-github-release-downloads"></a>
 
 Each RFDK GitHub release will include both a release bundle asset (aws-rfdk-<VERSION>.zip) and a corresponding signature file (`aws-rfdk-<VERSION>.zip.sig`).
 
@@ -96,10 +101,9 @@ EOF
 ```
 
 Determine whether to trust the RFDK GPG key. Some factors to consider when deciding whether or not to trust the above key are:
-
-- The internet connection you’ve used to obtain the GPG key from this website is secure;
-- The device that you are accessing this website on is secure; and
-- AWS has taken measures to secure the hosting of the OpenPGP public key on this site.
++ The internet connection you’ve used to obtain the GPG key from this website is secure;
++ The device that you are accessing this website on is secure; and
++ AWS has taken measures to secure the hosting of the OpenPGP public key on this site.
 
 If you have decided to trust the RFDK GPG key, then run:
 
@@ -146,24 +150,24 @@ gpg: Signature made Tue 10 Dec 2024 05:14:20 PM UTC using RSA key ID D7C7367B
 gpg: Good signature from "AWS Render Farm Deployment Kit <aws-rfdk@amazon.com>" [unknown]
 ```
 
-###### Warning
-
-If GPG outputs an error about an incorrect signature, it is possible that the release bundle asset was tampered with or corrupted. If this occurs, please contact AWS
-support for assistance.
+**Warning**  
+If GPG outputs an error about an incorrect signature, it is possible that the release bundle asset was tampered with or corrupted. If this occurs, please contact AWS support for assistance.
 
 ## Historical RFDK OpenPGP keys
+<a name="historical-rfdk-openpgp-keys"></a>
 
 The below key may be used to validate releases of RFDK before RFDK version 1.5.0.
 
-|                 |                                                                                                                 |
-| --------------- | --------------------------------------------------------------------------------------------------------------- |
-| Key ID          | 0x3717B1A67981EAE3                                                                                              |
-| Type            | RSA                                                                                                             |
-| Size            | 4096/4096                                                                                                       |
-| Created         | 2020-08-13                                                                                                      |
-| Expires         | 2024-08-12                                                                                                      |
-| User ID         | AWS Render Farm Deployment Kit <[aws-rfdk@amazon.com](mailto:aws-rfdk@amazon.com "mailto:aws-rfdk@amazon.com")> |
-| Key fingerprint | 5E9E FC5E CDD1 F793 3C49 5746 3717 B1A6 7981 EAE3                                                               |
+
+|  |  | 
+| --- |--- |
+| Key ID | 0x3717B1A67981EAE3 | 
+| Type | RSA | 
+| Size | 4096/4096 | 
+| Created | 2020-08-13 | 
+| Expires | 2024-08-12 | 
+| User ID | AWS Render Farm Deployment Kit <[aws-rfdk@amazon.com](mailto:aws-rfdk@amazon.com)> | 
+| Key fingerprint | 5E9E FC5E CDD1 F793 3C49 5746 3717 B1A6 7981 EAE3 | 
 
 Select the "Copy" icon to copy the following OpenPGP key:
 
