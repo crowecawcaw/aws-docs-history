@@ -212,6 +212,14 @@ All metrics are emitted in one dimension: **GraphQLAPIId**. This means that all 
 IDs. The following metrics are related to GraphQL subscriptions over pure
 WebSockets:
 
+###### Note
+
+This dimension applies to AWS AppSync GraphQL APIs only. AWS AppSync also offers Event
+APIs, a separate API type whose metrics are emitted under a different dimension
+(**EventAPIId**). For more information, see
+[CloudWatch
+metrics](../eventapi/cw-metrics.md "../eventapi/cw-metrics.md").
+
 `ConnectRequests`
 
 The number of WebSocket connection requests made to AWS AppSync, including

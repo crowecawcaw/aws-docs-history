@@ -43,6 +43,9 @@ response such as the following:
 }
 ```
 
+If a resolver that you previously configured is missing after you changed your schema,
+see [Resolver removed when you remove its schema field](#resolver-removed-when-schema-field-removed "#resolver-removed-when-schema-field-removed").
+
 ## Mapping template errors
 
 If your mapping template isn’t properly configured, you’ll receive a GraphQL response
@@ -118,3 +121,59 @@ return a LIST.
 When AWS AppSync is unable to process and send a request (due to improper data such as invalid syntax) to the
 field resolver, the response payload will return the field data with values set to `null` and any
 relevant errors.
+
+## Resolver removed when you remove its schema field
+
+A resolver is attached to a specific field on a type in your schema. If you update
+your schema to remove a field, or to remove a type, that has a resolver attached to it,
+AWS AppSync also removes the attached resolver. This keeps your schema and its resolvers
+consistent.
+
+If you later restore the field (for example, by rolling back a change), the resolver
+is not restored with it. Requests to the field then return `null` because no
+resolver is configured for it. For more information, see [Missing resolver](#missing-resolver "#missing-resolver").
+
+### Interaction with AWS CloudFormation and the AWS CDK
+
+When you manage your API with CloudFormation or the AWS CDK, your schema and
+each resolver are defined as separate resources (for example,
+`AWS::AppSync::GraphQLSchema` and
+`AWS::AppSync::Resolver`). When a schema update removes a field, AWS AppSync
+removes the attached resolver, but this removal is not reflected in your CloudFormation
+stack. CloudFormation continues to track the resolver as though it
+still exists. As a result:
+
+- Rolling back the stack does not recreate the removed resolver.
+- Redeploying an unchanged template does not recreate it, because CloudFormation
+  detects no change to the resolver resource.
+- If the schema again references the field but the resolver is missing,
+  requests to that field return `null`, and a stack operation can
+  fail or stop (for example, with the status
+  `UPDATE_ROLLBACK_FAILED`).
+
+### Recover a removed resolver
+
+1. Make sure your schema declares the field that the resolver is attached
+   to.
+2. Recreate the resolver. Because CloudFormation doesn't act on a resolver
+   resource whose definition hasn't changed, make a change that causes it to
+   recreate the resource. For example, change the resolver's logical ID, or
+   remove and then re-add the resolver resource in separate deployments.
+   Alternatively, recreate the resolver directly by using the AWS AppSync console,
+   the `CreateResolver` API operation, or the AWS CLI, and then
+   reconcile your template or AWS CDK app.
+3. If a stack operation is stopped (for example, with the status
+   `UPDATE_ROLLBACK_FAILED`), recreate the missing resolver so
+   that the operation can complete, and then deploy a known-good
+   template.
+
+### Remove or rename fields safely
+
+- To rename a field, first add the new field and attach its resolver, deploy
+  the change, and then remove the old field.
+- Don't remove a schema field whose resolver you want to keep.
+- When you intentionally remove a field, also remove its resolver resource
+  from your template or AWS CDK app in the same change, so that your CloudFormation
+  state stays consistent.
+- Test schema changes in a development or test environment before you deploy
+  them to production.

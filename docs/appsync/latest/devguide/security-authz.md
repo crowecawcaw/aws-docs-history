@@ -664,13 +664,14 @@ fields and object type definitions:
 - `@aws_lambda` - To specify that the field is `AWS_LAMBDA`
   authorized.
 
-You can’t use the `@aws_auth` directive along with additional authorization
-modes. `@aws_auth` works only in the context of
-`AMAZON_COGNITO_USER_POOLS` authorization with no additional authorization
-modes. However, you can use the `@aws_cognito_user_pools` directive in place of
-the `@aws_auth` directive, using the same arguments. The main difference between
-the two is that you can specify `@aws_cognito_user_pools` on any field and
-object type definitions.
+You can't use the `@aws_auth` directive along with additional authorization
+modes. Instead, use the `@aws_cognito_user_pools` directive in place of
+`@aws_auth`, with the same arguments. Unlike `@aws_auth`, you can
+specify `@aws_cognito_user_pools` on any field or object type definition.
+AWS AppSync enforces `@aws_cognito_user_pools` only when your API uses additional
+authorization modes. When your API uses `AMAZON_COGNITO_USER_POOLS` authorization
+with no additional authorization modes, AWS AppSync enforces `@aws_auth`
+instead.
 
 To understand how the additional authorization modes work and how they can be specified
 on a schema, let’s have a look at the following schema:
