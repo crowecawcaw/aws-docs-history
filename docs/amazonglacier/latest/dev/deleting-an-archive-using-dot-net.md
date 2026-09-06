@@ -1,36 +1,37 @@
-**This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
 
-If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/").
 
-Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
+ **This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
+
+If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/).
+
+Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Deleting an Archive in Amazon Glacier Using the AWS SDK for .NET
+<a name="deleting-an-archive-using-dot-net"></a>
 
-Both the [high-level and low-level APIs](using-aws-sdk.md "using-aws-sdk.md") provided by the Amazon SDK for .NET provide a method to delete an archive.
+Both the [high-level and low-level APIs](using-aws-sdk.md) provided by the Amazon SDK for .NET provide a method to delete an archive.
 
-###### Topics
-
-- [Deleting an Archive Using the High-Level API of the AWS SDK for .NET](#delete-archive-using-dot-net-high-level "#delete-archive-using-dot-net-high-level")
-- [Deleting an Archive Using the Low-Level API AWS SDK for .NET](#delete-archive-using-dot-net-low-level "#delete-archive-using-dot-net-low-level")
+**Topics**
++ [Deleting an Archive Using the High-Level API of the AWS SDK for .NET](#delete-archive-using-dot-net-high-level)
++ [Deleting an Archive Using the Low-Level API AWS SDK for .NET](#delete-archive-using-dot-net-low-level)
 
 ## Deleting an Archive Using the High-Level API of the AWS SDK for .NET
+<a name="delete-archive-using-dot-net-high-level"></a>
 
-The `ArchiveTransferManager` class of the high-level API provides the
-`DeleteArchive` method you can use to delete an archive.
+The `ArchiveTransferManager` class of the high-level API provides the `DeleteArchive` method you can use to delete an archive. 
 
 ### Example: Deleting an Archive Using the High-Level API of the AWS SDK for .NET
+<a name="delete-archive-dot-net-high-level-example"></a>
 
-The following C# code example uses the high-level API of the AWS SDK for .NET to delete an
-archive. For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to update the code as
-shown with the archive ID of the archive you want to delete.
+The following C\# code example uses the high-level API of the AWS SDK for .NET to delete an archive. For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet). You need to update the code as shown with the archive ID of the archive you want to delete.
 
-###### Example
+**Example**  
 
 ```
 using System;
 using Amazon.Glacier;
 using Amazon.Glacier.Transfer;
-using Amazon.Runtime;
+using Amazon.Runtime; 
 
 namespace glacier.amazon.com.docsamples
 {
@@ -58,33 +59,33 @@ namespace glacier.amazon.com.docsamples
 ```
 
 ## Deleting an Archive Using the Low-Level API AWS SDK for .NET
+<a name="delete-archive-using-dot-net-low-level"></a>
 
 The following are the steps to delete an using the AWS SDK for .NET.
 
-1. Create an instance of the `AmazonGlacierClient` class (the client).
+ 
 
-You need to specify an AWS Region where the archive you want to delete is stored. All
-operations you perform using this client apply to that AWS Region. 2. Provide request information by creating an instance of the
-`DeleteArchiveRequest` class.
+1. Create an instance of the `AmazonGlacierClient` class (the client). 
 
-You need to provide an archive ID, a vault name, and your account ID. If you don't provide
-an account ID, then account ID associated with the credentials you provide
-to sign the request is assumed. For more information, see
-[Using the AWS SDKs with Amazon Glacier](using-aws-sdk.md "using-aws-sdk.md"). 3. Run the `DeleteArchive` method by providing the request object as a
-parameter.
+   You need to specify an AWS Region where the archive you want to delete is stored. All operations you perform using this client apply to that AWS Region. 
+
+1. Provide request information by creating an instance of the `DeleteArchiveRequest` class.
+
+   You need to provide an archive ID, a vault name, and your account ID. If you don't provide an account ID, then account ID associated with the credentials you provide to sign the request is assumed. For more information, see [Using the AWS SDKs with Amazon Glacier](using-aws-sdk.md).
+
+1. Run the `DeleteArchive` method by providing the request object as a parameter. 
 
 ### Example: Deleting an Archive Using the Low-Level API of the AWS SDK for .NET
+<a name="delete-archive-dot-net-low-level-example"></a>
 
-The following C# example illustrates the preceding steps. The example uses the low-level API of the AWS SDK for .NET to delete an archive.
+The following C\# example illustrates the preceding steps. The example uses the low-level API of the AWS SDK for .NET to delete an archive.
 
-###### Note
+**Note**  
+For information about the underlying REST API, see [Delete Archive (DELETE archive)](api-archive-delete.md).
 
-For information about the underlying REST API, see [Delete Archive (DELETE archive)](api-archive-delete.md "api-archive-delete.md").
+ For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet). You need to update the code as shown with the archive ID of the archive you want to delete.
 
-For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to update the code as shown with
-the archive ID of the archive you want to delete.
-
-###### Example
+**Example**  
 
 ```
 using System;

@@ -1,39 +1,48 @@
-**This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
 
-If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/").
 
-Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
+ **This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
+
+If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/).
+
+Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Downloading a Large Archive Using Parallel Processing with Python
+<a name="downloading-large-archive-parallel-python"></a>
 
 This topic describes how to download a large archive from Amazon S3 Glacier (S3 Glacier) using parallel processing with Python. This approach allows you to reliably download archives of any size by breaking them into smaller pieces that can be processed independently.
 
 ## Overview
+<a name="downloading-large-archive-python-overview"></a>
 
 The Python script provided in this example performs the following tasks:
 
 1. Sets up the necessary AWS resources (Amazon SNS topic and Amazon SQS queues) for notifications
-2. Initiates an archive retrieval job with Amazon Glacier
-3. Monitors an Amazon SQS queue for job completion notifications
-4. Splits the large archive into manageable chunks
-5. Downloads chunks in parallel using multiple worker threads
-6. Saves each chunk to disk for later reassembly
+
+1. Initiates an archive retrieval job with Amazon Glacier
+
+1. Monitors an Amazon SQS queue for job completion notifications
+
+1. Splits the large archive into manageable chunks
+
+1. Downloads chunks in parallel using multiple worker threads
+
+1. Saves each chunk to disk for later reassembly
 
 ## Prerequisites
+<a name="downloading-large-archive-python-prerequisites"></a>
 
 Before you begin, make sure you have:
-
-- Python 3.6 or later installed
-- AWS SDK for Python (Boto3) installed
-- AWS credentials configured with appropriate permissions for Amazon Glacier, Amazon SNS, and Amazon SQS
-- Sufficient disk space to store the downloaded archive chunks
++ Python 3.6 or later installed
++ AWS SDK for Python (Boto3) installed
++ AWS credentials configured with appropriate permissions for Amazon Glacier, Amazon SNS, and Amazon SQS
++ Sufficient disk space to store the downloaded archive chunks
 
 ## Example: Downloading an Archive Using Parallel Processing with Python
+<a name="downloading-large-archive-python-code"></a>
 
 The following Python script demonstrates how to download a large archive from Amazon Glacier using parallel processing:
 
 ```
-
 import boto3
 import time
 import json
@@ -42,18 +51,18 @@ import re
 import concurrent.futures
 import os
 
-output_file_path = "`output_directory_path`"
-vault_name = "`vault_name`"
+output_file_path = "{{output_directory_path}}"
+vault_name = "{{vault_name}}"
 
 chunk_size = 1000000000 #1gb - size of chunks for parallel download.
-notify_queue_name = '`GlacierJobCompleteNotifyQueue`' # SQS queue for Glacier recall notification
-chunk_download_queue_name='`GlacierChunkReadyNotifyQueue`' # SQS queue for chunks
-sns_topic_name = '`GlacierRecallJobCompleted`' # the SNS topic to be notified when Glacier archive is restored.
+notify_queue_name = '{{GlacierJobCompleteNotifyQueue}}' # SQS queue for Glacier recall notification
+chunk_download_queue_name='{{GlacierChunkReadyNotifyQueue}}' # SQS queue for chunks
+sns_topic_name = '{{GlacierRecallJobCompleted}}' # the SNS topic to be notified when Glacier archive is restored.
 chunk_queue_visibility_timeout = 7200 # 2 hours - this may need to be adjusted.
-region = '`us-east-1`'
-archive_id = "`archive_id_to_restore`"
+region = '{{us-east-1}}'
+archive_id = "{{archive_id_to_restore}}"
 retrieve_archive = True # set to false if you do not want to restore from Glacier - useful for restarting or parallel processing of the chunk queue.
-workers = 12 # the number of parallel worker threads for downloading chunks.
+workers = 12 # the number of parallel worker threads for downloading chunks. 
 
 def setup_queues_and_topic():
     sqs = boto3.client('sqs')
@@ -99,7 +108,7 @@ def setup_queues_and_topic():
 
     # Set up the SNS topic policy on the notification queue
     queue_policy = {
-        "Version": "2012-10-17",
+        "Version": "2012-10-17",		 	 	 
         "Statement": [{
             "Sid": "allow-sns-messages",
             "Effect": "Allow",
@@ -190,11 +199,11 @@ def ReceiveArchiveReadyMessages(notify_queue_url,chunk_queue_url):
         jsonresponse=json.loads(jsonresponse['Messages'][0]['Body'])
         jsonresponse=json.loads(jsonresponse['Message'])
         if 'ArchiveSizeInBytes' in jsonresponse:
-            receipt_handle = response['Messages'][0]['ReceiptHandle']
+            receipt_handle = response['Messages'][0]['ReceiptHandle']    
             if jsonresponse['ArchiveSizeInBytes']:
                 archive_size = jsonresponse['ArchiveSizeInBytes']
 
-                print(f'Received message: {response}')
+                print(f'Received message: {response}')      
                 if archive_size > chunk_size:
                     split_and_send_chunks(archive_size, jsonresponse['JobId'],chunk_queue_url)
 
@@ -274,7 +283,7 @@ def run_async_tasks(chunk_queue_url, workers):
         for _ in range(max_workers):
             executor.submit(ReceiveArchiveChunkMessages, chunk_queue_url)
 
-# One time setup of the necessary queues and topics.
+# One time setup of the necessary queues and topics. 
 queue_and_topic_atts = setup_queues_and_topic()
 
 topic_arn = queue_and_topic_atts['topic_arn']
@@ -290,42 +299,41 @@ else:
 while True:
    ReceiveArchiveReadyMessages(notify_queue_url,chunk_queue_url)
    run_async_tasks(chunk_queue_url,workers)
-
 ```
 
 ## Using the Script
+<a name="downloading-large-archive-python-usage"></a>
 
 To use this script, follow these steps:
 
 1. Replace the placeholder values in the script with your specific information:
+   + {{output\_file\_path}}: Directory where chunk files will be saved
+   + {{vault\_name}}: Name of your S3 Glacier vault
+   + {{notify\_queue\_name}}: Name for the job notification queue
+   + {{chunk\_download\_queue\_name}}: Name for the chunk download queue
+   + {{sns\_topic\_name}}: Name for the SNS topic
+   + {{region}}: AWS region where your vault is located
+   + {{archive\_id}}: ID of the archive to retrieve
 
-   - `output_file_path`: Directory where chunk files will be saved
-   - `vault_name`: Name of your S3 Glacier vault
-   - `notify_queue_name`: Name for the job notification queue
-   - `chunk_download_queue_name`: Name for the chunk download queue
-   - `sns_topic_name`: Name for the SNS topic
-   - `region`: AWS region where your vault is located
-   - `archive_id`: ID of the archive to retrieve
+1. Run the script:
 
-2. Run the script:
+   ```
+   python download_large_archive.py
+   ```
 
-```
-python download_large_archive.py
-```
+1. After all chunks are downloaded, you can combine them into a single file using a command like:
 
-3. After all chunks are downloaded, you can combine them into a single file using a command like:
-
-```
-cat /path/to/chunks/*.chunk > complete_archive.file
-```
+   ```
+   cat /path/to/chunks/*.chunk > complete_archive.file
+   ```
 
 ## Important Considerations
+<a name="downloading-large-archive-python-considerations"></a>
 
 When using this script, keep the following in mind:
-
-- Archive retrieval from S3 Glacier can take several hours to complete, depending on the retrieval tier selected.
-- The script runs indefinitely, continuously polling the queues. You may want to add a termination condition based on your specific requirements.
-- Ensure you have sufficient disk space to store all the chunks of your archive.
-- If the script is interrupted, you can restart it with `retrieve_archive=False` to continue downloading chunks without initiating a new retrieval job.
-- Adjust the `chunk_size` and `workers` parameters based on your network bandwidth and system resources.
-- Standard AWS charges apply for Amazon S3 retrievals, Amazon SNS, and Amazon SQS usage.
++ Archive retrieval from S3 Glacier can take several hours to complete, depending on the retrieval tier selected.
++ The script runs indefinitely, continuously polling the queues. You may want to add a termination condition based on your specific requirements.
++ Ensure you have sufficient disk space to store all the chunks of your archive.
++ If the script is interrupted, you can restart it with `retrieve_archive=False` to continue downloading chunks without initiating a new retrieval job.
++ Adjust the {{chunk\_size}} and {{workers}} parameters based on your network bandwidth and system resources.
++ Standard AWS charges apply for Amazon S3 retrievals, Amazon SNS, and Amazon SQS usage.

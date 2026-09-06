@@ -1,47 +1,43 @@
-**This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
 
-If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/").
 
-Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
+ **This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
+
+If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/).
+
+Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Configuring Vault Notifications in Amazon Glacier Using the AWS SDK for .NET
+<a name="configuring-notifications-sdk-dotnet"></a>
 
 The following are the steps to configure notifications on a vault using the low-level API of the AWS SDK for .NET.
 
-1. Create an instance of the `AmazonGlacierClient` class (the client).
+ 
 
-You need to specify an AWS Region where the vault resides. All operations you perform
-using this client apply to that AWS Region. 2. Provide notification configuration information by creating an instance of the
-`SetVaultNotificationsRequest` class.
+1. Create an instance of the `AmazonGlacierClient` class (the client). 
 
-You need to provide the vault name, notification configuration information, and account
-ID. If you don't
-provide an account ID, then the account ID associated with the credentials you
-provide to sign the request is assumed. For more information, see [Using the AWS SDK for .NET with Amazon Glacier](using-aws-sdk-for-dot-net.md "using-aws-sdk-for-dot-net.md").
+   You need to specify an AWS Region where the vault resides. All operations you perform using this client apply to that AWS Region. 
 
-In specifying a notification configuration, you provide the Amazon Resource Name (ARN)
-of an existing Amazon SNS topic and one or more events for which you want to be notified.
-For a list of supported events, see [Set Vault Notification Configuration (PUT notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md")). 3. Run the `SetVaultNotifications` method by providing the request object
-as a parameter. 4. After setting notification configuration on a vault, you can retrieve configuration
-information by calling the `GetVaultNotifications` method, and remove it by calling
-the `DeleteVaultNotifications` method provided by the client.
+1. Provide notification configuration information by creating an instance of the `SetVaultNotificationsRequest` class.
+
+   You need to provide the vault name, notification configuration information, and account ID. If you don't provide an account ID, then the account ID associated with the credentials you provide to sign the request is assumed. For more information, see [Using the AWS SDK for .NET with Amazon Glacier](using-aws-sdk-for-dot-net.md). 
+
+   In specifying a notification configuration, you provide the Amazon Resource Name (ARN) of an existing Amazon SNS topic and one or more events for which you want to be notified. For a list of supported events, see [Set Vault Notification Configuration (PUT notification-configuration)](api-vault-notifications-put.md)).
+
+1. Run the `SetVaultNotifications` method by providing the request object as a parameter. 
+
+1. After setting notification configuration on a vault, you can retrieve configuration information by calling the `GetVaultNotifications` method, and remove it by calling the `DeleteVaultNotifications` method provided by the client. 
 
 ## Example: Setting the Notification Configuration on a Vault Using the AWS SDK for .NET
+<a name="creating-vaults-sdk-dotnet-example-notification"></a>
 
-The following C# code example illustrates the preceding steps. The example sets the notification configuration on the vault
-("`examplevault`") in the US West (Oregon) Region, retrieves the
-configuration, and then deletes it. The configuration requests Amazon Glacier (Amazon Glacier) to send a
-notification to the specified Amazon SNS topic when either the
-`ArchiveRetrievalCompleted` event or the `InventoryRetrievalCompleted`
-event occurs.
+The following C\# code example illustrates the preceding steps. The example sets the notification configuration on the vault ("`examplevault`") in the US West (Oregon) Region, retrieves the configuration, and then deletes it. The configuration requests Amazon Glacier (Amazon Glacier) to send a notification to the specified Amazon SNS topic when either the `ArchiveRetrievalCompleted` event or the `InventoryRetrievalCompleted` event occurs.
 
-###### Note
+**Note**  
+For information about the underlying REST API, see [Vault Operations](vault-operations.md).
 
-For information about the underlying REST API, see [Vault Operations](vault-operations.md "vault-operations.md").
+For step-by-step instructions to run the following example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet). You need to update the code as shown and provide an existing vault name and an Amazon SNS topic. 
 
-For step-by-step instructions to run the following example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to update the code as shown and provide an existing vault name and an Amazon SNS topic.
-
-###### Example
+**Example**  
 
 ```
 using System;
@@ -84,7 +80,7 @@ namespace glacier.amazon.com.docsamples
     {
 
       SetVaultNotificationsRequest request = new SetVaultNotificationsRequest()
-      {
+      {     
         VaultName = vaultName,
         VaultNotificationConfig = new VaultNotificationConfig()
         {
@@ -111,7 +107,7 @@ namespace glacier.amazon.com.docsamples
     static void DeleteVaultNotificationConfig()
     {
       DeleteVaultNotificationsRequest request = new DeleteVaultNotificationsRequest()
-      {
+      {  
         VaultName = vaultName
       };
       DeleteVaultNotificationsResponse response = client.DeleteVaultNotifications(request);

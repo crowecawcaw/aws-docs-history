@@ -1,29 +1,25 @@
-**This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
 
-If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/").
 
-Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
+ **This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
+
+If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/).
+
+Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Use `InitiateJob` with an AWS SDK or CLI
+<a name="example_glacier_InitiateJob_section"></a>
 
 The following code examples show how to use `InitiateJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Archive a file, get notifications, and initiate a job](example_glacier_Usage_UploadNotifyInitiate_section.md) 
 
-- [Archive a file, get notifications, and initiate a job](example_glacier_Usage_UploadNotifyInitiate_section.md "example_glacier_Usage_UploadNotifyInitiate_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glacier#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glacier#code-examples").
-
-Retrieve an archive from a vault. This example uses the ArchiveTransferManager class. For API details see [ArchiveTransferManager](../../../sdkfornet/v3/apidocs/items/Glacier/TArchiveTransferManager.md "../../../sdkfornet/v3/apidocs/items/Glacier/TArchiveTransferManager.md").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glacier#code-examples). 
+Retrieve an archive from a vault. This example uses the ArchiveTransferManager class. For API details see [ArchiveTransferManager](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/Glacier/TArchiveTransferManager).  
 
 ```
     /// <summary>
@@ -74,27 +70,19 @@ Retrieve an archive from a vault. This example uses the ArchiveTransferManager c
             Console.WriteLine($"Downloaded {_currentPercentage}%");
         }
     }
+```
++  For API details, see [InitiateJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/glacier-2012-06-01/InitiateJob) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command initiates a job to get an inventory of the vault `my-vault`:  
 
 ```
-
-- For API details, see
-  [InitiateJob](../../../goto/DotNetSDKV3/glacier-2012-06-01/InitiateJob.md "../../../goto/DotNetSDKV3/glacier-2012-06-01/InitiateJob.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command initiates a job to get an inventory of the vault `my-vault`:
-
+aws glacier initiate{{-}}job --account-id - --vault-name {{my-vault}} --job-parameters '{{{"Type": "inventory-retrieval"}}}'
 ```
-`aws glacier initiate`-`job --account-id - --vault-name `my-vault` --job-parameters '`{"Type": "inventory-retrieval"}`'`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -102,17 +90,13 @@ Output:
     "jobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW"
 }
 ```
-
-Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.
-
-The following command initiates a job to retrieve an archive from the vault `my-vault`:
+Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+The following command initiates a job to retrieve an archive from the vault `my-vault`:  
 
 ```
-`aws glacier initiate`-`job --account-id - --vault-name `my-vault` --job-parameters `file://job-archive-retrieval.json``
-
+aws glacier initiate{{-}}job --account-id - --vault-name {{my-vault}} --job-parameters {{file://job-archive-retrieval.json}}
 ```
-
-`job-archive-retrieval.json` is a JSON file in the local folder that specifies the type of job, archive ID, and some optional parameters:
+`job-archive-retrieval.json` is a JSON file in the local folder that specifies the type of job, archive ID, and some optional parameters:  
 
 ```
 {
@@ -122,10 +106,8 @@ The following command initiates a job to retrieve an archive from the vault `my-
   "SNSTopic": "arn:aws:sns:us-west-2:0123456789012:my-topic"
 }
 ```
-
-Archive IDs are available in the output of `aws glacier upload-archive` and `aws glacier get-job-output`.
-
-Output:
+Archive IDs are available in the output of `aws glacier upload-archive` and `aws glacier get-job-output`.  
+Output:  
 
 ```
 {
@@ -133,24 +115,15 @@ Output:
     "jobId": "l7IL5-EkXy2O5uLYaFdAYOiEY9Ws95fClzIbk-azsX_Z8V6NH4yERHzars8wTKYQMX6nBDI9cMNHzyZJO59-8N9aHWav"
 }
 ```
+See Initiate Job in the *Amazon Glacier API Reference* for details on the job parameters format.  
++  For API details, see [InitiateJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/initiate-job.html) in *AWS CLI Command Reference*. 
 
-See Initiate Job in the _Amazon Glacier API Reference_ for details on the job parameters format.
+------
+#### [ Java ]
 
-- For API details, see
-  [InitiateJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/initiate-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/initiate-job.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#code-examples").
-
-Retrieve a vault inventory.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#code-examples). 
+Retrieve a vault inventory.  
 
 ```
 import software.amazon.awssdk.core.ResponseBytes;
@@ -282,69 +255,48 @@ public class ArchiveDownload {
         }
     }
 }
-
-
 ```
++  For API details, see [InitiateJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/glacier-2012-06-01/InitiateJob) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [InitiateJob](../../../goto/SdkForJavaV2/glacier-2012-06-01/InitiateJob.md "../../../goto/SdkForJavaV2/glacier-2012-06-01/InitiateJob.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Starts a job to retrieve an archive from the specified vault owned by the user. The status of the job can be checked using the Get-GLCJob cmdlet. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the archive to the local file system.**
+**Tools for PowerShell V4**  
+**Example 1: Starts a job to retrieve an archive from the specified vault owned by the user. The status of the job can be checked using the Get-GLCJob cmdlet. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the archive to the local file system.**  
 
 ```
 Start-GLCJob -VaultName myvault -JobType "archive-retrieval" -JobDescription "archive retrieval" -ArchiveId "o9O9j...TX-TpIhQJw"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 JobId            JobOutputPath Location
 -----            ------------- --------
 op1x...JSbthM                  /012345678912/vaults/test/jobs/op1xe...I4HqCHkSJSbthM
 ```
++  For API details, see [InitiateJob](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [InitiateJob](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Starts a job to retrieve an archive from the specified vault owned by the user. The status of the job can be checked using the Get-GLCJob cmdlet. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the archive to the local file system.**
+**Tools for PowerShell V5**  
+**Example 1: Starts a job to retrieve an archive from the specified vault owned by the user. The status of the job can be checked using the Get-GLCJob cmdlet. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the archive to the local file system.**  
 
 ```
 Start-GLCJob -VaultName myvault -JobType "archive-retrieval" -JobDescription "archive retrieval" -ArchiveId "o9O9j...TX-TpIhQJw"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 JobId            JobOutputPath Location
 -----            ------------- --------
 op1x...JSbthM                  /012345678912/vaults/test/jobs/op1xe...I4HqCHkSJSbthM
 ```
++  For API details, see [InitiateJob](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [InitiateJob](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glacier#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glacier#code-examples").
-
-Retrieve a vault inventory.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glacier#code-examples). 
+Retrieve a vault inventory.  
 
 ```
 class GlacierWrapper:
@@ -375,12 +327,8 @@ class GlacierWrapper:
             raise
         else:
             return job
-
-
-
 ```
-
-Retrieve an archive from a vault.
+Retrieve an archive from a vault.  
 
 ```
 class GlacierWrapper:
@@ -411,15 +359,9 @@ class GlacierWrapper:
             raise
         else:
             return job
-
-
-
 ```
++  For API details, see [InitiateJob](https://docs.aws.amazon.com/goto/boto3/glacier-2012-06-01/InitiateJob) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InitiateJob](../../../goto/boto3/glacier-2012-06-01/InitiateJob.md "../../../goto/boto3/glacier-2012-06-01/InitiateJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Glacier with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Glacier with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

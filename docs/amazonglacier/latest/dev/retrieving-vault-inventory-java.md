@@ -1,108 +1,93 @@
-**This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
 
-If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/").
 
-Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
+ **This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
+
+If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/).
+
+Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Downloading a Vault Inventory in Amazon Glacier Using the AWS SDK for Java
+<a name="retrieving-vault-inventory-java"></a>
 
-The following are the steps to retrieve a vault inventory using the low-level API of the AWS SDK for Java.
-The high-level API does not support retrieving a vault inventory.
+The following are the steps to retrieve a vault inventory using the low-level API of the AWS SDK for Java. The high-level API does not support retrieving a vault inventory. 
 
-1. Create an instance of the `AmazonGlacierClient` class (the client).
+ 
 
-You need to specify an AWS Region where the vault resides. All operations you
-perform using this client apply to that AWS Region. 2. Initiate an inventory retrieval job by executing the `initiateJob`
-method.
+1. Create an instance of the `AmazonGlacierClient` class (the client). 
 
-Run `initiateJob` by providing job information in an
-`InitiateJobRequest` object.
+    You need to specify an AWS Region where the vault resides. All operations you perform using this client apply to that AWS Region. 
 
-###### Note
+1.  Initiate an inventory retrieval job by executing the `initiateJob` method.
 
-Note that if an inventory has not been completed for the vault an error is returned. Amazon Glacier (Amazon Glacier) prepares an inventory for each vault periodically, every 24
-hours.
+   Run `initiateJob` by providing job information in an `InitiateJobRequest` object. 
+**Note**  
+Note that if an inventory has not been completed for the vault an error is returned. Amazon Glacier (Amazon Glacier) prepares an inventory for each vault periodically, every 24 hours. 
 
-Amazon Glacier returns a job ID in response. The response is available in an instance of
-the `InitiateJobResult` class.
+   Amazon Glacier returns a job ID in response. The response is available in an instance of the `InitiateJobResult` class.
 
-```
-InitiateJobRequest initJobRequest = new InitiateJobRequest()
-    .withVaultName("*** provide vault name ***")
-    .withJobParameters(
-            new JobParameters()
-                .withType("inventory-retrieval")
-                .withSNSTopic("*** provide SNS topic ARN ****")
-      );
+    
 
-InitiateJobResult initJobResult = client.initiateJob(initJobRequest);
-String jobId = initJobResult.getJobId();
-```
+   ```
+   InitiateJobRequest initJobRequest = new InitiateJobRequest()
+       .withVaultName("*** provide vault name ***")
+       .withJobParameters(
+               new JobParameters()
+                   .withType("inventory-retrieval")
+                   .withSNSTopic("*** provide SNS topic ARN ****")
+         );
+   
+   InitiateJobResult initJobResult = client.initiateJob(initJobRequest);
+   String jobId = initJobResult.getJobId();
+   ```
 
-3. Wait for the job to complete.
+1. Wait for the job to complete.
 
-You must wait until the job
-output is ready for you to download. If you have either set a notification
-configuration on the vault, or specified an Amazon Simple Notification Service
-(Amazon SNS) topic when you initiated the job, Amazon Glacier sends a message to
-the topic after it completes the job.
+   You must wait until the job output is ready for you to download. If you have either set a notification configuration on the vault, or specified an Amazon Simple Notification Service (Amazon SNS) topic when you initiated the job, Amazon Glacier sends a message to the topic after it completes the job. 
 
-You can also poll Amazon Glacier by calling the `describeJob` method to
-determine job completion status. However, using an Amazon SNS topic for
-notification is the recommended approach. The code example given in the
-following section uses Amazon SNS for Amazon Glacier to publish a
-message. 4. Download the job output (vault inventory data) by executing the `getJobOutput`
-method.
+   You can also poll Amazon Glacier by calling the `describeJob` method to determine job completion status. However, using an Amazon SNS topic for notification is the recommended approach. The code example given in the following section uses Amazon SNS for Amazon Glacier to publish a message.
 
-You provide your account ID, job ID, and vault name by creating an instance of the
-`GetJobOutputRequest` class. If you don't
-provide an account ID, then the account ID associated with the credentials you
-provide to sign the request is used. For more information, see [Using the AWS SDK for Java with Amazon Glacier](using-aws-sdk-for-java.md "using-aws-sdk-for-java.md").
+    
 
-The output that Amazon Glacier returns is
-available in the `GetJobOutputResult` object.
+1. Download the job output (vault inventory data) by executing the `getJobOutput` method.
 
-```
-GetJobOutputRequest jobOutputRequest = new GetJobOutputRequest()
-        .withVaultName("*** provide vault name ***")
-        .withJobId("*** provide job ID ***");
-GetJobOutputResult jobOutputResult = client.getJobOutput(jobOutputRequest);
-// jobOutputResult.getBody(); provides the output stream.
-```
+   You provide your account ID, job ID, and vault name by creating an instance of the `GetJobOutputRequest` class. If you don't provide an account ID, then the account ID associated with the credentials you provide to sign the request is used. For more information, see [Using the AWS SDK for Java with Amazon Glacier](using-aws-sdk-for-java.md). 
 
-###### Note
+   The output that Amazon Glacier returns is available in the `GetJobOutputResult` object. 
 
-For information about the job related underlying REST API, see [Job Operations](job-operations.md "job-operations.md").
+    
+
+   ```
+   GetJobOutputRequest jobOutputRequest = new GetJobOutputRequest()
+           .withVaultName("*** provide vault name ***")
+           .withJobId("*** provide job ID ***");
+   GetJobOutputResult jobOutputResult = client.getJobOutput(jobOutputRequest);
+   // jobOutputResult.getBody(); provides the output stream.
+   ```
+
+ 
+
+**Note**  
+For information about the job related underlying REST API, see [Job Operations](job-operations.md).
 
 ## Example: Retrieving a Vault Inventory Using the Amazon SDK for Java
+<a name="retrieving-vault-inventory-java-example"></a>
 
 The following Java code example retrieves the vault inventory for the specified vault.
 
-The example performs the following tasks:
+The example performs the following tasks: 
++ Creates an Amazon Simple Notification Service (Amazon SNS) topic.
 
-- Creates an Amazon Simple Notification Service (Amazon SNS) topic.
+  Amazon Glacier sends notification to this topic after it completes the job. 
++ Creates an Amazon Simple Queue Service (Amazon SQS) queue.
 
-Amazon Glacier sends notification to this topic after it completes the
-job.
+  The example attaches a policy to the queue to enable the Amazon SNS topic to post messages to the queue.
++ Initiates a job to download the specified archive.
 
-- Creates an Amazon Simple Queue Service (Amazon SQS) queue.
+  In the job request, the Amazon SNS topic that was created is specified so that Amazon Glacier can publish a notification to the topic after it completes the job.
++ Checks the Amazon SQS queue for a message that contains the job ID.
 
-The example attaches a policy to the queue to enable the Amazon SNS topic
-to post messages to the queue.
-
-- Initiates a job to download the specified archive.
-
-In the job request, the Amazon SNS topic that was created is specified so
-that Amazon Glacier can publish a notification to the topic after it completes
-the job.
-
-- Checks the Amazon SQS queue for a message that contains the job ID.
-
-If there is a message, parse the JSON and check if the job completed
-successfully. If it did, download the archive.
-
-- Cleans up by deleting the Amazon SNS topic and the Amazon SQS queue that it
-  created.
+  If there is a message, parse the JSON and check if the job completed successfully. If it did, download the archive. 
++ Cleans up by deleting the Amazon SNS topic and the Amazon SQS queue that it created.
 
 ```
 import java.io.BufferedReader;
@@ -163,13 +148,13 @@ public class AmazonGlacierDownloadInventoryWithSQSPolling {
     public static String snsSubscriptionARN;
     public static String fileName = "*** provide file name ***";
     public static String region = "*** region ***";
-    public static long sleepTime = 600;
+    public static long sleepTime = 600; 
     public static AmazonGlacierClient client;
     public static AmazonSQSClient sqsClient;
     public static AmazonSNSClient snsClient;
-
+    
     public static void main(String[] args) throws IOException {
-
+        
     	ProfileCredentialsProvider credentials = new ProfileCredentialsProvider();
 
         client = new AmazonGlacierClient(credentials);
@@ -178,42 +163,42 @@ public class AmazonGlacierDownloadInventoryWithSQSPolling {
         sqsClient.setEndpoint("https://sqs." + region + ".amazonaws.com");
         snsClient = new AmazonSNSClient(credentials);
         snsClient.setEndpoint("https://sns." + region + ".amazonaws.com");
-
+        
         try {
             setupSQS();
-
+            
             setupSNS();
 
             String jobId = initiateJobRequest();
             System.out.println("Jobid = " + jobId);
-
+            
             Boolean success = waitForJobToComplete(jobId, sqsQueueURL);
             if (!success) { throw new Exception("Job did not complete successfully."); }
-
+            
             downloadJobOutput(jobId);
-
+            
             cleanUp();
-
+            
         } catch (Exception e) {
             System.err.println("Inventory retrieval failed.");
             System.err.println(e);
-        }
+        }   
     }
 
     private static void setupSQS() {
         CreateQueueRequest request = new CreateQueueRequest()
             .withQueueName(sqsQueueName);
-        CreateQueueResult result = sqsClient.createQueue(request);
+        CreateQueueResult result = sqsClient.createQueue(request);  
         sqsQueueURL = result.getQueueUrl();
-
+                
         GetQueueAttributesRequest qRequest = new GetQueueAttributesRequest()
             .withQueueUrl(sqsQueueURL)
             .withAttributeNames("QueueArn");
-
+        
         GetQueueAttributesResult qResult = sqsClient.getQueueAttributes(qRequest);
         sqsQueueARN = qResult.getAttributes().get("QueueArn");
-
-        Policy sqsPolicy =
+        
+        Policy sqsPolicy = 
             new Policy().withStatements(
                     new Statement(Effect.Allow)
                     .withPrincipals(Principal.AllUsers)
@@ -221,7 +206,7 @@ public class AmazonGlacierDownloadInventoryWithSQSPolling {
                     .withResources(new Resource(sqsQueueARN)));
         Map<String, String> queueAttributes = new HashMap<String, String>();
         queueAttributes.put("Policy", sqsPolicy.toJson());
-        sqsClient.setQueueAttributes(new SetQueueAttributesRequest(sqsQueueURL, queueAttributes));
+        sqsClient.setQueueAttributes(new SetQueueAttributesRequest(sqsQueueURL, queueAttributes)); 
 
     }
     private static void setupSNS() {
@@ -235,31 +220,31 @@ public class AmazonGlacierDownloadInventoryWithSQSPolling {
             .withEndpoint(sqsQueueARN)
             .withProtocol("sqs");
         SubscribeResult result2 = snsClient.subscribe(request2);
-
+                
         snsSubscriptionARN = result2.getSubscriptionArn();
     }
     private static String initiateJobRequest() {
-
+        
         JobParameters jobParameters = new JobParameters()
             .withType("inventory-retrieval")
             .withSNSTopic(snsTopicARN);
-
+        
         InitiateJobRequest request = new InitiateJobRequest()
             .withVaultName(vaultName)
             .withJobParameters(jobParameters);
-
+        
         InitiateJobResult response = client.initiateJob(request);
-
+        
         return response.getJobId();
     }
-
+    
     private static Boolean waitForJobToComplete(String jobId, String sqsQueueUrl) throws InterruptedException, JsonParseException, IOException {
-
+        
         Boolean messageFound = false;
         Boolean jobSuccessful = false;
         ObjectMapper mapper = new ObjectMapper();
         JsonFactory factory = mapper.getFactory();
-
+        
         while (!messageFound) {
             List<Message> msgs = sqsClient.receiveMessage(
                new ReceiveMessageRequest(sqsQueueUrl).withMaxNumberOfMessages(10)).getMessages();
@@ -269,7 +254,7 @@ public class AmazonGlacierDownloadInventoryWithSQSPolling {
                     JsonParser jpMessage = factory.createJsonParser(m.getBody());
                     JsonNode jobMessageNode = mapper.readTree(jpMessage);
                     String jobMessage = jobMessageNode.get("Message").textValue();
-
+                    
                     JsonParser jpDesc = factory.createJsonParser(jobMessage);
                     JsonNode jobDescNode = mapper.readTree(jpDesc);
                     String retrievedJobId = jobDescNode.get("JobId").textValue();
@@ -281,24 +266,24 @@ public class AmazonGlacierDownloadInventoryWithSQSPolling {
                         }
                     }
                 }
-
+                
             } else {
-              Thread.sleep(sleepTime * 1000);
+              Thread.sleep(sleepTime * 1000); 
             }
           }
         return (messageFound && jobSuccessful);
     }
-
+    
     private static void downloadJobOutput(String jobId) throws IOException {
-
+        
         GetJobOutputRequest getJobOutputRequest = new GetJobOutputRequest()
             .withVaultName(vaultName)
             .withJobId(jobId);
         GetJobOutputResult getJobOutputResult = client.getJobOutput(getJobOutputRequest);
-
+    
         FileWriter fstream = new FileWriter(fileName);
         BufferedWriter out = new BufferedWriter(fstream);
-        BufferedReader in = new BufferedReader(new InputStreamReader(getJobOutputResult.getBody()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(getJobOutputResult.getBody()));            
         String inputLine;
         try {
             while ((inputLine = in.readLine()) != null) {
@@ -308,11 +293,11 @@ public class AmazonGlacierDownloadInventoryWithSQSPolling {
             throw new AmazonClientException("Unable to save archive", e);
         }finally{
             try {in.close();}  catch (Exception e) {}
-            try {out.close();}  catch (Exception e) {}
+            try {out.close();}  catch (Exception e) {}             
         }
         System.out.println("Retrieved inventory to " + fileName);
     }
-
+    
     private static void cleanUp() {
         snsClient.unsubscribe(new UnsubscribeRequest(snsSubscriptionARN));
         snsClient.deleteTopic(new DeleteTopicRequest(snsTopicARN));

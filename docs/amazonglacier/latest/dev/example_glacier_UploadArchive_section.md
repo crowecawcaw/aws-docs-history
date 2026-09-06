@@ -1,27 +1,24 @@
-**This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
 
-If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/").
 
-Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
+ **This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
+
+If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/).
+
+Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # Use `UploadArchive` with an AWS SDK or CLI
+<a name="example_glacier_UploadArchive_section"></a>
 
 The following code examples show how to use `UploadArchive`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Archive a file, get notifications, and initiate a job](example_glacier_Usage_UploadNotifyInitiate_section.md) 
 
-- [Archive a file, get notifications, and initiate a job](example_glacier_Usage_UploadNotifyInitiate_section.md "example_glacier_Usage_UploadNotifyInitiate_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glacier#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glacier#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Glacier#code-examples). 
 
 ```
     /// <summary>
@@ -47,27 +44,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return string.Empty;
         }
     }
+```
++  For API details, see [UploadArchive](https://docs.aws.amazon.com/goto/DotNetSDKV3/glacier-2012-06-01/UploadArchive) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+The following command uploads an archive in the current folder named `archive.zip` to a vault named `my-vault`:  
 
 ```
-
-- For API details, see
-  [UploadArchive](../../../goto/DotNetSDKV3/glacier-2012-06-01/UploadArchive.md "../../../goto/DotNetSDKV3/glacier-2012-06-01/UploadArchive.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-The following command uploads an archive in the current folder named `archive.zip` to a vault named `my-vault`:
-
+aws glacier upload{{-}}archive --account-id - --vault-name {{my-vault}} --body {{archive.zip}}
 ```
-`aws glacier upload`-`archive --account-id - --vault-name `my-vault` --body `archive.zip``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -76,24 +65,15 @@ Output:
     "location": "/0123456789012/vaults/my-vault/archives/kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw"
 }
 ```
+Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.  
+To retrieve an uploaded archive, initiate a retrieval job with the aws glacier initiate-job command.  
++  For API details, see [UploadArchive](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/upload-archive.html) in *AWS CLI Command Reference*. 
 
-Amazon Glacier requires an account ID argument when performing operations, but you can use a hyphen to specify the in-use account.
+------
+#### [ Java ]
 
-To retrieve an uploaded archive, initiate a retrieval job with the aws glacier initiate-job command.
-
-- For API details, see
-  [UploadArchive](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/upload-archive.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glacier/upload-archive.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/glacier#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -295,25 +275,15 @@ public class UploadArchive {
         return sb.toString().toLowerCase();
     }
 }
-
-
 ```
++  For API details, see [UploadArchive](https://docs.aws.amazon.com/goto/SdkForJavaV2/glacier-2012-06-01/UploadArchive) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [UploadArchive](../../../goto/SdkForJavaV2/glacier-2012-06-01/UploadArchive.md "../../../goto/SdkForJavaV2/glacier-2012-06-01/UploadArchive.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glacier#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glacier#code-examples").
-
-Create the client.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/glacier#code-examples). 
+Create the client.  
 
 ```
 const { GlacierClient } = require("@aws-sdk/client-glacier");
@@ -322,11 +292,8 @@ const REGION = "REGION";
 //Set the Redshift Service Object
 const glacierClient = new GlacierClient({ region: REGION });
 export { glacierClient };
-
-
 ```
-
-Upload the archive.
+Upload the archive.  
 
 ```
 // Load the SDK for JavaScript
@@ -350,22 +317,12 @@ const run = async () => {
   }
 };
 run();
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/glacier-example-uploadarchive.html). 
++  For API details, see [UploadArchive](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glacier/command/UploadArchiveCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/glacier-example-uploadarchive.md "../../../sdk-for-javascript/v3/developer-guide/glacier-example-uploadarchive.md").
-- For API details, see
-  [UploadArchive](../../../AWSJavaScriptSDK/v3/latest/client/glacier/command/UploadArchiveCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glacier/command/UploadArchiveCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-**SDK for JavaScript (v2)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/glacier#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/glacier#code-examples").
+**SDK for JavaScript (v2)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascript/example_code/glacier#code-examples). 
 
 ```
 // Load the SDK for JavaScript
@@ -386,42 +343,32 @@ glacier.uploadArchive(params, function (err, data) {
     console.log("Archive ID", data.archiveId);
   }
 });
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/glacier-example-uploadrchive.html). 
++  For API details, see [UploadArchive](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/glacier-2012-06-01/UploadArchive) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v2/developer-guide/glacier-example-uploadrchive.md "../../../sdk-for-javascript/v2/developer-guide/glacier-example-uploadrchive.md").
-- For API details, see
-  [UploadArchive](../../../goto/AWSJavaScriptSDK/glacier-2012-06-01/UploadArchive.md "../../../goto/AWSJavaScriptSDK/glacier-2012-06-01/UploadArchive.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: Uploads a single file to the specified vault, returning the archive ID and computed checksum.**
+**Tools for PowerShell V4**  
+**Example 1: Uploads a single file to the specified vault, returning the archive ID and computed checksum.**  
 
 ```
 Write-GLCArchive -VaultName myvault -FilePath c:\temp\blue.bin
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 FilePath                    ArchiveId              Checksum
 --------                    ---------              --------
 C:\temp\blue.bin            o9O9jUUs...TTX-TpIhQJw 79f3e...f4395b
 ```
-
-**Example 2: Uploads the contents of a folder hierarchy to the specified vault in the user's account. For each file uploaded the cmdlet emits the filename, corresponding archive ID and the computed checksum of the archive.**
+**Example 2: Uploads the contents of a folder hierarchy to the specified vault in the user's account. For each file uploaded the cmdlet emits the filename, corresponding archive ID and the computed checksum of the archive.**  
 
 ```
 Write-GLCArchive -VaultName myvault -FolderPath . -Recurse
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 FilePath                    ArchiveId              Checksum
@@ -433,36 +380,27 @@ C:\temp\red.bin             vp7E6rU_...Ejk_HhjAxKA e05f7...4e34f5
 C:\temp\Folder1\file1.txt   _eRINlip...5Sxy7dD2BaA d0d2a...c8a3ba
 C:\temp\Folder2\file2.iso   -Ix3jlmu...iXiDh-XfOPA 7469e...3e86f1
 ```
++  For API details, see [UploadArchive](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UploadArchive](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: Uploads a single file to the specified vault, returning the archive ID and computed checksum.**
+**Tools for PowerShell V5**  
+**Example 1: Uploads a single file to the specified vault, returning the archive ID and computed checksum.**  
 
 ```
 Write-GLCArchive -VaultName myvault -FilePath c:\temp\blue.bin
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 FilePath                    ArchiveId              Checksum
 --------                    ---------              --------
 C:\temp\blue.bin            o9O9jUUs...TTX-TpIhQJw 79f3e...f4395b
 ```
-
-**Example 2: Uploads the contents of a folder hierarchy to the specified vault in the user's account. For each file uploaded the cmdlet emits the filename, corresponding archive ID and the computed checksum of the archive.**
+**Example 2: Uploads the contents of a folder hierarchy to the specified vault in the user's account. For each file uploaded the cmdlet emits the filename, corresponding archive ID and the computed checksum of the archive.**  
 
 ```
 Write-GLCArchive -VaultName myvault -FolderPath . -Recurse
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 FilePath                    ArchiveId              Checksum
@@ -474,20 +412,13 @@ C:\temp\red.bin             vp7E6rU_...Ejk_HhjAxKA e05f7...4e34f5
 C:\temp\Folder1\file1.txt   _eRINlip...5Sxy7dD2BaA d0d2a...c8a3ba
 C:\temp\Folder2\file2.iso   -Ix3jlmu...iXiDh-XfOPA 7469e...3e86f1
 ```
++  For API details, see [UploadArchive](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UploadArchive](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glacier#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glacier#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/glacier#code-examples). 
 
 ```
 class GlacierWrapper:
@@ -527,15 +458,9 @@ class GlacierWrapper:
             raise
         else:
             return archive
-
-
-
 ```
++  For API details, see [UploadArchive](https://docs.aws.amazon.com/goto/boto3/glacier-2012-06-01/UploadArchive) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UploadArchive](../../../goto/boto3/glacier-2012-06-01/UploadArchive.md "../../../goto/boto3/glacier-2012-06-01/UploadArchive.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Glacier with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Glacier with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

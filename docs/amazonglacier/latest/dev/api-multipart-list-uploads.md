@@ -1,278 +1,247 @@
-**This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
 
-If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/").
 
-Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
+ **This page is only for existing customers of the Amazon Glacier service using Vaults and the original REST API from 2012.**
+
+If you're looking for archival storage solutions, we recommend using the Amazon Glacier storage classes in Amazon S3, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive. To learn more about these storage options, see [Amazon Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/).
+
+Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/).
 
 # List Multipart Uploads (GET multipart-uploads)
+<a name="api-multipart-list-uploads"></a>
 
 ## Description
+<a name="api-multipart-list-uploads-description"></a>
 
-This multipart upload operation lists in-progress multipart uploads for the specified
-vault. An in-progress multipart upload is a multipart upload that has been initiated by
-an [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") request, but has not yet been
-completed or stopped. The list returned in the List Multipart Upload response has no
-guaranteed order.
+This multipart upload operation lists in-progress multipart uploads for the specified vault. An in-progress multipart upload is a multipart upload that has been initiated by an [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md) request, but has not yet been completed or stopped. The list returned in the List Multipart Upload response has no guaranteed order.
 
-The List Multipart Uploads operation supports pagination. By default, this operation
-returns up to 50 multipart uploads in the response. You should always check the
-`marker` field in the response body for a marker at which to continue the
-list; if there are no more items the `marker` field is `null`.
+The List Multipart Uploads operation supports pagination. By default, this operation returns up to 50 multipart uploads in the response. You should always check the `marker` field in the response body for a marker at which to continue the list; if there are no more items the `marker` field is `null`. 
 
-If the `marker` is not null, to fetch the next set of multipart uploads you
-sent another List Multipart Uploads request with the `marker` request
-parameter set to the marker value Amazon Glacier (Amazon Glacier) returned in response to your
-previous List Multipart Uploads request.
+If the `marker` is not null, to fetch the next set of multipart uploads you sent another List Multipart Uploads request with the `marker` request parameter set to the marker value Amazon Glacier (Amazon Glacier) returned in response to your previous List Multipart Uploads request.
 
-Note the difference between this operation and the [List Parts (GET uploadID)](api-multipart-list-parts.md "api-multipart-list-parts.md"))
-operation. The List Multipart Uploads operation lists all multipart uploads for a vault.
-The List Parts operation returns parts of a specific multipart upload identified by an
-Upload ID.
+Note the difference between this operation and the [List Parts (GET uploadID)](api-multipart-list-parts.md)) operation. The List Multipart Uploads operation lists all multipart uploads for a vault. The List Parts operation returns parts of a specific multipart upload identified by an Upload ID.
 
-For information about multipart upload, see [Uploading Large Archives in Parts (Multipart Upload)](uploading-archive-mpu.md "uploading-archive-mpu.md").
+For information about multipart upload, see [Uploading Large Archives in Parts (Multipart Upload)](uploading-archive-mpu.md).
 
 ## Requests
+<a name="api-multipart-list-uploads-requests"></a>
 
 ### Syntax
+<a name="api-multipart-list-uploads-requests-syntax"></a>
 
-To list multipart uploads, send a `GET` request to the URI of the
-`multipart-uploads` subresource of the vault. You may optionally
-specify `marker` and `limit` parameters.
+To list multipart uploads, send a `GET` request to the URI of the `multipart-uploads` subresource of the vault. You may optionally specify `marker` and `limit` parameters.
 
 ```
-GET /`AccountId`/vaults/`VaultName`/multipart-uploads HTTP/1.1
-Host: glacier.`Region`.amazonaws.com
-Date: `Date`
-Authorization: `SignatureValue`
-x-amz-glacier-version: 2012-06-01
+1. GET /{{AccountId}}/vaults/{{VaultName}}/multipart-uploads HTTP/1.1
+2. Host: glacier.{{Region}}.amazonaws.com
+3. Date: {{Date}}
+4. Authorization: {{SignatureValue}}
+5. x-amz-glacier-version: 2012-06-01
 ```
 
-###### Note
+ 
 
+**Note**  
 The `AccountId` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '`-`' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 
 ### Request Parameters
+<a name="api-multipart-list-uploads-requests-parameters"></a>
 
-| Name     | Description                                                                                                                                                                                                                                                                                                                                                        | Required |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `limit`  | Specifies the maximum number of uploads returned in the response body. If not<br>specified, the List Uploads operation returns up to 50<br>uploads.<br>Type: String<br>Constraints: Minimum integer value of `1`. Maximum integer value of<br>`50`.                                                                                                                | No       |
-| `marker` | An opaque string used for pagination. `marker` specifies the upload at<br>which the listing of uploads should begin. Get the<br>`marker` value from a previous List Uploads<br>response. You need only include the `marker` if you<br>are continuing the pagination of results started in a previous<br>List Uploads request.<br>Type: String<br>Constraints: None | No       |
+
+|  Name  |  Description  |  Required  | 
+| --- | --- | --- | 
+|  limit  | Specifies the maximum number of uploads returned in the response body. If not specified, the List Uploads operation returns up to 50 uploads.<br />Type: String<br />Constraints: Minimum integer value of `1`. Maximum integer value of `50`. |  No | 
+| marker  | An opaque string used for pagination. `marker` specifies the upload at which the listing of uploads should begin. Get the `marker` value from a previous List Uploads response. You need only include the `marker` if you are continuing the pagination of results started in a previous List Uploads request.<br />Type: String<br />Constraints: None |  No  | 
 
 ### Request Headers
+<a name="api-multipart-list-uploads-requests-headers"></a>
 
-This operation uses only response headers that are common to most responses. For information about common response headers, see
-[Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
+This operation uses only response headers that are common to most responses. For information about common response headers, see [Common Response Headers](api-common-response-headers.md).
 
 ### Request Body
+<a name="api-multipart-list-uploads-requests-elements"></a>
 
 This operation does not have a request body.
 
 ## Responses
+<a name="api-multipart-list-uploads-responses"></a>
 
 ### Syntax
+<a name="api-multipart-list-uploads-responses-syntax"></a>
 
 ```
-HTTP/1.1 200 OK
-x-amzn-RequestId: **x-amzn-RequestId**
-Date: **Date**
-Content-Type: application/json
-Content-Length: ***Length***
-
-{
-  "Marker": ***String***,
-  "UploadsList" : [
-    {
-      "ArchiveDescription": ***String***,
-      "CreationDate": ***String***,
-      "MultipartUploadId": ***String***,
-      "PartSizeInBytes": ***Number***,
-      "VaultARN": ***String***
-    },
-   ...
-  ]
-}
+ 1. HTTP/1.1 200 OK
+ 2. x-amzn-RequestId: x-amzn-RequestId
+ 3. Date: Date
+ 4. Content-Type: application/json
+ 5. Content-Length: Length
+ 6. 
+ 7. {
+ 8.   "Marker": String,
+ 9.   "UploadsList" : [ 
+10.     {
+11.       "ArchiveDescription": String,
+12.       "CreationDate": String,
+13.       "MultipartUploadId": String,
+14.       "PartSizeInBytes": Number,
+15.       "VaultARN": String
+16.     }, 
+17.    ...
+18.   ]
+19. }
 ```
 
 ### Response Headers
+<a name="api-multipart-list-uploads-responses-headers"></a>
 
-This operation uses only response headers that are common to most responses. For information about common response headers, see
-[Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
+This operation uses only response headers that are common to most responses. For information about common response headers, see [Common Response Headers](api-common-response-headers.md).
 
 ### Response Body
+<a name="api-multipart-list-uploads-responses-elements"></a>
 
 The response body contains the following JSON fields.
 
-**ArchiveDescription**
+**ArchiveDescription**  
+The description of the archive that was specified in the Initiate Multipart Upload request. This field is `null` if no archive description was specified in the Initiate Multipart Upload operation.  
+*Type*: String
 
-The description of the archive that was specified in the Initiate Multipart Upload
-request. This field is `null` if no archive description was
-specified in the Initiate Multipart Upload operation.
+**CreationDate**  
+The UTC time that the multipart upload was initiated.  
+*Type*: String. A string representation in the ISO 8601 date format, for example `2013-03-20T17:03:43.221Z`.
 
-_Type_: String
+**Marker**  
+An opaque string that represents where to continue pagination of the results. You use the `marker` in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is `null`.  
+*Type*: String
 
-**CreationDate**
+**PartSizeInBytes**  
+The part size specified in the [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md) request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.  
+*Type*: Number
 
-The UTC time that the multipart upload was initiated.
+**MultipartUploadId**  
+The ID of the multipart upload.  
+*Type*: String
 
-_Type_: String. A string representation in the ISO 8601 date format, for example `2013-03-20T17:03:43.221Z`.
+**UploadsList**  
+A list of metadata about multipart upload objects. Each item in the list contains a set of name-value pairs for the corresponding upload, including `ArchiveDescription`, `CreationDate`, `MultipartUploadId`, `PartSizeInBytes`, and `VaultARN`.  
+*Type*: Array
 
-**Marker**
-
-An opaque string that represents where to continue pagination of the results. You use
-the `marker` in a new List Multipart Uploads request to
-obtain more uploads in the list. If there are no more uploads, this
-value is `null`.
-
-_Type_: String
-
-**PartSizeInBytes**
-
-The part size specified in the [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") request. This is the
-size of all the parts in the upload except the last part, which may be
-smaller than this size.
-
-_Type_: Number
-
-**MultipartUploadId**
-
-The ID of the multipart upload.
-
-_Type_: String
-
-**UploadsList**
-
-A list of metadata about multipart upload objects. Each item in the list contains a set
-of name-value pairs for the corresponding upload, including
-`ArchiveDescription`, `CreationDate`,
-`MultipartUploadId`, `PartSizeInBytes`, and
-`VaultARN`.
-
-_Type_: Array
-
-**VaultARN**
-
-The Amazon Resource Name (ARN) of the vault that contains the archive.
-
-_Type_: String
+**VaultARN**  
+The Amazon Resource Name (ARN) of the vault that contains the archive.  
+*Type*: String
 
 ### Errors
+<a name="api-multipart-list-uploads-responses-errors"></a>
 
-For information about Amazon Glacier
-exceptions and error messages, see [Error Responses](api-error-responses.md "api-error-responses.md").
+For information about Amazon Glacier exceptions and error messages, see [Error Responses](api-error-responses.md).
 
 ## Examples
+<a name="api-multipart-list-uploads-examples"></a>
 
 ### Example: List All Multipart Uploads
+<a name="api-multipart-list-uploads-examples-one"></a>
 
-The following example lists all the multipart uploads in progress for the vault. The
-example shows an HTTP `GET` request to the URI of the
-`multipart-uploads` subresource of a specified vault. Because the
-`marker` and `limit` parameters are not specified in the
-request, up to 1,000 in-progress multipart uploads are returned.
+The following example lists all the multipart uploads in progress for the vault. The example shows an HTTP `GET` request to the URI of the `multipart-uploads` subresource of a specified vault. Because the `marker` and `limit` parameters are not specified in the request, up to 1,000 in-progress multipart uploads are returned.
 
 #### Example Request
+<a name="api-multipart-list-uploads-example-request"></a>
 
 ```
-GET /-/vaults/examplevault/multipart-uploads HTTP/1.1
-Host: glacier.us-west-2.amazonaws.com
-x-amz-Date: 20170210T120000Z
-x-amz-glacier-version: 2012-06-01
-Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+1. GET /-/vaults/examplevault/multipart-uploads HTTP/1.1
+2. Host: glacier.us-west-2.amazonaws.com
+3. x-amz-Date: 20170210T120000Z
+4. x-amz-glacier-version: 2012-06-01
+5. Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
 ```
 
 #### Example Response
+<a name="api-multipart-list-uploads-example-response"></a>
 
-In the response Amazon Glacier returns a list of all in-progress multipart uploads for the
-specified vault. The `marker` field is `null`, which
-indicates that there are no more uploads to list.
+In the response Amazon Glacier returns a list of all in-progress multipart uploads for the specified vault. The `marker` field is `null`, which indicates that there are no more uploads to list. 
 
 ```
-HTTP/1.1 200 OK
-x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
-Date: Wed, 10 Feb 2017 12:00:00 GMT
-Content-Type: application/json
-Content-Length: 1054
-
-{
-  "Marker": null,
-  "UploadsList": [
-    {
-      "ArchiveDescription": "archive 1",
-      "CreationDate": "2012-03-19T23:20:59.130Z",
-      "MultipartUploadId": "xsQdFIRsfJr20CW2AbZBKpRZAFTZSJIMtL2hYf8mvp8dM0m4RUzlaqoEye6g3h3ecqB_zqwB7zLDMeSWhwo65re4C4Ev",
-      "PartSizeInBytes": 4194304,
-      "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
-    },
-    {
-      "ArchiveDescription": "archive 2",
-      "CreationDate": "2012-04-01T15:00:00.000Z",
-      "MultipartUploadId": "nPyGOnyFcx67qqX7E-0tSGiRi88hHMOwOxR-_jNyM6RjVMFfV29lFqZ3rNsSaWBugg6OP92pRtufeHdQH7ClIpSF6uJc",
-      "PartSizeInBytes": 4194304,
-      "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
-    },
-    {
-      "ArchiveDescription": "archive 3",
-      "CreationDate": "2012-03-20T17:03:43.221Z",
-      "MultipartUploadId": "qt-RBst_7yO8gVIonIBsAxr2t-db0pE4s8MNeGjKjGdNpuU-cdSAcqG62guwV9r5jh5mLyFPzFEitTpNE7iQfHiu1XoV",
-      "PartSizeInBytes": 4194304,
-      "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
-    }
-  ]
-}
+ 1. HTTP/1.1 200 OK
+ 2. x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+ 3. Date: Wed, 10 Feb 2017 12:00:00 GMT
+ 4. Content-Type: application/json
+ 5. Content-Length: 1054
+ 6.       
+ 7. {
+ 8.   "Marker": null, 
+ 9.   "UploadsList": [ 
+10.     {
+11.       "ArchiveDescription": "archive 1",
+12.       "CreationDate": "2012-03-19T23:20:59.130Z",
+13.       "MultipartUploadId": "xsQdFIRsfJr20CW2AbZBKpRZAFTZSJIMtL2hYf8mvp8dM0m4RUzlaqoEye6g3h3ecqB_zqwB7zLDMeSWhwo65re4C4Ev",
+14.       "PartSizeInBytes": 4194304,
+15.       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+16.     }, 
+17.     {
+18.       "ArchiveDescription": "archive 2",
+19.       "CreationDate": "2012-04-01T15:00:00.000Z",
+20.       "MultipartUploadId": "nPyGOnyFcx67qqX7E-0tSGiRi88hHMOwOxR-_jNyM6RjVMFfV29lFqZ3rNsSaWBugg6OP92pRtufeHdQH7ClIpSF6uJc",
+21.       "PartSizeInBytes": 4194304,
+22.       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+23.     },
+24.     {
+25.       "ArchiveDescription": "archive 3",
+26.       "CreationDate": "2012-03-20T17:03:43.221Z",
+27.       "MultipartUploadId": "qt-RBst_7yO8gVIonIBsAxr2t-db0pE4s8MNeGjKjGdNpuU-cdSAcqG62guwV9r5jh5mLyFPzFEitTpNE7iQfHiu1XoV",
+28.       "PartSizeInBytes": 4194304,
+29.       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+30.     } 
+31.   ]
+32. }
 ```
 
 ### Example: Partial List of Multipart Uploads
+<a name="api-multipart-list-uploads-examples-two"></a>
 
-The following example demonstrates how to use pagination to get a limited number of
-results. The example shows an HTTP `GET` request to the URI of the
-`multipart-uploads` subresource for a specified vault. In this
-example, the `limit` parameter is set to 1, which means that only one
-upload is returned in the list, and the `marker` parameter indicates the
-multipart upload ID at which the returned list begins.
+The following example demonstrates how to use pagination to get a limited number of results. The example shows an HTTP `GET` request to the URI of the `multipart-uploads` subresource for a specified vault. In this example, the `limit` parameter is set to 1, which means that only one upload is returned in the list, and the `marker` parameter indicates the multipart upload ID at which the returned list begins.
 
 #### Example Request
+<a name="api-multipart-list-uploads-example-request-two"></a>
 
 ```
-GET /-/vaults/examplevault/multipart-uploads?limit=1&marker=xsQdFIRsfJr20CW2AbZBKpRZAFTZSJIMtL2hYf8mvp8dM0m4RUzlaqoEye6g3h3ecqB_zqwB7zLDMeSWhwo65re4C4Ev HTTP/1.1
-Host: glacier.us-west-2.amazonaws.com
-x-amz-Date: 20170210T120000Z
-x-amz-glacier-version: 2012-06-01
-Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
+1. GET /-/vaults/examplevault/multipart-uploads?limit=1&marker=xsQdFIRsfJr20CW2AbZBKpRZAFTZSJIMtL2hYf8mvp8dM0m4RUzlaqoEye6g3h3ecqB_zqwB7zLDMeSWhwo65re4C4Ev HTTP/1.1
+2. Host: glacier.us-west-2.amazonaws.com
+3. x-amz-Date: 20170210T120000Z
+4. x-amz-glacier-version: 2012-06-01
+5. Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
 ```
 
 #### Example Response
+<a name="api-multipart-list-uploads-example-response-two"></a>
 
-In the response, Amazon Glacier (Amazon Glacier) returns a list of no more than two in-progress multipart
-uploads for the specified vault, starting at the specified marker and returning
-two results.
+In the response, Amazon Glacier (Amazon Glacier) returns a list of no more than two in-progress multipart uploads for the specified vault, starting at the specified marker and returning two results. 
 
 ```
-HTTP/1.1 200 OK
-x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
-Date: Wed, 10 Feb 2017 12:00:00 GMT
-Content-Type: application/json
-Content-Length: 470
-
-{
-  "Marker": "qt-RBst_7yO8gVIonIBsAxr2t-db0pE4s8MNeGjKjGdNpuU-cdSAcqG62guwV9r5jh5mLyFPzFEitTpNE7iQfHiu1XoV",
-  "UploadsList" : [
-    {
-      "ArchiveDescription": "archive 2",
-      "CreationDate": "2012-04-01T15:00:00.000Z",
-      "MultipartUploadId": "nPyGOnyFcx67qqX7E-0tSGiRi88hHMOwOxR-_jNyM6RjVMFfV29lFqZ3rNsSaWBugg6OP92pRtufeHdQH7ClIpSF6uJc",
-      "PartSizeInBytes": 4194304,
-      "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
-    }
-  ]
-}
+ 1. HTTP/1.1 200 OK
+ 2. x-amzn-RequestId: AAABZpJrTyioDC_HsOmHae8EZp_uBSJr6cnGOLKp_XJCl-Q
+ 3. Date: Wed, 10 Feb 2017 12:00:00 GMT
+ 4. Content-Type: application/json
+ 5. Content-Length: 470
+ 6. 
+ 7. {
+ 8.   "Marker": "qt-RBst_7yO8gVIonIBsAxr2t-db0pE4s8MNeGjKjGdNpuU-cdSAcqG62guwV9r5jh5mLyFPzFEitTpNE7iQfHiu1XoV",
+ 9.   "UploadsList" : [ 
+10.     {
+11.       "ArchiveDescription": "archive 2",
+12.       "CreationDate": "2012-04-01T15:00:00.000Z",
+13.       "MultipartUploadId": "nPyGOnyFcx67qqX7E-0tSGiRi88hHMOwOxR-_jNyM6RjVMFfV29lFqZ3rNsSaWBugg6OP92pRtufeHdQH7ClIpSF6uJc",
+14.       "PartSizeInBytes": 4194304,
+15.       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+16.     }
+17.   ]
+18. }
 ```
 
 ## Related Sections
+<a name="related-sections-multipart-list-uploads"></a>
 
-- [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
-- [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md")
-- [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md "api-multipart-complete-upload.md")
-- [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md "api-multipart-abort-upload.md")
-- [List Parts (GET uploadID)](api-multipart-list-parts.md "api-multipart-list-parts.md")
-- [Uploading Large Archives in Parts (Multipart Upload)](uploading-archive-mpu.md "uploading-archive-mpu.md")
-- [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md")
+ 
++ [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md)
++ [Upload Part (PUT uploadID)](api-upload-part.md)
++ [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md)
++ [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md)
++ [List Parts (GET uploadID)](api-multipart-list-parts.md)
++ [Uploading Large Archives in Parts (Multipart Upload)](uploading-archive-mpu.md)
++ [Identity and Access Management for Amazon Glacier](security-iam.md)
