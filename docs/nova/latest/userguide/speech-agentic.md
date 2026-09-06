@@ -1,15 +1,17 @@
+
+
 # Building agentic flows
+<a name="speech-agentic"></a>
 
-###### Note
-
-This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Tool configuration](../nova2-userguide/sonic-tool-configuration.md "../nova2-userguide/sonic-tool-configuration.md").
+**Note**  
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Tool configuration](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-tool-configuration.html).
 
 For more complex use cases, you can implement agentic flows by configuring multiple tools that work together to accomplish tasks. Amazon Nova Sonic can orchestrate these tools based on user requests.
 
 ## Knowledge base implementation outline
+<a name="speech-agentic-example"></a>
 
-###### Hotel Reservation Cancellation Agent Example
-
+**Hotel Reservation Cancellation Agent Example**  
 Here is an example configuration of a hotel reservation cancellation system:
 
 ```
@@ -64,8 +66,7 @@ toolConfiguration: {
   }
 ```
 
-###### Hotel Search Agent Example
-
+**Hotel Search Agent Example**  
 And here is an example configuration of a hotel search agent:
 
 ```

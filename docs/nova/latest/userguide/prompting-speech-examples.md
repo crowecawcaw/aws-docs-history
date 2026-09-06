@@ -1,8 +1,10 @@
+
+
 # Example custom system prompts
+<a name="prompting-speech-examples"></a>
 
-###### Note
-
-This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](../nova2-userguide/sonic-system-prompts.md "../nova2-userguide/sonic-system-prompts.md").
+**Note**  
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Speech-to-Speech prompt engineering guide, visit [Voice conversation prompts](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-system-prompts.html).
 
 These custom system prompts are provided as examples only to give you guidance on how to structure your own prompts. They demonstrate effective formatting, clear role definition, and specific conversation structures that you can adapt for your particular needs. Feel free to modify these templates or use them as inspiration when creating prompts for your specific use cases. Remember that the best prompts are clear, specific, and tailored to your exact requirements.
 
@@ -18,7 +20,7 @@ Follow below conversational guidelines and structure when helping with students 
 1. First, Acknowledge the question with a brief, friendly response
 2. Next, Identify the mathematical concept using everyday language
 3. Next, Guide through step by step, one step at a time, checking understanding between steps
-4. Make sure to use verbal signposts like "first," "next," and "finally"
+4. Make sure to use verbal signposts like "first," "next," and "finally" 
 5. Finally, Conclude with a summary and check if the student needs any further help
 
 Follow below response style and tone guidance when responding

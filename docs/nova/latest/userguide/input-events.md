@@ -1,8 +1,10 @@
+
+
 # Handling input events with the bidirectional API
+<a name="input-events"></a>
 
-###### Note
-
-This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Handling input events with the bidirectional API](../nova2-userguide/sonic-input-events.md "../nova2-userguide/sonic-input-events.md").
+**Note**  
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Handling input events with the bidirectional API](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-input-events.html).
 
 The bidirectional Stream API uses an event-driven architecture with structured input and output events. Understanding the correct event ordering is crucial for implementing successful conversational applications and maintaining the proper conversation state throughout interactions.
 
@@ -17,211 +19,215 @@ Audio streaming operates with continuous microphone sampling. After sending an i
 After the conversation ends or needs to be terminated, it's essential to properly close all open streams and end the session in the correct sequence. To properly end a session and avoid resource leaks, you must follow a specific closing sequence:
 
 1. Close any open audio streams with the `contentEnd` event.
-2. Send a `promptEnd` event that references the original `promptName`.
-3. Send the `sessionEnd` event.
-   Skipping any of these closing events can result in incomplete conversations or orphaned resources.
+
+1. Send a `promptEnd` event that references the original `promptName`.
+
+1. Send the `sessionEnd` event.
+
+Skipping any of these closing events can result in incomplete conversations or orphaned resources.
 
 These identifiers create a hierarchical structure: the `promptName` ties all conversation events together, while each `contentName` marks the boundaries of specific content blocks. This hierarchy ensures that model maintains proper context throughout the interaction.
 
-![Diagram that explains the Amazon Nova Sonic input event flow.](images/input-events.png)
+![Diagram that explains the Amazon Nova Sonic input event flow.](http://docs.aws.amazon.com/nova/latest/userguide/images/input-events.png)
+
 
 ## Input event flow
+<a name="input-event-flow"></a>
 
 The structure of the input event flow is provided in this section.
 
 1. `RequestStartEvent`
 
-```
-{
-    "event": {
-        "sessionStart": {
-            "inferenceConfiguration": {
-                "maxTokens": "int",
-                "topP": "float",
-                "temperature": "float"
-            }
-        }
-    }
-}
-```
-
-2. `PromptStartEvent`
-
-```
-{
-    "event": {
-        "promptStart": {
-            "promptName": "string", // unique identifier same across all events i.e. UUID
-            "textOutputConfiguration": {
-                "mediaType": "text/plain"
-            },
-            "audioOutputConfiguration": {
-                "mediaType": "audio/lpcm",
-                "sampleRateHertz": 8000 | 16000 | 24000,
-                "sampleSizeBits": 16,
-                "channelCount": 1,
-                "voiceId": "matthew" | "tiffany" | "amy" |
-                        "lupe" | "carlos" | "ambre" | "florian" |
-                        "greta" | "lennart" | "beatrice" | "lorenzo",
-                "encoding": "base64",
-                "audioType": "SPEECH",
-            },
-            "toolUseOutputConfiguration": {
-                "mediaType": "application/json"
-            },
-            "toolConfiguration": {
-                "tools": [{
-                    "toolSpec": {
-                        "name": "string",
-                        "description": "string",
-                        "inputSchema": {
-                            "json": "{}"
-                        }
-                    }
-                }]
-            }
-        }
-    }
-}
-```
-
-3. `InputContentStartEvent`
-
-   - `Text`
-
    ```
    {
        "event": {
-           "contentStart": {
-               "promptName": "string", // same unique identifier from promptStart event
-               "contentName": "string", // unique identifier for the content block
-               "type": "TEXT",
-               "interactive": false,
-               "role": "SYSTEM" | "USER" | "ASSISTANT",
-               "textInputConfiguration": {
-                   "mediaType": "text/plain"
+           "sessionStart": {
+               "inferenceConfiguration": {
+                   "maxTokens": "int",
+                   "topP": "float",
+                   "temperature": "float"
                }
            }
        }
    }
    ```
-   - `Audio`
+
+1. `PromptStartEvent`
 
    ```
    {
        "event": {
-           "contentStart": {
-               "promptName": "string", // same unique identifier from promptStart event
-               "contentName": "string", // unique identifier for the content block
-               "type": "AUDIO",
-               "interactive": true,
-               "role": "USER",
-               "audioInputConfiguration": {
+           "promptStart": {
+               "promptName": "string", // unique identifier same across all events i.e. UUID
+               "textOutputConfiguration": {
+                   "mediaType": "text/plain"
+               },
+               "audioOutputConfiguration": {
                    "mediaType": "audio/lpcm",
                    "sampleRateHertz": 8000 | 16000 | 24000,
                    "sampleSizeBits": 16,
                    "channelCount": 1,
+                   "voiceId": "matthew" | "tiffany" | "amy" |
+                           "lupe" | "carlos" | "ambre" | "florian" |
+                           "greta" | "lennart" | "beatrice" | "lorenzo",
+                   "encoding": "base64",
                    "audioType": "SPEECH",
-                   "encoding": "base64"
+               },
+               "toolUseOutputConfiguration": {
+                   "mediaType": "application/json"
+               },
+               "toolConfiguration": {
+                   "tools": [{
+                       "toolSpec": {
+                           "name": "string",
+                           "description": "string",
+                           "inputSchema": {
+                               "json": "{}"
+                           }
+                       }
+                   }]
                }
            }
        }
    }
    ```
-   - `Tool`
+
+1. `InputContentStartEvent`
+   + `Text`
+
+     ```
+     {
+         "event": {
+             "contentStart": {
+                 "promptName": "string", // same unique identifier from promptStart event
+                 "contentName": "string", // unique identifier for the content block
+                 "type": "TEXT",
+                 "interactive": false,
+                 "role": "SYSTEM" | "USER" | "ASSISTANT",
+                 "textInputConfiguration": {
+                     "mediaType": "text/plain"
+                 }
+             }
+         }
+     }
+     ```
+   + `Audio`
+
+     ```
+     {
+         "event": {
+             "contentStart": {
+                 "promptName": "string", // same unique identifier from promptStart event
+                 "contentName": "string", // unique identifier for the content block
+                 "type": "AUDIO",
+                 "interactive": true,
+                 "role": "USER",
+                 "audioInputConfiguration": {
+                     "mediaType": "audio/lpcm",
+                     "sampleRateHertz": 8000 | 16000 | 24000,
+                     "sampleSizeBits": 16,
+                     "channelCount": 1,
+                     "audioType": "SPEECH",
+                     "encoding": "base64"
+                 }
+             }
+         }
+     }
+     ```
+   + `Tool`
+
+     ```
+     {
+         "event": {
+             "contentStart": {
+                 "promptName": "string", // same unique identifier from promptStart event
+                 "contentName": "string", // unique identifier for the content block
+                 "interactive": false,
+                 "type": "TOOL",
+                 "role": "TOOL",
+                 "toolResultInputConfiguration": {
+                     "toolUseId": "string", // existing tool use id
+                     "type": "TEXT",
+                     "textInputConfiguration": {
+                         "mediaType": "text/plain"
+                     }
+                 }
+             }
+         }
+     }
+     ```
+
+1. `TextInputContent`
 
    ```
    {
        "event": {
-           "contentStart": {
+           "textInput": {
                "promptName": "string", // same unique identifier from promptStart event
                "contentName": "string", // unique identifier for the content block
-               "interactive": false,
-               "type": "TOOL",
-               "role": "TOOL",
-               "toolResultInputConfiguration": {
-                   "toolUseId": "string", // existing tool use id
-                   "type": "TEXT",
-                   "textInputConfiguration": {
-                       "mediaType": "text/plain"
-                   }
-               }
+               "content": "string"
            }
        }
    }
    ```
 
-4. `TextInputContent`
+1. `AudioInputContent`
 
-```
-{
-    "event": {
-        "textInput": {
-            "promptName": "string", // same unique identifier from promptStart event
-            "contentName": "string", // unique identifier for the content block
-            "content": "string"
-        }
-    }
-}
-```
+   ```
+   {
+       "event": {
+           "audioInput": {
+               "promptName": "string", // same unique identifier from promptStart event
+               "contentName": "string", // same unique identifier from its contentStart
+               "content": "base64EncodedAudioData"
+           }
+       }
+   }
+   ```
 
-5. `AudioInputContent`
+1. `ToolResultContentEvent`
 
-```
-{
-    "event": {
-        "audioInput": {
-            "promptName": "string", // same unique identifier from promptStart event
-            "contentName": "string", // same unique identifier from its contentStart
-            "content": "base64EncodedAudioData"
-        }
-    }
-}
-```
+   ```
+   "event": {
+       "toolResult": {
+           "promptName": "string", // same unique identifier from promptStart event
+           "contentName": "string", // same unique identifier from its contentStart
+           "content": "{\"key\": \"value\"}" // stringified JSON object as a tool result 
+       }
+   }
+   ```
 
-6. `ToolResultContentEvent`
+1. `InputContentEndEvent`
 
-```
-"event": {
-    "toolResult": {
-        "promptName": "string", // same unique identifier from promptStart event
-        "contentName": "string", // same unique identifier from its contentStart
-        "content": "{\"key\": \"value\"}" // stringified JSON object as a tool result
-    }
-}
-```
+   ```
+   {
+       "event": {
+           "contentEnd": {
+               "promptName": "string", // same unique identifier from promptStart event
+               "contentName": "string" // same unique identifier from its contentStart
+           }
+       }
+   }
+   ```
 
-7. `InputContentEndEvent`
+1. `PromptEndEvent`
 
-```
-{
-    "event": {
-        "contentEnd": {
-            "promptName": "string", // same unique identifier from promptStart event
-            "contentName": "string" // same unique identifier from its contentStart
-        }
-    }
-}
-```
+   ```
+   {
+       "event": {
+           "promptEnd": {
+               "promptName": "string" // same unique identifier from promptStart event
+           }
+       }
+   }
+   ```
 
-8. `PromptEndEvent`
+1. `RequestEndEvent`
 
-```
-{
-    "event": {
-        "promptEnd": {
-            "promptName": "string" // same unique identifier from promptStart event
-        }
-    }
-}
-```
-
-9. `RequestEndEvent`
-
-```
-{
-    "event": {
-        "sessionEnd": {}
-    }
-}
-```
+   ```
+   {
+       "event": {
+           "sessionEnd": {}
+       }
+   }
+   ```

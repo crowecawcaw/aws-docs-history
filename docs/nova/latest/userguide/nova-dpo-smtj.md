@@ -1,73 +1,62 @@
+
+
 # Direct Preference Optimization (DPO)
+<a name="nova-dpo-smtj"></a>
 
 ## Overview
+<a name="nova-dpo-smtj-overview"></a>
 
-Direct Preference Optimization (DPO) is an alignment technique that fine-tunes
-foundation models using paired comparison data to align model outputs with human
-preferences. Unlike reinforcement learning methods, DPO directly optimizes model
-behavior based on human feedback about which responses are more desirable, offering
-a more stable and scalable approach.
+Direct Preference Optimization (DPO) is an alignment technique that fine-tunes foundation models using paired comparison data to align model outputs with human preferences. Unlike reinforcement learning methods, DPO directly optimizes model behavior based on human feedback about which responses are more desirable, offering a more stable and scalable approach.
 
 **Why use DPO**
 
-Foundation models may generate outputs that are factually correct but fail to align
-with specific user needs, organizational values, or safety requirements. DPO addresses
-this by enabling you to:
-
-- Fine-tune models toward desired behavior patterns
-- Reduce unwanted or harmful outputs
-- Align model responses with brand voice and communication guidelines
-- Improve response quality based on domain expert feedback
-- Implement safety guardrails through preferred response patterns
+Foundation models may generate outputs that are factually correct but fail to align with specific user needs, organizational values, or safety requirements. DPO addresses this by enabling you to:
++ Fine-tune models toward desired behavior patterns
++ Reduce unwanted or harmful outputs
++ Align model responses with brand voice and communication guidelines
++ Improve response quality based on domain expert feedback
++ Implement safety guardrails through preferred response patterns
 
 **How DPO works**
 
-DPO uses paired examples where human evaluators indicate which of two possible
-responses is preferred. The model learns to maximize the likelihood of generating
-preferred responses while minimizing undesired ones.
+DPO uses paired examples where human evaluators indicate which of two possible responses is preferred. The model learns to maximize the likelihood of generating preferred responses while minimizing undesired ones.
 
 **When to use DPO**
 
 Use DPO in the following scenarios:
-
-- Optimizing for subjective outputs that require alignment with specific human preferences
-- Adjusting the model's tone, style, or content characteristics
-- Making targeted improvements based on user feedback and error analysis
-- Maintaining consistent output quality across different use cases
-- Training with reward-free reinforcement learning using only preference data
++ Optimizing for subjective outputs that require alignment with specific human preferences
++ Adjusting the model's tone, style, or content characteristics
++ Making targeted improvements based on user feedback and error analysis
++ Maintaining consistent output quality across different use cases
++ Training with reward-free reinforcement learning using only preference data
 
 ## Supported models and techniques
+<a name="nova-dpo-smtj-models"></a>
 
 DPO supports both full-parameter fine-tuning and LoRA (Low-Rank Adaptation):
 
-| Model             | Supported inputs | Instance type  | Recommended instance count | Allowed instance count |
-| ----------------- | ---------------- | -------------- | -------------------------- | ---------------------- |
-| Amazon Nova Micro | Text             | ml.p5.48xlarge | 2                          | 2, 4, 8                |
-| Amazon Nova Lite  | Text, image      | ml.p5.48xlarge | 4                          | 2, 4, 8, 16            |
-| Amazon Nova Pro   | Text, image      | ml.p5.48xlarge | 6                          | 6, 12, 24              |
+
+| Model | Supported inputs | Instance type | Recommended instance count | Allowed instance count | 
+| --- | --- | --- | --- | --- | 
+| Amazon Nova Micro | Text | ml.p5.48xlarge | 2 | 2, 4, 8 | 
+| Amazon Nova Lite | Text, image | ml.p5.48xlarge | 4 | 2, 4, 8, 16 | 
+| Amazon Nova Pro | Text, image | ml.p5.48xlarge | 6 | 6, 12, 24 | 
 
 **Training approaches**
++ **Full-rank DPO**: Updates all model parameters. Potentially delivers better alignment quality but requires more compute resources and produces larger models.
++ **LoRA DPO**: Uses lightweight adapters for parameter-efficient fine-tuning. Offers more efficient training and deployment with smaller output models while maintaining good alignment quality.
 
-- **Full-rank DPO**: Updates all model
-  parameters. Potentially delivers better alignment quality but requires more compute
-  resources and produces larger models.
-- **LoRA DPO**: Uses lightweight adapters
-  for parameter-efficient fine-tuning. Offers more efficient training and deployment
-  with smaller output models while maintaining good alignment quality.
-
-For most use cases, the LoRA approach provides sufficient adaptation capability with
-significantly improved efficiency.
+For most use cases, the LoRA approach provides sufficient adaptation capability with significantly improved efficiency.
 
 ## Data format
+<a name="nova-dpo-smtj-data"></a>
 
-DPO training data follows the same format as SFT, except the last assistant turn
-must contain preference pairs with `preferred` and
-`non-preferred` labels.
+DPO training data follows the same format as SFT, except the last assistant turn must contain preference pairs with `preferred` and `non-preferred` labels.
 
 ### Basic structure
+<a name="nova-dpo-smtj-data-structure"></a>
 
-The final assistant turn uses a `candidates` array instead of
-`content`:
+The final assistant turn uses a `candidates` array instead of `content`:
 
 ```
 {
@@ -94,6 +83,7 @@ The final assistant turn uses a `candidates` array instead of
 ```
 
 ### Complete text example
+<a name="nova-dpo-smtj-data-text-example"></a>
 
 ```
 {
@@ -154,6 +144,7 @@ The final assistant turn uses a `candidates` array instead of
 ```
 
 ### Example with images
+<a name="nova-dpo-smtj-data-image-example"></a>
 
 ```
 {
@@ -175,8 +166,8 @@ The final assistant turn uses a `candidates` array instead of
             "format": "jpeg",
             "source": {
               "s3Location": {
-                "uri": "s3://`your-bucket`/`your-path`/image.jpg",
-                "bucketOwner": "`your-aws-account-id`"
+                "uri": "s3://{{your-bucket}}/{{your-path}}/image.jpg",
+                "bucketOwner": "{{your-aws-account-id}}"
               }
             }
           }
@@ -209,26 +200,24 @@ The final assistant turn uses a `candidates` array instead of
 ```
 
 ### Dataset requirements
-
-- **Format**: Single JSONL file for
-  training, single JSONL file for validation (optional)
-- **Minimum size**: 1,000 preference
-  pairs recommended for effective training
-- **Quality**: High-quality preference
-  data produces more effective results
-- **Other constraints**: Same as SFT.
-  For more information, see Dataset constraints.
+<a name="nova-dpo-smtj-data-requirements"></a>
++ **Format**: Single JSONL file for training, single JSONL file for validation (optional)
++ **Minimum size**: 1,000 preference pairs recommended for effective training
++ **Quality**: High-quality preference data produces more effective results
++ **Other constraints**: Same as SFT. For more information, see Dataset constraints.
 
 **Uploading data**
 
 ```
-aws s3 cp /path/to/training-data/ s3://`your-bucket`/train/ --recursive
-aws s3 cp /path/to/validation-data/ s3://`your-bucket`/val/ --recursive
+aws s3 cp /path/to/training-data/ s3://{{your-bucket}}/train/ --recursive
+aws s3 cp /path/to/validation-data/ s3://{{your-bucket}}/val/ --recursive
 ```
 
 ## Recipe configuration
+<a name="nova-dpo-smtj-recipe"></a>
 
 ### General run configuration
+<a name="nova-dpo-smtj-recipe-run"></a>
 
 ```
 run:
@@ -238,14 +227,16 @@ run:
   replicas: 4
 ```
 
-| Parameter            | Description                                          |
-| -------------------- | ---------------------------------------------------- |
-| `name`               | Descriptive name for your training job               |
-| `model_type`         | Nova model variant (do not modify)                   |
-| `model_name_or_path` | Base model path (do not modify)                      |
-| `replicas`           | Number of compute instances for distributed training |
+
+| Parameter | Description | 
+| --- | --- | 
+| name | Descriptive name for your training job | 
+| model\_type | Nova model variant (do not modify) | 
+| model\_name\_or\_path | Base model path (do not modify) | 
+| replicas | Number of compute instances for distributed training | 
 
 ### Training configuration
+<a name="nova-dpo-smtj-recipe-training"></a>
 
 ```
 training_config:
@@ -261,16 +252,18 @@ training_config:
     ffn_dropout: 0.0
 ```
 
-| Parameter           | Description                       | Range                                            |
-| ------------------- | --------------------------------- | ------------------------------------------------ |
-| `max_length`        | Maximum sequence length in tokens | 1024–32768                                       |
-| `global_batch_size` | Samples per optimizer step        | Micro/Lite/Pro: 16, 32, 64, 128. Micro/Lite: 256 |
-| `max_epochs`        | Training passes through dataset   | Min: 1                                           |
-| `hidden_dropout`    | Dropout for hidden states         | 0.0–1.0                                          |
-| `attention_dropout` | Dropout for attention weights     | 0.0–1.0                                          |
-| `ffn_dropout`       | Dropout for feed-forward layers   | 0.0–1.0                                          |
+
+| Parameter | Description | Range | 
+| --- | --- | --- | 
+| max\_length | Maximum sequence length in tokens | 1024–32768 | 
+| global\_batch\_size | Samples per optimizer step | Micro/Lite/Pro: 16, 32, 64, 128. Micro/Lite: 256 | 
+| max\_epochs | Training passes through dataset | Min: 1 | 
+| hidden\_dropout | Dropout for hidden states | 0.0–1.0 | 
+| attention\_dropout | Dropout for attention weights | 0.0–1.0 | 
+| ffn\_dropout | Dropout for feed-forward layers | 0.0–1.0 | 
 
 ### Optimizer configuration
+<a name="nova-dpo-smtj-recipe-optimizer"></a>
 
 ```
 model:
@@ -289,14 +282,16 @@ model:
       min_lr: 1e-6
 ```
 
-| Parameter      | Description                               | Range                        |
-| -------------- | ----------------------------------------- | ---------------------------- |
-| `lr`           | Learning rate                             | 0–1 (typically 1e-6 to 1e-4) |
-| `weight_decay` | L2 regularization strength                | 0.0–1.0                      |
-| `warmup_steps` | Steps to gradually increase learning rate | 0–20                         |
-| `min_lr`       | Minimum learning rate at end of decay     | 0–1 (must be < lr)           |
+
+| Parameter | Description | Range | 
+| --- | --- | --- | 
+| lr | Learning rate | 0–1 (typically 1e-6 to 1e-4) | 
+| weight\_decay | L2 regularization strength | 0.0–1.0 | 
+| warmup\_steps | Steps to gradually increase learning rate | 0–20 | 
+| min\_lr | Minimum learning rate at end of decay | 0–1 (must be < lr) | 
 
 ### DPO-specific configuration
+<a name="nova-dpo-smtj-recipe-dpo"></a>
 
 ```
 model:
@@ -304,20 +299,17 @@ model:
     beta: 0.1
 ```
 
-| Parameter | Description                                                                  | Range     |
-| --------- | ---------------------------------------------------------------------------- | --------- |
-| `beta`    | Balance between fitting training data and staying close to<br>original model | 0.001–0.5 |
 
-- **Higher beta (0.1)**: Preserves more
-  reference model behavior but may learn preferences more slowly
-- **Lower beta (0.01–0.05)**: More
-  aggressive preference learning but risks divergence from reference
+| Parameter | Description | Range | 
+| --- | --- | --- | 
+| beta | Balance between fitting training data and staying close to original model | 0.001–0.5 | 
++ **Higher beta (0.1)**: Preserves more reference model behavior but may learn preferences more slowly
++ **Lower beta (0.01–0.05)**: More aggressive preference learning but risks divergence from reference
 
-**Recommendation**: Start with
-`beta: 0.1` and adjust downward if preference learning seems
-insufficient.
+**Recommendation**: Start with `beta: 0.1` and adjust downward if preference learning seems insufficient.
 
 ### LoRA PEFT configuration
+<a name="nova-dpo-smtj-recipe-lora"></a>
 
 ```
 model:
@@ -329,14 +321,16 @@ model:
       adapter_dropout: 0.01
 ```
 
-| Parameter           | Description                        | Allowed values                 |
-| ------------------- | ---------------------------------- | ------------------------------ |
-| `peft_scheme`       | Fine-tuning method                 | `"lora"` or `null` (full-rank) |
-| `alpha`             | Scaling factor for LoRA weights    | 32, 64, 96, 128, 160, 192      |
-| `loraplus_lr_ratio` | LoRA+ learning rate scaling factor | 0.0–100.0                      |
-| `adapter_dropout`   | Regularization for LoRA parameters | 0.0–1.0                        |
+
+| Parameter | Description | Allowed values | 
+| --- | --- | --- | 
+| peft\_scheme | Fine-tuning method | "lora" or null (full-rank) | 
+| alpha | Scaling factor for LoRA weights | 32, 64, 96, 128, 160, 192 | 
+| loraplus\_lr\_ratio | LoRA\+ learning rate scaling factor | 0.0–100.0 | 
+| adapter\_dropout | Regularization for LoRA parameters | 0.0–1.0 | 
 
 ## Starting a training job
+<a name="nova-dpo-smtj-start"></a>
 
 **Container image**
 
@@ -403,24 +397,16 @@ estimator.fit(inputs={"train": train_input, "validation": val_input}, wait=True)
 ```
 
 ## Deploying the model
+<a name="nova-dpo-smtj-deploy"></a>
 
-After training completes, deploy the customized model to Amazon Bedrock using the Custom Model
-Import functionality. The model supports both provisioned throughput and on-demand
-inference. LoRA-trained models support on-demand inference.
+After training completes, deploy the customized model to Amazon Bedrock using the Custom Model Import functionality. The model supports both provisioned throughput and on-demand inference. LoRA-trained models support on-demand inference.
 
-For deployment instructions, see [Deploying
-customized models](deploy-custom-model.md "deploy-custom-model.md").
+For deployment instructions, see [Deploying customized models](deploy-custom-model.md).
 
 ## Limitations
-
-- **Input modalities**: DPO accepts text
-  and images only. Video input is not supported.
-- **Output modality**: Text
-  only
-- **Preference pairs**: The final assistant
-  turn must contain exactly two candidates with `preferred` and
-  `non-preferred` labels
-- **Image limit**: Maximum 10 images per
-  content block
-- **Mixed modalities**: Cannot combine text,
-  image, and video in the same training job
+<a name="nova-dpo-smtj-limitations"></a>
++ **Input modalities**: DPO accepts text and images only. Video input is not supported.
++ **Output modality**: Text only
++ **Preference pairs**: The final assistant turn must contain exactly two candidates with `preferred` and `non-preferred` labels
++ **Image limit**: Maximum 10 images per content block
++ **Mixed modalities**: Cannot combine text, image, and video in the same training job

@@ -1,35 +1,37 @@
+
+
 # Evaluate with Inspect AI SDK
+<a name="nova-eval-on-sagemaker-inference"></a>
 
-This guide explains how to evaluate your customized Amazon Nova models deployed on SageMaker inference endpoints using [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai "https://github.com/UKGovernmentBEIS/inspect_ai"), an open-source evaluation framework.
+This guide explains how to evaluate your customized Amazon Nova models deployed on SageMaker inference endpoints using [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai), an open-source evaluation framework.
 
-###### Note
-
-For hands-on walkthroughs, see the [SageMaker Inspect AI sample notebooks](https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inspect-ai "https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inspect-ai").
+**Note**  
+For hands-on walkthroughs, see the [SageMaker Inspect AI sample notebooks](https://github.com/aws-samples/amazon-nova-samples/tree/main/customization/sagemaker-inspect-ai).
 
 ## Overview
+<a name="nova-eval-sagemaker-overview"></a>
 
 You can evaluate your customized Amazon Nova models deployed on SageMaker endpoints using standardized benchmarks from the AI research community. This approach enables you to:
-
-- Evaluate customized Amazon Nova models (fine-tuned, distilled, or otherwise adapted) at scale
-- Run evaluations with parallel inference across multiple endpoint instances
-- Compare model performance using benchmarks like MMLU, TruthfulQA, and HumanEval
-- Integrate with your existing SageMaker infrastructure
++ Evaluate customized Amazon Nova models (fine-tuned, distilled, or otherwise adapted) at scale
++ Run evaluations with parallel inference across multiple endpoint instances
++ Compare model performance using benchmarks like MMLU, TruthfulQA, and HumanEval
++ Integrate with your existing SageMaker infrastructure
 
 ## Supported models
+<a name="nova-eval-sagemaker-supported-models"></a>
 
 The SageMaker inference provider works with:
-
-- Amazon Nova models (Nova Micro, Nova Lite, Nova Lite 2)
-- Models deployed via vLLM or OpenAI-compatible inference servers
-- Any endpoint that supports the OpenAI Chat Completions API format
++ Amazon Nova models (Nova Micro, Nova Lite, Nova Lite 2)
++ Models deployed via vLLM or OpenAI-compatible inference servers
++ Any endpoint that supports the OpenAI Chat Completions API format
 
 ## Prerequisites
+<a name="nova-eval-sagemaker-prerequisites"></a>
 
 Before you begin, ensure you have:
-
-- An AWS account with permissions to create and invoke SageMaker endpoints
-- AWS credentials configured via AWS CLI, environment variables, or IAM role
-- Python 3.9 or higher
++ An AWS account with permissions to create and invoke SageMaker endpoints
++ AWS credentials configured via AWS CLI, environment variables, or IAM role
++ Python 3.9 or higher
 
 **Required IAM permissions**
 
@@ -37,7 +39,7 @@ Your IAM user or role needs the following permissions:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -52,14 +54,16 @@ Your IAM user or role needs the following permissions:
 ```
 
 ## Step 1: Deploy a SageMaker endpoint
+<a name="nova-eval-sagemaker-step1"></a>
 
 Before running evaluations, you need a SageMaker inference endpoint running your model.
 
-For instructions on creating a SageMaker inference endpoint with Amazon Nova models, see [Getting Started](nova-sagemaker-inference-getting-started.md "nova-sagemaker-inference-getting-started.md").
+For instructions on creating a SageMaker inference endpoint with Amazon Nova models, see [Getting Started](nova-sagemaker-inference-getting-started.md).
 
 Once your endpoint is in `InService` status, note the endpoint name for use in the evaluation commands.
 
 ## Step 2: Install evaluation dependencies
+<a name="nova-eval-sagemaker-step2"></a>
 
 Create a Python virtual environment and install the required packages.
 
@@ -79,6 +83,7 @@ uv pip install aioboto3 boto3 botocore openai
 ```
 
 ## Step 3: Configure AWS credentials
+<a name="nova-eval-sagemaker-step3"></a>
 
 Choose one of the following authentication methods:
 
@@ -114,6 +119,7 @@ print(f"User/Role: {identity['Arn']}")
 ```
 
 ## Step 4: Download evaluation benchmarks
+<a name="nova-eval-sagemaker-step4"></a>
 
 Clone the Inspect Evals repository to access standard benchmarks:
 
@@ -122,13 +128,13 @@ git clone https://github.com/UKGovernmentBEIS/inspect_evals.git
 ```
 
 This repository includes benchmarks such as:
-
-- MMLU and MMLU-Pro (knowledge and reasoning)
-- TruthfulQA (truthfulness)
-- HumanEval (code generation)
-- GSM8K (mathematical reasoning)
++ MMLU and MMLU-Pro (knowledge and reasoning)
++ TruthfulQA (truthfulness)
++ HumanEval (code generation)
++ GSM8K (mathematical reasoning)
 
 ## Step 5: Run evaluations
+<a name="nova-eval-sagemaker-step5"></a>
 
 Run an evaluation using your SageMaker endpoint:
 
@@ -145,13 +151,14 @@ inspect eval mmlu_pro/mmlu_pro.py \
 
 **Key parameters**
 
-| Parameter            | Default   | Description                                                                                             |
-| -------------------- | --------- | ------------------------------------------------------------------------------------------------------- |
-| `--max-connections`  | 10        | Number of parallel requests to the endpoint. Scale with instance count (e.g., 10 instances × 25 = 250). |
-| `--max-retries`      | 3         | Retry attempts for failed requests. Use 50-100 for large evaluations.                                   |
-| `-M region_name`     | us-east-1 | AWS region where your endpoint is deployed.                                                             |
-| `-M read_timeout`    | 600       | Request timeout in seconds.                                                                             |
-| `-M connect_timeout` | 60        | Connection timeout in seconds.                                                                          |
+
+| Parameter | Default | Description | 
+| --- | --- | --- | 
+| --max-connections | 10 | Number of parallel requests to the endpoint. Scale with instance count (e.g., 10 instances × 25 = 250). | 
+| --max-retries | 3 | Retry attempts for failed requests. Use 50-100 for large evaluations. | 
+| -M region\_name | us-east-1 | AWS region where your endpoint is deployed. | 
+| -M read\_timeout | 600 | Request timeout in seconds. | 
+| -M connect\_timeout | 60 | Connection timeout in seconds. | 
 
 **Tuning recommendations**
 
@@ -166,6 +173,7 @@ For a multi-instance endpoint:
 Setting `--max-connections` too high may overwhelm the endpoint and cause throttling. Setting it too low underutilizes capacity.
 
 ## Step 6: View results
+<a name="nova-eval-sagemaker-step6"></a>
 
 Launch the Inspect AI viewer to analyze evaluation results:
 
@@ -174,12 +182,12 @@ inspect view
 ```
 
 The viewer displays:
-
-- Overall scores and metrics
-- Per-sample results with model responses
-- Error analysis and failure patterns
++ Overall scores and metrics
++ Per-sample results with model responses
++ Error analysis and failure patterns
 
 ## Managing endpoints
+<a name="nova-eval-sagemaker-managing-endpoints"></a>
 
 **Update an endpoint**
 
@@ -205,14 +213,19 @@ sagemaker.delete_endpoint(EndpointName=ENDPOINT_NAME)
 ```
 
 ## Onboarding custom benchmarks
+<a name="nova-eval-sagemaker-custom-benchmarks"></a>
 
 You can add new benchmarks to Inspect AI using the following workflow:
 
 1. Study the benchmark's dataset format and evaluation metrics
-2. Review similar implementations in `inspect_evals/`
-3. Create a task file that converts dataset records to Inspect AI samples
-4. Implement appropriate solvers and scorers
-5. Validate with a small test run
+
+1. Review similar implementations in `inspect_evals/`
+
+1. Create a task file that converts dataset records to Inspect AI samples
+
+1. Implement appropriate solvers and scorers
+
+1. Validate with a small test run
 
 Example task structure:
 
@@ -232,29 +245,27 @@ def my_benchmark():
 ```
 
 ## Troubleshooting
+<a name="nova-eval-sagemaker-troubleshooting"></a>
 
 **Common issues**
 
 **Endpoint throttling or timeouts**
-
-- Reduce `--max-connections`
-- Increase `--max-retries`
-- Check endpoint CloudWatch metrics for capacity issues
++ Reduce `--max-connections`
++ Increase `--max-retries`
++ Check endpoint CloudWatch metrics for capacity issues
 
 **Authentication errors**
-
-- Verify AWS credentials are configured correctly
-- Check IAM permissions include `sagemaker:InvokeEndpoint`
++ Verify AWS credentials are configured correctly
++ Check IAM permissions include `sagemaker:InvokeEndpoint`
 
 **Model errors**
-
-- Verify the endpoint is in `InService` status
-- Check that the model supports the OpenAI Chat Completions API format
++ Verify the endpoint is in `InService` status
++ Check that the model supports the OpenAI Chat Completions API format
 
 ## Related resources
-
-- [Inspect AI Documentation](https://inspect.ai-safety-institute.org.uk/ "https://inspect.ai-safety-institute.org.uk/")
-- [Inspect Evals Repository](https://github.com/UKGovernmentBEIS/inspect_evals "https://github.com/UKGovernmentBEIS/inspect_evals")
-- [SageMaker Developer Guide](../../../sagemaker/latest/dg/whatis.md "../../../sagemaker/latest/dg/whatis.md")
-- [Deploy Models for Inference](../../../sagemaker/latest/dg/deploy-model.md "../../../sagemaker/latest/dg/deploy-model.md")
-- [Configuring the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md")
+<a name="nova-eval-sagemaker-related-resources"></a>
++ [Inspect AI Documentation](https://inspect.ai-safety-institute.org.uk/)
++ [Inspect Evals Repository](https://github.com/UKGovernmentBEIS/inspect_evals)
++ [SageMaker Developer Guide](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)
++ [Deploy Models for Inference](https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html)
++ [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)

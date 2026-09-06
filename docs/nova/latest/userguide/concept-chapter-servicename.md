@@ -1,24 +1,15 @@
+
+
 # Generating structured output with Nova
+<a name="concept-chapter-servicename"></a>
 
-Structured output is critical for machine-to-machine communication use cases, as this enables downstream use
-cases to more effectively consume and process the generated outputs. Whether it's extracting information from documents,
-creating assistants that fetch data from APIs, or developing agents that take actions, these tasks require foundation models
-to generate outputs in specific structured formats.
+Structured output is critical for machine-to-machine communication use cases, as this enables downstream use cases to more effectively consume and process the generated outputs. Whether it's extracting information from documents, creating assistants that fetch data from APIs, or developing agents that take actions, these tasks require foundation models to generate outputs in specific structured formats. 
 
-The Nova Models leverage Constrained Decoding to ensure high model reliability in the output generated and to allow the
-model to handle complex schemas with ease. Constrained decoding relies on a grammar to “constrain” the possible tokens a model
-can output at each step. This is differentiated from the prompting techniques historically used because this changes the actual
-tokens a model can choose from when generating an output. For example, when closing a JSON object the model would be constrained
-to just a } token to select. Constrained decoding is leveraged every time that a tool configuration is passed. Because tool use
-provides us a specific schema already, we are able to use that to generate a grammar dynamically based on the schema desired by
-the developer. Constrained decoding prevents the model from generating invalid keys and enforces correct data types based on the
-defined schema.
+The Nova Models leverage Constrained Decoding to ensure high model reliability in the output generated and to allow the model to handle complex schemas with ease. Constrained decoding relies on a grammar to “constrain” the possible tokens a model can output at each step. This is differentiated from the prompting techniques historically used because this changes the actual tokens a model can choose from when generating an output. For example, when closing a JSON object the model would be constrained to just a } token to select. Constrained decoding is leveraged every time that a tool configuration is passed. Because tool use provides us a specific schema already, we are able to use that to generate a grammar dynamically based on the schema desired by the developer. Constrained decoding prevents the model from generating invalid keys and enforces correct data types based on the defined schema.
 
-To leverage tool use with structured output, the primary step is define the JSON schema you require for the output.
-Below is an example of a JSON schema defined within a `tool_config` definition:
+To leverage tool use with structured output, the primary step is define the JSON schema you require for the output. Below is an example of a JSON schema defined within a `tool_config` definition:
 
 ```
-
   tool_config = {
   "tools": [
     {
@@ -75,14 +66,11 @@ Below is an example of a JSON schema defined within a `tool_config` definition:
     }
   }
 }
-
 ```
 
-When you call the tool later using the model, you will receive an output that responds in the schema format. For example,
-below is an example of calling the model in Python:
+When you call the tool later using the model, you will receive an output that responds in the schema format. For example, below is an example of calling the model in Python:
 
 ```
-
   import boto3
 
 client = boto3.client("bedrock-runtime")
@@ -106,13 +94,11 @@ print(next(
     for block in response["output"]["message"]["content"]
     if "toolUse" in block
 ))
-
 ```
 
 The output then appears like this:
 
 ```
-
  {
   "toolUseId": "tooluse_hke1FUeuRbKXK8DPqIptVg",
   "name": "ProductAnalysis",
@@ -130,5 +116,4 @@ The output then appears like this:
     "price": 339.99
   }
 }
-
 ```

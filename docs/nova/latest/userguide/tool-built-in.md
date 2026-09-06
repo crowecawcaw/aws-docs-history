@@ -1,23 +1,22 @@
-# Using built-in tools
 
-Built-in tools are fully managed tools that are available out of the box, with no need for custom implementation.
-These can be enabled in the Converse API with a simple toggle.
+
+# Using built-in tools
+<a name="tool-built-in"></a>
+
+Built-in tools are fully managed tools that are available out of the box, with no need for custom implementation. These can be enabled in the Converse API with a simple toggle. 
 
 ## Code interpreter
+<a name="code-interpreter"></a>
 
-Code Interpreter allows Nova to securely execute Python code in isolated sandbox environments. This enables writing
-and executing code, analyzing data, creating visualizations, and solving mathematical problems. For example, Code Interpreter
-can be used to:
-
-- Generate financial reports based on uploaded data
-- Complete statistical analysis or algorithm simulations
-- Execute database migration scripts in isolated environments
-- Run unit tests for new generated code
+Code Interpreter allows Nova to securely execute Python code in isolated sandbox environments. This enables writing and executing code, analyzing data, creating visualizations, and solving mathematical problems. For example, Code Interpreter can be used to:
++ Generate financial reports based on uploaded data
++ Complete statistical analysis or algorithm simulations
++ Execute database migration scripts in isolated environments
++ Run unit tests for new generated code
 
 Here’s an example of how to enable Code Interpreter with the Converse API:
 
 ```
-
 {
   "messages": [
     {
@@ -35,14 +34,11 @@ Here’s an example of how to enable Code Interpreter with the Converse API:
         }
     ]
 },
-
 ```
 
-In this case, the model will determine that the request requires computation so it generates
-the required Python code and calls the code interpreter tool.
+In this case, the model will determine that the request requires computation so it generates the required Python code and calls the code interpreter tool. 
 
 ```
-
 {
     "toolUse": {
         "input": {
@@ -53,26 +49,22 @@ the required Python code and calls the code interpreter tool.
         "type": "server_tool_use"
     }
 },
-
 ```
 
 The interpreter runs this code in a sandbox and captures the result, output in a standard schema:
 
 ```
-
 {
   "stdOut": String,
   "stdErr": String,
   "exitCode": int,
   "isError": boolean
 }
-
 ```
 
 In this case, you would receive back:
 
 ```
-
 {
     "toolResult": {
         "content": [
@@ -85,13 +77,9 @@ In this case, you would receive back:
         "type": "nova_code_interpreter_result"
     }
 }
-
 ```
 
 ## Model Context Protocol
+<a name="w2aac51c28b7"></a>
 
-The Model Context Protocol (MCP) is an open standard that enables developers to build secure, two-way connections
-between their data sources and AI-powered tools. Instead of writing custom adapters for each API or service, you can run
-an MCP server and let Nova discover its tools automatically through a client bridge. Once connected, Nova treats these
-tools like any other external integration: it decides when to call them, sends the required parameters, and incorporates
-the results into its response.
+The Model Context Protocol (MCP) is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools. Instead of writing custom adapters for each API or service, you can run an MCP server and let Nova discover its tools automatically through a client bridge. Once connected, Nova treats these tools like any other external integration: it decides when to call them, sends the required parameters, and incorporates the results into its response. 

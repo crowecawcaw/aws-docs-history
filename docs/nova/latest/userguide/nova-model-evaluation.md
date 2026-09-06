@@ -1,77 +1,68 @@
+
+
 # Evaluating your SageMaker AI-trained model
+<a name="nova-model-evaluation"></a>
 
-The purpose of the evaluation process is to assess trained-model performance against
-benchmarks or custom dataset. The evaluation process typically involves steps to create
-evaluation recipe pointing to the trained model, specify evaluation datasets and
-metrics, submit a separate job for the evaluation, and evaluate against standard
-benchmarks or custom data. The evaluation process will output performance metrics stored
-in your Amazon S3 bucket.
+The purpose of the evaluation process is to assess trained-model performance against benchmarks or custom dataset. The evaluation process typically involves steps to create evaluation recipe pointing to the trained model, specify evaluation datasets and metrics, submit a separate job for the evaluation, and evaluate against standard benchmarks or custom data. The evaluation process will output performance metrics stored in your Amazon S3 bucket.
 
-###### Note
+**Note**  
+You can also evaluate your models using [Inspect AI](nova-eval-inspect-ai.md), an open-source evaluation framework that supports standardized benchmarks and custom evaluation tasks.
 
-You can also evaluate your models using [Inspect AI](nova-eval-inspect-ai.md "nova-eval-inspect-ai.md"), an open-source evaluation framework that supports standardized benchmarks and custom evaluation tasks.
+**Note**  
+The evaluation process described in this topic is an offline process. The model is tested against fixed benchmarks with predefined answers, rather than being assessed in real-time or through live user interactions. For real-time evaluation, you can test the model after it has been deployed to Amazon Bedrock by calling [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/import-with-create-custom-model.html) Runtime APIs.
 
-###### Note
-
-The evaluation process described in this topic is an offline process. The model is
-tested against fixed benchmarks with predefined answers, rather than being assessed
-in real-time or through live user interactions. For real-time evaluation, you can
-test the model after it has been deployed to Amazon Bedrock by calling [Amazon Bedrock](../../../bedrock/latest/userguide/import-with-create-custom-model.md "../../../bedrock/latest/userguide/import-with-create-custom-model.md") Runtime APIs.
-
-###### Topics
-
-- [Prerequisites](#nova-model-evaluation-prerequisites "#nova-model-evaluation-prerequisites")
-- [Available benchmark tasks](#nova-model-evaluation-benchmark "#nova-model-evaluation-benchmark")
-- [Evaluation specific configurations](#nova-model-evaluation-config "#nova-model-evaluation-config")
-- [Running evaluation training jobs](#nova-model-evaluation-notebook "#nova-model-evaluation-notebook")
-- [Assessing and analyzing evaluation results](#nova-model-evaluation-assess "#nova-model-evaluation-assess")
-- [Evaluation best practices and troubleshooting](#nova-model-evaluation-best-practices "#nova-model-evaluation-best-practices")
-- [Available subtasks](#nova-model-evaluation-subtasks "#nova-model-evaluation-subtasks")
-- [Iterative training](smtj-iterative-training.md "smtj-iterative-training.md")
+**Topics**
++ [Prerequisites](#nova-model-evaluation-prerequisites)
++ [Available benchmark tasks](#nova-model-evaluation-benchmark)
++ [Evaluation specific configurations](#nova-model-evaluation-config)
++ [Running evaluation training jobs](#nova-model-evaluation-notebook)
++ [Assessing and analyzing evaluation results](#nova-model-evaluation-assess)
++ [Evaluation best practices and troubleshooting](#nova-model-evaluation-best-practices)
++ [Available subtasks](#nova-model-evaluation-subtasks)
++ [Iterative training](smtj-iterative-training.md)
 
 ## Prerequisites
+<a name="nova-model-evaluation-prerequisites"></a>
 
 Before you start a evaluation training job, note the following.
-
-- A SageMaker AI-trained Amazon Nova model which you want to evaluate its
-  performance.
-- Base Amazon Nova recipe for evaluation. For more information, see [Getting Amazon Nova recipes](nova-model-recipes.md#nova-model-get-recipes "nova-model-recipes.md#nova-model-get-recipes").
++ A SageMaker AI-trained Amazon Nova model which you want to evaluate its performance.
++ Base Amazon Nova recipe for evaluation. For more information, see [Getting Amazon Nova recipes](nova-model-recipes.md#nova-model-get-recipes).
 
 ## Available benchmark tasks
+<a name="nova-model-evaluation-benchmark"></a>
 
-A sample code package is available that demonstrates how to calculate benchmark
-metrics using the SageMaker AI model evaluation feature for Amazon Nova. To access the code
-packages, see [sample-Nova-lighteval-custom-task](https://github.com/aws-samples/sample-Nova-lighteval-custom-task/ "https://github.com/aws-samples/sample-Nova-lighteval-custom-task/").
+A sample code package is available that demonstrates how to calculate benchmark metrics using the SageMaker AI model evaluation feature for Amazon Nova. To access the code packages, see [sample-Nova-lighteval-custom-task](https://github.com/aws-samples/sample-Nova-lighteval-custom-task/).
 
-Here is a list of available industry standard benchmarks supported. You can
-specify the following benchmarks in the `eval_task` parameter.
+Here is a list of available industry standard benchmarks supported. You can specify the following benchmarks in the `eval_task` parameter.
 
 **Available benchmarks for model evaluation**
 
-| Benchmark            | Modality            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Metrics      | Strategy | Subtask available |
-| -------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | -------- | ----------------- |
-| mmlu                 | Text                | Multi-task Language Understanding – Tests knowledge across 57<br>subjects.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | accuracy     | zs\_cot  | Yes               |
-| mmlu\_pro            | Text                | MMLU – Professional Subset – Focuses on professional domains<br>such as law, medicine, accounting, and engineering.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | accuracy     | zs\_cot  | No                |
-| bbh                  | Text                | Advanced Reasoning Tasks – A collection of challenging<br>problems that test higher-level cognitive and problem-solving<br>skills.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | accuracy     | fs\_cot  | Yes               |
-| gpqa                 | Text                | General Physics Question Answering – Assesses comprehension of<br>physics concepts and related problem-solving abilities.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | accuracy     | zs\_cot  | No                |
-| math                 | Text                | Mathematical Problem Solving – Measures mathematical reasoning<br>across topics including algebra, calculus, and word<br>problems.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | exact\_match | zs\_cot  | Yes               |
-| strong\_reject       | Text                | Quality-Control Task – Tests the model’s ability to detect and<br>reject inappropriate, harmful, or incorrect content.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | deflection   | zs       | Yes               |
-| ifeval               | Text                | Instruction-Following Evaluation – Gauges how accurately a<br>model follows given instructions and completes tasks to<br>specification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | accuracy     | zs       | No                |
-| gen\_qa              | Multi-Modal (image) | Custom Dataset Evaluation – Lets you supply your own dataset<br>for benchmarking, comparing model outputs to reference answers<br>with metrics such as ROUGE and BLEU. `gen_qa`<br>supports image inference for Amazon Nova Lite or Amazon Nova Pro<br>based models. Also supports Bring-Your-Own Metrics lambda. (For<br>RFT evaluation, please use RFT eval recipe)                                                                                                                                                                                                                                  | all          | gen\_qa  | No                |
-| mmmu                 | Multi-Modal         | Massive Multidiscipline Multimodal Understanding (MMMU) – College-level benchmark comprising multiple-choice and open-ended questions from 30 disciplines.)                                                                                                                                                                                                                                                                                                                                                                                                                                            | accuracy     | zs\_cot  | Yes               |
-| llm\_judge           | Text                | LLM-as-a-Judge Preference Comparison – Uses a Nova Judge model<br>to determine preference between paired responses (B compared<br>with A) for your prompts, calculating the probability of B being<br>preferred over A.                                                                                                                                                                                                                                                                                                                                                                                | all          | judge    | No                |
-| mm\_llm\_judge       | Multi-Modal (image) | This new benchmark behaves the same as the text-based<br>`llm_judge`above. The only difference is that it<br>supports image inference.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | all          | judge    | No                |
-| rubric\_llm\_judge   | Text                | Rubric Judge is an enhanced LLM-as-a-judge evaluation model<br>built on Nova 2.0 Lite. Unlike the [original judge model](https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/ "https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/") that only provides preference<br>verdicts, Rubric Judge dynamically generates custom evaluation<br>criteria tailored to each prompt and assigns granular scores<br>across multiple dimensions. | all          | judge    | No                |
-| aime\_2024           | Text                | AIME 2024<br>• American Invitational Mathematics Examination<br>problems testing advanced mathematical reasoning and<br>problem-solving                                                                                                                                                                                                                                                                                                                                                                                                                                                                | exact\_match | zs\_cot  | No                |
-| calendar\_scheduling | Text                | Natural Plan<br>• Calendar Scheduling task testing planning<br>abilities for scheduling meetings across multiple days and<br>people                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | exact\_match | fs       | No                |
-| humaneval            | Text                | HumanEval<br>• A benchmark dataset designed to evaluate the code<br>generation capabilities of large language models                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | pass@1       | zs       | No                |
+
+| Benchmark | Modality | Description | Metrics | Strategy | Subtask available | 
+| --- | --- | --- | --- | --- | --- | 
+| mmlu | Text | Multi-task Language Understanding – Tests knowledge across 57 subjects. | accuracy | zs\_cot | Yes | 
+| mmlu\_pro | Text | MMLU – Professional Subset – Focuses on professional domains such as law, medicine, accounting, and engineering. | accuracy | zs\_cot | No | 
+| bbh | Text | Advanced Reasoning Tasks – A collection of challenging problems that test higher-level cognitive and problem-solving skills. | accuracy | fs\_cot | Yes | 
+| gpqa | Text | General Physics Question Answering – Assesses comprehension of physics concepts and related problem-solving abilities. | accuracy | zs\_cot | No | 
+| math | Text | Mathematical Problem Solving – Measures mathematical reasoning across topics including algebra, calculus, and word problems. | exact\_match | zs\_cot | Yes | 
+| strong\_reject | Text | Quality-Control Task – Tests the model’s ability to detect and reject inappropriate, harmful, or incorrect content. | deflection | zs | Yes | 
+| ifeval | Text | Instruction-Following Evaluation – Gauges how accurately a model follows given instructions and completes tasks to specification. | accuracy | zs | No | 
+| gen\_qa | Multi-Modal (image) | Custom Dataset Evaluation – Lets you supply your own dataset for benchmarking, comparing model outputs to reference answers with metrics such as ROUGE and BLEU. `gen_qa` supports image inference for Amazon Nova Lite or Amazon Nova Pro based models. Also supports Bring-Your-Own Metrics lambda. (For RFT evaluation, please use RFT eval recipe) | all | gen\_qa | No | 
+| mmmu | Multi-Modal | Massive Multidiscipline Multimodal Understanding (MMMU) – College-level benchmark comprising multiple-choice and open-ended questions from 30 disciplines.) | accuracy | zs\_cot | Yes | 
+| llm\_judge | Text | LLM-as-a-Judge Preference Comparison – Uses a Nova Judge model to determine preference between paired responses (B compared with A) for your prompts, calculating the probability of B being preferred over A. | all | judge | No | 
+| mm\_llm\_judge | Multi-Modal (image) | This new benchmark behaves the same as the text-based `llm_judge`above. The only difference is that it supports image inference. | all | judge | No | 
+| rubric\_llm\_judge | Text | Rubric Judge is an enhanced LLM-as-a-judge evaluation model built on Nova 2.0 Lite. Unlike the [original judge model](https://aws.amazon.com/blogs/machine-learning/evaluating-generative-ai-models-with-amazon-nova-llm-as-a-judge-on-amazon-sagemaker-ai/) that only provides preference verdicts, Rubric Judge dynamically generates custom evaluation criteria tailored to each prompt and assigns granular scores across multiple dimensions. | all | judge | No | 
+| aime\_2024 | Text | AIME 2024 - American Invitational Mathematics Examination problems testing advanced mathematical reasoning and problem-solving | exact\_match | zs\_cot | No | 
+| calendar\_scheduling | Text | Natural Plan - Calendar Scheduling task testing planning abilities for scheduling meetings across multiple days and people | exact\_match | fs | No | 
+| humaneval | Text | HumanEval - A benchmark dataset designed to evaluate the code generation capabilities of large language models | pass@1 | zs | No | 
 
 ## Evaluation specific configurations
+<a name="nova-model-evaluation-config"></a>
 
-Below is a breakdown of the key components in the recipe and guidance on how to
-modify them for your use cases.
+Below is a breakdown of the key components in the recipe and guidance on how to modify them for your use cases.
 
 ### Understanding and modifying your recipes
+<a name="nova-model-evaluation-config-explain"></a>
 
 **General run configuration**
 
@@ -86,55 +77,26 @@ run:
   mlflow_experiment_name : ""
   mlflow_run_name : ""
 ```
-
-- `name`: A descriptive name for your evaluation job.
-- `model_type`: Specifies the Nova model variant to use. Do
-  not manually modify this field. Options include:
-
-  - amazon.nova-micro-v1:0:128k
-  - amazon.nova-lite-v1:0:300k
-  - amazon.nova-pro-v1:0:300k
-  - amazon.nova-2-lite-v1:0:256k (Nova 2.0 model — see [Nova 2.0 customization guide](../nova2-userguide/nova-model.md "../nova2-userguide/nova-model.md"))
-
-- `model_name_or_path`: The path to the base model or s3 path
-  for post trained checkpoint. Options include:
-
-  - nova-micro/prod
-  - nova-lite/prod
-  - nova-pro/prod
-  - nova-lite-2/prod (Nova 2.0 model)
-  - S3 path for post trained checkpoint path
-    (`s3:customer-escrow-111122223333-smtj-<unique_id>/<training_run_name>`)
-
-  ###### Note
-
-  **Evaluate post-trained
-  model**
-
-  To evaluate a post-trained model after a Nova SFT training
-  job, follow these steps after running a successful training
-  job. At the end of the training logs, you will see the log
-  message "Training is complete". You will also find a
-  `manifest.json` file in your output bucket
-  containing the location of your checkpoint. This file will
-  be located within an `output.tar.gz` file at your
-  output S3 location. To proceed with evaluation, use this
-  checkpoint by setting it as the value for
-  `run.model_name_or_path` in your recipe
-  configuration.
-
-- `replica`: The number of compute instances to use for
-  distributed inference (running inference across multiple nodes). Set
-  `replica` > 1 to enable multi-node inference, which
-  accelerates evaluation. If both `instance_count` and
-  `replica` are specified, `instance_count`
-  takes precedence. Note that multiple replicas only apply to SageMaker AI
-  training jobs, not SageMaker HyperPod.
-- `data_s3_path`: The input dataset Amazon S3 path. This field is
-  required but should always left empty.
-- `mlflow_tracking_uri`: (Optional) The location of the MLflow tracking server (only needed on SMHP)
-- `mlflow_experiment_name`: (Optional) Name of the experiment to group related ML runs together
-- `mlflow_run_name`: (Optional) Custom name for a specific training run within an experiment
++ `name`: A descriptive name for your evaluation job.
++ `model_type`: Specifies the Nova model variant to use. Do not manually modify this field. Options include:
+  + amazon.nova-micro-v1:0:128k
+  + amazon.nova-lite-v1:0:300k
+  + amazon.nova-pro-v1:0:300k
+  + amazon.nova-2-lite-v1:0:256k (Nova 2.0 model — see [Nova 2.0 customization guide](https://docs.aws.amazon.com/nova/latest/nova2-userguide/nova-model.html))
++ `model_name_or_path`: The path to the base model or s3 path for post trained checkpoint. Options include:
+  + nova-micro/prod
+  + nova-lite/prod
+  + nova-pro/prod
+  + nova-lite-2/prod (Nova 2.0 model)
+  + S3 path for post trained checkpoint path (`s3:customer-escrow-111122223333-smtj-<unique_id>/<training_run_name>`)
+**Note**  
+**Evaluate post-trained model**  
+To evaluate a post-trained model after a Nova SFT training job, follow these steps after running a successful training job. At the end of the training logs, you will see the log message "Training is complete". You will also find a `manifest.json` file in your output bucket containing the location of your checkpoint. This file will be located within an `output.tar.gz` file at your output S3 location. To proceed with evaluation, use this checkpoint by setting it as the value for `run.model_name_or_path` in your recipe configuration.
++ `replica`: The number of compute instances to use for distributed inference (running inference across multiple nodes). Set `replica` > 1 to enable multi-node inference, which accelerates evaluation. If both `instance_count` and `replica` are specified, `instance_count` takes precedence. Note that multiple replicas only apply to SageMaker AI training jobs, not SageMaker HyperPod. 
++ `data_s3_path`: The input dataset Amazon S3 path. This field is required but should always left empty.
++ `mlflow_tracking_uri`: (Optional) The location of the MLflow tracking server (only needed on SMHP)
++ `mlflow_experiment_name`: (Optional) Name of the experiment to group related ML runs together
++ `mlflow_run_name`: (Optional) Custom name for a specific training run within an experiment
 
 **Evaluation configuration**
 
@@ -145,128 +107,61 @@ evaluation:
   subtask: abstract_algebra
   metric: accuracy
 ```
++ `task`: Specifies the evaluation benchmark or task to use. Supported task includes:
+  + `mmlu`
+  + `mmlu_pro`
+  + `bbh`
+  + `gpqa`
+  + `math`
+  + `strong_reject`
+  + `gen_qa`
+  + `ifeval`
+  + `mmmu`
+  + `llm_judge`
+  + `mm_llm_judge`
+  + `rubric_llm_judge`
+  + `aime_2024`
+  + `calendar_scheduling`
+  + `humaneval`
++ `strategy`: Defines the evaluation approach.
+  + `zs_cot`: Zero-shot Chain of Thought - an approach to prompt large language models that encourages step-by-step reasoning without requiring explicit examples.
+  + `fs_cot`: Few-shot Chain of Thought - an approach that provides a few examples of step-by-step reasoning before asking the model to solve a new problem.
+  + `zs`: Zero-shot - an approach to solve a problem without any prior training examples.
+  + `gen_qa`: Strategy specific for bring your own dataset.
+  + `judge`: Strategy specific for Nova LLM as Judge and `mm_llm_judge`.
++ `subtask`: Optional. Specific components of the evaluation task. For a complete list of available subtasks, see [Available subtasks](#nova-model-evaluation-subtasks).
+  + Check supported subtasks in Available benchmarks tasks.
+  + Should remove this field if there are no subtasks benchmarks.
++ `metric`: The evaluation metric to use.
+  + `accuracy`: Percentage of correct answers.
+  + `exact_match`: For math benchmark, returns the rate at which the input predicted strings exactly match their references.
+  + `deflection`: For strong reject benchmark, returns relative deflection to base model and difference significance metrics.
+  + `all`:
 
-- `task`: Specifies the evaluation benchmark or task to use.
-  Supported task includes:
+    For `gen_qa`, bring your own dataset benchmark, return following metrics:
+    + `rouge1`: Measures overlap of unigrams (single words) between generated and reference text.
+    + `rouge2`: Measures overlap of bigrams (two consecutive words) between generated and reference text.
+    + `rougeL`: Measures longest common subsequence between texts, allowing for gaps in the matching.
+    + `exact_match`: Binary score (0 or 1) indicating if the generated text matches the reference text exactly, character by character.
+    + `quasi_exact_match`: Similar to exact match but more lenient, typically ignoring case, punctuation, and white space differences.
+    + `f1_score`: Harmonic mean of precision and recall, measuring word overlap between predicted and reference answers.
+    + `f1_score_quasi`: Similar to f1\_score but with more lenient matching, using normalized text comparison that ignores minor differences.
+    + `bleu`: Measures precision of n-gram matches between generated and reference text, commonly used in translation evaluation.
 
-  - `mmlu`
-  - `mmlu_pro`
-  - `bbh`
-  - `gpqa`
-  - `math`
-  - `strong_reject`
-  - `gen_qa`
-  - `ifeval`
-  - `mmmu`
-  - `llm_judge`
-  - `mm_llm_judge`
-  - `rubric_llm_judge`
-  - `aime_2024`
-  - `calendar_scheduling`
-  - `humaneval`
-
-- `strategy`: Defines the evaluation approach.
-
-  - `zs_cot`: Zero-shot Chain of Thought - an approach
-    to prompt large language models that encourages step-by-step
-    reasoning without requiring explicit examples.
-  - `fs_cot`: Few-shot Chain of Thought - an approach
-    that provides a few examples of step-by-step reasoning before
-    asking the model to solve a new problem.
-  - `zs`: Zero-shot - an approach to solve a problem
-    without any prior training examples.
-  - `gen_qa`: Strategy specific for bring your own
-    dataset.
-  - `judge`: Strategy specific for Nova LLM as Judge
-    and `mm_llm_judge`.
-
-- `subtask`: Optional. Specific components of the evaluation
-  task. For a complete list of available subtasks, see [Available subtasks](#nova-model-evaluation-subtasks "#nova-model-evaluation-subtasks").
-
-  - Check supported subtasks in Available benchmarks tasks.
-  - Should remove this field if there are no subtasks
-    benchmarks.
-
-- `metric`: The evaluation metric to use.
-
-  - `accuracy`: Percentage of correct answers.
-  - `exact_match`: For math benchmark, returns the rate
-    at which the input predicted strings exactly match their
-    references.
-  - `deflection`: For strong reject benchmark, returns
-    relative deflection to base model and difference significance
-    metrics.
-  - `all`:
-
-  For `gen_qa`, bring your own dataset benchmark,
-  return following metrics:
-
-        - `rouge1`: Measures overlap of unigrams
-         (single words) between generated and reference
-         text.
-        - `rouge2`: Measures overlap of bigrams (two
-         consecutive words) between generated and reference
-         text.
-        - `rougeL`: Measures longest common
-         subsequence between texts, allowing for gaps in the
-         matching.
-        - `exact_match`: Binary score (0 or 1)
-         indicating if the generated text matches the reference
-         text exactly, character by character.
-        - `quasi_exact_match`: Similar to exact match
-         but more lenient, typically ignoring case, punctuation,
-         and white space differences.
-        - `f1_score`: Harmonic mean of precision and
-         recall, measuring word overlap between predicted and
-         reference answers.
-        - `f1_score_quasi`: Similar to f1\_score but
-         with more lenient matching, using normalized text
-         comparison that ignores minor differences.
-        - `bleu`: Measures precision of n-gram
-         matches between generated and reference text, commonly
-         used in translation evaluation.
-
-  For `llm_judge` and `mm_llm_judge`,
-  bring your own dataset benchmark, return following
-  metrics:
-
-        - `a_scores`: Number of wins for
-         `response_A` across forward and backward
-         evaluation passes.
-        - `a_scores_stderr`: Standard error of
-         `response_A_scores` across pairwise
-         judgements.
-        - `b_scores`: Measures Number of wins for
-         `response_B` across forward and backward
-         evaluation passes.
-        - `a_scores_stderr`: Standard error of
-         `response_B_scores` across pairwise
-         judgements.
-        - `ties`: Number of judgements where
-         `response_A` and `response_B`
-         are evaluated as equal.
-        - `ties_stderr`: Standard error of
-         `ties` across pairwise judgements.
-        - `inference_error`: Count of judgements that
-         could not be properly evaluated.
-        - `score`: Aggregate score based on wins from
-         both forward and backward passes for
-         `response_B`.
-        - `score_stderr`: Aggregate score based on
-         wins from both forward and backward passes for
-         `response_B`.
-        - `inference_error_stderr`: Standard error of
-         the aggregate score across pairwise judgements.
-        - `winrate`: The probability that
-         `response_B` will be preferred over
-         `response_A` calculated using
-         Bradley-Terry probability.
-        - `lower_rate`: Lower bound (2.5th
-         percentile) of the estimated win rate from bootstrap
-         sampling.
-        - `upper_rate`: Upper bound (97.5th
-         percentile) of the estimated win rate from bootstrap
-         sampling.
+    For `llm_judge` and `mm_llm_judge`, bring your own dataset benchmark, return following metrics:
+    + `a_scores`: Number of wins for `response_A` across forward and backward evaluation passes.
+    + `a_scores_stderr`: Standard error of `response_A_scores` across pairwise judgements.
+    + `b_scores`: Measures Number of wins for `response_B` across forward and backward evaluation passes.
+    + `a_scores_stderr`: Standard error of `response_B_scores` across pairwise judgements.
+    + `ties`: Number of judgements where `response_A` and `response_B` are evaluated as equal.
+    + `ties_stderr`: Standard error of `ties` across pairwise judgements.
+    + `inference_error`: Count of judgements that could not be properly evaluated.
+    + `score`: Aggregate score based on wins from both forward and backward passes for `response_B`.
+    + `score_stderr`: Aggregate score based on wins from both forward and backward passes for `response_B`.
+    + `inference_error_stderr`: Standard error of the aggregate score across pairwise judgements.
+    + `winrate`: The probability that `response_B` will be preferred over `response_A` calculated using Bradley-Terry probability.
+    + `lower_rate`: Lower bound (2.5th percentile) of the estimated win rate from bootstrap sampling.
+    + `upper_rate`: Upper bound (97.5th percentile) of the estimated win rate from bootstrap sampling.
 
 **Inference configuration (optional)**
 
@@ -279,26 +174,15 @@ inference:
   top_logprobs: 10
   reasoning_effort: null  # options: low/high to enable reasoning or null to disable reasoning
 ```
-
-- `max_new_tokens`: Maximum number of tokens to generate.
-  Must be an integer. (Unavailable for LLM Judge)
-- `top_k`: Number of the highest probability tokens to
-  consider. Must be an integer.
-- `top_p`: Cumulative probability threshold for token
-  sampling. Must be a float between 1.0 to 0.0.
-- `temperature`: Randomness in token selection (higher = more
-  random), keep 0 to make the result deterministic. Float type, minimal
-  value is 0.
-- `top_logprobs`: The number of top logprobs to be returned
-  in the inference response. This value must be an integer from 0 to 20.
-  Logprobs contain the considered output tokens and log probabilities of
-  each output token returned in the message content.
-- `reasoning_effort`: controls the reasoning behavior for
-  reasoning-capable models. Set `reasoning_effort` only when
-  `model_type` specifies a reasoning-capable model (currently `amazon.nova-2-lite-v1:0:256k`).
-  Available options are null (default value if not set; disables reasoning), low, or high.
++ `max_new_tokens`: Maximum number of tokens to generate. Must be an integer. (Unavailable for LLM Judge)
++ `top_k`: Number of the highest probability tokens to consider. Must be an integer.
++ `top_p`: Cumulative probability threshold for token sampling. Must be a float between 1.0 to 0.0.
++ `temperature`: Randomness in token selection (higher = more random), keep 0 to make the result deterministic. Float type, minimal value is 0.
++ `top_logprobs`: The number of top logprobs to be returned in the inference response. This value must be an integer from 0 to 20. Logprobs contain the considered output tokens and log probabilities of each output token returned in the message content.
++ `reasoning_effort`: controls the reasoning behavior for reasoning-capable models. Set `reasoning_effort` only when `model_type` specifies a reasoning-capable model (currently `amazon.nova-2-lite-v1:0:256k`). Available options are null (default value if not set; disables reasoning), low, or high.
 
 ### Log Probability Output Format
+<a name="nova-model-evaluation-logprobs"></a>
 
 When `top_logprobs` is configured in your inference settings, the evaluation output includes token-level log probabilities in the parquet files. Each token position contains a dictionary of the top candidate tokens with their log probabilities in the following structure:
 
@@ -310,66 +194,53 @@ When `top_logprobs` is configured in your inference settings, the evaluation out
 ```
 
 Each token entry contains:
-
-- `logprob_value`: The log probability value for the token
-- `decoded_value`: The human-readable decoded string representation of the token
++ `logprob_value`: The log probability value for the token
++ `decoded_value`: The human-readable decoded string representation of the token
 
 The raw tokenizer token is used as the dictionary key to ensure uniqueness, while `decoded_value` provides a readable interpretation.
 
 ### Evaluation recipe examples
+<a name="nova-model-evaluation-config-example"></a>
 
-Amazon Nova provides four different types of evaluation recipes. All recipes are
-available in [SageMaker HyperPod recipes GitHub repository](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection").
+Amazon Nova provides four different types of evaluation recipes. All recipes are available in [SageMaker HyperPod recipes GitHub repository](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection).
 
-###### Evaluation recipes
+**Topics**
 
-These recipes enable you to evaluate the fundamental capabilities of
-Amazon Nova models across a comprehensive suite of text-only benchmarks.
+#### General text benchmark recipes
+<a name="nova-model-evaluation-config-example-text"></a>
 
-Recipe format:
-`xxx_general_text_benchmark_eval.yaml`.
+These recipes enable you to evaluate the fundamental capabilities of Amazon Nova models across a comprehensive suite of text-only benchmarks. 
 
-These recipes enable you to bring your own dataset for benchmarking
-and compare model outputs to reference answers using different types of
-metrics.
+Recipe format: `xxx_general_text_benchmark_eval.yaml`.
 
-Recipe format: `xxx_
- bring_your_own_dataset_eval.yaml`.
+#### Bring your own dataset benchmark recipes
+<a name="nova-model-evaluation-config-byo"></a>
 
-**Bring your own dataset
-requirements**
+These recipes enable you to bring your own dataset for benchmarking and compare model outputs to reference answers using different types of metrics. 
 
-File format:
+Recipe format: `xxx_ bring_your_own_dataset_eval.yaml`.
 
-- Single `gen_qa.jsonl` file containing evaluation
-  examples. The file name should be exact
-  `gen_qa.jsonl`.
-- Your must upload your dataset to an S3 location where SageMaker AI
-  training jobs can access.
-- The file must follow the required schema format for general
-  Q&A dataset.
-  Schema format requirements - Each line in the `.jsonl` file
-  must be a JSON object with the following fields.
+**Bring your own dataset requirements**
 
-- Required fields.
+File format: 
++ Single `gen_qa.jsonl` file containing evaluation examples. The file name should be exact `gen_qa.jsonl`.
++ Your must upload your dataset to an S3 location where SageMaker AI training jobs can access.
++ The file must follow the required schema format for general Q&A dataset.
 
-`query`: String containing the question or
-instruction that needs an answer.
+Schema format requirements - Each line in the `.jsonl` file must be a JSON object with the following fields.
++ Required fields. 
 
-`response`: String containing the expected model
-output.
+  `query`: String containing the question or instruction that needs an answer.
 
-- Optional fields.
+  `response`: String containing the expected model output.
++ Optional fields.
 
-`system`: String containing the system prompt that
-sets the behavior, role, or personality of the AI model before
-it processes the query.
+  `system`: String containing the system prompt that sets the behavior, role, or personality of the AI model before it processes the query.
 
-`images`: Array containing a list of objects with
-data attributes (Base64 encoded image strings).
+  `images`: Array containing a list of objects with data attributes (Base64 encoded image strings).
 
-`metadata`: String containing metadata associated
-with the entry for tagging purposes.
+  `metadata`: String containing metadata associated with the entry for tagging purposes.
+
 **Example entry**
 
 ```
@@ -397,9 +268,7 @@ with the entry for tagging purposes.
 }
 ```
 
-To use your custom dataset, modify your evaluation recipe by adding
-the following required fields without changing the existing
-configuration:
+To use your custom dataset, modify your evaluation recipe by adding the following required fields without changing the existing configuration:
 
 ```
 evaluation:
@@ -409,214 +278,168 @@ evaluation:
 ```
 
 **Limitations**
-
-- Only one `.jsonl` file is allowed per
-  evaluation.
-- The file must strictly follow the defined schema.
++ Only one `.jsonl` file is allowed per evaluation.
++ The file must strictly follow the defined schema.
 
 ##### Bring your own metrics
+<a name="nova-model-evaluation-byom"></a>
 
-You can bring your own metrics to fully customize your model
-evaluation workflow with custom preprocessing, postprocessing, and
-metrics capabilities. Preprocessing allows you to process input data
-before sending it to the inference server, and postprocessing allows
-you to customize metrics calculation and return custom metrics based
-on your needs.
+You can bring your own metrics to fully customize your model evaluation workflow with custom preprocessing, postprocessing, and metrics capabilities. Preprocessing allows you to process input data before sending it to the inference server, and postprocessing allows you to customize metrics calculation and return custom metrics based on your needs.
 
-Follow these steps to bring your own metrics with custom
-evaluation SDK.
+Follow these steps to bring your own metrics with custom evaluation SDK.
 
-1. If you haven't done so, [create an
-   AWS Lambda function](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md") in your AWS account
-   first.
-2. Download the pre-built
-   `nova-custom-eval-layer.zip` file from the
-   [GitHub repository](https://github.com/aws/nova-custom-eval-sdk/releases "https://github.com/aws/nova-custom-eval-sdk/releases"). You can use this open-source
-   Nova custom evaluation SDK to validate input and output
-   payloads for your custom function and provide a unified
-   interface for integrating with Nova's bring your own metrics
-   evaluation during training.
-3. Upload the custom Lambda layer using the following
-   command:
+1. If you haven't done so, [create an AWS Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in your AWS account first.
 
-```
-aws lambda publish-layer-version \
-    --layer-name nova-custom-eval-layer \
-    --zip-file fileb://nova-custom-eval-layer.zip \
-    --compatible-runtimes python3.12 python3.11 python3.10 python3.9
-```
+1. Download the pre-built `nova-custom-eval-layer.zip` file from the [GitHub repository](https://github.com/aws/nova-custom-eval-sdk/releases). You can use this open-source Nova custom evaluation SDK to validate input and output payloads for your custom function and provide a unified interface for integrating with Nova's bring your own metrics evaluation during training.
 
-4. Add this layer as a custom layer to your Lambda function,
-   along with the required AWS layer:
-   `AWSLambdaPowertoolsPythonV3-python312-arm64`
-   (required for `pydantic` dependency).
-5. Update your Lambda code using the provided example,
-   modifying the code as needed. This example code creates a
-   Lambda function for Nova's custom evaluation with
-   preprocessing and postprocessing steps for model
-   evaluation.
+1. Upload the custom Lambda layer using the following command:
 
-```
-from nova_custom_evaluation_sdk.processors.decorators import preprocess, postprocess
-from nova_custom_evaluation_sdk.lambda_handler import build_lambda_handler
+   ```
+   aws lambda publish-layer-version \
+       --layer-name nova-custom-eval-layer \
+       --zip-file fileb://nova-custom-eval-layer.zip \
+       --compatible-runtimes python3.12 python3.11 python3.10 python3.9
+   ```
 
-@preprocess
-def preprocessor(event: dict, context) -> dict:
-    data = event.get('data', {})
-    return {
-        "statusCode": 200,
-        "body": {
-            "system": data.get("system"),
-            "prompt": data.get("prompt", ""),
-            "gold": data.get("gold", "")
-        }
-    }
+1. Add this layer as a custom layer to your Lambda function, along with the required AWS layer: `AWSLambdaPowertoolsPythonV3-python312-arm64` (required for `pydantic` dependency).
 
-@postprocess
-def postprocessor(event: dict, context) -> dict:
-    # data is already validated and extracted from event
-    data = event.get('data', [])
-    inference_output = data.get('inference_output', '')
-    gold = data.get('gold', '')
+1. Update your Lambda code using the provided example, modifying the code as needed. This example code creates a Lambda function for Nova's custom evaluation with preprocessing and postprocessing steps for model evaluation.
 
-    metrics = []
-    inverted_accuracy = 0 if inference_output.lower() == gold.lower() else 1.0
-    metrics.append({
-        "metric": "inverted_accuracy_custom",
-        "value": accuracy
-    })
+   ```
+   from nova_custom_evaluation_sdk.processors.decorators import preprocess, postprocess
+   from nova_custom_evaluation_sdk.lambda_handler import build_lambda_handler
+   
+   @preprocess
+   def preprocessor(event: dict, context) -> dict:
+       data = event.get('data', {})
+       return {
+           "statusCode": 200,
+           "body": {
+               "system": data.get("system"),
+               "prompt": data.get("prompt", ""),
+               "gold": data.get("gold", "")
+           }
+       }
+   
+   @postprocess
+   def postprocessor(event: dict, context) -> dict:
+       # data is already validated and extracted from event
+       data = event.get('data', [])
+       inference_output = data.get('inference_output', '')
+       gold = data.get('gold', '')
+   
+       metrics = []
+       inverted_accuracy = 0 if inference_output.lower() == gold.lower() else 1.0
+       metrics.append({
+           "metric": "inverted_accuracy_custom",
+           "value": accuracy
+       })
+   
+       # Add more metrics here
+   
+       return {
+           "statusCode": 200,
+           "body": metrics
+       }
+   
+   # Build Lambda handler
+   lambda_handler = build_lambda_handler(
+       preprocessor=preprocessor,
+       postprocessor=postprocessor
+   )
+   ```
 
-    # Add more metrics here
+1. Grant Lambda access to the evaluation job. Ensure the execution role specified for the evaluation job includes a policy the invoke your Lambda function. Here is an example policy.
 
-    return {
-        "statusCode": 200,
-        "body": metrics
-    }
+------
+#### [ JSON ]
 
-# Build Lambda handler
-lambda_handler = build_lambda_handler(
-    preprocessor=preprocessor,
-    postprocessor=postprocessor
-)
-```
+****  
 
-6. Grant Lambda access to the evaluation job. Ensure the
-   execution role specified for the evaluation job includes a
-   policy the invoke your Lambda function. Here is an example
-   policy.
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "LambdaAccess",
+               "Effect": "Allow",
+               "Action": [
+                   "lambda:InvokeFunction"
+               ],
+               "Resource": "arn:aws:lambda:us-east-1:111122223333:function:ExampleFunction",
+               "Condition": {
+                   "StringLike": {
+                       "aws:PrincipalArn": "arn:aws:iam::111122223333:role/service-role/AmazonSageMaker-ExecutionRole-ARN"
+                   }
+               }
+           },
+           {
+               "Sid": "DenyNonAWSEventSourcesForLambda",
+               "Effect": "Deny",
+               "Action": [
+                   "lambda:InvokeFunction"
+               ],
+               "Resource": "arn:aws:lambda:us-east-1:111122223333:function:ExampleFunction",
+               "Condition": {
+                   "Null": {
+                       "lambda:EventSourceToken": false
+                   }
+               }
+           }
+       ]
+   }
+   ```
 
-JSON
+------
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "LambdaAccess",
- "Effect": "Allow",
- "Action": [
- "lambda:InvokeFunction"
- ],
- "Resource": "arn:aws:lambda:us-east-1:111122223333:function:ExampleFunction",
- "Condition": {
- "StringLike": {
- "aws:PrincipalArn": "arn:aws:iam::111122223333:role/service-role/AmazonSageMaker-ExecutionRole-ARN"
- }
- }
- },
- {
- "Sid": "DenyNonAWSEventSourcesForLambda",
- "Effect": "Deny",
- "Action": [
- "lambda:InvokeFunction"
- ],
- "Resource": "arn:aws:lambda:us-east-1:111122223333:function:ExampleFunction",
- "Condition": {
- "Null": {
- "lambda:EventSourceToken": false
- }
- }
- }
- ]
-}`
+1. Review the Lambda payload schema. The following table lists the Lambda request and response schema. You can validate your schema using the Nova custom evaluation SDK.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/nova/latest/userguide/nova-model-evaluation.html)
 
-```
+1. Modify the recipe file. Here is an example. 
 
-7. Review the Lambda payload schema. The following table lists
-   the Lambda request and response schema. You can validate your
-   schema using the Nova custom evaluation SDK.
-
-|               | Lambda Request Payload                                                                                                                                      | Lambda Response Payload                                                                                                                                                                                                          |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Preprocessor  | `<br>{<br>"process_type": "preprocess",<br>"data": {<br>"system": "You are a helpful assistant",<br>"prompt": "What is 2+2?",<br>"gold": "4"<br>}<br>}<br>` | `<br>{<br>"statusCode": 200,<br>"body": {<br>"system": "You are a helpful assistant that can substitute<br>• for addition",<br>"prompt": "What is 2*2?",<br>"gold": "4"<br>}<br>}<br>`                                           |
-| Postprocessor | `<br>{<br>"process_type": "postprocess",<br>"data":  {<br>"prompt": "What is 2+2?",<br>"inference_output": "2+2=4",<br>"gold": "4"<br>}<br>}<br>`           | `<br>{<br>"statusCode": 200,<br>"body": [<br>{"metric": "accuracy", "value": 1.0},<br>{"metric": "f1_score", "value": 1.0},<br>{"metric": "exact_match", "value": 1},<br>{"metric": "length_ratio", "value": 0.8}<br>]<br>}<br>` |
-
-8. Modify the recipe file. Here is an example.
-
-```
-processor:
-  lambda_arn: arn:aws:lambda:us-east-1:111122223333:function:name
-  lambda_type: "custom_metrics"
-  preprocessing:
-    enabled: true
-  postprocessing:
-    enabled: true
-  aggregation: average
-```
-
-    * `lambda-arn`: The Amazon Resource Name
-     (ARN) for your Lambda function that handles
-     preprocessing and postprocessing.
-    * `lambda_type`: "custom\_metrics" or "rft".
-    * `preprocessing`: Whether to enable
-     custom pre-processing operations.
-    * `postprocessing`: Whether to enable
-     custom post-processing operations.
-    * `aggregation`: Built-in aggregation
-     function (valid options: min, max, average,
-     sum).
+   ```
+   processor:
+     lambda_arn: arn:aws:lambda:us-east-1:111122223333:function:name
+     lambda_type: "custom_metrics"
+     preprocessing:
+       enabled: true
+     postprocessing:
+       enabled: true
+     aggregation: average
+   ```
+   + `lambda-arn`: The Amazon Resource Name (ARN) for your Lambda function that handles preprocessing and postprocessing.
+   + `lambda_type`: "custom\_metrics" or "rft".
+   + `preprocessing`: Whether to enable custom pre-processing operations.
+   + `postprocessing`: Whether to enable custom post-processing operations.
+   + `aggregation`: Built-in aggregation function (valid options: min, max, average, sum).
 
 **Limitations**
++ Bring your own metrics only applies to text input datasets.
++ Multi-modal input datasets are not supported. 
++ The preprocessing step does not process the metadata field.
 
-- Bring your own metrics only applies to text input
-  datasets.
-- Multi-modal input datasets are not supported.
-- The preprocessing step does not process the metadata
-  field.
+#### Nova LLM as a Judge benchmark recipes
+<a name="nova-model-evaluation-config-llm-judge"></a>
 
-Nova LLM Judge is a model evaluation feature that enables you to
-compare the quality of responses from one model against a baseline
-model's responses using a custom dataset. It accepts a dataset
-containing prompts, baseline responses, and challenger responses, then
-uses a Nova Judge model to provide a win rate metric based on [Bradley-Terry](https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model "https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model") probability through pairwise comparisons.
-Recipe format: `xxx_llm_judge_eval.yaml`.
+Nova LLM Judge is a model evaluation feature that enables you to compare the quality of responses from one model against a baseline model's responses using a custom dataset. It accepts a dataset containing prompts, baseline responses, and challenger responses, then uses a Nova Judge model to provide a win rate metric based on [Bradley-Terry](https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model) probability through pairwise comparisons. Recipe format: `xxx_llm_judge_eval.yaml`.
 
 **Nova LLM dataset requirements**
 
-File format:
+File format: 
++ Single `llm_judge.jsonl` file containing evaluation examples. The file name should be exact `llm_judge.jsonl`.
++ Your must upload your dataset to an S3 location where SageMaker AI training jobs can access.
++ The file must follow the required schema format for the `llm_judge` dataset.
++ The input dataset should ensure all records are under 12 k context length.
 
-- Single `llm_judge.jsonl` file containing evaluation
-  examples. The file name should be exact
-  `llm_judge.jsonl`.
-- Your must upload your dataset to an S3 location where SageMaker AI
-  training jobs can access.
-- The file must follow the required schema format for the
-  `llm_judge` dataset.
-- The input dataset should ensure all records are under 12 k
-  context length.
-  Schema format - Each line in the `.jsonl` file must be a
-  JSON object with the following fields.
+Schema format - Each line in the `.jsonl` file must be a JSON object with the following fields.
++ Required fields. 
 
-- Required fields.
+  `prompt`: String containing the prompt for the generated response.
 
-`prompt`: String containing the prompt for the
-generated response.
+  `response_A`: String containing the baseline response.
 
-`response_A`: String containing the baseline
-response.
+  `response_B`: String containing the alternative response be compared with baseline response.
 
-`response_B`: String containing the alternative
-response be compared with baseline response.
 Example entry
 
 ```
@@ -637,8 +460,7 @@ Example entry
 }
 ```
 
-To use your custom dataset, modify your evaluation recipe with the
-following required fields, don't change any of the content:
+To use your custom dataset, modify your evaluation recipe with the following required fields, don't change any of the content:
 
 ```
 evaluation:
@@ -648,63 +470,38 @@ evaluation:
 ```
 
 **Limitations**
-
-- Only one `.jsonl` file is allowed per
-  evaluation.
-- The file must strictly follow the defined schema.
-- Nova Judge models are the same across micro / lite / pro
-  specifications.
-- Custom judge models are not currently supported.
++ Only one `.jsonl` file is allowed per evaluation.
++ The file must strictly follow the defined schema.
++ Nova Judge models are the same across micro / lite / pro specifications.
++ Custom judge models are not currently supported.
 
 ##### Nova LLM as a Judge for multi-modal (image) benchmark recipes
+<a name="nova-model-evaluation-mm-llm-judge"></a>
 
-Nova LLM Judge for multi-modal (image), short for Nova MM\_LLM
-Judge, is a model evaluation feature that enables you to compare the
-quality of responses from one model against a baseline model's
-responses using a custom dataset. It accepts a dataset containing
-prompts, baseline responses, and challenger responses, and images in
-thte form of Base64-encoded string, then uses a Nova Judge model to
-provide a win rate metric based on [Bradley-Terry](https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model "https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model") probability through pairwise comparisons.
-Recipe format: `xxx_mm_llm_judge_eval.yaml`.
+Nova LLM Judge for multi-modal (image), short for Nova MM\_LLM Judge, is a model evaluation feature that enables you to compare the quality of responses from one model against a baseline model's responses using a custom dataset. It accepts a dataset containing prompts, baseline responses, and challenger responses, and images in thte form of Base64-encoded string, then uses a Nova Judge model to provide a win rate metric based on [Bradley-Terry](https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model) probability through pairwise comparisons. Recipe format: `xxx_mm_llm_judge_eval.yaml`.
 
-**Nova LLM dataset
-requirements**
+**Nova LLM dataset requirements**
 
-File format:
+File format: 
++ Single `mm_llm_judge.jsonl` file containing evaluation examples. The file name must be exactly `llm_judge.jsonl`.
++ Your must upload your dataset to an S3 location where SageMaker AI training jobs can access it.
++ The file must follow the required schema format for the `mm_llm_judge` dataset.
++ The input dataset should ensure all records are under 12 k context length, excluding the image's attribute.
 
-- Single `mm_llm_judge.jsonl` file containing
-  evaluation examples. The file name must be exactly
-  `llm_judge.jsonl`.
-- Your must upload your dataset to an S3 location where SageMaker AI
-  training jobs can access it.
-- The file must follow the required schema format for the
-  `mm_llm_judge` dataset.
-- The input dataset should ensure all records are under 12 k
-  context length, excluding the image's attribute.
+Schema format - Each line in the `.jsonl` file must be a JSON object with the following fields.
++ Required fields. 
 
-Schema format - Each line in the `.jsonl` file must be
-a JSON object with the following fields.
+  `prompt`: String containing the prompt for the generated response.
 
-- Required fields.
+  `images`: Array containing a list of objects with data attributes (values are Base64-encoded image strings).
 
-`prompt`: String containing the prompt for the
-generated response.
+  `response_A`: String containing the baseline response.
 
-`images`: Array containing a list of objects
-with data attributes (values are Base64-encoded image
-strings).
-
-`response_A`: String containing the baseline
-response.
-
-`response_B`: String containing the alternative
-response be compared with baseline response.
+  `response_B`: String containing the alternative response be compared with baseline response.
 
 Example entry
 
-For readability, the following example includes new lines and
-indentation, but in the actual dataset, each record should be on a
-single line.
+For readability, the following example includes new lines and indentation, but in the actual dataset, each record should be on a single line.
 
 ```
 {
@@ -732,8 +529,7 @@ single line.
 }
 ```
 
-To use your custom dataset, modify your evaluation recipe with the
-following required fields, don't change any of the content:
+To use your custom dataset, modify your evaluation recipe with the following required fields, don't change any of the content:
 
 ```
 evaluation:
@@ -743,47 +539,44 @@ evaluation:
 ```
 
 **Limitations**
-
-- Only one `.jsonl` file is allowed per
-  evaluation.
-- The file must strictly follow the defined schema.
-- Nova MM Judge models only support image reference.
-- Nova MM Judge models are the same across Amazon Nova Micro,
-  Amazon Nova Lite, and Amazon Nova Pro specifications.
-- Custom judge models are not currently supported.
-- Amazon S3 image URI is not supported.
-- The input dataset should ensure all records are under 12 k
-  context length, excluding images attribute.
++ Only one `.jsonl` file is allowed per evaluation.
++ The file must strictly follow the defined schema.
++ Nova MM Judge models only support image reference.
++ Nova MM Judge models are the same across Amazon Nova Micro, Amazon Nova Lite, and Amazon Nova Pro specifications.
++ Custom judge models are not currently supported.
++ Amazon S3 image URI is not supported.
++ The input dataset should ensure all records are under 12 k context length, excluding images attribute.
 
 ## Running evaluation training jobs
+<a name="nova-model-evaluation-notebook"></a>
 
-Start a training job using the following sample Jupyter notebook. Please refer to
-below notebook as example to run the evaluation training job. For more information,
-see [Use a SageMaker AI estimator to run a training job](../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md "../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md").
+Start a training job using the following sample Jupyter notebook. Please refer to below notebook as example to run the evaluation training job. For more information, see [Use a SageMaker AI estimator to run a training job](https://docs.aws.amazon.com/sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.html).
 
 ### Reference tables
+<a name="nova-model-evaluation-reference-table"></a>
 
-Before running the notebook, refer to the following reference tables to select
-image URI and instance configurations.
+Before running the notebook, refer to the following reference tables to select image URI and instance configurations.
 
 **Selecting image URI**
 
-| Recipe               | Image URI                                                                                |
-| -------------------- | ---------------------------------------------------------------------------------------- |
-| Evaluation image URI | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-TJ-Eval-V2-latest` |
+
+| Recipe | Image URI | 
+| --- | --- | 
+| Evaluation image URI | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-TJ-Eval-V2-latest | 
 
 **Selecting instance type and count**
 
-| Model             | Job type             | Instance type | Recommended instance count | Allowed instance count |
-| ----------------- | -------------------- | ------------- | -------------------------- | ---------------------- |
-| Amazon Nova Micro | Evaluation (SFT/DPO) | g5.12xlarge   | 1                          | 1<br>• 16              |
-| Amazon Nova Lite  | Evaluation (SFT/DPO) | g5.12xlarge   | 1                          | 1<br>• 16              |
-| Amazon Nova Pro   | Evaluation (SFT/DPO) | p5.48xlarge   | 1                          | 1<br>• 16              |
+
+| Model | Job type | Instance type | Recommended instance count | Allowed instance count | 
+| --- | --- | --- | --- | --- | 
+| Amazon Nova Micro | Evaluation (SFT/DPO) | g5.12xlarge | 1 | 1 - 16 | 
+| Amazon Nova Lite | Evaluation (SFT/DPO) | g5.12xlarge | 1 | 1 - 16 | 
+| Amazon Nova Pro | Evaluation (SFT/DPO) | p5.48xlarge | 1 | 1 - 16 | 
 
 ### Sample notebook
+<a name="nova-model-evaluation-sample-notebook"></a>
 
-The following sample notebook demonstrates how to run an evaluation training
-job.
+The following sample notebook demonstrates how to run an evaluation training job.
 
 ```
 # install python SDK
@@ -804,12 +597,12 @@ role = sagemaker.get_execution_role()
 # Assume the file name be `recipe.yaml`
 
 # Populate parameters
-# input_s3_uri = "`s3://<path>/input/`" # (Optional) Only used for multi-modal dataset or bring your own dataset s3 location
-output_s3_uri= "`s3://<path>/output/`" # Output data s3 location, a zip containing metrics json and tensorboard metrics files will be stored to this location
-instance_type = "`instance_type`"  # ml.g5.16xlarge as example
-instance_count = 1 # The number of instances for inference (set `instance_count` > 1 for multi-node inference to accelerate evaluation)
-job_name = "`your job name`"
-recipe_path = "`recipe path`" # ./recipe.yaml as example
+# input_s3_uri = "{{s3://<path>/input/}}" # (Optional) Only used for multi-modal dataset or bring your own dataset s3 location
+output_s3_uri= "{{s3://<path>/output/}}" # Output data s3 location, a zip containing metrics json and tensorboard metrics files will be stored to this location
+instance_type = "{{instance_type}}"  # ml.g5.16xlarge as example
+instance_count = 1 # The number of instances for inference (set instance_count > 1 for multi-node inference to accelerate evaluation)
+job_name = "{{your job name}}"
+recipe_path = "{{recipe path}}" # ./recipe.yaml as example
 image_uri = "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-TJ-Eval-V2-latest" # Do not change
 output_kms_key = "<KMS key arn to encrypt trained model in Amazon-owned S3 bucket>" # optional, leave blank for Amazon managed encryption
 
@@ -838,156 +631,122 @@ estimator.fit()
 ```
 
 ## Assessing and analyzing evaluation results
+<a name="nova-model-evaluation-assess"></a>
 
-After your evaluation job completes successfully, you can assess and analyze the
-results using the following steps.
+After your evaluation job completes successfully, you can assess and analyze the results using the following steps.
 
-###### To assess and analyze the results, following these steps.
+**To assess and analyze the results, following these steps.**
 
-1. Understand the output location structure. Results are stored in your
-   specified Amazon S3 output location as a compressed file:
+1. Understand the output location structure. Results are stored in your specified Amazon S3 output location as a compressed file:
 
-```
-s3:`//your-bucket/output/benchmark-name/`
-└── job_name/
-    └── output/
-        └── output.tar.gz
-```
+   ```
+   s3:{{//your-bucket/output/benchmark-name/}}
+   └── job_name/
+       └── output/
+           └── output.tar.gz
+   ```
 
-2. Download the `output.tar.gz` file from your bucket. Extract the
-   contents to reveal.
+1. Download the `output.tar.gz` file from your bucket. Extract the contents to reveal.
 
-```
-run_name/
-├── eval_results/
-|   └── results_[timestamp].json
-│   └── inference_output.jsonl (only present for gen_qa)
-|   └── details/
-|         └── model/
-|              └── <execution-date-time>/
-|                    └──details_<task_name>_#_<datetime>.parquet
-└── tensorboard_results/
-    └── eval/
-        └── events.out.tfevents.[timestamp]
-```
+   ```
+   run_name/
+   ├── eval_results/
+   |   └── results_[timestamp].json
+   │   └── inference_output.jsonl (only present for gen_qa)
+   |   └── details/
+   |         └── model/
+   |              └── <execution-date-time>/
+   |                    └──details_<task_name>_#_<datetime>.parquet
+   └── tensorboard_results/
+       └── eval/
+           └── events.out.tfevents.[timestamp]
+   ```
+   + `results_[timestamp].json` - Output metrics JSON file
+   + `details_<task_name>_#_<datetime>.parquet` - Inference output file (except for `strong_reject`)
+   + `events.out.tfevents.[timestamp]` - TensorBoard output file
+   + `inference_output.jsonl` - Cleaned inference output file (only for `gen_qa` tasks)
 
-    * `results_[timestamp].json` - Output metrics JSON
-     file
-    * `details_<task_name>_#_<datetime>.parquet` -
-     Inference output file (except for `strong_reject`)
-    * `events.out.tfevents.[timestamp]` - TensorBoard output
-     file
-    * `inference_output.jsonl` - Cleaned inference output
-     file (only for `gen_qa` tasks)
+1. View results in TensorBoard. To visualize your evaluation metrics: 
 
-3. View results in TensorBoard. To visualize your evaluation metrics:
+   1. Upload the extracted folder to an S3 bucket
 
-    1. Upload the extracted folder to an S3 bucket
-    2. Navigate to SageMaker AI TensorBoard
-    3. Select your "S3 folders"
-    4. Add the S3 folder path
-    5. Wait for synchronization to complete
+   1. Navigate to SageMaker AI TensorBoard
 
-4. Analyze inference outputs. All evaluation tasks, except
-`llm_judge` and `strong_reject`, will have the
-following fields for analysis in the inference output.
+   1. Select your "S3 folders"
 
-    * `full_prompt` - The full user prompt sent to the model
-     used for the evaluation task.
-    * `gold` - The field that contains the correct answer(s)
-     as specified by the dataset.
-    * `metrics` - The field that contains the metrics
-     evaluated on the individual inference. Values that require
-     aggregation would not have a value on the individual inference
-     outputs.
-    * `predictions` - The field that contains a list of the
-     model’s output for the given prompt.
-    * `pred_logits` - The field that contains the considered
-     output tokens and log probabilities of each output token returned in
-     the message content.
+   1. Add the S3 folder path
 
-By looking at these fields, you can determine the cause for metric
-differences and understand the behavior of the customized models.
+   1. Wait for synchronization to complete
 
-For `llm_judge`, the inference output file contains the
-following fields under the metrics field per pair of evaluations.
+1. Analyze inference outputs. All evaluation tasks, except `llm_judge` and `strong_reject`, will have the following fields for analysis in the inference output.
+   + `full_prompt` - The full user prompt sent to the model used for the evaluation task.
+   + `gold` - The field that contains the correct answer(s) as specified by the dataset.
+   + `metrics` - The field that contains the metrics evaluated on the individual inference. Values that require aggregation would not have a value on the individual inference outputs.
+   + `predictions` - The field that contains a list of the model’s output for the given prompt.
+   + `pred_logits` - The field that contains the considered output tokens and log probabilities of each output token returned in the message content.
 
-    * `forward_output` - Judge's raw preferences when
-     evaluating in order (response\_A, response\_B).
-    * `backward_output` - Judge's raw preferences when
-     evaluating in reverse order (response\_B, response\_A).
-    * `Pairwise metrics` - Metrics that are calculated per
-     pair of forward and backward evaluation including
-     `a_scores`, `b_scores`, `ties`,
-     `inference-score` and `score`.
+   By looking at these fields, you can determine the cause for metric differences and understand the behavior of the customized models.
 
+   For `llm_judge`, the inference output file contains the following fields under the metrics field per pair of evaluations.
+   + `forward_output` - Judge's raw preferences when evaluating in order (response\_A, response\_B).
+   + `backward_output` - Judge's raw preferences when evaluating in reverse order (response\_B, response\_A).
+   + `Pairwise metrics` - Metrics that are calculated per pair of forward and backward evaluation including `a_scores`, `b_scores`, `ties`, `inference-score` and `score`.
+**Note**  
+Aggregate metrics like `winrate` are only available in the summary results files, not per individual judgement.
 
-    ###### Note
-
-    Aggregate metrics like `winrate` are only available
-     in the summary results files, not per individual
-     judgement.
-
-For `gen_qa`, the `inference_output.jsonl` file
-contains the following fields for each JSON object:
-
-    * prompt - The final prompt submitted to the model
-    * inference - The raw inference output from the model
-    * gold - The target response from the input dataset
-    * metadata - The metadata string from the input dataset if
-     provided
+   For `gen_qa`, the `inference_output.jsonl` file contains the following fields for each JSON object:
+   + prompt - The final prompt submitted to the model
+   + inference - The raw inference output from the model
+   + gold - The target response from the input dataset
+   + metadata - The metadata string from the input dataset if provided
 
 ## Evaluation best practices and troubleshooting
+<a name="nova-model-evaluation-best-practices"></a>
 
 ### Best practices
+<a name="nova-model-evaluation-best-practice"></a>
 
 The following lists some best practices for the evaluation process.
-
-- Keep your output paths organized by model and benchmark type.
-- Maintain consistent naming conventions for easy tracking.
-- Save extracted results in a secure location.
-- Monitor TensorBoard sync status for successful data loading.
++ Keep your output paths organized by model and benchmark type.
++ Maintain consistent naming conventions for easy tracking.
++ Save extracted results in a secure location.
++ Monitor TensorBoard sync status for successful data loading.
 
 ### Troubleshooting
+<a name="nova-model-evaluation-troubleshoot"></a>
 
-You can use CloudWatch log group `/aws/sagemaker/TrainingJobs` for
-training job error logs.
+You can use CloudWatch log group `/aws/sagemaker/TrainingJobs` for training job error logs.
 
 #### Engine core Failure
+<a name="nova-model-evaluation-troubleshoot-cuda"></a>
 
-**Issue**:
+**Issue**: 
 
-If you are seeing:
+If you are seeing: 
 
 ```
 RuntimeError: Engine core initialization failed.
 ```
 
-**Cause**:
+**Cause**: 
 
-Although this is a general error that can have multiple causes, it
-typically occurs when there is a mismatch between the model checkpoint
-you're trying to load and the model type specified. E.g. you want to
-evaluate a fine-tuned Nova 2.0 lite model checkpoint but the model type you
-provide is 1.0 model type. e.g. `amazon.nova-micro-v1:0:128k`
+Although this is a general error that can have multiple causes, it typically occurs when there is a mismatch between the model checkpoint you're trying to load and the model type specified. E.g. you want to evaluate a fine-tuned Nova 2.0 lite model checkpoint but the model type you provide is 1.0 model type. e.g. `amazon.nova-micro-v1:0:128k`
 
-The correct mapping should be
+The correct mapping should be 
 
 ```
 model_type: amazon.nova-2-lite-v1:0:256k
 model_name_or_path: nova-lite-2/prod # or s3://escrow_bucket/model_location
 ```
 
-**Prevention**:
+**Prevention**: 
 
 Double check the `model_name_or_path` is mapped to the right `model_type` before submitting the evaluation job.
 
 ## Available subtasks
+<a name="nova-model-evaluation-subtasks"></a>
 
-The following lists available subtasks for model evaluation across multiple
-domains including MMLU (Massive Multitask Language Understanding), BBH (Big Bench
-Hard), MATH, and MMMU (Massive Multi-discipline Multimodal Understanding). These subtasks allow you to assess your model's performance on
-specific capabilities and knowledge areas.
+The following lists available subtasks for model evaluation across multiple domains including MMLU (Massive Multitask Language Understanding), BBH (Big Bench Hard), MATH, and MMMU (Massive Multi-discipline Multimodal Understanding). These subtasks allow you to assess your model's performance on specific capabilities and knowledge areas.
 
 **MMLU**
 
@@ -1103,7 +862,6 @@ MATH_SUBTASKS = [
 **MMMU**
 
 ```
-
             MATH_SUBTASKS = [
     "Accounting",
     "Agriculture",
@@ -1135,13 +893,16 @@ MATH_SUBTASKS = [
     "Psychology",
     "Public_Health",
     "Sociology",
-
-
 ```
 
-Evaluate your customized Nova models using various evaluation methods and
-metrics.
+Evaluate your customized Nova models using various evaluation methods and metrics.
 
-###### In this section:
-
-- [Iterative training](smtj-iterative-training.md "smtj-iterative-training.md")
+**Topics**
++ [Prerequisites](#nova-model-evaluation-prerequisites)
++ [Available benchmark tasks](#nova-model-evaluation-benchmark)
++ [Evaluation specific configurations](#nova-model-evaluation-config)
++ [Running evaluation training jobs](#nova-model-evaluation-notebook)
++ [Assessing and analyzing evaluation results](#nova-model-evaluation-assess)
++ [Evaluation best practices and troubleshooting](#nova-model-evaluation-best-practices)
++ [Available subtasks](#nova-model-evaluation-subtasks)
++ [Iterative training](smtj-iterative-training.md)

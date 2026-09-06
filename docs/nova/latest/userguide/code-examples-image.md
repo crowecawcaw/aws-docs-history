@@ -1,18 +1,16 @@
+
+
 # Generate an image
+<a name="code-examples-image"></a>
 
 The following code examples show how to invoke Amazon Nova Canvas on Amazon Bedrock to generate an image.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples").
-
-Create an image with Amazon Nova Canvas.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples). 
+Create an image with Amazon Nova Canvas.  
 
 ```
 // Use the native inference API to create an image with Amazon Nova Canvas.
@@ -83,29 +81,17 @@ catch (AmazonBedrockRuntimeException e)
     Console.WriteLine($"ERROR: Can't invoke '{modelId}'. Reason: {e.Message}");
     throw;
 }
+```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/DotNetSDKV3/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ Java ]
 
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+Create an image with Amazon Nova Canvas.  
 
 ```
-
-- For API details, see
-  [InvokeModel](../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for .NET API Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-Create an image with Amazon Nova Canvas.
-
-```
-
 import org.json.JSONObject;
 import org.json.JSONPointer;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
@@ -199,29 +185,17 @@ public class InvokeModel {
         displayImage(imageData);
     }
 }
+```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ JavaScript ]
 
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples). 
+Create an image with Amazon Nova Canvas.  
 
 ```
-
-- For API details, see
-  [InvokeModel](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples").
-
-Create an image with Amazon Nova Canvas.
-
-```
-
 import {
   BedrockRuntimeClient,
   InvokeModelCommand,
@@ -309,25 +283,15 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       process.exitCode = 1;
     });
 }
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-Create an image with the Amazon Nova Canvas.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+Create an image with the Amazon Nova Canvas.  
 
 ```
 # Use the native inference API to create an image with Amazon Nova Canvas
@@ -390,26 +354,15 @@ with open(image_path, "wb") as file:
     file.write(image_data)
 
 print(f"The generated image has been saved to {image_path}")
-
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples").
-
-Create an image with Amazon Nova Canvas.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples). 
+Create an image with Amazon Nova Canvas.  
 
 ```
 // Use the native inference API to create an image with Amazon Nova Canvas
@@ -472,11 +425,7 @@ func generateImage(_ textPrompt: String) async throws {
     try data.write(to: fileURL)
     print("Image is saved at \(fileURL)")
 }
-
-
-
 ```
++  For API details, see [InvokeModel](https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/invokemodel(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [InvokeModel](<https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/invokemodel(input:)> "https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/invokemodel(input:)")
-  in _AWS SDK for Swift API reference_.
+------

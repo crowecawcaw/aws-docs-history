@@ -1,4 +1,7 @@
+
+
 # Storyboarding videos with Amazon Nova Reel
+<a name="video-generation-storyboard"></a>
 
 Amazon Nova Reel includes the ability to create videos in six second increments that are up to two minutes long. From the Amazon Bedrock playground, you can provide a single prompt that will generate a video of a specified length. However, if you want more control over subjects and direction of the video, you can use the storyboard.
 
@@ -6,12 +9,18 @@ The storyboard allows you provide multiple input images and prompts to better gu
 
 To create a video with the storyboard, complete the following steps:
 
-1. Open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/").
-2. From the left navigation pane, choose **Image / Video** under
-   **Playgrounds**.
-3. Choose **Select model** and select **Amazon** and **Amazon Nova Reel v1.1** as the provider and model. Choose **Apply**.
-4. In the left panel, move the slider so that the value of **Duration (seconds)** is greater than 6.
-5. Choose the storyboard icon ![Striped icon representing a list or menu with multiple items.](images/storyboardIcon.png) to enter the Storyboard.
-6. In the Storyboard, add or remove shots to reach the desired length of generated video.
-7. For each shot, you can add an image, text prompt, or both. You must add at least a text prompt to the first shot of the storyboard.
-8. After you have specified all of the shot information, choose **Run**. Video generation will run asynchronously until completion. When finished, you will be notified and the video will be saved in an Amazon S3 bucket.
+1. Open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/).
+
+1. From the left navigation pane, choose **Image / Video** under **Playgrounds**.
+
+1. Choose **Select model** and select **Amazon** and **Amazon Nova Reel v1.1** as the provider and model. Choose **Apply**.
+
+1. In the left panel, move the slider so that the value of **Duration (seconds)** is greater than 6.
+
+1. Choose the storyboard icon ![Striped icon representing a list or menu with multiple items.](http://docs.aws.amazon.com/nova/latest/userguide/images/storyboardIcon.png) to enter the Storyboard.
+
+1. In the Storyboard, add or remove shots to reach the desired length of generated video.
+
+1. For each shot, you can add an image, text prompt, or both. You must add at least a text prompt to the first shot of the storyboard.
+
+1. After you have specified all of the shot information, choose **Run**. Video generation will run asynchronously until completion. When finished, you will be notified and the video will be saved in an Amazon S3 bucket.

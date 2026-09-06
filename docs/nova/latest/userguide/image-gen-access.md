@@ -1,84 +1,67 @@
+
+
 # Image generation and editing
+<a name="image-gen-access"></a>
 
-Amazon Nova Canvas is available through the Bedrock [InvokeModel API](../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md "../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md") and supports the following inference parameters and model
-responses when carrying out model inference.
+Amazon Nova Canvas is available through the Bedrock [InvokeModel API](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and supports the following inference parameters and model responses when carrying out model inference.
 
-###### Topics
-
-- [Image generation request and response format](#image-gen-req-resp-format "#image-gen-req-resp-format")
-- [Input images for image generation](#image-gen-input-images "#image-gen-input-images")
-- [Masking images](#image-gen-masking "#image-gen-masking")
-- [Supported image resolutions](#image-gen-resolutions "#image-gen-resolutions")
+**Topics**
++ [Image generation request and response format](#image-gen-req-resp-format)
++ [Input images for image generation](#image-gen-input-images)
++ [Masking images](#image-gen-masking)
++ [Supported image resolutions](#image-gen-resolutions)
 
 ## Image generation request and response format
+<a name="image-gen-req-resp-format"></a>
 
-When you make an [InvokeModel](../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md "../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md")
-call using the Amazon Nova Canvas model, replace the `body` field of the
-request with the format that matches your use-case. All tasks share an
-`imageGenerationConfig` object, but each task has a parameters object
-specific to that task. The following use-cases are supported:
+When you make an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) call using the Amazon Nova Canvas model, replace the `body` field of the request with the format that matches your use-case. All tasks share an `imageGenerationConfig` object, but each task has a parameters object specific to that task. The following use-cases are supported: 
 
-| Task Type Value                      | Task Parameter Field          | Task Category | Description                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------------ | ----------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TEXT_IMAGE` with text only          | `textToImageParams`           | Generation    | Generate an image using a text prompt.                                                                                                                                                                                                                                                                                                          |
-| `TEXT_IMAGE` with image conditioning | `textToImageParams`           | Generation    | Provide an input *conditioning<br>• image along with a text<br>prompt to generate an image that follows the layout and composition of the<br>conditioning image.                                                                                                                                                                                |
-| `COLOR_GUIDED_GENERATION`            | `colorGuidedGenerationParams` | Generation    | Provide a list of color values in hexadecimal format (e.g. #FF9800) along<br>with a text prompt and optional reference image to generate an image that<br>follows the specified color palette.                                                                                                                                                  |
-| `IMAGE_VARIATION`                    | `imageVariationParams`        | Generation    | Provide one or more input images—with or without a text prompt—to influence<br>the generated image. Can be used to influence the visual style of the<br>generated image (when used with a text prompt), to generate variations of a<br>single image (when used without a text prompt), and for other creative<br>effects and control.           |
-| `INPAINTING`                         | `inPaintingParams`            | Editing       | Modify an image by changing the area inside of a _masked_<br>region. Can be used to add, remove, or replace elements of an image.                                                                                                                                                                                                               |
-| `OUTPAINTING`                        | `outPaintingParams`           | Editing       | Modify an image by changing the area outside of a<br>*masked<br>• region. Can be used to replace the<br>background behind a subject.                                                                                                                                                                                                            |
-| `BACKGROUND_REMOVAL`                 | `backgroundRemovalParams`     | Editing       | Automatically remove the background of any image, replacing the background<br>with transparent pixels. Can be useful when you want to later composite the<br>image with other elements in an image editing app, presentation, or website.<br>The background can easily be changed to a solid color through custom code as<br>well.              |
-| `VIRTUAL_TRY_ON`                     | `virtualTryOnParams`          | Editing       | Provide a source image and a reference image, superimposing an object in the reference image onto the source image. Can be used to visualize clothing and accessories on different models or in different poses, alter the style and appearance of an object or article or clothing, or transfer styles and designs from one object to another. |
+
+| Task Type Value | Task Parameter Field | Task Category | Description | 
+| --- | --- | --- | --- | 
+| TEXT\_IMAGE with text only | textToImageParams | Generation | Generate an image using a text prompt. | 
+| TEXT\_IMAGE with image conditioning | textToImageParams | Generation | Provide an input conditioning image along with a text prompt to generate an image that follows the layout and composition of the conditioning image. | 
+| COLOR\_GUIDED\_GENERATION | colorGuidedGenerationParams | Generation | Provide a list of color values in hexadecimal format (e.g. \#FF9800) along with a text prompt and optional reference image to generate an image that follows the specified color palette. | 
+| IMAGE\_VARIATION | imageVariationParams | Generation | Provide one or more input images—with or without a text prompt—to influence the generated image. Can be used to influence the visual style of the generated image (when used with a text prompt), to generate variations of a single image (when used without a text prompt), and for other creative effects and control. | 
+| INPAINTING | inPaintingParams | Editing | Modify an image by changing the area inside of a masked region. Can be used to add, remove, or replace elements of an image. | 
+| OUTPAINTING | outPaintingParams | Editing | Modify an image by changing the area outside of a masked region. Can be used to replace the background behind a subject. | 
+| BACKGROUND\_REMOVAL | backgroundRemovalParams | Editing | Automatically remove the background of any image, replacing the background with transparent pixels. Can be useful when you want to later composite the image with other elements in an image editing app, presentation, or website. The background can easily be changed to a solid color through custom code as well. | 
+| VIRTUAL\_TRY\_ON | virtualTryOnParams | Editing | Provide a source image and a reference image, superimposing an object in the reference image onto the source image. Can be used to visualize clothing and accessories on different models or in different poses, alter the style and appearance of an object or article or clothing, or transfer styles and designs from one object to another.  | 
 
 ## Input images for image generation
+<a name="image-gen-input-images"></a>
 
-Many task types require one or more input images to be included in the request. Any
-image used in the request must be encoded as a Base64 string. Generally, images can be
-in PNG or JPEG format and must be 8 bits per color channel (RGB). PNG images may contain
-an additional alpha channel, but that channel must not contain any transparent or
-translucent pixels. For specific details on supported input image dimensions, see [Supported image resolutions](#image-gen-resolutions "#image-gen-resolutions").
+Many task types require one or more input images to be included in the request. Any image used in the request must be encoded as a Base64 string. Generally, images can be in PNG or JPEG format and must be 8 bits per color channel (RGB). PNG images may contain an additional alpha channel, but that channel must not contain any transparent or translucent pixels. For specific details on supported input image dimensions, see [Supported image resolutions](#image-gen-resolutions).
 
-A _mask image_ is an image that indicates the area to be inpainted or outpainted. This image can contain only pure black and pure white pixels.
+A *mask image* is an image that indicates the area to be inpainted or outpainted. This image can contain only pure black and pure white pixels.
 
-For inpainting requests, the area that is colored black is called _the
-mask_ and will be changed. The rest of the mask image must contain only
-pure white pixels. Pure white pixels indicate the area outside the mask.
+For inpainting requests, the area that is colored black is called *the mask* and will be changed. The rest of the mask image must contain only pure white pixels. Pure white pixels indicate the area outside the mask.
 
 For outpainting requests, the area that is colored white will be changed by the model.
 
-Mask images must not contain any pixels that are not pure black or pure white. If you are using a JPEG image as a mask, it must be compressed at 100% quality to avoid introducing non-white or
-non-black pixels during compression.
+Mask images must not contain any pixels that are not pure black or pure white. If you are using a JPEG image as a mask, it must be compressed at 100% quality to avoid introducing non-white or non-black pixels during compression.
 
-For examples of how to encode or decode an image to or from a Base64 string, see [the code
-examples](image-gen-code-examples.md "image-gen-code-examples.md").
+For examples of how to encode or decode an image to or from a Base64 string, see [the code examples](https://docs.aws.amazon.com/nova/latest/userguide/image-gen-code-examples.html).
 
 ## Masking images
+<a name="image-gen-masking"></a>
 
-When you're editing an image, a mask is a way of defining the regions to edit. You can
-define a mask in one of three ways:
+When you're editing an image, a mask is a way of defining the regions to edit. You can define a mask in one of three ways:
++ `maskPrompt` – Write a natural language text prompt describing the part(s) of the image to be masked.
++ `maskImage` – A black and white image where pure black pixels indicate the area inside the mask and pure white pixels indicate the area outside the mask.
 
-- `maskPrompt` – Write a natural language text prompt describing the
-  part(s) of the image to be masked.
-- `maskImage` – A black and white image where pure black pixels
-  indicate the area inside the mask and pure white pixels indicate the area
-  outside the mask.
+  For inpainting request, the black pixels will be changed by the model. For outpainting requests, the while pixels will be altered.
++ `garmentBasedMask` – An image-based mask that defines a region to be replaced along with some limited styling options.
 
-For inpainting request, the black pixels will be changed by the model. For outpainting requests, the while pixels will be altered.
-
-- `garmentBasedMask` – An image-based mask that defines a region to be replaced along with some limited styling options.
-
-You can use a photo editing tool to draw masks or create them with your own custom
-code. Otherwise, use the maskPrompt field to allow the model to infer the mask.
+You can use a photo editing tool to draw masks or create them with your own custom code. Otherwise, use the maskPrompt field to allow the model to infer the mask.
 
 ## Supported image resolutions
+<a name="image-gen-resolutions"></a>
 
-You may specify any output resolution for a generation task as long as it adheres to
-the following requirements:
+You may specify any output resolution for a generation task as long as it adheres to the following requirements:
++ Each side must be between 320-4096 pixels, inclusive.
++ Each side must be evenly divisible by 16.
++ The aspect ratio must be between 1:4 and 4:1. That is, one side can't be more than 4 times longer than the other side.
++ The total pixel count must be less than 4,194,304.
 
-- Each side must be between 320-4096 pixels, inclusive.
-- Each side must be evenly divisible by 16.
-- The aspect ratio must be between 1:4 and 4:1. That is, one side can't be more
-  than 4 times longer than the other side.
-- The total pixel count must be less than 4,194,304.
-
-Most of these same constraints apply to input images, as well. However, the sides of
-the images do not need to be evenly divisible by 16.
+Most of these same constraints apply to input images, as well. However, the sides of the images do not need to be evenly divisible by 16.

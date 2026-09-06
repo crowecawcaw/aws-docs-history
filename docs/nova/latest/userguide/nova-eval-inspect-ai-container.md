@@ -1,52 +1,62 @@
+
+
 # Evaluate with Inspect AI Container
+<a name="nova-eval-inspect-ai-container"></a>
 
-The SageMaker Inspect AI container runs LLM model evaluations on SageMaker Training Jobs. The container uses [Inspect AI](https://inspect.ai-safety-institute.org.uk/ "https://inspect.ai-safety-institute.org.uk/") to provide a standardized evaluation process for models deployed to SageMaker inference endpoints or Amazon Bedrock — including Amazon Nova 1.0 (Micro, Lite, Pro) and 2.0 (Lite 2) models.
+The SageMaker Inspect AI container runs LLM model evaluations on SageMaker Training Jobs. The container uses [Inspect AI](https://inspect.ai-safety-institute.org.uk/) to provide a standardized evaluation process for models deployed to SageMaker inference endpoints or Amazon Bedrock — including Amazon Nova 1.0 (Micro, Lite, Pro) and 2.0 (Lite 2) models.
 
-Previous [evaluation approaches](../nova2-userguide/nova-model-evaluation.md "../nova2-userguide/nova-model-evaluation.md") (based on [lighteval](https://github.com/huggingface/lighteval "https://github.com/huggingface/lighteval")) tightly coupled offline inference and evaluation logic, which limited flexibility in how models could be served and tested. The Inspect AI container decouples evaluation logic from inference entirely.
+Previous [evaluation approaches](https://docs.aws.amazon.com/nova/latest/nova2-userguide/nova-model-evaluation.html) (based on [lighteval](https://github.com/huggingface/lighteval)) tightly coupled offline inference and evaluation logic, which limited flexibility in how models could be served and tested. The Inspect AI container decouples evaluation logic from inference entirely.
 
 ## Overview
+<a name="nova-eval-container-overview"></a>
 
 Key benefits include:
-
-- **Bring your own benchmarks** — write evaluation tasks in the Inspect AI format, then plug in domain-specific evaluation tasks without depending on a centralized team to onboard them.
-- **Evaluate with different inference options** — works with SageMaker Inference (existing endpoint or create on-the-fly), Amazon Bedrock, and more inference backends incoming.
-- **Iterate faster** — go from benchmark development to production evaluation without infrastructure changes. New benchmark onboarding that previously took days happens in minutes.
-- **Run at scale** — chain multiple benchmarks in one job, mix standard benchmarks from the inspect-evals library with your own custom tasks in the same job.
-- **One entry point for all training techniques** — whether your model was fine-tuned with SFT (SMTJ, SMHP), CPT (SMHP), or RFT (SMTJ, SMHP), the container evaluates it through the same interface. Evaluating mid-training checkpoints saved at specific steps is also supported (for example, step 500, step 1000) by pointing `model_s3_uri` at the checkpoint path.
++ **Bring your own benchmarks** — write evaluation tasks in the Inspect AI format, then plug in domain-specific evaluation tasks without depending on a centralized team to onboard them.
++ **Evaluate with different inference options** — works with SageMaker Inference (existing endpoint or create on-the-fly), Amazon Bedrock, and more inference backends incoming.
++ **Iterate faster** — go from benchmark development to production evaluation without infrastructure changes. New benchmark onboarding that previously took days happens in minutes.
++ **Run at scale** — chain multiple benchmarks in one job, mix standard benchmarks from the inspect-evals library with your own custom tasks in the same job.
++ **One entry point for all training techniques** — whether your model was fine-tuned with SFT (SMTJ, SMHP), CPT (SMHP), or RFT (SMTJ, SMHP), the container evaluates it through the same interface. Evaluating mid-training checkpoints saved at specific steps is also supported (for example, step 500, step 1000) by pointing `model_s3_uri` at the checkpoint path.
 
 ### How it works
+<a name="nova-eval-container-how-it-works"></a>
 
 You provide two inputs to the container:
 
 1. A YAML configuration file (recipe) that defines the inference provider, benchmarks, and evaluation parameters
-2. Benchmark files (Python scripts with the `@task` decorator) uploaded to Amazon S3
+
+1. Benchmark files (Python scripts with the `@task` decorator) uploaded to Amazon S3
 
 The container handles endpoint management, evaluation execution, and result collection. When the training job completes, results are written to your specified S3 output location.
 
 ## Container image
+<a name="nova-eval-container-images"></a>
 
 The following table lists the Inspect AI container image URIs by AWS Region.
 
-| Region    | Container image URI                                                        |
-| --------- | -------------------------------------------------------------------------- |
-| us-east-1 | `763104351884.dkr.ecr.us-east-1.amazonaws.com/sagemaker-inspect-ai:latest` |
-| us-west-2 | `763104351884.dkr.ecr.us-west-2.amazonaws.com/sagemaker-inspect-ai:latest` |
-| eu-west-2 | `763104351884.dkr.ecr.eu-west-2.amazonaws.com/sagemaker-inspect-ai:latest` |
+
+| Region | Container image URI | 
+| --- | --- | 
+| us-east-1 | 763104351884.dkr.ecr.us-east-1.amazonaws.com/sagemaker-inspect-ai:latest | 
+| us-west-2 | 763104351884.dkr.ecr.us-west-2.amazonaws.com/sagemaker-inspect-ai:latest | 
+| eu-west-2 | 763104351884.dkr.ecr.eu-west-2.amazonaws.com/sagemaker-inspect-ai:latest | 
 
 ## Prerequisites
+<a name="nova-eval-container-prerequisites"></a>
 
 Before you begin, ensure you have the following resources and access.
 
-| Requirement                                           | Description                                                                                                                                                   |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS account with SageMaker access                     | An active AWS account with permissions to create SageMaker Training Jobs                                                                                      |
-| S3 bucket                                             | A bucket to store your evaluation recipes, benchmark files, and output results                                                                                |
-| IAM execution role                                    | A role that SageMaker can assume to access your resources                                                                                                     |
-| SageMaker inference endpoint or Amazon Bedrock access | A deployed model endpoint or Amazon Bedrock model access for the model you want to evaluate                                                                   |
-| AWS CLI or SageMaker Python SDK                       | Tools to submit training jobs and manage resources                                                                                                            |
-| Capacity reservation (large models)                   | For models that require accelerated instances (such as p5 for Nova Lite 2), contact AWS Support to reserve capacity for SageMaker Inference or Amazon Bedrock |
+
+| Requirement | Description | 
+| --- | --- | 
+| AWS account with SageMaker access | An active AWS account with permissions to create SageMaker Training Jobs | 
+| S3 bucket | A bucket to store your evaluation recipes, benchmark files, and output results | 
+| IAM execution role | A role that SageMaker can assume to access your resources | 
+| SageMaker inference endpoint or Amazon Bedrock access | A deployed model endpoint or Amazon Bedrock model access for the model you want to evaluate | 
+| AWS CLI or SageMaker Python SDK | Tools to submit training jobs and manage resources | 
+| Capacity reservation (large models) | For models that require accelerated instances (such as p5 for Nova Lite 2), contact AWS Support to reserve capacity for SageMaker Inference or Amazon Bedrock | 
 
 ## Step 1: Set up IAM permissions
+<a name="nova-eval-container-step1"></a>
 
 The SageMaker Training Job runs under an execution role that you provide. This role needs permissions to read benchmarks from S3, write results, invoke the inference endpoint, and write CloudWatch logs.
 
@@ -56,7 +66,7 @@ Save the following as `trust_policy.json`:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -81,13 +91,12 @@ aws iam create-role \
 
 Save the following as `eval_policy.json`, replacing all placeholder values (`REGION`, `ACCOUNT_ID`, bucket names) with your values:
 
-###### Scope down to resources in use
-
+**Scope down to resources in use**  
 Scope down each resource ARN to only the resources you need. The policy below provides a starting template — restrict bucket names, endpoint ARNs, and other resources to match your environment.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "S3ReadBenchmarkData",
@@ -277,16 +286,17 @@ aws iam put-role-policy \
 ```
 
 ## Step 2: Write your eval recipe
+<a name="nova-eval-container-step2"></a>
 
 The eval recipe is a YAML configuration file that defines how the container runs your evaluations. The recipe specifies the inference provider, benchmarks, evaluation parameters, and output settings.
 
-For end-to-end examples, see the following notebooks in the [Amazon Nova Samples](https://github.com/aws-samples/amazon-nova-samples "https://github.com/aws-samples/amazon-nova-samples") repository on GitHub:
-
-- [Evaluate an existing SageMaker endpoint](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_sagemaker_endpoint.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_sagemaker_endpoint.ipynb")
-- [Evaluate with a managed endpoint](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_managed_endpoint.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_managed_endpoint.ipynb")
-- [Evaluate a Amazon Bedrock model](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_bedrock_model.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_bedrock_model.ipynb")
+For end-to-end examples, see the following notebooks in the [Amazon Nova Samples](https://github.com/aws-samples/amazon-nova-samples) repository on GitHub:
++ [Evaluate an existing SageMaker endpoint](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_sagemaker_endpoint.ipynb)
++ [Evaluate with a managed endpoint](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_managed_endpoint.ipynb)
++ [Evaluate a Amazon Bedrock model](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_bedrock_model.ipynb)
 
 ### Option A: Evaluate an existing SageMaker endpoint
+<a name="nova-eval-container-option-a"></a>
 
 Use this option when you have a model already deployed on a SageMaker inference endpoint.
 
@@ -311,8 +321,9 @@ output:
 ```
 
 ### Option B: Create endpoint, evaluate, then clean up
+<a name="nova-eval-container-option-b"></a>
 
-Use this option to have the container deploy a Amazon Nova base or fine-tuned model, run evaluations, and tear down the endpoint automatically. This is the recommended approach for one-off evaluation runs. Retrieve the latest SageMaker inference container from the [Amazon Nova SageMaker Inference container images](nova-model-sagemaker-inference.md#nova-sagemaker-inference-container-images "nova-model-sagemaker-inference.md#nova-sagemaker-inference-container-images") documentation.
+Use this option to have the container deploy a Amazon Nova base or fine-tuned model, run evaluations, and tear down the endpoint automatically. This is the recommended approach for one-off evaluation runs. Retrieve the latest SageMaker inference container from the [Amazon Nova SageMaker Inference container images](https://docs.aws.amazon.com/nova/latest/userguide/nova-model-sagemaker-inference.html#nova-sagemaker-inference-container-images) documentation.
 
 ```
 inference_provider:
@@ -357,14 +368,12 @@ output:
   s3_path: "s3://your-bucket/eval-results/"
 ```
 
-###### Note on model\_s3\_uri
+**Note on `model_s3_uri`**  
+**Amazon Nova GA models (base checkpoints)**: For example, `s3://escrow-nova-model-708977205387-us-east-1/nova-lite-2/prod/` — SageMaker manages access automatically, no additional S3 permissions needed.
+**Customized Amazon Nova models (post-training checkpoints)**: `s3://customer-escrow-ACCOUNT_ID-SUFFIX/YOUR_RUN_NAME/outputs/checkpoints/step_N/` — this is the escrow bucket path from your training job output.
 
-- **Amazon Nova GA models (base checkpoints)**: For example, `s3://escrow-nova-model-708977205387-us-east-1/nova-lite-2/prod/` — SageMaker manages access automatically, no additional S3 permissions needed.
-- **Customized Amazon Nova models (post-training checkpoints)**: `s3://customer-escrow-ACCOUNT_ID-SUFFIX/YOUR_RUN_NAME/outputs/checkpoints/step_N/` — this is the escrow bucket path from your training job output.
-
-###### Managed endpoint resources
-
-Grant the following optional permission to your execution role so the container can tag managed inference resources with the originating training job name and ARN. Tagged resources include the endpoint, endpoint configuration, and model. This helps identify resources if cleanup is interrupted. The container only applies tags when running as a SageMaker Training Job.
+**Managed endpoint resources**  
+Grant the following optional permission to your execution role so the container can tag managed inference resources with the originating training job name and ARN. Tagged resources include the endpoint, endpoint configuration, and model. This helps identify resources if cleanup is interrupted. The container only applies tags when running as a SageMaker Training Job.  
 
 ```
 {
@@ -378,19 +387,19 @@ Grant the following optional permission to your execution role so the container 
   ]
 }
 ```
+The container applies the following tags to managed resources:  
 
-The container applies the following tags to managed resources:
 
-| Tag key                                | Example value                                                                       |
-| -------------------------------------- | ----------------------------------------------------------------------------------- |
-| `sagemaker-inspect-ai:TrainingJobName` | `my-eval-job-20260828-145940`                                                       |
-| `sagemaker-inspect-ai:TrainingJobArn`  | `arn:aws:sagemaker:us-east-1:123456789012:training-job/my-eval-job-20260828-145940` |
-
-External sources can interrupt resource management during runtime. For information about handling leftover resources, see [Troubleshooting](#nova-eval-container-troubleshooting "#nova-eval-container-troubleshooting").
+| Tag key | Example value | 
+| --- | --- | 
+| sagemaker-inspect-ai:TrainingJobName | my-eval-job-20260828-145940 | 
+| sagemaker-inspect-ai:TrainingJobArn | arn:aws:sagemaker:us-east-1:123456789012:training-job/my-eval-job-20260828-145940 | 
+External sources can interrupt resource management during runtime. For information about handling leftover resources, see [Troubleshooting](#nova-eval-container-troubleshooting).
 
 ### Option C: Evaluate through Amazon Bedrock Runtime
+<a name="nova-eval-container-option-c"></a>
 
-Use this option to evaluate a model available through Amazon Bedrock Runtime without managing an endpoint. For more information about Amazon Bedrock endpoint options, see [Amazon Bedrock endpoints](../../../bedrock/latest/userguide/endpoints.md "../../../bedrock/latest/userguide/endpoints.md").
+Use this option to evaluate a model available through Amazon Bedrock Runtime without managing an endpoint. For more information about Amazon Bedrock endpoint options, see [Amazon Bedrock endpoints](https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html).
 
 ```
 inference_provider:
@@ -423,8 +432,9 @@ output:
 ```
 
 ### Option D: Evaluate through Amazon Bedrock Mantle
+<a name="nova-eval-container-option-d"></a>
 
-[Amazon Bedrock Mantle](../../../bedrock/latest/userguide/inference-chat-completions-mantle.md "../../../bedrock/latest/userguide/inference-chat-completions-mantle.md") provides an OpenAI-compatible inference endpoint for models available through Amazon Bedrock. This option does not require a stored credential. The container generates a short-lived bearer token from your execution role's IAM credentials and automatically refreshes it between benchmarks.
+[Amazon Bedrock Mantle](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions-mantle.html) provides an OpenAI-compatible inference endpoint for models available through Amazon Bedrock. This option does not require a stored credential. The container generates a short-lived bearer token from your execution role's IAM credentials and automatically refreshes it between benchmarks.
 
 ```
 inference_provider:
@@ -447,7 +457,7 @@ output:
   s3_path: s3://your-bucket/eval/output/
 ```
 
-Add the following permission to your execution role (see [Step 1: Set up IAM permissions](#nova-eval-container-step1 "#nova-eval-container-step1")):
+Add the following permission to your execution role (see [Step 1: Set up IAM permissions](#nova-eval-container-step1)):
 
 ```
 {
@@ -461,23 +471,23 @@ Add the following permission to your execution role (see [Step 1: Set up IAM per
 }
 ```
 
-For permissions guidance, see [Amazon Bedrock inference permissions](../../../bedrock/latest/userguide/inference.md "../../../bedrock/latest/userguide/inference.md") and [API key permissions control](../../../bedrock/latest/userguide/api-keys-permissions.md "../../../bedrock/latest/userguide/api-keys-permissions.md") in the Amazon Bedrock documentation.
+For permissions guidance, see [Amazon Bedrock inference permissions](https://docs.aws.amazon.com/bedrock/latest/userguide/inference.html) and [API key permissions control](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys-permissions.html) in the Amazon Bedrock documentation.
 
 ### Option E: Evaluate an OpenAI-compatible endpoint
+<a name="nova-eval-container-option-e"></a>
 
-Use this option to evaluate through any OpenAI-compatible API endpoint — including [SageMaker Inference](https://aws.amazon.com/blogs/machine-learning/announcing-openai-compatible-api-support-for-amazon-sagemaker-ai-endpoints/ "https://aws.amazon.com/blogs/machine-learning/announcing-openai-compatible-api-support-for-amazon-sagemaker-ai-endpoints/") (AWS blog) or other OpenAI-compatible providers. This option uses the Inspect AI [OpenAI-compatible API provider](https://inspect.aisi.org.uk/providers.html#openai-api "https://inspect.aisi.org.uk/providers.html#openai-api") on the Inspect AI website, which sends the configured credential as a bearer token in the `Authorization` header with each inference request. Bearer tokens are not logged by default.
+Use this option to evaluate through any OpenAI-compatible API endpoint — including [SageMaker Inference](https://aws.amazon.com/blogs/machine-learning/announcing-openai-compatible-api-support-for-amazon-sagemaker-ai-endpoints/) (AWS blog) or other OpenAI-compatible providers. This option uses the Inspect AI [OpenAI-compatible API provider](https://inspect.aisi.org.uk/providers.html#openai-api) on the Inspect AI website, which sends the configured credential as a bearer token in the `Authorization` header with each inference request. Bearer tokens are not logged by default.
 
-###### Token provider guidance
-
+**Token provider guidance**  
 Always check your token provider's documentation for its recommended key management practices, rotation policies, and security guidance before configuring credential delivery.
 
-###### HTTPS requirement
-
+**HTTPS requirement**  
 HTTPS is required for all endpoints that use bearer token authentication. HTTP is allowed only for localhost addresses.
 
 #### Using AWS Secrets Manager (recommended)
+<a name="nova-eval-container-option-e-secrets"></a>
 
-[AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") provides encrypted storage, access auditing through CloudTrail, and automatic rotation for API keys and other secrets. Store the API key in Secrets Manager and reference it by ARN in the recipe. The container fetches the key at runtime and auto-refreshes between benchmarks.
+[AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) provides encrypted storage, access auditing through CloudTrail, and automatic rotation for API keys and other secrets. Store the API key in Secrets Manager and reference it by ARN in the recipe. The container fetches the key at runtime and auto-refreshes between benchmarks.
 
 ```
 inference_provider:
@@ -502,7 +512,7 @@ output:
   s3_path: s3://your-bucket/eval/output/
 ```
 
-Add the following permission to your execution role (see [Step 1: Set up IAM permissions](#nova-eval-container-step1 "#nova-eval-container-step1")):
+Add the following permission to your execution role (see [Step 1: Set up IAM permissions](#nova-eval-container-step1)):
 
 ```
 {
@@ -514,8 +524,9 @@ Add the following permission to your execution role (see [Step 1: Set up IAM per
 ```
 
 #### Using environment variables
+<a name="nova-eval-container-option-e-env"></a>
 
-The API key can be passed through the environment variable `INFERENCE_API_KEY`. Check with your runtime environment documentation for how environment variables are passed and the security implications. For SageMaker Training Jobs, environment variables are visible in [DescribeTrainingJob](../../../sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.md "../../../sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.md") API responses and limited to 512 characters. For more information, see [SageMaker Training Job environment variables](../../../sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.md#automatic-model-tuning-define-variables "../../../sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.md#automatic-model-tuning-define-variables").
+The API key can be passed through the environment variable `INFERENCE_API_KEY`. Check with your runtime environment documentation for how environment variables are passed and the security implications. For SageMaker Training Jobs, environment variables are visible in [DescribeTrainingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html) API responses and limited to 512 characters. For more information, see [SageMaker Training Job environment variables](https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html#automatic-model-tuning-define-variables).
 
 ```
 inference_provider:
@@ -551,55 +562,60 @@ aws sagemaker create-training-job \
 
 The `benchmarks` section defines which evaluation tasks to run. You can chain multiple benchmarks in a single job.
 
-| Field       | Required | Default            | Description                                                                |
-| ----------- | -------- | ------------------ | -------------------------------------------------------------------------- |
-| `name`      | Yes      | —                  | A descriptive name for the benchmark run                                   |
-| `path`      | Yes      | —                  | Relative path to the benchmark Python file in your S3 benchmarks directory |
-| `limit`     | No       | None (all samples) | Maximum number of samples to evaluate. Use for testing before full runs.   |
-| `epochs`    | No       | 1                  | Number of times to repeat the evaluation for statistical significance      |
-| `task_args` | No       | —                  | Key-value pairs passed as arguments to the benchmark task function         |
+
+| Field | Required | Default | Description | 
+| --- | --- | --- | --- | 
+| name | Yes | — | A descriptive name for the benchmark run | 
+| path | Yes | — | Relative path to the benchmark Python file in your S3 benchmarks directory | 
+| limit | No | None (all samples) | Maximum number of samples to evaluate. Use for testing before full runs. | 
+| epochs | No | 1 | Number of times to repeat the evaluation for statistical significance | 
+| task\_args | No | — | Key-value pairs passed as arguments to the benchmark task function | 
 
 **Eval configuration**
 
 The `eval` section controls how the container executes evaluations.
 
-| Parameter         | Required | Default | Description                                                                   |
-| ----------------- | -------- | ------- | ----------------------------------------------------------------------------- |
-| `fail_on_error`   | No       | false   | Stop the evaluation if any sample fails. Set to `true` for strict validation. |
-| `max_connections` | No       | 10      | Number of parallel requests to the inference endpoint                         |
-| `max_retries`     | No       | 3       | Number of retry attempts for failed inference requests                        |
-| `timeout`         | No       | 600     | Request timeout in seconds for each inference call                            |
-| `extra_args`      | No       | —       | Additional key-value pairs passed directly to the Inspect AI eval command     |
+
+| Parameter | Required | Default | Description | 
+| --- | --- | --- | --- | 
+| fail\_on\_error | No | false | Stop the evaluation if any sample fails. Set to true for strict validation. | 
+| max\_connections | No | 10 | Number of parallel requests to the inference endpoint | 
+| max\_retries | No | 3 | Number of retry attempts for failed inference requests | 
+| timeout | No | 600 | Request timeout in seconds for each inference call | 
+| extra\_args | No | — | Additional key-value pairs passed directly to the Inspect AI eval command | 
 
 **Decoding parameters**
 
 Configure model decoding parameters within the `eval.decoding` section:
 
-| Parameter          | Required | Default | Description                                                                                                                                                 |
-| ------------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `temperature`      | No       | 0.0     | Controls randomness in generation. Use `0.0` for deterministic, reproducible benchmark results.                                                             |
-| `top_p`            | No       | 1.0     | Nucleus sampling threshold. `1.0` means no restriction.                                                                                                     |
-| `top_k`            | No       | -1      | Limits word choices to the top K most likely tokens. `-1` disables this filter.                                                                             |
-| `max_tokens`       | No       | 8192    | Maximum number of tokens to generate per response. Increase for benchmarks requiring long reasoning chains.                                                 |
-| `reasoning_effort` | No       | null    | Controls reasoning depth for models that support it (for example, Amazon Nova models with extended thinking). Options: `low`, `high`, or `null` to disable. |
+
+| Parameter | Required | Default | Description | 
+| --- | --- | --- | --- | 
+| temperature | No | 0.0 | Controls randomness in generation. Use 0.0 for deterministic, reproducible benchmark results. | 
+| top\_p | No | 1.0 | Nucleus sampling threshold. 1.0 means no restriction. | 
+| top\_k | No | -1 | Limits word choices to the top K most likely tokens. -1 disables this filter. | 
+| max\_tokens | No | 8192 | Maximum number of tokens to generate per response. Increase for benchmarks requiring long reasoning chains. | 
+| reasoning\_effort | No | null | Controls reasoning depth for models that support it (for example, Amazon Nova models with extended thinking). Options: low, high, or null to disable. | 
 
 **Output configuration**
 
 The `output` section defines where and how evaluation results are stored.
 
-| Field           | Required | Default | Description                                                   |
-| --------------- | -------- | ------- | ------------------------------------------------------------- |
-| `s3_path`       | Yes      | —       | S3 URI where evaluation results are written                   |
-| `output_format` | No       | eval    | Format for result files. See the following table for options. |
+
+| Field | Required | Default | Description | 
+| --- | --- | --- | --- | 
+| s3\_path | Yes | — | S3 URI where evaluation results are written | 
+| output\_format | No | eval | Format for result files. See the following table for options. | 
 
 The following output formats are available:
 
-| Format  | Description                                                                        |
-| ------- | ---------------------------------------------------------------------------------- |
-| `eval`  | Native Inspect AI format. Compatible with `inspect view` for interactive analysis. |
-| `csv`   | Comma-separated values. Suitable for spreadsheet analysis and data pipelines.      |
-| `jsonl` | JSON Lines format. One JSON object per line for streaming processing.              |
-| `json`  | Standard JSON format. Complete results in a single structured file.                |
+
+| Format | Description | 
+| --- | --- | 
+| eval | Native Inspect AI format. Compatible with inspect view for interactive analysis. | 
+| csv | Comma-separated values. Suitable for spreadsheet analysis and data pipelines. | 
+| jsonl | JSON Lines format. One JSON object per line for streaming processing. | 
+| json | Standard JSON format. Complete results in a single structured file. | 
 
 **MLflow configuration**
 
@@ -613,12 +629,13 @@ tracking:
   mlflow_log_artifacts: true       # upload .eval files to MLflow
 ```
 
-| Field                    | Required | Default     | Description                                                                                                          |
-| ------------------------ | -------- | ----------- | -------------------------------------------------------------------------------------------------------------------- |
-| `mlflow_tracking_arn`    | No       | null        | ARN of your SageMaker MLflow tracking server. Setting this enables MLflow logging. Omit or set to `null` to disable. |
-| `mlflow_experiment_name` | No       | inspectlens | Name of the MLflow experiment to log runs under.                                                                     |
-| `mlflow_tracing`         | No       | true        | When `true`, logs full request/response traces for each sample.                                                      |
-| `mlflow_log_artifacts`   | No       | true        | When `true`, uploads `.eval` log files as MLflow artifacts.                                                          |
+
+| Field | Required | Default | Description | 
+| --- | --- | --- | --- | 
+| mlflow\_tracking\_arn | No | null | ARN of your SageMaker MLflow tracking server. Setting this enables MLflow logging. Omit or set to null to disable. | 
+| mlflow\_experiment\_name | No | inspectlens | Name of the MLflow experiment to log runs under. | 
+| mlflow\_tracing | No | true | When true, logs full request/response traces for each sample. | 
+| mlflow\_log\_artifacts | No | true | When true, uploads .eval log files as MLflow artifacts. | 
 
 **Full recipe reference**
 
@@ -672,8 +689,9 @@ tracking:
 ```
 
 ## Step 3: Prepare benchmark files
+<a name="nova-eval-container-step3"></a>
 
-Benchmarks are Python files that use the Inspect AI `@task` decorator to define evaluation tasks. The [inspect-evals repository](https://github.com/UKGovernmentBEIS/inspect_evals "https://github.com/UKGovernmentBEIS/inspect_evals") provides 128+ ready-to-use benchmarks, or you can write your own.
+Benchmarks are Python files that use the Inspect AI `@task` decorator to define evaluation tasks. The [inspect-evals repository](https://github.com/UKGovernmentBEIS/inspect_evals) provides 128\+ ready-to-use benchmarks, or you can write your own.
 
 **Example benchmark**
 
@@ -717,28 +735,31 @@ dependencies = [
 
 The container includes the following packages. You do not need to list these in your `pyproject.toml`.
 
-| Package    | Version |
-| ---------- | ------- |
-| Python     | 3.12    |
-| inspect-ai | 0.3.220 |
-| boto3      | 1.40.61 |
-| aioboto3   | 15.5.0  |
-| openai     | 2.36.0  |
-| mlflow     | 3.12.0  |
-| pyyaml     | 6.0.3   |
+
+| Package | Version | 
+| --- | --- | 
+| Python | 3.12 | 
+| inspect-ai | 0.3.220 | 
+| boto3 | 1.40.61 | 
+| aioboto3 | 15.5.0 | 
+| openai | 2.36.0 | 
+| mlflow | 3.12.0 | 
+| pyyaml | 6.0.3 | 
 
 **Task selection**
 
 The `tasks` field in your recipe controls which tasks within a benchmark file to run.
 
-| Configuration | Example              | Behavior                                               |
-| ------------- | -------------------- | ------------------------------------------------------ |
-| Empty `tasks` | `tasks: []`          | Runs all tasks defined in the benchmark file           |
-| Name filter   | `tasks: ["algebra"]` | Runs tasks whose name contains the substring "algebra" |
-| `limit`       | `limit: 50`          | Caps the number of samples evaluated per task          |
-| `epochs`      | `epochs: 3`          | Repeats evaluation multiple times to measure variance  |
+
+| Configuration | Example | Behavior | 
+| --- | --- | --- | 
+| Empty tasks | tasks: [] | Runs all tasks defined in the benchmark file | 
+| Name filter | tasks: ["algebra"] | Runs tasks whose name contains the substring "algebra" | 
+| limit | limit: 50 | Caps the number of samples evaluated per task | 
+| epochs | epochs: 3 | Repeats evaluation multiple times to measure variance | 
 
 ## Step 4: Prepare your S3 structure
+<a name="nova-eval-container-step4"></a>
 
 The following structure is a recommendation for keeping configs, benchmarks, and results organized. You can point the container at any S3 location — the structure itself is not required.
 
@@ -765,6 +786,7 @@ aws s3 cp inspect_config.yaml s3://your-bucket/config/inspect_config.yaml
 ```
 
 ## Step 5: Submit the training job
+<a name="nova-eval-container-step5"></a>
 
 Submit a SageMaker Training Job to run your evaluation. You can use the AWS CLI or the SageMaker Python SDK.
 
@@ -816,23 +838,25 @@ execution.show_results()
 
 **Key parameters**
 
-| Parameter             | Value                                                                      | Description                                              |
-| --------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------- |
-| `TrainingImage`       | `763104351884.dkr.ecr.us-east-1.amazonaws.com/sagemaker-inspect-ai:latest` | The Inspect AI container image                           |
-| `InstanceType`        | `ml.m5.large`                                                              | Orchestrator instance type (not the inference instance)  |
-| `VolumeSizeInGB`      | `30`                                                                       | Storage for benchmark data and logs                      |
-| `MaxRuntimeInSeconds` | `86400`                                                                    | Maximum job duration (24 hours)                          |
-| `ChannelName`         | `config`                                                                   | Input channel containing your recipe and benchmark files |
+
+| Parameter | Value | Description | 
+| --- | --- | --- | 
+| TrainingImage | 763104351884.dkr.ecr.us-east-1.amazonaws.com/sagemaker-inspect-ai:latest | The Inspect AI container image | 
+| InstanceType | ml.m5.large | Orchestrator instance type (not the inference instance) | 
+| VolumeSizeInGB | 30 | Storage for benchmark data and logs | 
+| MaxRuntimeInSeconds | 86400 | Maximum job duration (24 hours) | 
+| ChannelName | config | Input channel containing your recipe and benchmark files | 
 
 **Orchestrator instance type guidance**
 
 The training job instance runs the evaluation orchestration logic, not the model inference. Choose an instance type based on your evaluation workload.
 
-| Instance type   | Use case               | Guidance                                                            |
-| --------------- | ---------------------- | ------------------------------------------------------------------- |
-| `ml.m5.large`   | Recommended default    | Sufficient for most evaluation workloads with moderate parallelism  |
-| `ml.m5.4xlarge` | Large benchmark suites | Use when running many benchmarks with high `max_connections` values |
-| `ml.c5.large`   | Cost-sensitive         | Lower cost alternative for simple evaluations with low parallelism  |
+
+| Instance type | Use case | Guidance | 
+| --- | --- | --- | 
+| ml.m5.large | Recommended default | Sufficient for most evaluation workloads with moderate parallelism | 
+| ml.m5.4xlarge | Large benchmark suites | Use when running many benchmarks with high max\_connections values | 
+| ml.c5.large | Cost-sensitive | Lower cost alternative for simple evaluations with low parallelism | 
 
 **Environment variables**
 
@@ -848,6 +872,7 @@ aws sagemaker create-training-job \
 ```
 
 ## Step 6: Monitor the job
+<a name="nova-eval-container-step6"></a>
 
 After you submit the training job, you can monitor its progress through the AWS CLI or CloudWatch Logs.
 
@@ -873,22 +898,29 @@ aws logs tail /aws/sagemaker/TrainingJobs \
 The container logs show progress through the following stages:
 
 1. **Startup** — Container initialization and configuration validation
-2. **Benchmark download** — Downloading benchmark files and installing dependencies
-3. **Endpoint setup** — Creating or connecting to the inference endpoint
-4. **Evaluation** — Running benchmark tasks with progress indicators
-5. **Results upload** — Writing results to S3 and optionally logging to MLflow
-6. **Cleanup** — Deleting temporary endpoints if `cleanup_endpoint: true`
+
+1. **Benchmark download** — Downloading benchmark files and installing dependencies
+
+1. **Endpoint setup** — Creating or connecting to the inference endpoint
+
+1. **Evaluation** — Running benchmark tasks with progress indicators
+
+1. **Results upload** — Writing results to S3 and optionally logging to MLflow
+
+1. **Cleanup** — Deleting temporary endpoints if `cleanup_endpoint: true`
 
 **Estimated timelines**
 
-| Stage                             | Estimated duration                         |
-| --------------------------------- | ------------------------------------------ |
-| Container startup                 | 2–5 minutes                                |
-| Endpoint creation (if applicable) | 15–30 minutes                              |
-| Evaluation                        | Varies by benchmark size and model latency |
-| Cleanup                           | 1–2 minutes                                |
+
+| Stage | Estimated duration | 
+| --- | --- | 
+| Container startup | 2–5 minutes | 
+| Endpoint creation (if applicable) | 15–30 minutes | 
+| Evaluation | Varies by benchmark size and model latency | 
+| Cleanup | 1–2 minutes | 
 
 ## Step 7: View and interpret results
+<a name="nova-eval-container-step7"></a>
 
 After the job completes, view your evaluation results.
 
@@ -914,20 +946,21 @@ INSPECT_LOG_DIR=./results inspect view
 
 **VS Code extension**
 
-The [Inspect AI VS Code extension](https://inspect.aisi.org.uk/vscode.html "https://inspect.aisi.org.uk/vscode.html") lets you browse eval logs directly from S3 without downloading them first.
+The [Inspect AI VS Code extension](https://inspect.aisi.org.uk/vscode.html) lets you browse eval logs directly from S3 without downloading them first.
 
 1. Install the extension from the VS Code marketplace (search "Inspect AI")
-2. In the Inspect Activity Bar, locate the Logs pane and choose the folder icon
-3. Enter your S3 path: `s3://your-bucket/eval-results/`
+
+1. In the Inspect Activity Bar, locate the Logs pane and choose the folder icon
+
+1. Enter your S3 path: `s3://your-bucket/eval-results/`
 
 **Output structure**
 
 Each evaluation produces a `.eval` log file that contains the following sections:
-
-- `results.scores` — Aggregate scores for each metric
-- `samples` — Individual evaluation samples with inputs, outputs, and scores
-- `stats` — Runtime statistics including token usage and latency
-- `eval.config` — The configuration used for the evaluation run
++ `results.scores` — Aggregate scores for each metric
++ `samples` — Individual evaluation samples with inputs, outputs, and scores
++ `stats` — Runtime statistics including token usage and latency
++ `eval.config` — The configuration used for the evaluation run
 
 **View results in MLflow (optional)**
 
@@ -942,65 +975,66 @@ aws sagemaker create-presigned-mlflow-tracking-server-url \
 Open the returned URL in your browser to view metrics, compare runs, and analyze trends across evaluations.
 
 ## Available benchmarks
+<a name="nova-eval-container-benchmarks"></a>
 
-The Inspect AI container works with any benchmark written in the Inspect AI task format. The [inspect-evals repository](https://github.com/UKGovernmentBEIS/inspect_evals "https://github.com/UKGovernmentBEIS/inspect_evals") provides 128+ ready-to-use benchmarks covering areas such as reasoning, knowledge, coding, and safety.
+The Inspect AI container works with any benchmark written in the Inspect AI task format. The [inspect-evals repository](https://github.com/UKGovernmentBEIS/inspect_evals) provides 128\+ ready-to-use benchmarks covering areas such as reasoning, knowledge, coding, and safety.
 
-To write your own benchmarks, see the [Inspect AI task writing documentation](https://inspect.aisi.org.uk/tasks.html "https://inspect.aisi.org.uk/tasks.html"). If you find a public benchmark that is not yet available in inspect-evals, you can use the [AI assistant onboarding prompt](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/ai_assisted_benchmark_creation.md "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/ai_assisted_benchmark_creation.md") to help convert it to the Inspect AI format.
+To write your own benchmarks, see the [Inspect AI task writing documentation](https://inspect.aisi.org.uk/tasks.html). If you find a public benchmark that is not yet available in inspect-evals, you can use the [AI assistant onboarding prompt](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/ai_assisted_benchmark_creation.md) to help convert it to the Inspect AI format.
 
 ## Agentic evaluations
+<a name="nova-eval-container-agentic"></a>
 
 Agentic benchmarks test a model's ability to complete multi-step tasks that require tool use, planning, and iterative reasoning. These evaluations simulate real-world scenarios where the model must call tools, interpret results, and decide on next actions.
 
 **Endpoint requirements**
 
 Agentic evaluations require endpoints that support the following capabilities:
-
-- **Tool calling** — The endpoint must support function calling to enable the model to invoke tools during evaluation
-- **Large context size** — Multi-turn conversations with tool results require sufficient context length to maintain conversation history
++ **Tool calling** — The endpoint must support function calling to enable the model to invoke tools during evaluation
++ **Large context size** — Multi-turn conversations with tool results require sufficient context length to maintain conversation history
 
 **SageMaker Inference endpoint configuration**
 
 When using a SageMaker Inference endpoint for agentic evaluations, configure the following environment variables on your endpoint:
 
-| Environment variable  | Value                     | Description                                                                           |
-| --------------------- | ------------------------- | ------------------------------------------------------------------------------------- |
-| `ENABLE_TOOL_CALLING` | `True`                    | Activates tool calling support on the inference endpoint                              |
-| `CONTEXT_LENGTH`      | Sufficient for multi-turn | Set to a value large enough to accommodate multi-turn conversations with tool results |
 
-For information about setting up Amazon Nova endpoints on SageMaker Inference, see [Deploy Amazon Nova models on SageMaker](deploy-sagemaker.md "deploy-sagemaker.md"). For information about container features and configuration, see [Container features](container-features.md "container-features.md").
+| Environment variable | Value | Description | 
+| --- | --- | --- | 
+| ENABLE\_TOOL\_CALLING | True | Activates tool calling support on the inference endpoint | 
+| CONTEXT\_LENGTH | Sufficient for multi-turn | Set to a value large enough to accommodate multi-turn conversations with tool results | 
+
+For information about setting up Amazon Nova endpoints on SageMaker Inference, see [Deploy Amazon Nova models on SageMaker](https://docs.aws.amazon.com/nova/latest/userguide/deploy-sagemaker.html). For information about container features and configuration, see [Container features](https://docs.aws.amazon.com/nova/latest/userguide/container-features.html).
 
 **Amazon Bedrock endpoints**
 
-For Amazon Bedrock endpoints, tool calling is natively supported for compatible models. For more information, see [Tool use with Amazon Bedrock](../../../bedrock/latest/userguide/tool-use.md "../../../bedrock/latest/userguide/tool-use.md").
+For Amazon Bedrock endpoints, tool calling is natively supported for compatible models. For more information, see [Tool use with Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html).
 
 **Getting started with agentic evaluations**
 
 To run agentic evaluations, complete the following prerequisites:
 
 1. Deploy an endpoint with tool calling enabled
-2. Choose an agentic benchmark from the [inspect-evals repository](https://github.com/UKGovernmentBEIS/inspect_evals "https://github.com/UKGovernmentBEIS/inspect_evals") (look for benchmarks that use tool-calling solvers)
-3. Configure your recipe with appropriate `timeout` and `max_tokens` values for multi-turn interactions
+
+1. Choose an agentic benchmark from the [inspect-evals repository](https://github.com/UKGovernmentBEIS/inspect_evals) (look for benchmarks that use tool-calling solvers)
+
+1. Configure your recipe with appropriate `timeout` and `max_tokens` values for multi-turn interactions
 
 **Amazon Bedrock endpoint**
-
-- For full setup and deployment, see [Amazon Bedrock endpoints](../../../bedrock/latest/userguide/endpoints.md "../../../bedrock/latest/userguide/endpoints.md").
-- For tool calling support, see the client-side tool calling section in [Tool use with Amazon Bedrock](../../../bedrock/latest/userguide/tool-use.md "../../../bedrock/latest/userguide/tool-use.md").
++ For full setup and deployment, see [Amazon Bedrock endpoints](https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html).
++ For tool calling support, see the client-side tool calling section in [Tool use with Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html).
 
 **Sample notebooks**
 
 The following notebook demonstrates running a tool-calling agentic benchmark with the Inspect AI container:
-
-- [tau-bench (job-based)](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_tau_bench.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_tau_bench.ipynb") — Evaluate tool-augmented reasoning on customer service tasks using the Inspect AI container
++ [tau-bench (job-based)](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/inspect_eval_container/eval_tau_bench.ipynb) — Evaluate tool-augmented reasoning on customer service tasks using the Inspect AI container
 
 For agentic benchmarks that require a Docker sandbox, use the Inspect AI SDK:
++ [SWE-bench with Inspect AI SDK](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/local_inspect_sdk/eval_swe_bench.ipynb) — Evaluate software engineering capabilities using Docker sandbox
 
-- [SWE-bench with Inspect AI SDK](https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/local_inspect_sdk/eval_swe_bench.ipynb "https://github.com/aws-samples/amazon-nova-samples/blob/main/customization/sagemaker-inspect-ai/local_inspect_sdk/eval_swe_bench.ipynb") — Evaluate software engineering capabilities using Docker sandbox
-
-###### Important
-
-Agentic benchmarks that require a Docker sandbox (such as SWE-bench) are not supported in the Inspect AI container experience. The SageMaker Training Job environment does not provide Docker-in-Docker capabilities. To run these benchmarks, use the [Inspect AI SDK](nova-eval-on-sagemaker-inference.md "nova-eval-on-sagemaker-inference.md") on a compute environment with Docker access (for example, an Amazon EC2 instance or SageMaker notebook with Docker installed).
+**Important**  
+Agentic benchmarks that require a Docker sandbox (such as SWE-bench) are not supported in the Inspect AI container experience. The SageMaker Training Job environment does not provide Docker-in-Docker capabilities. To run these benchmarks, use the [Inspect AI SDK](nova-eval-on-sagemaker-inference.md) on a compute environment with Docker access (for example, an Amazon EC2 instance or SageMaker notebook with Docker installed).
 
 ## Troubleshooting
+<a name="nova-eval-container-troubleshooting"></a>
 
 This section provides solutions for common issues when running evaluations with the Inspect AI container.
 
@@ -1011,31 +1045,30 @@ Before submitting a SageMaker Training Job, test your benchmarks locally with th
 **InsufficientInstanceCapacity error**
 
 This error occurs when AWS does not have enough capacity for the requested instance type in your Region.
-
-- Try a different instance type, or submit the job in another AWS Region
-- Use a different instance type (for example, `ml.m5.xlarge` instead of `ml.m5.large`)
-- Retry the request after a few minutes
++ Try a different instance type, or submit the job in another AWS Region
++ Use a different instance type (for example, `ml.m5.xlarge` instead of `ml.m5.large`)
++ Retry the request after a few minutes
 
 **AccessDenied error**
 
 If the training job fails with an access denied error, verify the following:
-
-- The role ARN in your job configuration is correct
-- The trust policy allows `sagemaker.amazonaws.com` to assume the role
-- Your user or role has the `iam:PassRole` permission for the execution role
-- The execution role has permissions to access the S3 bucket, inference endpoint, or Amazon Bedrock model
++ The role ARN in your job configuration is correct
++ The trust policy allows `sagemaker.amazonaws.com` to assume the role
++ Your user or role has the `iam:PassRole` permission for the execution role
++ The execution role has permissions to access the S3 bucket, inference endpoint, or Amazon Bedrock model
 
 **Endpoint creation fails**
 
 When using `cleanup_endpoint: true` with automatic endpoint creation, the following issues might occur:
 
-| Error                      | Solution                                                                                                                                    |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| ResourceLimitExceeded      | Request a service quota increase for the inference instance type in your Region                                                             |
-| OutOfMemoryError           | Use a larger inference instance type or reduce model size                                                                                   |
-| Wrong `model_s3_uri`       | Verify the S3 path points to a valid model artifact directory                                                                               |
-| Wrong inference image URI  | Verify the image URI is correct for your Region and model framework                                                                         |
-| Endpoint stuck in Creating | Check CloudWatch Logs for the endpoint. The model might fail health checks. Increase `MaxRuntimeInSeconds` if the endpoint needs more time. |
+
+| Error | Solution | 
+| --- | --- | 
+| ResourceLimitExceeded | Request a service quota increase for the inference instance type in your Region | 
+| OutOfMemoryError | Use a larger inference instance type or reduce model size | 
+| Wrong model\_s3\_uri | Verify the S3 path points to a valid model artifact directory | 
+| Wrong inference image URI | Verify the image URI is correct for your Region and model framework | 
+| Endpoint stuck in Creating | Check CloudWatch Logs for the endpoint. The model might fail health checks. Increase MaxRuntimeInSeconds if the endpoint needs more time. | 
 
 **Manually cleaning up managed resources**
 
@@ -1051,7 +1084,7 @@ If this job is force-killed or stopped mid-creation, delete them manually:
   aws sagemaker delete-model --model-name inspectlens-model-1787856688 --region us-east-1
 ```
 
-Upon manual termination of the job through [stop-training-job](../../../cli/latest/reference/sagemaker/stop-training-job.md "../../../cli/latest/reference/sagemaker/stop-training-job.md"), the container performs a best-effort cleanup of managed resources within the 120-second grace period. If resources cannot be cleaned up, the job ends with an error state. If cleanup completes successfully, the job ends in a stopped state.
+Upon manual termination of the job through [stop-training-job](https://docs.aws.amazon.com/cli/latest/reference/sagemaker/stop-training-job.html), the container performs a best-effort cleanup of managed resources within the 120-second grace period. If resources cannot be cleaned up, the job ends with an error state. If cleanup completes successfully, the job ends in a stopped state.
 
 **HuggingFace download timeouts**
 
@@ -1068,12 +1101,12 @@ If a benchmark fails due to dependency conflicts with pre-installed packages, cr
 **Eval scores look wrong**
 
 If evaluation scores are unexpectedly low or inconsistent, check the following settings in your recipe:
-
-- **temperature** — Set to `0.0` for deterministic, reproducible results
-- **max\_tokens** — Ensure the value is large enough for the model to complete its response
-- **completion\_mode** — For base (non-chat) models, set `completion_mode: true` in your recipe to use completion-style prompting instead of chat format
++ **temperature** — Set to `0.0` for deterministic, reproducible results
++ **max\_tokens** — Ensure the value is large enough for the model to complete its response
++ **completion\_mode** — For base (non-chat) models, set `completion_mode: true` in your recipe to use completion-style prompting instead of chat format
 
 ## Data privacy
+<a name="nova-eval-container-data-privacy"></a>
 
 Your evaluation data is handled differently depending on the inference provider you use.
 
@@ -1083,9 +1116,10 @@ When you use a SageMaker Inference endpoint, all data stays within your AWS acco
 
 **Amazon Bedrock**
 
-When you use Amazon Bedrock as the inference provider, your data is subject to the AWS AI Services Opt-Out Policy. To prevent your data from being used to improve AWS AI services, enable the opt-out policy at the AWS Organizations level. For more information, see [AI services opt-out policies](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md").
+When you use Amazon Bedrock as the inference provider, your data is subject to the AWS AI Services Opt-Out Policy. To prevent your data from being used to improve AWS AI services, enable the opt-out policy at the AWS Organizations level. For more information, see [AI services opt-out policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html).
 
-| Inference provider | Opt-out required | Details                                                                                                           |
-| ------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| SageMaker endpoint | No               | Data stays in your account. Not covered by AI opt-out policy.                                                     |
-| Amazon Bedrock     | Yes              | Enable the AWS AI Services Opt-Out Policy at the Organizations level to prevent data use for service improvement. |
+
+| Inference provider | Opt-out required | Details | 
+| --- | --- | --- | 
+| SageMaker endpoint | No | Data stays in your account. Not covered by AI opt-out policy. | 
+| Amazon Bedrock | Yes | Enable the AWS AI Services Opt-Out Policy at the Organizations level to prevent data use for service improvement. | 

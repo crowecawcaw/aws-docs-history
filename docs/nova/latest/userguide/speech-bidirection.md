@@ -1,28 +1,34 @@
+
+
 # Using the Bidirectional Streaming API
+<a name="speech-bidirection"></a>
 
-###### Note
-
-This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Getting started](../nova2-userguide/sonic-getting-started.md "../nova2-userguide/sonic-getting-started.md").
+**Note**  
+This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic guide, visit [Getting started](https://docs.aws.amazon.com/nova/latest/nova2-userguide/sonic-getting-started.html).
 
 The Amazon Nova Sonic model uses the `InvokeModelWithBidirectionalStream` API, which enables real-time bidirectional streaming conversations. This differs from traditional request-response patterns by maintaining an open channel for continuous audio streaming in both directions.
 
 The following AWS SDKs support the new bidirectional streaming API:
++ [AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/)
++ [AWS SDK for C\+\+](https://aws.amazon.com/sdk-for-cpp/)
++ [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/)
++ [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/)
++ [AWS SDK for Kotlin](https://aws.amazon.com/sdk-for-kotlin/)
++ [AWS SDK for Ruby](https://aws.amazon.com/sdk-for-ruby/)
++ [AWS SDK for Rust](https://aws.amazon.com/sdk-for-rust/)
++ [AWS SDK for Swift](https://aws.amazon.com/sdk-for-swift/)
 
-- [AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/")
-- [AWS SDK for C++](https://aws.amazon.com/sdk-for-cpp/ "https://aws.amazon.com/sdk-for-cpp/")
-- [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/")
-- [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/ "https://aws.amazon.com/sdk-for-javascript/")
-- [AWS SDK for Kotlin](https://aws.amazon.com/sdk-for-kotlin/ "https://aws.amazon.com/sdk-for-kotlin/")
-- [AWS SDK for Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/")
-- [AWS SDK for Rust](https://aws.amazon.com/sdk-for-rust/ "https://aws.amazon.com/sdk-for-rust/")
-- [AWS SDK for Swift](https://aws.amazon.com/sdk-for-swift/ "https://aws.amazon.com/sdk-for-swift/")
-  Python developers can use this [new experimental SDK](https://github.com/awslabs/aws-sdk-python "https://github.com/awslabs/aws-sdk-python") that makes it easier to use the bidirectional streaming capabilities of Amazon Nova Sonic.
+Python developers can use this [new experimental SDK](https://github.com/awslabs/aws-sdk-python) that makes it easier to use the bidirectional streaming capabilities of Amazon Nova Sonic.
 
-The following code examples will help you get started with the bidirectional API. For a complete list of examples, see the Amazon Nova Sonic [Github Samples](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech") page.
+The following code examples will help you get started with the bidirectional API. For a complete list of examples, see the Amazon Nova Sonic [Github Samples](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech) page.
+
+## Setting up the client
+<a name="set-up-the-client"></a>
 
 The following examples can be used to set up the client and begin using the bidirectional API.
 
-Python
+------
+#### [ Python ]
 
 ```
 def _initialize_client(self):
@@ -37,7 +43,8 @@ def _initialize_client(self):
     self.bedrock_client = BedrockRuntimeClient(config=config)
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 // The nettyBuilder is optional and mentioned here for clarity, all our APIs support http2
@@ -47,23 +54,24 @@ NettyNioAsyncHttpClient.Builder nettyBuilder = NettyNioAsyncHttpClient.builder()
         .maxConcurrency(20)
         .protocol(Protocol.HTTP2)
         .protocolNegotiation(ProtocolNegotiation.ALPN);
-
+        
 
 BedrockRuntimeAsyncClient client = BedrockRuntimeAsyncClient.builder()
         .region(Region.US_EAST_1)
-        .credentialsProvider(ProfileCredentialsProvider.create("`NOVA-PROFILE`"))
+        .credentialsProvider(ProfileCredentialsProvider.create("{{NOVA-PROFILE}}"))
         .httpClientBuilder(nettyBuilder)
         .build();
 ```
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const { BedrockRuntimeClient } = require("@aws-sdk/client-bedrock-runtime");
 const { NodeHttp2Handler } = require("@smithy/node-http-handler");
 const { fromIni } = require("@aws-sdk/credential-provider-ini");
 
-// Configure HTTP/2 client for bidirectional streaming
+// Configure HTTP/2 client for bidirectional streaming 
 // (This is optional, all our APIs support http2 so we will default to http2 if handler is not specified)
 const nodeHttp2Handler = new NodeHttp2Handler({
     requestTimeout: 300000,
@@ -75,14 +83,20 @@ const nodeHttp2Handler = new NodeHttp2Handler({
 // Create a Bedrock client
 const client = new BedrockRuntimeClient({
     region: "us-east-1",
-    credentials: fromIni({ profile: "`NOVA-PROFILE`" }), // Or use other credential providers
+    credentials: fromIni({ profile: "{{NOVA-PROFILE}}" }), // Or use other credential providers
     requestHandler: nodeHttp2Handler,
 });
 ```
 
+------
+
+## Handling events
+<a name="handle-events"></a>
+
 The following examples can be used to handle events with the bidirectional API.
 
-Python
+------
+#### [ Python ]
 
 ```
 self.stream_response = await self.bedrock_client.invoke_model_with_bidirectional_stream(
@@ -94,7 +108,7 @@ self.is_active = True
 ```
 async def _process_responses(self):
         """Process incoming responses from Bedrock."""
-        try:
+        try:            
             while self.is_active:
                 try:
                     output = await self.stream_response.await_output()
@@ -103,7 +117,7 @@ async def _process_responses(self):
                         try:
                             response_data = result.value.bytes_.decode('utf-8')
                             json_data = json.loads(response_data)
-
+                            
                             # Handle different response types
                             if 'event' in json_data:
                                 if 'contentStart' in json_data['event']:
@@ -149,8 +163,8 @@ async def _process_responses(self):
                                 elif 'completionEnd' in json_data['event']:
                                     # Handle end of conversation, no more response will be generated
                                     print("End of response sequence")
-
-
+                                   
+                            
                             # Put the response in the output queue for other components
                             await self.output_queue.put(json_data)
                         except json.JSONDecodeError:
@@ -166,14 +180,15 @@ async def _process_responses(self):
                     else:
                         print(f"Error receiving response: {e}")
                     break
-
+                    
         except Exception as e:
             print(f"Response processing error: {e}")
         finally:
             self.is_active = False
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 public class ResponseHandler implements InvokeModelWithBidirectionalStreamResponseHandler {
@@ -219,7 +234,8 @@ public class ResponseHandler implements InvokeModelWithBidirectionalStreamRespon
 }
 ```
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 for await (const event of response.body) {
@@ -304,9 +320,15 @@ for await (const event of response.body) {
       }
 ```
 
+------
+
+## Creating a request
+<a name="create-request"></a>
+
 The following examples can be used to create a request with the bidirectional API.
 
-Python
+------
+#### [ Python ]
 
 ```
 self.stream_response = await self.bedrock_client.invoke_model_with_bidirectional_stream(
@@ -314,16 +336,18 @@ self.stream_response = await self.bedrock_client.invoke_model_with_bidirectional
             )
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
-InvokeModelWithBidirectionalStreamRequest request =
+InvokeModelWithBidirectionalStreamRequest request = 
    InvokeModelWithBidirectionalStreamRequest.builder()
    .modelId("amazon.nova-sonic-v1:0")
    .build();
 ```
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const request = new InvokeModelWithBidirectionalStreamCommand({
@@ -332,9 +356,15 @@ const request = new InvokeModelWithBidirectionalStreamCommand({
         });
 ```
 
+------
+
+## Initiating a request
+<a name="initiate-request"></a>
+
 The following examples can be used to initiate a request with the bidirectional API.
 
-Python
+------
+#### [ Python ]
 
 ```
     START_SESSION_EVENT = '''{
@@ -348,17 +378,18 @@ Python
             }
         }
     }'''
-
+    
     event = InvokeModelWithBidirectionalStreamInputChunk(
             value=BidirectionalInputPayloadPart(bytes_=START_SESSION_EVENT.encode('utf-8'))
-    )
+    )  
     try:
         await self.stream_response.input_stream.send(event)
     except Exception as e:
         print(f"Error sending event: {str(e)}")
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 // Create ReplayProcessor with time-based expiry (cleans up messages after 1 minute)
@@ -405,7 +436,8 @@ publisher.onNext(
 );
 ```
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const command = new InvokeModelWithBidirectionalStreamCommand({
@@ -442,3 +474,5 @@ const initEvents = [
         }
 ];
 ```
+
+------

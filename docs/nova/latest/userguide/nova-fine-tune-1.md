@@ -1,59 +1,43 @@
+
+
 # Fine-tune Nova 1.0
+<a name="nova-fine-tune-1"></a>
 
-###### Note
-
-You can fine-tune Amazon Nova 1.0 series of models using Supervised Fine-Tuning (SFT) and Direct Preference Optimization. For fine-tuning Nova 2.0 models, see [Fine-tune Nova 2.0](../nova2-userguide/nova-fine-tune-2.md "../nova2-userguide/nova-fine-tune-2.md").
+**Note**  
+You can fine-tune Amazon Nova 1.0 series of models using Supervised Fine-Tuning (SFT) and Direct Preference Optimization. For fine-tuning Nova 2.0 models, see [Fine-tune Nova 2.0](https://docs.aws.amazon.com/nova/latest/nova2-userguide/nova-fine-tune-2.html).
 
 ## Prerequisites
+<a name="nova-model-training-jobs-prerequisites"></a>
 
 Before you start a training job, note the following.
-
-- Amazon S3 buckets to store your input data and output of training jobs. You can
-  either use one bucket for both or separate buckets for each type of the
-  data. Make sure your buckets are in the same AWS Region where you create
-  all the other resources for training. For more information, see [Creating a
-  general purpose bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md").
-- An IAM role with permissions to run a training job. Make sure you attach
-  an IAM policy with `AmazonSageMakerFullAccess`. For more
-  information, see [How to use SageMaker AI execution roles](../../../sagemaker/latest/dg/sagemaker-roles.md "../../../sagemaker/latest/dg/sagemaker-roles.md").
-- Base Amazon Nova recipes, see [Getting Amazon Nova recipes](nova-model-recipes.md#nova-model-get-recipes "nova-model-recipes.md#nova-model-get-recipes").
++ Amazon S3 buckets to store your input data and output of training jobs. You can either use one bucket for both or separate buckets for each type of the data. Make sure your buckets are in the same AWS Region where you create all the other resources for training. For more information, see [Creating a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
++ An IAM role with permissions to run a training job. Make sure you attach an IAM policy with `AmazonSageMakerFullAccess`. For more information, see [How to use SageMaker AI execution roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html).
++ Base Amazon Nova recipes, see [Getting Amazon Nova recipes](nova-model-recipes.md#nova-model-get-recipes).
 
 ## Data preparation
+<a name="nova-model-training-prepare-data"></a>
 
-Preparing high-quality, properly formatted data is a critical first step in the
-fine-tuning process for large language models. Whether you're using supervised
-fine-tuning (SFT) or Direct Preference Optimization (DPO), with either full-rank or
-low-rank adaptation (LoRA) approaches, your data must adhere to specific format
-requirements to ensure successful model training. This section outlines the
-necessary data formats, validation methods, and best practices to help you prepare
-your datasets effectively for fine-tuning Amazon Nova models.
+Preparing high-quality, properly formatted data is a critical first step in the fine-tuning process for large language models. Whether you're using supervised fine-tuning (SFT) or Direct Preference Optimization (DPO), with either full-rank or low-rank adaptation (LoRA) approaches, your data must adhere to specific format requirements to ensure successful model training. This section outlines the necessary data formats, validation methods, and best practices to help you prepare your datasets effectively for fine-tuning Amazon Nova models.
+
+### Data format requirements
+<a name="nova-model-training-prepare-data-format"></a>
 
 **SFT**
 
-SFT data format requirements - For both full-rank SFT and LoRA SFT, data
-should follow the format shown below. For examples and constraints of this
-format, see [Preparing data for multimodal fine-tuning](fine-tune-prepare-data-understanding.md "fine-tune-prepare-data-understanding.md").
+SFT data format requirements - For both full-rank SFT and LoRA SFT, data should follow the format shown below. For examples and constraints of this format, see [Preparing data for multimodal fine-tuning](fine-tune-prepare-data-understanding.md).
 
-SFT data validation - To validate your dataset format before submission, we
-recommend using the following validation script from the [Amazon Bedrock samples repository](https://github.com/aws-samples/amazon-bedrock-samples/blob/main/custom-models/bedrock-fine-tuning/nova/understanding/dataset_validation/nova_ft_dataset_validator.py "https://github.com/aws-samples/amazon-bedrock-samples/blob/main/custom-models/bedrock-fine-tuning/nova/understanding/dataset_validation/nova_ft_dataset_validator.py"). This validation tool will help ensure
-your `jsonl` files adhere to the required format specifications
-and identify any potential issues before submitting your fine-tuning
-job.
+SFT data validation - To validate your dataset format before submission, we recommend using the following validation script from the [Amazon Bedrock samples repository](https://github.com/aws-samples/amazon-bedrock-samples/blob/main/custom-models/bedrock-fine-tuning/nova/understanding/dataset_validation/nova_ft_dataset_validator.py). This validation tool will help ensure your `jsonl` files adhere to the required format specifications and identify any potential issues before submitting your fine-tuning job.
 
 **DPO**
 
-DPO data format requirements - For both DPO in full-rank and DPO with
-LoRA, data should follow the format shown below. The dataset also needs to be
-in the similar format as SFT except the last turn needs to have preference
-pairs.
+DPO data format requirements - For both DPO in full-rank and DPO with LoRA, data should follow the format shown below. The dataset also needs to be in the similar format as SFT except the last turn needs to have preference pairs.
 
-DPO dataset other constraints - Other constraints on datasets are the same for
-SFT. For more information, see [Preparing data for multimodal fine-tuning](fine-tune-prepare-data-understanding.md "fine-tune-prepare-data-understanding.md"). A single JSONL file for training and a single
-JSONL file for validation is expected. Validation set is optional.
+DPO dataset other constraints - Other constraints on datasets are the same for SFT. For more information, see [Preparing data for multimodal fine-tuning](fine-tune-prepare-data-understanding.md). A single JSONL file for training and a single JSONL file for validation is expected. Validation set is optional.
 
-DPO dataset recommendations - A minimum of 1,000 preference pairs for
-effective training. High-quality preference data will result in more efficient
-results.
+DPO dataset recommendations - A minimum of 1,000 preference pairs for effective training. High-quality preference data will result in more efficient results.
+
+### Examples
+<a name="nova-model-training-prepare-data-example"></a>
 
 **Sample DPO data format**
 
@@ -230,190 +214,241 @@ results.
 }
 ```
 
-Training jobs default to a 1-day time limit, though the estimates in the
-tables below assume a 5-day training duration for illustration purposes. As
-a best practice, we recommend increasing your training time limit to 28 days
-maximum to accommodate longer training workloads. To request a limit
-increase, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md").
+### Dataset limits
+<a name="nova-model-training-prepare-data-limits"></a>
+
+Training jobs default to a 1-day time limit, though the estimates in the tables below assume a 5-day training duration for illustration purposes. As a best practice, we recommend increasing your training time limit to 28 days maximum to accommodate longer training workloads. To request a limit increase, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
 
 **SFT dataset limits**
 
-| Context length          | Model                                                                                                                                    | Method                                                                                                                                    | Datasets                                                                                                                                  | Description                                                                                                                                    |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| 32k context length jobs | Amazon Nova Micro                                                                                                                        | Full rank and LoRA                                                                                                                        | Text only                                                                                                                                 | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>only have up to 100k records. |
-| Amazon Nova Lite        | Full rank                                                                                                                                | Text only                                                                                                                                 | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 100k records. |
-| Image and video         | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 50k records. |
-| LoRA                    | Text only                                                                                                                                | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 100k records. |
-| Image and video         | If you use a dataset where all records have 32k context length,<br>and for example, run for 5 epochs, you can have up to<br>90k records. |
-| Amazon Nova Pro         | Full rank                                                                                                                                | Text only                                                                                                                                 | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 40k records.  |
-| Image and video         | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 30k records. |
-| LoRA                    | Text only                                                                                                                                | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 40k records.  |
-| Image and video         | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 35k records. |
-| 64k context length jobs | Amazon Nova Micro                                                                                                                        | Full rank and LoRA                                                                                                                        | Text only                                                                                                                                 | If you use a dataset where all records have 64k context<br>length, and for example, run for 5 epochs, you can<br>only have up to 50k records.  |
-| Amazon Nova Lite        | Full rank                                                                                                                                | Text only                                                                                                                                 | If you use a dataset where all records have 64k context<br>length, and for example, run for 5 epochs, you can<br>have up to 50k records.  |
-| Image and video         | If you use a dataset where all records have 64k context<br>length, and for example, run for 5 epochs, you can<br>have up to 30k records. |
-| LoRA                    | -                                                                                                                                        | LoRA is not supported at 64k for Nova Lite.                                                                                               |
-| Amazon Nova Pro         | Full rank and LoRA                                                                                                                       | Text only                                                                                                                                 | If you use a dataset where all records have 64k context<br>length, and for example, run for 5 epochs, you can<br>have up to 17k records.  |
-| Image and video         | If you use a dataset where all records have 64k context length,<br>and for example, run for 5 epochs, you can have up to<br>15k records. |
+
+
+- ** 32k context length jobs **
+  - **Model:** Amazon Nova Micro / **Method:** Full rank and LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can only have up to 100k records.
+  - **Model:** Amazon Nova Lite / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 100k records.
+  - **Datasets:** Image and video / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 50k records.
+  - **Method:** LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 100k records.
+  - **Datasets:** Image and video / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 90k records.
+  - **Model:** Amazon Nova Pro / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 40k records.
+  - **Datasets:** Image and video / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 30k records.
+  - **Method:** LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 40k records.
+  - **Datasets:** Image and video / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 35k records.
+
+- ** 64k context length jobs **
+  - **Model:** Amazon Nova Micro / **Method:** Full rank and LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 64k context length, and for example, run for 5 epochs, you can only have up to 50k records.
+  - **Model:** Amazon Nova Lite / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 64k context length, and for example, run for 5 epochs, you can have up to 50k records.
+  - **Datasets:** Image and video / **Description:** If you use a dataset where all records have 64k context length, and for example, run for 5 epochs, you can have up to 30k records.
+  - **Method:** LoRA / **Datasets:** - / **Description:** LoRA is not supported at 64k for Nova Lite.
+  - **Model:** Amazon Nova Pro / **Method:** Full rank and LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 64k context length, and for example, run for 5 epochs, you can have up to 17k records.
+  - **Datasets:** Image and video / **Description:** If you use a dataset where all records have 64k context length, and for example, run for 5 epochs, you can have up to 15k records.
+
+
 
 DPO dataset limits
 
-| Context length          | Model                                                                                                                                                | Method                                                                                                                                         | Datasets                                                                                                                                  | Description                                                                                                                                    |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| 16k context length jobs | Amazon Nova Micro                                                                                                                                    | Full rank                                                                                                                                      | Text only                                                                                                                                 | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>only have up to 120k records. |
-| LoRA                    | Text only                                                                                                                                            | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>only have up to 125k records. |
-| Amazon Nova Lite        | Full rank                                                                                                                                            | Text only                                                                                                                                      | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>have up to 130k records. |
-| Image                   | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>complete 20k samples within 2 days  |
-| LoRA                    | Text only                                                                                                                                            | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>have up to 140k records.      |
-| Image                   | if you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>complete 20k samples within 2 days. |
-| Amazon Nova Pro         | Full rank                                                                                                                                            | Text only                                                                                                                                      | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>have up to 45k records.  |
-| Image                   | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>complete 20k samples within 4 days  |
-| LoRA                    | Text only                                                                                                                                            | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>have up to 55k records.       |
-| Image                   | If you use a dataset where all records have 16k context<br>length, and for example, run for 5 epochs, you can<br>complete 20k samples within 4 days  |
-| 32k context length jobs | Amazon Nova Micro                                                                                                                                    | Full rank                                                                                                                                      | Text only                                                                                                                                 | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>only have up to 45k records.  |
-| LoRA                    | Text only                                                                                                                                            | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>only have up to 50k records.  |
-| Amazon Nova Lite        | Full rank                                                                                                                                            | Text only                                                                                                                                      | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 55k records.  |
-| Image                   | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 35k records.             |
-| LoRA                    | Text only                                                                                                                                            | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 60k records.       |
-| Image                   | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 35k records.             |
-| Amazon Nova Pro         | Full rank                                                                                                                                            | Text only                                                                                                                                      | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 20k records.  |
-| Image                   | If you use a dataset where all records have 64k context<br>length, and for example, run for 5 epochs, you can<br>have up to 16k records.             |
-| LoRA                    | Text only                                                                                                                                            | If you use a dataset where all records have 32k context<br>length, and for example, run for 5 epochs, you can<br>have up to 22k records.       |
-| Image                   | If you use a dataset where all records have 64k context<br>length, and for example, run for 5 epochs, you can<br>have up to 18k records.             |
+
+
+- ** 16k context length jobs **
+  - **Model:** Amazon Nova Micro / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can only have up to 120k records.
+  - **Method:** LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can only have up to 125k records.
+  - **Model:** Amazon Nova Lite / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can have up to 130k records.
+  - **Datasets:** Image / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can complete 20k samples within 2 days
+  - **Method:** LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can have up to 140k records.
+  - **Datasets:** Image / **Description:** if you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can complete 20k samples within 2 days.
+  - **Model:** Amazon Nova Pro / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can have up to 45k records.
+  - **Datasets:** Image / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can complete 20k samples within 4 days
+  - **Method:** LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can have up to 55k records.
+  - **Datasets:** Image / **Description:** If you use a dataset where all records have 16k context length, and for example, run for 5 epochs, you can complete 20k samples within 4 days
+
+- ** 32k context length jobs **
+  - **Model:** Amazon Nova Micro / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can only have up to 45k records.
+  - **Method:** LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can only have up to 50k records.
+  - **Model:** Amazon Nova Lite / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 55k records.
+  - **Datasets:** Image / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 35k records.
+  - **Method:** LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 60k records.
+  - **Datasets:** Image / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 35k records.
+  - **Model:** Amazon Nova Pro / **Method:** Full rank / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 20k records.
+  - **Datasets:** Image / **Description:** If you use a dataset where all records have 64k context length, and for example, run for 5 epochs, you can have up to 16k records.
+  - **Method:** LoRA / **Datasets:** Text only / **Description:** If you use a dataset where all records have 32k context length, and for example, run for 5 epochs, you can have up to 22k records.
+  - **Datasets:** Image / **Description:** If you use a dataset where all records have 64k context length, and for example, run for 5 epochs, you can have up to 18k records.
+
+
 
 By reducing the number of epochs or the context length of your records, you could provide more records.
 
 ## Full-rank SFT and LoRA PEFT configurations
+<a name="nova-model-training-jobs-recipe-config"></a>
 
-This section covers guidance on recipe configurations for both full-rank
-supervised fine-tuning (SFT) and low-rank adaptation parameter-efficient fine-tuning
-(LoRA PEFT) approaches. These recipe files serve as the blueprint for your model
-customization jobs, allowing you to specify training parameters, hyperparameters,
-and other critical settings that determine how your model learns from your data. To
-adjust the hyperparameters, follow the guidelines in [Selecting
-hyperparameters](customize-fine-tune-hyperparameters.md "customize-fine-tune-hyperparameters.md").
+This section covers guidance on recipe configurations for both full-rank supervised fine-tuning (SFT) and low-rank adaptation parameter-efficient fine-tuning (LoRA PEFT) approaches. These recipe files serve as the blueprint for your model customization jobs, allowing you to specify training parameters, hyperparameters, and other critical settings that determine how your model learns from your data. To adjust the hyperparameters, follow the guidelines in [Selecting hyperparameters](https://docs.aws.amazon.com/nova/latest/userguide/customize-fine-tune-hyperparameters.html).
 
 ### Fine-tuning configurations (Full-rank SFT and LoRA PEFT)
+<a name="nova-model-training-jobs-recipe-config-1"></a>
 
-The only difference between full-rank SFT and LoRA PEFT in terms of recipe is the
-LoRA PEFT configuration, which is set to 'null' for full rank and set to
-appropriate values if using LoRA PEFT-based fine-tuning. Example recipes are
-available in the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") GitHub repository. The following tables show
-detailed configurations that you might find helpful.
+The only difference between full-rank SFT and LoRA PEFT in terms of recipe is the LoRA PEFT configuration, which is set to 'null' for full rank and set to appropriate values if using LoRA PEFT-based fine-tuning. Example recipes are available in the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes) GitHub repository. The following tables show detailed configurations that you might find helpful.
 
 About **"run" configuration**.
 
-|                   | Key                   | Definition                                                            | Micro                         | Lite                         | Pro                         |
-| ----------------- | --------------------- | --------------------------------------------------------------------- | ----------------------------- | ---------------------------- | --------------------------- |
-| Run configuration | model\_type           | Specifies the Nova model variant to use. Do not modify this<br>field. | "amazon.nova-micro-v1:0:128k" | "amazon.nova-lite-v1:0:300k" | "amazon.nova-pro-v1:0:300k" |
-|                   | model\_name\_or\_path | The path to the base model.                                           | "nova-micro/prod"             | "nova-lite/prod"             | "nova-pro/prod"             |
-|                   | replicas              | The number of compute instances to use for distributed<br>training.   | 2, 4 or 8                     | 4, 8 or 16                   | 6, 12 or 24                 |
+
+|  | Key | Definition | Micro | Lite | Pro | 
+| --- | --- | --- | --- | --- | --- | 
+| Run configuration | model\_type | Specifies the Nova model variant to use. Do not modify this field.  | "amazon.nova-micro-v1:0:128k" | "amazon.nova-lite-v1:0:300k" | "amazon.nova-pro-v1:0:300k" | 
+|  | model\_name\_or\_path | The path to the base model. | "nova-micro/prod" | "nova-lite/prod" | "nova-pro/prod" | 
+|  | replicas | The number of compute instances to use for distributed training. | 2, 4 or 8 | 4, 8 or 16 | 6, 12 or 24 | 
 
 About **“training\_config” configuration**.
 
-|                                | Root key                         | Child keys                                                                                                         | Definition                                                                                                                                                                   | Min      | Max                                           |
-| ------------------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------------------------------------- |
-|                                |                                  | max\_length                                                                                                        | The maximum sequence length in tokens. This determines the context<br>window size for training. Tunable to nearest 1024<br>multiple, max value: 65536 (for Lite Lora 32768). | 1024     | 65536, except Lite LoRA which supports 32768. |
-|                                |                                  | global\_batch\_size                                                                                                | Total samples per step, allowed values are 16, 32, 64. Max value:<br>32 for Nova Pro, 64 for Nova Lite and Micro.                                                            | 16       | 32 for Nova Pro, 64 for Nova Lite and Micro.  |
-| **Trainer configuration**      | trainer                          | max\_epochs                                                                                                        | The number of complete passes through your training dataset. For<br>most customization tasks, 1-5 epochs are typically<br>sufficient. Recommended to keep up to 5.           | 1        | -                                             |
-| **Model<br>configuration**     | model                            | hidden\_dropout                                                                                                    | Probability of dropping hidden state outputs. Increase (0.0-0.2)<br>to reduce overfitting on smaller datasets. The bounds are between 0<br>• 1.                              | 0        | 1                                             |
-| model                          | attention\_dropout               | Probability of dropping attention weights. Can help with<br>generalization. The bounds are between 0<br>• 1.       | 0                                                                                                                                                                            | 1        |
-| model                          | ffn\_dropout                     | Probability of dropping feed-forward network outputs. The bounds<br>are between 0<br>• 1.                          | 0                                                                                                                                                                            | 1        |
-| **Optimizer<br>configuration** | model.optim                      | lr                                                                                                                 | Learning rate, controls step size during optimization. The limits<br>are between 0 and 1. Typically set between 1e-6 and 1e-4. for good<br>performance.                      | 0        | 1                                             |
-| model.optim                    | name                             | Optimizer algorithm. Currently, only<br>`distributed_fused_adam`is supported.                                      | -                                                                                                                                                                            | -        |
-| model.optim                    | adam\_w\_mode                    | Enable AdamW mode (true/false).                                                                                    | -                                                                                                                                                                            | -        |
-| model.optim                    | eps                              | Epsilon for numerical stability.                                                                                   |                                                                                                                                                                              |          |
-| model.optim                    | weight\_decay                    | L2 regularization strength, must be between 0.0 and 1.0.                                                           | 0                                                                                                                                                                            | 1        |
-| model.optim                    | betas                            | Adam optimizer betas, must be between 0.0 and 1.0.                                                                 | 0                                                                                                                                                                            | 1        |
-| model.optim                    | sched\_warmup\_steps             | Number of steps to gradually increase learning rate. This improves<br>training stability. Between 1 and 20.        | 1                                                                                                                                                                            | 20       |
-| model.optim                    | sched\_constant\_steps           | Steps at constant learning rate.                                                                                   | 1.00E-10                                                                                                                                                                     | 1.00E-06 |
-| model.optim                    | sched.min\_lr                    | Minimum learning rate at the end of decay. The limits are between<br>0 and 1, but must be less than learning rate. | 0                                                                                                                                                                            | 1        |
-| **LoRA PEFT<br>configuration** | model.peft                       | peft\_scheme                                                                                                       | Use "lora" or "null". "lora" uses LoRA PEFT method for<br>parameter-efficient fine-tuning. "null" kicks off a full rank fine<br>tuning.                                      | -        | -                                             |
-| model.peft                     | lora\_tuning.loraplus\_lr\_ratio | LoRA+ learning rate scaling factor, must be between 0.0 and<br>100.0.                                              | 0                                                                                                                                                                            | 100      |
-| model.peft                     | lora\_tuning.alpha               | Scaling factor for LoRA weights. Allowed values are 32, 64, 96,<br>128, 160 and 192.                               | 32                                                                                                                                                                           | 192      |
-| model.peft                     | lora\_tuning.adapter\_dropout    | Regularization for LoRA parameters.Must be between 0.0 and<br>1.0.                                                 | 0                                                                                                                                                                            | 1        |
+
+
+- ****
+  - **Root key:** 
+  - **Child keys:** max\_length
+  - **Definition:** The maximum sequence length in tokens. This determines the context window size for training. Tunable to nearest 1024 multiple, max value: 65536 (for Lite Lora 32768).
+  - **Min:** 1024
+  - **Max:** 65536, except Lite LoRA which supports 32768.
+
+- ****
+  - **Root key:** 
+  - **Child keys:** global\_batch\_size
+  - **Definition:** Total samples per step, allowed values are 16, 32, 64. Max value: 32 for Nova Pro, 64 for Nova Lite and Micro.
+  - **Min:** 16
+  - **Max:** 32 for Nova Pro, 64 for Nova Lite and Micro.
+
+- ****Trainer configuration****
+  - **Root key:** trainer
+  - **Child keys:** max\_epochs
+  - **Definition:** The number of complete passes through your training dataset. For most customization tasks, 1-5 epochs are typically sufficient. Recommended to keep up to 5.
+  - **Min:** 1
+  - **Max:** -
+
+- ****Model configuration****
+  - **Root key:** model / **Child keys:** hidden\_dropout / **Definition:** Probability of dropping hidden state outputs. Increase (0.0-0.2) to reduce overfitting on smaller datasets. The bounds are between 0 - 1. / **Min:** 0 / **Max:** 1
+  - **Root key:** model / **Child keys:** attention\_dropout / **Definition:** Probability of dropping attention weights. Can help with generalization. The bounds are between 0 - 1. / **Min:** 0 / **Max:** 1
+  - **Root key:** model / **Child keys:** ffn\_dropout / **Definition:** Probability of dropping feed-forward network outputs. The bounds are between 0 - 1. / **Min:** 0 / **Max:** 1
+
+- ****Optimizer configuration****
+  - **Root key:** model.optim / **Child keys:** lr / **Definition:** Learning rate, controls step size during optimization. The limits are between 0 and 1. Typically set between 1e-6 and 1e-4. for good performance. / **Min:** 0 / **Max:** 1
+  - **Root key:** model.optim / **Child keys:** name / **Definition:** Optimizer algorithm. Currently, only `distributed_fused_adam`is supported. / **Min:** - / **Max:** -
+  - **Root key:** model.optim / **Child keys:** adam\_w\_mode / **Definition:** Enable AdamW mode (true/false). / **Min:** - / **Max:** -
+  - **Root key:** model.optim / **Child keys:** eps / **Definition:** Epsilon for numerical stability. / **Min:**  / **Max:** 
+  - **Root key:** model.optim / **Child keys:** weight\_decay / **Definition:** L2 regularization strength, must be between 0.0 and 1.0. / **Min:** 0 / **Max:** 1
+  - **Root key:** model.optim / **Child keys:** betas / **Definition:** Adam optimizer betas, must be between 0.0 and 1.0. / **Min:** 0 / **Max:** 1
+  - **Root key:** model.optim / **Child keys:** sched\_warmup\_steps / **Definition:** Number of steps to gradually increase learning rate. This improves training stability. Between 1 and 20. / **Min:** 1 / **Max:** 20
+  - **Root key:** model.optim / **Child keys:** sched\_constant\_steps / **Definition:** Steps at constant learning rate. / **Min:** 1.00E-10 / **Max:** 1.00E-06
+  - **Root key:** model.optim / **Child keys:** sched.min\_lr / **Definition:** Minimum learning rate at the end of decay. The limits are between 0 and 1, but must be less than learning rate. / **Min:** 0 / **Max:** 1
+
+- ** ** LoRA PEFT configuration** **
+  - **Root key:** model.peft / **Child keys:** peft\_scheme / **Definition:** Use "lora" or "null". "lora" uses LoRA PEFT method for parameter-efficient fine-tuning. "null" kicks off a full rank fine tuning. / **Min:** - / **Max:** -
+  - **Root key:** model.peft / **Child keys:** lora\_tuning.loraplus\_lr\_ratio / **Definition:** LoRA\+ learning rate scaling factor, must be between 0.0 and 100.0. / **Min:** 0 / **Max:** 100
+  - **Root key:** model.peft / **Child keys:** lora\_tuning.alpha / **Definition:** Scaling factor for LoRA weights. Allowed values are 32, 64, 96, 128, 160 and 192. / **Min:** 32 / **Max:** 192
+  - **Root key:** model.peft / **Child keys:** lora\_tuning.adapter\_dropout / **Definition:** Regularization for LoRA parameters.Must be between 0.0 and 1.0. / **Min:** 0 / **Max:** 1
+
+
 
 ### Fine-tuning specific configurations (DPO)
+<a name="nova-model-training-jobs-recipe-config-2"></a>
 
-The only difference between Direct Preference Optimization (DPO) as compared to
-LoRA PEFT and FullRank SFT is in terms of dpo\_cfg configuration and allowed
-values. Refer to the table below the example for allowed specifically for
-DPO. Example recipes are available in the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes "https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes") GitHub repository. The following table
-shows detailed configurations that you might find helpful.
+The only difference between Direct Preference Optimization (DPO) as compared to LoRA PEFT and FullRank SFT is in terms of dpo\_cfg configuration and allowed values. Refer to the table below the example for allowed specifically for DPO. Example recipes are available in the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes/tree/main/recipes_collection/recipes) GitHub repository. The following table shows detailed configurations that you might find helpful.
 
-|                                | Root key                         | Child keys                                                                                                         | Definition                                                                                                                                              | Min      | Max   |
-| ------------------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----- |
-|                                |                                  | max\_length                                                                                                        | The maximum sequence length in tokens. This determines the context<br>window size for training. Tunable to nearest 1024 multiple, max<br>value: 32,768. | 1024     | 32768 |
-|                                |                                  | global\_batch\_size                                                                                                | Global batch size, allowed values are {16, 32, 64, 128,<br>256}.                                                                                        | 16       | 256   |
-| **Trainer configuration**      | trainer                          | max\_epochs                                                                                                        | The number of complete passes through your training<br>dataset. For most customization tasks, 1-5 epochs are<br>typically sufficient. Max epochs is 5.  | 1        | 5     |
-| **Model<br>configuration**     | model                            | hidden\_dropout                                                                                                    | Probability of dropping hidden state outputs. Increase<br>(0.0-0.2) to reduce overfitting on smaller datasets. The<br>bounds are between 0<br>• 1.      | 0        | 1     |
-| model                          | attention\_dropout               | Probability of dropping attention weights. Can help with<br>generalization. The bounds are between 0<br>• 1.       | 0                                                                                                                                                       | 1        |
-| model                          | ffn\_dropout                     | Probability of dropping feed-forward network outputs. The bounds<br>are between 0<br>• 1.                          | 0                                                                                                                                                       | 1        |
-| **Optimizer<br>configuration** | model.optim                      | lr                                                                                                                 | Learning rate, controls step size during optimization. The limits<br>are between 0 and 1. Typically set between 1e-6 and 1e-4. for good<br>performance. | 0        | 1     |
-| model.optim                    | name                             | Optimizer algorithm. Currently, only<br>`distributed_fused_adam` is supported.                                     | -                                                                                                                                                       | -        |
-| model.optim                    | adam\_w\_mode                    | Enable AdamW mode (true/false).                                                                                    | -                                                                                                                                                       | -        |
-| model.optim                    | eps                              | Epsilon for numerical stability.                                                                                   | 1.00E-10                                                                                                                                                | 1.00E-06 |
-| model.optim                    | weight\_decay                    | L2 regularization strength, must be between 0.0 and 1.0.                                                           | 0                                                                                                                                                       | 1        |
-| model.optim                    | betas                            | Adam optimizer betas, must be between 0.0 and 1.0.                                                                 | 0                                                                                                                                                       | 1        |
-| model.optim                    | sched\_warmup\_steps             | Number of steps to gradually increase learning rate. This improves<br>training stability. Between 1 and 20.        | 1                                                                                                                                                       | 20       |
-| model.optim                    | sched\_constant\_steps           | Steps at constant learning rate.                                                                                   |                                                                                                                                                         |          |
-| model.optim                    | sched.min\_lr                    | Minimum learning rate at the end of decay. The limits are between<br>0 and 1, but must be less than learning rate. | 0                                                                                                                                                       | 1        |
-| **LoRA PEFT<br>configuration** | model.peft                       | peft\_scheme                                                                                                       | Use "lora" or "null". "lora" uses LoRA PEFT method for<br>parameter-efficient fine-tuning. "null" kicks off a full rank fine<br>tuning.                 | -        | -     |
-| model.peft                     | lora\_tuning.loraplus\_lr\_ratio | LoRA+ learning rate scaling factor, must be between 0.0 and<br>100.0.                                              | 0                                                                                                                                                       | 100      |
-| model.peft                     | lora\_tuning.alpha               | Scaling factor for LoRA weights. Allowed values are 32, 64, 96,<br>128, 160 and 192.                               | 32                                                                                                                                                      | 192      |
-| model.peft                     | lora\_tuning.adapter\_dropout    | Regularization for LoRA parameters. Must be between 0.0 and<br>1.0.                                                | 0                                                                                                                                                       | 1        |
-| **DPO configuration**          | model-dpo\_cfg                   | beta                                                                                                               | Strength of preference enforcement.                                                                                                                     | 0.001    | 0.1   |
+
+
+- ****
+  - **Root key:** 
+  - **Child keys:** max\_length
+  - **Definition:** The maximum sequence length in tokens. This determines the context window size for training. Tunable to nearest 1024 multiple, max value: 32,768.
+  - **Min:** 1024
+  - **Max:** 32768
+
+- ****
+  - **Root key:** 
+  - **Child keys:** global\_batch\_size
+  - **Definition:** Global batch size, allowed values are {16, 32, 64, 128, 256}.
+  - **Min:** 16
+  - **Max:** 256
+
+- ****Trainer configuration****
+  - **Root key:** trainer
+  - **Child keys:** max\_epochs
+  - **Definition:** The number of complete passes through your training dataset. For most customization tasks, 1-5 epochs are typically sufficient. Max epochs is 5.
+  - **Min:** 1
+  - **Max:** 5
+
+- ****Model configuration****
+  - **Root key:** model / **Child keys:** hidden\_dropout / **Definition:** Probability of dropping hidden state outputs. Increase (0.0-0.2) to reduce overfitting on smaller datasets. The bounds are between 0 - 1. / **Min:** 0 / **Max:** 1
+  - **Root key:** model / **Child keys:** attention\_dropout / **Definition:** Probability of dropping attention weights. Can help with generalization. The bounds are between 0 - 1. / **Min:** 0 / **Max:** 1
+  - **Root key:** model / **Child keys:** ffn\_dropout / **Definition:** Probability of dropping feed-forward network outputs. The bounds are between 0 - 1. / **Min:** 0 / **Max:** 1
+
+- ****Optimizer configuration****
+  - **Root key:** model.optim / **Child keys:** lr / **Definition:** Learning rate, controls step size during optimization. The limits are between 0 and 1. Typically set between 1e-6 and 1e-4. for good performance. / **Min:** 0 / **Max:** 1
+  - **Root key:** model.optim / **Child keys:** name / **Definition:** Optimizer algorithm. Currently, only `distributed_fused_adam` is supported. / **Min:** - / **Max:** -
+  - **Root key:** model.optim / **Child keys:** adam\_w\_mode / **Definition:** Enable AdamW mode (true/false). / **Min:** - / **Max:** -
+  - **Root key:** model.optim / **Child keys:** eps / **Definition:** Epsilon for numerical stability. / **Min:** 1.00E-10 / **Max:** 1.00E-06
+  - **Root key:** model.optim / **Child keys:** weight\_decay / **Definition:** L2 regularization strength, must be between 0.0 and 1.0. / **Min:** 0 / **Max:** 1
+  - **Root key:** model.optim / **Child keys:** betas / **Definition:** Adam optimizer betas, must be between 0.0 and 1.0. / **Min:** 0 / **Max:** 1
+  - **Root key:** model.optim / **Child keys:** sched\_warmup\_steps / **Definition:** Number of steps to gradually increase learning rate. This improves training stability. Between 1 and 20. / **Min:** 1 / **Max:** 20
+  - **Root key:** model.optim / **Child keys:** sched\_constant\_steps / **Definition:** Steps at constant learning rate. / **Min:**  / **Max:** 
+  - **Root key:** model.optim / **Child keys:** sched.min\_lr / **Definition:** Minimum learning rate at the end of decay. The limits are between 0 and 1, but must be less than learning rate. / **Min:** 0 / **Max:** 1
+
+- ** ** LoRA PEFT configuration** **
+  - **Root key:** model.peft / **Child keys:** peft\_scheme / **Definition:** Use "lora" or "null". "lora" uses LoRA PEFT method for parameter-efficient fine-tuning. "null" kicks off a full rank fine tuning. / **Min:** - / **Max:** -
+  - **Root key:** model.peft / **Child keys:** lora\_tuning.loraplus\_lr\_ratio / **Definition:** LoRA\+ learning rate scaling factor, must be between 0.0 and 100.0. / **Min:** 0 / **Max:** 100
+  - **Root key:** model.peft / **Child keys:** lora\_tuning.alpha / **Definition:** Scaling factor for LoRA weights. Allowed values are 32, 64, 96, 128, 160 and 192. / **Min:** 32 / **Max:** 192
+  - **Root key:** model.peft / **Child keys:** lora\_tuning.adapter\_dropout / **Definition:** Regularization for LoRA parameters. Must be between 0.0 and 1.0. / **Min:** 0 / **Max:** 1
+
+- ****DPO configuration****
+  - **Root key:** model-dpo\_cfg
+  - **Child keys:** beta
+  - **Definition:** Strength of preference enforcement.
+  - **Min:** 0.001
+  - **Max:** 0.1
+
+
 
 ## Running customized Nova model on SageMaker Training Jobs
+<a name="nova-model-training-jobs-notebook"></a>
 
-This section demonstrates how to run a customized Nova model on SageMaker Training Jobs
-through a Jupyter notebook environment. You'll find a complete example that walks
-through the process of configuring and launching a training job, along with
-reference tables for selecting the appropriate container image URIs and instance
-configurations. This approach gives you programmatic control over your fine-tuning
-workflows while leveraging SageMaker AI's managed infrastructure for model customization.
-For more information, see [Use a SageMaker AI estimator to run a training job](../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md "../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md").
+This section demonstrates how to run a customized Nova model on SageMaker Training Jobs through a Jupyter notebook environment. You'll find a complete example that walks through the process of configuring and launching a training job, along with reference tables for selecting the appropriate container image URIs and instance configurations. This approach gives you programmatic control over your fine-tuning workflows while leveraging SageMaker AI's managed infrastructure for model customization. For more information, see [Use a SageMaker AI estimator to run a training job](https://docs.aws.amazon.com/sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.html).
 
 ### Reference tables
+<a name="nova-model-training-jobs-reference-table"></a>
 
-Before running the sample notebook, refer to the following tables for selecting
-the appropriate container image URIs and instance configurations.
+Before running the sample notebook, refer to the following tables for selecting the appropriate container image URIs and instance configurations.
 
 **Selecting image URI**
 
-| Recipe        | Image URI                                                                           |
-| ------------- | ----------------------------------------------------------------------------------- |
-| SFT image URI | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-latest` |
-| DPO image URI | `708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-DPO-latest` |
+
+| Recipe | Image URI | 
+| --- | --- | 
+| SFT image URI | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-SFT-latest | 
+| DPO image URI | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-TJ-DPO-latest | 
 
 **Selecting instance type and count**
 
-| Model             | Fine-tuning Job type | Technique type | Instance type                                        | Recommended instance count | Allowed instance count |
-| ----------------- | -------------------- | -------------- | ---------------------------------------------------- | -------------------------- | ---------------------- |
-| Amazon Nova Micro | SFT                  | LoRA           | `g5.12xlarge, g6.12xlarge, g5.48xlarge, g6.48xlarge` | 1                          | 1                      |
-|                   |                      | LoRA+Full rank | `g5.48xlarge, g6.48xlarge`                           | 1                          | 1                      |
-|                   |                      |                | `p4d.24xlarge`                                       | 2                          | 2, 4, 8                |
-|                   |                      |                | `p5.48xlarge, p5en.48xlarge`                         | 1                          | 1, 2, 4, 8             |
-|                   | DPO                  | LoRA           | `g5.12xlarge, g6.12xlarge, g5.48xlarge, g6.48xlarge` | 1                          | 1                      |
-|                   |                      | LoRA+Full rank | `p4d.24xlarge, p5.48xlarge, p5en.48xlarge`           | 2                          | 2, 4, 8                |
-| Amazon Nova Lite  | SFT                  | LoRA           | `g5.12xlarge, g6.12xlarge, g5.48xlarge, g6.48xlarge` | 1                          | 1                      |
-|                   |                      |                | `p5.48xlarge, p5en.48xlarge`                         | 1                          | 1, 4, 8, 16            |
-|                   |                      | LoRA+Full rank | `p4d.24xlarge`                                       | 4                          | 4, 8, 16               |
-|                   |                      |                | `p5.48xlarge, p5en.48xlarge`                         | 2                          | 2, 4, 8, 16            |
-|                   | DPO                  | LoRA           | `g5.48xlarge, g6.48xlarge`                           | 1                          | 1                      |
-|                   |                      | LoRA+Full rank | `p4d.24xlarge, p5.48xlarge, p5en.48xlarge`           | 4                          | 4, 8, 16               |
-| Amazon Nova Pro   | SFT                  | LoRA           | `p4d.24xlarge`                                       | 6                          | 6, 12, 24              |
-|                   |                      |                | `p5.48xlarge, p5en.48xlarge`                         | 3                          | 3, 6, 12, 24           |
-|                   |                      | LoRA+Full rank | `p5.48xlarge, p5en.48xlarge`                         | 6                          | 6, 12, 24              |
-|                   | DPO                  | LoRA           | `p4d.24xlarge`                                       | 6                          | 6, 12, 24              |
-|                   |                      | LoRA+Full rank | `p4d.24xlarge`                                       | 12                         | 12, 24                 |
-|                   |                      |                | `p5.48xlarge, p5en.48xlarge`                         | 4                          | 4, 8, 16               |
+
+| Model | Fine-tuning Job type | Technique type | Instance type | Recommended instance count | Allowed instance count | 
+| --- | --- | --- | --- | --- | --- | 
+| Amazon Nova Micro | SFT | LoRA | g5.12xlarge, g6.12xlarge, g5.48xlarge, g6.48xlarge | 1 | 1 | 
+|  |  | LoRA\+Full rank | g5.48xlarge, g6.48xlarge | 1 | 1 | 
+|  |  |  | p4d.24xlarge | 2 | 2, 4, 8 | 
+|  |  |  | p5.48xlarge, p5en.48xlarge | 1 | 1, 2, 4, 8 | 
+|  | DPO | LoRA | g5.12xlarge, g6.12xlarge, g5.48xlarge, g6.48xlarge | 1 | 1 | 
+|  |  | LoRA\+Full rank | p4d.24xlarge, p5.48xlarge, p5en.48xlarge | 2 | 2, 4, 8 | 
+| Amazon Nova Lite | SFT | LoRA | g5.12xlarge, g6.12xlarge, g5.48xlarge, g6.48xlarge | 1 | 1 | 
+|  |  |  | p5.48xlarge, p5en.48xlarge | 1 | 1, 4, 8, 16 | 
+|  |  | LoRA\+Full rank | p4d.24xlarge | 4 | 4, 8, 16 | 
+|  |  |  | p5.48xlarge, p5en.48xlarge | 2 | 2, 4, 8, 16 | 
+|  | DPO | LoRA | g5.48xlarge, g6.48xlarge | 1 | 1 | 
+|  |  | LoRA\+Full rank | p4d.24xlarge, p5.48xlarge, p5en.48xlarge | 4 | 4, 8, 16 | 
+| Amazon Nova Pro | SFT | LoRA | p4d.24xlarge | 6 | 6, 12, 24 | 
+|  |  |  | p5.48xlarge, p5en.48xlarge | 3 | 3, 6, 12, 24 | 
+|  |  | LoRA\+Full rank | p5.48xlarge, p5en.48xlarge | 6 | 6, 12, 24 | 
+|  | DPO | LoRA | p4d.24xlarge | 6 | 6, 12, 24 | 
+|  |  | LoRA\+Full rank | p4d.24xlarge | 12 | 12, 24 | 
+|  |  |  | p5.48xlarge, p5en.48xlarge | 4 | 4, 8, 16 | 
 
 ### Sample notebook
+<a name="nova-model-training-jobs-notebook"></a>
 
-The following sample notebook demonstrates how to run a training job. For
-additional getting started notebooks on how to customize Nova models using
-SageMaker Training Jobs, see [Use a SageMaker AI estimator to run a training job](../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md "../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md").
+The following sample notebook demonstrates how to run a training job. For additional getting started notebooks on how to customize Nova models using SageMaker Training Jobs, see [Use a SageMaker AI estimator to run a training job](https://docs.aws.amazon.com/sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.html).
 
 ```
 # 1. Install dependencies
@@ -486,54 +521,39 @@ if (validation_s3_uri):
     estimator.fit(inputs={"train": trainingInput, "validation": validationInput}) # inputs must be called "train" and "validation", do not change
 else:
     estimator.fit(inputs={"train": trainingInput})
-
 ```
 
 ## Hyperparameter optimization guidance
+<a name="nova-model-hyperparameter"></a>
 
-Fine-tuning your Nova LLM model effectively requires careful selection of
-hyperparameters. While this section explains the basic recipe structure and
-components, optimizing hyperparameters for your specific use case often requires
-additional guidance. For comprehensive recommendations on hyperparameter selection,
-best practices, and optimization strategies, see [Selecting
-hyperparameters](customize-fine-tune-hyperparameters.md "customize-fine-tune-hyperparameters.md"). This resource provides detailed guidance on selecting
-appropriate learning rates, batch sizes, training epochs, and other critical
-parameters based on your dataset characteristics and training objectives. We
-recommend consulting this guide when fine-tuning your recipe configuration to
-achieve optimal model performance.
+Fine-tuning your Nova LLM model effectively requires careful selection of hyperparameters. While this section explains the basic recipe structure and components, optimizing hyperparameters for your specific use case often requires additional guidance. For comprehensive recommendations on hyperparameter selection, best practices, and optimization strategies, see [Selecting hyperparameters](https://docs.aws.amazon.com/nova/latest/userguide/customize-fine-tune-hyperparameters.html). This resource provides detailed guidance on selecting appropriate learning rates, batch sizes, training epochs, and other critical parameters based on your dataset characteristics and training objectives. We recommend consulting this guide when fine-tuning your recipe configuration to achieve optimal model performance.
 
-For details about minimum, maximum, and default values for epochs, learning rate,
-and learning warmup steps, see [Hyperparameters for Understanding models](fine-tune-hyperparameters-understanding-models.md "fine-tune-hyperparameters-understanding-models.md").
+For details about minimum, maximum, and default values for epochs, learning rate, and learning warmup steps, see [Hyperparameters for Understanding models](https://docs.aws.amazon.com/nova/latest/userguide/fine-tune-hyperparameters-understanding-models.html).
 
 **Common recipe modifications**
 
 Here are some common recipe adjustments based on specific use cases:
++ **For smaller datasets (< 1,000 examples)**
 
-- **For smaller datasets (< 1,000
-  examples)**
+  ```
+  training_config:
+      max_epochs: 2  # More passes through a smaller dataset
+  model:
+      hidden_dropout: 0.1  # Increase regularization
+      weight_decay: 0.01   # Increase regularization
+  ```
++ **For efficiency with limited compute**
 
-```
-training_config:
-    max_epochs: 2  # More passes through a smaller dataset
-model:
-    hidden_dropout: 0.1  # Increase regularization
-    weight_decay: 0.01   # Increase regularization
-```
+  ```
+  peft:
+      peft_scheme: "lora"
+      lora_tuning:
+  ```
++ **For complex instruction tuning**
 
-- **For efficiency with limited
-  compute**
-
-```
-peft:
-    peft_scheme: "lora"
-    lora_tuning:
-```
-
-- **For complex instruction tuning**
-
-```
-optim:
-    lr: 5e-6  # Lower learning rate for more stable learning
-    sched:
-        warmup_steps: 100  # Longer warmup for stability
-```
+  ```
+  optim:
+      lr: 5e-6  # Lower learning rate for more stable learning
+      sched:
+          warmup_steps: 100  # Longer warmup for stability
+  ```
