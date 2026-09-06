@@ -1,6 +1,9 @@
-# Deleting an ACME endpoint
 
-The following example shows how to use the [DeleteAcmeEndpoint](../APIReference/API_DeleteAcmeEndpoint.md "../APIReference/API_DeleteAcmeEndpoint.md") function.
+
+# Deleting an ACME endpoint
+<a name="sdk-acme-delete-endpoint"></a>
+
+The following example shows how to use the [DeleteAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeEndpoint.html) function.
 
 ```
 package com.amazonaws.samples;

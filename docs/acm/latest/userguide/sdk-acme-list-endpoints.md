@@ -1,6 +1,9 @@
-# Listing ACME endpoints
 
-The following example shows how to use the [ListAcmeEndpoints](../APIReference/API_ListAcmeEndpoints.md "../APIReference/API_ListAcmeEndpoints.md") function.
+
+# Listing ACME endpoints
+<a name="sdk-acme-list-endpoints"></a>
+
+The following example shows how to use the [ListAcmeEndpoints](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeEndpoints.html) function.
 
 ```
 package com.amazonaws.samples;

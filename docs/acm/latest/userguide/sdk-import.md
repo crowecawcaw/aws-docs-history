@@ -1,6 +1,9 @@
-# Importing a certificate
 
-The following example shows how to use the [ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReference/API_ImportCertificate.md") function.
+
+# Importing a certificate
+<a name="sdk-import"></a>
+
+The following example shows how to use the [ImportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ImportCertificate.html) function. 
 
 ```
 package com.amazonaws.samples;
@@ -26,7 +29,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
- * This sample demonstrates how to use the ImportCertificate function in the AWS Certificate Manager
+ * This sample demonstrates how to use the ImportCertificate function in the AWS Certificate Manager 
  * service.
  *
  * Input parameters:
@@ -56,7 +59,7 @@ public class AWSCertificateManagerSample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
@@ -72,9 +75,9 @@ public class AWSCertificateManagerSample {
 
       // Create the file streams for reading.
       try {
-         file_certificate = new RandomAccessFile(`"C:\\Temp\\certificate.pem"`, "r");
-         file_chain = new RandomAccessFile(`"C:\\Temp\\chain.pem"`, "r");
-         file_key = new RandomAccessFile(`"C:\\Temp\\private_key.pem"`, "r");
+         file_certificate = new RandomAccessFile({{"C:\\Temp\\certificate.pem"}}, "r");
+         file_chain = new RandomAccessFile({{"C:\\Temp\\chain.pem"}}, "r");
+         file_key = new RandomAccessFile({{"C:\\Temp\\private_key.pem"}}, "r");
       }
       catch (IllegalArgumentException ex) {
          throw ex;

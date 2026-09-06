@@ -1,13 +1,12 @@
+
+
 # Exporting a certificate
+<a name="sdk-export"></a>
 
-The following example shows how to use the [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md") function. The function exports a certificate in the
-PKCS #8 format. It also exports the certificate chain and private key. In the example,
-the passphrase for the key is stored in a local file.
+The following example shows how to use the [ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html) function. The function exports a certificate in the PKCS \#8 format. It also exports the certificate chain and private key. In the example, the passphrase for the key is stored in a local file. 
 
-###### Note
-
-If you want to export public certificates issued through ACM, see [ACM
-exportable public certificates](acm-exportable-certificates.md "acm-exportable-certificates.md").
+**Note**  
+If you want to export public certificates issued through ACM, see [ACM exportable public certificates](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html). 
 
 ```
 package com.amazonaws.samples;
@@ -52,7 +51,7 @@ public class ExportCertificate {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`your_region`)
+              .withRegion(Regions.{{your_region}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
@@ -64,7 +63,7 @@ public class ExportCertificate {
 
       // Create a file stream for reading the private key passphrase.
       try {
-         file_passphrase = new RandomAccessFile("`C:\\Temp\\password.txt`", "r");
+         file_passphrase = new RandomAccessFile("{{C:\\Temp\\password.txt}}", "r");
       }
       catch (IllegalArgumentException ex) {
          throw ex;
@@ -96,8 +95,8 @@ public class ExportCertificate {
       ExportCertificateRequest req = new ExportCertificateRequest();
 
       // Set the certificate ARN.
-      req.withCertificateArn("arn:aws:acm:`region`:`account`:"
-            +"certificate/M`12345678-1234-1234-1234-123456789012`");
+      req.withCertificateArn("arn:aws:acm:{{region}}:{{account}}:"
+            +"certificate/M{{12345678-1234-1234-1234-123456789012}}");
 
       // Set the passphrase.
       req.withPassphrase(buf_passphrase);

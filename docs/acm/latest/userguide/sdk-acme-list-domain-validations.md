@@ -1,6 +1,9 @@
-# Listing ACME domain validations
 
-The following example shows how to use the [ListAcmeDomainValidations](../APIReference/API_ListAcmeDomainValidations.md "../APIReference/API_ListAcmeDomainValidations.md") function.
+
+# Listing ACME domain validations
+<a name="sdk-acme-list-domain-validations"></a>
+
+The following example shows how to use the [ListAcmeDomainValidations](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeDomainValidations.html) function.
 
 ```
 package com.amazonaws.samples;

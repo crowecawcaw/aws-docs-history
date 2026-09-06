@@ -1,6 +1,9 @@
-# Describing an ACME domain validation
 
-The following example shows how to use the [DescribeAcmeDomainValidation](../APIReference/API_DescribeAcmeDomainValidation.md "../APIReference/API_DescribeAcmeDomainValidation.md") function.
+
+# Describing an ACME domain validation
+<a name="sdk-acme-describe-domain-validation"></a>
+
+The following example shows how to use the [DescribeAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeDomainValidation.html) function.
 
 ```
 package com.amazonaws.samples;

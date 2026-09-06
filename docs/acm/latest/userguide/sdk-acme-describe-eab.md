@@ -1,6 +1,9 @@
-# Describing an ACME external account binding
 
-The following example shows how to use the [DescribeAcmeExternalAccountBinding](../APIReference/API_DescribeAcmeExternalAccountBinding.md "../APIReference/API_DescribeAcmeExternalAccountBinding.md") function.
+
+# Describing an ACME external account binding
+<a name="sdk-acme-describe-eab"></a>
+
+The following example shows how to use the [DescribeAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeExternalAccountBinding.html) function.
 
 ```
 package com.amazonaws.samples;

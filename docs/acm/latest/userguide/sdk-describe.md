@@ -1,7 +1,9 @@
-# Describing a certificate
 
-The following example shows how to use the [DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIReference/API_DescribeCertificate.md")
-function.
+
+# Describing a certificate
+<a name="sdk-describe"></a>
+
+The following example shows how to use the [DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html) function.
 
 ```
 package com.amazonaws.samples;
@@ -48,13 +50,13 @@ public class AWSCertificateManagerExample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
       // Create a request object and set the ARN of the certificate to be described.
       DescribeCertificateRequest req = new DescribeCertificateRequest();
-      req.setCertificateArn("arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`");
+      req.setCertificateArn("arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}}");
 
       DescribeCertificateResult result = null;
       try{
@@ -76,13 +78,12 @@ public class AWSCertificateManagerExample {
 }
 ```
 
-If successful, the preceding example displays information similar to the
-following.
+If successful, the preceding example displays information similar to the following.
 
 ```
 {
     Certificate: {
-        CertificateArn: arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`,
+        CertificateArn: arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}},
         DomainName: www.example.com,
         SubjectAlternativeNames: [www.example.com],
         DomainValidationOptions: [{

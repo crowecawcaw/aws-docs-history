@@ -1,70 +1,56 @@
+
+
 # Export an AWS Certificate Manager public certificate
+<a name="export-public-certificate"></a>
 
-The following procedures walks you through how you can export an ACM public
-certificate in the ACM console. Alternatively, you can use the [`export-certificate`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/acm/export-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/acm/export-certificate.html") AWS CLI or [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md")
-API action.
+The following procedures walks you through how you can export an ACM public certificate in the ACM console. Alternatively, you can use the [`export-certificate`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/acm/export-certificate.html) AWS CLI or [ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html) API action.
 
-###### Tip
+**Tip**  
+If you need public certificates for customer-managed infrastructure (such as on-premises servers or Kubernetes clusters) and want to use industry-standard ACME clients to automate issuance and renewal, see [ACME certificate automation](acm-acme.md).
 
-If you need public certificates for customer-managed infrastructure (such as
-on-premises servers or Kubernetes clusters) and want to use industry-standard ACME
-clients to automate issuance and renewal, see [ACME certificate automation](acm-acme.md "acm-acme.md").
-
-###### Note
-
+**Note**  
 ACM public certificates created prior to June 17, 2025 cannot be exported.
 
 ## Export a public certificate (console)
+<a name="console-procedures"></a>
 
-1. Sign in to the AWS Management Console and open the ACM console at [https://console.aws.amazon.com/acm/](https://console.aws.amazon.com/acm/ "https://console.aws.amazon.com/acm/").
-2. Choose **List certificates** and select the checkbox of
-   the certificate you want to export.
+1. Sign in to the AWS Management Console and open the ACM console at [https://console.aws.amazon.com/acm/](https://console.aws.amazon.com/acm/).
 
-   1. Alternatively, you can select the certificate. In the certificate
-      detail page, select **Export**.
+1. Choose **List certificates** and select the checkbox of the certificate you want to export.
 
-3. Choose **More actions** and then choose
-   **Export**.
-4. Enter and confirm a passphrase for the private key.
-5. You can download or copy the certificate files.
+   1. Alternatively, you can select the certificate. In the certificate detail page, select **Export**.
 
-###### Note
+1. Choose **More actions** and then choose **Export**.
 
-In the ACM console, you’re able to export .pem certificate files.
-You can convert the .pem file to another file format, like .ppk. For
-more information, see this [re:Post article](https://repost.aws/knowledge-center/ec2-ppk-pem-conversion "https://repost.aws/knowledge-center/ec2-ppk-pem-conversion").
+1. Enter and confirm a passphrase for the private key.
+
+1. You can download or copy the certificate files.
+**Note**  
+In the ACM console, you’re able to export .pem certificate files. You can convert the .pem file to another file format, like .ppk. For more information, see this [re:Post article](https://repost.aws/knowledge-center/ec2-ppk-pem-conversion). 
 
 ## Export a public certificate (AWS CLI)
+<a name="cli-procedures"></a>
 
-Use the [`export-certificate`](../../../cli/latest/reference/acm/export-certificate.md "../../../cli/latest/reference/acm/export-certificate.md") AWS CLI command or [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md") API action to export a public certificate and private
-key. You must assign a passphrase when you run the command. For added security, use
-a file editor to store your passphrase in a file, and then supply the passphrase by
-supplying the file. This prevents your passphrase from being stored in the command
-history and prevents others from seeing the passphrase as you type it in.
+Use the [`export-certificate`](https://docs.aws.amazon.com/cli/latest/reference/acm/export-certificate.html) AWS CLI command or [ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html) API action to export a public certificate and private key. You must assign a passphrase when you run the command. For added security, use a file editor to store your passphrase in a file, and then supply the passphrase by supplying the file. This prevents your passphrase from being stored in the command history and prevents others from seeing the passphrase as you type it in.
 
-###### Note
-
-The file containing the passphrase must not end in a line terminator. You can
-check your password file like this:
+**Note**  
+The file containing the passphrase must not end in a line terminator. You can check your password file like this:
 
 ```
 $ file -k passphrase.txt
 passphrase.txt: ASCII text, with no line terminators
 ```
 
-The following examples pipe the command output to `jq` to apply PEM
-formatting.
+The following examples pipe the command output to `jq` to apply PEM formatting.
 
 ```
 [Windows/Linux]$ aws acm export-certificate \
-    --certificate-arn arn:aws:acm:us-east-1:`111122223333`:certificate/`certificate_ID` \
+    --certificate-arn arn:aws:acm:us-east-1:{{111122223333}}:certificate/{{certificate_ID}} \
     --passphrase fileb://path-to-passphrase-file  \
     | jq -r '"\(.Certificate)\(.CertificateChain)\(.PrivateKey)"'
 ```
 
-This outputs a base64-encoded, PEM-format certificate, also containing the
-certificate chain and encrypted private key, as in the following abbreviated
-example.
+This outputs a base64-encoded, PEM-format certificate, also containing the certificate chain and encrypted private key, as in the following abbreviated example.
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -97,14 +83,12 @@ Fs5kw5mvEoe5DAe3rSKsSUJ1tM4RagJj2WH+BC04SZWNH8kxfOC1E/GSLBCixv3v
 -----END ENCRYPTED PRIVATE KEY-----
 ```
 
-To output everything to a file, append the `>` redirect to the previous
-example, yielding the following command:
+To output everything to a file, append the `>` redirect to the previous example, yielding the following command: 
 
 ```
 $ aws acm export-certificate \
-     --certificate-arn arn:aws:acm:us-east-1:`111122223333`:certificate/`certificate_ID` \
+     --certificate-arn arn:aws:acm:us-east-1:{{111122223333}}:certificate/{{certificate_ID}} \
      --passphrase fileb://path-to-passphrase-file \
      | jq -r '"\(.Certificate)\(.CertificateChain)\(.PrivateKey)"' \
      > /tmp/export.txt
-
 ```

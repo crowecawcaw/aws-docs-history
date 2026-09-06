@@ -1,6 +1,9 @@
-# Revoking an ACME account
 
-The following example shows how to use the [RevokeAcmeAccount](../APIReference/API_RevokeAcmeAccount.md "../APIReference/API_RevokeAcmeAccount.md") function.
+
+# Revoking an ACME account
+<a name="sdk-acme-revoke-account"></a>
+
+The following example shows how to use the [RevokeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeAcmeAccount.html) function.
 
 ```
 package com.amazonaws.samples;

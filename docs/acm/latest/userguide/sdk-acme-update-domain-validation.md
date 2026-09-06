@@ -1,6 +1,9 @@
-# Updating an ACME domain validation
 
-The following example shows how to use the [UpdateAcmeDomainValidation](../APIReference/API_UpdateAcmeDomainValidation.md "../APIReference/API_UpdateAcmeDomainValidation.md") function.
+
+# Updating an ACME domain validation
+<a name="sdk-acme-update-domain-validation"></a>
+
+The following example shows how to use the [UpdateAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateAcmeDomainValidation.html) function.
 
 ```
 package com.amazonaws.samples;

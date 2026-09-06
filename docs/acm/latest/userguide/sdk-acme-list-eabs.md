@@ -1,6 +1,9 @@
-# Listing ACME external account bindings
 
-The following example shows how to use the [ListAcmeExternalAccountBindings](../APIReference/API_ListAcmeExternalAccountBindings.md "../APIReference/API_ListAcmeExternalAccountBindings.md") function.
+
+# Listing ACME external account bindings
+<a name="sdk-acme-list-eabs"></a>
+
+The following example shows how to use the [ListAcmeExternalAccountBindings](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeExternalAccountBindings.html) function.
 
 ```
 package com.amazonaws.samples;

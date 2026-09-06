@@ -1,8 +1,9 @@
-# Removing tags from a resource
 
-The following example shows how to use the [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") function. This API supports all ACM resource types
-except the `certificate` resource type. For certificate resources, use
-[RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md").
+
+# Removing tags from a resource
+<a name="sdk-untagresource"></a>
+
+The following example shows how to use the [UntagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_UntagResource.html) function. This API supports all ACM resource types except the `certificate` resource type. For certificate resources, use [RemoveTagsFromCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RemoveTagsFromCertificate.html).
 
 ```
 package com.amazonaws.samples;

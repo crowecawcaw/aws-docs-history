@@ -1,79 +1,79 @@
+
+
 # ACM API actions supported in CloudTrail logging
+<a name="acm-supported-actions-in-cloudtrail"></a>
 
 ACM supports logging the following actions as events in CloudTrail log files:
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with AWS account root user or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service
 
-- Whether the request was made with AWS account root user or AWS Identity and Access Management (IAM) user
-  credentials.
-- Whether the request was made with temporary security credentials for a
-  role or federated user.
-- Whether the request was made by another AWS service
-  For more information, see the [CloudTrail
-  userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ACM records management events and data events in CloudTrail.
 
 **Management events**
++ [Adding tags to a certificate ([AddTagsToCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_AddTagsToCertificate.html))](#ct-acm-addtags)
++ [Changing an ACME account key ([ChangeAccountKey](https://docs.aws.amazon.com/acm/latest/APIReference/API_ChangeAccountKey.html))](#ct-acme-changeaccountkey)
++ [Creating an ACME domain validation ([CreateAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeDomainValidation.html))](#ct-acme-createacmedomainvalidation)
++ [Creating an ACME endpoint ([CreateAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeEndpoint.html))](#ct-acme-createacmeendpoint)
++ [Creating an ACME external account binding ([CreateAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeExternalAccountBinding.html))](#ct-acme-createacmeexternalaccountbinding)
++ [Deleting an ACME domain validation ([DeleteAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeDomainValidation.html))](#ct-acme-deleteacmedomainvalidation)
++ [Deleting an ACME endpoint ([DeleteAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeEndpoint.html))](#ct-acme-deleteacmeendpoint)
++ [Deleting an ACME external account binding ([DeleteAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeExternalAccountBinding.html))](#ct-acme-deleteacmeexternalaccountbinding)
++ [Deleting a certificate ([DeleteCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteCertificate.html))](#ct-acm-delete)
++ [Describing an ACME account ([DescribeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeAccount.html))](#ct-acme-describeacmeaccount)
++ [Describing an ACME domain validation ([DescribeAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeDomainValidation.html))](#ct-acme-describeacmedomainvalidation)
++ [Describing an ACME endpoint ([DescribeAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeEndpoint.html))](#ct-acme-describeacmeendpoint)
++ [Describing an ACME external account binding ([DescribeAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeExternalAccountBinding.html))](#ct-acme-describeacmeexternalaccountbinding)
++ [Describing a certificate ([DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html))](#ct-acm-describe)
++ [Exporting a certificate ([ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html))](#ct-acm-export)
++ [Retrieving external account binding credentials ([GetAcmeExternalAccountBindingCredentials](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetAcmeExternalAccountBindingCredentials.html))](#ct-acme-getacmeexternalaccountbindingcredentials)
++ [Retrieving a certificate ([GetCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.html))](#ct-acm-get)
++ [Import a certificate ([ImportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ImportCertificate.html))](#ct-acm-import)
++ [Listing ACME accounts ([ListAcmeAccounts](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeAccounts.html))](#ct-acme-listacmeaccounts)
++ [Listing ACME domain validations ([ListAcmeDomainValidations](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeDomainValidations.html))](#ct-acme-listacmedomainvalidations)
++ [Listing ACME endpoints ([ListAcmeEndpoints](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeEndpoints.html))](#ct-acme-listacmeendpoints)
++ [Listing ACME external account bindings ([ListAcmeExternalAccountBindings](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeExternalAccountBindings.html))](#ct-acme-listacmeexternalaccountbindings)
++ [Listing certificates ([ListCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html))](#ct-acm-list)
++ [Listing tags for a certificate ([ListTagsForCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForCertificate.html))](#ct-acm-listtags)
++ [Listing tags for a resource ([ListTagsForResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForResource.html))](#ct-acm-listtagsforresource)
++ [Managing an ACME account ([ManageAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_ManageAccount.html))](#ct-acme-manageaccount)
++ [Registering an ACME account ([NewAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_NewAccount.html))](#ct-acme-newaccount)
++ [Removing tags from a certificate ([RemoveTagsFromCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RemoveTagsFromCertificate.html))](#ct-acm-removetag)
++ [Requesting a certificate ([RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html))](#ct-acm-request)
++ [Resending validation email ([ResendValidationEmail](https://docs.aws.amazon.com/acm/latest/APIReference/API_ResendValidationEmail.html))](#ct-acm-resendmail)
++ [Revoking an ACME account ([RevokeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeAcmeAccount.html))](#ct-acme-revokeacmeaccount)
++ [Revoking an ACME external account binding ([RevokeAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeAcmeExternalAccountBinding.html))](#ct-acme-revokeacmeexternalaccountbinding)
++ [Revoke a certificate ([RevokeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeCertificate.html))](#ct-acm-revoke)
++ [Searching certificates ([SearchCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_SearchCertificates.html))](#ct-acm-search)
++ [Tagging a resource ([TagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_TagResource.html))](#ct-acm-tagresource)
++ [Removing tags from a resource ([UntagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_UntagResource.html))](#ct-acm-untagresource)
++ [Updating an ACME domain validation ([UpdateAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateAcmeDomainValidation.html))](#ct-acme-updateacmedomainvalidation)
++ [Updating an ACME endpoint ([UpdateAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateAcmeEndpoint.html))](#ct-acme-updateacmeendpoint)
 
-- [Adding tags to a certificate (AddTagsToCertificate)](#ct-acm-addtags "#ct-acm-addtags")
-- [Changing an ACME account key (ChangeAccountKey)](#ct-acme-changeaccountkey "#ct-acme-changeaccountkey")
-- [Creating an ACME domain validation (CreateAcmeDomainValidation)](#ct-acme-createacmedomainvalidation "#ct-acme-createacmedomainvalidation")
-- [Creating an ACME endpoint (CreateAcmeEndpoint)](#ct-acme-createacmeendpoint "#ct-acme-createacmeendpoint")
-- [Creating an ACME external account binding (CreateAcmeExternalAccountBinding)](#ct-acme-createacmeexternalaccountbinding "#ct-acme-createacmeexternalaccountbinding")
-- [Deleting an ACME domain validation (DeleteAcmeDomainValidation)](#ct-acme-deleteacmedomainvalidation "#ct-acme-deleteacmedomainvalidation")
-- [Deleting an ACME endpoint (DeleteAcmeEndpoint)](#ct-acme-deleteacmeendpoint "#ct-acme-deleteacmeendpoint")
-- [Deleting an ACME external account binding (DeleteAcmeExternalAccountBinding)](#ct-acme-deleteacmeexternalaccountbinding "#ct-acme-deleteacmeexternalaccountbinding")
-- [Deleting a certificate (DeleteCertificate)](#ct-acm-delete "#ct-acm-delete")
-- [Describing an ACME account (DescribeAcmeAccount)](#ct-acme-describeacmeaccount "#ct-acme-describeacmeaccount")
-- [Describing an ACME domain validation (DescribeAcmeDomainValidation)](#ct-acme-describeacmedomainvalidation "#ct-acme-describeacmedomainvalidation")
-- [Describing an ACME endpoint (DescribeAcmeEndpoint)](#ct-acme-describeacmeendpoint "#ct-acme-describeacmeendpoint")
-- [Describing an ACME external account binding (DescribeAcmeExternalAccountBinding)](#ct-acme-describeacmeexternalaccountbinding "#ct-acme-describeacmeexternalaccountbinding")
-- [Describing a certificate (DescribeCertificate)](#ct-acm-describe "#ct-acm-describe")
-- [Exporting a certificate (ExportCertificate)](#ct-acm-export "#ct-acm-export")
-- [Retrieving external account binding credentials (GetAcmeExternalAccountBindingCredentials)](#ct-acme-getacmeexternalaccountbindingcredentials "#ct-acme-getacmeexternalaccountbindingcredentials")
-- [Retrieving a certificate (GetCertificate)](#ct-acm-get "#ct-acm-get")
-- [Import a certificate (ImportCertificate)](#ct-acm-import "#ct-acm-import")
-- [Listing ACME accounts (ListAcmeAccounts)](#ct-acme-listacmeaccounts "#ct-acme-listacmeaccounts")
-- [Listing ACME domain validations (ListAcmeDomainValidations)](#ct-acme-listacmedomainvalidations "#ct-acme-listacmedomainvalidations")
-- [Listing ACME endpoints (ListAcmeEndpoints)](#ct-acme-listacmeendpoints "#ct-acme-listacmeendpoints")
-- [Listing ACME external account bindings (ListAcmeExternalAccountBindings)](#ct-acme-listacmeexternalaccountbindings "#ct-acme-listacmeexternalaccountbindings")
-- [Listing certificates (ListCertificates)](#ct-acm-list "#ct-acm-list")
-- [Listing tags for a certificate (ListTagsForCertificate)](#ct-acm-listtags "#ct-acm-listtags")
-- [Listing tags for a resource (ListTagsForResource)](#ct-acm-listtagsforresource "#ct-acm-listtagsforresource")
-- [Managing an ACME account (ManageAccount)](#ct-acme-manageaccount "#ct-acme-manageaccount")
-- [Registering an ACME account (NewAccount)](#ct-acme-newaccount "#ct-acme-newaccount")
-- [Removing tags from a certificate (RemoveTagsFromCertificate)](#ct-acm-removetag "#ct-acm-removetag")
-- [Requesting a certificate (RequestCertificate)](#ct-acm-request "#ct-acm-request")
-- [Resending validation email (ResendValidationEmail)](#ct-acm-resendmail "#ct-acm-resendmail")
-- [Revoking an ACME account (RevokeAcmeAccount)](#ct-acme-revokeacmeaccount "#ct-acme-revokeacmeaccount")
-- [Revoking an ACME external account binding (RevokeAcmeExternalAccountBinding)](#ct-acme-revokeacmeexternalaccountbinding "#ct-acme-revokeacmeexternalaccountbinding")
-- [Revoke a certificate (RevokeCertificate)](#ct-acm-revoke "#ct-acm-revoke")
-- [Searching certificates (SearchCertificates)](#ct-acm-search "#ct-acm-search")
-- [Tagging a resource (TagResource)](#ct-acm-tagresource "#ct-acm-tagresource")
-- [Removing tags from a resource (UntagResource)](#ct-acm-untagresource "#ct-acm-untagresource")
-- [Updating an ACME domain validation (UpdateAcmeDomainValidation)](#ct-acme-updateacmedomainvalidation "#ct-acme-updateacmedomainvalidation")
-- [Updating an ACME endpoint (UpdateAcmeEndpoint)](#ct-acme-updateacmeendpoint "#ct-acme-updateacmeendpoint")
-  **Data events**
-
-- [Finalizing an order (FinalizeOrder)](#ct-acme-finalizeorder "#ct-acme-finalizeorder")
-- [Downloading a certificate (GetCertificate)](#ct-acme-getcertificate "#ct-acme-getcertificate")
-- [Retrieving the directory (GetDirectory)](#ct-acme-getdirectory "#ct-acme-getdirectory")
-- [Retrieving an order (GetOrder)](#ct-acme-getorder "#ct-acme-getorder")
-- [Listing orders (ListOrders)](#ct-acme-listorders "#ct-acme-listorders")
-- [Managing an authorization (ManageAuthorization)](#ct-acme-manageauthorization "#ct-acme-manageauthorization")
-- [Requesting a nonce (NewNonce)](#ct-acme-newnonce "#ct-acme-newnonce")
-- [Creating an order (NewOrder)](#ct-acme-neworder "#ct-acme-neworder")
-- [Revoking a certificate (RevokeCertificate)](#ct-acme-revokecertificate "#ct-acme-revokecertificate")
+**Data events**
++ [Finalizing an order (FinalizeOrder)](#ct-acme-finalizeorder)
++ [Downloading a certificate (GetCertificate)](#ct-acme-getcertificate)
++ [Retrieving the directory (GetDirectory)](#ct-acme-getdirectory)
++ [Retrieving an order (GetOrder)](#ct-acme-getorder)
++ [Listing orders (ListOrders)](#ct-acme-listorders)
++ [Managing an authorization (ManageAuthorization)](#ct-acme-manageauthorization)
++ [Requesting a nonce (NewNonce)](#ct-acme-newnonce)
++ [Creating an order (NewOrder)](#ct-acme-neworder)
++ [Revoking a certificate (RevokeCertificate)](#ct-acme-revokecertificate)
 
 ## Management events
+<a name="ct-management-events"></a>
 
 ACM logs the following operations as CloudTrail management events. Management events are logged by default.
 
-### Adding tags to a certificate ([AddTagsToCertificate](../APIReference/API_AddTagsToCertificate.md "../APIReference/API_AddTagsToCertificate.md"))
+### Adding tags to a certificate ([AddTagsToCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_AddTagsToCertificate.html))
+<a name="ct-acm-addtags"></a>
 
-The following CloudTrail example shows the results of a call to the [AddTagsToCertificate](../APIReference/API_AddTagsToCertificate.md "../APIReference/API_AddTagsToCertificate.md") API.
+The following CloudTrail example shows the results of a call to the [AddTagsToCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_AddTagsToCertificate.html) API. 
 
 ```
 {
@@ -114,10 +114,10 @@ The following CloudTrail example shows the results of a call to the [AddTagsToCe
 }
 ```
 
-### Changing an ACME account key ([ChangeAccountKey](../APIReference/API_ChangeAccountKey.md "../APIReference/API_ChangeAccountKey.md"))
+### Changing an ACME account key ([ChangeAccountKey](https://docs.aws.amazon.com/acm/latest/APIReference/API_ChangeAccountKey.html))
+<a name="ct-acme-changeaccountkey"></a>
 
-The following CloudTrail example shows a log entry for the
-`ChangeAccountKey` operation.
+The following CloudTrail example shows a log entry for the `ChangeAccountKey` operation.
 
 ```
 {
@@ -166,10 +166,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Creating an ACME domain validation ([CreateAcmeDomainValidation](../APIReference/API_CreateAcmeDomainValidation.md "../APIReference/API_CreateAcmeDomainValidation.md"))
+### Creating an ACME domain validation ([CreateAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeDomainValidation.html))
+<a name="ct-acme-createacmedomainvalidation"></a>
 
-The following CloudTrail example shows a log entry for the
-`CreateAcmeDomainValidation` operation.
+The following CloudTrail example shows a log entry for the `CreateAcmeDomainValidation` operation.
 
 ```
 {
@@ -243,10 +243,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Creating an ACME endpoint ([CreateAcmeEndpoint](../APIReference/API_CreateAcmeEndpoint.md "../APIReference/API_CreateAcmeEndpoint.md"))
+### Creating an ACME endpoint ([CreateAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeEndpoint.html))
+<a name="ct-acme-createacmeendpoint"></a>
 
-The following CloudTrail example shows a log entry for the
-`CreateAcmeEndpoint` operation.
+The following CloudTrail example shows a log entry for the `CreateAcmeEndpoint` operation.
 
 ```
 {
@@ -310,10 +310,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Creating an ACME external account binding ([CreateAcmeExternalAccountBinding](../APIReference/API_CreateAcmeExternalAccountBinding.md "../APIReference/API_CreateAcmeExternalAccountBinding.md"))
+### Creating an ACME external account binding ([CreateAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeExternalAccountBinding.html))
+<a name="ct-acme-createacmeexternalaccountbinding"></a>
 
-The following CloudTrail example shows a log entry for the
-`CreateAcmeExternalAccountBinding` operation.
+The following CloudTrail example shows a log entry for the `CreateAcmeExternalAccountBinding` operation.
 
 ```
 {
@@ -388,10 +388,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Deleting an ACME domain validation ([DeleteAcmeDomainValidation](../APIReference/API_DeleteAcmeDomainValidation.md "../APIReference/API_DeleteAcmeDomainValidation.md"))
+### Deleting an ACME domain validation ([DeleteAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeDomainValidation.html))
+<a name="ct-acme-deleteacmedomainvalidation"></a>
 
-The following CloudTrail example shows a log entry for the
-`DeleteAcmeDomainValidation` operation.
+The following CloudTrail example shows a log entry for the `DeleteAcmeDomainValidation` operation.
 
 ```
 {
@@ -448,10 +448,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Deleting an ACME endpoint ([DeleteAcmeEndpoint](../APIReference/API_DeleteAcmeEndpoint.md "../APIReference/API_DeleteAcmeEndpoint.md"))
+### Deleting an ACME endpoint ([DeleteAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeEndpoint.html))
+<a name="ct-acme-deleteacmeendpoint"></a>
 
-The following CloudTrail example shows a log entry for the
-`DeleteAcmeEndpoint` operation.
+The following CloudTrail example shows a log entry for the `DeleteAcmeEndpoint` operation.
 
 ```
 {
@@ -508,10 +508,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Deleting an ACME external account binding ([DeleteAcmeExternalAccountBinding](../APIReference/API_DeleteAcmeExternalAccountBinding.md "../APIReference/API_DeleteAcmeExternalAccountBinding.md"))
+### Deleting an ACME external account binding ([DeleteAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteAcmeExternalAccountBinding.html))
+<a name="ct-acme-deleteacmeexternalaccountbinding"></a>
 
-The following CloudTrail example shows a log entry for the
-`DeleteAcmeExternalAccountBinding` operation.
+The following CloudTrail example shows a log entry for the `DeleteAcmeExternalAccountBinding` operation.
 
 ```
 {
@@ -568,9 +568,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Deleting a certificate ([DeleteCertificate](../APIReference/API_DeleteCertificate.md "../APIReference/API_DeleteCertificate.md"))
+### Deleting a certificate ([DeleteCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteCertificate.html))
+<a name="ct-acm-delete"></a>
 
-The following CloudTrail example shows the results of a call to the [DeleteCertificate](../APIReference/API_DeleteCertificate.md "../APIReference/API_DeleteCertificate.md") API.
+The following CloudTrail example shows the results of a call to the [DeleteCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteCertificate.html) API. 
 
 ```
 {
@@ -605,10 +606,10 @@ The following CloudTrail example shows the results of a call to the [DeleteCerti
 }
 ```
 
-### Describing an ACME account ([DescribeAcmeAccount](../APIReference/API_DescribeAcmeAccount.md "../APIReference/API_DescribeAcmeAccount.md"))
+### Describing an ACME account ([DescribeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeAccount.html))
+<a name="ct-acme-describeacmeaccount"></a>
 
-The following CloudTrail example shows a log entry for the
-`DescribeAcmeAccount` operation.
+The following CloudTrail example shows a log entry for the `DescribeAcmeAccount` operation.
 
 ```
 {
@@ -666,10 +667,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Describing an ACME domain validation ([DescribeAcmeDomainValidation](../APIReference/API_DescribeAcmeDomainValidation.md "../APIReference/API_DescribeAcmeDomainValidation.md"))
+### Describing an ACME domain validation ([DescribeAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeDomainValidation.html))
+<a name="ct-acme-describeacmedomainvalidation"></a>
 
-The following CloudTrail example shows a log entry for the
-`DescribeAcmeDomainValidation` operation.
+The following CloudTrail example shows a log entry for the `DescribeAcmeDomainValidation` operation.
 
 ```
 {
@@ -726,10 +727,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Describing an ACME endpoint ([DescribeAcmeEndpoint](../APIReference/API_DescribeAcmeEndpoint.md "../APIReference/API_DescribeAcmeEndpoint.md"))
+### Describing an ACME endpoint ([DescribeAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeEndpoint.html))
+<a name="ct-acme-describeacmeendpoint"></a>
 
-The following CloudTrail example shows a log entry for the
-`DescribeAcmeEndpoint` operation.
+The following CloudTrail example shows a log entry for the `DescribeAcmeEndpoint` operation.
 
 ```
 {
@@ -786,10 +787,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Describing an ACME external account binding ([DescribeAcmeExternalAccountBinding](../APIReference/API_DescribeAcmeExternalAccountBinding.md "../APIReference/API_DescribeAcmeExternalAccountBinding.md"))
+### Describing an ACME external account binding ([DescribeAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeExternalAccountBinding.html))
+<a name="ct-acme-describeacmeexternalaccountbinding"></a>
 
-The following CloudTrail example shows a log entry for the
-`DescribeAcmeExternalAccountBinding` operation.
+The following CloudTrail example shows a log entry for the `DescribeAcmeExternalAccountBinding` operation.
 
 ```
 {
@@ -846,17 +847,13 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Describing a certificate ([DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIReference/API_DescribeCertificate.md"))
+### Describing a certificate ([DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html))
+<a name="ct-acm-describe"></a>
 
-The following CloudTrail example shows the results of a call to the [DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIReference/API_DescribeCertificate.md")
-API.
+The following CloudTrail example shows the results of a call to the [DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html) API. 
 
-###### Note
-
-The CloudTrail log for the `DescribeCertificate` operation does not
-display information about the ACM certificate you specify. You can view
-information about the certificate by using the console, the AWS Command Line Interface, or
-the [DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIReference/API_DescribeCertificate.md") API.
+**Note**  
+The CloudTrail log for the `DescribeCertificate` operation does not display information about the ACM certificate you specify. You can view information about the certificate by using the console, the AWS Command Line Interface, or the [DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html) API. 
 
 ```
 {
@@ -890,9 +887,10 @@ the [DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIRefe
 }
 ```
 
-### Exporting a certificate ([ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md"))
+### Exporting a certificate ([ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html))
+<a name="ct-acm-export"></a>
 
-The following CloudTrail example shows the results of a call to the [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md") API.
+The following CloudTrail example shows the results of a call to the [ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html) API. 
 
 ```
 {
@@ -930,16 +928,16 @@ The following CloudTrail example shows the results of a call to the [ExportCerti
             },
             "responseElements":{
                 "certificateChain":
-                "-----BEGIN CERTIFICATE-----
-                `base64 certificate`
-                -----END CERTIFICATE-----
-                -----BEGIN CERTIFICATE-----
-                `base64 certificate`
+                "-----BEGIN CERTIFICATE----- 
+                {{base64 certificate}} 
+                -----END CERTIFICATE-----               
+                -----BEGIN CERTIFICATE----- 
+                {{base64 certificate}} 
                 -----END CERTIFICATE-----",
                 "privateKey":"**********",
-                "certificate":
-                "-----BEGIN CERTIFICATE-----
-                `base64 certificate`
+                "certificate": 
+                "-----BEGIN CERTIFICATE----- 
+                {{base64 certificate}} 
                 -----END CERTIFICATE-----",
                 "privateKey": "HIDDEN_DUE_TO_SECURITY_REASONS"
             },
@@ -957,13 +955,12 @@ The following CloudTrail example shows the results of a call to the [ExportCerti
                  },
                  "sessionCredentialFromConsole": "true"
 }
-
 ```
 
-### Retrieving external account binding credentials ([GetAcmeExternalAccountBindingCredentials](../APIReference/API_GetAcmeExternalAccountBindingCredentials.md "../APIReference/API_GetAcmeExternalAccountBindingCredentials.md"))
+### Retrieving external account binding credentials ([GetAcmeExternalAccountBindingCredentials](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetAcmeExternalAccountBindingCredentials.html))
+<a name="ct-acme-getacmeexternalaccountbindingcredentials"></a>
 
-The following CloudTrail example shows a log entry for the
-`GetAcmeExternalAccountBindingCredentials` operation.
+The following CloudTrail example shows a log entry for the `GetAcmeExternalAccountBindingCredentials` operation.
 
 ```
 {
@@ -1020,9 +1017,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Retrieving a certificate ([GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md"))
+### Retrieving a certificate ([GetCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.html))
+<a name="ct-acm-get"></a>
 
-The following CloudTrail example shows the results of a call to the [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md") API.
+The following CloudTrail example shows the results of a call to the [GetCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.html) API. 
 
 ```
 {
@@ -1051,11 +1049,11 @@ The following CloudTrail example shows the results of a call to the [GetCertific
             "certificateChain":
 
             "-----BEGIN CERTIFICATE-----
-            `Base64-encoded certificate chain`
+            {{Base64-encoded certificate chain}}
             -----END CERTIFICATE-----",
             "certificate":
             "-----BEGIN CERTIFICATE-----
-            `Base64-encoded certificate`
+            {{Base64-encoded certificate}}
             -----END CERTIFICATE-----"
 
          },
@@ -1068,10 +1066,10 @@ The following CloudTrail example shows the results of a call to the [GetCertific
 }
 ```
 
-### Import a certificate ([ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReference/API_ImportCertificate.md"))
+### Import a certificate ([ImportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ImportCertificate.html))
+<a name="ct-acm-import"></a>
 
-The following example shows the CloudTrail log entry that records a call to the
-ACM [ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReference/API_ImportCertificate.md") API operation.
+The following example shows the CloudTrail log entry that records a call to the ACM [ImportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ImportCertificate.html) API operation. 
 
 ```
 {
@@ -1153,10 +1151,10 @@ ACM [ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReferenc
 }
 ```
 
-### Listing ACME accounts ([ListAcmeAccounts](../APIReference/API_ListAcmeAccounts.md "../APIReference/API_ListAcmeAccounts.md"))
+### Listing ACME accounts ([ListAcmeAccounts](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeAccounts.html))
+<a name="ct-acme-listacmeaccounts"></a>
 
-The following CloudTrail example shows a log entry for the
-`ListAcmeAccounts` operation.
+The following CloudTrail example shows a log entry for the `ListAcmeAccounts` operation.
 
 ```
 {
@@ -1213,10 +1211,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Listing ACME domain validations ([ListAcmeDomainValidations](../APIReference/API_ListAcmeDomainValidations.md "../APIReference/API_ListAcmeDomainValidations.md"))
+### Listing ACME domain validations ([ListAcmeDomainValidations](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeDomainValidations.html))
+<a name="ct-acme-listacmedomainvalidations"></a>
 
-The following CloudTrail example shows a log entry for the
-`ListAcmeDomainValidations` operation.
+The following CloudTrail example shows a log entry for the `ListAcmeDomainValidations` operation.
 
 ```
 {
@@ -1273,10 +1271,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Listing ACME endpoints ([ListAcmeEndpoints](../APIReference/API_ListAcmeEndpoints.md "../APIReference/API_ListAcmeEndpoints.md"))
+### Listing ACME endpoints ([ListAcmeEndpoints](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeEndpoints.html))
+<a name="ct-acme-listacmeendpoints"></a>
 
-The following CloudTrail example shows a log entry for the
-`ListAcmeEndpoints` operation.
+The following CloudTrail example shows a log entry for the `ListAcmeEndpoints` operation.
 
 ```
 {
@@ -1324,10 +1322,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Listing ACME external account bindings ([ListAcmeExternalAccountBindings](../APIReference/API_ListAcmeExternalAccountBindings.md "../APIReference/API_ListAcmeExternalAccountBindings.md"))
+### Listing ACME external account bindings ([ListAcmeExternalAccountBindings](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeExternalAccountBindings.html))
+<a name="ct-acme-listacmeexternalaccountbindings"></a>
 
-The following CloudTrail example shows a log entry for the
-`ListAcmeExternalAccountBindings` operation.
+The following CloudTrail example shows a log entry for the `ListAcmeExternalAccountBindings` operation.
 
 ```
 {
@@ -1384,16 +1382,13 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Listing certificates ([ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md"))
+### Listing certificates ([ListCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html))
+<a name="ct-acm-list"></a>
 
-The following CloudTrail example shows the results of a call to the [ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md") API.
+The following CloudTrail example shows the results of a call to the [ListCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html) API. 
 
-###### Note
-
-The CloudTrail log for the `ListCertificates` operation does not
-display your ACM certificates. You can view the certificate list by using
-the console, the AWS Command Line Interface, or the [ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md")
-API.
+**Note**  
+The CloudTrail log for the `ListCertificates` operation does not display your ACM certificates. You can view the certificate list by using the console, the AWS Command Line Interface, or the [ListCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html) API. 
 
 ```
 {
@@ -1430,15 +1425,13 @@ API.
 }
 ```
 
-### Listing tags for a certificate ([ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md"))
+### Listing tags for a certificate ([ListTagsForCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForCertificate.html))
+<a name="ct-acm-listtags"></a>
 
-The following CloudTrail example shows the results of a call to the [ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md") API.
+The following CloudTrail example shows the results of a call to the [ListTagsForCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForCertificate.html) API. 
 
-###### Note
-
-The CloudTrail log for the `ListTagsForCertificate` operation does
-not display your tags. You can view the tag list by using the console, the
-AWS Command Line Interface, or the [ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md") API.
+**Note**  
+The CloudTrail log for the `ListTagsForCertificate` operation does not display your tags. You can view the tag list by using the console, the AWS Command Line Interface, or the [ListTagsForCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForCertificate.html) API. 
 
 ```
 {
@@ -1472,12 +1465,12 @@ AWS Command Line Interface, or the [ListTagsForCertificate](../APIReference/API_
 }
 ```
 
-### Listing tags for a resource ([ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md"))
+### Listing tags for a resource ([ListTagsForResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForResource.html))
+<a name="ct-acm-listtagsforresource"></a>
 
-The following example shows a CloudTrail log entry for the [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") API.
+The following example shows a CloudTrail log entry for the [ListTagsForResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForResource.html) API. 
 
-The CloudTrail log for the `ListTagsForResource` operation does not
-display tags in the response elements.
+The CloudTrail log for the `ListTagsForResource` operation does not display tags in the response elements.
 
 ```
 {
@@ -1507,10 +1500,10 @@ display tags in the response elements.
 }
 ```
 
-### Managing an ACME account ([ManageAccount](../APIReference/API_ManageAccount.md "../APIReference/API_ManageAccount.md"))
+### Managing an ACME account ([ManageAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_ManageAccount.html))
+<a name="ct-acme-manageaccount"></a>
 
-The following CloudTrail example shows a log entry for the
-`ManageAccount` operation.
+The following CloudTrail example shows a log entry for the `ManageAccount` operation.
 
 ```
 {
@@ -1560,10 +1553,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Registering an ACME account ([NewAccount](../APIReference/API_NewAccount.md "../APIReference/API_NewAccount.md"))
+### Registering an ACME account ([NewAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_NewAccount.html))
+<a name="ct-acme-newaccount"></a>
 
-The following CloudTrail example shows a log entry for the
-`NewAccount` operation.
+The following CloudTrail example shows a log entry for the `NewAccount` operation.
 
 ```
 {
@@ -1624,9 +1617,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Removing tags from a certificate ([RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md"))
+### Removing tags from a certificate ([RemoveTagsFromCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RemoveTagsFromCertificate.html))
+<a name="ct-acm-removetag"></a>
 
-The following CloudTrail example shows the results of a call to the [RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md") API.
+The following CloudTrail example shows the results of a call to the [RemoveTagsFromCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RemoveTagsFromCertificate.html) API. 
 
 ```
 {
@@ -1666,10 +1660,10 @@ The following CloudTrail example shows the results of a call to the [RemoveTagsF
 }
 ```
 
-### Requesting a certificate ([RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md"))
+### Requesting a certificate ([RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html))
+<a name="ct-acm-request"></a>
 
-The following CloudTrail example shows the results of a call to the [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md")
-API.
+The following CloudTrail example shows the results of a call to the [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) API. 
 
 ```
 {
@@ -1716,9 +1710,10 @@ API.
 }
 ```
 
-### Resending validation email ([ResendValidationEmail](../APIReference/API_ResendValidationEmail.md "../APIReference/API_ResendValidationEmail.md"))
+### Resending validation email ([ResendValidationEmail](https://docs.aws.amazon.com/acm/latest/APIReference/API_ResendValidationEmail.html))
+<a name="ct-acm-resendmail"></a>
 
-The following CloudTrail example shows the results of a call to the [ResendValidationEmail](../APIReference/API_ResendValidationEmail.md "../APIReference/API_ResendValidationEmail.md") API.
+The following CloudTrail example shows the results of a call to the [ResendValidationEmail](https://docs.aws.amazon.com/acm/latest/APIReference/API_ResendValidationEmail.html) API. 
 
 ```
 {
@@ -1754,10 +1749,10 @@ The following CloudTrail example shows the results of a call to the [ResendValid
 }
 ```
 
-### Revoking an ACME account ([RevokeAcmeAccount](../APIReference/API_RevokeAcmeAccount.md "../APIReference/API_RevokeAcmeAccount.md"))
+### Revoking an ACME account ([RevokeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeAcmeAccount.html))
+<a name="ct-acme-revokeacmeaccount"></a>
 
-The following CloudTrail example shows a log entry for the
-`RevokeAcmeAccount` operation.
+The following CloudTrail example shows a log entry for the `RevokeAcmeAccount` operation.
 
 ```
 {
@@ -1815,10 +1810,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Revoking an ACME external account binding ([RevokeAcmeExternalAccountBinding](../APIReference/API_RevokeAcmeExternalAccountBinding.md "../APIReference/API_RevokeAcmeExternalAccountBinding.md"))
+### Revoking an ACME external account binding ([RevokeAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeAcmeExternalAccountBinding.html))
+<a name="ct-acme-revokeacmeexternalaccountbinding"></a>
 
-The following CloudTrail example shows a log entry for the
-`RevokeAcmeExternalAccountBinding` operation.
+The following CloudTrail example shows a log entry for the `RevokeAcmeExternalAccountBinding` operation.
 
 ```
 {
@@ -1875,9 +1870,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Revoke a certificate ([RevokeCertificate](../APIReference/API_RevokeCertificate.md "../APIReference/API_RevokeCertificate.md"))
+### Revoke a certificate ([RevokeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeCertificate.html))
+<a name="ct-acm-revoke"></a>
 
-The following CloudTrail example shows the results of a call to the [RevokeCertificate](../APIReference/API_RevokeCertificate.md "../APIReference/API_RevokeCertificate.md") API.
+The following CloudTrail example shows the results of a call to the [RevokeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeCertificate.html) API. 
 
 ```
 {
@@ -1931,9 +1927,10 @@ The following CloudTrail example shows the results of a call to the [RevokeCerti
 }
 ```
 
-### Searching certificates ([SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md"))
+### Searching certificates ([SearchCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_SearchCertificates.html))
+<a name="ct-acm-search"></a>
 
-The following CloudTrail example shows the results of a call to the [SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md") API.
+The following CloudTrail example shows the results of a call to the [SearchCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_SearchCertificates.html) API. 
 
 ```
 {
@@ -1971,9 +1968,10 @@ The following CloudTrail example shows the results of a call to the [SearchCerti
 }
 ```
 
-### Tagging a resource ([TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md"))
+### Tagging a resource ([TagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_TagResource.html))
+<a name="ct-acm-tagresource"></a>
 
-The following example shows a CloudTrail log entry for the [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") API.
+The following example shows a CloudTrail log entry for the [TagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_TagResource.html) API. 
 
 ```
 {
@@ -2009,9 +2007,10 @@ The following example shows a CloudTrail log entry for the [TagResource](../APIR
 }
 ```
 
-### Removing tags from a resource ([UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md"))
+### Removing tags from a resource ([UntagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_UntagResource.html))
+<a name="ct-acm-untagresource"></a>
 
-The following example shows a CloudTrail log entry for the [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") API.
+The following example shows a CloudTrail log entry for the [UntagResource](https://docs.aws.amazon.com/acm/latest/APIReference/API_UntagResource.html) API. 
 
 ```
 {
@@ -2042,10 +2041,10 @@ The following example shows a CloudTrail log entry for the [UntagResource](../AP
 }
 ```
 
-### Updating an ACME domain validation ([UpdateAcmeDomainValidation](../APIReference/API_UpdateAcmeDomainValidation.md "../APIReference/API_UpdateAcmeDomainValidation.md"))
+### Updating an ACME domain validation ([UpdateAcmeDomainValidation](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateAcmeDomainValidation.html))
+<a name="ct-acme-updateacmedomainvalidation"></a>
 
-The following CloudTrail example shows a log entry for the
-`UpdateAcmeDomainValidation` operation.
+The following CloudTrail example shows a log entry for the `UpdateAcmeDomainValidation` operation.
 
 ```
 {
@@ -2102,10 +2101,10 @@ The following CloudTrail example shows a log entry for the
 }
 ```
 
-### Updating an ACME endpoint ([UpdateAcmeEndpoint](../APIReference/API_UpdateAcmeEndpoint.md "../APIReference/API_UpdateAcmeEndpoint.md"))
+### Updating an ACME endpoint ([UpdateAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateAcmeEndpoint.html))
+<a name="ct-acme-updateacmeendpoint"></a>
 
-The following CloudTrail example shows a log entry for the
-`UpdateAcmeEndpoint` operation.
+The following CloudTrail example shows a log entry for the `UpdateAcmeEndpoint` operation.
 
 ```
 {
@@ -2163,13 +2162,14 @@ The following CloudTrail example shows a log entry for the
 ```
 
 ## Data events
+<a name="ct-data-events"></a>
 
 ACM logs the following ACME protocol operations as CloudTrail data events. Unlike management events, data events are not logged by default. To record them, configure data event logging in your CloudTrail trail or event data store.
 
 ### Finalizing an order (FinalizeOrder)
+<a name="ct-acme-finalizeorder"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`FinalizeOrder` operation.
+The following CloudTrail example shows a data event log entry for the `FinalizeOrder` operation.
 
 ```
 {
@@ -2241,9 +2241,9 @@ The following CloudTrail example shows a data event log entry for the
 ```
 
 ### Downloading a certificate (GetCertificate)
+<a name="ct-acme-getcertificate"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`GetCertificate` operation.
+The following CloudTrail example shows a data event log entry for the `GetCertificate` operation.
 
 ```
 {
@@ -2289,9 +2289,9 @@ The following CloudTrail example shows a data event log entry for the
 ```
 
 ### Retrieving the directory (GetDirectory)
+<a name="ct-acme-getdirectory"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`GetDirectory` operation.
+The following CloudTrail example shows a data event log entry for the `GetDirectory` operation.
 
 ```
 {
@@ -2336,9 +2336,9 @@ The following CloudTrail example shows a data event log entry for the
 ```
 
 ### Retrieving an order (GetOrder)
+<a name="ct-acme-getorder"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`GetOrder` operation.
+The following CloudTrail example shows a data event log entry for the `GetOrder` operation.
 
 ```
 {
@@ -2384,9 +2384,9 @@ The following CloudTrail example shows a data event log entry for the
 ```
 
 ### Listing orders (ListOrders)
+<a name="ct-acme-listorders"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`ListOrders` operation.
+The following CloudTrail example shows a data event log entry for the `ListOrders` operation.
 
 ```
 {
@@ -2432,9 +2432,9 @@ The following CloudTrail example shows a data event log entry for the
 ```
 
 ### Managing an authorization (ManageAuthorization)
+<a name="ct-acme-manageauthorization"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`ManageAuthorization` operation.
+The following CloudTrail example shows a data event log entry for the `ManageAuthorization` operation.
 
 ```
 {
@@ -2489,9 +2489,9 @@ The following CloudTrail example shows a data event log entry for the
 ```
 
 ### Requesting a nonce (NewNonce)
+<a name="ct-acme-newnonce"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`NewNonce` operation.
+The following CloudTrail example shows a data event log entry for the `NewNonce` operation.
 
 ```
 {
@@ -2536,9 +2536,9 @@ The following CloudTrail example shows a data event log entry for the
 ```
 
 ### Creating an order (NewOrder)
+<a name="ct-acme-neworder"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`NewOrder` operation.
+The following CloudTrail example shows a data event log entry for the `NewOrder` operation.
 
 ```
 {
@@ -2604,9 +2604,9 @@ The following CloudTrail example shows a data event log entry for the
 ```
 
 ### Revoking a certificate (RevokeCertificate)
+<a name="ct-acme-revokecertificate"></a>
 
-The following CloudTrail example shows a data event log entry for the
-`RevokeCertificate` operation.
+The following CloudTrail example shows a data event log entry for the `RevokeCertificate` operation.
 
 ```
 {

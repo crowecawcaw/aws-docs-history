@@ -1,6 +1,9 @@
-# Creating an ACME external account binding
 
-The following example shows how to use the [CreateAcmeExternalAccountBinding](../APIReference/API_CreateAcmeExternalAccountBinding.md "../APIReference/API_CreateAcmeExternalAccountBinding.md") function.
+
+# Creating an ACME external account binding
+<a name="sdk-acme-create-eab"></a>
+
+The following example shows how to use the [CreateAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeExternalAccountBinding.html) function.
 
 ```
 package com.amazonaws.samples;

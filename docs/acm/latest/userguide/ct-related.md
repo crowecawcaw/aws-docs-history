@@ -1,34 +1,28 @@
+
+
 # Logging API calls for integrated services
+<a name="ct-related"></a>
 
-You can use CloudTrail to audit API calls made by services that are integrated with
-ACM. For more information about using CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"). The
-following examples show the types of logs that can be generated depending on the
-AWS resources on which you provision the ACM certificate.
+You can use CloudTrail to audit API calls made by services that are integrated with ACM. For more information about using CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html). The following examples show the types of logs that can be generated depending on the AWS resources on which you provision the ACM certificate. 
 
-###### Topics
-
-- [Creating a load balancer](#ct-related-lb "#ct-related-lb")
+**Topics**
++ [Creating a load balancer](#ct-related-lb)
 
 ## Creating a load balancer
+<a name="ct-related-lb"></a>
 
-You can use CloudTrail to audit API calls made by services that are integrated with
-ACM. For more information about using CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
-The following examples show the types of logs that can be generated depending on
-the AWS resources on which you provision the ACM certificate.
+You can use CloudTrail to audit API calls made by services that are integrated with ACM. For more information about using CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html). The following examples show the types of logs that can be generated depending on the AWS resources on which you provision the ACM certificate. 
 
-###### Topics
-
-- [Creating a Load Balancer](#ct-related-lb "#ct-related-lb")
-- [Registering an Amazon EC2 Instance with a Load Balancer](#ct-related-ec2 "#ct-related-ec2")
-- [Encrypting a Private Key](#ct-related-encrypt "#ct-related-encrypt")
-- [Decrypting a Private Key](#ct-related-decrypt "#ct-related-decrypt")
+**Topics**
++ [Creating a Load Balancer](#ct-related-lb)
++ [Registering an Amazon EC2 Instance with a Load Balancer](#ct-related-ec2)
++ [Encrypting a Private Key](#ct-related-encrypt)
++ [Decrypting a Private Key](#ct-related-decrypt)
 
 ### Creating a Load Balancer
+<a name="ct-related-lb"></a>
 
-The following example shows a call to the `CreateLoadBalancer`
-function by an IAM user named Alice. The name of the load balancer is
-`TestLinuxDefault`, and the listener is created using an
-ACM certificate.
+The following example shows a call to the `CreateLoadBalancer` function by an IAM user named Alice. The name of the load balancer is `TestLinuxDefault`, and the listener is created using an ACM certificate. 
 
 ```
 {
@@ -74,12 +68,9 @@ ACM certificate.
 ```
 
 ### Registering an Amazon EC2 Instance with a Load Balancer
+<a name="ct-related-ec2"></a>
 
-When you provision your website or application on an Amazon Elastic Compute Cloud (Amazon EC2)
-instance, the load balancer must be made aware of that instance. This can be
-accomplished through the Elastic Load Balancing console or the AWS Command Line Interface. The following
-example shows a call to `RegisterInstancesWithLoadBalancer` for a
-load balancer named LinuxTest on AWS account 123456789012.
+When you provision your website or application on an Amazon Elastic Compute Cloud (Amazon EC2) instance, the load balancer must be made aware of that instance. This can be accomplished through the Elastic Load Balancing console or the AWS Command Line Interface. The following example shows a call to `RegisterInstancesWithLoadBalancer` for a load balancer named LinuxTest on AWS account 123456789012. 
 
 ```
 {
@@ -128,10 +119,9 @@ load balancer named LinuxTest on AWS account 123456789012.
 ```
 
 ### Encrypting a Private Key
+<a name="ct-related-encrypt"></a>
 
-The following example shows an `Encrypt` call that encrypts the
-private key associated with an ACM certificate. Encryption is performed
-within AWS.
+The following example shows an `Encrypt` call that encrypts the private key associated with an ACM certificate. Encryption is performed within AWS. 
 
 ```
 {
@@ -176,10 +166,9 @@ within AWS.
 ```
 
 ### Decrypting a Private Key
+<a name="ct-related-decrypt"></a>
 
-The following example shows a `Decrypt` call that decrypts the
-private key associated with an ACM certificate. Decryption is performed
-within AWS, and the decrypted key never leaves AWS.
+The following example shows a `Decrypt` call that decrypts the private key associated with an ACM certificate. Decryption is performed within AWS, and the decrypted key never leaves AWS. 
 
 ```
 {

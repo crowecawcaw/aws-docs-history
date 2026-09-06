@@ -1,6 +1,9 @@
-# Creating an ACME endpoint
 
-The following example shows how to use the [CreateAcmeEndpoint](../APIReference/API_CreateAcmeEndpoint.md "../APIReference/API_CreateAcmeEndpoint.md") function.
+
+# Creating an ACME endpoint
+<a name="sdk-acme-create-endpoint"></a>
+
+The following example shows how to use the [CreateAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_CreateAcmeEndpoint.html) function.
 
 ```
 package com.amazonaws.samples;

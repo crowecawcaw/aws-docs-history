@@ -1,6 +1,9 @@
-# Describing an ACME account
 
-The following example shows how to use the [DescribeAcmeAccount](../APIReference/API_DescribeAcmeAccount.md "../APIReference/API_DescribeAcmeAccount.md") function.
+
+# Describing an ACME account
+<a name="sdk-acme-describe-account"></a>
+
+The following example shows how to use the [DescribeAcmeAccount](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeAccount.html) function.
 
 ```
 package com.amazonaws.samples;

@@ -1,6 +1,9 @@
-# Describing an ACME endpoint
 
-The following example shows how to use the [DescribeAcmeEndpoint](../APIReference/API_DescribeAcmeEndpoint.md "../APIReference/API_DescribeAcmeEndpoint.md") function.
+
+# Describing an ACME endpoint
+<a name="sdk-acme-describe-endpoint"></a>
+
+The following example shows how to use the [DescribeAcmeEndpoint](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeAcmeEndpoint.html) function.
 
 ```
 package com.amazonaws.samples;

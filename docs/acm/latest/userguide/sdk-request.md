@@ -1,6 +1,9 @@
-# Requesting a certificate
 
-The following example shows how to use the [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") function.
+
+# Requesting a certificate
+<a name="sdk-request"></a>
+
+The following example shows how to use the [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) function. 
 
 ```
 package com.amazonaws.samples;
@@ -52,7 +55,7 @@ public class AWSCertificateManagerExample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
@@ -91,5 +94,5 @@ public class AWSCertificateManagerExample {
 The preceding sample creates output similar to the following.
 
 ```
-{CertificateArn: arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`}
+{CertificateArn: arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}}}
 ```

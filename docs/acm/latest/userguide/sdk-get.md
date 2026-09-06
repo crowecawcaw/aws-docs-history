@@ -1,6 +1,9 @@
-# Retrieve a certificate and certificate chain
 
-The following example shows how to use the [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md") function.
+
+# Retrieve a certificate and certificate chain
+<a name="sdk-get"></a>
+
+The following example shows how to use the [GetCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.html) function. 
 
 ```
 package com.amazonaws.samples;
@@ -49,15 +52,15 @@ public class AWSCertificateManagerExample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
       // Create a request object and set the ARN of the certificate to be described.
       GetCertificateRequest req = new GetCertificateRequest();
-      req.setCertificateArn("arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`");
+      req.setCertificateArn("arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}}");
 
-      // Retrieve the certificate and certificate chain.
+      // Retrieve the certificate and certificate chain. 
       // If you recently requested the certificate, loop until it has been created.
       GetCertificateResult result = null;
       long totalTimeout = 120000l;
@@ -92,10 +95,10 @@ The preceding example creates output similar to the following.
 
 ```
 {Certificate: -----BEGIN CERTIFICATE-----
-    `base64-encoded certificate`
+    {{base64-encoded certificate}}
 -----END CERTIFICATE-----,
 CertificateChain: -----BEGIN CERTIFICATE-----
-    `base64-encoded certificate chain`
+    {{base64-encoded certificate chain}} 
 -----END CERTIFICATE-----
 }
 ```

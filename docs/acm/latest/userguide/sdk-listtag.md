@@ -1,6 +1,9 @@
-# Listing certificate tags
 
-The following example shows how to use the [ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md") function.
+
+# Listing certificate tags
+<a name="sdk-listtag"></a>
+
+The following example shows how to use the [ListTagsForCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForCertificate.html) function.
 
 ```
 package com.amazonaws.samples;
@@ -45,13 +48,13 @@ public class AWSCertificateManagerExample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
       // Create a request object and specify the ARN of the certificate.
       ListTagsForCertificateRequest req = new ListTagsForCertificateRequest();
-      req.setCertificateArn("arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`");
+      req.setCertificateArn("arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}}");
 
       // Create a result object.
       ListTagsForCertificateResult result = null;

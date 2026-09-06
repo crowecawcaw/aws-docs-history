@@ -1,6 +1,9 @@
-# Removing tags from a certificate
 
-The following example shows how to use the [RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md") function.
+
+# Removing tags from a certificate
+<a name="sdk-tagremove"></a>
+
+The following example shows how to use the [RemoveTagsFromCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RemoveTagsFromCertificate.html) function.
 
 ```
 package com.amazonaws.samples;
@@ -49,7 +52,7 @@ public class AWSCertificateManagerExample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
@@ -69,7 +72,7 @@ public class AWSCertificateManagerExample {
 
       // Create a request object.
       RemoveTagsFromCertificateRequest req = new RemoveTagsFromCertificateRequest();
-      req.setCertificateArn("arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`");
+      req.setCertificateArn("arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}}");
       req.setTags(tags);
 
       // Create a result object.

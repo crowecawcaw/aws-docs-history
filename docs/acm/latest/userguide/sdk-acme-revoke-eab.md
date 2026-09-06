@@ -1,6 +1,9 @@
-# Revoking an ACME external account binding
 
-The following example shows how to use the [RevokeAcmeExternalAccountBinding](../APIReference/API_RevokeAcmeExternalAccountBinding.md "../APIReference/API_RevokeAcmeExternalAccountBinding.md") function.
+
+# Revoking an ACME external account binding
+<a name="sdk-acme-revoke-eab"></a>
+
+The following example shows how to use the [RevokeAcmeExternalAccountBinding](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeAcmeExternalAccountBinding.html) function.
 
 ```
 package com.amazonaws.samples;

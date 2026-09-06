@@ -1,6 +1,9 @@
-# Resending validation email
 
-The following example shows you how to use the [ResendValidationEmail](../APIReference/API_ResendValidationEmail.md "../APIReference/API_ResendValidationEmail.md") function.
+
+# Resending validation email
+<a name="sdk-validate"></a>
+
+The following example shows you how to use the [ResendValidationEmail](https://docs.aws.amazon.com/acm/latest/APIReference/API_ResendValidationEmail.html) function. 
 
 ```
 package com.amazonaws.samples;
@@ -48,13 +51,13 @@ public class AWSCertificateManagerExample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
       // Create a request object and set the input parameters.
       ResendValidationEmailRequest req = new ResendValidationEmailRequest();
-      req.setCertificateArn("arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`");
+      req.setCertificateArn("arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}}");
       req.setDomain("gregpe.io");
       req.setValidationDomain("gregpe.io");
 

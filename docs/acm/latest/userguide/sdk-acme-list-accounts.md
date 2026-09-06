@@ -1,6 +1,9 @@
-# Listing ACME accounts
 
-The following example shows how to use the [ListAcmeAccounts](../APIReference/API_ListAcmeAccounts.md "../APIReference/API_ListAcmeAccounts.md") function.
+
+# Listing ACME accounts
+<a name="sdk-acme-list-accounts"></a>
+
+The following example shows how to use the [ListAcmeAccounts](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListAcmeAccounts.html) function.
 
 ```
 package com.amazonaws.samples;

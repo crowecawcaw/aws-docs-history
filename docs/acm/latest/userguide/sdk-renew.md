@@ -1,11 +1,9 @@
-# Renewing a certificate
 
-The following example shows how to use the [RenewCertificate](../APIReference/API_RenewCertificate.md "../APIReference/API_RenewCertificate.md") function. The function renews a private certificate issued
-by a private certificate authority (CA) and exported with the [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md") function. At
-this time, only exported private certificates can be renewed with this function. In
-order to renew your AWS Private CA certificates with ACM, you must first grant the ACM
-service principal permissions to do so. For more information, see [Assigning Certificate
-Renewal Permissions to ACM](../../../privateca/latest/userguide/assign-permissions.md#PcaPermissions "../../../privateca/latest/userguide/assign-permissions.md#PcaPermissions").
+
+# Renewing a certificate
+<a name="sdk-renew"></a>
+
+The following example shows how to use the [RenewCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RenewCertificate.html) function. The function renews a private certificate issued by a private certificate authority (CA) and exported with the [ExportCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html) function. At this time, only exported private certificates can be renewed with this function. In order to renew your AWS Private CA certificates with ACM, you must first grant the ACM service principal permissions to do so. For more information, see [Assigning Certificate Renewal Permissions to ACM](https://docs.aws.amazon.com/privateca/latest/userguide/assign-permissions.html#PcaPermissions).
 
 ```
 package com.amazonaws.samples;
@@ -50,15 +48,15 @@ public class RenewCertificate {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`your_region`)
+              .withRegion(Regions.{{your_region}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
 
       // Create a request object and specify the ARN of the certificate to renew.
       RenewCertificateRequest req = new RenewCertificateRequest();
-      req.withCertificateArn("arn:aws:acm:`region`:`account`:"
-            +"certificate/M`12345678-1234-1234-1234-123456789012`");
+      req.withCertificateArn("arn:aws:acm:{{region}}:{{account}}:"
+            +"certificate/M{{12345678-1234-1234-1234-123456789012}}");
 
 
       // Renew the certificate.

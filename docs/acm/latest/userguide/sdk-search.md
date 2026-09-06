@@ -1,6 +1,9 @@
-# Searching certificates
 
-The following Java example shows how to use the [SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md") function.
+
+# Searching certificates
+<a name="sdk-search"></a>
+
+The following Java example shows how to use the [SearchCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_SearchCertificates.html) function.
 
 ```
 package com.amazonaws.samples;
@@ -53,7 +56,7 @@ public class AWSCertificateManagerExample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
@@ -92,7 +95,7 @@ The preceding sample creates output similar to the following.
 ```
 {
     Results: [{
-        CertificateArn: arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`,
+        CertificateArn: arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}},
         X509Attributes: {
             Issuer: {
                 CommonName: Example CA,
@@ -100,12 +103,12 @@ The preceding sample creates output similar to the following.
                 Organization: Example Corp
             },
             Subject: {
-                CommonName: `www.example1.com`
+                CommonName: {{www.example1.com}}
             },
             ExtendedKeyUsages: [TLS_WEB_SERVER_AUTHENTICATION, TLS_WEB_CLIENT_AUTHENTICATION],
             KeyAlgorithm: RSA_2048,
             KeyUsages: [DIGITAL_SIGNATURE, KEY_ENCIPHERMENT],
-            SerialNumber: `serial_number`,
+            SerialNumber: {{serial_number}},
             NotAfter: 2025-02-14T23:59:59+00:00,
             NotBefore: 2024-01-15T00:00:00+00:00
         },
@@ -123,7 +126,7 @@ The preceding sample creates output similar to the following.
         }
     },
     {
-        CertificateArn: arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789013`,
+        CertificateArn: arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789013}},
         X509Attributes: {
             Issuer: {
                 CommonName: Example CA,
@@ -131,12 +134,12 @@ The preceding sample creates output similar to the following.
                 Organization: Example Corp
             },
             Subject: {
-                CommonName: `www.example2.com`
+                CommonName: {{www.example2.com}}
             },
             ExtendedKeyUsages: [TLS_WEB_SERVER_AUTHENTICATION],
             KeyAlgorithm: EC_prime256v1,
             KeyUsages: [DIGITAL_SIGNATURE],
-            SerialNumber: `serial_number`,
+            SerialNumber: {{serial_number}},
             NotAfter: 2026-06-30T23:59:59+00:00,
             NotBefore: 2025-01-01T00:00:00+00:00
         },

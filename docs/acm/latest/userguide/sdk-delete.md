@@ -1,7 +1,9 @@
-# Deleting a certificate
 
-The following example shows how to use the [DeleteCertificate](../APIReference/API_DeleteCertificate.md "../APIReference/API_DeleteCertificate.md") function. If successful, the function returns an empty
-set `{}`.
+
+# Deleting a certificate
+<a name="sdk-delete"></a>
+
+The following example shows how to use the [DeleteCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteCertificate.html) function. If successful, the function returns an empty set `{}`. 
 
 ```
 package com.amazonaws.samples;
@@ -46,13 +48,13 @@ public class AWSCertificateManagerExample {
 
       // Create a client.
       AWSCertificateManager client = AWSCertificateManagerClientBuilder.standard()
-              .withRegion(Regions.`US_EAST_1`)
+              .withRegion(Regions.{{US_EAST_1}})
               .withCredentials(new AWSStaticCredentialsProvider(credentials))
               .build();
 
       // Create a request object and specify the ARN of the certificate to delete.
       DeleteCertificateRequest req = new DeleteCertificateRequest();
-      req.setCertificateArn("arn:aws:acm:`region`:`account`:certificate/`12345678-1234-1234-1234-123456789012`");
+      req.setCertificateArn("arn:aws:acm:{{region}}:{{account}}:certificate/{{12345678-1234-1234-1234-123456789012}}");
 
       // Delete the specified certificate.
       DeleteCertificateResult result = null;
