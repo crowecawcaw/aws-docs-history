@@ -1,149 +1,118 @@
+
+
 # Obtain the default application username and password for Lightsail Bitnami instances
+<a name="log-in-to-your-bitnami-application-running-on-amazon-lightsail"></a>
 
-Bitnami provides many of the application instance images, or blueprints, that you can create
-as Amazon Lightsail instances, which are your virtual private servers. These blueprints are
-described as “Packaged by Bitnami” in the instance creation page in the Lightsail
-console.
+Bitnami provides many of the application instance images, or blueprints, that you can create as Amazon Lightsail instances, which are your virtual private servers. These blueprints are described as “Packaged by Bitnami” in the instance creation page in the Lightsail console.
 
-After you create an instance using a Bitnami blueprint, you sign in and administer it. To do
-this, you must get the default user name and password for the application and/or database
-running on the instance. This article shows you how to obtain the information necessary to sign
-in and administer Lightsail instances created from the following blueprints:
-
-- WordPress blogging and content management application
-- WordPress Multisite blogging and content management application with support for
-  multiple websites on the same instance
-- Django development stack
-- Ghost blogging and content management application
-- LAMP development stack (PHP 7)
-- Node.js development stack
-- Joomla content management application
-- Magento e-Commerce application
-- MEAN development stack
-- Drupal content management application
-- GitLab CE repository application
-- Redmine project management application
-- Nginx (LEMP) development stack
+After you create an instance using a Bitnami blueprint, you sign in and administer it. To do this, you must get the default user name and password for the application and/or database running on the instance. This article shows you how to obtain the information necessary to sign in and administer Lightsail instances created from the following blueprints:
++ WordPress blogging and content management application
++ WordPress Multisite blogging and content management application with support for multiple websites on the same instance
++ Django development stack
++ Ghost blogging and content management application
++ LAMP development stack (PHP 7)
++ Node.js development stack
++ Joomla content management application
++ Magento e-Commerce application
++ MEAN development stack
++ Drupal content management application
++ GitLab CE repository application
++ Redmine project management application
++ Nginx (LEMP) development stack
 
 ## Get the default Bitnami application and database user name
+<a name="get-the-default-bitnami-user-name"></a>
 
-These are the default application and database user names for Lightsail instances
-created using the Bitnami blueprints:
+These are the default application and database user names for Lightsail instances created using the Bitnami blueprints:
 
-###### Note
+**Note**  
+Not all Bitnami blueprints include an application or a database. The user name is listed as not applicable (N/A) when these are not included in the blueprint.
 
-Not all Bitnami blueprints include an application or a database. The user name is listed
-as not applicable (N/A) when these are not included in the blueprint.
 
-| Application name                         | Application user name | Database user name |
-| ---------------------------------------- | --------------------- | ------------------ |
-| WordPress, including WordPress Multisite | user                  | root               |
-| PrestaShop                               | user@example.com      | root               |
-| Django                                   | N/A                   | root               |
-| Ghost                                    | user@example.com      | root               |
-| LAMP stack (PHP 5 and PHP 7)             | N/A                   | root               |
-| Node.js                                  | N/A                   | N/A                |
-| Joomla                                   | user                  | root               |
-| Magento                                  | user                  | root               |
-| MEAN                                     | N/A                   | root               |
-| Drupal                                   | user                  | root               |
-| GitLab CE                                | user                  | postgres           |
-| Redmine                                  | user                  | root               |
-| Nginx                                    | N/A                   | root               |
+| Application name | Application user name | Database user name | 
+| --- | --- | --- | 
+| WordPress, including WordPress Multisite | user | root | 
+| PrestaShop | user@example.com | root | 
+| Django | N/A | root | 
+| Ghost | user@example.com | root | 
+| LAMP stack (PHP 5 and PHP 7) | N/A | root | 
+| Node.js | N/A | N/A | 
+| Joomla | user | root | 
+| Magento | user | root | 
+| MEAN | N/A | root | 
+| Drupal | user | root | 
+| GitLab CE | user | postgres | 
+| Redmine | user | root | 
+| Nginx | N/A | root | 
 
 ## Get the default Bitnami application and database password
+<a name="get-the-default-bitnami-password"></a>
 
-The default application and database password are stored on your instance. You retrieve it
-by connecting to it using the browser-based SSH terminal in the Lightsail console and
-running a special command.
+The default application and database password are stored on your instance. You retrieve it by connecting to it using the browser-based SSH terminal in the Lightsail console and running a special command.
 
-###### To get the default Bitnami application and database password
+**To get the default Bitnami application and database password**
 
-1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. If you haven't already, create an instance using a Bitnami blueprint. For more
-   information, see [Create an
-   Amazon Lightsail VPS](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md")
-3. On the Lightsail home page, choose the quick connect icon for the instance you want
-   to connect to.
+1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
-![Open the browser-based SSH client with quick connect.](images/amazon-lightsail-wordpress-quick-connect.png)
+1. If you haven't already, create an instance using a Bitnami blueprint. For more information, see [Create an Amazon Lightsail VPS](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md)
 
-The browser-based SSH client window opens, as shown in the following example.
+1. On the Lightsail home page, choose the quick connect icon for the instance you want to connect to.  
+![Open the browser-based SSH client with quick connect.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-wordpress-quick-connect.png)
 
-![Browser-based SSH client in Lightsail.](images/amazon-lightsail-bitnami-terminal-window.png) 4. Type the following command to retrieve the default application password:
+   The browser-based SSH client window opens, as shown in the following example.  
+![Browser-based SSH client in Lightsail.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
 
-```
-cat ~/bitnami_application_password
-```
+1. Type the following command to retrieve the default application password:
 
-You should see a response similar to this, which contains the application
-password:
+   ```
+   cat ~/bitnami_application_password
+   ```
 
-![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png) 5. In the terminal screen, highlight the password, then choose the clipboard icon in the
-bottom right corner of the browser-based SSH client window. 6. In the clipboard text box, highlight the text you want to copy, then press
-**Ctrl+C** or **Cmd+C** to copy the text to your local
-clipboard.
+   You should see a response similar to this, which contains the application password:  
+![Bitnami default application password.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-password.png)
 
-![Browser-based SSH client clipboard text box.](images/amazon-lightsail-bitnami-browser-ssh-terminal-clipboard-password.png)
+1. In the terminal screen, highlight the password, then choose the clipboard icon in the bottom right corner of the browser-based SSH client window.
 
-###### Important
-
-Make sure to save your password somewhere at this time. You can change it later
-after you sign in to the Bitnami application on your instance.
+1. In the clipboard text box, highlight the text you want to copy, then press **Ctrl\+C** or **Cmd\+C** to copy the text to your local clipboard.  
+![Browser-based SSH client clipboard text box.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-browser-ssh-terminal-clipboard-password.png)
+**Important**  
+Make sure to save your password somewhere at this time. You can change it later after you sign in to the Bitnami application on your instance.
 
 ## Sign in to the Bitnami application on your instance
+<a name="sign-in-to-the-bitnami-application"></a>
 
-For instances created from the WordPress, Joomla, Magento, Drupal, GitLab CE, and Redmine
-blueprints, sign in to the application by browsing to the public IP address of your
-instance.
+For instances created from the WordPress, Joomla, Magento, Drupal, GitLab CE, and Redmine blueprints, sign in to the application by browsing to the public IP address of your instance.
 
-###### To sign in to the Bitnami application
+**To sign in to the Bitnami application**
 
 1. In a browser window, navigate to the public IP address for your instance.
 
-The Bitnami application home page opens. The home page displays according to the
-Bitnami blueprint you chose for your instance. For example, this is the WordPress
-application home page:
+   The Bitnami application home page opens. The home page displays according to the Bitnami blueprint you chose for your instance. For example, this is the WordPress application home page:  
+![The Bitnami application home page for WordPress.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-home-page.png)
 
-![The Bitnami application home page for WordPress.](images/amazon-lightsail-bitnami-application-home-page.png) 2. On the application home page, choose the Bitnami logo to go
-to the application information page.
+1. On the application home page, choose the Bitnami logo to go to the application information page.
+**Note**  
+The GitLab CE application doesn't display a Bitnami logo. Instead, sign in using the user name and password text fields displayed on the GitLab CE home page.
 
-###### Note
+   The application information page contains the default user name and a link to the login page for the application on your instance.  
+![Bitnami application information page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-application-information-page.png)
 
-The GitLab CE application doesn't display a Bitnami logo. Instead, sign in using the
-user name and password text fields displayed on the GitLab CE home page.
+1. Choose the login link on the page to go to the log in page for the application on your instance.
 
-The application information page contains the default user name and a link to the
-login page for the application on your instance.
-
-![Bitnami application information page.](images/amazon-lightsail-bitnami-application-information-page.png) 3. Choose the login link on the page to go to the log in page for the application on your
-instance. 4. Type the user name and the password you just acquired, then choose **Log
-In**.
-
-![The log in page for WordPress.](images/amazon-lightsail-bitnami-wordpress-application-login.png)
+1. Type the user name and the password you just acquired, then choose **Log In**.  
+![The log in page for WordPress.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-bitnami-wordpress-application-login.png)
 
 ## Next steps
+<a name="bitnami-instances-next-steps"></a>
 
-Use the following links to learn more about the Bitnami blueprints and view their
-tutorials. For example, you can [install plugins](https://docs.bitnami.com/general/apps/wordpress/configuration/install-plugins/ "https://docs.bitnami.com/general/apps/wordpress/configuration/install-plugins/") or [enable HTTPS support with SSL certificates](https://docs.bitnami.com/general/apps/wordpress/administration/create-ssl-certificate-apache/ "https://docs.bitnami.com/general/apps/wordpress/administration/create-ssl-certificate-apache/") for your WordPress instance.
-
-- [Bitnami WordPress for
-  Amazon Web Services](https://docs.bitnami.com/general/apps/wordpress/ "https://docs.bitnami.com/general/apps/wordpress/")
-- [Bitnami LAMP stack for
-  Amazon Web Services](https://docs.bitnami.com/general/infrastructure/lamp/ "https://docs.bitnami.com/general/infrastructure/lamp/")
-- [Bitnami Node.js for
-  Amazon Web Services](https://docs.bitnami.com/general/infrastructure/nodejs/ "https://docs.bitnami.com/general/infrastructure/nodejs/")
-- [Bitnami Joomla for
-  Amazon Web Services](https://docs.bitnami.com/general/apps/joomla/ "https://docs.bitnami.com/general/apps/joomla/")
-- [Bitnami Magento for
-  Amazon Web Services](https://docs.bitnami.com/general/apps/magento/ "https://docs.bitnami.com/general/apps/magento/")
-- [Bitnami MEAN stack for
-  Amazon Web Services](https://docs.bitnami.com/general/infrastructure/mean/ "https://docs.bitnami.com/general/infrastructure/mean/")
-- [Bitnami Drupal for
-  Amazon Web Services](https://docs.bitnami.com/general/apps/drupal/ "https://docs.bitnami.com/general/apps/drupal/")
-- [Bitnami GitLab for
-  Amazon Web Services](https://docs.bitnami.com/general/apps/gitlab/ "https://docs.bitnami.com/general/apps/gitlab/")
-- [Bitnami Redmine for
-  Amazon Web Services](https://docs.bitnami.com/general/apps/redmine/ "https://docs.bitnami.com/general/apps/redmine/")
-- [Bitnami Nginx (LEMP stack)
-  for Amazon Web Services](https://docs.bitnami.com/general/infrastructure/nginx/ "https://docs.bitnami.com/general/infrastructure/nginx/")
+Use the following links to learn more about the Bitnami blueprints and view their tutorials. For example, you can [install plugins](https://docs.bitnami.com/general/apps/wordpress/configuration/install-plugins/) or [enable HTTPS support with SSL certificates](https://docs.bitnami.com/general/apps/wordpress/administration/create-ssl-certificate-apache/) for your WordPress instance.
++  [Bitnami WordPress for Amazon Web Services](https://docs.bitnami.com/general/apps/wordpress/) 
++  [Bitnami LAMP stack for Amazon Web Services](https://docs.bitnami.com/general/infrastructure/lamp/) 
++  [Bitnami Node.js for Amazon Web Services](https://docs.bitnami.com/general/infrastructure/nodejs/) 
++  [Bitnami Joomla for Amazon Web Services](https://docs.bitnami.com/general/apps/joomla/) 
++  [Bitnami Magento for Amazon Web Services](https://docs.bitnami.com/general/apps/magento/) 
++  [Bitnami MEAN stack for Amazon Web Services](https://docs.bitnami.com/general/infrastructure/mean/) 
++  [Bitnami Drupal for Amazon Web Services](https://docs.bitnami.com/general/apps/drupal/) 
++  [Bitnami GitLab for Amazon Web Services](https://docs.bitnami.com/general/apps/gitlab/) 
++  [Bitnami Redmine for Amazon Web Services](https://docs.bitnami.com/general/apps/redmine/) 
++  [Bitnami Nginx (LEMP stack) for Amazon Web Services](https://docs.bitnami.com/general/infrastructure/nginx/) 

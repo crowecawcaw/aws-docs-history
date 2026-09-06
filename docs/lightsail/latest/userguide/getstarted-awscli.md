@@ -1,72 +1,62 @@
+
+
 # Using Amazon Lightsail with the AWS CLI
+<a name="getstarted-awscli"></a>
 
-This tutorial guides you through common Amazon Lightsail operations using the AWS Command Line Interface
-(AWS CLI). You will learn how to create and manage Lightsail resources including key pairs,
-instances, storage, and snapshots.
+This tutorial guides you through common Amazon Lightsail operations using the AWS Command Line Interface (AWS CLI). You will learn how to create and manage Lightsail resources including key pairs, instances, storage, and snapshots.
 
-###### Topics
-
-- [Prerequisites](#getstarted-awscli-prerequisites "#getstarted-awscli-prerequisites")
-- [Generate SSH key pairs](#getstarted-awscli-generate-ssh-key-pairs "#getstarted-awscli-generate-ssh-key-pairs")
-- [Create and manage instances](#getstarted-awscli-create-and-manage-instances "#getstarted-awscli-create-and-manage-instances")
-- [Connect to your instance](#getstarted-awscli-connect-to-your-instance "#getstarted-awscli-connect-to-your-instance")
-- [Add storage to your instance](#getstarted-awscli-add-storage-to-your-instance "#getstarted-awscli-add-storage-to-your-instance")
-- [Create and use snapshots](#getstarted-awscli-create-and-use-snapshots "#getstarted-awscli-create-and-use-snapshots")
-- [Clean up resources](#getstarted-awscli-clean-up-resources "#getstarted-awscli-clean-up-resources")
-- [Next steps](#getstarted-awscli-next-steps "#getstarted-awscli-next-steps")
+**Topics**
++ [Prerequisites](#getstarted-awscli-prerequisites)
++ [Generate SSH key pairs](#getstarted-awscli-generate-ssh-key-pairs)
++ [Create and manage instances](#getstarted-awscli-create-and-manage-instances)
++ [Connect to your instance](#getstarted-awscli-connect-to-your-instance)
++ [Add storage to your instance](#getstarted-awscli-add-storage-to-your-instance)
++ [Create and use snapshots](#getstarted-awscli-create-and-use-snapshots)
++ [Clean up resources](#getstarted-awscli-clean-up-resources)
++ [Next steps](#getstarted-awscli-next-steps)
 
 ## Prerequisites
+<a name="getstarted-awscli-prerequisites"></a>
 
 Before you begin this tutorial, make sure you have the following.
 
-1. The AWS CLI. If you need to install it, follow the [AWS CLI installation guide](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). You can also [use AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md"), which includes
-   the AWS CLI.
-2. Configured your AWS CLI with appropriate credentials. Run `aws
- configure` if you haven't set up your credentials yet.
-3. Basic familiarity with command line interfaces and SSH concepts.
-4. [Sufficient permissions](security_iam_service-with-iam.md "security_iam_service-with-iam.md") to
-   create and manage Lightsail resources in your AWS account.
+1. The AWS CLI. If you need to install it, follow the [AWS CLI installation guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html). You can also [use AWS CloudShell](amazon-lightsail-cloudshell.md), which includes the AWS CLI.
 
-If you haven't already, set the `AWS_REGION` environment variable to the same
-Region that you configured the AWS CLI to use before you start. This environment
-variable is used in example commands to specify an availability zone for Lightsail
-resources.
+1. Configured your AWS CLI with appropriate credentials. Run `aws configure` if you haven't set up your credentials yet.
+
+1. Basic familiarity with command line interfaces and SSH concepts.
+
+1. [Sufficient permissions](security_iam_service-with-iam.md) to create and manage Lightsail resources in your AWS account.
+
+If you haven't already, set the `AWS_REGION` environment variable to the same Region that you configured the AWS CLI to use before you start. This environment variable is used in example commands to specify an availability zone for Lightsail resources. 
 
 ```
-$ `[ -z "${AWS_REGION}" ] && export AWS_REGION=$(aws configure get region)`
+$ [ -z "${AWS_REGION}" ] && export AWS_REGION=$(aws configure get region)
 ```
 
-Let's get started with creating and managing Amazon Lightsail resources using the
-CLI.
+Let's get started with creating and managing Amazon Lightsail resources using the CLI.
 
 ## Generate SSH key pairs
+<a name="getstarted-awscli-generate-ssh-key-pairs"></a>
 
-SSH key pairs allow you to securely connect to your Lightsail instances without
-using passwords. In this section, you will create a new key pair and retrieve its
-information.
+SSH key pairs allow you to securely connect to your Lightsail instances without using passwords. In this section, you will create a new key pair and retrieve its information.
 
-###### Example– Create a new key pair
-
-The following command creates a new SSH key pair named "cli-tutorial-keys" and
-saves the private key to your local machine.
+**Example – Create a new key pair**  
+The following command creates a new SSH key pair named "cli-tutorial-keys" and saves the private key to your local machine.  
 
 ```
-$ `aws lightsail create-key-pair --key-pair-name cli-tutorial-keys \
- --query privateKeyBase64 --output text > ~/.ssh/cli-tutorial-keys.pem`
-$ `chmod 400 ~/.ssh/cli-tutorial-keys.pem`
+$ aws lightsail create-key-pair --key-pair-name cli-tutorial-keys \
+        --query privateKeyBase64 --output text > ~/.ssh/cli-tutorial-keys.pem
+$ chmod 400 ~/.ssh/cli-tutorial-keys.pem
 ```
 
-After running this command, the private key is saved to your `~/.ssh`
-directory with appropriate permissions. The `chmod` command ensures that only
-you can read the private key file, which is a security requirement for SSH.
+After running this command, the private key is saved to your `~/.ssh` directory with appropriate permissions. The `chmod` command ensures that only you can read the private key file, which is a security requirement for SSH.
 
-###### Example– Retrieve key pair information
-
-You can verify your key pair was created successfully by retrieving its
-information.
+**Example – Retrieve key pair information**  
+You can verify your key pair was created successfully by retrieving its information.  
 
 ```
-$ `aws lightsail get-key-pair --key-pair-name cli-tutorial-keys`
+$ aws lightsail get-key-pair --key-pair-name cli-tutorial-keys
 {
     "keyPair": {
         "name": "cli-tutorial-keys",
@@ -84,27 +74,20 @@ $ `aws lightsail get-key-pair --key-pair-name cli-tutorial-keys`
 }
 ```
 
-The output shows details about your key pair, including its name, ARN, creation time,
-Region, and fingerprint. This fingerprint can be used to verify the key's authenticity
-when connecting to instances.
+The output shows details about your key pair, including its name, ARN, creation time, Region, and fingerprint. This fingerprint can be used to verify the key's authenticity when connecting to instances.
 
 ## Create and manage instances
+<a name="getstarted-awscli-create-and-manage-instances"></a>
 
-Lightsail instances are virtual private servers that run applications or websites.
-In this section, you will create a WordPress instance and retrieve its details.
+Lightsail instances are virtual private servers that run applications or websites. In this section, you will create a WordPress instance and retrieve its details.
 
-###### Example– Create a WordPress instance
-
-The following command creates a new WordPress instance using the
-`nano_3_0` bundle (the smallest Lightsail instance size) and
-associates it with your key pair. The command uses the `AWS_REGION`
-environment variable to create the instance in an availability zone in your
-configured Region.
+**Example – Create a WordPress instance**  
+The following command creates a new WordPress instance using the `nano_3_0` bundle (the smallest Lightsail instance size) and associates it with your key pair. The command uses the `AWS_REGION` environment variable to create the instance in an availability zone in your configured Region.  
 
 ```
-$ `aws lightsail create-instances --instance-names cli-tutorial \
- --availability-zone ${AWS_REGION}a --blueprint-id wordpress \
- --bundle-id nano_3_0 --key-pair-name cli-tutorial-keys`
+$ aws lightsail create-instances --instance-names cli-tutorial \
+        --availability-zone ${AWS_REGION}a --blueprint-id wordpress \
+        --bundle-id nano_3_0 --key-pair-name cli-tutorial-keys
 {
     "operations": [
         {
@@ -125,16 +108,13 @@ $ `aws lightsail create-instances --instance-names cli-tutorial \
 }
 ```
 
-The response indicates that the instance creation operation has started. It may take a
-few minutes for your instance to become available.
+The response indicates that the instance creation operation has started. It may take a few minutes for your instance to become available.
 
-###### Example– Get instance details
-
-Once your instance is created, you can retrieve its details using the following
-command.
+**Example – Get instance details**  
+Once your instance is created, you can retrieve its details using the following command.  
 
 ```
-$ `aws lightsail get-instance --instance-name cli-tutorial`
+$ aws lightsail get-instance --instance-name cli-tutorial
 {
     "instance": {
         "name": "cli-tutorial",
@@ -244,23 +224,18 @@ $ `aws lightsail get-instance --instance-name cli-tutorial`
 }
 ```
 
-The output provides comprehensive information about your instance, including its IP
-addresses, hardware specifications, networking configuration, and state. Note the public
-IP address and username, as you will need these to connect to your instance.
+The output provides comprehensive information about your instance, including its IP addresses, hardware specifications, networking configuration, and state. Note the public IP address and username, as you will need these to connect to your instance.
 
 ## Connect to your instance
+<a name="getstarted-awscli-connect-to-your-instance"></a>
 
-After creating your instance, you can connect to it using SSH with the key pair you
-created earlier. This section shows you how to establish an SSH connection and manage
-security settings.
+After creating your instance, you can connect to it using SSH with the key pair you created earlier. This section shows you how to establish an SSH connection and manage security settings.
 
-###### Example– SSH into your instance
-
-Use the following command to connect to your instance via SSH, replacing the IP
-address with your instance's public IP.
+**Example – SSH into your instance**  
+Use the following command to connect to your instance via SSH, replacing the IP address with your instance's public IP.  
 
 ```
-$ `ssh -i ~/.ssh/cli-tutorial-keys.pem bitnami@`192.0.2.1``
+$ ssh -i ~/.ssh/cli-tutorial-keys.pem bitnami@{{192.0.2.1}}
 Linux ip-172-26-6-136 6.1.0-32-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.129-1 (2025-03-06) x86_64
 
 The programs included with the Debian GNU/Linux system are free software;
@@ -278,7 +253,7 @@ permitted by applicable law.
   *** Documentation:  https://docs.bitnami.com/general/apps/wordpress/ ***
   ***                 https://docs.bitnami.com/general/                ***
   *** Bitnami Forums: https://github.com/bitnami/vms/              ***
-
+  
 bitnami@ip-172-26-6-136:~$ df
 Filesystem      1K-blocks    Used Available Use% Mounted on
 udev               217920       0    217920   0% /dev
@@ -290,18 +265,14 @@ tmpfs                5120       0      5120   0% /run/lock
 tmpfs               45856       0     45856   0% /run/user/1000
 ```
 
-Once connected, you can manage your WordPress installation, configure your server, or
-install additional software. The example above shows the disk usage on the instance
-using the `df` command.
+Once connected, you can manage your WordPress installation, configure your server, or install additional software. The example above shows the disk usage on the instance using the `df` command.
 
-###### Example– Close public ports
-
-When you are not using SSH, you can close the public ports on your instance. This
-helps protect your instance from unauthorized access attempts.
+**Example – Close public ports**  
+When you are not using SSH, you can close the public ports on your instance. This helps protect your instance from unauthorized access attempts.  
 
 ```
-$ `aws lightsail close-instance-public-ports --instance-name cli-tutorial \
- --port-info fromPort=22,protocol=TCP,toPort=22`
+$ aws lightsail close-instance-public-ports --instance-name cli-tutorial \
+        --port-info fromPort=22,protocol=TCP,toPort=22
 {
     "operation": {
         "id": "6cdxmpl-9f39-4357-a66d-230096140b4f",
@@ -321,31 +292,24 @@ $ `aws lightsail close-instance-public-ports --instance-name cli-tutorial \
 }
 ```
 
-###### Note
+**Note**  
+Closing port 22 prevents all SSH connections, including those initiated from the Lightsail console. For more information, see the following topics.  
+[Manage SSH key pairs and connect to your Lightsail instances](understanding-ssh-in-amazon-lightsail.md)
+[Control instance traffic with firewalls in Lightsail](understanding-firewall-and-port-mappings-in-amazon-lightsail.md)
 
-Closing port 22 prevents all SSH connections, including those initiated from the
-Lightsail console. For more information, see the following topics.
-
-- [Manage SSH key pairs and connect to your Lightsail instances](understanding-ssh-in-amazon-lightsail.md "understanding-ssh-in-amazon-lightsail.md")
-- [Control instance traffic with firewalls in Lightsail](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md")
-
-The response confirms that port 22 has been closed successfully. When you need to
-reconnect via SSH, you can reopen the port using the
-`open-instance-public-ports` command.
+The response confirms that port 22 has been closed successfully. When you need to reconnect via SSH, you can reopen the port using the `open-instance-public-ports` command.
 
 ## Add storage to your instance
+<a name="getstarted-awscli-add-storage-to-your-instance"></a>
 
-As your application grows, you might need additional storage space. Lightsail allows
-you to create and attach additional disks to your instances. This section demonstrates
-how to add extra storage.
+As your application grows, you might need additional storage space. Lightsail allows you to create and attach additional disks to your instances. This section demonstrates how to add extra storage.
 
-###### Example– Create a disk
-
-The following command creates a new 32GB disk.
+**Example – Create a disk**  
+The following command creates a new 32GB disk.  
 
 ```
-$ `aws lightsail create-disk --disk-name cli-tutorial-disk \
- --availability-zone ${AWS_REGION}a --size-in-gb 32`
+$ aws lightsail create-disk --disk-name cli-tutorial-disk \
+        --availability-zone ${AWS_REGION}a --size-in-gb 32
 {
     "operations": [
         {
@@ -366,17 +330,14 @@ $ `aws lightsail create-disk --disk-name cli-tutorial-disk \
 }
 ```
 
-The response indicates that the disk creation operation has started. It may take a few
-moments for the disk to become available.
+The response indicates that the disk creation operation has started. It may take a few moments for the disk to become available.
 
-###### Example– Attach the disk to your instance
-
-Once the disk is created, you can attach it to your instance using the following
-command.
+**Example – Attach the disk to your instance**  
+Once the disk is created, you can attach it to your instance using the following command.  
 
 ```
-$ `aws lightsail attach-disk --disk-name cli-tutorial-disk \
- --disk-path /dev/xvdf --instance-name cli-tutorial`
+$ aws lightsail attach-disk --disk-name cli-tutorial-disk \
+        --disk-path /dev/xvdf --instance-name cli-tutorial
 {
     "operations": [
         {
@@ -413,17 +374,13 @@ $ `aws lightsail attach-disk --disk-name cli-tutorial-disk \
 }
 ```
 
-The disk-path parameter specifies where the disk will be attached in the Linux file
-system. After attaching the disk, you will need to format and mount it from within your
-instance.
+The disk-path parameter specifies where the disk will be attached in the Linux file system. After attaching the disk, you will need to format and mount it from within your instance.
 
-###### Example– Verify disk attachment
-
-You can confirm that the disk is properly attached by retrieving its
-details.
+**Example – Verify disk attachment**  
+You can confirm that the disk is properly attached by retrieving its details.  
 
 ```
-$ `aws lightsail get-disk --disk-name cli-tutorial-disk`
+$ aws lightsail get-disk --disk-name cli-tutorial-disk
 {
     "disk": {
         "name": "cli-tutorial-disk",
@@ -448,23 +405,19 @@ $ `aws lightsail get-disk --disk-name cli-tutorial-disk`
 }
 ```
 
-The output confirms that the disk is attached to your instance. The "state" field
-shows "in-use" and "isAttached" is set to true, indicating a successful
-attachment.
+The output confirms that the disk is attached to your instance. The "state" field shows "in-use" and "isAttached" is set to true, indicating a successful attachment.
 
 ## Create and use snapshots
+<a name="getstarted-awscli-create-and-use-snapshots"></a>
 
-Snapshots provide a way to back up your instance and create new instances from the
-backup. This is useful for disaster recovery, testing, or creating duplicate
-environments.
+Snapshots provide a way to back up your instance and create new instances from the backup. This is useful for disaster recovery, testing, or creating duplicate environments.
 
-###### Example– Create an instance snapshot
-
-The following command creates a snapshot of your instance.
+**Example – Create an instance snapshot**  
+The following command creates a snapshot of your instance.  
 
 ```
-$ `aws lightsail create-instance-snapshot --instance-name cli-tutorial \
- --instance-snapshot-name cli-tutorial-snapshot`
+$ aws lightsail create-instance-snapshot --instance-name cli-tutorial \
+         --instance-snapshot-name cli-tutorial-snapshot
 {
     "operations": [
         {
@@ -501,17 +454,14 @@ $ `aws lightsail create-instance-snapshot --instance-name cli-tutorial \
 }
 ```
 
-The response indicates that the snapshot process has started. There is one
-asynchronous operation for the instance getting the snapshot, and one for the snapshot
-being created. The snapshot includes all disks attached to the instance.
+The response indicates that the snapshot process has started. There is one asynchronous operation for the instance getting the snapshot, and one for the snapshot being created. The snapshot includes all disks attached to the instance.
 
-###### Example– Create a new instance from a snapshot
-
-Once the snapshot is complete, you can use it to create a new instance.
+**Example – Create a new instance from a snapshot**  
+Once the snapshot is complete, you can use it to create a new instance.  
 
 ```
-$ `aws lightsail create-instances-from-snapshot --availability-zone ${AWS_REGION}b \
- --instance-snapshot-name cli-tutorial-snapshot --instance-name cli-tutorial-bup --bundle-id small_3_0`
+$ aws lightsail create-instances-from-snapshot --availability-zone ${AWS_REGION}b \
+        --instance-snapshot-name cli-tutorial-snapshot --instance-name cli-tutorial-bup --bundle-id small_3_0
 {
     "operations": [
         {
@@ -532,23 +482,18 @@ $ `aws lightsail create-instances-from-snapshot --availability-zone ${AWS_REGION
 }
 ```
 
-This command creates a new instance named `cli-tutorial-bup` in
-availability zone `us-east-2b` using the `small_3_0` bundle size.
-Note that you can choose a different bundle size for the new instance, which can be
-useful for scaling up or down.
+This command creates a new instance named `cli-tutorial-bup` in availability zone `us-east-2b` using the `small_3_0` bundle size. Note that you can choose a different bundle size for the new instance, which can be useful for scaling up or down.
 
 ## Clean up resources
+<a name="getstarted-awscli-clean-up-resources"></a>
 
-When you're finished with your Lightsail resources, you should delete them to avoid
-incurring additional charges. This section shows you how to clean up all the resources
-created in this tutorial.
+When you're finished with your Lightsail resources, you should delete them to avoid incurring additional charges. This section shows you how to clean up all the resources created in this tutorial.
 
-###### Example– Delete an instance snapshot
-
-To delete a snapshot that you no longer need, use the following command.
+**Example – Delete an instance snapshot**  
+To delete a snapshot that you no longer need, use the following command.  
 
 ```
-$ `aws lightsail delete-instance-snapshot --instance-snapshot-name cli-tutorial-snapshot`
+$ aws lightsail delete-instance-snapshot --instance-snapshot-name cli-tutorial-snapshot
 {
     "operations": [
         {
@@ -572,12 +517,11 @@ $ `aws lightsail delete-instance-snapshot --instance-snapshot-name cli-tutorial-
 
 The response confirms that the snapshot deletion operation has succeeded.
 
-###### Example– Delete an instance
-
-To delete an instance, use the following command.
+**Example – Delete an instance**  
+To delete an instance, use the following command.  
 
 ```
-$ `aws lightsail delete-instance --instance-name cli-tutorial`
+$ aws lightsail delete-instance --instance-name cli-tutorial
 {
     "operations": [
         {
@@ -599,15 +543,13 @@ $ `aws lightsail delete-instance --instance-name cli-tutorial`
 }
 ```
 
-Remember to delete all instances you created, including any instances created from
-snapshots.
+Remember to delete all instances you created, including any instances created from snapshots.
 
-###### Example– Delete a disk
-
-To delete a disk that's no longer needed, use the following command.
+**Example – Delete a disk**  
+To delete a disk that's no longer needed, use the following command.  
 
 ```
-$ `aws lightsail delete-disk --disk-name cli-tutorial-disk`
+$ aws lightsail delete-disk --disk-name cli-tutorial-disk
 {
     "operations": [
         {
@@ -629,15 +571,13 @@ $ `aws lightsail delete-disk --disk-name cli-tutorial-disk`
 }
 ```
 
-If the disk is attached to an instance, you will need to detach it first using the
-`detach-disk` command.
+If the disk is attached to an instance, you will need to detach it first using the `detach-disk` command.
 
-###### Example– Delete a key pair
-
-Finally, delete the key pair you created at the beginning of this tutorial.
+**Example – Delete a key pair**  
+Finally, delete the key pair you created at the beginning of this tutorial.  
 
 ```
-$ `aws lightsail delete-key-pair --key-pair-name cli-tutorial-keys`
+$ aws lightsail delete-key-pair --key-pair-name cli-tutorial-keys
 {
     "operation": {
         "id": "dbfxmpl-c954-4a45-93a4-ab3e627d2c23",
@@ -657,28 +597,25 @@ $ `aws lightsail delete-key-pair --key-pair-name cli-tutorial-keys`
 }
 ```
 
-This command only deletes the key pair from AWS. Now you can delete the local copy
-as well.
+This command only deletes the key pair from AWS. Now you can delete the local copy as well.
 
 ```
-$ `rm ~/.ssh/cli-tutorial-keys.pem`
+$ rm ~/.ssh/cli-tutorial-keys.pem
 ```
 
 ## Next steps
+<a name="getstarted-awscli-next-steps"></a>
 
-Now that you've learned the basics of managing Lightsail resources using the AWS CLI,
-explore other Lightsail features.
+Now that you've learned the basics of managing Lightsail resources using the AWS CLI, explore other Lightsail features.
 
-1. **Domains** – [Assign a domain name](amazon-lightsail-domain-registration.md "amazon-lightsail-domain-registration.md")
-   to your application.
-2. **Load balancers** – [Route traffic to multiple
-   instances](understanding-lightsail-load-balancers.md "understanding-lightsail-load-balancers.md") to increase capacity and resilience.
-3. **Automatic snapshots** – [Back up your
-   application data automatically](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
-4. **Metrics** – [Monitor your resources'
-   health](amazon-lightsail-resource-health-metrics.md "amazon-lightsail-resource-health-metrics.md"), get notifications, and set up alarms.
-5. **Databases** – [Connect your application to a
-   relational database](amazon-lightsail-databases.md "amazon-lightsail-databases.md").
+1. **Domains** – [Assign a domain name](amazon-lightsail-domain-registration.md) to your application.
 
-For more information about available AWS CLI commands, see the [AWS CLI Command Reference
-for Lightsail](../../../cli/latest/reference/lightsail.md "../../../cli/latest/reference/lightsail.md").
+1. **Load balancers** – [Route traffic to multiple instances](understanding-lightsail-load-balancers.md) to increase capacity and resilience.
+
+1. **Automatic snapshots** – [Back up your application data automatically](amazon-lightsail-configuring-automatic-snapshots.md).
+
+1. **Metrics** – [Monitor your resources' health](amazon-lightsail-resource-health-metrics.md), get notifications, and set up alarms.
+
+1. **Databases** – [Connect your application to a relational database](amazon-lightsail-databases.md).
+
+For more information about available AWS CLI commands, see the [AWS CLI Command Reference for Lightsail](https://docs.aws.amazon.com/cli/latest/reference/lightsail/).

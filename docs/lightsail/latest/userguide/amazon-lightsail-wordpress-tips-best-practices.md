@@ -1,44 +1,37 @@
-# Tips and best practices for WordPress instances in Amazon Lightsail
 
-This guide collects practical tips for keeping a WordPress instance on Amazon Lightsail
-fast, stable, and secure.
+
+# Tips and best practices for WordPress instances in Amazon Lightsail
+<a name="amazon-lightsail-wordpress-tips-best-practices"></a>
+
+This guide collects practical tips for keeping a WordPress instance on Amazon Lightsail fast, stable, and secure.
 
 ## Keep your site secure and up to date
+<a name="wordpress-keep-secure-and-updated"></a>
 
 ### Keep WordPress, themes, and plugins updated
-
-- Apply WordPress core, theme, and plugin updates promptly. Updates often
-  include performance and security fixes. For more information, see [Keep Lightsail instances
-  and containers secure with update management](amazon-lightsail-update-management.md "amazon-lightsail-update-management.md").
-- Remove plugins and themes you are not using. Inactive plugins still add
-  maintenance overhead and security surface, and poorly written plugins are a
-  frequent cause of high memory usage.
-- Test major updates on a snapshot-launched copy of your instance before
-  applying them to your live site.
+<a name="wordpress-keep-updated"></a>
++ Apply WordPress core, theme, and plugin updates promptly. Updates often include performance and security fixes. For more information, see [Keep Lightsail instances and containers secure with update management](amazon-lightsail-update-management.md).
++ Remove plugins and themes you are not using. Inactive plugins still add maintenance overhead and security surface, and poorly written plugins are a frequent cause of high memory usage.
++ Test major updates on a snapshot-launched copy of your instance before applying them to your live site.
 
 ### Back up before you make changes
+<a name="wordpress-back-up-before-changes"></a>
 
-Before editing configuration files or installing plugins, take a snapshot of your
-instance so you can easily restore your application from the snapshot in case
-something goes wrong:
+Before editing configuration files or installing plugins, take a snapshot of your instance so you can easily restore your application from the snapshot in case something goes wrong:
++ Create a manual snapshot from the Lightsail console, or
++ Enable automatic snapshots.
 
-- Create a manual snapshot from the Lightsail console, or
-- Enable automatic snapshots.
-
-For instructions, see [Back up
-Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md") and [Configure automatic
-snapshots](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+For instructions, see [Back up Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md) and [Configure automatic snapshots](amazon-lightsail-configuring-automatic-snapshots.md).
 
 ## Monitoring and troubleshooting
+<a name="wordpress-monitoring-and-troubleshooting"></a>
 
 ### How do I know if my instance is running out of memory?
+<a name="wordpress-detect-out-of-memory"></a>
 
 Common symptoms include:
-
-- Your site displays **"Error establishing a database
-  connection"** (on both the public site and the admin panel).
-  This usually means MariaDB has stopped.
-- The site loads slowly or times out under modest traffic.
++ Your site displays **"Error establishing a database connection"** (on both the public site and the admin panel). This usually means MariaDB has stopped.
++ The site loads slowly or times out under modest traffic.
 
 To confirm, connect to your instance over SSH and check current memory use:
 
@@ -46,96 +39,58 @@ To confirm, connect to your instance over SSH and check current memory use:
 free -m
 ```
 
-Look at the `available` column under `Mem:`. This is how
-much memory your instance can still use. If `available` is below
-**50 MB**, your instance is under heavy memory
-pressure and is at risk of OOM-killing processes.
+Look at the `available` column under `Mem:`. This is how much memory your instance can still use. If `available` is below **50 MB**, your instance is under heavy memory pressure and is at risk of OOM-killing processes.
 
-You can also check whether the kernel has terminated a process for running out of
-memory (an "OOM kill"):
+You can also check whether the kernel has terminated a process for running out of memory (an "OOM kill"):
 
 ```
 sudo dmesg | grep -i "out of memory"
 ```
 
-If you see entries mentioning `mariadbd` or `mysqld`, your
-database is being terminated under memory pressure, and the steps in [Improve memory performance](#wordpress-improve-memory-performance "#wordpress-improve-memory-performance")
-should help.
+If you see entries mentioning `mariadbd` or `mysqld`, your database is being terminated under memory pressure, and the steps in [Improve memory performance](#wordpress-improve-memory-performance) should help.
 
 ### Does my instance already have automatic memory tuning?
+<a name="wordpress-automatic-memory-tuning"></a>
 
-The newer Lightsail WordPress blueprint includes a service that detects the
-instance's memory size and applies the swap, MariaDB, and Apache/PHP settings
-described in this guide automatically each time the instance starts, including after
-you start or reboot it. To check whether your instance has it, connect over SSH and
-run:
+The newer Lightsail WordPress blueprint includes a service that detects the instance's memory size and applies the swap, MariaDB, and Apache/PHP settings described in this guide automatically each time the instance starts, including after you start or reboot it. To check whether your instance has it, connect over SSH and run:
 
 ```
 systemctl status lightsail-memory-config
 ```
 
-If the service exists, your instance already manages these settings automatically
-and you do not need to apply them manually. If the command reports that the unit
-could not be found, follow the steps in [Improve memory
-performance](#wordpress-improve-memory-performance "#wordpress-improve-memory-performance").
+If the service exists, your instance already manages these settings automatically and you do not need to apply them manually. If the command reports that the unit could not be found, follow the steps in [Improve memory performance](#wordpress-improve-memory-performance).
 
 ## Optimize performance
+<a name="wordpress-optimize-performance"></a>
 
 ### Choose the right bundle for your workload
+<a name="wordpress-choose-bundle"></a>
 
-The most effective way to improve WordPress performance is to run on an instance
-bundle with enough memory for your workload. WordPress itself is lightweight;
-however plugins, themes, and the database can consume significant memory.
+The most effective way to improve WordPress performance is to run on an instance bundle with enough memory for your workload. WordPress itself is lightweight; however plugins, themes, and the database can consume significant memory.
++ **512 MB – 1 GB RAM (Lightsail nano and micro instance bundles):** Suitable for small blogs and low-traffic sites with a minimal set of plugins. These instances are the most likely to experience memory pressure, and benefit most from the tuning below.
++ **2 GB RAM and up:** Recommended if you run page builders (such as Elementor or Divi), WooCommerce, or many active plugins.
 
-- **512 MB – 1 GB RAM (Lightsail nano and micro
-  instance bundles):** Suitable for small blogs and low-traffic
-  sites with a minimal set of plugins. These instances are the most likely to
-  experience memory pressure, and benefit most from the tuning below.
-- **2 GB RAM and up:** Recommended if you run
-  page builders (such as Elementor or Divi), WooCommerce, or many active
-  plugins.
-
-As your site grows and needs more resources, you can upgrade to a larger bundle by
-[creating a snapshot and launching a new, larger instance from it](how-to-create-larger-instance-from-snapshot-using-console.md "how-to-create-larger-instance-from-snapshot-using-console.md").
+As your site grows and needs more resources, you can upgrade to a larger bundle by [creating a snapshot and launching a new, larger instance from it](how-to-create-larger-instance-from-snapshot-using-console.md).
 
 ### Improve memory performance
+<a name="wordpress-improve-memory-performance"></a>
 
-###### Note
+**Note**  
+The newer Lightsail WordPress blueprint applies size-aware memory tuning automatically each time the instance starts, so most of the manual steps in this section are handled for you if you are creating a new Lightsail WordPress instance.
 
-The newer Lightsail WordPress blueprint applies size-aware memory tuning
-automatically each time the instance starts, so most of the manual steps in this
-section are handled for you if you are creating a new Lightsail WordPress
-instance.
+If your site displays "Error establishing a database connection" when you (or your visitors) try to load a page, or you see log messages indicating MariaDB was killed due to out of memory (such as `Out of memory: Killed process ... (mariadbd)` in the system log), your instance is most likely running out of memory. On smaller instances, the Linux kernel may terminate the MariaDB database process (an "OOM kill") when memory is exhausted.
 
-If your site displays "Error establishing a database connection" when you (or your
-visitors) try to load a page, or you see log messages indicating MariaDB was killed
-due to out of memory (such as `Out of memory: Killed process ...
- (mariadbd)` in the system log), your instance is most likely running out
-of memory. On smaller instances, the Linux kernel may terminate the MariaDB database
-process (an "OOM kill") when memory is exhausted.
+The three steps below reduce memory pressure by adding swap space and bounding how much memory the database and web server are allowed to use. Each step helps on its own, so you can apply only the ones you need, or all three for the greatest effect. Before you start, make sure you have the latest snapshot of your instance. See [Back up before you make changes](#wordpress-back-up-before-changes) for more details.
 
-The three steps below reduce memory pressure by adding swap space and bounding how
-much memory the database and web server are allowed to use. Each step helps on its
-own, so you can apply only the ones you need, or all three for the greatest effect.
-Before you start, make sure you have the latest snapshot of your instance. See [Back up before you make changes](#wordpress-back-up-before-changes "#wordpress-back-up-before-changes")
-for more details.
+**Important**  
+These steps require connecting to your instance over SSH and running commands with `sudo`. Restarting the database and web server briefly interrupts your site (a few seconds); therefore make the changes during a low-traffic window.
 
-###### Important
-
-These steps require connecting to your instance over SSH and running commands
-with `sudo`. Restarting the database and web server briefly interrupts
-your site (a few seconds); therefore make the changes during a low-traffic
-window.
-
-To connect to your instance, use the browser-based SSH client in the Lightsail
-console, or see [Connect to your Linux or Unix instance](lightsail-how-to-connect-to-your-instance-virtual-private-server.md "lightsail-how-to-connect-to-your-instance-virtual-private-server.md").
+To connect to your instance, use the browser-based SSH client in the Lightsail console, or see [Connect to your Linux or Unix instance](lightsail-how-to-connect-to-your-instance-virtual-private-server.md).
 
 #### Step 1: Add a swap file
+<a name="wordpress-add-swap-file"></a>
 
-A swap file gives the operating system room to offload inactive memory to disk,
-which helps prevent out-of-memory crashes on instances with less than about 1.5
-GB of RAM. We recommend adding swap on nano or micro bundles, and it is usually
-unnecessary on larger ones.
+A swap file gives the operating system room to offload inactive memory to disk, which helps prevent out-of-memory crashes on instances with less than about 1.5 GB of RAM. We recommend adding swap on nano or micro bundles, and it is usually unnecessary on larger ones.
 
 First, check whether swap is already active:
 
@@ -143,8 +98,7 @@ First, check whether swap is already active:
 cat /proc/swaps
 ```
 
-If the only line printed is the header (no swap entries listed), no swap is
-configured:
+If the only line printed is the header (no swap entries listed), no swap is configured:
 
 ```
 Filename                Type        Size       Used    Priority
@@ -159,8 +113,7 @@ sudo mkswap /mnt/.lightsail.swap
 sudo swapon /mnt/.lightsail.swap
 ```
 
-To make the swap file persist across reboots, add it to
-`/etc/fstab`:
+To make the swap file persist across reboots, add it to `/etc/fstab`:
 
 ```
 echo '/mnt/.lightsail.swap none swap sw 0 0' | sudo tee -a /etc/fstab
@@ -180,15 +133,11 @@ Filename                Type        Size       Used    Priority
 ```
 
 #### Step 2: Tune the MariaDB database
+<a name="wordpress-tune-mariadb"></a>
 
-`innodb_buffer_pool_size` is the largest single memory consumer in
-MariaDB. If the default pool size is too large compared to the instance memory,
-it can contribute to out-of-memory crashes.
+`innodb_buffer_pool_size` is the largest single memory consumer in MariaDB. If the default pool size is too large compared to the instance memory, it can contribute to out-of-memory crashes.
 
-Find the recommended `innodb_buffer_pool_size` for your instance
-from the [recommended
-configuration table](#wordpress-recommended-memory-values "#wordpress-recommended-memory-values"), then create a dedicated configuration file with
-that value (replace `16M` in the example with your value):
+Find the recommended `innodb_buffer_pool_size` for your instance from the [recommended configuration table](#wordpress-recommended-memory-values), then create a dedicated configuration file with that value (replace `16M` in the example with your value):
 
 ```
 sudo tee /etc/mysql/mariadb.conf.d/90-lightsail-memory.cnf > /dev/null <<'EOF'
@@ -197,22 +146,16 @@ innodb_buffer_pool_size = 16M
 EOF
 ```
 
-To execute the change, run the following command that restarts the
-database:
+To execute the change, run the following command that restarts the database:
 
 ```
 sudo systemctl restart mariadb
 ```
 
 #### Step 3: Tune Apache and PHP
+<a name="wordpress-tune-apache-php"></a>
 
-Apache is the web server that handles incoming requests to your WordPress site.
-By default, it allows up to 150 simultaneous worker processes
-(`MaxRequestWorkers`). On a small instance, each PHP worker can
-use tens of megabytes, which can exhaust memory under load. To limit the number
-of workers to match your instance, and bound how much memory a single PHP request
-may use, set the Apache `mpm_prefork` limits (values shown are for a
-micro instance; check the [recommended configuration table](#wordpress-recommended-memory-values "#wordpress-recommended-memory-values") for your instance):
+Apache is the web server that handles incoming requests to your WordPress site. By default, it allows up to 150 simultaneous worker processes (`MaxRequestWorkers`). On a small instance, each PHP worker can use tens of megabytes, which can exhaust memory under load. To limit the number of workers to match your instance, and bound how much memory a single PHP request may use, set the Apache `mpm_prefork` limits (values shown are for a micro instance; check the [recommended configuration table](#wordpress-recommended-memory-values) for your instance):
 
 ```
 sudo tee /etc/apache2/mods-available/mpm_prefork.conf > /dev/null <<'EOF'
@@ -226,8 +169,7 @@ sudo tee /etc/apache2/mods-available/mpm_prefork.conf > /dev/null <<'EOF'
 EOF
 ```
 
-Set the PHP `memory_limit` (512 MB is a safe upper bound for all
-sizes). First detect your PHP version, then write the configuration file:
+Set the PHP `memory_limit` (512 MB is a safe upper bound for all sizes). First detect your PHP version, then write the configuration file:
 
 ```
 PHP_VERSION=$(php -r 'echo PHP_MAJOR_VERSION.".".PHP_MINOR_VERSION;')
@@ -244,34 +186,26 @@ sudo systemctl restart apache2
 ```
 
 #### Recommended values by instance memory
+<a name="wordpress-recommended-memory-values"></a>
 
-Use the values below based on your instance's total RAM. To check your
-instance's memory, run `free -m` and look at the `total`
-column, or refer to your bundle size in the Lightsail console.
+Use the values below based on your instance's total RAM. To check your instance's memory, run `free -m` and look at the `total` column, or refer to your bundle size in the Lightsail console.
 
-Recommended memory configuration by instance RAM| Instance memory (RAM) | MariaDB `innodb_buffer_pool_size` | Apache `MaxRequestWorkers` | PHP `memory_limit` | Swap file |
-| --- | --- | --- | --- | --- |
-| Up to ~1.5 GB | 16M | 5 | 512M | Yes (650 MB) |
-| ~1.5–3 GB | 256M | 10 | 512M | No |
-| ~3–6 GB | 256M | 25 | 512M | No |
-| ~6–13 GB | 2048M | 50 | 512M | No |
-| ~13–26 GB | 2048M | 125 | 512M | No |
-| More than ~26 GB | 4096M | 250 | 512M | No |
+
+**Recommended memory configuration by instance RAM**  
+
+|  Instance memory (RAM)  |  MariaDB `innodb_buffer_pool_size`  |  Apache `MaxRequestWorkers`  |  PHP `memory_limit`  |  Swap file  | 
+| --- | --- | --- | --- | --- | 
+| Up to \~1.5 GB | 16M | 5 | 512M | Yes (650 MB) | 
+| \~1.5–3 GB | 256M | 10 | 512M | No | 
+| \~3–6 GB | 256M | 25 | 512M | No | 
+| \~6–13 GB | 2048M | 50 | 512M | No | 
+| \~13–26 GB | 2048M | 125 | 512M | No | 
+| More than \~26 GB | 4096M | 250 | 512M | No | 
 
 ### Use caching to reduce load
+<a name="wordpress-use-caching"></a>
 
-Caching reduces how often WordPress has to query the database and run PHP, which
-lowers both CPU and memory usage:
-
-- **Page caching:** Install a caching plugin
-  such as W3 Total Cache or WP Super Cache to serve static copies of your
-  pages.
-- **Object caching:** If your site has many
-  logged-in users, runs WooCommerce, or uses dynamic content that changes
-  often (such as forums or membership areas), an object cache plugin (such as
-  [Redis Object
-  Cache](https://wordpress.org/plugins/redis-cache/ "https://wordpress.org/plugins/redis-cache/") or APCu-based caches) stores frequently-used query results
-  in memory and reduces repeated database lookups.
-- **A content delivery network (CDN):** Offload
-  static assets (images, CSS, JavaScript) to a CDN such as [Lightsail Distribution](amazon-lightsail-creating-content-delivery-network-distribution.md "amazon-lightsail-creating-content-delivery-network-distribution.md") so they are not served by your
-  instance.
+Caching reduces how often WordPress has to query the database and run PHP, which lowers both CPU and memory usage:
++ **Page caching:** Install a caching plugin such as W3 Total Cache or WP Super Cache to serve static copies of your pages.
++ **Object caching:** If your site has many logged-in users, runs WooCommerce, or uses dynamic content that changes often (such as forums or membership areas), an object cache plugin (such as [Redis Object Cache](https://wordpress.org/plugins/redis-cache/) or APCu-based caches) stores frequently-used query results in memory and reduces repeated database lookups.
++ **A content delivery network (CDN):** Offload static assets (images, CSS, JavaScript) to a CDN such as [Lightsail Distribution](amazon-lightsail-creating-content-delivery-network-distribution.md) so they are not served by your instance.

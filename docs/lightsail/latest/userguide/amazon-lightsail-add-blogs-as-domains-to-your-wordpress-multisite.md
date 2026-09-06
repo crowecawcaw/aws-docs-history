@@ -1,169 +1,155 @@
+
+
 # Add blogs as domains to your WordPress Multisite on Lightsail
+<a name="amazon-lightsail-add-blogs-as-domains-to-your-wordpress-multisite"></a>
 
-A WordPress Multisite instance in Amazon Lightsail is designed to use multiple domains, or
-subdomains, for each blog site that you create within that instance. In this guide, we’ll show
-you how to add a blog site using a different domain than your main blog’s primary domain on your
-WordPress Multisite instance. For example, if your main blog’s primary domain is
-`example.com`, you can create new blog sites that use the
-`another-example.com` and `third-example.com` domains on the same
-instance.
+A WordPress Multisite instance in Amazon Lightsail is designed to use multiple domains, or subdomains, for each blog site that you create within that instance. In this guide, we’ll show you how to add a blog site using a different domain than your main blog’s primary domain on your WordPress Multisite instance. For example, if your main blog’s primary domain is `example.com`, you can create new blog sites that use the `another-example.com` and `third-example.com` domains on the same instance.
 
-###### Note
-
-You can also add sites using subdomains to your WordPress Multisite instance. For more
-information, see [Add blogs as
-subdomains to your WordPress Multisite instance](amazon-lightsail-add-blogs-as-subdomains-to-your-wordpress-multisite.md "amazon-lightsail-add-blogs-as-subdomains-to-your-wordpress-multisite.md").
+**Note**  
+You can also add sites using subdomains to your WordPress Multisite instance. For more information, see [Add blogs as subdomains to your WordPress Multisite instance](amazon-lightsail-add-blogs-as-subdomains-to-your-wordpress-multisite.md).
 
 ## Prerequisites
+<a name="add-blogs-as-domains-to-your-wordpress-multisite-prerequisites"></a>
 
 Complete the following prerequisites in the order shown:
 
-1. Create a WordPress Multisite instance in Lightsail. For more information, see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md "how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md").
-2. Create a static IP and attach it to your WordPress Multisite instance in Lightsail.
-   For more information, see [Create a static IP
-   and attach it to an instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
-3. Add your domain to Lightsail by creating a DNS zone, then point it to the static IP
-   that you attached to your WordPress Multisite instance. For more information, see [Create a DNS zone to manage your domain’s
-   DNS records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md").
-4. Define the primary domain for your WordPress Multisite instance. For
-   more information, see [Define
-   the primary domain for your WordPress Multisite instance](amazon-lightsail-define-the-primary-domain-for-your-wordpress-multisite.md "amazon-lightsail-define-the-primary-domain-for-your-wordpress-multisite.md").
+1. Create a WordPress Multisite instance in Lightsail. For more information, see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md).
+
+1. Create a static IP and attach it to your WordPress Multisite instance in Lightsail. For more information, see [Create a static IP and attach it to an instance](lightsail-create-static-ip.md).
+
+1. Add your domain to Lightsail by creating a DNS zone, then point it to the static IP that you attached to your WordPress Multisite instance. For more information, see [Create a DNS zone to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md).
+
+1. Define the primary domain for your WordPress Multisite instance. For more information, see [Define the primary domain for your WordPress Multisite instance](amazon-lightsail-define-the-primary-domain-for-your-wordpress-multisite.md).
 
 ## Add a blog as a domain to your WordPress Multisite instance
+<a name="add-a-blog-as-a-domain-to-your-wordpress-multisite-instance"></a>
 
-Complete these steps to create a blog site on your WordPress Multisite instance that uses
-a domain which is different than your main blog’s primary domain.
+Complete these steps to create a blog site on your WordPress Multisite instance that uses a domain which is different than your main blog’s primary domain.
 
-###### Important
-
-You must complete step 4 listed in the prerequisites section of this guide before
-following these steps.
+**Important**  
+You must complete step 4 listed in the prerequisites section of this guide before following these steps.
 
 1. Sign in to the administration dashboard of your WordPress Multisite instance.
+**Note**  
+For more information, see [Get the application user name and password for your Bitnami instance](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md).
 
-###### Note
+1. Choose **My Sites**, then **Network Admin**, and **Sites** in the top navigation pane.  
+![Sites menu in the WordPress administration dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-multisite-add-blogs-as-subdomains-sites-menu.png)
 
-For more information, see [Get the
-application user name and password for your Bitnami instance](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md "log-in-to-your-bitnami-application-running-on-amazon-lightsail.md"). 2. Choose **My Sites**, then **Network Admin**, and
-**Sites** in the top navigation pane.
+1. Choose **Add New** to add a new blog site.
 
-![Sites menu in the WordPress administration dashboard.](images/wp-multisite-add-blogs-as-subdomains-sites-menu.png) 3. Choose **Add New** to add a new blog site. 4. Enter a site address into the **Site Address (URL)** text box. This
-is domain that will be used for the new blog site. For example, if your new blog site will
-use `example-blog.com` as the domain, then enter `example-blog` into
-the **Site Address (URL)** text box. Ignore the primary domain suffix
-displayed on the page.
+1. Enter a site address into the **Site Address (URL)** text box. This is domain that will be used for the new blog site. For example, if your new blog site will use `example-blog.com` as the domain, then enter `example-blog` into the **Site Address (URL)** text box. Ignore the primary domain suffix displayed on the page.  
+![Ignore the domain suffix in the WordPress administration dashboard](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-multisite-add-blogs-as-domains-ignore-domain-suffix.png)
 
-![Ignore the domain suffix in the WordPress administration dashboard](images/wp-multisite-add-blogs-as-domains-ignore-domain-suffix.png) 5. Enter a site title, select a site language, and enter an admin email. 6. Choose **Add Site**. 7. Choose **Edit Site** in the confirmation banner that appears on the
-page. This will redirect you to edit the details of the site that you recently
-created.
+1. Enter a site title, select a site language, and enter an admin email.
 
-![Edit Site page](images/wp-multisite-add-blogs-as-domains-edit-site.png) 8. In the **Edit Site** page, change the subdomain that is listed in the
-**Site Address (URL)** text box to the apex domain that you want to
-use. In this example, we specified `http://example-blog.com`.
+1. Choose **Add Site**.
 
-![Edit site address](images/wp-multisite-add-blogs-as-domains-edit-site-address.png) 9. Choose **Save Changes**.
+1. Choose **Edit Site** in the confirmation banner that appears on the page. This will redirect you to edit the details of the site that you recently created.  
+![Edit Site page](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-multisite-add-blogs-as-domains-edit-site.png)
 
-At this point, the new blog site has been created in your WordPress Multisite
-instance, but the domain is not yet configured to route to the new blog site. Continue to
-the next step to add an address record (A record) to your domain’s DNS zone.
+1. In the **Edit Site** page, change the subdomain that is listed in the **Site Address (URL)** text box to the apex domain that you want to use. In this example, we specified `http://example-blog.com`.  
+![Edit site address](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-multisite-add-blogs-as-domains-edit-site-address.png)
 
-![Sites list in the WordPress administration dashboard.](images/wp-multisite-add-blogs-as-domains-sites-list.png)
+1. Choose **Save Changes**.
+
+   At this point, the new blog site has been created in your WordPress Multisite instance, but the domain is not yet configured to route to the new blog site. Continue to the next step to add an address record (A record) to your domain’s DNS zone.  
+![Sites list in the WordPress administration dashboard.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-multisite-add-blogs-as-domains-sites-list.png)
 
 ## Add an address record (A record) to your domain’s DNS zone
+<a name="add-address-record-to-your-domains-dns-zone"></a>
 
-Complete these steps to point the domain for your new blog site to your WordPress
-Multisite instance. You must perform these steps for every blog site that you create on your
-WordPress Multisite instance.
+Complete these steps to point the domain for your new blog site to your WordPress Multisite instance. You must perform these steps for every blog site that you create on your WordPress Multisite instance.
 
-For demonstration purposes, we’ll use the Lightsail DNS zone. However, the steps may be
-similar for other DNS zones typically hosted by domain registrars.
+For demonstration purposes, we’ll use the Lightsail DNS zone. However, the steps may be similar for other DNS zones typically hosted by domain registrars.
 
-###### Important
+**Important**  
+You can create a maximum of six DNS zones in the Lightsail console. If you need more DNS zones, we recommend using Amazon Route 53 to manage your domain’s DNS records. For more information, see [Make Amazon Route 53 the DNS service for an existing domain](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html).
 
-You can create a maximum of six DNS zones in the Lightsail console. If you need more
-DNS zones, we recommend using Amazon Route 53 to manage your domain’s DNS records. For more
-information, see [Make
-Amazon Route 53 the DNS service for an existing domain](../../../Route53/latest/DeveloperGuide/MigratingDNS.md "../../../Route53/latest/DeveloperGuide/MigratingDNS.md").
+1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
-1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. In the left navigation pane, choose **Domains & DNS**.
-3. Under the **DNS zones** section of the page, choose the DNS zone for
-   your new blog site’s domain.
-4. In the DNS zone editor, choose the **DNS records** tab. Then, choose **Add record**.
+1. In the left navigation pane, choose **Domains & DNS**.
 
-![The DNS zone editor in the Lightsail console.](images/wp-multisite-add-blogs-as-domains-dns-zone.png) 5. Choose **A record** in the record type drop-down menu. 6. In the **Record name** text box, enter an “at” (@) symbol to create a
-record for the root of the domain. 7. In the **Resolves to** text box, choose the static IP address
-attached to your WordPress Multisite instance.
+1. Under the **DNS zones** section of the page, choose the DNS zone for your new blog site’s domain.
 
-![Adding an address record to the DNS zone in the Lightsail console.](images/wp-multisite-add-blogs-as-domains-a-record.png) 8. Choose the Save icon.
+1. In the DNS zone editor, choose the **DNS records** tab. Then, choose **Add record**.  
+![The DNS zone editor in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-multisite-add-blogs-as-domains-dns-zone.png)
 
-After the change propagates through the internet’s DNS, the domain will route traffic
-to the new blog site on your WordPress Multisite instance.
+1. Choose **A record** in the record type drop-down menu.
+
+1. In the **Record name** text box, enter an “at” (@) symbol to create a record for the root of the domain.
+
+1. In the **Resolves to** text box, choose the static IP address attached to your WordPress Multisite instance.  
+![Adding an address record to the DNS zone in the Lightsail console.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-multisite-add-blogs-as-domains-a-record.png)
+
+1. Choose the Save icon.
+
+   After the change propagates through the internet’s DNS, the domain will route traffic to the new blog site on your WordPress Multisite instance.
 
 ## Enable cookie support to allow sign in for blog sites
+<a name="enable-cookie-support-for-wordpress-multisite"></a>
 
-When you add blog sites as domains to your WordPress Multisite instance, you must also
-update the WordPress configuration (`wp-config`) file on your instance to enable
-cookie support. If you don't enable cookie support, then users might experience a "Error:
-Cookies are blocked or not supported" error when trying to sign in to the WordPress
-administration dashboard of their blog sites.
+When you add blog sites as domains to your WordPress Multisite instance, you must also update the WordPress configuration (`wp-config`) file on your instance to enable cookie support. If you don't enable cookie support, then users might experience a "Error: Cookies are blocked or not supported" error when trying to sign in to the WordPress administration dashboard of their blog sites.
 
-1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
-2. On the Instances home page, choose the SSH quick connect icon for the instance that
-   you want to connect to. For example, with a WordPress instance named
-   _Example_:
+1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/).
 
-![SSH quick connect on the Lightsail home page.](images/instances/resource_cards/ssh-quick-connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
-command to open and edit the `wp-config.php` file of your instance using
-Vim.
+1. On the Instances home page, choose the SSH quick connect icon for the instance that you want to connect to. For example, with a WordPress instance named *Example*:  
+![SSH quick connect on the Lightsail home page.](http://docs.aws.amazon.com/lightsail/latest/userguide/images/instances/resource_cards/ssh-quick-connect.png)
 
-Select the tab for your blueprint vendor:
+1. After your Lightsail browser-based SSH session is connected, enter the following command to open and edit the `wp-config.php` file of your instance using Vim.
 
-Lightsail
+   Select the tab for your blueprint vendor:
 
-```
-sudo vim /var/www/wp-config.php
-```
+------
+#### [ Lightsail ]
 
-Bitnami
+   ```
+   sudo vim /var/www/wp-config.php
+   ```
 
-```
-sudo vim /opt/bitnami/wordpress/wp-config.php
-```
+------
+#### [ Bitnami ]
 
-4. Press **I** to enter insert mode in Vim.
-5. Add the following line of text below the `define('WP_ALLOW_MULTISITE',
- true);` line of text.
+   ```
+   sudo vim /opt/bitnami/wordpress/wp-config.php
+   ```
 
-```
-define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);
-```
+------
 
-The file will look like the following when done:
+1. Press **I** to enter insert mode in Vim.
 
-![Edit to the wp-config file](images/wp-multisite-add-blogs-as-domains-wp-config-edit.png) 6. Press the **Esc** key to exit insert mode in Vim, then type
-`:wq!` and press **Enter** to save your edits (write) and
-quit Vim. 7. Enter the following command to restart the underlying services of the WordPress
-instance.
+1. Add the following line of text below the `define('WP_ALLOW_MULTISITE', true);` line of text.
 
-Lightsail
+   ```
+   define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);
+   ```
 
-```
-sudo systemctl restart apache2
-```
+   The file will look like the following when done:  
+![Edit to the wp-config file](http://docs.aws.amazon.com/lightsail/latest/userguide/images/wp-multisite-add-blogs-as-domains-wp-config-edit.png)
 
-Bitnami
+1. Press the **Esc** key to exit insert mode in Vim, then type `:wq!` and press **Enter** to save your edits (write) and quit Vim.
 
-```
-sudo /opt/bitnami/ctlscript.sh restart
-```
+1. Enter the following command to restart the underlying services of the WordPress instance.
 
-Cookies should now be enabled on your WordPress multisite instance, and users who are
-trying to sign in to their blog sites will not encounter the "Error: Cookies are blocked
-or not supported" error.
+------
+#### [ Lightsail ]
+
+   ```
+   sudo systemctl restart apache2
+   ```
+
+------
+#### [ Bitnami ]
+
+   ```
+   sudo /opt/bitnami/ctlscript.sh restart
+   ```
+
+------
+
+   Cookies should now be enabled on your WordPress multisite instance, and users who are trying to sign in to their blog sites will not encounter the "Error: Cookies are blocked or not supported" error.
 
 ## Next steps
+<a name="wordpress-multisite-domains-next-steps"></a>
 
-After you add blogs as domains to your WordPress Multisite instance, we recommend that you
-get familiar with WordPress Multisite administration. For more information see [Multisite
-Network Administration](https://developer.wordpress.org/advanced-administration/multisite/ "https://developer.wordpress.org/advanced-administration/multisite/") in the WordPress documentation.
+After you add blogs as domains to your WordPress Multisite instance, we recommend that you get familiar with WordPress Multisite administration. For more information see [Multisite Network Administration](https://developer.wordpress.org/advanced-administration/multisite/) in the WordPress documentation.
