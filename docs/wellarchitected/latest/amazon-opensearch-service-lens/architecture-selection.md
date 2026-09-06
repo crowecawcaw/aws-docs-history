@@ -1,21 +1,25 @@
+
+
 # Architecture selection
+<a name="architecture-selection"></a>
 
-| AOSPERF01: How do you plan, monitor, and optimize your sharding strategy? |
-| ------------------------------------------------------------------------- |
-|                                                                           |
 
-Providing the effectiveness of your sharding strategy in OpenSearch Service involves planning, monitoring, and ongoing optimization. Sharding is a critical aspect of OpenSearch Service's distributed architecture, and a well-designed strategy can significantly impact the performance, scalability, and reliability of your domain.
+| AOSPERF01: How do you plan, monitor, and optimize your sharding strategy? | 
+| --- | 
+|   | 
 
-| AOSPERF02: How do you monitor and optimize resource allocation for your OpenSearch instances? |
-| --------------------------------------------------------------------------------------------- |
-|                                                                                               |
+ Providing the effectiveness of your sharding strategy in OpenSearch Service involves planning, monitoring, and ongoing optimization. Sharding is a critical aspect of OpenSearch Service's distributed architecture, and a well-designed strategy can significantly impact the performance, scalability, and reliability of your domain.
 
-Optimizing resource utilization in your OpenSearch domain instances is important for several reasons, as it contributes to the efficiency, cost-effectiveness, stability, reliability, efficient data storage and overall performance of your search and analytics environment.
 
-###### Best practices
+| AOSPERF02: How do you monitor and optimize resource allocation for your OpenSearch instances? | 
+| --- | 
+|   | 
 
-- [AOSPERF01-BP01 Maintain shard sizes at recommended ranges](aosperf01-bp01.md "aosperf01-bp01.md")
-- [AOSPERF01-BP02 Check shard-to-CPU ratio](aosperf01-bp02.md "aosperf01-bp02.md")
-- [AOSPERF01-BP03 Check the number of shards per GiB of heap memory](aosperf01-bp03.md "aosperf01-bp03.md")
-- [AOSPERF02-BP01 Implement processor utilization monitoring](aosperf02-bp01.md "aosperf02-bp01.md")
-- [AOSPERF02-BP02 Implement Java memory utilization monitoring](aosperf02-bp02.md "aosperf02-bp02.md")
+ Optimizing resource utilization in your OpenSearch domain instances is important for several reasons, as it contributes to the efficiency, cost-effectiveness, stability, reliability, efficient data storage and overall performance of your search and analytics environment.
+
+**Topics**
++ [AOSPERF01-BP01 Maintain shard sizes at recommended ranges](aosperf01-bp01.md)
++ [AOSPERF01-BP02 Check shard-to-CPU ratio](aosperf01-bp02.md)
++ [AOSPERF01-BP03 Check the number of shards per GiB of heap memory](aosperf01-bp03.md)
++ [AOSPERF02-BP01 Implement processor utilization monitoring](aosperf02-bp01.md)
++ [AOSPERF02-BP02 Implement Java memory utilization monitoring](aosperf02-bp02.md)

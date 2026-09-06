@@ -1,16 +1,16 @@
+
+
 # Process and culture
+<a name="process-and-culture-sus"></a>
 
-| AOSSUS04: How do you optimize your development and test environment footprint? |
-| ------------------------------------------------------------------------------ |
-|                                                                                |
 
-Consolidating development and test workloads into fewer OpenSearch domains results in a reduced hardware footprint, contributing to energy and resource savings.
+| AOSSUS04: How do you optimize your development and test environment footprint? | 
+| --- | 
+|   | 
 
-A smaller hardware footprint aligns with sustainability objectives
-by decreasing the environmental impact, leads to more efficient use
-of computing resources, is more energy-efficient, lowers carbon
-emissions, avoids redundancy of data, and provides cost savings.
+ Consolidating development and test workloads into fewer OpenSearch domains results in a reduced hardware footprint, contributing to energy and resource savings.
 
-###### Best practices
+ A smaller hardware footprint aligns with sustainability objectives by decreasing the environmental impact, leads to more efficient use of computing resources, is more energy-efficient, lowers carbon emissions, avoids redundancy of data, and provides cost savings. 
 
-- [AOSSUS04-BP01 Consolidate OpenSearch Service domain environments](aossus04-bp01.md "aossus04-bp01.md")
+**Topics**
++ [AOSSUS04-BP01 Consolidate OpenSearch Service domain environments](aossus04-bp01.md)

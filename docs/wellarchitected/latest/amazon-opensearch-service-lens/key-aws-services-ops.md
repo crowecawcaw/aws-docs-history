@@ -1,11 +1,8 @@
-# Key AWS services
 
-- [Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/what-is.md "../../../opensearch-service/latest/developerguide/what-is.md"): A fully managed service that helps
-  you search, ingest, and analyze data in real-time.
-- [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md"): Monitoring and logging service that helps
-  you monitor and troubleshoot your AWS resources.
-- [Amazon SNS](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md"): A fully managed messaging service that allows you
-  to fan out messages to multiple subscribers.
-- [Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"): A feature of CloudWatch that allows
-  you to set up alarms based on metrics and receive
-  notifications when thresholds are breached.
+
+# Key AWS services
+<a name="key-aws-services-ops"></a>
++  [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html): A fully managed service that helps you search, ingest, and analyze data in real-time. 
++  [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html): Monitoring and logging service that helps you monitor and troubleshoot your AWS resources. 
++  [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html): A fully managed messaging service that allows you to fan out messages to multiple subscribers. 
++  [Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html): A feature of CloudWatch that allows you to set up alarms based on metrics and receive notifications when thresholds are breached. 

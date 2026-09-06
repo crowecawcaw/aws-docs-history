@@ -1,3 +1,5 @@
-# Key AWS services
 
-- [Amazon OpenSearch Service](https://aws.amazon.com/what-is/opensearch/ "https://aws.amazon.com/what-is/opensearch/")
+
+# Key AWS services
+<a name="key-aws-services-rel"></a>
++  [Amazon OpenSearch Service](https://aws.amazon.com/what-is/opensearch/) 
