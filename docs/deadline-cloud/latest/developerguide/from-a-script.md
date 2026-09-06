@@ -1,18 +1,18 @@
+
+
 # Submit a job to Deadline Cloud using a script
+<a name="from-a-script"></a>
 
-To automate submitting jobs to Deadline Cloud, you can script them using tools such as bash,
-Powershell, and batch files.
+ To automate submitting jobs to Deadline Cloud, you can script them using tools such as bash, Powershell, and batch files. 
 
-You can add functionality like populating job parameters from environment variables or
-other applications. You can also submit multiple jobs in a row, or script the creation of a job
-bundle to submit.
+You can add functionality like populating job parameters from environment variables or other applications. You can also submit multiple jobs in a row, or script the creation of a job bundle to submit. 
 
 ## Submit a job using Python
+<a name="with-python"></a>
 
-Deadline Cloud also has an open-source Python library to interact with the service. The source code is available from the [deadline-cloud](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") repository on the GitHub website.
+Deadline Cloud also has an open-source Python library to interact with the service. The source code is available from the [deadline-cloud](https://github.com/aws-deadline/deadline-cloud) repository on the GitHub website. 
 
-The library is available on pypi via pip (`pip install deadline`). It's the
-same library used by the Deadline Cloud CLI tool:
+The library is available on pypi via pip (`pip install deadline`). It's the same library used by the Deadline Cloud CLI tool: 
 
 ```
 from deadline.client import api
@@ -32,10 +32,9 @@ job_id = api.create_job_from_job_bundle(
 print(job_id)
 ```
 
-To create a dialog like the `deadline bundle gui-submit` command, you can use
-the `show_job_bundle_submitter` function. For more information, see [`deadline.client.ui.job_bundle_submitter`](https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/client/ui/job_bundle_submitter.py "https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/client/ui/job_bundle_submitter.py") on the GitHub website.
+ To create a dialog like the `deadline bundle gui-submit` command, you can use the `show_job_bundle_submitter` function. For more information, see [`deadline.client.ui.job_bundle_submitter`](https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/client/ui/job_bundle_submitter.py) on the GitHub website. 
 
-The following example starts a Qt application and shows the job bundle submitter:
+ The following example starts a Qt application and shows the job bundle submitter: 
 
 ```
 # The GUI components must be installed with pip install "deadline[gui]"
@@ -50,7 +49,4 @@ app.exec()
 print(submitter.create_job_response)
 ```
 
-To make your own dialog you can use the `SubmitJobToDeadlineDialog` class. For more information, see
-[`deadline.client.ui.dialogs.submit_job_to_deadline_dialog`](https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/client/ui/dialogs/submit_job_to_deadline_dialog.py "https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/client/ui/dialogs/submit_job_to_deadline_dialog.py") on the GitHub website. You can pass
-in values, embed your own job specific tab, and determine how the job bundle gets created (or
-passed in).
+To make your own dialog you can use the `SubmitJobToDeadlineDialog` class. For more information, see [`deadline.client.ui.dialogs.submit_job_to_deadline_dialog`](https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/client/ui/dialogs/submit_job_to_deadline_dialog.py) on the GitHub website. You can pass in values, embed your own job specific tab, and determine how the job bundle gets created (or passed in). 

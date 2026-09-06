@@ -1,22 +1,17 @@
+
+
 # Job template elements for job bundles
+<a name="build-job-bundle-template"></a>
 
-The job template defines the runtime environment and the processes that run as part of a
-Deadline Cloud job. You can create parameters in a template so that it can be used to create jobs that
-differ only in input values, much like a function in a programming language.
+The job template defines the runtime environment and the processes that run as part of a Deadline Cloud job. You can create parameters in a template so that it can be used to create jobs that differ only in input values, much like a function in a programming language.
 
-When you submit a job to Deadline Cloud, it runs in any queue environments applied to the queue.
-Queue environments are built using the Open Job Description (OpenJD) external environments
-specification. For details, see the [OpenJD specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#12-environment-template "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#12-environment-template") on the GitHub website.
+When you submit a job to Deadline Cloud, it runs in any queue environments applied to the queue. Queue environments are built using the Open Job Description (OpenJD) external environments specification. For details, see the [OpenJD specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#12-environment-template) on the GitHub website.
 
-For an introduction to creating a job with an OpenJD job template, see [Introduction to creating a job](https://github.com/OpenJobDescription/openjd-specifications/wiki/Introduction-to-Creating-a-Job "https://github.com/OpenJobDescription/openjd-specifications/wiki/Introduction-to-Creating-a-Job") on the GitHub website. For how a job runs,
-see [How jobs are run](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run") on the GitHub website.
+For an introduction to creating a job with an OpenJD job template, see [Introduction to creating a job](https://github.com/OpenJobDescription/openjd-specifications/wiki/Introduction-to-Creating-a-Job) on the GitHub website. For how a job runs, see [How jobs are run](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run) on the GitHub website.
 
-You can define the job template in either YAML format (`template.yaml`) or JSON
-format (`template.json`). The examples in this section are shown in YAML
-format.
+You can define the job template in either YAML format (`template.yaml`) or JSON format (`template.json`). The examples in this section are shown in YAML format.
 
-For example, the job template for the `blender_render` sample defines an input
-parameter `BlenderSceneFile` as a file path:
+For example, the job template for the `blender_render` sample defines an input parameter `BlenderSceneFile` as a file path:
 
 ```
 - name: BlenderSceneFile
@@ -37,29 +32,23 @@ parameter `BlenderSceneFile` as a file path:
     to add textures and other files that the job needs.
 ```
 
-The `userInterface` property defines the behavior of automatically generated
-user interfaces for both the command line using the `deadline bundle gui-submit`
-command and within the job submission plugins for applications like Autodesk Maya.
+The `userInterface` property defines the behavior of automatically generated user interfaces for both the command line using the `deadline bundle gui-submit` command and within the job submission plugins for applications like Autodesk Maya.
 
-The `gui-submit` command opens a submission dialog with a **Shared job
-settings** tab for the name, priority, and target queue of the job, and a
-**Job-specific settings** tab generated from the parameter definitions in
-the job template.
+The `gui-submit` command opens a submission dialog with a **Shared job settings** tab for the name, priority, and target queue of the job, and a **Job-specific settings** tab generated from the parameter definitions in the job template.
 
-![The job submission dialog showing the Shared job settings tab with job name, priority, and farm and queue fields.](images/bundle-gui-submit.png)
-In this example, the UI widget for inputting a value for the `BlenderSceneFile`
-parameter is a file-selection dialog that shows only `.blend` files.
+![The job submission dialog showing the Shared job settings tab with job name, priority, and farm and queue fields.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit.png)
 
-![A user-interface widget for entering the scene file parameter for an OpenJD job template.](images/blender_submit_scene_file_widget.png)
-For more examples of using the `userInteface` element, see the [gui\_control\_showcase sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase") in the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") on the GitHub website.
 
-The `objectType` and `dataFlow` properties control the behavior of
-job attachments when you submit a job from a job bundle. In this case, `objectType:
- FILE` and `dataFlow:IN` mean that the value of
-`BlenderSceneFile` is an input file for job attachments.
+In this example, the UI widget for inputting a value for the `BlenderSceneFile` parameter is a file-selection dialog that shows only `.blend` files.
 
-In contrast, the definition of the `OutputDir` parameter has `objectType:
- DIRECTORY` and `dataFlow: OUT`:
+![A user-interface widget for entering the scene file parameter for an OpenJD job template.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/blender_submit_scene_file_widget.png)
+
+
+For more examples of using the `userInteface` element, see the [gui\_control\_showcase sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase) in the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline) on the GitHub website.
+
+The `objectType` and `dataFlow` properties control the behavior of job attachments when you submit a job from a job bundle. In this case, `objectType: FILE` and `dataFlow:IN` mean that the value of `BlenderSceneFile` is an input file for job attachments.
+
+In contrast, the definition of the `OutputDir` parameter has `objectType: DIRECTORY` and `dataFlow: OUT`:
 
 ```
 - name: OutputDir
@@ -74,21 +63,16 @@ In contrast, the definition of the `OutputDir` parameter has `objectType:
   description: Choose the render output directory.
 ```
 
-The value of the `OutputDir` parameter is used by job attachments as the
-directory where the job writes output files.
+The value of the `OutputDir` parameter is used by job attachments as the directory where the job writes output files.
 
-When you submit the bundle, the submission dialog's **Job attachments**
-tab lists the input files and directories it detected from these properties, along with the
-output directories the job writes to. Paths shown in italics were detected automatically; you
-can add others that the submitter didn't find.
+When you submit the bundle, the submission dialog's **Job attachments** tab lists the input files and directories it detected from these properties, along with the output directories the job writes to. Paths shown in italics were detected automatically; you can add others that the submitter didn't find.
 
-![The Job attachments tab of a submission dialog, listing detected input files, input directories, and the output directory.](images/bundle-gui-submit-job-attachments.png)
-For more information about the `objectType` and `dataFlow`
-properties, see [JobPathParameterDefinition](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#22-jobpathparameterdefinition "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#22-jobpathparameterdefinition") in the [Open Job
-Description specification](https://github.com/OpenJobDescription/openjd-specifications "https://github.com/OpenJobDescription/openjd-specifications") on the GitHub website.
+![The Job attachments tab of a submission dialog, listing detected input files, input directories, and the output directory.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit-job-attachments.png)
 
-The rest of the `blender_render` job template sample defines the job's workflow
-as a singe step with each frame in the animation rendered as a separate task:
+
+For more information about the `objectType` and `dataFlow` properties, see [JobPathParameterDefinition](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#22-jobpathparameterdefinition) in the [Open Job Description specification](https://github.com/OpenJobDescription/openjd-specifications) on the GitHub website.
+
+The rest of the `blender_render` job template sample defines the job's workflow as a singe step with each frame in the animation rendered as a separate task:
 
 ```
 steps:
@@ -121,16 +105,14 @@ steps:
                   --render-frame {{Task.Param.Frame}}
 ```
 
-For example, if the value of the `Frames` parameter is `1-10`, it
-defines 10 tasks. Each has task has a different value for the `Frame` parameter. To
-run a task:
+For example, if the value of the `Frames` parameter is `1-10`, it defines 10 tasks. Each has task has a different value for the `Frame` parameter. To run a task:
 
-1. All of the variable references in the `data` property of the embedded file
-   are expanded, for example `--render-frame 1`.
-2. The contents of the `data` property is written to a file in the session
-   working directory on disk.
-3. The task's `onRun` command resolves to `bash `location of
-   embedded file`` and then runs.
-   For more information about embedded files, sessions, and path-mapped locations, see the [Open Job Description specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run") on the GitHub website.
+1. All of the variable references in the `data` property of the embedded file are expanded, for example `--render-frame 1`.
 
-There are more examples of job templates in the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles") and the [OpenJD specifications repository](https://github.com/OpenJobDescription/openjd-specifications/tree/mainline/samples "https://github.com/OpenJobDescription/openjd-specifications/tree/mainline/samples") on the GitHub website.
+1. The contents of the `data` property is written to a file in the session working directory on disk.
+
+1. The task's `onRun` command resolves to `bash {{location of embedded file}}` and then runs.
+
+For more information about embedded files, sessions, and path-mapped locations, see the [Open Job Description specification](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run) on the GitHub website.
+
+There are more examples of job templates in the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles) and the [OpenJD specifications repository](https://github.com/OpenJobDescription/openjd-specifications/tree/mainline/samples) on the GitHub website.

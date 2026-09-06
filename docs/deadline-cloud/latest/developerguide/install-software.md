@@ -1,72 +1,44 @@
+
+
 # Install and configure software required for jobs
+<a name="install-software"></a>
 
-After you set up the Deadline Cloud worker agent, you can prepare the worker host with any software
-that is required to run jobs.
+After you set up the Deadline Cloud worker agent, you can prepare the worker host with any software that is required to run jobs.
 
-When you submit a job to a queue with an associated `jobRunAsUser`, the job runs
-as that user. When a job is submitted with commands that are not an absolute path, that command
-must be found in the `PATH` of that user.
+When you submit a job to a queue with an associated `jobRunAsUser`, the job runs as that user. When a job is submitted with commands that are not an absolute path, that command must be found in the `PATH` of that user.
 
 On Linux, you might specify the `PATH` for a user in one of the following:
++ their `~/.bashrc` or `~/.bash_profile`
++ system configuration files such as `/etc/profile.d/*` and `/etc/profile`
++ shell startup scripts: `/etc/bashrc`.
 
-- their `~/.bashrc` or `~/.bash_profile`
-- system configuration files such as `/etc/profile.d/*`
-  and `/etc/profile`
-- shell startup scripts: `/etc/bashrc`.
-  On Windows, you might specify the `PATH` for a user in one of the following:
-
-- their user-specific environment variables
-- the system-wide environment variables
+On Windows, you might specify the `PATH` for a user in one of the following:
++ their user-specific environment variables
++ the system-wide environment variables
 
 ## Install digital content creation tool adaptors
+<a name="install-adaptors"></a>
 
-Deadline Cloud provides Open Job Description (OpenJD) adaptors for using popular digital content creation (DCC)
-applications. An adaptor is a command-line program that runs the DCC application on the worker
-host, keeps the application loaded between tasks, reports render progress to the job's logs, and
-applies path mapping. For more information, see [Adaptor packages](conda-package.md#conda-package-adaptors "conda-package.md#conda-package-adaptors").
+Deadline Cloud provides Open Job Description (OpenJD) adaptors for using popular digital content creation (DCC) applications. An adaptor is a command-line program that runs the DCC application on the worker host, keeps the application loaded between tasks, reports render progress to the job's logs, and applies path mapping. For more information, see [Adaptor packages](conda-package.md#conda-package-adaptors).
 
-To use these adaptors in a customer-managed fleet, you must install the DCC software
-and the application adaptors. Then, ensure the software's executable programs are available on
-the system search path (for example, in the `PATH` environment variable).
+To use these adaptors in a customer-managed fleet, you must install the DCC software and the application adaptors. Then, ensure the software's executable programs are available on the system search path (for example, in the `PATH` environment variable).
 
 To install a digital content creation (DCC) adaptor on a customer-managed fleet
 
 1. Open a terminal:
 
-   1. On Linux, open a terminal as the `root` user (or use
-      `sudo` or `su`).
-   2. On Windows, open an administrator command prompt or PowerShell terminal.
+   1. On Linux, open a terminal as the `root` user (or use `sudo` or `su`).
 
-2. Install the adaptor package for your DCC application. The following example installs
-   the Maya adaptor:
+   1. On Windows, open an administrator command prompt or PowerShell terminal.
 
-```
-pip install deadline-cloud-for-maya
-```
+1. Install the adaptor package for your DCC application. The following example installs the Maya adaptor:
 
-The following table lists the adaptor package name and documentation link for each
-supported DCC application. All adaptor packages are available on the GitHub website:
+   ```
+   pip install deadline-cloud-for-maya
+   ```
 
-| DCC application                                                                                  | Adaptor package                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Adobe After Effects](../userguide/adobe-after-effects.md "../userguide/adobe-after-effects.md") | [deadline-cloud-for-after-effects](https://github.com/aws-deadline/deadline-cloud-for-after-effects "https://github.com/aws-deadline/deadline-cloud-for-after-effects") |
-| [Autodesk 3ds Max](../userguide/autodesk-3ds-max.md "../userguide/autodesk-3ds-max.md")          | [deadline-cloud-for-3ds-max](https://github.com/aws-deadline/deadline-cloud-for-3ds-max "https://github.com/aws-deadline/deadline-cloud-for-3ds-max")                   |
-| [Autodesk Maya](../userguide/autodesk-maya.md "../userguide/autodesk-maya.md")                   | [deadline-cloud-for-maya](https://github.com/aws-deadline/deadline-cloud-for-maya "https://github.com/aws-deadline/deadline-cloud-for-maya")                            |
-| [Autodesk VRED](../userguide/autodesk-vred.md "../userguide/autodesk-vred.md")                   | [deadline-cloud-for-vred](https://github.com/aws-deadline/deadline-cloud-for-vred "https://github.com/aws-deadline/deadline-cloud-for-vred")                            |
-| [Blender](../userguide/blender.md "../userguide/blender.md")                                     | [deadline-cloud-for-blender](https://github.com/aws-deadline/deadline-cloud-for-blender "https://github.com/aws-deadline/deadline-cloud-for-blender")                   |
-| [Chaos V-Ray for Maya](../userguide/autodesk-maya.md "../userguide/autodesk-maya.md")            | [deadline-cloud-for-maya](https://github.com/aws-deadline/deadline-cloud-for-maya "https://github.com/aws-deadline/deadline-cloud-for-maya")                            |
-| [Foundry Nuke](../userguide/foundry-nuke.md "../userguide/foundry-nuke.md")                      | [deadline-cloud-for-nuke](https://github.com/aws-deadline/deadline-cloud-for-nuke "https://github.com/aws-deadline/deadline-cloud-for-nuke")                            |
-| [KeyShot Studio](../userguide/keyshot.md "../userguide/keyshot.md")                              | [deadline-cloud-for-keyshot](https://github.com/aws-deadline/deadline-cloud-for-keyshot "https://github.com/aws-deadline/deadline-cloud-for-keyshot")                   |
-| [Maxon Cinema 4D](../userguide/maxon-cinema-4d.md "../userguide/maxon-cinema-4d.md")             | [deadline-cloud-for-cinema-4d](https://github.com/aws-deadline/deadline-cloud-for-cinema-4d "https://github.com/aws-deadline/deadline-cloud-for-cinema-4d")             |
-| [Maxon Redshift for Maya](../userguide/autodesk-maya.md "../userguide/autodesk-maya.md")         | [deadline-cloud-for-maya](https://github.com/aws-deadline/deadline-cloud-for-maya "https://github.com/aws-deadline/deadline-cloud-for-maya")                            |
-| [SideFX Houdini](../userguide/sidefx-houdini.md "../userguide/sidefx-houdini.md")                | [deadline-cloud-for-houdini](https://github.com/aws-deadline/deadline-cloud-for-houdini "https://github.com/aws-deadline/deadline-cloud-for-houdini")                   |
-| [Unreal Engine](../userguide/epic-unreal-engine.md "../userguide/epic-unreal-engine.md")         | [deadline-cloud-for-unreal-engine](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine "https://github.com/aws-deadline/deadline-cloud-for-unreal-engine") |
+   The following table lists the adaptor package name and documentation link for each supported DCC application. All adaptor packages are available on the GitHub website:    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/install-software.html)
 
-###### Installing multiple adaptors on the same worker
-
-If you install more than one DCC adaptor on the same worker, install each adaptor
-into its own Python virtual environment. Adaptors can pin different version ranges
-for shared Python packages (for example, `deadline` or
-`openjd-adaptor-runtime`). An environment with multiple adaptors might fail
-with a `ResolutionImpossible` error. It might also silently downgrade a shared
-package and break the adaptors that need the newer version.
+**Installing multiple adaptors on the same worker**  
+If you install more than one DCC adaptor on the same worker, install each adaptor into its own Python virtual environment. Adaptors can pin different version ranges for shared Python packages (for example, `deadline` or `openjd-adaptor-runtime`). An environment with multiple adaptors might fail with a `ResolutionImpossible` error. It might also silently downgrade a shared package and break the adaptors that need the newer version.

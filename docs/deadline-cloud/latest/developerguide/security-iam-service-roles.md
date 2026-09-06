@@ -1,25 +1,29 @@
+
+
 # Service roles
+<a name="security-iam-service-roles"></a>
 
 ## How Deadline Cloud uses IAM service roles
+<a name="how-deadline-cloud-manages-credentials"></a>
 
 Deadline Cloud automatically assumes IAM roles and provides temporary credentials to workers, jobs, and the Deadline Cloud monitor. This approach eliminates manual credential management while maintaining security through role-based access control.
 
-Four roles cover the lifecycle of work in a farm. On a customer-managed fleet, a new host starts with the _worker host role_, uses it to register as a worker, and trades it for _fleet role_ credentials. On a service-managed fleet, the service performs that bootstrap for you, so only the other three roles apply. The worker uses the fleet role to receive work and report progress, and receives _queue role_ credentials while it runs each job. People and tools get their credentials from the _monitor role_ when they sign in to the Deadline Cloud monitor.
+Four roles cover the lifecycle of work in a farm. On a customer-managed fleet, a new host starts with the *worker host role*, uses it to register as a worker, and trades it for *fleet role* credentials. On a service-managed fleet, the service performs that bootstrap for you, so only the other three roles apply. The worker uses the fleet role to receive work and report progress, and receives *queue role* credentials while it runs each job. People and tools get their credentials from the *monitor role* when they sign in to the Deadline Cloud monitor.
 
-Deadline Cloud service roles at a glance| Role | Who uses its credentials | What it grants | Associated resource |
-| --- | --- | --- | --- |
-| [Worker host<br>role](#customer-managed-fleet-host-role "#customer-managed-fleet-host-role") | Customer-managed fleet hosts during startup | Register a new worker and assume the fleet role | The worker host, for example through an Amazon EC2 instance profile |
-| [Fleet role](#fleet-role "#fleet-role") | Workers on the fleet | Receive work, report progress, and write worker logs to<br>CloudWatch Logs | The fleet |
-| [Queue role](#queue-role "#queue-role") | Jobs while they run; monitor and CLI users working with job attachments and<br>logs | Read and write the queue's job attachments bucket, read job logs, download<br>third-party software, plus any permissions you add for your jobs | The queue |
-| [Monitor role](#monitor-role "#monitor-role") | People signed in to the Deadline Cloud monitor, and the CLI and submitters through the<br>profile it creates | Access to farm, fleet, queue, and job data based on each user's memberships<br>and access level | The monitor |
 
-When you create monitors, fleets, and queues in the console, Deadline Cloud can create the fleet,
-queue, and monitor roles for you with the necessary permissions. You create the worker host
-role yourself when you set up a customer-managed fleet. Use the following sections to
-understand each role for troubleshooting, to create the roles yourself, or to extend
-them.
+**Deadline Cloud service roles at a glance**  
+
+| Role | Who uses its credentials | What it grants | Associated resource | 
+| --- | --- | --- | --- | 
+| [Worker host role](#customer-managed-fleet-host-role) | Customer-managed fleet hosts during startup | Register a new worker and assume the fleet role | The worker host, for example through an Amazon EC2 instance profile | 
+| [Fleet role](#fleet-role) | Workers on the fleet | Receive work, report progress, and write worker logs to CloudWatch Logs | The fleet | 
+| [Queue role](#queue-role) | Jobs while they run; monitor and CLI users working with job attachments and logs | Read and write the queue's job attachments bucket, read job logs, download third-party software, plus any permissions you add for your jobs | The queue | 
+| [Monitor role](#monitor-role) | People signed in to the Deadline Cloud monitor, and the CLI and submitters through the profile it creates | Access to farm, fleet, queue, and job data based on each user's memberships and access level | The monitor | 
+
+When you create monitors, fleets, and queues in the console, Deadline Cloud can create the fleet, queue, and monitor roles for you with the necessary permissions. You create the worker host role yourself when you set up a customer-managed fleet. Use the following sections to understand each role for troubleshooting, to create the roles yourself, or to extend them.
 
 ## Fleet role
+<a name="fleet-role"></a>
 
 Configure a fleet role to give Deadline Cloud workers the permissions they need to receive work and report progress on that work.
 
@@ -28,25 +32,25 @@ You usually do not have to configure this role yourself. This role can be create
 When creating or updating fleets programmatically, specify the fleet role ARN using the `CreateFleet` or `UpdateFleet` API operations.
 
 ### What the fleet role does
+<a name="what-fleet-role-does"></a>
 
 The fleet role provides workers with permissions to:
-
-- Receive new work and report progress on ongoing work to the Deadline Cloud service
-- Manage worker lifecycle and status
-- Record log events to Amazon CloudWatch Logs for the worker logs
++ Receive new work and report progress on ongoing work to the Deadline Cloud service
++ Manage worker lifecycle and status
++ Record log events to Amazon CloudWatch Logs for the worker logs
 
 ### Set up the fleet role trust policy
+<a name="fleet-role-trust-policy"></a>
 
 Your fleet role must trust the Deadline Cloud service and be scoped to your specific farm.
 
-As a best practice, the trust policy should include security conditions for Confused Deputy protection. To learn more about Confused Deputy protection, see [Confused Deputy](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md") in the _Deadline Cloud User Guide_.
-
-- `aws:SourceAccount` ensures only resources from the same AWS account can assume this role.
-- `aws:SourceArn` restricts role assumption to a specific Deadline Cloud farm.
+As a best practice, the trust policy should include security conditions for Confused Deputy protection. To learn more about Confused Deputy protection, see [Confused Deputy](cross-service-confused-deputy-prevention.md) in the *Deadline Cloud User Guide*.
++ `aws:SourceAccount` ensures only resources from the same AWS account can assume this role.
++ `aws:SourceArn` restricts role assumption to a specific Deadline Cloud farm.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17", 		 	 	 
   "Statement": [
     {
       "Sid": "AllowDeadlineCredentialsService",
@@ -57,10 +61,10 @@ As a best practice, the trust policy should include security conditions for Conf
       },
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "`YOUR_ACCOUNT_ID`"
+          "aws:SourceAccount": "{{YOUR_ACCOUNT_ID}}"
         },
         "ArnEquals": {
-          "aws:SourceArn": "arn:aws:deadline:`REGION`:`YOUR_ACCOUNT_ID`:farm/`YOUR_FARM_ID`"
+          "aws:SourceArn": "arn:aws:deadline:{{REGION}}:{{YOUR_ACCOUNT_ID}}:farm/{{YOUR_FARM_ID}}"
         }
       }
     }
@@ -69,30 +73,31 @@ As a best practice, the trust policy should include security conditions for Conf
 ```
 
 ### Attach the Fleet role permissions
+<a name="fleet-role-permissions"></a>
 
 Attach the following AWS managed policy to your fleet role:
 
-[AWSDeadlineCloud-FleetWorker](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-FleetWorker.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-FleetWorker.md")
+[AWSDeadlineCloud-FleetWorker](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-FleetWorker.html)
 
 This managed policy provides permissions for:
-
-- `deadline:AssumeFleetRoleForWorker` - Allows workers to refresh their credentials.
-- `deadline:UpdateWorker` - Allows workers to update their status (for example, to STOPPED when exiting).
-- `deadline:UpdateWorkerSchedule` - For obtaining work and reporting progress.
-- `deadline:BatchGetJobEntity` - For fetching job information.
-- `deadline:AssumeQueueRoleForWorker` - For accessing queue role credentials during job execution.
++ `deadline:AssumeFleetRoleForWorker` - Allows workers to refresh their credentials.
++ `deadline:UpdateWorker` - Allows workers to update their status (for example, to STOPPED when exiting).
++ `deadline:UpdateWorkerSchedule` - For obtaining work and reporting progress.
++ `deadline:BatchGetJobEntity` - For fetching job information.
++ `deadline:AssumeQueueRoleForWorker` - For accessing queue role credentials during job execution.
 
 ### Add KMS permissions for encrypted farms
+<a name="fleet-role-kms-permissions"></a>
 
 If your farm was created using a KMS key, add these permissions to your fleet role to ensure the worker can access encrypted data in the farm.
 
-The KMS permissions are only necessary if your farm has an associated KMS key. The `kms:ViaService` condition must use the format `deadline.`{region}`.amazonaws.com`.
+The KMS permissions are only necessary if your farm has an associated KMS key. The `kms:ViaService` condition must use the format `deadline.{{{region}}}.amazonaws.com`.
 
 When creating a fleet, a CloudWatch Logs log group is created for that fleet. The worker's permissions are used by the Deadline Cloud service to create a log stream specifically for that particular worker. After the worker is set up and running, the worker will use these permissions to send log events directly to CloudWatch Logs.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17", 		 	 	 
   "Statement": [
     {
       "Sid": "CreateLogStream",
@@ -100,11 +105,11 @@ When creating a fleet, a CloudWatch Logs log group is created for that fleet. Th
       "Action": [
         "logs:CreateLogStream"
       ],
-      "Resource": "arn:aws:logs:`REGION`:`YOUR_ACCOUNT_ID`:log-group:/aws/deadline/`YOUR_FARM_ID`/*",
+      "Resource": "arn:aws:logs:{{REGION}}:{{YOUR_ACCOUNT_ID}}:log-group:/aws/deadline/{{YOUR_FARM_ID}}/*",
       "Condition": {
         "ForAnyValue:StringEquals": {
           "aws:CalledVia": [
-            "deadline.`REGION`.amazonaws.com"
+            "deadline.{{REGION}}.amazonaws.com"
           ]
         }
       }
@@ -116,7 +121,7 @@ When creating a fleet, a CloudWatch Logs log group is created for that fleet. Th
         "logs:PutLogEvents",
         "logs:GetLogEvents"
       ],
-      "Resource": "arn:aws:logs:`REGION`:`YOUR_ACCOUNT_ID`:log-group:/aws/deadline/`YOUR_FARM_ID`/*"
+      "Resource": "arn:aws:logs:{{REGION}}:{{YOUR_ACCOUNT_ID}}:log-group:/aws/deadline/{{YOUR_FARM_ID}}/*"
     },
     {
       "Sid": "ManageKmsKey",
@@ -126,10 +131,10 @@ When creating a fleet, a CloudWatch Logs log group is created for that fleet. Th
         "kms:DescribeKey",
         "kms:GenerateDataKey"
       ],
-      "Resource": "`YOUR_FARM_KMS_KEY_ARN`",
+      "Resource": "{{YOUR_FARM_KMS_KEY_ARN}}",
       "Condition": {
         "StringEquals": {
-          "kms:ViaService": "deadline.`REGION`.amazonaws.com"
+          "kms:ViaService": "deadline.{{REGION}}.amazonaws.com"
         }
       }
     }
@@ -138,63 +143,70 @@ When creating a fleet, a CloudWatch Logs log group is created for that fleet. Th
 ```
 
 ### Modifying the fleet role
+<a name="modifying-fleet-role"></a>
 
 Permissions for the fleet role are not customizable. The described permissions are always required and adding additional permissions has no effect.
 
 ## Worker host role
+<a name="customer-managed-fleet-host-role"></a>
 
 Set up a worker host role if you use customer-managed fleets on Amazon EC2 instances or on-premises hosts.
 
 ### What the worker host role does
+<a name="what-workerhost-role-does"></a>
 
 The worker host role (`WorkerHost`) bootstraps workers on customer-managed fleet hosts. It provides the minimal permissions needed for a host to:
-
-- Create a worker in Deadline Cloud
-- Assume the fleet role to fetch operational credentials
-- Tag workers with fleet tags (if tag propagation is enabled)
++ Create a worker in Deadline Cloud
++ Assume the fleet role to fetch operational credentials
++ Tag workers with fleet tags (if tag propagation is enabled)
 
 ### Set up worker host role permissions
+<a name="workerhost-role-permissions"></a>
 
 Attach the following AWS managed policy to your worker host role:
 
-[AWSDeadlineCloud-WorkerHost](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-WorkerHost.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-WorkerHost.md")
+[AWSDeadlineCloud-WorkerHost](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-WorkerHost.html)
 
 This managed policy provides permissions for:
-
-- `deadline:CreateWorker` - Allows the host to register a new worker.
-- `deadline:AssumeFleetRoleForWorker` - Allows the host to assume the fleet role.
-- `deadline:TagResource` - Allows tagging workers during creation (if enabled).
-- `deadline:ListTagsForResource` - Allows reading fleet tags for propagation.
++ `deadline:CreateWorker` - Allows the host to register a new worker.
++ `deadline:AssumeFleetRoleForWorker` - Allows the host to assume the fleet role.
++ `deadline:TagResource` - Allows tagging workers during creation (if enabled).
++ `deadline:ListTagsForResource` - Allows reading fleet tags for propagation.
 
 ### Understand the bootstrap process
+<a name="bootstrap-process"></a>
 
 The worker host role is only used during initial worker startup:
 
 1. The worker agent starts on the host using worker host role credentials.
-2. It invokes `deadline:CreateWorker` to register with Deadline Cloud.
-3. It then invokes `deadline:AssumeFleetRoleForWorker` to fetch fleet role credentials.
-4. From this point forward, the worker uses only fleet role credentials for all operations.
+
+1. It invokes `deadline:CreateWorker` to register with Deadline Cloud.
+
+1. It then invokes `deadline:AssumeFleetRoleForWorker` to fetch fleet role credentials.
+
+1. From this point forward, the worker uses only fleet role credentials for all operations.
 
 After the worker starts running, it no longer uses the worker host role. Service-managed fleets don't need this role because the service performs the bootstrap automatically.
 
 ## Queue role
+<a name="queue-role"></a>
 
 The queue role is assumed by the worker when processing a task. This role provides the permissions needed to complete the task.
 
 When creating or updating queues programmatically, specify the queue role ARN using the `CreateQueue` or `UpdateQueue` API operations.
 
 ### Set up the queue role trust policy
+<a name="queue-role-trust-policy"></a>
 
 Your queue role must trust the Deadline Cloud service.
 
-As a best practice, the trust policy should include security conditions for Confused Deputy protection. To learn more about Confused Deputy protection, see [Confused Deputy](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md") in the _Deadline Cloud User Guide_.
-
-- `aws:SourceAccount` ensures only resources from the same AWS account can assume this role.
-- `aws:SourceArn` restricts role assumption to a specific Deadline Cloud farm.
+As a best practice, the trust policy should include security conditions for Confused Deputy protection. To learn more about Confused Deputy protection, see [Confused Deputy](cross-service-confused-deputy-prevention.md) in the *Deadline Cloud User Guide*.
++ `aws:SourceAccount` ensures only resources from the same AWS account can assume this role.
++ `aws:SourceArn` restricts role assumption to a specific Deadline Cloud farm.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17", 		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -207,11 +219,11 @@ As a best practice, the trust policy should include security conditions for Conf
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "`YOUR_ACCOUNT_ID`"
+          "aws:SourceAccount": "{{YOUR_ACCOUNT_ID}}"
         },
         "ArnEquals": {
           "aws:SourceArn": "arn:aws:deadline:us-west-2:123456789012:farm/{farm-id}"
-        }
+        }        
       }
     }
   ]
@@ -219,12 +231,14 @@ As a best practice, the trust policy should include security conditions for Conf
 ```
 
 ### Understand queue role permissions
+<a name="queue-role-permissions"></a>
 
 The queue role doesn't use a single managed policy. Instead, when you configure your queue in the console, Deadline Cloud creates a custom policy for your queue based on your configuration.
 
 This automatically created policy provides access to:
 
 #### Job attachments
+<a name="job-attachments-permissions"></a>
 
 Read and write access to your specified Amazon S3 bucket for job input and output files:
 
@@ -233,23 +247,24 @@ Read and write access to your specified Amazon S3 bucket for job input and outpu
   "Effect": "Allow",
   "Action": [
     "s3:GetObject",
-    "s3:PutObject",
+    "s3:PutObject", 
     "s3:ListBucket",
     "s3:GetBucketLocation"
   ],
   "Resource": [
-    "arn:aws:s3:::`YOUR_JOB_ATTACHMENTS_BUCKET`",
-    "arn:aws:s3:::`YOUR_JOB_ATTACHMENTS_BUCKET`/`YOUR_PREFIX`/*"
+    "arn:aws:s3:::{{YOUR_JOB_ATTACHMENTS_BUCKET}}",
+    "arn:aws:s3:::{{YOUR_JOB_ATTACHMENTS_BUCKET}}/{{YOUR_PREFIX}}/*"
   ],
   "Condition": {
     "StringEquals": {
-      "aws:ResourceAccount": "`YOUR_ACCOUNT_ID`"
+      "aws:ResourceAccount": "{{YOUR_ACCOUNT_ID}}"
     }
   }
 }
 ```
 
 #### Job logs
+<a name="job-logs-permissions"></a>
 
 Read access to CloudWatch Logs for jobs in this queue. Each queue has its own log group and each session has its own log stream:
 
@@ -259,11 +274,12 @@ Read access to CloudWatch Logs for jobs in this queue. Each queue has its own lo
   "Action": [
     "logs:GetLogEvents"
   ],
-  "Resource": "arn:aws:logs:`REGION`:`YOUR_ACCOUNT_ID`:log-group:/aws/deadline/`YOUR_FARM_ID`/*"
+  "Resource": "arn:aws:logs:{{REGION}}:{{YOUR_ACCOUNT_ID}}:log-group:/aws/deadline/{{YOUR_FARM_ID}}/*"
 }
 ```
 
 #### Third-party software
+<a name="dcc-software-permissions"></a>
 
 Access to download third-party software supported by Deadline Cloud (such as Maya, Blender, and others):
 
@@ -287,49 +303,51 @@ Access to download third-party software supported by Deadline Cloud (such as May
 ```
 
 ### Add permissions for your jobs
+<a name="add-permissions-for-jobs"></a>
 
 Add permissions to your queue role for AWS services that your jobs need to access. When writing OpenJobDescription step scripts, the AWS CLI and SDK will automatically use credentials from your queue role. Use this to access additional services needed to complete your job.
 
 Example use cases include:
-
-- for fetching custom data
-- SSM permissions to tunnel to a custom license server
-- CloudWatch for emitting custom metrics
-- Deadline Cloud permission to create new jobs for dynamic workflows
++  for fetching custom data
++ SSM permissions to tunnel to a custom license server
++ CloudWatch for emitting custom metrics
++ Deadline Cloud permission to create new jobs for dynamic workflows
 
 ### How queue role credentials are used
+<a name="how-queue-role-credentials-used"></a>
 
 Deadline Cloud provides queue role credentials to:
-
-- Workers during job execution
-- Users via Deadline Cloud CLI and monitor when interacting with job attachments and logs
++ Workers during job execution
++ Users via Deadline Cloud CLI and monitor when interacting with job attachments and logs
 
 Deadline Cloud creates separate CloudWatch Logs log groups for each queue. The Deadline Cloud CLI and monitor use the queue role (through `deadline:AssumeQueueRoleForRead`) to read job logs from the queue's log group. The Deadline Cloud CLI and monitor use the queue role (through `deadline:AssumeQueueRoleForUser`) to upload or download job attachments data.
 
 ## Monitor role
+<a name="monitor-role"></a>
 
 Configure a monitor role to give the Deadline Cloud monitor web and desktop applications access to your Deadline Cloud resources.
 
 When creating or updating monitors programmatically, specify the monitor role ARN using the `CreateMonitor` or `UpdateMonitor` API operations.
 
 ### What the monitor role does
+<a name="what-monitor-role-does"></a>
 
 The monitor role enables Deadline Cloud monitor to provide end users with access to:
-
-- Basic functionality required for the Deadline Cloud Integrated Submitters, CLI and monitor
-- Custom functionality for end users
++ Basic functionality required for the Deadline Cloud Integrated Submitters, CLI and monitor
++ Custom functionality for end users
 
 ### Set up the monitor role trust policy
+<a name="monitor-role-trust-policy"></a>
 
 Your monitor role must trust the Deadline Cloud service.
 
-As a best practice, the trust policy should include security conditions for Confused Deputy protection. To learn more about Confused Deputy protection, see [Confused Deputy](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md") in the _Deadline Cloud User Guide_.
+As a best practice, the trust policy should include security conditions for Confused Deputy protection. To learn more about Confused Deputy protection, see [Confused Deputy](cross-service-confused-deputy-prevention.md) in the *Deadline Cloud User Guide*.
 
 `aws:SourceAccount` ensures only resources from the same AWS account can assume this role.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17", 		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -339,7 +357,7 @@ As a best practice, the trust policy should include security conditions for Conf
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "`YOUR_ACCOUNT_ID`"
+          "aws:SourceAccount": "{{YOUR_ACCOUNT_ID}}"
         }
       }
     }
@@ -348,40 +366,38 @@ As a best practice, the trust policy should include security conditions for Conf
 ```
 
 ### Attach monitor role permissions
+<a name="monitor-role-permissions"></a>
 
 Attach all of the following AWS managed policies to your monitor role for basic operation:
-
-- [AWSDeadlineCloud-UserAccessFarms](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFarms.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFarms.md")
-- [AWSDeadlineCloud-UserAccessFleets](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFleets.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFleets.md")
-- [AWSDeadlineCloud-UserAccessJobs](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessJobs.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessJobs.md")
-- [AWSDeadlineCloud-UserAccessQueues](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessQueues.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessQueues.md")
++ [AWSDeadlineCloud-UserAccessFarms](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFarms.html)
++ [AWSDeadlineCloud-UserAccessFleets](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFleets.html)
++ [AWSDeadlineCloud-UserAccessJobs](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessJobs.html)
++ [AWSDeadlineCloud-UserAccessQueues](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessQueues.html)
 
 ### How the monitor role works
+<a name="how-monitor-role-works"></a>
 
 When using the Deadline Cloud monitor, a service user signs in using AWS IAM Identity Center (IAM Identity Center), and the monitor role is assumed. The assumed role credentials are used by the monitor application to display the monitor UI, including the list of farms, fleets, queues, and other information.
 
-When using the Deadline Cloud monitor desktop application, these credentials are additionally made available on the workstation using a named AWS credential profile corresponding to the profile name provided by the end user. Learn more about named profiles in the [AWS SDK and Tools reference guide](../../../sdkref/latest/guide/file-format.md "../../../sdkref/latest/guide/file-format.md").
+When using the Deadline Cloud monitor desktop application, these credentials are additionally made available on the workstation using a named AWS credential profile corresponding to the profile name provided by the end user. Learn more about named profiles in the [AWS SDK and Tools reference guide](https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html).
 
 This named profile is how the Deadline CLI and submitters access Deadline Cloud resources.
 
 ### Customizing the monitor role for advanced use cases
+<a name="customizing-monitor-role"></a>
 
-You can customize the monitor role to modify what users can do at each access level
-(Viewer, Contributor, Manager, Owner) or to add permissions for advanced workflows.
+You can customize the monitor role to modify what users can do at each access level (Viewer, Contributor, Manager, Owner) or to add permissions for advanced workflows.
 
 #### Customizing access level permissions
+<a name="customizing-access-levels"></a>
 
-The four AWS managed policies attached to the monitor role control what each access
-level can do. You can add custom policies to the monitor role to grant or restrict
-permissions for specific access levels using the `deadline:MembershipLevel`
-condition key.
+The four AWS managed policies attached to the monitor role control what each access level can do. You can add custom policies to the monitor role to grant or restrict permissions for specific access levels using the `deadline:MembershipLevel` condition key.
 
-For example, to allow Contributors to update and cancel jobs (which is normally
-restricted to Managers and Owners), add a policy like the following:
+For example, to allow Contributors to update and cancel jobs (which is normally restricted to Managers and Owners), add a policy like the following:
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17", 		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -400,16 +416,15 @@ restricted to Managers and Owners), add a policy like the following:
 With this policy, Contributors can update and cancel jobs in addition to submitting them.
 
 #### Adding permissions for advanced workflows
+<a name="adding-monitor-permissions"></a>
 
-You can add custom IAM policies to the monitor role to grant additional permissions
-to all monitor users. Custom policies are useful for advanced scripting workflows where users need
-access to AWS services beyond the standard Deadline Cloud functionality.
+You can add custom IAM policies to the monitor role to grant additional permissions to all monitor users. Custom policies are useful for advanced scripting workflows where users need access to AWS services beyond the standard Deadline Cloud functionality.
 
 Follow these guidelines when modifying your monitor role:
-
-- Don't remove any of the managed policies. Removing these policies breaks monitor functionality.
++ Don't remove any of the managed policies. Removing these policies breaks monitor functionality.
 
 ### How Deadline Cloud monitor uses monitor role credentials
+<a name="how-monitor-uses-credentials"></a>
 
 Deadline Cloud monitor automatically obtains monitor role credentials when you authenticate. These temporary credentials last for 15 minutes and automatically refresh as long as you are signed in to IAM Identity Center. This capability enables the desktop application to provide monitoring capabilities beyond what's available in a standard web browser.
 
@@ -418,16 +433,19 @@ When you log in with Deadline Cloud monitor, it automatically creates a profile 
 Deadline Cloud submitters work the same way - they use the profile created by Deadline Cloud monitor to access AWS services with the appropriate role permissions.
 
 ## Advanced customization of Deadline Cloud roles
+<a name="advanced-customization"></a>
 
 You can extend Deadline Cloud roles with additional permissions to enable advanced use cases beyond basic rendering workflows. This approach uses the access management system in Deadline Cloud to control access to additional AWS services based on queue membership.
 
 ### Team collaboration with AWS CodeCommit
+<a name="codecommit-collaboration"></a>
 
 Add AWS CodeCommit permissions to your Queue role to enable team collaboration on project repositories. This approach uses the access management system in Deadline Cloud for additional use cases. Only users with access to the specific queue receive these AWS CodeCommit permissions, so you can manage per-project repository access through Deadline Cloud queue membership.
 
 Repository access through queue membership is useful when artists need to access project-specific assets, scripts, or configuration files stored in AWS CodeCommit repositories as part of their rendering workflow.
 
 #### Add AWS CodeCommit permissions to queue role
+<a name="add-codecommit-permissions-advanced"></a>
 
 Add the following permissions to your queue role to enable AWS CodeCommit access:
 
@@ -440,33 +458,35 @@ Add the following permissions to your queue role to enable AWS CodeCommit access
     "codecommit:GetRepository",
     "codecommit:ListRepositories"
   ],
-  "Resource": "arn:aws:codecommit:`REGION`:`YOUR_ACCOUNT_ID`:`PROJECT_REPOSITORY`"
+  "Resource": "arn:aws:codecommit:{{REGION}}:{{YOUR_ACCOUNT_ID}}:{{PROJECT_REPOSITORY}}"
 }
 ```
 
 #### Set up credential provider on artist workstations
+<a name="setup-credential-provider-advanced"></a>
 
 Configure each artist workstation to use Deadline Cloud queue credentials for AWS CodeCommit access. This setup is done once per workstation.
 
-###### To configure the credential provider
+**To configure the credential provider**
 
 1. Add a credential provider profile to your AWS config file (`~/.aws/config`):
 
-```
-[profile queue-codecommit]
-credential_process = deadline queue export-credentials --farm-id `farm-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` --queue-id `queue-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
-```
+   ```
+   [profile queue-codecommit]
+   credential_process = deadline queue export-credentials --farm-id {{farm-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}} --queue-id {{queue-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}}
+   ```
 
-2. Configure Git to use this profile for AWS CodeCommit repositories:
+1. Configure Git to use this profile for AWS CodeCommit repositories:
 
-```
-git config --global credential.https://git-codecommit.`REGION`.amazonaws.com.helper '!aws codecommit credential-helper --profile queue-codecommit $@'
-git config --global credential.https://git-codecommit.`REGION`.amazonaws.com.UseHttpPath true
-```
+   ```
+   git config --global credential.https://git-codecommit.{{REGION}}.amazonaws.com.helper '!aws codecommit credential-helper --profile queue-codecommit $@'
+   git config --global credential.https://git-codecommit.{{REGION}}.amazonaws.com.UseHttpPath true
+   ```
 
-Replace `farm-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` and `queue-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` with your actual farm and queue IDs. Replace `REGION` with your AWS region (for example, `us-west-2`).
+Replace {{farm-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}} and {{queue-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}} with your actual farm and queue IDs. Replace {{REGION}} with your AWS region (for example, `us-west-2`).
 
 #### Using AWS CodeCommit with queue credentials
+<a name="using-codecommit-with-queue-credentials-advanced"></a>
 
 Once configured, Git operations will automatically use the queue role credentials when accessing AWS CodeCommit repositories. The `deadline queue export-credentials` command returns temporary credentials that look like this:
 
@@ -483,7 +503,7 @@ Once configured, Git operations will automatically use the queue role credential
 Deadline Cloud automatically refreshes these credentials as needed, and your Git operations work without additional configuration:
 
 ```
-git clone https://git-codecommit.`REGION`.amazonaws.com/v1/repos/`PROJECT_REPOSITORY`
+git clone https://git-codecommit.{{REGION}}.amazonaws.com/v1/repos/{{PROJECT_REPOSITORY}}
 git pull
 git push
 ```

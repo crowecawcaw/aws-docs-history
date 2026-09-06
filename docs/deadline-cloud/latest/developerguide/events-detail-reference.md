@@ -1,66 +1,45 @@
+
+
 # Deadline Cloud events detail reference
+<a name="events-detail-reference"></a>
 
-All events from AWS services have a common set of fields containing
-metadata about the event, such as the AWS service that is the source of
-the event, the time the event was generated, the account and region in which the event
-took place, and others. For definitions of these general fields, see [Event structure reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User
-Guide_.
+All events from AWS services have a common set of fields containing metadata about the event, such as the AWS service that is the source of the event, the time the event was generated, the account and region in which the event took place, and others. For definitions of these general fields, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*. 
 
-In addition, each event has a `detail` field that contains data specific to
-that particular event. The reference below defines the detail fields for the various
-Deadline Cloud events.
+In addition, each event has a `detail` field that contains data specific to that particular event. The reference below defines the detail fields for the various Deadline Cloud events.
 
-When using EventBridge to select and manage Deadline Cloud events, it's useful to keep
-the following in mind:
+When using EventBridge to select and manage Deadline Cloud events, it's useful to keep the following in mind:
++ The `source` field for all events from Deadline Cloud is set to `aws.deadline`.
++ The `detail-type` field specifies the event type. 
 
-- The `source` field for all events from Deadline Cloud is set to
-  `aws.deadline`.
-- The `detail-type` field specifies the event type.
+  For example, `Fleet Size Recommendation Change`.
++ The `detail` field contains the data that is specific to that particular event. 
 
-For example, `Fleet Size Recommendation Change`.
+For information on constructing event patterns that enable rules to match Deadline Cloud events, see [Event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide*.
 
-- The `detail` field contains the data that is specific to that
-  particular event.
-  For information on constructing event patterns that enable rules to match Deadline Cloud
-  events, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in
-  the _Amazon EventBridge User Guide_.
+For more information on events and how EventBridge processes them, see [Amazon EventBridge events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) in the *Amazon EventBridge User Guide*.
 
-For more information on events and how EventBridge processes them, see [Amazon EventBridge events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") in the _Amazon EventBridge User
-Guide_.
-
-###### Topics
-
-- [Budget Threshold Reached event](#event-detail-budget-threshold-reached "#event-detail-budget-threshold-reached")
-- [Fleet Size Recommendation Change event](#event-detail-fleet-size-recommendation-change "#event-detail-fleet-size-recommendation-change")
-- [Job Lifecycle Status Change event](#event-detail-job-lifecycle-status-change "#event-detail-job-lifecycle-status-change")
-- [Job Run Status Change event](#event-detail-job-run-status-change "#event-detail-job-run-status-change")
-- [Step Lifecycle Status Change event](#event-detail-step-lifecycle-status-change "#event-detail-step-lifecycle-status-change")
-- [Step Run Status Change event](#event-detail-step-run-status-change "#event-detail-step-run-status-change")
-- [Task Run Status Change event](#event-detail-task-run-status-change "#event-detail-task-run-status-change")
+**Topics**
++ [Budget Threshold Reached event](#event-detail-budget-threshold-reached)
++ [Fleet Size Recommendation Change event](#event-detail-fleet-size-recommendation-change)
++ [Job Lifecycle Status Change event](#event-detail-job-lifecycle-status-change)
++ [Job Run Status Change event](#event-detail-job-run-status-change)
++ [Step Lifecycle Status Change event](#event-detail-step-lifecycle-status-change)
++ [Step Run Status Change event](#event-detail-step-run-status-change)
++ [Task Run Status Change event](#event-detail-task-run-status-change)
 
 ## Budget Threshold Reached event
+<a name="event-detail-budget-threshold-reached"></a>
 
-You can use the Budget Threshold Reached event to monitor the percentage of a budget that
-has been used. Deadline Cloud sends events when the percentage used passes the following
-thresholds:
+You can use the Budget Threshold Reached event to monitor the percentage of a budget that has been used. Deadline Cloud sends events when the percentage used passes the following thresholds:
++ 10, 20, 30, 40, 50, 60, 70, 75, 80, 85, 90, 95, 96, 97, 98, 99, 100
 
-- 10, 20, 30, 40, 50, 60, 70, 75, 80, 85, 90, 95, 96, 97, 98, 99, 100
+The frequency that Deadline Cloud sends Budget Threshold Reached events increases as the budget nears its limit. This frequency enables you to closely monitor a budget as it approaches its limit and to take action to keep from overspending. You can also set your own budget thresholds. Deadline Cloud sends an event when usage passes your custom thresholds.
 
-The frequency that Deadline Cloud sends Budget Threshold Reached events increases as the budget nears
-its limit. This frequency enables you to closely monitor a budget as it approaches its limit
-and to take action to keep from overspending. You can also set your own budget
-thresholds. Deadline Cloud sends an event when usage passes your custom thresholds.
-
-If you change the amount of a budget, the next time Deadline Cloud sends a Budget Threshold Reached
-event it is based on the current percentage of the budget that has been used. For
-example, if you add $50 to an $100 budget that has reached its limit, the next
-Budget Threshold Reached event indicates that the budget is at 75 percent.
+If you change the amount of a budget, the next time Deadline Cloud sends a Budget Threshold Reached event it is based on the current percentage of the budget that has been used. For example, if you add $50 to an $100 budget that has reached its limit, the next Budget Threshold Reached event indicates that the budget is at 75 percent.
 
 Below are the detail fields for the `Budget Threshold Reached` event.
 
-The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -80,60 +59,35 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="job-lifecycle-status-change-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Budget Threshold Reached`.
 
-`source`
+`source`  <a name="job-lifecycle-status-change-source"></a>
+Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.
 
-Identifies the service that generated the event. For Deadline Cloud events,
-this value is `aws.deadline`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`farmId`
-
-The identifier of the farm that contains the job.
-
-`budgetId`
-
-The identifier of the budget that has reached a threshold.
-
-`thresholdInPercent`
-
+`detail`  <a name="job-lifecycle-status-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`farmId`  <a name="budget-threshold-reached-field-1"></a>
+The identifier of the farm that contains the job.  
+`budgetId`  <a name="budget-threshold-reached-field-2"></a>
+The identifier of the budget that has reached a threshold.  
+`thresholdInPercent`  <a name="budget-threshold-reached-field-3"></a>
 The percentage of the budget that has been used.
 
 ## Fleet Size Recommendation Change event
+<a name="event-detail-fleet-size-recommendation-change"></a>
 
-When you configure your fleet to use event-based auto scaling, Deadline Cloud sends out
-events that you can use to manage your fleets. Each of these events contains
-information about the current size and requested size of a fleet. For an example of
-using an EventBridge event and an example Lambda function to handle the event, see [Auto scale your Amazon EC2 fleet with Deadline Cloud scale recommendation
-feature](../userguide/create-auto-scaling.md#autoscale-ec2-fleet "../userguide/create-auto-scaling.md#autoscale-ec2-fleet").
+When you configure your fleet to use event-based auto scaling, Deadline Cloud sends out events that you can use to manage your fleets. Each of these events contains information about the current size and requested size of a fleet. For an example of using an EventBridge event and an example Lambda function to handle the event, see [Auto scale your Amazon EC2 fleet with Deadline Cloud scale recommendation feature](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-auto-scaling.html#autoscale-ec2-fleet).
 
-The fleet size recommendation change event is sent when the following
-occur:
-
-- When the recommended fleet size changes and oldFleetSize is different from
-  newFleetSize.
-- When the service detects that the actual fleet size does not match the
-  recommended fleet size. You can get the actual fleet size from the
-  workerCount in the GetFleet operation response. This mismatch might happen when an
-  active Amazon EC2 instance fails to register as a Deadline Cloud
-  worker.
+The fleet size recommendation change event is sent when the following occur:
++ When the recommended fleet size changes and oldFleetSize is different from newFleetSize.
++ When the service detects that the actual fleet size does not match the recommended fleet size. You can get the actual fleet size from the workerCount in the GetFleet operation response. This mismatch might happen when an active Amazon EC2 instance fails to register as a Deadline Cloud worker.
 
 Below are the detail fields for the `Fleet Size Recommendation Change` event.
 
-The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -154,53 +108,35 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="fleet-size-recommendation-change-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Fleet Size Recommendation Change`.
 
-`source`
+`source`  <a name="fleet-size-recommendation-change-source"></a>
+Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.
 
-Identifies the service that generated the event. For Deadline Cloud events,
-this value is `aws.deadline`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`farmId`
-
-The identifier of the farm that contains the job.
-
-`fleetId`
-
-The identifier of the fleet that needs a size change.
-
-`oldFleetSize`
-
-The current size of the fleet.
-
-`newFleetSize`
-
+`detail`  <a name="fleet-size-recommendation-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`farmId`  <a name="fleet-size-recommendation-change-field-1"></a>
+The identifier of the farm that contains the job.  
+`fleetId`  <a name="fleet-size-recommendation-change-field-2"></a>
+The identifier of the fleet that needs a size change.  
+`oldFleetSize`  <a name="fleet-size-recommendation-change-field-3"></a>
+The current size of the fleet.  
+`newFleetSize`  <a name="fleet-size-recommendation-change-field-4"></a>
 The recommended new size for the fleet.
 
 ## Job Lifecycle Status Change event
+<a name="event-detail-job-lifecycle-status-change"></a>
 
-When you create or update a job, Deadline Cloud sets the lifecycle status to show status of
-the most recent user initiated action.
+When you create or update a job, Deadline Cloud sets the lifecycle status to show status of the most recent user initiated action.
 
-A job lifecycle status change event is sent for any lifecycle status change,
-including when the job is created.
+A job lifecycle status change event is sent for any lifecycle status change, including when the job is created.
 
 Below are the detail fields for the `Job Lifecycle Status Change` event.
 
-The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -222,69 +158,43 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="job-lifecycle-status-change-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Job Lifecycle Status Change`.
 
-`source`
+`source`  <a name="job-lifecycle-status-change-source"></a>
+Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.
 
-Identifies the service that generated the event. For Deadline Cloud events,
-this value is `aws.deadline`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`farmId`
-
-The identifier of the farm that contains the job.
-
-`queueId`
-
-The identifier of the queue that contains the job.
-
-`jobId`
-
-The identifier of the job.
-
-`previousLifecycleStatus`
-
-The lifecycle state that the job is leaving. This field is
-not included when you first submit a job.
-
-`lifecycleStatus`
-
+`detail`  <a name="job-lifecycle-status-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`farmId`  <a name="job-lifecycle-status-change-field-1"></a>
+The identifier of the farm that contains the job.  
+`queueId`  <a name="job-lifecycle-status-change-field-2"></a>
+The identifier of the queue that contains the job.  
+`jobId`  <a name="job-lifecycle-status-change-field-3"></a>
+The identifier of the job.  
+`previousLifecycleStatus`  <a name="job-lifecycle-status-change-field-4"></a>
+The lifecycle state that the job is leaving. This field is not included when you first submit a job.  
+`lifecycleStatus`  <a name="job-lifecycle-status-change-field-5"></a>
 The lifecycle state that the job is entering.
 
 ## Job Run Status Change event
+<a name="event-detail-job-run-status-change"></a>
 
-A job is composed of many tasks. Each task has a status. The status of all tasks
-are combined to give an overall status for a job. For more information, see [Job
-states in Deadline Cloud](../userguide/jobs-monitoring.md "../userguide/jobs-monitoring.md") in the _AWS Deadline Cloud User Guide_.
+A job is composed of many tasks. Each task has a status. The status of all tasks are combined to give an overall status for a job. For more information, see [Job states in Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/jobs-monitoring.html) in the *AWS Deadline Cloud User Guide*.
 
 A job run status change event is sent when:
-
-- The combined [taskRunStatus](#job-run-status-change-field-5 "#job-run-status-change-field-5") field
-  changes.
-- The job is requeued, unless the job is in the READY state.
++ The combined [taskRunStatus](#job-run-status-change-field-5) field changes.
++ The job is requeued, unless the job is in the READY state.
 
 A job run status change event is NOT sent when:
-
-- The job is first created. To monitor job creation, monitor Job Lifecycle Status Change
-  events for changes.
-- The job's [taskRunStatusCounts](#job-run-status-change-field-6 "#job-run-status-change-field-6") field changes
-  but the combined job task run status does not change.
++ The job is first created. To monitor job creation, monitor Job Lifecycle Status Change events for changes.
++ The job's [taskRunStatusCounts](#job-run-status-change-field-6) field changes but the combined job task run status does not change.
 
 Below are the detail fields for the `Job Run Status Change` event.
 
-The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -320,67 +230,44 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="job-run-status-change-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Job Run Status Change`.
 
-`source`
+`source`  <a name="job-run-status-change-source"></a>
+Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.
 
-Identifies the service that generated the event. For Deadline Cloud events,
-this value is `aws.deadline`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`farmId`
-
-The identifier of the farm that contains the job.
-
-`queueId`
-
-The identifier of the queue that contains the job.
-
-`jobId`
-
-The identifier of the job.
-
-`previousTaskRunStatus`
-
-The task run state that the job is leaving.
-
-`taskRunStatus`
-
-The task run state that the job is entering.
-
-`taskRunStatusCounts`
-
+`detail`  <a name="job-run-status-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`farmId`  <a name="job-run-status-change-field-1"></a>
+The identifier of the farm that contains the job.  
+`queueId`  <a name="job-run-status-change-field-2"></a>
+The identifier of the queue that contains the job.  
+`jobId`  <a name="job-run-status-change-field-3"></a>
+The identifier of the job.  
+`previousTaskRunStatus`  <a name="job-run-status-change-field-4"></a>
+The task run state that the job is leaving.  
+`taskRunStatus`  <a name="job-run-status-change-field-5"></a>
+The task run state that the job is entering.  
+`taskRunStatusCounts`  <a name="job-run-status-change-field-6"></a>
 The number of the job's tasks in each state.
 
 ## Step Lifecycle Status Change event
+<a name="event-detail-step-lifecycle-status-change"></a>
 
-When you create or update an event, Deadline Cloud sets the job's lifecycle status to
-describe the status of the most recent user initiated action.
+When you create or update an event, Deadline Cloud sets the job's lifecycle status to describe the status of the most recent user initiated action.
 
 A step lifecycle status change event is sent when:
++ A step update starts (UPDATE\_IN\_PROGRESS).
++ A step update completed successfully (UPDATE\_SUCCEEDED).
++ A step update failed (UPDATE\_FAILED).
 
-- A step update starts (UPDATE\_IN\_PROGRESS).
-- A step update completed successfully (UPDATE\_SUCCEEDED).
-- A step update failed (UPDATE\_FAILED).
-
-An event is not sent when the step is first created. To monitor step creation,
-monitor Job Lifecycle Status Change events for changes.
+An event is not sent when the step is first created. To monitor step creation, monitor Job Lifecycle Status Change events for changes.
 
 Below are the detail fields for the `Step Lifecycle Status Change` event.
 
-The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -403,71 +290,45 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="step-lifecycle-status-change-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Step Lifecycle Status Change`.
 
-`source`
+`source`  <a name="step-lifecycle-status-change-source"></a>
+Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.
 
-Identifies the service that generated the event. For Deadline Cloud events,
-this value is `aws.deadline`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`farmId`
-
-The identifier of the farm that contains the job.
-
-`queueId`
-
-The identifier of the queue that contains the job.
-
-`jobId`
-
-The identifier of the job.
-
-`stepId`
-
-The identifier of the current job step.
-
-`previousLifecycleStatus`
-
-The lifecycle state that the step is leaving.
-
-`lifecycleStatus`
-
+`detail`  <a name="step-lifecycle-status-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`farmId`  <a name="step-lifecycle-status-change-field-1"></a>
+The identifier of the farm that contains the job.  
+`queueId`  <a name="step-lifecycle-status-change-field-2"></a>
+The identifier of the queue that contains the job.  
+`jobId`  <a name="step-lifecycle-status-change-field-3"></a>
+The identifier of the job.  
+`stepId`  <a name="step-lifecycle-status-change-field-4"></a>
+The identifier of the current job step.  
+`previousLifecycleStatus`  <a name="step-lifecycle-status-change-field-5"></a>
+The lifecycle state that the step is leaving.  
+`lifecycleStatus`  <a name="step-lifecycle-status-change-field-6"></a>
 The lifecycle state that the step is entering.
 
 ## Step Run Status Change event
+<a name="event-detail-step-run-status-change"></a>
 
-Each step in a job is composed of many tasks. Each task has a status. The task
-statuses are combined to give an overall status for steps and jobs.
+Each step in a job is composed of many tasks. Each task has a status. The task statuses are combined to give an overall status for steps and jobs.
 
 A step run status change event is sent when:
-
-- The combined [taskRunStatus](#step-run-status-change-field-6 "#step-run-status-change-field-6")
-  changes.
-- The step is requeued, unless that step is in the READY state.
++ The combined [taskRunStatus](#step-run-status-change-field-6) changes.
++ The step is requeued, unless that step is in the READY state. 
 
 An event is not sent when:
-
-- The step is first created. To monitor step creation, monitor
-  Job Lifecycle Status Change events for changes.
-- The step's [taskRunStatusCounts](#step-run-status-change-field-7 "#step-run-status-change-field-7") changes but
-  the combined step task run status does not change.
++ The step is first created. To monitor step creation, monitor Job Lifecycle Status Change events for changes. 
++ The step's [taskRunStatusCounts](#step-run-status-change-field-7) changes but the combined step task run status does not change.
 
 Below are the detail fields for the `Step Run Status Change` event.
 
-The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -504,70 +365,44 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="step-run-status-change-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Step Run Status Change`.
 
-`source`
+`source`  <a name="step-run-status-change-source"></a>
+Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.
 
-Identifies the service that generated the event. For Deadline Cloud events,
-this value is `aws.deadline`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`farmId`
-
-The identifier of the farm that contains the job.
-
-`queueId`
-
-The identifier of the queue that contains the job.
-
-`jobId`
-
-The identifier of the job.
-
-`stepId`
-
-The identifier of the current job step.
-
-`previousTaskRunStatus`
-
-The run state that the step is leaving.
-
-`taskRunStatus`
-
-The run state that the step is entering.
-
-`taskRunStatusCounts`
-
+`detail`  <a name="step-run-status-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`farmId`  <a name="step-run-status-change-field-1"></a>
+The identifier of the farm that contains the job.  
+`queueId`  <a name="step-run-status-change-field-2"></a>
+The identifier of the queue that contains the job.  
+`jobId`  <a name="step-run-status-change-field-3"></a>
+The identifier of the job.  
+`stepId`  <a name="step-run-status-change-field-4"></a>
+The identifier of the current job step.  
+`previousTaskRunStatus`  <a name="step-run-status-change-field-5"></a>
+The run state that the step is leaving.  
+`taskRunStatus`  <a name="step-run-status-change-field-6"></a>
+The run state that the step is entering.  
+`taskRunStatusCounts`  <a name="step-run-status-change-field-7"></a>
 The number of the step's tasks in each state.
 
 ## Task Run Status Change event
+<a name="event-detail-task-run-status-change"></a>
 
-The [runStatus](#task-run-status-change-field-7 "#task-run-status-change-field-7") field is updated as the task
-runs. An event is sent when:
-
-- The task's run status changes.
-- The task is requeued, unless the task is in the READY state.
+The [runStatus](#task-run-status-change-field-7) field is updated as the task runs. An event is sent when:
++ The task's run status changes.
++ The task is requeued, unless the task is in the READY state. 
 
 An event is not sent when:
-
-- The task is first created. To monitor task creation, monitor
-  Job Lifecycle Status Change events for changes.
++ The task is first created. To monitor task creation, monitor Job Lifecycle Status Change events for changes. 
 
 Below are the detail fields for the `Task Run Status Change` event.
 
-The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For
-definitions of the other metadata fields that are included in all events, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+The `source` and `detail-type` fields are included below because they contain specific values for Deadline Cloud events. For definitions of the other metadata fields that are included in all events, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
 ```
 {
@@ -591,48 +426,27 @@ reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../.
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="task-run-status-change-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Fleet Size Recommendation Change`.
 
-`source`
+`source`  <a name="task-run-status-change-source"></a>
+Identifies the service that generated the event. For Deadline Cloud events, this value is `aws.deadline`.
 
-Identifies the service that generated the event. For Deadline Cloud events,
-this value is `aws.deadline`.
-
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`farmId`
-
-The identifier of the farm that contains the job.
-
-`queueId`
-
-The identifier of the queue that contains the job.
-
-`jobId`
-
-The identifier of the job.
-
-stepId
-
-The identifier of the current job step.
-
-`taskId`
-
-The identifier of the running task.
-
-`previousRunStatus`
-
-The run state that the task is leaving.
-
-`runStatus`
-
+`detail`  <a name="task-run-status-change-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`farmId`  <a name="task-run-status-change-field-1"></a>
+The identifier of the farm that contains the job.  
+`queueId`  <a name="task-run-status-change-field-2"></a>
+The identifier of the queue that contains the job.  
+`jobId`  <a name="task-run-status-change-field-3"></a>
+The identifier of the job.  
+stepId  <a name="task-run-status-change-field-4"></a>
+The identifier of the current job step.  
+`taskId`  <a name="task-run-status-change-field-5"></a>
+The identifier of the running task.  
+`previousRunStatus`  <a name="task-run-status-change-field-6"></a>
+The run state that the task is leaving.  
+`runStatus`  <a name="task-run-status-change-field-7"></a>
 The run status that the task is entering.

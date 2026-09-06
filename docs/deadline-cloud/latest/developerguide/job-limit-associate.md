@@ -1,16 +1,18 @@
+
+
 # Associate a limit and a queue
+<a name="job-limit-associate"></a>
 
-After you create a limit, you can associate one or more queues with the limit. Only
-queues that are associated with a limit use the values specified in the limit.
+After you create a limit, you can associate one or more queues with the limit. Only queues that are associated with a limit use the values specified in the limit.
 
-You create an association with a queue using the Deadline Cloud console or the [CreateQueueLimitAssociation operation in the Deadline Cloud API](../APIReference/API_CreateQueueLimitAssociation.md "../APIReference/API_CreateQueueLimitAssociation.md").
+You create an association with a queue using the Deadline Cloud console or the [CreateQueueLimitAssociation operation in the Deadline Cloud API](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueLimitAssociation.html).
 
-###### To associate a queue with a limit
+**To associate a queue with a limit**
 
-1. From the Deadline Cloud console ([Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home")) dashboard, select the farm
-   where you want to associate a limit with a queue.
-2. Choose the **Limits** tab, choose the limit to associate a queue
-   with, and then choose **Edit limit**.
-3. In the **Associate queues** section, choose the queues to associate
-   with the limit.
-4. Choose **Save changes**.
+1. From the Deadline Cloud console ([Deadline Cloud console](https://console.aws.amazon.com/deadlinecloud/home)) dashboard, select the farm where you want to associate a limit with a queue.
+
+1. Choose the **Limits ** tab, choose the limit to associate a queue with, and then choose **Edit limit**.
+
+1. In the **Associate queues** section, choose the queues to associate with the limit.
+
+1. Choose **Save changes**.
