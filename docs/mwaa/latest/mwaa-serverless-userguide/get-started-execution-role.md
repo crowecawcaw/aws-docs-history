@@ -1,79 +1,82 @@
+
+
 # Execution roles
+<a name="get-started-execution-role"></a>
 
-An execution role is an AWS Identity and Access Management (IAM) role with a permissions policy that grants Amazon MWAA Serverless permission to invoke the resources of other AWS
-services on your behalf. This can include resources such as your Amazon S3 bucket, [AWS KMS key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk"), and CloudWatch Logs. Amazon MWAA Serverless needs one execution role per workflow. This topic describes how to use and configure the execution role to allow Amazon MWAA Serverless
-to access other AWS resources that are required by the workflow.
+ An execution role is an AWS Identity and Access Management (IAM) role with a permissions policy that grants Amazon MWAA Serverless permission to invoke the resources of other AWS services on your behalf. This can include resources such as your Amazon S3 bucket, [AWS KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk), and CloudWatch Logs. Amazon MWAA Serverless needs one execution role per workflow. This topic describes how to use and configure the execution role to allow Amazon MWAA Serverless to access other AWS resources that are required by the workflow. 
 
-Amazon MWAA Serverless workflows aquire permissions to use other AWS services from the execution role. You must grant following permissions to Amazon MWAA Serverless execution role to allow your workflos to use these AWS services:
-
-- Amazon CloudWatch (CloudWatch) to send Amazon MWAA Serverless workflow task logs to customer provided log group.
-- AWS Key Management Service (AWS KMS) for data encryption (using either an [AWS-owned key](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk") or your [Customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")).
-
-###### Note
-
-In order for your workflow's execution role to access arbitrary KMS keys, a KMS key in a third-party account must allow this cross-account
-access via its resource policy.
-
-After you choose an encryption option, you cannot change your selection for an existing workflow.
+ Amazon MWAA Serverless workflows aquire permissions to use other AWS services from the execution role. You must grant following permissions to Amazon MWAA Serverless execution role to allow your workflos to use these AWS services: 
++ Amazon CloudWatch (CloudWatch) to send Amazon MWAA Serverless workflow task logs to customer provided log group.
++  AWS Key Management Service (AWS KMS) for data encryption (using either an [AWS-owned key ](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or your [Customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk)). 
+**Note**  
+ In order for your workflow's execution role to access arbitrary KMS keys, a KMS key in a third-party account must allow this cross-account access via its resource policy.   
+ After you choose an encryption option, you cannot change your selection for an existing workflow. 
 
 ## Create an execution role
+<a name="execution-role-create"></a>
 
-You use the IAM console to create a new execution role. When you create a new execution role, do not reuse the name of a deleted execution role. Unique
-names can help prevent conflicts and ensure proper resource management.
+ You use the IAM console to create a new execution role. When you create a new execution role, do not reuse the name of a deleted execution role. Unique names can help prevent conflicts and ensure proper resource management. 
 
 To create a new execution role, follow these steps:
 
-1. Open the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
-2. In the navigation pane, choose **Roles**.
-3. Choose **Create role**.
-4. For **Trusted entity type**, choose **AWS service**.
-5. For **Service or use case**, choose **Amazon MWAA Serverless**. Then choose **Amazon MWAA Serverless workflow**.
-6. Choose **Next**.
-7. For Permissions policies, search for **your customer managed policy**.
-8. Choose the check box to the left of the **policy**, then choose Next.
-9. For Role Name, enter **role name**, then choose **Create role**.
+1. Open the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/)).
 
-You can change the execution role for your workflow at any time. If a new execution role is not already
-associated with your workflow, use the steps on this page to create a new execution role policy, and associate the role to your workflow.
+1. In the navigation pane, choose **Roles**.
+
+1. Choose **Create role**.
+
+1. For **Trusted entity type**, choose **AWS service**.
+
+1. For **Service or use case**, choose **Amazon MWAA Serverless**. Then choose **Amazon MWAA Serverless workflow**.
+
+1. Choose **Next**.
+
+1. For Permissions policies, search for ** your customer managed policy**.
+
+1. Choose the check box to the left of the **policy**, then choose Next.
+
+1. For Role Name, enter **role name**, then choose **Create role**.
+
+ You can change the execution role for your workflow at any time. If a new execution role is not already associated with your workflow, use the steps on this page to create a new execution role policy, and associate the role to your workflow. 
 
 ## Update an execution role
+<a name="execution-role-update"></a>
 
-Amazon MWAA Serverless can't add or edit permission policies to an existing execution role. You must update your execution role with additional permission policies needed by
-your workflow when you update that workflow. For example, if your DAG requires access to AWS Glue, Amazon MWAA Serverless can't automatically detect these permissions are
-required by your workflow, or add the permissions to your execution role.
+ Amazon MWAA Serverless can't add or edit permission policies to an existing execution role. You must update your execution role with additional permission policies needed by your workflow when you update that workflow. For example, if your DAG requires access to AWS Glue, Amazon MWAA Serverless can't automatically detect these permissions are required by your workflow, or add the permissions to your execution role. 
 
 You can add permissions to an execution role in two ways:
-
-- By modifying the JSON policy for your execution role inline. You can use the sample
-  [JSON policy documents](../../../IAM/latest/UserGuide/reference_policies_grammar.md "../../../IAM/latest/UserGuide/reference_policies_grammar.md") on this page to either add
-  to or replace the JSON policy of your execution role on the IAM console.
-- By creating a JSON policy for an AWS service and attaching it to your execution role. You can use the steps on this page to associate a new
-  JSON policy document for an AWS service to your execution role on the IAM console.
++  By modifying the JSON policy for your execution role inline. You can use the sample [JSON policy documents](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html) on this page to either add to or replace the JSON policy of your execution role on the IAM console. 
++  By creating a JSON policy for an AWS service and attaching it to your execution role. You can use the steps on this page to associate a new JSON policy document for an AWS service to your execution role on the IAM console. 
 
 To view the execution role and update the JSON policy for the role on the IAM console:
 
-1. Open the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. Choose the execution role name to open the permissions policy.
-3. Choose **Edit policy**.
-4. Choose the **JSON** tab.
-5. Update your JSON policy.
-6. Choose **Review policy**.
-7. Choose **Save changes**.
+1. Open the [IAM console](https://console.aws.amazon.com/iam/).
 
-Assuming the execution role is already associated with your workflow, Amazon MWAA Serverless can start using the added permission policies immediately.
-This also means if you remove any required permissions from an execution role, your workflow might fail.
+1. Choose the execution role name to open the permissions policy.
+
+1. Choose **Edit policy**.
+
+1. Choose the **JSON** tab.
+
+1. Update your JSON policy.
+
+1. Choose **Review policy**.
+
+1. Choose **Save changes**.
+
+ Assuming the execution role is already associated with your workflow, Amazon MWAA Serverless can start using the added permission policies immediately. This also means if you remove any required permissions from an execution role, your workflow might fail. 
 
 ## Attach a JSON policy to use other AWS services
+<a name="execution-role-json-policy"></a>
 
-You can create a JSON policy for an AWS service and attach it to your execution role. For example, you can attach the following JSON policy to
-grant read-only access to all resources in Amazon EC2.
+ You can create a JSON policy for an AWS service and attach it to your execution role. For example, you can attach the following JSON policy to grant read-only access to all resources in Amazon EC2. 
 
-JSON
+------
+#### [ JSON ]
 
 ```
-
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -104,41 +107,49 @@ JSON
         }
     ]
 }
-
 ```
+
+------
 
 To attach a policy to your execution role:
 
-1. Open the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
-2. Choose your execution role.
-3. Choose **Attach policies**.
-4. Choose **Create policy**.
-5. Choose **JSON**.
-6. Paste the JSON policy.
-7. Choose **Next: Tags**, **Next: Review**.
-8. Enter a descriptive name (such as `SecretsManagerReadPolicy`) and a description for the policy.
-9. Choose **Create policy**.
+1. Open the [IAM console](https://console.aws.amazon.com/iam).
+
+1. Choose your execution role.
+
+1. Choose **Attach policies**.
+
+1. Choose **Create policy**.
+
+1. Choose **JSON**.
+
+1. Paste the JSON policy.
+
+1. Choose **Next: Tags**, **Next: Review**.
+
+1. Enter a descriptive name (such as `SecretsManagerReadPolicy`) and a description for the policy.
+
+1. Choose **Create policy**.
 
 ## Sample JSON policies for an execution role
+<a name="execution-role-json-sample"></a>
 
-The sample permission policies in this section show the policy to create a new execution role that can be uses for your workflow. These policies contain
-[Resource ARN](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") placeholders for Apache Airflow log groups, an
-[Amazon S3 bucket](mwaas-s3-bucket.md "mwaas-s3-bucket.md").
+ The sample permission policies in this section show the policy to create a new execution role that can be uses for your workflow. These policies contain [Resource ARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_resource.html) placeholders for Apache Airflow log groups, an [Amazon S3 bucket](mwaas-s3-bucket.md). 
 
 ### Sample policy for for Amazon S3 operations
+<a name="execution-role-cmk"></a>
 
-The following example shows an execution role policy you can use for a S3 operations.
+ The following example shows an execution role policy you can use for a S3 operations. 
 
-###### Note
+**Note**  
+ CloudWatchLogsAccess and VPCAccess are required for all operations, while KMSAccess is optional. 
 
-CloudWatchLogsAccess and VPCAccess are required for all operations, while KMSAccess is optional.
-
-JSON
+------
+#### [ JSON ]
 
 ```
-
     {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
         "Sid": "S3OperationSpecificPermissions",
@@ -152,13 +163,13 @@ JSON
         "Sid": "CloudWatchLogsAccess",
         "Effect": "Allow",
         "Action": [
-            "logs:CreateLogStream",
+            "logs:CreateLogStream", 
             "logs:PutLogEvents"
         ],
         "Resource": "*"
         },
         {
-        "Sid": "KmsAccess",
+        "Sid": "KmsAccess", 
         "Effect": "Allow",
         "Action": [
             "kms:Encrypt",
@@ -166,26 +177,22 @@ JSON
             "kms:GenerateDataKey",
             "kms:DescribeKey"
         ],
-        "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`keyId`"
-        }
+        "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{keyId}}"
+        }  
     ]
     }
-
 ```
 
-Next, you need to allow Amazon MWAA Serverless to assume this role in order to perform actions on your behalf. This can be done by adding the
-`"airflow-serverless.amazonaws.com"` service principal to the list of trusted entities for this execution role
-[using the IAM
-console](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console"), or by placing these service principals in the assume role policy document for this execution role via the IAM
-[create-role](../../../cli/latest/reference/iam/create-role.md "../../../cli/latest/reference/iam/create-role.md") command using the AWS CLI.
-A sample assume role policy document can be found below:
+------
 
-JSON
+ Next, you need to allow Amazon MWAA Serverless to assume this role in order to perform actions on your behalf. This can be done by adding the `"airflow-serverless.amazonaws.com"` service principal to the list of trusted entities for this execution role [using the IAM console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console), or by placing these service principals in the assume role policy document for this execution role via the IAM [create-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command using the AWS CLI. A sample assume role policy document can be found below: 
+
+------
+#### [ JSON ]
 
 ```
-
     {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
         "Sid": "AllowAirflowServerlessAssumeRole",
@@ -197,5 +204,6 @@ JSON
         }
     ]
     }
-
 ```
+
+------

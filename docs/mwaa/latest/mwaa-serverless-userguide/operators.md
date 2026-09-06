@@ -1,216 +1,241 @@
+
+
 # Supported operators
+<a name="operators"></a>
 
-Amazon MWAA Serverless currently supports a specific set of [Apache Airflow operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/index.html "https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/index.html") that are optimized for AWS service integration. These operators are categorized as follows:
+Amazon MWAA Serverless currently supports a specific set of [Apache Airflow operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/index.html) that are optimized for AWS service integration. These operators are categorized as follows:
 
-- `AthenaOperator`: Submits a Trino or Presto query to Athena.
-- `AthenaSensor`: Polls the query state until it reaches a terminal state; fails if the query fails.
-- `EmrAddStepsOperator`: Adds steps to an existing Amazon EMR `job_flow`.
-- `EmrContainerOperator`: Submits jobs to Amazon EMR on Amazon EKS virtual clusters.
-- `EmrContainerSensor`: Polls the state of the job run until it reaches a terminal state; fails if the job run fails.
-- `EmrCreateJobFlowOperator`: Creates an Amazon EMR `JobFlow`, reading the config from the Amazon EMR connection.
-- `EmrEksCreateClusterOperator`: Creates Amazon EMR on Amazon EKS virtual clusters.
-- `EmrJobFlowSensor`: Polls an Amazon EMR `JobFlow` cluster until it reaches a target state; raises `AirflowException` upon failure.
-- `EmrModifyClusterOperator`: Modifies an existing Amazon EMR cluster.
-- `EmrNotebookExecutionSensor`: Polls the Amazon EMR notebook until it reaches a target state; raises `AirflowException` upon failure.
-- `EmrServerlessApplicationSensor`: Polls the state of the application until it reaches a terminal state; fails if the application fails.
-- `EmrServerlessCreateApplicationOperator`: Creates an EMR Serverless application.
-- `EmrServerlessDeleteApplicationOperator`: Deletes an EMR Serverless application.
-- `EmrServerlessJobSensor`: Polls the state of the job run until it reaches a terminal state; fails if the job run fails.
-- `EmrServerlessStartJobOperator`: Starts an EMR Serverless job.
-- `EmrServerlessStopApplicationOperator`: Stops an EMR Serverless application.
-- `EmrStartNotebookExecutionOperator`: Starts an EMR Serverless notebook execution.
-- `EmrStepSensor`: Polls the state of the step until it reaches a target state; raises `AirflowException` upon failure.
-- `EmrStopNotebookExecutionOperator`: Stops a running EMR Serverless notebook execution.
-- `EmrTerminateJobFlowOperator`: Terminates an Amazon EMR `JobFlow`.
-- `GlueDataBrewStartJobOperator`: Starts an AWS Glue `DataBrew` job.
-- `GlueDataQualityOperator`: Creates a data quality ruleset with DQDL rules applied to a specified AWS Glue table.
-- `GlueDataQualityRuleRecommendationRunOperator`: Starts a recommendation run that is used to generate rules. AWS Glue Data Quality analyzes the data and provides recommendations for a potential ruleset.
-- `GlueDataQualityRuleRecommendationRunSensor`: Waits for an AWS Glue data quality recommendation run to reach a given status.
-- `GlueDataQualityRuleSetEvaluationRunOperator`: Evaluates a ruleset against a data source (AWS Glue table).
-- `GlueDataQualityRuleSetEvaluationRunSensor`: Waits for an AWS Glue data quality ruleset evaluation run to reach a given status.
-- `GlueJobOperator`: Creates an AWS Glue job.
-- `GlueJobSensor`: Waits for an AWS Glue job to reach a given status.
-- `KinesisAnalyticsV2CreateApplicationOperator`: Creates an Amazon Managed Service for Apache Flink application.
-- `KinesisAnalyticsV2StartApplicationCompletedSensor`: Waits for an Amazon Managed Service for Apache Flink application to start.
-- `KinesisAnalyticsV2StartApplicationOperator`: Starts an Amazon Managed Service for Apache Flink application.
-- `KinesisAnalyticsV2StopApplicationCompletedSensor`: Waits for Amazon Managed Service for Apache Flink application to stop.
-- `KinesisAnalyticsV2StopApplicationOperator`: Stops an Amazon Managed Service for Apache Flink application.
-- `OpenSearchServerlessCollectionActiveSensor`: Polls the state of the collection until it reaches a terminal state; fails if the query fails.
-- `QuickSightCreateIngestionOperator`: Creates and starts a new SPICE ingestion for a dataset; also helps refresh existing SPICE datasets.
-- `QuickSightSensor`: Watches for an Amazon Quick ingestion status.
-- `RedshiftClusterSensor`: Waits for an Amazon Redshift cluster to reach a specific status.
-- `RedshiftCreateClusterOperator`: Creates a new cluster with the specified parameters.
-- `RedshiftCreateClusterSnapshotOperator`: Creates a manual snapshot of the specified cluster; the cluster must be in the available state.
-- `RedshiftDataOperator`: Runs SQL statements against an Amazon Redshift cluster using Redshift data.
-- `RedshiftDeleteClusterOperator`: Deletes an Amazon Redshift cluster.
-- `RedshiftDeleteClusterSnapshotOperator`: Deletes the specified manual snapshot.
-- `RedshiftPauseClusterOperator`: Pauses an Amazon Redshift cluster if it has `available` status.
-- `RedshiftResumeClusterOperator`: Resumes a paused Amazon Redshift cluster
-- `SageMakerNotebookOperator`: Provides artifact execution functionality for Amazon SageMaker Unified Studio workflows.
+## Analytics
+<a name="operators-analytics"></a>
++ `AthenaOperator`: Submits a Trino or Presto query to Athena.
++ `AthenaSensor`: Polls the query state until it reaches a terminal state; fails if the query fails.
++ `EmrAddStepsOperator`: Adds steps to an existing Amazon EMR `job_flow`.
++ `EmrContainerOperator`: Submits jobs to Amazon EMR on Amazon EKS virtual clusters.
++ `EmrContainerSensor`: Polls the state of the job run until it reaches a terminal state; fails if the job run fails.
++ `EmrCreateJobFlowOperator`: Creates an Amazon EMR `JobFlow`, reading the config from the Amazon EMR connection.
++ `EmrEksCreateClusterOperator`: Creates Amazon EMR on Amazon EKS virtual clusters.
++ `EmrJobFlowSensor`: Polls an Amazon EMR `JobFlow` cluster until it reaches a target state; raises `AirflowException` upon failure.
++ `EmrModifyClusterOperator`: Modifies an existing Amazon EMR cluster.
++ `EmrNotebookExecutionSensor`: Polls the Amazon EMR notebook until it reaches a target state; raises `AirflowException` upon failure.
++ `EmrServerlessApplicationSensor`: Polls the state of the application until it reaches a terminal state; fails if the application fails.
++ `EmrServerlessCreateApplicationOperator`: Creates an EMR Serverless application.
++ `EmrServerlessDeleteApplicationOperator`: Deletes an EMR Serverless application.
++ `EmrServerlessJobSensor`: Polls the state of the job run until it reaches a terminal state; fails if the job run fails.
++ `EmrServerlessStartJobOperator`: Starts an EMR Serverless job.
++ `EmrServerlessStopApplicationOperator`: Stops an EMR Serverless application.
++ `EmrStartNotebookExecutionOperator`: Starts an EMR Serverless notebook execution.
++ `EmrStepSensor`: Polls the state of the step until it reaches a target state; raises `AirflowException` upon failure.
++ `EmrStopNotebookExecutionOperator`: Stops a running EMR Serverless notebook execution.
++ `EmrTerminateJobFlowOperator`: Terminates an Amazon EMR `JobFlow`.
++ `GlueDataBrewStartJobOperator`: Starts an AWS Glue `DataBrew` job.
++ `GlueDataQualityOperator`: Creates a data quality ruleset with DQDL rules applied to a specified AWS Glue table.
++ `GlueDataQualityRuleRecommendationRunOperator`: Starts a recommendation run that is used to generate rules. AWS Glue Data Quality analyzes the data and provides recommendations for a potential ruleset.
++ `GlueDataQualityRuleRecommendationRunSensor`: Waits for an AWS Glue data quality recommendation run to reach a given status.
++ `GlueDataQualityRuleSetEvaluationRunOperator`: Evaluates a ruleset against a data source (AWS Glue table).
++ `GlueDataQualityRuleSetEvaluationRunSensor`: Waits for an AWS Glue data quality ruleset evaluation run to reach a given status.
++ `GlueJobOperator`: Creates an AWS Glue job.
++ `GlueJobSensor`: Waits for an AWS Glue job to reach a given status.
++ `KinesisAnalyticsV2CreateApplicationOperator`: Creates an Amazon Managed Service for Apache Flink application.
++ `KinesisAnalyticsV2StartApplicationCompletedSensor`: Waits for an Amazon Managed Service for Apache Flink application to start.
++ `KinesisAnalyticsV2StartApplicationOperator`: Starts an Amazon Managed Service for Apache Flink application.
++ `KinesisAnalyticsV2StopApplicationCompletedSensor`: Waits for Amazon Managed Service for Apache Flink application to stop.
++ `KinesisAnalyticsV2StopApplicationOperator`: Stops an Amazon Managed Service for Apache Flink application.
++ `OpenSearchServerlessCollectionActiveSensor`: Polls the state of the collection until it reaches a terminal state; fails if the query fails.
++ `QuickSightCreateIngestionOperator`: Creates and starts a new SPICE ingestion for a dataset; also helps refresh existing SPICE datasets.
++ `QuickSightSensor`: Watches for an Amazon Quick ingestion status.
++ `RedshiftClusterSensor`: Waits for an Amazon Redshift cluster to reach a specific status.
++ `RedshiftCreateClusterOperator`: Creates a new cluster with the specified parameters.
++ `RedshiftCreateClusterSnapshotOperator`: Creates a manual snapshot of the specified cluster; the cluster must be in the available state.
++ `RedshiftDataOperator`: Runs SQL statements against an Amazon Redshift cluster using Redshift data.
++ `RedshiftDeleteClusterOperator`: Deletes an Amazon Redshift cluster.
++ `RedshiftDeleteClusterSnapshotOperator`: Deletes the specified manual snapshot.
++ `RedshiftPauseClusterOperator`: Pauses an Amazon Redshift cluster if it has `available` status.
++ `RedshiftResumeClusterOperator`: Resumes a paused Amazon Redshift cluster
++ `SageMakerNotebookOperator`: Provides artifact execution functionality for Amazon SageMaker Unified Studio workflows.
 
-- `AppflowRecordsShortCircuitOperator`: Short-circuits an empty Amazon AppFlow run.
-- `AppflowRunAfterOperator`: Updates filters to select only future data, then starts an Amazon AppFlow run.
-- `AppflowRunBeforeOperator`: Updates filters to select only past data, then starts an Amazon AppFlow run.
-- `AppflowRunDailyOperator`: Updates filters to select only a single day, then starts an Amazon AppFlow run.
-- `AppflowRunFullOperator`: Removes all filters, then starts an Amazon AppFlow full run.
-- `AppflowRunOperator`: Starts an Amazon AppFlow run as is.
-- `EventBridgeDisableRuleOperator`: Disables an Amazon EventBridge rule.
-- `EventBridgeEnableRuleOperator`: Enables an Amazon EventBridge rule.
-- `EventBridgePutEventsOperator`: Puts events onto Amazon EventBridge.
-- `EventBridgePutRuleOperator`: Creates or updates the specified Amazon EventBridge rule.
-- `SnsPublishOperator`: Publishes a message to Amazon SNS.
-- `SqsPublishOperator`: Publishes a message to an Amazon SQS queue;
-- `SqsSensor`: Gets messages from an Amazon SQS queue, then deletes the messages from the queue.
-- `StepFunctionGetExecutionOutputOperator`: Returns the output of an AWS Step Functions state machine run.
-- `StepFunctionStartExecutionOperator`: Begins an AWS Step Functions state machine run.
-- `StepFunctionExecutionSensor`: Polls the AWS Step Functions state machine run until it reaches a terminal state; fails if the task fails.
+## Application integration
+<a name="operators-app-integration"></a>
++ `AppflowRecordsShortCircuitOperator`: Short-circuits an empty Amazon AppFlow run.
++ `AppflowRunAfterOperator`: Updates filters to select only future data, then starts an Amazon AppFlow run.
++ `AppflowRunBeforeOperator`: Updates filters to select only past data, then starts an Amazon AppFlow run.
++ `AppflowRunDailyOperator`: Updates filters to select only a single day, then starts an Amazon AppFlow run.
++ `AppflowRunFullOperator`: Removes all filters, then starts an Amazon AppFlow full run.
++ `AppflowRunOperator`: Starts an Amazon AppFlow run as is.
++ `EventBridgeDisableRuleOperator`: Disables an Amazon EventBridge rule.
++ `EventBridgeEnableRuleOperator`: Enables an Amazon EventBridge rule.
++ `EventBridgePutEventsOperator`: Puts events onto Amazon EventBridge.
++ `EventBridgePutRuleOperator`: Creates or updates the specified Amazon EventBridge rule.
++ `SnsPublishOperator`: Publishes a message to Amazon SNS.
++ `SqsPublishOperator`: Publishes a message to an Amazon SQS queue;
++ `SqsSensor`: Gets messages from an Amazon SQS queue, then deletes the messages from the queue.
++ `StepFunctionGetExecutionOutputOperator`: Returns the output of an AWS Step Functions state machine run.
++ `StepFunctionStartExecutionOperator`: Begins an AWS Step Functions state machine run.
++ `StepFunctionExecutionSensor`: Polls the AWS Step Functions state machine run until it reaches a terminal state; fails if the task fails.
 
-- `GlueCatalogPartitionSensor`: Waits for a partition to show up in the AWS Glue catalog.
-- `GlueCrawlerOperator`: Creates, updates, and triggers an AWS Glue crawler.
-- `GlueCrawlerSensor`: Waits for an AWS Glue crawler to reach a given status.
-- `GlueCatalogCreateDatabaseOperator`: Creates a database in the AWS Glue catalog.
-- `GlueCatalogCreateTableOperator`: Creates a table in the AWS Glue catalog.
-- `GlueCatalogDeleteDatabaseOperator`: Deletes a database from the AWS Glue catalog.
-- `GlueCatalogDeleteTableOperator`: Deletes a table from the AWS Glue catalog.
+## Catalog
+<a name="operators-catalog"></a>
++ `GlueCatalogPartitionSensor`: Waits for a partition to show up in the AWS Glue catalog.
++ `GlueCrawlerOperator`: Creates, updates, and triggers an AWS Glue crawler.
++ `GlueCrawlerSensor`: Waits for an AWS Glue crawler to reach a given status.
++ `GlueCatalogCreateDatabaseOperator`: Creates a database in the AWS Glue catalog.
++ `GlueCatalogCreateTableOperator`: Creates a table in the AWS Glue catalog.
++ `GlueCatalogDeleteDatabaseOperator`: Deletes a database from the AWS Glue catalog.
++ `GlueCatalogDeleteTableOperator`: Deletes a table from the AWS Glue catalog.
 
-- `BatchCreateComputeEnvironmentOperator`: Creates an AWS Batch compute environment.
-- `BatchOperator`: Runs a job on AWS Batch.
-- `BatchComputeEnvironmentSensor`: Polls the state of the AWS Batch environment until it reaches a terminal state; fails if the environment fails.
-- `BatchJobQueueSensor`: Polls the state of the AWS Batch job queue until it reaches a terminal state; fails if the queue fails.
-- `BatchSensor`: Polls the state of the AWS Batch job until it reaches a terminal state; fails if the job fails.
-- `EC2CreateInstanceOperator`: Creates and starts a specified number of Amazon EC2 instances using Boto3.
-- `EC2HibernateInstanceOperator`: Hibernates Amazon EC2 instances.
-- `EC2RebootInstanceOperator`: Reboots Amazon EC2 instances.
-- `EC2StartInstanceOperator`: Starts Amazon EC2 instances using Boto3.
-- `EC2StopInstanceOperator`: Stops Amazon EC2 instances using Boto3.
-- `EC2TerminateInstanceOperator`: Terminates Amazon EC2 instances using Boto3.
-- `EC2InstanceStateSensor`: Polls the state of the Amazon EC2 instance until the instance reaches the target state.
-- `EcsCreateClusterOperator`: Creates an Amazon ECS cluster.
-- `EcsDeleteClusterOperator`: Deletes an Amazon ECS cluster.
-- `EcsDeregisterTaskDefinitionOperator`: Deregisters a task definition on Amazon ECS.
-- `EcsRegisterTaskDefinitionOperator`: Registers a task definition on Amazon ECS.
-- `EcsRunTaskOperator`: Runs a task on Amazon ECS.
-- `EcsClusterStateSensor`: Polls the cluster state until it reaches a terminal state; raises an `AirflowException` with the failure reason.
-- `EcsTaskDefinitionStateSensor`: Polls the task definition until it reaches a terminal state; raises an `AirflowException` with the failure reason.
-- `EcsTaskStateSensor`: Polls the task state until it reaches a terminal state; raises `AirflowException` with the failure reason.
-- `EksCreateClusterOperator`: Creates an Amazon EKS cluster control plane.
-- `EksCreateFargateProfileOperator`: Creates an AWS Fargate profile for an Amazon EKS cluster.
-- `EksCreateNodegroupOperator`: Creates an Amazon EKS managed node group for an existing Amazon EKS cluster.
-- `EksDeleteClusterOperator`: Deletes the Amazon EKS cluster control plane and all node groups that are attached to it.
-- `EksDeleteFargateProfileOperator`: Deletes an AWS Fargate profile from an Amazon EKS cluster.
-- `EksDeleteNodegroupOperator`: Deletes an Amazon EKS-managed node group from an Amazon EKS cluster.
-- `EksPodOperator`: Runs a task in a Kubernetes pod on the specified Amazon EKS cluster.
-- `EksClusterStateSensor`: Checks the state of an Amazon EKS cluster until it reaches the target state or another terminal state.
-- `EksFargateProfileStateSensor`: Checks the state of an AWS Fargate profile until it reaches the target state or another terminal state.
-- `EksNodegroupStateSensor`: Checks the state of an Amazon EKS-managed node group until it reaches the target state or another terminal state.
-- `LambdaCreateFunctionOperator`: Creates an AWS Lambda function.
-- `LambdaInvokeFunctionOperator`: Invokes an AWS Lambda function.
-- `LambdaFunctionStateSensor`: Polls the deployment state of the AWS Lambda function until it reaches the target state.
+## Compute
+<a name="operators-compute"></a>
++ `BatchCreateComputeEnvironmentOperator`: Creates an AWS Batch compute environment.
++ `BatchOperator`: Runs a job on AWS Batch.
++ `BatchComputeEnvironmentSensor`: Polls the state of the AWS Batch environment until it reaches a terminal state; fails if the environment fails.
++ `BatchJobQueueSensor`: Polls the state of the AWS Batch job queue until it reaches a terminal state; fails if the queue fails.
++ `BatchSensor`: Polls the state of the AWS Batch job until it reaches a terminal state; fails if the job fails.
++ `EC2CreateInstanceOperator`: Creates and starts a specified number of Amazon EC2 instances using Boto3.
++ `EC2HibernateInstanceOperator`: Hibernates Amazon EC2 instances.
++ `EC2RebootInstanceOperator`: Reboots Amazon EC2 instances.
++ `EC2StartInstanceOperator`: Starts Amazon EC2 instances using Boto3.
++ `EC2StopInstanceOperator`: Stops Amazon EC2 instances using Boto3.
++ `EC2TerminateInstanceOperator`: Terminates Amazon EC2 instances using Boto3.
++ `EC2InstanceStateSensor`: Polls the state of the Amazon EC2 instance until the instance reaches the target state.
++ `EcsCreateClusterOperator`: Creates an Amazon ECS cluster.
++ `EcsDeleteClusterOperator`: Deletes an Amazon ECS cluster.
++ `EcsDeregisterTaskDefinitionOperator`: Deregisters a task definition on Amazon ECS.
++ `EcsRegisterTaskDefinitionOperator`: Registers a task definition on Amazon ECS.
++ `EcsRunTaskOperator`: Runs a task on Amazon ECS.
++ `EcsClusterStateSensor`: Polls the cluster state until it reaches a terminal state; raises an `AirflowException` with the failure reason.
++ `EcsTaskDefinitionStateSensor`: Polls the task definition until it reaches a terminal state; raises an `AirflowException` with the failure reason.
++ `EcsTaskStateSensor`: Polls the task state until it reaches a terminal state; raises `AirflowException` with the failure reason.
++ `EksCreateClusterOperator`: Creates an Amazon EKS cluster control plane.
++ `EksCreateFargateProfileOperator`: Creates an AWS Fargate profile for an Amazon EKS cluster.
++ `EksCreateNodegroupOperator`: Creates an Amazon EKS managed node group for an existing Amazon EKS cluster.
++ `EksDeleteClusterOperator`: Deletes the Amazon EKS cluster control plane and all node groups that are attached to it.
++ `EksDeleteFargateProfileOperator`: Deletes an AWS Fargate profile from an Amazon EKS cluster.
++ `EksDeleteNodegroupOperator`: Deletes an Amazon EKS-managed node group from an Amazon EKS cluster.
++ `EksPodOperator`: Runs a task in a Kubernetes pod on the specified Amazon EKS cluster.
++ `EksClusterStateSensor`: Checks the state of an Amazon EKS cluster until it reaches the target state or another terminal state.
++ `EksFargateProfileStateSensor`: Checks the state of an AWS Fargate profile until it reaches the target state or another terminal state.
++ `EksNodegroupStateSensor`: Checks the state of an Amazon EKS-managed node group until it reaches the target state or another terminal state.
++ `LambdaCreateFunctionOperator`: Creates an AWS Lambda function.
++ `LambdaInvokeFunctionOperator`: Invokes an AWS Lambda function.
++ `LambdaFunctionStateSensor`: Polls the deployment state of the AWS Lambda function until it reaches the target state.
 
-- `DynamoDBValueSensor`: Waits for an attribute value to be present for an item in a DynamoDB table.
-- `NeptuneStartDbClusterOperator`: Starts an Amazon Neptune DB cluster.
-- `NeptuneStopDbClusterOperator`: Stops an Amazon Neptune DB cluster.
-- `RdsCancelExportTaskOperator`: Cancels an in-progress export task that is exporting a snapshot to Amazon S3.
-- `RdsCopyDbSnapshotOperator`: Copies the specified DB instance or DB cluster snapshot.
-- `RdsCreateDbInstanceOperator`: Creates an Amazon RDS DB instance.
-- `RdsCreateDbSnapshotOperator`: Creates a snapshot of a DB instance or DB cluster.
-- `RdsCreateEventSubscriptionOperator`: Creates an Amazon RDS event notification subscription.
-- `RdsDbSensor`: Waits for an Amazon RDS instance or cluster to enter one of a number of states.
-- `RdsDeleteDbInstanceOperator`: Deletes an Amazon RDS DB instance.
-- `RdsDeleteDbSnapshotOperator`: Deletes a DB instance or cluster snapshot, or terminates the copy operation.
-- `RdsDeleteEventSubscriptionOperator`: Deletes an Amazon RDS event notification subscription.
-- `RdsExportTaskExistenceSensor`: Waits for Amazon RDS export task with a specific status.
-- `RdsSnapshotExistenceSensor`: Waits for Amazon RDS snapshot with a specific status.
-- `RdsStartDbOperator`: Starts an Amazon RDS DB instance or cluster.
-- `RdsStartExportTaskOperator`: Starts the export of a snapshot to Amazon S3. The specified IAM role must have access to the Amazon S3 bucket.
-- `RdsStopDbOperator`: Stops an Amazon RDS DB instance or cluster.
+## Database
+<a name="operators-database"></a>
++ `DynamoDBValueSensor`: Waits for an attribute value to be present for an item in a DynamoDB table.
++ `NeptuneStartDbClusterOperator`: Starts an Amazon Neptune DB cluster.
++ `NeptuneStopDbClusterOperator`: Stops an Amazon Neptune DB cluster.
++ `RdsCancelExportTaskOperator`: Cancels an in-progress export task that is exporting a snapshot to Amazon S3.
++ `RdsCopyDbSnapshotOperator`: Copies the specified DB instance or DB cluster snapshot.
++ `RdsCreateDbInstanceOperator`: Creates an Amazon RDS DB instance.
++ `RdsCreateDbSnapshotOperator`: Creates a snapshot of a DB instance or DB cluster.
++ `RdsCreateEventSubscriptionOperator`: Creates an Amazon RDS event notification subscription.
++ `RdsDbSensor`: Waits for an Amazon RDS instance or cluster to enter one of a number of states.
++ `RdsDeleteDbInstanceOperator`: Deletes an Amazon RDS DB instance.
++ `RdsDeleteDbSnapshotOperator`: Deletes a DB instance or cluster snapshot, or terminates the copy operation.
++ `RdsDeleteEventSubscriptionOperator`: Deletes an Amazon RDS event notification subscription.
++ `RdsExportTaskExistenceSensor`: Waits for Amazon RDS export task with a specific status.
++ `RdsSnapshotExistenceSensor`: Waits for Amazon RDS snapshot with a specific status.
++ `RdsStartDbOperator`: Starts an Amazon RDS DB instance or cluster.
++ `RdsStartExportTaskOperator`: Starts the export of a snapshot to Amazon S3. The specified IAM role must have access to the Amazon S3 bucket.
++ `RdsStopDbOperator`: Stops an Amazon RDS DB instance or cluster.
 
-- `BedrockCreateDataSourceOperator`: Sets up an Amazon Bedrock data source to add to an Amazon Bedrock knowledge base.
-- `BedrockCreateKnowledgeBaseOperator`: Creates a knowledge base with data sources that are used by Amazon Bedrock LLMs and agents.
-- `BedrockCreateProvisionedModelThroughputOperator`: Creates a fine-tuning job to customize a base model.
-- `BedrockCustomizeModelCompletedSensor`: Polls the state of the model customization job until it reaches a terminal state; fails if the job fails.
-- `BedrockCustomizeModelOperator`: Creates a fine-tuning job to customize a base model.
-- `BedrockIngestDataOperator`: Begins an ingestion job in which an Amazon Bedrock data source is added to an Amazon Bedrock knowledge base.
-- `BedrockIngestionJobSensor`: Polls the ingestion job status until it reaches a terminal state; fails if creation fails.
-- `BedrockInvokeModelOperator`: Invokes the specified Amazon Bedrock model to run inference using the provided input.
-- `BedrockKnowledgeBaseActiveSensor`: Polls the knowledge base status until it reaches a terminal state; fails if creation fails.
-- `BedrockProvisionModelThroughputCompletedSensor`: Polls the provisioned model throughput job until it reaches a terminal state; fails if the job fails.
-- `BedrockRaGOperator`: Queries a knowledge base and generates responses based on the retrieved results with source citations.
-- `BedrockRetrieveOperator`: Queries a knowledge base and retrieve results with source citations.
-- `BedrockCreateGuardrailOperator`: Creates an Amazon Bedrock guardrail to block harmful content and enforce responsible AI policies.
-- `BedrockCreateGuardrailVersionOperator`: Creates a version of an existing Amazon Bedrock guardrail.
-- `BedrockDeleteGuardrailOperator`: Deletes an Amazon Bedrock guardrail.
-- `ComprehendCreateDocumentClassifierCompletedSensor`: Polls the state of the document classifier until it reaches a completed state; fails if the job fails.
-- `ComprehendCreateDocumentClassifierOperator`: Creates an Amazon Comprehend document classifier that can categorize documents.
-- `ComprehendStartPiiEntitiesDetectionJobCompletedSensor`: Polls the state of the PII entities detection job until it reaches a completed state; fails if the job fails.
-- `ComprehendStartPiiEntitiesDetectionJobOperator`: Creates an Amazon Comprehend PII entities detection job for a collection of documents.
-- `SageMakerAutoMLOperator`: Creates an auto ML job and learns to predict the given column from the data provided through Amazon S3.
-- `SageMakerAutoMLSensor`: Polls the auto ML job until it reaches a terminal state; raises an `AirflowException` with the failure reason.
-- `SageMakerCreateExperimentOperator`: Creates a SageMaker experiment that can then be associated with jobs.
-- `SageMakerCreateNotebookOperator`: Creates a SageMaker notebook.
-- `SageMakerDeleteModelOperator`: Deletes a SageMaker model.
-- `SageMakerDeleteNotebookOperator`: Deletes a notebook instance.
-- `SageMakerEndpointConfigOperator`: Creates an endpoint configuration that SageMaker hosting services uses to deploy models.
-- `SageMakerEndpointOperator`: Provisions and manages the compute resources for you when you create a serverless endpoint.
-- `SageMakerEndpointSensor`: Polls the endpoint state until it reaches a terminal state; raises an `AirflowException` with the failure reason.
-- `SageMakerModelOperator`: Creates a model in SageMaker.
-- `SageMakerPipelineSensor`: Polls the pipeline until it reaches a terminal state; raises an `AirflowException` with the failure reason.
-- `SageMakerProcessingOperator`: Analyzes data and evaluate machine learning models on SageMaker.
-- `SageMakerProcessingSensor`: Poll the processing job until it reaches a terminal state; raise AirflowException with the failure reason.
-- `SageMakerRegisterModelVersionOperator`: Registers a SageMaker model by creating a model version that specifies the model group to which it belongs.
-- `SageMakerStartNoteBookOperator`: Starts a notebook instance.
-- `SageMakerStartPipelineOperator`: Starts a SageMaker pipeline execution.
-- `SageMakerStopNotebookOperator`: Stops a notebook instance.
-- `SageMakerStopPipelineOperator`: Stops a SageMaker pipeline execution.
-- `SageMakerTrainingOperator`: Starts a model training job.
-- `SageMakerTrainingSensor`: Polls the training job until it reaches a terminal state; raises an `AirflowException` with the failure reason.
-- `SageMakerTransformOperator`: Starts a transform job.
-- `SageMakerTransformSensor`: Polls the transform job until it reaches a terminal state; raises an `AirflowException` with the failure reason.
-- `SageMakerTuningOperator`: Starts a hyperparameter tuning job.
-- `SageMakerTuningSensor`: Polls the tuning state until it reaches a terminal state; raise AirflowException with the failure reason.
+## Machine learning
+<a name="operators-ml"></a>
++ `BedrockCreateDataSourceOperator`: Sets up an Amazon Bedrock data source to add to an Amazon Bedrock knowledge base.
++ `BedrockCreateKnowledgeBaseOperator`: Creates a knowledge base with data sources that are used by Amazon Bedrock LLMs and agents.
++ `BedrockCreateProvisionedModelThroughputOperator`: Creates a fine-tuning job to customize a base model.
++ `BedrockCustomizeModelCompletedSensor`: Polls the state of the model customization job until it reaches a terminal state; fails if the job fails.
++ `BedrockCustomizeModelOperator`: Creates a fine-tuning job to customize a base model.
++ `BedrockIngestDataOperator`: Begins an ingestion job in which an Amazon Bedrock data source is added to an Amazon Bedrock knowledge base.
++ `BedrockIngestionJobSensor`: Polls the ingestion job status until it reaches a terminal state; fails if creation fails.
++ `BedrockInvokeModelOperator`: Invokes the specified Amazon Bedrock model to run inference using the provided input.
++ `BedrockKnowledgeBaseActiveSensor`: Polls the knowledge base status until it reaches a terminal state; fails if creation fails.
++ `BedrockProvisionModelThroughputCompletedSensor`: Polls the provisioned model throughput job until it reaches a terminal state; fails if the job fails.
++ `BedrockRaGOperator`: Queries a knowledge base and generates responses based on the retrieved results with source citations.
++ `BedrockRetrieveOperator`: Queries a knowledge base and retrieve results with source citations.
++ `BedrockCreateGuardrailOperator`: Creates an Amazon Bedrock guardrail to block harmful content and enforce responsible AI policies.
++ `BedrockCreateGuardrailVersionOperator`: Creates a version of an existing Amazon Bedrock guardrail.
++ `BedrockDeleteGuardrailOperator`: Deletes an Amazon Bedrock guardrail.
++ `ComprehendCreateDocumentClassifierCompletedSensor`: Polls the state of the document classifier until it reaches a completed state; fails if the job fails.
++ `ComprehendCreateDocumentClassifierOperator`: Creates an Amazon Comprehend document classifier that can categorize documents.
++ `ComprehendStartPiiEntitiesDetectionJobCompletedSensor`: Polls the state of the PII entities detection job until it reaches a completed state; fails if the job fails.
++ `ComprehendStartPiiEntitiesDetectionJobOperator`: Creates an Amazon Comprehend PII entities detection job for a collection of documents.
++ `SageMakerAutoMLOperator`: Creates an auto ML job and learns to predict the given column from the data provided through Amazon S3.
++ `SageMakerAutoMLSensor`: Polls the auto ML job until it reaches a terminal state; raises an `AirflowException` with the failure reason.
++ `SageMakerCreateExperimentOperator`: Creates a SageMaker experiment that can then be associated with jobs.
++ `SageMakerCreateNotebookOperator`: Creates a SageMaker notebook.
++ `SageMakerDeleteModelOperator`: Deletes a SageMaker model.
++ `SageMakerDeleteNotebookOperator`: Deletes a notebook instance.
++ `SageMakerEndpointConfigOperator`: Creates an endpoint configuration that SageMaker hosting services uses to deploy models.
++ `SageMakerEndpointOperator`: Provisions and manages the compute resources for you when you create a serverless endpoint.
++ `SageMakerEndpointSensor`: Polls the endpoint state until it reaches a terminal state; raises an `AirflowException` with the failure reason.
++ `SageMakerModelOperator`: Creates a model in SageMaker.
++ `SageMakerPipelineSensor`: Polls the pipeline until it reaches a terminal state; raises an `AirflowException` with the failure reason.
++ `SageMakerProcessingOperator`: Analyzes data and evaluate machine learning models on SageMaker.
++ `SageMakerProcessingSensor`: Poll the processing job until it reaches a terminal state; raise AirflowException with the failure reason.
++ `SageMakerRegisterModelVersionOperator`: Registers a SageMaker model by creating a model version that specifies the model group to which it belongs.
++ `SageMakerStartNoteBookOperator`: Starts a notebook instance.
++ `SageMakerStartPipelineOperator`: Starts a SageMaker pipeline execution.
++ `SageMakerStopNotebookOperator`: Stops a notebook instance.
++ `SageMakerStopPipelineOperator`: Stops a SageMaker pipeline execution.
++ `SageMakerTrainingOperator`: Starts a model training job.
++ `SageMakerTrainingSensor`: Polls the training job until it reaches a terminal state; raises an `AirflowException` with the failure reason.
++ `SageMakerTransformOperator`: Starts a transform job.
++ `SageMakerTransformSensor`: Polls the transform job until it reaches a terminal state; raises an `AirflowException` with the failure reason.
++ `SageMakerTuningOperator`: Starts a hyperparameter tuning job.
++ `SageMakerTuningSensor`: Polls the tuning state until it reaches a terminal state; raise AirflowException with the failure reason.
 
-- `CloudFormationCreateStackOperator`: Creates an CloudFormation stack.
-- `CloudFormationDeleteStackOperator`: Deletes an CloudFormation stack.
-- `CloudFormationCreateStackSensor`: Waits for a stack to be successfully created on CloudFormation.
-- `CloudFormationDeleteStackSensor`: Waits for a stack to be successfully deleted on CloudFormation.
-- `DataSyncOperator`: Finds, creates, updates, executes, and deletes DataSync tasks.
-- `DmsCreateTaskOperator`: Creates an AWS DMS replication task.
-- `DmsDeleteTaskOperator`: Deletes an AWS DMS replication task.
-- `DmsDescribeTasksOperator`: Describes an AWS DMS replication task.
-- `DmsStartTaskOperator`: Starts an AWS DMS replication task.
-- `DmsStopTaskOperator`: Stops an AWS DMS replication task.
-- `DmsTaskCompletedSensor`: Pokes an AWS DMS task until it is completed.
+## Management and governance
+<a name="operators-management"></a>
++ `CloudFormationCreateStackOperator`: Creates an CloudFormation stack.
++ `CloudFormationDeleteStackOperator`: Deletes an CloudFormation stack.
++ `CloudFormationCreateStackSensor`: Waits for a stack to be successfully created on CloudFormation.
++ `CloudFormationDeleteStackSensor`: Waits for a stack to be successfully deleted on CloudFormation.
++ `DataSyncOperator`: Finds, creates, updates, executes, and deletes DataSync tasks.
++ `DmsCreateTaskOperator`: Creates an AWS DMS replication task.
++ `DmsDeleteTaskOperator`: Deletes an AWS DMS replication task.
++ `DmsDescribeTasksOperator`: Describes an AWS DMS replication task.
++ `DmsStartTaskOperator`: Starts an AWS DMS replication task.
++ `DmsStopTaskOperator`: Stops an AWS DMS replication task.
++ `DmsTaskCompletedSensor`: Pokes an AWS DMS task until it is completed.
 
-- `GlacierCreateJobOperator`: Initiates an Amazon Glacier inventory-retrieval job.
-- `GlacierUploadArchiveOperator`: Adds an archive to an Amazon Glacier vault.
-- `GlacierJobOperationSensor`: Checks job state; runs only in reschedule mode.
-- `S3CopyObjectOperator`: Creates a copy of an object that is already stored in Amazon S3.
-- `S3CreateBucketOperator`: Creates an Amazon S3 bucket.
-- `S3CreateObjectOperator`: Creates a new object from data as a string or bytes.
-- `S3DeleteBucketOperator`: Deletes an Amazon S3 bucket.
-- `S3DeleteBucketTaggingOperator`: Deletes tagging from an Amazon S3 bucket.
-- `S3DeleteObjectsOperator`: Deletes objects from a bucket using a single HTTP request.
-- `S3GetBucketTaggingOperator`: Gets tagging from an Amazon S3 bucket.
-- `S3ListOperator`: Lists all objects from the bucket with the specified string prefix in its name.
-- `S3ListPrefixesOperator`: Lists all subfolders from the bucket with the specified string prefix in its name.
-- `S3PutBucketTaggingOperator`: Puts tagging for an Amazon S3 bucket.
-- `S3KeySensor`: Waits for one or multiple keys (a file-like instance on Amazon S3) to be present in an Amazon S3 bucket.
-- `S3KeysUnchangedSensor`: Returns `True` if `inactivity_period` has passed with no increase in the number of objects that match the prefix.
-- `S3TablesCreateNamespaceOperator`: Creates a namespace in an Amazon S3 Tables table bucket.
-- `S3TablesCreateTableBucketOperator`: Creates an Amazon S3 Tables table bucket.
-- `S3TablesCreateTableOperator`: Creates a table in an Amazon S3 Tables table bucket.
-- `S3TablesDeleteNamespaceOperator`: Deletes a namespace from an Amazon S3 Tables table bucket.
-- `S3TablesDeleteTableBucketOperator`: Deletes an Amazon S3 Tables table bucket.
-- `S3TablesDeleteTableOperator`: Deletes a table from an Amazon S3 Tables table bucket.
-- `S3VectorsCreateIndexOperator`: Creates a vector index in an Amazon S3 Vectors vector bucket.
-- `S3VectorsCreateVectorBucketOperator`: Creates an Amazon S3 Vectors vector bucket.
-- `S3VectorsDeleteIndexOperator`: Deletes a vector index from an Amazon S3 Vectors vector bucket.
-- `S3VectorsDeleteVectorBucketOperator`: Deletes an Amazon S3 Vectors vector bucket.
+## Storage
+<a name="operators-storage"></a>
++ `GlacierCreateJobOperator`: Initiates an Amazon Glacier inventory-retrieval job.
++ `GlacierUploadArchiveOperator`: Adds an archive to an Amazon Glacier vault.
++ `GlacierJobOperationSensor`: Checks job state; runs only in reschedule mode.
++ `S3CopyObjectOperator`: Creates a copy of an object that is already stored in Amazon S3.
++ `S3CreateBucketOperator`: Creates an Amazon S3 bucket.
++ `S3CreateObjectOperator`: Creates a new object from data as a string or bytes.
++ `S3DeleteBucketOperator`: Deletes an Amazon S3 bucket.
++ `S3DeleteBucketTaggingOperator`: Deletes tagging from an Amazon S3 bucket.
++ `S3DeleteObjectsOperator`: Deletes objects from a bucket using a single HTTP request.
++ `S3GetBucketTaggingOperator`: Gets tagging from an Amazon S3 bucket.
++ `S3ListOperator`: Lists all objects from the bucket with the specified string prefix in its name.
++ `S3ListPrefixesOperator`: Lists all subfolders from the bucket with the specified string prefix in its name.
++ `S3PutBucketTaggingOperator`: Puts tagging for an Amazon S3 bucket.
++ `S3KeySensor`: Waits for one or multiple keys (a file-like instance on Amazon S3) to be present in an Amazon S3 bucket.
++ `S3KeysUnchangedSensor`: Returns `True` if `inactivity_period` has passed with no increase in the number of objects that match the prefix.
++ `S3TablesCreateNamespaceOperator`: Creates a namespace in an Amazon S3 Tables table bucket.
++ `S3TablesCreateTableBucketOperator`: Creates an Amazon S3 Tables table bucket.
++ `S3TablesCreateTableOperator`: Creates a table in an Amazon S3 Tables table bucket.
++ `S3TablesDeleteNamespaceOperator`: Deletes a namespace from an Amazon S3 Tables table bucket.
++ `S3TablesDeleteTableBucketOperator`: Deletes an Amazon S3 Tables table bucket.
++ `S3TablesDeleteTableOperator`: Deletes a table from an Amazon S3 Tables table bucket.
++ `S3VectorsCreateIndexOperator`: Creates a vector index in an Amazon S3 Vectors vector bucket.
++ `S3VectorsCreateVectorBucketOperator`: Creates an Amazon S3 Vectors vector bucket.
++ `S3VectorsDeleteIndexOperator`: Deletes a vector index from an Amazon S3 Vectors vector bucket.
++ `S3VectorsDeleteVectorBucketOperator`: Deletes an Amazon S3 Vectors vector bucket.
 
-- `MwaaServerlessCreateWorkflowOperator`: Creates a workflow in Amazon MWAA Serverless.
-- `MwaaServerlessStartWorkflowRunOperator`: Starts a workflow run in Amazon MWAA Serverless.
-  In addition to AWS service operators, Amazon MWAA Serverless supports the following Apache Airflow core operators for running custom code as part of your workflows. For instructions on using these operators, see [Using Python and Bash operators](operators-python-bash-detail.md "operators-python-bash-detail.md").
+## Workflows
+<a name="operators-workflows"></a>
++ `MwaaServerlessCreateWorkflowOperator`: Creates a workflow in Amazon MWAA Serverless.
++ `MwaaServerlessStartWorkflowRunOperator`: Starts a workflow run in Amazon MWAA Serverless.
 
-- `PythonOperator`: Runs a Python callable as a task. Provide your Python modules as code when creating or updating a workflow.
-- `BashOperator`: Runs a Bash command or shell script as a task.
-  `PythonOperator` and `BashOperator` tasks are considered AWS Managed Tasks, and the same billing applies. For more information about pricing, see [AWS pricing for Managed Workflows for Apache Airflow](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/ "https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/").
+## Python and Bash
+<a name="operators-python-bash"></a>
+
+In addition to AWS service operators, Amazon MWAA Serverless supports the following Apache Airflow core operators for running custom code as part of your workflows. For instructions on using these operators, see [Using Python and Bash operators](operators-python-bash-detail.md).
++ `PythonOperator`: Runs a Python callable as a task. Provide your Python modules as code when creating or updating a workflow.
++ `BashOperator`: Runs a Bash command or shell script as a task.
+
+`PythonOperator` and `BashOperator` tasks are considered AWS Managed Tasks, and the same billing applies. For more information about pricing, see [AWS pricing for Managed Workflows for Apache Airflow](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/).

@@ -1,17 +1,16 @@
+
+
 # Observability with CloudWatch
+<a name="observe-with-cloudwatch"></a>
 
-You may view and manage your workflows on the
-[Amazon MWAA Serverless Console](https://us-east-2.console.aws.amazon.com/mwaa/home#serverlessWorkflows "https://us-east-2.console.aws.amazon.com/mwaa/home#serverlessWorkflows") however,
-for advanced observability Amazon MWAA Serverless Serverless provides integration with Amazon CloudWatch where tasks logs are stored in a log group provided by you.
-If you do not provide a log group name while creating a workflow, Amazon MWAA Serverless will create a new log group.
+You may view and manage your workflows on the [Amazon MWAA Serverless Console](https://us-east-2.console.aws.amazon.com/mwaa/home#serverlessWorkflows) however, for advanced observability Amazon MWAA Serverless Serverless provides integration with Amazon CloudWatch where tasks logs are stored in a log group provided by you. If you do not provide a log group name while creating a workflow, Amazon MWAA Serverless will create a new log group. 
 
-Amazon MWAA Serverless workflow execution status is returned via the `GetWorkflowRun` function.
-The results from function returns details for a particular workflow run. If there are errors in the workflow definition, they are returned under `RunDetail` in the `ErrorMessage` field as in the following example:
+ Amazon MWAA Serverless workflow execution status is returned via the `GetWorkflowRun` function. The results from function returns details for a particular workflow run. If there are errors in the workflow definition, they are returned under `RunDetail` in the `ErrorMessage` field as in the following example: 
 
-JSON
+------
+#### [ JSON ]
 
 ```
-
 {
   "WorkflowVersion": "7bcd36ce4d42f5cf23bfee67a0f816c6",
   "RunId": "d58cxqdClpTVjeN",
@@ -23,15 +22,16 @@ JSON
     "RunState": "FAILED"
   }
 }
-
 ```
 
-Workflows that are properly defined, but whose tasks fail, will return `"ErrorMessage": "Workflow execution failed":`
+------
 
-JSON
+ Workflows that are properly defined, but whose tasks fail, will return `"ErrorMessage": "Workflow execution failed":` 
+
+------
+#### [ JSON ]
 
 ```
-
 {
   "WorkflowVersion": "0ad517eb5e33deca45a2514c0569079d",
   "RunId": "ABC123456789def",
@@ -48,48 +48,44 @@ JSON
     "RunState": "FAILED"
   }
 }
-
 ```
 
-Log groups created by Amazon MWAA Serverless are available in Amazon CloudWatch log group `/aws/mwaa-serverless/`workflow id`/` (where `/`workflow id``  
-is the same string as the unique workflow id in the ARN of the workflow).
-For specific task log streams, list the tasks for the workflow run and then get each task’s information. You can combine these operations into a single CLI command as shown below
+------
 
-CLI
+ Log groups created by Amazon MWAA Serverless are available in Amazon CloudWatch log group `/aws/mwaa-serverless/{{workflow id}}/ ` (where `/{{workflow id}} ` is the same string as the unique workflow id in the ARN of the workflow). For specific task log streams, list the tasks for the workflow run and then get each task’s information. You can combine these operations into a single CLI command as shown below 
+
+------
+#### [ CLI ]
 
 ```
-
-aws mwaa-serverless list-task-instances
---workflow-arn arn:aws:airflow-serverless:us-east-2:111122223333:workflow/simple_s3_test-abc1234def
---run-id ABC123456789def
---region us-east-2
---query 'TaskInstances[].TaskInstanceId'
---output text | xargs -n 1 -I {} aws mwaa-serverless get-task-instance
---workflow-arn arn:aws:airflow-serverless:us-east-2:111122223333:workflow/simple_s3_test-abc1234def
---run-id ABC123456789def
---task-instance-id {}
---region us-east-2
+aws mwaa-serverless list-task-instances 
+--workflow-arn arn:aws:airflow-serverless:us-east-2:111122223333:workflow/simple_s3_test-abc1234def 
+--run-id ABC123456789def 
+--region us-east-2 
+--query 'TaskInstances[].TaskInstanceId' 
+--output text | xargs -n 1 -I {} aws mwaa-serverless get-task-instance 
+--workflow-arn arn:aws:airflow-serverless:us-east-2:111122223333:workflow/simple_s3_test-abc1234def 
+--run-id ABC123456789def 
+--task-instance-id {} 
+--region us-east-2 
 --query '{Status: Status, StartedAt: StartedAt, LogStream: LogStream}'
-
 ```
 
-The response of the above command will be similar to following when it runs successfully. When it fails, the status will be returned as `“FAILED”`
+------
 
-JSON
+ The response of the above command will be similar to following when it runs successfully. When it fails, the status will be returned as `“FAILED”` 
+
+------
+#### [ JSON ]
 
 ```
-
 {
   "Status": "SUCCESS",
   "StartedAt": "2025-10-28T21:21:31.753447+00:00",
   "LogStream": "//aws/mwaa-serverless/simple_s3_test_3-abc1234def//workflow_id=simple_s3_test-abc1234def/run_id=ABC123456789def/task_id=list_objects/attempt=1.log"
 }
-
 ```
 
-Use the Amazon CloudWatch `LogStream` output to debug your workflow. For samples of creating detailed metrics and monitoring dashboard using
-[AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md"),
-[Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md"),
-[Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/Introduction.md "../../../amazondynamodb/latest/developerguide/Introduction.md"), and
-[Amazon EventBridge](../../../Meventbridge/latest/userguide/eb-what-is.md "../../../Meventbridge/latest/userguide/eb-what-is.md"), review the example in this
-[GitHub repository](https://github.com/aws-samples/amazon-mwaa-examples/tree/main/serverless/mwaa_serverless_metrics_dashboard "https://github.com/aws-samples/amazon-mwaa-examples/tree/main/serverless/mwaa_serverless_metrics_dashboard").
+------
+
+ Use the Amazon CloudWatch `LogStream` output to debug your workflow. For samples of creating detailed metrics and monitoring dashboard using [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html), [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html), and [Amazon EventBridge](https://docs.aws.amazon.com/Meventbridge/latest/userguide/eb-what-is.html), review the example in this [GitHub repository](https://github.com/aws-samples/amazon-mwaa-examples/tree/main/serverless/mwaa_serverless_metrics_dashboard). 
