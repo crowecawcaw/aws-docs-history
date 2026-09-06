@@ -1,23 +1,20 @@
+
+
 # Train a custom Amazon Comprehend classifier and classify documents using an AWS SDK
+<a name="example_comprehend_Usage_ComprehendClassifier_section"></a>
 
 The following code example shows how to:
++ Create an Amazon Comprehend multi-label classifier.
++ Train the classifier on sample data.
++ Run a classification job on a second set of data.
++ Extract the job output data from Amazon S3.
 
-- Create an Amazon Comprehend multi-label classifier.
-- Train the classifier on sample data.
-- Run a classification job on a second set of data.
-- Extract the job output data from Amazon S3.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
-
-Create a wrapper class to call Amazon Comprehend document classifier actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
+Create a wrapper class to call Amazon Comprehend document classifier actions.  
 
 ```
 class ComprehendClassifier:
@@ -221,13 +218,8 @@ class ComprehendClassifier:
             raise
         else:
             return jobs
-
-
-
-
 ```
-
-Create a class to help run the scenario.
+Create a class to help run the scenario.  
 
 ```
 class ClassifierDemo:
@@ -397,13 +389,8 @@ class ClassifierDemo:
                 )
         logger.info("Reconciled input and output labels.")
         return reconciled
-
-
-
-
 ```
-
-Train a classifier on a set of GitHub issues with known labels, then send a second set of GitHub issues to the classifier so that they can be labeled.
+Train a classifier on a set of GitHub issues with known labels, then send a second set of GitHub issues to the classifier so that they can be labeled.  
 
 ```
 def usage_demo():
@@ -492,22 +479,16 @@ def usage_demo():
 
     print("Thanks for watching!")
     print("-" * 88)
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateDocumentClassifier](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/CreateDocumentClassifier)
+  + [DeleteDocumentClassifier](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DeleteDocumentClassifier)
+  + [DescribeDocumentClassificationJob](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DescribeDocumentClassificationJob)
+  + [DescribeDocumentClassifier](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DescribeDocumentClassifier)
+  + [ListDocumentClassificationJobs](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/ListDocumentClassificationJobs)
+  + [ListDocumentClassifiers](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/ListDocumentClassifiers)
+  + [StartDocumentClassificationJob](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/StartDocumentClassificationJob)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateDocumentClassifier](../../../goto/boto3/comprehend-2017-11-27/CreateDocumentClassifier.md "../../../goto/boto3/comprehend-2017-11-27/CreateDocumentClassifier.md")
-  - [DeleteDocumentClassifier](../../../goto/boto3/comprehend-2017-11-27/DeleteDocumentClassifier.md "../../../goto/boto3/comprehend-2017-11-27/DeleteDocumentClassifier.md")
-  - [DescribeDocumentClassificationJob](../../../goto/boto3/comprehend-2017-11-27/DescribeDocumentClassificationJob.md "../../../goto/boto3/comprehend-2017-11-27/DescribeDocumentClassificationJob.md")
-  - [DescribeDocumentClassifier](../../../goto/boto3/comprehend-2017-11-27/DescribeDocumentClassifier.md "../../../goto/boto3/comprehend-2017-11-27/DescribeDocumentClassifier.md")
-  - [ListDocumentClassificationJobs](../../../goto/boto3/comprehend-2017-11-27/ListDocumentClassificationJobs.md "../../../goto/boto3/comprehend-2017-11-27/ListDocumentClassificationJobs.md")
-  - [ListDocumentClassifiers](../../../goto/boto3/comprehend-2017-11-27/ListDocumentClassifiers.md "../../../goto/boto3/comprehend-2017-11-27/ListDocumentClassifiers.md")
-  - [StartDocumentClassificationJob](../../../goto/boto3/comprehend-2017-11-27/StartDocumentClassificationJob.md "../../../goto/boto3/comprehend-2017-11-27/StartDocumentClassificationJob.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

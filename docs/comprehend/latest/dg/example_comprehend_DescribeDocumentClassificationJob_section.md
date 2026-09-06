@@ -1,27 +1,25 @@
+
+
 # Use `DescribeDocumentClassificationJob` with an AWS SDK or CLI
+<a name="example_comprehend_DescribeDocumentClassificationJob_section"></a>
 
 The following code examples show how to use `DescribeDocumentClassificationJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Train a custom classifier and classify documents](example_comprehend_Usage_ComprehendClassifier_section.md) 
 
-- [Train a custom classifier and classify documents](example_comprehend_Usage_ComprehendClassifier_section.md "example_comprehend_Usage_ComprehendClassifier_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To describe a document classification job**
-
-The following `describe-document-classification-job` example gets the properties of an asynchronous document classification job.
+**AWS CLI**  
+**To describe a document classification job**  
+The following `describe-document-classification-job` example gets the properties of an asynchronous document classification job.  
 
 ```
-`aws comprehend describe-document-classification-job \
- --job-id `123456abcdeb0e11022f22a11EXAMPLE``
-
+aws comprehend describe-document-classification-job \
+    --job-id {{123456abcdeb0e11022f22a11EXAMPLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -44,22 +42,14 @@ Output:
     }
 }
 ```
+For more information, see [Custom Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html) in the *Amazon Comprehend Developer Guide*.  
++  For API details, see [DescribeDocumentClassificationJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-document-classification-job.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Custom Classification](how-document-classification.md "how-document-classification.md") in the _Amazon Comprehend Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [DescribeDocumentClassificationJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-document-classification-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-document-classification-job.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
 ```
 class ComprehendClassifier:
@@ -91,24 +81,14 @@ class ComprehendClassifier:
             raise
         else:
             return job
-
-
-
 ```
++  For API details, see [DescribeDocumentClassificationJob](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DescribeDocumentClassificationJob) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeDocumentClassificationJob](../../../goto/boto3/comprehend-2017-11-27/DescribeDocumentClassificationJob.md "../../../goto/boto3/comprehend-2017-11-27/DescribeDocumentClassificationJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
 ```
     TRY.
@@ -125,14 +105,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cpdinternalserverex.
         MESSAGE 'Internal server error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeDocumentClassificationJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeDocumentClassificationJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

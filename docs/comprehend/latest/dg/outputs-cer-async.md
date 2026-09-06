@@ -1,14 +1,16 @@
-# Outputs for asynchronous analysis jobs
 
-After an analysis job completes, it stores the results in the S3 bucket that you specified in the
-request.
+
+# Outputs for asynchronous analysis jobs
+<a name="outputs-cer-async"></a>
+
+After an analysis job completes, it stores the results in the S3 bucket that you specified in the request.
 
 ## Outputs for text inputs
+<a name="outputs-cer-async-text"></a>
 
 For text input files, the output consists of a list of entities for each input document.
 
-The following example shows the output for two documents from an input file named **50\_docs**,
-using one document per line format.
+The following example shows the output for two documents from an input file named **50\_docs**, using one document per line format.
 
 ```
 {
@@ -42,27 +44,20 @@ using one document per line format.
 ```
 
 ## Outputs for semi-structured inputs
+<a name="outputs-cer-async-other"></a>
 
 For semi-structured input documents, the output can include the following additional fields:
++ DocumentMetadata – Extraction information about the document. The metadata includes a list of pages in the document, with the number of characters extracted from each page. This field is present in the response if the request included the `Byte` parameter.
++ DocumentType – The document type for each page in the input document. This field is present in the response for a request that included the `Byte` parameter.
++ Blocks – Information about each block of text in the input document. Blocks can nest within a block. A page block contains a block for each line of text, which contains a block for each word. This field is present in the response for a request that included the `Byte` parameter.
++ BlockReferences – A reference to each block for this entity. This field is present in the response for a request that included the `Byte` parameter. The field isn't present for text files.
++ Errors – Page-level errors that the system detected while processing the input document. The field is empty if the system encountered no errors.
 
-- DocumentMetadata – Extraction information about the document. The metadata includes a list of pages in the
-  document, with the number of characters extracted from each page. This field is present in the response if the
-  request included the `Byte` parameter.
-- DocumentType – The document type for each page in the input document. This field is present
-  in the response for a request that included the `Byte` parameter.
-- Blocks – Information about each block of text in the input document. Blocks can nest within a block. A page
-  block contains a block for each line of text, which contains a block for each word. This field is present in
-  the response for a request that included the `Byte` parameter.
-- BlockReferences – A reference to each block for this entity. This field is present in the response for a
-  request that included the `Byte` parameter. The field isn't present for text files.
-- Errors – Page-level errors that the system detected while processing the input document.
-  The field is empty if the system encountered no errors.
-
-For more details about these output fields, see [DetectEntities](../APIReference/API_DetectEntities.md "../APIReference/API_DetectEntities.md") in the _Amazon Comprehend API Reference_
+For more details about these output fields, see [DetectEntities](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectEntities.html) in the *Amazon Comprehend API Reference*
 
 The following example shows the output for a one-page native PDF input document.
 
-###### Example output from a custom entity recognition analysis of a PDF document
+**Example output from a custom entity recognition analysis of a PDF document**  
 
 ```
 {

@@ -1,79 +1,56 @@
+
+
 # Create an application that analyzes customer feedback and synthesizes audio
+<a name="example_cross_FSA_section"></a>
 
 The following code examples show how to create an application that analyzes customer comment cards, translates them from their original language, determines their sentiment, and generates an audio file from the translated text.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
+**SDK for .NET**  
+ This example application analyzes and stores customer feedback cards. Specifically, it fulfills the need of a fictitious hotel in New York City. The hotel receives feedback from guests in various languages in the form of physical comment cards. That feedback is uploaded into the app through a web client. After an image of a comment card is uploaded, the following steps occur:   
++ Text is extracted from the image using Amazon Textract.
++ Amazon Comprehend determines the sentiment of the extracted text and its language.
++ The extracted text is translated to English using Amazon Translate.
++ Amazon Polly synthesizes an audio file from the extracted text.
+ The full app can be deployed with the AWS CDK. For source code and deployment instructions, see the project in [ GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/FeedbackSentimentAnalyzer).   
 
-This example application analyzes and stores customer feedback cards. Specifically,
-it fulfills the need of a fictitious hotel in New York City. The hotel receives feedback
-from guests in various languages in the form of physical comment cards. That feedback
-is uploaded into the app through a web client.
+**Services used in this example**
++ Amazon Comprehend
++ Lambda
++ Amazon Polly
++ Amazon Textract
++ Amazon Translate
 
-After an image of a comment card is uploaded, the following steps occur:
+------
+#### [ Java ]
 
-- Text is extracted from the image using Amazon Textract.
-- Amazon Comprehend determines the sentiment of the extracted text and its language.
-- The extracted text is translated to English using Amazon Translate.
-- Amazon Polly synthesizes an audio file from the extracted text.
+**SDK for Java 2.x**  
+ This example application analyzes and stores customer feedback cards. Specifically, it fulfills the need of a fictitious hotel in New York City. The hotel receives feedback from guests in various languages in the form of physical comment cards. That feedback is uploaded into the app through a web client. After an image of a comment card is uploaded, the following steps occur:   
++ Text is extracted from the image using Amazon Textract.
++ Amazon Comprehend determines the sentiment of the extracted text and its language.
++ The extracted text is translated to English using Amazon Translate.
++ Amazon Polly synthesizes an audio file from the extracted text.
+ The full app can be deployed with the AWS CDK. For source code and deployment instructions, see the project in [ GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/creating_fsa_app).   
 
-The full app can be deployed with the AWS CDK. For source code and deployment
-instructions, see the project in [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/FeedbackSentimentAnalyzer "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/FeedbackSentimentAnalyzer").
+**Services used in this example**
++ Amazon Comprehend
++ Lambda
++ Amazon Polly
++ Amazon Textract
++ Amazon Translate
 
-###### Services used in this example
+------
+#### [ JavaScript ]
 
-- Amazon Comprehend
-- Lambda
-- Amazon Polly
-- Amazon Textract
-- Amazon Translate
-
-Java
-
-**SDK for Java 2.x**
-
-This example application analyzes and stores customer feedback cards. Specifically,
-it fulfills the need of a fictitious hotel in New York City. The hotel receives feedback
-from guests in various languages in the form of physical comment cards. That feedback
-is uploaded into the app through a web client.
-
-After an image of a comment card is uploaded, the following steps occur:
-
-- Text is extracted from the image using Amazon Textract.
-- Amazon Comprehend determines the sentiment of the extracted text and its language.
-- The extracted text is translated to English using Amazon Translate.
-- Amazon Polly synthesizes an audio file from the extracted text.
-
-The full app can be deployed with the AWS CDK. For source code and deployment
-instructions, see the project in [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/creating_fsa_app "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/creating_fsa_app").
-
-###### Services used in this example
-
-- Amazon Comprehend
-- Lambda
-- Amazon Polly
-- Amazon Textract
-- Amazon Translate
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-This example application analyzes and stores customer feedback cards. Specifically,
-it fulfills the need of a fictitious hotel in New York City. The hotel receives feedback
-from guests in various languages in the form of physical comment cards. That feedback
-is uploaded into the app through a web client.
-
-After an image of a comment card is uploaded, the following steps occur:
-
-- Text is extracted from the image using Amazon Textract.
-- Amazon Comprehend determines the sentiment of the extracted text and its language.
-- The extracted text is translated to English using Amazon Translate.
-- Amazon Polly synthesizes an audio file from the extracted text.
-
-The full app can be deployed with the AWS CDK. For source code and deployment
-instructions, see the project in [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/feedback-sentiment-analyzer "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/feedback-sentiment-analyzer"). The following excerpts show how the AWS SDK for JavaScript is used inside of Lambda functions.
+**SDK for JavaScript (v3)**  
+ This example application analyzes and stores customer feedback cards. Specifically, it fulfills the need of a fictitious hotel in New York City. The hotel receives feedback from guests in various languages in the form of physical comment cards. That feedback is uploaded into the app through a web client. After an image of a comment card is uploaded, the following steps occur:   
++ Text is extracted from the image using Amazon Textract.
++ Amazon Comprehend determines the sentiment of the extracted text and its language.
++ The extracted text is translated to English using Amazon Translate.
++ Amazon Polly synthesizes an audio file from the extracted text.
+ The full app can be deployed with the AWS CDK. For source code and deployment instructions, see the project in [ GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/feedback-sentiment-analyzer). The following excerpts show how the AWS SDK for JavaScript is used inside of Lambda functions.   
 
 ```
 import {
@@ -114,7 +91,6 @@ export const handler = async (extractTextOutput) => {
     language_code: languageCode,
   };
 };
-
 ```
 
 ```
@@ -152,7 +128,6 @@ export const handler = async (eventBridgeS3Event) => {
 
   return extractedWords.join(" ");
 };
-
 ```
 
 ```
@@ -194,7 +169,6 @@ export const handler = async (sourceDestinationConfig) => {
   await upload.done();
   return audioKey;
 };
-
 ```
 
 ```
@@ -221,44 +195,33 @@ export const handler = async (textAndSourceLanguage) => {
 
   return { translated_text: TranslatedText };
 };
-
 ```
 
-###### Services used in this example
+**Services used in this example**
++ Amazon Comprehend
++ Lambda
++ Amazon Polly
++ Amazon Textract
++ Amazon Translate
 
-- Amazon Comprehend
-- Lambda
-- Amazon Polly
-- Amazon Textract
-- Amazon Translate
+------
+#### [ Ruby ]
 
-Ruby
+**SDK for Ruby**  
+ This example application analyzes and stores customer feedback cards. Specifically, it fulfills the need of a fictitious hotel in New York City. The hotel receives feedback from guests in various languages in the form of physical comment cards. That feedback is uploaded into the app through a web client. After an image of a comment card is uploaded, the following steps occur:   
++ Text is extracted from the image using Amazon Textract.
++ Amazon Comprehend determines the sentiment of the extracted text and its language.
++ The extracted text is translated to English using Amazon Translate.
++ Amazon Polly synthesizes an audio file from the extracted text.
+ The full app can be deployed with the AWS CDK. For source code and deployment instructions, see the project in [ GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/cross_service_examples/feedback_sentiment_analyzer).   
 
-**SDK for Ruby**
+**Services used in this example**
++ Amazon Comprehend
++ Lambda
++ Amazon Polly
++ Amazon Textract
++ Amazon Translate
 
-This example application analyzes and stores customer feedback cards. Specifically,
-it fulfills the need of a fictitious hotel in New York City. The hotel receives feedback
-from guests in various languages in the form of physical comment cards. That feedback
-is uploaded into the app through a web client.
+------
 
-After an image of a comment card is uploaded, the following steps occur:
-
-- Text is extracted from the image using Amazon Textract.
-- Amazon Comprehend determines the sentiment of the extracted text and its language.
-- The extracted text is translated to English using Amazon Translate.
-- Amazon Polly synthesizes an audio file from the extracted text.
-
-The full app can be deployed with the AWS CDK. For source code and deployment
-instructions, see the project in [GitHub](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/cross_service_examples/feedback_sentiment_analyzer "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/cross_service_examples/feedback_sentiment_analyzer").
-
-###### Services used in this example
-
-- Amazon Comprehend
-- Lambda
-- Amazon Polly
-- Amazon Textract
-- Amazon Translate
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

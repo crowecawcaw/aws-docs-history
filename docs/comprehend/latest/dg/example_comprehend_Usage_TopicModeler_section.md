@@ -1,22 +1,19 @@
+
+
 # Run an Amazon Comprehend topic modeling job on sample data using an AWS SDK
+<a name="example_comprehend_Usage_TopicModeler_section"></a>
 
 The following code example shows how to:
++ Run an Amazon Comprehend topic modeling job on sample data.
++ Get information about the job.
++ Extract job output data from Amazon S3.
 
-- Run an Amazon Comprehend topic modeling job on sample data.
-- Get information about the job.
-- Extract job output data from Amazon S3.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
-
-Create a wrapper class to call Amazon Comprehend topic modeling actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
+Create a wrapper class to call Amazon Comprehend topic modeling actions.  
 
 ```
 class ComprehendTopicModeler:
@@ -113,13 +110,8 @@ class ComprehendTopicModeler:
             raise
         else:
             return jobs
-
-
-
-
 ```
-
-Use the wrapper class to run a topic modeling job and get job data.
+Use the wrapper class to run a topic modeling job and get job data.  
 
 ```
 def usage_demo():
@@ -182,18 +174,12 @@ def usage_demo():
 
     print("Thanks for watching!")
     print("-" * 88)
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [DescribeTopicsDetectionJob](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DescribeTopicsDetectionJob)
+  + [ListTopicsDetectionJobs](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/ListTopicsDetectionJobs)
+  + [StartTopicsDetectionJob](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/StartTopicsDetectionJob)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [DescribeTopicsDetectionJob](../../../goto/boto3/comprehend-2017-11-27/DescribeTopicsDetectionJob.md "../../../goto/boto3/comprehend-2017-11-27/DescribeTopicsDetectionJob.md")
-  - [ListTopicsDetectionJobs](../../../goto/boto3/comprehend-2017-11-27/ListTopicsDetectionJobs.md "../../../goto/boto3/comprehend-2017-11-27/ListTopicsDetectionJobs.md")
-  - [StartTopicsDetectionJob](../../../goto/boto3/comprehend-2017-11-27/StartTopicsDetectionJob.md "../../../goto/boto3/comprehend-2017-11-27/StartTopicsDetectionJob.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

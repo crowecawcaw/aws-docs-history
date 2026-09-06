@@ -1,9 +1,12 @@
+
+
 # Outputs for real-time analysis
+<a name="outputs-cer-sync"></a>
 
 ## Outputs for text inputs
+<a name="outputs-cer-sync-text"></a>
 
-If you input text using the `Text` parameter, the output consists of an array of entities that
-the analysis detected. The following example shows an analysis that detected two JUDGE entities.
+If you input text using the `Text` parameter, the output consists of an array of entities that the analysis detected. The following example shows an analysis that detected two JUDGE entities.
 
 ```
 {
@@ -28,26 +31,16 @@ the analysis detected. The following example shows an analysis that detected two
 ```
 
 ## Outputs for semi-structured inputs
+<a name="outputs-cer-sync-other"></a>
 
 For a semi-structured input document, or a text file, the output can include the following additional fields:
++ DocumentMetadata – Extraction information about the document. The metadata includes a list of pages in the document, with the number of characters extracted from each page. This field is present in the response if the request included the `Byte` parameter.
++ DocumentType – The document type for each page in the input document. This field is present in the response for a request that included the `Byte` parameter.
++ Blocks – Information about each block of text in the input document. Blocks are nested. A page block contains a block for each line of text, which contains a block for each word. This field is present in the response for a request that included the `Byte` parameter.
++ BlockReferences – A reference to each block for this entity. This field is present in the response for a request that included the `Byte` parameter. The field is not present for text files.
++ Errors – Page-level errors that the system detected while processing the input document. The field is empty if the system encountered no errors.
 
-- DocumentMetadata – Extraction information about the document. The metadata includes a list of pages in the
-  document, with the number of characters extracted from each page. This field is present in the response if the
-  request included the `Byte` parameter.
-- DocumentType – The document type for each page in the input document. This field is present
-  in the response for a request that included the `Byte` parameter.
-- Blocks – Information about each block of text in the input document. Blocks are nested.
-  A page block contains a block for each line of text, which contains a block for each word. This field is present
-  in the response for a request that included the `Byte` parameter.
-- BlockReferences – A reference to each block for this entity. This field is present
-  in the response for a request that included the `Byte` parameter. The field is
-  not present for text files.
-- Errors – Page-level errors that the system detected while processing the input document.
-  The field is empty if the system encountered no errors.
-
-For descriptions of these output fields, see [DetectEntities](../APIReference/API_DetectEntities.md "../APIReference/API_DetectEntities.md") in the _Amazon Comprehend API Reference_. For more information
-about the layout elements, see [Amazon Textract analysis objects](../../../textract/latest/dg/how-it-works-document-layout.md "../../../textract/latest/dg/how-it-works-document-layout.md") in the
-Amazon Textract Developer Guide.
+For descriptions of these output fields, see [DetectEntities](https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectEntities.html) in the *Amazon Comprehend API Reference*. For more information about the layout elements, see [Amazon Textract analysis objects](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-document-layout.html) in the Amazon Textract Developer Guide.
 
 The following example shows the output for a one-page scanned PDF input document.
 
@@ -133,7 +126,7 @@ The following example shows the output for a one-page scanned PDF input document
 
 The following example shows the output for analysis of a native PDF document.
 
-###### Example output from a custom entity recognition analysis of a PDF document
+**Example output from a custom entity recognition analysis of a PDF document**  
 
 ```
 {

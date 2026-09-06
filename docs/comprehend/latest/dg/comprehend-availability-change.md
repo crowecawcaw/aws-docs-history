@@ -1,39 +1,36 @@
+
+
 # Amazon Comprehend feature availability change
+<a name="comprehend-availability-change"></a>
 
-###### Note
+**Note**  
+Amazon Comprehend topic modeling, event detection, and prompt safety classification features are no longer available to new customers.
 
-Amazon Comprehend topic modeling, event detection, and prompt safety classification features are no longer
-available to new customers.
-
-After careful consideration, we decided that Amazon Comprehend topic modeling, event detection, and
-prompt safety classification are no longer available to new customers.
-No action is required for accounts that have used these features within the last 12 months—these accounts
-will continue to have access.
+After careful consideration, we decided that Amazon Comprehend topic modeling, event detection, and prompt safety classification are no longer available to new customers. No action is required for accounts that have used these features within the last 12 months—these accounts will continue to have access.
 
 This does not impact the availability of other Amazon Comprehend features.
 
 Resources to help with the migration to alternative solutions:
++ Use Amazon Bedrock LLMs to identify topics and detect events
++ Use Amazon Bedrock Guardrails for prompt safety classification
 
-- Use Amazon Bedrock LLMs to identify topics and detect events
-- Use Amazon Bedrock Guardrails for prompt safety classification
-  If you have additional questions, please reach out to
-  [AWS Support](https://console.aws.amazon.com/support/ "https://console.aws.amazon.com/support/").
+If you have additional questions, please reach out to [AWS Support](https://console.aws.amazon.com/support/).
 
 ## Migrate from Amazon Comprehend event detection
+<a name="comprehend-migrate-events"></a>
 
-You can use Amazon Bedrock as an alternative for Amazon Comprehend event detection. This guide provides
-step-by-step instructions for migrating your event extraction workloads from Amazon Comprehend event detection
-to Amazon Bedrock using Claude Sonnet 4.6 for real-time inference.
+You can use Amazon Bedrock as an alternative for Amazon Comprehend event detection. This guide provides step-by-step instructions for migrating your event extraction workloads from Amazon Comprehend event detection to Amazon Bedrock using Claude Sonnet 4.6 for real-time inference.
 
-###### Note
-
+**Note**  
 You can choose any model. This example uses Claude Sonnet 4.6.
 
 ### Real-time processing
+<a name="comprehend-migrate-events-realtime"></a>
 
 This section covers processing one document using real-time inference.
 
 #### Step 1: Upload your document to Amazon S3
+<a name="comprehend-migrate-events-step1"></a>
 
 AWS CLI command:
 
@@ -44,6 +41,7 @@ aws s3 cp your-document.txt s3://your-bucket-name/input/your-document.txt
 Note the S3 URI for Step 3: `s3://your-bucket-name/input/your-document.txt`
 
 #### Step 2: Create your system prompt and user prompt
+<a name="comprehend-migrate-events-step2"></a>
 
 System prompt:
 
@@ -152,9 +150,9 @@ Document:
 ```
 
 #### Step 3: Run the Amazon Bedrock job
+<a name="comprehend-migrate-events-step3"></a>
 
-Call the Amazon Bedrock API using the system and user prompts to extract events from the document
-you uploaded to Amazon S3.
+Call the Amazon Bedrock API using the system and user prompts to extract events from the document you uploaded to Amazon S3.
 
 Python example:
 
@@ -222,10 +220,12 @@ if __name__ == "__main__":
 ```
 
 ### Batch processing
+<a name="comprehend-migrate-events-batch"></a>
 
 This section covers processing batch documents (minimum 100 documents) using Amazon Bedrock batch inference.
 
 #### Step 1: Prepare input file
+<a name="comprehend-migrate-events-batch-step1"></a>
 
 Create a JSONL file where each line contains one document request:
 
@@ -235,12 +235,14 @@ Create a JSONL file where each line contains one document request:
 ```
 
 #### Step 2: Upload to Amazon S3
+<a name="comprehend-migrate-events-batch-step2"></a>
 
 ```
 aws s3 cp batch-input.jsonl s3://your-bucket/input/your-filename.jsonl
 ```
 
 #### Step 3: Create batch inference job
+<a name="comprehend-migrate-events-batch-step3"></a>
 
 ```
 aws bedrock create-model-invocation-job \
@@ -252,10 +254,10 @@ aws bedrock create-model-invocation-job \
   --region us-east-1
 ```
 
-Replace `YOUR_ACCOUNT_ID` with your AWS account ID and ensure the IAM role
-has permissions to read from the input Amazon S3 location and write to the output location.
+Replace `YOUR_ACCOUNT_ID` with your AWS account ID and ensure the IAM role has permissions to read from the input Amazon S3 location and write to the output location.
 
 #### Step 4: Monitor job status
+<a name="comprehend-migrate-events-batch-step4"></a>
 
 ```
 aws bedrock get-model-invocation-job \
@@ -266,25 +268,28 @@ aws bedrock get-model-invocation-job \
 The job status will progress through: Submitted, InProgress, Completed.
 
 ### Tuning your prompts
+<a name="comprehend-migrate-events-tuning"></a>
 
 If results don't meet expectations, iterate on the system prompt:
 
 1. Add domain-specific terminology: Include industry-specific terms and acronyms.
-2. Provide examples: Add few-shot examples for edge cases.
-3. Refine extraction rules: Adjust entity type definitions and role mappings.
-4. Test incrementally: Make small changes and validate each iteration.
+
+1. Provide examples: Add few-shot examples for edge cases.
+
+1. Refine extraction rules: Adjust entity type definitions and role mappings.
+
+1. Test incrementally: Make small changes and validate each iteration.
 
 ## Migrate from Amazon Comprehend topic modeling
+<a name="comprehend-migrate-topics"></a>
 
-You can use Amazon Bedrock as an alternative for Amazon Comprehend topic modeling. This guide provides
-step-by-step instructions for migrating your topic detection workloads from Amazon Comprehend to Amazon Bedrock
-using Claude Sonnet 4 for batch inference.
+You can use Amazon Bedrock as an alternative for Amazon Comprehend topic modeling. This guide provides step-by-step instructions for migrating your topic detection workloads from Amazon Comprehend to Amazon Bedrock using Claude Sonnet 4 for batch inference.
 
-###### Note
-
+**Note**  
 You can choose any model. This example uses Claude Sonnet 4.
 
 ### Step 1: Create your system prompt and user prompt
+<a name="comprehend-migrate-topics-step1"></a>
 
 For the system prompt, define the topics for topic modeling to work as expected.
 
@@ -321,9 +326,9 @@ Analyze this document and identify its topics:
 ```
 
 ### Step 2: Prepare your JSONL document
+<a name="comprehend-migrate-topics-step2"></a>
 
-Create a JSONL file where each line contains one document request. Each document must use
-the following format with the system prompt and user prompt you defined:
+Create a JSONL file where each line contains one document request. Each document must use the following format with the system prompt and user prompt you defined:
 
 ```
 record = {
@@ -341,12 +346,14 @@ record = {
 ```
 
 ### Step 3: Upload the JSONL file to Amazon S3
+<a name="comprehend-migrate-topics-step3"></a>
 
 ```
 aws s3 cp batch-input.jsonl s3://your-bucket/topics-input/your-document.jsonl
 ```
 
 ### Step 4: Create Amazon Bedrock batch inference job
+<a name="comprehend-migrate-topics-step4"></a>
 
 ```
 aws bedrock create-model-invocation-job \
@@ -361,6 +368,7 @@ aws bedrock create-model-invocation-job \
 Replace `YOUR_ACCOUNT_ID` with your AWS account ID.
 
 ### Step 5: Monitor job progress
+<a name="comprehend-migrate-topics-step5"></a>
 
 Extract the job ID from the ARN (the last part after the final /) and monitor the job status:
 
@@ -375,26 +383,29 @@ aws bedrock get-model-invocation-job \
 ```
 
 Job status values:
-
-- **Submitted** – Job queued and waiting to start
-- **InProgress** – Currently processing documents
-- **Completed** – Finished successfully
-- **Failed** – Error occurred during processing
++ **Submitted** – Job queued and waiting to start
++ **InProgress** – Currently processing documents
++ **Completed** – Finished successfully
++ **Failed** – Error occurred during processing
 
 ### Tuning strategies
+<a name="comprehend-migrate-topics-tuning"></a>
 
 1. Add examples: Include 2–3 sample documents for each topic.
-2. Clarify boundaries: Explain differences between similar topics.
-3. Adjust selectivity: Control how many topics are assigned per your source document.
-4. Domain terminology: Add industry-specific terms and acronyms.
+
+1. Clarify boundaries: Explain differences between similar topics.
+
+1. Adjust selectivity: Control how many topics are assigned per your source document.
+
+1. Domain terminology: Add industry-specific terms and acronyms.
 
 ## Migrate from Amazon Comprehend prompt safety classification
+<a name="comprehend-migrate-prompt-safety"></a>
 
-You can use Amazon Bedrock Guardrails as an alternative for Amazon Comprehend prompt safety classification.
-This guide provides step-by-step instructions for migrating your prompt safety classification
-workloads from Amazon Comprehend to Amazon Bedrock Guardrails.
+You can use Amazon Bedrock Guardrails as an alternative for Amazon Comprehend prompt safety classification. This guide provides step-by-step instructions for migrating your prompt safety classification workloads from Amazon Comprehend to Amazon Bedrock Guardrails.
 
 ### Step 1: Create a Amazon Bedrock guardrail
+<a name="comprehend-migrate-prompt-step1"></a>
 
 Create a guardrail with the `PROMPT_ATTACK` filter enabled:
 
@@ -430,6 +441,7 @@ Expected output:
 Save the `guardrailId` for use in subsequent steps.
 
 ### Step 2: Run the job using Amazon Bedrock Guardrails
+<a name="comprehend-migrate-prompt-step2"></a>
 
 The following example shows how to detect a jailbreak attempt.
 
@@ -475,5 +487,4 @@ Example output:
 }
 ```
 
-For more information, see [Guardrails for Amazon Bedrock](../../../bedrock/latest/userguide/guardrails.md "../../../bedrock/latest/userguide/guardrails.md") in the
-_Amazon Bedrock User Guide_.
+For more information, see [Guardrails for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) in the *Amazon Bedrock User Guide*.

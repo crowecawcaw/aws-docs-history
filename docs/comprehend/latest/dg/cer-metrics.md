@@ -1,71 +1,47 @@
+
+
 # Custom entity recognizer metrics
+<a name="cer-metrics"></a>
 
-Amazon Comprehend provides you with metrics to help you estimate how well an entity
-recognizer should work for your job. They are based on training the recognizer model, and so
-while they accurately represent the performance of the model during training, they are only an
-approximation of the API performance during entity discovery.
+Amazon Comprehend provides you with metrics to help you estimate how well an entity recognizer should work for your job. They are based on training the recognizer model, and so while they accurately represent the performance of the model during training, they are only an approximation of the API performance during entity discovery. 
 
-Metrics are returned any time metadata from a trained entity recognizer is returned.
+Metrics are returned any time metadata from a trained entity recognizer is returned. 
 
-Amazon Comprehend supports training a model on up to 25 entities at a time. When metrics are returned
-from a trained entity recognizer, scores are computed against both the recognizer as a whole
-(global metrics) and for each individual entity (entity metrics).
+Amazon Comprehend supports training a model on up to 25 entities at a time. When metrics are returned from a trained entity recognizer, scores are computed against both the recognizer as a whole (global metrics) and for each individual entity (entity metrics).
 
-Three metrics are available, both as global and entity metrics:
+Three metrics are available, both as global and entity metrics: 
++ **Precision**
 
-- **Precision**
+  This indicates the fraction of entities produced by the system that are correctly identified and correctly labeled. This shows how many times the model's entity identification is truly a good identification. It is a percentage of the total number of identifications. 
 
-This indicates the fraction of entities produced by the system that are correctly
-identified and correctly labeled. This shows how many times the model's entity identification
-is truly a good identification. It is a percentage of the total number of identifications.
+  In other words, precision is based on *true positives (tp)* and *false positives (fp)* and it is calculated as *precision = tp / (tp \+ fp)*.
 
-In other words, precision is based on _true positives (tp)_ and
-_false positives (fp)_ and it is calculated as _precision = tp
-/ (tp + fp)_.
+  For example, if a model predicts that two examples of an entity are present in a document, where there's actually only one, the result is one true positive and one false positive. In this case, *precision = 1 / (1 \+ 1)*. The precision is 50%, as one entity is correct out of the two identified by the model. 
 
-For example, if a model predicts that two examples of an entity are present in a
-document, where there's actually only one, the result is one true positive and one false
-positive. In this case, _precision = 1 / (1 + 1)_. The precision is 50%,
-as one entity is correct out of the two identified by the model.
+  
++  **Recall**
 
-- **Recall**
+  This indicates the fraction of entities present in the documents that are correctly identified and labeled by the system. Mathematically, this is defined in terms of the total number of correct identifications *true positives (tp)* and missed identifcations *false negatives (fn)*. 
 
-This indicates the fraction of entities present in the documents that are correctly
-identified and labeled by the system. Mathematically, this is defined in terms of the total
-number of correct identifications _true positives (tp)_ and missed
-identifcations _false negatives (fn)_.
+   It is calculated as *recall = tp / (tp \+ fn)*. For example if a model correctly identifies one entity, but misses two other instances where that entity is present, the result is one true positive and two false negatives. In this case, *recall = 1 / (1 \+ 2)*. The recall is 33.33%, as one entity is correct out of a possible three examples.
 
-It is calculated as _recall = tp / (tp + fn)_. For example if a
-model correctly identifies one entity, but misses two other instances where that entity is
-present, the result is one true positive and two false negatives. In this case,
-_recall = 1 / (1 + 2)_. The recall is 33.33%, as one entity is correct
-out of a possible three examples.
+  
++ **F1 score** 
 
-- **F1 score**
+  This is a combination of the Precision and Recall metrics, which measures the overall accuracy of the model for custom entity recognition. The F1 score is the harmonic mean of the Precision and Recall metrics: *F1 = 2 \* Precision \* Recall / (Precision \+ Recall) *.
+**Note**  
+Intuitively, the harmonic mean penalizes the extremes more than the simple average or other means (example: `precision` = 0, `recall` = 1 could be achieved trivially by predicting all possible spans. Here, the simple average would be 0.5, but `F1` would penalize it as 0). 
 
-This is a combination of the Precision and Recall metrics, which measures the overall
-accuracy of the model for custom entity recognition. The F1 score is the harmonic mean of
-the Precision and Recall metrics: _F1 = 2 \* Precision \* Recall / (Precision +
-Recall)_ .
+  In the examples above, `precision` = 50% and `recall` = 33.33%, therefore `F1` = 2 \* 0.5 \* 0.3333 / (0.5 \+ 0.3333). The F1 Score is .3975, or 39.75%.
 
-###### Note
+  
 
-Intuitively, the harmonic mean penalizes the extremes more than the simple average or
-other means (example: `precision` = 0, `recall` = 1 could be
-achieved trivially by predicting all possible spans. Here, the simple average would be
-0.5, but `F1` would penalize it as 0).
-
-In the examples above, `precision` = 50% and `recall` = 33.33%,
-therefore `F1` = 2 \* 0.5 \* 0.3333 / (0.5 + 0.3333). The F1 Score is .3975, or
-39.75%.
 **Global and individual entity metrics**
 
-The relationship between global and individual entity metrics can be seen when analyzing the
-following sentence for entities that are either a _place_ or a
-_person_
+The relationship between global and individual entity metrics can be seen when analyzing the following sentence for entities that are either a *place* or a *person*
 
 ```
-John Washington and his friend Smith live in San Francisco, work in San Diego, and own
+John Washington and his friend Smith live in San Francisco, work in San Diego, and own 
     a house in Seattle.
 ```
 
@@ -83,7 +59,7 @@ However, the predictions should have been the following.
 
 ```
 John Washington = Person
-Smith = Person
+Smith = Person  
 San Francisco = Place
 San Diego = Place
 Seattle = Place
@@ -93,22 +69,22 @@ The individual entity metrics for this would be:
 
 ```
 entity:  Person
-  True positive (TP) = 1 (because John Washington is correctly predicted to be a
+  True positive (TP) = 1 (because John Washington is correctly predicted to be a 
     Person).
-  False positive (FP) = 1 (because Seattle is incorrectly predicted to be a Person,
+  False positive (FP) = 1 (because Seattle is incorrectly predicted to be a Person, 
     but is actually a Place).
-  False negative (FN) = 1 (because Smith is incorrectly predicted to be a Place, but
+  False negative (FN) = 1 (because Smith is incorrectly predicted to be a Place, but 
     is actually a Person).
   Precision = 1 / (1 + 1) = 0.5 or 50%
   Recall = 1 / (1+1) = 0.5 or 50%
   F1 Score = 2 * 0.5 * 0.5 / (0.5 + 0.5) = 0.5 or 50%
-
+  
 entity:  Place
-  TP = 2 (because San Francisco and San Diego are each correctly predicted to be a
+  TP = 2 (because San Francisco and San Diego are each correctly predicted to be a 
     Place).
-  FP = 1 (because Smith is incorrectly predicted to be a Place, but is actually a
+  FP = 1 (because Smith is incorrectly predicted to be a Place, but is actually a 
     Person).
-  FN = 1 (because Seattle is incorrectly predicted to be a Person, but is actually a
+  FN = 1 (because Seattle is incorrectly predicted to be a Person, but is actually a 
     Place).
   Precision = 2 / (2+1) = 0.6667 or 66.67%
   Recall = 2 / (2+1) = 0.6667 or 66.67%
@@ -121,32 +97,30 @@ Global:
 
 ```
 Global:
-  TP = 3 (because John Washington, San Francisco and San Diego are predicted correctly.
+  TP = 3 (because John Washington, San Francisco and San Diego are predicted correctly. 
     This is also the sum of all individual entity TP).
-  FP = 2 (because Seattle is predicted as Person and Smith is predicted as Place. This
+  FP = 2 (because Seattle is predicted as Person and Smith is predicted as Place. This 
     is the sum of all individual entity FP).
-  FN = 2 (because Seattle is predicted as Person and Smith is predicted as Place. This
+  FN = 2 (because Seattle is predicted as Person and Smith is predicted as Place. This 
     is the sum of all individual FN).
-  Global Precision = 3 / (3+2) = 0.6 or 60%
+  Global Precision = 3 / (3+2) = 0.6 or 60%  
     (Global Precision = Global TP / (Global TP + Global FP))
-  Global Recall = 3 / (3+2) = 0.6 or 60%
+  Global Recall = 3 / (3+2) = 0.6 or 60% 
     (Global Recall = Global TP / (Global TP + Global FN))
-  Global F1Score = 2 * 0.6 * 0.6 / (0.6 + 0.6) = 0.6 or 60%
-    (Global F1Score = 2 * Global Precision *  Global Recall / (Global Precision +
+  Global F1Score = 2 * 0.6 * 0.6 / (0.6 + 0.6) = 0.6 or 60% 
+    (Global F1Score = 2 * Global Precision *  Global Recall / (Global Precision + 
     Global Recall))
 ```
 
+
+
 ## Improving custom entity recognizer performance
+<a name="cer-performance"></a>
 
-These metrics provide an insight into how accurately the trained model will perform when
-you use it to identify entities. Here are a few options you can use to improve your metrics if
-they are lower than your expectations:
+These metrics provide an insight into how accurately the trained model will perform when you use it to identify entities. Here are a few options you can use to improve your metrics if they are lower than your expectations:
 
-1. Depending on whether you use [Annotations](cer-annotation.md "cer-annotation.md") or [Entity lists (plaintext only)](cer-entity-list.md "cer-entity-list.md"), make sure to follow the guidelines in the respective
-   documentation to improve data quality. If you observe better metrics after improving your
-   data and re-training the model, you can keep iterating and improving data quality to
-   achieve better model performance.
-2. If you are using an Entity List, consider using Annotations instead. Manual
-   annotations can often improve your results.
-3. If you are sure there is not a data quality issue, and yet the metrics remain
-   unreasonably low, please submit a support request.
+1. Depending on whether you use [Annotations](cer-annotation.md) or [Entity lists (plaintext only)](cer-entity-list.md), make sure to follow the guidelines in the respective documentation to improve data quality. If you observe better metrics after improving your data and re-training the model, you can keep iterating and improving data quality to achieve better model performance.
+
+1. If you are using an Entity List, consider using Annotations instead. Manual annotations can often improve your results.
+
+1. If you are sure there is not a data quality issue, and yet the metrics remain unreasonably low, please submit a support request.

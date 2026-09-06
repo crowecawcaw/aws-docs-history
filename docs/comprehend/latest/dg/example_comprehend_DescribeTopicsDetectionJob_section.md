@@ -1,27 +1,25 @@
+
+
 # Use `DescribeTopicsDetectionJob` with an AWS SDK or CLI
+<a name="example_comprehend_DescribeTopicsDetectionJob_section"></a>
 
 The following code examples show how to use `DescribeTopicsDetectionJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Run a topic modeling job on sample data](example_comprehend_Usage_TopicModeler_section.md) 
 
-- [Run a topic modeling job on sample data](example_comprehend_Usage_TopicModeler_section.md "example_comprehend_Usage_TopicModeler_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To describe a topics detection job**
-
-The following `describe-topics-detection-job` example gets the properties of an asynchronous topics detection job.
+**AWS CLI**  
+**To describe a topics detection job**  
+The following `describe-topics-detection-job` example gets the properties of an asynchronous topics detection job.  
 
 ```
-`aws comprehend describe-topics-detection-job \
- --job-id `123456abcdeb0e11022f22a11EXAMPLE``
-
+aws comprehend describe-topics-detection-job \
+    --job-id {{123456abcdeb0e11022f22a11EXAMPLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -43,22 +41,14 @@ Output:
     }
 }
 ```
+For more information, see [Async analysis for Amazon Comprehend insights](https://docs.aws.amazon.com/comprehend/latest/dg/api-async-insights.html) in the *Amazon Comprehend Developer Guide*.  
++  For API details, see [DescribeTopicsDetectionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-topics-detection-job.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Async analysis for Amazon Comprehend insights](api-async-insights.md "api-async-insights.md") in the _Amazon Comprehend Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [DescribeTopicsDetectionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-topics-detection-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/describe-topics-detection-job.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
 ```
 class ComprehendTopicModeler:
@@ -89,24 +79,14 @@ class ComprehendTopicModeler:
             raise
         else:
             return job
-
-
-
 ```
++  For API details, see [DescribeTopicsDetectionJob](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DescribeTopicsDetectionJob) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeTopicsDetectionJob](../../../goto/boto3/comprehend-2017-11-27/DescribeTopicsDetectionJob.md "../../../goto/boto3/comprehend-2017-11-27/DescribeTopicsDetectionJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
 ```
     TRY.
@@ -123,14 +103,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cpdinternalserverex.
         MESSAGE 'Internal server error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeTopicsDetectionJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeTopicsDetectionJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,52 +1,44 @@
+
+
 # Use `StartDocumentClassificationJob` with an AWS SDK or CLI
+<a name="example_comprehend_StartDocumentClassificationJob_section"></a>
 
 The following code examples show how to use `StartDocumentClassificationJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Train a custom classifier and classify documents](example_comprehend_Usage_ComprehendClassifier_section.md) 
 
-- [Train a custom classifier and classify documents](example_comprehend_Usage_ComprehendClassifier_section.md "example_comprehend_Usage_ComprehendClassifier_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To start document classification job**
-
-The following `start-document-classification-job` example starts a document classification job with a custom model on all of the files at the address specified by the `--input-data-config` tag.
-In this example, the input S3 bucket contains `SampleSMStext1.txt`, `SampleSMStext2.txt`, and `SampleSMStext3.txt`. The model was previously trained on document classifications
-of spam and non-spam, or, "ham", SMS messages. When the job is complete, `output.tar.gz` is put at the location specified by the `--output-data-config` tag. `output.tar.gz` contains `predictions.jsonl`
-which lists the classification of each document. The Json output is printed on one line per file, but is formatted here for readability.
+**AWS CLI**  
+**To start document classification job**  
+The following `start-document-classification-job` example starts a document classification job with a custom model on all of the files at the address specified by the `--input-data-config` tag. In this example, the input S3 bucket contains `SampleSMStext1.txt`, `SampleSMStext2.txt`, and `SampleSMStext3.txt`. The model was previously trained on document classifications of spam and non-spam, or, "ham", SMS messages. When the job is complete, `output.tar.gz` is put at the location specified by the `--output-data-config` tag. `output.tar.gz` contains `predictions.jsonl` which lists the classification of each document. The Json output is printed on one line per file, but is formatted here for readability.  
 
 ```
-`aws comprehend start-document-classification-job \
- --job-name `exampleclassificationjob` \
- --input-data-config `"S3Uri=s3://amzn-s3-demo-bucket-INPUT/jobdata/"` \
- --output-data-config `"S3Uri=s3://amzn-s3-demo-destination-bucket/testfolder/"` \
- --data-access-role-arn `arn:aws:iam::111122223333:role/service-role/AmazonComprehendServiceRole-example-role` \
- --document-classifier-arn `arn:aws:comprehend:us-west-2:111122223333:document-classifier/mymodel/version/12``
-
+aws comprehend start-document-classification-job \
+    --job-name {{exampleclassificationjob}} \
+    --input-data-config {{"S3Uri=s3://amzn-s3-demo-bucket-INPUT/jobdata/"}} \
+    --output-data-config {{"S3Uri=s3://amzn-s3-demo-destination-bucket/testfolder/"}} \
+    --data-access-role-arn {{arn:aws:iam::111122223333:role/service-role/AmazonComprehendServiceRole-example-role}} \
+    --document-classifier-arn {{arn:aws:comprehend:us-west-2:111122223333:document-classifier/mymodel/version/12}}
 ```
-
-Contents of `SampleSMStext1.txt`:
+Contents of `SampleSMStext1.txt`:  
 
 ```
 "CONGRATULATIONS! TXT 2155550100 to win $5000"
 ```
-
-Contents of `SampleSMStext2.txt`:
+Contents of `SampleSMStext2.txt`:  
 
 ```
 "Hi, when do you want me to pick you up from practice?"
 ```
-
-Contents of `SampleSMStext3.txt`:
+Contents of `SampleSMStext3.txt`:  
 
 ```
 "Plz send bank account # to 2155550100 to claim prize!!"
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -55,30 +47,21 @@ Output:
     "JobStatus": "SUBMITTED"
 }
 ```
-
-Contents of `predictions.jsonl`:
+Contents of `predictions.jsonl`:  
 
 ```
 {"File": "SampleSMSText1.txt", "Line": "0", "Classes": [{"Name": "spam", "Score": 0.9999}, {"Name": "ham", "Score": 0.0001}]}
 {"File": "SampleSMStext2.txt", "Line": "0", "Classes": [{"Name": "ham", "Score": 0.9994}, {"Name": "spam", "Score": 0.0006}]}
 {"File": "SampleSMSText3.txt", "Line": "0", "Classes": [{"Name": "spam", "Score": 0.9999}, {"Name": "ham", "Score": 0.0001}]}
 ```
+For more information, see [Custom Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html) in the *Amazon Comprehend Developer Guide*.  
++  For API details, see [StartDocumentClassificationJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/start-document-classification-job.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Custom Classification](how-document-classification.md "how-document-classification.md") in the _Amazon Comprehend Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [StartDocumentClassificationJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/start-document-classification-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/start-document-classification-job.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
 ```
 class ComprehendClassifier:
@@ -143,24 +126,14 @@ class ComprehendClassifier:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [StartDocumentClassificationJob](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/StartDocumentClassificationJob) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartDocumentClassificationJob](../../../goto/boto3/comprehend-2017-11-27/StartDocumentClassificationJob.md "../../../goto/boto3/comprehend-2017-11-27/StartDocumentClassificationJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
 ```
     TRY.
@@ -194,14 +167,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cpdinternalserverex.
         MESSAGE 'Internal server error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [StartDocumentClassificationJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [StartDocumentClassificationJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

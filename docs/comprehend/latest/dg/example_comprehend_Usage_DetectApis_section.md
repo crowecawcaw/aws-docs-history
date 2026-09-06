@@ -1,23 +1,20 @@
+
+
 # Detect document elements with Amazon Comprehend and an AWS SDK
+<a name="example_comprehend_Usage_DetectApis_section"></a>
 
 The following code example shows how to:
++ Detect languages, entities, and key phrases in a document.
++ Detect personally identifiable information (PII) in a document.
++ Detect the sentiment of a document.
++ Detect syntax elements in a document.
 
-- Detect languages, entities, and key phrases in a document.
-- Detect personally identifiable information (PII) in a document.
-- Detect the sentiment of a document.
-- Detect syntax elements in a document.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
-
-Create a class that wraps Amazon Comprehend actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
+Create a class that wraps Amazon Comprehend actions.  
 
 ```
 import logging
@@ -163,13 +160,8 @@ class ComprehendDetect:
             raise
         else:
             return tokens
-
-
-
-
 ```
-
-Call functions on the wrapper class to detect entities, phrases, and more in a document.
+Call functions on the wrapper class to detect entities, phrases, and more in a document.  
 
 ```
 def usage_demo():
@@ -223,21 +215,15 @@ def usage_demo():
 
     print("Thanks for watching!")
     print("-" * 88)
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [DetectDominantLanguage](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DetectDominantLanguage)
+  + [DetectEntities](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DetectEntities)
+  + [DetectKeyPhrases](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DetectKeyPhrases)
+  + [DetectPiiEntities](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DetectPiiEntities)
+  + [DetectSentiment](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DetectSentiment)
+  + [DetectSyntax](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DetectSyntax)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [DetectDominantLanguage](../../../goto/boto3/comprehend-2017-11-27/DetectDominantLanguage.md "../../../goto/boto3/comprehend-2017-11-27/DetectDominantLanguage.md")
-  - [DetectEntities](../../../goto/boto3/comprehend-2017-11-27/DetectEntities.md "../../../goto/boto3/comprehend-2017-11-27/DetectEntities.md")
-  - [DetectKeyPhrases](../../../goto/boto3/comprehend-2017-11-27/DetectKeyPhrases.md "../../../goto/boto3/comprehend-2017-11-27/DetectKeyPhrases.md")
-  - [DetectPiiEntities](../../../goto/boto3/comprehend-2017-11-27/DetectPiiEntities.md "../../../goto/boto3/comprehend-2017-11-27/DetectPiiEntities.md")
-  - [DetectSentiment](../../../goto/boto3/comprehend-2017-11-27/DetectSentiment.md "../../../goto/boto3/comprehend-2017-11-27/DetectSentiment.md")
-  - [DetectSyntax](../../../goto/boto3/comprehend-2017-11-27/DetectSyntax.md "../../../goto/boto3/comprehend-2017-11-27/DetectSyntax.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

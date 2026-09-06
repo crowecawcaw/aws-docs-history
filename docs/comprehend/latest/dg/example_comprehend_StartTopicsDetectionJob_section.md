@@ -1,21 +1,18 @@
+
+
 # Use `StartTopicsDetectionJob` with an AWS SDK or CLI
+<a name="example_comprehend_StartTopicsDetectionJob_section"></a>
 
 The following code examples show how to use `StartTopicsDetectionJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Run a topic modeling job on sample data](example_comprehend_Usage_TopicModeler_section.md) 
 
-- [Run a topic modeling job on sample data](example_comprehend_Usage_TopicModeler_section.md "example_comprehend_Usage_TopicModeler_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples). 
 
 ```
     using System;
@@ -94,38 +91,26 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"InputFormat: {props.InputDataConfig.InputFormat}, OutputS3Uri: {props.OutputDataConfig.S3Uri}");
         }
     }
+```
++  For API details, see [StartTopicsDetectionJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/comprehend-2017-11-27/StartTopicsDetectionJob) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To start a topics detection analysis job**  
+The following `start-topics-detection-job` example starts an asynchronous topics detection job for all files located at the address specified by the `--input-data-config` tag. When the job is complete, the folder, `output`, is placed at the location specified by the `--ouput-data-config` tag. `output` contains topic-terms.csv and doc-topics.csv. The first output file, topic-terms.csv, is a list of topics in the collection. For each topic, the list includes, by default, the top terms by topic according to their weight. The second file, `doc-topics.csv`, lists the documents associated with a topic and the proportion of the document that is concerned with the topic.  
 
 ```
-
-- For API details, see
-  [StartTopicsDetectionJob](../../../goto/DotNetSDKV3/comprehend-2017-11-27/StartTopicsDetectionJob.md "../../../goto/DotNetSDKV3/comprehend-2017-11-27/StartTopicsDetectionJob.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To start a topics detection analysis job**
-
-The following `start-topics-detection-job` example starts an asynchronous topics detection job for all files located at the address specified by the `--input-data-config` tag.
-When the job is complete, the folder, `output`, is placed at the location specified by the `--ouput-data-config` tag.
-`output` contains topic-terms.csv and doc-topics.csv. The first output file, topic-terms.csv, is a list of topics in the collection. For each topic, the list includes, by default, the top terms by topic according to their weight.
-The second file, `doc-topics.csv`, lists the documents associated with a topic and the proportion of the document that is concerned with the topic.
-
+aws comprehend start-topics-detection-job \
+    --job-name {{example_topics_detection_job}} \
+    --language-code {{en}} \
+    --input-data-config {{"S3Uri=s3://amzn-s3-demo-bucket/"}} \
+    --output-data-config {{"S3Uri=s3://amzn-s3-demo-destination-bucket/testfolder/"}} \
+    --data-access-role-arn {{arn:aws:iam::111122223333:role/service-role/AmazonComprehendServiceRole-example-role}} \
+    --language-code {{en}}
 ```
-`aws comprehend start-topics-detection-job \
- --job-name `example_topics_detection_job` \
- --language-code `en` \
- --input-data-config `"S3Uri=s3://amzn-s3-demo-bucket/"` \
- --output-data-config `"S3Uri=s3://amzn-s3-demo-destination-bucket/testfolder/"` \
- --data-access-role-arn `arn:aws:iam::111122223333:role/service-role/AmazonComprehendServiceRole-example-role` \
- --language-code `en``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -134,22 +119,14 @@ Output:
     "JobStatus": "SUBMITTED"
 }
 ```
+For more information, see [Topic Modeling](https://docs.aws.amazon.com/comprehend/latest/dg/topic-modeling.html) in the *Amazon Comprehend Developer Guide*.  
++  For API details, see [StartTopicsDetectionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/start-topics-detection-job.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Topic Modeling](topic-modeling.md "topic-modeling.md") in the _Amazon Comprehend Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [StartTopicsDetectionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/start-topics-detection-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/start-topics-detection-job.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
 ```
 class ComprehendTopicModeler:
@@ -209,24 +186,14 @@ class ComprehendTopicModeler:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [StartTopicsDetectionJob](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/StartTopicsDetectionJob) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartTopicsDetectionJob](../../../goto/boto3/comprehend-2017-11-27/StartTopicsDetectionJob.md "../../../goto/boto3/comprehend-2017-11-27/StartTopicsDetectionJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
 ```
     TRY.
@@ -255,14 +222,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cpdinternalserverex.
         MESSAGE 'Internal server error occurred.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [StartTopicsDetectionJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [StartTopicsDetectionJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

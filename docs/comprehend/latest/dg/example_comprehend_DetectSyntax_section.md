@@ -1,21 +1,18 @@
+
+
 # Use `DetectSyntax` with an AWS SDK or CLI
+<a name="example_comprehend_DetectSyntax_section"></a>
 
 The following code examples show how to use `DetectSyntax`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Detect document elements](example_comprehend_Usage_DetectApis_section.md) 
 
-- [Detect document elements](example_comprehend_Usage_DetectApis_section.md "example_comprehend_Usage_DetectApis_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples). 
 
 ```
     using System;
@@ -55,32 +52,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine("Done");
         }
     }
+```
++  For API details, see [DetectSyntax](https://docs.aws.amazon.com/goto/DotNetSDKV3/comprehend-2017-11-27/DetectSyntax) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To detect the parts of speech in an input text**  
+The following `detect-syntax` example analyzes the syntax of the input text and returns the different parts of speech. The pre-trained model's confidence score is also output for each prediction.  
 
 ```
-
-- For API details, see
-  [DetectSyntax](../../../goto/DotNetSDKV3/comprehend-2017-11-27/DetectSyntax.md "../../../goto/DotNetSDKV3/comprehend-2017-11-27/DetectSyntax.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To detect the parts of speech in an input text**
-
-The following `detect-syntax` example analyzes the syntax of the input text and returns the different parts of speech.
-The pre-trained model's confidence score is also output for each prediction.
-
+aws compreh{{en}}d detect-syntax \
+    --language-code en \
+    --text {{"It is a beautiful day in Seattle."}}
 ```
-`aws compreh`en`d detect-syntax \
- --language-code en \
- --text `"It is a beautiful day in Seattle."``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -158,22 +145,14 @@ Output:
     ]
 }
 ```
+For more information, see [Syntax Analysis](https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html) in the *Amazon Comprehend Developer Guide*.  
++  For API details, see [DetectSyntax](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/detect-syntax.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Syntax Analysis](how-syntax.md "how-syntax.md") in the _Amazon Comprehend Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DetectSyntax](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/detect-syntax.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/detect-syntax.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -225,23 +204,14 @@ public class DetectSyntax {
         }
     }
 }
-
-
 ```
++  For API details, see [DetectSyntax](https://docs.aws.amazon.com/goto/SdkForJavaV2/comprehend-2017-11-27/DetectSyntax) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DetectSyntax](../../../goto/SdkForJavaV2/comprehend-2017-11-27/DetectSyntax.md "../../../goto/SdkForJavaV2/comprehend-2017-11-27/DetectSyntax.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
 ```
 class ComprehendDetect:
@@ -275,25 +245,14 @@ class ComprehendDetect:
             raise
         else:
             return tokens
-
-
-
-
 ```
++  For API details, see [DetectSyntax](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DetectSyntax) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DetectSyntax](../../../goto/boto3/comprehend-2017-11-27/DetectSyntax.md "../../../goto/boto3/comprehend-2017-11-27/DetectSyntax.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
 ```
     TRY.
@@ -311,14 +270,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cpdinvalidrequestex.
         MESSAGE 'Invalid request.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DetectSyntax](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DetectSyntax](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

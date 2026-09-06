@@ -1,21 +1,18 @@
+
+
 # Use `DetectDominantLanguage` with an AWS SDK or CLI
+<a name="example_comprehend_DetectDominantLanguage_section"></a>
 
 The following code examples show how to use `DetectDominantLanguage`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Detect document elements](example_comprehend_Usage_DetectApis_section.md) 
 
-- [Detect document elements](example_comprehend_Usage_DetectApis_section.md "example_comprehend_Usage_DetectApis_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Comprehend/#code-examples). 
 
 ```
     using System;
@@ -54,30 +51,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine("Done");
         }
     }
+```
++  For API details, see [DetectDominantLanguage](https://docs.aws.amazon.com/goto/DotNetSDKV3/comprehend-2017-11-27/DetectDominantLanguage) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To detect the dominant language of input text**  
+The following `detect-dominant-language` analyzes the input text and identifies the dominant language. The pre-trained model's confidence score is also output.  
 
 ```
-
-- For API details, see
-  [DetectDominantLanguage](../../../goto/DotNetSDKV3/comprehend-2017-11-27/DetectDominantLanguage.md "../../../goto/DotNetSDKV3/comprehend-2017-11-27/DetectDominantLanguage.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To detect the dominant language of input text**
-
-The following `detect-dominant-language` analyzes the input text and identifies the dominant language. The pre-trained model's confidence score is also output.
-
+aws comprehend detect-dominant-language \
+    --text {{"It is a beautiful day in Seattle."}}
 ```
-`aws comprehend detect-dominant-language \
- --text `"It is a beautiful day in Seattle."``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -89,22 +77,14 @@ Output:
     ]
 }
 ```
+For more information, see [Dominant Language](https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html) in the *Amazon Comprehend Developer Guide*.  
++  For API details, see [DetectDominantLanguage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/detect-dominant-language.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Dominant Language](how-languages.md "how-languages.md") in the _Amazon Comprehend Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DetectDominantLanguage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/detect-dominant-language.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/comprehend/detect-dominant-language.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/comprehend#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -156,23 +136,14 @@ public class DetectLanguage {
         }
     }
 }
-
-
 ```
++  For API details, see [DetectDominantLanguage](https://docs.aws.amazon.com/goto/SdkForJavaV2/comprehend-2017-11-27/DetectDominantLanguage) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DetectDominantLanguage](../../../goto/SdkForJavaV2/comprehend-2017-11-27/DetectDominantLanguage.md "../../../goto/SdkForJavaV2/comprehend-2017-11-27/DetectDominantLanguage.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/comprehend#code-examples). 
 
 ```
 class ComprehendDetect:
@@ -201,24 +172,14 @@ class ComprehendDetect:
             raise
         else:
             return languages
-
-
-
 ```
++  For API details, see [DetectDominantLanguage](https://docs.aws.amazon.com/goto/boto3/comprehend-2017-11-27/DetectDominantLanguage) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DetectDominantLanguage](../../../goto/boto3/comprehend-2017-11-27/DetectDominantLanguage.md "../../../goto/boto3/comprehend-2017-11-27/DetectDominantLanguage.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/cpd#code-examples). 
 
 ```
     TRY.
@@ -231,14 +192,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_cpdinvalidrequestex.
         MESSAGE 'Invalid request.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DetectDominantLanguage](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DetectDominantLanguage](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Comprehend with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
