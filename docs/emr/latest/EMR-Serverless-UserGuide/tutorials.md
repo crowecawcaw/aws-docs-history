@@ -18,3 +18,4 @@ libraries to submit Spark jobs.
 - [Using Amazon Redshift integration for Apache Spark on Amazon EMR Serverless](emr-spark-redshift.md "emr-spark-redshift.md")
 - [Connecting to DynamoDB with Amazon EMR Serverless](using-ddb-connector.md "using-ddb-connector.md")
 - [Using dbt-core with EMR Serverless](tutorials-dbt.md "tutorials-dbt.md")
+- [Using Trusted Identity Propagation with Amazon SageMaker Unified Studio](tutorial-tip-smus.md "tutorial-tip-smus.md")

@@ -35,7 +35,7 @@ EMR Serverless service endpoints| Region name | Region | Endpoint | Protocol |
 | Europe (Frankfurt) | `eu-central-1` | `emr-serverless.eu-central-1.amazonaws.com` | HTTPS |
 | Europe (Zurich) | `eu-central-2` | `emr-serverless.eu-central-2.amazonaws.com` | HTTPS |
 | Europe (Ireland) | `eu-west-1` | `emr-serverless.eu-west-1.amazonaws.com` | HTTPS |
-| Europe (London) | `eu-west-2` | `emr-serverless.eu-west-2.amazonaws.com` | HTTPS |
+| Europe (London) | `eu-west-2` (limited to the following Availability Zones:<br>`euw2-az1`, `euw2-az2`, and<br>`euw2-az3`) | `emr-serverless.eu-west-2.amazonaws.com` | HTTPS |
 | Europe (Milan) | `eu-south-1` | `emr-serverless.eu-south-1.amazonaws.com` | HTTPS |
 | Europe (Paris) | `eu-west-3` | `emr-serverless.eu-west-3.amazonaws.com` | HTTPS |
 | Europe (Spain) | `eu-south-2` | `emr-serverless.eu-south-2.amazonaws.com` | HTTPS |
