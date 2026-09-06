@@ -1,8 +1,12 @@
+
+
 # Troubleshooting inbound external links with custom domains
+<a name="troubleshooting-custom-domain-ingress"></a>
 
 Use this section to diagnose common issues with inbound external links with custom domains. Each entry describes the observed symptom, its likely cause, and the recommended resolution.
 
 ## TLS handshake fails with certificate error
+<a name="tls-handshake-certificate-error-1"></a>
 
 **Symptom:** The client receives an unknown or default certificate instead of the expected custom domain certificate.
 
@@ -11,6 +15,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Verify that the hostname in the client's SNI extension exactly matches (including case) the CN or a SAN on your ACM certificate. Ensure the CN and SANs use lowercase characters. Use `openssl s_client -servername <hostname>` to test SNI resolution against the gateway.
 
 ## TLS handshake fails with certificate error
+<a name="tls-handshake-certificate-error-2"></a>
 
 **Symptom:** The TLS handshake fails and the client receives a certificate error.
 
@@ -19,6 +24,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Confirm that the ACM certificate ARN is correct and the certificate is in ISSUED status. Disassociate and re-associate the certificate using the AssociateCertificate API. If the issue persists, contact your account team.
 
 ## All requests return 404 Not Found
+<a name="all-requests-404"></a>
 
 **Symptom:** Every request to the custom domain returns a 404 response.
 
@@ -27,6 +33,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Verify that at least one routing rule has been created on a link using the CreateLinkRoutingRule API, and that the rule is in ACTIVE status. Confirm that the rule conditions match the request's host, path, or query parameters. See Configuring routing rules for configuration details.
 
 ## Requests are routed to the wrong link ID
+<a name="wrong-link-routing"></a>
 
 **Symptom:** Requests arrive at an unexpected link instead of the intended target.
 
@@ -35,6 +42,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Review the priority values assigned to all routing rules across your links. Ensure that more-specific rules (exact host, exact path) have lower priority numbers than less-specific rules (wildcard host, prefix path). The data plane evaluates rules strictly by ascending priority — it does not infer specificity.
 
 ## Certificate not found for a configured hostname
+<a name="certificate-not-found"></a>
 
 **Symptom:** The certificate resolver does not serve the expected certificate, even though the ACM certificate appears to cover the correct hostnames.
 
@@ -43,6 +51,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Ensure the CN and SANs on your ACM certificate use lowercase characters. Verify the certificate is associated with the gateway using the GetCertificateAssociation API.
 
 ## DNS queries do not resolve to the RTB Fabric gateway
+<a name="dns-not-resolving"></a>
 
 **Symptom:** `dig` queries for the bid endpoint return the old origin instead of the RTB Fabric gateway endpoint.
 
@@ -51,6 +60,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Verify the CNAME record is correctly configured using `dig east-bid.example.com CNAME`. Wait for the previous TTL to expire. If you did not lower the TTL before migration, propagation may take up to the original TTL duration (commonly 300-3600 seconds).
 
 ## Partial traffic loss during migration
+<a name="partial-traffic-loss"></a>
 
 **Symptom:** Elevated error rates or traffic loss affecting only a fraction of requests during weighted routing migration.
 
@@ -59,6 +69,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Verify both weighted records exist and have the intended weights using `aws route53 list-resource-record-sets`. Confirm that both the legacy and RTB Fabric endpoints are healthy. Allow additional time for DNS cache convergence (at minimum, one full TTL cycle).
 
 ## Wildcard certificate does not match a multi-level subdomain
+<a name="wildcard-multi-level"></a>
 
 **Symptom:** A certificate configured with `*.example.com` does not match `a.b.example.com` in routing, but may match in certificate resolution.
 
@@ -67,6 +78,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** For routing, use an exact host match rule for multi-level subdomains, or restructure your domain hierarchy. For certificate resolution, be aware that a wildcard certificate may be served for multi-level subdomains. Do not rely on this behavior.
 
 ## Query parameter routing rule does not match
+<a name="query-parameter-no-match"></a>
 
 **Symptom:** A `queryStringEquals` rule does not match requests that appear to have the correct query string.
 
@@ -75,6 +87,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Verify that the `queryStringEquals` key and value in the rule configuration match the decoded form of the query parameter as it appears in the request. For example, if the request contains `supplier%5Fid=7`, configure the rule with key `supplier_id` and value `7` (decoded form).
 
 ## Customer certificate served as fallback for non-custom-domain traffic
+<a name="customer-cert-fallback"></a>
 
 **Symptom:** Your custom domain certificate is presented to clients connecting via hostnames not associated with your custom domain.
 
@@ -83,6 +96,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Associate the certificate with the gateway using the AssociateCertificate API. This ensures the certificate is treated as a customer certificate and served only when the client's SNI hostname matches the certificate's CN or SANs.
 
 ## Path prefix rule matches unexpected paths
+<a name="path-prefix-unexpected"></a>
 
 **Symptom:** A rule with path prefix `/api` appears to match `/api2/endpoint`.
 
@@ -91,6 +105,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Inspect all routing rules and their priorities. Use the request's full host, path, and query string to determine which rule is actually matching. A rule with a broader condition (for example, a host-only rule with no path condition) and a lower priority number would match before the path-specific rule is evaluated.
 
 ## Routing rules are not evaluated
+<a name="routing-rules-not-evaluated"></a>
 
 **Symptom:** Requests fall through to legacy link ID extraction even though routing rules have been created.
 
@@ -99,6 +114,7 @@ Use this section to diagnose common issues with inbound external links with cust
 **Resolution:** Use the ListLinkRoutingRules API to verify that rules exist on the intended link and are in ACTIVE status. If a rule is in PENDING\_CREATION or FAILED status, wait for provisioning or investigate the failure. See Step 5: Configure routing rules for the correct setup.
 
 ## Multiple certificates for the same hostname
+<a name="multiple-certificates-same-hostname"></a>
 
 **Symptom:** Multiple certificates are configured for the same hostname, but only one is served.
 
@@ -106,6 +122,5 @@ Use this section to diagnose common issues with inbound external links with cust
 
 **Resolution:** Ensure only one certificate covers each hostname. If you need to rotate certificates, disassociate the old certificate before associating the new one, or use ACM in-place renewal.
 
-###### Note
-
+**Note**  
 Rotation of ACM-managed certificates will be handled automatically by RTB Fabric with no action required from you.
