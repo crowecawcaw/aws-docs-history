@@ -28,4 +28,5 @@ automatic actions when appropriate:
 - [Recording AWS Elemental MediaTailor API calls](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Receiving AWS Elemental MediaTailor channel assembly alerts](channel-assembly-alerts.md "channel-assembly-alerts.md")
 - [Tagging AWS Elemental MediaTailor resources](tagging.md "tagging.md")
+- [Monitoring ad insertion performance with the analytics dashboard](analytics-dashboard.md "analytics-dashboard.md")
 - [Monitoring AWS media services with workflow monitor](monitor-with-workflow-monitor.md "monitor-with-workflow-monitor.md")
