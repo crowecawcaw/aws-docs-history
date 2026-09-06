@@ -1,58 +1,61 @@
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **This software is<br>not currently supported by Amazon Mechanical Turk**<br>The Amazon Mechanical Turk Command Line Tools (CLT) are not currently<br>maintained by Amazon Mechanical Turk. If you would still like to use<br>Amazon Mechanical Turk from the command line, use the `mturk`<br>command in the AWS Command Line Interface (CLI). For more information,<br>see the `mturk` section of the [AWS CLI Command Reference](../../../cli/latest/reference/mturk/index.md "../../../cli/latest/reference/mturk/index.md") . |
+
+
+
+|  | 
+| --- |
+| **This software is not currently supported by Amazon Mechanical Turk**<br />The Amazon Mechanical Turk Command Line Tools (CLT) are not currently maintained by Amazon Mechanical Turk. If you would still like to use Amazon Mechanical Turk from the command line, use the `mturk` command in the AWS Command Line Interface (CLI). For more information, see the `mturk` section of the [ AWS CLI Command Reference ](https://docs.aws.amazon.com/cli/latest/reference/mturk/index.html).  | 
 
  
 
 # resetAccount
+<a name="CLTReference_ResetAccountCommand"></a>
 
 ## Description
+<a name="w2aab9c55b2"></a>
 
-The `resetAccount` command deletes all of your existing HITs from Amazon
-Amazon Mechanical Turk. If Workers are still working on a HIT, it is not deleted. Amazon Mechanical Turk approves
-any assignments that are submitted but not yet approved.
+ The `resetAccount` command deletes all of your existing HITs from Amazon Amazon Mechanical Turk. If Workers are still working on a HIT, it is not deleted. Amazon Mechanical Turk approves any assignments that are submitted but not yet approved. 
 
 ## arguments
+<a name="w2aab9c55b4"></a>
 
-The following table describes the arguments for the `resetAccount` command.
+ The following table describes the arguments for the `resetAccount` command. 
 
-| Name            | Description                                                                                                                                                                                   | Required |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `-force`        | Specifies *not<br>• to prompt for manual confirmation before performing the operation.<br>Only advanced developers should use this argument.<br>Example: `-force`                             | No       |
-| `‑help` or `‑h` | Displays the help for this operation.<br>Example: `-help`                                                                                                                                     | No       |
-| `-sandbox`      | Runs this command in the Amazon Mechanical Turk sandbox. This argument takes precedence<br>even if you specify the production web site in your `mturk.properties` file.<br>Example:`-sandbox` | No       |
+
+| Name | Description | Required | 
+| --- | --- | --- | 
+|  `-force`  |  Specifies *not* to prompt for manual confirmation before performing the operation. Only advanced developers should use this argument. <br />Example: `-force` | No | 
+|  `‑help` or `‑h`  |  Displays the help for this operation. <br />Example: `-help`  | No | 
+|  `-sandbox`  |  Runs this command in the Amazon Mechanical Turk sandbox. This argument takes precedence even if you specify the production web site in your `mturk.properties` file. <br /> Example:`-sandbox`  | No | 
 
 ## Example
+<a name="w2aab9c55b6"></a>
 
-The following examples for Unix and Windows show how to use the `resetAccount`
-command.
+ The following examples for Unix and Windows show how to use the `resetAccount` command. 
 
 ### Unix
+<a name="w2aab9c55b6b4"></a>
 
-The following example demonstrates how to call this command from Unix.
+ The following example demonstrates how to call this command from Unix. 
 
 ```
-
-./resetAccount.sh
-
+./resetAccount.sh 
 ```
 
 ### Windows
+<a name="w2aab9c55b6b6"></a>
 
-The following example demonstrates how to call this command from Microsoft Windows.
+ The following example demonstrates how to call this command from Microsoft Windows. 
 
 ```
-
 resetAccount
-
 ```
 
 ## Output
+<a name="w2aab9c55b8"></a>
 
 These examples produce output similar to the following.
 
 ```
-
 PLEASE READ THIS CAREFULLY
 
 You are about to delete ALL your HITs from Amazon Mechanical Turk.
@@ -73,5 +76,4 @@ To confirm this operation, please press ENTER (or press Ctrl+C to abort):
   0 HITs failed to delete.
   1 HITs could not be deleted because they are currently being worked on.
   1 HITs are left in your account
-
 ```
