@@ -1,38 +1,35 @@
+
+
 # Monitoring OpenSearch Service events with Amazon EventBridge
+<a name="monitoring-events"></a>
 
-Amazon OpenSearch Service integrates with Amazon EventBridge to notify you of certain events that affect your
-domains. Events from AWS services are delivered to EventBridge in near real time. The same events
-are also sent to [Amazon CloudWatch Events](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatchEvents.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatchEvents.md"),
-the predecessor of Amazon EventBridge. You can write simple rules to indicate which events are of
-interest to you, and what automated actions to take when an event matches a rule. The
-actions that can be automatically triggered include the following:
+Amazon OpenSearch Service integrates with Amazon EventBridge to notify you of certain events that affect your domains. Events from AWS services are delivered to EventBridge in near real time. The same events are also sent to [Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatchEvents.html), the predecessor of Amazon EventBridge. You can write simple rules to indicate which events are of interest to you, and what automated actions to take when an event matches a rule. The actions that can be automatically triggered include the following:
++ Invoking an AWS Lambda function
++ Invoking an Amazon EC2 Run Command
++ Relaying the event to Amazon Kinesis Data Streams
++ Activating an AWS Step Functions state machine
++ Notifying an Amazon SNS topic or an Amazon SQS queue
 
-- Invoking an AWS Lambda function
-- Invoking an Amazon EC2 Run Command
-- Relaying the event to Amazon Kinesis Data Streams
-- Activating an AWS Step Functions state machine
-- Notifying an Amazon SNS topic or an Amazon SQS queue
-  For more information, see [Get started with
-  Amazon EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../eventbridge/latest/userguide/eb-get-started.md") in the _Amazon EventBridge User
-  Guide_.
+For more information, see [Get started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*.
 
-###### Topics
-
-- [Service software update events](#monitoring-events-sso "#monitoring-events-sso")
-- [Auto-Tune events](#monitoring-events-autotune "#monitoring-events-autotune")
-- [Cluster health events](#monitoring-events-cluster-health "#monitoring-events-cluster-health")
-- [VPC endpoint events](#monitoring-events-vpc "#monitoring-events-vpc")
-- [Node retirement events](#monitoring-events-nr "#monitoring-events-nr")
-- [Degraded node retirement events](#monitoring-events-degraded-nr "#monitoring-events-degraded-nr")
-- [Domain error events](#monitoring-events-errors "#monitoring-events-errors")
-- [Tutorial: Listening for Amazon OpenSearch Service EventBridge events](listening-events.md "listening-events.md")
-- [Tutorial: Sending Amazon SNS alerts for available software updates](sns-events.md "sns-events.md")
+**Topics**
++ [Service software update events](#monitoring-events-sso)
++ [Auto-Tune events](#monitoring-events-autotune)
++ [Cluster health events](#monitoring-events-cluster-health)
++ [VPC endpoint events](#monitoring-events-vpc)
++ [Node retirement events](#monitoring-events-nr)
++ [Degraded node retirement events](#monitoring-events-degraded-nr)
++ [Domain error events](#monitoring-events-errors)
++ [Tutorial: Listening for Amazon OpenSearch Service EventBridge events](listening-events.md)
++ [Tutorial: Sending Amazon SNS alerts for available software updates](sns-events.md)
 
 ## Service software update events
+<a name="monitoring-events-sso"></a>
 
-OpenSearch Service sends events to EventBridge when one of the following [service software update](service-software.md "service-software.md") events occur.
+OpenSearch Service sends events to EventBridge when one of the following [service software update](service-software.md) events occur.
 
 ### Service software update available
+<a name="monitoring-events-sso-available"></a>
 
 OpenSearch Service sends this event when a service software update is available.
 
@@ -62,13 +59,9 @@ The following is an example event of this type:
 ```
 
 ### Service software update scheduled
+<a name="monitoring-events-sso-scheduled"></a>
 
-OpenSearch Service sends this event when a service software update has been scheduled. For
-_optional_ updates, you receive the notification on the
-scheduled date and you have the option to reschedule at any time. For
-_required_ updates, you receive the notification three days
-before the scheduled date, and you have the option to reschedule it within the
-mandatory window.
+OpenSearch Service sends this event when a service software update has been scheduled. For *optional* updates, you receive the notification on the scheduled date and you have the option to reschedule at any time. For *required* updates, you receive the notification three days before the scheduled date, and you have the option to reschedule it within the mandatory window.
 
 **Example**
 
@@ -89,16 +82,16 @@ The following is an example event of this type:
     "status": "Scheduled",
     "severity": "High",
     "description": "A new service software update [R20200330-p1] has been scheduled at [21st May 2023 12:40 GMT].
-                    Please see documentation for more information on scheduling software updates:
+                    Please see documentation for more information on scheduling software updates: 
                     https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html."
   }
 }
 ```
 
 ### Service software update rescheduled
+<a name="monitoring-events-sso-rescheduled"></a>
 
-OpenSearch Service sends this event when an optional service software update has been
-rescheduled. For more information, see [Optional versus required updates](service-software.md#service-software-optional-required "service-software.md#service-software-optional-required").
+OpenSearch Service sends this event when an optional service software update has been rescheduled. For more information, see [Optional versus required updates](service-software.md#service-software-optional-required).
 
 **Example**
 
@@ -118,15 +111,16 @@ The following is an example event of this type:
     "event": "Service Software Update",
     "status": "Rescheduled",
     "severity": "High",
-    "description": "The service software update [R20200330-p1], which was originally scheduled for
-                    [21st May 2023 12:40 GMT], has been rescheduled to [23rd May 2023 12:40 GMT].
-                    Please see documentation for more information on scheduling software updates:
+    "description": "The service software update [R20200330-p1], which was originally scheduled for 
+                    [21st May 2023 12:40 GMT], has been rescheduled to [23rd May 2023 12:40 GMT]. 
+                    Please see documentation for more information on scheduling software updates: 
                     https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html."
   }
 }
 ```
 
 ### Service software update started
+<a name="monitoring-events-sso-started"></a>
 
 OpenSearch Service sends this event when a service software update has started.
 
@@ -154,6 +148,7 @@ The following is an example event of this type:
 ```
 
 ### Service software update completed
+<a name="monitoring-events-sso-completed"></a>
 
 OpenSearch Service sends this event when a service software update has completed.
 
@@ -181,6 +176,7 @@ The following is an example event of this type:
 ```
 
 ### Service software update cancelled
+<a name="monitoring-events-sso-cancelled"></a>
 
 OpenSearch Service sends this event when a service software update has been cancelled.
 
@@ -202,16 +198,16 @@ The following is an example event of this type:
     "event": "Service Software Update",
     "status": "Cancelled",
     "severity": "Informational",
-    "description": "The scheduled service software update [R20200330-p1] has been cancelled as a
+    "description": "The scheduled service software update [R20200330-p1] has been cancelled as a 
                     newer update is available. Please schedule the latest update."
   }
 }
 ```
 
 ### Scheduled service software update cancelled
+<a name="monitoring-events-scheduled-sso-cancelled"></a>
 
-OpenSearch Service sends this event when a service software update that was previously scheduled
-for the domain has been cancelled.
+OpenSearch Service sends this event when a service software update that was previously scheduled for the domain has been cancelled.
 
 **Example**
 
@@ -237,6 +233,7 @@ The following is an example event of this type:
 ```
 
 ### Service software update unexecuted
+<a name="monitoring-events-sso-unexecuted"></a>
 
 OpenSearch Service sends this event when it can't initiate a service software update.
 
@@ -264,6 +261,7 @@ The following is an example event of this type:
 ```
 
 ### Service software update failed
+<a name="monitoring-events-sso-failed"></a>
 
 OpenSearch Service sends this event when a service software update fails.
 
@@ -291,9 +289,9 @@ The following is an example event of this type:
 ```
 
 ### Service software update required
+<a name="monitoring-events-sso-required"></a>
 
-OpenSearch Service sends this event when a service software update is required. For more
-information, see [Optional versus required updates](service-software.md#service-software-optional-required "service-software.md#service-software-optional-required").
+OpenSearch Service sends this event when a service software update is required. For more information, see [Optional versus required updates](service-software.md#service-software-optional-required).
 
 **Example**
 
@@ -313,24 +311,24 @@ The following is an example event of this type:
     "event": "Service Software Update",
     "status": "Required",
     "severity": "High",
-    "description": "Service software update [R20200330-p1] available. Update
+    "description": "Service software update [R20200330-p1] available. Update 
                     will be automatically installed after [21st May 2023] if no
                     action is taken. Service Software Deployment Mechanism: Blue/Green.
-                    For more information on deployment configuration, please see:
+                    For more information on deployment configuration, please see: 
                     https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html"
   }
 }
 ```
 
 ## Auto-Tune events
+<a name="monitoring-events-autotune"></a>
 
-OpenSearch Service sends events to EventBridge when one of the following [Auto-Tune](auto-tune.md "auto-tune.md") events occur.
+OpenSearch Service sends events to EventBridge when one of the following [Auto-Tune](auto-tune.md) events occur.
 
 ### Auto-Tune pending
+<a name="monitoring-events-autotune-pending"></a>
 
-OpenSearch Service sends this event when Auto-Tune has identified tuning recommendations for
-improved cluster performance and availability. You'll only see this event for
-domains with Auto-Tune disabled.
+OpenSearch Service sends this event when Auto-Tune has identified tuning recommendations for improved cluster performance and availability. You'll only see this event for domains with Auto-Tune disabled.
 
 **Example**
 
@@ -357,9 +355,9 @@ The following is an example event of this type:
 ```
 
 ### Auto-Tune started
+<a name="monitoring-events-autotune-started"></a>
 
-OpenSearch Service sends this event when Auto-Tune begins to apply new settings to your
-domain.
+OpenSearch Service sends this event when Auto-Tune begins to apply new settings to your domain.
 
 **Example**
 
@@ -387,9 +385,9 @@ The following is an example event of this type:
 ```
 
 ### Auto-Tune requires a scheduled blue/green deployment
+<a name="monitoring-events-autotune-schedule"></a>
 
-OpenSearch Service sends this event when Auto-Tune has identified tuning recommendations that
-require a scheduled blue/green deployment.
+OpenSearch Service sends this event when Auto-Tune has identified tuning recommendations that require a scheduled blue/green deployment. 
 
 **Example**
 
@@ -410,16 +408,16 @@ The following is an example event of this type:
     "severity": "Low",
     "status": "Pending",
     "startTime": "{iso8601-timestamp}",
-    "description": "Auto-Tune has identified the following settings for your domain that require a blue/green deployment: { JVM Heap size : 60%}.
+    "description": "Auto-Tune has identified the following settings for your domain that require a blue/green deployment: { JVM Heap size : 60%}. 
                     You can schedule the deployment for your preferred time."
   }
 }
 ```
 
 ### Auto-Tune cancelled
+<a name="monitoring-events-autotune-cancel"></a>
 
-OpenSearch Service sends this event when Auto-Tune schedule has been cancelled because there is
-no pending tuning recommendations.
+OpenSearch Service sends this event when Auto-Tune schedule has been cancelled because there is no pending tuning recommendations.
 
 **Example**
 
@@ -446,9 +444,9 @@ The following is an example event of this type:
 ```
 
 ### Auto-Tune completed
+<a name="monitoring-events-autotune-complete"></a>
 
-OpenSearch Service sends this event when Auto-Tune has completed the blue/green deployment and
-the cluster is operational with new JVM settings in place.
+OpenSearch Service sends this event when Auto-Tune has completed the blue/green deployment and the cluster is operational with new JVM settings in place.
 
 **Example**
 
@@ -475,9 +473,9 @@ The following is an example event of this type:
 ```
 
 ### Auto-Tune disabled and changes reverted
+<a name="monitoring-events-autotune-disabled"></a>
 
-OpenSearch Service sends this event when Auto-Tune has been disabled and the applied changes
-were rolled back.
+OpenSearch Service sends this event when Auto-Tune has been disabled and the applied changes were rolled back.
 
 **Example**
 
@@ -505,9 +503,9 @@ The following is an example event of this type:
 ```
 
 ### Auto-Tune disabled and changes retained
+<a name="monitoring-events-autotune-retained"></a>
 
-OpenSearch Service sends this event when Auto-Tune has been disabled and the applied changes
-were retained.
+OpenSearch Service sends this event when Auto-Tune has been disabled and the applied changes were retained.
 
 **Example**
 
@@ -527,7 +525,7 @@ The following is an example event of this type:
     "event": "Auto-Tune Event",
     "severity": "Informational",
     "status": "Completed",
-    "description": "Auto-Tune is now disabled. The most-recent settings by Auto-Tune have been retained.
+    "description": "Auto-Tune is now disabled. The most-recent settings by Auto-Tune have been retained. 
                     Auto-Tune will continue to evaluate cluster performance and provide recommendations.",
     "completionTime": "{iso8601-timestamp}"
   }
@@ -535,14 +533,14 @@ The following is an example event of this type:
 ```
 
 ## Cluster health events
+<a name="monitoring-events-cluster-health"></a>
 
 OpenSearch Service sends certain events to EventBridge when your cluster's health is compromised.
 
 ### Red cluster recovery started
+<a name="monitoring-events-red-started"></a>
 
-OpenSearch Service sends this event after your cluster status has been continuously red for more
-than an hour. It attempts to automatically restore one or more red indexes from a
-snapshot in order to fix the cluster status.
+OpenSearch Service sends this event after your cluster status has been continuously red for more than an hour. It attempts to automatically restore one or more red indexes from a snapshot in order to fix the cluster status.
 
 **Example**
 
@@ -564,16 +562,16 @@ The following is an example event of this type:
       "event":"Automatic Snapshot Restore for Red Indices",
       "status":"Started",
       "severity":"High",
-      "description":"Your cluster status is red. We have started automatic snapshot restore for the red indices.
+      "description":"Your cluster status is red. We have started automatic snapshot restore for the red indices. 
                      No action is needed from your side. Red indices [red-index-0, red-index-1]"
    }
 }
 ```
 
 ### Red cluster recovery partially completed
+<a name="monitoring-events-red-partial"></a>
 
-OpenSearch Service sends this event when it was only able to restore a subset of red indexes
-from a snapshot while attempting to fix a red cluster status.
+OpenSearch Service sends this event when it was only able to restore a subset of red indexes from a snapshot while attempting to fix a red cluster status.
 
 **Example**
 
@@ -595,16 +593,16 @@ The following is an example event of this type:
       "event":"Automatic Snapshot Restore for Red Indices",
       "status":"Partially Restored",
       "severity":"High",
-      "description":"Your cluster status is red. We were able to restore the following Red indices from
+      "description":"Your cluster status is red. We were able to restore the following Red indices from 
                     snapshot: [red-index-0]. Indices not restored: [red-index-1]. Please refer https://docs.aws.amazon.com/opensearch-service/latest/developerguide/handling-errors.html#handling-errors-red-cluster-status for troubleshooting steps."
    }
 }
 ```
 
 ### Red cluster recovery failed
+<a name="monitoring-events-red-failed"></a>
 
-OpenSearch Service sends this event when it fails to restore any indexes while attempting to fix
-a red cluster status.
+OpenSearch Service sends this event when it fails to restore any indexes while attempting to fix a red cluster status.
 
 **Example**
 
@@ -626,19 +624,16 @@ The following is an example event of this type:
       "event":"Automatic Snapshot Restore for Red Indices",
       "status":"Failed",
       "severity":"High",
-      "description":"Your cluster status is red. We were unable to restore the Red indices automatically.
+      "description":"Your cluster status is red. We were unable to restore the Red indices automatically. 
                     Indices not restored: [red-index-0, red-index-1]. Please refer https://docs.aws.amazon.com/opensearch-service/latest/developerguide/handling-errors.html#handling-errors-red-cluster-status for troubleshooting steps."
    }
 }
 ```
 
 ### Shards to be deleted
+<a name="monitoring-events-red-to-delete"></a>
 
-OpenSearch Service sends this event when it has attempted to automatically fix your red cluster
-status after it was continuously red for 14 days, but one or more indexes remains
-red. After 7 more days (21 total days of being continuously red), OpenSearch Service proceeds to
-[delete unassigned shards](#monitoring-events-red-deleted "#monitoring-events-red-deleted") on
-all red indexes.
+OpenSearch Service sends this event when it has attempted to automatically fix your red cluster status after it was continuously red for 14 days, but one or more indexes remains red. After 7 more days (21 total days of being continuously red), OpenSearch Service proceeds to [delete unassigned shards](#monitoring-events-red-deleted) on all red indexes.
 
 **Example**
 
@@ -658,7 +653,7 @@ The following is an example event of this type:
    ],
    "detail":{
       "severity":"Medium",
-      "description":"Your cluster status is red. Please fix the red indices as soon as possible.
+      "description":"Your cluster status is red. Please fix the red indices as soon as possible. 
                      If not fixed by 2022-04-12 01:51:47+00:00, we will delete all unassigned shards,
                      the unit of storage and compute, for these red indices to recover your domain and make it green.
                      Please refer to https://docs.aws.amazon.com/opensearch-service/latest/developerguide/handling-errors.html#handling-errors-red-cluster-status for troubleshooting steps.
@@ -670,10 +665,9 @@ The following is an example event of this type:
 ```
 
 ### Shards deleted
+<a name="monitoring-events-red-deleted"></a>
 
-OpenSearch Service sends this event after your cluster status has been continuously red for 21
-days. It proceeds to delete the unassigned shards (storage and compute) on all red
-indexes. For details, see [Automatic remediation of red clusters](handling-errors.md#handling-errors-red-cluster-status-auto-recovery "handling-errors.md#handling-errors-red-cluster-status-auto-recovery").
+OpenSearch Service sends this event after your cluster status has been continuously red for 21 days. It proceeds to delete the unassigned shards (storage and compute) on all red indexes. For details, see [Automatic remediation of red clusters](handling-errors.md#handling-errors-red-cluster-status-auto-recovery).
 
 **Example**
 
@@ -693,7 +687,7 @@ The following is an example event of this type:
    ],
    "detail":{
       "severity":"High",
-      "description":"We have deleted unassinged shards, the unit of storage and compute, in
+      "description":"We have deleted unassinged shards, the unit of storage and compute, in 
                      red indices: index-1, index-2 because these indices were red for more than
                      21 days and could not be restored with the automated restore process.
                      Please refer to https://docs.aws.amazon.com/opensearch-service/latest/developerguide/handling-errors.html#handling-errors-red-cluster-status for troubleshooting steps.",
@@ -704,11 +698,9 @@ The following is an example event of this type:
 ```
 
 ### High shard count warning
+<a name="monitoring-events-shard-warning"></a>
 
-OpenSearch Service sends this event when the average shard count across your hot data nodes has
-exceeded 90% of the recommended default limit of 1,000. Although later versions of
-Elasticsearch and OpenSearch support a configurable max shard count per node
-limit, we recommend you have no more than 1,000 shards per node. See [Choosing the number of shards](bp-sharding.md "bp-sharding.md").
+OpenSearch Service sends this event when the average shard count across your hot data nodes has exceeded 90% of the recommended default limit of 1,000. Although later versions of Elasticsearch and OpenSearch support a configurable max shard count per node limit, we recommend you have no more than 1,000 shards per node. See [Choosing the number of shards](bp-sharding.md).
 
 **Example**
 
@@ -728,18 +720,16 @@ The following is an example event of this type:
      "event":"High Shard Count",
      "status":"Warning",
      "severity":"Low",
-     "description":"One or more data nodes have close to 1000 shards. To ensure optimum performance and stability of your
+     "description":"One or more data nodes have close to 1000 shards. To ensure optimum performance and stability of your 
                     cluster, please refer to the best practice guidelines - https://docs.aws.amazon.com/opensearch-service/latest/developerguide/sizing-domains.html#bp-sharding."
   }
 }
 ```
 
 ### Shard count limit exceeded
+<a name="monitoring-events-shard-exceeded"></a>
 
-OpenSearch Service sends this event when the average shard count across your hot data nodes has
-exceeded the recommended default limit of 1,000. Although later versions of
-Elasticsearch and OpenSearch support a configurable max shard count per node
-limit, we recommend you have no more than 1,000 shards per node. See [Choosing the number of shards](bp-sharding.md "bp-sharding.md").
+OpenSearch Service sends this event when the average shard count across your hot data nodes has exceeded the recommended default limit of 1,000. Although later versions of Elasticsearch and OpenSearch support a configurable max shard count per node limit, we recommend you have no more than 1,000 shards per node. See [Choosing the number of shards](bp-sharding.md).
 
 **Example**
 
@@ -759,16 +749,16 @@ The following is an example event of this type:
      "event":"High Shard Count",
      "status":"Warning",
      "severity":"Medium",
-     "description":"One or more data nodes have more than 1000 shards. To ensure optimum performance and stability of your
+     "description":"One or more data nodes have more than 1000 shards. To ensure optimum performance and stability of your 
                     cluster, please refer to the best practice guidelines - https://docs.aws.amazon.com/opensearch-service/latest/developerguide/sizing-domains.html#bp-sharding."
   }
 }
 ```
 
 ### Low disk space
+<a name="monitoring-events-disk"></a>
 
-OpenSearch Service sends this event when one or more nodes in your cluster has less than 25% of
-available storage space, or less than 25 GB.
+OpenSearch Service sends this event when one or more nodes in your cluster has less than 25% of available storage space, or less than 25 GB. 
 
 **Example**
 
@@ -795,11 +785,9 @@ The following is an example event of this type:
 ```
 
 ### Low disk watermark breach
+<a name="monitoring-events-watermark"></a>
 
-OpenSearch Service sends this event when all nodes in your cluster have less than 10% of
-available storage space, or less than 10 GB. When all nodes breach the low disk
-watermark, any new index results in a yellow cluster, and when all nodes fall below
-the high disk watermark, it will lead to a red cluster.
+OpenSearch Service sends this event when all nodes in your cluster have less than 10% of available storage space, or less than 10 GB. When all nodes breach the low disk watermark, any new index results in a yellow cluster, and when all nodes fall below the high disk watermark, it will lead to a red cluster.
 
 **Example**
 
@@ -820,18 +808,16 @@ The following is an example event of this type:
      "status":"Warning",
      "severity":"Medium",
      "description":"Low Disk Watermark threshold is about to be breached. Once the threshold is breached, new index creation will be blocked on all
-                    nodes to prevent the cluster status from turning red. Please increase disk size to suit your storage needs. For more information,
+                    nodes to prevent the cluster status from turning red. Please increase disk size to suit your storage needs. For more information, 
                     see https://docs.aws.amazon.com/opensearch-service/latest/developerguide/handling-errors.html#troubleshooting-cluster-block".
   }
 }
 ```
 
 ### EBS burst balance below 70%
+<a name="monitoring-events-ebs-burst-70"></a>
 
-OpenSearch Service sends this event when the EBS burst balance on one or more data nodes falls
-below 70%. EBS burst balance depletion can cause widespread cluster unavailability
-and throttling of I/O requests, which can lead to high latencies and timeouts on
-indexing and search requests. For steps to fix this issue, see [Low EBS burst balance](handling-errors.md#handling-errors-low-ebs-burst "handling-errors.md#handling-errors-low-ebs-burst").
+OpenSearch Service sends this event when the EBS burst balance on one or more data nodes falls below 70%. EBS burst balance depletion can cause widespread cluster unavailability and throttling of I/O requests, which can lead to high latencies and timeouts on indexing and search requests. For steps to fix this issue, see [Low EBS burst balance](handling-errors.md#handling-errors-low-ebs-burst).
 
 **Example**
 
@@ -851,7 +837,7 @@ The following is an example event of this type:
      "event":"EBS Burst Balance",
      "status":"Warning",
      "severity":"Medium",
-     "description":"EBS burst balance on one or more data nodes is below 70%.
+     "description":"EBS burst balance on one or more data nodes is below 70%. 
                     Follow https://docs.aws.amazon.com/opensearch-service/latest/developerguide/handling-errors.html#handling-errors-low-ebs-burst
                     to fix this issue."
   }
@@ -859,11 +845,9 @@ The following is an example event of this type:
 ```
 
 ### EBS burst balance below 20%
+<a name="monitoring-events-ebs-burst-20"></a>
 
-OpenSearch Service sends this event when the EBS burst balance on one or more data nodes falls
-below 20%. EBS burst balance depletion can cause widespread cluster unavailability
-and throttling of I/O requests, which can lead to high latencies and timeouts on
-indexing and search requests. For steps to fix this issue, see [Low EBS burst balance](handling-errors.md#handling-errors-low-ebs-burst "handling-errors.md#handling-errors-low-ebs-burst").
+OpenSearch Service sends this event when the EBS burst balance on one or more data nodes falls below 20%. EBS burst balance depletion can cause widespread cluster unavailability and throttling of I/O requests, which can lead to high latencies and timeouts on indexing and search requests. For steps to fix this issue, see [Low EBS burst balance](handling-errors.md#handling-errors-low-ebs-burst).
 
 **Example**
 
@@ -891,15 +875,9 @@ The following is an example event of this type:
 ```
 
 ### Disk throughput throttle
+<a name="monitoring-events-throughput-throttle"></a>
 
-OpenSearch Service sends this event when read and write requests to your domain are being
-throttled due to the throughput limitations of your EBS volumes or EC2 instance. If
-you receive this notification, consider scaling up your volumes or instances
-following AWS recommended best practices. If your volume type is `gp2`,
-increase the volume size. If your volume type is `gp3`, provision more
-throughput. You can also check that your instance base and maximum EBS throughput
-are greater than or equal to the provisioned volume throughput, and can scale up
-accordingly.
+OpenSearch Service sends this event when read and write requests to your domain are being throttled due to the throughput limitations of your EBS volumes or EC2 instance. If you receive this notification, consider scaling up your volumes or instances following AWS recommended best practices. If your volume type is `gp2`, increase the volume size. If your volume type is `gp3`, provision more throughput. You can also check that your instance base and maximum EBS throughput are greater than or equal to the provisioned volume throughput, and can scale up accordingly. 
 
 **Example**
 
@@ -919,22 +897,20 @@ The following is an example event of this type:
      "event":"Disk Throughput Throttle",
      "status":"Warning",
      "severity":"Medium",
-     "description":"Your domain is experiencing throttling due to instance or volume throughput limitations.
-                    Please consider scaling your domain to suit your throughput needs. In July 2023, we improved
-                    the accuracy of throughput throttle calculation by replacing ‘Max volume throughput’ with
+     "description":"Your domain is experiencing throttling due to instance or volume throughput limitations. 
+                    Please consider scaling your domain to suit your throughput needs. In July 2023, we improved 
+                    the accuracy of throughput throttle calculation by replacing ‘Max volume throughput’ with 
                     ‘Provisioned volume throughput’. Please refer to the documentation for more information."
   }
 }
 ```
 
 ### Large shard size
+<a name="monitoring-events-large-shard-size"></a>
 
-OpenSearch Service sends this event when one or more shards in your cluster has exceeded either
-50GiB or 65GiB. To ensure optimum cluster performance and stability, reduce shard
-sizes.
+OpenSearch Service sends this event when one or more shards in your cluster has exceeded either 50GiB or 65GiB. To ensure optimum cluster performance and stability, reduce shard sizes. 
 
-For more information, see the [sharding best
-practices](bp.md#bp-sharding-strategy "bp.md#bp-sharding-strategy").
+For more information, see the [sharding best practices](bp.md#bp-sharding-strategy).
 
 **Example**
 
@@ -961,12 +937,9 @@ The following is an example event of this type:
 ```
 
 ### High JVM usage
+<a name="monitoring-events-high-jvm"></a>
 
-OpenSearch Service sends this event when the `JVMMemoryPressure` metric for your
-domain has exceeded 80%. If it exceeds 92% for 30 minutes, all write operations to
-your cluster will be blocked. To ensure optimum cluster stability, reduce traffic to
-the cluster or scale your domain to provide sufficient memory for your
-workload.
+OpenSearch Service sends this event when the `JVMMemoryPressure` metric for your domain has exceeded 80%. If it exceeds 92% for 30 minutes, all write operations to your cluster will be blocked. To ensure optimum cluster stability, reduce traffic to the cluster or scale your domain to provide sufficient memory for your workload.
 
 **Example**
 
@@ -994,14 +967,9 @@ The following is an example event of this type:
 ```
 
 ### Insufficient GC
+<a name="monitoring-events-insufficient-gc"></a>
 
-OpenSearch Service sends this event when maximum JVM is above 70% and difference between the
-maximum and minimum is less than 30%. This may indicate that the JVM is unable to
-reclaim sufficient memory during garbage collection cycles for your workload. This
-can lead to increasingly slower responses and higher latencies; and in some cases
-even node drops due to timed out health checks. To ensure optimum cluster stability,
-reduce traffic to the cluster or scale your domain to provide sufficient memory for
-your workload.
+OpenSearch Service sends this event when maximum JVM is above 70% and difference between the maximum and minimum is less than 30%. This may indicate that the JVM is unable to reclaim sufficient memory during garbage collection cycles for your workload. This can lead to increasingly slower responses and higher latencies; and in some cases even node drops due to timed out health checks. To ensure optimum cluster stability, reduce traffic to the cluster or scale your domain to provide sufficient memory for your workload.
 
 **Example**
 
@@ -1028,10 +996,9 @@ The following is an example event of this type:
 ```
 
 ### Custom index routing warning
+<a name="monitoring-events-index-routing"></a>
 
-OpenSearch Service sends this event when your domain is in processing state and contains indices
-with custom index.routing.allocation settings which can cause blue-green deployments
-to get stuck. Verify settings are applied properly.
+OpenSearch Service sends this event when your domain is in processing state and contains indices with custom index.routing.allocation settings which can cause blue-green deployments to get stuck. Verify settings are applied properly.
 
 **Example**
 
@@ -1051,7 +1018,7 @@ The following is an example event of this type:
      "event":"Custom Index Routing Warning",
      "status":"Warning",
      "severity":"Medium",
-     "description":"Your domain is in processing state and contains indice(s) with custom index.routing.allocation
+     "description":"Your domain is in processing state and contains indice(s) with custom index.routing.allocation 
                     settings which can cause blue-green deployments to get stuck. Verify settings are applied properly.
                     For more information, see https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-events.html#monitoring-events-index-routing."
   }
@@ -1059,10 +1026,9 @@ The following is an example event of this type:
 ```
 
 ### Failed shard lock
+<a name="monitoring-events-failed-shard-lock"></a>
 
-OpenSearch Service sends this event when your domain is unhealthy due to unassigned shards with
-`[ShardLockObtainFailedException]`. For more information, see [How do I resolve the in-memory shard lock exception in
-Amazon OpenSearch Service?](https://aws.amazon.com/premiumsupport/knowledge-center/opensearch-in-memory-shard-lock/ "https://aws.amazon.com/premiumsupport/knowledge-center/opensearch-in-memory-shard-lock/")
+OpenSearch Service sends this event when your domain is unhealthy due to unassigned shards with `[ShardLockObtainFailedException]`. For more information, see [How do I resolve the in-memory shard lock exception in Amazon OpenSearch Service?](https://aws.amazon.com/premiumsupport/knowledge-center/opensearch-in-memory-shard-lock/)
 
 **Example**
 
@@ -1082,21 +1048,20 @@ The following is an example event of this type:
      "event":"Failed Shard Lock",
      "status":"Warning",
      "severity":"Medium",
-     "description":"Your domain is unhealthy due to unassigned shards with [ShardLockObtainFailedException]. For more information,
+     "description":"Your domain is unhealthy due to unassigned shards with [ShardLockObtainFailedException]. For more information, 
                     see https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-events.html#monitoring-events-failed-shard-lock."
 }
 ```
 
 ## VPC endpoint events
+<a name="monitoring-events-vpc"></a>
 
-OpenSearch Service sends certain events to EventBridge related to [AWS PrivateLink interface endpoints](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+OpenSearch Service sends certain events to EventBridge related to [AWS PrivateLink interface endpoints](vpc-interface-endpoints.md).
 
 ### VPC endpoint creation failed
+<a name="monitoring-events-vpc-create-fail"></a>
 
-OpenSearch Service sends this event when it's unable to create a requested VPC endpoint. This
-error might occur because you've reached the limit on the number of VPC endoints
-allowed within a Region. You will also see this error if a specified subnet or
-security group doesn't exist.
+OpenSearch Service sends this event when it's unable to create a requested VPC endpoint. This error might occur because you've reached the limit on the number of VPC endoints allowed within a Region. You will also see this error if a specified subnet or security group doesn't exist.
 
 **Example**
 
@@ -1118,7 +1083,7 @@ The following is an example event of this type:
       "event":"VPC Endpoint Create Validation",
       "status":"Failed",
       "severity":"High",
-      "description":"Unable to create VPC endpoint aos-0d4c74c0342343 for domain
+      "description":"Unable to create VPC endpoint aos-0d4c74c0342343 for domain 
                     arn:aws:es:eu-south-1:123456789012:domain/my-domain due to the following validation failures: You've reached the limit on the
                     number of VPC endpoints that you can create in the AWS Region."
    }
@@ -1126,6 +1091,7 @@ The following is an example event of this type:
 ```
 
 ### VPC endpoint update failed
+<a name="monitoring-events-vpc-update-fail"></a>
 
 OpenSearch Service sends this event when it's unable to delete a requested VPC endpoint.
 
@@ -1149,13 +1115,14 @@ The following is an example event of this type:
       "event":"VPC Endpoint Update Validation",
       "status":"Failed",
       "severity":"High",
-      "description":"Unable to update VPC endpoint aos-0d4c74c0342343 for domain
+      "description":"Unable to update VPC endpoint aos-0d4c74c0342343 for domain 
                     arn:aws:es:eu-south-1:123456789012:domain/my-domain due to the following validation failures: <failure message>."
    }
 }
 ```
 
 ### VPC endpoint deletion failed
+<a name="monitoring-events-vpc-delete-fail"></a>
 
 OpenSearch Service sends this event when it's unable to delete a requested VPC endpoint.
 
@@ -1179,18 +1146,19 @@ The following is an example event of this type:
       "event":"VPC Endpoint Delete Validation",
       "status":"Failed",
       "severity":"High",
-      "description":"Unable to delete VPC endpoint aos-0d4c74c0342343 for domain
+      "description":"Unable to delete VPC endpoint aos-0d4c74c0342343 for domain 
                     arn:aws:es:eu-south-1:123456789012:domain/my-domain due to the following validation failures: Specified subnet doesn't exist."
    }
 }
 ```
 
 ## Node retirement events
+<a name="monitoring-events-nr"></a>
 
-OpenSearch Service sends events to EventBridge when one of the following node retirement events
-occur.
+OpenSearch Service sends events to EventBridge when one of the following node retirement events occur.
 
 ### Node retirement scheduled
+<a name="monitoring-events-nr-scheduled"></a>
 
 OpenSearch Service sends this event when a node retirement has been scheduled.
 
@@ -1212,14 +1180,15 @@ The following is an example event of this type:
     "event": "Node Retirement Notification",
     "status": "Scheduled",
     "severity": "Medium",
-    "description": "An automated action to retire and replace a node has been scheduled on your domain.
-                    The node will be replaced in the next off-peak window. For more information, see
+    "description": "An automated action to retire and replace a node has been scheduled on your domain. 
+                    The node will be replaced in the next off-peak window. For more information, see 
                     https://docs.aws.amazon.com/opensearch-service/latest/developerguide/monitoring-events.html."
   }
 }
 ```
 
 ### Node retirement completed
+<a name="monitoring-events-nr-completed"></a>
 
 OpenSearch Service sends this event when a node retirement has completed.
 
@@ -1247,6 +1216,7 @@ The following is an example event of this type:
 ```
 
 ### Node retirement failed
+<a name="monitoring-events-nr-failed"></a>
 
 OpenSearch Service sends this event when a node retirement fails.
 
@@ -1268,21 +1238,21 @@ The following is an example event of this type:
     "event": "Node Retirement Notification",
     "status": "Failed",
     "severity": "Medium",
-    "description": "Node retirement failed. No actions are required from your end. We will automatically
+    "description": "Node retirement failed. No actions are required from your end. We will automatically 
                     retry replacing the node."
   }
 }
 ```
 
 ## Degraded node retirement events
+<a name="monitoring-events-degraded-nr"></a>
 
-OpenSearch Service sends these events when a node replacement is required due to degraded hardware
-on a node.
+OpenSearch Service sends these events when a node replacement is required due to degraded hardware on a node.
 
 ### Degraded node retirement notification
+<a name="monitoring-events-degraded-nr-info"></a>
 
-OpenSearch Service sends this event when the automated action to retire and replace a degraded
-node has been scheduled for your domain.
+OpenSearch Service sends this event when the automated action to retire and replace a degraded node has been scheduled for your domain.
 
 **Example**
 
@@ -1310,9 +1280,9 @@ The following is an example event of this type:
 ```
 
 ### Degraded node retirement complete
+<a name="monitoring-events-degraded-nr-complete"></a>
 
-OpenSearch Service sends this event when a degraded node has been retired and replaced with a
-new node.
+OpenSearch Service sends this event when a degraded node has been retired and replaced with a new node.
 
 **Example**
 
@@ -1340,6 +1310,7 @@ The following is an example event of this type:
 ```
 
 ### Degraded node retirement failed
+<a name="monitoring-events-degraded-nr-failed"></a>
 
 OpenSearch Service sends this event if the degraded node retirement failed.
 
@@ -1358,7 +1329,7 @@ The following is an example event of this type:
    "region":"us-east-1",
    "resources":[
       "arn:aws:es:us-east-1:123456789012:domain/test-node-replacement"
-   ],
+   ],                       
    "detail":{
       "severity":"Medium",
       "description":"Node retirement failed. No actions are required from your end. We will automatically re-try replacing the node.",
@@ -1369,14 +1340,14 @@ The following is an example event of this type:
 ```
 
 ## Domain error events
+<a name="monitoring-events-errors"></a>
 
 OpenSearch Service sends events to EventBridge when one of the following domain errors occur.
 
 ### Domain update validation failure
+<a name="monitoring-events-validation"></a>
 
-OpenSearch Service sends this event if it encounters one or more validation failures when
-attempting to update or perform a configuration change on a domain. For steps to
-resolve these failures, see [Troubleshooting validation errors](managedomains-configuration-changes.md#validation "managedomains-configuration-changes.md#validation").
+OpenSearch Service sends this event if it encounters one or more validation failures when attempting to update or perform a configuration change on a domain. For steps to resolve these failures, see [Troubleshooting validation errors](managedomains-configuration-changes.md#validation).
 
 **Example**
 
@@ -1405,9 +1376,9 @@ The following is an example event of this type:
 ```
 
 ### KMS key inaccessible
+<a name="monitoring-events-kms-inaccessible"></a>
 
-OpenSearch Service sends this event when it [can't access your AWS KMS
-key](encryption-at-rest.md#disabled-key "encryption-at-rest.md#disabled-key").
+OpenSearch Service sends this event when it [can't access your AWS KMS key](encryption-at-rest.md#disabled-key).
 
 **Example**
 
@@ -1427,16 +1398,16 @@ The following is an example event of this type:
      "event":"KMS Key Inaccessible",
      "status":"Error",
      "severity":"High",
-     "description":"The KMS key associated with this domain is inaccessible. You are at risk of losing access to your domain.
+     "description":"The KMS key associated with this domain is inaccessible. You are at risk of losing access to your domain. 
                     For more information, please refer to https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html#disabled-key."
   }
 }
 ```
 
 ### Domain isolation
+<a name="monitoring-events-AWS-Health-Dashboard-domain-isolation"></a>
 
-OpenSearch Service sends this event when your domain becomes isolated and can't received, read,
-or write requests because it is unreachable by the network.
+OpenSearch Service sends this event when your domain becomes isolated and can't received, read, or write requests because it is unreachable by the network.
 
 **Example**
 

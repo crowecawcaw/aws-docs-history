@@ -1,591 +1,438 @@
+
+
 # Getting started with the OpenSearch user interface in Amazon OpenSearch Service
+<a name="application-getting-started"></a>
 
-In Amazon OpenSearch Service, an _application_ is an instance of the OpenSearch
-user interface (OpenSearch UI). Each application can be associated with multiple data
-sources, and a single source can be associated with multiple applications. You can
-create multiple applications for different administrators using different supported
-authentication options.
+In Amazon OpenSearch Service, an *application* is an instance of the OpenSearch user interface (OpenSearch UI). Each application can be associated with multiple data sources, and a single source can be associated with multiple applications. You can create multiple applications for different administrators using different supported authentication options.
 
-Use the information in this topic to guide you through the process of creating an
-OpenSearch UI application using the AWS Management Console or the AWS CLI.
+Use the information in this topic to guide you through the process of creating an OpenSearch UI application using the AWS Management Console or the AWS CLI. 
 
-###### Topics
-
-- [Required permissions for creating Amazon OpenSearch Service applications](#application-prerequisite-permissions "#application-prerequisite-permissions")
-- [Creating an OpenSearch UI application](#create-application "#create-application")
-- [Managing application administrators](#managing-application-administrators "#managing-application-administrators")
+**Topics**
++ [Required permissions for creating Amazon OpenSearch Service applications](#application-prerequisite-permissions)
++ [Creating an OpenSearch UI application](#create-application)
++ [Managing application administrators](#managing-application-administrators)
 
 ## Required permissions for creating Amazon OpenSearch Service applications
+<a name="application-prerequisite-permissions"></a>
 
-Before you create an application, verify that you have been granted the necessary
-permissions for the task. Contact an account administrator for assistance if
-required.
+Before you create an application, verify that you have been granted the necessary permissions for the task. Contact an account administrator for assistance if required.
 
 ### General permissions
+<a name="prerequisite-permissions-general"></a>
 
-To work with applications in OpenSearch Service, you need the permissions shown in the
-following policy. The permissions serve the following purposes:
+To work with applications in OpenSearch Service, you need the permissions shown in the following policy. The permissions serve the following purposes:
++ The five `es:*Application` permissions are required to create and manage an application.
++ The three `es:*Tags` permissions are required to add, list and remove tags from the application. 
++ The `aoss:BatchGetCollection`, `es:DescribeDomain` and `es:GetDirectQueryDataSource` permissions are required to associate data sources.
++ The `aoss:APIAccessAll`, `es:ESHttp*`, and 4 `opensearch:*DirectQuery*` permissions are required to access data sources.
++ The `iam:CreateServiceLinkedRole` provides permission to Amazon OpenSearch Service for creating a service-linked role (SLR) in your account. This role is used and makes it possible for the OpenSearch UI application to publish Amazon CloudWatch metrics in your account. For more information, see [Permissions](slr-aos.md#slr-permissions) in the topic [Using service-linked roles to create VPC domains and direct query data sources](slr-aos.md). 
 
-- The five `es:*Application` permissions are required to
-  create and manage an application.
-- The three `es:*Tags` permissions are required to add, list
-  and remove tags from the application.
-- The `aoss:BatchGetCollection`,
-  `es:DescribeDomain` and
-  `es:GetDirectQueryDataSource` permissions are required to
-  associate data sources.
-- The `aoss:APIAccessAll`, `es:ESHttp*`, and 4
-  `opensearch:*DirectQuery*` permissions are required to
-  access data sources.
-- The `iam:CreateServiceLinkedRole` provides permission to
-  Amazon OpenSearch Service for creating a service-linked role (SLR) in your account. This
-  role is used and makes it possible for the OpenSearch UI application
-  to publish Amazon CloudWatch metrics in your account. For more information, see
-  [Permissions](slr-aos.md#slr-permissions "slr-aos.md#slr-permissions") in the topic [Using service-linked roles to create VPC domains and direct query data sources](slr-aos.md "slr-aos.md").
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "VisualEditor0",
- "Effect": "Allow",
- "Action": [
- "es:CreateApplication",
- "es:DeleteApplication",
- "es:GetApplication",
- "es:ListApplications",
- "es:UpdateApplication",
- "es:AddTags",
- "es:ListTags",
- "es:RemoveTags",
- "aoss:APIAccessAll",
- "es:ESHttp*",
- "opensearch:StartDirectQuery",
- "opensearch:GetDirectQuery",
- "opensearch:CancelDirectQuery",
- "opensearch:GetDirectQueryResult",
- "aoss:BatchGetCollection",
- "aoss:ListCollections",
- "es:DescribeDomain",
- "es:DescribeDomains",
- "es:ListDomainNames",
- "es:GetDirectQueryDataSource",
- "es:ListDirectQueryDataSources"
- ],
- "Resource": "*"
- },
- {
- "Sid": "VisualEditor1",
- "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "arn:aws:iam::*:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "es:CreateApplication",
+                "es:DeleteApplication",
+                "es:GetApplication",
+                "es:ListApplications",
+                "es:UpdateApplication",
+                "es:AddTags",
+                "es:ListTags",
+                "es:RemoveTags",
+                "aoss:APIAccessAll",
+                "es:ESHttp*",
+                "opensearch:StartDirectQuery",
+                "opensearch:GetDirectQuery",
+                "opensearch:CancelDirectQuery",
+                "opensearch:GetDirectQueryResult",
+                "aoss:BatchGetCollection",
+                "aoss:ListCollections",
+                "es:DescribeDomain",
+                "es:DescribeDomains",
+                "es:ListDomainNames",
+                "es:GetDirectQueryDataSource",
+                "es:ListDirectQueryDataSources"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService"
+        }
+    ]
+}
 ```
+
+------
 
 ### Permissions to create an application that uses IAM Identity Center authentication (optional)
+<a name="prerequisite-permissions-idc"></a>
 
-By default, dashboard applications are authenticated using AWS Identity and Access Management (IAM)
-to manage permissions for AWS resource users. However, you can choose to
-provide a single sign-on experience by using IAM Identity Center, which lets you use your
-existing identity providers for logging into OpenSearch UI applications.
-In this case, you'll
-select the **Authentication with IAM Identity Center** option in the
-procedure later in this topic, and then grant IAM Identity Center users the permissions
-required to access the OpenSearch UI application.)
+By default, dashboard applications are authenticated using AWS Identity and Access Management (IAM) to manage permissions for AWS resource users. However, you can choose to provide a single sign-on experience by using IAM Identity Center, which lets you use your existing identity providers for logging into OpenSearch UI applications. In this case, you'll select the **Authentication with IAM Identity Center** option in the procedure later in this topic, and then grant IAM Identity Center users the permissions required to access the OpenSearch UI application.)
 
-To create an application that uses IAM Identity Center authentication, you'll need the
-following permissions. Replace the `placeholder values`
-with your own information. Contact an account administrator for assistance if
-required.
+To create an application that uses IAM Identity Center authentication, you'll need the following permissions. Replace the {{placeholder values}} with your own information. Contact an account administrator for assistance if required.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "IDCPermissions",
- "Effect": "Allow",
- "Action": [
- "es:CreateApplication",
- "es:DeleteApplication",
- "es:GetApplication",
- "es:ListApplications",
- "es:UpdateApplication",
- "es:AddTags",
- "es:ListTags",
- "es:RemoveTags",
- "aoss:BatchGetCollection",
- "aoss:ListCollections",
- "es:DescribeDomain",
- "es:DescribeDomains",
- "es:ListDomainNames",
- "es:GetDirectQueryDataSource",
- "es:ListDirectQueryDataSources",
- "sso:CreateApplication",
- "sso:DeleteApplication",
- "sso:PutApplicationGrant",
- "sso:PutApplicationAccessScope",
- "sso:PutApplicationAuthenticationMethod",
- "sso:ListInstances",
- "sso:DescribeApplicationAssignment",
- "sso:DescribeApplication",
- "sso:CreateApplicationAssignment",
- "sso:ListApplicationAssignments",
- "sso:DeleteApplicationAssignment",
- "sso-directory:SearchGroups",
- "sso-directory:SearchUsers",
- "sso:ListDirectoryAssociations",
- "identitystore:DescribeUser",
- "identitystore:DescribeGroup",
- "iam:ListRoles"
- ],
- "Resource": "*"
- },
- {
- "Sid": "SLRPermission",
- "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "arn:aws:iam::*:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService"
- },
- {
- "Sid": "PassRolePermission",
- "Effect": "Allow",
- "Action": "iam:PassRole",
- "Resource": "arn:aws:iam::`111122223333`:role/`iam-role-for-identity-center`"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "IDCPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "es:CreateApplication",
+                "es:DeleteApplication",
+                "es:GetApplication",
+                "es:ListApplications",
+                "es:UpdateApplication",
+                "es:AddTags",
+                "es:ListTags",
+                "es:RemoveTags",
+                "aoss:BatchGetCollection",
+                "aoss:ListCollections",
+                "es:DescribeDomain",
+                "es:DescribeDomains",
+                "es:ListDomainNames",
+                "es:GetDirectQueryDataSource",
+                "es:ListDirectQueryDataSources",
+                "sso:CreateApplication",  
+                "sso:DeleteApplication",  
+                "sso:PutApplicationGrant",  
+                "sso:PutApplicationAccessScope",  
+                "sso:PutApplicationAuthenticationMethod",  
+                "sso:ListInstances",  
+                "sso:DescribeApplicationAssignment",  
+                "sso:DescribeApplication",  
+                "sso:CreateApplicationAssignment",  
+                "sso:ListApplicationAssignments",  
+                "sso:DeleteApplicationAssignment",
+                "sso-directory:SearchGroups",
+                "sso-directory:SearchUsers",
+                "sso:ListDirectoryAssociations",
+                "identitystore:DescribeUser",
+                "identitystore:DescribeGroup",
+                "iam:ListRoles"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SLRPermission",
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "arn:aws:iam::*:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService"
+        },
+        {
+            "Sid": "PassRolePermission",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{iam-role-for-identity-center}}"
+        }
+    ]
+}
 ```
+
+------
 
 ## Creating an OpenSearch UI application
+<a name="create-application"></a>
 
-Create an application that specifies and application name, authentication method,
-and administrators using one of the following procedures.
+Create an application that specifies and application name, authentication method, and administrators using one of the following procedures.
 
-###### Topics
-
-- [Creating an OpenSearch UI application that uses IAM authentication in the console](#create-application-iam-authentication-console "#create-application-iam-authentication-console")
-- [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console](#create-application-iam-identity-center-authentication-console "#create-application-iam-identity-center-authentication-console")
-- [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication using the AWS CLI](#create-application-iam-identity-center-authentication-cli "#create-application-iam-identity-center-authentication-cli")
+**Topics**
++ [Creating an OpenSearch UI application that uses IAM authentication in the console](#create-application-iam-authentication-console)
++ [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console](#create-application-iam-identity-center-authentication-console)
++ [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication using the AWS CLI](#create-application-iam-identity-center-authentication-cli)
 
 ### Creating an OpenSearch UI application that uses IAM authentication in the console
+<a name="create-application-iam-authentication-console"></a>
 
-###### To create an OpenSearch UI application that uses IAM authentication in the console
+**To create an OpenSearch UI application that uses IAM authentication in the console**
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. In the left navigation pane, choose **OpenSearch UI
-   (Dashboards)**.
-3. Choose **Create application**.
-4. For **Application name**, enter a name for the
-   application.
-5. Do not select the **Authentication with IAM Identity Center** check
-   box. For information about creating an application with authentication
-   through AWS IAM Identity Center, see [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console](#create-application-iam-identity-center-authentication-console "#create-application-iam-identity-center-authentication-console") later in this topic.
-6. (Optional) You are automatically added as an administrator of the
-   application you are creating. In the **OpenSearch application
-   admins management** area, you can grant administrator
-   permissions to other users.
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home).
 
-###### Note
+1. In the left navigation pane, choose **OpenSearch UI (Dashboards)**.
 
-The OpenSearch UI application administrator role grants
-permissions to edit and delete an OpenSearch UI application.
-Application administrators can also create, edit and delete
-workspaces in an OpenSearch UI application.
+1. Choose **Create application**.
 
-To grant administrator permissions to other users, choose one of the
-following:
+1. For **Application name**, enter a name for the application.
 
-    * **Grant administrator's permission to specific
-     user(s)** – In the **OpenSearch
-     application admins** field, in the
-     **Properties** pop-up list, select
-     **IAM users** or
+1. Do not select the **Authentication with IAM Identity Center** check box. For information about creating an application with authentication through AWS IAM Identity Center, see [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console](#create-application-iam-identity-center-authentication-console) later in this topic.
 
+1. (Optional) You are automatically added as an administrator of the application you are creating. In the **OpenSearch application admins management** area, you can grant administrator permissions to other users.
+**Note**  
+The OpenSearch UI application administrator role grants permissions to edit and delete an OpenSearch UI application. Application administrators can also create, edit and delete workspaces in an OpenSearch UI application.
 
-    **AWS IAM Identity Center users**, and then choose the
-     individual users to grant administrator permissions to.
-    * **Grant administrator permission to all
-     users** – All users in your organization or
-     account are granted administrator permissions.
+   To grant administrator permissions to other users, choose one of the following: 
+   + **Grant administrator's permission to specific user(s)** – In the **OpenSearch application admins** field, in the **Properties** pop-up list, select **IAM users** or 
 
-7. (Optional) Configure encryption settings. By default, OpenSearch UI metadata is encrypted with AWS owned keys. To use your own customer managed key (CMK) for encryption, see [Encrypting OpenSearch UI application metadata with customer managed keys](application-encryption-cmk.md "application-encryption-cmk.md"). 8. (Optional) In the **Tags** area, apply one or more
-tag key name/value pairs to the application.
+     **AWS IAM Identity Center users**, and then choose the individual users to grant administrator permissions to.
+   + **Grant administrator permission to all users** – All users in your organization or account are granted administrator permissions.
 
-Tags are optional metadata that you assign to a resource. Tags allow
-you to categorize a resource in different ways, such as by purpose,
-owner, or environment. 9. Choose **Create**.
+1. (Optional) Configure encryption settings. By default, OpenSearch UI metadata is encrypted with AWS owned keys. To use your own customer managed key (CMK) for encryption, see [Encrypting OpenSearch UI application metadata with customer managed keys](application-encryption-cmk.md).
+
+1. (Optional) In the **Tags** area, apply one or more tag key name/value pairs to the application.
+
+   Tags are optional metadata that you assign to a resource. Tags allow you to categorize a resource in different ways, such as by purpose, owner, or environment.
+
+1. Choose **Create**.
 
 ### Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console
+<a name="create-application-iam-identity-center-authentication-console"></a>
 
-In order create an OpenSearch UI application that uses AWS IAM Identity Center
-authentication, you must have the IAM permissions described earlier in this
-topic in [Permissions to create an application that uses IAM Identity Center authentication (optional)](#prerequisite-permissions-idc "#prerequisite-permissions-idc").
+In order create an OpenSearch UI application that uses AWS IAM Identity Center authentication, you must have the IAM permissions described earlier in this topic in [Permissions to create an application that uses IAM Identity Center authentication (optional)](#prerequisite-permissions-idc).
 
-###### To create an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console
+**To create an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console**
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. In the left navigation pane, choose **OpenSearch UI
-   (Dashboards)**.
-3. Choose **Create application**.
-4. For **Application name**, enter a name for the
-   application.
-5. (Optional) To enable single sign-on for your organization or account,
-   do the following:
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home).
 
-   1. Select the **Authentication with IAM Identity Center**
-      check box, as shown in the following image:
+1. In the left navigation pane, choose **OpenSearch UI (Dashboards)**.
 
-   ![The "Single sign-on authetication" area with the "Authentication with IAM Identity Center" box selected.](images/ui-Single-sign-on-authentication.png) 2. Do one of the following:
+1. Choose **Create application**.
 
-        * In the **IAM role for Identity Center
-         application** list, choose an existing
-         IAM role that provides the required permissions for
-         IAM Identity Center to access OpenSearch UI and the associated data
-         sources. See the policies in the next bullet for the
-         permissions the role must have.
-        * Create a new role with the required permissions. Use
-         the following procedures in the *IAM User Guide* with the specified
-         options to create a new role and with the necessary
-         permission policy and trust policy.
+1. For **Application name**, enter a name for the application.
 
+1. (Optional) To enable single sign-on for your organization or account, do the following:
 
+   1. Select the **Authentication with IAM Identity Center** check box, as shown in the following image:  
+![The "Single sign-on authetication" area with the "Authentication with IAM Identity Center" box selected.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-Single-sign-on-authentication.png)
 
+   1. Do one of the following:
+      + In the **IAM role for Identity Center application** list, choose an existing IAM role that provides the required permissions for IAM Identity Center to access OpenSearch UI and the associated data sources. See the policies in the next bullet for the permissions the role must have.
+      + Create a new role with the required permissions. Use the following procedures in the *IAM User Guide* with the specified options to create a new role and with the necessary permission policy and trust policy.
+        + Procedure: [Create IAM policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html)
 
-        	+ Procedure: [Create
-        	 IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md")
+          As you follow the steps in this procedure, paste the following policy into the policy editor **JSON** field:
 
+------
+#### [ JSON ]
 
-        	As you follow the steps in this procedure,
-        	 paste the following policy into the policy editor
-        	 **JSON** field:
+****  
 
+          ```
+          {
+              "Version":"2012-10-17",		 	 	 
+              "Statement": [
+                  {
+                      "Sid": "IdentityStoreOpenSearchDomainConnectivity",
+                      "Effect": "Allow",
+                      "Action": [
+                          "identitystore:DescribeUser",
+                          "identitystore:ListGroupMembershipsForMember",
+                          "identitystore:DescribeGroup"
+                      ],
+                      "Resource": "*",
+                      "Condition": { 
+                          "ForAnyValue:StringEquals": {
+                              "aws:CalledViaLast": "es.amazonaws.com"
+                          }
+                      }
+                  },
+                  {
+                      "Sid": "OpenSearchDomain",
+                      "Effect": "Allow",
+                      "Action": [
+                          "es:ESHttp*"
+                      ],
+                      "Resource": "*"
+                  },
+                  {
+                      "Sid": "OpenSearchServerless",
+                      "Effect": "Allow",
+                      "Action": [
+                          "aoss:APIAccessAll"
+                      ],
+                      "Resource": "*"
+                  }
+              ]
+          }
+          ```
 
+------
+        + Procedure: [Create a role using custom trust policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-custom.html)
 
-        	JSON
+          As you follow the steps in this procedure, replace the placeholder JSON in the **Custom trust policy** box with the following:
+**Tip**  
+If you are adding the trust policy to an existing role, add the policy on the role's **Trust relationship** tab.
 
+------
+#### [ JSON ]
 
+****  
 
+          ```
+          {
+              "Version":"2012-10-17",		 	 	 
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Principal": {
+                          "Service": "application.opensearchservice.amazonaws.com"
+                      },
+                      "Action": "sts:AssumeRole"
+                  },
+                  {
+                      "Effect": "Allow",
+                      "Principal": {
+                          "Service": "application.opensearchservice.amazonaws.com"
+                      },
+                      "Action": "sts:SetContext",
+                      "Condition": {
+                          "ForAllValues:ArnEquals": {
+                          "sts:RequestContextProviders": "arn:aws:iam::aws:contextProvider/IdentityCenter"
+                          }
+                      }
+                  }
+              ]
+          }
+          ```
 
+------
 
-        	```
-        	`{
-        	 "Version":"2012-10-17",
-        	 "Statement": [
-        	 {
-        	 "Sid": "IdentityStoreOpenSearchDomainConnectivity",
-        	 "Effect": "Allow",
-        	 "Action": [
-        	 "identitystore:DescribeUser",
-        	 "identitystore:ListGroupMembershipsForMember",
-        	 "identitystore:DescribeGroup"
-        	 ],
-        	 "Resource": "*",
-        	 "Condition": {
-        	 "ForAnyValue:StringEquals": {
-        	 "aws:CalledViaLast": "es.amazonaws.com"
-        	 }
-        	 }
-        	 },
-        	 {
-        	 "Sid": "OpenSearchDomain",
-        	 "Effect": "Allow",
-        	 "Action": [
-        	 "es:ESHttp*"
-        	 ],
-        	 "Resource": "*"
-        	 },
-        	 {
-        	 "Sid": "OpenSearchServerless",
-        	 "Effect": "Allow",
-        	 "Action": [
-        	 "aoss:APIAccessAll"
-        	 ],
-        	 "Resource": "*"
-        	 }
-        	 ]
-        	}`
+   1. If an IAM Identity Center instance has been created in your organization or account already, the console reports that Amazon OpenSearch Dashboards is already connected to an organization instance of IAM Identity Center, as shown in the following image.  
+![The "Amazon OpenSearch Dashboard connected to an account instance of IAM Identity Center" area shows the URL of the existing IAM Identity Center account instance.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-connected-instance.png)
 
-        	```
-        	+ Procedure: [Create a role using custom trust
-        	 policies](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md")
+      If IAM Identity Center is not yet available in your organization or account, you or an administrator with the necessary permissions can create an organization instance or account instance. The **Connect Amazon OpenSearch Dashboards to IAM Identity Center** area provides options for both, as shown in the following image:  
+![The "Connect Amazon OpenSearch Dashboards to IAM Identity Center" area provides buttons to create an organization instance or an account instance.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-no-connected-instance.png)
 
+       In this case, you can create an account instance in IAM Identity Center for testing, or request that an administrator create an organizational instance in IAM Identity Center. For more information, see the following topics in the *AWS IAM Identity Center User Guide*:
+**Note**  
+If you want to create OpenSearch UI applications in a different AWS Region from your IAM Identity Center organizational instance, see [Using IAM Identity Center across multiple AWS Regions](https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html).
+      + [Organization instances of IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/organization-instances-identity-center.html)
+      + [Account instances of IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/account-instances-identity-center.html)
+      + [Enable AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-identity-center.html)
 
-        	As you follow the steps in this procedure,
-        	 replace the placeholder JSON in the
-        	 **Custom trust policy** box with
-        	 the following:
+1. (Optional) You are automatically added as an administrator of the application you are creating. In the **OpenSearch application admins management** area, you can grant administrator permissions to other users, as shown in the following image:  
+![The "OpenSearch application admins management" area provides options for granting administrator permissions to select users or all all users.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ui-admins-management.png)
+**Note**  
+The OpenSearch UI application administrator role grants permissions to edit and delete an OpenSearch UI application. Application administrators can also create, edit and delete workspaces in an OpenSearch UI application.
 
+   To grant administrator permissions to other users, choose one of the following: 
+   + **Grant administrator's permission to specific user(s)** – In the **OpenSearch application admins** field, in the **Properties** pop-up list, select **IAM users** or 
 
-        	###### Tip
+     **AWS IAM Identity Center users**, and then choose the individual users to grant administrator permissions to.
+   + **Grant administrator permission to all users** – All users in your organization or account are granted administrator permissions.
 
-        	If you are adding the trust policy to an
-        	 existing role, add the policy on the role's
-        	 **Trust relationship**
-        	 tab.
+1. (Optional) In the **Tags** area, apply one or more tag key name/value pairs to the application.
 
+   Tags are optional metadata that you assign to a resource. Tags allow you to categorize a resource in different ways, such as by purpose, owner, or environment.
 
-
-        	JSON
-
-
-
-
-
-        	```
-        	`{
-        	 "Version":"2012-10-17",
-        	 "Statement": [
-        	 {
-        	 "Effect": "Allow",
-        	 "Principal": {
-        	 "Service": "application.opensearchservice.amazonaws.com"
-        	 },
-        	 "Action": "sts:AssumeRole"
-        	 },
-        	 {
-        	 "Effect": "Allow",
-        	 "Principal": {
-        	 "Service": "application.opensearchservice.amazonaws.com"
-        	 },
-        	 "Action": "sts:SetContext",
-        	 "Condition": {
-        	 "ForAllValues:ArnEquals": {
-        	 "sts:RequestContextProviders": "arn:aws:iam::aws:contextProvider/IdentityCenter"
-        	 }
-        	 }
-        	 }
-        	 ]
-        	}`
-
-        	```
-
-   3. If an IAM Identity Center instance has been created in your organization or
-   account already, the console reports that Amazon
-   OpenSearch Dashboards is already connected to an organization
-   instance of IAM Identity Center, as shown in the following image.
-
-   ![The "Amazon OpenSearch Dashboard connected to an account instance of IAM Identity Center" area shows the URL of the existing IAM Identity Center account instance.](images/ui-connected-instance.png)
-
-   If IAM Identity Center is not yet available in your organization or account,
-   you or an administrator with the necessary permissions can
-   create an organization instance or account instance. The
-   **Connect Amazon OpenSearch Dashboards to IAM
-   Identity Center** area provides options for both,
-   as shown in the following image:
-
-   ![The "Connect Amazon OpenSearch Dashboards to IAM Identity Center" area provides buttons to create an organization instance or an account instance.](images/ui-no-connected-instance.png)
-
-   In this case, you can create an account instance in IAM Identity Center for
-   testing, or request that an administrator create an
-   organizational instance in IAM Identity Center. For more information, see the
-   following topics in the _AWS IAM Identity Center User
-   Guide_:
-
-   ###### Note
-
-   If you want to create OpenSearch UI applications in a
-   different AWS Region from your IAM Identity Center organizational
-   instance, see [Using IAM Identity Center across multiple AWS Regions](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md").
-
-        * [Organization instances of IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")
-        * [Account instances of IAM Identity Center](../../../singlesignon/latest/userguide/account-instances-identity-center.md "../../../singlesignon/latest/userguide/account-instances-identity-center.md")
-        * [Enable AWS IAM Identity Center](../../../singlesignon/latest/userguide/enable-identity-center.md "../../../singlesignon/latest/userguide/enable-identity-center.md")
-
-6. (Optional) You are automatically added as an administrator of the
-   application you are creating. In the **OpenSearch application
-   admins management** area, you can grant administrator
-   permissions to other users, as shown in the following image:
-
-![The "OpenSearch application admins management" area provides options for granting administrator permissions to select users or all all users.](images/ui-admins-management.png)
-
-###### Note
-
-The OpenSearch UI application administrator role grants
-permissions to edit and delete an OpenSearch UI application.
-Application administrators can also create, edit and delete
-workspaces in an OpenSearch UI application.
-
-To grant administrator permissions to other users, choose one of the
-following:
-
-    * **Grant administrator's permission to specific
-     user(s)** – In the **OpenSearch
-     application admins** field, in the
-     **Properties** pop-up list, select
-     **IAM users** or
-
-
-    **AWS IAM Identity Center users**, and then choose the
-     individual users to grant administrator permissions to.
-    * **Grant administrator permission to all
-     users** – All users in your organization or
-     account are granted administrator permissions.
-
-7. (Optional) In the **Tags** area, apply one or more
-tag key name/value pairs to the application.
-
-Tags are optional metadata that you assign to a resource. Tags allow
-you to categorize a resource in different ways, such as by purpose,
-owner, or environment. 8. Choose **Create**.
+1. Choose **Create**.
 
 ### Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication using the AWS CLI
+<a name="create-application-iam-identity-center-authentication-cli"></a>
 
-To create an OpenSearch UI application that uses AWS IAM Identity Center authentication
-using the AWS CLI, use the [create-application](../../../cli/latest/reference/opensearch/create-application.md "../../../cli/latest/reference/opensearch/create-application.md") command with the following options:
+To create an OpenSearch UI application that uses AWS IAM Identity Center authentication using the AWS CLI, use the [create-application](https://docs.aws.amazon.com/cli/latest/reference/opensearch/create-application.html) command with the following options:
++ `--name` – The name of the application.
++ `--iam-identity-center-options` – (Optional) The IAM Identity Center instance and the IAM role that OpenSearch will use for authentication and access control.
 
-- `--name` – The name of the application.
-- `--iam-identity-center-options` – (Optional) The
-  IAM Identity Center instance and the IAM role that OpenSearch will use for
-  authentication and access control.
-
-Replace the `placeholder values` with your own
-information.
+Replace the {{placeholder values}} with your own information.
 
 ```
 aws opensearch create-application \
-    --name `application-name` \
+    --name {{application-name}} \
     --iam-identity-center-options "
           {
           \"enabled\":true,
-          \"iamIdentityCenterInstanceArn\":\"arn:aws:sso:::instance/`sso-instance`\",
-          \"iamRoleForIdentityCenterApplicationArn\":\"arn:aws:iam::`account-id`:role/`role-name`\"
+          \"iamIdentityCenterInstanceArn\":\"arn:aws:sso:::instance/{{sso-instance}}\",
+          \"iamRoleForIdentityCenterApplicationArn\":\"arn:aws:iam::{{account-id}}:role/{{role-name}}\"
           }
     "
 ```
 
 ## Managing application administrators
+<a name="managing-application-administrators"></a>
 
-An OpenSearch UI application administrator is a defined role with permission to
-edit and delete an OpenSearch UI application.
+An OpenSearch UI application administrator is a defined role with permission to edit and delete an OpenSearch UI application. 
 
-By default, as the creator of an OpenSearch UI application, you are the first
-administrator of the OpenSearch UI application.
+By default, as the creator of an OpenSearch UI application, you are the first administrator of the OpenSearch UI application. 
 
 ### Managing OpenSearch UI administrators using the console
+<a name="managing-application-administrators-console"></a>
 
-You can add additional administrators to an OpenSearch UI application in the
-AWS Management Console, either during the application creation workflow or in the
-**Edit** page after the application has been
-created.
+You can add additional administrators to an OpenSearch UI application in the AWS Management Console, either during the application creation workflow or in the **Edit** page after the application has been created.
 
-The OpenSearch UI application administrator role grants permissions to edit
-and delete an OpenSearch UI application. Application administrators can also
-create, edit and delete workspaces in an OpenSearch UI application.
+The OpenSearch UI application administrator role grants permissions to edit and delete an OpenSearch UI application. Application administrators can also create, edit and delete workspaces in an OpenSearch UI application.
 
-On an application detail page, you can search for the Amazon Resource Name
-(ARN) of an IAM principal or search for the name of IAM Identity Center user.
+On an application detail page, you can search for the Amazon Resource Name (ARN) of an IAM principal or search for the name of IAM Identity Center user. 
 
-###### To manage OpenSearch UI administrators using the console
+**To manage OpenSearch UI administrators using the console**
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2. In the left navigation pane, choose **OpenSearch UI
-   (Dashboards)**.
-3. In the **OpenSearch applications** area, choose the
-   name of an existing application.
-4. Choose **Edit**
-5. To grant administrator permissions to other users, choose one of the
-   following:
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home).
 
-   - **Grant administrator's permission to specific
-     user(s)** – In the **OpenSearch
-     application admins** field, in the
-     **Properties** pop-up list, select
-     **IAM users** or
+1. In the left navigation pane, choose **OpenSearch UI (Dashboards)**.
 
-   **AWS IAM Identity Center users**, and then choose the
-   individual users to grant administrator permissions to.
-   - **Grant administrator permission to all
-     users** – All users in your organization or
-     account are granted administrator permissions.
+1. In the **OpenSearch applications** area, choose the name of an existing application.
 
-6. Choose **Update**.
+1. Choose **Edit**
 
-You can remove additional administrators, but each OpenSearch UI application
-must retain at least one administrator.
+1. To grant administrator permissions to other users, choose one of the following: 
+   + **Grant administrator's permission to specific user(s)** – In the **OpenSearch application admins** field, in the **Properties** pop-up list, select **IAM users** or 
+
+     **AWS IAM Identity Center users**, and then choose the individual users to grant administrator permissions to.
+   + **Grant administrator permission to all users** – All users in your organization or account are granted administrator permissions.
+
+1. Choose **Update**.
+
+You can remove additional administrators, but each OpenSearch UI application must retain at least one administrator. 
 
 ### Managing OpenSearch UI administrators using the AWS CLI
+<a name="managing-application-administrators-cli"></a>
 
-You can create and update OpenSearch UI application administrators using the
-AWS CLI.
+You can create and update OpenSearch UI application administrators using the AWS CLI. 
 
-The `value` for both the
-`opensearchDashboards.dashboardAdmin.users` and
-`opensearchDashboards.dashboardAdmin.groups` keys is a JSON array.
-Pass it as a string. We recommend using the array format, for example
-`"[\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"]"`. With this format,
-you can assign multiple users or groups as administrators in a single
-configuration. To assign multiple values, include them as comma-separated entries
-in the array, for example
-`"[\"`value-1`\",\"`value-2`\"]"`.
+The `value` for both the `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups` keys is a JSON array. Pass it as a string. We recommend using the array format, for example `"[\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"]"`. With this format, you can assign multiple users or groups as administrators in a single configuration. To assign multiple values, include them as comma-separated entries in the array, for example `"[\"{{value-1}}\",\"{{value-2}}\"]"`.
 
 The values that each key accepts are as follows:
++ `opensearchDashboards.dashboardAdmin.users` – The ARN of an IAM user (in the format `arn:aws:iam::{{account-id}}:user/{{user-id}}`) or the ID of an IAM Identity Center user (in the format {{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}).
++ `opensearchDashboards.dashboardAdmin.groups` – The ARN of an IAM role (in the format `arn:aws:iam::{{account-id}}:role/{{role-name}}`) or the ID of an IAM Identity Center group (in the format {{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}).
 
-- `opensearchDashboards.dashboardAdmin.users` – The
-  ARN of an IAM user (in the format
-  `arn:aws:iam::`account-id`:user/`user-id``)
-  or the ID of an IAM Identity Center user (in the format
-  `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
-- `opensearchDashboards.dashboardAdmin.groups` – The
-  ARN of an IAM role (in the format
-  `arn:aws:iam::`account-id`:role/`role-name``)
-  or the ID of an IAM Identity Center group (in the format
-  `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
-
-To grant all signed-in users administrator permissions, set the
-`value` of the
-`opensearchDashboards.dashboardAdmin.users` key to the wildcard
-character (`*`). For example, use `"[\"*\"]"`. This grants
-administrator permissions to every user in your organization or account.
+To grant all signed-in users administrator permissions, set the `value` of the `opensearchDashboards.dashboardAdmin.users` key to the wildcard character (`*`). For example, use `"[\"*\"]"`. This grants administrator permissions to every user in your organization or account.
 
 #### Creating OpenSearch UI administrators using the AWS CLI
+<a name="creating-application-administrators-cli"></a>
 
-The following are examples of adding IAM principals, IAM Identity Center users, and
-groups as administrators when creating an OpenSearch UI
-application.
+The following are examples of adding IAM principals, IAM Identity Center users, and groups as administrators when creating an OpenSearch UI application.
 
 ##### Example 1: Create an OpenSearch UI application that adds an IAM user as an administrator
+<a name="add-admin-examples-iam-user-cli"></a>
 
-Run the following command to create an OpenSearch UI application
-that adds an IAM user as an administrator. Replace the
-`placeholder values` with your own
-information.
+Run the following command to create an OpenSearch UI application that adds an IAM user as an administrator. Replace the {{placeholder values}} with your own information.
 
 ```
 aws opensearch create-application \
-    --name `application-name` \
+    --name {{application-name}} \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"[\\\"arn:aws:iam::`account-id`:user/`user-id`\\\"]\"
+        \"value\":\"[\\\"arn:aws:iam::{{account-id}}:user/{{user-id}}\\\"]\"
         }
     "
 ```
 
 ##### Example 2: Create an OpenSearch UI application that enables IAM Identity Center and adds an IAM Identity Center user ID as an OpenSearch UI application administrator
+<a name="add-admin-examples-iam-identify-center-user-cli"></a>
 
-Run the following command to create an OpenSearch UI application
-that enables IAM Identity Center and adds an IAM Identity Center user ID as an OpenSearch UI
-application administrator. Replace the `placeholder
- values` with your own information.
+Run the following command to create an OpenSearch UI application that enables IAM Identity Center and adds an IAM Identity Center user ID as an OpenSearch UI application administrator. Replace the {{placeholder values}} with your own information. 
 
-`key` specifies the configuration item to set, such as the
-administrator role for the OpenSearch UI application. Valid values
-include `opensearchDashboards.dashboardAdmin.users` and
-`opensearchDashboards.dashboardAdmin.groups`.
+`key` specifies the configuration item to set, such as the administrator role for the OpenSearch UI application. Valid values include `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups`.
 
-`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-represents the value assigned to the key, such as the Amazon Resource
-Name (ARN) of an IAM user.
+{{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}} represents the value assigned to the key, such as the Amazon Resource Name (ARN) of an IAM user.
 
 ```
 aws opensearch create-application \
@@ -593,33 +440,24 @@ aws opensearch create-application \
     --iam-identity-center-options "
         {
         \"enabled\":true,
-        \"iamIdentityCenterInstanceArn\":\"arn:aws:sso:::instance/ssoins-`instance-id`\",
-        \"iamRoleForIdentityCenterApplicationArn\":\"arn:aws:iam::`account-id`:role/`role-name`\"
+        \"iamIdentityCenterInstanceArn\":\"arn:aws:sso:::instance/ssoins-{{instance-id}}\",
+        \"iamRoleForIdentityCenterApplicationArn\":\"arn:aws:iam::{{account-id}}:role/{{role-name}}\"
         }
     " \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
+        \"value\":\"[\\\"{{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}\\\"]\"
         }
     "
 ```
 
 ##### Example 3: Create an OpenSearch UI application that adds a group as an OpenSearch UI application administrator
+<a name="add-admin-examples-group-cli"></a>
 
-Run the following command to create an OpenSearch UI application.
-This command enables IAM Identity Center and adds a group as an application
-administrator. Replace the `placeholder
- values` with your own information.
+Run the following command to create an OpenSearch UI application. This command enables IAM Identity Center and adds a group as an application administrator. Replace the {{placeholder values}} with your own information.
 
-Set `key` to
-`opensearchDashboards.dashboardAdmin.groups` and set
-`value` to the group that you want to grant administrator
-permissions to. For the `groups` key, the value can be an
-IAM role ARN (format:
-`arn:aws:iam::`account-id`:role/`role-name``)
-or an IAM Identity Center group ID (format:
-`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
+Set `key` to `opensearchDashboards.dashboardAdmin.groups` and set `value` to the group that you want to grant administrator permissions to. For the `groups` key, the value can be an IAM role ARN (format: `arn:aws:iam::{{account-id}}:role/{{role-name}}`) or an IAM Identity Center group ID (format: {{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}).
 
 ```
 aws opensearch create-application \
@@ -627,47 +465,31 @@ aws opensearch create-application \
     --iam-identity-center-options "
         {
         \"enabled\":true,
-        \"iamIdentityCenterInstanceArn\":\"arn:aws:sso:::instance/ssoins-`instance-id`\",
-        \"iamRoleForIdentityCenterApplicationArn\":\"arn:aws:iam::`account-id`:role/`role-name`\"
+        \"iamIdentityCenterInstanceArn\":\"arn:aws:sso:::instance/ssoins-{{instance-id}}\",
+        \"iamRoleForIdentityCenterApplicationArn\":\"arn:aws:iam::{{account-id}}:role/{{role-name}}\"
         }
     " \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.groups\",
-        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
+        \"value\":\"[\\\"{{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}\\\"]\"
         }
     "
 ```
 
 #### Updating OpenSearch UI administrators using the AWS CLI
+<a name="updating-application-administrators-cli"></a>
 
-The following are examples of updating the IAM principals, IAM Identity Center users,
-and groups assigned as administrators for an existing OpenSearch
-application.
+The following are examples of updating the IAM principals, IAM Identity Center users, and groups assigned as administrators for an existing OpenSearch application.
 
-###### Configuration is fully replaced on each update
-
-The `--app-configs` parameter replaces the entire existing
-configuration, not just the keys that you include in the command. Any
-key that you omit from the `--app-configs` payload is removed
-from the application. To preserve existing configuration, you must
-include all of the keys that you want to keep in the same command.
-
-For example, suppose an application is already configured with
-`opensearchDashboards.dashboardAdmin.users` set to
-`["foo"]`. You then run `update-application`
-and pass only `opensearchDashboards.dashboardAdmin.groups`
-set to `["bar"]`. In this case, the command overwrites and
-removes the existing `users` configuration. To add the group
-while keeping the user, include both keys in the same
-`--app-configs` payload, as shown in [Example 4: Update an OpenSearch UI application to add a group while keeping existing users](#update-admin-examples-users-groups-cli "#update-admin-examples-users-groups-cli").
+**Configuration is fully replaced on each update**  
+The `--app-configs` parameter replaces the entire existing configuration, not just the keys that you include in the command. Any key that you omit from the `--app-configs` payload is removed from the application. To preserve existing configuration, you must include all of the keys that you want to keep in the same command.  
+For example, suppose an application is already configured with `opensearchDashboards.dashboardAdmin.users` set to `["foo"]`. You then run `update-application` and pass only `opensearchDashboards.dashboardAdmin.groups` set to `["bar"]`. In this case, the command overwrites and removes the existing `users` configuration. To add the group while keeping the user, include both keys in the same `--app-configs` payload, as shown in [Example 4: Update an OpenSearch UI application to add a group while keeping existing users](#update-admin-examples-users-groups-cli).
 
 ##### Example 1: Add an IAM user as an administrator for an existing OpenSearch application
+<a name="update-admin-examples-iam-user-cli"></a>
 
-Run the following command to update an OpenSearch UI application to
-add an IAM user as an administrator. Replace the
-`placeholder values` with your own
-information.
+Run the following command to update an OpenSearch UI application to add an IAM user as an administrator. Replace the {{placeholder values}} with your own information.
 
 ```
 aws opensearch update-application \
@@ -675,26 +497,19 @@ aws opensearch update-application \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"[\\\"arn:aws:iam::`account-id`:user/`user-id`\\\"]\"
+        \"value\":\"[\\\"arn:aws:iam::{{account-id}}:user/{{user-id}}\\\"]\"
         }
     "
 ```
 
 ##### Example 2: Update an OpenSearch UI application to add an IAM Identity Center user ID as an OpenSearch UI application administrator
+<a name="update-admin-examples-iam-identify-center-user-cli"></a>
 
-Run the following command to update an OpenSearch UI application to
-add an IAM Identity Center user ID as an OpenSearch UI application administrator.
-Replace the `placeholder values` with your own
-information.
+Run the following command to update an OpenSearch UI application to add an IAM Identity Center user ID as an OpenSearch UI application administrator. Replace the {{placeholder values}} with your own information. 
 
-`key` specifies the configuration item to set, such as the
-administrator role for the OpenSearch UI application. Valid values
-include `opensearchDashboards.dashboardAdmin.users` and
-`opensearchDashboards.dashboardAdmin.groups`.
+`key` specifies the configuration item to set, such as the administrator role for the OpenSearch UI application. Valid values include `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups`.
 
-`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-represents the value assigned to the key, such as the Amazon Resource
-Name (ARN) of an IAM user.
+{{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}} represents the value assigned to the key, such as the Amazon Resource Name (ARN) of an IAM user.
 
 ```
 aws opensearch update-application \
@@ -702,26 +517,17 @@ aws opensearch update-application \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
+        \"value\":\"[\\\"{{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}\\\"]\"
         }
     "
 ```
 
 ##### Example 3: Update an OpenSearch UI application to add a group as an OpenSearch UI application administrator
+<a name="update-admin-examples-group-cli"></a>
 
-Run the following command to update an OpenSearch UI application.
-This command adds a group as an application administrator. Replace the
-`placeholder values` with your own
-information.
+Run the following command to update an OpenSearch UI application. This command adds a group as an application administrator. Replace the {{placeholder values}} with your own information.
 
-Set `key` to
-`opensearchDashboards.dashboardAdmin.groups` and set
-`value` to the group that you want to grant administrator
-permissions to. For the `groups` key, the value can be an
-IAM role ARN (format:
-`arn:aws:iam::`account-id`:role/`role-name``)
-or an IAM Identity Center group ID (format:
-`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
+Set `key` to `opensearchDashboards.dashboardAdmin.groups` and set `value` to the group that you want to grant administrator permissions to. For the `groups` key, the value can be an IAM role ARN (format: `arn:aws:iam::{{account-id}}:role/{{role-name}}`) or an IAM Identity Center group ID (format: {{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}).
 
 ```
 aws opensearch update-application \
@@ -729,22 +535,15 @@ aws opensearch update-application \
     --app-configs "
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.groups\",
-        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
+        \"value\":\"[\\\"{{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}\\\"]\"
         }
     "
 ```
 
 ##### Example 4: Update an OpenSearch UI application to add a group while keeping existing users
+<a name="update-admin-examples-users-groups-cli"></a>
 
-Because `--app-configs` replaces the entire configuration,
-you must include every key that you want to keep in a single command.
-The following command adds a group as an administrator while preserving
-the existing user administrators. Pass both the
-`opensearchDashboards.dashboardAdmin.users` and
-`opensearchDashboards.dashboardAdmin.groups` keys in the
-same `--app-configs` payload. Replace the
-`placeholder values` with your own
-information.
+Because `--app-configs` replaces the entire configuration, you must include every key that you want to keep in a single command. The following command adds a group as an administrator while preserving the existing user administrators. Pass both the `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups` keys in the same `--app-configs` payload. Replace the {{placeholder values}} with your own information.
 
 ```
 aws opensearch update-application \
@@ -753,11 +552,11 @@ aws opensearch update-application \
         [
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.users\",
-        \"value\":\"[\\\"`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`\\\"]\"
+        \"value\":\"[\\\"{{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}}\\\"]\"
         },
         {
         \"key\":\"opensearchDashboards.dashboardAdmin.groups\",
-        \"value\":\"[\\\"`yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy`\\\"]\"
+        \"value\":\"[\\\"{{yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy}}\\\"]\"
         }
         ]
     "

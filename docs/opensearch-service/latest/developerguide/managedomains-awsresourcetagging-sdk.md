@@ -1,18 +1,14 @@
-# Tagging domains (AWS SDKs)
 
-The AWS SDKs (except the Android and iOS SDKs) support all the actions defined in
-the [Amazon OpenSearch Service API
-Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"), including the `AddTags`, `ListTags`, and
-`RemoveTags` operations. For more information about installing and using
-the AWS SDKs, see [AWS Software Development
-Kits](https://aws.amazon.com/code "https://aws.amazon.com/code").
+
+# Tagging domains (AWS SDKs)
+<a name="managedomains-awsresourcetagging-sdk"></a>
+
+The AWS SDKs (except the Android and iOS SDKs) support all the actions defined in the [Amazon OpenSearch Service API Reference](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html), including the `AddTags`, `ListTags`, and `RemoveTags` operations. For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](https://aws.amazon.com/code). 
 
 ## **Python**
+<a name="pythonsample"></a>
 
-This example uses the [OpenSearchService](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html") low-level Python client from the AWS SDK for Python
-(Boto) to add a tag to a domain, list the tag attached to the domain, and remove a
-tag from the domain. You must provide values for `DOMAIN_ARN`,
-`TAG_KEY`, and `TAG_VALUE`.
+This example uses the [OpenSearchService](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html) low-level Python client from the AWS SDK for Python (Boto) to add a tag to a domain, list the tag attached to the domain, and remove a tag from the domain. You must provide values for `DOMAIN_ARN`, `TAG_KEY`, and `TAG_VALUE`.
 
 ```
 import boto3

@@ -1,8 +1,11 @@
+
+
 # Viewing collections
+<a name="serverless-list"></a>
 
 You can view the existing collections in your AWS account on the **Collections** tab of the Amazon OpenSearch Service console.
 
-To list collections along with their IDs, send a [ListCollections](../ServerlessAPIReference/API_ListCollections.md "../ServerlessAPIReference/API_ListCollections.md") request.
+To list collections along with their IDs, send a [ListCollections](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollections.html) request.
 
 ```
 &aws opensearchserverless list-collections
@@ -23,24 +26,20 @@ To list collections along with their IDs, send a [ListCollections](../Serverless
 }
 ```
 
-To limit the search results, use collection filters. This request filters the response
-to collections in the `ACTIVE` state:
+To limit the search results, use collection filters. This request filters the response to collections in the `ACTIVE` state: 
 
 ```
-&aws opensearchserverless list-collections --collection-filters '{ "status": "`ACTIVE`" }'
+&aws opensearchserverless list-collections --collection-filters '{ "status": "{{ACTIVE}}" }'
 ```
 
-To get more detailed information about one or more collections, including the
-OpenSearch endpoint and the OpenSearch Dashboards endpoint, send a [BatchGetCollection](../ServerlessAPIReference/API_BatchGetCollection.md "../ServerlessAPIReference/API_BatchGetCollection.md") request:
+To get more detailed information about one or more collections, including the OpenSearch endpoint and the OpenSearch Dashboards endpoint, send a [BatchGetCollection](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_BatchGetCollection.html) request:
 
 ```
-&aws opensearchserverless batch-get-collection --ids "`07tjusf2h91cunochc`" "`1iu5usc4rame`"
+&aws opensearchserverless batch-get-collection --ids "{{07tjusf2h91cunochc}}" "{{1iu5usc4rame}}"
 ```
 
-###### Note
-
-You can include `--names` or `--ids` in the request, but not
-both.
+**Note**  
+You can include `--names` or `--ids` in the request, but not both.
 
 **Sample response**
 

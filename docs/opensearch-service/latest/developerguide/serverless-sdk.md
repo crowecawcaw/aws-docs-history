@@ -1,24 +1,21 @@
+
+
 # Using the AWS SDKs to interact with Amazon OpenSearch Serverless
+<a name="serverless-sdk"></a>
 
-This section includes examples of how to use the AWS SDKs to interact with Amazon OpenSearch Serverless.
-These code samples show how to create security policies and collections, and how to query
-collections.
+This section includes examples of how to use the AWS SDKs to interact with Amazon OpenSearch Serverless. These code samples show how to create security policies and collections, and how to query collections.
 
-###### Note
+**Note**  
+We're currently building out these code samples. If you want to contribute a code sample (Java, Go, etc.), please open a pull request directly within the [GitHub repository](https://github.com/awsdocs/amazon-opensearch-service-developer-guide/blob/master/doc_source/serverless-sdk.md).
 
-We're currently building out these code samples. If you want to contribute a code
-sample (Java, Go, etc.), please open a pull request directly within the [GitHub repository](https://github.com/awsdocs/amazon-opensearch-service-developer-guide/blob/master/doc_source/serverless-sdk.md "https://github.com/awsdocs/amazon-opensearch-service-developer-guide/blob/master/doc_source/serverless-sdk.md").
-
-###### Topics
-
-- [Python](#serverless-sdk-python "#serverless-sdk-python")
-- [JavaScript](#serverless-sdk-javascript "#serverless-sdk-javascript")
+**Topics**
++ [Python](#serverless-sdk-python)
++ [JavaScript](#serverless-sdk-javascript)
 
 ## Python
+<a name="serverless-sdk-python"></a>
 
-The following sample script uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless.html"), as well as the [opensearch-py](https://pypi.org/project/opensearch-py/ "https://pypi.org/project/opensearch-py/") client for
-Python, to create encryption, network, and data access policies, create a matching
-collection, and index some sample data.
+The following sample script uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearchserverless.html), as well as the [opensearch-py](https://pypi.org/project/opensearch-py/) client for Python, to create encryption, network, and data access policies, create a matching collection, and index some sample data.
 
 To install the required dependencies, run the following commands:
 
@@ -29,9 +26,7 @@ pip install botocore
 pip install requests-aws4auth
 ```
 
-Within the script, replace the `Principal` element with the Amazon Resource
-Name (ARN) of the user or role that's signing the request. You can also optionally
-modify the `region`.
+Within the script, replace the `Principal` element with the Amazon Resource Name (ARN) of the user or role that's signing the request. You can also optionally modify the `region`.
 
 ```
 from opensearchpy import OpenSearch, RequestsHttpConnection
@@ -151,7 +146,7 @@ def createAccessPolicy(client):
                         }
                     ],
                     \"Principal\":[
-                        \"arn:aws:iam::`123456789012`:`role`\/`Admin`\"
+                        \"arn:aws:iam::{{123456789012}}:{{role}}\/{{Admin}}\"
                     ]
                 }]
                 """,
@@ -247,10 +242,9 @@ if __name__ == "__main__":
 ```
 
 ## JavaScript
+<a name="serverless-sdk-javascript"></a>
 
-The following sample script uses the [SDK for JavaScript in Node.js](../../../AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless.md"), as well as the [opensearch-js](https://www.npmjs.com/package/@opensearch-project/opensearch "https://www.npmjs.com/package/@opensearch-project/opensearch") client for JavaScript, to create encryption, network, and
-data access policies, create a matching collection, create an index, and index some
-sample data.
+The following sample script uses the [SDK for JavaScript in Node.js](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearchserverless/), as well as the [opensearch-js](https://www.npmjs.com/package/@opensearch-project/opensearch) client for JavaScript, to create encryption, network, and data access policies, create a matching collection, create an index, and index some sample data.
 
 To install the required dependencies, run the following commands:
 
@@ -260,9 +254,7 @@ npm i aws4
 npm i @opensearch-project/opensearch
 ```
 
-Within the script, replace the `Principal` element with the Amazon Resource
-Name (ARN) of the user or role that's signing the request. You can also optionally
-modify the `region`.
+Within the script, replace the `Principal` element with the Amazon Resource Name (ARN) of the user or role that's signing the request. You can also optionally modify the `region`.
 
 ```
 var AWS = require('aws-sdk');
@@ -388,7 +380,7 @@ async function createAccessPolicy(client) {
                     } \
                 ], \
                 \"Principal\":[ \
-                    \"arn:aws:iam::`123456789012`:`role`\/`Admin`\" \
+                    \"arn:aws:iam::{{123456789012}}:{{role}}\/{{Admin}}\" \
                 ] \
             }]"
         });

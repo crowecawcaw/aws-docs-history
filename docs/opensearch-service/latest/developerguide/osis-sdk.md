@@ -1,18 +1,17 @@
+
+
 # Using the AWS SDKs to interact with Amazon OpenSearch Ingestion
+<a name="osis-sdk"></a>
 
-This section includes an example of how to use the AWS SDKs to interact with
-Amazon OpenSearch Ingestion. The code example demonstrates how to create a domain and a pipeline,
-and then ingest data into the pipeline.
+This section includes an example of how to use the AWS SDKs to interact with Amazon OpenSearch Ingestion. The code example demonstrates how to create a domain and a pipeline, and then ingest data into the pipeline.
 
-###### Topics
-
-- [Python](#osis-sdk-python "#osis-sdk-python")
+**Topics**
++ [Python](#osis-sdk-python)
 
 ## Python
+<a name="osis-sdk-python"></a>
 
-The following sample script uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/osis.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/osis.html") to create an IAM pipeline role, a domain to write data to,
-and a pipeline to ingest data through. It then ingests a sample log file into the
-pipeline using the `requests` HTTP library.
+The following sample script uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/osis.html) to create an IAM pipeline role, a domain to write data to, and a pipeline to ingest data through. It then ingests a sample log file into the pipeline using the `[requests](https://pypi.org/project/requests/)` HTTP library.
 
 To install the required dependencies, run the following commands:
 
@@ -23,9 +22,7 @@ pip install requests
 pip install requests-auth-aws-sigv4
 ```
 
-Within the script, replace all instances of
-`account-id` with your AWS account
-ID.
+Within the script, replace all instances of `{{account-id}}` with your AWS account ID.
 
 ```
 import boto3
@@ -50,7 +47,7 @@ def createPipelineRole(iam, domainName):
     """Creates the pipeline role"""
     response = iam.create_policy(
         PolicyName='pipeline-policy',
-        PolicyDocument=f'{{\"Version\":\"2012-10-17\",\"Statement\":[{{\"Effect\":\"Allow\",\"Action\":\"es:DescribeDomain\",\"Resource\":\"arn:aws:es:us-east-1:`account-id`:domain\/{domainName}\"}},{{\"Effect\":\"Allow\",\"Action\":\"es:ESHttp*\",\"Resource\":\"arn:aws:es:us-east-1:`account-id`:domain\/{domainName}\/*\"}}]}}'
+        PolicyDocument=f'{{\"Version\":\"2012-10-17\",\"Statement\":[{{\"Effect\":\"Allow\",\"Action\":\"es:DescribeDomain\",\"Resource\":\"arn:aws:es:us-east-1:{{account-id}}:domain\/{domainName}\"}},{{\"Effect\":\"Allow\",\"Action\":\"es:ESHttp*\",\"Resource\":\"arn:aws:es:us-east-1:{{account-id}}:domain\/{domainName}\/*\"}}]}}'
     )
     policyarn = response['Policy']['Arn']
 
@@ -68,7 +65,7 @@ def createPipelineRole(iam, domainName):
     print('Creating pipeline role...')
     time.sleep(10)
     print('Role created: ' + rolename)
-
+        
 def createDomain(opensearch, domainName):
     """Creates a domain to ingest data into"""
     response = opensearch.create_domain(
@@ -87,7 +84,7 @@ def createDomain(opensearch, domainName):
             'VolumeType': 'gp2',
             'VolumeSize': 10
         },
-        AccessPolicies=f'{{\"Version\":\"2012-10-17\",\"Statement\":[{{\"Effect\":\"Allow\",\"Principal\":{{\"AWS\":\"arn:aws:iam::`account-id`:role\/PipelineRole\"}},\"Action\":\"es:*\",\"Resource\":\"arn:aws:es:us-east-1:`account-id`:domain\/{domainName}\/*\"}}]}}',
+        AccessPolicies=f'{{\"Version\":\"2012-10-17\",\"Statement\":[{{\"Effect\":\"Allow\",\"Principal\":{{\"AWS\":\"arn:aws:iam::{{account-id}}:role\/PipelineRole\"}},\"Action\":\"es:*\",\"Resource\":\"arn:aws:es:us-east-1:{{account-id}}:domain\/{domainName}\/*\"}}]}}',
         NodeToNodeEncryptionOptions={
             'Enabled': True
         }
@@ -127,13 +124,13 @@ def createPipeline(osis, endpoint):
             MinUnits=4,
             MaxUnits=9,
             PipelineConfigurationBody=definition,
-            PipelineRoleArn="arn:aws:iam::`account-id`:role/PipelineRole"
+            PipelineRoleArn="arn:aws:iam::{{account-id}}:role/PipelineRole"
         )
 
         response = osis.get_pipeline(
                 PipelineName=pipelineName
         )
-
+    
         # Every 30 seconds, check whether the pipeline is active.
         while response['Pipeline']['Status'] == 'CREATING':
             print('Creating pipeline...')
@@ -145,7 +142,7 @@ def createPipeline(osis, endpoint):
         ingestionEndpoint = response['Pipeline']['IngestEndpointUrls'][0]
         print('Pipeline ready to ingest data at endpoint: ' + ingestionEndpoint)
         ingestData(ingestionEndpoint)
-
+    
     except botocore.exceptions.ClientError as error:
         if error.response['Error']['Code'] == 'ResourceAlreadyExistsException':
             print('Pipeline already exists.')
@@ -156,12 +153,12 @@ def createPipeline(osis, endpoint):
             ingestData(ingestionEndpoint)
         else:
             raise error
-
+    
 
 def ingestData(ingestionEndpoint):
     """Ingests a sample log file into the pipeline"""
     endpoint = 'https://' + ingestionEndpoint
-    r = requests.request('POST', f'{endpoint}/log-pipeline/logs',
+    r = requests.request('POST', f'{endpoint}/log-pipeline/logs', 
     data='[{"time":"2014-08-11T11:40:13+00:00","remote_addr":"122.226.223.69","status":"404","request":"GET http://www.k2proxy.com//hello.html HTTP/1.1","http_user_agent":"Mozilla/4.0 (compatible; WOW64; SLCC2;)"}]',
     auth=AWSSigV4('osis'))
     print('Ingesting sample log file into pipeline')

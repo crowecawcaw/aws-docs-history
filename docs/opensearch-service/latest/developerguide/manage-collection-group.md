@@ -1,141 +1,115 @@
-# Manage Amazon OpenSearch Serverless collection groups
 
-After creating Amazon OpenSearch Serverless collection groups, you can modify their settings as your
-needs change. Use these management operations to update capacity limits and view
-collection group details. These changes help you optimize resource allocation and
-maintain efficient organization of your collections.
+
+# Manage Amazon OpenSearch Serverless collection groups
+<a name="manage-collection-group"></a>
+
+After creating Amazon OpenSearch Serverless collection groups, you can modify their settings as your needs change. Use these management operations to update capacity limits and view collection group details. These changes help you optimize resource allocation and maintain efficient organization of your collections.
 
 ## View collection groups
+<a name="view-collection-groups"></a>
 
-Display your OpenSearch Serverless collection groups to review their configurations, associated
-collections, and current status.
+Display your OpenSearch Serverless collection groups to review their configurations, associated collections, and current status.
 
-Console
+------
+#### [ Console ]
 
-1. Open the Amazon OpenSearch Service console at
-   [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
-2. In the left navigation pane, choose
-   **Serverless**, then choose
-   **Collections**
-3. Choose the **Collection groups** tab. Your
-   account's collection groups are displayed.
-4. Choose the **Name** of a collection group to
-   display its details.
+1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/).
 
-AWS CLI
+1. In the left navigation pane, choose **Serverless**, then choose **Collections**
 
-- Use the [list-collection-groups](../../../cli/latest/reference/opensearchserverless/list-collection-groups.md "../../../cli/latest/reference/opensearchserverless/list-collection-groups.md") command to list all
-  collection groups in your account. Use the [batch-get-collection-group](../../../cli/latest/reference/opensearchserverless/batch-get-collection-group.md "../../../cli/latest/reference/opensearchserverless/batch-get-collection-group.md") command to view details
-  about specific collection groups. In the following commands,
-  replace the `example` content with your
-  own specific information.
+1. Choose the **Collection groups** tab. Your account's collection groups are displayed.
 
-To list all collection groups:
+1.  Choose the **Name** of a collection group to display its details.
 
-```
+------
+#### [ AWS CLI ]
++ Use the [list-collection-groups](https://docs.aws.amazon.com/cli/latest/reference/opensearchserverless/list-collection-groups.html) command to list all collection groups in your account. Use the [batch-get-collection-group](https://docs.aws.amazon.com/cli/latest/reference/opensearchserverless/batch-get-collection-group.html) command to view details about specific collection groups. In the following commands, replace the {{example}} content with your own specific information.
 
-aws opensearchserverless list-collection-groups
+  To list all collection groups:
 
-```
+  ```
+  aws opensearchserverless list-collection-groups
+  ```
 
-To get details about specific collection groups:
+  To get details about specific collection groups:
 
-```
+  ```
+  aws opensearchserverless batch-get-collection-group \
+      --names {{my-collection-group}} {{another-group}}
+  ```
 
-aws opensearchserverless batch-get-collection-group \
-    --names `my-collection-group` `another-group`
-
-```
+------
 
 ## Update collection group settings
+<a name="update-collection-group"></a>
 
-Update your OpenSearch Serverless collection group settings to modify configurations such as
-capacity limits and description.
+Update your OpenSearch Serverless collection group settings to modify configurations such as capacity limits and description.
 
-Console
+------
+#### [ Console ]
 
-1. Open the Amazon OpenSearch Service console at
-   [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
-2. In the left navigation pane, choose
-   **Serverless**, then choose
-   **Collections**
-3. Choose the **Collection groups** tab. Your
-   account's collection groups are displayed.
-4. Choose the **Name** of a collection group to
-   display its details.
-5. In **Collection group details**, choose
-   **Edit**.
-6. Make any changes, then choose
-   **Save**.
+1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/).
 
-AWS CLI
+1. In the left navigation pane, choose **Serverless**, then choose **Collections**
 
-- Use the [update-collection-group](../../../cli/latest/reference/opensearchserverless/update-collection-group.md "../../../cli/latest/reference/opensearchserverless/update-collection-group.md") command to update the
-  description and capacity limits of an existing collection group.
-  In the following command, replace the
-  `example` content with your own
-  information.
+1. Choose the **Collection groups** tab. Your account's collection groups are displayed.
 
-```
+1.  Choose the **Name** of a collection group to display its details.
 
-aws opensearchserverless update-collection-group \
-    --id `abcdef123456` \
-    --description "`Updated description for production workloads`" \
-    --capacity-limits maxIndexingCapacityInOCU=`30`,maxSearchCapacityInOCU=`30`,minIndexingCapacityInOCU=`4`,minSearchCapacityInOCU=`4`
+1. In **Collection group details**, choose **Edit**.
 
-```
+1. Make any changes, then choose **Save**.
 
-Changes to capacity limits take effect immediately and might affect the scaling
-behavior of collections in the group.
+------
+#### [ AWS CLI ]
++ Use the [update-collection-group](https://docs.aws.amazon.com/cli/latest/reference/opensearchserverless/update-collection-group.html) command to update the description and capacity limits of an existing collection group. In the following command, replace the {{example}} content with your own information.
+
+  ```
+  aws opensearchserverless update-collection-group \
+      --id {{abcdef123456}} \
+      --description "{{Updated description for production workloads}}" \
+      --capacity-limits maxIndexingCapacityInOCU={{30}},maxSearchCapacityInOCU={{30}},minIndexingCapacityInOCU={{4}},minSearchCapacityInOCU={{4}}
+  ```
+
+------
+
+Changes to capacity limits take effect immediately and might affect the scaling behavior of collections in the group.
 
 ## Delete collection groups
+<a name="delete-collection-group"></a>
 
-Before you can delete a collection group, you must first remove all collections
-from the group. You cannot delete a collection group that contains
-collections.
+Before you can delete a collection group, you must first remove all collections from the group. You cannot delete a collection group that contains collections.
 
-Console
+------
+#### [ Console ]
 
-1. Open the Amazon OpenSearch Service console at
-   [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
-2. In the left navigation pane, choose
-   **Serverless**, then choose
-   **Collections**
-3. Choose the **Collection groups** tab. Your
-   account's collection groups are displayed.
-4. Choose the **Name** of the collection group
-   you want to delete.
+1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/).
 
-###### Important
+1. In the left navigation pane, choose **Serverless**, then choose **Collections**
 
-Remove all collections from the collection group by
-updating each collection to remove the collection group
-association or by moving them to other collection
-groups. 5. At the top of the page, choose
-**Delete**. 6. Confirm deletion, then choose
-**Delete**.
+1. Choose the **Collection groups** tab. Your account's collection groups are displayed.
 
-AWS CLI
+1.  Choose the **Name** of the collection group you want to delete.
+**Important**  
+Remove all collections from the collection group by updating each collection to remove the collection group association or by moving them to other collection groups.
 
-- Use the [delete-collection-group](../../../cli/latest/reference/opensearchserverless/delete-collection-group.md "../../../cli/latest/reference/opensearchserverless/delete-collection-group.md") command to delete a
-  collection group.
+1. At the top of the page, choose **Delete**.
 
-###### Important
+1. Confirm deletion, then choose **Delete**.
 
-Remove all collections from the collection group by
-updating each collection to remove the collection group
-association or by moving them to other collection
-groups.
+------
+#### [ AWS CLI ]
++ Use the [delete-collection-group](https://docs.aws.amazon.com/cli/latest/reference/opensearchserverless/delete-collection-group.html) command to delete a collection group.
+**Important**  
+Remove all collections from the collection group by updating each collection to remove the collection group association or by moving them to other collection groups.
 
-In the following command, replace the
-`example` content with your own
-information.
+  In the following command, replace the {{example}} content with your own information.
 
-Delete the empty collection group:
+  Delete the empty collection group:
 
-```
+  ```
+  aws opensearchserverless delete-collection-group \
+      --id {{abcdef123456}}
+  ```
 
-aws opensearchserverless delete-collection-group \
-    --id `abcdef123456`
-
-```
+------

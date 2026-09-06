@@ -1,24 +1,27 @@
-# Tagging collections (AWS CLI)
 
-To tag a collection using the AWS CLI, send a [TagResource](../ServerlessAPIReference/API_TagResource.md "../ServerlessAPIReference/API_TagResource.md") request:
+
+# Tagging collections (AWS CLI)
+<a name="tag-collection-cli"></a>
+
+To tag a collection using the AWS CLI, send a [TagResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_TagResource.html) request: 
 
 ```
 aws opensearchserverless tag-resource
-  --resource-arn arn:aws:aoss:`us-east-1`:`123456789012`:collection/`my-collection`
-  --tags Key=`service`,Value=`aoss` Key=`source`,Value=`logs`
+  --resource-arn arn:aws:aoss:{{us-east-1}}:{{123456789012}}:collection/{{my-collection}} 
+  --tags Key={{service}},Value={{aoss}} Key={{source}},Value={{logs}}
 ```
 
-View the existing tags for a collection with the [ListTagsForResource](../ServerlessAPIReference/API_ListTagsForResource.md "../ServerlessAPIReference/API_ListTagsForResource.md") command:
+View the existing tags for a collection with the [ListTagsForResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListTagsForResource.html) command:
 
 ```
 aws opensearchserverless list-tags-for-resource
-  --resource-arn arn:aws:aoss:`us-east-1`:`123456789012`:collection/`my-collection`
+  --resource-arn arn:aws:aoss:{{us-east-1}}:{{123456789012}}:collection/{{my-collection}}
 ```
 
-Remove tags from a collection using the [UntagResource](../ServerlessAPIReference/API_UntagResource.md "../ServerlessAPIReference/API_UntagResource.md") command:
+Remove tags from a collection using the [UntagResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UntagResource.html) command:
 
 ```
 aws opensearchserverless untag-resource
-  --resource-arn arn:aws:aoss:`us-east-1`:`123456789012`:collection/`my-collection`
-  --tag-keys `service`
+  --resource-arn arn:aws:aoss:{{us-east-1}}:{{123456789012}}:collection/{{my-collection}}
+  --tag-keys {{service}}
 ```

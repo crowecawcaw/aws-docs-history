@@ -1,343 +1,326 @@
-# Tutorial: Getting started with security in Amazon OpenSearch Serverless (CLI)
 
-This tutorial covers the steps described in the [console getting started tutorial](gsg-serverless.md "gsg-serverless.md") for security, but
-uses the AWS CLI rather than the OpenSearch Service console.
+
+# Tutorial: Getting started with security in Amazon OpenSearch Serverless (CLI)
+<a name="gsg-serverless-cli"></a>
+
+This tutorial covers the steps described in the [console getting started tutorial](gsg-serverless.md) for security, but uses the AWS CLI rather than the OpenSearch Service console. 
 
 You complete the following steps in this tutorial:
 
 1. Create an IAM permissions policy
-2. Attach the IAM policy to an IAM role
-3. Create an encryption policy
-4. Create a network policy
-5. Create a collection
-6. Configure a data access policy
-7. Retrieve the collection endpoint
-8. Upload data to your collection
-9. Search data in your collection
-   The goal of this tutorial is to set up a single OpenSearch Serverless collection with fairly simple
-   encryption, network, and data access settings. For example, you configure public
-   network access, an AWS managed key for encryption, and a simplified data access policy
-   that grants minimal permissions to a single user.
 
-In a production scenario, consider implementing a more robust configuration, including
-SAML authentication, a custom encryption key, and VPC access.
+1. Attach the IAM policy to an IAM role
 
-###### To get started with security policies in OpenSearch Serverless
+1. Create an encryption policy
 
-1. ###### Note
+1. Create a network policy
 
-You can skip this step if you're already using a more broad identity-based
-policy, such as `Action":"aoss:*"` or `Action":"*"`.
-In production environments, however, follow the
-principle of least privilege and only assign the minimum permissions
-necessary to complete a task.
+1. Create a collection
 
-To start, create an AWS Identity and Access Management policy with the minimum required permissions to
-perform the steps in this tutorial. Name the policy
-`TutorialPolicy`:
+1. Configure a data access policy
 
-```
-aws iam create-policy \
-  --policy-name TutorialPolicy \
-  --policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Action\": [\"aoss:ListCollections\",\"aoss:BatchGetCollection\",\"aoss:CreateCollection\",\"aoss:CreateSecurityPolicy\",\"aoss:GetSecurityPolicy\",\"aoss:ListSecurityPolicies\",\"aoss:CreateAccessPolicy\",\"aoss:GetAccessPolicy\",\"aoss:ListAccessPolicies\"],\"Effect\": \"Allow\",\"Resource\": \"*\"}]}"
-```
+1. Retrieve the collection endpoint
 
-**Sample response**
+1. Upload data to your collection
 
-```
-{
-    "Policy": {
-        "PolicyName": "TutorialPolicy",
-        "PolicyId": "ANPAW6WRAECKG6QJWUV7U",
-        "Arn": "arn:aws:iam::`123456789012`:policy/TutorialPolicy",
-        "Path": "/",
-        "DefaultVersionId": "v1",
-        "AttachmentCount": 0,
-        "PermissionsBoundaryUsageCount": 0,
-        "IsAttachable": true,
-        "CreateDate": "2022-10-16T20:57:18+00:00",
-        "UpdateDate": "2022-10-16T20:57:18+00:00"
-    }
-}
-```
+1. Search data in your collection
 
-2. Attach `TutorialPolicy` to the IAM role who will index and search
-   data in the collection. In this example, the role is named `TutorialRole`.
+The goal of this tutorial is to set up a single OpenSearch Serverless collection with fairly simple encryption, network, and data access settings. For example, you configure public network access, an AWS managed key for encryption, and a simplified data access policy that grants minimal permissions to a single user. 
 
-Before attaching the policy, create the `TutorialRole` if it
-doesn't already exist:
+In a production scenario, consider implementing a more robust configuration, including SAML authentication, a custom encryption key, and VPC access.
 
-```
-aws iam create-role \
-  --role-name `TutorialRole` \
-  --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{"Effect": "Allow","Principal": {"AWS": "arn:aws:iam::`123456789012`:root"},"Action": "sts:AssumeRole"}]}'
-```
+**To get started with security policies in OpenSearch Serverless**
 
-```
-aws iam attach-role-policy \
-  --role-name `TutorialRole` \
-  --policy-arn arn:aws:iam::`123456789012`:policy/TutorialPolicy
-```
+1. 
+**Note**  
+You can skip this step if you're already using a more broad identity-based policy, such as `Action":"aoss:*"` or `Action":"*"`. In production environments, however, follow the principle of least privilege and only assign the minimum permissions necessary to complete a task.
 
-3. Before you create a collection, you need to create an [encryption policy](serverless-encryption.md "serverless-encryption.md") that assigns an
-   AWS owned key to the _books_ collection that you create
-   in a later step.
+   To start, create an AWS Identity and Access Management policy with the minimum required permissions to perform the steps in this tutorial. Name the policy `TutorialPolicy`:
 
-Send the following request to create an encryption policy for the
-_books_ collection:
+   ```
+   aws iam create-policy \
+     --policy-name TutorialPolicy \
+     --policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Action\": [\"aoss:ListCollections\",\"aoss:BatchGetCollection\",\"aoss:CreateCollection\",\"aoss:CreateSecurityPolicy\",\"aoss:GetSecurityPolicy\",\"aoss:ListSecurityPolicies\",\"aoss:CreateAccessPolicy\",\"aoss:GetAccessPolicy\",\"aoss:ListAccessPolicies\"],\"Effect\": \"Allow\",\"Resource\": \"*\"}]}"
+   ```
 
-```
-aws opensearchserverless create-security-policy \
-  --name books-policy \
-  --type encryption --policy "{\"Rules\":[{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/books\"]}],\"AWSOwnedKey\":true}"
-```
+   **Sample response**
 
-**Sample response**
+   ```
+   {
+       "Policy": {
+           "PolicyName": "TutorialPolicy",
+           "PolicyId": "ANPAW6WRAECKG6QJWUV7U",
+           "Arn": "arn:aws:iam::{{123456789012}}:policy/TutorialPolicy",
+           "Path": "/",
+           "DefaultVersionId": "v1",
+           "AttachmentCount": 0,
+           "PermissionsBoundaryUsageCount": 0,
+           "IsAttachable": true,
+           "CreateDate": "2022-10-16T20:57:18+00:00",
+           "UpdateDate": "2022-10-16T20:57:18+00:00"
+       }
+   }
+   ```
 
-```
-{
-    "securityPolicyDetail": {
-        "type": "encryption",
-        "name": "books-policy",
-        "policyVersion": "MTY2OTI0MDAwNTk5MF8x",
-        "policy": {
-            "Rules": [
-                {
-                    "Resource": [
-                        "collection/books"
-                    ],
-                    "ResourceType": "collection"
-                }
-            ],
-            "AWSOwnedKey": true
-        },
-        "createdDate": 1669240005990,
-        "lastModifiedDate": 1669240005990
-    }
-}
-```
+1. Attach `TutorialPolicy` to the IAM role who will index and search data in the collection. In this example, the role is named `TutorialRole`.
 
-4. Create a [network policy](serverless-network.md "serverless-network.md") that
-   provides public access to the _books_ collection:
+   Before attaching the policy, create the `TutorialRole` if it doesn't already exist:
 
-```
-aws opensearchserverless create-security-policy --name books-policy --type network \
-  --policy "[{\"Description\":\"Public access for books collection\",\"Rules\":[{\"ResourceType\":\"dashboard\",\"Resource\":[\"collection\/books\"]},{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/books\"]}],\"AllowFromPublic\":true}]"
-```
+   ```
+   aws iam create-role \
+     --role-name {{TutorialRole}} \
+     --assume-role-policy-document '{"Version": "2012-10-17",		 	 	 "Statement": [{"Effect": "Allow","Principal": {"AWS": "arn:aws:iam::{{123456789012}}:root"},"Action": "sts:AssumeRole"}]}'
+   ```
 
-**Sample response**
+   ```
+   aws iam attach-role-policy \
+     --role-name {{TutorialRole}} \
+     --policy-arn arn:aws:iam::{{123456789012}}:policy/TutorialPolicy
+   ```
 
-```
-{
-    "securityPolicyDetail": {
-        "type": "network",
-        "name": "books-policy",
-        "policyVersion": "MTY2OTI0MDI1Njk1NV8x",
-        "policy": [
-            {
-                "Rules": [
-                    {
-                        "Resource": [
-                            "collection/books"
-                        ],
-                        "ResourceType": "dashboard"
-                    },
-                    {
-                        "Resource": [
-                            "collection/books"
-                        ],
-                        "ResourceType": "collection"
-                    }
-                ],
-                "AllowFromPublic": true,
-                "Description": "Public access for books collection"
-            }
-        ],
-        "createdDate": 1669240256955,
-        "lastModifiedDate": 1669240256955
-    }
-}
-```
+1. Before you create a collection, you need to create an [encryption policy](serverless-encryption.md) that assigns an AWS owned key to the *books* collection that you create in a later step.
 
-5. Create the _books_ collection:
+   Send the following request to create an encryption policy for the *books* collection:
 
-```
-aws opensearchserverless create-collection --name books --type SEARCH
-```
+   ```
+   aws opensearchserverless create-security-policy \
+     --name books-policy \
+     --type encryption --policy "{\"Rules\":[{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/books\"]}],\"AWSOwnedKey\":true}"
+   ```
 
-**Sample response**
+   **Sample response**
 
-```
-{
-    "createCollectionDetail": {
-        "id": "8kw362bpwg4gx9b2f6e0",
-        "name": "books",
-        "status": "CREATING",
-        "type": "SEARCH",
-        "arn": "arn:aws:aoss:us-east-1:123456789012:collection/8kw362bpwg4gx9b2f6e0",
-        "kmsKeyArn": "auto",
-        "createdDate": 1669240325037,
-        "lastModifiedDate": 1669240325037
-    }
-}
-```
+   ```
+   {
+       "securityPolicyDetail": {
+           "type": "encryption",
+           "name": "books-policy",
+           "policyVersion": "MTY2OTI0MDAwNTk5MF8x",
+           "policy": {
+               "Rules": [
+                   {
+                       "Resource": [
+                           "collection/books"
+                       ],
+                       "ResourceType": "collection"
+                   }
+               ],
+               "AWSOwnedKey": true
+           },
+           "createdDate": 1669240005990,
+           "lastModifiedDate": 1669240005990
+       }
+   }
+   ```
 
-6. Create a [data access policy](serverless-data-access.md "serverless-data-access.md") that
-   provides the minimum permissions to index and search data in the
-   _books_ collection. Replace the principal ARN with the
-   ARN of `TutorialRole` from step 1:
+1. Create a [network policy](serverless-network.md) that provides public access to the *books* collection:
 
-```
-aws opensearchserverless create-access-policy \
-  --name books-policy \
-  --type data \
-  --policy "[{\"Rules\":[{\"ResourceType\":\"index\",\"Resource\":[\"index\/books\/books-index\"],\"Permission\":[\"aoss:CreateIndex\",\"aoss:DescribeIndex\",\"aoss:ReadDocument\",\"aoss:WriteDocument\",\"aoss:UpdateIndex\",\"aoss:DeleteIndex\"]}],\"Principal\":[\"arn:aws:iam::`123456789012`:`role`\/`TutorialRole`\"]}]"
-```
+   ```
+   aws opensearchserverless create-security-policy --name books-policy --type network \
+     --policy "[{\"Description\":\"Public access for books collection\",\"Rules\":[{\"ResourceType\":\"dashboard\",\"Resource\":[\"collection\/books\"]},{\"ResourceType\":\"collection\",\"Resource\":[\"collection\/books\"]}],\"AllowFromPublic\":true}]"
+   ```
 
-**Sample response**
+   **Sample response**
 
-```
-{
-    "accessPolicyDetail": {
-        "type": "data",
-        "name": "books-policy",
-        "policyVersion": "MTY2OTI0MDM5NDY1M18x",
-        "policy": [
-            {
-                "Rules": [
-                    {
-                        "Resource": [
-                            "index/books/books-index"
-                        ],
-                        "Permission": [
-                            "aoss:CreateIndex",
-                            "aoss:DescribeIndex",
-                            "aoss:ReadDocument",
-                            "aoss:WriteDocument",
-                            "aoss:UpdateDocument",
-                            "aoss:DeleteDocument"
-                        ],
-                        "ResourceType": "index"
-                    }
-                ],
-                "Principal": [
-                    "arn:aws:iam::123456789012:role/TutorialRole"
-                ]
-            }
-        ],
-        "createdDate": 1669240394653,
-        "lastModifiedDate": 1669240394653
-    }
-}
-```
+   ```
+   {
+       "securityPolicyDetail": {
+           "type": "network",
+           "name": "books-policy",
+           "policyVersion": "MTY2OTI0MDI1Njk1NV8x",
+           "policy": [
+               {
+                   "Rules": [
+                       {
+                           "Resource": [
+                               "collection/books"
+                           ],
+                           "ResourceType": "dashboard"
+                       },
+                       {
+                           "Resource": [
+                               "collection/books"
+                           ],
+                           "ResourceType": "collection"
+                       }
+                   ],
+                   "AllowFromPublic": true,
+                   "Description": "Public access for books collection"
+               }
+           ],
+           "createdDate": 1669240256955,
+           "lastModifiedDate": 1669240256955
+       }
+   }
+   ```
 
-`TutorialRole` should now be able to index and search documents in
-the _books_ collection. 7. To make calls to the OpenSearch API, you need the collection endpoint. Send the
-following request to retrieve the `collectionEndpoint`
-parameter:
+1. Create the *books* collection:
 
-```
-aws opensearchserverless batch-get-collection --names books
-```
+   ```
+   aws opensearchserverless create-collection --name books --type SEARCH
+   ```
 
-**Sample response**
+   **Sample response**
 
-```
-{
-    "collectionDetails": [
-        {
-            "id": "8kw362bpwg4gx9b2f6e0",
-            "name": "books",
-            "status": "ACTIVE",
-            "type": "SEARCH",
-            "description": "",
-            "arn": "arn:aws:aoss:us-east-1:123456789012:collection/8kw362bpwg4gx9b2f6e0",
-            "createdDate": 1665765327107,
-            "collectionEndpoint": "https://8kw362bpwg4gx9b2f6e0.us-east-1.aoss.amazonaws.com",
-            "dashboardEndpoint": "https://8kw362bpwg4gx9b2f6e0.us-east-1.aoss.amazonaws.com/_dashboards"
-        }
-    ],
-    "collectionErrorDetails": []
-}
-```
+   ```
+   {
+       "createCollectionDetail": {
+           "id": "8kw362bpwg4gx9b2f6e0",
+           "name": "books",
+           "status": "CREATING",
+           "type": "SEARCH",
+           "arn": "arn:aws:aoss:us-east-1:123456789012:collection/8kw362bpwg4gx9b2f6e0",
+           "kmsKeyArn": "auto",
+           "createdDate": 1669240325037,
+           "lastModifiedDate": 1669240325037
+       }
+   }
+   ```
 
-###### Note
+1. Create a [data access policy](serverless-data-access.md) that provides the minimum permissions to index and search data in the *books* collection. Replace the principal ARN with the ARN of `TutorialRole` from step 1:
 
-The collection endpoint isn't available until the collection
-status changes to `ACTIVE`. You might need to make multiple calls
-to check the status until the collection is successfully created. 8. Use an HTTP tool such as [Postman](https://www.getpostman.com/ "https://www.getpostman.com/") or curl to index data into the _books_
-collection. The following example creates an index called _books-index_ and
-adds a single document. OpenSearch Serverless endpoints require AWS Signature Version 4
-(SigV4) authentication. If you use curl, use the `--aws-sigv4`
-option or a tool like `awscurl` to sign your requests.
+   ```
+   aws opensearchserverless create-access-policy \
+     --name books-policy \
+     --type data \
+     --policy "[{\"Rules\":[{\"ResourceType\":\"index\",\"Resource\":[\"index\/books\/books-index\"],\"Permission\":[\"aoss:CreateIndex\",\"aoss:DescribeIndex\",\"aoss:ReadDocument\",\"aoss:WriteDocument\",\"aoss:UpdateIndex\",\"aoss:DeleteIndex\"]}],\"Principal\":[\"arn:aws:iam::{{123456789012}}:{{role}}\/{{TutorialRole}}\"]}]"
+   ```
 
-Send the following request to the collection endpoint that you retrieved in
-the previous step, using the credentials for `TutorialRole`.
+   **Sample response**
 
-```
-PUT https://`8kw362bpwg4gx9b2f6e0`.`us-east-1`.aoss.amazonaws.com/books-index/_doc/1
-{
-  "title": "The Shining",
-  "author": "Stephen King",
-  "year": 1977
-}
-```
+   ```
+   {
+       "accessPolicyDetail": {
+           "type": "data",
+           "name": "books-policy",
+           "policyVersion": "MTY2OTI0MDM5NDY1M18x",
+           "policy": [
+               {
+                   "Rules": [
+                       {
+                           "Resource": [
+                               "index/books/books-index"
+                           ],
+                           "Permission": [
+                               "aoss:CreateIndex",
+                               "aoss:DescribeIndex",
+                               "aoss:ReadDocument",
+                               "aoss:WriteDocument",
+                               "aoss:UpdateDocument",
+                               "aoss:DeleteDocument"
+                           ],
+                           "ResourceType": "index"
+                       }
+                   ],
+                   "Principal": [
+                       "arn:aws:iam::123456789012:role/TutorialRole"
+                   ]
+               }
+           ],
+           "createdDate": 1669240394653,
+           "lastModifiedDate": 1669240394653
+       }
+   }
+   ```
 
-**Sample response**
+   `TutorialRole` should now be able to index and search documents in the *books* collection. 
 
-```
-{
-  "_index" : "books-index",
-  "_id" : "1",
-  "_version" : 1,
-  "result" : "created",
-  "_shards" : {
-    "total" : 0,
-    "successful" : 0,
-    "failed" : 0
-  },
-  "_seq_no" : 0,
-  "_primary_term" : 0
-}
-```
+1. To make calls to the OpenSearch API, you need the collection endpoint. Send the following request to retrieve the `collectionEndpoint` parameter:
 
-9. To begin searching data in your collection, use the [search
-   API](https://opensearch.org/docs/latest/opensearch/rest-api/search/ "https://opensearch.org/docs/latest/opensearch/rest-api/search/"). The following query performs a basic search:
+   ```
+   aws opensearchserverless batch-get-collection --names books {{ }}
+   ```
 
-```
-GET https://`8kw362bpwg4gx9b2f6e0`.us-east-1.aoss.amazonaws.com/books-index/_search
-```
+   **Sample response**
 
-**Sample response**
+   ```
+   {
+       "collectionDetails": [
+           {
+               "id": "8kw362bpwg4gx9b2f6e0",
+               "name": "books",
+               "status": "ACTIVE",
+               "type": "SEARCH",
+               "description": "",
+               "arn": "arn:aws:aoss:us-east-1:123456789012:collection/8kw362bpwg4gx9b2f6e0",
+               "createdDate": 1665765327107,
+               "collectionEndpoint": "https://8kw362bpwg4gx9b2f6e0.us-east-1.aoss.amazonaws.com",
+               "dashboardEndpoint": "https://8kw362bpwg4gx9b2f6e0.us-east-1.aoss.amazonaws.com/_dashboards"
+           }
+       ],
+       "collectionErrorDetails": []
+   }
+   ```
+**Note**  
+The collection endpoint isn't available until the collection status changes to `ACTIVE`. You might need to make multiple calls to check the status until the collection is successfully created.
 
-```
-{
-    "took": 405,
-    "timed_out": false,
-    "_shards": {
-        "total": 6,
-        "successful": 6,
-        "skipped": 0,
-        "failed": 0
-    },
-    "hits": {
-        "total": {
-            "value": 2,
-            "relation": "eq"
-        },
-        "max_score": 1.0,
-        "hits": [
-            {
-                "_index": "books-index:0::3xJq14MBUaOS0wL26UU9:0",
-                "_id": "F_bt4oMBLle5pYmm5q4T",
-                "_score": 1.0,
-                "_source": {
-                    "title": "The Shining",
-                    "author": "Stephen King",
-                    "year": 1977
-                }
-            }
-        ]
-    }
-}
-```
+1. Use an HTTP tool such as [Postman](https://www.getpostman.com/) or curl to index data into the *books* collection. The following example creates an index called *books-index* and adds a single document. OpenSearch Serverless endpoints require AWS Signature Version 4 (SigV4) authentication. If you use curl, use the `--aws-sigv4` option or a tool like `awscurl` to sign your requests.
+
+   Send the following request to the collection endpoint that you retrieved in the previous step, using the credentials for `TutorialRole`.
+
+   ```
+   PUT https://{{8kw362bpwg4gx9b2f6e0}}.{{us-east-1}}.aoss.amazonaws.com/books-index/_doc/1
+   { 
+     "title": "The Shining",
+     "author": "Stephen King",
+     "year": 1977
+   }
+   ```
+
+   **Sample response**
+
+   ```
+   {
+     "_index" : "books-index",
+     "_id" : "1",
+     "_version" : 1,
+     "result" : "created",
+     "_shards" : {
+       "total" : 0,
+       "successful" : 0,
+       "failed" : 0
+     },
+     "_seq_no" : 0,
+     "_primary_term" : 0
+   }
+   ```
+
+1. To begin searching data in your collection, use the [search API](https://opensearch.org/docs/latest/opensearch/rest-api/search/). The following query performs a basic search:
+
+   ```
+   GET https://{{8kw362bpwg4gx9b2f6e0}}.us-east-1.aoss.amazonaws.com/books-index/_search
+   ```
+
+   **Sample response**
+
+   ```
+   {
+       "took": 405,
+       "timed_out": false,
+       "_shards": {
+           "total": 6,
+           "successful": 6,
+           "skipped": 0,
+           "failed": 0
+       },
+       "hits": {
+           "total": {
+               "value": 2,
+               "relation": "eq"
+           },
+           "max_score": 1.0,
+           "hits": [
+               {
+                   "_index": "books-index:0::3xJq14MBUaOS0wL26UU9:0",
+                   "_id": "F_bt4oMBLle5pYmm5q4T",
+                   "_score": 1.0,
+                   "_source": {
+                       "title": "The Shining",
+                       "author": "Stephen King",
+                       "year": 1977
+                   }
+               }
+           ]
+       }
+   }
+   ```

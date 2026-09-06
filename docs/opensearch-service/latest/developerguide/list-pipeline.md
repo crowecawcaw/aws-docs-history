@@ -1,47 +1,41 @@
+
+
 # Viewing Amazon OpenSearch Ingestion pipelines
+<a name="list-pipeline"></a>
 
-You can view the details about an Amazon OpenSearch Ingestion pipeline using the AWS Management Console, the
-AWS CLI, or the OpenSearch Ingestion API.
+You can view the details about an Amazon OpenSearch Ingestion pipeline using the AWS Management Console, the AWS CLI, or the OpenSearch Ingestion API.
 
-###### To view a pipeline
+## Console
+<a name="list-pipeline-console"></a>
 
-1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
-2. (Optional) To view pipelines with a particular status, choose
-   **Any status** and select a status to filter by.
+**To view a pipeline**
 
-A pipeline can have the following statuses:
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines). You'll be on the Pipelines page.
 
-    * `Active` – The pipeline is active and ready to
-     ingest data.
-    * `Creating` – The pipeline is being
-     created.
-    * `Updating` – The pipeline is being
-     updated.
-    * `Deleting` – The pipeline is being
-     deleted.
-    * `Create failed` – The pipeline could not be
-     created.
-    * `Update failed` – The pipeline could not be
-     updated.
-    * `Stop failed` – The pipeline could not be
-     stopped.
-    * `Start failed` – The pipeline could not be
-     started.
-    * `Stopping` – The pipeline is being
-     stopped.
-    * `Stopped` – The pipeline is stopped and can be
-     restarted at any time.
-    * `Starting` – The pipeline is starting.
+1. (Optional) To view pipelines with a particular status, choose **Any status** and select a status to filter by.
 
-You're not billed for Ingestion OCUs when a pipeline is in the `Create
- failed`, `Creating`, `Deleting`, and
-`Stopped` states.
+   A pipeline can have the following statuses:
+   + `Active` – The pipeline is active and ready to ingest data.
+   + `Creating` – The pipeline is being created.
+   + `Updating` – The pipeline is being updated.
+   + `Deleting` – The pipeline is being deleted.
+   + `Create failed` – The pipeline could not be created.
+   + `Update failed` – The pipeline could not be updated.
+   + `Stop failed` – The pipeline could not be stopped.
+   + `Start failed` – The pipeline could not be started.
+   + `Stopping` – The pipeline is being stopped.
+   + `Stopped` – The pipeline is stopped and can be restarted at any time.
+   + `Starting` – The pipeline is starting.
 
-To view pipelines using the AWS CLI, send a [list-pipelines](../../../cli/latest/reference/osis/list-pipelines.md "../../../cli/latest/reference/osis/list-pipelines.md")
-request:
+You're not billed for Ingestion OCUs when a pipeline is in the `Create failed`, `Creating`, `Deleting`, and `Stopped` states.
+
+## CLI
+<a name="list-pipeline-cli"></a>
+
+To view pipelines using the AWS CLI, send a [list-pipelines](https://docs.aws.amazon.com/cli/latest/reference/osis/list-pipelines.html) request:
 
 ```
-aws osis list-pipelines
+aws osis list-pipelines{{  }}
 ```
 
 The request returns a list of all existing pipelines:
@@ -77,11 +71,10 @@ The request returns a list of all existing pipelines:
 }
 ```
 
-To get information about a single pipeline, use the [get-pipeline](../../../cli/latest/reference/osis/get-pipeline.md "../../../cli/latest/reference/osis/get-pipeline.md")
-command:
+To get information about a single pipeline, use the [get-pipeline](https://docs.aws.amazon.com/cli/latest/reference/osis/get-pipeline.html) command:
 
 ```
-aws osis get-pipeline --pipeline-name "`my-pipeline`"
+aws osis get-pipeline --pipeline-name "{{my-pipeline}}"
 ```
 
 The request returns configuration information for the specified pipeline:
@@ -107,5 +100,7 @@ The request returns configuration information for the specified pipeline:
 }
 ```
 
-To view OpenSearch Ingestion pipelines using the OpenSearch Ingestion API, call the
-[ListPipelines](../APIReference/API_osis_ListPipelines.md "../APIReference/API_osis_ListPipelines.md") and [GetPipeline](../APIReference/API_osis_GetPipeline.md "../APIReference/API_osis_GetPipeline.md") operations.
+## OpenSearch Ingestion API
+<a name="list-pipelines-api"></a>
+
+To view OpenSearch Ingestion pipelines using the OpenSearch Ingestion API, call the [ListPipelines](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ListPipelines.html) and [GetPipeline](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_GetPipeline.html) operations.

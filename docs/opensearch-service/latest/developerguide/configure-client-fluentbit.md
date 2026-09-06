@@ -1,16 +1,14 @@
-# Using an OpenSearch Ingestion pipeline with Fluent Bit
 
-This sample [Fluent
-Bit configuration file](https://docs.fluentbit.io/manual/pipeline/outputs/http "https://docs.fluentbit.io/manual/pipeline/outputs/http") sends log data from Fluent Bit to an OpenSearch Ingestion
-pipeline. For more information about ingesting log data, see [Log Analytics](https://github.com/opensearch-project/data-prepper/blob/main/docs/log_analytics.md "https://github.com/opensearch-project/data-prepper/blob/main/docs/log_analytics.md") in the Data Prepper documentation.
+
+# Using an OpenSearch Ingestion pipeline with Fluent Bit
+<a name="configure-client-fluentbit"></a>
+
+This sample [Fluent Bit configuration file](https://docs.fluentbit.io/manual/pipeline/outputs/http) sends log data from Fluent Bit to an OpenSearch Ingestion pipeline. For more information about ingesting log data, see [Log Analytics](https://github.com/opensearch-project/data-prepper/blob/main/docs/log_analytics.md) in the Data Prepper documentation.
 
 Note the following:
-
-- The `host` value must be your pipeline endpoint. For example,
-  ``pipeline-endpoint`.`us-east-1`osis.amazonaws.com`.
-- The `aws_service` value must be `osis`.
-- The `aws_role_arn` value is the ARN of the AWS IAM role for the
-  client to assume and use for Signature Version 4 authentication.
++ The `host` value must be your pipeline endpoint. For example, `{{pipeline-endpoint}}.{{us-east-1}}osis.amazonaws.com`.
++ The `aws_service` value must be `osis`.
++ The `aws_role_arn` value is the ARN of the AWS IAM role for the client to assume and use for Signature Version 4 authentication.
 
 ```
 [INPUT]
@@ -22,20 +20,19 @@ Note the following:
 [OUTPUT]
   Name http
   Match *
-  Host `pipeline-endpoint`.`us-east-1`osis.amazonaws.com
+  Host {{pipeline-endpoint}}.{{us-east-1}}osis.amazonaws.com
   Port 443
   URI /log/ingest
   Format json
   aws_auth true
-  aws_region `region`
-  aws_service **osis**
-  aws_role_arn arn:aws:iam::`account-id`:role/`ingestion-role`
+  aws_region {{region}}
+  aws_service osis
+  aws_role_arn arn:aws:iam::{{account-id}}:role/{{ingestion-role}}
   Log_Level trace
   tls On
 ```
 
-You can then configure an OpenSearch Ingestion pipeline like the following, which has HTTP
-as the source:
+You can then configure an OpenSearch Ingestion pipeline like the following, which has HTTP as the source:
 
 ```
 version: "2"
@@ -59,10 +56,10 @@ unaggregated-log-pipeline:
 
   sink:
     - opensearch:
-        hosts: ["https://search-`domain-endpoint`.`us-east-1`es.amazonaws.com"]
-        index: "`index_name`"
+        hosts: ["https://search-{{domain-endpoint}}.{{us-east-1}}es.amazonaws.com"]
+        index: "{{index_name}}"
         index_type: custom
         bulk_size: 20
         aws:
-          region: "`region`"
+          region: "{{region}}"
 ```

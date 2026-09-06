@@ -1,117 +1,93 @@
+
+
 # Using an OpenSearch Ingestion pipeline with Amazon S3
+<a name="configure-client-s3"></a>
 
-With OpenSearch Ingestion, you can use Amazon S3 as a source or as a destination. When you use
-Amazon S3 as a source, you send data to an OpenSearch Ingestion pipeline. When you use Amazon S3 as a
-destination, you write data from an OpenSearch Ingestion pipeline to one or more S3
-buckets.
+With OpenSearch Ingestion, you can use Amazon S3 as a source or as a destination. When you use Amazon S3 as a source, you send data to an OpenSearch Ingestion pipeline. When you use Amazon S3 as a destination, you write data from an OpenSearch Ingestion pipeline to one or more S3 buckets.
 
-###### Topics
-
-- [Amazon S3 as a source](#s3-source "#s3-source")
-- [Amazon S3 as a destination](#s3-destination "#s3-destination")
-- [Amazon S3 cross account as a source](#fdsf "#fdsf")
+**Topics**
++ [Amazon S3 as a source](#s3-source)
++ [Amazon S3 as a destination](#s3-destination)
++ [Amazon S3 cross account as a source](#fdsf)
 
 ## Amazon S3 as a source
+<a name="s3-source"></a>
 
-There are two ways that you can use Amazon S3 as a source to process data—with
-_S3-SQS processing_ and with _scheduled
-scans_.
+There are two ways that you can use Amazon S3 as a source to process data—with *S3-SQS processing* and with *scheduled scans*. 
 
-Use S3-SQS processing when you require near real-time scanning of files after they
-are written to S3. You can configure Amazon S3 buckets to raise an event any time an
-object is stored or modified within the bucket. Use a one-time or recurring
-scheduled scan to batch process data in a S3 bucket.
+Use S3-SQS processing when you require near real-time scanning of files after they are written to S3. You can configure Amazon S3 buckets to raise an event any time an object is stored or modified within the bucket. Use a one-time or recurring scheduled scan to batch process data in a S3 bucket. 
 
-###### Topics
-
-- [Prerequisites](#s3-prereqs "#s3-prereqs")
-- [Step 1: Configure the pipeline role](#s3-pipeline-role "#s3-pipeline-role")
-- [Step 2: Create the pipeline](#s3-pipeline "#s3-pipeline")
+**Topics**
++ [Prerequisites](#s3-prereqs)
++ [Step 1: Configure the pipeline role](#s3-pipeline-role)
++ [Step 2: Create the pipeline](#s3-pipeline)
 
 ### Prerequisites
+<a name="s3-prereqs"></a>
 
-To use Amazon S3 as the source for an OpenSearch Ingestion pipeline for both a scheduled
-scan or S3-SQS processing, first [create an S3 bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md").
+To use Amazon S3 as the source for an OpenSearch Ingestion pipeline for both a scheduled scan or S3-SQS processing, first [create an S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
 
-###### Note
+**Note**  
+If the S3 bucket used as a source in the OpenSearch Ingestion pipeline is in a different AWS account, you also need to enable cross-account read permissions on the bucket. This allows the pipeline to read and process the data. To enable cross-account permissions, see [Bucket owner granting cross-account bucket permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html) in the *Amazon S3 User Guide*.  
+If your S3 buckets are in multiple accounts, use a `bucket_owners` map. For an example, see [Cross-account S3 access](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#cross-account-s3-access) in the OpenSearch documentation.
 
-If the S3 bucket used as a source in the OpenSearch Ingestion pipeline is in a
-different AWS account, you also need to enable cross-account read
-permissions on the bucket. This allows the pipeline to read and process the
-data. To enable cross-account permissions, see [Bucket owner granting cross-account bucket permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md") in the
-_Amazon S3 User Guide_.
+To set up S3-SQS processing, you also need to perform the following steps:
 
-If your S3 buckets are in multiple accounts, use a
-`bucket_owners` map. For an example, see [Cross-account S3 access](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#cross-account-s3-access "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#cross-account-s3-access") in the OpenSearch
-documentation.
+1. [Create an Amazon SQS queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/step-create-queue.html).
 
-To set up S3-SQS processing, you also need to perform the following
-steps:
-
-1. [Create an Amazon SQS queue](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/step-create-queue.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/step-create-queue.md").
-2. [Enable event notifications](../../../AmazonS3/latest/userguide/enable-event-notifications.md "../../../AmazonS3/latest/userguide/enable-event-notifications.md") on the S3 bucket with the SQS
-   queue as a destination.
+1. [Enable event notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) on the S3 bucket with the SQS queue as a destination.
 
 ### Step 1: Configure the pipeline role
+<a name="s3-pipeline-role"></a>
 
-Unlike other source plugins that _push_ data to a pipeline,
-the [S3 source plugin](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/") has a read-based architecture in which the
-pipeline _pulls_ data from the source.
+Unlike other source plugins that *push* data to a pipeline, the [S3 source plugin](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/) has a read-based architecture in which the pipeline *pulls* data from the source. 
 
-Therefore, in order for a pipeline to read from S3, you must specify a role
-within the pipeline's S3 source configuration that has access to both the S3
-bucket and the Amazon SQS queue. The pipeline will assume this role in order to read
-data from the queue.
+Therefore, in order for a pipeline to read from S3, you must specify a role within the pipeline's S3 source configuration that has access to both the S3 bucket and the Amazon SQS queue. The pipeline will assume this role in order to read data from the queue.
 
-###### Note
+**Note**  
+The role that you specify within the S3 source configuration must be the [pipeline role](). Therefore, your pipeline role must contain two separate permissions policies—one to write to a sink, and one to pull from the S3 source. You must use the same `sts_role_arn` in all pipeline components.
 
-The role that you specify within the S3 source configuration must be the
-pipeline role.
-Therefore, your pipeline role must contain two separate permissions
-policies—one to write to a sink, and one to pull from the S3 source.
-You must use the same `sts_role_arn` in all pipeline
-components.
+The following sample policy shows the required permissions for using S3 as a source:
 
-The following sample policy shows the required permissions for using S3 as a
-source:
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action":[
- "s3:ListBucket",
- "s3:GetBucketLocation",
- "s3:GetObject"
- ],
- "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
- },
- {
- "Effect":"Allow",
- "Action":"s3:ListAllMyBuckets",
- "Resource":"arn:aws:s3:::*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "sqs:DeleteMessage",
- "sqs:ReceiveMessage",
- "sqs:ChangeMessageVisibility"
- ],
- "Resource": "arn:aws:sqs:`us-east-1`:`111122223333`:`MyS3EventSqsQueue`"
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action":[
+          "s3:ListBucket",
+          "s3:GetBucketLocation",
+          "s3:GetObject"
+       ],
+      "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*"
+    },
+    {
+       "Effect":"Allow",
+       "Action":"s3:ListAllMyBuckets",
+       "Resource":"arn:aws:s3:::*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sqs:DeleteMessage",
+        "sqs:ReceiveMessage",
+        "sqs:ChangeMessageVisibility"
+      ],
+      "Resource": "arn:aws:sqs:{{us-east-1}}:{{111122223333}}:{{MyS3EventSqsQueue}}"
+    }
+  ]
+}
 ```
 
-You must attach these permissions to the IAM role that you specify in the
-`sts_role_arn` option within the S3 source plugin
-configuration:
+------
+
+ You must attach these permissions to the IAM role that you specify in the `sts_role_arn` option within the S3 source plugin configuration:
 
 ```
 version: "2"
@@ -128,14 +104,14 @@ sink:
 ```
 
 ### Step 2: Create the pipeline
+<a name="s3-pipeline"></a>
 
-After you've set up your permissions, you can configure an OpenSearch Ingestion
-pipeline depending on your Amazon S3 use case.
+After you've set up your permissions, you can configure an OpenSearch Ingestion pipeline depending on your Amazon S3 use case.
 
 #### S3-SQS processing
+<a name="s3-sqs-processing"></a>
 
-To set up S3-SQS processing, configure your pipeline to specify S3 as the
-source and set up Amazon SQS notifications:
+To set up S3-SQS processing, configure your pipeline to specify S3 as the source and set up Amazon SQS notifications:
 
 ```
 version: "2"
@@ -146,10 +122,10 @@ s3-pipeline:
       codec:
         newline: null
       sqs:
-        queue_url: "https://sqs.`us-east-1`amazonaws.com/`account-id`/`ingestion-queue`"
+        queue_url: "https://sqs.{{us-east-1}}amazonaws.com/{{account-id}}/{{ingestion-queue}}"
       compression: "none"
       aws:
-        region: "`region`"
+        region: "{{region}}"
   processor:
   - grok:
       match:
@@ -160,47 +136,30 @@ s3-pipeline:
       from_time_received: true
   sink:
   - opensearch:
-      hosts: ["https://search-`domain-endpoint`.`us-east-1`es.amazonaws.com"]
-      index: "`index-name`"
+      hosts: ["https://search-{{domain-endpoint}}.{{us-east-1}}es.amazonaws.com"]
+      index: "{{index-name}}"
       aws:
-        region: "`region`"
+        region: "{{region}}"
 ```
 
-If you observe low CPU utilization while processing small files on Amazon S3,
-consider increasing the throughput by modifying the value of the
-`workers` option. For more information, see the [S3 plugin configuration options](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#configuration "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#configuration").
+If you observe low CPU utilization while processing small files on Amazon S3, consider increasing the throughput by modifying the value of the `workers` option. For more information, see the [S3 plugin configuration options](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/#configuration).
 
 #### Scheduled scan
+<a name="s3-scheduled-scan"></a>
 
-To set up a scheduled scan, configure your pipeline with a schedule at the
-scan level that applies to all your S3 buckets, or at the bucket level. A
-bucket-level schedule or a scan-interval configuration always overwrites a
-scan-level configuration.
+To set up a scheduled scan, configure your pipeline with a schedule at the scan level that applies to all your S3 buckets, or at the bucket level. A bucket-level schedule or a scan-interval configuration always overwrites a scan-level configuration. 
 
-You can configure scheduled scans with either a _one-time
-scan_, which is ideal for data migration, or a
-_recurring scan_, which is ideal for batch
-processing.
+You can configure scheduled scans with either a *one-time scan*, which is ideal for data migration, or a *recurring scan*, which is ideal for batch processing. 
 
-To configure your pipeline to read from Amazon S3, use the preconfigured Amazon S3
-blueprints. You can edit the `scan` portion of your pipeline
-configuration to meet your scheduling needs. For more information, see [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md").
+To configure your pipeline to read from Amazon S3, use the preconfigured Amazon S3 blueprints. You can edit the `scan` portion of your pipeline configuration to meet your scheduling needs. For more information, see [Working with blueprints](pipeline-blueprint.md).
 
 **One-time scan**
 
-A one-time scheduled scan runs once. In your pipeline configuration, you
-can use a `start_time` and `end_time` to specify when
-you want the objects in the bucket to be scanned. Alternatively, you can use
-`range` to specify the interval of time relative to current
-time that you want the objects in the bucket to be scanned.
+A one-time scheduled scan runs once. In your pipeline configuration, you can use a `start_time` and `end_time` to specify when you want the objects in the bucket to be scanned. Alternatively, you can use `range` to specify the interval of time relative to current time that you want the objects in the bucket to be scanned. 
 
-For example, a range set to `PT4H` scans all files created in
-the last four hours. To configure a one-time scan to run a second time, you
-must stop and restart the pipeline. If you don't have a range configured,
-you must also update the start and end times.
+For example, a range set to `PT4H` scans all files created in the last four hours. To configure a one-time scan to run a second time, you must stop and restart the pipeline. If you don't have a range configured, you must also update the start and end times.
 
-The following configuration sets up a one-time scan for all buckets and
-all objects in those buckets:
+The following configuration sets up a one-time scan for all buckets and all objects in those buckets:
 
 ```
 version: "2"
@@ -211,23 +170,23 @@ log-pipeline:
         csv:
       compression: "none"
       aws:
-        region: "`region`"
+        region: "{{region}}"
       acknowledgments: true
       scan:
         buckets:
           - bucket:
-              name: `my-bucket`
+              name: {{my-bucket}}
               filter:
                 include_prefix:
-                  - `Objects1`/
+                  - {{Objects1}}/
                 exclude_suffix:
                   - .jpeg
                   - .png
           - bucket:
-              name: `my-bucket-2`
+              name: {{my-bucket-2}}
               key_prefix:
                 include:
-                  - `Objects2`/
+                  - {{Objects2}}/
                 exclude_suffix:
                   - .jpeg
                   - .png
@@ -238,19 +197,17 @@ log-pipeline:
         from_time_received: true
   sink:
     - opensearch:
-        hosts: ["https://`search-domain-endpoint`.`us-east-1`es.amazonaws.com"]
-        index: "`index-name`"
+        hosts: ["https://{{search-domain-endpoint}}.{{us-east-1}}es.amazonaws.com"]
+        index: "{{index-name}}"
         aws:
-          region: "`region`"
+          region: "{{region}}"
         dlq:
           s3:
-            bucket: "`dlq-bucket`"
-            region: "`us-east-1`"
+            bucket: "{{dlq-bucket}}"
+            region: "{{us-east-1}}"
 ```
 
-The following configuration sets up a one-time scan for all buckets during
-a specified time window. This means that S3 processes only those objects
-with creation times that fall within this window.
+The following configuration sets up a one-time scan for all buckets during a specified time window. This means that S3 processes only those objects with creation times that fall within this window.
 
 ```
 scan:
@@ -258,26 +215,24 @@ scan:
   end_time: 2023-04-21T18:00:00.000Z
   buckets:
     - bucket:
-        name: `my-bucket-1`
+        name: {{my-bucket-1}}
         filter:
           include:
-            - `Objects1`/
+            - {{Objects1}}/
           exclude_suffix:
             - .jpeg
             - .png
     - bucket:
-        name: `my-bucket-2`
+        name: {{my-bucket-2}}
         filter:
           include:
-            - `Objects2`/
+            - {{Objects2}}/
           exclude_suffix:
             - .jpeg
             - .png
 ```
 
-The following configuration sets up a one-time scan at both the scan level
-and the bucket level. Start and end times at the bucket level override start
-and end times at the scan level.
+The following configuration sets up a one-time scan at both the scan level and the bucket level. Start and end times at the bucket level override start and end times at the scan level. 
 
 ```
 scan:
@@ -287,51 +242,36 @@ scan:
     - bucket:
         start_time: 2023-01-21T18:00:00.000Z
         end_time: 2023-04-21T18:00:00.000Z
-        name: `my-bucket-1`
+        name: {{my-bucket-1}}
         filter:
           include:
-            - `Objects1`/
+            - {{Objects1}}/
           exclude_suffix:
             - .jpeg
             - .png
     - bucket:
         start_time: 2023-01-21T18:00:00.000Z
         end_time: 2023-04-21T18:00:00.000Z
-        name: `my-bucket-2`
+        name: {{my-bucket-2}}
         filter:
           include:
-            - `Objects2`/
+            - {{Objects2}}/
           exclude_suffix:
             - .jpeg
             - .png
 ```
 
-Stopping a pipeline removes any pre-existing reference of what objects
-have been scanned by the pipeline before the stop. If a single scan pipeline
-is stopped, it will rescan all objects again after its started, even if they
-were already scanned. If you need to stop a single scan pipeline, it is
-recommended you change your time window before starting the pipeline
-again.
+Stopping a pipeline removes any pre-existing reference of what objects have been scanned by the pipeline before the stop. If a single scan pipeline is stopped, it will rescan all objects again after its started, even if they were already scanned. If you need to stop a single scan pipeline, it is recommended you change your time window before starting the pipeline again.
 
-If you need to filter objects by start time and end time, stopping and
-starting your pipeline is the only option. If you don't need to filter by
-start time and end time, you can filter objects by name. Flitering by name
-doesn't require you to stop and start your pipeline. To do this, use
-`include_prefix` and `exclude_suffix`.
+If you need to filter objects by start time and end time, stopping and starting your pipeline is the only option. If you don't need to filter by start time and end time, you can filter objects by name. Flitering by name doesn't require you to stop and start your pipeline. To do this, use `include_prefix` and `exclude_suffix`.
 
 **Recurring scan**
 
-A recurring scheduled scan runs a scan of your specified S3 buckets at
-regular, scheduled intervals. You can only configure these intervals at the
-scan level because individual bucket level configurations aren't supported.
+A recurring scheduled scan runs a scan of your specified S3 buckets at regular, scheduled intervals. You can only configure these intervals at the scan level because individual bucket level configurations aren't supported. 
 
-In your pipeline configuration, the `interval` specifies the
-frequency of the recurring scan, and can be between 30 seconds and 365 days.
-The first of these scans always occurs when you create the pipeline. The
-`count` defines the total number of scan instances.
+In your pipeline configuration, the `interval` specifies the frequency of the recurring scan, and can be between 30 seconds and 365 days. The first of these scans always occurs when you create the pipeline. The `count` defines the total number of scan instances.
 
-The following configuration sets up a recurring scan, with a delay of 12
-hours between the scans:
+The following configuration sets up a recurring scan, with a delay of 12 hours between the scans:
 
 ```
 scan:
@@ -340,34 +280,29 @@ scan:
     count: 4
   buckets:
     - bucket:
-        name: `my-bucket-1`
+        name: {{my-bucket-1}}
         filter:
           include:
-            - `Objects1`/
+            - {{Objects1}}/
           exclude_suffix:
             - .jpeg
             - .png
     - bucket:
-        name: `my-bucket-2`
+        name: {{my-bucket-2}}
         filter:
           include:
-            - `Objects2`/
+            - {{Objects2}}/
           exclude_suffix:
             - .jpeg
             - .png
 ```
 
 ## Amazon S3 as a destination
+<a name="s3-destination"></a>
 
-To write data from an OpenSearch Ingestion pipeline to an S3 bucket, use the
-preconfigured S3 blueprint to create a pipeline with an [S3 sink](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/"). This pipeline routes selective data to an OpenSearch sink and
-simultaneously sends all data for archival in S3. For more information, see [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md").
+To write data from an OpenSearch Ingestion pipeline to an S3 bucket, use the preconfigured S3 blueprint to create a pipeline with an [S3 sink](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/). This pipeline routes selective data to an OpenSearch sink and simultaneously sends all data for archival in S3. For more information, see [Working with blueprints](pipeline-blueprint.md).
 
-When you create your S3 sink, you can specify your preferred formatting from a
-variety of [sink codecs](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/#codec "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/#codec"). For example, if you want to write data in columnar format,
-choose the Parquet or Avro codec. If you prefer a row-based format, choose JSON or
-NDJSON. To write data to S3 in a specified schema, you can also define an inline
-schema within sink codecs using the [Avro format](https://avro.apache.org/docs/current/specification/#schema-declaration "https://avro.apache.org/docs/current/specification/#schema-declaration").
+When you create your S3 sink, you can specify your preferred formatting from a variety of [sink codecs](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/#codec). For example, if you want to write data in columnar format, choose the Parquet or Avro codec. If you prefer a row-based format, choose JSON or NDJSON. To write data to S3 in a specified schema, you can also define an inline schema within sink codecs using the [Avro format](https://avro.apache.org/docs/current/specification/#schema-declaration). 
 
 The following example defines an inline schema in an S3 sink:
 
@@ -395,35 +330,22 @@ The following example defines an inline schema in an S3 sink:
          }
 ```
 
-When you define this schema, specify a superset of all keys that might be present
-in the different types of events that your pipeline delivers to a sink.
+When you define this schema, specify a superset of all keys that might be present in the different types of events that your pipeline delivers to a sink. 
 
-For example, if an event has the possibility of a key missing, add that key in
-your schema with a `null` value. Null value declarations allow the schema
-to process non-uniform data (where some events have these keys and others don't).
-When incoming events do have these keys present, their values are written to sinks.
+For example, if an event has the possibility of a key missing, add that key in your schema with a `null` value. Null value declarations allow the schema to process non-uniform data (where some events have these keys and others don't). When incoming events do have these keys present, their values are written to sinks. 
 
-This schema definition acts as a filter that only allows defined keys to be sent
-to sinks, and drops undefined keys from incoming events.
+This schema definition acts as a filter that only allows defined keys to be sent to sinks, and drops undefined keys from incoming events. 
 
-You can also use `include_keys` and `exclude_keys` in your
-sink to filter data that's routed to other sinks. These two filters are mutually
-exclusive, so you can only use one at a time in your schema. Additionally, you can't
-use them within user-defined schemas.
+You can also use `include_keys` and `exclude_keys` in your sink to filter data that's routed to other sinks. These two filters are mutually exclusive, so you can only use one at a time in your schema. Additionally, you can't use them within user-defined schemas. 
 
-To create pipelines with such filters, use the preconfigured sink filter
-blueprint. For more information, see [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md").
+To create pipelines with such filters, use the preconfigured sink filter blueprint. For more information, see [Working with blueprints](pipeline-blueprint.md).
 
 ## Amazon S3 cross account as a source
+<a name="fdsf"></a>
 
-You can grant access across accounts with Amazon S3 so that
-OpenSearch Ingestion pipelines can access S3 buckets in another account as a source. To
-enable cross-account access, see [Bucket owner granting cross-account bucket permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md") in the
-_Amazon S3 User Guide_. After you have granted
-access, ensure that your pipeline role has the required permissions.
+You can grant access across accounts with Amazon S3 so that OpenSearch Ingestion pipelines can access S3 buckets in another account as a source. To enable cross-account access, see [Bucket owner granting cross-account bucket permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html) in the *Amazon S3 User Guide*. After you have granted access, ensure that your pipeline role has the required permissions.
 
-Then, you can create a pipeline using `bucket_owners` to enable
-cross-account access to an Amazon S3 bucket as a source:
+Then, you can create a pipeline using `bucket_owners` to enable cross-account access to an Amazon S3 bucket as a source:
 
 ```
 s3-pipeline:

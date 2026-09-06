@@ -1,43 +1,33 @@
+
+
 # Learning to Rank for Amazon OpenSearch Service
+<a name="learning-to-rank"></a>
 
-OpenSearch uses a probabilistic ranking framework called BM-25 to calculate relevance scores.
-If a distinctive keyword appears more frequently in a document, BM-25 assigns a higher relevance
-score to that document. This framework, however, doesn’t take into account user behavior like
-click-through data, which can further improve relevance.
+OpenSearch uses a probabilistic ranking framework called BM-25 to calculate relevance scores. If a distinctive keyword appears more frequently in a document, BM-25 assigns a higher relevance score to that document. This framework, however, doesn’t take into account user behavior like click-through data, which can further improve relevance.
 
-Learning to Rank is an open-source plugin that lets you use machine learning and behavioral
-data to tune the relevance of documents. It uses models from the XGBoost and Ranklib libraries
-to rescore the search results. The [Elasticsearch
-LTR plugin](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/index.html "https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/index.html") was initially developed by [OpenSource Connections](https://opensourceconnections.com/ "https://opensourceconnections.com/"), with significant contributions by Wikimedia Foundation,
-Snagajob Engineering, Bonsai, and Yelp Engineering. The OpenSearch version of the plugin is
-derived from the Elasticsearch LTR plugin.
+Learning to Rank is an open-source plugin that lets you use machine learning and behavioral data to tune the relevance of documents. It uses models from the XGBoost and Ranklib libraries to rescore the search results. The [Elasticsearch LTR plugin](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/index.html) was initially developed by [OpenSource Connections](https://opensourceconnections.com/), with significant contributions by Wikimedia Foundation, Snagajob Engineering, Bonsai, and Yelp Engineering. The OpenSearch version of the plugin is derived from the Elasticsearch LTR plugin. 
 
-Learning to Rank requires OpenSearch or Elasticsearch 7.7 or later. To use the Learning to
-Rank plugin, you must have full admin permissions. To learn more, see [Modifying the master user](fgac.md#fgac-forget "fgac.md#fgac-forget").
+Learning to Rank requires OpenSearch or Elasticsearch 7.7 or later. To use the Learning to Rank plugin, you must have full admin permissions. To learn more, see [Modifying the master user](fgac.md#fgac-forget).
 
-###### Note
+**Note**  
+This documentation provides a general overview of the Learning to Rank plugin and helps you get started using it. Full documentation, including detailed steps and API descriptions, is available in the [Learning to Rank](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/index.html) documentation.
 
-This documentation provides a general overview of the Learning to Rank plugin and helps
-you get started using it. Full documentation, including detailed steps and API descriptions,
-is available in the [Learning to
-Rank](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/index.html "https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/index.html") documentation.
-
-###### Topics
-
-- [Getting started with Learning to Rank](#ltr-gsg "#ltr-gsg")
-- [Learning to Rank API](#ltr-api "#ltr-api")
+**Topics**
++ [Getting started with Learning to Rank](#ltr-gsg)
++ [Learning to Rank API](#ltr-api)
 
 ## Getting started with Learning to Rank
+<a name="ltr-gsg"></a>
 
-You need to provide a judgment list, prepare a training dataset, and train the model
-outside of Amazon OpenSearch Service. The parts in blue occur outside of OpenSearch Service:
+You need to provide a judgment list, prepare a training dataset, and train the model outside of Amazon OpenSearch Service. The parts in blue occur outside of OpenSearch Service:
 
-![Sample Learning to Rank plugin process.](images/ltr.png)
+![Sample Learning to Rank plugin process.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ltr.png)
+
 
 ### Step 1: Initialize the plugin
+<a name="ltr-example-1"></a>
 
-To initialize the Learning to Rank plugin, send the following request to your OpenSearch Service
-domain:
+To initialize the Learning to Rank plugin, send the following request to your OpenSearch Service domain:
 
 ```
 PUT _ltr
@@ -51,28 +41,26 @@ PUT _ltr
 }
 ```
 
-This command creates a hidden `.ltrstore` index that stores metadata
-information such as feature sets and models.
+This command creates a hidden `.ltrstore` index that stores metadata information such as feature sets and models.
 
 ### Step 2: Create a judgment list
+<a name="ltr-example-2"></a>
 
-###### Note
-
+**Note**  
 You must perform this step outside of OpenSearch Service.
 
-A judgment list is a collection of examples that a machine learning model learns from.
-Your judgment list should include keywords that are important to you and a set of graded
-documents for each keyword.
+A judgment list is a collection of examples that a machine learning model learns from. Your judgment list should include keywords that are important to you and a set of graded documents for each keyword.
 
-In this example, we have a judgment list for a movie dataset. A grade of 4 indicates a
-perfect match. A grade of 0 indicates the worst match.
+In this example, we have a judgment list for a movie dataset. A grade of 4 indicates a perfect match. A grade of 0 indicates the worst match.
 
-| Grade | Keyword | Doc ID | Movie name                 |
-| ----- | ------- | ------ | -------------------------- |
-| 4     | rambo   | 7555   | Rambo                      |
-| 3     | rambo   | 1370   | Rambo III                  |
-| 3     | rambo   | 1369   | Rambo: First Blood Part II |
-| 3     | rambo   | 1368   | First Blood                |
+
+
+| Grade | Keyword | Doc ID | Movie name | 
+| --- | --- | --- | --- | 
+| 4 | rambo | 7555 | Rambo | 
+| 3 | rambo | 1370 | Rambo III | 
+| 3 | rambo | 1369 | Rambo: First Blood Part II | 
+| 3 | rambo | 1368 | First Blood | 
 
 Prepare your judgment list in the following format:
 
@@ -85,22 +73,18 @@ Prepare your judgment list in the following format:
 where qid:1 represents "rambo"
 ```
 
-For a more complete example of a judgment list, see [movie judgments](https://github.com/o19s/elasticsearch-ltr-demo/blob/master/train/movie_judgments.txt "https://github.com/o19s/elasticsearch-ltr-demo/blob/master/train/movie_judgments.txt").
+For a more complete example of a judgment list, see [movie judgments](https://github.com/o19s/elasticsearch-ltr-demo/blob/master/train/movie_judgments.txt).
 
-You can create this judgment list manually with the help of human annotators or infer it
-programmatically from analytics data.
+You can create this judgment list manually with the help of human annotators or infer it programmatically from analytics data.
 
 ### Step 3: Build a feature set
+<a name="ltr-example-3"></a>
 
-A feature is a field that corresponds to the relevance of a document—for example,
-`title`, `overview`, `popularity score` (number of
-views), and so on.
+A feature is a field that corresponds to the relevance of a document—for example, `title`, `overview`, `popularity score` (number of views), and so on. 
 
-Build a feature set with a Mustache template for each feature. For more information
-about features, see [Working with Features](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/building-features.html "https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/building-features.html").
+Build a feature set with a Mustache template for each feature. For more information about features, see [Working with Features](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/building-features.html).
 
-In this example, we build a `movie_features` feature set with the
-`title` and `overview` fields:
+In this example, we build a `movie_features` feature set with the `title` and `overview` fields:
 
 ```
 POST _ltr/_featureset/movie_features
@@ -137,24 +121,20 @@ POST _ltr/_featureset/movie_features
 }
 ```
 
-If you query the original `.ltrstore` index, you get back your feature
-set:
+If you query the original `.ltrstore` index, you get back your feature set:
 
 ```
 GET _ltr/_featureset
 ```
 
 ### Step 4: Log the feature values
+<a name="ltr-example-4"></a>
 
 The feature values are the relevance scores calculated by BM-25 for each feature.
 
-Combine the feature set and judgment list to log the feature values. For more
-information about logging features, see [Logging Feature Scores](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/logging-features.html "https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/logging-features.html").
+Combine the feature set and judgment list to log the feature values. For more information about logging features, see [Logging Feature Scores](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/logging-features.html).
 
-In this example, the `bool` query retrieves the graded documents with the
-filter, and then selects the feature set with the `sltr` query. The
-`ltr_log` query combines the documents and the features to log the
-corresponding feature values:
+In this example, the `bool` query retrieves the graded documents with the filter, and then selects the feature set with the `sltr` query. The `ltr_log` query combines the documents and the features to log the corresponding feature values:
 
 ```
 POST tmdb/_search
@@ -340,18 +320,15 @@ A sample response might look like the following:
 }
 ```
 
-In the previous example, the first feature doesn’t have a feature value because the
-keyword “rambo” doesn’t appear in the title field of the document with an ID equal to 1368.
-This is a missing feature value in the training data.
+In the previous example, the first feature doesn’t have a feature value because the keyword “rambo” doesn’t appear in the title field of the document with an ID equal to 1368. This is a missing feature value in the training data. 
 
 ### Step 5: Create a training dataset
+<a name="ltr-example-5"></a>
 
-###### Note
-
+**Note**  
 You must perform this step outside of OpenSearch Service.
 
-The next step is to combine the judgment list and feature values to create a training
-dataset. If your original judgment list looks like this:
+The next step is to combine the judgment list and feature values to create a training dataset. If your original judgment list looks like this:
 
 ```
 4 qid:1 # 7555 Rambo
@@ -372,26 +349,21 @@ Convert it into the final training dataset, which looks like this:
 You can perform this step manually or write a program to automate it.
 
 ### Step 6: Choose an algorithm and build the model
+<a name="ltr-example-6"></a>
 
-###### Note
-
+**Note**  
 You must perform this step outside of OpenSearch Service.
 
-With the training dataset in place, the next step is to use XGBoost or Ranklib libraries
-to build a model. XGBoost and Ranklib libraries let you build popular models such as
-LambdaMART, Random Forests, and so on.
+With the training dataset in place, the next step is to use XGBoost or Ranklib libraries to build a model. XGBoost and Ranklib libraries let you build popular models such as LambdaMART, Random Forests, and so on. 
 
-For steps to use XGBoost and Ranklib to build the model, see the [XGBoost](https://xgboost.readthedocs.io/en/latest/index.html "https://xgboost.readthedocs.io/en/latest/index.html") and [RankLib](https://sourceforge.net/p/lemur/wiki/RankLib/ "https://sourceforge.net/p/lemur/wiki/RankLib/") documentation,
-respectively. To use Amazon SageMaker to build the XGBoost model, see [XGBoost
-Algorithm](../../../sagemaker/latest/dg/xgboost.md "../../../sagemaker/latest/dg/xgboost.md").
+For steps to use XGBoost and Ranklib to build the model, see the [XGBoost](https://xgboost.readthedocs.io/en/latest/index.html) and [RankLib](https://sourceforge.net/p/lemur/wiki/RankLib/) documentation, respectively. To use Amazon SageMaker to build the XGBoost model, see [XGBoost Algorithm](https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html). 
 
 ### Step 7: Deploy the model
+<a name="ltr-example-7"></a>
 
-After you have built the model, deploy it into the Learning to Rank plugin. For more
-information about deploying a model, see [Uploading A Trained Model](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/training-models.html "https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/training-models.html").
+After you have built the model, deploy it into the Learning to Rank plugin. For more information about deploying a model, see [Uploading A Trained Model](https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/training-models.html). 
 
-In this example, we build a `my_ranklib_model` model using the Ranklib
-library:
+In this example, we build a `my_ranklib_model` model using the Ranklib library:
 
 ```
 POST _ltr/_featureset/movie_features/_createmodel?pretty
@@ -673,7 +645,6 @@ POST _ltr/_featureset/movie_features/_createmodel?pretty
     }
   }
 }
-
 ```
 
 To see the model, send the following request:
@@ -683,11 +654,11 @@ GET _ltr/_model/my_ranklib_model
 ```
 
 ### Step 8: Search with learning to rank
+<a name="ltr-example-8"></a>
 
-After you deploy the model, you’re ready to search.
+After you deploy the model, you’re ready to search. 
 
-Perform the `sltr` query with the features that you’re using and the name of
-the model that you want to execute:
+Perform the `sltr` query with the features that you’re using and the name of the model that you want to execute:
 
 ```
 POST tmdb/_search
@@ -716,8 +687,7 @@ POST tmdb/_search
 }
 ```
 
-With Learning to Rank, you see “Rambo” as the first result because we have assigned it
-the highest grade in the judgment list:
+With Learning to Rank, you see “Rambo” as the first result because we have assigned it the highest grade in the judgment list:
 
 ```
 {
@@ -811,8 +781,7 @@ the highest grade in the judgment list:
 }
 ```
 
-If you search without using the Learning to Rank plugin, OpenSearch returns different
-results:
+If you search without using the Learning to Rank plugin, OpenSearch returns different results:
 
 ```
 POST tmdb/_search
@@ -901,24 +870,24 @@ POST tmdb/_search
 }
 ```
 
-Based on how well you think the model is performing, adjust the judgment list and
-features. Then, repeat steps 2–8 to improve the ranking results over time.
+Based on how well you think the model is performing, adjust the judgment list and features. Then, repeat steps 2–8 to improve the ranking results over time.
 
 ## Learning to Rank API
+<a name="ltr-api"></a>
 
-Use the Learning to Rank operations to programmatically work with feature sets and
-models.
+Use the Learning to Rank operations to programmatically work with feature sets and models.
 
 ### Create store
+<a name="ltr-api-createstore"></a>
 
-Creates a hidden `.ltrstore` index that stores metadata information such as
-feature sets and models.
+Creates a hidden `.ltrstore` index that stores metadata information such as feature sets and models.
 
 ```
 PUT _ltr
 ```
 
 ### Delete store
+<a name="ltr-api-deletestore"></a>
 
 Deletes the hidden `.ltrstore` index and resets the plugin.
 
@@ -927,6 +896,7 @@ DELETE _ltr
 ```
 
 ### Create feature set
+<a name="ltr-api-featureset"></a>
 
 Creates a feature set.
 
@@ -935,6 +905,7 @@ POST _ltr/_featureset/<name_of_features>
 ```
 
 ### Delete feature set
+<a name="ltr-api-deletefeatureset"></a>
 
 Deletes a feature set.
 
@@ -943,6 +914,7 @@ DELETE _ltr/_featureset/<name_of_feature_set>
 ```
 
 ### Get feature set
+<a name="ltr-api-getfeatureset"></a>
 
 Retrieves a feature set.
 
@@ -951,6 +923,7 @@ GET _ltr/_featureset/<name_of_feature_set>
 ```
 
 ### Create model
+<a name="ltr-api-createmodel"></a>
 
 Creates a model.
 
@@ -959,6 +932,7 @@ POST _ltr/_featureset/<name_of_feature_set>/_createmodel
 ```
 
 ### Delete model
+<a name="ltr-api-deletemodel"></a>
 
 Deletes a model.
 
@@ -967,6 +941,7 @@ DELETE _ltr/_model/<name_of_model>
 ```
 
 ### Get model
+<a name="ltr-api-getmodel"></a>
 
 Retrieves a model.
 
@@ -975,6 +950,7 @@ GET _ltr/_model/<name_of_model>
 ```
 
 ### Get stats
+<a name="ltr-api-getstats"></a>
 
 Provides information about how the plugin is behaving.
 
@@ -1041,32 +1017,38 @@ GET _ltr/_stats/<stat>/nodes/<nodeId>
 }
 ```
 
-The statistics are provided at two levels, node and cluster, as specified in the
-following tables:
+The statistics are provided at two levels, node and cluster, as specified in the following tables:
 
-Node-level stats| Field name | Description |
-| --- | --- |
-| request\_total\_count | Total count of ranking requests. |
-| request\_error\_count | Total count of unsuccessful requests. |
-| cache | Statistics across all caches (features, featuresets, models). A cache hit<br>occurs when a user queries the plugin and the model is already loaded into<br>memory. |
-| cache.eviction\_count | Number of cache evictions. |
-| cache.hit\_count | Number of cache hits. |
-| cache.miss\_count | Number of cache misses. A cache miss occurs when a user queries the plugin and<br>the model has not yet been loaded into memory. |
-| cache.entry\_count | Number of entries in the cache. |
-| cache.memory\_usage\_in\_bytes | Total memory used in bytes. |
-| cache.cache\_capacity\_reached | Indicates if the cache limit is reached. |
 
-Cluster-level stats| Field name | Description |
-| --- | --- |
-| stores | Indicates where the feature sets and model metadata are stored. (The default is<br>“.ltrstore”. Otherwise, it's prefixed with “.ltrstore\_”, with a user supplied name). |
-| stores.status | Status of the index. |
-| stores.feature\_sets | Number of feature sets. |
-| stores.features\_count | Number of features. |
-| stores.model\_count | Number of models. |
-| status | The plugin status based on the status of the feature store indices (red,<br>yellow, or green) and circuit breaker state (open or closed). |
-| cache.cache\_capacity\_reached | Indicates if the cache limit is reached. |
+**Node-level stats**  
+
+| Field name | Description | 
+| --- | --- | 
+| request\_total\_count | Total count of ranking requests. | 
+| request\_error\_count | Total count of unsuccessful requests. | 
+| cache | Statistics across all caches (features, featuresets, models). A cache hit occurs when a user queries the plugin and the model is already loaded into memory. | 
+| cache.eviction\_count | Number of cache evictions. | 
+| cache.hit\_count | Number of cache hits. | 
+| cache.miss\_count | Number of cache misses. A cache miss occurs when a user queries the plugin and the model has not yet been loaded into memory. | 
+| cache.entry\_count | Number of entries in the cache. | 
+| cache.memory\_usage\_in\_bytes | Total memory used in bytes. | 
+| cache.cache\_capacity\_reached | Indicates if the cache limit is reached. | 
+
+
+**Cluster-level stats**  
+
+| Field name | Description | 
+| --- | --- | 
+| stores | Indicates where the feature sets and model metadata are stored. (The default is “.ltrstore”. Otherwise, it's prefixed with “.ltrstore\_”, with a user supplied name).  | 
+| stores.status | Status of the index. | 
+| stores.feature\_sets | Number of feature sets. | 
+| stores.features\_count | Number of features. | 
+| stores.model\_count | Number of models. | 
+| status | The plugin status based on the status of the feature store indices (red, yellow, or green) and circuit breaker state (open or closed). | 
+| cache.cache\_capacity\_reached | Indicates if the cache limit is reached. | 
 
 ### Get cache stats
+<a name="ltr-api-getcachestats"></a>
 
 Returns statistics about the cache and memory usage.
 
@@ -1153,6 +1135,7 @@ GET _ltr/_cachestats
 ```
 
 ### Clear cache
+<a name="ltr-api-clearcache"></a>
 
 Clears the plugin cache. Use this to refresh the model.
 

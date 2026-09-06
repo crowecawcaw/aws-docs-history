@@ -1,72 +1,60 @@
+
+
 # Notifications in Amazon OpenSearch Service
+<a name="managedomains-notifications"></a>
 
-Notifications in Amazon OpenSearch Service contain important information about the performance and health
-of your domains. OpenSearch Service notifies you about service software updates, Auto-Tune enhancements,
-cluster health events, and domain errors. Notifications are available for all versions of
-OpenSearch and Elasticsearch OSS.
+Notifications in Amazon OpenSearch Service contain important information about the performance and health of your domains. OpenSearch Service notifies you about service software updates, Auto-Tune enhancements, cluster health events, and domain errors. Notifications are available for all versions of OpenSearch and Elasticsearch OSS.
 
-You can view notifications in the **Notifications** panel of the OpenSearch Service
-console. All notifications for OpenSearch Service are also surfaced in [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md"). For a full list of notifications
-and sample events, see [Monitoring OpenSearch Service events with Amazon EventBridge](monitoring-events.md "monitoring-events.md").
+You can view notifications in the **Notifications** panel of the OpenSearch Service console. All notifications for OpenSearch Service are also surfaced in [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html). For a full list of notifications and sample events, see [Monitoring OpenSearch Service events with Amazon EventBridge](monitoring-events.md).
 
 ## Getting started with notifications
+<a name="managedomains-notifications-start"></a>
 
-Notifications are enabled automatically when you create a domain. Go to the
-**Notifications** panel of the OpenSearch Service console to monitor and
-acknowledge notifications. Each notification includes information such as the time it
-was posted, the domain it relates to, a severity and status level, and a brief
-explanation. You can view historical notifications for up to 90 days in the
-console.
+Notifications are enabled automatically when you create a domain. Go to the **Notifications** panel of the OpenSearch Service console to monitor and acknowledge notifications. Each notification includes information such as the time it was posted, the domain it relates to, a severity and status level, and a brief explanation. You can view historical notifications for up to 90 days in the console.
 
-After accessing the **Notifications** panel or acknowledging a
-notification, you might receive an error message about not having permissions to perform
-`es:ListNotificationsV2` or `es:UpdateNotificationStatus`. To
-resolve this problem, give your user or role the following permissions in IAM:
+After accessing the **Notifications** panel or acknowledging a notification, you might receive an error message about not having permissions to perform `es:ListNotificationsV2` or `es:UpdateNotificationStatus`. To resolve this problem, give your user or role the following permissions in IAM:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Effect": "Allow",
- "Action": [
- "es:DescribeDomain",
- "es:ListDomainNames"
- ],
- "Resource": "arn:aws:es:*:`111122223333`:domain/*"
- }]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": [
+      "es:DescribeDomain",
+      "es:ListDomainNames"
+    ],
+    "Resource": "arn:aws:es:*:{{111122223333}}:domain/*"
+  }]
+}
 ```
 
-The IAM console throws an error ("IAM does not recognize one or more actions.")
-that you can safely ignore. You can also restrict the
-`es:UpdateNotificationStatus` action to certain domains. To learn more,
-see [Policy element reference](ac.md#ac-reference "ac.md#ac-reference").
+------
+
+The IAM console throws an error ("IAM does not recognize one or more actions.") that you can safely ignore. You can also restrict the `es:UpdateNotificationStatus` action to certain domains. To learn more, see [Policy element reference](ac.md#ac-reference).
 
 ## Notification severities
+<a name="managedomains-notifications-severities"></a>
 
-Notifications in OpenSearch Service can be _informational_, which
-relate to any action you've already taken or the operations of your domain, or _actionable_, which require you to take specific actions such
-as applying a mandatory security patch. Each notification has a severity associated with
-it, which can be `Informational`, `Low`, `Medium`,
-`High`, or `Critical`. The following table summarizes each
-severity:
+Notifications in OpenSearch Service can be *informational*, which relate to any action you've already taken or the operations of your domain, or *actionable*, which require you to take specific actions such as applying a mandatory security patch. Each notification has a severity associated with it, which can be `Informational`, `Low`, `Medium`, `High`, or `Critical`. The following table summarizes each severity:
 
-| Severity        | Description                                                                                                                               | Examples                                                         |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `Informational` | Information related to the operation of your domain.                                                                                      | • Service software update available<br>• Auto-Tune started       |
-| `Low`           | A recommended action, but has no adverse impact on domain<br>availability or performance if no action is taken.                           | • Auto-Tune cancelled<br>• High shard count warning              |
-| `Medium`        | There might be an impact if the recommended action is not taken,<br>but comes with an extended time window for the action to be<br>taken. | • Service software update failed<br>• Shard count limit exceeded |
-| `High`          | Urgent action is required to avoid adverse impact.                                                                                        | • Service software update required<br>• KMS key inaccessible     |
-| `Critical`      | Immediate action is required to avoid adverse impact, or to<br>recover from it.                                                           | None currently available                                         |
+
+| Severity | Description | Examples | 
+| --- | --- | --- | 
+| Informational | Information related to the operation of your domain. |  +  Service software update available <br />+  Auto-Tune started   | 
+| Low | A recommended action, but has no adverse impact on domain availability or performance if no action is taken. |  +  Auto-Tune cancelled <br />+  High shard count warning   | 
+| Medium | There might be an impact if the recommended action is not taken, but comes with an extended time window for the action to be taken. |  +  Service software update failed <br />+  Shard count limit exceeded   | 
+| High | Urgent action is required to avoid adverse impact. |  +  Service software update required <br />+  KMS key inaccessible   | 
+| Critical | Immediate action is required to avoid adverse impact, or to recover from it.  | None currently available | 
 
 ## Sample EventBridge event
+<a name="managedomains-notifications-cloudwatch"></a>
 
-The following example shows an OpenSearch Service notification event sent to Amazon EventBridge. The
-notification has a severity of `Informational` because the update is
-optional:
+The following example shows an OpenSearch Service notification event sent to Amazon EventBridge. The notification has a severity of `Informational` because the update is optional:
 
 ```
 {

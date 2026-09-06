@@ -1,15 +1,14 @@
+
+
 # Purchasing Reserved Instances (AWS SDKs)
+<a name="ri-sdk"></a>
 
-The AWS SDKs (except the Android and iOS SDKs) support all the operations that are
-defined in the [Amazon OpenSearch Service API
-Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"), including the following:
+The AWS SDKs (except the Android and iOS SDKs) support all the operations that are defined in the [Amazon OpenSearch Service API Reference](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html), including the following:
++ `DescribeReservedInstanceOfferings`
++ `PurchaseReservedInstanceOffering`
++ `DescribeReservedInstances`
 
-- `DescribeReservedInstanceOfferings`
-- `PurchaseReservedInstanceOffering`
-- `DescribeReservedInstances`
-  This sample script uses the [OpenSearchService](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html") low-level Python client from the AWS SDK for Python (Boto3) to
-  purchase Reserved Instances. You must provide a value for
-  `instance_type`.
+This sample script uses the [OpenSearchService](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html) low-level Python client from the AWS SDK for Python (Boto3) to purchase Reserved Instances. You must provide a value for `instance_type`.
 
 ```
 import boto3
@@ -73,4 +72,4 @@ def main():
     purchase_RI_offering(client)
 ```
 
-For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](https://aws.amazon.com/code "https://aws.amazon.com/code").
+For more information about installing and using the AWS SDKs, see [AWS Software Development Kits](https://aws.amazon.com/code).

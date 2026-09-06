@@ -1,66 +1,45 @@
+
+
 # View vector ingestion jobs and import history
+<a name="view-vector-ingestion-jobs"></a>
 
-Vector ingestion jobs create a pipeline for vectorizing data sets, automating vector index
-tuning and accelerating large-scale index builds.
+Vector ingestion jobs create a pipeline for vectorizing data sets, automating vector index tuning and accelerating large-scale index builds.
 
-###### To view vector ingestion jobs
+**To view vector ingestion jobs**
 
-1. In the **Vector ingestion jobs** section, view the
-   summary information:
+1. In the **Vector ingestion jobs** section, view the summary information:
+   + **Jobs** - Total number of ingestion jobs
+   + Choose **Create vector database** to create a new ingestion job
 
-   - **Jobs** - Total number of ingestion
-     jobs
-   - Choose **Create vector database** to create a
-     new ingestion job
+1. In the **Amazon S3 vectors imports** section, view the import summary:
+   + **Total imports** - Number of completed imports
+   + Choose **Import Amazon S3 vectors** to start a new import
 
-2. In the **Amazon S3 vectors imports** section, view the
-   import summary:
+1. In the **Vector ingestion jobs** table, monitor active jobs with the following information:
+   + **Name** - The job name
+   + **Status** - Current job status (e.g., Active)
+   + **Data source** - Source location (e.g., s3://location)
+   + **Destination** - Target destination
+   + **Last updated** - Most recent update timestamp
 
-   - **Total imports** - Number of completed
-     imports
-   - Choose **Import Amazon S3 vectors** to start a new
-     import
+1. Use the search box to **Find vector ingestion job** to locate specific jobs.
 
-3. In the **Vector ingestion jobs** table, monitor
-   active jobs with the following information:
+1. To manage jobs, choose from the following actions:
+   + Choose **Delete** to remove selected jobs
+   + Choose **Create vector database** to create additional jobs
 
-   - **Name** - The job name
-   - **Status** - Current job status (e.g.,
-     Active)
-   - **Data source** - Source location (e.g.,
-     s3://location)
-   - **Destination** - Target destination
-   - **Last updated** - Most recent update
-     timestamp
+1. In the **Amazon S3 vectors import history** section, track import events:
 
-4. Use the search box to **Find vector ingestion job**
-   to locate specific jobs.
-5. To manage jobs, choose from the following actions:
+   1. Use the **Date range** filter to specify a time period for import history.
 
-   - Choose **Delete** to remove selected
-     jobs
-   - Choose **Create vector database** to create
-     additional jobs
+   1. Use the **Status** dropdown to filter by import status (e.g., Any status).
 
-6. In the **Amazon S3 vectors import history** section, track
-   import events:
+   1. Use the search box to **Find imports by Amazon S3 vector index na...** to locate specific imports.
 
-   1. Use the **Date range** filter to specify a
-      time period for import history.
-   2. Use the **Status** dropdown to filter by
-      import status (e.g., Any status).
-   3. Use the search box to **Find imports by Amazon S3 vector
-      index na...** to locate specific imports.
-   4. View import details including:
+   1. View import details including:
+      + **Import initiated on (UTC\+5:30)** - When the import started
+      + **Import status** - Current status (In progress, Complete, Failed, Partially complete)
+      + **Amazon S3 vector index ARN** - Source index identifier
+      + **OpenSearch Service vector collection** - Destination collection
 
-      - **Import initiated on (UTC+5:30)** -
-        When the import started
-      - **Import status** - Current status
-        (In progress, Complete, Failed, Partially complete)
-      - **Amazon S3 vector index ARN** - Source
-        index identifier
-      - **OpenSearch Service vector collection** -
-        Destination collection
-
-7. Choose **Import Amazon S3 vector** to start a new import
-   process.
+1. Choose **Import Amazon S3 vector** to start a new import process.

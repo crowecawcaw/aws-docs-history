@@ -1,8 +1,9 @@
-# Create the Lambda function
 
-Follow the instructions in [Create the Lambda deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package "integrations-s3-lambda.md#integrations-s3-lambda-deployment-package"), but create a directory
-named `kinesis-to-opensearch` and use the following code for
-`sample.py`:
+
+# Create the Lambda function
+<a name="integrations-kinesis-lambda"></a>
+
+Follow the instructions in [Create the Lambda deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package), but create a directory named `kinesis-to-opensearch` and use the following code for `sample.py`:
 
 ```
 import base64
@@ -42,9 +43,7 @@ def handler(event, context):
 
 Edit the variables for `region` and `host`.
 
-[Install pip](https://pip.pypa.io/en/stable/installation/ "https://pip.pypa.io/en/stable/installation/") if
-you haven't already, then use the following commands to install your
-dependencies:
+[Install pip](https://pip.pypa.io/en/stable/installation/) if you haven't already, then use the following commands to install your dependencies:
 
 ```
 cd kinesis-to-opensearch
@@ -53,16 +52,11 @@ pip install --target ./package requests
 pip install --target ./package requests_aws4auth
 ```
 
-Then follow the instructions in [Create the Lambda function](integrations-s3-lambda.md#integrations-s3-lambda-create "integrations-s3-lambda.md#integrations-s3-lambda-create"),
-but specify the IAM role from [Prerequisites](integrations-kinesis.md#integrations-kinesis-lambda-prereq "integrations-kinesis.md#integrations-kinesis-lambda-prereq")
-and the following settings for the trigger:
+Then follow the instructions in [Create the Lambda function](integrations-s3-lambda.md#integrations-s3-lambda-create), but specify the IAM role from [Prerequisites](integrations-kinesis.md#integrations-kinesis-lambda-prereq) and the following settings for the trigger:
++ **Kinesis stream**: your Kinesis stream
++ **Batch size**: 100
++ **Starting position**: Trim horizon
 
-- **Kinesis stream**: your Kinesis stream
-- **Batch size**: 100
-- **Starting position**: Trim horizon
-  To learn more, see [What is
-  Amazon Kinesis Data Streams?](../../../streams/latest/dev/working-with-kinesis.md "../../../streams/latest/dev/working-with-kinesis.md") in the _Amazon Kinesis Data Streams Developer Guide_.
+To learn more, see [What is Amazon Kinesis Data Streams?](https://docs.aws.amazon.com/streams/latest/dev/working-with-kinesis.html) in the *Amazon Kinesis Data Streams Developer Guide*.
 
-At this point, you have a complete set of resources: a Kinesis data stream, a
-function that runs after the stream receives new data and indexes that data, and an
-OpenSearch Service domain for searching and visualization.
+At this point, you have a complete set of resources: a Kinesis data stream, a function that runs after the stream receives new data and indexes that data, and an OpenSearch Service domain for searching and visualization.

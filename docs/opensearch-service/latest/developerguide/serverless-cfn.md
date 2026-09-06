@@ -1,17 +1,14 @@
+
+
 # Using CloudFormation to create Amazon OpenSearch Serverless collections
+<a name="serverless-cfn"></a>
 
-You can use CloudFormation to create Amazon OpenSearch Serverless resources such as collections, security policies, and
-VPC endpoints. For the comprehensive OpenSearch Serverless CloudFormation reference, see [Amazon OpenSearch Serverless](../../../AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.md "../../../AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.md") in the _CloudFormation User Guide_.
+You can use CloudFormation to create Amazon OpenSearch Serverless resources such as collections, security policies, and VPC endpoints. For the comprehensive OpenSearch Serverless CloudFormation reference, see [Amazon OpenSearch Serverless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.html) in the *CloudFormation User Guide*.
 
-The following sample CloudFormation template creates a simple data access policy, network
-policy, and security policy, as well as a matching collection. It's a good way to get up and
-running quickly with Amazon OpenSearch Serverless and provision the necessary elements to create and use a
-collection.
+The following sample CloudFormation template creates a simple data access policy, network policy, and security policy, as well as a matching collection. It's a good way to get up and running quickly with Amazon OpenSearch Serverless and provision the necessary elements to create and use a collection.
 
-###### Important
-
-This example uses public network access, which isn't recommended for production workloads.
-We recommend using VPC access to protect your collections. For more information, see [AWS::OpenSearchServerless::VpcEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.md") and [Data plane access through AWS PrivateLink](serverless-vpc.md "serverless-vpc.md").
+**Important**  
+This example uses public network access, which isn't recommended for production workloads. We recommend using VPC access to protect your collections. For more information, see [AWS::OpenSearchServerless::VpcEndpoint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.html) and [Data plane access through AWS PrivateLink](serverless-vpc.md).
 
 ```
 AWSTemplateFormatVersion: 2010-09-09

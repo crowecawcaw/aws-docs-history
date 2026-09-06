@@ -1,28 +1,27 @@
+
+
 # Ingesting data into Amazon OpenSearch Serverless collections
+<a name="serverless-clients"></a>
 
-These sections provide details about the supported ingest pipelines for data ingestion
-into Amazon OpenSearch Serverless collections. They also cover some of the clients that you can use to
-interact with the OpenSearch API operations. Your clients should be compatible with OpenSearch
-2.x in order to integrate with OpenSearch Serverless.
+These sections provide details about the supported ingest pipelines for data ingestion into Amazon OpenSearch Serverless collections. They also cover some of the clients that you can use to interact with the OpenSearch API operations. Your clients should be compatible with OpenSearch 2.x in order to integrate with OpenSearch Serverless.
 
-###### Topics
-
-- [Minimum required permissions](#serverless-ingestion-permissions "#serverless-ingestion-permissions")
-- [OpenSearch Ingestion](#serverless-osis-ingestion "#serverless-osis-ingestion")
-- [Fluent Bit](#serverless-fluentbit "#serverless-fluentbit")
-- [Amazon Data Firehose](#serverless-kdf "#serverless-kdf")
-- [Go](#serverless-go "#serverless-go")
-- [Java](#serverless-java "#serverless-java")
-- [JavaScript](#serverless-javascript "#serverless-javascript")
-- [Logstash](#serverless-logstash "#serverless-logstash")
-- [Python](#serverless-python "#serverless-python")
-- [Ruby](#serverless-ruby "#serverless-ruby")
-- [Signing HTTP requests with other clients](#serverless-signing "#serverless-signing")
+**Topics**
++ [Minimum required permissions](#serverless-ingestion-permissions)
++ [OpenSearch Ingestion](#serverless-osis-ingestion)
++ [Fluent Bit](#serverless-fluentbit)
++ [Amazon Data Firehose](#serverless-kdf)
++ [Go](#serverless-go)
++ [Java](#serverless-java)
++ [JavaScript](#serverless-javascript)
++ [Logstash](#serverless-logstash)
++ [Python](#serverless-python)
++ [Ruby](#serverless-ruby)
++ [Signing HTTP requests with other clients](#serverless-signing)
 
 ## Minimum required permissions
+<a name="serverless-ingestion-permissions"></a>
 
-In order to ingest data into an OpenSearch Serverless collection, the principal that is writing the
-data must have the following minimum permissions assigned in a [data access policy](serverless-data-access.md "serverless-data-access.md"):
+In order to ingest data into an OpenSearch Serverless collection, the principal that is writing the data must have the following minimum permissions assigned in a [data access policy](serverless-data-access.md):
 
 ```
 [
@@ -31,7 +30,7 @@ data must have the following minimum permissions assigned in a [data access poli
          {
             "ResourceType":"index",
             "Resource":[
-               "index/`target-collection`/`logs`"
+               "index/{{target-collection}}/{{logs}}"
             ],
             "Permission":[
                "aoss:CreateIndex",
@@ -41,91 +40,66 @@ data must have the following minimum permissions assigned in a [data access poli
          }
       ],
       "Principal":[
-         "arn:aws:iam::`123456789012`:user/`my-user`"
+         "arn:aws:iam::{{123456789012}}:user/{{my-user}}"
       ]
    }
 ]
 ```
 
-The permissions can be more broad if you plan to write to additional indexes. For
-example, rather than specifying a single target index, you can allow permission to all
-indexes (index/`target-collection`/\*), or a subset of indexes
-(index/`target-collection`/`logs*`).
+The permissions can be more broad if you plan to write to additional indexes. For example, rather than specifying a single target index, you can allow permission to all indexes (index/{{target-collection}}/\*), or a subset of indexes (index/{{target-collection}}/{{logs\*}}).
 
-For a reference of all available OpenSearch API operations and their associated
-permissions, see [Supported operations and plugins in Amazon OpenSearch Serverless](serverless-genref.md "serverless-genref.md").
+For a reference of all available OpenSearch API operations and their associated permissions, see [Supported operations and plugins in Amazon OpenSearch Serverless](serverless-genref.md).
 
 ## OpenSearch Ingestion
+<a name="serverless-osis-ingestion"></a>
 
-Rather than using a third-party client to send data directly to an OpenSearch Serverless collection,
-you can use Amazon OpenSearch Ingestion. You configure your data producers to send data to
-OpenSearch Ingestion, and it automatically delivers the data to the collection that you
-specify. You can also configure OpenSearch Ingestion to transform your data before delivering
-it. For more information, see [Overview of Amazon OpenSearch Ingestion](ingestion.md "ingestion.md").
+Rather than using a third-party client to send data directly to an OpenSearch Serverless collection, you can use Amazon OpenSearch Ingestion. You configure your data producers to send data to OpenSearch Ingestion, and it automatically delivers the data to the collection that you specify. You can also configure OpenSearch Ingestion to transform your data before delivering it. For more information, see [Overview of Amazon OpenSearch Ingestion](ingestion.md).
 
-An OpenSearch Ingestion pipeline needs permission to write to an OpenSearch Serverless collection that is
-configured as its sink. These permissions include the ability to describe the collection
-and send HTTP requests to it. For instructions to use OpenSearch Ingestion to add data to a
-collection, see [Granting Amazon OpenSearch Ingestion pipelines access to collections](pipeline-collection-access.md "pipeline-collection-access.md").
+An OpenSearch Ingestion pipeline needs permission to write to an OpenSearch Serverless collection that is configured as its sink. These permissions include the ability to describe the collection and send HTTP requests to it. For instructions to use OpenSearch Ingestion to add data to a collection, see [Granting Amazon OpenSearch Ingestion pipelines access to collections](pipeline-collection-access.md).
 
-To get started with OpenSearch Ingestion, see [Tutorial: Ingesting data into a collection using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
+To get started with OpenSearch Ingestion, see [Tutorial: Ingesting data into a collection using Amazon OpenSearch Ingestion](osis-serverless-get-started.md).
 
 ## Fluent Bit
+<a name="serverless-fluentbit"></a>
 
-You can use [AWS
-for Fluent Bit image](https://github.com/aws/aws-for-fluent-bit#public-images "https://github.com/aws/aws-for-fluent-bit#public-images") and the [OpenSearch output
-plugin](https://docs.fluentbit.io/manual/pipeline/outputs/opensearch "https://docs.fluentbit.io/manual/pipeline/outputs/opensearch") to ingest data into OpenSearch Serverless collections.
+You can use [AWS for Fluent Bit image](https://github.com/aws/aws-for-fluent-bit#public-images) and the [OpenSearch output plugin](https://docs.fluentbit.io/manual/pipeline/outputs/opensearch) to ingest data into OpenSearch Serverless collections.
 
-###### Note
-
-You must have version 2.30.0 or later of the AWS for Fluent Bit image in order
-to integrate with OpenSearch Serverless.
+**Note**  
+You must have version 2.30.0 or later of the AWS for Fluent Bit image in order to integrate with OpenSearch Serverless.
 
 **Example configuration**:
 
-This sample output section of the configuration file shows how to use an OpenSearch Serverless
-collection as a destination. The important addition is the `AWS_Service_Name`
-parameter, which is `aoss`. `Host` is the collection
-endpoint.
+This sample output section of the configuration file shows how to use an OpenSearch Serverless collection as a destination. The important addition is the `AWS_Service_Name` parameter, which is `aoss`. `Host` is the collection endpoint.
 
 ```
 [OUTPUT]
     Name  opensearch
     Match *
-    Host  `collection-endpoint`.`us-west-2`.aoss.amazonaws.com
+    Host  {{collection-endpoint}}.{{us-west-2}}.aoss.amazonaws.com
     Port  443
-    Index  `my_index`
+    Index  {{my_index}}
     Trace_Error On
     Trace_Output On
     AWS_Auth On
-    AWS_Region `<region>`
-    **AWS\_Service\_Name aoss**
+    AWS_Region {{<region>}}
+    AWS_Service_Name aoss
     tls     On
     Suppress_Type_Name On
 ```
 
 ## Amazon Data Firehose
+<a name="serverless-kdf"></a>
 
-Firehose supports OpenSearch Serverless as a delivery destination. For instructions to send data into
-OpenSearch Serverless, see [Creating a Kinesis Data Firehose
-Delivery Stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md") and [Choose OpenSearch Serverless for Your Destination](../../../firehose/latest/dev/create-destination.md#create-destination-opensearch-serverless "../../../firehose/latest/dev/create-destination.md#create-destination-opensearch-serverless") in the
-_Amazon Data Firehose Developer Guide_.
+Firehose supports OpenSearch Serverless as a delivery destination. For instructions to send data into OpenSearch Serverless, see [Creating a Kinesis Data Firehose Delivery Stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) and [Choose OpenSearch Serverless for Your Destination](https://docs.aws.amazon.com/firehose/latest/dev/create-destination.html#create-destination-opensearch-serverless) in the *Amazon Data Firehose Developer Guide*.
 
-The IAM role that you provide to Firehose for delivery must be specified within a data
-access policy with the `aoss:WriteDocument` minimum permission for the target
-collection, and you must have a preexisting index to send data to. For more information,
-see [Minimum required permissions](#serverless-ingestion-permissions "#serverless-ingestion-permissions").
+The IAM role that you provide to Firehose for delivery must be specified within a data access policy with the `aoss:WriteDocument` minimum permission for the target collection, and you must have a preexisting index to send data to. For more information, see [Minimum required permissions](#serverless-ingestion-permissions).
 
-Before you send data to OpenSearch Serverless, you might need to perform transforms on the data. To
-learn more about using Lambda functions to perform this task, see [Amazon Kinesis Data Firehose Data
-Transformation](../../../firehose/latest/dev/data-transformation.md "../../../firehose/latest/dev/data-transformation.md") in the same guide.
+Before you send data to OpenSearch Serverless, you might need to perform transforms on the data. To learn more about using Lambda functions to perform this task, see [Amazon Kinesis Data Firehose Data Transformation](https://docs.aws.amazon.com/firehose/latest/dev/data-transformation.html) in the same guide.
 
 ## Go
+<a name="serverless-go"></a>
 
-The following sample code uses the [opensearch-go](https://github.com/opensearch-project/opensearch-go "https://github.com/opensearch-project/opensearch-go")
-client for Go to establish a secure connection to the specified OpenSearch Serverless collection and
-create a single index. You must provide values for `region` and
-`host`.
+The following sample code uses the [opensearch-go](https://github.com/opensearch-project/opensearch-go) client for Go to establish a secure connection to the specified OpenSearch Serverless collection and create a single index. You must provide values for `region` and `host`.
 
 ```
 package main
@@ -221,13 +195,11 @@ func getCredentialProvider(accessKey, secretAccessKey, token string) aws.Credent
 ```
 
 ## Java
+<a name="serverless-java"></a>
 
-The following sample code uses the [opensearch-java](https://search.maven.org/artifact/org.opensearch.client/opensearch-java "https://search.maven.org/artifact/org.opensearch.client/opensearch-java") client for Java to establish a secure connection to the
-specified OpenSearch Serverless collection and create a single index. You must provide values for
-`region` and `host`.
+The following sample code uses the [opensearch-java](https://search.maven.org/artifact/org.opensearch.client/opensearch-java) client for Java to establish a secure connection to the specified OpenSearch Serverless collection and create a single index. You must provide values for `region` and `host`.
 
-The important difference compared to OpenSearch Service _domains_ is the service
-name (`aoss` instead of `es`).
+The important difference compared to OpenSearch Service *domains* is the service name (`aoss` instead of `es`).
 
 ```
 // import OpenSearchClient to establish connection to OpenSearch Serverless collection
@@ -265,8 +237,7 @@ System.out.println("Delete index reponse: " + deleteIndexResponse);
 httpClient.close();
 ```
 
-The following sample code again establishes a secure connection, and then searches an
-index.
+The following sample code again establishes a secure connection, and then searches an index.
 
 ```
 import org.opensearch.client.opensearch.OpenSearchClient;
@@ -298,8 +269,7 @@ Response response = client.generic()
 httpClient.close();
 ```
 
-The following sample code establishes a secure connection and indexes a document into
-a collection.
+The following sample code establishes a secure connection and indexes a document into a collection.
 
 ```
 import org.opensearch.client.opensearch.OpenSearchClient;
@@ -338,17 +308,16 @@ httpClient.close();
 ```
 
 ## JavaScript
+<a name="serverless-javascript"></a>
 
-The following sample code uses the [opensearch-js](https://www.npmjs.com/package/@opensearch-project/opensearch "https://www.npmjs.com/package/@opensearch-project/opensearch") client for JavaScript to establish a secure connection to the
-specified OpenSearch Serverless collection, create a single index, add a document, and delete the
-index. You must provide values for `node` and `region`.
+The following sample code uses the [opensearch-js](https://www.npmjs.com/package/@opensearch-project/opensearch) client for JavaScript to establish a secure connection to the specified OpenSearch Serverless collection, create a single index, add a document, and delete the index. You must provide values for `node` and `region`.
 
-The important difference compared to OpenSearch Service _domains_ is the service
-name (`aoss` instead of `es`).
+The important difference compared to OpenSearch Service *domains* is the service name (`aoss` instead of `es`).
 
-Version 3
-This example uses [version
-3](../../../AWSJavaScriptSDK/v3/latest.md "../../../AWSJavaScriptSDK/v3/latest.md") of the SDK for JavaScript in Node.js.
+------
+#### [ Version 3 ]
+
+This example uses [version 3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) of the SDK for JavaScript in Node.js.
 
 ```
 const { defaultProvider } = require('@aws-sdk/credential-provider-node');
@@ -359,7 +328,7 @@ async function main() {
     // create an opensearch client and use the request-signer
     const client = new Client({
         ...AwsSigv4Signer({
-            region: '`us-west-2`',
+            region: '{{us-west-2}}',
             service: 'aoss',
             getCredentials: () => {
                 const credentialsProvider = defaultProvider();
@@ -392,9 +361,10 @@ async function main() {
 main();
 ```
 
-Version 2
-This example uses [version
-2](../../../AWSJavaScriptSDK/latest.md "../../../AWSJavaScriptSDK/latest.md") of the SDK for JavaScript in Node.js.
+------
+#### [ Version 2 ]
+
+This example uses [version 2](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/) of the SDK for JavaScript in Node.js.
 
 ```
 const AWS = require('aws-sdk');
@@ -405,7 +375,7 @@ async function main() {
     // create an opensearch client and use the request-signer
     const client = new Client({
         ...AwsSigv4Signer({
-            region: '`us-west-2`',
+            region: '{{us-west-2}}',
             service: 'aoss',
             getCredentials: () =>
                 new Promise((resolve, reject) => {
@@ -448,125 +418,116 @@ async function main() {
 main();
 ```
 
+------
+
 ## Logstash
+<a name="serverless-logstash"></a>
 
-You can use the [Logstash
-OpenSearch plugin](https://github.com/opensearch-project/logstash-output-opensearch "https://github.com/opensearch-project/logstash-output-opensearch") to publish logs to OpenSearch Serverless collections.
+You can use the [Logstash OpenSearch plugin ](https://github.com/opensearch-project/logstash-output-opensearch) to publish logs to OpenSearch Serverless collections. 
 
-###### To use Logstash to send data to OpenSearch Serverless
+**To use Logstash to send data to OpenSearch Serverless**
 
-1. Install version _2.0.0 or later_ of the [logstash-output-opensearch](https://github.com/opensearch-project/logstash-output-opensearch "https://github.com/opensearch-project/logstash-output-opensearch") plugin using Docker or Linux.
+1. Install version *2.0.0 or later* of the [logstash-output-opensearch](https://github.com/opensearch-project/logstash-output-opensearch) plugin using Docker or Linux.
 
-Docker
-Docker hosts the Logstash OSS software with the OpenSearch output
-plugin preinstalled: [opensearchproject/logstash-oss-with-opensearch-output-plugin](https://hub.docker.com/r/opensearchproject/logstash-oss-with-opensearch-output-plugin/tags?page=1&ordering=last_updated&name=8.4.0 "https://hub.docker.com/r/opensearchproject/logstash-oss-with-opensearch-output-plugin/tags?page=1&ordering=last_updated&name=8.4.0").
-You can pull the image just like any other image:
+------
+#### [ Docker ]
 
-```
-docker pull opensearchproject/logstash-oss-with-opensearch-output-plugin:latest
-```
+   Docker hosts the Logstash OSS software with the OpenSearch output plugin preinstalled: [opensearchproject/logstash-oss-with-opensearch-output-plugin](https://hub.docker.com/r/opensearchproject/logstash-oss-with-opensearch-output-plugin/tags?page=1&ordering=last_updated&name=8.4.0). You can pull the image just like any other image:
 
-Linux
-First, [install the latest version of Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html "https://www.elastic.co/guide/en/logstash/current/installing-logstash.html") if you haven't
-already. Then, install version 2.0.0 of the output plugin:
+   ```
+   docker pull opensearchproject/logstash-oss-with-opensearch-output-plugin:latest
+   ```
 
-```
-cd logstash-8.5.0/
-bin/logstash-plugin install --version 2.0.0 logstash-output-opensearch
-```
+------
+#### [ Linux ]
 
-If the plugin is already installed, update it to the latest
-version:
+   First, [install the latest version of Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) if you haven't already. Then, install version 2.0.0 of the output plugin:
 
-```
-bin/logstash-plugin update logstash-output-opensearch
-```
+   ```
+   cd logstash-8.5.0/
+   bin/logstash-plugin install --version 2.0.0 logstash-output-opensearch{{ }}
+   ```
 
-Starting with version 2.0.0 of the plugin, the AWS SDK uses
-version 3. If you're using a Logstash version earlier than 8.4.0,
-you must remove any pre-installed AWS plugins and install the
-`logstash-integration-aws` plugin:
+   If the plugin is already installed, update it to the latest version:
 
-```
-/usr/share/logstash/bin/logstash-plugin remove logstash-input-s3
-/usr/share/logstash/bin/logstash-plugin remove logstash-input-sqs
-/usr/share/logstash/bin/logstash-plugin remove logstash-output-s3
-/usr/share/logstash/bin/logstash-plugin remove logstash-output-sns
-/usr/share/logstash/bin/logstash-plugin remove logstash-output-sqs
-/usr/share/logstash/bin/logstash-plugin remove logstash-output-cloudwatch
+   ```
+   bin/logstash-plugin update logstash-output-opensearch{{ }}
+   ```
 
-/usr/share/logstash/bin/logstash-plugin install --version 0.1.0.pre logstash-integration-aws
-```
+   Starting with version 2.0.0 of the plugin, the AWS SDK uses version 3. If you're using a Logstash version earlier than 8.4.0, you must remove any pre-installed AWS plugins and install the `logstash-integration-aws` plugin:
 
-2. In order for the OpenSearch output plugin to work with OpenSearch Serverless, you must make
-   the following modifications to the `opensearch` output section of
-   logstash.conf:
+   ```
+   /usr/share/logstash/bin/logstash-plugin remove logstash-input-s3
+   /usr/share/logstash/bin/logstash-plugin remove logstash-input-sqs
+   /usr/share/logstash/bin/logstash-plugin remove logstash-output-s3
+   /usr/share/logstash/bin/logstash-plugin remove logstash-output-sns
+   /usr/share/logstash/bin/logstash-plugin remove logstash-output-sqs
+   /usr/share/logstash/bin/logstash-plugin remove logstash-output-cloudwatch
+   
+   /usr/share/logstash/bin/logstash-plugin install --version 0.1.0.pre logstash-integration-aws
+   ```
 
-   - Specify `aoss` as the `service_name` under
-     `auth_type`.
-   - Specify your collection endpoint for `hosts`.
-   - Add the parameters `default_server_major_version` and
-     `legacy_template`. These parameters are required for the
-     plugin to work with OpenSearch Serverless.
+------
 
-```
-output {
-  opensearch {
-    hosts => "`collection-endpoint`:443"
-    auth_type => {
-      ...
-      service_name => 'aoss'
-    }
-    default_server_major_version => 2
-    legacy_template => false
-  }
-}
-```
+1. In order for the OpenSearch output plugin to work with OpenSearch Serverless, you must make the following modifications to the `opensearch` output section of logstash.conf:
+   + Specify `aoss` as the `service_name` under `auth_type`.
+   + Specify your collection endpoint for `hosts`.
+   + Add the parameters `default_server_major_version` and `legacy_template`. These parameters are required for the plugin to work with OpenSearch Serverless.
 
-This example configuration file takes its input from files in an S3 bucket and
-sends them to an OpenSearch Serverless collection:
+   ```
+   output {
+     opensearch {
+       hosts => "{{collection-endpoint}}:443"
+       auth_type => {
+         ...
+         service_name => 'aoss'
+       }
+       default_server_major_version => 2
+       legacy_template => false
+     }
+   }
+   ```
 
-```
-input {
-  s3  {
-    bucket => "`my-s3-bucket`"
-    region => "`us-east-1`"
-  }
-}
+   This example configuration file takes its input from files in an S3 bucket and sends them to an OpenSearch Serverless collection:
 
-output {
-  opensearch {
-    ecs_compatibility => disabled
-    hosts => "https://`my-collection-endpoint`.`us-east-1`.aoss.amazonaws.com:443"
-    index => `my-index`
-    auth_type => {
-      type => 'aws_iam'
-      aws_access_key_id => '`your-access-key`'
-      aws_secret_access_key => '`your-secret-key`'
-      region => '`us-east-1`'
-      service_name => '**aoss**'
-    }
-    default_server_major_version => 2
-    legacy_template => false
-  }
-}
-```
+   ```
+   input {
+     s3  {
+       bucket => "{{my-s3-bucket}}"
+       region => "{{us-east-1}}"
+     }
+   }
+   
+   output {
+     opensearch {
+       ecs_compatibility => disabled
+       hosts => "https://{{my-collection-endpoint}}.{{us-east-1}}.aoss.amazonaws.com:443"
+       index => {{my-index}}
+       auth_type => {
+         type => 'aws_iam'
+         aws_access_key_id => '{{your-access-key}}'
+         aws_secret_access_key => '{{your-secret-key}}'
+         region => '{{us-east-1}}'
+         service_name => 'aoss'
+       }
+       default_server_major_version => 2
+       legacy_template => false
+     }
+   }
+   ```
 
-3. Then, run Logstash with the new configuration to test the plugin:
+1. Then, run Logstash with the new configuration to test the plugin:
 
-```
-bin/logstash -f config/`test-plugin`.conf
-```
+   ```
+   bin/logstash -f config/{{test-plugin}}.conf
+   ```
 
 ## Python
+<a name="serverless-python"></a>
 
-The following sample code uses the [opensearch-py](https://pypi.org/project/opensearch-py/ "https://pypi.org/project/opensearch-py/") client for
-Python to establish a secure connection to the specified OpenSearch Serverless collection, create a
-single index, and search that index. You must provide values for `region` and
-`host`.
+The following sample code uses the [opensearch-py](https://pypi.org/project/opensearch-py/) client for Python to establish a secure connection to the specified OpenSearch Serverless collection, create a single index, and search that index. You must provide values for `region` and `host`.
 
-The important difference compared to OpenSearch Service _domains_ is the service
-name (`aoss` instead of `es`).
+The important difference compared to OpenSearch Service *domains* is the service name (`aoss` instead of `es`).
 
 ```
 from opensearchpy import OpenSearch, RequestsHttpConnection, AWSV4SignerAuth
@@ -619,22 +580,15 @@ print('\nDeleting index:')
 print(delete_response)
 ```
 
-###### Note
-
-The `id = '1'` parameter in this example specifies a custom document
-ID. Custom document IDs are only supported for _search_
-collections. For time series and vector search collections, indexing with a custom
-document ID is not supported and will return an error. Omit the `id`
-parameter when indexing into time series or vector search collections.
+**Note**  
+The `id = '1'` parameter in this example specifies a custom document ID. Custom document IDs are only supported for *search* collections. For time series and vector search collections, indexing with a custom document ID is not supported and will return an error. Omit the `id` parameter when indexing into time series or vector search collections.
 
 ## Ruby
+<a name="serverless-ruby"></a>
 
-The `opensearch-aws-sigv4` gem provides access to OpenSearch Serverless, along with OpenSearch Service,
-out of the box. It has all features of the [opensearch-ruby](https://rubygems.org/gems/opensearch-ruby "https://rubygems.org/gems/opensearch-ruby") client
-because it's a dependency of this gem.
+The `opensearch-aws-sigv4` gem provides access to OpenSearch Serverless, along with OpenSearch Service, out of the box. It has all features of the [opensearch-ruby](https://rubygems.org/gems/opensearch-ruby) client because it's a dependency of this gem.
 
-When instantiating the Sigv4 signer, specify `aoss` as the service
-name:
+When instantiating the Sigv4 signer, specify `aoss` as the service name:
 
 ```
 require 'opensearch-aws-sigv4'
@@ -656,8 +610,8 @@ index = 'prime'
 client.indices.create(index: index)
 
 # insert data
-client.index(index: index, id: '1', body: { name: 'Amazon Echo',
-                                            msrp: '5999',
+client.index(index: index, id: '1', body: { name: 'Amazon Echo', 
+                                            msrp: '5999', 
                                             year: 2011 })
 
 # query the index
@@ -671,43 +625,34 @@ client.indices.delete(index: index)
 ```
 
 ## Signing HTTP requests with other clients
+<a name="serverless-signing"></a>
 
-The following requirements apply when [signing requests](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") to OpenSearch Serverless
-collections when you construct HTTP requests with another clients.
+The following requirements apply when [signing requests](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to OpenSearch Serverless collections when you construct HTTP requests with another clients.
++ You must specify the service name as `aoss`.
++ The `x-amz-content-sha256` header is required for all AWS Signature Version 4 requests. It provides a hash of the request payload. If there's a request payload, set the value to its Secure Hash Algorithm (SHA) cryptographic hash (SHA256). If there's no request payload, set the value to `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`, which is the hash of an empty string.
 
-- You must specify the service name as `aoss`.
-- The `x-amz-content-sha256` header is required for all AWS
-  Signature Version 4 requests. It provides a hash of the request payload. If
-  there's a request payload, set the value to its Secure Hash Algorithm (SHA)
-  cryptographic hash (SHA256). If there's no request payload, set the value to
-  `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`,
-  which is the hash of an empty string.
-
-###### Topics
-
-- [Indexing with cURL](#serverless-signing-curl "#serverless-signing-curl")
-- [Indexing with Postman](#serverless-signing-postman "#serverless-signing-postman")
+**Topics**
++ [Indexing with cURL](#serverless-signing-curl)
++ [Indexing with Postman](#serverless-signing-postman)
 
 ### Indexing with cURL
+<a name="serverless-signing-curl"></a>
 
-The following example request uses the Client URL Request Library (cURL) to send a
-single document to an index named `movies-index` within a
-collection:
+The following example request uses the Client URL Request Library (cURL) to send a single document to an index named `movies-index` within a collection:
 
 ```
 curl -XPOST \
     --user "$AWS_ACCESS_KEY_ID":"$AWS_SECRET_ACCESS_KEY" \
-    --aws-sigv4 "aws:amz:`us-east-1`:aoss" \
+    --aws-sigv4 "aws:amz:{{us-east-1}}:aoss" \
     --header "x-amz-content-sha256: $REQUEST_PAYLOAD_SHA_HASH" \
     --header "x-amz-security-token: $AWS_SESSION_TOKEN" \
-    "https://`my-collection-endpoint`.`us-east-1`.aoss.amazonaws.com/`movies-index`/_doc" \
+    "https://{{my-collection-endpoint}}.{{us-east-1}}.aoss.amazonaws.com/{{movies-index}}/_doc" \
     -H "Content-Type: application/json" -d '{"title": "Shawshank Redemption"}'
 ```
 
 ### Indexing with Postman
+<a name="serverless-signing-postman"></a>
 
-The following image shows how to send a requests to a collection using Postman.
-For instructions to authenticate, see [Authenticate with AWS Signature authentication workflow in
-Postman](https://learning.postman.com/docs/sending-requests/authorization/aws-signature/ "https://learning.postman.com/docs/sending-requests/authorization/aws-signature/").
+The following image shows how to send a requests to a collection using Postman. For instructions to authenticate, see [Authenticate with AWS Signature authentication workflow in Postman](https://learning.postman.com/docs/sending-requests/authorization/aws-signature/).
 
-![Postman interface showing POST request with JSON body containing title field set to Shawshank Redemption.](images/ServerlessPostman.png)
+![Postman interface showing POST request with JSON body containing title field set to Shawshank Redemption.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ServerlessPostman.png)

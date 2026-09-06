@@ -1,117 +1,68 @@
+
+
 # Agentic AI in Amazon OpenSearch Service
+<a name="application-ai-assistant"></a>
 
-OpenSearch UI includes a suite of agentic AI capabilities designed to simplify
-operational analytics and accelerate incident investigations for your engineering and
-support teams.
+OpenSearch UI includes a suite of agentic AI capabilities designed to simplify operational analytics and accelerate incident investigations for your engineering and support teams.
 
-On every page of your OpenSearch UI application, choose the **Ask
-AI** button to open Agentic Chat. Agentic Chat understands the context of the
-page you're viewing, uses agentic tools to analyze the underlying data, updates queries to
-display results in Discover, and answers your questions with clarity and accuracy. When a
-complex root cause analysis requires a deeper investigation, you can trigger the
-Investigation Agent to autonomously plan, execute, and reflect through a multi-step
-workflow, delivering structured hypotheses backed by data evidence. Powering both
-agentic capabilities is Agentic Memory, a memory layer that retains context within your
-conversation or investigation, so that you can continue to ask follow up questions with
-the same, consistent context across different web sessions.
+On every page of your OpenSearch UI application, choose the **Ask AI** button to open Agentic Chat. Agentic Chat understands the context of the page you're viewing, uses agentic tools to analyze the underlying data, updates queries to display results in Discover, and answers your questions with clarity and accuracy. When a complex root cause analysis requires a deeper investigation, you can trigger the Investigation Agent to autonomously plan, execute, and reflect through a multi-step workflow, delivering structured hypotheses backed by data evidence. Powering both agentic capabilities is Agentic Memory, a memory layer that retains context within your conversation or investigation, so that you can continue to ask follow up questions with the same, consistent context across different web sessions.
 
-![The Discover page in OpenSearch UI showing Agentic Chat generating a PPL query from the natural language input "find all requests with latency greater than 10 seconds," with the Ask AI panel displaying the query explanation and a Start Investigation button.](images/agentic-chat-discover-ppl.png)
+![The Discover page in OpenSearch UI showing Agentic Chat generating a PPL query from the natural language input "find all requests with latency greater than 10 seconds," with the Ask AI panel displaying the query explanation and a Start Investigation button.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-chat-discover-ppl.png)
+
 
 ## Key capabilities
-
-- **Agentic Chat** – Embedded in the Ask
-  AI feature on every page of OpenSearch UI, Agentic Chat understands your
-  current context and calls tools to analyze data to best answer your questions.
-  On Discover, enter natural language in the chat interface to generate and
-  iterate Piped Processing Language (PPL) queries, so you don't need to be an expert in PPL to get
-  actionable insights. You can also start conversations directly from
-  visualizations, where Agentic Chat can identify anomalies in your graphs,
-  correlate with the underlying data, and generate analysis. When a complex root
-  cause analysis is needed, use the `/investigate` slash command to
-  launch the Investigation Agent based on the ongoing conversation or with new
-  instructions.
-- **Investigation Agent** – A goal-driven
-  deep research agent that you activate by typing `/investigate` in
-  chat or by choosing the **Start Investigation** button on
-  feature pages. Enter an investigation goal such as "find the root cause of
-  this latency spike." The Investigation Agent autonomously plans using your
-  data and the stated goal, executes queries and analysis, and reflects through
-  a multi-step workflow. When the investigation completes, typically within a few minutes, it generates structured hypotheses
-  ranked by likelihood, each backed by data evidence. It provides full
-  transparency into every step of its reasoning, so that you can verify and
-  trust the results.
-- **Agentic Memory** – A service-managed
-  memory layer that retains context within your conversation or investigation,
-  so that you can continue to ask questions or investigate within a consistent
-  context. Agentic Memory enables both Agentic Chat and the Investigation Agent
-  to maintain continuity throughout a session.
+<a name="application-ai-assistant-key-capabilities"></a>
++ **Agentic Chat** – Embedded in the Ask AI feature on every page of OpenSearch UI, Agentic Chat understands your current context and calls tools to analyze data to best answer your questions. On Discover, enter natural language in the chat interface to generate and iterate Piped Processing Language (PPL) queries, so you don't need to be an expert in PPL to get actionable insights. You can also start conversations directly from visualizations, where Agentic Chat can identify anomalies in your graphs, correlate with the underlying data, and generate analysis. When a complex root cause analysis is needed, use the `/investigate` slash command to launch the Investigation Agent based on the ongoing conversation or with new instructions.
++ **Investigation Agent** – A goal-driven deep research agent that you activate by typing `/investigate` in chat or by choosing the **Start Investigation** button on feature pages. Enter an investigation goal such as "find the root cause of this latency spike." The Investigation Agent autonomously plans using your data and the stated goal, executes queries and analysis, and reflects through a multi-step workflow. When the investigation completes, typically within a few minutes, it generates structured hypotheses ranked by likelihood, each backed by data evidence. It provides full transparency into every step of its reasoning, so that you can verify and trust the results.
++ **Agentic Memory** – A service-managed memory layer that retains context within your conversation or investigation, so that you can continue to ask questions or investigate within a consistent context. Agentic Memory enables both Agentic Chat and the Investigation Agent to maintain continuity throughout a session.
 
 ## Pricing and usage limits
+<a name="application-ai-assistant-pricing"></a>
 
-The agentic AI features are free to use. Token-based usage limits apply per account
-to prevent abuse.
+The agentic AI features are free to use. Token-based usage limits apply per account to prevent abuse.
 
-The agentic AI features use a foundation model in Amazon Bedrock. All Amazon Bedrock
-security and data governance configurations apply to the agentic AI features. For
-more information, see [Data protection in
-Amazon Bedrock](../../../bedrock/latest/userguide/data-protection.md "../../../bedrock/latest/userguide/data-protection.md").
+The agentic AI features use a foundation model in Amazon Bedrock. All Amazon Bedrock security and data governance configurations apply to the agentic AI features. For more information, see [Data protection in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html).
 
 ## Security
+<a name="application-ai-assistant-security"></a>
 
-The agentic AI features operate within your existing security framework and do not
-bypass or override any configured access controls. When you interact with Agentic
-Chat or launch an Investigation Agent, the AI capabilities authenticate using your
-current IAM or IAM Identity Center credentials and inherit all associated permissions. The AI
-assistant can only query data sources, indices, and visualizations that you already
-have explicit access to through your existing role-based access control (RBAC)
-policies.
+The agentic AI features operate within your existing security framework and do not bypass or override any configured access controls. When you interact with Agentic Chat or launch an Investigation Agent, the AI capabilities authenticate using your current IAM or IAM Identity Center credentials and inherit all associated permissions. The AI assistant can only query data sources, indices, and visualizations that you already have explicit access to through your existing role-based access control (RBAC) policies.
 
-If your OpenSearch domain implements fine-grained access control with
-field-level or document-level security, the AI respects these restrictions and cannot
-surface data from restricted fields or documents that fall outside your permission
-scope. Similarly, any PPL queries generated by Agentic Chat or data retrievals
-performed during investigations are executed with your user context, ensuring that
-all configured security policies remain fully enforced.
+If your OpenSearch domain implements fine-grained access control with field-level or document-level security, the AI respects these restrictions and cannot surface data from restricted fields or documents that fall outside your permission scope. Similarly, any PPL queries generated by Agentic Chat or data retrievals performed during investigations are executed with your user context, ensuring that all configured security policies remain fully enforced.
 
-This permission inheritance model ensures that enabling AI features does not create
-new security vulnerabilities or require administrators to manage separate permission
-structures for AI interactions.
+This permission inheritance model ensures that enabling AI features does not create new security vulnerabilities or require administrators to manage separate permission structures for AI interactions.
 
 ## Enabling and disabling agentic AI features
+<a name="application-ai-assistant-enable-disable"></a>
 
-The agentic AI features are automatically enabled for new OpenSearch
-UI applications, and for existing applications unless you have explicitly disabled
-AI features in any of your OpenSearch domains.
+The agentic AI features are automatically enabled for new OpenSearch UI applications, and for existing applications unless you have explicitly disabled AI features in any of your OpenSearch domains.
 
-To enable or disable the AI features, you can use either the AWS Management Console or the
-API:
-
-- **Console** – Navigate to the details
-  page of the OpenSearch UI application and update the AI features from
-  there.
-
-![The Manage AI Assistant features page in the console showing the Enable Chatbot and Agentic investigation feature checkbox and the Update button.](images/agentic-ai-manage-features.png)
-
-- **API** – Use the [RegisterCapability](../APIReference/API_RegisterCapability.md "../APIReference/API_RegisterCapability.md") API to enable the AI features, or use the
-  [DeregisterCapability](../APIReference/API_DeregisterCapability.md "../APIReference/API_DeregisterCapability.md") API to disable them.
+To enable or disable the AI features, you can use either the AWS Management Console or the API:
++ **Console** – Navigate to the details page of the OpenSearch UI application and update the AI features from there.  
+![The Manage AI Assistant features page in the console showing the Enable Chatbot and Agentic investigation feature checkbox and the Update button.](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/agentic-ai-manage-features.png)
++ **API** – Use the [RegisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RegisterCapability.html) API to enable the AI features, or use the [DeregisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeregisterCapability.html) API to disable them.
 
 ## Region availability
+<a name="application-ai-assistant-regions"></a>
 
 The agentic AI features are available in the following AWS Regions:
++ Asia Pacific (Tokyo) – ap-northeast-1
++ Asia Pacific (Sydney) – ap-southeast-2
++ Europe (Frankfurt) – eu-central-1
++ Europe (Stockholm) – eu-north-1
++ Europe (Spain) – eu-south-2
++ Europe (Ireland) – eu-west-1
++ US East (N. Virginia) – us-east-1
++ US East (Ohio) – us-east-2
++ US West (Oregon) – us-west-2
 
-- Asia Pacific (Tokyo) – ap-northeast-1
-- Asia Pacific (Sydney) – ap-southeast-2
-- Europe (Frankfurt) – eu-central-1
-- Europe (Stockholm) – eu-north-1
-- Europe (Spain) – eu-south-2
-- Europe (Ireland) – eu-west-1
-- US East (N. Virginia) – us-east-1
-- US East (Ohio) – us-east-2
-- US West (Oregon) – us-west-2
-
-###### Topics
-
-- [Agentic Chat in Amazon OpenSearch Service](application-agentic-chat.md "application-agentic-chat.md")
-- [Investigation Agent in Amazon OpenSearch Service](application-investigation-agent.md "application-investigation-agent.md")
-- [Search Relevance Agent in Amazon OpenSearch Service](application-search-relevance-agent.md "application-search-relevance-agent.md")
-- [Agentic Memory in Amazon OpenSearch Service](application-agentic-memory.md "application-agentic-memory.md")
+**Topics**
++ [Key capabilities](#application-ai-assistant-key-capabilities)
++ [Pricing and usage limits](#application-ai-assistant-pricing)
++ [Security](#application-ai-assistant-security)
++ [Enabling and disabling agentic AI features](#application-ai-assistant-enable-disable)
++ [Region availability](#application-ai-assistant-regions)
++ [Agentic Chat in Amazon OpenSearch Service](application-agentic-chat.md)
++ [Investigation Agent in Amazon OpenSearch Service](application-investigation-agent.md)
++ [Search Relevance Agent in Amazon OpenSearch Service](application-search-relevance-agent.md)
++ [Agentic Memory in Amazon OpenSearch Service](application-agentic-memory.md)

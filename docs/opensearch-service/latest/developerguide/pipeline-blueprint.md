@@ -1,34 +1,38 @@
+
+
 # Working with blueprints
+<a name="pipeline-blueprint"></a>
 
-Rather than creating a pipeline definition from scratch, you can use
-_configuration blueprints_, which are preconfigured templates for
-common ingestion scenarios such as Trace Analytics or Apache logs. Configuration
-blueprints help you easily provision pipelines without having to author a configuration
-from scratch.
+Rather than creating a pipeline definition from scratch, you can use *configuration blueprints*, which are preconfigured templates for common ingestion scenarios such as Trace Analytics or Apache logs. Configuration blueprints help you easily provision pipelines without having to author a configuration from scratch. 
 
-###### To use a pipeline blueprint
+## Console
+<a name="pipeline-blueprint-console"></a>
 
-1. Sign in to the OpenSearch Ingestion console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines "https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines"). You'll be on the Pipelines page.
-2. Choose **Create pipeline**.
-3. Select a blueprint from the list of use cases, then choose
-   **Select blueprint**. The pipeline configuration
-   populates with a sub-pipeline for the use case you selected.
+**To use a pipeline blueprint**
 
-The pipeline blueprint isn't valid as-is. You need to specify
-additional settings depending on the selected source.
-To get a list of all available blueprints using the AWS CLI, send a [list-pipeline-blueprints](../../../cli/latest/reference/osis/list-pipeline-blueprints.md "../../../cli/latest/reference/osis/list-pipeline-blueprints.md") request.
+1. Sign in to the OpenSearch Ingestion console at [https://console.aws.amazon.com/aos/osis/home](https://console.aws.amazon.com/aos/osis/home#osis/ingestion-pipelines). You'll be on the Pipelines page.
+
+1. Choose **Create pipeline**.
+
+1. Select a blueprint from the list of use cases, then choose **Select blueprint**. The pipeline configuration populates with a sub-pipeline for the use case you selected. 
+
+   The pipeline blueprint isn't valid as-is. You need to specify additional settings depending on the selected source.
+
+## CLI
+<a name="pipeline-blueprint-cli"></a>
+
+To get a list of all available blueprints using the AWS CLI, send a [list-pipeline-blueprints](https://docs.aws.amazon.com/cli/latest/reference/osis/list-pipeline-blueprints.html) request.
 
 ```
-aws osis list-pipeline-blueprints
+aws osis list-pipeline-blueprints{{ }}
 ```
 
 The request returns a list of all available blueprints.
 
-To get more detailed information about a specific blueprint, use the [get-pipeline-blueprint](../../../cli/latest/reference/osis/get-pipeline-blueprint.md "../../../cli/latest/reference/osis/get-pipeline-blueprint.md")
-command:
+To get more detailed information about a specific blueprint, use the [get-pipeline-blueprint](https://docs.aws.amazon.com/cli/latest/reference/osis/get-pipeline-blueprint.html) command:
 
 ```
-aws osis get-pipeline-blueprint --blueprint-name `AWS-ApacheLogPipeline`
+aws osis get-pipeline-blueprint --blueprint-name {{AWS-ApacheLogPipeline}}
 ```
 
 This request returns the contents of the Apache log pipeline blueprint:
@@ -42,5 +46,7 @@ This request returns the contents of the Apache log pipeline blueprint:
 }
 ```
 
-To get information about pipeline blueprints using the OpenSearch Ingestion API,
-use the [ListPipelineBlueprints](../APIReference/API_osis_ListPipelineBlueprints.md "../APIReference/API_osis_ListPipelineBlueprints.md") and [GetPipelineBlueprint](../APIReference/API_osis_GetPipelineBlueprint.md "../APIReference/API_osis_GetPipelineBlueprint.md") operations.
+## OpenSearch Ingestion API
+<a name="pipeline-blueprint-api"></a>
+
+To get information about pipeline blueprints using the OpenSearch Ingestion API, use the [ListPipelineBlueprints](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ListPipelineBlueprints.html) and [GetPipelineBlueprint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_GetPipelineBlueprint.html) operations.

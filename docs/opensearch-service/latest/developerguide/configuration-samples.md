@@ -1,19 +1,19 @@
-# Using the AWS SDKs to interact with Amazon OpenSearch Service
 
-This section includes examples of how to use the AWS SDKs to interact with the Amazon OpenSearch Service
-configuration API. These code samples show how to create, update, and delete OpenSearch Service
-domains.
+
+# Using the AWS SDKs to interact with Amazon OpenSearch Service
+<a name="configuration-samples"></a>
+
+This section includes examples of how to use the AWS SDKs to interact with the Amazon OpenSearch Service configuration API. These code samples show how to create, update, and delete OpenSearch Service domains.
 
 ## Java
+<a name="configuration-samples-java"></a>
 
 This section includes examples for versions 1 and 2 of the AWS SDK for Java.
 
-Version 2
-This example uses the [OpenSearchClientBuilder](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/opensearch/OpenSearchClientBuilder.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/opensearch/OpenSearchClientBuilder.html") constructor from version 2 of the
-AWS SDK for Java to create an OpenSearch domain, update its configuration, and
-delete it. Uncomment the calls to `waitForDomainProcessing` (and
-comment the call to `deleteDomain`) to allow the domain to come
-online and be useable.
+------
+#### [ Version 2 ]
+
+This example uses the [OpenSearchClientBuilder](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/opensearch/OpenSearchClientBuilder.html) constructor from version 2 of the AWS SDK for Java to create an OpenSearch domain, update its configuration, and delete it. Uncomment the calls to `waitForDomainProcessing` (and comment the call to `deleteDomain`) to allow the domain to come online and be useable.
 
 ```
 package com.example.samples;
@@ -46,18 +46,18 @@ public class OpenSearchSample {
     public static void main(String[] args) {
 
     	String domainName = "my-test-domain";
-
+    	
     	// Build the client using the default credentials chain.
         // You can use the CLI and run `aws configure` to set access key, secret
         // key, and default region.
-
+    	
         OpenSearchClient client = OpenSearchClient.builder()
         		// Unnecessary, but lets you use a region different than your default.
         		.region(Region.US_EAST_1)
         		// Unnecessary, but if desired, you can use a different provider chain.
         		.credentialsProvider(DefaultCredentialsProvider.create())
                      .build();
-
+        
         // Create a new domain, update its configuration, and delete it.
         createDomain(client, domainName);
         //waitForDomainProcessing(client, domainName);
@@ -65,7 +65,7 @@ public class OpenSearchSample {
         //waitForDomainProcessing(client, domainName);
         deleteDomain(client, domainName);
     }
-
+    
     /**
      * Creates an Amazon OpenSearch Service domain with the specified options.
      * Some options require other Amazon Web Services resources, such as an Amazon Cognito user pool
@@ -79,7 +79,7 @@ public class OpenSearchSample {
      */
 
     public static void createDomain(OpenSearchClient client, String domainName) {
-
+    	
     	// Create the request and set the desired configuration options
 
         try {
@@ -114,7 +114,7 @@ public class OpenSearchSample {
                     // domain name to add an access policy.
                     // .accessPolicies("{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"arn:aws:iam::123456789012:user/user-name\"]},\"Action\":[\"es:*\"],\"Resource\":\"arn:aws:es:region:123456789012:domain/domain-name/*\"}]}")
                     .build();
-
+            
             // Make the request.
             System.out.println("Sending domain creation request...");
             CreateDomainResponse createResponse = client.createDomain(createRequest);
@@ -127,7 +127,7 @@ public class OpenSearchSample {
             System.exit(1);
         }
     }
-
+    
     /**
      * Updates the configuration of an Amazon OpenSearch Service domain with the
      * specified options. Some options require other Amazon Web Services resources, such as an
@@ -139,19 +139,19 @@ public class OpenSearchSample {
      * @param domainName
      *            The name of the domain to update
      */
-
+    
     public static void updateDomain(OpenSearchClient client, String domainName) {
 
     	// Updates the domain to use three data instances instead of five.
         // You can uncomment the Cognito line and fill in the strings to enable Cognito
         // authentication for OpenSearch Dashboards.
-
+    	
         try {
 
             ClusterConfig clusterConfig = ClusterConfig.builder()
                     .instanceCount(5)
                     .build();
-
+            
             CognitoOptions cognitoOptions = CognitoOptions.builder()
                     .enabled(true)
                     .userPoolId("user-pool-id")
@@ -175,7 +175,7 @@ public class OpenSearchSample {
             System.exit(1);
         }
     }
-
+    
     /**
      * Deletes an Amazon OpenSearch Service domain. Deleting a domain can take
      * several minutes.
@@ -185,7 +185,7 @@ public class OpenSearchSample {
      * @param domainName
      *            The name of the domain that you want to delete
      */
-
+    
     public static void deleteDomain(OpenSearchClient client, String domainName) {
 
         try {
@@ -204,7 +204,7 @@ public class OpenSearchSample {
             System.exit(1);
         }
     }
-
+    
     /**
      * Waits for the domain to finish processing changes. New domains typically take 15-30 minutes
      * to initialize, but can take longer depending on the configuration. Most updates to existing domains
@@ -216,7 +216,7 @@ public class OpenSearchSample {
      * @param domainName
      *            The name of the domain that you want to check
      */
-
+    
     public static void waitForDomainProcessing(OpenSearchClient client, String domainName) {
         // Create a new request to check the domain status.
         DescribeDomainRequest describeRequest = DescribeDomainRequest.builder()
@@ -242,13 +242,10 @@ public class OpenSearchSample {
 }
 ```
 
-Version 1
-This example uses the [AWSElasticsearchClientBuilder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticsearch/AWSElasticsearchClientBuilder.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticsearch/AWSElasticsearchClientBuilder.md") constructor from version 1 of the
-AWS SDK for Java to create a legacy Elasticsearch domain, update its
-configuration, and delete it. Uncomment the calls to
-`waitForDomainProcessing` (and comment the call to
-`deleteDomain`) to allow the domain to come online and be
-useable.
+------
+#### [ Version 1 ]
+
+This example uses the [AWSElasticsearchClientBuilder](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticsearch/AWSElasticsearchClientBuilder.html) constructor from version 1 of the AWS SDK for Java to create a legacy Elasticsearch domain, update its configuration, and delete it. Uncomment the calls to `waitForDomainProcessing` (and comment the call to `deleteDomain`) to allow the domain to come online and be useable.
 
 ```
 package com.amazonaws.samples;
@@ -334,7 +331,7 @@ public class OpenSearchSample {
                 // You can uncomment this line and add your account ID, a username, and the
                 // domain name to add an access policy.
                 // .withAccessPolicies("{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"arn:aws:iam::123456789012:user/user-name\"]},\"Action\":[\"es:*\"],\"Resource\":\"arn:aws:es:region:123456789012:domain/domain-name/*\"}]}")
-
+                
 
         // Make the request.
         System.out.println("Sending domain creation request...");
@@ -438,10 +435,12 @@ public class OpenSearchSample {
 }
 ```
 
-## Python
+------
 
-This example uses the [OpenSearchService](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html") low-level Python client from the AWS SDK for Python (Boto) to create a
-domain, update its configuration, and delete it.
+## Python
+<a name="configuration-samples-python"></a>
+
+This example uses the [OpenSearchService](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html) low-level Python client from the AWS SDK for Python (Boto) to create a domain, update its configuration, and delete it. 
 
 ```
 import boto3
@@ -560,9 +559,9 @@ def main():
 ```
 
 ## Node
+<a name="configuration-samples-node"></a>
 
-This example uses the version 3 of the SDK for JavaScript in Node.js [OpenSearch client](../../../AWSJavaScriptSDK/v3/latest/clients/client-opensearch.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-opensearch.md")
-to create a domain, update its configuration, and delete it.
+This example uses the version 3 of the SDK for JavaScript in Node.js [OpenSearch client](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opensearch/) to create a domain, update its configuration, and delete it. 
 
 ```
 var {

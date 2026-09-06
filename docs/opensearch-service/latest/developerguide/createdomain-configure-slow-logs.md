@@ -1,195 +1,166 @@
+
+
 # Monitoring OpenSearch logs with Amazon CloudWatch Logs
+<a name="createdomain-configure-slow-logs"></a>
 
-Amazon OpenSearch Service exposes the following OpenSearch logs through Amazon CloudWatch Logs:
+Amazon OpenSearch Service exposes the following OpenSearch logs through Amazon CloudWatch Logs: 
++ Error logs
++ [Search request slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs)
++ [Shard slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs)
++ [Audit logs](audit-logs.md)
 
-- Error logs
-- [Search request slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs "https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs")
-- [Shard slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs "https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs")
-- [Audit logs](audit-logs.md "audit-logs.md")
-  Search shard slow logs, indexing shard slow logs, and error logs are useful for
-  troubleshooting performance and stability issues. Audit logs track user activity for compliance
-  purposes. All the logs are _disabled_ by default. If enabled,
-  [standard CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/")
-  applies.
+Search shard slow logs, indexing shard slow logs, and error logs are useful for troubleshooting performance and stability issues. Audit logs track user activity for compliance purposes. All the logs are *disabled* by default. If enabled, [standard CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/) applies.
 
-###### Note
+**Note**  
+Error logs are available only for OpenSearch and Elasticsearch versions 5.1 and later. Slow logs are available for all OpenSearch and Elasticsearch versions.
 
-Error logs are available only for OpenSearch and Elasticsearch versions 5.1 and later. Slow
-logs are available for all OpenSearch and Elasticsearch versions.
+For its logs, OpenSearch uses [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) and its built-in log levels (from least to most severe) of `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
 
-For its logs, OpenSearch uses [Apache Log4j
-2](https://logging.apache.org/log4j/2.x/ "https://logging.apache.org/log4j/2.x/") and its built-in log levels (from least to most severe) of `TRACE`,
-`DEBUG`, `INFO`, `WARN`, `ERROR`, and
-`FATAL`.
+If you enable error logs, OpenSearch Service publishes log lines of `WARN`, `ERROR`, and `FATAL` to CloudWatch. OpenSearch Service also publishes several exceptions from the `DEBUG` level, including the following:
++ `org.opensearch.index.mapper.MapperParsingException`
++ `org.opensearch.index.query.QueryShardException`
++ `org.opensearch.action.search.SearchPhaseExecutionException`
++ `org.opensearch.common.util.concurrent.OpenSearchRejectedExecutionException`
++ `java.lang.IllegalArgumentException`
 
-If you enable error logs, OpenSearch Service publishes log lines of `WARN`, `ERROR`,
-and `FATAL` to CloudWatch. OpenSearch Service also publishes several exceptions from the
-`DEBUG` level, including the following:
-
-- `org.opensearch.index.mapper.MapperParsingException`
-- `org.opensearch.index.query.QueryShardException`
-- `org.opensearch.action.search.SearchPhaseExecutionException`
-- `org.opensearch.common.util.concurrent.OpenSearchRejectedExecutionException`
-- `java.lang.IllegalArgumentException`
-  Error logs can help with troubleshooting in many situations, including the following:
-
-- Painless script compilation issues
-- Invalid queries
-- Indexing issues
-- Snapshot failures
-- Index State Management migration failures
-
-###### Note
-
+Error logs can help with troubleshooting in many situations, including the following:
++ Painless script compilation issues
++ Invalid queries
++ Indexing issues
++ Snapshot failures
++ Index State Management migration failures
+**Note**  
 Not all errors are reported in the error logs.
 
-###### Note
-
+**Note**  
 OpenSearch Service does not log all errors that occur.
 
-###### Topics
-
-- [Enabling log publishing (console)](#createdomain-configure-slow-logs-console "#createdomain-configure-slow-logs-console")
-- [Enabling log publishing (AWS CLI)](#createdomain-configure-slow-logs-cli "#createdomain-configure-slow-logs-cli")
-- [Enabling log publishing (AWS SDKs)](#createdomain-configure-slow-logs-sdk "#createdomain-configure-slow-logs-sdk")
-- [Enabling log publishing (CloudFormation)](#createdomain-configure-slow-logs-cfn "#createdomain-configure-slow-logs-cfn")
-- [Setting search request slow log thresholds](#createdomain-configure-search-request-slow-logs "#createdomain-configure-search-request-slow-logs")
-- [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices")
-- [Testing slow logs](#createdomain-configure-slow-logs-testing "#createdomain-configure-slow-logs-testing")
-- [Viewing logs](#createdomain-configure-slow-logs-viewing "#createdomain-configure-slow-logs-viewing")
+**Topics**
++ [Enabling log publishing (console)](#createdomain-configure-slow-logs-console)
++ [Enabling log publishing (AWS CLI)](#createdomain-configure-slow-logs-cli)
++ [Enabling log publishing (AWS SDKs)](#createdomain-configure-slow-logs-sdk)
++ [Enabling log publishing (CloudFormation)](#createdomain-configure-slow-logs-cfn)
++ [Setting search request slow log thresholds](#createdomain-configure-search-request-slow-logs)
++ [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices)
++ [Testing slow logs](#createdomain-configure-slow-logs-testing)
++ [Viewing logs](#createdomain-configure-slow-logs-viewing)
 
 ## Enabling log publishing (console)
+<a name="createdomain-configure-slow-logs-console"></a>
 
 The OpenSearch Service console is the simplest way to enable the publishing of logs to CloudWatch.
 
-###### To enable log publishing to CloudWatch (console)
+**To enable log publishing to CloudWatch (console)**
 
-1. Go to [aws.amazon.com](https://aws.amazon.com/ "https://aws.amazon.com/"), and then choose
-   **Sign In** and provide your credentials.
-2. Under **Analytics**, choose **Amazon OpenSearch Service**.
-3. Select the domain you want to update.
-4. On the **Logs** tab, select a log type and choose
-   **Enable**.
-5. Create a new CloudWatch log group or choose an existing one.
+1. Go to [aws.amazon.com](https://aws.amazon.com/), and then choose **Sign In** and provide your credentials.
 
-###### Note
+1. Under **Analytics**, choose **Amazon OpenSearch Service**.
 
-If you plan to enable multiple logs, we recommend publishing each to its own log
-group. This separation makes the logs easier to scan. 6. Choose an access policy that contains the appropriate permissions, or create a policy
-using the JSON that the console provides:
+1. Select the domain you want to update.
 
-JSON
+1. On the **Logs** tab, select a log type and choose **Enable**.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "es.amazonaws.com"
- },
- "Action": [
- "logs:PutLogEvents",
- "logs:CreateLogStream"
- ],
- "Resource": "arn:aws:logs:`us-east-1`:`111122223333`:log-group:`cw_log_group_name`:*"
- }
- ]
-}`
+1. Create a new CloudWatch log group or choose an existing one.
+**Note**  
+If you plan to enable multiple logs, we recommend publishing each to its own log group. This separation makes the logs easier to scan.
 
-```
+1. Choose an access policy that contains the appropriate permissions, or create a policy using the JSON that the console provides:
 
-We recommend that you add the `aws:SourceAccount` and
-`aws:SourceArn` condition keys to the policy to protect yourself against the
-[confused
-deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md"). The source account is the owner of the domain and the source ARN
-is the ARN of the domain. Your domain must be on service software R20211203 or later in
-order to add these condition keys.
+------
+#### [ JSON ]
 
-For example, you could add the following condition block to the policy:
+****  
 
-```
-"Condition": {
-    "StringEquals": {
-        "aws:SourceAccount": "`account-id`"
-    },
-    "ArnLike": {
-        "aws:SourceArn": "arn:aws:es:`region`:`account-id`:domain/`domain-name`"
-    }
-}
-```
+   ```
+   {
+     "Version":"2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "es.amazonaws.com"
+         },
+         "Action": [
+           "logs:PutLogEvents",
+           "logs:CreateLogStream"
+         ],
+         "Resource": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{cw_log_group_name}}:*"
+       }
+     ]
+   }
+   ```
 
-###### Important
+------
 
-CloudWatch Logs supports [10 resource
-policies per Region](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md"). If you plan to enable logs for several OpenSearch Service domains, you
-should create and reuse a broader policy that includes multiple log groups to avoid
-reaching this limit. For steps on updating your policy, see [Enabling log publishing (AWS CLI)](#createdomain-configure-slow-logs-cli "#createdomain-configure-slow-logs-cli"). 7. Choose **Enable**.
+   We recommend that you add the `aws:SourceAccount` and `aws:SourceArn` condition keys to the policy to protect yourself against the [confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html). The source account is the owner of the domain and the source ARN is the ARN of the domain. Your domain must be on service software R20211203 or later in order to add these condition keys.
 
-The status of your domain changes from **Active** to
-**Processing**. The status must return to **Active** before log publishing is enabled. This change typically
-takes 30 minutes, but can take longer depending on your domain configuration.
+   For example, you could add the following condition block to the policy:
 
-If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled audit logs, see [Step 2: Turn on audit logs in OpenSearch Dashboards](audit-logs.md#audit-log-dashboards-ui "audit-logs.md#audit-log-dashboards-ui"). If you enabled only error logs, you don't need to
-perform any additional configuration steps.
+   ```
+   "Condition": {
+       "StringEquals": {
+           "aws:SourceAccount": "{{account-id}}"
+       },
+       "ArnLike": {
+           "aws:SourceArn": "arn:aws:es:{{region}}:{{account-id}}:domain/{{domain-name}}"
+       }
+   }
+   ```
+**Important**  
+CloudWatch Logs supports [10 resource policies per Region](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.html). If you plan to enable logs for several OpenSearch Service domains, you should create and reuse a broader policy that includes multiple log groups to avoid reaching this limit. For steps on updating your policy, see [Enabling log publishing (AWS CLI)](#createdomain-configure-slow-logs-cli).
+
+1. Choose **Enable**.
+
+   The status of your domain changes from **Active** to **Processing**. The status must return to **Active** before log publishing is enabled. This change typically takes 30 minutes, but can take longer depending on your domain configuration.
+
+If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices). If you enabled audit logs, see [Step 2: Turn on audit logs in OpenSearch Dashboards](audit-logs.md#audit-log-dashboards-ui). If you enabled only error logs, you don't need to perform any additional configuration steps. 
 
 ## Enabling log publishing (AWS CLI)
+<a name="createdomain-configure-slow-logs-cli"></a>
 
-Before you can enable log publishing, you need a CloudWatch log group. If you don't already have
-one, you can create one using the following command:
-
-```
-aws logs create-log-group --log-group-name `my-log-group`
-```
-
-Enter the next command to find the log group's ARN, and then _make a note of
-it_:
+Before you can enable log publishing, you need a CloudWatch log group. If you don't already have one, you can create one using the following command:
 
 ```
-aws logs describe-log-groups --log-group-name `my-log-group`
+aws logs create-log-group --log-group-name {{my-log-group}}
 ```
 
-Now you can give OpenSearch Service permissions to write to the log group. You must provide the log
-group's ARN near the end of the command:
+Enter the next command to find the log group's ARN, and then *make a note of it*:
+
+```
+aws logs describe-log-groups --log-group-name {{my-log-group}}
+```
+
+Now you can give OpenSearch Service permissions to write to the log group. You must provide the log group's ARN near the end of the command:
 
 ```
 aws logs put-resource-policy \
   --policy-name my-policy \
-  --policy-document '{ "Version": "2012-10-17", "Statement": [{ "Sid": "", "Effect": "Allow", "Principal": { "Service": "es.amazonaws.com"}, "Action":[ "logs:PutLogEvents","logs:CreateLogStream"],"Resource": "`cw_log_group_arn`:*"}]}'
+  --policy-document '{ "Version": "2012-10-17",		 	 	  "Statement": [{ "Sid": "", "Effect": "Allow", "Principal": { "Service": "es.amazonaws.com"}, "Action":[ "logs:PutLogEvents","logs:CreateLogStream"],"Resource": "{{cw_log_group_arn}}:*"}]}'
 ```
 
-###### Important
+**Important**  
+CloudWatch Logs supports [10 resource policies per Region](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.html). If you plan to enable shard slow logs for several OpenSearch Service domains, you should create and reuse a broader policy that includes multiple log groups to avoid reaching this limit.
 
-CloudWatch Logs supports [10 resource
-policies per Region](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutResourcePolicy.md"). If you plan to enable shard slow logs for several OpenSearch Service
-domains, you should create and reuse a broader policy that includes multiple log groups to
-avoid reaching this limit.
+If you need to review this policy at a later time, use the `aws logs describe-resource-policies` command. To update the policy, issue the same `aws logs put-resource-policy` command with a new policy document.
 
-If you need to review this policy at a later time, use the `aws logs
- describe-resource-policies` command. To update the policy, issue the same `aws
- logs put-resource-policy` command with a new policy document.
+Finally, you can use the `--log-publishing-options` option to enable publishing. The syntax for the option is the same for both the `create-domain` and `update-domain-config` commands.
 
-Finally, you can use the `--log-publishing-options` option to enable
-publishing. The syntax for the option is the same for both the `create-domain` and
-`update-domain-config` commands.
 
-| Parameter                                                                       | Valid Values                                                                 |
-| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `--log-publishing-options`                                                      | `SEARCH_SLOW_LOGS={CloudWatchLogsLogGroupArn=`cw_log_group_arn`,Enabled=true | false}` |
-| `INDEX_SLOW_LOGS={CloudWatchLogsLogGroupArn=`cw_log_group_arn`,Enabled=true     | false}`                                                                      |
-| `ES_APPLICATION_LOGS={CloudWatchLogsLogGroupArn=`cw_log_group_arn`,Enabled=true | false}`                                                                      |
-| `AUDIT_LOGS={CloudWatchLogsLogGroupArn=`cw_log_group_arn`,Enabled=true          | false}`                                                                      |
 
-###### Note
+- **`--log-publishing-options`**
+  - SEARCH\_SLOW\_LOGS={CloudWatchLogsLogGroupArn={{cw\_log\_group\_arn}},Enabled=true\|false}
+  - INDEX\_SLOW\_LOGS={CloudWatchLogsLogGroupArn={{cw\_log\_group\_arn}},Enabled=true\|false}
+  - ES\_APPLICATION\_LOGS={CloudWatchLogsLogGroupArn={{cw\_log\_group\_arn}},Enabled=true\|false}
+  - AUDIT\_LOGS={CloudWatchLogsLogGroupArn={{cw\_log\_group\_arn}},Enabled=true\|false}
 
-If you plan to enable multiple logs, we recommend publishing each to its own log group.
-This separation makes the logs easier to scan.
+
+
+**Note**  
+If you plan to enable multiple logs, we recommend publishing each to its own log group. This separation makes the logs easier to scan.
 
 **Example**
 
-The following example enables the publishing of search and indexing shard slow logs for
-the specified domain:
+The following example enables the publishing of search and indexing shard slow logs for the specified domain:
 
 ```
 aws opensearch update-domain-config \
@@ -197,39 +168,28 @@ aws opensearch update-domain-config \
   --log-publishing-options "SEARCH_SLOW_LOGS={CloudWatchLogsLogGroupArn=arn:aws:logs:us-east-1:123456789012:log-group:my-log-group,Enabled=true},INDEX_SLOW_LOGS={CloudWatchLogsLogGroupArn=arn:aws:logs:us-east-1:123456789012:log-group:my-other-log-group,Enabled=true}"
 ```
 
-To disable publishing to CloudWatch, run the same command with
-`Enabled=false`.
+To disable publishing to CloudWatch, run the same command with `Enabled=false`.
 
-If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled audit logs, see [Step 2: Turn on audit logs in OpenSearch Dashboards](audit-logs.md#audit-log-dashboards-ui "audit-logs.md#audit-log-dashboards-ui"). If you enabled only error logs, you don't need to
-perform any additional configuration steps.
+If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices). If you enabled audit logs, see [Step 2: Turn on audit logs in OpenSearch Dashboards](audit-logs.md#audit-log-dashboards-ui). If you enabled only error logs, you don't need to perform any additional configuration steps.
 
 ## Enabling log publishing (AWS SDKs)
+<a name="createdomain-configure-slow-logs-sdk"></a>
 
-Before you can enable log publishing, you must first create a CloudWatch log group, get its ARN,
-and give OpenSearch Service permissions to write to it. The relevant operations are documented in the
-[Amazon CloudWatch Logs API Reference](../../../AmazonCloudWatchLogs/latest/APIReference.md "../../../AmazonCloudWatchLogs/latest/APIReference.md"):
+Before you can enable log publishing, you must first create a CloudWatch log group, get its ARN, and give OpenSearch Service permissions to write to it. The relevant operations are documented in the [Amazon CloudWatch Logs API Reference](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/):
++ `CreateLogGroup`
++ `DescribeLogGroup`
++ `PutResourcePolicy`
 
-- `CreateLogGroup`
-- `DescribeLogGroup`
-- `PutResourcePolicy`
+You can access these operations using the [AWS SDKs](https://aws.amazon.com/tools/#sdk).
 
-You can access these operations using the [AWS
-SDKs](https://aws.amazon.com/tools/#sdk "https://aws.amazon.com/tools/#sdk").
+The AWS SDKs (except the Android and iOS SDKs) support all the operations that are defined in the [Amazon OpenSearch Service API Reference](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html), including the `--log-publishing-options` option for `CreateDomain` and `UpdateDomainConfig`.
 
-The AWS SDKs (except the Android and iOS SDKs) support all the operations that are
-defined in the [Amazon OpenSearch Service API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"),
-including the `--log-publishing-options` option for `CreateDomain` and
-`UpdateDomainConfig`.
-
-If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled only error logs, you
-don't need to perform any additional configuration steps.
+If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices). If you enabled only error logs, you don't need to perform any additional configuration steps.
 
 ## Enabling log publishing (CloudFormation)
+<a name="createdomain-configure-slow-logs-cfn"></a>
 
-In this example, we use CloudFormation to create a log group called
-`opensearch-logs`, assign the appropriate permissions, and then create a domain
-with log publishing enabled for application logs, search shard slow logs, and indexing slow
-logs.
+In this example, we use CloudFormation to create a log group called `opensearch-logs`, assign the appropriate permissions, and then create a domain with log publishing enabled for application logs, search shard slow logs, and indexing slow logs.
 
 Before you can enable log publishing, you need to create a CloudWatch log group:
 
@@ -237,8 +197,8 @@ Before you can enable log publishing, you need to create a CloudWatch log group:
 Resources:
   OpenSearchLogGroup:
     Type: AWS::Logs::LogGroup
-    Properties:
-      LogGroupName: `opensearch-logs`
+    Properties: 
+      LogGroupName: {{opensearch-logs}}
 Outputs:
   Arn:
     Value:
@@ -247,31 +207,27 @@ Outputs:
         - Arn
 ```
 
-The template outputs the ARN of the log group. In this case, the ARN is
-`arn:aws:logs:us-east-1:123456789012:log-group:opensearch-logs`.
+The template outputs the ARN of the log group. In this case, the ARN is `arn:aws:logs:us-east-1:123456789012:log-group:opensearch-logs`.
 
-Using the ARN, create a resource policy that gives OpenSearch Service permissions to write to the log
-group:
+Using the ARN, create a resource policy that gives OpenSearch Service permissions to write to the log group:
 
 ```
 Resources:
  OpenSearchLogPolicy:
    Type: AWS::Logs::ResourcePolicy
    Properties:
-     PolicyName: `my-policy`
+     PolicyName: {{my-policy}}
      PolicyDocument: "{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Sid\": \"\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": \"es.amazonaws.com\"}, \"Action\":[ \"logs:PutLogEvents\",\"logs:CreateLogStream\"],\"Resource\": \"arn:aws:logs:us-east-1:123456789012:log-group:opensearch-logs:*\"}]}"
 ```
 
-Finally, create the following CloudFormation stack, which generates an OpenSearch Service domain with log
-publishing. The access policy permits the user for the AWS account to make all HTTP requests
-to the domain.
+Finally, create the following CloudFormation stack, which generates an OpenSearch Service domain with log publishing. The access policy permits the user for the AWS account to make all HTTP requests to the domain.
 
 ```
 Resources:
   OpenSearchServiceDomain:
     Type: "AWS::OpenSearchService::Domain"
     Properties:
-      DomainName: `my-domain`
+      DomainName: {{my-domain}}
       EngineVersion: "OpenSearch_1.0"
       ClusterConfig:
         InstanceCount: 2
@@ -284,40 +240,36 @@ Resources:
         VolumeSize: 10
         VolumeType: "gp2"
       AccessPolicies:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
             Effect: "Allow"
             Principal:
-                AWS: "arn:aws:iam::`123456789012`:user/es-user"
+                AWS: "arn:aws:iam::{{123456789012}}:user/es-user"
             Action: "es:*"
-            Resource: "arn:aws:es:us-east-1:`123456789012`:domain/`my-domain`/*"
+            Resource: "arn:aws:es:us-east-1:{{123456789012}}:domain/{{my-domain}}/*"
       LogPublishingOptions:
         ES_APPLICATION_LOGS:
-          CloudWatchLogsLogGroupArn: "arn:aws:logs:us-east-1:`123456789012`:log-group:opensearch-logs"
+          CloudWatchLogsLogGroupArn: "arn:aws:logs:us-east-1:{{123456789012}}:log-group:opensearch-logs"
           Enabled: true
         SEARCH_SLOW_LOGS:
-          CloudWatchLogsLogGroupArn: "arn:aws:logs:us-east-1:`123456789012`:log-group:opensearch-logs"
+          CloudWatchLogsLogGroupArn: "arn:aws:logs:us-east-1:{{123456789012}}:log-group:opensearch-logs"
           Enabled: true
         INDEX_SLOW_LOGS:
-          CloudWatchLogsLogGroupArn: "arn:aws:logs:us-east-1:`123456789012`:log-group:opensearch-logs"
+          CloudWatchLogsLogGroupArn: "arn:aws:logs:us-east-1:{{123456789012}}:log-group:opensearch-logs"
           Enabled: true
 ```
 
-For detailed syntax information, see the [log publishing options](../../../AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.md") in the _CloudFormation User Guide._
+For detailed syntax information, see the [log publishing options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.html) in the *CloudFormation User Guide.*
 
 ## Setting search request slow log thresholds
+<a name="createdomain-configure-search-request-slow-logs"></a>
 
-[Search request slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs "https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs") are available for search on OpenSearch Service domains running on
-version 2.13 and later. Search request slow log thresholds are configured for total request
-took time. This is different from shard request slow logs, which are configured for individual
-shard took time.
+[Search request slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs) are available for search on OpenSearch Service domains running on version 2.13 and later. Search request slow log thresholds are configured for total request took time. This is different from shard request slow logs, which are configured for individual shard took time.
 
-You can specify search request slow logs with cluster settings. This differs from shard
-slow logs, which you enable with index settings. For example, you can specify the following
-settings through the OpenSearch REST API:
+You can specify search request slow logs with cluster settings. This differs from shard slow logs, which you enable with index settings. For example, you can specify the following settings through the OpenSearch REST API:
 
 ```
-PUT `domain-endpoint`/_cluster/settings
+PUT {{domain-endpoint}}/_cluster/settings
 {
   "transient": {
     "cluster.search.request.slowlog.threshold.warn": "5s",
@@ -326,15 +278,11 @@ PUT `domain-endpoint`/_cluster/settings
 }
 ```
 
-###### Note
-
-The `PUT /_cluster/settings` endpoint is restricted in Amazon OpenSearch Service. Sending
-this request will return the error: `Your request: '/_cluster/settings' payload is not
- allowed.` To configure shard slow log thresholds, use index-level settings instead.
-For example:
+**Note**  
+The `PUT /_cluster/settings` endpoint is restricted in Amazon OpenSearch Service. Sending this request will return the error: `Your request: '/_cluster/settings' payload is not allowed.` To configure shard slow log thresholds, use index-level settings instead. For example:  
 
 ```
-PUT `domain-endpoint`/`index`/_settings
+PUT {{domain-endpoint}}/{{index}}/_settings
 {
   "index.search.slowlog.threshold.query.warn": "5s",
   "index.search.slowlog.threshold.query.info": "2s"
@@ -342,15 +290,14 @@ PUT `domain-endpoint`/`index`/_settings
 ```
 
 ## Setting shard slow log thresholds
+<a name="createdomain-configure-slow-logs-indices"></a>
 
-OpenSearch disables [shard slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs "https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs") by default. After you enable the _publishing_ of shard slow logs to CloudWatch, you still must specify logging thresholds
-for each OpenSearch index. These thresholds define precisely what should be logged and at which
-log level.
+OpenSearch disables [shard slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs) by default. After you enable the *publishing* of shard slow logs to CloudWatch, you still must specify logging thresholds for each OpenSearch index. These thresholds define precisely what should be logged and at which log level.
 
 For example, you can specify these settings through the OpenSearch REST API:
 
 ```
-PUT `domain-endpoint`/`index`/_settings
+PUT {{domain-endpoint}}/{{index}}/_settings
 {
   "index.search.slowlog.threshold.query.warn": "5s",
   "index.search.slowlog.threshold.query.info": "2s"
@@ -358,50 +305,37 @@ PUT `domain-endpoint`/`index`/_settings
 ```
 
 ## Testing slow logs
+<a name="createdomain-configure-slow-logs-testing"></a>
 
-To test that both search request and shard slow logs are publishing successfully, consider
-starting with very low values to verify that logs appear in CloudWatch, and then increase the
-thresholds to more useful levels.
+To test that both search request and shard slow logs are publishing successfully, consider starting with very low values to verify that logs appear in CloudWatch, and then increase the thresholds to more useful levels.
 
 If the logs don't appear, check the following:
++ Does the CloudWatch log group exist? Check the CloudWatch console.
++ Does OpenSearch Service have permissions to write to the log group? Check the OpenSearch Service console.
++ Is the OpenSearch Service domain configured to publish to the log group? Check the OpenSearch Service console, use the AWS CLI `describe-domain-config` option, or call `DescribeDomainConfig` using one of the SDKs.
++ Are the OpenSearch logging thresholds low enough that your requests are exceeding them? 
 
-- Does the CloudWatch log group exist? Check the CloudWatch console.
-- Does OpenSearch Service have permissions to write to the log group? Check the OpenSearch Service console.
-- Is the OpenSearch Service domain configured to publish to the log group? Check the OpenSearch Service console, use
-  the AWS CLI `describe-domain-config` option, or call
-  `DescribeDomainConfig` using one of the SDKs.
-- Are the OpenSearch logging thresholds low enough that your requests are exceeding them?
+  To review your search request slow log thresholds for a domain, use the following command:
 
-To review your search request slow log thresholds for a domain, use the following
-command:
+  ```
+  GET {{domain-endpoint}}/_cluster/settings?flat_settings
+  ```
 
-```
-GET `domain-endpoint`/_cluster/settings?flat_settings
-```
+  To review your shard slow log thresholds for an index, use the following command:
 
-To review your shard slow log thresholds for an index, use the following
-command:
+  ```
+  GET {{domain-endpoint}}/{{index}}/_settings?pretty
+  ```
 
-```
-GET `domain-endpoint`/`index`/_settings?pretty
-```
+If you want to disable slow logs for an index, return any thresholds that you changed to their default values of `-1`.
 
-If you want to disable slow logs for an index, return any thresholds that you changed to
-their default values of `-1`.
-
-Disabling publishing to CloudWatch using the OpenSearch Service console or AWS CLI does _not_ stop OpenSearch from generating logs; it only stops the _publishing_ of those logs. Be sure to check your index settings if
-you no longer need the shard slow logs, and your domain settings if you no longer need the
-search request slow logs.
+Disabling publishing to CloudWatch using the OpenSearch Service console or AWS CLI does *not* stop OpenSearch from generating logs; it only stops the *publishing* of those logs. Be sure to check your index settings if you no longer need the shard slow logs, and your domain settings if you no longer need the search request slow logs.
 
 ## Viewing logs
+<a name="createdomain-configure-slow-logs-viewing"></a>
 
-Viewing the application and slow logs in CloudWatch is just like viewing any other CloudWatch log. For
-more information, see [View Log Data](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData") in the _Amazon CloudWatch Logs User Guide_.
+Viewing the application and slow logs in CloudWatch is just like viewing any other CloudWatch log. For more information, see [View Log Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#ViewingLogData) in the *Amazon CloudWatch Logs User Guide*.
 
 Here are some considerations for viewing the logs:
-
-- OpenSearch Service publishes only the first 255,000 characters of each line to CloudWatch. Any remaining
-  content is truncated. For audit logs, it's 10,000 characters per message.
-- In CloudWatch, the log stream names have suffixes of `-index-slow-logs`,
-  `-search-slow-logs`, `-application-logs`, and
-  `-audit-logs` to help identify their contents.
++ OpenSearch Service publishes only the first 255,000 characters of each line to CloudWatch. Any remaining content is truncated. For audit logs, it's 10,000 characters per message. 
++ In CloudWatch, the log stream names have suffixes of `-index-slow-logs`, `-search-slow-logs`, `-application-logs`, and `-audit-logs` to help identify their contents.

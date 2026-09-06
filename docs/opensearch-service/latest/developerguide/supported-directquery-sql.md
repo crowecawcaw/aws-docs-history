@@ -1,146 +1,124 @@
+
+
 # Supported OpenSearch SQL commands and functions
+<a name="supported-directquery-sql"></a>
 
-The following reference tables show which SQL commands are supported in OpenSearch
-Discover for querying data in Amazon S3, Security Lake, or CloudWatch Logs, and which SQL commands are supported
-in CloudWatch Logs Insights. The SQL syntax supported in CloudWatch Logs Insights and that supported in
-OpenSearch Discover for querying CloudWatch Logs are the same, and referenced as CloudWatch Logs in the
-following tables.
+The following reference tables show which SQL commands are supported in OpenSearch Discover for querying data in Amazon S3, Security Lake, or CloudWatch Logs, and which SQL commands are supported in CloudWatch Logs Insights. The SQL syntax supported in CloudWatch Logs Insights and that supported in OpenSearch Discover for querying CloudWatch Logs are the same, and referenced as CloudWatch Logs in the following tables.
 
-###### Note
+**Note**  
+OpenSearch also has SQL support for querying data that is ingested in OpenSearch and stored in indexes. This SQL dialect is different than the SQL used in direct query and is referred to as [OpenSearch SQL on indexes](https://opensearch.org/docs/latest/search-plugins/sql/sql/index/).
 
-OpenSearch also has SQL support for querying data that is ingested in OpenSearch
-and stored in indexes. This SQL dialect is different than the SQL used in direct
-query and is referred to as [OpenSearch SQL on indexes](https://opensearch.org/docs/latest/search-plugins/sql/sql/index/ "https://opensearch.org/docs/latest/search-plugins/sql/sql/index/").
-
-###### Topics
-
-- [Commands](#supported-sql-data-retrieval "#supported-sql-data-retrieval")
-- [Functions](#supported-sql-functions "#supported-sql-functions")
-- [General SQL restrictions](#general-sql-restrictions "#general-sql-restrictions")
-- [Additional information for CloudWatch Logs Insights users using OpenSearch SQL](#supported-sql-for-multi-log-queries "#supported-sql-for-multi-log-queries")
+**Topics**
++ [Commands](#supported-sql-data-retrieval)
++ [Functions](#supported-sql-functions)
++ [General SQL restrictions](#general-sql-restrictions)
++ [Additional information for CloudWatch Logs Insights users using OpenSearch SQL](#supported-sql-for-multi-log-queries)
 
 ## Commands
+<a name="supported-sql-data-retrieval"></a>
 
-###### Note
+**Note**  
+In the example commands column, replace `{{<tableName/logGroup>}}` as needed depending on which data source you're querying.   
+Example command: `SELECT Body , Operation FROM <tableName/logGroup>` 
+If you're querying Amazon S3 or Security Lake, use: `SELECT Body , Operation FROM table_name` 
+If you're querying CloudWatch Logs, use: `SELECT Body , Operation FROM `LogGroupA`` 
 
-In the example commands column, replace
-`<tableName/logGroup>` as
-needed depending on which data source you're querying.
 
-- Example command: `SELECT Body , Operation FROM **<tableName/logGroup>**`
-- If you're querying Amazon S3 or Security Lake, use: `SELECT Body
- , Operation FROM **table\_name**`
-- If you're querying CloudWatch Logs, use: `SELECT Body , Operation FROM
- **`LogGroupA`**`
-
-| Command                                                                                      | Description                                                                                                      | CloudWatch Logs                                                                                                                                                                                          | Amazon S3                                                   | Security Lake                                                                                                                          | Example command                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SELECT clause](#supported-sql-select "#supported-sql-select")                               | Displays projected values.                                                                                       | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status<br>FROM<br>`<tableName/logGroup>`<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| [WHERE clause](#supported-sql-where "#supported-sql-where")                                  | Filters log events based on the provided field<br>criteria.                                                      | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>status = 100<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| [GROUP BY clause](#supported-sql-group-by "#supported-sql-group-by")                         | Groups log events based on category and finds the average<br>based on stats.                                     | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>COUNT(*) AS request_count,<br>SUM(bytes) AS total_bytes<br>FROM<br>`<tableName/logGroup>`<br>GROUP BY<br>method,<br>status<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| [HAVING clause](#supported-sql-having "#supported-sql-having")                               | Filters the results based on grouping conditions.                                                                | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>COUNT(*) AS request_count,<br>SUM(bytes) AS total_bytes<br>FROM<br>`<tableName/logGroup>`<br>GROUP BY<br>method,<br>status<br>HAVING<br>COUNT(*) > 5<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| [ORDER BY clause](#supported-sql-order-by "#supported-sql-order-by")                         | Orders the results based on fields in the order clause. You<br>can sort in either descending or ascending order. | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>ORDER BY<br>status DESC<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| [JOIN clause](#supported-sql-join "#supported-sql-join")<br>( `INNER`                        | `CROSS`                                                                                                          | `LEFT`<br>`OUTER` )                                                                                                                                                                                      | Joins the results for two tables based on common<br>fields. | Supported (must use `Inner` and<br>`Left Outer` keywords for join; Only only one<br>JOIN operation is supported in a SELECT statement) | Supported (must use Inner, Left Outer, and Cross<br>keywords for join)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Supported (must use Inner, Left Outer, and Cross<br>keywords for join) | ``<br>SELECT<br>A.Body,<br>B.Timestamp<br>FROM<br>`<tableNameA/logGroupA>` AS A<br>INNER JOIN<br>`<tableNameB/logGroupB>` AS B<br>ON A.`requestId` = B.`requestId`<br>`` |
-| [LIMIT clause](#supported-sql-limit "#supported-sql-limit")                                  | Restricts the results to first N rows.                                                                           | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>LIMIT<br>10<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [CASE clause](#supported-sql-case "#supported-sql-case")                                     | Evaluates conditions and returns a value when the first condition<br>is met.                                     | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>CASE<br>WHEN status BETWEEN 100 AND 199 THEN 'Informational'<br>WHEN status BETWEEN 200 AND 299 THEN 'Success'<br>WHEN status BETWEEN 300 AND 399 THEN 'Redirection'<br>WHEN status BETWEEN 400 AND 499 THEN 'Client Error'<br>WHEN status BETWEEN 500 AND 599 THEN 'Server Error'<br>ELSE 'Unknown Status'<br>END AS status_category,<br>CASE method<br>WHEN 'GET' THEN 'Read Operation'<br>WHEN 'POST' THEN 'Create Operation'<br>WHEN 'PUT' THEN 'Update Operation'<br>WHEN 'PATCH' THEN 'Partial Update Operation'<br>WHEN 'DELETE' THEN 'Delete Operation'<br>ELSE 'Other Operation'<br>END AS operation_type,<br>bytes,<br>datetime<br>FROM `<tableName/logGroup>`<br>`` |
-| [Common table expression](#supported-sql-cte "#supported-sql-cte")                           | Creates a named temporary result set within a SELECT, INSERT,<br>UPDATE, DELETE, or MERGE statement.             | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>WITH RequestStats AS (<br>SELECT<br>method,<br>status,<br>bytes,<br>COUNT(*) AS request_count<br>FROM<br>tableName<br>GROUP BY<br>method,<br>status,<br>bytes<br>)<br>SELECT<br>method,<br>status,<br>bytes,<br>request_count<br>FROM<br>RequestStats<br>WHERE<br>bytes > 1000<br>`                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [EXPLAIN](#supported-sql-explain "#supported-sql-explain")                                   | Displays the execution plan of a SQL statement without actually<br>executing it.                                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>EXPLAIN<br>SELECT<br>k,<br>SUM(v)<br>FROM<br>VALUES<br>(1, 2),<br>(1, 3) AS t(k, v)<br>GROUP BY<br>k<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [LATERAL SUBQUERY clause](#supported-sql-lateral-subquery "#supported-sql-lateral-subquery") | Allows a subquery in the FROM clause to reference columns from<br>preceding items in the same FROM clause.       | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>*<br>FROM<br>tableName<br>LATERAL (<br>SELECT<br>*<br>FROM<br>t2<br>WHERE<br>t1.c1 = t2.c1<br>)<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [LATERAL VIEW clause](#supported-sql-lateral-view "#supported-sql-lateral-view")             | Generates a virtual table by applying a table-generating function<br>to each row of a base table.                | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>*<br>FROM<br>tableName<br>LATERAL VIEW<br>EXPLODE(ARRAY(30, 60)) tableName AS c_age<br>LATERAL VIEW<br>EXPLODE(ARRAY(40, 80)) AS d_age<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| [LIKE predicate](#supported-sql-like-predicate "#supported-sql-like-predicate")              | Matches a string against a pattern using wildcard<br>characters.                                                 | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>request,<br>host<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>method LIKE 'D%'<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| [OFFSET](#supported-sql-offset "#supported-sql-offset")                                      | Specifies the number of rows to skip before starting to return<br>rows from the query.                           | Supported when used in conjunction with a<br>`LIMIT` clause in a query. For example:<br>• Supported: `SELECT * FROM Table LIMIT 100 OFFSET<br>10`<br>• Not supported: `SELECT * FROM Table OFFSET<br>10` | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes,<br>datetime<br>FROM<br>`<tableName/logGroup>`<br>ORDER BY<br>datetime<br>OFFSET<br>10<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [PIVOT clause](#supported-sql-pivot "#supported-sql-pivot")                                  | Transforms rows into columns, rotating data from a row-based<br>format to a column-based format.                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>(<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>) AS SourceTable<br>PIVOT<br>(<br>SUM(bytes)<br>FOR method IN ('GET', 'POST', 'PATCH', 'PUT', 'DELETE')<br>) AS PivotTable<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| [Set operators](#supported-sql-set "#supported-sql-set")                                     | Combines the results of two or more SELECT statements (e.g.,<br>UNION, INTERSECT, EXCEPT).                       | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>status = '416'<br>UNION<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>bytes > 20000<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| [SORT BY clause](#supported-sql-sort-by "#supported-sql-sort-by")                            | Specifies the order in which to return the query results.                                                        | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>SORT BY<br>bytes DESC<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| [UNPIVOT](#supported-sql-unpivot "#supported-sql-unpivot")                                   | Transforms columns into rows, rotating data from a column-based<br>format to a row-based format.                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>status,<br>REPLACE(method, '_bytes', '') AS request_method,<br>bytes,<br>datetime<br>FROM<br>PivotedData<br>UNPIVOT<br>(<br>bytes<br>FOR method IN<br>(<br>GET_bytes,<br>POST_bytes,<br>PATCH_bytes,<br>PUT_bytes,<br>DELETE_bytes<br>)<br>) AS UnpivotedData<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Command | Description | CloudWatch Logs | Amazon S3 | Security Lake | Example command | 
+| --- | --- | --- | --- | --- | --- | 
+| [SELECT clause](#supported-sql-select) | Displays projected values. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    method,<br />    status <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [WHERE clause](#supported-sql-where) | Filters log events based on the provided field criteria. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    * <br />FROM <br />    {{<tableName/logGroup>}}<br />WHERE <br />    status = 100</pre>  | 
+| [GROUP BY clause](#supported-sql-group-by) | Groups log events based on category and finds the average based on stats. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    method,<br />    status,<br />    COUNT(*) AS request_count,<br />    SUM(bytes) AS total_bytes <br />FROM <br />    {{<tableName/logGroup>}} <br />GROUP BY <br />    method, <br />    status</pre>  | 
+| [HAVING clause](#supported-sql-having) | Filters the results based on grouping conditions. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    method,<br />    status,<br />    COUNT(*) AS request_count,<br />    SUM(bytes) AS total_bytes <br />FROM <br />    {{<tableName/logGroup>}} <br />GROUP BY <br />    method,<br />    status<br />HAVING <br />    COUNT(*) > 5</pre>  | 
+| [ORDER BY clause](#supported-sql-order-by) | Orders the results based on fields in the order clause. You can sort in either descending or ascending order. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    * <br />FROM <br />    {{<tableName/logGroup>}} <br />ORDER BY <br />    status DESC</pre>  | 
+| [JOIN clause](#supported-sql-join) <br />( `INNER` \| `CROSS` \| `LEFT` `OUTER` ) | Joins the results for two tables based on common fields. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported (must use `Inner` and `Left Outer` keywords for join; Only only one JOIN operation is supported in a SELECT statement) | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported (must use Inner, Left Outer, and Cross keywords for join) | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported (must use Inner, Left Outer, and Cross keywords for join) |  <pre>SELECT <br />    A.Body,<br />    B.Timestamp<br />FROM <br />    {{<tableNameA/logGroupA>}} AS A <br />INNER JOIN <br />    {{<tableNameB/logGroupB>}} AS B <br />    ON A.`requestId` = B.`requestId`</pre>  | 
+| [LIMIT clause](#supported-sql-limit) | Restricts the results to first N rows. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    * <br />FROM <br />    {{<tableName/logGroup>}} <br />LIMIT <br />    10</pre>  | 
+| [CASE clause](#supported-sql-case) | Evaluates conditions and returns a value when the first condition is met. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT<br />    method,<br />    status,<br />    CASE<br />        WHEN status BETWEEN 100 AND 199 THEN 'Informational'<br />        WHEN status BETWEEN 200 AND 299 THEN 'Success'<br />        WHEN status BETWEEN 300 AND 399 THEN 'Redirection'<br />        WHEN status BETWEEN 400 AND 499 THEN 'Client Error'<br />        WHEN status BETWEEN 500 AND 599 THEN 'Server Error'<br />        ELSE 'Unknown Status'<br />    END AS status_category,<br />    CASE method<br />        WHEN 'GET' THEN 'Read Operation'<br />        WHEN 'POST' THEN 'Create Operation'<br />        WHEN 'PUT' THEN 'Update Operation'<br />        WHEN 'PATCH' THEN 'Partial Update Operation'<br />        WHEN 'DELETE' THEN 'Delete Operation'<br />        ELSE 'Other Operation'<br />    END AS operation_type,<br />    bytes,<br />    datetime<br />FROM {{<tableName/logGroup>}}                         </pre>  | 
+| [Common table expression](#supported-sql-cte) | Creates a named temporary result set within a SELECT, INSERT, UPDATE, DELETE, or MERGE statement. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/negative_icon.png) Not supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>WITH RequestStats AS (<br />    SELECT <br />        method,<br />        status,<br />        bytes,<br />        COUNT(*) AS request_count<br />    FROM <br />        tableName<br />    GROUP BY <br />        method,<br />        status,<br />        bytes<br />)<br />SELECT <br />    method,<br />    status,<br />    bytes,<br />    request_count <br />FROM <br />    RequestStats <br />WHERE <br />    bytes > 1000</pre>  | 
+| [EXPLAIN](#supported-sql-explain) | Displays the execution plan of a SQL statement without actually executing it. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/negative_icon.png) Not supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>EXPLAIN<br />SELECT <br />    k,<br />    SUM(v)<br />FROM <br />    VALUES <br />        (1, 2),<br />        (1, 3) AS t(k, v)<br />GROUP BY <br />    k</pre>  | 
+| [LATERAL SUBQUERY clause](#supported-sql-lateral-subquery) | Allows a subquery in the FROM clause to reference columns from preceding items in the same FROM clause. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/negative_icon.png) Not supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre> SELECT <br />    * <br />FROM <br />    tableName<br />LATERAL (<br />    SELECT <br />        * <br />    FROM <br />        t2 <br />    WHERE <br />        t1.c1 = t2.c1<br />)</pre>  | 
+| [LATERAL VIEW clause](#supported-sql-lateral-view) | Generates a virtual table by applying a table-generating function to each row of a base table. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/negative_icon.png) Not supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    * <br />FROM <br />    tableName<br />LATERAL VIEW <br />    EXPLODE(ARRAY(30, 60)) tableName AS c_age<br />LATERAL VIEW <br />    EXPLODE(ARRAY(40, 80)) AS d_age</pre>  | 
+| [LIKE predicate](#supported-sql-like-predicate) | Matches a string against a pattern using wildcard characters. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre> SELECT <br />    method,<br />    status,<br />    request,<br />    host <br />FROM <br />    {{<tableName/logGroup>}} <br />WHERE <br />    method LIKE 'D%'</pre>  | 
+| [OFFSET](#supported-sql-offset) | Specifies the number of rows to skip before starting to return rows from the query. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported when used in conjunction with a LIMIT clause in a query. For example:+  Supported: `SELECT * FROM Table LIMIT 100 OFFSET 10` <br />+  Not supported: `SELECT * FROM Table OFFSET 10`  | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre> SELECT <br />    method,<br />    status,<br />    bytes,<br />    datetime <br />FROM <br />    {{<tableName/logGroup>}} <br />ORDER BY <br />    datetime<br />OFFSET <br />    10 </pre>  | 
+| [PIVOT clause](#supported-sql-pivot) | Transforms rows into columns, rotating data from a row-based format to a column-based format. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/negative_icon.png) Not supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    * <br />FROM <br />    (<br />        SELECT <br />            method,<br />            status,<br />            bytes<br />        FROM <br />            {{<tableName/logGroup>}}<br />    ) AS SourceTable <br />PIVOT <br />(<br />    SUM(bytes) <br />    FOR method IN ('GET', 'POST', 'PATCH', 'PUT', 'DELETE')<br />) AS PivotTable</pre>  | 
+| [Set operators](#supported-sql-set) | Combines the results of two or more SELECT statements (e.g., UNION, INTERSECT, EXCEPT). | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    method,<br />    status,<br />    bytes<br />FROM <br />    {{<tableName/logGroup>}}<br />WHERE <br />    status = '416'<br /><br />UNION<br /><br />SELECT <br />    method,<br />    status,<br />    bytes<br />FROM <br />    {{<tableName/logGroup>}}<br />WHERE <br />    bytes > 20000</pre>  | 
+| [SORT BY clause](#supported-sql-sort-by) | Specifies the order in which to return the query results. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    method,<br />    status,<br />    bytes<br />FROM <br />    {{<tableName/logGroup>}}<br />SORT BY <br />    bytes DESC</pre>  | 
+| [UNPIVOT](#supported-sql-unpivot) | Transforms columns into rows, rotating data from a column-based format to a row-based format. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/negative_icon.png) Not supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre> SELECT <br />    status,<br />    REPLACE(method, '_bytes', '') AS request_method,<br />    bytes,<br />    datetime <br />FROM <br />    PivotedData <br />UNPIVOT <br />(<br />    bytes <br />    FOR method IN <br />    (<br />        GET_bytes,<br />        POST_bytes,<br />        PATCH_bytes,<br />        PUT_bytes,<br />        DELETE_bytes<br />    )<br />) AS UnpivotedData</pre>  | 
 
 ## Functions
+<a name="supported-sql-functions"></a>
 
-###### Note
+**Note**  
+In the example commands column, replace `{{<tableName/logGroup>}}` as needed depending on which data source you're querying.   
+Example command: `SELECT Body , Operation FROM <tableName/logGroup>` 
+If you're querying Amazon S3 or Security Lake, use: `SELECT Body , Operation FROM table_name` 
+If you're querying CloudWatch Logs, use: `SELECT Body , Operation FROM `LogGroupA`` 
 
-In the example commands column, replace
-`<tableName/logGroup>` as
-needed depending on which data source you're querying.
 
-- Example command: `SELECT Body , Operation FROM **<tableName/logGroup>**`
-- If you're querying Amazon S3 or Security Lake, use: `SELECT Body
- , Operation FROM **table\_name**`
-- If you're querying CloudWatch Logs, use: `SELECT Body , Operation
- FROM **`LogGroupA`**`
-
-| Available SQL Grammar                                                            | Description                                                                                                                                                                                                                            | CloudWatch Logs | Amazon S3      | Security Lake  | Example command                                                                                                                                                                                                                                                                                         |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | -------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [String functions](#supported-sql-string "#supported-sql-string")                | Built-in functions that can manipulate and transform string<br>and text data within SQL queries. For example, converting case,<br>combining strings, extracting parts, and cleaning text.                                              | Supported       | Supported      | Supported      | ``<br>SELECT<br>UPPER(method) AS upper_method,<br>LOWER(host) AS lower_host<br>FROM<br>`<tableName/logGroup>`<br>``                                                                                                                                                                                     |
-| [Date and time functions](#supported-sql-date-time "#supported-sql-date-time")   | Built-in functions for handling and transforming date and<br>timestamp data in queries. For example, **date\_add**, **date\_format**, **datediff**, and **current\_date**.                                                             | Supported       | Supported      | Supported      | ``<br>SELECT<br>TO_TIMESTAMP(datetime) AS timestamp,<br>TIMESTAMP_SECONDS(UNIX_TIMESTAMP(datetime)) AS from_seconds,<br>UNIX_TIMESTAMP(datetime) AS to_unix,<br>FROM_UTC_TIMESTAMP(datetime, 'PST') AS to_pst,<br>TO_UTC_TIMESTAMP(datetime, 'EST') AS from_est<br>FROM<br>`<tableName/logGroup>`<br>`` |
-| [Aggregate functions](#supported-sql-aggregate "#supported-sql-aggregate")       | Built-in functions that perform calculations on multiple rows<br>to produce a single summarized value. For example, **sum**, **count**, **avg**,<br>**max**, and **min**.                                                              | Supported       | Supported      | Supported      | ``<br>SELECT<br>COUNT(*) AS total_records,<br>COUNT(DISTINCT method) AS unique_methods,<br>SUM(bytes) AS total_bytes,<br>AVG(bytes) AS avg_bytes,<br>MIN(bytes) AS min_bytes,<br>MAX(bytes) AS max_bytes<br>FROM<br>`<tableName/logGroup>`<br>``                                                        |
-| [Conditional functions](#supported-sql-conditional "#supported-sql-conditional") | Built-in functions that perform actions based on specified<br>conditions, or that evaluate expressions conditionally. For<br>example, *_CASE_<br>• and **IF**.                                                                         | Supported       | Supported      | Supported      | ``<br>SELECT<br>CASE<br>WHEN method = 'GET' AND bytes < 1000 THEN 'Small Read'<br>WHEN method = 'POST' AND bytes > 10000 THEN 'Large Write'<br>WHEN status >= 400 OR bytes = 0 THEN 'Problem'<br>ELSE 'Normal'<br>END AS request_type<br>FROM<br>`<tableName/logGroup>`<br>``                           |
-| [JSON functions](#supported-sql-json "#supported-sql-json")                      | Built-in functions for parsing, extracting, modifying, and<br>querying JSON-formatted data within SQL queries (e.g.,<br>from\_json, to\_json, get\_json\_object, json\_tuple) allowing<br>manipulation of JSON structures in datasets. | Supported       | Supported      | Supported      | ``<br>SELECT<br>FROM_JSON(<br>@message,<br>'STRUCT<<br>host: STRING,<br>user-identifier: STRING,<br>datetime: STRING,<br>method: STRING,<br>status: INT,<br>bytes: INT<br>>'<br>) AS parsed_json<br>FROM<br>`<tableName/logGroup>`<br>``                                                                |
-| [Array functions](#supported-sql-array "#supported-sql-array")                   | Built-in functions for working with array-type columns in SQL<br>queries, allowing operations like accessing, modifying, and<br>analyzing array data (e.g., size, explode,<br>array\_contains).                                        | Supported       | Supported      | Supported      | ``<br>SELECT<br>scores,<br>size(scores) AS length,<br>array_contains(scores, 90) AS has_90<br>FROM<br>`<tableName/logGroup>`<br>``                                                                                                                                                                      |
-| [Window functions](#supported-sql-window "#supported-sql-window")                | Built-in functions that perform calculations across a specified<br>set of rows related to the current row (window), enabling operations<br>like ranking, running totals, and moving averages (e.g., ROW\_NUMBER,<br>RANK, LAG, LEAD)   | Supported       | Supported      | Supported      | ``<br>SELECT<br>field1,<br>field2,<br>RANK() OVER (ORDER BY field2 DESC) AS field2Rank<br>FROM<br>`<tableName/logGroup>`<br>``                                                                                                                                                                          |
-| [Conversion functions](#supported-sql-conversion "#supported-sql-conversion")    | Built-in functions for converting data from one type to<br>another within SQL queries, enabling data type transformations<br>and format conversions (e.g., CAST, TO\_DATE, TO\_TIMESTAMP,<br>BINARY)                                   | Supported       | Supported      | Supported      | ``<br>SELECT<br>CAST('123' AS INT) AS converted_number,<br>CAST(123 AS STRING) AS converted_string<br>FROM<br>`<tableName/logGroup>`<br>``                                                                                                                                                              |
-| [Predicate functions](#supported-sql-predicate "#supported-sql-predicate")       | Built-in functions that evaluate conditions and return boolean<br>values (true/false) based on specified criteria or patterns<br>(e.g., IN, LIKE, BETWEEN, IS NULL, EXISTS)                                                            | Supported       | Supported      | Supported      | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>id BETWEEN 50000 AND 75000<br>``                                                                                                                                                                                                        |
-| [Map functions](#supported-sql-map "#supported-sql-map")                         | Applies a specified function to each element in a collection,<br>transforming the data into a new set of values.                                                                                                                       | Not supported   | Supported      | Supported      | ``<br>SELECT<br>MAP_FILTER(<br>MAP(<br>'method', method,<br>'status', CAST(status AS STRING),<br>'bytes', CAST(bytes AS STRING)<br>),<br>(k, v) -> k IN ('method', 'status') AND v != 'null'<br>) AS filtered_map<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>status = 100<br>``                      |
-| [Mathematical functions](#supported-sql-math "#supported-sql-math")              | Performs mathematical operations on numeric data, such as<br>calculating averages, sums, or trigonometric values.                                                                                                                      | Supported       | Supported      | Supported      | ``<br>SELECT<br>bytes,<br>bytes + 1000 AS added,<br>bytes<br>• 1000 AS subtracted,<br>bytes<br>• 2 AS doubled,<br>bytes / 1024 AS kilobytes,<br>bytes % 1000 AS remainder<br>FROM<br>`<tableName/logGroup>`<br>``                                                                                       |
-| [Multi-log group functions](#multi-log-queries "#multi-log-queries")             | Enables users to specify multiple log groups in a SQL SELECT<br>statement                                                                                                                                                              | Supported       | Not applicable | Not applicable | ``<br>SELECT<br>lg1.Column1,<br>lg1.Column2<br>FROM<br>`logGroups(logGroupIdentifier: ['LogGroup1', 'LogGroup2'])` AS lg1<br>WHERE<br>lg1.Column3 = "Success"<br>``                                                                                                                                     |
-| [Generator functions](#supported-sql-generator "#supported-sql-generator")       | Creates an iterator object that yields a sequence of values,<br>allowing for efficient memory usage in large data sets.                                                                                                                | Not supported   | Supported      | Supported      | `<br>SELECT<br>explode(array(10, 20))<br>`                                                                                                                                                                                                                                                              |
+| Available SQL Grammar | Description | CloudWatch Logs | Amazon S3 | Security Lake | Example command | 
+| --- | --- | --- | --- | --- | --- | 
+| [String functions](#supported-sql-string) | Built-in functions that can manipulate and transform string and text data within SQL queries. For example, converting case, combining strings, extracting parts, and cleaning text. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    UPPER(method) AS upper_method,<br />    LOWER(host) AS lower_host <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [Date and time functions](#supported-sql-date-time) | Built-in functions for handling and transforming date and timestamp data in queries. For example, **date\_add**, **date\_format**, **datediff**, and **current\_date**. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    TO_TIMESTAMP(datetime) AS timestamp,<br />    TIMESTAMP_SECONDS(UNIX_TIMESTAMP(datetime)) AS from_seconds,<br />    UNIX_TIMESTAMP(datetime) AS to_unix,<br />    FROM_UTC_TIMESTAMP(datetime, 'PST') AS to_pst,<br />    TO_UTC_TIMESTAMP(datetime, 'EST') AS from_est <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [Aggregate functions](#supported-sql-aggregate) | Built-in functions that perform calculations on multiple rows to produce a single summarized value. For example, **sum**, **count**, **avg**, **max**, and **min**. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png)Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    COUNT(*) AS total_records,<br />    COUNT(DISTINCT method) AS unique_methods,<br />    SUM(bytes) AS total_bytes,<br />    AVG(bytes) AS avg_bytes,<br />    MIN(bytes) AS min_bytes,<br />    MAX(bytes) AS max_bytes <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [Conditional functions](#supported-sql-conditional) | Built-in functions that perform actions based on specified conditions, or that evaluate expressions conditionally. For example, **CASE** and **IF**. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    CASE <br />        WHEN method = 'GET' AND bytes < 1000 THEN 'Small Read'<br />        WHEN method = 'POST' AND bytes > 10000 THEN 'Large Write'<br />        WHEN status >= 400 OR bytes = 0 THEN 'Problem'<br />        ELSE 'Normal'<br />    END AS request_type <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [JSON functions](#supported-sql-json) | Built-in functions for parsing, extracting, modifying, and querying JSON-formatted data within SQL queries (e.g., from\_json, to\_json, get\_json\_object, json\_tuple) allowing manipulation of JSON structures in datasets. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    FROM_JSON(<br />        @message, <br />        'STRUCT<<br />            host: STRING,<br />            user-identifier: STRING,<br />            datetime: STRING,<br />            method: STRING,<br />            status: INT,<br />            bytes: INT<br />        >'<br />    ) AS parsed_json <br />FROM <br />    {{<tableName/logGroup>}} </pre>  | 
+| [Array functions](#supported-sql-array) | Built-in functions for working with array-type columns in SQL queries, allowing operations like accessing, modifying, and analyzing array data (e.g., size, explode, array\_contains). | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    scores,<br />    size(scores) AS length,<br />    array_contains(scores, 90) AS has_90 <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [Window functions](#supported-sql-window) | Built-in functions that perform calculations across a specified set of rows related to the current row (window), enabling operations like ranking, running totals, and moving averages (e.g., ROW\_NUMBER, RANK, LAG, LEAD) | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre> SELECT <br />    field1,<br />    field2,<br />    RANK() OVER (ORDER BY field2 DESC) AS field2Rank <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [Conversion functions](#supported-sql-conversion) | Built-in functions for converting data from one type to another within SQL queries, enabling data type transformations and format conversions (e.g., CAST, TO\_DATE, TO\_TIMESTAMP, BINARY) | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    CAST('123' AS INT) AS converted_number,<br />    CAST(123 AS STRING) AS converted_string <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [Predicate functions](#supported-sql-predicate) | Built-in functions that evaluate conditions and return boolean values (true/false) based on specified criteria or patterns (e.g., IN, LIKE, BETWEEN, IS NULL, EXISTS) | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    * <br />FROM <br />    {{<tableName/logGroup>}} <br />WHERE <br />    id BETWEEN 50000 AND 75000</pre>  | 
+| [Map functions](#supported-sql-map) | Applies a specified function to each element in a collection, transforming the data into a new set of values. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/negative_icon.png) Not supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    MAP_FILTER(<br />        MAP(<br />            'method', method,<br />            'status', CAST(status AS STRING),<br />            'bytes', CAST(bytes AS STRING)<br />        ),<br />        (k, v) -> k IN ('method', 'status') AND v != 'null'<br />    ) AS filtered_map <br />FROM <br />    {{<tableName/logGroup>}} <br />WHERE <br />    status = 100</pre>  | 
+| [Mathematical functions](#supported-sql-math) | Performs mathematical operations on numeric data, such as calculating averages, sums, or trigonometric values. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    bytes,<br />    bytes + 1000 AS added,<br />    bytes - 1000 AS subtracted,<br />    bytes * 2 AS doubled,<br />    bytes / 1024 AS kilobytes,<br />    bytes % 1000 AS remainder <br />FROM <br />    {{<tableName/logGroup>}}</pre>  | 
+| [Multi-log group functions](#multi-log-queries) | Enables users to specify multiple log groups in a SQL SELECT statement | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | Not applicable | Not applicable |  <pre>SELECT <br />    lg1.Column1,<br />    lg1.Column2 <br />FROM <br />    `logGroups(logGroupIdentifier: ['LogGroup1', 'LogGroup2'])` AS lg1 <br />WHERE <br />    lg1.Column3 = "Success"<br /></pre>  | 
+| [Generator functions](#supported-sql-generator) | Creates an iterator object that yields a sequence of values, allowing for efficient memory usage in large data sets. | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/negative_icon.png) Not supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported | ![](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/success_icon.png) Supported |  <pre>SELECT <br />    explode(array(10, 20)) </pre>  | 
 
 ## General SQL restrictions
+<a name="general-sql-restrictions"></a>
 
-The following restrictions apply when using OpenSearch SQL with CloudWatch Logs, Amazon S3, and
-Security Lake.
+The following restrictions apply when using OpenSearch SQL with CloudWatch Logs, Amazon S3, and Security Lake.
 
 1. You can only use one JOIN operation in a SELECT statement.
-2. Only one level of nested subqueries is supported.
-3. Multiple statement queries separated by semi-colons aren't
-   supported.
-4. Queries containing field names that are identical but differ only in case
-   (such as field1 and FIELD1) are not supported.
 
-For example, the following queries are not supported:
+1. Only one level of nested subqueries is supported.
 
-```
-Select AWSAccountId, awsaccountid from LogGroup
-```
+1. Multiple statement queries separated by semi-colons aren't supported.
 
-However, the following query is because the field name (@logStream) is
-identical in both log groups:
+1. Queries containing field names that are identical but differ only in case (such as field1 and FIELD1) are not supported.
 
-```
-Select a.`@logStream`, b.`@logStream` from Table A INNER Join Table B on a.id = b.id
-```
+   For example, the following queries are not supported:
 
-5. Functions and expressions must operate on field names and be part of a
-   SELECT statement with a log group specified in the FROM clause.
+   ```
+   Select AWSAccountId, awsaccountid from LogGroup
+   ```
 
-For example, this query is not supported:
+   However, the following query is because the field name (@logStream) is identical in both log groups:
 
-```
-SELECT cos(10) FROM LogGroup
-```
+   ```
+   Select a.`@logStream`, b.`@logStream` from Table A INNER Join Table B on a.id = b.id 
+   ```
 
-This query is supported:
+1. Functions and expressions must operate on field names and be part of a SELECT statement with a log group specified in the FROM clause.
 
-```
-SELECT cos(field1) FROM LogGroup
-```
+   For example, this query is not supported:
+
+   ```
+   SELECT cos(10) FROM LogGroup
+   ```
+
+   This query is supported:
+
+   ```
+   SELECT cos(field1) FROM LogGroup
+   ```
 
 ## Additional information for CloudWatch Logs Insights users using OpenSearch SQL
+<a name="supported-sql-for-multi-log-queries"></a>
 
-CloudWatch Logs supports OpenSearch SQL queries in the Logs Insights console, API, and CLI.
-It supports most commands, including SELECT, FROM, WHERE, GROUP BY, HAVING, JOINS,
-and nested queries, along with JSON, math, string, and conditional functions.
-However, CloudWatch Logs supports only read operations, so it doesn't allow DDL or DML
-statements. See the tables in the previous sections for a full list of supported
-commands and functions.
+ CloudWatch Logs supports OpenSearch SQL queries in the Logs Insights console, API, and CLI. It supports most commands, including SELECT, FROM, WHERE, GROUP BY, HAVING, JOINS, and nested queries, along with JSON, math, string, and conditional functions. However, CloudWatch Logs supports only read operations, so it doesn't allow DDL or DML statements. See the tables in the previous sections for a full list of supported commands and functions. 
 
 ### Multi-log group functions
+<a name="multi-log-queries"></a>
 
-CloudWatch Logs Insights supports the ability to query multiple log groups. To address
-this use case in SQL, you can use the `logGroups` command. This
-command is specific to querying data in CloudWatch Logs Insights involving one or more log
-groups. Use this syntax to query multiple log groups by specifying them in the
-command, instead of writing a query for each of the log groups and combining
-them with a `UNION` command.
+CloudWatch Logs Insights supports the ability to query multiple log groups. To address this use case in SQL, you can use the `logGroups` command. This command is specific to querying data in CloudWatch Logs Insights involving one or more log groups. Use this syntax to query multiple log groups by specifying them in the command, instead of writing a query for each of the log groups and combining them with a `UNION` command. 
 
 Syntax:
 
@@ -150,35 +128,28 @@ Syntax:
 )
 ```
 
-In this syntax, you can specify up to 50 log groups in the
-`logGroupIndentifier` parameter. To reference log groups in a
-monitoring account, use ARNs instead of `LogGroup` names.
+In this syntax, you can specify up to 50 log groups in the `logGroupIndentifier` parameter. To reference log groups in a monitoring account, use ARNs instead of `LogGroup` names.
 
 Example query:
 
 ```
 SELECT LG1.Column1, LG1.Column2 from `logGroups(
     logGroupIdentifier: ['LogGroup1', 'LogGroup2']
-)` as LG1
+)` as LG1 
 WHERE LG1.Column1 = 'ABC'
 ```
 
-The following syntax involving multiple log groups after the `FROM`
-statement is not supported when querying CloudWatch Logs:
+The following syntax involving multiple log groups after the `FROM` statement is not supported when querying CloudWatch Logs:
 
 ```
-SELECT Column1, Column2 FROM 'LogGroup1', 'LogGroup2', ...'LogGroupn'
+SELECT Column1, Column2 FROM 'LogGroup1', 'LogGroup2', ...'LogGroupn' 
 WHERE Column1 = 'ABC'
 ```
 
 ### Restrictions
+<a name="restrictions"></a>
 
-When you use SQL or PPL commands, enclose certain fields in backticks to query
-them. Backticks are required for fields with special characters (non-alphabetic
-and non-numeric). For example, enclose `@message`,
-`Operation.Export,` and `Test::Field` in backticks.
-You don't need to enclose columns with purely alphabetic names in
-backticks.
+When you use SQL or PPL commands, enclose certain fields in backticks to query them. Backticks are required for fields with special characters (non-alphabetic and non-numeric). For example, enclose `@message`, `Operation.Export,` and `Test::Field` in backticks. You don't need to enclose columns with purely alphabetic names in backticks.
 
 Example query with simple fields:
 
@@ -194,146 +165,141 @@ SELECT `SessionToken`, `Operation`, `StartTime`  FROM `LogGroup-A`
 LIMIT 1000;
 ```
 
-For additional general restrictions that aren't specific to CloudWatch Logs, see [General SQL restrictions](#general-sql-restrictions "#general-sql-restrictions").
+For additional general restrictions that aren't specific to CloudWatch Logs, see [General SQL restrictions](#general-sql-restrictions).
 
 ### Sample queries and quotas
+<a name="samples"></a>
 
-###### Note
+**Note**  
+The following applies to both CloudWatch Logs Insights users and OpenSearch users querying CloudWatch data.
 
-The following applies to both CloudWatch Logs Insights users and OpenSearch users
-querying CloudWatch data.
+For sample SQL queries that you can use in CloudWatch Logs, see **Saved and sample queries** in the Amazon CloudWatch Logs Insights console for examples.
 
-For sample SQL queries that you can use in CloudWatch Logs, see **Saved and sample queries** in the Amazon CloudWatch Logs Insights console for
-examples.
-
-For information about the limits that apply when querying CloudWatch Logs from OpenSearch Service, see
-[CloudWatch Logs
-quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md") in the Amazon CloudWatch Logs User Guide. Limits involve the number of
-CloudWatch Log groups you can query, the maximum concurrent queries that you can
-execute, the maximum query execution time, and the maximum number of rows
-returned in results. The limits are the same regardless of which language you
-use for querying CloudWatch Logs (namely, OpenSearch PPL, SQL, and Logs Insights).
+For information about the limits that apply when querying CloudWatch Logs from OpenSearch Service, see [CloudWatch Logs quotas](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html) in the Amazon CloudWatch Logs User Guide. Limits involve the number of CloudWatch Log groups you can query, the maximum concurrent queries that you can execute, the maximum query execution time, and the maximum number of rows returned in results. The limits are the same regardless of which language you use for querying CloudWatch Logs (namely, OpenSearch PPL, SQL, and Logs Insights). 
 
 ### SQL commands
+<a name="supported-sql-commands-details"></a>
 
-###### Topics
-
-- [String functions](#supported-sql-string "#supported-sql-string")
-- [Date and time functions](#supported-sql-date-time "#supported-sql-date-time")
-- [Aggregate functions](#supported-sql-aggregate "#supported-sql-aggregate")
-- [Conditional functions](#supported-sql-conditional "#supported-sql-conditional")
-- [JSON functions](#supported-sql-json "#supported-sql-json")
-- [Array functions](#supported-sql-array "#supported-sql-array")
-- [Window functions](#supported-sql-window "#supported-sql-window")
-- [Conversion functions](#supported-sql-conversion "#supported-sql-conversion")
-- [Predicate functions](#supported-sql-predicate "#supported-sql-predicate")
-- [Map functions](#supported-sql-map "#supported-sql-map")
-- [Mathematical functions](#supported-sql-math "#supported-sql-math")
-- [Generator functions](#supported-sql-generator "#supported-sql-generator")
-- [SELECT clause](#supported-sql-select "#supported-sql-select")
-- [WHERE clause](#supported-sql-where "#supported-sql-where")
-- [GROUP BY clause](#supported-sql-group-by "#supported-sql-group-by")
-- [HAVING clause](#supported-sql-having "#supported-sql-having")
-- [ORDER BY clause](#supported-sql-order-by "#supported-sql-order-by")
-- [JOIN clause](#supported-sql-join "#supported-sql-join")
-- [LIMIT clause](#supported-sql-limit "#supported-sql-limit")
-- [CASE clause](#supported-sql-case "#supported-sql-case")
-- [Common table expression](#supported-sql-cte "#supported-sql-cte")
-- [EXPLAIN](#supported-sql-explain "#supported-sql-explain")
-- [LATERAL SUBQUERY clause](#supported-sql-lateral-subquery "#supported-sql-lateral-subquery")
-- [LATERAL VIEW clause](#supported-sql-lateral-view "#supported-sql-lateral-view")
-- [LIKE predicate](#supported-sql-like-predicate "#supported-sql-like-predicate")
-- [OFFSET](#supported-sql-offset "#supported-sql-offset")
-- [PIVOT clause](#supported-sql-pivot "#supported-sql-pivot")
-- [Set operators](#supported-sql-set "#supported-sql-set")
-- [SORT BY clause](#supported-sql-sort-by "#supported-sql-sort-by")
-- [UNPIVOT](#supported-sql-unpivot "#supported-sql-unpivot")
+**Topics**
++ [String functions](#supported-sql-string)
++ [Date and time functions](#supported-sql-date-time)
++ [Aggregate functions](#supported-sql-aggregate)
++ [Conditional functions](#supported-sql-conditional)
++ [JSON functions](#supported-sql-json)
++ [Array functions](#supported-sql-array)
++ [Window functions](#supported-sql-window)
++ [Conversion functions](#supported-sql-conversion)
++ [Predicate functions](#supported-sql-predicate)
++ [Map functions](#supported-sql-map)
++ [Mathematical functions](#supported-sql-math)
++ [Generator functions](#supported-sql-generator)
++ [SELECT clause](#supported-sql-select)
++ [WHERE clause](#supported-sql-where)
++ [GROUP BY clause](#supported-sql-group-by)
++ [HAVING clause](#supported-sql-having)
++ [ORDER BY clause](#supported-sql-order-by)
++ [JOIN clause](#supported-sql-join)
++ [LIMIT clause](#supported-sql-limit)
++ [CASE clause](#supported-sql-case)
++ [Common table expression](#supported-sql-cte)
++ [EXPLAIN](#supported-sql-explain)
++ [LATERAL SUBQUERY clause](#supported-sql-lateral-subquery)
++ [LATERAL VIEW clause](#supported-sql-lateral-view)
++ [LIKE predicate](#supported-sql-like-predicate)
++ [OFFSET](#supported-sql-offset)
++ [PIVOT clause](#supported-sql-pivot)
++ [Set operators](#supported-sql-set)
++ [SORT BY clause](#supported-sql-sort-by)
++ [UNPIVOT](#supported-sql-unpivot)
 
 #### String functions
+<a name="supported-sql-string"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ascii(str)                                                          | Returns the numeric value of the first character of<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| base64(bin)                                                         | Converts the argument from a binary `bin` to a<br>base 64 string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| bit\_length(expr)                                                   | Returns the bit length of string data or number of bits<br>of binary data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| btrim(str)                                                          | Removes the leading and trailing space characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| btrim(str, trimStr)                                                 | Remove the leading and trailing `trimStr`<br>characters from `str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| char(expr)                                                          | Returns the ASCII character having the binary equivalent<br>to `expr`. If n is larger than 256 the result is<br>equivalent to chr(n % 256)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| char\_length(expr)                                                  | Returns the character length of string data or number of<br>bytes of binary data. The length of string data includes the<br>trailing spaces. The length of binary data includes binary<br>zeros.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| character\_length(expr)                                             | Returns the character length of string data or number of<br>bytes of binary data. The length of string data includes the<br>trailing spaces. The length of binary data includes binary<br>zeros.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| chr(expr)                                                           | Returns the ASCII character having the binary equivalent<br>to `expr`. If n is larger than 256 the result is<br>equivalent to chr(n % 256)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| concat\_ws(sep[, str                                                | array(str)]+)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Returns the concatenation of the strings separated by<br>`sep`, skipping null values. |
-| contains(left, right)                                               | Returns a boolean. The value is True if right is found<br>inside left. Returns NULL if either input expression is<br>NULL. Otherwise, returns False. Both left or right must be<br>of STRING or BINARY type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| decode(bin, charset)                                                | Decodes the first argument using the second argument<br>character set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| decode(expr, search, result [, search, result ] ... [,<br>default]) | Compares expr to each search value in order. If expr is<br>equal to a search value, decode returns the corresponding<br>result. If no match is found, then it returns default. If<br>default is omitted, it returns null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| elt(n, input1, input2, ...)                                         | Returns the `n`-th input, e.g., returns<br>`input2` when `n` is 2.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| encode(str, charset)                                                | Encodes the first argument using the second argument<br>character set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| endswith(left, right)                                               | Returns a boolean. The value is True if left ends with<br>right. Returns NULL if either input expression is NULL.<br>Otherwise, returns False. Both left or right must be of<br>STRING or BINARY type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| find\_in\_set(str, str\_array)                                      | Returns the index (1-based) of the given string<br>(`str`) in the comma-delimited list<br>(`str_array`). Returns 0, if the string was<br>not found or if the given string (`str`) contains<br>a comma.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| format\_number(expr1, expr2)                                        | Formats the number `expr1` like<br>'#,###,###.##', rounded to `expr2` decimal<br>places. If `expr2` is 0, the result has no<br>decimal point or fractional part. `expr2` also<br>accept a user specified format. This is supposed to function<br>like MySQL's FORMAT.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| format\_string(strfmt, obj, ...)                                    | Returns a formatted string from printf-style format<br>strings.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| initcap(str)                                                        | Returns `str` with the first letter of each<br>word in uppercase. All other letters are in lowercase. Words<br>are delimited by white space.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| instr(str, substr)                                                  | Returns the (1-based) index of the first occurrence of<br>`substr` in `str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| lcase(str)                                                          | Returns `str` with all characters changed to<br>lowercase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| left(str, len)                                                      | Returns the leftmost `len`(`len`<br>can be string type) characters from the string<br>`str`,if `len` is less or equal<br>than 0 the result is an empty string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| len(expr)                                                           | Returns the character length of string data or number of<br>bytes of binary data. The length of string data includes the<br>trailing spaces. The length of binary data includes binary<br>zeros.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| length(expr)                                                        | Returns the character length of string data or number of<br>bytes of binary data. The length of string data includes the<br>trailing spaces. The length of binary data includes binary<br>zeros.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| levenshtein(str1, str2[, threshold])                                | Returns the Levenshtein distance between the two given<br>strings. If threshold is set and distance more than it,<br>return -1.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| locate(substr, str[, pos])                                          | Returns the position of the first occurrence of<br>`substr` in `str` after position<br>`pos`. The given `pos` and return<br>value are 1-based.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| lower(str)                                                          | Returns `str` with all characters changed to<br>lowercase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| lpad(str, len[, pad])                                               | Returns `str`, left-padded with<br>`pad` to a length of `len`. If<br>`str` is longer than `len`, the<br>return value is shortened to `len` characters or<br>bytes. If `pad` is not specified,<br>`str` will be padded to the left with space<br>characters if it is a character string, and with zeros if it<br>is a byte sequence.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ltrim(str)                                                          | Removes the leading space characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| luhn\_check(str )                                                   | Checks that a string of digits is valid according to the<br>Luhn algorithm. This checksum function is widely applied on<br>credit card numbers and government identification numbers to<br>distinguish valid numbers from mistyped, incorrect<br>numbers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| mask(input[, upperChar, lowerChar, digitChar,<br>otherChar])        | masks the given string value. The function replaces<br>characters with 'X' or 'x', and numbers with 'n'. This can<br>be useful for creating copies of tables with sensitive<br>information removed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| octet\_length(expr)                                                 | Returns the byte length of string data or number of bytes<br>of binary data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| overlay(input, replace, pos[, len])                                 | Replace `input` with `replace` that<br>starts at `pos` and is of length<br>`len`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| position(substr, str[, pos])                                        | Returns the position of the first occurrence of<br>`substr` in `str` after position<br>`pos`. The given `pos` and return<br>value are 1-based.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| printf(strfmt, obj, ...)                                            | Returns a formatted string from printf-style format<br>strings.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| regexp\_count(str, regexp)                                          | Returns a count of the number of times that the regular<br>expression pattern `regexp` is matched in the<br>string `str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| regexp\_extract(str, regexp[, idx])                                 | Extract the first string in the `str` that<br>match the `regexp` expression and corresponding<br>to the regex group index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| regexp\_extract\_all(str, regexp[, idx])                            | Extract all strings in the `str` that match<br>the `regexp` expression and corresponding to the<br>regex group index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| regexp\_instr(str, regexp)                                          | Searches a string for a regular expression and returns an<br>integer that indicates the beginning position of the matched<br>substring. Positions are 1-based, not 0-based. If no match<br>is found, returns 0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| regexp\_replace(str, regexp, rep[, position])                       | Replaces all substrings of `str` that match<br>`regexp` with `rep`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| regexp\_substr(str, regexp)                                         | Returns the substring that matches the regular expression<br>`regexp` within the string `str`.<br>If the regular expression is not found, the result is<br>null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| repeat(str, n)                                                      | Returns the string which repeats the given string value n<br>times.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| replace(str, search[, replace])                                     | Replaces all occurrences of `search` with<br>`replace`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| right(str, len)                                                     | Returns the rightmost `len`(`len`<br>can be string type) characters from the string<br>`str`,if `len` is less or equal<br>than 0 the result is an empty string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| rpad(str, len[, pad])                                               | Returns `str`, right-padded with<br>`pad` to a length of `len`. If<br>`str` is longer than `len`, the<br>return value is shortened to `len` characters. If<br>`pad` is not specified, `str` will<br>be padded to the right with space characters if it is a<br>character string, and with zeros if it is a binary<br>string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| rtrim(str)                                                          | Removes the trailing space characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| sentences(str[, lang, country])                                     | Splits `str` into an array of array of<br>words.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| soundex(str)                                                        | Returns Soundex code of the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| space(n)                                                            | Returns a string consisting of `n`<br>spaces.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| split(str, regex, limit)                                            | Splits `str` around occurrences that match<br>`regex` and returns an array with a length of<br>at most `limit`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| split\_part(str, delimiter, partNum)                                | Splits `str` by delimiter and return requested<br>part of the split (1-based). If any input is null, returns<br>null. if `partNum` is out of range of split<br>parts, returns empty string. If `partNum` is 0,<br>throws an error. If `partNum` is negative, the<br>parts are counted backward from the end of the string. If<br>the `delimiter` is an empty string, the<br>`str` is not split.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| startswith(left, right)                                             | Returns a boolean. The value is True if left starts with<br>right. Returns NULL if either input expression is NULL.<br>Otherwise, returns False. Both left or right must be of<br>STRING or BINARY type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| substr(str, pos[, len])                                             | Returns the substring of `str` that starts at<br>`pos` and is of length `len`, or<br>the slice of byte array that starts at `pos` and<br>is of length `len`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| substr(str FROM pos[ FOR len]])                                     | Returns the substring of `str` that starts at<br>`pos` and is of length `len`, or<br>the slice of byte array that starts at `pos` and<br>is of length `len`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| substring(str, pos[, len])                                          | Returns the substring of `str` that starts at<br>`pos` and is of length `len`, or<br>the slice of byte array that starts at `pos` and<br>is of length `len`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| substring(str FROM pos[ FOR len]])                                  | Returns the substring of `str` that starts at<br>`pos` and is of length `len`, or<br>the slice of byte array that starts at `pos` and<br>is of length `len`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| substring\_index(str, delim, count)                                 | Returns the substring from `str` before<br>`count` occurrences of the delimiter<br>`delim`. If `count` is positive,<br>everything to the left of the final delimiter (counting from<br>the left) is returned. If `count` is negative,<br>everything to the right of the final delimiter (counting<br>from the right) is returned. The function substring\_index<br>performs a case-sensitive match when searching for<br>`delim`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| to\_binary(str[, fmt])                                              | Converts the input `str` to a binary value<br>based on the supplied `fmt`. `fmt` can<br>be a case-insensitive string literal of "hex", "utf-8",<br>"utf8", or "base64". By default, the binary format for<br>conversion is "hex" if `fmt` is omitted. The<br>function returns NULL if at least one of the input<br>parameters is NULL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| to\_char(numberExpr, formatExpr)                                    | Convert `numberExpr` to a string based on the<br>`formatExpr`. Throws an exception if the<br>conversion fails. The format can consist of the following<br>characters, case insensitive: '0' or '9': Specifies an<br>expected digit between 0 and 9. A sequence of 0 or 9 in the<br>format string matches a sequence of digits in the input<br>value, generating a result string of the same length as the<br>corresponding sequence in the format string. The result<br>string is left-padded with zeros if the 0/9 sequence<br>comprises more digits than the matching part of the decimal<br>value, starts with 0, and is before the decimal point.<br>Otherwise, it is padded with spaces. '.' or 'D': Specifies<br>the position of the decimal point (optional, only allowed<br>once). ',' or 'G': Specifies the position of the grouping<br>(thousands) separator (,). There must be a 0 or 9 to the<br>left and right of each grouping separator. '                               |
-| to\_number(expr, fmt)                                               | Convert string 'expr' to a number based on the string<br>format 'fmt'. Throws an exception if the conversion fails.<br>The format can consist of the following characters, case<br>insensitive: '0' or '9': Specifies an expected digit between<br>0 and 9. A sequence of 0 or 9 in the format string matches a<br>sequence of digits in the input string. If the 0/9 sequence<br>starts with 0 and is before the decimal point, it can only<br>match a digit sequence of the same size. Otherwise, if the<br>sequence starts with 9 or is after the decimal point, it can<br>match a digit sequence that has the same or smaller size.<br>'.' or 'D': Specifies the position of the decimal point<br>(optional, only allowed once). ',' or 'G': Specifies the<br>position of the grouping (thousands) separator (,). There<br>must be a 0 or 9 to the left and right of each grouping<br>separator. 'expr' must match the grouping separator relevant<br>for the size of the number. ' |
-| to\_varchar(numberExpr, formatExpr)                                 | Convert `numberExpr` to a string based on the<br>`formatExpr`. Throws an exception if the<br>conversion fails. The format can consist of the following<br>characters, case insensitive: '0' or '9': Specifies an<br>expected digit between 0 and 9. A sequence of 0 or 9 in the<br>format string matches a sequence of digits in the input<br>value, generating a result string of the same length as the<br>corresponding sequence in the format string. The result<br>string is left-padded with zeros if the 0/9 sequence<br>comprises more digits than the matching part of the decimal<br>value, starts with 0, and is before the decimal point.<br>Otherwise, it is padded with spaces. '.' or 'D': Specifies<br>the position of the decimal point (optional, only allowed<br>once). ',' or 'G': Specifies the position of the grouping<br>(thousands) separator (,). There must be a 0 or 9 to the<br>left and right of each grouping separator. '                               |
-| translate(input, from, to)                                          | Translates the `input` string by replacing the<br>characters present in the `from` string with the<br>corresponding characters in the `to`<br>string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| trim(str)                                                           | Removes the leading and trailing space characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| trim(BOTH FROM str)                                                 | Removes the leading and trailing space characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| trim(LEADING FROM str)                                              | Removes the leading space characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| trim(TRAILING FROM str)                                             | Removes the trailing space characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| trim(trimStr FROM str)                                              | Remove the leading and trailing `trimStr`<br>characters from `str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| trim(BOTH trimStr FROM str)                                         | Remove the leading and trailing `trimStr`<br>characters from `str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| trim(LEADING trimStr FROM str)                                      | Remove the leading `trimStr` characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| trim(TRAILING trimStr FROM str)                                     | Remove the trailing `trimStr` characters from<br>`str`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| try\_to\_binary(str[, fmt])                                         | This is a special version of `to_binary` that<br>performs the same operation, but returns a NULL value<br>instead of raising an error if the conversion cannot be<br>performed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| try\_to\_number(expr, fmt)                                          | Convert string 'expr' to a number based on the string<br>format `fmt`. Returns NULL if the string 'expr'<br>does not match the expected format. The format follows the<br>same semantics as the to\_number function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ucase(str)                                                          | Returns `str` with all characters changed to<br>uppercase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| unbase64(str)                                                       | Converts the argument from a base 64 string<br>`str` to a binary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| upper(str)                                                          | Returns `str` with all characters changed to<br>uppercase.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+
+| Function | Description | 
+| --- | --- | 
+| ascii(str) | Returns the numeric value of the first character of str. | 
+| base64(bin) | Converts the argument from a binary bin to a base 64 string. | 
+| bit\_length(expr) | Returns the bit length of string data or number of bits of binary data. | 
+| btrim(str) | Removes the leading and trailing space characters from str. | 
+| btrim(str, trimStr) | Remove the leading and trailing trimStr characters from str. | 
+| char(expr) | Returns the ASCII character having the binary equivalent to expr. If n is larger than 256 the result is equivalent to chr(n % 256) | 
+| char\_length(expr) | Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros. | 
+| character\_length(expr) | Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros. | 
+| chr(expr) | Returns the ASCII character having the binary equivalent to expr. If n is larger than 256 the result is equivalent to chr(n % 256) | 
+| concat\_ws(sep[, str \| array(str)]\+) | Returns the concatenation of the strings separated by sep, skipping null values. | 
+| contains(left, right) | Returns a boolean. The value is True if right is found inside left. Returns NULL if either input expression is NULL. Otherwise, returns False. Both left or right must be of STRING or BINARY type. | 
+| decode(bin, charset) | Decodes the first argument using the second argument character set. | 
+| decode(expr, search, result [, search, result ] ... [, default]) | Compares expr to each search value in order. If expr is equal to a search value, decode returns the corresponding result. If no match is found, then it returns default. If default is omitted, it returns null. | 
+| elt(n, input1, input2, ...) | Returns the n-th input, e.g., returns input2 when n is 2.  | 
+| encode(str, charset) | Encodes the first argument using the second argument character set. | 
+| endswith(left, right) | Returns a boolean. The value is True if left ends with right. Returns NULL if either input expression is NULL. Otherwise, returns False. Both left or right must be of STRING or BINARY type. | 
+| find\_in\_set(str, str\_array) | Returns the index (1-based) of the given string (str) in the comma-delimited list (str\_array). Returns 0, if the string was not found or if the given string (str) contains a comma. | 
+| format\_number(expr1, expr2) | Formats the number expr1 like '\#,\#\#\#,\#\#\#.\#\#', rounded to expr2 decimal places. If expr2 is 0, the result has no decimal point or fractional part. expr2 also accept a user specified format. This is supposed to function like MySQL's FORMAT. | 
+| format\_string(strfmt, obj, ...) | Returns a formatted string from printf-style format strings. | 
+| initcap(str) | Returns str with the first letter of each word in uppercase. All other letters are in lowercase. Words are delimited by white space. | 
+| instr(str, substr) | Returns the (1-based) index of the first occurrence of substr in str. | 
+| lcase(str) | Returns str with all characters changed to lowercase. | 
+| left(str, len) | Returns the leftmost len(len can be string type) characters from the string str,if len is less or equal than 0 the result is an empty string. | 
+| len(expr) | Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros. | 
+| length(expr) | Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros. | 
+| levenshtein(str1, str2[, threshold]) | Returns the Levenshtein distance between the two given strings. If threshold is set and distance more than it, return -1. | 
+| locate(substr, str[, pos]) | Returns the position of the first occurrence of substr in str after position pos. The given pos and return value are 1-based. | 
+| lower(str) | Returns str with all characters changed to lowercase. | 
+| lpad(str, len[, pad]) | Returns str, left-padded with pad to a length of len. If str is longer than len, the return value is shortened to len characters or bytes. If pad is not specified, str will be padded to the left with space characters if it is a character string, and with zeros if it is a byte sequence. | 
+| ltrim(str) | Removes the leading space characters from str. | 
+| luhn\_check(str ) | Checks that a string of digits is valid according to the Luhn algorithm. This checksum function is widely applied on credit card numbers and government identification numbers to distinguish valid numbers from mistyped, incorrect numbers. | 
+| mask(input[, upperChar, lowerChar, digitChar, otherChar]) | masks the given string value. The function replaces characters with 'X' or 'x', and numbers with 'n'. This can be useful for creating copies of tables with sensitive information removed. | 
+| octet\_length(expr) | Returns the byte length of string data or number of bytes of binary data. | 
+| overlay(input, replace, pos[, len]) | Replace input with replace that starts at pos and is of length len. | 
+| position(substr, str[, pos]) | Returns the position of the first occurrence of substr in str after position pos. The given pos and return value are 1-based. | 
+| printf(strfmt, obj, ...) | Returns a formatted string from printf-style format strings. | 
+| regexp\_count(str, regexp) | Returns a count of the number of times that the regular expression pattern regexp is matched in the string str. | 
+| regexp\_extract(str, regexp[, idx]) | Extract the first string in the str that match the regexp expression and corresponding to the regex group index. | 
+| regexp\_extract\_all(str, regexp[, idx]) | Extract all strings in the str that match the regexp expression and corresponding to the regex group index. | 
+| regexp\_instr(str, regexp) | Searches a string for a regular expression and returns an integer that indicates the beginning position of the matched substring. Positions are 1-based, not 0-based. If no match is found, returns 0. | 
+| regexp\_replace(str, regexp, rep[, position]) | Replaces all substrings of str that match regexp with rep. | 
+| regexp\_substr(str, regexp) | Returns the substring that matches the regular expression regexp within the string str. If the regular expression is not found, the result is null. | 
+| repeat(str, n) | Returns the string which repeats the given string value n times. | 
+| replace(str, search[, replace]) | Replaces all occurrences of search with replace. | 
+| right(str, len) | Returns the rightmost len(len can be string type) characters from the string str,if len is less or equal than 0 the result is an empty string. | 
+| rpad(str, len[, pad]) | Returns str, right-padded with pad to a length of len. If str is longer than len, the return value is shortened to len characters. If pad is not specified, str will be padded to the right with space characters if it is a character string, and with zeros if it is a binary string. | 
+| rtrim(str) | Removes the trailing space characters from str. | 
+| sentences(str[, lang, country]) | Splits str into an array of array of words. | 
+| soundex(str) | Returns Soundex code of the string. | 
+| space(n) | Returns a string consisting of n spaces. | 
+| split(str, regex, limit) | Splits str around occurrences that match regex and returns an array with a length of at most limit | 
+| split\_part(str, delimiter, partNum) | Splits str by delimiter and return requested part of the split (1-based). If any input is null, returns null. if partNum is out of range of split parts, returns empty string. If partNum is 0, throws an error. If partNum is negative, the parts are counted backward from the end of the string. If the delimiter is an empty string, the str is not split. | 
+| startswith(left, right) | Returns a boolean. The value is True if left starts with right. Returns NULL if either input expression is NULL. Otherwise, returns False. Both left or right must be of STRING or BINARY type. | 
+| substr(str, pos[, len]) | Returns the substring of str that starts at pos and is of length len, or the slice of byte array that starts at pos and is of length len. | 
+| substr(str FROM pos[ FOR len]]) | Returns the substring of str that starts at pos and is of length len, or the slice of byte array that starts at pos and is of length len. | 
+| substring(str, pos[, len]) | Returns the substring of str that starts at pos and is of length len, or the slice of byte array that starts at pos and is of length len. | 
+| substring(str FROM pos[ FOR len]]) | Returns the substring of str that starts at pos and is of length len, or the slice of byte array that starts at pos and is of length len. | 
+| substring\_index(str, delim, count) | Returns the substring from str before count occurrences of the delimiter delim. If count is positive, everything to the left of the final delimiter (counting from the left) is returned. If count is negative, everything to the right of the final delimiter (counting from the right) is returned. The function substring\_index performs a case-sensitive match when searching for delim. | 
+| to\_binary(str[, fmt]) | Converts the input str to a binary value based on the supplied fmt. fmt can be a case-insensitive string literal of "hex", "utf-8", "utf8", or "base64". By default, the binary format for conversion is "hex" if fmt is omitted. The function returns NULL if at least one of the input parameters is NULL. | 
+| to\_char(numberExpr, formatExpr) | Convert numberExpr to a string based on the formatExpr. Throws an exception if the conversion fails. The format can consist of the following characters, case insensitive: '0' or '9': Specifies an expected digit between 0 and 9. A sequence of 0 or 9 in the format string matches a sequence of digits in the input value, generating a result string of the same length as the corresponding sequence in the format string. The result string is left-padded with zeros if the 0/9 sequence comprises more digits than the matching part of the decimal value, starts with 0, and is before the decimal point. Otherwise, it is padded with spaces. '.' or 'D': Specifies the position of the decimal point (optional, only allowed once). ',' or 'G': Specifies the position of the grouping (thousands) separator (,). There must be a 0 or 9 to the left and right of each grouping separator. ' | 
+| to\_number(expr, fmt) | Convert string 'expr' to a number based on the string format 'fmt'. Throws an exception if the conversion fails. The format can consist of the following characters, case insensitive: '0' or '9': Specifies an expected digit between 0 and 9. A sequence of 0 or 9 in the format string matches a sequence of digits in the input string. If the 0/9 sequence starts with 0 and is before the decimal point, it can only match a digit sequence of the same size. Otherwise, if the sequence starts with 9 or is after the decimal point, it can match a digit sequence that has the same or smaller size. '.' or 'D': Specifies the position of the decimal point (optional, only allowed once). ',' or 'G': Specifies the position of the grouping (thousands) separator (,). There must be a 0 or 9 to the left and right of each grouping separator. 'expr' must match the grouping separator relevant for the size of the number. ' | 
+| to\_varchar(numberExpr, formatExpr) | Convert numberExpr to a string based on the formatExpr. Throws an exception if the conversion fails. The format can consist of the following characters, case insensitive: '0' or '9': Specifies an expected digit between 0 and 9. A sequence of 0 or 9 in the format string matches a sequence of digits in the input value, generating a result string of the same length as the corresponding sequence in the format string. The result string is left-padded with zeros if the 0/9 sequence comprises more digits than the matching part of the decimal value, starts with 0, and is before the decimal point. Otherwise, it is padded with spaces. '.' or 'D': Specifies the position of the decimal point (optional, only allowed once). ',' or 'G': Specifies the position of the grouping (thousands) separator (,). There must be a 0 or 9 to the left and right of each grouping separator. ' | 
+| translate(input, from, to) | Translates the input string by replacing the characters present in the from string with the corresponding characters in the to string. | 
+| trim(str) | Removes the leading and trailing space characters from str. | 
+| trim(BOTH FROM str) | Removes the leading and trailing space characters from str. | 
+| trim(LEADING FROM str) | Removes the leading space characters from str. | 
+| trim(TRAILING FROM str) | Removes the trailing space characters from str. | 
+| trim(trimStr FROM str) | Remove the leading and trailing trimStr characters from str. | 
+| trim(BOTH trimStr FROM str) | Remove the leading and trailing trimStr characters from str. | 
+| trim(LEADING trimStr FROM str) | Remove the leading trimStr characters from str. | 
+| trim(TRAILING trimStr FROM str) | Remove the trailing trimStr characters from str. | 
+| try\_to\_binary(str[, fmt]) | This is a special version of to\_binary that performs the same operation, but returns a NULL value instead of raising an error if the conversion cannot be performed. | 
+| try\_to\_number(expr, fmt) | Convert string 'expr' to a number based on the string format fmt. Returns NULL if the string 'expr' does not match the expected format. The format follows the same semantics as the to\_number function. | 
+| ucase(str) | Returns str with all characters changed to uppercase. | 
+| unbase64(str) | Converts the argument from a base 64 string str to a binary. | 
+| upper(str) | Returns str with all characters changed to uppercase. | 
+
+
 
 **Examples**
 
@@ -1395,79 +1361,80 @@ SELECT upper('Feathers');
 ```
 
 #### Date and time functions
+<a name="supported-sql-date-time"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                                                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| add\_months(start\_date, num\_months)                                          | Returns the date that is `num_months` after<br>`start_date`.                                                                                                                                                                                                                                                                                                                                                                                               |
-| convert\_timezone([sourceTz, ]targetTz, sourceTs)                              | Converts the timestamp without time zone<br>`sourceTs` from the `sourceTz`<br>time zone to `targetTz`.                                                                                                                                                                                                                                                                                                                                                     |
-| curdate()                                                                      | Returns the current date at the start of query<br>evaluation. All calls of curdate within the same query<br>return the same value.                                                                                                                                                                                                                                                                                                                         |
-| current\_date()                                                                | Returns the current date at the start of query<br>evaluation. All calls of current\_date within the same query<br>return the same value.                                                                                                                                                                                                                                                                                                                   |
-| current\_date                                                                  | Returns the current date at the start of query<br>evaluation.                                                                                                                                                                                                                                                                                                                                                                                              |
-| current\_timestamp()                                                           | Returns the current timestamp at the start of query<br>evaluation. All calls of current\_timestamp within the same<br>query return the same value.                                                                                                                                                                                                                                                                                                         |
-| current\_timestamp                                                             | Returns the current timestamp at the start of query<br>evaluation.                                                                                                                                                                                                                                                                                                                                                                                         |
-| current\_timezone()                                                            | Returns the current session local timezone.                                                                                                                                                                                                                                                                                                                                                                                                                |
-| date\_add(start\_date, num\_days)                                              | Returns the date that is `num_days` after<br>`start_date`.                                                                                                                                                                                                                                                                                                                                                                                                 |
-| date\_diff(endDate, startDate)                                                 | Returns the number of days from `startDate` to<br>`endDate`.                                                                                                                                                                                                                                                                                                                                                                                               |
-| date\_format(timestamp, fmt)                                                   | Converts `timestamp` to a value of string in<br>the format specified by the date format<br>`fmt`.                                                                                                                                                                                                                                                                                                                                                          |
-| date\_from\_unix\_date(days)                                                   | Create date from the number of days since<br>1970-01-01.                                                                                                                                                                                                                                                                                                                                                                                                   |
-| date\_part(field, source)                                                      | Extracts a part of the date/timestamp or interval<br>source.                                                                                                                                                                                                                                                                                                                                                                                               |
-| date\_sub(start\_date, num\_days)                                              | Returns the date that is `num_days` before<br>`start_date`.                                                                                                                                                                                                                                                                                                                                                                                                |
-| date\_trunc(fmt, ts)                                                           | Returns timestamp `ts` truncated to the unit<br>specified by the format model `fmt`.                                                                                                                                                                                                                                                                                                                                                                       |
-| dateadd(start\_date, num\_days)                                                | Returns the date that is `num_days` after<br>`start_date`.                                                                                                                                                                                                                                                                                                                                                                                                 |
-| datediff(endDate, startDate)                                                   | Returns the number of days from `startDate` to<br>`endDate`.                                                                                                                                                                                                                                                                                                                                                                                               |
-| datepart(field, source)                                                        | Extracts a part of the date/timestamp or interval<br>source.                                                                                                                                                                                                                                                                                                                                                                                               |
-| day(date)                                                                      | Returns the day of month of the date/timestamp.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| dayofmonth(date)                                                               | Returns the day of month of the date/timestamp.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| dayofweek(date)                                                                | Returns the day of the week for date/timestamp (1 =<br>Sunday, 2 = Monday, ..., 7 = Saturday).                                                                                                                                                                                                                                                                                                                                                             |
-| dayofyear(date)                                                                | Returns the day of year of the date/timestamp.                                                                                                                                                                                                                                                                                                                                                                                                             |
-| extract(field FROM source)                                                     | Extracts a part of the date/timestamp or interval<br>source.                                                                                                                                                                                                                                                                                                                                                                                               |
-| from\_unixtime(unix\_time[, fmt])                                              | Returns `unix_time` in the specified<br>`fmt`.                                                                                                                                                                                                                                                                                                                                                                                                             |
-| from\_utc\_timestamp(timestamp, timezone)                                      | Given a timestamp like '2017-07-14 02:40:00.0',<br>interprets it as a time in UTC, and renders that time as a<br>timestamp in the given time zone. For example, 'GMT+1' would<br>yield '2017-07-14 03:40:00.0'.                                                                                                                                                                                                                                            |
-| hour(timestamp)                                                                | Returns the hour component of the<br>string/timestamp.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| last\_day(date)                                                                | Returns the last day of the month which the date belongs<br>to.                                                                                                                                                                                                                                                                                                                                                                                            |
-| localtimestamp()                                                               | Returns the current timestamp without time zone at the<br>start of query evaluation. All calls of localtimestamp<br>within the same query return the same value.                                                                                                                                                                                                                                                                                           |
-| localtimestamp                                                                 | Returns the current local date-time at the session time<br>zone at the start of query evaluation.                                                                                                                                                                                                                                                                                                                                                          |
-| make\_date(year, month, day)                                                   | Create date from year, month and day fields.                                                                                                                                                                                                                                                                                                                                                                                                               |
-| make\_dt\_interval([days[, hours[, mins[, secs]]]])                            | Make DayTimeIntervalType duration from days, hours, mins<br>and secs.                                                                                                                                                                                                                                                                                                                                                                                      |
-| make\_interval([years[, months[, weeks[, days[, hours[,<br>mins[, secs]]]]]]]) | Make interval from years, months, weeks, days, hours,<br>mins and secs.                                                                                                                                                                                                                                                                                                                                                                                    |
-| make\_timestamp(year, month, day, hour, min, sec[,<br>timezone])               | Create timestamp from year, month, day, hour, min, sec<br>and timezone fields.                                                                                                                                                                                                                                                                                                                                                                             |
-| make\_timestamp\_ltz(year, month, day, hour, min, sec[,<br>timezone])          | Create the current timestamp with local time zone from<br>year, month, day, hour, min, sec and timezone<br>fields.                                                                                                                                                                                                                                                                                                                                         |
-| make\_timestamp\_ntz(year, month, day, hour, min,<br>sec)                      | Create local date-time from year, month, day, hour, min,<br>sec fields.                                                                                                                                                                                                                                                                                                                                                                                    |
-| make\_ym\_interval([years[, months]])                                          | Make year-month interval from years, months.                                                                                                                                                                                                                                                                                                                                                                                                               |
-| minute(timestamp)                                                              | Returns the minute component of the<br>string/timestamp.                                                                                                                                                                                                                                                                                                                                                                                                   |
-| month(date)                                                                    | Returns the month component of the<br>date/timestamp.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| months\_between(timestamp1, timestamp2[,<br>roundOff])                         | If `timestamp1` is later than<br>`timestamp2`, then the result is positive. If<br>`timestamp1` and `timestamp2` are<br>on the same day of month, or both are the last day of month,<br>time of day will be ignored. Otherwise, the difference is<br>calculated based on 31 days per month, and rounded to 8<br>digits unless roundOff=false.                                                                                                               |
-| next\_day(start\_date, day\_of\_week)                                          | Returns the first date which is later than<br>`start_date` and named as indicated. The<br>function returns NULL if at least one of the input<br>parameters is NULL.                                                                                                                                                                                                                                                                                        |
-| now()                                                                          | Returns the current timestamp at the start of query<br>evaluation.                                                                                                                                                                                                                                                                                                                                                                                         |
-| quarter(date)                                                                  | Returns the quarter of the year for date, in the range 1<br>to 4.                                                                                                                                                                                                                                                                                                                                                                                          |
-| second(timestamp)                                                              | Returns the second component of the<br>string/timestamp.                                                                                                                                                                                                                                                                                                                                                                                                   |
-| session\_window(time\_column, gap\_duration)                                   | Generates session window given a timestamp specifying<br>column and gap duration. See 'Types of time windows' in<br>Structured Streaming guide doc for detailed explanation and<br>examples.                                                                                                                                                                                                                                                               |
-| timestamp\_micros(microseconds)                                                | Creates timestamp from the number of microseconds since<br>UTC epoch.                                                                                                                                                                                                                                                                                                                                                                                      |
-| timestamp\_millis(milliseconds)                                                | Creates timestamp from the number of milliseconds since<br>UTC epoch.                                                                                                                                                                                                                                                                                                                                                                                      |
-| timestamp\_seconds(seconds)                                                    | Creates timestamp from the number of seconds (can be<br>fractional) since UTC epoch.                                                                                                                                                                                                                                                                                                                                                                       |
-| to\_date(date\_str[, fmt])                                                     | Parses the `date_str` expression with the<br>`fmt` expression to a date. Returns null with<br>invalid input. By default, it follows casting rules to a<br>date if the `fmt` is omitted.                                                                                                                                                                                                                                                                    |
-| to\_timestamp(timestamp\_str[, fmt])                                           | Parses the `timestamp_str` expression with the<br>`fmt` expression to a timestamp. Returns null<br>with invalid input. By default, it follows casting rules to<br>a timestamp if the `fmt` is omitted.                                                                                                                                                                                                                                                     |
-| to\_timestamp\_ltz(timestamp\_str[, fmt])                                      | Parses the `timestamp_str` expression with the<br>`fmt` expression to a timestamp with local<br>time zone. Returns null with invalid input. By default, it<br>follows casting rules to a timestamp if the `fmt`<br>is omitted.                                                                                                                                                                                                                             |
-| to\_timestamp\_ntz(timestamp\_str[, fmt])                                      | Parses the `timestamp_str` expression with the<br>`fmt` expression to a timestamp without time<br>zone. Returns null with invalid input. By default, it<br>follows casting rules to a timestamp if the `fmt`<br>is omitted.                                                                                                                                                                                                                                |
-| to\_unix\_timestamp(timeExp[, fmt])                                            | Returns the UNIX timestamp of the given time.                                                                                                                                                                                                                                                                                                                                                                                                              |
-| to\_utc\_timestamp(timestamp, timezone)                                        | Given a timestamp like '2017-07-14 02:40:00.0',<br>interprets it as a time in the given time zone, and renders<br>that time as a timestamp in UTC. For example, 'GMT+1' would<br>yield '2017-07-14 01:40:00.0'.                                                                                                                                                                                                                                            |
-| trunc(date, fmt)                                                               | Returns `date` with the time portion of the<br>day truncated to the unit specified by the format model<br>`fmt`.                                                                                                                                                                                                                                                                                                                                           |
-| try\_to\_timestamp(timestamp\_str[, fmt])                                      | Parses the `timestamp_str` expression with the<br>`fmt` expression to a timestamp.                                                                                                                                                                                                                                                                                                                                                                         |
-| unix\_date(date)                                                               | Returns the number of days since 1970-01-01.                                                                                                                                                                                                                                                                                                                                                                                                               |
-| unix\_micros(timestamp)                                                        | Returns the number of microseconds since 1970-01-01<br>00:00:00 UTC.                                                                                                                                                                                                                                                                                                                                                                                       |
-| unix\_millis(timestamp)                                                        | Returns the number of milliseconds since 1970-01-01<br>00:00:00 UTC. Truncates higher levels of precision.                                                                                                                                                                                                                                                                                                                                                 |
-| unix\_seconds(timestamp)                                                       | Returns the number of seconds since 1970-01-01 00:00:00<br>UTC. Truncates higher levels of precision.                                                                                                                                                                                                                                                                                                                                                      |
-| unix\_timestamp([timeExp[, fmt]])                                              | Returns the UNIX timestamp of current or specified<br>time.                                                                                                                                                                                                                                                                                                                                                                                                |
-| weekday(date)                                                                  | Returns the day of the week for date/timestamp (0 =<br>Monday, 1 = Tuesday, ..., 6 = Sunday).                                                                                                                                                                                                                                                                                                                                                              |
-| weekofyear(date)                                                               | Returns the week of the year of the given date. A week is<br>considered to start on a Monday and week 1 is the first week<br>with >3 days.                                                                                                                                                                                                                                                                                                                 |
-| window(time\_column, window\_duration[, slide\_duration[,<br>start\_time]])    | Bucketize rows into one or more time windows given a<br>timestamp specifying column. Window starts are inclusive but<br>the window ends are exclusive, e.g. 12:05 will be in the<br>window [12:05,12:10) but not in [12:00,12:05). Windows can<br>support microsecond precision. Windows in the order of<br>months are not supported. See 'Window Operations on Event<br>Time' in Structured Streaming guide doc for detailed<br>explanation and examples. |
-| window\_time(window\_column)                                                   | Extract the time value from time/session window column<br>which can be used for event time value of window. The<br>extracted time is (window.end<br>• 1) which reflects the fact<br>that the the aggregating windows have exclusive upper bound<br>• [start, end) See 'Window Operations on Event Time' in<br>Structured Streaming guide doc for detailed explanation and<br>examples.                                                                     |
-| year(date)                                                                     | Returns the year component of the date/timestamp.                                                                                                                                                                                                                                                                                                                                                                                                          |
+
+| Function | Description | 
+| --- | --- | 
+| add\_months(start\_date, num\_months) | Returns the date that is num\_months after start\_date. | 
+| convert\_timezone([sourceTz, ]targetTz, sourceTs) | Converts the timestamp without time zone sourceTs from the sourceTz time zone to targetTz. | 
+| curdate() | Returns the current date at the start of query evaluation. All calls of curdate within the same query return the same value. | 
+| current\_date() | Returns the current date at the start of query evaluation. All calls of current\_date within the same query return the same value. | 
+| current\_date | Returns the current date at the start of query evaluation. | 
+| current\_timestamp() | Returns the current timestamp at the start of query evaluation. All calls of current\_timestamp within the same query return the same value. | 
+| current\_timestamp | Returns the current timestamp at the start of query evaluation. | 
+| current\_timezone() | Returns the current session local timezone. | 
+| date\_add(start\_date, num\_days) | Returns the date that is num\_days after start\_date. | 
+| date\_diff(endDate, startDate) | Returns the number of days from startDate to endDate. | 
+| date\_format(timestamp, fmt) | Converts timestamp to a value of string in the format specified by the date format fmt. | 
+| date\_from\_unix\_date(days) | Create date from the number of days since 1970-01-01. | 
+| date\_part(field, source) | Extracts a part of the date/timestamp or interval source. | 
+| date\_sub(start\_date, num\_days) | Returns the date that is num\_days before start\_date. | 
+| date\_trunc(fmt, ts) | Returns timestamp ts truncated to the unit specified by the format model fmt. | 
+| dateadd(start\_date, num\_days) | Returns the date that is num\_days after start\_date. | 
+| datediff(endDate, startDate) | Returns the number of days from startDate to endDate. | 
+| datepart(field, source) | Extracts a part of the date/timestamp or interval source. | 
+| day(date) | Returns the day of month of the date/timestamp. | 
+| dayofmonth(date) | Returns the day of month of the date/timestamp. | 
+| dayofweek(date) | Returns the day of the week for date/timestamp (1 = Sunday, 2 = Monday, ..., 7 = Saturday). | 
+| dayofyear(date) | Returns the day of year of the date/timestamp. | 
+| extract(field FROM source) | Extracts a part of the date/timestamp or interval source. | 
+| from\_unixtime(unix\_time[, fmt]) | Returns unix\_time in the specified fmt. | 
+| from\_utc\_timestamp(timestamp, timezone) | Given a timestamp like '2017-07-14 02:40:00.0', interprets it as a time in UTC, and renders that time as a timestamp in the given time zone. For example, 'GMT\+1' would yield '2017-07-14 03:40:00.0'. | 
+| hour(timestamp) | Returns the hour component of the string/timestamp. | 
+| last\_day(date) | Returns the last day of the month which the date belongs to. | 
+| localtimestamp() | Returns the current timestamp without time zone at the start of query evaluation. All calls of localtimestamp within the same query return the same value. | 
+| localtimestamp | Returns the current local date-time at the session time zone at the start of query evaluation. | 
+| make\_date(year, month, day) | Create date from year, month and day fields.  | 
+| make\_dt\_interval([days[, hours[, mins[, secs]]]]) | Make DayTimeIntervalType duration from days, hours, mins and secs. | 
+| make\_interval([years[, months[, weeks[, days[, hours[, mins[, secs]]]]]]]) | Make interval from years, months, weeks, days, hours, mins and secs. | 
+| make\_timestamp(year, month, day, hour, min, sec[, timezone]) | Create timestamp from year, month, day, hour, min, sec and timezone fields.  | 
+| make\_timestamp\_ltz(year, month, day, hour, min, sec[, timezone]) | Create the current timestamp with local time zone from year, month, day, hour, min, sec and timezone fields. | 
+| make\_timestamp\_ntz(year, month, day, hour, min, sec) | Create local date-time from year, month, day, hour, min, sec fields.  | 
+| make\_ym\_interval([years[, months]]) | Make year-month interval from years, months. | 
+| minute(timestamp) | Returns the minute component of the string/timestamp. | 
+| month(date) | Returns the month component of the date/timestamp. | 
+| months\_between(timestamp1, timestamp2[, roundOff]) | If timestamp1 is later than timestamp2, then the result is positive. If timestamp1 and timestamp2 are on the same day of month, or both are the last day of month, time of day will be ignored. Otherwise, the difference is calculated based on 31 days per month, and rounded to 8 digits unless roundOff=false. | 
+| next\_day(start\_date, day\_of\_week) | Returns the first date which is later than start\_date and named as indicated. The function returns NULL if at least one of the input parameters is NULL.  | 
+| now() | Returns the current timestamp at the start of query evaluation. | 
+| quarter(date) | Returns the quarter of the year for date, in the range 1 to 4. | 
+| second(timestamp) | Returns the second component of the string/timestamp. | 
+| session\_window(time\_column, gap\_duration) | Generates session window given a timestamp specifying column and gap duration. See 'Types of time windows' in Structured Streaming guide doc for detailed explanation and examples. | 
+| timestamp\_micros(microseconds) | Creates timestamp from the number of microseconds since UTC epoch. | 
+| timestamp\_millis(milliseconds) | Creates timestamp from the number of milliseconds since UTC epoch. | 
+| timestamp\_seconds(seconds) | Creates timestamp from the number of seconds (can be fractional) since UTC epoch. | 
+| to\_date(date\_str[, fmt]) | Parses the date\_str expression with the fmt expression to a date. Returns null with invalid input. By default, it follows casting rules to a date if the fmt is omitted. | 
+| to\_timestamp(timestamp\_str[, fmt]) | Parses the timestamp\_str expression with the fmt expression to a timestamp. Returns null with invalid input. By default, it follows casting rules to a timestamp if the fmt is omitted.  | 
+| to\_timestamp\_ltz(timestamp\_str[, fmt]) | Parses the timestamp\_str expression with the fmt expression to a timestamp with local time zone. Returns null with invalid input. By default, it follows casting rules to a timestamp if the fmt is omitted. | 
+| to\_timestamp\_ntz(timestamp\_str[, fmt]) | Parses the timestamp\_str expression with the fmt expression to a timestamp without time zone. Returns null with invalid input. By default, it follows casting rules to a timestamp if the fmt is omitted. | 
+| to\_unix\_timestamp(timeExp[, fmt]) | Returns the UNIX timestamp of the given time. | 
+| to\_utc\_timestamp(timestamp, timezone) | Given a timestamp like '2017-07-14 02:40:00.0', interprets it as a time in the given time zone, and renders that time as a timestamp in UTC. For example, 'GMT\+1' would yield '2017-07-14 01:40:00.0'. | 
+| trunc(date, fmt) | Returns date with the time portion of the day truncated to the unit specified by the format model fmt. | 
+| try\_to\_timestamp(timestamp\_str[, fmt]) | Parses the timestamp\_str expression with the fmt expression to a timestamp.  | 
+| unix\_date(date) | Returns the number of days since 1970-01-01. | 
+| unix\_micros(timestamp) | Returns the number of microseconds since 1970-01-01 00:00:00 UTC. | 
+| unix\_millis(timestamp) | Returns the number of milliseconds since 1970-01-01 00:00:00 UTC. Truncates higher levels of precision. | 
+| unix\_seconds(timestamp) | Returns the number of seconds since 1970-01-01 00:00:00 UTC. Truncates higher levels of precision. | 
+| unix\_timestamp([timeExp[, fmt]]) | Returns the UNIX timestamp of current or specified time. | 
+| weekday(date) | Returns the day of the week for date/timestamp (0 = Monday, 1 = Tuesday, ..., 6 = Sunday). | 
+| weekofyear(date) | Returns the week of the year of the given date. A week is considered to start on a Monday and week 1 is the first week with >3 days. | 
+| window(time\_column, window\_duration[, slide\_duration[, start\_time]]) | Bucketize rows into one or more time windows given a timestamp specifying column. Window starts are inclusive but the window ends are exclusive, e.g. 12:05 will be in the window [12:05,12:10) but not in [12:00,12:05). Windows can support microsecond precision. Windows in the order of months are not supported. See 'Window Operations on Event Time' in Structured Streaming guide doc for detailed explanation and examples. | 
+| window\_time(window\_column) | Extract the time value from time/session window column which can be used for event time value of window. The extracted time is (window.end - 1) which reflects the fact that the the aggregating windows have exclusive upper bound - [start, end) See 'Window Operations on Event Time' in Structured Streaming guide doc for detailed explanation and examples. | 
+| year(date) | Returns the year component of the date/timestamp. | 
 
 **Examples**
 
@@ -2294,50 +2261,36 @@ SELECT year('2016-07-30');
 ```
 
 #### Aggregate functions
+<a name="supported-sql-aggregate"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+Aggregate functions operate on values across rows to perform mathematical calculations such as sum, average, counting, minimum/maximum values, standard deviation, and estimation, as well as some non-mathematical operations. 
 
-Aggregate functions operate on values across rows to perform mathematical
-calculations such as sum, average, counting, minimum/maximum values,
-standard deviation, and estimation, as well as some non-mathematical
-operations.
-
-**Syntax**
+**Syntax **
 
 ```
-aggregate_function(input1 [, input2, ...]) FILTER (WHERE boolean_expression)
+aggregate_function(input1 [, input2, ...]) FILTER (WHERE boolean_expression) 
 ```
 
-**Parameters**
+**Parameters **
++ `boolean_expression` - Specifies any expression that evaluates to a result type boolean. Two or more expressions may be combined together using the logical operators ( AND, OR ). 
 
-- `boolean_expression` - Specifies any expression that
-  evaluates to a result type boolean. Two or more expressions may be
-  combined together using the logical operators ( AND, OR ).
+**Ordered-set aggregate functions **
 
-**Ordered-set aggregate functions**
+These aggregate functions use different syntax than the other aggregate functions so that to specify an expression (typically a column name) by which to order the values. 
 
-These aggregate functions use different syntax than the other aggregate
-functions so that to specify an expression (typically a column name) by
-which to order the values.
-
-**Syntax**
+**Syntax **
 
 ```
-{ PERCENTILE_CONT | PERCENTILE_DISC }(percentile) WITHIN GROUP (ORDER BY { order_by_expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [ , ... ] }) FILTER (WHERE boolean_expression)
+{ PERCENTILE_CONT | PERCENTILE_DISC }(percentile) WITHIN GROUP (ORDER BY { order_by_expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [ , ... ] }) FILTER (WHERE boolean_expression) 
 ```
 
-**Parameters**
-
-- `percentile` - The percentile of the value that you
-  want to find. The percentile must be a constant between 0.0 and 1.0.
-- `order_by_expression` - The expression (typically a
-  column name) by which to order the values before aggregating them.
-- `boolean_expression` - Specifies any expression that
-  evaluates to a result type boolean. Two or more expressions may be
-  combined together using the logical operators ( AND, OR ).
+**Parameters **
++ `percentile` - The percentile of the value that you want to find. The percentile must be a constant between 0.0 and 1.0. 
++ `order_by_expression` - The expression (typically a column name) by which to order the values before aggregating them. 
++ `boolean_expression` - Specifies any expression that evaluates to a result type boolean. Two or more expressions may be combined together using the logical operators ( AND, OR ). 
 
 **Examples**
 
@@ -2407,22 +2360,23 @@ ORDER BY department;
 ```
 
 #### Conditional functions
+<a name="supported-sql-conditional"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                                                                     | Description                                                                                                     |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| coalesce(expr1, expr2, ...)                                                  | Returns the first non-null argument if exists. Otherwise,<br>null.                                              |
-| if(expr1, expr2, expr3)                                                      | If `expr1` evaluates to true, then returns<br>`expr2`; otherwise returns<br>`expr3`.                            |
-| ifnull(expr1, expr2)                                                         | Returns `expr2` if `expr1` is null,<br>or `expr1` otherwise.                                                    |
-| nanvl(expr1, expr2)                                                          | Returns `expr1` if it's not NaN, or<br>`expr2` otherwise.                                                       |
-| nullif(expr1, expr2)                                                         | Returns null if `expr1` equals to<br>`expr2`, or `expr1`<br>otherwise.                                          |
-| nvl(expr1, expr2)                                                            | Returns `expr2` if `expr1` is null,<br>or `expr1` otherwise.                                                    |
-| nvl2(expr1, expr2, expr3)                                                    | Returns `expr2` if `expr1` is not<br>null, or `expr3` otherwise.                                                |
-| CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]\<br>• [ELSE<br>expr5] END | When `expr1` = true, returns<br>`expr2`; else when `expr3` = true,<br>returns `expr4`; else returns<br>`expr5`. |
+
+| Function | Description | 
+| --- | --- | 
+| coalesce(expr1, expr2, ...) | Returns the first non-null argument if exists. Otherwise, null. | 
+| if(expr1, expr2, expr3) | If expr1 evaluates to true, then returns expr2; otherwise returns expr3. | 
+| ifnull(expr1, expr2) | Returns expr2 if expr1 is null, or expr1 otherwise. | 
+| nanvl(expr1, expr2) | Returns expr1 if it's not NaN, or expr2 otherwise. | 
+| nullif(expr1, expr2) | Returns null if expr1 equals to expr2, or expr1 otherwise. | 
+| nvl(expr1, expr2) | Returns expr2 if expr1 is null, or expr1 otherwise. | 
+| nvl2(expr1, expr2, expr3) | Returns expr2 if expr1 is not null, or expr3 otherwise. | 
+| CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]\* [ELSE expr5] END | When expr1 = true, returns expr2; else when expr3 = true, returns expr4; else returns expr5. | 
 
 **Examples**
 
@@ -2498,21 +2452,24 @@ SELECT CASE WHEN 1 < 0 THEN 1 WHEN 2 < 0 THEN 2.0 END;
 ```
 
 #### JSON functions
+<a name="supported-sql-json"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                               | Description                                                                                                                                          |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from\_json(jsonStr, schema[, options]) | Returns a struct value with the given `jsonStr` and<br>`schema`.                                                                                     |
-| get\_json\_object(json\_txt, path)     | Extracts a json object from `path`.                                                                                                                  |
-| json\_array\_length(jsonArray)         | Returns the number of elements in the outermost JSON<br>array.                                                                                       |
-| json\_object\_keys(json\_object)       | Returns all the keys of the outermost JSON object as an<br>array.                                                                                    |
-| json\_tuple(jsonStr, p1, p2, ..., pn)  | Returns a tuple like the function get\_json\_object, but it<br>takes multiple names. All the input parameters and output<br>column types are string. |
-| schema\_of\_json(json[, options])      | Returns schema in the DDL format of JSON string.                                                                                                     |
-| to\_json(expr[, options])              | Returns a JSON string with a given struct value                                                                                                      |
+
+
+
+| Function | Description | 
+| --- | --- | 
+| from\_json(jsonStr, schema[, options]) | Returns a struct value with the given `jsonStr` and `schema`. | 
+| get\_json\_object(json\_txt, path) | Extracts a json object from `path`. | 
+| json\_array\_length(jsonArray) | Returns the number of elements in the outermost JSON array. | 
+| json\_object\_keys(json\_object) | Returns all the keys of the outermost JSON object as an array. | 
+| json\_tuple(jsonStr, p1, p2, ..., pn) | Returns a tuple like the function get\_json\_object, but it takes multiple names. All the input parameters and output column types are string. | 
+| schema\_of\_json(json[, options]) | Returns schema in the DDL format of JSON string. | 
+| to\_json(expr[, options]) | Returns a JSON string with a given struct value | 
 
 **Examples**
 
@@ -2666,38 +2623,39 @@ SELECT to_json(array(map('a', 1)));
 ```
 
 #### Array functions
+<a name="supported-sql-array"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| array(expr, ...)                                 | Returns an array with the given elements.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| array\_append(array, element)                    | Add the element at the end of the array passed as first<br>argument. Type of element should be similar to type of the<br>elements of the array. Null element is also appended into<br>the array. But if the array passed, is NULL output is<br>NULL                                                                                                                                                                                                                                                                                                                                    |
-| array\_compact(array)                            | Removes null values from the array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| array\_contains(array, value)                    | Returns true if the array contains the value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| array\_distinct(array)                           | Removes duplicate values from the array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| array\_except(array1, array2)                    | Returns an array of the elements in array1 but not in<br>array2, without duplicates.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| array\_insert(x, pos, val)                       | Places val into index pos of array x. Array indices start<br>at 1. The maximum negative index is -1 for which the<br>function inserts new element after the current last element.<br>Index above array size appends the array, or prepends the<br>array if index is negative, with 'null' elements.                                                                                                                                                                                                                                                                                    |
-| array\_intersect(array1, array2)                 | Returns an array of the elements in the intersection of<br>array1 and array2, without duplicates.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| array\_join(array, delimiter[, nullReplacement]) | Concatenates the elements of the given array using the<br>delimiter and an optional string to replace nulls. If no<br>value is set for nullReplacement, any null value is<br>filtered.                                                                                                                                                                                                                                                                                                                                                                                                 |
-| array\_max(array)                                | Returns the maximum value in the array. NaN is greater<br>than any non-NaN elements for double/float type. NULL<br>elements are skipped.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| array\_min(array)                                | Returns the minimum value in the array. NaN is greater<br>than any non-NaN elements for double/float type. NULL<br>elements are skipped.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| array\_position(array, element)                  | Returns the (1-based) index of the first matching element<br>of the array as long, or 0 if no match is found.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| array\_prepend(array, element)                   | Add the element at the beginning of the array passed as<br>first argument. Type of element should be the same as the<br>type of the elements of the array. Null element is also<br>prepended to the array. But if the array passed is NULL<br>output is NULL                                                                                                                                                                                                                                                                                                                           |
-| array\_remove(array, element)                    | Remove all elements that equal to element from<br>array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| array\_repeat(element, count)                    | Returns the array containing element count times.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| array\_union(array1, array2)                     | Returns an array of the elements in the union of array1<br>and array2, without duplicates.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| arrays\_overlap(a1, a2)                          | Returns true if a1 contains at least a non-null element<br>present also in a2. If the arrays have no common element and<br>they are both non-empty and either of them contains a null<br>element null is returned, false otherwise.                                                                                                                                                                                                                                                                                                                                                    |
-| arrays\_zip(a1, a2, ...)                         | Returns a merged array of structs in which the N-th<br>struct contains all N-th values of input arrays.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| flatten(arrayOfArrays)                           | Transforms an array of arrays into a single<br>array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| get(array, index)                                | Returns element of array at given (0-based) index. If the<br>index points outside of the array boundaries, then this<br>function returns NULL.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| sequence(start, stop, step)                      | Generates an array of elements from start to stop<br>(inclusive), incrementing by step. The type of the returned<br>elements is the same as the type of argument expressions.<br>Supported types are: byte, short, integer, long, date,<br>timestamp. The start and stop expressions must resolve to<br>the same type. If start and stop expressions resolve to the<br>'date' or 'timestamp' type then the step expression must<br>resolve to the 'interval' or 'year-month interval' or<br>'day-time interval' type, otherwise to the same type as the<br>start and stop expressions. |
-| shuffle(array)                                   | Returns a random permutation of the given array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| slice(x, start, length)                          | Subsets array x starting from index start (array indices<br>start at 1, or starting from the end if start is negative)<br>with the specified length.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| sort\_array(array[, ascendingOrder])             | Sorts the input array in ascending or descending order<br>according to the natural ordering of the array elements. NaN<br>is greater than any non-NaN elements for double/float type.<br>Null elements will be placed at the beginning of the<br>returned array in ascending order or at the end of the<br>returned array in descending order.                                                                                                                                                                                                                                         |
+
+| Function | Description | 
+| --- | --- | 
+| array(expr, ...) | Returns an array with the given elements. | 
+| array\_append(array, element) | Add the element at the end of the array passed as first argument. Type of element should be similar to type of the elements of the array. Null element is also appended into the array. But if the array passed, is NULL output is NULL | 
+| array\_compact(array) | Removes null values from the array. | 
+| array\_contains(array, value) | Returns true if the array contains the value. | 
+| array\_distinct(array) | Removes duplicate values from the array. | 
+| array\_except(array1, array2) | Returns an array of the elements in array1 but not in array2, without duplicates. | 
+| array\_insert(x, pos, val) | Places val into index pos of array x. Array indices start at 1. The maximum negative index is -1 for which the function inserts new element after the current last element. Index above array size appends the array, or prepends the array if index is negative, with 'null' elements. | 
+| array\_intersect(array1, array2) | Returns an array of the elements in the intersection of array1 and array2, without duplicates. | 
+| array\_join(array, delimiter[, nullReplacement]) | Concatenates the elements of the given array using the delimiter and an optional string to replace nulls. If no value is set for nullReplacement, any null value is filtered. | 
+| array\_max(array) | Returns the maximum value in the array. NaN is greater than any non-NaN elements for double/float type. NULL elements are skipped. | 
+| array\_min(array) | Returns the minimum value in the array. NaN is greater than any non-NaN elements for double/float type. NULL elements are skipped. | 
+| array\_position(array, element) | Returns the (1-based) index of the first matching element of the array as long, or 0 if no match is found. | 
+| array\_prepend(array, element) | Add the element at the beginning of the array passed as first argument. Type of element should be the same as the type of the elements of the array. Null element is also prepended to the array. But if the array passed is NULL output is NULL | 
+| array\_remove(array, element) | Remove all elements that equal to element from array. | 
+| array\_repeat(element, count) | Returns the array containing element count times. | 
+| array\_union(array1, array2) | Returns an array of the elements in the union of array1 and array2, without duplicates. | 
+| arrays\_overlap(a1, a2) | Returns true if a1 contains at least a non-null element present also in a2. If the arrays have no common element and they are both non-empty and either of them contains a null element null is returned, false otherwise. | 
+| arrays\_zip(a1, a2, ...) | Returns a merged array of structs in which the N-th struct contains all N-th values of input arrays. | 
+| flatten(arrayOfArrays) | Transforms an array of arrays into a single array. | 
+| get(array, index) | Returns element of array at given (0-based) index. If the index points outside of the array boundaries, then this function returns NULL. | 
+| sequence(start, stop, step) | Generates an array of elements from start to stop (inclusive), incrementing by step. The type of the returned elements is the same as the type of argument expressions. Supported types are: byte, short, integer, long, date, timestamp. The start and stop expressions must resolve to the same type. If start and stop expressions resolve to the 'date' or 'timestamp' type then the step expression must resolve to the 'interval' or 'year-month interval' or 'day-time interval' type, otherwise to the same type as the start and stop expressions. | 
+| shuffle(array) | Returns a random permutation of the given array. | 
+| slice(x, start, length) | Subsets array x starting from index start (array indices start at 1, or starting from the end if start is negative) with the specified length. | 
+| sort\_array(array[, ascendingOrder]) | Sorts the input array in ascending or descending order according to the natural ordering of the array elements. NaN is greater than any non-NaN elements for double/float type. Null elements will be placed at the beginning of the returned array in ascending order or at the end of the returned array in descending order. | 
 
 **Examples**
 
@@ -2981,72 +2939,51 @@ SELECT sort_array(array('b', 'd', null, 'c', 'a'), true);
 ```
 
 #### Window functions
+<a name="supported-sql-window"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+Window functions operate on a group of rows, referred to as a window, and calculate a return value for each row based on the group of rows. Window functions are useful for processing tasks such as calculating a moving average, computing a cumulative statistic, or accessing the value of rows given the relative position of the current row. 
 
-Window functions operate on a group of rows, referred to as a window, and
-calculate a return value for each row based on the group of rows. Window
-functions are useful for processing tasks such as calculating a moving
-average, computing a cumulative statistic, or accessing the value of rows
-given the relative position of the current row.
-
-**Syntax**
+**Syntax** 
 
 ```
-window_function [ nulls_option ] OVER ( [ { PARTITION | DISTRIBUTE } BY partition_col_name = partition_col_val ( [ , ... ] ) ] { ORDER | SORT } BY expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [ , ... ] [ window_frame ] )
+window_function [ nulls_option ] OVER ( [ { PARTITION | DISTRIBUTE } BY partition_col_name = partition_col_val ( [ , ... ] ) ] { ORDER | SORT } BY expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] [ , ... ] [ window_frame ] ) 
 ```
 
-**Parameters**
+**Parameters** 
++ 
 
-- Ranking functions
+  window\_function 
 
-Syntax: ``RANK` | `DENSE_RANK` |
- `PERCENT_RANK` | `NTILE` |
- `ROW_NUMBER``
+  Ranking functions 
 
-Analytic functions
+  Syntax: `RANK | DENSE_RANK | PERCENT_RANK | NTILE | ROW_NUMBER `
 
-Syntax: ``CUME_DIST` | `LAG` |
- `LEAD` | `NTH_VALUE` |
- `FIRST_VALUE` | `LAST_VALUE``
+  Analytic functions 
 
-Aggregate functions
+  Syntax: `CUME_DIST | LAG | LEAD | NTH_VALUE | FIRST_VALUE | LAST_VALUE `
 
-Syntax: ``MAX` | `MIN` |
- `COUNT` | `SUM` | `AVG` |
- `...``
+  Aggregate functions 
 
-- `nulls_option` - Specifies whether or not to skip null
-  values when evaluating the window function. RESPECT NULLS means not
-  skipping null values, while IGNORE NULLS means skipping. If not
-  specified, the default is RESPECT NULLS.
+  Syntax: `MAX | MIN | COUNT | SUM | AVG | ... `
++ `nulls_option` - Specifies whether or not to skip null values when evaluating the window function. RESPECT NULLS means not skipping null values, while IGNORE NULLS means skipping. If not specified, the default is RESPECT NULLS. 
 
-Syntax: `{ IGNORE | RESPECT } NULLS`
+  Syntax: `{ IGNORE | RESPECT } NULLS `
 
-Note: `Only LAG` | `LEAD` |
-`NTH_VALUE` | `FIRST_VALUE` |
-`LAST_VALUE` can be used with `IGNORE
- NULLS`.
+  Note: `Only LAG` \| `LEAD` \| `NTH_VALUE` \| `FIRST_VALUE` \| `LAST_VALUE` can be used with `IGNORE NULLS`. 
++ `window_frame` - Specifies which row to start the window on and where to end it. 
 
-- `window_frame` - Specifies which row to start the
-  window on and where to end it.
+  Syntax: `{ RANGE | ROWS } { frame_start | BETWEEN frame_start AND frame_end }` 
 
-Syntax: `{ RANGE | ROWS } { frame_start | BETWEEN frame_start
- AND frame_end }`
+  frame\_start and frame\_end have the following syntax: 
 
-frame\_start and frame\_end have the following syntax:
+  Syntax: `UNBOUNDED PRECEDING | offset PRECEDING | CURRENT ROW | offset FOLLOWING | UNBOUNDED FOLLOWING `
 
-Syntax: ``UNBOUNDED PRECEDING` | `offset
- PRECEDING` | `CURRENT ROW` | `offset
- FOLLOWING | UNBOUNDED FOLLOWING``
+  offset: specifies the offset from the position of the current row. 
 
-offset: specifies the offset from the position of the current row.
-
-**Note** If frame\_end is omitted, it
-defaults to CURRENT ROW.
+  **Note** If frame\_end is omitted, it defaults to CURRENT ROW. 
 
 **Examples**
 
@@ -3182,27 +3119,28 @@ ORDER BY id;
 ```
 
 #### Conversion functions
+<a name="supported-sql-conversion"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function           | Description                                                    |
-| ------------------ | -------------------------------------------------------------- |
-| bigint(expr)       | Casts the value `expr` to the target data type<br>`bigint`.    |
-| binary(expr)       | Casts the value `expr` to the target data type<br>`binary`.    |
-| boolean(expr)      | Casts the value `expr` to the target data type<br>`boolean`.   |
-| cast(expr AS type) | Casts the value `expr` to the target data type<br>`type`.      |
-| date(expr)         | Casts the value `expr` to the target data type<br>`date`.      |
-| decimal(expr)      | Casts the value `expr` to the target data type<br>`decimal`.   |
-| double(expr)       | Casts the value `expr` to the target data type<br>`double`.    |
-| float(expr)        | Casts the value `expr` to the target data type<br>`float`.     |
-| int(expr)          | Casts the value `expr` to the target data type<br>`int`.       |
-| smallint(expr)     | Casts the value `expr` to the target data type<br>`smallint`.  |
-| string(expr)       | Casts the value `expr` to the target data type<br>`string`.    |
-| timestamp(expr)    | Casts the value `expr` to the target data type<br>`timestamp`. |
-| tinyint(expr)      | Casts the value `expr` to the target data type<br>`tinyint`.   |
+
+| Function | Description | 
+| --- | --- | 
+| bigint(expr) | Casts the value `expr` to the target data type `bigint`. | 
+| binary(expr) | Casts the value `expr` to the target data type `binary`. | 
+| boolean(expr) | Casts the value `expr` to the target data type `boolean`. | 
+| cast(expr AS type) | Casts the value `expr` to the target data type `type`. | 
+| date(expr) | Casts the value `expr` to the target data type `date`. | 
+| decimal(expr) | Casts the value `expr` to the target data type `decimal`. | 
+| double(expr) | Casts the value `expr` to the target data type `double`. | 
+| float(expr) | Casts the value `expr` to the target data type `float`. | 
+| int(expr) | Casts the value `expr` to the target data type `int`. | 
+| smallint(expr) | Casts the value `expr` to the target data type `smallint`. | 
+| string(expr) | Casts the value `expr` to the target data type `string`. | 
+| timestamp(expr) | Casts the value `expr` to the target data type `timestamp`. | 
+| tinyint(expr) | Casts the value `expr` to the target data type `tinyint`. | 
 
 **Examples**
 
@@ -3217,34 +3155,35 @@ SELECT cast(field as int);
 ```
 
 #### Predicate functions
+<a name="supported-sql-predicate"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                          | Description                                                                                                                                    |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| ! expr                            | Logical not.                                                                                                                                   |
-| expr1 < expr2                     | Returns true if `expr1` is less than `expr2`.                                                                                                  |
-| expr1 <= expr2                    | Returns true if `expr1` is less than or equal to<br>`expr2`.                                                                                   |
-| expr1 <=> expr2                   | Returns same result as the EQUAL(=) operator for non-null<br>operands, but returns true if both are null, false if one of<br>the them is null. |
-| expr1 = expr2                     | Returns true if `expr1` equals `expr2`, or false<br>otherwise.                                                                                 |
-| expr1 == expr2                    | Returns true if `expr1` equals `expr2`, or false<br>otherwise.                                                                                 |
-| expr1 > expr2                     | Returns true if `expr1` is greater than `expr2`.                                                                                               |
-| expr1 >= expr2                    | Returns true if `expr1` is greater than or equal to<br>`expr2`.                                                                                |
-| expr1 and expr2                   | Logical AND.                                                                                                                                   |
-| str ilike pattern[ ESCAPE escape] | Returns true if str matches `pattern` with `escape`<br>case-insensitively, null if any arguments are null, false<br>otherwise.                 |
-| expr1 in(expr2, expr3, ...)       | Returns true if `expr` equals to any valN.                                                                                                     |
-| isnan(expr)                       | Returns true if `expr` is NaN, or false<br>otherwise.                                                                                          |
-| isnotnull(expr)                   | Returns true if `expr` is not null, or false<br>otherwise.                                                                                     |
-| isnull(expr)                      | Returns true if `expr` is null, or false<br>otherwise.                                                                                         |
-| str like pattern[ ESCAPE escape]  | Returns true if str matches `pattern` with `escape`, null<br>if any arguments are null, false otherwise.                                       |
-| not expr                          | Logical not.                                                                                                                                   |
-| expr1 or expr2                    | Logical OR.                                                                                                                                    |
-| regexp(str, regexp)               | Returns true if `str` matches `regexp`, or false<br>otherwise.                                                                                 |
-| regexp\_like(str, regexp)         | Returns true if `str` matches `regexp`, or false<br>otherwise.                                                                                 |
-| rlike(str, regexp)                | Returns true if `str` matches `regexp`, or false<br>otherwise.                                                                                 |
+
+| Function | Description | 
+| --- | --- | 
+| \! expr | Logical not. | 
+| expr1 < expr2 | Returns true if `expr1` is less than `expr2`. | 
+| expr1 <= expr2 | Returns true if `expr1` is less than or equal to `expr2`. | 
+| expr1 <=> expr2 | Returns same result as the EQUAL(=) operator for non-null operands, but returns true if both are null, false if one of the them is null. | 
+| expr1 = expr2 | Returns true if `expr1` equals `expr2`, or false otherwise. | 
+| expr1 == expr2 | Returns true if `expr1` equals `expr2`, or false otherwise. | 
+| expr1 > expr2 | Returns true if `expr1` is greater than `expr2`. | 
+| expr1 >= expr2 | Returns true if `expr1` is greater than or equal to `expr2`. | 
+| expr1 and expr2 | Logical AND. | 
+| str ilike pattern[ ESCAPE escape] | Returns true if str matches `pattern` with `escape` case-insensitively, null if any arguments are null, false otherwise. | 
+| expr1 in(expr2, expr3, ...) | Returns true if `expr` equals to any valN. | 
+| isnan(expr) | Returns true if `expr` is NaN, or false otherwise. | 
+| isnotnull(expr) | Returns true if `expr` is not null, or false otherwise. | 
+| isnull(expr) | Returns true if `expr` is null, or false otherwise. | 
+| str like pattern[ ESCAPE escape] | Returns true if str matches `pattern` with `escape`, null if any arguments are null, false otherwise. | 
+| not expr | Logical not. | 
+| expr1 or expr2 | Logical OR. | 
+| regexp(str, regexp) | Returns true if `str` matches `regexp`, or false otherwise. | 
+| regexp\_like(str, regexp) | Returns true if `str` matches `regexp`, or false otherwise. | 
+| rlike(str, regexp) | Returns true if `str` matches `regexp`, or false otherwise. | 
 
 **Examples**
 
@@ -3605,27 +3544,28 @@ SELECT false or NULL;
 ```
 
 #### Map functions
+<a name="supported-sql-map"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                                         | Description                                                                                                                                                                                                                                              |
-| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| element\_at(array, index)                        | Returns element of array at given (1-based)<br>index.                                                                                                                                                                                                    |
-| element\_at(map, key)                            | Returns value for given key. The function returns NULL if<br>the key is not contained in the map.                                                                                                                                                        |
-| map(key0, value0, key1, value1, ...)             | Creates a map with the given key/value pairs.                                                                                                                                                                                                            |
-| map\_concat(map, ...)                            | Returns the union of all the given maps                                                                                                                                                                                                                  |
-| map\_contains\_key(map, key)                     | Returns true if the map contains the key.                                                                                                                                                                                                                |
-| map\_entries(map)                                | Returns an unordered array of all entries in the given<br>map.                                                                                                                                                                                           |
-| map\_from\_arrays(keys, values)                  | Creates a map with a pair of the given key/value arrays.<br>All elements in keys should not be null                                                                                                                                                      |
-| map\_from\_entries(arrayOfEntries)               | Returns a map created from the given array of<br>entries.                                                                                                                                                                                                |
-| map\_keys(map)                                   | Returns an unordered array containing the keys of the<br>map.                                                                                                                                                                                            |
-| map\_values(map)                                 | Returns an unordered array containing the values of the<br>map.                                                                                                                                                                                          |
-| str\_to\_map(text[, pairDelim[, keyValueDelim]]) | Creates a map after splitting the text into key/value<br>pairs using delimiters. Default delimiters are ',' for<br>`pairDelim` and ':' for `keyValueDelim`. Both `pairDelim`<br>and `keyValueDelim` are treated as regular<br>expressions.               |
-| try\_element\_at(array, index)                   | Returns element of array at given (1-based) index. If<br>Index is 0, the system will throw an error. If index < 0,<br>accesses elements from the last to the first. The function<br>always returns NULL if the index exceeds the length of the<br>array. |
-| try\_element\_at(map, key)                       | Returns value for given key. The function always returns<br>NULL if the key is not contained in the map.                                                                                                                                                 |
+
+| Function | Description | 
+| --- | --- | 
+| element\_at(array, index) | Returns element of array at given (1-based) index. | 
+| element\_at(map, key) | Returns value for given key. The function returns NULL if the key is not contained in the map. | 
+| map(key0, value0, key1, value1, ...) | Creates a map with the given key/value pairs. | 
+| map\_concat(map, ...) | Returns the union of all the given maps | 
+| map\_contains\_key(map, key) | Returns true if the map contains the key. | 
+| map\_entries(map) | Returns an unordered array of all entries in the given map. | 
+| map\_from\_arrays(keys, values) | Creates a map with a pair of the given key/value arrays. All elements in keys should not be null | 
+| map\_from\_entries(arrayOfEntries) | Returns a map created from the given array of entries. | 
+| map\_keys(map) | Returns an unordered array containing the keys of the map. | 
+| map\_values(map) | Returns an unordered array containing the values of the map. | 
+| str\_to\_map(text[, pairDelim[, keyValueDelim]]) | Creates a map after splitting the text into key/value pairs using delimiters. Default delimiters are ',' for `pairDelim` and ':' for `keyValueDelim`. Both `pairDelim` and `keyValueDelim` are treated as regular expressions. | 
+| try\_element\_at(array, index) | Returns element of array at given (1-based) index. If Index is 0, the system will throw an error. If index < 0, accesses elements from the last to the first. The function always returns NULL if the index exceeds the length of the array. | 
+| try\_element\_at(map, key) | Returns value for given key. The function always returns NULL if the key is not contained in the map. | 
 
 **Examples**
 
@@ -3734,81 +3674,82 @@ SELECT try_element_at(map(1, 'a', 2, 'b'), 2);
 ```
 
 #### Mathematical functions
+<a name="supported-sql-math"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                                                     | Description                                                                                                                                                                                             |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| expr1 % expr2                                                | Returns the remainder after `expr1`/`expr2`.                                                                                                                                                            |
-| expr1 \<br>• expr2                                           | Returns `expr1`\*`expr2`.                                                                                                                                                                               |
-| expr1 + expr2                                                | Returns `expr1`+`expr2`.                                                                                                                                                                                |
-| expr1<br>• expr2                                             | Returns `expr1`-`expr2`.                                                                                                                                                                                |
-| expr1 / expr2                                                | Returns `expr1`/`expr2`. It always performs floating<br>point division.                                                                                                                                 |
-| abs(expr)                                                    | Returns the absolute value of the numeric or interval<br>value.                                                                                                                                         |
-| acos(expr)                                                   | Returns the inverse cosine (a.k.a. arc cosine) of `expr`,<br>as if computed by `java.lang.Math.acos`.                                                                                                   |
-| acosh(expr)                                                  | Returns inverse hyperbolic cosine of `expr`.                                                                                                                                                            |
-| asin(expr)                                                   | Returns the inverse sine (a.k.a. arc sine) the arc sin of<br>`expr`, as if computed by `java.lang.Math.asin`.                                                                                           |
-| asinh(expr)                                                  | Returns inverse hyperbolic sine of `expr`.                                                                                                                                                              |
-| atan(expr)                                                   | Returns the inverse tangent (a.k.a. arc tangent) of<br>`expr`, as if computed by `java.lang.Math.atan`                                                                                                  |
-| atan2(exprY, exprX)                                          | Returns the angle in radians between the positive x-axis<br>of a plane and the point given by the coordinates (`exprX`,<br>`exprY`), as if computed by `java.lang.Math.atan2`.                          |
-| atanh(expr)                                                  | Returns inverse hyperbolic tangent of `expr`.                                                                                                                                                           |
-| bin(expr)                                                    | Returns the string representation of the long value<br>`expr` represented in binary.                                                                                                                    |
-| bround(expr, d)                                              | Returns `expr` rounded to `d` decimal places using<br>HALF\_EVEN rounding mode.                                                                                                                         |
-| cbrt(expr)                                                   | Returns the cube root of `expr`.                                                                                                                                                                        |
-| ceil(expr[, scale])                                          | Returns the smallest number after rounding up that is not<br>smaller than `expr`. An optional `scale` parameter can be<br>specified to control the rounding behavior.                                   |
-| ceiling(expr[, scale])                                       | Returns the smallest number after rounding up that is not<br>smaller than `expr`. An optional `scale` parameter can be<br>specified to control the rounding behavior.                                   |
-| conv(num, from\_base, to\_base)                              | Convert `num` from `from\_base` to `to\_base`.                                                                                                                                                          |
-| cos(expr)                                                    | Returns the cosine of `expr`, as if computed by<br>`java.lang.Math.cos`.                                                                                                                                |
-| cosh(expr)                                                   | Returns the hyperbolic cosine of `expr`, as if computed<br>by `java.lang.Math.cosh`.                                                                                                                    |
-| cot(expr)                                                    | Returns the cotangent of `expr`, as if computed by<br>`1/java.lang.Math.tan`.                                                                                                                           |
-| csc(expr)                                                    | Returns the cosecant of `expr`, as if computed by<br>`1/java.lang.Math.sin`.                                                                                                                            |
-| degrees(expr)                                                | Converts radians to degrees.                                                                                                                                                                            |
-| expr1 div expr2                                              | Divide `expr1` by `expr2`. It returns NULL if an operand<br>is NULL or `expr2` is 0. The result is casted to<br>long.                                                                                   |
-| e()                                                          | Returns Euler's number, e.                                                                                                                                                                              |
-| exp(expr)                                                    | Returns e to the power of `expr`.                                                                                                                                                                       |
-| expm1(expr)<br>• Returns exp(`expr`)                         | 1                                                                                                                                                                                                       |
-| factorial(expr)                                              | Returns the factorial of `expr`. `expr` is [0..20].<br>Otherwise, null.                                                                                                                                 |
-| floor(expr[, scale])                                         | Returns the largest number after rounding down that is<br>not greater than `expr`. An optional `scale` parameter can<br>be specified to control the rounding behavior.                                  |
-| greatest(expr, ...)                                          | Returns the greatest value of all parameters, skipping<br>null values.                                                                                                                                  |
-| hex(expr)                                                    | Converts `expr` to hexadecimal.                                                                                                                                                                         |
-| hypot(expr1, expr2)                                          | Returns sqrt(`expr1`\*\*2 + `expr2`\*\*2).                                                                                                                                                              |
-| least(expr, ...)                                             | Returns the least value of all parameters, skipping null<br>values.                                                                                                                                     |
-| ln(expr)                                                     | Returns the natural logarithm (base e) of `expr`.                                                                                                                                                       |
-| log(base, expr)                                              | Returns the logarithm of `expr` with `base`.                                                                                                                                                            |
-| log10(expr)                                                  | Returns the logarithm of `expr` with base 10.                                                                                                                                                           |
-| log1p(expr)                                                  | Returns log(1 + `expr`).                                                                                                                                                                                |
-| log2(expr)                                                   | Returns the logarithm of `expr` with base 2.                                                                                                                                                            |
-| expr1 mod expr2                                              | Returns the remainder after `expr1`/`expr2`.                                                                                                                                                            |
-| negative(expr)                                               | Returns the negated value of `expr`.                                                                                                                                                                    |
-| pi()                                                         | Returns pi.                                                                                                                                                                                             |
-| pmod(expr1, expr2)                                           | Returns the positive value of `expr1` mod<br>`expr2`.                                                                                                                                                   |
-| positive(expr)                                               | Returns the value of `expr`.                                                                                                                                                                            |
-| pow(expr1, expr2)                                            | Raises `expr1` to the power of `expr2`.                                                                                                                                                                 |
-| power(expr1, expr2)                                          | Raises `expr1` to the power of `expr2`.                                                                                                                                                                 |
-| radians(expr)                                                | Converts degrees to radians.                                                                                                                                                                            |
-| rand([seed])                                                 | Returns a random value with independent and identically<br>distributed (i.i.d.) uniformly distributed values in [0,<br>1).                                                                              |
-| randn([seed])                                                | Returns a random value with independent and identically<br>distributed (i.i.d.) values drawn from the standard normal<br>distribution.                                                                  |
-| random([seed])                                               | Returns a random value with independent and identically<br>distributed (i.i.d.) uniformly distributed values in [0,<br>1).                                                                              |
-| rint(expr)                                                   | Returns the double value that is closest in value to the<br>argument and is equal to a mathematical integer.                                                                                            |
-| round(expr, d)                                               | Returns `expr` rounded to `d` decimal places using<br>HALF\_UP rounding mode.                                                                                                                           |
-| sec(expr)                                                    | Returns the secant of `expr`, as if computed by<br>`1/java.lang.Math.cos`.                                                                                                                              |
-| shiftleft(base, expr)                                        | Bitwise left shift.                                                                                                                                                                                     |
-| sign(expr)                                                   | Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or<br>positive.                                                                                                                                       |
-| signum(expr)                                                 | Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or<br>positive.                                                                                                                                       |
-| sin(expr)                                                    | Returns the sine of `expr`, as if computed by<br>`java.lang.Math.sin`.                                                                                                                                  |
-| sinh(expr)                                                   | Returns hyperbolic sine of `expr`, as if computed by<br>`java.lang.Math.sinh`.                                                                                                                          |
-| sqrt(expr)                                                   | Returns the square root of `expr`.                                                                                                                                                                      |
-| tan(expr)                                                    | Returns the tangent of `expr`, as if computed by<br>`java.lang.Math.tan`.                                                                                                                               |
-| tanh(expr)                                                   | Returns the hyperbolic tangent of `expr`, as if computed<br>by `java.lang.Math.tanh`.                                                                                                                   |
-| try\_add(expr1, expr2)                                       | Returns the sum of `expr1`and `expr2` and the result is<br>null on overflow. The acceptable input types are the same<br>with the `+` operator.                                                          |
-| try\_divide(dividend, divisor)                               | Returns `dividend`/`divisor`. It always performs floating<br>point division. Its result is always null if `expr2` is 0.<br>`dividend` must be a numeric or an interval. `divisor` must<br>be a numeric. |
-| try\_multiply(expr1, expr2)                                  | Returns `expr1`\*`expr2` and the result is null on<br>overflow. The acceptable input types are the same with the<br>`\*` operator.                                                                      |
-| try\_subtract(expr1, expr2)                                  | Returns `expr1`-`expr2` and the result is null on<br>overflow. The acceptable input types are the same with the<br>`-` operator.                                                                        |
-| unhex(expr)                                                  | Converts hexadecimal `expr` to binary.                                                                                                                                                                  |
-| width\_bucket(value, min\_value, max\_value,<br>num\_bucket) | Returns the bucket number to which `value` would be<br>assigned in an equiwidth histogram with `num\_bucket`<br>buckets, in the range `min\_value` to `max\_value`."                                    |
+
+| Function | Description | 
+| --- | --- | 
+| expr1 % expr2 | Returns the remainder after `expr1`/`expr2`. | 
+| expr1 \* expr2 | Returns `expr1`\*`expr2`. | 
+| expr1 \+ expr2 | Returns `expr1`\+`expr2`. | 
+| expr1 - expr2 | Returns `expr1`-`expr2`. | 
+| expr1 / expr2 | Returns `expr1`/`expr2`. It always performs floating point division. | 
+| abs(expr) | Returns the absolute value of the numeric or interval value. | 
+| acos(expr) | Returns the inverse cosine (a.k.a. arc cosine) of `expr`, as if computed by `java.lang.Math.acos`. | 
+| acosh(expr) | Returns inverse hyperbolic cosine of `expr`. | 
+| asin(expr) | Returns the inverse sine (a.k.a. arc sine) the arc sin of `expr`, as if computed by `java.lang.Math.asin`. | 
+| asinh(expr) | Returns inverse hyperbolic sine of `expr`. | 
+| atan(expr) | Returns the inverse tangent (a.k.a. arc tangent) of `expr`, as if computed by `java.lang.Math.atan` | 
+| atan2(exprY, exprX) | Returns the angle in radians between the positive x-axis of a plane and the point given by the coordinates (`exprX`, `exprY`), as if computed by `java.lang.Math.atan2`. | 
+| atanh(expr) | Returns inverse hyperbolic tangent of `expr`. | 
+| bin(expr) | Returns the string representation of the long value `expr` represented in binary. | 
+| bround(expr, d) | Returns `expr` rounded to `d` decimal places using HALF\_EVEN rounding mode. | 
+| cbrt(expr) | Returns the cube root of `expr`. | 
+| ceil(expr[, scale]) | Returns the smallest number after rounding up that is not smaller than `expr`. An optional `scale` parameter can be specified to control the rounding behavior. | 
+| ceiling(expr[, scale]) | Returns the smallest number after rounding up that is not smaller than `expr`. An optional `scale` parameter can be specified to control the rounding behavior. | 
+| conv(num, from\_base, to\_base) | Convert `num` from `from\_base` to `to\_base`. | 
+| cos(expr) | Returns the cosine of `expr`, as if computed by `java.lang.Math.cos`. | 
+| cosh(expr) | Returns the hyperbolic cosine of `expr`, as if computed by `java.lang.Math.cosh`. | 
+| cot(expr) | Returns the cotangent of `expr`, as if computed by `1/java.lang.Math.tan`. | 
+| csc(expr) | Returns the cosecant of `expr`, as if computed by `1/java.lang.Math.sin`. | 
+| degrees(expr) | Converts radians to degrees. | 
+| expr1 div expr2 | Divide `expr1` by `expr2`. It returns NULL if an operand is NULL or `expr2` is 0. The result is casted to long. | 
+| e() | Returns Euler's number, e. | 
+| exp(expr) | Returns e to the power of `expr`. | 
+| expm1(expr) - Returns exp(`expr`) | 1 | 
+| factorial(expr) | Returns the factorial of `expr`. `expr` is [0..20]. Otherwise, null. | 
+| floor(expr[, scale]) | Returns the largest number after rounding down that is not greater than `expr`. An optional `scale` parameter can be specified to control the rounding behavior. | 
+| greatest(expr, ...) | Returns the greatest value of all parameters, skipping null values. | 
+| hex(expr) | Converts `expr` to hexadecimal. | 
+| hypot(expr1, expr2) | Returns sqrt(`expr1`\*\*2 \+ `expr2`\*\*2). | 
+| least(expr, ...) | Returns the least value of all parameters, skipping null values. | 
+| ln(expr) | Returns the natural logarithm (base e) of `expr`. | 
+| log(base, expr) | Returns the logarithm of `expr` with `base`. | 
+| log10(expr) | Returns the logarithm of `expr` with base 10. | 
+| log1p(expr) | Returns log(1 \+ `expr`). | 
+| log2(expr) | Returns the logarithm of `expr` with base 2. | 
+| expr1 mod expr2 | Returns the remainder after `expr1`/`expr2`. | 
+| negative(expr) | Returns the negated value of `expr`. | 
+| pi() | Returns pi. | 
+| pmod(expr1, expr2) | Returns the positive value of `expr1` mod `expr2`. | 
+| positive(expr) | Returns the value of `expr`. | 
+| pow(expr1, expr2) | Raises `expr1` to the power of `expr2`. | 
+| power(expr1, expr2) | Raises `expr1` to the power of `expr2`. | 
+| radians(expr) | Converts degrees to radians. | 
+| rand([seed]) | Returns a random value with independent and identically distributed (i.i.d.) uniformly distributed values in [0, 1). | 
+| randn([seed]) | Returns a random value with independent and identically distributed (i.i.d.) values drawn from the standard normal distribution. | 
+| random([seed]) | Returns a random value with independent and identically distributed (i.i.d.) uniformly distributed values in [0, 1). | 
+| rint(expr) | Returns the double value that is closest in value to the argument and is equal to a mathematical integer. | 
+| round(expr, d) | Returns `expr` rounded to `d` decimal places using HALF\_UP rounding mode. | 
+| sec(expr) | Returns the secant of `expr`, as if computed by `1/java.lang.Math.cos`. | 
+| shiftleft(base, expr) | Bitwise left shift. | 
+| sign(expr) | Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive. | 
+| signum(expr) | Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive. | 
+| sin(expr) | Returns the sine of `expr`, as if computed by `java.lang.Math.sin`. | 
+| sinh(expr) | Returns hyperbolic sine of `expr`, as if computed by `java.lang.Math.sinh`. | 
+| sqrt(expr) | Returns the square root of `expr`. | 
+| tan(expr) | Returns the tangent of `expr`, as if computed by `java.lang.Math.tan`. | 
+| tanh(expr) | Returns the hyperbolic tangent of `expr`, as if computed by `java.lang.Math.tanh`. | 
+| try\_add(expr1, expr2) | Returns the sum of `expr1`and `expr2` and the result is null on overflow. The acceptable input types are the same with the `\+` operator. | 
+| try\_divide(dividend, divisor) | Returns `dividend`/`divisor`. It always performs floating point division. Its result is always null if `expr2` is 0. `dividend` must be a numeric or an interval. `divisor` must be a numeric. | 
+| try\_multiply(expr1, expr2) | Returns `expr1`\*`expr2` and the result is null on overflow. The acceptable input types are the same with the `\*` operator. | 
+| try\_subtract(expr1, expr2) | Returns `expr1`-`expr2` and the result is null on overflow. The acceptable input types are the same with the `-` operator. | 
+| unhex(expr) | Converts hexadecimal `expr` to binary. | 
+| width\_bucket(value, min\_value, max\_value, num\_bucket) | Returns the bucket number to which `value` would be assigned in an equiwidth histogram with `num\_bucket` buckets, in the range `min\_value` to `max\_value`." | 
 
 **Examples**
 
@@ -4615,21 +4556,22 @@ SELECT width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 10);
 ```
 
 #### Generator functions
+<a name="supported-sql-generator"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support these SQL functions, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support these SQL
-functions, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
-| Function                    | Description                                                                                                                                                                                                                                                                                                              |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| explode(expr)               | Separates the elements of array `expr` into multiple<br>rows, or the elements of map `expr` into multiple rows and<br>columns. Unless specified otherwise, uses the default column<br>name `col` for elements of the array or `key` and `value`<br>for the elements of the map.                                          |
-| explode\_outer(expr)        | Separates the elements of array `expr` into multiple<br>rows, or the elements of map `expr` into multiple rows and<br>columns. Unless specified otherwise, uses the default column<br>name `col` for elements of the array or `key` and `value`<br>for the elements of the map.                                          |
-| inline(expr)                | Explodes an array of structs into a table. Uses column<br>names col1, col2, etc. by default unless specified<br>otherwise.                                                                                                                                                                                               |
-| inline\_outer(expr)         | Explodes an array of structs into a table. Uses column<br>names col1, col2, etc. by default unless specified<br>otherwise.                                                                                                                                                                                               |
-| posexplode(expr)            | Separates the elements of array `expr` into multiple rows<br>with positions, or the elements of map `expr` into multiple<br>rows and columns with positions. Unless specified otherwise,<br>uses the column name `pos` for position, `col` for elements<br>of the array or `key` and `value` for elements of the<br>map. |
-| posexplode\_outer(expr)     | Separates the elements of array `expr` into multiple rows<br>with positions, or the elements of map `expr` into multiple<br>rows and columns with positions. Unless specified otherwise,<br>uses the column name `pos` for position, `col` for elements<br>of the array or `key` and `value` for elements of the<br>map. |
-| stack(n, expr1, ..., exprk) | Separates `expr1`, ..., `exprk` into `n` rows. Uses<br>column names col0, col1, etc. by default unless specified<br>otherwise.                                                                                                                                                                                           |
+
+| Function | Description | 
+| --- | --- | 
+| explode(expr) | Separates the elements of array `expr` into multiple rows, or the elements of map `expr` into multiple rows and columns. Unless specified otherwise, uses the default column name `col` for elements of the array or `key` and `value` for the elements of the map. | 
+| explode\_outer(expr) | Separates the elements of array `expr` into multiple rows, or the elements of map `expr` into multiple rows and columns. Unless specified otherwise, uses the default column name `col` for elements of the array or `key` and `value` for the elements of the map. | 
+| inline(expr) | Explodes an array of structs into a table. Uses column names col1, col2, etc. by default unless specified otherwise. | 
+| inline\_outer(expr) | Explodes an array of structs into a table. Uses column names col1, col2, etc. by default unless specified otherwise. | 
+| posexplode(expr) | Separates the elements of array `expr` into multiple rows with positions, or the elements of map `expr` into multiple rows and columns with positions. Unless specified otherwise, uses the column name `pos` for position, `col` for elements of the array or `key` and `value` for elements of the map. | 
+| posexplode\_outer(expr) | Separates the elements of array `expr` into multiple rows with positions, or the elements of map `expr` into multiple rows and columns with positions. Unless specified otherwise, uses the column name `pos` for position, `col` for elements of the array or `key` and `value` for elements of the map. | 
+| stack(n, expr1, ..., exprk) | Separates `expr1`, ..., `exprk` into `n` rows. Uses column names col0, col1, etc. by default unless specified otherwise. | 
 
 **Examples**
 
@@ -4744,35 +4686,30 @@ SELECT stack(2, 1, 2, 3);
 |   1|   2|
 |   3|NULL|
 +----+----+
-
 ```
 
 #### SELECT clause
+<a name="supported-sql-select"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+OpenSearch SQL supports a `SELECT` statement used for retrieving result sets from one or more tables. The following section describes the overall query syntax and the different constructs of a query.
 
-OpenSearch SQL supports a `SELECT` statement used for
-retrieving result sets from one or more tables. The following section
-describes the overall query syntax and the different constructs of a
-query.
-
-**Syntax**
+**Syntax** 
 
 ```
-select_statement
+select_statement 
 [ { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] select_statement, ... ]
-[ ORDER BY
-    { expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ]
-    [ , ... ]
-    }
+[ ORDER BY 
+    { expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] 
+    [ , ... ] 
+    } 
 ]
-[ SORT BY
-    { expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ]
-    [ , ... ]
-    }
+[ SORT BY 
+    { expression [ ASC | DESC ] [ NULLS { FIRST | LAST } ] 
+    [ , ... ] 
+    } 
 ]
 [ WINDOW { named_window [ , WINDOW named_window, ... ] } ]
 [ LIMIT { ALL | expression } ]
@@ -4791,161 +4728,112 @@ FROM { from_item [ , ... ] }
 [ HAVING boolean_expression ]
 ```
 
-**Parameters**
+ **Parameters** 
++ **ALL** 
 
-- **ALL**
+  Selects all matching rows from the relation and is enabled by default. 
++ **DISTINCT** 
 
-Selects all matching rows from the relation and is enabled by
-default.
+  Selects all matching rows from the relation after removing duplicates in results. 
++ **named\_expression **
 
-- **DISTINCT**
+  An expression with an assigned name. In general, it denotes a column expression. 
 
-Selects all matching rows from the relation after removing
-duplicates in results.
+  Syntax: `expression [[AS] alias]` 
++ **from\_item **
 
-- **named\_expression**
+  Table relation
 
-An expression with an assigned name. In general, it denotes a
-column expression.
+  Join relation
 
-Syntax: `expression [[AS] alias]`
+  Pivot relation
 
-- **from\_item**
+  Unpivot relation
 
-Table relation
+  Table-value function
 
-Join relation
+  Inline table
 
-Pivot relation
+  `[ LATERAL ] ( Subquery )`
++ **PIVOT** 
 
-Unpivot relation
+  The `PIVOT` clause is used for data perspective. You can get the aggregated values based on specific column value. 
++ **UNPIVOT** 
 
-Table-value function
+  The `UNPIVOT` clause transforms columns into rows. It is the reverse of `PIVOT`, except for aggregation of values. 
++ **LATERAL VIEW **
 
-Inline table
+  The `LATERAL VIEW` clause is used in conjunction with generator functions such as `EXPLODE`, which will generate a virtual table containing one or more rows.
 
-`[ LATERAL ] ( Subquery )`
+  `LATERAL VIEW` will apply the rows to each original output row. 
++ **WHERE** 
 
-- **PIVOT**
+  Filters the result of the `FROM` clause based on the supplied predicates. 
++ **GROUP BY **
 
-The `PIVOT` clause is used for data perspective. You
-can get the aggregated values based on specific column value.
+  Specifies the expressions that are used to group the rows. 
 
-- **UNPIVOT**
+  This is used in conjunction with aggregate functions (`MIN`, `MAX`, `COUNT`, `SUM`, `AVG`, and so on) to group rows based on the grouping expressions and aggregate values in each group. 
 
-The `UNPIVOT` clause transforms columns into rows. It
-is the reverse of `PIVOT`, except for aggregation of
-values.
+  When a `FILTER` clause is attached to an aggregate function, only the matching rows are passed to that function. 
++ **HAVING** 
 
-- **LATERAL VIEW**
+  Specifies the predicates by which the rows produced by `GROUP BY` are filtered. 
 
-The `LATERAL VIEW` clause is used in conjunction with
-generator functions such as `EXPLODE`, which will
-generate a virtual table containing one or more rows.
+  The `HAVING` clause is used to filter rows after the grouping is performed. 
 
-`LATERAL VIEW` will apply the rows to each original
-output row.
+  If `HAVING` is specified without `GROUP BY`, it indicates a `GROUP BY` without grouping expressions (global aggregate). 
++ **ORDER BY **
 
-- **WHERE**
+  Specifies an ordering of the rows of the complete result set of the query. 
 
-Filters the result of the `FROM` clause based on the
-supplied predicates.
+  The output rows are ordered across the partitions. 
 
-- **GROUP BY**
+  This parameter is mutually exclusive with `SORT BY` and `DISTRIBUTE BY` and can not be specified together. 
++ **SORT BY **
 
-Specifies the expressions that are used to group the rows.
+  Specifies an ordering by which the rows are ordered within each partition. 
 
-This is used in conjunction with aggregate functions
-(`MIN`, `MAX`, `COUNT`,
-`SUM`, `AVG`, and so on) to group rows
-based on the grouping expressions and aggregate values in each
-group.
+  This parameter is mutually exclusive with `ORDER BY` and can not be specified together. 
++ **LIMIT** 
 
-When a `FILTER` clause is attached to an aggregate
-function, only the matching rows are passed to that function.
+  Specifies the maximum number of rows that can be returned by a statement or subquery. 
 
-- **HAVING**
+  This clause is mostly used in the conjunction with `ORDER BY` to produce a deterministic result. 
++ **boolean\_expression **
 
-Specifies the predicates by which the rows produced by `GROUP
- BY` are filtered.
+  Specifies any expression that evaluates to a result type boolean. 
 
-The `HAVING` clause is used to filter rows after the
-grouping is performed.
+  Two or more expressions may be combined together using the logical operators ( `AND`, `OR` ). 
++ **expression** 
 
-If `HAVING` is specified without `GROUP BY`,
-it indicates a `GROUP BY` without grouping expressions
-(global aggregate).
+  Specifies a combination of one or more values, operators, and SQL functions that evaluates to a value. 
++ **named\_window **
 
-- **ORDER BY**
+  Specifies aliases for one or more source window specifications. 
 
-Specifies an ordering of the rows of the complete result set of
-the query.
-
-The output rows are ordered across the partitions.
-
-This parameter is mutually exclusive with `SORT BY` and
-`DISTRIBUTE BY` and can not be specified together.
-
-- **SORT BY**
-
-Specifies an ordering by which the rows are ordered within each
-partition.
-
-This parameter is mutually exclusive with `ORDER BY`
-and can not be specified together.
-
-- **LIMIT**
-
-Specifies the maximum number of rows that can be returned by a
-statement or subquery.
-
-This clause is mostly used in the conjunction with `ORDER
- BY` to produce a deterministic result.
-
-- **boolean\_expression**
-
-Specifies any expression that evaluates to a result type boolean.
-
-Two or more expressions may be combined together using the logical
-operators ( `AND`, `OR` ).
-
-- **expression**
-
-Specifies a combination of one or more values, operators, and SQL
-functions that evaluates to a value.
-
-- **named\_window**
-
-Specifies aliases for one or more source window specifications.
-
-The source window specifications can be referenced in the widow
-definitions in the query.
+  The source window specifications can be referenced in the widow definitions in the query. 
 
 #### WHERE clause
+<a name="supported-sql-where"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `WHERE` clause is used to limit the results of the `FROM` clause of a query or a subquery based on the specified condition. 
 
-The `WHERE` clause is used to limit the results of the
-`FROM` clause of a query or a subquery based on the specified
-condition.
-
-**Syntax**
+**Syntax** 
 
 ```
 WHERE boolean_expression
 ```
 
 **Parameters**
++ **boolean\_expression** 
 
-- **boolean\_expression**
+  Specifies any expression that evaluates to a result type boolean. 
 
-Specifies any expression that evaluates to a result type boolean.
-
-Two or more expressions may be combined together using the logical
-operators ( `AND`, `OR` ).
+  Two or more expressions may be combined together using the logical operators ( `AND`, `OR` ). 
 
 **Examples**
 
@@ -5010,7 +4898,7 @@ SELECT * FROM person WHERE age > (SELECT avg(age) FROM person);
 +---+----+---+
 |300|Mike| 80|
 +---+----+---+
-
+ 
 -- Correlated Subquery in `WHERE` clause.
 SELECT id FROM person
 WHERE exists (SELECT id FROM person where id = 200);
@@ -5022,172 +4910,86 @@ WHERE exists (SELECT id FROM person where id = 200);
 ```
 
 #### GROUP BY clause
+<a name="supported-sql-group-by"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `GROUP BY` clause is used to group the rows based on a set of specified grouping expressions and compute aggregations on the group of rows based on one or more specified aggregate functions. 
 
-The `GROUP BY` clause is used to group the rows based on a set
-of specified grouping expressions and compute aggregations on the group of
-rows based on one or more specified aggregate functions.
+The system also does multiple aggregations for the same input record set via `GROUPING SETS`, `CUBE`, `ROLLUP` clauses. The grouping expressions and advanced aggregations can be mixed in the `GROUP BY` clause and nested in a `GROUPING SETS `clause. See more details in the `Mixed/Nested Grouping Analytics `section. 
 
-The system also does multiple aggregations for the same input record set
-via `GROUPING SETS`, `CUBE`, `ROLLUP`
-clauses. The grouping expressions and advanced aggregations can be mixed in
-the `GROUP BY` clause and nested in a `GROUPING SETS` clause. See more details in the `Mixed/Nested Grouping Analytics` section.
+When a `FILTER` clause is attached to an aggregate function, only the matching rows are passed to that function. 
 
-When a `FILTER` clause is attached to an
-aggregate function, only the matching rows are passed to that function.
-
-**Syntax**
+**Syntax** 
 
 ```
 GROUP BY group_expression [ , group_expression [ , ... ] ] [ WITH { ROLLUP | CUBE } ]
 GROUP BY { group_expression | { ROLLUP | CUBE | GROUPING SETS } (grouping_set [ , ...]) } [ , ... ]
 ```
 
-While aggregate functions are defined as:
+While aggregate functions are defined as: 
 
 ```
 aggregate_name ( [ DISTINCT ] expression [ , ... ] ) [ FILTER ( WHERE boolean_expression ) ]
 ```
 
 **Parameters**
++ **group\_expression **
 
-- **group\_expression**
+  Specifies the criteria based on which the rows are grouped together. The grouping of rows is performed based on result values of the grouping expressions. 
 
-Specifies the criteria based on which the rows are grouped
-together. The grouping of rows is performed based on result values
-of the grouping expressions.
+  A grouping expression may be a column name like `GROUP BY a`, a column position like `GROUP BY 0`, or an expression like `GROUP BY a + b`. 
++ **grouping\_set **
 
-A grouping expression may be a column name like `GROUP BY
- a`, a column position like `GROUP BY 0`, or an
-expression like `GROUP BY a + b`.
+  A grouping set is specified by zero or more comma-separated expressions in parentheses. When the grouping set has only one element, parentheses can be omitted. 
 
-- **grouping\_set**
+  For example, `GROUPING SETS ((a), (b))` is the same as `GROUPING SETS (a, b)`. 
 
-A grouping set is specified by zero or more comma-separated
-expressions in parentheses. When the grouping set has only one
-element, parentheses can be omitted.
+  Syntax: `{ ( [ expression [ , ... ] ] ) | expression }` 
++ **GROUPING SETS **
 
-For example, `GROUPING SETS ((a), (b))` is the same as
-`GROUPING SETS (a, b)`.
+  Groups the rows for each grouping set specified after `GROUPING SETS`. 
 
-Syntax: `{ ( [ expression [ , ... ] ] ) | expression }`
+  For example, `GROUP BY GROUPING SETS ((warehouse), (product))` is semantically equivalent to union of results of `GROUP BY warehouse` and `GROUP BY product`. This clause is a shorthand for a UNION ALL where each leg of the `UNION ALL` operator performs aggregation of each grouping set specified in the `GROUPING SETS` clause. 
 
-- **GROUPING SETS**
+  Similarly, `GROUP BY GROUPING SETS ((warehouse, product), (product), ())` is semantically equivalent to the union of results of `GROUP BY warehouse, product, GROUP BY product` and global aggregate. 
++ **ROLLUP** 
 
-Groups the rows for each grouping set specified after
-`GROUPING SETS`.
+  Specifies multiple levels of aggregations in a single statement. This clause is used to compute aggregations based on multiple grouping sets. `ROLLUP` is a shorthand for `GROUPING SETS`. 
 
-For example, `GROUP BY GROUPING SETS ((warehouse),
- (product))` is semantically equivalent to union of results
-of `GROUP BY warehouse` and `GROUP BY
- product`. This clause is a shorthand for a UNION ALL where
-each leg of the `UNION ALL` operator performs aggregation
-of each grouping set specified in the `GROUPING SETS`
-clause.
+  For example, `GROUP BY warehouse, product WITH ROLLUP or GROUP BY ROLLUP(warehouse, product)` is equivalent to `GROUP BY GROUPING SETS((warehouse, product), (warehouse), ())`. 
 
-Similarly, `GROUP BY GROUPING SETS ((warehouse, product),
- (product), ())` is semantically equivalent to the union of
-results of `GROUP BY warehouse, product, GROUP BY
- product` and global aggregate.
+  `GROUP BY ROLLUP(warehouse, product, (warehouse, location))` is equivalent to `GROUP BY GROUPING SETS((warehouse, product, location), (warehouse, product), (warehouse), ())`.
 
-- **ROLLUP**
+  The N elements of a ROLLUP specification results in N\+1 GROUPING SETS. 
++ **CUBE** 
 
-Specifies multiple levels of aggregations in a single statement.
-This clause is used to compute aggregations based on multiple
-grouping sets. `ROLLUP` is a shorthand for `GROUPING
- SETS`.
+  CUBE clause is used to perform aggregations based on combination of grouping columns specified in the GROUP BY clause. CUBE is a shorthand for GROUPING SETS. 
 
-For example, `GROUP BY warehouse, product WITH ROLLUP or
- GROUP BY ROLLUP(warehouse, product)` is equivalent to
-`GROUP BY GROUPING SETS((warehouse, product), (warehouse),
- ())`.
+  For example, `GROUP BY warehouse, product WITH CUBE or GROUP BY CUBE(warehouse, product)` is equivalent to `GROUP BY GROUPING SETS((warehouse, product), (warehouse), (product), ())`. 
 
-`GROUP BY ROLLUP(warehouse, product, (warehouse,
- location))` is equivalent to `GROUP BY GROUPING
- SETS((warehouse, product, location), (warehouse, product),
- (warehouse), ())`.
+  `GROUP BY CUBE(warehouse, product, (warehouse, location))` is equivalent to `GROUP BY GROUPING SETS((warehouse, product, location), (warehouse, product), (warehouse, location), (product, warehouse, location), (warehouse), (product), (warehouse, product), ())`. The N elements of a `CUBE` specification results in 2^N `GROUPING SETS`. 
++ **Mixed/Nested Grouping Analytics **
 
-The N elements of a ROLLUP specification results in N+1 GROUPING
-SETS.
+  A `GROUP BY` clause can include multiple group\_expressions and multiple `CUBE|ROLLUP|GROUPING SETS`. `GROUPING SETS` can also have nested `CUBE|ROLLUP|GROUPING SETS` clauses, such as `GROUPING SETS(ROLLUP(warehouse, location)`, `CUBE(warehouse, location))`, `GROUPING SETS(warehouse, GROUPING SETS(location, GROUPING SETS(ROLLUP(warehouse, location),` `CUBE(warehouse, location))))`. 
 
-- **CUBE**
+  `CUBE|ROLLUP` is just a syntax sugar for `GROUPING SETS`. Refer to the sections above for how to translate `CUBE|ROLLUP` to `GROUPING SETS`. `group_expression` can be treated as a single-group `GROUPING SETS` under this context. 
 
-CUBE clause is used to perform aggregations based on combination
-of grouping columns specified in the GROUP BY clause. CUBE is a
-shorthand for GROUPING SETS.
+  For multiple `GROUPING SETS` in the `GROUP BY` clause, we generate a single `GROUPING SETS` by doing a cross-product of the original `GROUPING SETS`. For nested `GROUPING SETS` in the `GROUPING SETS` clause, we simply take its grouping sets and strip it. 
 
-For example, `GROUP BY warehouse, product WITH CUBE or GROUP
- BY CUBE(warehouse, product)` is equivalent to `GROUP
- BY GROUPING SETS((warehouse, product), (warehouse), (product),
- ())`.
+  For example, `GROUP BY warehouse, GROUPING SETS((product), ()), GROUPING SETS((location, size), (location), (size), ()) and GROUP BY warehouse, ROLLUP(product), CUBE(location, size)` is equivalent to `GROUP BY GROUPING SETS( (warehouse, product, location, size), (warehouse, product, location), (warehouse, product, size), (warehouse, product), (warehouse, location, size), (warehouse, location), (warehouse, size), (warehouse))`. 
 
-`GROUP BY CUBE(warehouse, product, (warehouse,
- location))` is equivalent to `GROUP BY GROUPING
- SETS((warehouse, product, location), (warehouse, product),
- (warehouse, location), (product, warehouse, location),
- (warehouse), (product), (warehouse, product), ())`. The N
-elements of a `CUBE` specification results in 2^N
-`GROUPING SETS`.
+  `GROUP BY GROUPING SETS(GROUPING SETS(warehouse), GROUPING SETS((warehouse, product)))` is equivalent to `GROUP BY GROUPING SETS((warehouse), (warehouse, product))`. 
++ **aggregate\_name **
 
-- **Mixed/Nested Grouping Analytics**
+  Specifies an aggregate function name (`MIN`, `MAX`, `COUNT`, `SUM`, `AVG`, and so on). 
++ **DISTINCT** 
 
-A `GROUP BY` clause can include multiple
-group\_expressions and multiple `CUBE|ROLLUP|GROUPING
- SETS`. `GROUPING SETS` can also have nested
-`CUBE|ROLLUP|GROUPING SETS` clauses, such as
-`GROUPING SETS(ROLLUP(warehouse, location)`,
-`CUBE(warehouse, location))`, `GROUPING
- SETS(warehouse, GROUPING SETS(location, GROUPING
- SETS(ROLLUP(warehouse, location),`
-`CUBE(warehouse, location))))`.
+  Removes duplicates in input rows before they are passed to aggregate functions. 
++ **FILTER** 
 
-`CUBE|ROLLUP` is just a syntax sugar for `GROUPING
- SETS`. Refer to the sections above for how to translate
-`CUBE|ROLLUP` to `GROUPING SETS`.
-`group_expression` can be treated as a single-group
-`GROUPING SETS` under this context.
-
-For multiple `GROUPING SETS` in the `GROUP
- BY` clause, we generate a single `GROUPING
- SETS` by doing a cross-product of the original
-`GROUPING SETS`. For nested `GROUPING
- SETS` in the `GROUPING SETS` clause, we simply
-take its grouping sets and strip it.
-
-For example, `GROUP BY warehouse, GROUPING SETS((product),
- ()), GROUPING SETS((location, size), (location), (size), ()) and
- GROUP BY warehouse, ROLLUP(product), CUBE(location, size)`
-is equivalent to `GROUP BY GROUPING SETS( (warehouse, product,
- location, size), (warehouse, product, location), (warehouse,
- product, size), (warehouse, product), (warehouse, location,
- size), (warehouse, location), (warehouse, size),
- (warehouse))`.
-
-`GROUP BY GROUPING SETS(GROUPING SETS(warehouse), GROUPING
- SETS((warehouse, product)))` is equivalent to `GROUP
- BY GROUPING SETS((warehouse), (warehouse, product))`.
-
-- **aggregate\_name**
-
-Specifies an aggregate function name (`MIN`,
-`MAX`, `COUNT`, `SUM`,
-`AVG`, and so on).
-
-- **DISTINCT**
-
-Removes duplicates in input rows before they are passed to
-aggregate functions.
-
-- **FILTER**
-
-Filters the input rows for which the
-`boolean_expression` in the `WHERE` clause
-evaluates to true are passed to the aggregate function; other rows
-are discarded.
+  Filters the input rows for which the `boolean_expression` in the `WHERE` clause evaluates to true are passed to the aggregate function; other rows are discarded. 
 
 **Examples**
 
@@ -5360,37 +5162,31 @@ SELECT FIRST(age IGNORE NULLS), LAST(id), SUM(id) FROM person;
 ```
 
 #### HAVING clause
+<a name="supported-sql-having"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `HAVING` clause is used to filter the results produced by `GROUP BY` based on the specified condition. It is often used in conjunction with a `GROUP BY` clause. 
 
-The `HAVING` clause is used to filter the results produced by
-`GROUP BY` based on the specified condition. It is often used
-in conjunction with a `GROUP BY` clause.
-
-**Syntax**
+**Syntax** 
 
 ```
 HAVING boolean_expression
 ```
 
 **Parameters**
++ **boolean\_expression **
 
-- **boolean\_expression**
+  Specifies any expression that evaluates to a result type boolean. Two or more expressions may be combined together using the logical operators ( `AND`, `OR` ). 
 
-Specifies any expression that evaluates to a result type boolean.
-Two or more expressions may be combined together using the logical
-operators ( `AND`, `OR` ).
+  **Note** The expressions specified in the `HAVING` clause can only refer to: 
 
-**Note** The expressions specified in
-the `HAVING` clause can only refer to:
+  1. Constants 
 
-    1. Constants
-    2. Expressions that appear in `GROUP
-     BY`
-    3. Aggregate functions
+  1. Expressions that appear in `GROUP BY` 
+
+  1. Aggregate functions 
 
 **Examples**
 
@@ -5461,59 +5257,43 @@ SELECT sum(quantity) AS sum FROM dealer HAVING sum(quantity) > 10;
 ```
 
 #### ORDER BY clause
+<a name="supported-sql-order-by"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `ORDER BY` clause is used to return the result rows in a sorted manner in the user specified order. Unlike the SORT BY clause, this clause guarantees a total order in the output. 
 
-The `ORDER BY` clause is used to return the result rows in a
-sorted manner in the user specified order. Unlike the SORT BY clause, this
-clause guarantees a total order in the output.
-
-**Syntax**
+**Syntax** 
 
 ```
 ORDER BY { expression [ sort_direction | nulls_sort_order ] [ , ... ] }
 ```
 
 **Parameters**
++ **ORDER BY **
 
-- **ORDER BY**
+  Specifies a comma-separated list of expressions along with optional parameters `sort_direction` and `nulls_sort_order` which are used to sort the rows. 
++ **sort\_direction **
 
-Specifies a comma-separated list of expressions along with
-optional parameters `sort_direction` and
-`nulls_sort_order` which are used to sort the rows.
+  Optionally specifies whether to sort the rows in ascending or descending order. 
 
-- **sort\_direction**
+  The valid values for the sort direction are `ASC` for ascending and `DESC` for descending. 
 
-Optionally specifies whether to sort the rows in ascending or
-descending order.
+  If sort direction is not explicitly specified, then by default rows are sorted ascending. 
 
-The valid values for the sort direction are `ASC` for
-ascending and `DESC` for descending.
+  Syntax: `[ ASC | DESC ] `
++ **nulls\_sort\_order **
 
-If sort direction is not explicitly specified, then by default
-rows are sorted ascending.
+  Optionally specifies whether `NULL` values are returned before/after non-NULL values. 
 
-Syntax: `[ ASC | DESC ]`
+  If null\_sort\_order is not specified, then `NULLs` sort first if sort order is `ASC` and NULLS sort last if sort order is `DESC`. 
 
-- **nulls\_sort\_order**
+  1. If `NULLS FIRST` is specified, then NULL values are returned first regardless of the sort order. 
 
-Optionally specifies whether `NULL` values are returned
-before/after non-NULL values.
+  2. If `NULLS LAST` is specified, then NULL values are returned last regardless of the sort order. 
 
-If null\_sort\_order is not specified, then `NULLs` sort
-first if sort order is `ASC` and NULLS sort last if sort
-order is `DESC`.
-
-1. If `NULLS FIRST` is specified, then NULL values are
-   returned first regardless of the sort order.
-
-2. If `NULLS LAST` is specified, then NULL values are
-   returned last regardless of the sort order.
-
-Syntax: `[ NULLS { FIRST | LAST } ]`
+  Syntax: `[ NULLS { FIRST | LAST } ]` 
 
 **Examples**
 
@@ -5589,70 +5369,53 @@ SELECT * FROM person ORDER BY name ASC, age DESC;
 ```
 
 #### JOIN clause
+<a name="supported-sql-join"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+A SQL join is used to combine rows from two relations based on join criteria. The following section describes the overall join syntax and the different types of joins along with examples. 
 
-A SQL join is used to combine rows from two relations based on join
-criteria. The following section describes the overall join syntax and the
-different types of joins along with examples.
-
-**Syntax**
+**Syntax** 
 
 ```
 relation INNER JOIN relation [ join_criteria ]
 ```
 
 **Parameters**
++ **relation **
 
-- **relation**
+  Specifies the relation to be joined. 
++ **join\_type **
 
-Specifies the relation to be joined.
+  Specifies the join type. 
 
-- **join\_type**
+  Syntax: `INNER | CROSS | LEFT OUTER`
++ **join\_criteria **
 
-Specifies the join type.
+  Specifies how the rows from one relation will be combined with the rows of another relation. 
 
-Syntax: `INNER | CROSS | LEFT OUTER`
+  Syntax: `ON boolean_expression | USING ( column_name [ , ... ] ) `
++ **boolean\_expression **
 
-- **join\_criteria**
-
-Specifies how the rows from one relation will be combined with the
-rows of another relation.
-
-Syntax: `ON boolean_expression | USING ( column_name [ , ...
- ] )`
-
-- **boolean\_expression**
-
-Specifies an expression with a return type of boolean.
+  Specifies an expression with a return type of boolean. 
 
 **Join types**
++ **Inner Join**
 
-- **Inner Join**
+  The inner join needs to be explicitly specified. It selects rows that have matching values in both relations.
 
-The inner join needs to be explicitly specified. It selects rows
-that have matching values in both relations.
+  Syntax: `relation INNER JOIN relation [ join_criteria ] `
++ **Left Join **
 
-Syntax: `relation INNER JOIN relation [ join_criteria ]`
+  A left join returns all values from the left relation and the matched values from the right relation, or appends NULL if there is no match. It is also referred to as a left outer join. 
 
-- **Left Join**
+  Syntax: `relation LEFT OUTER JOIN relation [ join_criteria ]` 
++ **Cross Join **
 
-A left join returns all values from the left relation and the
-matched values from the right relation, or appends NULL if there is
-no match. It is also referred to as a left outer join.
+  A cross join returns the Cartesian product of two relations. 
 
-Syntax: `relation LEFT OUTER JOIN relation [ join_criteria
- ]`
-
-- **Cross Join**
-
-A cross join returns the Cartesian product of two relations.
-
-Syntax: `relation CROSS JOIN relation [ join_criteria
- ]`
+  Syntax: `relation CROSS JOIN relation [ join_criteria ]` 
 
 **Examples**
 
@@ -5730,33 +5493,26 @@ SELECT id, name, employee.deptno, deptname FROM employee CROSS JOIN department;
 ```
 
 #### LIMIT clause
+<a name="supported-sql-limit"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `LIMIT` clause is used to constrain the number of rows returned by the `SELECT` statement. In general, this clause is used in conjunction with `ORDER BY` to ensure that the results are deterministic. 
 
-The `LIMIT` clause is used to constrain the number of rows
-returned by the `SELECT` statement. In general, this clause is
-used in conjunction with `ORDER BY` to ensure that the results
-are deterministic.
-
-**Syntax**
+**Syntax** 
 
 ```
 LIMIT { ALL | integer_expression }
 ```
 
 **Parameters**
++ **ALL**
 
-- **ALL**
+  If specified, the query returns all the rows. In other words, no limit is applied if this option is specified. 
++ **integer\_expression **
 
-If specified, the query returns all the rows. In other words, no
-limit is applied if this option is specified.
-
-- **integer\_expression**
-
-Specifies a foldable expression that returns an integer.
+  Specifies a foldable expression that returns an integer. 
 
 **Examples**
 
@@ -5806,17 +5562,14 @@ SELECT name, age FROM person ORDER BY name LIMIT length('OPENSEARCH');
 ```
 
 #### CASE clause
+<a name="supported-sql-case"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `CASE` clause uses a rule to return a specific result based on the specified condition, similar to if/else statements in other programming languages. 
 
-The `CASE` clause uses a rule to return a
-specific result based on the specified condition, similar to if/else
-statements in other programming languages.
-
-**Syntax**
+**Syntax** 
 
 ```
 CASE [ expression ] { WHEN boolean_expression THEN then_expression } [ ... ]
@@ -5825,28 +5578,21 @@ END
 ```
 
 **Parameters**
++ **boolean\_expression **
 
-- **boolean\_expression**
+  Specifies any expression that evaluates to a result type boolean. 
 
-Specifies any expression that evaluates to a result type boolean.
+  Two or more expressions may be combined together using the logical operators ( `AND`, `OR` ). 
++ **then\_expression **
 
-Two or more expressions may be combined together using the logical
-operators ( `AND`, `OR` ).
+  Specifies the then expression based on the boolean\_expression condition.
 
-- **then\_expression**
+  `then_expression` and `else_expression` should all be same type or coercible to a common type. 
++ **else\_expression **
 
-Specifies the then expression based on the boolean\_expression
-condition.
+  Specifies the default expression.
 
-`then_expression` and `else_expression`
-should all be same type or coercible to a common type.
-
-- **else\_expression**
-
-Specifies the default expression.
-
-`then_expression` and `else_expression`
-should all be same type or coercible to a common type.
+  `then_expression` and` else_expression` should all be same type or coercible to a common type. 
 
 **Examples**
 
@@ -5878,17 +5624,14 @@ SELECT id, CASE id WHEN 100 then 'bigger' WHEN  id > 300 THEN '300' ELSE 'small'
 ```
 
 #### Common table expression
+<a name="supported-sql-cte"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+A common table expression (CTE) defines a temporary result set that a user can reference possibly multiple times within the scope of a SQL statement. A CTE is used mainly in a `SELECT` statement. 
 
-A common table expression (CTE) defines a temporary result set that a user
-can reference possibly multiple times within the scope of a SQL statement. A
-CTE is used mainly in a `SELECT` statement.
-
-**Syntax**
+**Syntax** 
 
 ```
 WITH common_table_expression [ , ... ]
@@ -5900,15 +5643,13 @@ While `common_table_expression` is defined as:
 Syntexpression_name [ ( column_name [ , ... ] ) ] [ AS ] ( query )
 ```
 
-**Parameters**
+**Parameters** 
++ **expression\_name **
 
-- **expression\_name**
+  Specifies a name for the common table expression. 
++ **query** 
 
-Specifies a name for the common table expression.
-
-- **query**
-
-A `SELECT` statement.
+  A `SELECT` statement. 
 
 **Examples**
 
@@ -5969,55 +5710,41 @@ SELECT * FROM v;
 ```
 
 #### EXPLAIN
+<a name="supported-sql-explain"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `EXPLAIN` statement is used to provide logical/physical plans for an input statement. By default, this clause provides information about a physical plan only. 
 
-The `EXPLAIN` statement is used to provide logical/physical
-plans for an input statement. By default, this clause provides information
-about a physical plan only.
-
-**Syntax**
+**Syntax** 
 
 ```
 EXPLAIN [ EXTENDED | CODEGEN | COST | FORMATTED ] statement
 ```
 
 **Parameters**
++ **EXTENDED** 
 
-- **EXTENDED**
+  Generates parsed logical plan, analyzed logical plan, optimized logical plan and physical plan. 
 
-Generates parsed logical plan, analyzed logical plan, optimized
-logical plan and physical plan.
+  Parsed Logical plan is a unresolved plan that extracted from the query. 
 
-Parsed Logical plan is a unresolved plan that extracted from the
-query.
+  Analyzed logical plans transforms which translates `unresolvedAttribute` and `unresolvedRelation` into fully typed objects. 
 
-Analyzed logical plans transforms which translates
-`unresolvedAttribute` and
-`unresolvedRelation` into fully typed objects.
+  The optimized logical plan transforms through a set of optimization rules, resulting in the physical plan. 
++ **CODEGEN** 
 
-The optimized logical plan transforms through a set of
-optimization rules, resulting in the physical plan.
+  Generates code for the statement, if any and a physical plan. 
++ **COST** 
 
-- **CODEGEN**
+  If plan node statistics are available, generates a logical plan and the statistics. 
++ **FORMATTED** 
 
-Generates code for the statement, if any and a physical plan.
+  Generates two sections: a physical plan outline and node details. 
++ **statement** 
 
-- **COST**
-
-If plan node statistics are available, generates a logical plan
-and the statistics.
-
-- **FORMATTED**
-
-Generates two sections: a physical plan outline and node details.
-
-- **statement**
-
-Specifies a SQL statement to be explained.
+  Specifies a SQL statement to be explained. 
 
 **Examples**
 
@@ -6044,17 +5771,17 @@ EXPLAIN EXTENDED select k, sum(v) from values (1, 2), (1, 3) t(k, v) group by k;
 'Aggregate ['k], ['k, unresolvedalias('sum('v), None)]
  +- 'SubqueryAlias `t`
 +- 'UnresolvedInlineTable [k, v], [List(1, 2), List(1, 3)]
-
+   
  == Analyzed Logical Plan ==
  k: int, sum(v): bigint
  Aggregate [k#47], [k#47, sum(cast(v#48 as bigint)) AS sum(v)#50L]
  +- SubqueryAlias `t`
     +- LocalRelation [k#47, v#48]
-
+   
  == Optimized Logical Plan ==
  Aggregate [k#47], [k#47, sum(cast(v#48 as bigint)) AS sum(v)#50L]
  +- LocalRelation [k#47, v#48]
-
+   
  == Physical Plan ==
  *(2) HashAggregate(keys=[k#47], functions=[sum(cast(v#48 as bigint))], output=[k#47, sum(v)#50L])
 +- Exchange hashpartitioning(k#47, 200), true, [id=#79]
@@ -6073,17 +5800,17 @@ EXPLAIN FORMATTED select k, sum(v) from values (1, 2), (1, 3) t(k, v) group by k
  +- Exchange (3)
     +- * HashAggregate (2)
        +- * LocalTableScan (1)
-
-
+   
+   
  (1) LocalTableScan [codegen id : 1]
  Output: [k#19, v#20]
-
+        
  (2) HashAggregate [codegen id : 1]
  Input: [k#19, v#20]
-
+        
  (3) Exchange
  Input: [k#19, sum#24L]
-
+        
  (4) HashAggregate [codegen id : 2]
  Input: [k#19, sum#24L]
 |
@@ -6091,40 +5818,33 @@ EXPLAIN FORMATTED select k, sum(v) from values (1, 2), (1, 3) t(k, v) group by k
 ```
 
 #### LATERAL SUBQUERY clause
+<a name="supported-sql-lateral-subquery"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+`LATERAL SUBQUERY` is a subquery that is preceded by the keyword `LATERAL`. It provides a way to reference columns in the preceding `FROM` clause. Without the `LATERAL` keyword, subqueries can only refer to columns in the outer query, but not in the `FROM` clause. `LATERAL SUBQUERY` makes the complicated queries simpler and more efficient. 
 
-`LATERAL SUBQUERY` is a subquery that is preceded by the
-keyword `LATERAL`. It provides a way to reference columns in the
-preceding `FROM` clause. Without the `LATERAL`
-keyword, subqueries can only refer to columns in the outer query, but not in
-the `FROM` clause. `LATERAL SUBQUERY` makes the
-complicated queries simpler and more efficient.
-
-**Syntax**
+**Syntax** 
 
 ```
 [ LATERAL ] primary_relation [ join_relation ]
 ```
 
 **Parameters**
++ **primary\_relation **
 
-- **primary\_relation**
+  Specifies the primary relation. It can be one of the following: 
 
-Specifies the primary relation. It can be one of the following:
+  1. Table relation 
 
-    1. Table relation
-    2. Aliased query
+  1. Aliased query 
 
+     Syntax: `( query ) [ [ AS ] alias ] `
 
-    Syntax: `( query ) [ [ AS ] alias ]`
-    3. Aliased relation
+  1. Aliased relation 
 
-
-    `Syntax: ( relation ) [ [ AS ] alias ]`
+     `Syntax: ( relation ) [ [ AS ] alias ]` 
 
 **Examples**
 
@@ -6154,46 +5874,34 @@ LATERAL (SELECT a * b AS c);
 ```
 
 #### LATERAL VIEW clause
+<a name="supported-sql-lateral-view"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `LATERAL VIEW` clause is used in conjunction with generator functions such as `EXPLODE`, which will generate a virtual table containing one or more rows. `LATERAL VIEW` will apply the rows to each original output row. 
 
-The `LATERAL VIEW` clause is used in conjunction with generator
-functions such as `EXPLODE`, which will generate a virtual table
-containing one or more rows. `LATERAL VIEW` will apply the rows
-to each original output row.
-
-**Syntax**
+**Syntax** 
 
 ```
 LATERAL VIEW [ OUTER ] generator_function ( expression [ , ... ] ) [ table_alias ] AS column_alias [ , ... ]
 ```
 
 **Parameters**
++ **OUTER**
 
-- **OUTER**
+  If `OUTER` specified, returns null if an input array/map is empty or null. 
++ **generator\_function **
 
-If `OUTER` specified, returns null if an input
-array/map is empty or null.
+  Specifies a generator function (`EXPLODE`, `INLINE`, and so on.). 
++ **table\_alias **
 
-- **generator\_function**
+  The alias for `generator_function`, which is optional. 
++ **column\_alias **
 
-Specifies a generator function (`EXPLODE`,
-`INLINE`, and so on.).
+  Lists the column aliases of `generator_function`, which may be used in output rows. 
 
-- **table\_alias**
-
-The alias for `generator_function`, which is optional.
-
-- **column\_alias**
-
-Lists the column aliases of `generator_function`, which
-may be used in output rows.
-
-You can have multiple aliases if `generator_function`
-has multiple output columns.
+  You can have multiple aliases if `generator_function` has multiple output columns. 
 
 **Examples**
 
@@ -6256,17 +5964,14 @@ LATERAL VIEW OUTER EXPLODE(ARRAY()) tableName AS c_age;
 ```
 
 #### LIKE predicate
+<a name="supported-sql-like-predicate"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+A `LIKE` predicate is used to search for a specific pattern. This predicate also supports multiple patterns with quantifiers include `ANY`, `SOME`, and `ALL`. 
 
-A `LIKE` predicate is used to search for a specific pattern.
-This predicate also supports multiple patterns with quantifiers include
-`ANY`, `SOME`, and `ALL`.
-
-**Syntax**
+**Syntax** 
 
 ```
 [ NOT ] { LIKE search_pattern [ ESCAPE esc_char ] | [ RLIKE | REGEXP ] regex_pattern }
@@ -6274,35 +5979,24 @@ This predicate also supports multiple patterns with quantifiers include
 ```
 
 **Parameters**
++ **search\_pattern **
 
-- **search\_pattern**
+  Specifies a string pattern to be searched by the LIKE clause. It can contain special pattern-matching characters: 
+  + `%` matches zero or more characters. 
+  + `_` matches exactly one character. 
++ **esc\_char **
 
-Specifies a string pattern to be searched by the LIKE clause. It
-can contain special pattern-matching characters:
+  Specifies the escape character. The default escape character is `\`. 
++ **regex\_pattern **
 
-    + `%` matches zero or more characters.
-    + `_` matches exactly one character.
+  Specifies a regular expression search pattern to be searched by the `RLIKE` or `REGEXP` clause. 
++ **quantifiers** 
 
-- **esc\_char**
+  Specifies the predicate quantifiers include `ANY`, `SOME` and `ALL`. 
 
-Specifies the escape character. The default escape character is
-`\`.
+  `ANY` or `SOME` means if one of the patterns matches the input, then return true.
 
-- **regex\_pattern**
-
-Specifies a regular expression search pattern to be searched by
-the `RLIKE` or `REGEXP` clause.
-
-- **quantifiers**
-
-Specifies the predicate quantifiers include `ANY`,
-`SOME` and `ALL`.
-
-`ANY` or `SOME` means if one of the patterns
-matches the input, then return true.
-
-`ALL` means if all the patterns matches the input, then
-return true.
+  `ALL` means if all the patterns matches the input, then return true. 
 
 **Examples**
 
@@ -6411,28 +6105,23 @@ SELECT * FROM person WHERE name NOT LIKE SOME ('%an%', '%an');
 ```
 
 #### OFFSET
+<a name="supported-sql-offset"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `OFFSET` clause is used to specify the number of rows to skip before beginning to return rows returned by the `SELECT` statement. In general, this clause is used in conjunction with `ORDER BY` to ensure that the results are deterministic. 
 
-The `OFFSET` clause is used to specify the number of rows to
-skip before beginning to return rows returned by the `SELECT`
-statement. In general, this clause is used in conjunction with `ORDER
- BY` to ensure that the results are deterministic.
-
-**Syntax**
+**Syntax** 
 
 ```
 OFFSET integer_expression
 ```
 
 **Parameters**
++ **integer\_expression **
 
-- **integer\_expression**
-
-Specifies a foldable expression that returns an integer.
+  Specifies a foldable expression that returns an integer. 
 
 **Examples**
 
@@ -6477,45 +6166,32 @@ SELECT name, age FROM person ORDER BY name OFFSET length('WAGON');
 ```
 
 #### PIVOT clause
+<a name="supported-sql-pivot"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `PIVOT` clause is used for data perspective. We can get the aggregated values based on specific column values, which will be turned to multiple columns used in `SELECT` clause. The `PIVOT` clause can be specified after the table name or subquery. 
 
-The `PIVOT` clause is used for data perspective. We can get the
-aggregated values based on specific column values, which will be turned to
-multiple columns used in `SELECT` clause. The `PIVOT`
-clause can be specified after the table name or subquery.
-
-**Syntax**
+**Syntax** 
 
 ```
-PIVOT ( { aggregate_expression [ AS aggregate_expression_alias ] } [ , ... ] FOR column_list IN ( expression_list ) )
+PIVOT ( { aggregate_expression [ AS aggregate_expression_alias ] } [ , ... ] FOR column_list IN ( expression_list ) ) 
 ```
 
-**Parameters**
+**Parameters** 
++ **aggregate\_expression**
 
-- **aggregate\_expression**
+  Specifies an aggregate expression `(SUM(a)`, `COUNT(DISTINCT b)`, and so on.). 
++ **aggregate\_expression\_alias**
 
-Specifies an aggregate expression `(SUM(a)`,
-`COUNT(DISTINCT b)`, and so on.).
+  Specifies an alias for the aggregate expression. 
++ **column\_list**
 
-- **aggregate\_expression\_alias**
+  Contains columns in the `FROM` clause, which specifies the columns you want to replace with new columns. You can use brackets to surround the columns, such as `(c1, c2)`. 
++ **expression\_list**
 
-Specifies an alias for the aggregate expression.
-
-- **column\_list**
-
-Contains columns in the `FROM` clause, which specifies
-the columns you want to replace with new columns. You can use
-brackets to surround the columns, such as `(c1, c2)`.
-
-- **expression\_list**
-
-Specifies new columns, which are used to match values in
-`column_list` as the aggregating condition. You can
-also add aliases for them.
+  Specifies new columns, which are used to match values in `column_list` as the aggregating condition. You can also add aliases for them. 
 
 **Examples**
 
@@ -6555,34 +6231,26 @@ FOR (name, age) IN (('John', 30) AS c1, ('Mike', 40) AS c2)
 ```
 
 #### Set operators
+<a name="supported-sql-set"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+Set operators are used to combine two input relations into a single one. OpenSearch SQL supports three types of set operators: 
++ `EXCEPT` or `MINUS`
++ `INTERSECT` 
++ `UNION` 
 
-Set operators are used to combine two input relations into a single one.
-OpenSearch SQL supports three types of set operators:
+Input relations must have the same number of columns and compatible data types for the respective columns. 
 
-- `EXCEPT` or `MINUS`
-- `INTERSECT`
-- `UNION`
+**EXCEPT** 
 
-Input relations must have the same number of columns and compatible data
-types for the respective columns.
+`EXCEPT` and `EXCEPT ALL` return the rows that are found in one relation but not the other. `EXCEPT` (alternatively, `EXCEPT DISTINCT`) takes only distinct rows while `EXCEPT ALL` does not remove duplicates from the result rows. Note that `MINUS` is an alias for `EXCEPT`. 
 
-**EXCEPT**
-
-`EXCEPT` and `EXCEPT ALL` return the rows that are
-found in one relation but not the other. `EXCEPT` (alternatively,
-`EXCEPT DISTINCT`) takes only distinct rows while
-`EXCEPT ALL` does not remove duplicates from the result rows.
-Note that `MINUS` is an alias for `EXCEPT`.
-
-**Syntax**
+**Syntax** 
 
 ```
- [ ( ] relation [ ) ] EXCEPT | MINUS [ ALL | DISTINCT ] [ ( ] relation [ ) ]
+ [ ( ] relation [ ) ] EXCEPT | MINUS [ ALL | DISTINCT ] [ ( ] relation [ ) ] 
 ```
 
 **Examples**
@@ -6641,14 +6309,11 @@ SELECT c FROM table1 MINUS ALL (SELECT c FROM table2);
 +---+
 ```
 
-**INTERSECT**
+**INTERSECT** 
 
-`INTERSECT` and `INTERSECT ALL` return the rows that
-are found in both relations. `INTERSECT` (alternatively,
-`INTERSECT DISTINCT`) takes only distinct rows while `INTERSECT ALL` does not remove duplicates from the
-result rows.
+`INTERSECT` and `INTERSECT ALL` return the rows that are found in both relations. `INTERSECT` (alternatively, `INTERSECT DISTINCT`) takes only distinct rows while `INTERSECT ALL` does not remove duplicates from the result rows.
 
-**Syntax**
+**Syntax** 
 
 ```
  [ ( ] relation [ ) ] INTERSECT [ ALL | DISTINCT ] [ ( ] relation [ ) ]
@@ -6681,14 +6346,11 @@ result rows.
 +---+
 ```
 
-**UNION**
+**UNION** 
 
-`UNION` and `UNION ALL` return the rows that are
-found in either relation. `UNION` (alternatively, `UNION
- DISTINCT`) takes only distinct rows while `UNION ALL` does not remove duplicates from the result
-rows.
+`UNION` and `UNION ALL` return the rows that are found in either relation. `UNION` (alternatively, `UNION DISTINCT`) takes only distinct rows while `UNION ALL` does not remove duplicates from the result rows.
 
-**Syntax**
+**Syntax** 
 
 ```
  [ ( ] relation [ ) ] UNION [ ALL | DISTINCT ] [ ( ] relation [ ) ]
@@ -6735,61 +6397,43 @@ SELECT c FROM table1 UNION ALL (SELECT c FROM table2);
 ```
 
 #### SORT BY clause
+<a name="supported-sql-sort-by"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `SORT BY` clause is used to return the result rows sorted within each partition in the user specified order. When there is more than one partition `SORT BY` may return result that is partially ordered. This is different than `ORDER BY` clause which guarantees a total order of the output. 
 
-The `SORT BY` clause is used to return the result rows sorted
-within each partition in the user specified order. When there is more than
-one partition `SORT BY` may return result that is partially
-ordered. This is different than `ORDER BY` clause which
-guarantees a total order of the output.
-
-**Syntax**
+**Syntax** 
 
 ```
 SORT BY { expression [ sort_direction | nulls_sort_order ] [ , ... ] }
 ```
 
 **Parameters**
++ **SORT BY **
 
-- **SORT BY**
+  Specifies a comma-separated list of expressions along with optional parameters sort\_direction and nulls\_sort\_order which are used to sort the rows within each partition. 
++ **sort\_direction **
 
-Specifies a comma-separated list of expressions along with
-optional parameters sort\_direction and nulls\_sort\_order which are
-used to sort the rows within each partition.
+  Optionally specifies whether to sort the rows in ascending or descending order. 
 
-- **sort\_direction**
+  The valid values for the sort direction are `ASC` for ascending and `DESC` for descending. 
 
-Optionally specifies whether to sort the rows in ascending or
-descending order.
+  If sort direction is not explicitly specified, then by default rows are sorted ascending. 
 
-The valid values for the sort direction are `ASC` for
-ascending and `DESC` for descending.
+  Syntax: `[ ASC | DESC ]` 
++ **nulls\_sort\_order **
 
-If sort direction is not explicitly specified, then by default
-rows are sorted ascending.
+  Optionally specifies whether NULL values are returned before/after non-NULL values. 
 
-Syntax: `[ ASC | DESC ]`
+  If `null_sort_order` is not specified, then NULLs sort first if the sort order is `ASC` and NULLS sort last if the sort order is `DESC`. 
 
-- **nulls\_sort\_order**
+  1. If `NULLS FIRST` is specified, then NULL values are returned first regardless of the sort order. 
 
-Optionally specifies whether NULL values are returned before/after
-non-NULL values.
+  2. If `NULLS LAST` is specified, then NULL values are returned last regardless of the sort order. 
 
-If `null_sort_order` is not specified, then NULLs sort
-first if the sort order is `ASC` and NULLS sort last if
-the sort order is `DESC`.
-
-1. If `NULLS FIRST` is specified, then NULL values are
-   returned first regardless of the sort order.
-
-2. If `NULLS LAST` is specified, then NULL values are
-   returned last regardless of the sort order.
-
-Syntax: `[ NULLS { FIRST | LAST } ]`
+  Syntax: `[ NULLS { FIRST | LAST } ] `
 
 **Examples**
 
@@ -6890,17 +6534,14 @@ SORT BY name ASC, age DESC;
 ```
 
 #### UNPIVOT
+<a name="supported-sql-unpivot"></a>
 
-###### Note
+**Note**  
+To see which AWS data source integrations support this SQL command, see [Supported OpenSearch SQL commands and functions](#supported-directquery-sql).
 
-To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
+The `UNPIVOT` clause transforms multiple columns into multiple rows used in `SELECT` clause. The `UNPIVOT` clause can be specified after the table name or subquery. 
 
-The `UNPIVOT` clause transforms multiple columns into multiple
-rows used in `SELECT` clause. The `UNPIVOT` clause can
-be specified after the table name or subquery.
-
-**Syntax**
+**Syntax** 
 
 ```
 UNPIVOT [ { INCLUDE | EXCLUDE } NULLS ] (
@@ -6919,21 +6560,15 @@ multi_value_column_unpivot:
 ```
 
 **Parameters**
++ **unpivot\_column **
 
-- **unpivot\_column**
+  Contains columns in the `FROM` clause, which specifies the columns we want to unpivot. 
++ **name\_column **
 
-Contains columns in the `FROM` clause, which specifies
-the columns we want to unpivot.
+  The name for the column that holds the names of the unpivoted columns. 
++ **values\_column **
 
-- **name\_column**
-
-The name for the column that holds the names of the unpivoted
-columns.
-
-- **values\_column**
-
-The name for the column that holds the values of the unpivoted
-columns.
+  The name for the column that holds the values of the unpivoted columns. 
 
 **Examples**
 

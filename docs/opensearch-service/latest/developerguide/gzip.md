@@ -1,20 +1,16 @@
+
+
 # Compressing HTTP requests in Amazon OpenSearch Service
+<a name="gzip"></a>
 
-You can compress HTTP requests and responses in Amazon OpenSearch Service domains using gzip compression.
-Gzip compression can help you reduce the size of your documents and lower bandwidth
-utilization and latency, thereby leading to improved transfer speeds.
+You can compress HTTP requests and responses in Amazon OpenSearch Service domains using gzip compression. Gzip compression can help you reduce the size of your documents and lower bandwidth utilization and latency, thereby leading to improved transfer speeds.
 
-Gzip compression is supported for all domains running OpenSearch or Elasticsearch 6.0 or
-later. Some OpenSearch clients have built-in support for gzip compression, and many
-programming languages have libraries that simplify the process.
+Gzip compression is supported for all domains running OpenSearch or Elasticsearch 6.0 or later. Some OpenSearch clients have built-in support for gzip compression, and many programming languages have libraries that simplify the process.
 
 ## Enabling gzip compression
+<a name="gzip-enable"></a>
 
-Not to be confused with similar OpenSearch settings,
-`http_compression.enabled` is specific to OpenSearch Service and enables or disables
-gzip compression on a domain. Domains running OpenSearch or Elasticsearch 7._x_ have the gzip compression enabled by default, whereas
-domains running Elasticsearch 6._x_ have it disabled by
-default.
+Not to be confused with similar OpenSearch settings, `http_compression.enabled` is specific to OpenSearch Service and enables or disables gzip compression on a domain. Domains running OpenSearch or Elasticsearch 7.*x* have the gzip compression enabled by default, whereas domains running Elasticsearch 6.*x* have it disabled by default.
 
 To enable gzip compression, send the following request:
 
@@ -27,11 +23,9 @@ PUT _cluster/settings
 }
 ```
 
-Requests to `_cluster/settings` must be uncompressed, so you might need to
-use a separate client or standard HTTP request to update cluster settings.
+Requests to `_cluster/settings` must be uncompressed, so you might need to use a separate client or standard HTTP request to update cluster settings.
 
-To confirm that you successfully enabled gzip compression, send the following
-request:
+To confirm that you successfully enabled gzip compression, send the following request:
 
 ```
 GET _cluster/settings?include_defaults=true
@@ -48,17 +42,14 @@ Make sure you see the following setting in the response:
 ```
 
 ## Required headers
+<a name="gzip-headers"></a>
 
-When including a gzip-compressed request body, keep the standard `Content-Type:
- application/json` header, and add the `Content-Encoding: gzip`
-header. To accept a gzip-compressed response, add the `Accept-Encoding: gzip`
-header, as well. If an OpenSearch client supports gzip compression, it likely includes
-these headers automatically.
+When including a gzip-compressed request body, keep the standard `Content-Type: application/json` header, and add the `Content-Encoding: gzip` header. To accept a gzip-compressed response, add the `Accept-Encoding: gzip` header, as well. If an OpenSearch client supports gzip compression, it likely includes these headers automatically.
 
 ## Sample code (Python 3)
+<a name="gzip-code"></a>
 
-The following sample uses [opensearch-py](https://pypi.org/project/opensearch-py/ "https://pypi.org/project/opensearch-py/") to perform the compression and send the request. This code
-signs the request using your IAM credentials.
+The following sample uses [opensearch-py](https://pypi.org/project/opensearch-py/) to perform the compression and send the request. This code signs the request using your IAM credentials. 
 
 ```
 from opensearchpy import OpenSearch, RequestsHttpConnection
@@ -93,10 +84,7 @@ print(search.index(index='movies', id='1', body=document, refresh=True))
 # print(search.index(index='movies', doc_type='_doc', id='1', body=document, refresh=True))
 ```
 
-Alternately, you can specify the proper headers, compress the request body yourself,
-and use a standard HTTP library like [Requests](https://2.python-requests.org "https://2.python-requests.org"). This code signs the request using HTTP basic credentials, which
-your domain might support if you use [fine-grained access
-control](fgac.md "fgac.md").
+Alternately, you can specify the proper headers, compress the request body yourself, and use a standard HTTP library like [Requests](https://2.python-requests.org). This code signs the request using HTTP basic credentials, which your domain might support if you use [fine-grained access control](fgac.md).
 
 ```
 import requests
@@ -104,7 +92,7 @@ import gzip
 import json
 
 base_url = '' # The domain with https:// and a trailing slash. For example, https://my-test-domain.us-east-1.es.amazonaws.com/
-auth = ('`master-user`', '`master-user-password`') # For testing only. Don't store credentials in code.
+auth = ('{{master-user}}', '{{master-user-password}}') # For testing only. Don't store credentials in code.
 
 headers = {'Accept-Encoding': 'gzip', 'Content-Type': 'application/json',
            'Content-Encoding': 'gzip'}
