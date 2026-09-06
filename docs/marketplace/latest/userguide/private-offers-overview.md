@@ -30,6 +30,7 @@ Sellers in India can create private offers in USD and INR, and can extend these 
 - [Reporting for private offers](#reporting-for-seller-private-offers "#reporting-for-seller-private-offers")
 - [Supported product types for AWS Marketplace private offers](private-offers-supported-product-types.md "private-offers-supported-product-types.md")
 - [Creating and managing private offers](creating-private-offer.md "creating-private-offer.md")
+- [Auto-generated private offers](auto-generated-private-offers.md "auto-generated-private-offers.md")
 - [Creating private offers as an AWS Marketplace Channel Partner](channel-partner-offers.md "channel-partner-offers.md")
 - [Express private offers](express-private-offers.md "express-private-offers.md")
 - [Private offer installment plans](installment-plans.md "installment-plans.md")
@@ -91,6 +92,12 @@ When working with private offers, consider the following:
   accepted private offers. For example, you can do this to grant new entitlements, offer
   pricing discounts, adjust payment schedules, or change the end user license agreement
   (EULA) to use standardized license terms. For more information, see [Amending agreements in AWS Marketplace](private-offers-upgrades-and-renewals.md "private-offers-upgrades-and-renewals.md").
+- **Auto-renewal** – You can add renewal terms to a
+  private offer so the agreement renews automatically at its end date, either at the same
+  price or with a price uplift. The buyer chooses whether to opt in during initial offer
+  acceptance and can change that preference any time before the renewal decision deadline.
+  The seller can also disable auto-renewal before the renewal decision deadline. Auto-renewal
+  is available only for offers that use contract pricing. For more information, see [Configuring auto-renewal when creating a private offer](creating-private-offer.md "creating-private-offer.md").
 
 ## Private offer experience for buyers
 

@@ -49,7 +49,28 @@ offered by the ISV to the channel partner.
 
 **Professional services listing fees**
 
-All professional service offerings have a 0.5% listing fee for private offers.
+Professional services offerings have a 0.5% listing fee for private offers. This fee is
+reduced to 0% when the professional services product is sold as part of a qualifying
+multi-product solution offer set. To qualify:
+
+- The professional services product is part of an offer set in which an agreement exists
+  for every offer in the set.
+- At least one non-professional-services product in the offer set is a paid offer (its
+  dimensions are not priced at $0).
+- The qualifying sibling agreement has not been cancelled or terminated. Active,
+  expired, renewed, and replaced agreements all continue to qualify.
+
+Eligibility is evaluated when each listing fee invoice is generated.
+
+The 0% rate applies only to qualifying professional services agreements created on or
+after feature launch. It is not applied retroactively to agreements created before that
+time.
+
+###### Note
+
+Regional and channel partner private offer (CPPO) uplifts still apply on top of the
+professional services listing fee. For example, a qualifying professional services offer sold
+through a CPPO has a 0% base listing fee plus the 0.5% CPPO uplift.
 
 ## Understanding fees for regional offer listings in AWS Marketplace
 

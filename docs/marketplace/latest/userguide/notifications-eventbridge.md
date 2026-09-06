@@ -36,6 +36,10 @@ console.
 | Customer cancels their agreement                                                          | `Purchase Agreement Ended`                                       | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
 | An advisory is issued that might affect a customer's agreement                            | `Purchase Agreement Advisory Issued`                             | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
 | An advisory affecting a customer's agreement is resolved                                  | `Purchase Agreement Advisory Resolved`                           | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| A customer's auto-renewing agreement approaches its end date                              | `Purchase Agreement Ending<br>• Proposer`                        | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| A customer's renewal price uplift is finalized (percentage-range offers)                  | `Purchase Agreement Renewal Terms Finalized<br>• Proposer`       | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| A customer's agreement reaches its lockout date and will auto-renew                       | `Purchase Agreement Renewal Upcoming<br>• Proposer`              | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
+| A customer's agreement auto-renews and a new agreement is created                         | `Purchase Agreement Created<br>• Proposer` (intent=RENEW)        | [Events for agreements](#events-for-agreements "#events-for-agreements")                            |
 | A customer's license for a product is provisioned or updated                              | `License Updated`                                                | [Events for licenses](#events-for-licenses "#events-for-licenses")                                  |
 | A customer's license for a product is being revoked                                       | `License Deprovisioned`                                          | [Events for licenses](#events-for-licenses "#events-for-licenses")                                  |
 | Seller submits a cancellation request                                                     | `Agreement Cancellation Request Pending Approval<br>• Proposer`  | [Events for cancellations](#events-for-cancellations "#events-for-cancellations")                   |
@@ -408,6 +412,14 @@ When agreement events occur, sellers can receive notifications for purchase agre
 
 For information on creating EventBridge rules, see [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") in the _Amazon EventBridge User Guide_.
 
+###### Note
+
+In the AWS Marketplace Management Portal, this date is called the renewal decision deadline – the last
+day you or the buyer can turn auto-renewal off (or back on) before the renewal is confirmed.
+In these events it is represented by the lockout fields:
+`renewalSummary.lockoutStartTime` is when that period ends, and
+`renewalSummary.lockoutReached` indicates whether the period has started.
+
 The following is an example event body for **Purchase Agreement Created - Proposer**.
 
 ###### Note
@@ -444,6 +456,50 @@ Resale Authorization Id in case of Channel Partner Private Offer (CPPO) will be 
       "accountId": "845735284135"
     },
     "proposer": {
+      "accountId": "123456512334"
+    },
+    "offer": {
+      "id": "offer-1234567890123"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Created - Proposer** when a renewal creates a new agreement (`intent=RENEW`).
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Created - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's or CP's account id>",
+  "time": "2024-08-30T21:36:03Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-newrenewalagreementid"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-newrenewalagreementid",
+      "intent": "RENEW",
+      "status": "ACTIVE",
+      "acceptanceTime": "2024-08-30T21:36:03Z",
+      "startTime": "2024-08-30T21:36:03Z",
+      "endTime": "2025-05-30T21:36:03Z",
+      "previousAgreementId": "agmt-4mwg1nevbokzw95eca5797ixs"
+    },
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
+      "title": "Product Title"
+    },
+    "acceptor": {
+      "accountId": "845735284135"
+    },
+    "proposer": {
+      "name": "Seller Account Name",
       "accountId": "123456512334"
     },
     "offer": {
@@ -517,7 +573,16 @@ The following is an example event body for **Purchase Agreement Amended - Propos
       "status": "ACTIVE",
       "acceptanceTime": "2024-06-26T21:36:03Z",
       "startTime": "2024-08-30T21:36:03Z",
-      "endTime": "2025-05-30T21:36:03Z"
+      "endTime": "2025-05-30T21:36:03Z",
+      "autoRenewalEnabled": true
+    },
+    "renewalSummary": {
+      "lockoutStartTime": "2025-04-30T21:36:03Z",
+      "disabledBy": null
+    },
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
+      "title": "Product Title"
     },
     "resaleAuthorization": {
       "id": "resaleauthz-yaxjqxiskysxa"
@@ -534,6 +599,14 @@ The following is an example event body for **Purchase Agreement Amended - Propos
   }
 }
 ```
+
+`autoRenewalEnabled`: `true` when renewal terms are present and
+neither party opted out; `false` otherwise.
+`renewalSummary.lockoutStartTime`: `null` when the renewal term has no
+lockout period. `renewalSummary.disabledBy`: `ACCEPTOR` or
+`PROPOSER` (`PROPOSER` if both opted out); `null` when
+`autoRenewalEnabled` is `true` or there are no renewal terms. Seller
+opt-out is processed as an amendment and surfaces through this event.
 
 The following is an example event body for **Purchase Agreement Amended - Manufacturer**.
 
@@ -723,6 +796,136 @@ The following is an example event body for **Purchase Agreement Advisory Resolve
     },
     "advisory": {
       "resolvedAt": "2026-08-02T11:13:05Z"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Ending - Proposer**.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Ending - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's account id>",
+  "time": "2026-07-04T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "startTime": "2025-06-01T00:00:00Z",
+      "endTime": "2026-12-31T00:00:00Z",
+      "status": "ACTIVE",
+      "daysBeforeEndTime": 180,
+      "autoRenewalEnabled": true
+    },
+    "renewalSummary": {
+      "lockoutStartTime": "2026-12-01T00:00:00Z",
+      "disabledBy": null
+    },
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
+      "title": "Product Title"
+    },
+    "acceptor": { "accountId": "845735284135" },
+    "proposer": {
+      "name": "Seller Account Name",
+      "accountId": "123456512334"
+    },
+    "offer": { "id": "offer-1234567890123" }
+  }
+}
+```
+
+`daysBeforeEndTime` values: 180 | 120 | 90 | 60 | 30.
+
+The following is an example event body for **Purchase Agreement Renewal Terms Finalized - Proposer**. This event fires after the seller adjustment deadline passes (percentage-range offers only).
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Renewal Terms Finalized - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's account id>",
+  "time": "2026-11-01T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "startTime": "2025-06-01T00:00:00Z",
+      "endTime": "2026-12-31T00:00:00Z"
+    },
+    "renewalSummary": {
+      "tcv": "105000.00",
+      "currency": "USD",
+      "termsFinalizedTime": "2026-11-01T00:00:00Z",
+      "lockoutReached": false,
+      "lockoutStartTime": "2026-12-01T00:00:00Z"
+    },
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
+      "title": "Product Title"
+    },
+    "acceptor": { "accountId": "845735284135" },
+    "proposer": {
+      "name": "Seller Account Name",
+      "accountId": "123456512334"
+    }
+  }
+}
+```
+
+`renewalSummary.lockoutReached` and `lockoutStartTime` are
+`null` when the accepted renewal term has no lockout period.
+
+The following is an example event body for **Purchase Agreement Renewal Upcoming - Proposer**. This event fires at lockout period start.
+
+```
+{
+  "version": "0",
+  "id": "12345678-1234-1234-1234-123456789012",
+  "detail-type": "Purchase Agreement Renewal Upcoming - Proposer",
+  "source": "aws.agreement-marketplace",
+  "account": "<ISV's account id>",
+  "time": "2026-12-01T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:aws-marketplace::aws:agreement:agmt-4mwg1nevbokzw95eca5797ixs"
+  ],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "id": "agmt-4mwg1nevbokzw95eca5797ixs",
+      "startTime": "2025-06-01T00:00:00Z",
+      "endTime": "2026-12-31T00:00:00Z"
+    },
+    "renewalSummary": {
+      "lockoutReached": true,
+      "tcv": "105000.00",
+      "currency": "USD"
+    },
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
+      "title": "Product Title"
+    },
+    "acceptor": { "accountId": "845735284135" },
+    "proposer": {
+      "name": "Seller Account Name",
+      "accountId": "123456512334"
     }
   }
 }

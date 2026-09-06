@@ -86,7 +86,7 @@ Use the following process to draft and publish your private offer.
 ###### To draft and publish your private offer
 
 1. On the **Provide offer information** page, provide the offer name,
-   offer details, renewal type, and offer expiration date. If this is a renewal offer, you
+   offer details, offer purpose, and offer expiration date. If this is a renewal offer, you
    must choose either **Existing Customer on AWS Marketplace** for renewals
    intended to renew an existing agreement created in AWS Marketplace, or **Existing
    Customer Moving to AWS Marketplace** for renewals intended to migrate your existing
@@ -132,7 +132,82 @@ of the following options:
      other addendums. These files will be merged into one document when the offer is
      created.
 
-7. On the **Review and create** page, review the details of your private
+7. Configure auto-renewal. Renewal terms define how this agreement renews when it
+reaches its end date.
+
+    * **Renewal pricing** – how the price changes
+     between cycles:
+
+
+
+
+    	+ **No price uplift** – the agreement renews at the same
+    	 price each cycle.
+    	+ **Price uplift** – the price increases each cycle.
+    	 Choose the type: **Fixed percentage** (one percentage applied
+    	 evenly across all dimensions every cycle; it compounds, so a 10% uplift takes $100
+    	 to $110 to $121) or **Percentage range** (a minimum and maximum
+    	 you finalize before each renewal's adjustment deadline; you can apply one flat
+    	 percentage or set a different uplift per dimension, as long as each stays within
+    	 the range).
+    	+ **No renewal** – the offer carries no auto-renewal
+    	 terms and the agreement ends at expiration.
+    * **Renewal maximum** – how many times the
+     agreement can auto-renew, or unlimited.
+    * **Renewal decision deadline** – the last day a
+     buyer or seller can change their auto-renewal decision before the next cycle is
+     guaranteed.
+    * **Adjustment deadline** (percentage range only)
+     – the date by which you must finalize the uplift for the next cycle, for
+     percentage range renewal pricing models. In order to provide buyers with adequate time
+     to review the final renewal terms, we recommend allowing a reasonable period between
+     the adjustment deadline and the renewal decision deadline, no shorter than the minimum
+     notice period mandated by applicable local laws (for example, 14 days where no
+     stricter requirement applies).
+    * **Default uplift** (percentage range only) –
+     the percentage applied automatically if you do not finalize a value by the adjustment
+     deadline.
+
+###### Price uplift with percentage range:
+
+Choose a price uplift range when you want to:
+
+    * Adjust the uplift at each renewal – for example, to reflect a factor such
+     as the consumer price index (CPI).
+    * Set a different uplift value for each dimension.
+
+If you choose a price uplift range:
+
+    * You must finalize the exact uplift percentage for each renewal cycle before the
+     adjustment deadline.
+    * You can set it from the **Auto-generated private offers** tab on
+     the **Offers** page, or from the **Renewal details**
+     tab of the agreement that is set to auto-renew.
+    * If you do not finalize a value by the adjustment deadline, the default uplift
+     applies.
+
+For more information, see [Auto-generated private offers](auto-generated-private-offers.md "auto-generated-private-offers.md") and [Managing agreement renewals](managing-agreement-renewals.md "managing-agreement-renewals.md").
+
+###### Renewal installment plan:
+
+By default, renewals use the same payment frequency you set for the first contract
+cycle. You can change the renewal frequency if you want renewals billed on a different
+cadence.
+
+Because the renewal start date is not known in advance, you choose how each
+installment's due date is calculated relative to that start:
+
+    * **By month** – the due date lands on a set month of the
+     agreement, such as "month 3 of the agreement."
+    * **By exact days** – a set number of days after the
+     agreement starts, such as "90 days after the agreement starts."
+
+The preview shows pricing for the next renewal cycle only; each installment is shown
+as a percentage of the total contract value (TCV) for that cycle. If you configured a
+price uplift, the renewal total is higher, so each installment is larger even though the
+percentages stay the same.
+
+Buyers review all of these terms before they accept. 8. On the **Review and create** page, review the details of your private
 offer. After you review and confirm, choose **Create offer** to publish
 the offer and extend it to the buyers you chose. Offer publishing includes a request to
 the AWS Marketplace Catalog API, so it can take up to an hour to validate and process the offer.

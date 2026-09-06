@@ -15,4 +15,5 @@ AWS is not a party to any agreements.
 - [Agreement structure](contract-structure-seller.md "contract-structure-seller.md")
 - [Agreement types](agreement-types.md "agreement-types.md")
 - [Working with agreements](viewing-your-agreements.md "viewing-your-agreements.md")
+- [Managing agreement renewals](managing-agreement-renewals.md "managing-agreement-renewals.md")
 - [Amending agreements in AWS Marketplace](private-offers-upgrades-and-renewals.md "private-offers-upgrades-and-renewals.md")

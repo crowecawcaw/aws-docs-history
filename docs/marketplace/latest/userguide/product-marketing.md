@@ -15,7 +15,6 @@ support to help you market the product or products that you have listed on AWS M
 - [Understanding Buy with AWS as a seller](#buy-with-aws "#buy-with-aws")
 - [Linking directly to your product on AWS Marketplace](#linking-directly-to-your-product-on-aws-marketplace "#linking-directly-to-your-product-on-aws-marketplace")
 - [Press releases](#press-releases "#press-releases")
-- [AWS Marketplace trademark usage guidelines](#aws-marketplace-trademark-usage-guidelines "#aws-marketplace-trademark-usage-guidelines")
 
 ## 180-day GTM Academy
 
@@ -202,7 +201,6 @@ To enable Buy with AWS, you must:
   Sellers](https://aws.amazon.com/legal/seller-terms/ "https://aws.amazon.com/legal/seller-terms/").
 - Adhere to the [AWS trademark
   guidelines](https://aws.amazon.com/trademark-guidelines/ "https://aws.amazon.com/trademark-guidelines/").
-- Adhere to the [Buy with AWS Trademark License](https://aws.amazon.com/legal/buy-with-aws-trademarks-license/ "https://aws.amazon.com/legal/buy-with-aws-trademarks-license/").
 - Have at least one public SaaS product listing in AWS Marketplace.
 
 ###### Note
@@ -316,51 +314,4 @@ The press release **should not**:
 
 Have your press release reviewed by submitting it in text format to your account manager.
 Additionally, review the [Amazon Web Services
-trademark guidelines](https://aws.amazon.com/trademark-guidelines/ "https://aws.amazon.com/trademark-guidelines/") before using any AWS trademarks. Guidelines specific to the
-AWS Marketplace trademark are in the following section.
-
-## AWS Marketplace trademark usage guidelines
-
-These Guidelines apply to your use of the AWS Marketplace logo and trademark, (each the “Trademark”
-and collectively the “Trademarks”) in materials that have been approved in advance by
-Amazon.com, Inc. and/or its affiliates (“Amazon”). Strict compliance with these Guidelines is
-required at all times, and any use of a Trademark in violation of these Guidelines will
-automatically terminate any license related to your use of the Trademarks.
-
-1. You may use the Trademark solely for the purpose expressly authorized by Amazon and
-   your use must: (i) comply with the most up-to-date version of all agreement(s) with Amazon
-   regarding your use of any of the Trademarks (collectively “Agreements”); (ii) comply with
-   the most up-to-date version of these Guidelines; and (iii) comply with any other terms,
-   conditions, or policies that Amazon may issue from time to time that apply to the use of
-   the Trademark.
-2. We will supply an approved Trademark image for you to use. You may not alter the
-   Trademark in any manner, including but not limited to, changing the proportion, color, or
-   font of the Trademark, or adding or removing any element(s) from the Trademark.
-3. You may not use the Trademark in any manner that implies sponsorship or endorsement
-   by Amazon other than by using the Trademark as specifically authorized under the
-   Agreements.
-4. You may not use the Trademark to disparage Amazon, its products or services, or in a
-   manner which, in Amazon’s sole discretion, may diminish or otherwise damage or tarnish
-   Amazon’s goodwill in the Trademark.
-5. The Trademark must appear by itself, with reasonable spacing between each side of the
-   Trademark and other visual, graphic or textual elements. Under no circumstance should the
-   Trademark be placed on any background which interferes with the readability or display of
-   the Trademark.
-6. You must include the following statement in any materials that display the Trademark:
-   “AWS Marketplace and the AWS Marketplace logo are trademarks of Amazon.com, Inc. or its affiliates.
-7. You acknowledge that all rights to the Trademark are the exclusive property of
-   Amazon, and all goodwill generated through your use of the Trademark will inure to the
-   benefit of Amazon. You will not take any action that is in conflict with Amazon’s rights
-   in, or ownership of, the Trademark.
-
-Amazon reserves the right, exercisable at its sole discretion, to modify these Guidelines
-and/or the approved Trademarks at any time and to take appropriate action against any use
-without permission or any use that does not conform to these Guidelines. If you have questions
-about these Guidelines, contact trademarks@amazon.com for assistance or write to us at the
-following address:
-
-Amazon.com, Inc., Attention: Trademarks
-
-PO Box 81226
-
-Seattle, WA 98108-1226
+trademark guidelines](https://aws.amazon.com/trademark-guidelines/ "https://aws.amazon.com/trademark-guidelines/") before using any AWS trademarks.

@@ -1,7 +1,7 @@
 # Configuring net payment terms for private offers
 
-When you create a private offer, specify net payment terms to honor your negotiated
-agreements and close deals that require custom terms.
+When you create a private offer, you can specify net payment terms that apply to that offer.
+With this feature, you can honor negotiated payment terms and close deals that require them.
 
 ###### Note
 
@@ -21,10 +21,10 @@ products.
 
 ## How net payment terms for private offers work
 
-We pay sellers after receiving payment from customers. When you extend net payment
+AWS pays sellers after receiving payment from customers. When you extend net payment
 terms to a customer on a private offer, the value you select is how long the buyer has to pay
 from the time of invoice issuance. For example, if you offer `Net 90` terms, the
-buyer has 90 days to pay from the time we generate the invoice.
+buyer has 90 days to pay from the time AWS generates the invoice.
 
 Consider your cash flow requirements when deciding which payment terms to offer.
 
@@ -51,9 +51,10 @@ You configure payment terms during the private offer creation process in [AWS Pa
 
    - **Customer's AWS default** (default) – The buyer's standard
      AWS payment terms apply.
-   - **Net 30**, **Net 45**, **Net
-     60**, or **Net 90** – Payment is due 30, 45, 60, or
-     90 days from the invoice date, respectively.
+   - **Net 15**, **Net 30**, **Net
+     45**, **Net 60**, **Net 90**, or
+     **Net 120** – Payment is due 15, 30, 45, 60, 90, or 120 days
+     from the invoice date, respectively.
 
 4. Complete the remaining steps to create and publish the private offer.
 
@@ -68,8 +69,8 @@ When you create a resale authorization for a channel partner, you can specify th
 net payment terms that the channel partner can extend to end customers.
 
 - If you set `Net 60` in the resale authorization, the channel partner can
-  offer `Net 30`, `Net 45`, or `Net 60` to the buyer, but
-  not `Net 90`.
+  offer `Net 15`, `Net 30`, `Net 45`, or `Net
+ 60` to the buyer, but not `Net 90` or `Net 120`.
 - If you select **Customer's AWS default**, the channel partner's offer
   defaults to the end buyer's AWS payment terms.
 
@@ -104,8 +105,9 @@ private offers](../buyerguide/buyer-net-payment-terms.md "../buyerguide/buyer-ne
 
 When working with net payment terms, consider the following:
 
-- You must align with the buyer before offering custom net payment terms on a private
-  offer. Buyers otherwise expect their standard AWS net payment terms to apply.
+- Make sure you have aligned with the buyer to offer them different net payment terms
+  for their private offer. Buyers otherwise expect their standard AWS net payment terms
+  to be used.
 - You cannot change payment terms after the buyer accepts the offer. To modify terms,
   create a new private offer.
 - If you set terms less favorable than the buyer's standard AWS terms (for example,

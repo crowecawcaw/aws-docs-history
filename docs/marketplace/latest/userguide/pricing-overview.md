@@ -15,7 +15,7 @@ and bring your own license (BYOL). AWS handles billing
 and payments, and charges appear on your customers’ AWS bills.
 
 When you list a product or service, you must also include an end user license agreement
-and terms of service. That combination of product and license becomes an _offer_. You can use a standard EULA for public offers, isted price
+and terms of service. That combination of product and license becomes an _offer_. You can use a standard EULA for public offers, listed price
 using an ISV’s standard end user license agreement (EULA). In addition, software products can
 be offered with custom pricing and EULA through private offers. Products can also be purchased
 under a contract with specifed time or usage boundaries.
