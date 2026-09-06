@@ -1,52 +1,34 @@
+
+
 # Generating a presigned URL to upload an object to an S3 on Outposts bucket
+<a name="S3OutpostsPresignedUrlUploadObject"></a>
 
-To grant time-limited access to objects that are stored locally on an
-Outpost without updating your bucket policy, you can use a presigned URL. With
-presigned URLs, you as the bucket owner can share objects with individuals in your virtual
-private cloud (VPC) or grant them the ability to upload or delete objects.
+To grant time-limited access to objects that are stored locally on an Outpost without updating your bucket policy, you can use a presigned URL. With presigned URLs, you as the bucket owner can share objects with individuals in your virtual private cloud (VPC) or grant them the ability to upload or delete objects. 
 
-When you create a presigned URL by using the AWS SDKs or the AWS Command Line Interface (AWS CLI), you associate the URL with a
-specific action. You also grant time-limited access to the presigned URL by choosing a
-custom expiration time that can be as low as 1 second and as high as 7 days. When you share
-the presigned URL, the individual in the VPC can perform the action embedded in the URL as
-if they were the original signing user. When the URL reaches its expiration time, the URL expires and no longer works.
+When you create a presigned URL by using the AWS SDKs or the AWS Command Line Interface (AWS CLI), you associate the URL with a specific action. You also grant time-limited access to the presigned URL by choosing a custom expiration time that can be as low as 1 second and as high as 7 days. When you share the presigned URL, the individual in the VPC can perform the action embedded in the URL as if they were the original signing user. When the URL reaches its expiration time, the URL expires and no longer works.
 
-When you create a presigned URL, you must provide your security credentials, and then
-specify the following:
+When you create a presigned URL, you must provide your security credentials, and then specify the following: 
++ An access point Amazon Resource Name (ARN) for the Amazon S3 on Outposts bucket
++ An object key
++ An HTTP method (`PUT` for uploading objects)
++ An expiration date and time
 
-- An access point Amazon Resource Name (ARN) for the Amazon S3 on Outposts bucket
-- An object key
-- An HTTP method (`PUT` for uploading objects)
-- An expiration date and time
-  A presigned URL is valid only for the specified duration. That is, you must start the
-  action that's allowed by the URL before the expiration date and time. You can use a
-  presigned URL multiple times, up to the expiration date and time. If you created a presigned
-  URL by using a temporary token, then the URL expires when the token expires, even if you
-  created the URL with a later expiration time.
+A presigned URL is valid only for the specified duration. That is, you must start the action that's allowed by the URL before the expiration date and time. You can use a presigned URL multiple times, up to the expiration date and time. If you created a presigned URL by using a temporary token, then the URL expires when the token expires, even if you created the URL with a later expiration time. 
 
-If the action allowed by a presigned URL consists of multiple steps, such as a multipart
-upload, you must start all steps before the expiration time. If S3 on Outposts tries to start
-a step with an expired URL, you receive an error.
+If the action allowed by a presigned URL consists of multiple steps, such as a multipart upload, you must start all steps before the expiration time. If S3 on Outposts tries to start a step with an expired URL, you receive an error.
 
-Users in the virtual private cloud (VPC) who have access to the presigned URL can upload
-objects. For example, a user in the VPC who has access to the presigned URL can upload an
-object to your bucket. Because presigned URLs grant access to your S3 on Outposts bucket to
-any user in the VPC who has access to the presigned URL, we recommend that you protect these
-URLs appropriately. For more details about protecting presigned URLs, see [Limiting presigned URL capabilities](S3OutpostsPresignedURL.md#S3OutpostsPresignedUrlUploadObjectLimitCapabilities "S3OutpostsPresignedURL.md#S3OutpostsPresignedUrlUploadObjectLimitCapabilities").
+Users in the virtual private cloud (VPC) who have access to the presigned URL can upload objects. For example, a user in the VPC who has access to the presigned URL can upload an object to your bucket. Because presigned URLs grant access to your S3 on Outposts bucket to any user in the VPC who has access to the presigned URL, we recommend that you protect these URLs appropriately. For more details about protecting presigned URLs, see [Limiting presigned URL capabilities](S3OutpostsPresignedURL.md#S3OutpostsPresignedUrlUploadObjectLimitCapabilities). 
 
-Anyone with valid security credentials can create a presigned URL. However, the presigned
-URL must be created by someone who has permission to perform the operation that the
-presigned URL is based upon. For more information, see [Who can create a presigned URL](S3OutpostsPresignedURL.md#S3Outpostswho-presigned-url "S3OutpostsPresignedURL.md#S3Outpostswho-presigned-url").
+Anyone with valid security credentials can create a presigned URL. However, the presigned URL must be created by someone who has permission to perform the operation that the presigned URL is based upon. For more information, see [Who can create a presigned URL](S3OutpostsPresignedURL.md#S3Outpostswho-presigned-url).
 
 ## Using the AWS SDKs to generate a presigned URL for an S3 on Outposts object operation
+<a name="s3-outposts-presigned-urls-upload-examples"></a>
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-This example shows how to generate a presigned URL that
-you can use to upload an object to an S3 on Outposts bucket
-for a limited time. For more information, see [Using presigned URLs for S3 on Outposts](S3OutpostsPresignedURL.md "S3OutpostsPresignedURL.md").
+**SDK for Java 2.x**  
+This example shows how to generate a presigned URL that you can use to upload an object to an S3 on Outposts bucket for a limited time. For more information, see [Using presigned URLs for S3 on Outposts](S3OutpostsPresignedURL.md).   
 
 ```
     public static void signBucket(S3Presigner presigner, String outpostAccessPointArn, String keyName) {
@@ -94,15 +76,11 @@ for a limited time. For more information, see [Using presigned URLs for S3 on Ou
     }
 ```
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-This example shows how to generate a presigned URL that
-can perform an S3 on Outposts action for a limited time. For
-more information, see [Using presigned URLs for S3 on Outposts](S3OutpostsPresignedURL.md "S3OutpostsPresignedURL.md"). To make a
-request with the URL, use the `Requests`
-package.
+**SDK for Python (Boto3)**  
+This example shows how to generate a presigned URL that can perform an S3 on Outposts action for a limited time. For more information, see [Using presigned URLs for S3 on Outposts](S3OutpostsPresignedURL.md). To make a request with the URL, use the `Requests` package.  
 
 ```
 import argparse
@@ -184,3 +162,5 @@ def usage_demo():
 if __name__ == '__main__':
     usage_demo()
 ```
+
+------

@@ -1,32 +1,26 @@
+
+
 # Copying an object in an Amazon S3 on Outposts bucket using the AWS SDK for Java
+<a name="S3OutpostsCopyObject"></a>
 
-Objects are the fundamental entities stored in Amazon S3 on Outposts. Every object is contained in a bucket.
-You must use access points to access any object in an Outpost bucket. When you specify the bucket for object operations, you use the
-access point Amazon Resource Name (ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md "s3-outposts-access-points-alias.md").
+Objects are the fundamental entities stored in Amazon S3 on Outposts. Every object is contained in a bucket. You must use access points to access any object in an Outpost bucket. When you specify the bucket for object operations, you use the access point Amazon Resource Name (ARN) or the access point alias. For more information about access point aliases, see [Using a bucket-style alias for your S3 on Outposts bucket access point](s3-outposts-access-points-alias.md).
 
-The following example shows the
-ARN format for S3 on Outposts access points, which includes the AWS Region code for the Region that the Outpost is homed to, the AWS account ID,
-the Outpost ID, and the access point name:
+The following example shows the ARN format for S3 on Outposts access points, which includes the AWS Region code for the Region that the Outpost is homed to, the AWS account ID, the Outpost ID, and the access point name:
 
 ```
-arn:aws:s3-outposts:`region`:`account-id`:outpost/`outpost-id`/accesspoint/`accesspoint-name`
+arn:aws:s3-outposts:{{region}}:{{account-id}}:outpost/{{outpost-id}}/accesspoint/{{accesspoint-name}}
 ```
 
-For more information about S3 on Outposts ARNs, see [Resource ARNs for S3 on Outposts](S3OutpostsIAM.md#S3OutpostsARN "S3OutpostsIAM.md#S3OutpostsARN").
+For more information about S3 on Outposts ARNs, see [Resource ARNs for S3 on Outposts](S3OutpostsIAM.md#S3OutpostsARN).
 
-With Amazon S3 on Outposts, object data is always stored on the Outpost. When AWS installs an Outpost rack, your data stays local to
-your Outpost to meet data-residency requirements. Your objects never leave your
-Outpost and are not in an AWS Region. Because the AWS Management Console is hosted in-Region, you can't use the console to upload or manage objects in
-your Outpost. However, you can use the REST API, AWS Command Line Interface (AWS CLI), and AWS SDKs to upload and manage your objects through your access points.
+With Amazon S3 on Outposts, object data is always stored on the Outpost. When AWS installs an Outpost rack, your data stays local to your Outpost to meet data-residency requirements. Your objects never leave your Outpost and are not in an AWS Region. Because the AWS Management Console is hosted in-Region, you can't use the console to upload or manage objects in your Outpost. However, you can use the REST API, AWS Command Line Interface (AWS CLI), and AWS SDKs to upload and manage your objects through your access points.
 
-The following example shows you how to copy an object in an S3 on Outposts bucket by using
-the AWS SDK for Java.
+The following example shows you how to copy an object in an S3 on Outposts bucket by using the AWS SDK for Java.
 
 ## Using the AWS SDK for Java
+<a name="S3OutpostsCopyObjectJava"></a>
 
-The following S3 on Outposts example copies an object into a new object in the same
-bucket by using the SDK for Java. To use this example, replace the `user
- input placeholders` with your own information.
+The following S3 on Outposts example copies an object into a new object in the same bucket by using the SDK for Java. To use this example, replace the `{{user input placeholders}}` with your own information.
 
 ```
 import com.amazonaws.AmazonServiceException;
@@ -37,9 +31,9 @@ import com.amazonaws.services.s3.model.CopyObjectRequest;
 
 public class CopyObject {
     public static void main(String[] args) {
-        String accessPointArn = "`*** access point ARN ***`";
-        String sourceKey = "`*** Source object key ***`";
-        String destinationKey = "`*** Destination object key ***`";
+        String accessPointArn = "{{*** access point ARN ***}}";
+        String sourceKey = "{{*** Source object key ***}}";
+        String destinationKey = "{{*** Destination object key ***}}";
 
         try {
             // This code expects that you have AWS credentials set up per:
