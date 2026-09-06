@@ -1,51 +1,31 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Infrastructure security in Amazon Redshift
+<a name="security-network-isolation"></a>
 
-As a managed service, Amazon Redshift is protected by AWS global network security. For
-information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
-environment using the best practices for infrastructure security, see [Infrastructure
-Protection](../../../wellarchitected/latest/security-pillar/infrastructure-protection.md "../../../wellarchitected/latest/security-pillar/infrastructure-protection.md") in _Security Pillar AWS Well‐Architected
-Framework_.
+As a managed service, Amazon Redshift is protected by AWS global network security. For information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/). To design your AWS environment using the best practices for infrastructure security, see [Infrastructure Protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html) in *Security Pillar AWS Well‐Architected Framework*.
 
-You use AWS published API calls to access Amazon Redshift through the network. Clients must
-support the following:
-
-- Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
-- Cipher suites with perfect forward secrecy (PFS) such as DHE (Ephemeral
-  Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems
-  such as Java 7 and later support these modes.
+You use AWS published API calls to access Amazon Redshift through the network. Clients must support the following:
++ Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
++ Cipher suites with perfect forward secrecy (PFS) such as DHE (Ephemeral Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems such as Java 7 and later support these modes.
 
 ## Network isolation
+<a name="network-isolation"></a>
 
-A virtual private cloud (VPC) based on the Amazon VPC service is your private, logically
-isolated network in the AWS Cloud. You can deploy an Amazon Redshift cluster or Redshift Serverless workgroup
-within a VPC by taking the following steps:
+A virtual private cloud (VPC) based on the Amazon VPC service is your private, logically isolated network in the AWS Cloud. You can deploy an Amazon Redshift cluster or Redshift Serverless workgroup within a VPC by taking the following steps:
++ Create a VPC in an AWS Region. For more information, see [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) in the *Amazon VPC User Guide.* 
++ Create two or more private VPC subnets. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide.*
++ Deploy an Amazon Redshift cluster or a Redshift Serverless workgroup. For more information, see [Subnets for Redshift resources](working-with-cluster-subnet-groups.md) or [Workgroups and namespaces](serverless-workgroup-namespace.md).
 
-- Create a VPC in an AWS Region. For more information, see [What is
-  Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the _Amazon VPC User Guide._
-- Create two or more private VPC subnets. For more information, see [VPCs and
-  subnets](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md") in the _Amazon VPC User Guide._
-- Deploy an Amazon Redshift cluster or a Redshift Serverless workgroup. For more information, see [Subnets for Redshift resources](working-with-cluster-subnet-groups.md "working-with-cluster-subnet-groups.md") or [Workgroups and namespaces](serverless-workgroup-namespace.md "serverless-workgroup-namespace.md").
+An Amazon Redshift cluster is locked down by default upon provisioning. To allow inbound network traffic from Amazon Redshift clients, associate a VPC security group with an Amazon Redshift cluster. For more information, see [Subnets for Redshift resources](working-with-cluster-subnet-groups.md). 
 
-An Amazon Redshift cluster is locked down by default upon provisioning. To allow inbound network
-traffic from Amazon Redshift clients, associate a VPC security group with an Amazon Redshift cluster. For more
-information, see [Subnets for Redshift resources](working-with-cluster-subnet-groups.md "working-with-cluster-subnet-groups.md").
+To allow traffic only to or from specific IP address ranges, update the security groups with your VPC. An example is allowing traffic only from or to your corporate network.
 
-To allow traffic only to or from specific IP address ranges, update the security
-groups with your VPC. An example is allowing traffic only from or to your corporate
-network.
+While configuring network access control lists associated with the subnet(s) your Amazon Redshift cluster is tagged with, ensure that the respective AWS Region's S3 CIDR ranges are added to the allowlist for both ingress and egress rules. Doing so lets you execute S3-based operations such as Redshift Spectrum, COPY, and UNLOAD without any disruptions.
 
-While configuring network access control lists associated with the subnet(s) your Amazon Redshift
-cluster is tagged with, ensure that the respective AWS Region's S3 CIDR ranges are
-added to the allowlist for both ingress and egress rules. Doing so lets you execute
-S3-based operations such as Redshift Spectrum, COPY, and UNLOAD without any disruptions.
-
-The following example command parses the JSON response for all IPv4 addresses used in
-Amazon S3 in the us-east-1 Region.
+The following example command parses the JSON response for all IPv4 addresses used in Amazon S3 in the us-east-1 Region.
 
 ```
 curl https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region=="us-east-1") | select(.service=="S3") | .ip_prefix'
@@ -55,114 +35,67 @@ curl https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | selec
 52.92.16.0/20
 
 52.216.0.0/15
-
 ```
 
-For instructions on how to get S3 IP ranges for a particular region, see [AWS IP address
-ranges](../../../general/latest/gr/aws-ip-ranges.md "../../../general/latest/gr/aws-ip-ranges.md").
+For instructions on how to get S3 IP ranges for a particular region, see [AWS IP address ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
 
-Amazon Redshift supports deploying clusters into dedicated tenancy VPCs. For more information,
-see [Dedicated instances](../../../AWSEC2/latest/UserGuide/dedicated-instance.md "../../../AWSEC2/latest/UserGuide/dedicated-instance.md") in the _Amazon EC2 User
-Guide._
+Amazon Redshift supports deploying clusters into dedicated tenancy VPCs. For more information, see [Dedicated instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html) in the *Amazon EC2 User Guide.*
 
 ## Amazon Redshift security groups
+<a name="working-with-security-groups"></a>
 
-When you provision an Amazon Redshift cluster, it is locked down by default so nobody has
-access to it. To grant other users inbound access to an Amazon Redshift cluster, you associate
-the cluster with a security group. If you are on the EC2-VPC platform, you can either
-use an existing Amazon VPC security group or define a new one and then associate it with a
-cluster. For more information on managing a cluster on the EC2-VPC platform, see [Redshift resources in a VPC](managing-clusters-vpc.md "managing-clusters-vpc.md").
+When you provision an Amazon Redshift cluster, it is locked down by default so nobody has access to it. To grant other users inbound access to an Amazon Redshift cluster, you associate the cluster with a security group. If you are on the EC2-VPC platform, you can either use an existing Amazon VPC security group or define a new one and then associate it with a cluster. For more information on managing a cluster on the EC2-VPC platform, see [Redshift resources in a VPC](managing-clusters-vpc.md).
 
 ## Interface VPC endpoints
+<a name="security-private-link"></a>
 
-You can connect directly to the Amazon Redshift and Amazon Redshift Serverless API services using an interface VPC
-endpoint (AWS PrivateLink) in your virtual private cloud (VPC) instead of connecting over the
-internet. For information about Amazon Redshift API actions, see [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") in the _Amazon Redshift API Reference_. For information about Redshift Serverless API actions, see
-[Actions](../../../redshift-serverless/latest/APIReference/API_Operations.md "../../../redshift-serverless/latest/APIReference/API_Operations.md") in the
-_Amazon Redshift Serverless API Reference_. For more information about
-AWS PrivateLink, see [Interface VPC endpoints
-(AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User Guide_. Note
-that JDBC/ODBC connection to the cluster or workspace is not part of Amazon Redshift API
-service.
+You can connect directly to the Amazon Redshift and Amazon Redshift Serverless API services using an interface VPC endpoint (AWS PrivateLink) in your virtual private cloud (VPC) instead of connecting over the internet. For information about Amazon Redshift API actions, see [Actions](https://docs.aws.amazon.com/redshift/latest/APIReference/API_Operations.html) in the *Amazon Redshift API Reference*. For information about Redshift Serverless API actions, see [Actions](https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Operations.html) in the *Amazon Redshift Serverless API Reference*. For more information about AWS PrivateLink, see [Interface VPC endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html) in the *Amazon VPC User Guide*. Note that JDBC/ODBC connection to the cluster or workspace is not part of Amazon Redshift API service.
 
-When you use an interface VPC endpoint, communication between your VPC and Amazon Redshift or Redshift Serverless
-is conducted entirely within the AWS network, which can provide greater security. Each VPC
-endpoint is represented by one or more elastic network interfaces with private IP addresses
-in your VPC subnets. For more information on elastic network interfaces, see [Elastic network
-interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in the _Amazon EC2 User Guide._
+When you use an interface VPC endpoint, communication between your VPC and Amazon Redshift or Redshift Serverless is conducted entirely within the AWS network, which can provide greater security. Each VPC endpoint is represented by one or more elastic network interfaces with private IP addresses in your VPC subnets. For more information on elastic network interfaces, see [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) in the *Amazon EC2 User Guide.* 
 
-An interface VPC endpoint connects your VPC directly to Amazon Redshift. It doesn't use an internet
-gateway, network address translation (NAT) device, virtual private network (VPN) connection,
-or Direct Connect connection. The instances in your VPC don't need public IP addresses to
-communicate with the Amazon Redshift API.
+An interface VPC endpoint connects your VPC directly to Amazon Redshift. It doesn't use an internet gateway, network address translation (NAT) device, virtual private network (VPN) connection, or Direct Connect connection. The instances in your VPC don't need public IP addresses to communicate with the Amazon Redshift API. 
 
-To use Amazon Redshift or Redshift Serverless through your VPC, you have two options. One is to connect from an
-instance that is inside your VPC. The other is to connect your private network to your VPC
-by using an Site-to-Site VPN option or Direct Connect. For more information about Site-to-Site VPN options, see [VPN
-connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/latest/userguide/vpn-connections.md") in the _Amazon VPC User Guide_. For information about
-Direct Connect, see [Creating a
-Connection](../../../directconnect/latest/UserGuide/create-connection.md "../../../directconnect/latest/UserGuide/create-connection.md") in the _Direct Connect User Guide_.
+To use Amazon Redshift or Redshift Serverless through your VPC, you have two options. One is to connect from an instance that is inside your VPC. The other is to connect your private network to your VPC by using an Site-to-Site VPN option or Direct Connect. For more information about Site-to-Site VPN options, see [VPN connections](https://docs.aws.amazon.com/vpc/latest/userguide/vpn-connections.html) in the *Amazon VPC User Guide*. For information about Direct Connect, see [Creating a Connection](https://docs.aws.amazon.com/directconnect/latest/UserGuide/create-connection.html) in the *Direct Connect User Guide*. 
 
-You can create an interface VPC endpoint to connect to Amazon Redshift using the AWS Management Console or
-AWS Command Line Interface (AWS CLI) commands. For more information, see [Creating
-an Interface Endpoint](../../../AmazonVPC/latest/UserGuide/vpce-interface.md#create-interface-endpoint "../../../AmazonVPC/latest/UserGuide/vpce-interface.md#create-interface-endpoint").
+You can create an interface VPC endpoint to connect to Amazon Redshift using the AWS Management Console or AWS Command Line Interface (AWS CLI) commands. For more information, see [Creating an Interface Endpoint](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html#create-interface-endpoint).
 
-After you create an interface VPC endpoint, you can enable private DNS host names for the
-endpoint. When you do, the default endpoint is as follows:
+After you create an interface VPC endpoint, you can enable private DNS host names for the endpoint. When you do, the default endpoint is as follows:
++ **Amazon Redshift provisioned**: `https://redshift.{{Region}}.amazonaws.com`
++ **Amazon Redshift Serverless**: `https://redshift-serverless.{{Region}}.amazonaws.com`
 
-- **Amazon Redshift provisioned**:
-  `https://redshift.``Region``.amazonaws.com`
-- **Amazon Redshift Serverless**:
-  `https://redshift-serverless.``Region``.amazonaws.com`
+If you don't enable private DNS host names, Amazon VPC provides a DNS endpoint name that you can use in the following format.
++ **Amazon Redshift provisioned**: `{{VPC_endpoint_ID}}.redshift.{{Region}}.vpce.amazonaws.com`
++ **Amazon Redshift Serverless**: `{{VPC_endpoint_ID}}.redshift-serverless.{{Region}}.vpce.amazonaws.com`
 
-If you don't enable private DNS host names, Amazon VPC provides a DNS endpoint name
-that you can use in the following format.
+For more information, see [Interface VPC endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html) in the *Amazon VPC User Guide*.
 
-- **Amazon Redshift provisioned**:
-  ``VPC_endpoint_ID`.redshift.`Region`.vpce.amazonaws.com`
-- **Amazon Redshift Serverless**:
-  ``VPC_endpoint_ID`.redshift-serverless.`Region`.vpce.amazonaws.com`
+Amazon Redshift and Redshift Serverless support making calls to all of the [Amazon Redshift API operations](https://docs.aws.amazon.com/redshift/latest/APIReference/API_Operations.html) and [Redshift Serverless API operations](https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Operations.html) inside your VPC. 
 
-For more information, see [Interface VPC endpoints
-(AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
-Guide_.
-
-Amazon Redshift and Redshift Serverless support making calls to all of the [Amazon Redshift API operations](../APIReference/API_Operations.md "../APIReference/API_Operations.md") and
-[Redshift Serverless API
-operations](../../../redshift-serverless/latest/APIReference/API_Operations.md "../../../redshift-serverless/latest/APIReference/API_Operations.md") inside your VPC.
-
-You can attach VPC endpoint policies to a VPC endpoint to control access for AWS Identity and Access Management
-(IAM) principals. You can also associate security groups with a VPC endpoint to control
-inbound and outbound access based on the origin and destination of network traffic. An
-example is a range of IP addresses. For more information, see [Controlling Access to Services with
-VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
+You can attach VPC endpoint policies to a VPC endpoint to control access for AWS Identity and Access Management (IAM) principals. You can also associate security groups with a VPC endpoint to control inbound and outbound access based on the origin and destination of network traffic. An example is a range of IP addresses. For more information, see [Controlling Access to Services with VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) in the *Amazon VPC User Guide*. 
 
 ### VPC endpoint policies for Amazon Redshift
+<a name="security-private-link-vpc_endpoint-policy"></a>
 
 You can create a policy for VPC endpoints for Amazon Redshift to specify the following:
++ The principal that can or can't perform actions
++ The actions that can be performed
++ The resources on which actions can be performed
 
-- The principal that can or can't perform actions
-- The actions that can be performed
-- The resources on which actions can be performed
-
-For more information, see [Controlling access to services
-with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
+For more information, see [Controlling access to services with VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) in the *Amazon VPC User Guide*. 
 
 Following, you can find examples of VPC endpoint policies.
 
 #### Amazon Redshift Provisioned Endpoint Policy Examples
+<a name="security-private-link-examples-provisioned"></a>
 
-Following, you can find examples of VPC endpoint policies for Amazon Redshift
-Provisioned.
+Following, you can find examples of VPC endpoint policies for Amazon Redshift Provisioned.
 
 ##### Example: VPC endpoint policy to deny all access from a specified AWS account
+<a name="security-private-link-example-1"></a>
 
-The following VPC endpoint policy denies the AWS account
-`123456789012` all access to
-resources using this endpoint.
+The following VPC endpoint policy denies the AWS account `{{123456789012}}` all access to resources using this endpoint.
 
 ```
-
 {
     "Statement": [
         {
@@ -183,18 +116,14 @@ resources using this endpoint.
         }
     ]
 }
-
 ```
 
 ##### Example: VPC endpoint policy to allow VPC access only to a specified IAM role
+<a name="security-private-link-example-1.1"></a>
 
-The following VPC endpoint policy allows full access only to the IAM role
-`redshiftrole` in AWS account
-`123456789012`. All other IAM principals are denied
-access using the endpoint.
+The following VPC endpoint policy allows full access only to the IAM role {{`redshiftrole`}} in AWS account {{123456789012}}. All other IAM principals are denied access using the endpoint.
 
 ```
-
    {
     "Statement": [
         {
@@ -208,21 +137,16 @@ access using the endpoint.
             }
         }]
 }
-
 ```
 
-This is only a sample. In most use cases we recommend attaching permissions
-for specific actions to narrow the scope of permissions.
+This is only a sample. In most use cases we recommend attaching permissions for specific actions to narrow the scope of permissions.
 
 ##### Example: VPC endpoint policy to allow VPC access only to a specified IAM principal (user)
+<a name="security-private-link-example-2"></a>
 
-The following VPC endpoint policy allows full access only to the IAM user
-`redshiftadmin` in AWS account
-`123456789012`. All other IAM principals are denied
-access using the endpoint.
+The following VPC endpoint policy allows full access only to the IAM user {{`redshiftadmin`}} in AWS account {{123456789012}}. All other IAM principals are denied access using the endpoint.
 
 ```
-
    {
     "Statement": [
         {
@@ -236,26 +160,18 @@ access using the endpoint.
             }
         }]
 }
-
 ```
 
-This is only a sample. In most use cases we recommend attaching permissions to
-a role before assigning to a user. Additionally, we recommend using specific
-actions to narrow the scope of permissions.
+This is only a sample. In most use cases we recommend attaching permissions to a role before assigning to a user. Additionally, we recommend using specific actions to narrow the scope of permissions.
 
 ##### Example: VPC endpoint policy to allow read-only Amazon Redshift operations
+<a name="security-private-link-example-3"></a>
 
-The following VPC endpoint policy allows only AWS account
-`123456789012` to perform the
-specified Amazon Redshift actions.
+The following VPC endpoint policy allows only AWS account {{`123456789012`}} to perform the specified Amazon Redshift actions. 
 
-The actions specified provide the equivalent of read-only access for Amazon Redshift. All
-other actions on the VPC are denied for the specified account. Also, all other
-accounts are denied any access. For a list of Amazon Redshift actions, see [Actions, Resources, and Condition Keys for Amazon Redshift](../../../IAM/latest/UserGuide/list_amazonredshift.md "../../../IAM/latest/UserGuide/list_amazonredshift.md") in the
-_IAM User Guide._
+The actions specified provide the equivalent of read-only access for Amazon Redshift. All other actions on the VPC are denied for the specified account. Also, all other accounts are denied any access. For a list of Amazon Redshift actions, see [Actions, Resources, and Condition Keys for Amazon Redshift](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonredshift.html) in the *IAM User Guide.*
 
 ```
-
   {
     "Statement": [
         {
@@ -287,7 +203,7 @@ _IAM User Guide._
                 "redshift:DescribeTableRestoreStatus",
                 "redshift:DescribeTags",
                 "redshift:FetchResults",
-                "redshift:GetReservedNodeExchangeOfferings"
+                "redshift:GetReservedNodeExchangeOfferings"            
             ],
             "Effect": "Allow",
             "Resource": "*",
@@ -299,24 +215,14 @@ _IAM User Guide._
         }
     ]
 }
-
 ```
 
 ##### Example: VPC endpoint policy denying access to a specified cluster
+<a name="security-private-link-example-4"></a>
 
-The following VPC endpoint policy allows full access for all accounts and
-principals. At the same time, it denies any access for AWS account
-`123456789012` to actions
-performed on the Amazon Redshift cluster with cluster ID
-`my-redshift-cluster`. Other Amazon Redshift
-actions that don't support resource-level permissions for clusters are
-still allowed. For a list of Amazon Redshift actions and their corresponding resource type,
-see [Actions, Resources, and
-Condition Keys for Amazon Redshift](../../../IAM/latest/UserGuide/list_amazonredshift.md "../../../IAM/latest/UserGuide/list_amazonredshift.md") in the
-_IAM User Guide._
+The following VPC endpoint policy allows full access for all accounts and principals. At the same time, it denies any access for AWS account {{`123456789012`}} to actions performed on the Amazon Redshift cluster with cluster ID `{{my-redshift-cluster}}`. Other Amazon Redshift actions that don't support resource-level permissions for clusters are still allowed. For a list of Amazon Redshift actions and their corresponding resource type, see [Actions, Resources, and Condition Keys for Amazon Redshift](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonredshift.html) in the *IAM User Guide.* 
 
 ```
-
  {
     "Statement": [
         {
@@ -337,28 +243,21 @@ _IAM User Guide._
         }
     ]
 }
-
-
 ```
 
 #### Amazon Redshift Serverless Endpoint Policy Examples
+<a name="security-private-link-examples-serverless"></a>
 
 Following, you can find examples of VPC endpoint policies for Redshift Serverless.
 
 ##### Example: VPC endpoint policy to allow read-only Redshift Serverless operations
+<a name="security-private-link-serverless-example-1"></a>
 
-The following VPC endpoint policy allows only AWS account
-`123456789012` to perform the
-specified Redshift Serverless actions.
+The following VPC endpoint policy allows only AWS account {{`123456789012`}} to perform the specified Redshift Serverless actions. 
 
-The actions specified provide the equivalent of read-only access for Redshift Serverless.
-All other actions on the VPC are denied for the specified account. Also, all
-other accounts are denied any access. For a list of Redshift Serverless actions, see [Actions,
-Resources, and Condition Keys for Redshift Serverless](../../../IAM/latest/UserGuide/list_amazonredshiftserverless.md "../../../IAM/latest/UserGuide/list_amazonredshiftserverless.md") in the
-_IAM User Guide._
+The actions specified provide the equivalent of read-only access for Redshift Serverless. All other actions on the VPC are denied for the specified account. Also, all other accounts are denied any access. For a list of Redshift Serverless actions, see [Actions, Resources, and Condition Keys for Redshift Serverless](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonredshiftserverless.html) in the *IAM User Guide.*
 
 ```
-
   {
     "Statement": [
         {
@@ -385,24 +284,14 @@ _IAM User Guide._
         }
     ]
 }
-
 ```
 
 ##### Example: VPC endpoint policy denying access to a specified workgroup
+<a name="security-private-link-serverless-example-2"></a>
 
-The following VPC endpoint policy allows full access for all accounts and
-principals. At the same time, it denies any access for AWS account
-`123456789012` to actions
-performed on the Amazon Redshift workgroup with workgroup ID
-`my-redshift-workgroup`. Other
-Amazon Redshift actions that don't support resource-level permissions for workgroups
-are still allowed. For a list of Redshift Serverless actions and their corresponding resource
-type, see [Actions,
-Resources, and Condition Keys for Redshift Serverless](../../../IAM/latest/UserGuide/list_amazonredshiftserverless.md "../../../IAM/latest/UserGuide/list_amazonredshiftserverless.md") in the
-_IAM User Guide._
+The following VPC endpoint policy allows full access for all accounts and principals. At the same time, it denies any access for AWS account {{`123456789012`}} to actions performed on the Amazon Redshift workgroup with workgroup ID `{{my-redshift-workgroup}}`. Other Amazon Redshift actions that don't support resource-level permissions for workgroups are still allowed. For a list of Redshift Serverless actions and their corresponding resource type, see [Actions, Resources, and Condition Keys for Redshift Serverless](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonredshiftserverless.html) in the *IAM User Guide.* 
 
 ```
-
  {
     "Statement": [
         {
@@ -423,6 +312,4 @@ _IAM User Guide._
         }
     ]
 }
-
-
 ```

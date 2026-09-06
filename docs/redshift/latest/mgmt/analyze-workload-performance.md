@@ -1,76 +1,50 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Viewing the cluster workload breakdown chart
+<a name="analyze-workload-performance"></a>
 
-You can get a detailed view of your workload's performance by looking at the
-Workload execution breakdown chart in the console. We build the chart with data
-provided by the QueryRuntimeBreakdown metric. With this chart, you can see how much
-time your queries spend in the various processing stages, such as waiting and
-planning.
+You can get a detailed view of your workload's performance by looking at the Workload execution breakdown chart in the console. We build the chart with data provided by the QueryRuntimeBreakdown metric. With this chart, you can see how much time your queries spend in the various processing stages, such as waiting and planning. 
 
-###### Note
-
-The Workload execution breakdown chart isn't shown for single-node
-clusters.
+**Note**  
+The Workload execution breakdown chart isn't shown for single-node clusters.
 
 The following list of metrics describes the various processing stages:
++ `QueryPlanning`: Time spent parsing and optimizing SQL statements.
++ `QueryWaiting`: Time spent waiting in the workload management (WLM) queue.
++ `QueryExecutingRead`: Time spent running read queries. 
++ `QueryExecutingInsert`: Time spent running insert queries.
++ `QueryExecutingDelete`: Time spent running delete queries.
++ `QueryExecutingUpdate`: Time spent running update queries.
++ `QueryExecutingCtas`: Time spent running CREATE TABLE AS queries.
++ `QueryExecutingUnload`: Time spent running unload queries.
++ `QueryExecutingCopy`: Time spent running copy queries.
 
-- `QueryPlanning`: Time spent parsing and optimizing SQL
-  statements.
-- `QueryWaiting`: Time spent waiting in the workload management
-  (WLM) queue.
-- `QueryExecutingRead`: Time spent running read queries.
-- `QueryExecutingInsert`: Time spent running insert
-  queries.
-- `QueryExecutingDelete`: Time spent running delete
-  queries.
-- `QueryExecutingUpdate`: Time spent running update
-  queries.
-- `QueryExecutingCtas`: Time spent running CREATE TABLE AS
-  queries.
-- `QueryExecutingUnload`: Time spent running unload
-  queries.
-- `QueryExecutingCopy`: Time spent running copy queries.
-  For example, the following graph in the Amazon Redshift console shows the amount of time that
-  queries have spent in the plan, wait, read, and write stages. You can combine the
-  findings from this graph with other metrics for further analysis. In some cases,
-  your graph might show that queries with a short duration (as measured by the
-  `QueryDuration` metric) are spending a long time in the wait stage.
-  In these cases, you can increase the WLM concurrency rate for a particular queue to
-  increase throughput.
+For example, the following graph in the Amazon Redshift console shows the amount of time that queries have spent in the plan, wait, read, and write stages. You can combine the findings from this graph with other metrics for further analysis. In some cases, your graph might show that queries with a short duration (as measured by the `QueryDuration` metric) are spending a long time in the wait stage. In these cases, you can increase the WLM concurrency rate for a particular queue to increase throughput. 
 
-Following, is an example of the workload execution breakdown chart. In the chart,
-the y-axis value is the average duration of each stage at the specified time shown
-as a stacked bar graph.
+Following, is an example of the workload execution breakdown chart. In the chart, the y-axis value is the average duration of each stage at the specified time shown as a stacked bar graph.
 
-![Vertical bar graph showing duration of query processing stages in increments of days.](images/database-performance-workload-execution-breakdown.png)
-The following diagram illustrates how Amazon Redshift aggregates query processing for
-concurrent sessions.
+![Vertical bar graph showing duration of query processing stages in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-workload-execution-breakdown.png)
 
-![Horizonal bar graph showing session number on the x-axis and time on the y-axis. Each session is a horizontal bar that's divided into different query statuses.](images/querybreakdownschematic.png)
 
-###### To view the cluster workload breakdown chart
+The following diagram illustrates how Amazon Redshift aggregates query processing for concurrent sessions. 
 
-1. Sign in to the AWS Management Console and open the Amazon Redshift console at
-   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2. On the navigation menu, choose **Clusters**, then choose
-   the cluster name from the list to open its details. The details of the
-   cluster are displayed, which can include **Cluster performance**, **Query monitoring**,
-   **Databases**, **Datashares**,
-   **Schedules**, **Maintenance**, and **Properties** tabs.
-3. Choose the **Query monitoring** tab for metrics about
-   your queries.
-4. In the **Query monitoring** section, choose
-   **Database performance**, and choose **Cluster
-   metrics**.
+![Horizonal bar graph showing session number on the x-axis and time on the y-axis. Each session is a horizontal bar that's divided into different query statuses.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/querybreakdownschematic.png)
 
-The following metrics are graphed for the chosen time range as a stacked
-bar chart:
 
-    * **Plan** time
-    * **Wait** time
-    * **Commit** time
-    * **Execution** time
+**To view the cluster workload breakdown chart**
+
+1. Sign in to the AWS Management Console and open the Amazon Redshift console at [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/).
+
+1. On the navigation menu, choose **Clusters**, then choose the cluster name from the list to open its details. The details of the cluster are displayed, which can include **Cluster performance**, **Query monitoring**, **Databases**, **Datashares**, **Schedules**, **Maintenance**, and **Properties** tabs. 
+
+1. Choose the **Query monitoring** tab for metrics about your queries.
+
+1. In the **Query monitoring** section, choose **Database performance**, and choose **Cluster metrics**. 
+
+   The following metrics are graphed for the chosen time range as a stacked bar chart: 
+   + **Plan** time 
+   + **Wait** time 
+   + **Commit** time 
+   + **Execution** time 

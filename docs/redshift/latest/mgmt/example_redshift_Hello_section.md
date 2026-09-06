@@ -1,21 +1,17 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Hello Amazon Redshift
+<a name="example_redshift_Hello_section"></a>
 
 The following code examples show how to get started using Amazon Redshift.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 
 ```
     /// <summary>
@@ -57,26 +53,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
     }
+```
++  For API details, see [DescribeClusters](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeClusters](../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md")
-  in _AWS SDK for .NET API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples").
-
-```
-
 package main
 
 import (
@@ -118,24 +104,14 @@ func main() {
 		fmt.Printf("\t%v : %v\n", *cluster.ClusterIdentifier, *cluster.ClusterStatus)
 	}
 }
-
-
-
 ```
++  For API details, see [DescribeClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeClusters) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DescribeClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeClusters "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeClusters")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -168,23 +144,14 @@ public class HelloRedshift {
                 .println(" Cluster identifier: " + cluster.clusterIdentifier() + " status = " + cluster.clusterStatus()));
     }
 }
-
-
 ```
++  For API details, see [DescribeClusters](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/DescribeClusters) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeClusters](../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeClusters.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeClusters.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
 ```
 import boto3
@@ -214,14 +181,9 @@ def hello_redshift(redshift_client):
 
 if __name__ == "__main__":
     hello_redshift(boto3.client("redshift"))
-
-
 ```
++  For API details, see [DescribeClusters](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/DescribeClusters) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeClusters](../../../goto/boto3/redshift-2012-12-01/DescribeClusters.md "../../../goto/boto3/redshift-2012-12-01/DescribeClusters.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,19 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # List schemas in a database
+<a name="data-api-calling-cli-list-schemas"></a>
 
-To list the schemas in a database, use the `aws redshift-data
- list-schemas` AWS CLI command.
+To list the schemas in a database, use the `aws redshift-data list-schemas` AWS CLI command.
 
-The following AWS CLI command runs a SQL statement against a cluster to list schemas
-in a database. This example uses the AWS Secrets Manager authentication method.
+The following AWS CLI command runs a SQL statement against a cluster to list schemas in a database. This example uses the AWS Secrets Manager authentication method.
 
 ```
-
-aws redshift-data list-schemas
-    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn
-    --cluster-identifier mycluster-test
+aws redshift-data list-schemas 
+    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn 
+    --cluster-identifier mycluster-test 
     --database dev
-
 ```
 
 The following is an example of the response.
@@ -33,17 +29,13 @@ The following is an example of the response.
 }
 ```
 
-The following AWS CLI command runs a SQL statement against a cluster to list schemas
-in a database. This example uses the temporary credentials authentication
-method.
+The following AWS CLI command runs a SQL statement against a cluster to list schemas in a database. This example uses the temporary credentials authentication method.
 
 ```
-
-aws redshift-data list-schemas
-    --db-user mysuser
-    --cluster-identifier mycluster-test
+aws redshift-data list-schemas 
+    --db-user mysuser 
+    --cluster-identifier mycluster-test 
     --database dev
-
 ```
 
 The following is an example of the response.

@@ -1,26 +1,21 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Describe a table
+<a name="data-api-calling-cli-describe-table"></a>
 
-To get metadata that describes a table, use the `aws redshift-data
- describe-table` AWS CLI command.
+To get metadata that describes a table, use the `aws redshift-data describe-table` AWS CLI command.
 
-The following AWS CLI command runs a SQL statement against a cluster and returns
-metadata that describes a table. This example uses the AWS Secrets Manager authentication
-method.
+The following AWS CLI command runs a SQL statement against a cluster and returns metadata that describes a table. This example uses the AWS Secrets Manager authentication method.
 
 ```
-
-aws redshift-data describe-table
-    --cluster-identifier mycluster-test
-    --database dev
-    --schema information_schema
-    --table sql_features
+aws redshift-data describe-table  
+    --cluster-identifier mycluster-test 
+    --database dev 
+    --schema information_schema 
+    --table sql_features 
     --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn
-
 ```
 
 The following is an example of the response.
@@ -53,23 +48,20 @@ The following is an example of the response.
             "schemaName": "information_schema",
             "tableName": "sql_features",
             "typeName": "character_data"
-        }
+        }     
     ]
 }
 ```
 
-The following AWS CLI command runs a SQL statement against a cluster that describes
-a table. This example uses the temporary credentials authentication method.
+The following AWS CLI command runs a SQL statement against a cluster that describes a table. This example uses the temporary credentials authentication method.
 
 ```
-
-aws redshift-data describe-table
-    --db-user myuser
-    --cluster-identifier mycluster-test
-    --database dev
-    --schema information_schema
+aws redshift-data describe-table 
+    --db-user myuser 
+    --cluster-identifier mycluster-test 
+    --database dev 
+    --schema information_schema 
     --table sql_features
-
 ```
 
 The following is an example of the response.

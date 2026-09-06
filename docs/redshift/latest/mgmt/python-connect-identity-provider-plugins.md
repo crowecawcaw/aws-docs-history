@@ -1,18 +1,16 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using identity provider plugins
+<a name="python-connect-identity-provider-plugins"></a>
 
-For general information on how to use identity provider plugins, see [Options for providing IAM credentials](options-for-providing-iam-credentials.md "options-for-providing-iam-credentials.md"). For more information about
-managing IAM identities, including best practices for IAM roles, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+For general information on how to use identity provider plugins, see [Options for providing IAM credentials](options-for-providing-iam-credentials.md). For more information about managing IAM identities, including best practices for IAM roles, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md).
 
 ## Authentication using the ADFS identity provider plugin
+<a name="python-connect-identity-provider-active-dir"></a>
 
-Following is an example of using the Active Directory Federation Service (ADFS)
-identity provider plugin to authenticate a user connecting to an Amazon Redshift
-database.
+Following is an example of using the Active Directory Federation Service (ADFS) identity provider plugin to authenticate a user connecting to an Amazon Redshift database.
 
 ```
 >>> con = redshift_connector.connect(
@@ -28,11 +26,9 @@ database.
 ```
 
 ## Authentication using the Azure identity provider plugin
+<a name="python-connect-identity-provider-azure"></a>
 
-Following is an example of authentication using the Azure identity provider
-plugin. You can create values for a `client_id` and
-`client_secret` for an Azure Enterprise application as shown
-following.
+Following is an example of authentication using the Azure identity provider plugin. You can create values for a `client_id` and `client_secret` for an Azure Enterprise application as shown following. 
 
 ```
 >>>  con = redshift_connector.connect(
@@ -51,9 +47,9 @@ following.
 ```
 
 ## Authentication using the AWS IAM Identity Center identity provider plugin
+<a name="python-connect-identity-provider-aws-idc"></a>
 
-Following is an example of authentication using the AWS IAM Identity Center identity provider
-plugin.
+ Following is an example of authentication using the AWS IAM Identity Center identity provider plugin. 
 
 ```
 with redshift_connector.connect(
@@ -70,12 +66,11 @@ idc_client_display_name='Test Display Name',
 ```
 
 ## Authentication using Azure Browser identity provider plugin
+<a name="python-connect-identity-provider-azure-browser"></a>
 
-Following is an example of using the Azure Browser identity provider plugin to
-authenticate a user connecting to an Amazon Redshift database.
+Following is an example of using the Azure Browser identity provider plugin to authenticate a user connecting to an Amazon Redshift database.
 
-Multi-factor authentication occurs in the browser, where the sign-in credentials
-are provided by the user.
+Multi-factor authentication occurs in the browser, where the sign-in credentials are provided by the user.
 
 ```
 >>>con = redshift_connector.connect(
@@ -90,10 +85,9 @@ are provided by the user.
 ```
 
 ## Authentication using the Okta identity provider plugin
+<a name="python-connect-identity-provider-okta"></a>
 
-Following is an example of authentication using the Okta identity provider plugin.
-You can obtain the values for `idp_host`, `app_id` and
-`app_name` through the Okta application.
+Following is an example of authentication using the Okta identity provider plugin. You can obtain the values for `idp_host`, `app_id` and `app_name` through the Okta application.
 
 ```
 >>> con = redshift_connector.connect(
@@ -111,12 +105,11 @@ You can obtain the values for `idp_host`, `app_id` and
 ```
 
 ## Authentication using JumpCloud with a generic SAML browser identity provider plugin
+<a name="python-connect-identity-provider-jumpcloud"></a>
 
-Following is an example of using JumpCloud with a generic SAML browser identity
-provider plugin for authentication.
+Following is an example of using JumpCloud with a generic SAML browser identity provider plugin for authentication.
 
-The password parameter is required. However, you don't have to enter this
-parameter because multi-factor authentication occurs in the browser.
+The password parameter is required. However, you don't have to enter this parameter because multi-factor authentication occurs in the browser.
 
 ```
 >>> con = redshift_connector.connect(

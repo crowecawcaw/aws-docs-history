@@ -1,81 +1,47 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Logging with CloudTrail
+<a name="logging-with-cloudtrail"></a>
 
-Amazon Redshift, data sharing, Amazon Redshift Serverless, Amazon Redshift Data API, and query editor v2 are all
-integrated with AWS CloudTrail. CloudTrail is a service that provides a record of actions taken by a
-user, role, or an AWS service in Amazon Redshift. CloudTrail captures all API calls for Amazon Redshift as
-events. The calls captured include calls from the Redshift console and code calls to
-the Redshift operations.
+Amazon Redshift, data sharing, Amazon Redshift Serverless, Amazon Redshift Data API, and query editor v2 are all integrated with AWS CloudTrail. CloudTrail is a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Redshift. CloudTrail captures all API calls for Amazon Redshift as events. The calls captured include calls from the Redshift console and code calls to the Redshift operations. 
 
-If you create a CloudTrail trail, you can have continuous delivery of CloudTrail events to an Amazon S3
-bucket, including events for Redshift. If you don't configure a trail, you can still
-view the most recent events in the CloudTrail console in **Event history**.
-Using the information collected by CloudTrail, you can determine certain things. These include
-the request that was made to Redshift, the IP address from which the request was made,
-who made the request, when it was made, and additional details.
+If you create a CloudTrail trail, you can have continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Redshift. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine certain things. These include the request that was made to Redshift, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
-You can use CloudTrail independently from or in addition to Amazon Redshift database audit logging.
+You can use CloudTrail independently from or in addition to Amazon Redshift database audit logging. 
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Information in CloudTrail
+<a name="working-with-info-in-cloudtrail"></a>
 
-CloudTrail is turned on in your AWS account when you create the account. When activity
-occurs, that activity is recorded in a CloudTrail event along with other AWS service events
-in **Event history**. You can view, search, and download recent events
-in your AWS account. For more information, see [Viewing Events with CloudTrail Event
-History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
+CloudTrail is turned on in your AWS account when you create the account. When activity occurs, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. 
 
-For an ongoing record of events in your AWS account, including events for Redshift,
-create a trail. CloudTrail uses _trails_ to deliver log files to an Amazon S3
-bucket. By default, when you create a trail in the console, the trail applies to all
-AWS Regions. The trail logs events from all Regions in the AWS partition and
-delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can
-configure other AWS services to further analyze and act upon the event data collected
-in CloudTrail logs. For more information, see the following in the _AWS CloudTrail User Guide_:
+For an ongoing record of events in your AWS account, including events for Redshift, create a trail. CloudTrail uses *trails* to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following in the *AWS CloudTrail User Guide*:
++ [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview
-  for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Amazon Redshift, Amazon Redshift Serverless, Data API, data sharing, and query editor v2 actions are logged by CloudTrail. For example, calls to the `AuthorizeDatashare`, `CreateNamespace`, `ExecuteStatement`, and `CreateConnection` actions generate entries in the CloudTrail log files. 
 
-All Amazon Redshift, Amazon Redshift Serverless, Data API, data sharing, and query editor v2 actions are logged
-by CloudTrail.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-For example, calls to the `AuthorizeDatashare`, `CreateNamespace`,
-`ExecuteStatement`, and `CreateConnection` actions generate
-entries in the CloudTrail log files.
-
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see [CloudTrail userIdentity
-Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide_.
+For more information, see [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide*.
 
 ## Log files entries
+<a name="understanding-cloudtrail-log-files"></a>
 
-A _trail_ is a configuration that allows for delivery
-of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or
-more log entries. An _event_ represents a single
-request from any source and includes information about the requested action, the date
-and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered
-stack trace of the public API calls, so they don't appear in any specific order.
+A *trail* is a configuration that allows for delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An *event* represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
 ## Amazon Redshift Datashare example
+<a name="datashare-cloudtrail-example"></a>
 
-The following example shows a CloudTrail log entry that illustrates the
-`AuthorizeDataShare` operation.
+The following example shows a CloudTrail log entry that illustrates the `AuthorizeDataShare` operation. 
 
 ```
 {
@@ -105,7 +71,7 @@ The following example shows a CloudTrail log entry that illustrates the
     "eventName": "AuthorizeDataShare",
     "awsRegion": "us-east-1",
     "sourceIPAddress": "3.227.36.75",
-    "userAgent":"aws-cli/1.18.118 Python/3.6.10 Linux/4.9.217-0.1.ac.205.84.332.metal1.x86_64 botocore/1.17.41",
+    "userAgent":"aws-cli/1.18.118 Python/3.6.10 Linux/4.9.217-0.1.ac.205.84.332.metal1.x86_64 botocore/1.17.41", 
     "requestParameters": {
         "dataShareArn": "arn:aws:redshift:us-east-1:111122223333:datashare:4c64c6ec-73d5-42be-869b-b7f7c43c7a53/testshare",
         "consumerIdentifier": "555555555555"
@@ -135,14 +101,11 @@ The following example shows a CloudTrail log entry that illustrates the
 ```
 
 ## Amazon Redshift Serverless example
+<a name="serverless-cloudtrail-example"></a>
 
-Amazon Redshift Serverless is integrated with AWS CloudTrail to provide a record of actions taken in
-Amazon Redshift Serverless. CloudTrail captures all API calls for Amazon Redshift Serverless as events. For more
-information about Amazon Redshift Serverless features, see [Amazon Redshift Serverless feature
-overview](serverless-considerations.md "serverless-considerations.md").
+Amazon Redshift Serverless is integrated with AWS CloudTrail to provide a record of actions taken in Amazon Redshift Serverless. CloudTrail captures all API calls for Amazon Redshift Serverless as events. For more information about Amazon Redshift Serverless features, see [Amazon Redshift Serverless feature overview](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-considerations.html).
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateNamespace` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateNamespace` action.
 
 ```
 {
@@ -204,9 +167,9 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## Amazon Redshift Data API examples
+<a name="data-api-cloudtrail"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`ExecuteStatement` action.
+The following example shows a CloudTrail log entry that demonstrates the `ExecuteStatement` action.
 
 ```
 {
@@ -246,9 +209,7 @@ The following example shows a CloudTrail log entry that demonstrates the
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`ExecuteStatement` action showing the `clientToken` used for
-idempotency.
+The following example shows a CloudTrail log entry that demonstrates the `ExecuteStatement` action showing the `clientToken` used for idempotency.
 
 ```
 {
@@ -290,9 +251,9 @@ idempotency.
 ```
 
 ## Amazon Redshift query editor v2 example
+<a name="query-editor-cloudtrail"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateConnection` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateConnection` action.
 
 ```
 {
@@ -369,56 +330,51 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ## Amazon Redshift account IDs in AWS CloudTrail logs
+<a name="cloudtrail-rs-acct-ids"></a>
 
-When Amazon Redshift calls another AWS service for you, the call is logged with an account
-ID that belongs to Amazon Redshift. It isn't logged with your account ID. For example, suppose
-that Amazon Redshift calls AWS Key Management Service (AWS KMS) operations such as `CreateGrant`,
-`Decrypt`, `Encrypt`, and `RetireGrant` to manage
-encryption on your cluster. In this case, the calls are logged by AWS CloudTrail using an
-Amazon Redshift account ID.
+When Amazon Redshift calls another AWS service for you, the call is logged with an account ID that belongs to Amazon Redshift. It isn't logged with your account ID. For example, suppose that Amazon Redshift calls AWS Key Management Service (AWS KMS) operations such as `CreateGrant`, `Decrypt`, `Encrypt`, and `RetireGrant` to manage encryption on your cluster. In this case, the calls are logged by AWS CloudTrail using an Amazon Redshift account ID.
 
-Amazon Redshift uses the account IDs in the following table when calling other AWS
-services.
+Amazon Redshift uses the account IDs in the following table when calling other AWS services.
 
-| Region                           | Region         | Account ID   |
-| -------------------------------- | -------------- | ------------ |
-| US East (N. Virginia) Region     | us-east-1      | 368064434614 |
-| US East (Ohio) Region            | us-east-2      | 790247189693 |
-| US West (N. California) Region   | us-west-1      | 703715109447 |
-| US West (Oregon) Region          | us-west-2      | 473191095985 |
-| Africa (Cape Town) Region        | af-south-1     | 420376844563 |
-| Asia Pacific (Hong Kong) Region  | ap-east-1      | 651179539253 |
-| Asia Pacific (Hyderabad) Region  | ap-south-2     | 297058826802 |
-| Asia Pacific (Jakarta) Region    | ap-southeast-3 | 623197973179 |
-| Asia Pacific (Malaysia) Region   | ap-southeast-5 | 590184011157 |
-| Asia Pacific (Melbourne) Region  | ap-southeast-4 | 945512339897 |
-| Asia Pacific (Mumbai) Region     | ap-south-1     | 408097707231 |
-| Asia Pacific (New Zealand)       | ap-southeast-6 | 730335362089 |
-| Asia Pacific (Osaka) Region      | ap-northeast-3 | 398671365691 |
-| Asia Pacific (Seoul) Region      | ap-northeast-2 | 713597048934 |
-| Asia Pacific (Singapore) Region  | ap-southeast-1 | 960118270566 |
-| Asia Pacific (Sydney) Region     | ap-southeast-2 | 485979073181 |
-| Asia Pacific (Taipei)            | ap-east-2      | 211125526206 |
-| Asia Pacific (Thailand) Region   | ap-southeast-7 | 767397930036 |
-| Asia Pacific (Tokyo) Region      | ap-northeast-1 | 615915377779 |
-| Canada (Central) Region          | ca-central-1   | 764870610256 |
-| Canada West (Calgary) Region     | ca-west-1      | 830903446466 |
-| Europe (Frankfurt) Region        | eu-central-1   | 434091160558 |
-| Europe (Ireland) Region          | eu-west-1      | 246478207311 |
-| Europe (London) Region           | eu-west-2      | 885798887673 |
-| Europe (Milan) Region            | eu-south-1     | 041313461515 |
-| Europe (Paris) Region            | eu-west-3      | 694668203235 |
-| Europe (Spain) Region            | eu-south-2     | 028811157404 |
-| Europe (Stockholm) Region        | eu-north-1     | 553461782468 |
-| Europe (Zurich) Region           | eu-central-2   | 668912161003 |
-| Israel (Tel Aviv) Region         | il-central-1   | 901883065212 |
-| Mexico (Central) Region          | mx-central-1   | 058264411980 |
-| Middle East (Bahrain) Region     | me-south-1     | 051362938876 |
-| Middle East (UAE) Region         | me-central-1   | 595013617770 |
-| South America (São Paulo) Region | sa-east-1      | 392442076723 |
 
-The following example shows a CloudTrail log entry for the AWS KMS Decrypt operation that was
-called by Amazon Redshift.
+| Region | Region | Account ID | 
+| --- | --- | --- | 
+| US East (N. Virginia) Region | us-east-1 | 368064434614 | 
+| US East (Ohio) Region | us-east-2 | 790247189693 | 
+| US West (N. California) Region | us-west-1 | 703715109447  | 
+| US West (Oregon) Region | us-west-2 | 473191095985 | 
+| Africa (Cape Town) Region | af-south-1 | 420376844563 | 
+| Asia Pacific (Hong Kong) Region | ap-east-1 | 651179539253 | 
+| Asia Pacific (Hyderabad) Region | ap-south-2 | 297058826802 | 
+| Asia Pacific (Jakarta) Region | ap-southeast-3 | 623197973179 | 
+| Asia Pacific (Malaysia) Region | ap-southeast-5 | 590184011157 | 
+| Asia Pacific (Melbourne) Region | ap-southeast-4 | 945512339897 | 
+| Asia Pacific (Mumbai) Region | ap-south-1 | 408097707231 | 
+| Asia Pacific (New Zealand) | ap-southeast-6 | 730335362089 | 
+| Asia Pacific (Osaka) Region | ap-northeast-3 | 398671365691 | 
+| Asia Pacific (Seoul) Region | ap-northeast-2 | 713597048934 | 
+| Asia Pacific (Singapore) Region | ap-southeast-1 | 960118270566 | 
+| Asia Pacific (Sydney) Region | ap-southeast-2 | 485979073181 | 
+| Asia Pacific (Taipei) | ap-east-2 | 211125526206 | 
+| Asia Pacific (Thailand) Region | ap-southeast-7 | 767397930036 | 
+| Asia Pacific (Tokyo) Region | ap-northeast-1 | 615915377779 | 
+| Canada (Central) Region | ca-central-1 | 764870610256 | 
+| Canada West (Calgary) Region | ca-west-1 | 830903446466 | 
+| Europe (Frankfurt) Region | eu-central-1 | 434091160558 | 
+| Europe (Ireland) Region | eu-west-1 | 246478207311 | 
+| Europe (London) Region | eu-west-2 | 885798887673 | 
+| Europe (Milan) Region | eu-south-1 | 041313461515 | 
+| Europe (Paris) Region | eu-west-3 | 694668203235 | 
+| Europe (Spain) Region | eu-south-2 | 028811157404 | 
+| Europe (Stockholm) Region | eu-north-1 | 553461782468 | 
+| Europe (Zurich) Region | eu-central-2 | 668912161003 | 
+| Israel (Tel Aviv) Region | il-central-1 | 901883065212 | 
+| Mexico (Central) Region | mx-central-1 | 058264411980 | 
+| Middle East (Bahrain) Region | me-south-1 | 051362938876 | 
+| Middle East (UAE) Region | me-central-1 | 595013617770 | 
+| South America (São Paulo) Region | sa-east-1 | 392442076723 | 
+
+The following example shows a CloudTrail log entry for the AWS KMS Decrypt operation that was called by Amazon Redshift.
 
 ```
 {
@@ -427,7 +383,7 @@ called by Amazon Redshift.
     "userIdentity": {
         "type": "AssumedRole",
         "principalId": "AROAI5QPCMKLTL4VHFCYY:i-0f53e22dbe5df8a89",
-        "arn": "arn:aws:sts::**790247189693**:assumed-role/prod-23264-role-wp/i-0f53e22dbe5df8a89",
+        "arn": "arn:aws:sts::790247189693:assumed-role/prod-23264-role-wp/i-0f53e22dbe5df8a89",
         "accountId": "790247189693",
         "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "sessionContext": {

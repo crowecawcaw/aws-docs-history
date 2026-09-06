@@ -1,32 +1,27 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Passing SQL statements to an Amazon Redshift data warehouse
+<a name="pass-sql-statements"></a>
 
-The examples in this page cover different ways to pass a SQL statement to your
-data warehouse
+The examples in this page cover different ways to pass a SQL statement to your data warehouse
 
 ## Run a SQL statement
+<a name="data-api-calling-cli-execute-statement"></a>
 
-To run a SQL statement, use the `aws redshift-data
- execute-statement` AWS CLI command.
+To run a SQL statement, use the `aws redshift-data execute-statement` AWS CLI command.
 
-Optionally, use the `WaitTimeSeconds` parameter to allow extra time for the statement to complete before the API returns a response. When the statement completes, the response also includes `Status`, `RedshiftPid`, and `HasResultSet`. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
+Optionally, use the `WaitTimeSeconds` parameter to allow extra time for the statement to complete before the API returns a response. When the statement completes, the response also includes `Status`, `RedshiftPid`, and `HasResultSet`. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md).
 
-The following AWS CLI command runs a SQL statement against a cluster and returns
-an identifier to fetch the results. This example uses the AWS Secrets Manager
-authentication method.
+The following AWS CLI command runs a SQL statement against a cluster and returns an identifier to fetch the results. This example uses the AWS Secrets Manager authentication method.
 
 ```
-
-aws redshift-data execute-statement
-    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn
-    --cluster-identifier mycluster-test
-    --sql "select * from stl_query limit 1"
+aws redshift-data execute-statement 
+    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn 
+    --cluster-identifier mycluster-test 
+    --sql "select * from stl_query limit 1" 
     --database dev
-
 ```
 
 The following is an example of the response.
@@ -41,18 +36,14 @@ The following is an example of the response.
 }
 ```
 
-The following AWS CLI command runs a SQL statement against a cluster and returns
-an identifier to fetch the results. This example uses the temporary credentials
-authentication method.
+The following AWS CLI command runs a SQL statement against a cluster and returns an identifier to fetch the results. This example uses the temporary credentials authentication method.
 
 ```
-
-aws redshift-data execute-statement
-    --db-user myuser
-    --cluster-identifier mycluster-test
-    --database dev
+aws redshift-data execute-statement 
+    --db-user myuser 
+    --cluster-identifier mycluster-test 
+    --database dev 
     --sql "select * from stl_query limit 1"
-
 ```
 
 The following is an example of the response.
@@ -67,17 +58,13 @@ The following is an example of the response.
 }
 ```
 
-The following AWS CLI command runs a SQL statement against a serverless
-workgroup and returns an identifier to fetch the results. This example uses the
-temporary credentials authentication method.
+The following AWS CLI command runs a SQL statement against a serverless workgroup and returns an identifier to fetch the results. This example uses the temporary credentials authentication method.
 
 ```
-
-aws redshift-data execute-statement
-    --database dev
-    --workgroup-name myworkgroup
+aws redshift-data execute-statement 
+    --database dev 
+    --workgroup-name myworkgroup 
     --sql "select 1;"
-
 ```
 
 The following is an example of the response.
@@ -92,19 +79,15 @@ The following is an example of the response.
 }
 ```
 
-The following AWS CLI command runs a SQL statement against a cluster and returns
-an identifier to fetch the results. This example uses the AWS Secrets Manager
-authentication method and an idempotency token.
+The following AWS CLI command runs a SQL statement against a cluster and returns an identifier to fetch the results. This example uses the AWS Secrets Manager authentication method and an idempotency token.
 
 ```
-
-aws redshift-data execute-statement
-    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn
-    --cluster-identifier mycluster-test
-    --sql "select * from stl_query limit 1"
-    --database dev
+aws redshift-data execute-statement 
+    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn 
+    --cluster-identifier mycluster-test 
+    --sql "select * from stl_query limit 1" 
+    --database dev 
     --client-token b855dced-259b-444c-bc7b-d3e8e33f94g1
-
 ```
 
 The following is an example of the response.
@@ -120,24 +103,20 @@ The following is an example of the response.
 ```
 
 ## Run multiple SQL statements
+<a name="data-api-calling-cli-batch-execute-statement"></a>
 
-To run multiple SQL statements with one command, use the `aws
- redshift-data batch-execute-statement` AWS CLI command.
+To run multiple SQL statements with one command, use the `aws redshift-data batch-execute-statement` AWS CLI command.
 
-Optionally, use the `WaitTimeSeconds` parameter to allow extra time for the entire batch to complete before the API returns a response. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
+Optionally, use the `WaitTimeSeconds` parameter to allow extra time for the entire batch to complete before the API returns a response. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md).
 
-The following AWS CLI command runs three SQL statements against a cluster and
-returns an identifier to fetch the results. This example uses the temporary
-credentials authentication method.
+The following AWS CLI command runs three SQL statements against a cluster and returns an identifier to fetch the results. This example uses the temporary credentials authentication method.
 
 ```
-
-aws redshift-data batch-execute-statement
-    --db-user myuser
-    --cluster-identifier mycluster-test
-    --database dev
+aws redshift-data batch-execute-statement 
+    --db-user myuser 
+    --cluster-identifier mycluster-test 
+    --database dev 
     --sqls "set timezone to BST" "select * from mytable" "select * from another_table"
-
 ```
 
 The following is an example of the response.
@@ -152,21 +131,15 @@ The following is an example of the response.
 }
 ```
 
-The following AWS CLI command runs three SQL statements in separate
-transactions using `AUTO_COMMIT` execution mode. Each statement
-is committed independently — a failure of one statement does not stop the
-remaining statements from running or affect statements that already
-completed.
+The following AWS CLI command runs three SQL statements in separate transactions using `AUTO_COMMIT` execution mode. Each statement is committed independently — a failure of one statement does not stop the remaining statements from running or affect statements that already completed.
 
 ```
-
 aws redshift-data batch-execute-statement
     --db-user myuser
     --cluster-identifier mycluster-test
     --database dev
     --sqls "insert into mytable values (1)" "invalid sql statement" "insert into mytable values (3)"
     --execution-mode AUTO_COMMIT
-
 ```
 
 The following is an example of the response.
@@ -219,31 +192,19 @@ The following is an example of the response.
 ```
 
 ## Run statements with parameters
+<a name="data-api-calling-cli-execute-statement-parameters"></a>
 
-You can use named parameters with both the
-`execute-statement` and `batch-execute-statement`
-operations. When using `batch-execute-statement`, parameters are
-shared across all SQL statements in the batch. Each SQL statement can reference a
-subset of the provided parameters, but every parameter must be used by at least
-one SQL statement.
+You can use named parameters with both the `execute-statement` and `batch-execute-statement` operations. When using `batch-execute-statement`, parameters are shared across all SQL statements in the batch. Each SQL statement can reference a subset of the provided parameters, but every parameter must be used by at least one SQL statement.
 
-The following AWS CLI command runs a SQL statement against a cluster and returns
-an identifier to fetch the results. This example uses the AWS Secrets Manager
-authentication method. The SQL text has named parameter `distance`.
-In this case, the distance used in the predicate is `5`. In a SELECT
-statement, named parameters for column names can only be used in the predicate.
-Values for named parameters for the SQL statement are specified in the
-`parameters` option.
+ The following AWS CLI command runs a SQL statement against a cluster and returns an identifier to fetch the results. This example uses the AWS Secrets Manager authentication method. The SQL text has named parameter `distance`. In this case, the distance used in the predicate is `5`. In a SELECT statement, named parameters for column names can only be used in the predicate. Values for named parameters for the SQL statement are specified in the `parameters` option.
 
 ```
-
-aws redshift-data execute-statement
-    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn
-    --cluster-identifier mycluster-test
-    --sql "SELECT ratecode FROM demo_table WHERE trip_distance > :distance"
+aws redshift-data execute-statement 
+    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn 
+    --cluster-identifier mycluster-test 
+    --sql "SELECT ratecode FROM demo_table WHERE trip_distance > :distance"  
     --parameters "[{\"name\": \"distance\", \"value\": \"5\"}]"
     --database dev
-
 ```
 
 The following is an example of the response.
@@ -258,110 +219,85 @@ The following is an example of the response.
 }
 ```
 
-The following example uses the `EVENT` table from the sample
-database. For more information, see [EVENT table](../dg/r_eventtable.md "../dg/r_eventtable.md") in the
-_Amazon Redshift Database Developer Guide_.
+The following example uses the `EVENT` table from the sample database. For more information, see [EVENT table](https://docs.aws.amazon.com/redshift/latest/dg/r_eventtable.html) in the *Amazon Redshift Database Developer Guide*. 
 
-If you don't already have the `EVENT` table in your database, you
-can create one using the Data API as follows:
+If you don't already have the `EVENT` table in your database, you can create one using the Data API as follows:
 
 ```
-
-aws redshift-data execute-statement
+aws redshift-data execute-statement 
 --database dev
 --cluster-id mycluster-test
 --db-user awsuser
---sql "create table event( eventid integer not null distkey,
-                           venueid smallint not null,
-                           catid smallint not null,
-                           dateid smallint not null sortkey,
-                           eventname varchar(200),
+--sql "create table event( eventid integer not null distkey, 
+                           venueid smallint not null, 
+                           catid smallint not null, 
+                           dateid smallint not null sortkey, 
+                           eventname varchar(200), 
                            starttime timestamp)"
-
 ```
 
-The following command inserts one row into the `EVENT` table.
+The following command inserts one row into the `EVENT` table. 
 
 ```
-
-aws redshift-data execute-statement
+aws redshift-data execute-statement 
 --database dev
 --cluster-id mycluster-test
---db-user awsuser
---sql "insert into event values(:eventid, :venueid::smallint, :catid, :dateid, :eventname, :starttime)"
---parameters "[{\"name\": \"eventid\", \"value\": \"1\"}, {\"name\": \"venueid\", \"value\": \"1\"},
-               {\"name\": \"catid\", \"value\": \"1\"},
-               {\"name\": \"dateid\", \"value\": \"1\"},
-               {\"name\": \"eventname\", \"value\": \"event 1\"},
+--db-user awsuser 
+--sql "insert into event values(:eventid, :venueid::smallint, :catid, :dateid, :eventname, :starttime)" 
+--parameters "[{\"name\": \"eventid\", \"value\": \"1\"}, {\"name\": \"venueid\", \"value\": \"1\"}, 
+               {\"name\": \"catid\", \"value\": \"1\"}, 
+               {\"name\": \"dateid\", \"value\": \"1\"}, 
+               {\"name\": \"eventname\", \"value\": \"event 1\"}, 
                {\"name\": \"starttime\", \"value\": \"2022-02-22\"}]"
-
 ```
 
-The following command inserts a second row into the `EVENT` table.
-This example demonstrates the following:
-
-- The parameter named `id` is used four times in the SQL
-  text.
-- Implicit type conversion is applied automatically when inserting
-  parameter `starttime`.
-- The `venueid` column is type cast to SMALLINT data
-  type.
-- Character strings that represent the DATE data type are implicitly
-  converted into the TIMESTAMP data type.
-- Comments can be used within SQL text.
+The following command inserts a second row into the `EVENT` table. This example demonstrates the following: 
++ The parameter named `id` is used four times in the SQL text.
++ Implicit type conversion is applied automatically when inserting parameter `starttime`.
++ The `venueid` column is type cast to SMALLINT data type.
++ Character strings that represent the DATE data type are implicitly converted into the TIMESTAMP data type.
++ Comments can be used within SQL text.
 
 ```
-
-aws redshift-data execute-statement
+aws redshift-data execute-statement 
 --database dev
 --cluster-id mycluster-test
---db-user awsuser
---sql "insert into event values(:id, :id::smallint, :id, :id, :eventname, :starttime) /*this is comment, and it won't apply parameterization for :id, :eventname or :starttime here*/"
---parameters "[{\"name\": \"eventname\", \"value\": \"event 2\"},
-               {\"name\": \"starttime\", \"value\": \"2022-02-22\"},
+--db-user awsuser 
+--sql "insert into event values(:id, :id::smallint, :id, :id, :eventname, :starttime) /*this is comment, and it won't apply parameterization for :id, :eventname or :starttime here*/" 
+--parameters "[{\"name\": \"eventname\", \"value\": \"event 2\"}, 
+               {\"name\": \"starttime\", \"value\": \"2022-02-22\"}, 
                {\"name\": \"id\", \"value\": \"2\"}]"
-
 ```
 
 The following shows the two inserted rows:
 
 ```
-
  eventid | venueid | catid | dateid | eventname |      starttime
 ---------+---------+-------+--------+-----------+---------------------
        1 |       1 |     1 |      1 | event 1   | 2022-02-22 00:00:00
        2 |       2 |     2 |      2 | event 2   | 2022-02-22 00:00:00
-
-
 ```
 
-The following command uses a named parameter in a WHERE clause to retrieve the
-row where `eventid` is `1`.
+The following command uses a named parameter in a WHERE clause to retrieve the row where `eventid` is `1`. 
 
 ```
-
-aws redshift-data execute-statement
+aws redshift-data execute-statement 
 --database dev
 --cluster-id mycluster-test
---db-user awsuser
+--db-user awsuser 
 --sql "select * from event where eventid=:id"
 --parameters "[{\"name\": \"id\", \"value\": \"1\"}]"
-
 ```
 
-Run the following command to get the SQL results of the previous SQL
-statement:
+Run the following command to get the SQL results of the previous SQL statement:
 
 ```
-
-aws redshift-data get-statement-result --id 7529ad05-b905-4d71-9ec6-8b333836eb5a
-
+aws redshift-data get-statement-result --id 7529ad05-b905-4d71-9ec6-8b333836eb5a        
 ```
 
 Provides the following results:
 
 ```
-
 {
     "Records": [
         [
@@ -473,24 +409,17 @@ Provides the following results:
     ],
     "TotalNumRows": 1
 }
-
 ```
 
-The following AWS CLI command runs two SQL statements with shared named
-parameters against a cluster using `batch-execute-statement`. The SQL
-text has named parameters `id` and `name`. The first SQL
-statement uses the `id` parameter and the second uses the
-`name` parameter.
+The following AWS CLI command runs two SQL statements with shared named parameters against a cluster using `batch-execute-statement`. The SQL text has named parameters `id` and `name`. The first SQL statement uses the `id` parameter and the second uses the `name` parameter.
 
 ```
-
-aws redshift-data batch-execute-statement
-    --db-user myuser
-    --cluster-identifier mycluster-test
-    --database dev
-    --sqls "SELECT * FROM mytable WHERE id = :id" "SELECT * FROM mytable WHERE name = :name"
+aws redshift-data batch-execute-statement 
+    --db-user myuser 
+    --cluster-identifier mycluster-test 
+    --database dev 
+    --sqls "SELECT * FROM mytable WHERE id = :id" "SELECT * FROM mytable WHERE name = :name" 
     --parameters "[{\"name\": \"id\", \"value\": \"1\"},{\"name\": \"name\", \"value\": \"Alice\"}]"
-
 ```
 
 The following is an example of the response.
@@ -505,19 +434,15 @@ The following is an example of the response.
 }
 ```
 
-The following AWS CLI command runs two SQL statements where the same parameter
-is used across both statements. The parameter named `id` is used in
-an INSERT statement and a SELECT statement.
+The following AWS CLI command runs two SQL statements where the same parameter is used across both statements. The parameter named `id` is used in an INSERT statement and a SELECT statement.
 
 ```
-
-aws redshift-data batch-execute-statement
-    --db-user myuser
-    --cluster-identifier mycluster-test
-    --database dev
-    --sqls "INSERT INTO mytable VALUES(:id, :name, :address)" "SELECT * FROM mytable WHERE id = :id"
+aws redshift-data batch-execute-statement 
+    --db-user myuser 
+    --cluster-identifier mycluster-test 
+    --database dev 
+    --sqls "INSERT INTO mytable VALUES(:id, :name, :address)" "SELECT * FROM mytable WHERE id = :id" 
     --parameters "[{\"name\": \"id\", \"value\": \"1\"},{\"name\": \"name\", \"value\": \"Alice\"},{\"name\": \"address\", \"value\": \"Seattle\"}]"
-
 ```
 
 The following is an example of the response.

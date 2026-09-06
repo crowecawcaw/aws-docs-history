@@ -1,41 +1,41 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating a snapshot
+<a name="serverless-snapshots"></a>
 
-###### Note
-
-No-backup tables aren't supported for RG or RA3 provisioned clusters and Amazon Redshift Serverless workgroups.
-A table marked as no-backup in an RG or RA3 cluster or serverless workgroup is treated as a permanent table that will
-always be backed up while taking a snapshot, and always restored when restoring from a snapshot. To avoid snapshot costs for no-backup tables,
-truncate them before taking a snapshot.
+**Note**  
+No-backup tables aren't supported for RG or RA3 provisioned clusters and Amazon Redshift Serverless workgroups. A table marked as no-backup in an RG or RA3 cluster or serverless workgroup is treated as a permanent table that will always be backed up while taking a snapshot, and always restored when restoring from a snapshot. To avoid snapshot costs for no-backup tables, truncate them before taking a snapshot.
 
 To create a snapshot, perform the steps in the following procedure.
 
-###### To create a snapshot
+**To create a snapshot**
 
 1. On the Amazon Redshift Serverless console, choose **Data backup**.
-2. Choose **Create snapshot**.
-3. Choose a namespace to create a snapshot of.
-4. Enter a snapshot identifier.
-5. (Optional) Choose a retention period. If you choose **Custom
-   value**, choose the number of days. The amount you choose must be
-   between 1-3653 days, inclusive. The default is retain indefinitely.
-6. Choose **Create**.
 
-###### To create a snapshot from namespace configuration
+1. Choose **Create snapshot**.
 
-1. On the Amazon Redshift Serverless console, choose **Namespace
-   configuration**.
-2. Choose the namespace to create a snapshot of. You can only create snapshots of
-   namespaces that are associated with a workgroup and whose statuses are
-   Available.
-3. Choose the **Data backup** tab.
-4. Choose **Create snapshot**.
-5. Enter a snapshot identifier.
-6. (Optional) Choose a retention period. If you choose **Custom
-   value**, choose the number of days. The amount you choose must be
-   between 1-3653 days, inclusive.
-7. Choose **Create**.
+1. Choose a namespace to create a snapshot of.
+
+1. Enter a snapshot identifier.
+
+1. (Optional) Choose a retention period. If you choose **Custom value**, choose the number of days. The amount you choose must be between 1-3653 days, inclusive. The default is retain indefinitely.
+
+1. Choose **Create**.
+
+**To create a snapshot from namespace configuration**
+
+1. On the Amazon Redshift Serverless console, choose **Namespace configuration**.
+
+1. Choose the namespace to create a snapshot of. You can only create snapshots of namespaces that are associated with a workgroup and whose statuses are Available.
+
+1. Choose the **Data backup** tab.
+
+1. Choose **Create snapshot**.
+
+1. Enter a snapshot identifier.
+
+1. (Optional) Choose a retention period. If you choose **Custom value**, choose the number of days. The amount you choose must be between 1-3653 days, inclusive.
+
+1. Choose **Create**.

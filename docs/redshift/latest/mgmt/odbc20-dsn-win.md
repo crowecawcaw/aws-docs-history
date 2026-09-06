@@ -1,98 +1,67 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating a system DSN entry for an ODBC connection
+<a name="odbc20-dsn-win"></a>
 
-After you download and install the ODBC driver, add a data source name (DSN) entry
-to the client computer or Amazon EC2 instance. SQL client tools can use this data source
-to connect to the Amazon Redshift database.
+After you download and install the ODBC driver, add a data source name (DSN) entry to the client computer or Amazon EC2 instance. SQL client tools can use this data source to connect to the Amazon Redshift database. 
 
-We recommend that you create a system DSN instead of a user DSN. Some applications
-load the data using a different database user account, and might not be able to
-detect user DSNs that are created under another database user account.
+We recommend that you create a system DSN instead of a user DSN. Some applications load the data using a different database user account, and might not be able to detect user DSNs that are created under another database user account.
 
-###### Note
-
-For authentication using AWS Identity and Access Management (IAM) credentials or identity provider
-(IdP) credentials, additional steps are required. For more information, see
-[Configure a JDBC or ODBC connection to use IAM
-credentials](generating-iam-credentials-configure-jdbc-odbc.md "generating-iam-credentials-configure-jdbc-odbc.md").
+**Note**  
+For authentication using AWS Identity and Access Management (IAM) credentials or identity provider (IdP) credentials, additional steps are required. For more information, see [ Configure a JDBC or ODBC connection to use IAM credentials](https://docs.aws.amazon.com/redshift/latest/mgmt/generating-iam-credentials-configure-jdbc-odbc.html).
 
 To create a system DSN entry for an ODBC connection:
 
-1. In the **Start** menu, type "ODBC Data Sources." Choose
-   **ODBC Data Sources**.
+1. In the **Start** menu, type "ODBC Data Sources." Choose **ODBC Data Sources**.
 
-Make sure that you choose the ODBC Data Source Administrator that has the
-same bitness as the client application that you are using to connect to
-Amazon Redshift. 2. In the **ODBC Data Source Administrator**, choose the
-**Driver** tab and locate the following driver folder:
-**Amazon Redshift ODBC Driver (x64)**. 3. Choose the **System DSN** tab to configure the driver for
-all users on the computer, or the **User DSN** tab to
-configure the driver for your database user account only. 4. Choose **Add**. The **Create New Data
-Source** window opens. 5. Choose the **Amazon Redshift ODBC driver (x64)**, and then
-choose **Finish**. The **Amazon Redshift ODBC Driver DSN
-Setup** window opens. 6. Under the **Connection Settings** section, enter the
-following information:
+   Make sure that you choose the ODBC Data Source Administrator that has the same bitness as the client application that you are using to connect to Amazon Redshift. 
 
-    * ###### Data source name
+1. In the **ODBC Data Source Administrator**, choose the **Driver** tab and locate the following driver folder: **Amazon Redshift ODBC Driver (x64)**.
 
+1. Choose the **System DSN** tab to configure the driver for all users on the computer, or the **User DSN** tab to configure the driver for your database user account only.
 
-     Enter a name for the data source. For example, if you
-     followed the *Amazon Redshift Getting Started
-     Guide*, you might type `exampleclusterdsn`
-     to make it easy to remember the cluster that you associate with
-     this DSN.
-    * ###### Server
+1. Choose **Add**. The **Create New Data Source** window opens.
 
+1. Choose the **Amazon Redshift ODBC driver (x64)**, and then choose **Finish**. The **Amazon Redshift ODBC Driver DSN Setup** window opens.
 
-     Specify the endpoint host for your Amazon Redshift cluster. You can
-     find this information in the Amazon Redshift console on the cluster's
-     details page. For more information, see [Configuring connections in Amazon Redshift](configuring-connections.md "configuring-connections.md") .
-    * ###### Port
+1. Under the **Connection Settings** section, enter the following information: 
+   + 
 
+**Data source name**  
+ Enter a name for the data source. For example, if you followed the *Amazon Redshift Getting Started Guide*, you might type `exampleclusterdsn` to make it easy to remember the cluster that you associate with this DSN. 
+   + 
 
-     Enter the port number that the database uses. Depending on
-     the port you selected when creating, modifying or migrating the
-     cluster, allow access to the selected port.
-    * ###### Database
+**Server**  
+ Specify the endpoint host for your Amazon Redshift cluster. You can find this information in the Amazon Redshift console on the cluster's details page. For more information, see [ Configuring connections in Amazon Redshift ](https://docs.aws.amazon.com/redshift/latest/mgmt/configuring-connections.html). 
+   + 
 
+**Port**  
+ Enter the port number that the database uses. Depending on the port you selected when creating, modifying or migrating the cluster, allow access to the selected port. 
+   + 
 
-     Enter the name of the Amazon Redshift database. If you launched your
-     cluster without specifying a database name, enter
-     `dev`. Otherwise, use the name that you chose
-     during the launch process. If you followed the
-     *Amazon Redshift Getting Started Guide*, enter
-     `dev`.
+**Database**  
+ Enter the name of the Amazon Redshift database. If you launched your cluster without specifying a database name, enter `dev`. Otherwise, use the name that you chose during the launch process. If you followed the *Amazon Redshift Getting Started Guide*, enter `dev`. 
 
-7. Under the **Authentication** section, specify the
-configuration options to configure standard or IAM authentication. 8. Choose **SSL Options** and specify a value for the
-following:
+1. Under the **Authentication** section, specify the configuration options to configure standard or IAM authentication. 
 
-    * ###### Authentication mode
+1. Choose **SSL Options** and specify a value for the following:
+   + 
 
+**Authentication mode**  
+Choose a mode for handling Secure Sockets Layer (SSL). In a test environment, you might use `prefer`. However, for production environments and when secure data exchange is required, use `verify-ca` or `verify-full`.
+   + 
 
-    Choose a mode for handling Secure Sockets Layer (SSL). In a
-     test environment, you might use `prefer`. However,
-     for production environments and when secure data exchange is
-     required, use `verify-ca` or
-     `verify-full`.
-    * ###### Min TLS
+**Min TLS**  
+Optionally, choose the minimum version of TLS/SSL that the driver allows the data store to use for encrypting connections. For example, if you specify TLS 1.2, TLS 1.1 can't be used to encrypt connections. The default version is TLS 1.2.
 
+1.  In the **Proxy** tab, specify any proxy connection setting. 
 
-    Optionally, choose the minimum version of TLS/SSL that the
-     driver allows the data store to use for encrypting connections.
-     For example, if you specify TLS 1.2, TLS 1.1 can't be used to
-     encrypt connections. The default version is TLS 1.2.
+1. In the **Cursor** tab, specify options on how to return query results to your SQL client tool or application. 
 
-9. In the **Proxy** tab, specify any proxy connection
-setting. 10. In the **Cursor** tab, specify options on how to return
-query results to your SQL client tool or application. 11. In **Advanced Options**, specify values for
-`logLevel`, `logPath`, `compression`,
-and other options. 12. Choose **Test**. If the client computer can connect to
-the Amazon Redshift database, the following message appears: **Connection
-successful**. If the client computer fails to connect to the
-database, you can troubleshoot possible issues by generating a log file and
-contacting AWS support. For information on generating logs, see (LINK). 13. Choose **OK**.
+1. In **Advanced Options**, specify values for `logLevel`, `logPath`, `compression`, and other options. 
+
+1. Choose **Test**. If the client computer can connect to the Amazon Redshift database, the following message appears: **Connection successful**. If the client computer fails to connect to the database, you can troubleshoot possible issues by generating a log file and contacting AWS support. For information on generating logs, see (LINK). 
+
+1.  Choose **OK**. 

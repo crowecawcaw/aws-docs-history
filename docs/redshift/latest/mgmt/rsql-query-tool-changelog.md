@@ -1,128 +1,124 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift RSQL change log
+<a name="rsql-query-tool-changelog"></a>
 
-_1.1.2 (2025-12-11)_
-
-Bug Fixes
-
-- Fixed a bug that caused failures with \goto and \label commands.
-- Fixed a bug that prevented RSQL from printing variable values when variables were enclosed in quotes.
-- Fixed a bug that caused RSQL crashes when query results exceeded the ODBC DSN Fetch parameter size while UseDeclareFetch was enabled.
-- Fixed an issue where multiple pages of results are returned at once even though pager is turned on.
-- Fixed a bug that triggered RSQL crashes when queries failed within transaction blocks.
-  _1.1.1 (2025-11-20)_
+*1.1.2 (2025-12-11)*
 
 Bug Fixes
++ Fixed a bug that caused failures with \\goto and \\label commands.
++ Fixed a bug that prevented RSQL from printing variable values when variables were enclosed in quotes.
++ Fixed a bug that caused RSQL crashes when query results exceeded the ODBC DSN Fetch parameter size while UseDeclareFetch was enabled.
++ Fixed an issue where multiple pages of results are returned at once even though pager is turned on.
++ Fixed a bug that triggered RSQL crashes when queries failed within transaction blocks.
 
-- Fixed an issue where RSQL incorrectly parsed queries when using the -c flag. This fix applies to all platforms.
-- Fix a bug on Mac that prevented users from using the \s command in RSQL.
-  _1.1.0 (2025-11-11)_
-
-Bug Fixes
-
-- Resolved a memory leak issue that was causing unexpected crashes in rSQL.
-- Removed OpenSSL dependency from RSQL.
-- Fixed linking conflicts with libpq/psql installations in the same environment.
-- Improved platform compatibility for Amazon Linux 2023, Windows, and macOS.
-- Fixed an issue where output would be truncated when exceeding the current display size.
-  _1.0.8 (2023-06-19)_
+*1.1.1 (2025-11-20)*
 
 Bug Fixes
++ Fixed an issue where RSQL incorrectly parsed queries when using the -c flag. This fix applies to all platforms.
++ Fix a bug on Mac that prevented users from using the \\s command in RSQL.
 
-- Fixed an issue where output is truncated with SHOW commands.
-- Added support to \de for describing external Kinesis streams and Kafka
-  topics.
-  _1.0.7 (2023-03-22)_
-
-Bug Fixes
-
-- Fixed an issue where RSQL could not describe materialized
-  views.
-- Fixed permission-denied error on stl\_connection\_log when using
-  Amazon Redshift Serverless.
-- Fixed issue where RSQL may process \GOTO labels incorrectly.
-- Fixed issue where SSL messages are printed in quiet mode.
-- Fixed issue with random characters displayed when describing stored
-  procedures.
-- Fixed issue with printing duplicate ERROR/INFO messages.
-  New
-
-- RSQL now gets SSL information directly from the ODBC driver.
-  _1.0.6 (2023-02-21)_
+*1.1.0 (2025-11-11)*
 
 Bug Fixes
++ Resolved a memory leak issue that was causing unexpected crashes in rSQL.
++ Removed OpenSSL dependency from RSQL.
++ Fixed linking conflicts with libpq/psql installations in the same environment.
++ Improved platform compatibility for Amazon Linux 2023, Windows, and macOS.
++ Fixed an issue where output would be truncated when exceeding the current display size.
 
-- Fixed an issue where \d throws an error - invalid input syntax for
-  integer: "xid" - on Redshift patch 1.0.46086 (P173).
-  New
-
-- Renamed installation files to reflect supported architecture.
-  _1.0.5 (2022-06-27)_
-
-Bug Fixes
-
-- Send SQL error messages to standard error (stderr).
-- Fixed issue with exit codes when using ON\_ERROR\_STOP. Scripts now end
-  after encountering an error and return the correct exit codes.
-- Maxerror is now case insensitive.
-  New
-
-- Added support for ODBC 2.x driver.
-  _1.0.4 (2022-03-19)_
-
-- Add support for RSPASSWORD environment variable. Set a password to
-  connect to Amazon Redshift. For example, `export
- RSPASSWORD=TestPassw0rd`.
-  _1.0.3 (2021-12-08)_
+*1.0.8 (2023-06-19)*
 
 Bug Fixes
++ Fixed an issue where output is truncated with SHOW commands.
++ Added support to \\de for describing external Kinesis streams and Kafka topics.
 
-- Fixed dialogue pop up when using `\c` or
-  `\logon` to switch between databases in Windows
-  OS.
-- Fixed crash when checking ssl information.
+*1.0.7 (2023-03-22)*
+
+Bug Fixes
++ Fixed an issue where RSQL could not describe materialized views.
++ Fixed permission-denied error on stl\_connection\_log when using Amazon Redshift Serverless.
++ Fixed issue where RSQL may process \\GOTO labels incorrectly.
++ Fixed issue where SSL messages are printed in quiet mode.
++ Fixed issue with random characters displayed when describing stored procedures.
++ Fixed issue with printing duplicate ERROR/INFO messages.
+
+New
++ RSQL now gets SSL information directly from the ODBC driver.
+
+
+
+*1.0.6 (2023-02-21)*
+
+Bug Fixes
++ Fixed an issue where \\d throws an error - invalid input syntax for integer: "xid" - on Redshift patch 1.0.46086 (P173).
+
+New
++ Renamed installation files to reflect supported architecture.
+
+
+
+*1.0.5 (2022-06-27)*
+
+Bug Fixes
++ Send SQL error messages to standard error (stderr).
++ Fixed issue with exit codes when using ON\_ERROR\_STOP. Scripts now end after encountering an error and return the correct exit codes.
++ Maxerror is now case insensitive.
+
+New
++ Added support for ODBC 2.x driver.
+
+
+
+*1.0.4 (2022-03-19)*
++ Add support for RSPASSWORD environment variable. Set a password to connect to Amazon Redshift. For example, `export RSPASSWORD=TestPassw0rd`.
+
+
+
+*1.0.3 (2021-12-08)*
+
+Bug Fixes
++ Fixed dialogue pop up when using `\c` or `\logon` to switch between databases in Windows OS.
++ Fixed crash when checking ssl information.
+
+
 
 ## Amazon Redshift RSQL previous versions
+<a name="rsql-query-tool-changelog-legacy-versions"></a>
 
-Choose one of the links to download the version of Amazon Redshift RSQL you need,
-based on your operating system.
+Choose one of the links to download the version of Amazon Redshift RSQL you need, based on your operating system.
 
 **Linux 64-bit RPM**
-
-- [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.rhel.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.rhel.x86_64.rpm")
-- [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm")
-- [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.rpm")
-- [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.rpm")
-- [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.rpm")
-- [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5-1.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5-1.x86_64.rpm")
-- [RSQL Version 1.0.4](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4-1.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4-1.x86_64.rpm")
-- [RSQL Version 1.0.3](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3-1.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3-1.x86_64.rpm")
-- [RSQL Version 1.0.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1-1.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1-1.x86_64.rpm")
++ [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.rhel.x86_64.rpm)
++ [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.rhel.x86_64.rpm)
++ [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.rpm)
++ [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.rpm)
++ [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.rpm)
++ [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5-1.x86_64.rpm)
++ [RSQL Version 1.0.4](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4-1.x86_64.rpm)
++ [RSQL Version 1.0.3](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3-1.x86_64.rpm)
++ [RSQL Version 1.0.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1-1.x86_64.rpm)
 
 **Mac OS 64-bit DMG/PKG**
-
-- [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.universal.pkg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.universal.pkg")
-- [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg")
-- [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.dmg")
-- [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.dmg")
-- [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.dmg")
-- [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.dmg")
-- [RSQL Version 1.0.4](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4.dmg")
-- [RSQL Version 1.0.3](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3.dmg")
-- [RSQL Version 1.0.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1.dmg "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1.dmg")
++ [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.universal.pkg)
++ [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.universal.pkg)
++ [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.dmg)
++ [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.dmg)
++ [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.dmg)
++ [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.dmg)
++ [RSQL Version 1.0.4](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4.dmg)
++ [RSQL Version 1.0.3](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3.dmg)
++ [RSQL Version 1.0.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1.dmg)
 
 **Windows 64-bit MSI**
-
-- [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.x86_64.msi")
-- [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi")
-- [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.msi")
-- [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.msi")
-- [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.msi")
-- [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.msi")
-- [RSQL Version 1.0.4](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4.msi")
-- [RSQL Version 1.0.3](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3.msi")
-- [RSQL Version 1.0.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1.msi "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1.msi")
++ [RSQL Version 1.1.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.1/AmazonRedshiftRsql-1.1.1.x86_64.msi)
++ [RSQL Version 1.1.0](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.0/AmazonRedshiftRsql-1.1.0.x86_64.msi)
++ [RSQL Version 1.0.8](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.8/AmazonRedshiftRsql-1.0.8.x86_64.msi)
++ [RSQL Version 1.0.7](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.7/AmazonRedshiftRsql-1.0.7.x86_64.msi)
++ [RSQL Version 1.0.6](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.6/AmazonRedshiftRsql-1.0.6.x86_64.msi)
++ [RSQL Version 1.0.5](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.5/AmazonRedshiftRsql-1.0.5.msi)
++ [RSQL Version 1.0.4](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.4/AmazonRedshiftRsql-1.0.4.msi)
++ [RSQL Version 1.0.3](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.3/AmazonRedshiftRsql-1.0.3.msi)
++ [RSQL Version 1.0.1](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.0.1/AmazonRedshiftRsql-1.0.1.msi)

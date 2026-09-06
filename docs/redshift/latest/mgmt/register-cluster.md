@@ -1,33 +1,26 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Registering a cluster to the AWS Glue Data Catalog
+<a name="register-cluster"></a>
 
-You can register entire clusters to the AWS Glue Data Catalog and create catalogs managed by AWS Glue.
-You can access these catalogs with any SQL engine that supports the Apache Iceberg REST API.
-For more information on creating Apache Iceberg-compatible catalogs from Amazon Redshift
-see [Apache Iceberg compatibility for Amazon Redshift](../dg/iceberg-integration_overview.md "../dg/iceberg-integration_overview.md") in the
-Amazon Redshift Database Developer Guide.
+You can register entire clusters to the AWS Glue Data Catalog and create catalogs managed by AWS Glue. You can access these catalogs with any SQL engine that supports the Apache Iceberg REST API. For more information on creating Apache Iceberg-compatible catalogs from Amazon Redshift see [ Apache Iceberg compatibility for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/iceberg-integration_overview.html) in the Amazon Redshift Database Developer Guide.
 
-###### To register a cluster to the AWS Glue Data Catalog
+**To register a cluster to the AWS Glue Data Catalog**
 
-1. Sign in to the AWS Management Console and open the Amazon Redshift console at
-   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2. On the navigation menu, choose **Clusters**. The clusters for
-   your account in the current AWS Region are listed. A subset of properties of each cluster
-   is displayed in columns in the list. If you don't have any clusters, choose
-   **Create cluster** to create one.
-3. Choose the name of the cluster that you want to register.
-4. From **Actions**, choose **Register to AWS Glue Data Catalog**.
-   The **Register to AWS Glue Data Catalog** pop-up box appears.
-5. Enter the AWS account ID that you want to register the cluster to under
-   **Destination account ID**. This is the account ID that
-   will hold the catalog in the AWS Glue Data Catalog.
-6. Enter a name under **Register namespace as**.
-   This will be the cluster’s name in the Data Catalog.
-7. Choose **Register**. You’ll be taken to the AWS Lake Formation console.
-8. Follow the catalog creation process in AWS Lake Formation. For information about creating
-   a catalog, see [Bringing Amazon Redshift data into the AWS Glue Data Catalog](../../../lake-formation/latest/dg/managing-namespaces-datacatalog.md "../../../lake-formation/latest/dg/managing-namespaces-datacatalog.md") in the
-   AWS Lake Formation Developer Guide.
+1. Sign in to the AWS Management Console and open the Amazon Redshift console at [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/).
+
+1. On the navigation menu, choose **Clusters**. The clusters for your account in the current AWS Region are listed. A subset of properties of each cluster is displayed in columns in the list. If you don't have any clusters, choose **Create cluster** to create one.
+
+1. Choose the name of the cluster that you want to register.
+
+1.  From **Actions**, choose **Register to AWS Glue Data Catalog**. The **Register to AWS Glue Data Catalog** pop-up box appears. 
+
+1. Enter the AWS account ID that you want to register the cluster to under **Destination account ID**. This is the account ID that will hold the catalog in the AWS Glue Data Catalog.
+
+1.  Enter a name under **Register namespace as**. This will be the cluster’s name in the Data Catalog. 
+
+1.  Choose **Register**. You’ll be taken to the AWS Lake Formation console. 
+
+1.  Follow the catalog creation process in AWS Lake Formation. For information about creating a catalog, see [ Bringing Amazon Redshift data into the AWS Glue Data Catalog](https://docs.aws.amazon.com/lake-formation/latest/dg/managing-namespaces-datacatalog.html) in the AWS Lake Formation Developer Guide. 

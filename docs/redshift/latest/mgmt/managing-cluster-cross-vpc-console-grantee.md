@@ -1,37 +1,28 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating a Redshift-managed VPC endpoint
+<a name="managing-cluster-cross-vpc-console-grantee"></a>
 
-If you own a cluster or workgroup, or you have been granted access to manage it, you
-can create a Redshift-managed VPC endpoint for it.
+If you own a cluster or workgroup, or you have been granted access to manage it, you can create a Redshift-managed VPC endpoint for it. 
 
-###### To create a Redshift-managed VPC endpoint
+**To create a Redshift-managed VPC endpoint**
 
-1. Sign in to the AWS Management Console and open the Amazon Redshift console at
-   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2. On the navigation menu, choose **Configurations**.
+1. Sign in to the AWS Management Console and open the Amazon Redshift console at [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/).
 
-The **Configurations** page displays the Redshift-managed VPC
-endpoints that have been created. To view details for an endpoint, choose its
-name. For Amazon Redshift Serverless, the VPC endpoints are under the **Data
-access** tab, when you choose the workgroup. 3. Choose **Create endpoint** to display a form to enter
-information about the endpoint to add. 4. Enter values for **Endpoint name**, the 12-digit
-**AWS account ID**, the **Virtual private cloud
-(VPC)** where the endpoint is located, the
-**Subnet** and the **VPC security
-group**.
+1. On the navigation menu, choose **Configurations**. 
 
-The subnet in **Subnet** defines the subnets and IP addresses
-where Amazon Redshift deploys the endpoint. Amazon Redshift chooses a subnet that has IP addresses
-available for the network interface associated with the endpoint.
+   The **Configurations** page displays the Redshift-managed VPC endpoints that have been created. To view details for an endpoint, choose its name. For Amazon Redshift Serverless, the VPC endpoints are under the **Data access** tab, when you choose the workgroup.
 
-The security group rules in **VPC security group** define the
-ports, protocols, and sources for inbound traffic that you are authorizing for
-your endpoint. You allow access to the selected port via the security group or
-the CIDR range where your workloads run. 5. Choose **Create endpoint** to create the endpoint.
-After your endpoint is created, you can access the cluster or workgroup through the
-URL shown in **Endpoint** URL in the configuration settings for your
-Redshift-managed VPC endpoint.
+1. Choose **Create endpoint** to display a form to enter information about the endpoint to add.
+
+1. Enter values for **Endpoint name**, the 12-digit **AWS account ID**, the **Virtual private cloud (VPC)** where the endpoint is located, the **Subnet** and the **VPC security group**.
+
+   The subnet in **Subnet** defines the subnets and IP addresses where Amazon Redshift deploys the endpoint. Amazon Redshift chooses a subnet that has IP addresses available for the network interface associated with the endpoint. 
+
+   The security group rules in **VPC security group** define the ports, protocols, and sources for inbound traffic that you are authorizing for your endpoint. You allow access to the selected port via the security group or the CIDR range where your workloads run.
+
+1. Choose **Create endpoint** to create the endpoint. 
+
+After your endpoint is created, you can access the cluster or workgroup through the URL shown in **Endpoint** URL in the configuration settings for your Redshift-managed VPC endpoint.

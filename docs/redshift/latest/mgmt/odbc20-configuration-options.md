@@ -1,1194 +1,930 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ODBC driver options
+<a name="odbc20-configuration-options"></a>
 
-You can use driver configuration options to control the behavior of the Amazon Redshift ODBC
-driver. Driver options are not case sensitive.
+You can use driver configuration options to control the behavior of the Amazon Redshift ODBC driver. Driver options are not case sensitive.
 
-In Microsoft Windows, you typically set driver options when you configure a data
-source name (DSN). You can also set driver options in the connection string when you
-connect programmatically, or by adding or changing registry keys in
-`HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\`your_DSN``.
+In Microsoft Windows, you typically set driver options when you configure a data source name (DSN). You can also set driver options in the connection string when you connect programmatically, or by adding or changing registry keys in `HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\{{your_DSN}}`.
 
-In Linux, you set driver configuration options in your `odbc.ini` and
-`amazon.redshiftodbc.ini` files. Configuration options set in an
-`amazon.redshiftodbc.ini` file apply to all connections. In contrast,
-configuration options set in an `odbc.ini` file are specific to a connection.
-Configuration options set in `odbc.ini` take precedence over configuration
-options set in `amazon.redshiftodbc.ini`.
+In Linux, you set driver configuration options in your `odbc.ini` and `amazon.redshiftodbc.ini` files. Configuration options set in an `amazon.redshiftodbc.ini` file apply to all connections. In contrast, configuration options set in an `odbc.ini` file are specific to a connection. Configuration options set in `odbc.ini` take precedence over configuration options set in `amazon.redshiftodbc.ini`.
 
-Following are descriptions for the options that you can specify for the Amazon Redshift ODBC
-version 2.x driver:
+Following are descriptions for the options that you can specify for the Amazon Redshift ODBC version 2.x driver:
 
-###### Topics
-
-- [AccessKeyID](#odbc20-accesskeyid-option "#odbc20-accesskeyid-option")
-- [app\_id](#odbc20-app-id-option "#odbc20-app-id-option")
-- [ApplicationName](#odbc20-application_name-option "#odbc20-application_name-option")
-- [app\_name](#odbc20-app-name-option "#odbc20-app-name-option")
-- [AuthProfile](#odbc20-authprofile-option "#odbc20-authprofile-option")
-- [AuthType](#odbc20-authtype-option "#odbc20-authtype-option")
-- [AutoCreate](#odbc20-autocreate-option "#odbc20-autocreate-option")
-- [BoolsAsChar](#odbc20-boolsaschar-option "#odbc20-boolsaschar-option")
-- [CaFile](#odbc20-cafile-option "#odbc20-cafile-option")
-- [client\_id](#odbc20-client-id-option "#odbc20-client-id-option")
-- [client\_ secret](#odbc20-client-secret-option "#odbc20-client-secret-option")
-- [ClusterId](#odbc20-clusterid-option "#odbc20-clusterid-option")
-- [compression](#odbc20-compression-option "#odbc20-compression-option")
-- [Database](#odbc20-database-option "#odbc20-database-option")
-- [DatabaseMetadataCurrentDbOnly](#odbc20-database-metadata-option "#odbc20-database-metadata-option")
-- [dbgroups\_filter](#odbc20-dbgroups-filter-option "#odbc20-dbgroups-filter-option")
-- [Driver](#odbc20-driver-option "#odbc20-driver-option")
-- [DSN](#odbc20-dsn-option "#odbc20-dsn-option")
-- [EnableTableTypes](#odbc20-enabletabletypes-option "#odbc20-enabletabletypes-option")
-- [EndpointUrl](#odbc20-endpointurl-option "#odbc20-endpointurl-option")
-- [ForceLowercase](#odbc20-forcelowercase-option "#odbc20-forcelowercase-option")
-- [group\_federation](#odbc20-group-federation-option "#odbc20-group-federation-option")
-- [https\_proxy\_host](#odbc20-https-proxy-host-option "#odbc20-https-proxy-host-option")
-- [https\_proxy\_password](#odbc20-https-proxy-password-option "#odbc20-https-proxy-password-option")
-- [https\_proxy\_port](#odbc20-https-proxy-port-option "#odbc20-https-proxy-port-option")
-- [https\_proxy\_username](#odbc20-https-proxy-username-option "#odbc20-https-proxy-username-option")
-- [IAM](#odbc20-iam-option "#odbc20-iam-option")
-- [idc\_client\_display\_name](#odbc20-idc_client_display_name-option "#odbc20-idc_client_display_name-option")
-- [idc\_region](#odbc20-idc_region "#odbc20-idc_region")
-- [idp\_host](#odbc20-idp-host-option "#odbc20-idp-host-option")
-- [idp\_port](#odbc20-idp-port-option "#odbc20-idp-port-option")
-- [idp\_response\_timeout](#odbc20-idp-response-timeout-option "#odbc20-idp-response-timeout-option")
-- [idp\_tenant](#odbc20-idp-tenant-option "#odbc20-idp-tenant-option")
-- [idp\_partition](#odbc20-idp-partition-option "#odbc20-idp-partition-option")
-- [idp\_use\_https\_proxy](#odbc20-idp-use-https-proxy-option "#odbc20-idp-use-https-proxy-option")
-- [InstanceProfile](#odbc20-instanceprofile-option "#odbc20-instanceprofile-option")
-- [issuer\_url](#odbc20-issuer_url "#odbc20-issuer_url")
-- [KeepAlive](#odbc20-keepalive-option "#odbc20-keepalive-option")
-- [KeepAliveCount](#odbc20-keepalivecount-option "#odbc20-keepalivecount-option")
-- [KeepAliveInterval](#odbc20-keepaliveinterval-option "#odbc20-keepaliveinterval-option")
-- [KeepAliveIdle](#odbc20-keepaliveidle-option "#odbc20-keepaliveidle-option")
-- [listen\_port](#odbc20-listen-port-option "#odbc20-listen-port-option")
-- [login\_url](#odbc20-login-url-option "#odbc20-login-url-option")
-- [loginToRp](#odbc20-logintorp-option "#odbc20-logintorp-option")
-- [LogLevel](#odbc20-loglevel-option "#odbc20-loglevel-option")
-- [LogPath](#odbc20-logpath-option "#odbc20-logpath-option")
-- [LoginTimeout](#odbc20-logintimeout-option "#odbc20-logintimeout-option")
-- [MaxLongVarcharSize](#odbc20-maxlongvarcharsize-option "#odbc20-maxlongvarcharsize-option")
-- [MaxVarcharSize](#odbc20-maxvarcharsize-option "#odbc20-maxvarcharsize-option")
-- [Min\_TLS](#odbc20-min-tls-option "#odbc20-min-tls-option")
-- [partner\_spid](#odbc20-partner-spid-option "#odbc20-partner-spid-option")
-- [Password | PWD](#odbc20-password-option "#odbc20-password-option")
-- [plugin\_name](#odbc20-plugin-name-option "#odbc20-plugin-name-option")
-- [Port | PortNumber](#odbc20-port-option "#odbc20-port-option")
-- [Prefer\_PQ](#odbc20-prefer-pq-option "#odbc20-prefer-pq-option")
-- [preferred\_role](#odbc20-preferred-role-option "#odbc20-preferred-role-option")
-- [Profile](#odbc20-profile-option "#odbc20-profile-option")
-- [provider\_name](#odbc20-provider-name-option "#odbc20-provider-name-option")
-- [ProxyHost](#odbc20-proxyhost-option "#odbc20-proxyhost-option")
-- [ProxyPort](#odbc20-proxyport-option "#odbc20-proxyport-option")
-- [ProxyPwd](#odbc20-proxypwd-option "#odbc20-proxypwd-option")
-- [ProxyUid](#odbc20-proxyuid-option "#odbc20-proxyuid-option")
-- [ReadOnly](#odbc20-readonly-option "#odbc20-readonly-option")
-- [region](#odbc20-region-option "#odbc20-region-option")
-- [SecretAccessKey](#odbc20-secretaccesskey-option "#odbc20-secretaccesskey-option")
-- [SessionToken](#odbc20-sessiontoken-option "#odbc20-sessiontoken-option")
-- [Server | HostName | Host](#odbc20-server-option "#odbc20-server-option")
-- [ssl\_insecure](#odbc20-ssl-insecure-option "#odbc20-ssl-insecure-option")
-- [SSLMode](#odbc20-sslmode-option "#odbc20-sslmode-option")
-- [StreamingCursorRows](#odbc20-streamingcursorrows-option "#odbc20-streamingcursorrows-option")
-- [StsConnectionTimeout](#odbc20-stsconnectiontimeout-option "#odbc20-stsconnectiontimeout-option")
-- [StsEndpointUrl](#odbc20-stsendpointurl-option "#odbc20-stsendpointurl-option")
-- [token](#jdbc20-token-option "#jdbc20-token-option")
-- [token\_type](#jdbc20-token-type-option "#jdbc20-token-type-option")
-- [UID | User | LogonID](#odbc20-uid-option "#odbc20-uid-option")
-- [UseUnicode](#odbc20-useunicode-option "#odbc20-useunicode-option")
-- [web\_identity\_token](#odbc20-web-identity-token-option "#odbc20-web-identity-token-option")
+**Topics**
++ [AccessKeyID](#odbc20-accesskeyid-option)
++ [app\_id](#odbc20-app-id-option)
++ [ApplicationName](#odbc20-application_name-option)
++ [app\_name](#odbc20-app-name-option)
++ [AuthProfile](#odbc20-authprofile-option)
++ [AuthType](#odbc20-authtype-option)
++ [AutoCreate](#odbc20-autocreate-option)
++ [BoolsAsChar](#odbc20-boolsaschar-option)
++ [CaFile](#odbc20-cafile-option)
++ [client\_id](#odbc20-client-id-option)
++ [client\_ secret](#odbc20-client-secret-option)
++ [ClusterId](#odbc20-clusterid-option)
++ [compression](#odbc20-compression-option)
++ [Database](#odbc20-database-option)
++ [DatabaseMetadataCurrentDbOnly](#odbc20-database-metadata-option)
++ [dbgroups\_filter](#odbc20-dbgroups-filter-option)
++ [Driver](#odbc20-driver-option)
++ [DSN](#odbc20-dsn-option)
++ [EnableTableTypes](#odbc20-enabletabletypes-option)
++ [EndpointUrl](#odbc20-endpointurl-option)
++ [ForceLowercase](#odbc20-forcelowercase-option)
++ [group\_federation](#odbc20-group-federation-option)
++ [https\_proxy\_host](#odbc20-https-proxy-host-option)
++ [https\_proxy\_password](#odbc20-https-proxy-password-option)
++ [https\_proxy\_port](#odbc20-https-proxy-port-option)
++ [https\_proxy\_username](#odbc20-https-proxy-username-option)
++ [IAM](#odbc20-iam-option)
++ [idc\_client\_display\_name](#odbc20-idc_client_display_name-option)
++ [idc\_region](#odbc20-idc_region)
++ [idp\_host](#odbc20-idp-host-option)
++ [idp\_port](#odbc20-idp-port-option)
++ [idp\_response\_timeout](#odbc20-idp-response-timeout-option)
++ [idp\_tenant](#odbc20-idp-tenant-option)
++ [idp\_partition](#odbc20-idp-partition-option)
++ [idp\_use\_https\_proxy](#odbc20-idp-use-https-proxy-option)
++ [InstanceProfile](#odbc20-instanceprofile-option)
++ [issuer\_url](#odbc20-issuer_url)
++ [KeepAlive](#odbc20-keepalive-option)
++ [KeepAliveCount](#odbc20-keepalivecount-option)
++ [KeepAliveInterval](#odbc20-keepaliveinterval-option)
++ [KeepAliveIdle](#odbc20-keepaliveidle-option)
++ [listen\_port](#odbc20-listen-port-option)
++ [login\_url](#odbc20-login-url-option)
++ [loginToRp](#odbc20-logintorp-option)
++ [LogLevel](#odbc20-loglevel-option)
++ [LogPath](#odbc20-logpath-option)
++ [LoginTimeout](#odbc20-logintimeout-option)
++ [MaxLongVarcharSize](#odbc20-maxlongvarcharsize-option)
++ [MaxVarcharSize](#odbc20-maxvarcharsize-option)
++ [Min\_TLS](#odbc20-min-tls-option)
++ [partner\_spid](#odbc20-partner-spid-option)
++ [Password \| PWD](#odbc20-password-option)
++ [plugin\_name](#odbc20-plugin-name-option)
++ [Port \| PortNumber](#odbc20-port-option)
++ [Prefer\_PQ](#odbc20-prefer-pq-option)
++ [preferred\_role](#odbc20-preferred-role-option)
++ [Profile](#odbc20-profile-option)
++ [provider\_name](#odbc20-provider-name-option)
++ [ProxyHost](#odbc20-proxyhost-option)
++ [ProxyPort](#odbc20-proxyport-option)
++ [ProxyPwd](#odbc20-proxypwd-option)
++ [ProxyUid](#odbc20-proxyuid-option)
++ [ReadOnly](#odbc20-readonly-option)
++ [region](#odbc20-region-option)
++ [SecretAccessKey](#odbc20-secretaccesskey-option)
++ [SessionToken](#odbc20-sessiontoken-option)
++ [Server \| HostName \| Host](#odbc20-server-option)
++ [ssl\_insecure](#odbc20-ssl-insecure-option)
++ [SSLMode](#odbc20-sslmode-option)
++ [StreamingCursorRows](#odbc20-streamingcursorrows-option)
++ [StsConnectionTimeout](#odbc20-stsconnectiontimeout-option)
++ [StsEndpointUrl](#odbc20-stsendpointurl-option)
++ [token](#jdbc20-token-option)
++ [token\_type](#jdbc20-token-type-option)
++ [UID \| User \| LogonID](#odbc20-uid-option)
++ [UseUnicode](#odbc20-useunicode-option)
++ [web\_identity\_token](#odbc20-web-identity-token-option)
 
 ## AccessKeyID
+<a name="odbc20-accesskeyid-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The IAM access key for the user or role. If you set this parameter, you must also
-specify **SecretAccessKey**.
+ The IAM access key for the user or role. If you set this parameter, you must also specify **SecretAccessKey**.
 
 This parameter is optional.
 
 ## app\_id
-
-- Default Value – None
-- Data Type – String
+<a name="odbc20-app-id-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 The Okta-provided unique ID associated with your Amazon Redshift application.
 
 This parameter is optional.
 
 ## ApplicationName
+<a name="odbc20-application_name-option"></a>
++ **Default value** – None
++ **Data type** – String
 
-- Default value – None
-- Data type – String
-
-The name of the client application to pass to Amazon Redshift for audit purposes.
-The application name that you provide appears in the 'application\_name'
-column of the [SYS\_CONNECTION\_LOG](../dg/SYS_CONNECTION_LOG.md "../dg/SYS_CONNECTION_LOG.md")
-table. This helps track and
-troubleshoot connection sources when debugging issues.
+The name of the client application to pass to Amazon Redshift for audit purposes. The application name that you provide appears in the 'application\_name' column of the [SYS\_CONNECTION\_LOG](https://docs.aws.amazon.com/redshift/latest/dg/SYS_CONNECTION_LOG.html) table. This helps track and troubleshoot connection sources when debugging issues.
 
 This parameter is optional.
 
 ## app\_name
+<a name="odbc20-app-name-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The name of the Okta application that you use to authenticate the connection to
-Amazon Redshift.
+The name of the Okta application that you use to authenticate the connection to Amazon Redshift.
 
 This parameter is optional.
 
 ## AuthProfile
+<a name="odbc20-authprofile-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The authentication profile used to manage the connection settings. If you set this
-parameter, you must also set **AccessKeyID** and
-**SecretAccessKey**.
+The authentication profile used to manage the connection settings. If you set this parameter, you must also set **AccessKeyID** and **SecretAccessKey**. 
 
 This parameter is optional.
 
 ## AuthType
+<a name="odbc20-authtype-option"></a>
++ **Default Value** – Standard
++ **Data Type** – String
 
-- Default Value – Standard
-- Data Type – String
+This option specifies the authentication mode that the driver uses when you configure a DSN using the Amazon Redshift ODBC Driver DSN Setup dialog box: 
++  Standard: Standard authentication using your Amazon Redshift user name and password. 
++  AWS Profile: IAM authentication using a profile.
++  AWS IAM Credentials: IAM authentication using IAM credentials. 
++  Identity Provider: AD FS: IAM authentication using Active Directory Federation Services (AD FS). 
++  Identity Provider: Auth Plugin: An authorization plugin that accepts an AWS IAM Identity Center token or OpenID Connect (OIDC) JSON-based identity tokens (JWT) from any web identity provider linked to AWS IAM Identity Center.
++  Identity Provider: Azure AD: IAM authentication using an Azure AD portal. 
++  Identity Provider: JWT: IAM authentication using a JSON Web Token (JWT). 
++  Identity Provider: Okta: IAM authentication using Okta. 
++  Identity Provider: PingFederate: IAM authentication using PingFederate. 
 
-This option specifies the authentication mode that the driver uses when you
-configure a DSN using the Amazon Redshift ODBC Driver DSN Setup dialog box:
-
-- Standard: Standard authentication using your Amazon Redshift user name and password.
-- AWS Profile: IAM authentication using a profile.
-- AWS IAM Credentials: IAM authentication using IAM credentials.
-- Identity Provider: AD FS: IAM authentication using Active Directory
-  Federation Services (AD FS).
-- Identity Provider: Auth Plugin: An authorization plugin that accepts an
-  AWS IAM Identity Center token or OpenID Connect (OIDC) JSON-based identity tokens (JWT)
-  from any web identity provider linked to AWS IAM Identity Center.
-- Identity Provider: Azure AD: IAM authentication using an Azure AD
-  portal.
-- Identity Provider: JWT: IAM authentication using a JSON Web Token
-  (JWT).
-- Identity Provider: Okta: IAM authentication using Okta.
-- Identity Provider: PingFederate: IAM authentication using PingFederate.
-
-This option is available only when you configure a DSN using the Amazon Redshift ODBC
-Driver DSN Setup dialog box in the Windows driver. When you configure a connection
-using a connection string or a non-Windows machine, the driver automatically
-determines whether to use Standard, AWS Profile, or AWS IAM Credentials
-authentication based on your specified credentials. To use an identity provider, you
-must set the **plugin\_name** property.
+This option is available only when you configure a DSN using the Amazon Redshift ODBC Driver DSN Setup dialog box in the Windows driver. When you configure a connection using a connection string or a non-Windows machine, the driver automatically determines whether to use Standard, AWS Profile, or AWS IAM Credentials authentication based on your specified credentials. To use an identity provider, you must set the **plugin\_name** property. 
 
 This parameter is required.
 
 ## AutoCreate
+<a name="odbc20-autocreate-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the driver creates a new user when the specified user
-does not exist.
-
-- 1 | TRUE: If the user specified by the **UID** does not
-  exist, the driver creates a new user.
-- 0 | FALSE: The driver does not create a new user. If the specified user
-  does not exist, the authentication fails.
+A boolean specifying whether the driver creates a new user when the specified user does not exist. 
++  1 \| TRUE: If the user specified by the **UID** does not exist, the driver creates a new user. 
++  0 \| FALSE: The driver does not create a new user. If the specified user does not exist, the authentication fails. 
 
 This parameter is optional.
 
 ## BoolsAsChar
+<a name="odbc20-boolsaschar-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
+Specifies whether the driver reports BOOLEAN columns as character type instead of bit type.
++  1 \| TRUE: The driver reports BOOLEAN columns as SQL\_VARCHAR with a column size of 1. The driver returns Boolean values as the character strings "0" and "1". 
++  0 \| FALSE: The driver reports BOOLEAN columns as SQL\_BIT. This is the default behavior. 
 
-Specifies whether the driver reports BOOLEAN columns as
-character type instead of bit type.
-
-- 1 | TRUE: The driver reports BOOLEAN columns as SQL\_VARCHAR
-  with a column size of 1. The driver returns Boolean values as
-  the character strings "0" and "1".
-- 0 | FALSE: The driver reports BOOLEAN columns as SQL\_BIT.
-  This is the default behavior.
-
-Use this option if your
-application relies on BOOLEAN columns being returned as character data.
+Use this option if your application relies on BOOLEAN columns being returned as character data.
 
 This parameter is optional. This option is available in driver versions 2.2.1 and later.
 
 ## CaFile
+<a name="odbc20-cafile-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
+The file path to the CA certificate file used for some forms of IAM authentication. 
 
-The file path to the CA certificate file used for some forms of IAM
-authentication.
-
-This parameter is only available on Linux.
+ This parameter is only available on Linux.
 
 This parameter is optional.
 
 ## client\_id
+<a name="odbc20-client-id-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The client ID associated with your Amazon Redshift application in Azure AD.
+The client ID associated with your Amazon Redshift application in Azure AD. 
 
 This parameter is required if authenticating through the Azure AD service.
 
 ## client\_ secret
+<a name="odbc20-client-secret-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The secret key associated with your Amazon Redshift application in Azure AD.
+ The secret key associated with your Amazon Redshift application in Azure AD. 
 
 This parameter is required if authenticating through the Azure AD service.
 
 ## ClusterId
+<a name="odbc20-clusterid-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The name of the Amazon Redshift cluster you want to connect to. It is used in IAM
-authentication. The Cluster ID is not specified in the **Server**
-parameter.
+The name of the Amazon Redshift cluster you want to connect to. It is used in IAM authentication. The Cluster ID is not specified in the **Server** parameter.
 
 This parameter is optional.
 
 ## compression
+<a name="odbc20-compression-option"></a>
++ **Default Value** – off
++ **Data Type** – String
 
-- Default Value – off
-- Data Type – String
-
-The compression method used for wire protocol communication between the Amazon Redshift
-server and the client or driver.
+The compression method used for wire protocol communication between the Amazon Redshift server and the client or driver.
 
 You can specify the following values:
-
-- lz4: Sets the compression method used for wire protocol communication with
-  Amazon Redshift to `lz4`.
-- zstd: Sets the compression method used for wire protocol communication
-  with Amazon Redshift to `zstd`.
-- off: Doesn't use compression for wire protocol communication with
-  Amazon Redshift.
++ lz4: Sets the compression method used for wire protocol communication with Amazon Redshift to `lz4`. 
++ zstd: Sets the compression method used for wire protocol communication with Amazon Redshift to `zstd`. 
++  off: Doesn't use compression for wire protocol communication with Amazon Redshift. 
 
 This parameter is optional.
 
 ## Database
-
-- Default Value – None
-- Data Type – String
+<a name="odbc20-database-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 The name of the Amazon Redshift database that you want to access.
 
 This parameter is required.
 
 ## DatabaseMetadataCurrentDbOnly
+<a name="odbc20-database-metadata-option"></a>
++ **Default Value** – 1
++ **Data Type** – Boolean
 
-- Default Value – 1
-- Data Type – Boolean
-
-A boolean specifying whether the driver returns metadata from multiple databases
-and clusters.
-
-- 1 | TRUE: The driver only returns metadata from the current database.
-- 0 | FALSE. The driver returns metadata across multiple Amazon Redshift databases
-  and clusters.
+A boolean specifying whether the driver returns metadata from multiple databases and clusters.
++ 1 \| TRUE: The driver only returns metadata from the current database. 
++  0 \| FALSE. The driver returns metadata across multiple Amazon Redshift databases and clusters. 
 
 This parameter is optional.
 
 ## dbgroups\_filter
+<a name="odbc20-dbgroups-filter-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The regular expression you can specify to filter out DbGroups that are received
-from the SAML response to Amazon Redshift when using Azure, Browser Azure, and Browser SAML
-authentication types.
+The regular expression you can specify to filter out DbGroups that are received from the SAML response to Amazon Redshift when using Azure, Browser Azure, and Browser SAML authentication types. 
 
 This parameter is optional.
 
 ## Driver
+<a name="odbc20-driver-option"></a>
++ **Default Value** – Amazon Redshift ODBC Driver (x64)
++ **Data Type** – String
 
-- Default Value – Amazon Redshift ODBC
-  Driver (x64)
-- Data Type – String
-
-The name of the driver. The only supported value is **Amazon Redshift ODBC
-Driver (x64)**.
+The name of the driver. The only supported value is **Amazon Redshift ODBC Driver (x64)**.
 
 This parameter is required if you do not set **DSN**.
 
 ## DSN
+<a name="odbc20-dsn-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The name of the driver data source name. The application specifies the DSN in the
-SQLDriverConnect API.
+The name of the driver data source name. The application specifies the DSN in the SQLDriverConnect API.
 
 This parameter is required if you do not set **Driver.**.
 
 ## EnableTableTypes
+<a name="odbc20-enabletabletypes-option"></a>
++ **Default Value** – 1
++ **Data Type** – Boolean
 
-- Default Value – 1
-- Data Type – Boolean
+Specifies whether the driver recognizes detailed table type information from the data source when an application calls the SQLTables catalog function. By default, the driver recognizes detailed table types.
++ 1 \| TRUE: The driver recognizes the following table types: TABLE, VIEW, SYSTEM TABLE, SYSTEM VIEW, EXTERNAL TABLE, and LOCAL TEMPORARY.
++ 0 \| FALSE: The driver normalizes the detailed table type information into the generic TABLE and VIEW table types.
 
-Specifies whether the driver recognizes detailed table type information from the
-data source when an application calls the SQLTables catalog function. By default,
-the driver recognizes detailed table types.
-
-- 1 | TRUE: The driver recognizes the following table types: TABLE, VIEW,
-  SYSTEM TABLE, SYSTEM VIEW, EXTERNAL TABLE, and LOCAL TEMPORARY.
-- 0 | FALSE: The driver normalizes the detailed table type information into
-  the generic TABLE and VIEW table types.
-
-This parameter is optional. It is available in driver versions 2.2.1 and
-later.
+This parameter is optional. It is available in driver versions 2.2.1 and later.
 
 ## EndpointUrl
+<a name="odbc20-endpointurl-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The overriding endpoint used to communicate with the Amazon Redshift Coral Service for
-IAM authentication.
+The overriding endpoint used to communicate with the Amazon Redshift Coral Service for IAM authentication.
 
 This parameter is optional.
 
 ## ForceLowercase
+<a name="odbc20-forcelowercase-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the driver lowercases all DbGroups sent from the
-identity provider to Amazon Redshift when using single sign-on authentication.
-
-- 1 | TRUE: The driver lowercases all DbGroups that are sent from the
-  identity provider.
-- 0 | FALSE: The driver does not alter DbGroups.
+A boolean specifying whether the driver lowercases all DbGroups sent from the identity provider to Amazon Redshift when using single sign-on authentication. 
++  1 \| TRUE: The driver lowercases all DbGroups that are sent from the identity provider. 
++  0 \| FALSE: The driver does not alter DbGroups. 
 
 This parameter is optional.
 
 ## group\_federation
+<a name="odbc20-group-federation-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the `getClusterCredentialsWithIAM` API is
-used for obtaining temporary cluster credentials in provisioned clusters. This
-option lets IAM users integrate with Redshift database roles in provisioned
-clusters. Note that this option does not apply to Redshift Serverless namespaces.
-
-- 1 | TRUE: The driver uses the `getClusterCredentialsWithIAM`
-  API for obtaining temporary cluster credentials in provisioned clusters.
-- 0 | FALSE: The driver uses the default `getClusterCredentials`
-  API for obtaining temporary cluster credentials in provisioned clusters.
+A boolean specifying whether the `getClusterCredentialsWithIAM` API is used for obtaining temporary cluster credentials in provisioned clusters. This option lets IAM users integrate with Redshift database roles in provisioned clusters. Note that this option does not apply to Redshift Serverless namespaces.
++  1 \| TRUE: The driver uses the `getClusterCredentialsWithIAM` API for obtaining temporary cluster credentials in provisioned clusters. 
++  0 \| FALSE: The driver uses the default `getClusterCredentials` API for obtaining temporary cluster credentials in provisioned clusters. 
 
 This parameter is optional.
 
 ## https\_proxy\_host
+<a name="odbc20-https-proxy-host-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The host name or IP address of the proxy server through which you want to pass
-IAM authentication processes.
+The host name or IP address of the proxy server through which you want to pass IAM authentication processes.
 
 This parameter is optional.
 
 ## https\_proxy\_password
+<a name="odbc20-https-proxy-password-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The password that you use to access the proxy server. It’s used for IAM
-authentication.
+The password that you use to access the proxy server. It’s used for IAM authentication.
 
 This parameter is optional.
 
 ## https\_proxy\_port
+<a name="odbc20-https-proxy-port-option"></a>
++ **Default Value** – None
++ **Data Type** – Integer
 
-- Default Value – None
-- Data Type – Integer
-
-The number of the port that the proxy server uses to listen for client
-connections. It’s used for IAM authentication.
+The number of the port that the proxy server uses to listen for client connections. It’s used for IAM authentication.
 
 This parameter is optional.
 
 ## https\_proxy\_username
+<a name="odbc20-https-proxy-username-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The user name that you use to access the proxy server. It's used for IAM
-authentication.
+The user name that you use to access the proxy server. It's used for IAM authentication.
 
 This parameter is optional.
 
 ## IAM
+<a name="odbc20-iam-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the driver uses an IAM authentication method to
-authenticate the connection.
-
-- 1 | TRUE: The driver uses one of the IAM authentication methods (using
-  an access key and secret key pair, or a profile, or a credentials service).
-- 0 | FALSE. The driver uses standard authentication (using your database
-  user name and password).
+A boolean specifying whether the driver uses an IAM authentication method to authenticate the connection. 
++  1 \| TRUE: The driver uses one of the IAM authentication methods (using an access key and secret key pair, or a profile, or a credentials service). 
++  0 \| FALSE. The driver uses standard authentication (using your database user name and password). 
 
 This parameter is optional.
 
 ## idc\_client\_display\_name
+<a name="odbc20-idc_client_display_name-option"></a>
++ **Default Value** – Amazon Redshift ODBC driver
++ **Data Type** – String
 
-- Default Value – Amazon Redshift ODBC
-  driver
-- Data Type – String
-
-The display name to be used for the client that's using
-BrowserIdcAuthPlugin.
+The display name to be used for the client that's using BrowserIdcAuthPlugin.
 
 This parameter is optional.
 
 ## idc\_region
-
-- Default Value – None
-- Data Type – String
+<a name="odbc20-idc_region"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 The AWS region where the AWS IAM Identity Center instance is located.
 
-This parameter is required only when authenticating using
-`BrowserIdcAuthPlugin` in the plugin\_name configuration
-option.
+This parameter is required only when authenticating using `BrowserIdcAuthPlugin` in the plugin\_name configuration option.
 
 ## idp\_host
+<a name="odbc20-idp-host-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The IdP (identity provider) host you are using to authenticate into
-Amazon Redshift.
+The IdP (identity provider) host you are using to authenticate into Amazon Redshift.
 
 This parameter is optional.
 
 ## idp\_port
+<a name="odbc20-idp-port-option"></a>
++ **Default Value** – None
++ **Data Type** – Integer
 
-- Default Value – None
-- Data Type – Integer
-
-The port for an IdP (identity provider) you are using to authenticate into
-Amazon Redshift. Depending on the port you selected when creating, modifying or migrating
-the cluster, allow access to the selected port.
+The port for an IdP (identity provider) you are using to authenticate into Amazon Redshift. Depending on the port you selected when creating, modifying or migrating the cluster, allow access to the selected port. 
 
 This parameter is optional.
 
 ## idp\_response\_timeout
+<a name="odbc20-idp-response-timeout-option"></a>
++ **Default Value** – 120
++ **Data Type** – Integer
 
-- Default Value – 120
-- Data Type – Integer
-
-The number of seconds that the driver waits for the SAML response from the
-identity provider when using SAML or Azure AD services through a browser plugin.
+The number of seconds that the driver waits for the SAML response from the identity provider when using SAML or Azure AD services through a browser plugin. 
 
 This parameter is optional.
 
 ## idp\_tenant
+<a name="odbc20-idp-tenant-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The Azure AD tenant ID associated with your Amazon Redshift application.
+ The Azure AD tenant ID associated with your Amazon Redshift application.
 
 This parameter is required if authenticating through the Azure AD service.
 
 ## idp\_partition
-
-- Default Value – None
-- Data Type – String
+<a name="odbc20-idp-partition-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 Specifies the cloud partition where your identity provider (IdP) is configured. This determines which IdP authentication endpoint the driver connects to.
 
 If this parameter is left blank, the driver defaults to the commercial partition. Possible values are:
-
-- `us-gov`: Use this value if your IdP is configured in Azure Government. For example, Azure AD Government uses the endpoint `login.microsoftonline.us`.
-- `cn`: Use this value if your IdP is configured in the China cloud partition. For example, Azure AD China uses the endpoint `login.chinacloudapi.cn`.
++ `us-gov`: Use this value if your IdP is configured in Azure Government. For example, Azure AD Government uses the endpoint `login.microsoftonline.us`.
++ `cn`: Use this value if your IdP is configured in the China cloud partition. For example, Azure AD China uses the endpoint `login.chinacloudapi.cn`.
 
 This parameter is optional.
 
 ## idp\_use\_https\_proxy
+<a name="odbc20-idp-use-https-proxy-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the driver passes the authentication processes for
-identity providers (IdP) through a proxy server.
-
-- 1 | TRUE: The driver passes IdP authentication processes through a proxy
-  server.
-- 0 | FALSE. The driver does not pass IdP authentication processes through
-  a proxy server.
+A boolean specifying whether the driver passes the authentication processes for identity providers (IdP) through a proxy server. 
++  1 \| TRUE: The driver passes IdP authentication processes through a proxy server. 
++  0 \| FALSE. The driver does not pass IdP authentication processes through a proxy server. 
 
 This parameter is optional.
 
 ## InstanceProfile
+<a name="odbc20-instanceprofile-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the driver uses the Amazon EC2 instance profile, when
-configured to use a profile for authentication.
-
-- 1 | TRUE: The driver uses the Amazon EC2 instance profile.
-- 0 | FALSE. The driver uses the chained roles profile specified by the
-  Profile Name option (**Profile**) instead.
+A boolean specifying whether the driver uses the Amazon EC2 instance profile, when configured to use a profile for authentication.
++  1 \| TRUE: The driver uses the Amazon EC2 instance profile. 
++  0 \| FALSE. The driver uses the chained roles profile specified by the Profile Name option (**Profile**) instead. 
 
 This parameter is optional.
 
 ## issuer\_url
+<a name="odbc20-issuer_url"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
+ Points to the AWS IAM Identity Center server's instance endpoint. 
 
-Points to the AWS IAM Identity Center server's instance endpoint.
-
-This parameter is required only when authenticating using
-`BrowserIdcAuthPlugin` in the plugin\_name configuration
-option.
+This parameter is required only when authenticating using `BrowserIdcAuthPlugin` in the plugin\_name configuration option.
 
 ## KeepAlive
+<a name="odbc20-keepalive-option"></a>
++ **Default Value** – 1
++ **Data Type** – Boolean
 
-- Default Value – 1
-- Data Type – Boolean
-
-A boolean specifying whether the driver uses TCP keepalives to prevent connections
-from timing out.
-
-- 1 | TRUE: The driver uses TCP keepalives to prevent connections from
-  timing out.
-- 0 | FALSE. The driver does not use TCP keepalives.
+A boolean specifying whether the driver uses TCP keepalives to prevent connections from timing out.
++  1 \| TRUE: The driver uses TCP keepalives to prevent connections from timing out. 
++  0 \| FALSE. The driver does not use TCP keepalives. 
 
 This parameter is optional.
 
 ## KeepAliveCount
+<a name="odbc20-keepalivecount-option"></a>
++ **Default Value** – 0
++ **Data Type** – Integer
 
-- Default Value – 0
-- Data Type – Integer
-
-The number of TCP keepalive packets that can be lost before the connection is
-considered broken. When this parameter is set to 0, the driver uses the system
-default for this setting.
+The number of TCP keepalive packets that can be lost before the connection is considered broken. When this parameter is set to 0, the driver uses the system default for this setting. 
 
 This parameter is optional.
 
 ## KeepAliveInterval
+<a name="odbc20-keepaliveinterval-option"></a>
++ **Default Value** – 0
++ **Data Type** – Integer
 
-- Default Value – 0
-- Data Type – Integer
-
-The number of seconds between each TCP keepalive retransmission. When this
-parameter is set to 0, the driver uses the system default for this setting.
+The number of seconds between each TCP keepalive retransmission. When this parameter is set to 0, the driver uses the system default for this setting. 
 
 This parameter is optional.
 
 ## KeepAliveIdle
+<a name="odbc20-keepaliveidle-option"></a>
++ **Default Value** – 0
++ **Data Type** – Integer
 
-- Default Value – 0
-- Data Type – Integer
-
-The number of seconds of inactivity before the driver sends a TCP keepalive
-packet. When this parameter is set to 0, the driver uses the system default for this
-setting.
+The number of seconds of inactivity before the driver sends a TCP keepalive packet. When this parameter is set to 0, the driver uses the system default for this setting. 
 
 This parameter is optional.
 
 ## listen\_port
+<a name="odbc20-listen-port-option"></a>
++ **Default Value** – 7890
++ **Data Type** – Integer
 
-- Default Value – 7890
-- Data Type – Integer
-
-The port that the driver uses to receive the SAML response from the identity
-provider or authorization code when using SAML, Azure AD, or AWS IAM Identity Center services
-through a browser plugin.
+The port that the driver uses to receive the SAML response from the identity provider or authorization code when using SAML, Azure AD, or AWS IAM Identity Center services through a browser plugin.
 
 This parameter is optional.
 
 ## login\_url
+<a name="odbc20-login-url-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
+The URL for the resource on the identity provider's website when using the generic Browser SAML plugin.
 
-The URL for the resource on the identity provider's website when using the generic
-Browser SAML plugin.
-
-This parameter is required if authenticating with the SAML or Azure AD services
-through a browser plugin.
+This parameter is required if authenticating with the SAML or Azure AD services through a browser plugin.
 
 ## loginToRp
+<a name="odbc20-logintorp-option"></a>
++ **Default Value** – urn:amazon:webservices
++ **Data Type** – String
 
-- Default Value –
-  urn:amazon:webservices
-- Data Type – String
-
-The relying party trust that you want to use for the AD FS authentication
-type.
+The relying party trust that you want to use for the AD FS authentication type.
 
 This string is optional.
 
 ## LogLevel
+<a name="odbc20-loglevel-option"></a>
++ **Default Value** – 0
++ **Data Type** – Integer
 
-- Default Value – 0
-- Data Type – Integer
+**Note**  
+`LogLevel` and `LogPath` are global settings. The driver reads them in the following order of precedence:  
+**Connection string** (`LogLevel=6;LogPath=/path;`) — highest priority, overrides all other settings at connect time.
+**On Windows:** The DSN Setup dialog (Advanced tab).  
+**On Linux and macOS:** `[ODBC]` section in your `odbc.ini` file.
+**`[DRIVER]` section** in the `amazon.redshiftodbc.ini` file — used as a fallback if logging is not enabled from the above source.
+Setting `LogLevel` or `LogPath` in an individual DSN section (for example, `[MyDSN]`) has no effect. These options are not read from per-DSN sections.
 
-###### Note
+Use this property to enable or disable logging in the driver and to specify the amount of detail included in log. files. We recommend you only enable logging long enough to capture an issue, as logging decreases performance and can consume a large quantity of disk space.
 
-`LogLevel` and `LogPath` are global settings.
-The driver reads them in the following order of precedence:
+ Set the property to one of the following values:
++  0: OFF. Disable all logging. 
++  1: FATAL. Reserved for fatal errors. 
++  2: ERROR. Logs error events such as connection failures and authentication errors. 
++  3: WARN. Logs warnings and unexpected conditions in addition to errors. 
++  4: INFO. Logs general progress information such as connection status and server parameters. 
++  5: DEBUG. Logs all driver activity including ODBC API function calls with arguments and return values. 
++  6: TRACE. Logs all driver activity including additional low-level protocol and internal state details. 
 
-1. **Connection string**
-   (`LogLevel=6;LogPath=/path;`) — highest priority,
-   overrides all other settings at connect time.
-2. **On Windows:** The DSN Setup
-   dialog (Advanced tab).
+**Important**  
+Log level 5 (DEBUG) or higher captures all driver activity, which may include sensitive information such as connection credentials and query data. Only enable these log levels temporarily to capture an issue, and ensure all sensitive information is redacted before sharing logs with support or any third party.
 
-**On Linux and macOS:**
-`[ODBC]` section in your
-`odbc.ini` file. 3. **`[DRIVER]` section**
-in the `amazon.redshiftodbc.ini` file — used as a
-fallback if logging is not enabled from the above source.
-Setting `LogLevel` or `LogPath` in an individual
-DSN section (for example, `[MyDSN]`) has no effect. These
-options are not read from per-DSN sections.
-
-Use this property to enable or disable logging in the driver and to specify the
-amount of detail included in log. files. We recommend you only enable logging long
-enough to capture an issue, as logging decreases performance and can consume a large
-quantity of disk space.
-
-Set the property to one of the following values:
-
-- 0: OFF. Disable all logging.
-- 1: FATAL. Reserved for fatal errors.
-- 2: ERROR. Logs error events such as connection failures and
-  authentication errors.
-- 3: WARN. Logs warnings and unexpected conditions in addition to
-  errors.
-- 4: INFO. Logs general progress information such as connection
-  status and server parameters.
-- 5: DEBUG. Logs all driver activity including ODBC API function
-  calls with arguments and return values.
-- 6: TRACE. Logs all driver activity including additional low-level
-  protocol and internal state details.
-
-###### Important
-
-Log level 5 (DEBUG) or higher captures all driver activity, which may
-include sensitive information such as connection credentials and query data.
-Only enable these log levels temporarily to capture an issue, and ensure all
-sensitive information is redacted before sharing logs with support or any
-third party.
-
-When logging is enabled, the driver produces the following log files at the
-location you specify in the **LogPath** property:
-
-- A `redshift_odbc.log.1` file that logs driver activity that
-  takes place during handshake of a connection.
-- A `redshift_odbc.log` file for all driver activities after a
-  connection is made to the database.
+When logging is enabled, the driver produces the following log files at the location you specify in the **LogPath** property: 
++  A `redshift_odbc.log.1` file that logs driver activity that takes place during handshake of a connection. 
++  A `redshift_odbc.log` file for all driver activities after a connection is made to the database. 
 
 This parameter is optional.
 
 ## LogPath
+<a name="odbc20-logpath-option"></a>
++ **Default Value** – The OS-specific TEMP directory
++ **Data Type** – String
 
-- Default Value – The OS-specific TEMP
-  directory
-- Data Type – String
+**Note**  
+`LogLevel` and `LogPath` are global settings. The driver reads them in the following order of precedence:  
+**Connection string** (`LogLevel=6;LogPath=/path;`) — highest priority, overrides all other settings at connect time.
+**On Windows:** The DSN Setup dialog (Advanced tab).  
+**On Linux and macOS:** `[ODBC]` section in your `odbc.ini` file.
+**`[DRIVER]` section** in the `amazon.redshiftodbc.ini` file — used as a fallback if logging is not enabled from the above source.
+Setting `LogLevel` or `LogPath` in an individual DSN section (for example, `[MyDSN]`) has no effect. These options are not read from per-DSN sections.
 
-###### Note
-
-`LogLevel` and `LogPath` are global settings.
-The driver reads them in the following order of precedence:
-
-1. **Connection string**
-   (`LogLevel=6;LogPath=/path;`) — highest priority,
-   overrides all other settings at connect time.
-2. **On Windows:** The DSN Setup
-   dialog (Advanced tab).
-
-**On Linux and macOS:**
-`[ODBC]` section in your
-`odbc.ini` file. 3. **`[DRIVER]` section**
-in the `amazon.redshiftodbc.ini` file — used as a
-fallback if logging is not enabled from the above source.
-Setting `LogLevel` or `LogPath` in an individual
-DSN section (for example, `[MyDSN]`) has no effect. These
-options are not read from per-DSN sections.
-
-The full path to the folder where the driver saves log files when
-**LogLevel** is higher than 0.
+The full path to the folder where the driver saves log files when **LogLevel** is higher than 0.
 
 This parameter is optional.
 
 ## LoginTimeout
+<a name="odbc20-logintimeout-option"></a>
++ **Default Value** – 0
++ **Data Type** – Integer
 
-- Default Value – 0
-- Data Type – Integer
+The number of seconds the driver waits for a connection to the server to be established before timing out. A value of 0 means no timeout (the driver waits indefinitely).
 
-The number of seconds the driver waits for a connection to the server to be
-established before timing out. A value of 0 means no timeout (the driver waits
-indefinitely).
-
-You can set this option in the connection string (using
-`LoginTimeout` or the short alias `LT`), in the DSN
-configuration, or programmatically using `SQLSetConnectAttr` with
-`SQL_ATTR_LOGIN_TIMEOUT`. On Windows, this option is also
-available in the DSN Setup dialog (Advanced tab).
+You can set this option in the connection string (using `LoginTimeout` or the short alias `LT`), in the DSN configuration, or programmatically using `SQLSetConnectAttr` with `SQL_ATTR_LOGIN_TIMEOUT`. On Windows, this option is also available in the DSN Setup dialog (Advanced tab).
 
 This parameter is optional.
 
 ## MaxLongVarcharSize
+<a name="odbc20-maxlongvarcharsize-option"></a>
++ **Default Value** – 65535
++ **Data Type** – Integer
 
-- Default Value – 65535
-- Data Type – Integer
+The column size that the driver reports for columns reclassified as large text (`SQL_LONGVARCHAR`) by **MaxVarcharSize**. This value replaces the column's actual declared size in metadata responses.
 
-The column size that the driver reports for columns reclassified as large
-text (`SQL_LONGVARCHAR`) by **MaxVarcharSize**. This
-value replaces the column's actual declared size in metadata responses.
+The default of 65,535 is recommended because some middleware layers, such as MSDASQL, reject large-text columns whose reported size falls between 8,001 and 32,768 bytes. By reporting 65,535, the driver ensures that reclassified columns are accepted without errors. Most users do not need to change this value.
 
-The default of 65,535 is recommended because some middleware layers, such as
-MSDASQL, reject large-text columns whose reported size falls between 8,001 and
-32,768 bytes. By reporting 65,535, the driver ensures that reclassified columns are
-accepted without errors. Most users do not need to change this value.
-
-This parameter has no effect when **MaxVarcharSize** is set to
-`0` (reclassification disabled).
+This parameter has no effect when **MaxVarcharSize** is set to `0` (reclassification disabled).
 
 This parameter is optional. It is available in driver versions 2.1.16 and later.
 
 ## MaxVarcharSize
+<a name="odbc20-maxvarcharsize-option"></a>
++ **Default Value** – 255
++ **Data Type** – Integer
 
-- Default Value – 255
-- Data Type – Integer
+The maximum column size that the driver reports as a regular text column (`SQL_VARCHAR`). The driver reclassifies any `CHAR` and `VARCHAR` column larger than this value as large text (`SQL_LONGVARCHAR` or `SQL_WLONGVARCHAR` when **[UseUnicode](#odbc20-useunicode-option)** is enabled).
 
-The maximum column size that the driver reports as a regular
-text column (`SQL_VARCHAR`). The driver reclassifies any
-`CHAR` and `VARCHAR` column larger than this value as large text
-(`SQL_LONGVARCHAR` or `SQL_WLONGVARCHAR` when
-**[UseUnicode](#odbc20-useunicode-option "#odbc20-useunicode-option")** is enabled).
+This reclassification prevents errors in applications or middleware layers that cannot process regular-text columns beyond a certain size. For example, SQL Server linked servers that access Amazon Redshift through MSDASQL (OLE DB) cannot process `SQL_VARCHAR` columns larger than approximately 8,000 bytes, so reclassifying oversized columns as large text avoids conversion failures.
++ `255` (default): Columns larger than 255 characters are reported as `SQL_LONGVARCHAR`.
++ `0`: Disables reclassification. All columns are reported as `SQL_VARCHAR` regardless of size.
++ Custom value: Any positive integer. Columns larger than the specified value are reported as `SQL_LONGVARCHAR`.
 
-This reclassification prevents errors in applications or middleware layers that
-cannot process regular-text columns beyond a certain size. For example, SQL Server
-linked servers that access Amazon Redshift through MSDASQL (OLE DB) cannot process
-`SQL_VARCHAR` columns larger than approximately 8,000 bytes, so
-reclassifying oversized columns as large text avoids conversion failures.
-
-- `255` (default): Columns larger than 255 characters are
-  reported as `SQL_LONGVARCHAR`.
-- `0`: Disables reclassification. All columns are reported as
-  `SQL_VARCHAR` regardless of size.
-- Custom value: Any positive integer. Columns larger than the specified
-  value are reported as `SQL_LONGVARCHAR`.
-
-When a column is reclassified, the driver reports its size using the value
-specified in **MaxLongVarcharSize**.
+When a column is reclassified, the driver reports its size using the value specified in **MaxLongVarcharSize**.
 
 This parameter is optional. It is available in driver versions 2.1.16 and later.
 
 ## Min\_TLS
+<a name="odbc20-min-tls-option"></a>
++ **Default Value** – 1.2
++ **Data Type** – String
 
-- Default Value – 1.2
-- Data Type – String
-
-The minimum version of TLS/SSL that the driver allows the data store to use for
-encrypting connections. For example, if TLS 1.2 is specified, TLS 1.1 cannot be used
-to encrypt connections.
+ The minimum version of TLS/SSL that the driver allows the data store to use for encrypting connections. For example, if TLS 1.2 is specified, TLS 1.1 cannot be used to encrypt connections.
 
 Min\_TLS accepts the following values:
-
-- 1.0: The connection must use at least TLS 1.0.
-- 1.1: The connection must use at least TLS 1.1.
-- 1.2: The connection must use at least TLS 1.2.
++  1.0: The connection must use at least TLS 1.0. 
++  1.1: The connection must use at least TLS 1.1. 
++  1.2: The connection must use at least TLS 1.2. 
 
 This parameter is optional.
 
 ## partner\_spid
+<a name="odbc20-partner-spid-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The partner SPID (service provider ID) value to use when authenticating the
-connection using the PingFederate service.
+The partner SPID (service provider ID) value to use when authenticating the connection using the PingFederate service.
 
 This parameter is optional.
 
-## Password | PWD
+## Password \| PWD
+<a name="odbc20-password-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The password corresponding to the database user name that you provided in the User
-field (**UID** | **User** |
-**LogonID**).
+The password corresponding to the database user name that you provided in the User field (**UID** \| **User** \| **LogonID**). 
 
 This parameter is optional.
 
 ## plugin\_name
+<a name="odbc20-plugin-name-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
+The credentials provider plugin name that you want to use for authentication. 
 
-The credentials provider plugin name that you want to use for authentication.
-
-The following values are supported:
-
-- `ADFS`: Use Active Directory Federation Services for
-  authentication.
-- `AzureAD`: Use Microsoft Azure Active Directory (AD) Service for
-  authentication.
-- `BrowserAzureAD`: Use a browser plugin for the Microsoft Azure
-  Active Directory (AD) Service for authentication.
-- `BrowserIdcAuthPlugin` : An authorization plugin using AWS
-  IAM Identity Center.
-- `BrowserSAML`: Use a browser plugin for SAML services such as
-  Okta or Ping for authentication.
-- `IdpTokenAuthPlugin`: An authorization plugin that accepts an
-  AWS IAM Identity Center token or OpenID Connect (OIDC) JSON-based identity tokens (JWT)
-  from any web identity provider linked to AWS IAM Identity Center.
-- `JWT`: Use a JSON Web Token (JWT) for authentication.
-- `Ping`: Use the PingFederate service for authentication.
-- `Okta`: Use the Okta service for authentication.
+ The following values are supported: 
++  `ADFS`: Use Active Directory Federation Services for authentication. 
++  `AzureAD`: Use Microsoft Azure Active Directory (AD) Service for authentication. 
++  `BrowserAzureAD`: Use a browser plugin for the Microsoft Azure Active Directory (AD) Service for authentication. 
++  `BrowserIdcAuthPlugin `: An authorization plugin using AWS IAM Identity Center. 
++  `BrowserSAML`: Use a browser plugin for SAML services such as Okta or Ping for authentication. 
++  `IdpTokenAuthPlugin`: An authorization plugin that accepts an AWS IAM Identity Center token or OpenID Connect (OIDC) JSON-based identity tokens (JWT) from any web identity provider linked to AWS IAM Identity Center. 
++  `JWT`: Use a JSON Web Token (JWT) for authentication. 
++  `Ping`: Use the PingFederate service for authentication. 
++  `Okta`: Use the Okta service for authentication. 
 
 This parameter is optional.
 
-## Port | PortNumber
+## Port \| PortNumber
+<a name="odbc20-port-option"></a>
++ **Default Value** – 5439
++ **Data Type** – Integer
 
-- Default Value – 5439
-- Data Type – Integer
-
-The number of the TCP port that the Amazon Redshift server uses to listen for client
-connections.
+The number of the TCP port that the Amazon Redshift server uses to listen for client connections. 
 
 This parameter is optional.
 
 ## Prefer\_PQ
+<a name="odbc20-prefer-pq-option"></a>
++ **Default Value** – 1
++ **Data Type** – Boolean
 
-- Default Value – 1
-- Data Type – Boolean
+Specifies whether the driver advertises post-quantum hybrid key-exchange groups in the TLS 1.3 ClientHello. When post-quantum groups are offered and the server also supports them, the server selects one. Otherwise, the handshake falls back to classical key exchange transparently.
++ 1 \| TRUE: The driver advertises post-quantum hybrid TLS key-exchange groups.
++ 0 \| FALSE: The driver does not advertise post-quantum groups. Use this setting if a network middlebox blocks TLS handshakes because it does not recognize the post-quantum key-exchange groups the driver offers.
 
-Specifies whether the driver advertises post-quantum hybrid key-exchange groups
-in the TLS 1.3 ClientHello. When post-quantum groups are offered and the server
-also supports them, the server selects one. Otherwise, the handshake falls back to
-classical key exchange transparently.
-
-- 1 | TRUE: The driver advertises post-quantum hybrid TLS key-exchange
-  groups.
-- 0 | FALSE: The driver does not advertise post-quantum groups. Use this
-  setting if a network middlebox blocks TLS handshakes because it does not
-  recognize the post-quantum key-exchange groups the driver offers.
-
-This parameter is optional. It is available in driver versions 2.2.1 and
-later.
+This parameter is optional. It is available in driver versions 2.2.1 and later.
 
 ## preferred\_role
+<a name="odbc20-preferred-role-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The role you want to assume during the connection to Amazon Redshift. It’s used for IAM
-authentication.
+The role you want to assume during the connection to Amazon Redshift. It’s used for IAM authentication.
 
 This parameter is optional.
 
 ## Profile
-
-- Default Value – None
-- Data Type – String
+<a name="odbc20-profile-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 The name of the user AWS profile used to authenticate into Amazon Redshift.
-
-- If the Use Instance Profile parameter (the
-  **InstanceProfile** property) is set to 1 | TRUE, that
-  setting takes precedence and the driver uses the Amazon EC2 instance profile
-  instead.
-- The default location for the credentials file that contains profiles is
-  `~/.aws/Credentials`. The
-  `AWS_SHARED_CREDENTIALS_FILE` environment variable can be
-  used to point to a different credentials file.
++  If the Use Instance Profile parameter (the **InstanceProfile** property) is set to 1 \| TRUE, that setting takes precedence and the driver uses the Amazon EC2 instance profile instead. 
++  The default location for the credentials file that contains profiles is `~/.aws/Credentials`. The `AWS_SHARED_CREDENTIALS_FILE` environment variable can be used to point to a different credentials file. 
 
 This parameter is optional.
 
 ## provider\_name
+<a name="odbc20-provider-name-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The authentication provider created by the user using the CREATE IDENTITY PROVIDER
-query. It’s used in native Amazon Redshift authentication.
+The authentication provider created by the user using the CREATE IDENTITY PROVIDER query. It’s used in native Amazon Redshift authentication.
 
 This parameter is optional.
 
 ## ProxyHost
+<a name="odbc20-proxyhost-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The host name or IP address of the proxy server that you want to connect
-through.
+The host name or IP address of the proxy server that you want to connect through.
 
 This parameter is optional.
 
 ## ProxyPort
+<a name="odbc20-proxyport-option"></a>
++ **Default Value** – None
++ **Data Type** – Integer
 
-- Default Value – None
-- Data Type – Integer
-
-The number of the port that the proxy server uses to listen for client
-connections.
+The number of the port that the proxy server uses to listen for client connections.
 
 This parameter is optional.
 
 ## ProxyPwd
+<a name="odbc20-proxypwd-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The password that you use to access the proxy server.
+The password that you use to access the proxy server. 
 
 This parameter is optional.
 
 ## ProxyUid
-
-- Default Value – None
-- Data Type – String
+<a name="odbc20-proxyuid-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 The user name that you use to access the proxy server.
 
 This parameter is optional.
 
 ## ReadOnly
+<a name="odbc20-readonly-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the driver is in read-only mode.
-
-- 1 | TRUE: The connection is in read-only mode, and cannot write to the
-  data store.
-- 0 | FALSE: The connection is not in read-only mode, and can write to the
-  data store.
+A boolean specifying whether the driver is in read-only mode. 
++  1 \| TRUE: The connection is in read-only mode, and cannot write to the data store. 
++  0 \| FALSE: The connection is not in read-only mode, and can write to the data store. 
 
 This parameter is optional.
 
 ## region
+<a name="odbc20-region-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The AWS region that your cluster is in.
+The AWS region that your cluster is in. 
 
 This parameter is optional.
 
 ## SecretAccessKey
+<a name="odbc20-secretaccesskey-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The IAM secret key for the user or role. If you set this parameter, you must
-also set **AccessKeyID**.
+ The IAM secret key for the user or role. If you set this parameter, you must also set **AccessKeyID**. 
 
 This parameter is optional.
 
 ## SessionToken
+<a name="odbc20-sessiontoken-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-The temporary IAM session token associated with the IAM role that you are
-using to authenticate.
+ The temporary IAM session token associated with the IAM role that you are using to authenticate. 
 
 This parameter is optional.
 
-## Server | HostName | Host
-
-- Default Value – None
-- Data Type – String
+## Server \| HostName \| Host
+<a name="odbc20-server-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 The endpoint server to connect to.
 
 This parameter is required.
 
 ## ssl\_insecure
+<a name="odbc20-ssl-insecure-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the driver checks the authenticity of the IdP server
-certificate.
-
-- 1 | TRUE: The driver does not check the authenticity of the IdP server
-  certificate.
-- 0 | FALSE: The driver checks the authenticity of the IdP server
-  certificate
+A boolean specifying whether the driver checks the authenticity of the IdP server certificate.
++  1 \| TRUE: The driver does not check the authenticity of the IdP server certificate. 
++  0 \| FALSE: The driver checks the authenticity of the IdP server certificate 
 
 This parameter is optional.
 
 ## SSLMode
+<a name="odbc20-sslmode-option"></a>
++ **Default Value** – `verify-ca`
++ **Data Type** – String
 
-- Default Value –
-  `verify-ca`
-- Data Type – String
-
-The SSL certificate verification mode to use when connecting to Amazon Redshift. The
-following values are possible:
-
-- `verify-full`: Connect only using SSL, a trusted certificate
-  authority, and a server name that matches the certificate.
-- `verify-ca`: Connect only using SSL and a trusted certificate
-  authority.
-- `require`: Connect only using SSL.
-- `prefer`: Connect using SSL if available. Otherwise, connect
-  without using SSL.
-- `allow`: By default, connect without using SSL. If the server
-  requires SSL connections, then use SSL.
-- `disable`: Connect without using SSL.
+The SSL certificate verification mode to use when connecting to Amazon Redshift. The following values are possible: 
++  `verify-full`: Connect only using SSL, a trusted certificate authority, and a server name that matches the certificate. 
++  `verify-ca`: Connect only using SSL and a trusted certificate authority. 
++  `require`: Connect only using SSL. 
++  `prefer`: Connect using SSL if available. Otherwise, connect without using SSL. 
++  `allow`: By default, connect without using SSL. If the server requires SSL connections, then use SSL. 
++  `disable`: Connect without using SSL. 
 
 This parameter is optional.
 
 ## StreamingCursorRows
+<a name="odbc20-streamingcursorrows-option"></a>
++ **Default Value** – 0
++ **Data Type** – Integer
 
-- Default Value – 0
-- Data Type – Integer
-
-The number of rows the driver fetches per batch when using streaming cursor
-mode. When set to a positive integer and the cursor type is forward-only, the
-driver reads rows from the server in batches of the specified size instead of
-loading the entire result set into memory.
+The number of rows the driver fetches per batch when using streaming cursor mode. When set to a positive integer and the cursor type is forward-only, the driver reads rows from the server in batches of the specified size instead of loading the entire result set into memory.
 
 Set the property to one of the following values:
++ 0: Disabled. The driver loads the entire result set into memory (default).
++ Positive integer: The number of rows per streaming batch.
 
-- 0: Disabled. The driver loads the entire result set into memory
-  (default).
-- Positive integer: The number of rows per streaming batch.
+Streaming cursor mode requires a forward-only cursor. If the Client Side Cursor (CSC) option is enabled, it takes priority and streaming cursor mode is disabled.
 
-Streaming cursor mode requires a forward-only cursor. If the Client Side
-Cursor (CSC) option is enabled, it takes priority and streaming cursor mode
-is disabled.
-
-###### Note
-
-This option replaces the `UseDeclareFetch` and
-`Fetch` (Cache Size) options from ODBC driver version 1.x.
-Unlike the previous server-side cursor approach, streaming cursor mode
-does not require transaction wrapping or multiple server
-round-trips.
+**Note**  
+This option replaces the `UseDeclareFetch` and `Fetch` (Cache Size) options from ODBC driver version 1.x. Unlike the previous server-side cursor approach, streaming cursor mode does not require transaction wrapping or multiple server round-trips.
 
 This parameter is optional.
 
 ## StsConnectionTimeout
+<a name="odbc20-stsconnectiontimeout-option"></a>
++ **Default Value** – 0
++ **Data Type** – Integer
 
-- Default Value – 0
-- Data Type – Integer
-
-The maximum wait time for IAM connections, in seconds. If set to 0 or not
-specified, the driver waits 60 seconds for each AWS STS call.
+The maximum wait time for IAM connections, in seconds. If set to 0 or not specified, the driver waits 60 seconds for each AWS STS call. 
 
 This parameter is optional.
 
 ## StsEndpointUrl
+<a name="odbc20-stsendpointurl-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-This option specifies the overriding endpoint used to communicate with the
-AWS Security Token Service (AWS STS).
+This option specifies the overriding endpoint used to communicate with the AWS Security Token Service (AWS STS). 
 
 This parameter is optional.
 
 ## token
+<a name="jdbc20-token-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
-
-An AWS IAM Identity Center provided access token or an OpenID Connect (OIDC) JSON Web Token
-(JWT) provided by a web identity provider that's linked with AWS IAM Identity Center. Your
-application must generate this token by authenticating the user of your application
-with AWS IAM Identity Center or an identity provider linked with AWS IAM Identity Center.
+An AWS IAM Identity Center provided access token or an OpenID Connect (OIDC) JSON Web Token (JWT) provided by a web identity provider that's linked with AWS IAM Identity Center. Your application must generate this token by authenticating the user of your application with AWS IAM Identity Center or an identity provider linked with AWS IAM Identity Center. 
 
 This parameter works with `IdpTokenAuthPlugin`.
 
 ## token\_type
-
-- Default Value – None
-- Data Type – String
+<a name="jdbc20-token-type-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 The type of token that is being used in `IdpTokenAuthPlugin`.
 
 You can specify the following values:
 
-**ACCESS\_TOKEN**
-
+**ACCESS\_TOKEN**  
 Enter this if you use an AWS IAM Identity Center provided access token.
 
-**EXT\_JWT**
-
-Enter this if you use an OpenID Connect (OIDC) JSON Web Token (JWT)
-provided by a web-based identity provider that's integrated with AWS
-IAM Identity Center.
+**EXT\_JWT**  
+Enter this if you use an OpenID Connect (OIDC) JSON Web Token (JWT) provided by a web-based identity provider that's integrated with AWS IAM Identity Center.
 
 This parameter works with `IdpTokenAuthPlugin`.
 
-## UID | User | LogonID
-
-- Default Value – None
-- Data Type – String
+## UID \| User \| LogonID
+<a name="odbc20-uid-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
 The user name that you use to access the Amazon Redshift server.
 
 This parameter is required if you use database authentication.
 
 ## UseUnicode
+<a name="odbc20-useunicode-option"></a>
++ **Default Value** – 0
++ **Data Type** – Boolean
 
-- Default Value – 0
-- Data Type – Boolean
-
-A boolean specifying whether the driver returns Redshift data as Unicode or
-regular SQL types.
-
-- 1 | TRUE: The Driver returns wide SQL type for character data
-  type.
-
-  - SQL\_WCHAR is returned instead of SQL\_CHAR.
-  - SQL\_WVARCHAR is returned instead of SQL\_VARCHAR.
-  - SQL\_WLONGVARCHAR is returned instead of
-    SQL\_LONGVARCHAR.
-
-- 0 | FALSE: The driver returns normal SQL type for character data
-  type.
-
-  - SQL\_CHAR is returned instead of SQL\_WCHAR.
-  - SQL\_VARCHAR is returned instead of SQL\_WVARCHAR.
-  - SQL\_LONGVARCHAR is returned instead of
-    SQL\_WLONGVARCHAR.
+A boolean specifying whether the driver returns Redshift data as Unicode or regular SQL types.
++  1 \| TRUE: The Driver returns wide SQL type for character data type. 
+  + SQL\_WCHAR is returned instead of SQL\_CHAR.
+  + SQL\_WVARCHAR is returned instead of SQL\_VARCHAR.
+  + SQL\_WLONGVARCHAR is returned instead of SQL\_LONGVARCHAR.
++  0 \| FALSE: The driver returns normal SQL type for character data type. 
+  + SQL\_CHAR is returned instead of SQL\_WCHAR.
+  + SQL\_VARCHAR is returned instead of SQL\_WVARCHAR.
+  + SQL\_LONGVARCHAR is returned instead of SQL\_WLONGVARCHAR.
 
 This parameter is optional. It is available in driver versions 2.1.15 and later.
 
 ## web\_identity\_token
+<a name="odbc20-web-identity-token-option"></a>
++ **Default Value** – None
++ **Data Type** – String
 
-- Default Value – None
-- Data Type – String
+The OAUTH token that is provided by the identity provider. It’s used in the JWT plugin.
 
-The OAUTH token that is provided by the identity provider. It’s used in the JWT
-plugin.
-
-This parameter is required if you set the **plugin\_name**
-parameter to BasicJwtCredentialsProvider.
+This parameter is required if you set the **plugin\_name** parameter to BasicJwtCredentialsProvider.

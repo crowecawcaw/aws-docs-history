@@ -1,26 +1,20 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use `DeleteCluster` with an AWS SDK or CLI
+<a name="example_redshift_DeleteCluster_section"></a>
 
 The following code examples show how to use `DeleteCluster`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Getting started with provisioned data warehouse clusters](example_redshift_GettingStarted_039_section.md) 
 
-- [Getting started with provisioned data warehouse clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 
 ```
     /// <summary>
@@ -53,47 +47,32 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
 ```
++  For API details, see [DeleteCluster](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/DeleteCluster) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteCluster](../../../goto/DotNetSDKV4/redshift-2012-12-01/DeleteCluster.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DeleteCluster.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-Delete a Cluster with No Final Cluster SnapshotThis example deletes a cluster, forcing data deletion so no final cluster snapshot
-is created.Command:
+**AWS CLI**  
+Delete a Cluster with No Final Cluster SnapshotThis example deletes a cluster, forcing data deletion so no final cluster snapshot is created.Command:  
 
 ```
 aws redshift delete-cluster --cluster-identifier mycluster --skip-final-cluster-snapshot
 ```
-
-Delete a Cluster, Allowing a Final Cluster SnapshotThis example deletes a cluster, but specifies a final cluster snapshot.Command:
+Delete a Cluster, Allowing a Final Cluster SnapshotThis example deletes a cluster, but specifies a final cluster snapshot.Command:  
 
 ```
 aws redshift delete-cluster --cluster-identifier mycluster --final-cluster-snapshot-identifier myfinalsnapshot
 ```
++  For API details, see [DeleteCluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/redshift/delete-cluster.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteCluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/redshift/delete-cluster.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/redshift/delete-cluster.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -139,26 +118,15 @@ func (actor RedshiftActions) DeleteCluster(ctx context.Context, clusterId string
 	log.Printf("The cluster %s was deleted\n", clusterId)
 	return true, nil
 }
-
-
-
 ```
++  For API details, see [DeleteCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DeleteCluster) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DeleteCluster "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DeleteCluster")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples").
-
-Delete the cluster.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
+Delete the cluster.  
 
 ```
     /**
@@ -188,25 +156,15 @@ Delete the cluster.
                 }
             });
     }
-
-
 ```
++  For API details, see [DeleteCluster](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/DeleteCluster) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteCluster](../../../goto/SdkForJavaV2/redshift-2012-12-01/DeleteCluster.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/DeleteCluster.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/redshift#code-examples").
-
-Create the client.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/redshift#code-examples). 
+Create the client.  
 
 ```
 import { RedshiftClient } from "@aws-sdk/client-redshift";
@@ -215,11 +173,8 @@ const REGION = "REGION";
 //Set the Redshift Service Object
 const redshiftClient = new RedshiftClient({ region: REGION });
 export { redshiftClient };
-
-
 ```
-
-Create the cluster.
+Create the cluster.  
 
 ```
 // Import required AWS SDK clients and commands for Node.js
@@ -242,25 +197,15 @@ const run = async () => {
   }
 };
 run();
-
-
 ```
++  For API details, see [DeleteCluster](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/DeleteClusterCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteCluster](../../../AWSJavaScriptSDK/v3/latest/client/redshift/command/DeleteClusterCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/redshift/command/DeleteClusterCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/redshift#code-examples").
-
-Delete the cluster.
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/redshift#code-examples). 
+Delete the cluster.  
 
 ```
 suspend fun deleteRedshiftCluster(clusterId: String?) {
@@ -275,23 +220,14 @@ suspend fun deleteRedshiftCluster(clusterId: String?) {
         println("The status is ${response.cluster?.clusterStatus}")
     }
 }
-
-
 ```
++  For API details, see [DeleteCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
 ```
 class RedshiftWrapper:
@@ -323,35 +259,21 @@ class RedshiftWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-The following code instantiates the RedshiftWrapper object.
+The following code instantiates the RedshiftWrapper object.   
 
 ```
     client = boto3.client("redshift")
     redhift_wrapper = RedshiftWrapper(client)
-
-
 ```
++  For API details, see [DeleteCluster](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/DeleteCluster) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteCluster](../../../goto/boto3/redshift-2012-12-01/DeleteCluster.md "../../../goto/boto3/redshift-2012-12-01/DeleteCluster.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples").
-
-Delete the cluster.
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples). 
+Delete the cluster.  
 
 ```
     TRY.
@@ -366,14 +288,9 @@ Delete the cluster.
       CATCH /aws1/cx_rshinvcluststatefault.
         MESSAGE 'Invalid cluster state for deletion.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteCluster](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteCluster](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

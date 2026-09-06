@@ -1,31 +1,25 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Learn the basics of Amazon Redshift with an AWS SDK
+<a name="example_redshift_Scenario_section"></a>
 
 The following code examples show how to:
++ Create a Redshift cluster.
++ List databases in the cluster.
++ Create a table named Movies.
++ Populate the Movies table.
++ Query the Movies table by year.
++ Modify the Redshift cluster.
++ Delete the Amazon Redshift cluster.
 
-- Create a Redshift cluster.
-- List databases in the cluster.
-- Create a table named Movies.
-- Populate the Movies table.
-- Query the Movies table by year.
-- Modify the Redshift cluster.
-- Delete the Amazon Redshift cluster.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
-
-Create a Redshift wrapper class to manage operations.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
+Create a Redshift wrapper class to manage operations.  
 
 ```
 /// <summary>
@@ -498,11 +492,8 @@ public class RedshiftWrapper
         Console.WriteLine($"Cluster is available! Total Elapsed Time: {totalElapsed:mm\\:ss}");
     }
 }
-
-
 ```
-
-Run an interactive scenario demonstrating Redshift basics.
+Run an interactive scenario demonstrating Redshift basics.  
 
 ```
 /// <summary>
@@ -769,32 +760,23 @@ public class RedshiftBasics
         public int Year { get; set; }
     }
 }
+```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CreateCluster](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster)
+  + [DescribeClusters](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters)
+  + [DescribeStatement](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/DescribeStatement)
+  + [ExecuteStatement](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/ExecuteStatement)
+  + [GetStatementResult](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/GetStatementResult)
+  + [ListDatabasesPaginator](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/ListDatabasesPaginator)
+  + [ModifyCluster](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/ModifyCluster)
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
-
-  - [CreateCluster](../../../goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster.md")
-  - [DescribeClusters](../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md")
-  - [DescribeStatement](../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeStatement.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeStatement.md")
-  - [ExecuteStatement](../../../goto/DotNetSDKV4/redshift-2012-12-01/ExecuteStatement.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/ExecuteStatement.md")
-  - [GetStatementResult](../../../goto/DotNetSDKV4/redshift-2012-12-01/GetStatementResult.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/GetStatementResult.md")
-  - [ListDatabasesPaginator](../../../goto/DotNetSDKV4/redshift-2012-12-01/ListDatabasesPaginator.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/ListDatabasesPaginator.md")
-  - [ModifyCluster](../../../goto/DotNetSDKV4/redshift-2012-12-01/ModifyCluster.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/ModifyCluster.md")
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples").
-
-```
-
 package scenarios
 
 import (
@@ -1188,33 +1170,22 @@ func (runner *RedshiftBasicsScenario) QueryMoviesByYear(ctx context.Context, clu
 		}
 	}
 }
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [CreateCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.CreateCluster)
+  + [DescribeClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeClusters)
+  + [DescribeStatement](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeStatement)
+  + [ExecuteStatement](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ExecuteStatement)
+  + [GetStatementResult](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.GetStatementResult)
+  + [ListDatabasesPaginator](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ListDatabasesPaginator)
+  + [ModifyCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ModifyCluster)
 
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-  - [CreateCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.CreateCluster "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.CreateCluster")
-  - [DescribeClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeClusters "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeClusters")
-  - [DescribeStatement](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeStatement "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeStatement")
-  - [ExecuteStatement](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ExecuteStatement "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ExecuteStatement")
-  - [GetStatementResult](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.GetStatementResult "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.GetStatementResult")
-  - [ListDatabasesPaginator](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ListDatabasesPaginator "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ListDatabasesPaginator")
-  - [ModifyCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ModifyCluster "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.ModifyCluster")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples").
-
-Run an interactive scenario demonstrating Amazon Redshift features.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
+Run an interactive scenario demonstrating Amazon Redshift features.  
 
 ```
 import com.example.redshift.User;
@@ -1278,7 +1249,7 @@ public class RedshiftScenario {
 
             Where:
                 jsonFilePath - The path to the Movies JSON file (you can locate that file in ../../../resources/sample_files/movies.json)
-                secretName - The name of the secret that belongs to Secret Manager that stores the user name and password used in this scenario.
+                secretName - The name of the secret that belongs to Secret Manager that stores the user name and password used in this scenario. 
             """;
 
         if (args.length != 2) {
@@ -1294,24 +1265,24 @@ public class RedshiftScenario {
         logger.info("""
             This Java program demonstrates how to interact with Amazon Redshift by using the AWS SDK for Java (v2).\s
             Amazon Redshift is a fully managed, petabyte-scale data warehouse service hosted in the cloud.
-
+                                                                                
             The program's primary functionalities include cluster creation, verification of cluster readiness,\s
             list databases, table creation, data population within the table, and execution of SQL statements.
             Furthermore, it demonstrates the process of querying data from the Movie table.\s
-
+                    
             Upon completion of the program, all AWS resources are cleaned up.
             """);
 
         logger.info("Lets get started...");
         logger.info("""
             First, we will retrieve the user name and password from Secrets Manager.
-
-            Using Amazon Secrets Manager to store Redshift credentials provides several security benefits.
-            It allows you to securely store and manage sensitive information, such as passwords, API keys, and
+                    
+            Using Amazon Secrets Manager to store Redshift credentials provides several security benefits. 
+            It allows you to securely store and manage sensitive information, such as passwords, API keys, and 
             database credentials, without embedding them directly in your application code.
-
-            More information can be found here:
-
+            
+            More information can be found here: 
+            
             https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_RS.html
             """);
         Gson gson = new Gson();
@@ -1373,7 +1344,7 @@ public class RedshiftScenario {
         logger.info(DASHES);
         String databaseInfo = """
             When you created $clusteridD, the dev database is created by default and used in this scenario.\s
-
+            
             To create a custom database, you need to have a CREATEDB privilege.\s
             For more information, see the documentation here: https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html.
            """.replace("$clusteridD", clusterId);
@@ -1591,11 +1562,8 @@ public class RedshiftScenario {
         return valueResponse.secretString();
     }
 }
-
-
 ```
-
-A wrapper class for Amazon Redshift SDK methods.
+A wrapper class for Amazon Redshift SDK methods.  
 
 ```
 public class RedshiftActions {
@@ -2040,29 +2008,21 @@ public class RedshiftActions {
             });
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateCluster](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/CreateCluster)
+  + [DescribeClusters](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/DescribeClusters)
+  + [DescribeStatement](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/DescribeStatement)
+  + [ExecuteStatement](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/ExecuteStatement)
+  + [GetStatementResult](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/GetStatementResult)
+  + [ListDatabasesPaginator](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/ListDatabasesPaginator)
+  + [ModifyCluster](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/ModifyCluster)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-  - [CreateCluster](../../../goto/SdkForJavaV2/redshift-2012-12-01/CreateCluster.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/CreateCluster.md")
-  - [DescribeClusters](../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeClusters.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeClusters.md")
-  - [DescribeStatement](../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeStatement.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeStatement.md")
-  - [ExecuteStatement](../../../goto/SdkForJavaV2/redshift-2012-12-01/ExecuteStatement.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/ExecuteStatement.md")
-  - [GetStatementResult](../../../goto/SdkForJavaV2/redshift-2012-12-01/GetStatementResult.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/GetStatementResult.md")
-  - [ListDatabasesPaginator](../../../goto/SdkForJavaV2/redshift-2012-12-01/ListDatabasesPaginator.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/ListDatabasesPaginator.md")
-  - [ModifyCluster](../../../goto/SdkForJavaV2/redshift-2012-12-01/ModifyCluster.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/ModifyCluster.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
 ```
 class RedshiftScenario:
@@ -2079,18 +2039,18 @@ class RedshiftScenario:
         print("Welcome to the Amazon Redshift SDK Getting Started example.")
         print(
             """
-      This Python program demonstrates how to interact with Amazon Redshift
+      This Python program demonstrates how to interact with Amazon Redshift 
       using the AWS SDK for Python (Boto3).
-
-      Amazon Redshift is a fully managed, petabyte-scale data warehouse
+      
+      Amazon Redshift is a fully managed, petabyte-scale data warehouse 
       service hosted in the cloud.
-
-      The program's primary functionalities include cluster creation,
-      verification of cluster readiness, listing databases, table creation,
+      
+      The program's primary functionalities include cluster creation, 
+      verification of cluster readiness, listing databases, table creation, 
       populating data within the table, and executing SQL statements.
-
+      
       It also demonstrates querying data from the Movies table.
-
+      
       Upon completion, all AWS resources are cleaned up.
     """
         )
@@ -2110,7 +2070,7 @@ class RedshiftScenario:
 
         print(DASHES)
         print(
-            """A Redshift cluster refers to the collection of computing resources and storage that work
+            """A Redshift cluster refers to the collection of computing resources and storage that work 
             together to process and analyze large volumes of data."""
         )
         cluster_id = q.ask(
@@ -2135,7 +2095,7 @@ class RedshiftScenario:
        When you created {cluster_id}, the dev database is created by default and used in this scenario.
 
        To create a custom database, you need to have a CREATEDB privilege.
-       For more information, see the documentation here:
+       For more information, see the documentation here: 
        https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html.
       """
         )
@@ -2349,13 +2309,8 @@ class RedshiftScenario:
                 raise Exception("The Query Failed. Ending program")
             elif status == "FINISHED":
                 break
-
-
-
-
 ```
-
-Main function showing scenario implementation.
+Main function showing scenario implementation.  
 
 ```
 def main():
@@ -2367,13 +2322,8 @@ def main():
     redshift_scenario.redhift_scenario(
         f"{os.path.dirname(__file__)}/../../../resources/sample_files/movies.json"
     )
-
-
-
-
 ```
-
-The wrapper functions used in the scenario.
+The wrapper functions used in the scenario.   
 
 ```
     def create_cluster(
@@ -2590,21 +2540,16 @@ The wrapper functions used in the scenario.
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateCluster](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/CreateCluster)
+  + [DescribeClusters](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/DescribeClusters)
+  + [DescribeStatement](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/DescribeStatement)
+  + [ExecuteStatement](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/ExecuteStatement)
+  + [GetStatementResult](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/GetStatementResult)
+  + [ListDatabasesPaginator](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/ListDatabasesPaginator)
+  + [ModifyCluster](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/ModifyCluster)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateCluster](../../../goto/boto3/redshift-2012-12-01/CreateCluster.md "../../../goto/boto3/redshift-2012-12-01/CreateCluster.md")
-  - [DescribeClusters](../../../goto/boto3/redshift-2012-12-01/DescribeClusters.md "../../../goto/boto3/redshift-2012-12-01/DescribeClusters.md")
-  - [DescribeStatement](../../../goto/boto3/redshift-2012-12-01/DescribeStatement.md "../../../goto/boto3/redshift-2012-12-01/DescribeStatement.md")
-  - [ExecuteStatement](../../../goto/boto3/redshift-2012-12-01/ExecuteStatement.md "../../../goto/boto3/redshift-2012-12-01/ExecuteStatement.md")
-  - [GetStatementResult](../../../goto/boto3/redshift-2012-12-01/GetStatementResult.md "../../../goto/boto3/redshift-2012-12-01/GetStatementResult.md")
-  - [ListDatabasesPaginator](../../../goto/boto3/redshift-2012-12-01/ListDatabasesPaginator.md "../../../goto/boto3/redshift-2012-12-01/ListDatabasesPaginator.md")
-  - [ModifyCluster](../../../goto/boto3/redshift-2012-12-01/ModifyCluster.md "../../../goto/boto3/redshift-2012-12-01/ModifyCluster.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

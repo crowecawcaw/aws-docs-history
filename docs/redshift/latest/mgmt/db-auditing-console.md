@@ -1,30 +1,28 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Enabling audit logging
+<a name="db-auditing-console"></a>
 
-Configure Amazon Redshift to export audit log data. Logs can be exported to CloudWatch, or as files
-to Amazon S3 buckets.
+Configure Amazon Redshift to export audit log data. Logs can be exported to CloudWatch, or as files to Amazon S3 buckets.
 
 ## Enabling audit logging using the console
+<a name="enable-auditing-logging-task"></a>
 
-###### To enable audit logging for a cluster
+### Console steps
+<a name="cluster-audit-logging"></a>
 
-1. Sign in to the AWS Management Console and open the Amazon Redshift console at
-   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2. On the navigation menu, choose **Clusters**, then
-   choose the cluster that you want to update.
-3. Choose the **Properties** tab. On the
-   **Database configurations** panel, choose
-   **Edit**, then **Edit audit
-   logging**.
-4. On the **Edit audit logging** page, choose
-   **Turn on** and select **S3
-   bucket** or **CloudWatch**. We recommend
-   using CloudWatch because administration is easy and it has helpful
-   features for data visualization.
-5. Choose which logs to export.
-6. To save your choices, choose **Save
-   changes**.
+**To enable audit logging for a cluster**
+
+1. Sign in to the AWS Management Console and open the Amazon Redshift console at [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/).
+
+1. On the navigation menu, choose **Clusters**, then choose the cluster that you want to update. 
+
+1. Choose the **Properties** tab. On the **Database configurations** panel, choose **Edit**, then **Edit audit logging**.
+
+1. On the **Edit audit logging** page, choose **Turn on** and select **S3 bucket** or **CloudWatch**. We recommend using CloudWatch because administration is easy and it has helpful features for data visualization.
+
+1. Choose which logs to export.
+
+1. To save your choices, choose **Save changes**.

@@ -1,258 +1,121 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Considerations when using zero-ETL integrations with Amazon Redshift
+<a name="zero-etl.reqs-lims"></a>
 
-The following considerations apply to zero-ETL integrations with Amazon Redshift.
+The following considerations apply to zero-ETL integrations with Amazon Redshift. 
++ Your target Amazon Redshift data warehouse must meet the following prerequisites:
+  + Running Amazon Redshift Serverless or a provisioned cluster of an RG or RA3 node type.
+  + Encrypted (if using a provisioned cluster).
+  + Has case sensitivity enabled.
++ If you delete a source that is an authorized integration source for an Amazon Redshift data warehouse, all associated integrations will go into the `FAILED` state. Any previously replicated data remains in your Amazon Redshift database and can be queried.
++ The destination database is read-only. You can't create tables, views, or materialized views in the destination database. However, you can use materialized views on other tables in the target data warehouse.
++ Materialized views are supported when used in cross-database queries. For information about creating materialized views with data replicated through zero-ETL integrations, see [Querying replicated data with materialized views](zero-etl-using.querying-and-creating-materialized-views.md#zero-etl-using.transforming).
++ By default, you can query tables only in the target data warehouse that are in the `Synced` state. To query tables in another state, set the database parameter `QUERY_ALL_STATES` to `TRUE`. For information about setting `QUERY_ALL_STATES`, see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) and [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*. For more information about the state of your database, see [SVV\_INTEGRATION\_TABLE\_STATE](https://docs.aws.amazon.com/redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.html) in the *Amazon Redshift Database Developer Guide*.
++ Amazon Redshift accepts only UTF-8 characters, so it might not honor the collation defined in your source. The sorting and comparison rules might be different, which can ultimately change the query results.
++ Zero-ETL integrations is limited to 50 per Amazon Redshift data warehouse target.
++ Tables in the integration source must have a primary key. Otherwise, your tables can't be replicated to the target data warehouse in Amazon Redshift.
 
-- Your target Amazon Redshift data warehouse must meet the following prerequisites:
-
-  - Running Amazon Redshift Serverless or a provisioned cluster of an RG or RA3 node type.
-  - Encrypted (if using a provisioned cluster).
-  - Has case sensitivity enabled.
-
-- If you delete a source that is an authorized integration source for an Amazon Redshift data
-  warehouse, all associated integrations will go into the `FAILED` state. Any
-  previously replicated data remains in your Amazon Redshift database and can be queried.
-- The destination database is read-only. You can't create tables, views, or
-  materialized views in the destination database. However, you can use materialized views on
-  other tables in the target data warehouse.
-- Materialized views are supported when used in cross-database queries. For information
-  about creating materialized views with data replicated through zero-ETL integrations, see [Querying replicated data with materialized views](zero-etl-using.querying-and-creating-materialized-views.md#zero-etl-using.transforming "zero-etl-using.querying-and-creating-materialized-views.md#zero-etl-using.transforming").
-- By default, you can query tables only in the target data warehouse that are in the
-  `Synced` state. To query tables in another state, set the database parameter
-  `QUERY_ALL_STATES` to `TRUE`. For information about setting
-  `QUERY_ALL_STATES`, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER
-  DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the _Amazon Redshift Database Developer Guide_. For more information about
-  the state of your database, see [SVV\_INTEGRATION\_TABLE\_STATE](../dg/r_SVV_INTEGRATION_TABLE_STATE.md "../dg/r_SVV_INTEGRATION_TABLE_STATE.md") in the _Amazon Redshift Database Developer Guide_.
-- Amazon Redshift accepts only UTF-8 characters, so it might not honor the collation defined in
-  your source. The sorting and comparison rules might be different, which can ultimately
-  change the query results.
-- Zero-ETL integrations is limited to 50 per Amazon Redshift data warehouse target.
-- Tables in the integration source must have a primary key. Otherwise, your tables can't
-  be replicated to the target data warehouse in Amazon Redshift.
-
-For information about how to add a primary key to Amazon Aurora PostgreSQL, see [Handle tables without primary keys while creating Amazon Aurora PostgreSQL zero-ETL integrations with
-Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/") in the _AWS Database Blog_. For information about how
-to add a primary key to Amazon Aurora MySQL or RDS for MySQL, see [Handle tables without primary keys while creating Amazon Aurora MySQL or Amazon RDS for MySQL
-zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/") in the _AWS Database Blog_.
-
-- You can use data filtering for Aurora zero-ETL integrations to define the scope of replication
-  from the source Aurora DB cluster to the target Amazon Redshift data warehouse. Rather than
-  replicating all data to the target, you can define one or more filters that selectively
-  include or exclude certain tables from being replicated. For more information, see [Data
-  filtering for Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md") in the
-  _Amazon Aurora User Guide_.
-- For Aurora PostgreSQL zero-ETL integrations with Amazon Redshift, Amazon Redshift supports a maximum of 100 databases from
-  Aurora PostgreSQL. Each database replicates from source to target independently.
-- Zero-ETL integration does not support transformations while replicating the data from
-  transactional data stores to Amazon Redshift. Data is replicated as-is from the source data base.
-  However, you can apply transformations on the replicated data in Amazon Redshift.
-- Zero-ETL integration runs in Amazon Redshift using parallel connections. It runs using the credentials of
-  the user who created the database from the integration.
-- You can set the `REFRESH_INTERVAL` for a zero-ETL integration to control the
-  frequency of data replication into Amazon Redshift. For more information, see [CREATE
-  DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the
-  _Amazon Redshift Database Developer Guide_.
-- After you create an Amazon Redshift database from a zero-ETL integration with Amazon DynamoDB, the database state
-  should change from **Creating** to **Active**. This starts the replication of data in the source DynamoDB tables to
-  the target Redshift tables, which are created under the public schema of the destination
-  database (`ddb_rs_customerprofiles_zetl_db`).
+  For information about how to add a primary key to Amazon Aurora PostgreSQL, see [Handle tables without primary keys while creating Amazon Aurora PostgreSQL zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/) in the *AWS Database Blog*. For information about how to add a primary key to Amazon Aurora MySQL or RDS for MySQL, see [Handle tables without primary keys while creating Amazon Aurora MySQL or Amazon RDS for MySQL zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/) in the *AWS Database Blog*. 
++ You can use data filtering for Aurora zero-ETL integrations to define the scope of replication from the source Aurora DB cluster to the target Amazon Redshift data warehouse. Rather than replicating all data to the target, you can define one or more filters that selectively include or exclude certain tables from being replicated. For more information, see [Data filtering for Aurora zero-ETL integrations with Amazon Redshift](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) in the *Amazon Aurora User Guide*.
++ For Aurora PostgreSQL zero-ETL integrations with Amazon Redshift, Amazon Redshift supports a maximum of 100 databases from Aurora PostgreSQL. Each database replicates from source to target independently.
++ Zero-ETL integration does not support transformations while replicating the data from transactional data stores to Amazon Redshift. Data is replicated as-is from the source data base. However, you can apply transformations on the replicated data in Amazon Redshift.
++ Zero-ETL integration runs in Amazon Redshift using parallel connections. It runs using the credentials of the user who created the database from the integration.
++ You can set the `REFRESH_INTERVAL` for a zero-ETL integration to control the frequency of data replication into Amazon Redshift. For more information, see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) and [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
++ After you create an Amazon Redshift database from a zero-ETL integration with Amazon DynamoDB, the database state should change from **Creating** to **Active**. This starts the replication of data in the source DynamoDB tables to the target Redshift tables, which are created under the public schema of the destination database (`ddb_rs_customerprofiles_zetl_db`).
 
 ## Considerations when using history mode on the target
+<a name="zero-etl-considerations-history-mode"></a>
 
-The following considerations apply when using history mode on the target database. For
-more information, see [History mode](zero-etl-history-mode.md "zero-etl-history-mode.md").
+The following considerations apply when using history mode on the target database. For more information, see [History mode](zero-etl-history-mode.md).
++ When you drop a table on a source, the table on the target is not dropped, but is changed to `DroppedSource` state. You can drop or rename the table from the Amazon Redshift database.
++ When you truncate a table on a source, deletes are run on the target table. For example, if all records are truncated on the source, corresponding records on the target column `_record_is_active` are changed to `false`.
++ When you run TRUNCATE table SQL on the target table, active history rows are marked inactive with a corresponding timestamp.
++ When a row in a table is set to inactive, it can be deleted after a short (about 10 minute) delay. To delete inactive rows, connect to your zero-ETL database with query editor v2 or another SQL client.
++ You can only delete inactive rows from a table with history mode on. For example, a SQL command similar to the following only deletes inactive rows.
 
-- When you drop a table on a source, the table on the target is not dropped, but is
-  changed to `DroppedSource` state. You can drop or rename the table from the
-  Amazon Redshift database.
-- When you truncate a table on a source, deletes are run on the target table. For
-  example, if all records are truncated on the source, corresponding records on the target
-  column `_record_is_active` are changed to `false`.
-- When you run TRUNCATE table SQL on the target table, active history rows are marked
-  inactive with a corresponding timestamp.
-- When a row in a table is set to inactive, it can be deleted after a short (about 10
-  minute) delay. To delete inactive rows, connect to your zero-ETL database with query editor v2 or
-  another SQL client.
-- You can only delete inactive rows from a table with history mode on. For example, a
-  SQL command similar to the following only deletes inactive rows.
+  ```
+  delete from schema.user_table where _record_delete_time <= '2024-09-10 12:34:56'
+  ```
 
-```
-delete from schema.user_table where _record_delete_time <= '2024-09-10 12:34:56'
-```
+  This is equivalent to a SQL command like the following.
 
-This is equivalent to a SQL command like the following.
-
-```
-delete from schema.user_table where _record_delete_time <= '2024-09-10 12:34:56' and _record_is_active = False
-```
-
-- When turning history mode off for a table, all historical data is saved to table
-  named with `<schema>.<table-name>_historical_<timestamp>`
-  while the original table named `<schema>.<table-name>` is
-  refreshed.
-- When a table with history mode on is excluded from replication using a table filter,
-  all rows are set as inactive and it is changed to `DroppedSource` state. For
-  more information about table filters, see [Data filtering for
-  Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md") in the
-  _Amazon Aurora User Guide_.
-- History mode can only be switched to `true` or `false` for
-  tables in `Synced` state.
-- Materialized views for tables with history mode on are created as full recompute.
+  ```
+  delete from schema.user_table where _record_delete_time <= '2024-09-10 12:34:56' and _record_is_active = False
+  ```
++ When turning history mode off for a table, all historical data is saved to table named with `<schema>.<table-name>_historical_<timestamp>` while the original table named `<schema>.<table-name>` is refreshed.
++ When a table with history mode on is excluded from replication using a table filter, all rows are set as inactive and it is changed to `DroppedSource` state. For more information about table filters, see [Data filtering for Aurora zero-ETL integrations with Amazon Redshift](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) in the *Amazon Aurora User Guide*.
++ History mode can only be switched to `true` or `false` for tables in `Synced` state.
++ Materialized views for tables with history mode on are created as full recompute.
 
 ## Considerations when the zero-ETL integration source is Aurora or Amazon RDS
+<a name="zero-etl-considerations-aurora-rds"></a>
 
 The following considerations apply to Aurora and Amazon RDS zero-ETL integrations with Amazon Redshift.
++ You can use data filtering for Aurora and RDS for MySQL zero-ETL integrations to define the scope of replication from the source DB cluster to the target Amazon Redshift data warehouse. Rather than replicating all data to the target, you can define one or more filters that selectively include or exclude certain tables from being replicated. For more information, see [Data filtering for Aurora zero-ETL integrations with Amazon Redshift](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) in the *Amazon Aurora User Guide*.
++ Tables in the integration source must have a primary key. Otherwise, your tables can't be replicated to the target data warehouse in Amazon Redshift.
 
-- You can use data filtering for Aurora and RDS for MySQL zero-ETL integrations to define the scope
-  of replication from the source DB cluster to the target Amazon Redshift data warehouse. Rather than
-  replicating all data to the target, you can define one or more filters that selectively
-  include or exclude certain tables from being replicated. For more information, see
-  [Data filtering for
-  Aurora zero-ETL integrations with Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.md") in the
-  _Amazon Aurora User Guide_.
-- Tables in the integration source must have a primary key. Otherwise, your tables
-  can't be replicated to the target data warehouse in Amazon Redshift.
+  For information about how to add a primary key to Amazon Aurora PostgreSQL, see [Handle tables without primary keys while creating Amazon Aurora PostgreSQL zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/) in the *AWS Database Blog*. For information about how to add a primary key to Amazon Aurora MySQL or RDS for MySQL, see [Handle tables without primary keys while creating Amazon Aurora MySQL or Amazon RDS for MySQL zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/) in the *AWS Database Blog*. 
++ The maximum length of an Amazon Redshift VARCHAR data type is 65,535 bytes. When the content from the source does not fit into this limit, replication does not proceed and the table is put into a failed state. You can set the database parameter `TRUNCATECOLUMNS` to `TRUE` to truncate content to fit in the column. For information about setting `TRUNCATECOLUMNS`, see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) and [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
 
-For information about how to add a primary key to Amazon Aurora PostgreSQL, see [Handle tables without primary keys while creating Amazon Aurora PostgreSQL zero-ETL integrations with
-Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-postgresql-zero-etl-integrations-with-amazon-redshift/") in the _AWS Database Blog_. For information about
-how to add a primary key to Amazon Aurora MySQL or RDS for MySQL, see [Handle tables without primary keys while creating Amazon Aurora MySQL or Amazon RDS for MySQL
-zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/ "https://aws.amazon.com/blogs/database/handle-tables-without-primary-keys-while-creating-amazon-aurora-mysql-or-amazon-rds-for-mysql-zero-etl-integrations-with-amazon-redshift/") in the _AWS Database Blog_.
+  For more information about data type differences between zero-ETL integration sources and Amazon Redshift databases, see [Data type differences between Aurora and Amazon Redshift](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.html#zero-etl.data-type-mapping) in the *Amazon Aurora User Guide*.
 
-- The maximum length of an Amazon Redshift VARCHAR data type is 65,535 bytes. When the content
-  from the source does not fit into this limit, replication does not proceed and the table
-  is put into a failed state. You can set the database parameter
-  `TRUNCATECOLUMNS` to `TRUE` to truncate content to fit in the
-  column. For information about setting `TRUNCATECOLUMNS`, see [CREATE
-  DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the
-  _Amazon Redshift Database Developer Guide_.
+For Aurora sources, also see [Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.html#zero-etl.reqs-lims) in the *Amazon Aurora User Guide*.
 
-For more information about data type differences between zero-ETL integration sources and Amazon Redshift
-databases, see [Data type differences between Aurora and Amazon Redshift](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping") in the
-_Amazon Aurora User Guide_.
-
-For Aurora sources, also see [Limitations](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.reqs-lims "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.md#zero-etl.reqs-lims") in the _Amazon Aurora User Guide_.
-
-For Amazon RDS sources, also see [Limitations](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.reqs-lims "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.reqs-lims") in
-the _Amazon RDS User Guide_.
+For Amazon RDS sources, also see [Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/zero-etl.html#zero-etl.reqs-lims) in the *Amazon RDS User Guide*.
 
 ## Considerations when the zero-ETL integration source is DynamoDB
+<a name="zero-etl-considerations-ddb"></a>
 
 The following considerations apply to DynamoDB zero-ETL integrations with Amazon Redshift.
++ Table names from DynamoDB greater than 127 characters are not supported.
++ The data from a DynamoDB zero-ETL integration maps to a SUPER data type column in Amazon Redshift.
++ Column names for the partition key or sort key greater than 127 characters are not supported.
++ A zero-ETL integration from DynamoDB can map to only one Amazon Redshift database. 
++ For partition and sort keys, the precision and scale maximum is (38,18). Numeric data types on DynamoDB support a maximum precision up to 38. Amazon Redshift also supports a maximum precision of 38, but the default decimal precision/scale on Amazon Redshift is (38,10). That means values scale values can be truncated. 
++ For a successful zero-ETL integration, an individual attribute (consisting of name\+value) in a DynamoDB item, must not be larger than 64 KB.
++ On activation, the zero-ETL integration exports the full DynamoDB table to populate the Amazon Redshift database. The time it takes for this initial process to complete depends on the DynamoDB table size. The zero-ETL integration then incrementally replicates updates from DynamoDB to Amazon Redshift using DynamoDB incremental exports. This means the replicated DynamoDB data in Amazon Redshift is kept up-to-date automatically.
 
-- Table names from DynamoDB greater than 127 characters are not supported.
-- The data from a DynamoDB zero-ETL integration maps to a SUPER data type column in Amazon Redshift.
-- Column names for the partition key or sort key greater than 127 characters are not
-  supported.
-- A zero-ETL integration from DynamoDB can map to only one Amazon Redshift database.
-- For partition and sort keys, the precision and scale maximum is (38,18). Numeric
-  data types on DynamoDB support a maximum precision up to 38. Amazon Redshift also supports a maximum
-  precision of 38, but the default decimal precision/scale on Amazon Redshift is (38,10). That means
-  values scale values can be truncated.
-- For a successful zero-ETL integration, an individual attribute (consisting of name+value) in a
-  DynamoDB item, must not be larger than 64 KB.
-- On activation, the zero-ETL integration exports the full DynamoDB table to populate the Amazon Redshift
-  database. The time it takes for this initial process to complete depends on the DynamoDB
-  table size. The zero-ETL integration then incrementally replicates updates from DynamoDB to Amazon Redshift
-  using DynamoDB incremental exports. This means the replicated DynamoDB data in Amazon Redshift is kept
-  up-to-date automatically.
+  Currently, the minimum latency for DynamoDB zero-ETL integration is 15 minutes. You can increase it further by setting a non-zero `REFRESH_INTERVAL` for a zero-ETL integration. For more information, see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) and [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
 
-Currently, the minimum latency for DynamoDB zero-ETL integration is 15 minutes. You can increase
-it further by setting a non-zero `REFRESH_INTERVAL` for a zero-ETL integration. For
-more information, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER
-DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the _Amazon Redshift Database Developer Guide_.
-
-For Amazon DynamoDB sources, also see [Prerequisites and limitations](../../../amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.md#RedshiftforDynamoDB-zero-etl-prereqs "../../../amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.md#RedshiftforDynamoDB-zero-etl-prereqs") in the _Amazon DynamoDB Developer Guide_.
+For Amazon DynamoDB sources, also see [Prerequisites and limitations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.html#RedshiftforDynamoDB-zero-etl-prereqs) in the *Amazon DynamoDB Developer Guide*.
 
 ## Considerations when the zero-ETL integration source is applications, such as, Salesforce, SAP, ServiceNow, and Zendesk
+<a name="zero-etl-considerations-glue"></a>
 
-The following considerations apply to source is applications, such as, Salesforce, SAP,
-ServiceNow, and Zendesk with Amazon Redshift.
+The following considerations apply to source is applications, such as, Salesforce, SAP, ServiceNow, and Zendesk with Amazon Redshift.
++ Table names and column names from application sources greater than 127 characters are not supported.
++ The maximum length of an Amazon Redshift VARCHAR data type is 65,535 bytes. When the content from the source does not fit into this limit, replication does not proceed and the table is put into a failed state. You can set the database parameter `TRUNCATECOLUMNS` to `TRUE` to truncate content to fit in the column. For information about setting `TRUNCATECOLUMNS` see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) and [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
 
-- Table names and column names from application sources greater than 127 characters
-  are not supported.
-- The maximum length of an Amazon Redshift VARCHAR data type is 65,535 bytes. When the content
-  from the source does not fit into this limit, replication does not proceed and the table
-  is put into a failed state. You can set the database parameter
-  `TRUNCATECOLUMNS` to `TRUE` to truncate content to fit in the
-  column. For information about setting `TRUNCATECOLUMNS` see [CREATE
-  DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the
-  _Amazon Redshift Database Developer Guide_.
+  For more information about data type differences between zero-ETL integration application sources and Amazon Redshift databases, see [Zero-ETL integrations](https://docs.aws.amazon.com/glue/latest/dg/zero-etl-using.html) in the *AWS Glue Developer Guide*.
++ The minimum latency for a zero-ETL integration with applications is 1 hour. You can increase it further by setting a non-zero `REFRESH_INTERVAL` for a zero-ETL integration. For more information, see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) and [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
 
-For more information about data type differences between zero-ETL integration application
-sources and Amazon Redshift databases, see [Zero-ETL integrations](../../../glue/latest/dg/zero-etl-using.md "../../../glue/latest/dg/zero-etl-using.md") in the
-_AWS Glue Developer Guide_.
-
-- The minimum latency for a zero-ETL integration with applications is 1 hour. You can increase
-  it further by setting a non-zero `REFRESH_INTERVAL` for a zero-ETL integration. For
-  more information, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER
-  DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the _Amazon Redshift Database Developer Guide_.
-
-For sources of zero-ETL integrations with applications, also see [Zero-ETL integrations](../../../glue/latest/dg/zero-etl-using.md "../../../glue/latest/dg/zero-etl-using.md") in the
-_AWS Glue Developer Guide_.
+For sources of zero-ETL integrations with applications, also see [Zero-ETL integrations](https://docs.aws.amazon.com/glue/latest/dg/zero-etl-using.html) in the *AWS Glue Developer Guide*. 
 
 ## Considerations when restoring a zero-ETL integration target
+<a name="zero-etl-considerations-serverless-restore"></a>
 
-When you restore an Amazon Redshift Serverless namespace from a snapshot or recovery point to the same
-serverless namespace, zero-ETL integrations associated with the namespace are maintained automatically.
-A full resync is initiated after the restore to ensure data in the target Amazon Redshift database is
-consistent with the source. The following considerations apply:
-
-- Restoring a snapshot to a different namespace does not maintain integrations.
-- After the restore, Amazon Redshift performs a full resync for all maintained zero-ETL integrations.
-  During the resync, data ingestion performance might be temporarily reduced.
-- If you use history mode on the target database, record versions from the time the
-  snapshot was taken until the full resync completes are not captured. After the resync,
-  history mode resumes normal operation. This behavior is the same as any other full
-  resync. For more information, see [History mode](zero-etl-history-mode.md "zero-etl-history-mode.md").
-- If a zero-ETL integration was created after the snapshot was taken, the integration enters the
-  `NEEDS_ATTENTION` state after the restore because the corresponding
-  database does not exist in the snapshot. To resolve this, you can restore from a more
-  recent snapshot that includes the integration, or delete the integration.
-- If a zero-ETL integration was deleted after the snapshot was taken, the integration is not
-  restored. The database from the snapshot remains and can be deleted.
-- If table-level filters were changed after the snapshot was taken, the restored target
-  uses the current filters from the integration, not the filters at the time of the
-  snapshot.
-- To opt out of maintaining integrations during a restore, uncheck the
-  **Maintain Integrations** box on the restore page in the AWS Management Console, or
-  if you are using the AWS CLI, set the `--no-maintain-integration` parameter when
-  calling the [restore-from-snapshot](../../../redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.md "../../../redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.md") or [restore-from-recovery-point](../../../redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.md "../../../redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.md") API operation. When you opt out, integrations
-  enter the `FAILED` state after the restore. You can delete the integrations
-  and recreate them.
-- This feature applies to Amazon Redshift Serverless only when restored to the same serverless
-  namespace. Snapshot restores on provisioned clusters do not maintain
-  zero-ETL integrations.
+When you restore an Amazon Redshift Serverless namespace from a snapshot or recovery point to the same serverless namespace, zero-ETL integrations associated with the namespace are maintained automatically. A full resync is initiated after the restore to ensure data in the target Amazon Redshift database is consistent with the source. The following considerations apply:
++ Restoring a snapshot to a different namespace does not maintain integrations.
++ After the restore, Amazon Redshift performs a full resync for all maintained zero-ETL integrations. During the resync, data ingestion performance might be temporarily reduced.
++ If you use history mode on the target database, record versions from the time the snapshot was taken until the full resync completes are not captured. After the resync, history mode resumes normal operation. This behavior is the same as any other full resync. For more information, see [History mode](zero-etl-history-mode.md).
++ If a zero-ETL integration was created after the snapshot was taken, the integration enters the `NEEDS_ATTENTION` state after the restore because the corresponding database does not exist in the snapshot. To resolve this, you can restore from a more recent snapshot that includes the integration, or delete the integration.
++ If a zero-ETL integration was deleted after the snapshot was taken, the integration is not restored. The database from the snapshot remains and can be deleted.
++ If table-level filters were changed after the snapshot was taken, the restored target uses the current filters from the integration, not the filters at the time of the snapshot.
++ To opt out of maintaining integrations during a restore, uncheck the **Maintain Integrations** box on the restore page in the AWS Management Console, or if you are using the AWS CLI, set the `--no-maintain-integration` parameter when calling the [restore-from-snapshot](https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_RestoreFromSnapshot.html) or [restore-from-recovery-point](https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_RestoreFromRecoveryPoint.html) API operation. When you opt out, integrations enter the `FAILED` state after the restore. You can delete the integrations and recreate them.
++ This feature applies to Amazon Redshift Serverless only when restored to the same serverless namespace. Snapshot restores on provisioned clusters do not maintain zero-ETL integrations.
 
 ## Considerations when resizing a zero-ETL integration target
+<a name="zero-etl-considerations-resize"></a>
 
-When you resize an Amazon Redshift provisioned cluster that is the target of a zero-ETL integration, the
-resize can cause the integration tables to resynchronize. Whether resynchronization occurs
-depends on the type of resize:
-
-- An elastic resize that changes only the number of nodes (an in-place resize) does
-  not affect zero-ETL integrations. Tables remain synchronized.
-- An elastic resize that changes the node type causes all tables in zero-ETL integrations on
-  the cluster to resynchronize. Any classic resize also triggers resynchronization. This
-  happens because these resize operations temporarily change the distribution style of
-  tables while the service redistributes data onto the new cluster configuration. For more
-  information, see [Resizing a cluster](resizing-cluster.md "resizing-cluster.md").
+When you resize an Amazon Redshift provisioned cluster that is the target of a zero-ETL integration, the resize can cause the integration tables to resynchronize. Whether resynchronization occurs depends on the type of resize:
++ An elastic resize that changes only the number of nodes (an in-place resize) does not affect zero-ETL integrations. Tables remain synchronized.
++ An elastic resize that changes the node type causes all tables in zero-ETL integrations on the cluster to resynchronize. Any classic resize also triggers resynchronization. This happens because these resize operations temporarily change the distribution style of tables while the service redistributes data onto the new cluster configuration. For more information, see [Resizing a cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/resizing-cluster.html).
 
 The following considerations apply when a resize triggers resynchronization:
-
-- The integration remains active, and resynchronization starts automatically after the
-  resize completes. You don't need to take any action.
-- While a table is resynchronizing, you can't query it in Amazon Redshift. To keep tables
-  queryable during resynchronization, set the `QUERY_ALL_STATES` parameter to
-  `TRUE` on the destination database before you start the resize. Data
-  returned during resynchronization might be stale until the resynchronization completes.
-  For more information, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER
-  DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the _Amazon Redshift Database Developer Guide_.
-- Resynchronization can take 20–25 minutes or more, depending on the size of
-  the source database.
-- You can monitor the state of integration tables using the [SVV\_INTEGRATION\_TABLE\_STATE](../dg/r_SVV_INTEGRATION_TABLE_STATE.md "../dg/r_SVV_INTEGRATION_TABLE_STATE.md") system view. Tables show the
-  `ResyncRequired` or `ResyncInitiated` state until
-  resynchronization completes and they return to `Synced`.
++ The integration remains active, and resynchronization starts automatically after the resize completes. You don't need to take any action.
++ While a table is resynchronizing, you can't query it in Amazon Redshift. To keep tables queryable during resynchronization, set the `QUERY_ALL_STATES` parameter to `TRUE` on the destination database before you start the resize. Data returned during resynchronization might be stale until the resynchronization completes. For more information, see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) and [ALTER DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_DATABASE.html) in the *Amazon Redshift Database Developer Guide*.
++ Resynchronization can take 20–25 minutes or more, depending on the size of the source database.
++ You can monitor the state of integration tables using the [SVV\_INTEGRATION\_TABLE\_STATE](https://docs.aws.amazon.com/redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.html) system view. Tables show the `ResyncRequired` or `ResyncInitiated` state until resynchronization completes and they return to `Synced`.

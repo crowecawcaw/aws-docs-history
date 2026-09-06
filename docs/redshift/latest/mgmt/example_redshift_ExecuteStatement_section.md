@@ -1,28 +1,21 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use `ExecuteStatement` with an AWS SDK
+<a name="example_redshift_ExecuteStatement_section"></a>
 
 The following code examples show how to use `ExecuteStatement`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_redshift_Scenario_section.md) 
 
-- [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples").
-
-Executes a SQL statement to create a database table.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
+Executes a SQL statement to create a database table.  
 
 ```
     /**
@@ -54,11 +47,8 @@ Executes a SQL statement to create a database table.
                 }
             });
     }
-
-
 ```
-
-Executes a SQL statement to insert data into a database table.
+Executes a SQL statement to insert data into a database table.  
 
 ```
     /**
@@ -141,11 +131,8 @@ Executes a SQL statement to insert data into a database table.
             return t;
         });
     }
-
-
 ```
-
-Executes a SQL statement to query a database table.
+Executes a SQL statement to query a database table.  
 
 ```
     /**
@@ -188,23 +175,14 @@ Executes a SQL statement to query a database table.
             return "";
         });
     }
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/ExecuteStatement) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ExecuteStatement](../../../goto/SdkForJavaV2/redshift-2012-12-01/ExecuteStatement.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/ExecuteStatement.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsd#code-examples). 
 
 ```
     TRY.
@@ -213,7 +191,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         " Example values: iv_user_name = 'awsuser'
         " Example values: iv_sql = 'SELECT * FROM movies WHERE year = :year'
         " Example values: it_parameter_list - SQL parameters for parameterized queries
-
+        
         " Only pass parameters if the list is not empty
         IF it_parameter_list IS NOT INITIAL.
           oo_result = lo_rsd->executestatement(
@@ -231,7 +209,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
             iv_sql = iv_sql
           ).
         ENDIF.
-
+        
         lv_statement_id = oo_result->get_id( ).
         MESSAGE |Statement executed. ID: { lv_statement_id }| TYPE 'I'.
       CATCH /aws1/cx_rsdexecutestatementex.
@@ -239,14 +217,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_rsdresourcenotfoundex.
         MESSAGE 'Resource not found.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [ExecuteStatement](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ExecuteStatement](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

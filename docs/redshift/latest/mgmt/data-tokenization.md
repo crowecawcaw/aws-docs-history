@@ -1,31 +1,14 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Data tokenization
+<a name="data-tokenization"></a>
 
-_Tokenization_ is the process of replacing actual values
-with opaque values for data security purposes. Security-sensitive applications use
-tokenization to replace sensitive data such as personally identifiable information (PII)
-or protected health information (PHI) with tokens to reduce the security risks.
-_Detokenization_ reverses tokens with actual values
-for authorized users with appropriate security policies.
+*Tokenization* is the process of replacing actual values with opaque values for data security purposes. Security-sensitive applications use tokenization to replace sensitive data such as personally identifiable information (PII) or protected health information (PHI) with tokens to reduce the security risks. *Detokenization* reverses tokens with actual values for authorized users with appropriate security policies.
 
-For integration with third-party tokenization services, you can use Amazon Redshift user-defined functions
-(UDFs) that you create using [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"). For more information, see [Lambda user-defined functions](../dg/udf-creating-a-lambda-sql-udf.md "../dg/udf-creating-a-lambda-sql-udf.md") in the _Amazon Redshift Database Developer Guide_. For example, see [Protegrity](https://www.protegrity.com/how-we-work/partners/aws-data-protection "https://www.protegrity.com/how-we-work/partners/aws-data-protection").
+For integration with third-party tokenization services, you can use Amazon Redshift user-defined functions (UDFs) that you create using [AWS Lambda](https://aws.amazon.com/lambda/). For more information, see [Lambda user-defined functions](https://docs.aws.amazon.com/redshift/latest/dg/udf-creating-a-lambda-sql-udf.html) in the *Amazon Redshift Database Developer Guide*. For example, see [Protegrity](https://www.protegrity.com/how-we-work/partners/aws-data-protection). 
 
-Amazon Redshift sends tokenization requests to a tokenization server accessed through a REST API or
-predefined endpoint. Two or more complimentary Lambda functions process the tokenization
-and detokenization requests. For this processing, you can use Lambda functions provided
-by a third-party tokenization provider. You can also use Lambda functions that you
-register as Lambda UDFs in Amazon Redshift.
+Amazon Redshift sends tokenization requests to a tokenization server accessed through a REST API or predefined endpoint. Two or more complimentary Lambda functions process the tokenization and detokenization requests. For this processing, you can use Lambda functions provided by a third-party tokenization provider. You can also use Lambda functions that you register as Lambda UDFs in Amazon Redshift.
 
-For example, suppose that a query is submitted that invokes a tokenization or detokenization
-UDF on a column. The Amazon Redshift cluster spools the applicable rows of arguments and sends
-those rows in batches to the Lambda function in parallel. The data transfers between the
-Amazon Redshift compute nodes and Lambda in a separate, isolated network connection that's not
-accessible to clients. The Lambda function passes the data to the tokenization server
-endpoint. The tokenization server tokenizes or detokenizes the data as necessary and
-returns it. The Lambda functions then transmit the results to the Amazon Redshift cluster for
-further processing, if necessary, and then return the query results.
+For example, suppose that a query is submitted that invokes a tokenization or detokenization UDF on a column. The Amazon Redshift cluster spools the applicable rows of arguments and sends those rows in batches to the Lambda function in parallel. The data transfers between the Amazon Redshift compute nodes and Lambda in a separate, isolated network connection that's not accessible to clients. The Lambda function passes the data to the tokenization server endpoint. The tokenization server tokenizes or detokenizes the data as necessary and returns it. The Lambda functions then transmit the results to the Amazon Redshift cluster for further processing, if necessary, and then return the query results.

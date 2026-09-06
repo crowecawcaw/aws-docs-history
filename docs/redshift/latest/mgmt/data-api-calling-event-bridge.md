@@ -1,53 +1,37 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Scheduling Amazon Redshift Data API operations with Amazon EventBridge
+<a name="data-api-calling-event-bridge"></a>
 
-You can create rules that match selected events and route them to targets to take
-action. You can also use rules to take action on a predetermined schedule. For more
-information, see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md").
+You can create rules that match selected events and route them to targets to take action. You can also use rules to take action on a predetermined schedule. For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/). 
 
-To schedule Data API operations with EventBridge, the associated IAM role must trust
-the principal for CloudWatch Events (events.amazonaws.com). This role should have the equivalent of
-the managed policy `AmazonEventBridgeFullAccess` attached. It should also
-have `AmazonRedshiftDataFullAccess` policy permissions that are managed by
-the Data API. You can create an IAM role with these permissions on the IAM
-console. When creating a role on the IAM console, choose the AWS service trusted
-entity for CloudWatch Events. Specify the IAM role in the `RoleArn` JSON value in the
-EventBridge target. For more information about creating an IAM role, see [Creating a Role for an AWS Service (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console") in the
-_IAM User Guide_.
+To schedule Data API operations with EventBridge, the associated IAM role must trust the principal for CloudWatch Events (events.amazonaws.com). This role should have the equivalent of the managed policy `AmazonEventBridgeFullAccess` attached. It should also have `AmazonRedshiftDataFullAccess` policy permissions that are managed by the Data API. You can create an IAM role with these permissions on the IAM console. When creating a role on the IAM console, choose the AWS service trusted entity for CloudWatch Events. Specify the IAM role in the `RoleArn` JSON value in the EventBridge target. For more information about creating an IAM role, see [Creating a Role for an AWS Service (Console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console) in the *IAM User Guide*.
 
-The `name` of the rule that you create in Amazon EventBridge must match the
-`StatementName` in the `RedshiftDataParameters`.
+The `name` of the rule that you create in Amazon EventBridge must match the `StatementName` in the `RedshiftDataParameters`.
 
-The following examples show variations of creating EventBridge rules with a single or
-multiple SQL statements and with an Amazon Redshift cluster or an Amazon Redshift Serverless workgroup as the data
-warehouse.
+The following examples show variations of creating EventBridge rules with a single or multiple SQL statements and with an Amazon Redshift cluster or an Amazon Redshift Serverless workgroup as the data warehouse.
 
-The following example uses the AWS CLI to create an EventBridge rule that is used to
-run a SQL statement against an Amazon Redshift cluster.
+## Calling with a single SQL statement and cluster
+<a name="data-api-calling-event-bridge-sql-cluster"></a>
+
+The following example uses the AWS CLI to create an EventBridge rule that is used to run a SQL statement against an Amazon Redshift cluster.
 
 ```
-aws events put-rule
---name test-redshift-cluster-data
+aws events put-rule 
+--name test-redshift-cluster-data 
 --schedule-expression "rate(1 minute)"
 ```
 
-Then an EventBridge target is created to run on the schedule specified in the rule.
+Then an EventBridge target is created to run on the schedule specified in the rule. 
 
 ```
-aws events put-targets
+aws events put-targets 
 --cli-input-json file://data.json
 ```
 
-The input data.json file is as follows. The `Sql` JSON key
-indicates there is a single SQL statement. The `Arn` JSON value
-contains a cluster identifier.
-The
-`RoleArn` JSON value contains the IAM role used to run the SQL
-as described previously.
+The input data.json file is as follows. The `Sql` JSON key indicates there is a single SQL statement. The `Arn` JSON value contains a cluster identifier. The `RoleArn` JSON value contains the IAM role used to run the SQL as described previously. 
 
 ```
 {
@@ -70,131 +54,122 @@ as described previously.
 }
 ```
 
-The following example uses the AWS CLI to create an EventBridge rule that is used to
-run a SQL statement against an Amazon Redshift Serverless workgroup.
+## Calling with a single SQL statement and workgroup
+<a name="data-api-calling-event-bridge-sql-workgroup"></a>
+
+The following example uses the AWS CLI to create an EventBridge rule that is used to run a SQL statement against an Amazon Redshift Serverless workgroup.
 
 ```
-aws events put-rule
---name  test-redshift-serverless-workgroup-data
+aws events put-rule 
+--name  test-redshift-serverless-workgroup-data 
 --schedule-expression "rate(1 minute)"
 ```
 
-Then an EventBridge target is created to run on the schedule specified in the rule.
+Then an EventBridge target is created to run on the schedule specified in the rule. 
 
 ```
-aws events put-targets
+aws events put-targets 
 --cli-input-json file://data.json
 ```
 
-The input data.json file is as follows. The `Sql` JSON key
-indicates there is a single SQL statement. The `Arn` JSON value
-contains a workgroup name.
-The
-`RoleArn` JSON value contains the IAM role used to run the SQL
-as described previously.
+The input data.json file is as follows. The `Sql` JSON key indicates there is a single SQL statement. The `Arn` JSON value contains a workgroup name. The `RoleArn` JSON value contains the IAM role used to run the SQL as described previously. 
 
 ```
 {
-    "Rule": "test-redshift-serverless-workgroup-data",
-    "EventBusName": "default",
-    "Targets": [
+    "Rule": "test-redshift-serverless-workgroup-data", 
+    "EventBusName": "default", 
+    "Targets": [ 
         {
             "Id": "2",
             "Arn": "arn:aws:redshift-serverless:us-east-1:123456789012:workgroup/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
-            "RoleArn": "arn:aws:iam::123456789012:role/Administrator",
+            "RoleArn": "arn:aws:iam::123456789012:role/Administrator", 
             "RedshiftDataParameters": {
                 "Database": "dev",
                 "Sql": "select 1;",
-                "StatementName": "test-redshift-serverless-workgroup-data",
-                "WithEvent": true
-            }
-        }
-    ]
+                "StatementName": "test-redshift-serverless-workgroup-data", 
+                "WithEvent": true 
+            } 
+        } 
+    ] 
 }
 ```
 
-The following example uses the AWS CLI to create an EventBridge rule that is used to
-run multiple SQL statements against an Amazon Redshift cluster.
+## Calling with multiple SQL statements and cluster
+<a name="data-api-calling-event-bridge-sqls-cluster"></a>
+
+The following example uses the AWS CLI to create an EventBridge rule that is used to run multiple SQL statements against an Amazon Redshift cluster.
 
 ```
-aws events put-rule
---name  test-redshift-cluster-data
+aws events put-rule 
+--name  test-redshift-cluster-data 
 --schedule-expression "rate(1 minute)"
 ```
 
-Then an EventBridge target is created to run on the schedule specified in the rule.
+Then an EventBridge target is created to run on the schedule specified in the rule. 
 
 ```
-aws events put-targets
+aws events put-targets 
 --cli-input-json file://data.json
 ```
 
-The input data.json file is as follows. The `Sqls` JSON key
-indicates there are multiple SQL statements. The `Arn` JSON value
-contains a cluster identifier.
-The
-`RoleArn` JSON value contains the IAM role used to run the SQL
-as described previously.
+The input data.json file is as follows. The `Sqls` JSON key indicates there are multiple SQL statements. The `Arn` JSON value contains a cluster identifier. The `RoleArn` JSON value contains the IAM role used to run the SQL as described previously. 
 
 ```
 {
-    "Rule": "test-redshift-cluster-data",
-    "EventBusName": "default",
-    "Targets": [
+    "Rule": "test-redshift-cluster-data", 
+    "EventBusName": "default", 
+    "Targets": [ 
         {
             "Id": "2",
             "Arn": "arn:aws:redshift:us-east-1:123456789012:cluster:mycluster",
-            "RoleArn": "arn:aws:iam::123456789012:role/Administrator",
+            "RoleArn": "arn:aws:iam::123456789012:role/Administrator", 
             "RedshiftDataParameters": {
                 "Database": "dev",
                 "Sqls": ["select 1;", "select 2;", "select 3;"],
-                "StatementName": "test-redshift-cluster-data",
-                "WithEvent": true
-            }
-        }
-    ]
+                "StatementName": "test-redshift-cluster-data", 
+                "WithEvent": true 
+            } 
+        } 
+    ] 
 }
 ```
 
-The following example uses the AWS CLI to create an EventBridge rule that is used to
-run multiple SQL statements against an Amazon Redshift Serverless workgroup.
+## Calling with multiple SQL statements and workgroup
+<a name="data-api-calling-event-bridge-sqls-workgroup"></a>
+
+The following example uses the AWS CLI to create an EventBridge rule that is used to run multiple SQL statements against an Amazon Redshift Serverless workgroup.
 
 ```
-aws events put-rule
---name  test-redshift-serverless-workgroup-data
+aws events put-rule 
+--name  test-redshift-serverless-workgroup-data 
 --schedule-expression "rate(1 minute)"
 ```
 
-Then an EventBridge target is created to run on the schedule specified in the rule.
+Then an EventBridge target is created to run on the schedule specified in the rule. 
 
 ```
-aws events put-targets
+aws events put-targets 
 --cli-input-json file://data.json
 ```
 
-The input data.json file is as follows. The `Sqls` JSON key
-indicates there are multiple SQL statements. The `Arn` JSON value
-contains a workgroup name.
-The
-`RoleArn` JSON value contains the IAM role used to run the SQL
-as described previously.
+The input data.json file is as follows. The `Sqls` JSON key indicates there are multiple SQL statements. The `Arn` JSON value contains a workgroup name. The `RoleArn` JSON value contains the IAM role used to run the SQL as described previously. 
 
 ```
 {
-    "Rule": "test-redshift-serverless-workgroup-data",
-    "EventBusName": "default",
-    "Targets": [
+    "Rule": "test-redshift-serverless-workgroup-data", 
+    "EventBusName": "default", 
+    "Targets": [ 
         {
             "Id": "2",
             "Arn": "arn:aws:redshift-serverless:us-east-1:123456789012:workgroup/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
-            "RoleArn": "arn:aws:iam::123456789012:role/Administrator",
+            "RoleArn": "arn:aws:iam::123456789012:role/Administrator", 
             "RedshiftDataParameters": {
                 "Database": "dev",
                 "Sqls": ["select 1;", "select 2;", "select 3;"],
-                "StatementName": "test-redshift-serverless-workgroup-data",
-                "WithEvent": true
-            }
-        }
-    ]
+                "StatementName": "test-redshift-serverless-workgroup-data", 
+                "WithEvent": true 
+            } 
+        } 
+    ] 
 }
 ```

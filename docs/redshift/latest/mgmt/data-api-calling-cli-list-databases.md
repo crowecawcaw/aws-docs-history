@@ -1,24 +1,20 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # List databases in a cluster
+<a name="data-api-calling-cli-list-databases"></a>
 
-To list the databases in a cluster, use the `aws redshift-data
- list-databases` AWS CLI command.
+To list the databases in a cluster, use the `aws redshift-data list-databases` AWS CLI command.
 
-The following AWS CLI command runs a SQL statement against a cluster to list
-databases. This example uses the AWS Secrets Manager authentication method.
+The following AWS CLI command runs a SQL statement against a cluster to list databases. This example uses the AWS Secrets Manager authentication method.
 
 ```
+aws redshift-data list-databases  
 
-aws redshift-data list-databases
-
-    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn
-    --cluster-identifier mycluster-test
+    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn 
+    --cluster-identifier mycluster-test 
     --database dev
-
 ```
 
 The following is an example of the response.
@@ -31,16 +27,13 @@ The following is an example of the response.
 }
 ```
 
-The following AWS CLI command runs a SQL statement against a cluster to list
-databases. This example uses the temporary credentials authentication method.
+The following AWS CLI command runs a SQL statement against a cluster to list databases. This example uses the temporary credentials authentication method.
 
 ```
-
-aws redshift-data list-databases
-    --db-user myuser
-    --cluster-identifier mycluster-test
+aws redshift-data list-databases  
+    --db-user myuser 
+    --cluster-identifier mycluster-test 
     --database dev
-
 ```
 
 The following is an example of the response.

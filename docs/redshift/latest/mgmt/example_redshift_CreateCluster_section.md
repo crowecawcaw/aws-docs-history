@@ -1,27 +1,21 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Use `CreateCluster` with an AWS SDK or CLI
+<a name="example_redshift_CreateCluster_section"></a>
 
 The following code examples show how to use `CreateCluster`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_redshift_Scenario_section.md) 
++  [Getting started with provisioned data warehouse clusters](example_redshift_GettingStarted_039_section.md) 
 
-- [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
-- [Getting started with provisioned data warehouse clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Redshift#code-examples). 
 
 ```
     /// <summary>
@@ -64,25 +58,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
-
-
 ```
++  For API details, see [CreateCluster](https://docs.aws.amazon.com/goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateCluster](../../../goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-Create a Cluster with Minimal ParametersThis example creates a cluster with the minimal set of parameters. By default, the output is in JSON format.Command:
+**AWS CLI**  
+Create a Cluster with Minimal ParametersThis example creates a cluster with the minimal set of parameters. By default, the output is in JSON format.Command:  
 
 ```
 aws redshift create-cluster --node-type dw.hs1.xlarge --number-of-nodes 2 --master-username adminuser --master-user-password TopSecret1 --cluster-identifier mycluster
 ```
-
-Result:
+Result:  
 
 ```
 {
@@ -118,23 +106,15 @@ Result:
    }
 }
 ```
++  For API details, see [CreateCluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/redshift/create-cluster.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateCluster](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/redshift/create-cluster.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/redshift/create-cluster.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/redshift#code-examples). 
 
 ```
-
 import (
 	"context"
 	"errors"
@@ -179,26 +159,15 @@ func (actor RedshiftActions) CreateCluster(ctx context.Context, clusterId string
 	log.Printf("Created cluster %s\n", *output.Cluster.ClusterIdentifier)
 	return output, nil
 }
-
-
-
 ```
++  For API details, see [CreateCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.CreateCluster) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [CreateCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.CreateCluster "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.CreateCluster")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples").
-
-Create the cluster.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/redshift#code-examples). 
+Create the cluster.  
 
 ```
     /**
@@ -228,25 +197,15 @@ Create the cluster.
                 }
             });
     }
-
-
 ```
++  For API details, see [CreateCluster](https://docs.aws.amazon.com/goto/SdkForJavaV2/redshift-2012-12-01/CreateCluster) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateCluster](../../../goto/SdkForJavaV2/redshift-2012-12-01/CreateCluster.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/CreateCluster.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/redshift#code-examples").
-
-Create the client.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/redshift#code-examples). 
+Create the client.  
 
 ```
 import { RedshiftClient } from "@aws-sdk/client-redshift";
@@ -255,11 +214,8 @@ const REGION = "REGION";
 //Set the Redshift Service Object
 const redshiftClient = new RedshiftClient({ region: REGION });
 export { redshiftClient };
-
-
 ```
-
-Create the cluster.
+Create the cluster.  
 
 ```
 // Import required AWS SDK clients and commands for Node.js
@@ -290,25 +246,15 @@ const run = async () => {
   }
 };
 run();
-
-
 ```
++  For API details, see [CreateCluster](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/CreateClusterCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateCluster](../../../AWSJavaScriptSDK/v3/latest/client/redshift/command/CreateClusterCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/redshift/command/CreateClusterCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/redshift#code-examples").
-
-Create the cluster.
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/redshift#code-examples). 
+Create the cluster.  
 
 ```
 suspend fun createCluster(
@@ -332,23 +278,14 @@ suspend fun createCluster(
         println("Created cluster ${clusterResponse.cluster?.clusterIdentifier}")
     }
 }
-
-
 ```
++  For API details, see [CreateCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateCluster](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/redshift#code-examples). 
 
 ```
 class RedshiftWrapper:
@@ -401,35 +338,21 @@ class RedshiftWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-The following code instantiates the RedshiftWrapper object.
+The following code instantiates the RedshiftWrapper object.   
 
 ```
     client = boto3.client("redshift")
     redhift_wrapper = RedshiftWrapper(client)
-
-
 ```
++  For API details, see [CreateCluster](https://docs.aws.amazon.com/goto/boto3/redshift-2012-12-01/CreateCluster) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateCluster](../../../goto/boto3/redshift-2012-12-01/CreateCluster.md "../../../goto/boto3/redshift-2012-12-01/CreateCluster.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples").
-
-Create the cluster.
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/rsh#code-examples). 
+Create the cluster.  
 
 ```
     TRY.
@@ -453,14 +376,9 @@ Create the cluster.
       CATCH /aws1/cx_rshclstquotaexcdfault.
         MESSAGE 'Cluster quota exceeded.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateCluster](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateCluster](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

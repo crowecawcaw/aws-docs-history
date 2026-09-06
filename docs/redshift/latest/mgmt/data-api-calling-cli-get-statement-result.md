@@ -1,51 +1,29 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Fetch the results of a SQL statement
+<a name="data-api-calling-cli-get-statement-result"></a>
 
-To fetch the result from a SQL statement that ran, use the `redshift-data
- get-statement-result` or `redshift-data
- get-statement-result-v2` AWS CLI command. The results from
-`get-statement-result` are in JSON format. The results from
-`get-statement-result-v2` are in CSV format. You can provide an
-`Id` that you receive in response to `execute-statement`
-or `batch-execute-statement`. The `Id` value for a SQL
-statement run by `batch-execute-statement` can be retrieved in the result
-of `describe-statement` and is suffixed by a colon and sequence number
-such as `b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:2`. If you run multiple SQL
-statements with `batch-execute-statement`, each SQL statement has an
-`Id` value as shown in `describe-statement`. Authorization to
-run this command is based on the caller's IAM permissions.
+To fetch the result from a SQL statement that ran, use the `redshift-data get-statement-result` or `redshift-data get-statement-result-v2` AWS CLI command. The results from `get-statement-result` are in JSON format. The results from `get-statement-result-v2` are in CSV format. You can provide an `Id` that you receive in response to `execute-statement` or `batch-execute-statement`. The `Id` value for a SQL statement run by `batch-execute-statement` can be retrieved in the result of `describe-statement` and is suffixed by a colon and sequence number such as `b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:2`. If you run multiple SQL statements with `batch-execute-statement`, each SQL statement has an `Id` value as shown in `describe-statement`. Authorization to run this command is based on the caller's IAM permissions. 
 
-Optionally, to reduce the number of poll requests, use the `WaitTimeSeconds` parameter to allow extra time for the statement to complete before the API returns a statement result. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
+Optionally, to reduce the number of poll requests, use the `WaitTimeSeconds` parameter to allow extra time for the statement to complete before the API returns a statement result. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md).
 
-The following statement returns the result of a SQL statement run by
-`execute-statement` that let the `ResultFormat` default to
-`JSON`. To retrieve the results, call the
-`get-statement-result` operation.
+The following statement returns the result of a SQL statement run by `execute-statement` that let the `ResultFormat` default to `JSON`. To retrieve the results, call the `get-statement-result` operation.
 
 ```
-
-aws redshift-data get-statement-result
+aws redshift-data get-statement-result 
     --id d9b6c0c9-0747-4bf4-b142-e8883122f766
-
 ```
 
-The following statement returns the result of the second SQL statement run by
-`batch-execute-statement`.
+The following statement returns the result of the second SQL statement run by `batch-execute-statement`.
 
 ```
-
-aws redshift-data get-statement-result
+aws redshift-data get-statement-result 
     --id b2906c76-fa6e-4cdf-8c5f-4de1ff9b7652:2
-
 ```
 
-The following is an example of the response to a call to
-`get-statement-result` where the SQL result is returned in JSON
-format in the `Records` key of the response.
+The following is an example of the response to a call to `get-statement-result` where the SQL result is returned in JSON format in the `Records` key of the response.
 
 ```
 {
@@ -264,19 +242,14 @@ format in the `Records` key of the response.
 }
 ```
 
-The following example shows a SQL statement run by `execute-statement`
-to return results as JSON. The table `testingtable` has three integer
-columns (col1, col2, col3) and there are three rows with values (1, 2, 3), (4, 5,
-6), and (7, 8, 9).
+The following example shows a SQL statement run by `execute-statement` to return results as JSON. The table `testingtable` has three integer columns (col1, col2, col3) and there are three rows with values (1, 2, 3), (4, 5, 6), and (7, 8, 9).
 
 ```
-
-aws redshift-data execute-statement
-    --database dev
-    --sql "SELECT col1, col2, col3 FROM testingtable"
-    --cluster-id mycluster-test
+aws redshift-data execute-statement 
+    --database dev 
+    --sql "SELECT col1, col2, col3 FROM testingtable" 
+    --cluster-id mycluster-test 
     --result-format JSON
-
 ```
 
 ```
@@ -289,15 +262,11 @@ aws redshift-data execute-statement
 }
 ```
 
-The following is an example of the response to a call to
-`get-statement-result` where the SQL result is returned in JSON
-format in the `Records` key of the response.
+The following is an example of the response to a call to `get-statement-result` where the SQL result is returned in JSON format in the `Records` key of the response.
 
 ```
-
 aws redshift-data get-statement-result
     --id d468d942-6df9-4f85-8ae3-bac01a61aec3
-
 ```
 
 ```
@@ -385,19 +354,14 @@ aws redshift-data get-statement-result
 }
 ```
 
-The following example shows a SQL statement run by `execute-statement`
-to return results as a CSV. The table `testingtable` has three integer
-columns (col1, col2, col3) and there are three rows with values (1, 2, 3), (4, 5,
-6), and (7, 8, 9).
+The following example shows a SQL statement run by `execute-statement` to return results as a CSV. The table `testingtable` has three integer columns (col1, col2, col3) and there are three rows with values (1, 2, 3), (4, 5, 6), and (7, 8, 9).
 
 ```
-
-aws redshift-data execute-statement
-    --database dev
-    --sql "SELECT col1, col2, col3 FROM testingtable"
-    --cluster-id mycluster-test
+aws redshift-data execute-statement 
+    --database dev 
+    --sql "SELECT col1, col2, col3 FROM testingtable" 
+    --cluster-id mycluster-test 
     --result-format CSV
-
 ```
 
 ```
@@ -410,18 +374,11 @@ aws redshift-data execute-statement
 }
 ```
 
-The following is an example of the response to a call to
-`get-statement-result-v2` where the SQL result is returned in CSV
-format in the `Records` key of the response. Rows are separated by
-carriage return and newline (\r\n). The first row returned in `Records`
-are the column headers. Results returned in CSV format are returned in 1 MB where
-each chunk can store any number of rows up to 1MB.
+The following is an example of the response to a call to `get-statement-result-v2` where the SQL result is returned in CSV format in the `Records` key of the response. Rows are separated by carriage return and newline (\\r\\n). The first row returned in `Records` are the column headers. Results returned in CSV format are returned in 1 MB where each chunk can store any number of rows up to 1MB. 
 
 ```
-
 aws redshift-data get-statement-result-v2
     --id d468d942-6df9-4f85-8ae3-bac01a61aec3
-
 ```
 
 ```

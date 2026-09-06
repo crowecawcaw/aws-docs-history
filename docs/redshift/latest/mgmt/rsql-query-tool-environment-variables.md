@@ -1,27 +1,21 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift RSQL environment variables
+<a name="rsql-query-tool-environment-variables"></a>
 
-Amazon Redshift RSQL can use environment variables to select default parameter values.
+ Amazon Redshift RSQL can use environment variables to select default parameter values. 
 
 ## RSPASSWORD
+<a name="rsql-query-tool-rspassword"></a>
 
-###### Important
+**Important**  
+We don't recommend using this environment variable for security reasons, as some operating systems allow non-administrative users to see process environment variables.
 
-We don't recommend using this environment variable for security reasons,
-as some operating systems allow non-administrative users to see process
-environment variables.
+ Sets the password for Amazon Redshift RSQL to use when connecting to Amazon Redshift. This environment variable requires Amazon Redshift RSQL 1.0.4 and above. 
 
-Sets the password for Amazon Redshift RSQL to use when connecting to Amazon Redshift. This
-environment variable requires Amazon Redshift RSQL 1.0.4 and above.
-
-RSQL prioritizes RSPASSWORD if one is set. If RSPASSWORD is not set and
-you're connecting using a DSN, RSQL takes the password from the DSN file's
-parameters. Finally, if RSPASSWORD is not set and you're not using a DSN, RSQL
-provides a password prompt after attempting to connect.
+ RSQL prioritizes RSPASSWORD if one is set. If RSPASSWORD is not set and you're connecting using a DSN, RSQL takes the password from the DSN file's parameters. Finally, if RSPASSWORD is not set and you're not using a DSN, RSQL provides a password prompt after attempting to connect. 
 
 The following is an example of setting an RSPASSWORD:
 

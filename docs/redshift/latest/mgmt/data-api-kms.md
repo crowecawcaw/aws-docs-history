@@ -1,62 +1,37 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using AWS KMS with the Amazon Redshift Data API
+<a name="data-api-kms"></a>
 
-When you encrypt your Amazon Redshift cluster or Redshift Serverless workgroup with a customer managed key, the
-Amazon Redshift Data API uses that same customer managed key to store and encrypt your queries and
-results.
+When you encrypt your Amazon Redshift cluster or Redshift Serverless workgroup with a customer managed key, the Amazon Redshift Data API uses that same customer managed key to store and encrypt your queries and results.
 
-The Data API encrypts your data by default to protect sensitive information, such
-as query text and query results. It uses AWS KMS encryption keys owned by AWS for this
-protection.
+The Data API encrypts your data by default to protect sensitive information, such as query text and query results. It uses AWS KMS encryption keys owned by AWS for this protection.
 
-Default encryption for data at rest reduces operational overhead and complexity when
-you protect sensitive data. This approach helps you build secure applications that meet
-strict encryption compliance and regulatory requirements.
+Default encryption for data at rest reduces operational overhead and complexity when you protect sensitive data. This approach helps you build secure applications that meet strict encryption compliance and regulatory requirements.
 
 ## Using grants in AWS KMS
+<a name="data-api-kms-grants"></a>
 
 The Data API requires a grant to use your customer managed key.
 
-When you call `ExecuteStatement` or `BatchExecuteStatement`
-against a cluster encrypted with a customer managed key, Amazon Redshift creates a grant on
-your behalf by sending a [`CreateGrant`](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS. AWS KMS uses grants to give
-the Data API access to a KMS key in your account.
+When you call `ExecuteStatement` or `BatchExecuteStatement` against a cluster encrypted with a customer managed key, Amazon Redshift creates a grant on your behalf by sending a [`CreateGrant`](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) request to AWS KMS. AWS KMS uses grants to give the Data API access to a KMS key in your account.
 
-The Data API requires the grant to use your customer managed key for the following
-operations:
+The Data API requires the grant to use your customer managed key for the following operations:
++ Send [`Encrypt`](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html) requests to AWS KMS to encrypt query metadata with your customer managed key.
++ Send [`GenerateDataKey`](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) requests to AWS KMS to generate data keys encrypted by your customer managed key.
++ Send [`Decrypt`](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) requests to AWS KMS to decrypt the encrypted data keys so they can encrypt your data.
 
-- Send [`Encrypt`](../../../kms/latest/APIReference/API_Encrypt.md "../../../kms/latest/APIReference/API_Encrypt.md") requests to AWS KMS to encrypt query
-  metadata with your customer managed key.
-- Send [`GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") requests to AWS KMS to generate
-  data keys encrypted by your customer managed key.
-- Send [`Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests to AWS KMS to decrypt the encrypted
-  data keys so they can encrypt your data.
-
-You can revoke access to the grant or remove Amazon Redshift access to your customer managed key at any
-time. If you do, the Data API can no longer access data encrypted by your
-customer managed key, which affects operations that depend on that data. For example, if you
-try to retrieve query results or track query status after revoking the grant, the
-Data API returns an `AccessDeniedException`.
+You can revoke access to the grant or remove Amazon Redshift access to your customer managed key at any time. If you do, the Data API can no longer access data encrypted by your customer managed key, which affects operations that depend on that data. For example, if you try to retrieve query results or track query status after revoking the grant, the Data API returns an `AccessDeniedException`.
 
 ## Key policies for your customer managed key
+<a name="data-api-kms-policy"></a>
 
-Key policies control access to your customer managed key. Every customer managed key must have exactly
-one key policy, which contains statements that determine who can use the key and how
-they can use it. When you create your customer managed key, you can specify a key policy. For
-more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-mgn-key "../../../kms/latest/developerguide/concepts.md#customer-mgn-key") in the _AWS Key Management Service Developer
-Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-mgn-key) in the *AWS Key Management Service Developer Guide*.
 
-To use your customer managed keys with the Data API, you must first allow access to
-Amazon Redshift. The following API operations must be permitted in the key policy:
-
-- `kms:CreateGrant` – Adds a grant to a customer managed
-  key. Grants control access to a specified AWS KMS key, which allows access to
-  grant operations that Amazon Redshift requires. For more information, see [Using
-  grants in AWS KMS](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations").
+To use your customer managed keys with the Data API, you must first allow access to Amazon Redshift. The following API operations must be permitted in the key policy:
++ `kms:CreateGrant` – Adds a grant to a customer managed key. Grants control access to a specified AWS KMS key, which allows access to grant operations that Amazon Redshift requires. For more information, see [Using grants in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations).
 
 The following is an example key policy:
 
@@ -108,22 +83,14 @@ The following is an example key policy:
 ```
 
 ## Data API encryption context
+<a name="data-api-kms-encryption"></a>
 
-An encryption context is an optional set of key-value pairs that contains
-additional contextual information about the data. AWS KMS uses the encryption context
-as additional authenticated data to support authenticated encryption. When you
-include an encryption context in a request to encrypt data, AWS KMS binds the
-encryption context to the encrypted data. To decrypt the data, you must include the
-same encryption context in the request.
+An encryption context is an optional set of key-value pairs that contains additional contextual information about the data. AWS KMS uses the encryption context as additional authenticated data to support authenticated encryption. When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt the data, you must include the same encryption context in the request. 
 
-The Data API uses the same three encryption context key-value pairs in all
-AWS KMS cryptographic operations for provisioned clusters:
-
-- `aws:redshift:arn` – The cluster's Amazon Resource Name
-  (ARN)
-- `aws:redshift:createtime` – The timestamp when you requested
-  cluster creation
-- `serviceName` – `RedshiftDataAPI`
+The Data API uses the same three encryption context key-value pairs in all AWS KMS cryptographic operations for provisioned clusters:
++ `aws:redshift:arn` – The cluster's Amazon Resource Name (ARN)
++ `aws:redshift:createtime` – The timestamp when you requested cluster creation
++ `serviceName` – `RedshiftDataAPI`
 
 ```
 "EncryptionContextSubset": {
@@ -133,12 +100,9 @@ AWS KMS cryptographic operations for provisioned clusters:
 }
 ```
 
-The Data API uses two encryption context key-value pairs in all AWS KMS
-cryptographic operations for serverless workgroups:
-
-- `aws:redshift-serverless:arn` – The namespace's Amazon Resource
-  Name (ARN)
-- `serviceName` – RedshiftDataAPI
+The Data API uses two encryption context key-value pairs in all AWS KMS cryptographic operations for serverless workgroups:
++ `aws:redshift-serverless:arn` – The namespace's Amazon Resource Name (ARN)
++ `serviceName` – RedshiftDataAPI
 
 ```
 "EncryptionContextSubset": {
@@ -147,7 +111,4 @@ cryptographic operations for serverless workgroups:
 }
 ```
 
-For more information about encryption, see [Introduction to the
-cryptographic details of AWS KMS](../../../kms/latest/cryptographic-details/intro.md "../../../kms/latest/cryptographic-details/intro.md"). For more information about the Amazon Redshift and
-AWS KMS integration, see [How Amazon Redshift uses
-AWS KMS](../../../kms/latest/developerguide/services-redshift.md "../../../kms/latest/developerguide/services-redshift.md").
+For more information about encryption, see [Introduction to the cryptographic details of AWS KMS](https://docs.aws.amazon.com/kms/latest/cryptographic-details/intro.html). For more information about the Amazon Redshift and AWS KMS integration, see [How Amazon Redshift uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-redshift.html). 

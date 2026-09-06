@@ -1,66 +1,49 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Supported data types
+<a name="spark-redshift-connector-data-types"></a>
 
-The following data types in Amazon Redshift are supported with the Spark connector. For a
-complete list of supported data types in Amazon Redshift, see [Data types](../dg/c_Supported_data_types.md "../dg/c_Supported_data_types.md"). If a data
-type is not in the table below, it's not supported in the Spark connector.
+The following data types in Amazon Redshift are supported with the Spark connector. For a complete list of supported data types in Amazon Redshift, see [Data types](https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html). If a data type is not in the table below, it's not supported in the Spark connector.
 
-| Data type        | Aliases                           |
-| ---------------- | --------------------------------- |
-| SMALLINT         | INT2                              |
-| INTEGER          | INT, INT4                         |
-| BIGINT           | INT8                              |
-| DECIMAL          | NUMERIC                           |
-| REAL             | FLOAT4                            |
-| DOUBLE PRECISION | FLOAT8, FLOAT                     |
-| BOOLEAN          | BOOL                              |
-| CHAR             | CHARACTER, NCHAR, BPCHAR          |
-| VARCHAR          | CHARACTER VARYING, NVARCHAR, TEXT |
-| DATE             |                                   |
-| TIMESTAMP        | Timestamp without time zone       |
-| TIMESTAMPTZ      | Timestamp with time zone          |
-| SUPER            |                                   |
-| TIME             | Time without time zone            |
-| TIMETZ           | Time with time zone               |
-| VARBYTE          | VARBINARY, BINARY VARYING         |
+
+| Data type | Aliases | 
+| --- | --- | 
+| SMALLINT | INT2 | 
+| INTEGER | INT, INT4 | 
+| BIGINT | INT8 | 
+| DECIMAL | NUMERIC | 
+| REAL | FLOAT4 | 
+| DOUBLE PRECISION | FLOAT8, FLOAT | 
+| BOOLEAN | BOOL | 
+| CHAR | CHARACTER, NCHAR, BPCHAR | 
+| VARCHAR | CHARACTER VARYING, NVARCHAR, TEXT | 
+| DATE |  | 
+| TIMESTAMP | Timestamp without time zone | 
+| TIMESTAMPTZ | Timestamp with time zone | 
+| SUPER |  | 
+| TIME | Time without time zone | 
+| TIMETZ | Time with time zone | 
+| VARBYTE | VARBINARY, BINARY VARYING | 
 
 ## Complex data types
+<a name="spark-redshift-connector-complex-data-types"></a>
 
-You can use the spark connector to read and write Spark complex data types such
-as `ArrayType`, `MapType`, and `StructType` to and
-from Redshift SUPER data type columns. If you provide a schema during a read
-operation, the data in the column will be converted to its corresponding complex
-types in Spark, including any nested types. Additionally, if
-`autopushdown` is enabled, projection of nested attributes, map
-values, and array indices are pushed down to Redshift so that the entire nested
-data structure no longer needs to be unloaded when accessing just a portion of the
-data.
+ You can use the spark connector to read and write Spark complex data types such as `ArrayType`, `MapType`, and `StructType` to and from Redshift SUPER data type columns. If you provide a schema during a read operation, the data in the column will be converted to its corresponding complex types in Spark, including any nested types. Additionally, if `autopushdown` is enabled, projection of nested attributes, map values, and array indices are pushed down to Redshift so that the entire nested data structure no longer needs to be unloaded when accessing just a portion of the data. 
 
-When you write DataFrames from the connector, any column of type
-`MapType` (using `StringType`), `StructType`,
-or `ArrayType` is written to a Redshift SUPER data type column. When
-writing these nested data structures, the `tempformat` parameter must be
-of type `CSV`, `CSV GZIP`, or `PARQUET`. Using
-`AVRO` will cause an exception. Writing a `MapType` data
-structure that has a key type other than `StringType` will also cause an
-exception.
+When you write DataFrames from the connector, any column of type `MapType` (using `StringType`), `StructType`, or `ArrayType` is written to a Redshift SUPER data type column. When writing these nested data structures, the `tempformat` parameter must be of type `CSV`, `CSV GZIP`, or `PARQUET`. Using `AVRO` will cause an exception. Writing a `MapType` data structure that has a key type other than `StringType` will also cause an exception. 
 
 ### StructType
+<a name="spark-redshift-connector-complex-data-types-examples-structtype"></a>
 
-The following example demonstrates how to create a table with a SUPER data
-type that contains a struct
+The following example demonstrates how to create a table with a SUPER data type that contains a struct
 
 ```
-`create table contains_super (a super);`
+create table contains_super (a super);
 ```
 
-You can then use the connector to query a `StringType` field
-`hello` from the SUPER column `a` in the table using a
-schema like in the following example.
+You can then use the connector to query a `StringType` field `hello` from the SUPER column `a` in the table using a schema like in the following example.
 
 ```
 import org.apache.spark.sql.types._
@@ -79,8 +62,7 @@ val helloDF = sqlContext.read
 .load().selectExpr("a.hello")
 ```
 
-The following example demonstrates how to write a struct to the column
-`a`.
+The following example demonstrates how to write a struct to the column `a`.
 
 ```
 import org.apache.spark.sql.types._
@@ -102,15 +84,11 @@ mode(SaveMode.Append).save
 ```
 
 ### MapType
+<a name="spark-redshift-connector-complex-data-types-examples-maptype"></a>
 
-If you prefer to use a `MapType` to represent your data, then you
-can use a `MapType` data structure in your schema and retrieve the
-value corresponding to a key in the map. Note that all keys in your
-`MapType` data structure must be of type String, and all of the
-values must of the same type, such as int.
+If you prefer to use a `MapType` to represent your data, then you can use a `MapType` data structure in your schema and retrieve the value corresponding to a key in the map. Note that all keys in your `MapType` data structure must be of type String, and all of the values must of the same type, such as int. 
 
-The following example demonstrates how to get the value of the key
-`hello` in the column `a`.
+The following example demonstrates how to get the value of the key `hello` in the column `a`.
 
 ```
 import org.apache.spark.sql.types._
@@ -130,9 +108,9 @@ val helloDF = sqlContext.read
 ```
 
 ### ArrayType
+<a name="spark-redshift-connector-complex-data-types-examples-arraytype"></a>
 
-If the column contains an array instead of a struct, you can use the connector
-to query the first element in the array.
+If the column contains an array instead of a struct, you can use the connector to query the first element in the array.
 
 ```
 import org.apache.spark.sql.types._
@@ -152,16 +130,9 @@ val helloDF = sqlContext.read
 ```
 
 ### Limitations
+<a name="spark-redshift-connector-complex-data-types-limitations"></a>
 
-Using complex data types with the spark connector has the following
-limitations:
-
-- All nested struct field names and map keys must be lowercase. If
-  querying for complex field names with uppercase letters, you can try
-  omitting the schema and using the `from_json` spark function
-  to convert the returned string locally as a workaround.
-- Any map fields used in read or write operations must have only
-  `StringType` keys.
-- Only `CSV`, `CSV GZIP`, and `PARQUET` are supported tempformat values for writing complex types to
-  Redshift. Attempting to use `AVRO` will throw an
-  exception.
+Using complex data types with the spark connector has the following limitations:
++ All nested struct field names and map keys must be lowercase. If querying for complex field names with uppercase letters, you can try omitting the schema and using the `from_json` spark function to convert the returned string locally as a workaround.
++ Any map fields used in read or write operations must have only `StringType` keys.
++ Only `CSV`, `CSV GZIP`, and `PARQUET `are supported tempformat values for writing complex types to Redshift. Attempting to use `AVRO `will throw an exception.

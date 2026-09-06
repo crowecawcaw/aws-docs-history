@@ -1,26 +1,18 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift RSQL variables
+<a name="rsql-query-tool-variables"></a>
 
-Some keywords act as variables in RSQL. You can set each to a specific value, or
-re-set the value. Most are set with `\rset`, which has an interactive
-mode and a batch mode. Commands may be defined in lower or upper case.
+ Some keywords act as variables in RSQL. You can set each to a specific value, or re-set the value. Most are set with `\rset`, which has an interactive mode and a batch mode. Commands may be defined in lower or upper case.
 
 ## ACTIVITYCOUNT
+<a name="rsql-query-tool-activitycount"></a>
 
-Indicates the number of rows affected by the last submitted request. For a
-data-returning request, this is the number of rows returned to RSQL from the
-database. The value is 0 or a positive integer. The maximum value is
-18,446,744,073,709,551,615.
+ Indicates the number of rows affected by the last submitted request. For a data-returning request, this is the number of rows returned to RSQL from the database. The value is 0 or a positive integer. The maximum value is 18,446,744,073,709,551,615. 
 
-The specially treated variable `ACTIVITYCOUNT` is similar to the
-variable `ROW_COUNT`. However, `ROW_COUNT` doesn't report
-a count of affected rows to the client application at command completion for
-`SELECT`, `COPY` or `UNLOAD`. But
-`ACTIVITYCOUNT` does.
+ The specially treated variable `ACTIVITYCOUNT` is similar to the variable `ROW_COUNT`. However, `ROW_COUNT` doesn't report a count of affected rows to the client application at command completion for `SELECT`, `COPY` or `UNLOAD`. But `ACTIVITYCOUNT` does. 
 
 activitycount\_01.sql:
 
@@ -44,10 +36,9 @@ views do not exist
 ```
 
 ## ERRORLEVEL
+<a name="rsql-query-tool-describe-rset-errorlevel"></a>
 
-Assigns severity levels to errors. Use the severity levels to determine a
-course of action. If the `ERRORLEVEL` command has not been used, its
-value is `ON` by default.
+Assigns severity levels to errors. Use the severity levels to determine a course of action. If the `ERRORLEVEL` command has not been used, its value is `ON` by default.
 
 errorlevel\_01.sql:
 
@@ -76,10 +67,9 @@ exit
 ```
 
 ## HEADING and RTITLE
+<a name="rsql-query-tool-describe-rset-heading-rtitle"></a>
 
-Enables users to specify a header that appears at the top of a report. Header
-specified by the `RSET RTITLE` command automatically includes the
-current system date of the client computer.
+Enables users to specify a header that appears at the top of a report. Header specified by the `RSET RTITLE` command automatically includes the current system date of the client computer.
 
 rset\_heading\_rtitle\_02.rsql content:
 
@@ -113,20 +103,15 @@ Press any key to continue . . .
 ```
 
 ## MAXERROR
+<a name="rsql-query-tool-describe-rset-maxerror"></a>
 
-Designates a maximum error-severity level beyond which RSQL terminates job
-processing. Return codes are integer values that RSQL returns to the client
-operating system after completing each job or task. The value of the return code
-indicates the completion status of the job or task. If a script contains a
-statement that produces an error-severity level greater than the designated
-`maxerror` value, RSQL immediately exits. Therefore, to have RSQL
-exit on an error-severity level of 8, use `RSET MAXERROR 7`.
+Designates a maximum error-severity level beyond which RSQL terminates job processing. Return codes are integer values that RSQL returns to the client operating system after completing each job or task. The value of the return code indicates the completion status of the job or task. If a script contains a statement that produces an error-severity level greater than the designated `maxerror` value, RSQL immediately exits. Therefore, to have RSQL exit on an error-severity level of 8, use `RSET MAXERROR 7`.
 
 maxerror\_01.sql content:
 
 ```
 \rset maxerror 0
-
+                        
 select 1 as col;
 
 \quit
@@ -143,9 +128,9 @@ col
 ```
 
 ## RFORMAT
+<a name="rsql-query-tool-describe-rset-heading-rformat"></a>
 
-Enables users to specify whether to apply settings for the formatting
-commands.
+Enables users to specify whether to apply settings for the formatting commands.
 
 rset\_rformat.rsql content:
 
@@ -209,9 +194,9 @@ Press any key to continue . . .
 ```
 
 ## ROW\_COUNT
+<a name="rsql-query-tool-describe-rset-row_count"></a>
 
-Gets the number of records affected by the previous query. It's typically used
-to check a result, like in the following code fragment:
+Gets the number of records affected by the previous query. It's typically used to check a result, like in the following code fragment:
 
 ```
 SET result = ROW_COUNT;
@@ -221,9 +206,9 @@ IF result = 0
 ```
 
 ## TITLEDASHES
+<a name="rsql-query-tool-describe-rset-heading-titledashes"></a>
 
-This control enables users to specify whether a line of dash characters is to
-be printed above the column data returned for SQL statements.
+This control enables users to specify whether a line of dash characters is to be printed above the column data returned for SQL statements.
 
 Example:
 
@@ -252,10 +237,9 @@ dept_no     emp_no         salary
 ```
 
 ## WIDTH
+<a name="rsql-query-tool-describe-rset-heading-width"></a>
 
-Sets the output format to wrapped and specifies the target width for each line
-in a report. Without a parameter, it returns the current settings for both the
-format and target width.
+Sets the output format to wrapped and specifies the target width for each line in a report. Without a parameter, it returns the current settings for both the format and target width.
 
 rset\_width\_01.rsql content:
 

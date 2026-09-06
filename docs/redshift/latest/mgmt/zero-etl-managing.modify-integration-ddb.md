@@ -1,55 +1,53 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Modify a zero-ETL integration for DynamoDB
+<a name="zero-etl-managing.modify-integration-ddb"></a>
 
 In this step, you modify an DynamoDB zero-ETL integration with Amazon Redshift.
 
-Amazon Redshift console
+------
+#### [ Amazon Redshift console ]
 
-###### To modify an Amazon DynamoDB zero-ETL integration with Amazon Redshift using the Amazon Redshift console
+**To modify an Amazon DynamoDB zero-ETL integration with Amazon Redshift using the Amazon Redshift console**
 
-1. From the Amazon Redshift console, choose **Zero-ETL integrations**. On the
-   pane with the list of zero-ETL integrations, then choose the DynamoDB integration that you want
-   to modify.
-2. Choose **Edit** and make modifications to the
-   **Integration name** or **Description**.
-3. Choose **Save changes** to save your changes.
+1. From the Amazon Redshift console, choose **Zero-ETL integrations**. On the pane with the list of zero-ETL integrations, then choose the DynamoDB integration that you want to modify.
 
-AWS CLI
-To modify an Amazon DynamoDB zero-ETL integration with Amazon Redshift using the AWS CLI, use the
-`modify-integration` command with the following options:
+1. Choose **Edit** and make modifications to the **Integration name** or **Description**.
 
-- `integration-arn` – Specify the ARN of the DynamoDB integration
-  to modify.
-- `integration-name` – Specify a new name for the
-  integration.
-- `description` – Specify a new description for the
-  integration.
+1. Choose **Save changes** to save your changes.
 
-The follow example modifies an integration by providing the integration ARN, new
-description, and new name.
+------
+#### [ AWS CLI ]
+
+To modify an Amazon DynamoDB zero-ETL integration with Amazon Redshift using the AWS CLI, use the `modify-integration` command with the following options:
++ `integration-arn` – Specify the ARN of the DynamoDB integration to modify.
++ `integration-name` – Specify a new name for the integration.
++ `description` – Specify a new description for the integration.
+
+The follow example modifies an integration by providing the integration ARN, new description, and new name.
 
 ```
-`aws redshift modify-integration \
+aws redshift modify-integration \
 --integration-arn arn:aws:redshift:us-east-1:123456789012:integration:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
 --description "Test modify description and name together." \
---integration-name "updated-integration-name-2"`
-      `{
- "IntegrationArn": "arn:aws:redshift:us-east-1:123456789012:integration:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- "IntegrationName": "updated-integration-name-2",
- "SourceArn": "arn:aws:dynamodb:us-east-1:123456789012:table/ddb-temp-test-table-table",
- "SourceType": "dynamodb",
- "TargetArn": "arn:aws:redshift:us-east-1:123456789012:namespace:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- "Status": "active",
- "Errors": [],
- "CreateTime": "2024-09-19T18:06:33.555Z",
- "Description": "Test modify description and name together.",
- "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
- "AdditionalEncryptionContext": {},
- "Tags": []
-}`
-
+--integration-name "updated-integration-name-2"
+      
+{
+    "IntegrationArn": "arn:aws:redshift:us-east-1:123456789012:integration:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "IntegrationName": "updated-integration-name-2",
+    "SourceArn": "arn:aws:dynamodb:us-east-1:123456789012:table/ddb-temp-test-table-table",
+    "SourceType": "dynamodb",
+    "TargetArn": "arn:aws:redshift:us-east-1:123456789012:namespace:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "Status": "active",
+    "Errors": [],
+    "CreateTime": "2024-09-19T18:06:33.555Z",
+    "Description": "Test modify description and name together.",
+    "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "AdditionalEncryptionContext": {},
+    "Tags": []
+}
 ```
+
+------

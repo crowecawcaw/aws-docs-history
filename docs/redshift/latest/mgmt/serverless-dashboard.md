@@ -1,28 +1,15 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Checking Amazon Redshift Serverless summary data using the dashboard
+<a name="serverless-dashboard"></a>
 
-The Amazon Redshift Serverless dashboard contains a collection of panels that show
-at-a-glance metrics and information about your workgroup and namespace. These panels
-include the following:
+The Amazon Redshift Serverless dashboard contains a collection of panels that show at-a-glance metrics and information about your workgroup and namespace. These panels include the following: 
++ **Resources summary** - Displays high-level information about Amazon Redshift Serverless, such as the storage used and other metrics.
++ **Query summary** - Displays information about queries, including completed queries and running queries. Choose **View details** to go to a screen that has additional filters.
++ **RPU capacity used** - Displays the overall capacity used over a given time period, like the previous ten hours, for instance.
++ **Datashares** - Shows the count of datashares, which are used to share darta between, for example, AWS accounts. The metrics show which datashares require authorization, and other information.
++ **Total compute usage** - Shows your total consumed RPU hours for the selected workgroup over a selected time range, up to the last 7 days.
 
-- **Resources summary** - Displays high-level information
-  about Amazon Redshift Serverless, such as the storage used and other metrics.
-- **Query summary** - Displays information about queries,
-  including completed queries and running queries. Choose **View
-  details** to go to a screen that has additional
-  filters.
-- **RPU capacity used** - Displays the overall capacity
-  used over a given time period, like the previous ten hours, for
-  instance.
-- **Datashares** - Shows the count of datashares, which are
-  used to share darta between, for example, AWS accounts. The metrics show
-  which datashares require authorization, and other information.
-- **Total compute usage** - Shows your total consumed RPU
-  hours for the selected workgroup over a selected time range, up to the last
-  7 days.
-  From the dashboard you can quickly dive into these available metrics to check a
-  detail regarding Amazon Redshift Serverless, or review queries, or track work items.
+From the dashboard you can quickly dive into these available metrics to check a detail regarding Amazon Redshift Serverless, or review queries, or track work items.

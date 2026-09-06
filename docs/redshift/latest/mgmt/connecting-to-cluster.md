@@ -1,49 +1,27 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Connecting to an Amazon Redshift data warehouse using SQL client tools
+<a name="connecting-to-cluster"></a>
 
-You can connect to Amazon Redshift data warehouses from SQL client tools over Java Database
-Connectivity (JDBC), Python, and Open Database Connectivity (ODBC) connections. Amazon Redshift
-doesn't provide or install any SQL client tools or libraries. To use these tools or
-libraries to work with data in your data warehouses, install them on your client computer or
-Amazon EC2 instance. You can use most SQL client tools that support JDBC, Python, or ODBC
-drivers.
+You can connect to Amazon Redshift data warehouses from SQL client tools over Java Database Connectivity (JDBC), Python, and Open Database Connectivity (ODBC) connections. Amazon Redshift doesn't provide or install any SQL client tools or libraries. To use these tools or libraries to work with data in your data warehouses, install them on your client computer or Amazon EC2 instance. You can use most SQL client tools that support JDBC, Python, or ODBC drivers. 
 
-Use the list of sections at the end of this topic to help you walk through the process of
-configuring your client computer or Amazon EC2 instance to use a JDBC, Python, or ODBC
-connection. The topics also discuss related security options for the client connection to
-the server. Additionally, find information about setting up and connecting from SQL client
-tools, such as [Amazon Redshift RSQL](rsql-query-tool.md "rsql-query-tool.md"). You can try these tools if
-you don't yet have a business intelligence tool to use. You can also use this section
-to learn about connecting to your data . Finally, if you encounter issues when attempting to
-connect to your data warehouse, you can review the troubleshooting information to identify
-solutions.
+Use the list of sections at the end of this topic to help you walk through the process of configuring your client computer or Amazon EC2 instance to use a JDBC, Python, or ODBC connection. The topics also discuss related security options for the client connection to the server. Additionally, find information about setting up and connecting from SQL client tools, such as [Amazon Redshift RSQL](https://docs.aws.amazon.com/redshift/latest/mgmt/rsql-query-tool.html). You can try these tools if you don't yet have a business intelligence tool to use. You can also use this section to learn about connecting to your data . Finally, if you encounter issues when attempting to connect to your data warehouse, you can review the troubleshooting information to identify solutions.
 
 ## Recommendations for connecting with client tools
+<a name="connecting-to-cluster-recommendations"></a>
 
-If you connect to your Redshift cluster using an IP address, it can result in
-additional downtime when there is an outage or a connection loss and the cluster is
-brought online in a new Availability Zone (AZ). However, if you still want your
-application to connect to Redshift using an IP address, use the private IP address
-attached to the cluster's virtual-private-cloud (VPC) endpoint. You can find this in the
-cluster details in **Network and security**, under the
-**Properties** tab.
+If you connect to your Redshift cluster using an IP address, it can result in additional downtime when there is an outage or a connection loss and the cluster is brought online in a new Availability Zone (AZ). However, if you still want your application to connect to Redshift using an IP address, use the private IP address attached to the cluster's virtual-private-cloud (VPC) endpoint. You can find this in the cluster details in **Network and security**, under the **Properties** tab. 
 
-###### Note
+**Note**  
+If your application uses the IP address of the leader node to access the Redshift cluster, the recommended best practice is to change it to use the cluster endpoint URL. For more information, see [Configuring connections in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/configuring-connections.html).
 
-If your application uses the IP address of the leader node to access the Redshift
-cluster, the recommended best practice is to change it to use the cluster endpoint
-URL. For more information, see [Configuring connections in
-Amazon Redshift](configuring-connections.md "configuring-connections.md").
-
-###### Topics
-
-- [Configuring connections in Amazon Redshift](configuring-connections.md "configuring-connections.md")
-- [Best practices for discovering metadata](best-practices-discovering-metadata.md "best-practices-discovering-metadata.md")
-- [Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md")
-- [Connecting from client tools and code](connecting-via-client-tools.md "connecting-via-client-tools.md")
-- [Using an authentication profile to connect to Amazon Redshift](connecting-with-authentication-profiles.md "connecting-with-authentication-profiles.md")
-- [Troubleshooting connection issues in Amazon Redshift](troubleshooting-connections.md "troubleshooting-connections.md")
+**Topics**
++ [Recommendations for connecting with client tools](#connecting-to-cluster-recommendations)
++ [Configuring connections in Amazon Redshift](configuring-connections.md)
++ [Best practices for discovering metadata](best-practices-discovering-metadata.md)
++ [Configuring security options for connections](connecting-ssl-support.md)
++ [Connecting from client tools and code](connecting-via-client-tools.md)
++ [Using an authentication profile to connect to Amazon Redshift](connecting-with-authentication-profiles.md)
++ [Troubleshooting connection issues in Amazon Redshift](troubleshooting-connections.md)

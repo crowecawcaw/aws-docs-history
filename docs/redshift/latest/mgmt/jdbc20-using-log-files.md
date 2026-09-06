@@ -1,49 +1,36 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using log files
+<a name="jdbc20-using-log-files"></a>
 
-Only turn on logging long enough to capture an issue. Logging decreases
-performance and can consume a large quantity of disk space.
+Only turn on logging long enough to capture an issue. Logging decreases performance and can consume a large quantity of disk space. 
 
-Set the LogLevel key in your connection URL to turn on logging and specify the
-amount of detail included in log files. The following table lists the logging levels
-provided by the Amazon Redshift JDBC driver version 2.x, in order from least verbose to
-most verbose.
+Set the LogLevel key in your connection URL to turn on logging and specify the amount of detail included in log files. The following table lists the logging levels provided by the Amazon Redshift JDBC driver version 2.x, in order from least verbose to most verbose. 
 
-| LogLevel value | Description                                                                                                                                                          |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1              | Log severe error events that will lead the driver to<br>abort.                                                                                                       |
-| 2              | Log error events that might allow the driver to continue<br>running.                                                                                                 |
-| 3              | Log events that might result in an error if action is not<br>taken. This level of logging and the levels of logging above<br>this level also log the user's queries. |
-| 4              | Log general information that describes the progress of the<br>driver.                                                                                                |
-| 5              | Log detailed information that is useful for debugging the<br>driver.                                                                                                 |
-| 6              | Log all driver activity.                                                                                                                                             |
 
-###### To set up logging that uses log files
+| LogLevel value | Description | 
+| --- | --- | 
+| 1 | Log severe error events that will lead the driver to abort. | 
+| 2 | Log error events that might allow the driver to continue running. | 
+| 3 | Log events that might result in an error if action is not taken. This level of logging and the levels of logging above this level also log the user's queries. | 
+| 4 | Log general information that describes the progress of the driver. | 
+| 5 | Log detailed information that is useful for debugging the driver. | 
+| 6 | Log all driver activity. | 
 
-1. Set the LogLevel property to the desired level of information to include
-   in log files.
-2. Set the LogPath property to the full path to the folder where you want to
-   save log files.
+**To set up logging that uses log files**
 
-For example, the following connection URL enables logging level 3 and
-saves the log files in the C:\temp folder:
-`jdbc:redshift://redshift.company.us-west-
- 1.redshift.amazonaws.com:9000/Default;DSILogLevel=3;LogPath=C:\temp` 3. To make sure that the new settings take effect, restart your JDBC
-application and reconnect to the server.
+1. Set the LogLevel property to the desired level of information to include in log files.
 
-The Amazon Redshift JDBC driver produces the following log files in the location
-specified in the LogPath property:
+1. Set the LogPath property to the full path to the folder where you want to save log files. 
 
-    * redshift\_jdbc.log file that logs driver activity that is not
-     specific to a connection.
-    * redshift\_jdbc\_connection\_[Number].log file for each connection
-     made to the database, where [Number] is a number that identifies
-     each log file. This file logs driver activity that is specific to
-     the connection.
+   For example, the following connection URL enables logging level 3 and saves the log files in the C:\\temp folder: `jdbc:redshift://redshift.company.us-west- 1.redshift.amazonaws.com:9000/Default;DSILogLevel=3;LogPath=C:\temp`
 
-If the LogPath value is invalid, then the driver sends the logged information to
-the standard output stream (`System.out`)
+1. To make sure that the new settings take effect, restart your JDBC application and reconnect to the server.
+
+   The Amazon Redshift JDBC driver produces the following log files in the location specified in the LogPath property:
+   +  redshift\_jdbc.log file that logs driver activity that is not specific to a connection.
+   + redshift\_jdbc\_connection\_[Number].log file for each connection made to the database, where [Number] is a number that identifies each log file. This file logs driver activity that is specific to the connection.
+
+If the LogPath value is invalid, then the driver sends the logged information to the standard output stream (`System.out`)

@@ -1,1641 +1,1297 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Cluster versions for Amazon Redshift
+<a name="cluster-versions"></a>
 
-Amazon Redshift regularly releases cluster versions. Your Amazon Redshift clusters are patched during your system maintenance window.
-The timing of the patch depends on your AWS Region and maintenance window settings.
-You can view or change your maintenance window settings from the Amazon Redshift console.
-For more information about maintenance, see
-[Cluster maintenance](managing-cluster-considerations.md#rs-cluster-maintenance "managing-cluster-considerations.md#rs-cluster-maintenance").
+Amazon Redshift regularly releases cluster versions. Your Amazon Redshift clusters are patched during your system maintenance window. The timing of the patch depends on your AWS Region and maintenance window settings. You can view or change your maintenance window settings from the Amazon Redshift console. For more information about maintenance, see [Cluster maintenance](managing-cluster-considerations.md#rs-cluster-maintenance). 
 
-You can view the cluster version of your cluster on the Amazon Redshift console on the **Maintenance** tab of the cluster details.
-Or you can see the cluster version in the output of the SQL command:
+You can view the cluster version of your cluster on the Amazon Redshift console on the **Maintenance** tab of the cluster details. Or you can see the cluster version in the output of the SQL command:
 
 ```
 SELECT version();
 ```
 
-###### Note
+**Note**  
+Critical updates that affect Amazon Redshift behavior are introduced as Amazon Redshift evolves. To keep up with these changes, take actions, and avoid potential disruptions to your workloads, see [Behavior changes in Amazon Redshift](behavior-changes.md).
 
-Critical updates that affect Amazon Redshift behavior are introduced as Amazon Redshift evolves. To keep up with these changes, take actions,
-and avoid potential disruptions to your workloads, see
-[Behavior changes in Amazon Redshift](behavior-changes.md "behavior-changes.md").
-
-###### Topics
-
-- [Amazon Redshift patch 204](#cluster-version-204 "#cluster-version-204")
-- [Amazon Redshift patch 203](#cluster-version-203 "#cluster-version-203")
-- [Amazon Redshift patch 202](#cluster-version-202 "#cluster-version-202")
-- [Amazon Redshift patch 201](#cluster-version-201 "#cluster-version-201")
-- [Amazon Redshift patch 200](#cluster-version-200 "#cluster-version-200")
-- [Amazon Redshift patch 199](#cluster-version-199 "#cluster-version-199")
-- [Amazon Redshift patch 198](#cluster-version-198 "#cluster-version-198")
-- [Amazon Redshift patch 197](#cluster-version-197 "#cluster-version-197")
-- [Amazon Redshift patch 196](#cluster-version-196 "#cluster-version-196")
-- [Amazon Redshift patch 195](#cluster-version-195 "#cluster-version-195")
-- [Amazon Redshift patch 194](#cluster-version-194 "#cluster-version-194")
-- [Amazon Redshift patch 193](#cluster-version-193 "#cluster-version-193")
-- [Amazon Redshift patch 192](#cluster-version-192 "#cluster-version-192")
-- [Amazon Redshift patch 191](#cluster-version-191 "#cluster-version-191")
-- [Amazon Redshift patch 190](#cluster-version-190 "#cluster-version-190")
-- [Amazon Redshift patch 189](#cluster-version-189 "#cluster-version-189")
-- [Amazon Redshift patch 188](#cluster-version-188 "#cluster-version-188")
-- [Amazon Redshift patch 187](#cluster-version-187 "#cluster-version-187")
-- [Amazon Redshift patch 186](#cluster-version-186 "#cluster-version-186")
-- [Amazon Redshift patch 185](#cluster-version-185 "#cluster-version-185")
-- [Amazon Redshift patch 184](#cluster-version-184 "#cluster-version-184")
-- [Amazon Redshift patch 183](#cluster-version-183 "#cluster-version-183")
-- [Amazon Redshift patch 182](#cluster-version-182 "#cluster-version-182")
-- [Amazon Redshift patch 181](#cluster-version-181 "#cluster-version-181")
-- [Amazon Redshift patch 180](#cluster-version-180 "#cluster-version-180")
-- [Amazon Redshift patch 179](#cluster-version-179 "#cluster-version-179")
-- [Amazon Redshift patch 178](#cluster-version-178 "#cluster-version-178")
-- [Amazon Redshift patch 177](#cluster-version-177 "#cluster-version-177")
-- [Amazon Redshift patch 176](#cluster-version-176 "#cluster-version-176")
-- [Amazon Redshift patch 175](#cluster-version-175 "#cluster-version-175")
-- [Amazon Redshift patch 174](#cluster-version-174 "#cluster-version-174")
-- [Amazon Redshift patch 173](#cluster-version-173 "#cluster-version-173")
-- [Amazon Redshift patch 172](#cluster-version-172 "#cluster-version-172")
-- [Amazon Redshift patch 171](#cluster-version-171 "#cluster-version-171")
-- [Amazon Redshift patch 170](#cluster-version-170 "#cluster-version-170")
-- [Amazon Redshift patch 169](#cluster-version-169 "#cluster-version-169")
-- [Amazon Redshift patch 168](#cluster-version-168 "#cluster-version-168")
+**Topics**
++ [Amazon Redshift patch 204](#cluster-version-204)
++ [Amazon Redshift patch 203](#cluster-version-203)
++ [Amazon Redshift patch 202](#cluster-version-202)
++ [Amazon Redshift patch 201](#cluster-version-201)
++ [Amazon Redshift patch 200](#cluster-version-200)
++ [Amazon Redshift patch 199](#cluster-version-199)
++ [Amazon Redshift patch 198](#cluster-version-198)
++ [Amazon Redshift patch 197](#cluster-version-197)
++ [Amazon Redshift patch 196](#cluster-version-196)
++ [Amazon Redshift patch 195](#cluster-version-195)
++ [Amazon Redshift patch 194](#cluster-version-194)
++ [Amazon Redshift patch 193](#cluster-version-193)
++ [Amazon Redshift patch 192](#cluster-version-192)
++ [Amazon Redshift patch 191](#cluster-version-191)
++ [Amazon Redshift patch 190](#cluster-version-190)
++ [Amazon Redshift patch 189](#cluster-version-189)
++ [Amazon Redshift patch 188](#cluster-version-188)
++ [Amazon Redshift patch 187](#cluster-version-187)
++ [Amazon Redshift patch 186](#cluster-version-186)
++ [Amazon Redshift patch 185](#cluster-version-185)
++ [Amazon Redshift patch 184](#cluster-version-184)
++ [Amazon Redshift patch 183](#cluster-version-183)
++ [Amazon Redshift patch 182](#cluster-version-182)
++ [Amazon Redshift patch 181](#cluster-version-181)
++ [Amazon Redshift patch 180](#cluster-version-180)
++ [Amazon Redshift patch 179](#cluster-version-179)
++ [Amazon Redshift patch 178](#cluster-version-178)
++ [Amazon Redshift patch 177](#cluster-version-177)
++ [Amazon Redshift patch 176](#cluster-version-176)
++ [Amazon Redshift patch 175](#cluster-version-175)
++ [Amazon Redshift patch 174](#cluster-version-174)
++ [Amazon Redshift patch 173](#cluster-version-173)
++ [Amazon Redshift patch 172](#cluster-version-172)
++ [Amazon Redshift patch 171](#cluster-version-171)
++ [Amazon Redshift patch 170](#cluster-version-170)
++ [Amazon Redshift patch 169](#cluster-version-169)
++ [Amazon Redshift patch 168](#cluster-version-168)
 
 ## Amazon Redshift patch 204
+<a name="cluster-version-204"></a>
 
 Cluster versions in this patch:
-
-- 1.0.416217 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released August 25, 2026
-- 1.0.394035 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released August 11, 2026
++ 1.0.416217 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released August 25, 2026
++ 1.0.394035 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released August 11, 2026
 
 ### New features and improvements in this patch
-
-- Added support for single-node rg.large clusters. This is the minimum required cluster version to create a single-node rg.large cluster.
-- Added a query\_uuid column to system tables and views, providing a globally unique query identifier that persists across cluster pause/resume cycles.
-- Added user\_query\_id to stl\_udf\_log table to remove dependency on stl\_user\_query\_map joins in sys\_ view definitions.
-- Added two new Amazon CloudWatch metrics, IntegrationLatestDetectedChange and IntegrationLatestAppliedChange, for zero-ETL integrations to allow monitoring of replication health.
-- Added the AUTO\_REMEDIATION option for CREATE DATABASE and ALTER DATABASE on zero-ETL integration databases. When AUTO\_REMEDIATION is set, Amazon Redshift automatically resynchronizes tables that have replication issues. Details appear in svv\_integration\_table\_state.reason.
-- Added user lockout support, including ALTER USER NOLOGIN or LOGIN to disable or re-enable login access, and SHOW USER LOCKOUT to display lockout status.
-- Added support for reading, creating, and writing to Apache Iceberg v3 tables using the Amazon Redshift native engine. This includes support for default values, row lineage, and deletion vectors across all previously supported data types. Support for the Variant, Geography, and Geometry data types is not included in this release and will be announced in a future patch.
-- After upgrading an Iceberg table to v3, the Iceberg `timestamptz` type is mapped to the Amazon Redshift `TIMESTAMPTZ` type. In Iceberg v2 tables, `timestamptz` is mapped to the Amazon Redshift `TIMESTAMP` type. With v3, this means your queries output the timestamp based on their timezone.
-- Added support for `CURSOR`s that exceed the maximum result set size for the instance type. When a cursor's result set exceeds the available disk capacity, Amazon Redshift automatically spills overflow data to Amazon S3. This feature can be enabled per cluster upon request to AWS Support.
-- Parsing and semantic analysis of queries that reference Late Binding Views (LBVs) now occurs on consumer clusters. This removes a producer-side bottleneck in LBV processing.
-- Amazon Redshift ML now enables the inter-container traffic encryption option when it makes `CreateAutoMLJob` and `CreateProcessingJob` requests to Amazon SageMaker. This aligns with the setting already applied to `BuildTrainingRequest` and prevents security scanner alerts.
-- Improved zero-ETL integration performance for high-frequency workloads to reduce replication lag for tables with many concurrent updates.
-- Zero-ETL integrations now correctly report source data exceeding the target column length as a non-retriable error.
-- Improved zero-ETL integration stability after cluster restarts.
-- Empty schemas are now automatically cleaned up when a table filter change on a zero-ETL integration removes all tables from a schema.
-- Improved the error message when attempting DROP DATABASE on a database with an active zero-ETL integration.
-- DynamoDB zero-ETL integrations now honor the ACCEPTINVCHARS and TRUNCATECOLUMNS options during both initial seeding and ongoing replication. Tables continue to replicate when the source contains invalid UTF-8 characters.
-- Improved query performance on clusters with zero-ETL integrations, especially for workloads that replicate many databases or tables.
-- Improved performance for workloads using temporary tables, reducing catalog access overhead and improving overall throughput.
-- SHOW discovery commands such as SHOW TABLES, SHOW SCHEMAS, SHOW COLUMNS, and SHOW GRANTS now return up to 133,500 objects, so metadata listings on schemas and databases with very large object counts succeed instead of failing with a row-limit error of 10,000.
-- When a DROP USER command is rejected because the user still owns objects or holds privileges, the error message now names the specific blocking object and reports how many other dependencies remain.
-- Amazon Redshift now caches IAM role credentials on the leader node. This reduces retrieval overhead for COPY, UNLOAD, Amazon Redshift Spectrum, and Lambda UDF queries. Frequently used credentials are reused across queries, improving query start-up time.
-- AWS IAM Identity Center authentication now works on clusters and workgroups with enhanced VPC routing enabled.
-- Improved disk-health detection for RG node types to prevent unnecessary automatic hardware remediations on clusters operating under normal disk I/O.
-- Queries that reference user temporary tables can now utilize concurrency scaling.
-- Enhanced Data Sharing performance by skipping an extra copy in the backend process.
-- Expanded consumer size support for multi-warehouse write queries.
-- Enhanced stability for Lambda User-Defined Functions with no arguments in joins.
-- Fixed an issue in MDDL sort key computation when predicates include IDF.
-- Fixed an issue where queries on external tables, data sharing objects, and cross-database references failed with "transaction is read-only" when executed inside BEGIN READ ONLY transactions.
-- Fixed a rare condition where a COPY or INSERT running at the same time as automatic table optimization on the same table could cause a cluster restart.
-- Fixed a rare encoding-mismatch error that could cause automatic table optimization to fail on tables accessed through data sharing that were created on older cluster versions.
-- Fixed a rare condition where automatic vacuum on tables with skewed data distribution could cause a cluster restart.
-- Fixed an issue where an Auto COPY job could stop making progress and block other Auto COPY operations on the same cluster.
-- Fixed a rare condition where a COPY command could cause a cluster restart due to a race condition during query cleanup.
-- Fixed an issue where svl\_s3query\_summary.s3query\_returned\_rows could report one extra row for queries with a LIMIT clause on external tables.
-- Fixed a rare cluster restart that could occur during bootstrap on clusters with zero-ETL integrations and no Auto COPY jobs configured.
-- Fixed an issue with COPY field parsing when using a multi-character delimiter with the ESCAPE option.
-- Fixed an issue where COPY and UNLOAD commands failed when users connected via IAM Identity Center provided explicit temporary credentials using the CREDENTIALS parameter.
-- Fixed an issue in SHOW CONSTRAINTS that could cause cluster restarts.
-- Fixed an issue where CONNECT permission granted to a role did not allow AWS IAM Identity Center users in the mapped group to connect on databases with Amazon Redshift federated permissions enabled.
-- Fixed an issue where queries using UNNEST on SUPER arrays were incorrectly blocked from running on concurrency scaling clusters.
-- Fixed an issue where the ARRAY\_SORT function could fail with a path navigation error when applied to nested SUPER structures.
-- Fixed an issue where deeply nested PartiQL or SUPER expressions could cause a cluster restart.
-- Fixed an issue where the TO\_NUMBER function could fail when the format string specified a precision greater than 38.
-- Fixed an issue where encryption key rotation could corrupt keys for grafted tables, potentially causing data access failures.
-- Fixed deadlock conditions in storage operations that could cause query hangs or node unresponsiveness.
-- Fixed a rare crash during disk block management that could cause node restarts.
-- Fixed a crash caused by out-of-memory during block allocation that could cause node restarts.
-- Fixed a crash on disk-full conditions during block replication assignment that could cause node restarts.
+<a name="cluster-version-2026-08-11-features"></a>
++ Added support for single-node rg.large clusters. This is the minimum required cluster version to create a single-node rg.large cluster.
++ Added a query\_uuid column to system tables and views, providing a globally unique query identifier that persists across cluster pause/resume cycles.
++ Added user\_query\_id to stl\_udf\_log table to remove dependency on stl\_user\_query\_map joins in sys\_ view definitions.
++ Added two new Amazon CloudWatch metrics, IntegrationLatestDetectedChange and IntegrationLatestAppliedChange, for zero-ETL integrations to allow monitoring of replication health.
++ Added the AUTO\_REMEDIATION option for CREATE DATABASE and ALTER DATABASE on zero-ETL integration databases. When AUTO\_REMEDIATION is set, Amazon Redshift automatically resynchronizes tables that have replication issues. Details appear in svv\_integration\_table\_state.reason.
++ Added user lockout support, including ALTER USER NOLOGIN or LOGIN to disable or re-enable login access, and SHOW USER LOCKOUT to display lockout status.
++ Added support for reading, creating, and writing to Apache Iceberg v3 tables using the Amazon Redshift native engine. This includes support for default values, row lineage, and deletion vectors across all previously supported data types. Support for the Variant, Geography, and Geometry data types is not included in this release and will be announced in a future patch.
++ After upgrading an Iceberg table to v3, the Iceberg `timestamptz` type is mapped to the Amazon Redshift `TIMESTAMPTZ` type. In Iceberg v2 tables, `timestamptz` is mapped to the Amazon Redshift `TIMESTAMP` type. With v3, this means your queries output the timestamp based on their timezone.
++ Added support for `CURSOR`s that exceed the maximum result set size for the instance type. When a cursor's result set exceeds the available disk capacity, Amazon Redshift automatically spills overflow data to Amazon S3. This feature can be enabled per cluster upon request to AWS Support.
++ Parsing and semantic analysis of queries that reference Late Binding Views (LBVs) now occurs on consumer clusters. This removes a producer-side bottleneck in LBV processing.
++ Amazon Redshift ML now enables the inter-container traffic encryption option when it makes `CreateAutoMLJob` and `CreateProcessingJob` requests to Amazon SageMaker. This aligns with the setting already applied to `BuildTrainingRequest` and prevents security scanner alerts.
++ Improved zero-ETL integration performance for high-frequency workloads to reduce replication lag for tables with many concurrent updates.
++ Zero-ETL integrations now correctly report source data exceeding the target column length as a non-retriable error.
++ Improved zero-ETL integration stability after cluster restarts.
++ Empty schemas are now automatically cleaned up when a table filter change on a zero-ETL integration removes all tables from a schema.
++ Improved the error message when attempting DROP DATABASE on a database with an active zero-ETL integration.
++ DynamoDB zero-ETL integrations now honor the ACCEPTINVCHARS and TRUNCATECOLUMNS options during both initial seeding and ongoing replication. Tables continue to replicate when the source contains invalid UTF-8 characters.
++ Improved query performance on clusters with zero-ETL integrations, especially for workloads that replicate many databases or tables.
++ Improved performance for workloads using temporary tables, reducing catalog access overhead and improving overall throughput.
++ SHOW discovery commands such as SHOW TABLES, SHOW SCHEMAS, SHOW COLUMNS, and SHOW GRANTS now return up to 133,500 objects, so metadata listings on schemas and databases with very large object counts succeed instead of failing with a row-limit error of 10,000.
++ When a DROP USER command is rejected because the user still owns objects or holds privileges, the error message now names the specific blocking object and reports how many other dependencies remain.
++ Amazon Redshift now caches IAM role credentials on the leader node. This reduces retrieval overhead for COPY, UNLOAD, Amazon Redshift Spectrum, and Lambda UDF queries. Frequently used credentials are reused across queries, improving query start-up time.
++ AWS IAM Identity Center authentication now works on clusters and workgroups with enhanced VPC routing enabled.
++ Improved disk-health detection for RG node types to prevent unnecessary automatic hardware remediations on clusters operating under normal disk I/O.
++ Queries that reference user temporary tables can now utilize concurrency scaling.
++ Enhanced Data Sharing performance by skipping an extra copy in the backend process.
++ Expanded consumer size support for multi-warehouse write queries.
++ Enhanced stability for Lambda User-Defined Functions with no arguments in joins.
++ Fixed an issue in MDDL sort key computation when predicates include IDF.
++ Fixed an issue where queries on external tables, data sharing objects, and cross-database references failed with "transaction is read-only" when executed inside BEGIN READ ONLY transactions.
++ Fixed a rare condition where a COPY or INSERT running at the same time as automatic table optimization on the same table could cause a cluster restart.
++ Fixed a rare encoding-mismatch error that could cause automatic table optimization to fail on tables accessed through data sharing that were created on older cluster versions.
++ Fixed a rare condition where automatic vacuum on tables with skewed data distribution could cause a cluster restart.
++ Fixed an issue where an Auto COPY job could stop making progress and block other Auto COPY operations on the same cluster.
++ Fixed a rare condition where a COPY command could cause a cluster restart due to a race condition during query cleanup.
++ Fixed an issue where svl\_s3query\_summary.s3query\_returned\_rows could report one extra row for queries with a LIMIT clause on external tables.
++ Fixed a rare cluster restart that could occur during bootstrap on clusters with zero-ETL integrations and no Auto COPY jobs configured.
++ Fixed an issue with COPY field parsing when using a multi-character delimiter with the ESCAPE option.
++ Fixed an issue where COPY and UNLOAD commands failed when users connected via IAM Identity Center provided explicit temporary credentials using the CREDENTIALS parameter.
++ Fixed an issue in SHOW CONSTRAINTS that could cause cluster restarts.
++ Fixed an issue where CONNECT permission granted to a role did not allow AWS IAM Identity Center users in the mapped group to connect on databases with Amazon Redshift federated permissions enabled.
++ Fixed an issue where queries using UNNEST on SUPER arrays were incorrectly blocked from running on concurrency scaling clusters.
++ Fixed an issue where the ARRAY\_SORT function could fail with a path navigation error when applied to nested SUPER structures.
++ Fixed an issue where deeply nested PartiQL or SUPER expressions could cause a cluster restart.
++ Fixed an issue where the TO\_NUMBER function could fail when the format string specified a precision greater than 38.
++ Fixed an issue where encryption key rotation could corrupt keys for grafted tables, potentially causing data access failures.
++ Fixed deadlock conditions in storage operations that could cause query hangs or node unresponsiveness.
++ Fixed a rare crash during disk block management that could cause node restarts.
++ Fixed a crash caused by out-of-memory during block allocation that could cause node restarts.
++ Fixed a crash on disk-full conditions during block replication assignment that could cause node restarts.
 
 ## Amazon Redshift patch 203
+<a name="cluster-version-203"></a>
 
 Cluster versions in this patch:
-
-- 1.0.417950 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released August 26, 2026
-- 1.0.417950 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released August 25, 2026
-- 1.0.400034 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released August 17, 2026
-- 1.0.384821 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released August 4, 2026
-- 1.0.377293 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released July 25, 2026
-- 1.0.365190 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released July 21, 2026
-- 1.0.347559 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released July 6, 2026
++ 1.0.417950 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released August 26, 2026
++ 1.0.417950 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released August 25, 2026
++ 1.0.400034 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released August 17, 2026
++ 1.0.384821 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released August 4, 2026
++ 1.0.377293 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released July 25, 2026
++ 1.0.365190 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released July 21, 2026
++ 1.0.347559 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released July 6, 2026
 
 ### New features and improvements in this patch
-
-- A new column was added to stl\_alter\_dist\_sort to indicate whether ALTER DISTKEY and ALTER SORTKEY operations executed on the main cluster, a data sharing consumer, or a concurrency scaling cluster.
-- Added SHOW GRANTS FOR GROUP syntax to discover permissions granted to a specific user group.
-- Enhanced zero-ETL integration observability by adding granular success status for checkpoints, enabling finer-grained monitoring of replication progress in system tables.
-- Introduced graceful handling of unsupported UTF-8 characters in source table schemas and DDL metadata within zero-ETL integrations, preventing integration failures.
-- Amazon Redshift now supports concurrency scaling for refreshes of Amazon Kinesis Data Streams (KDS)-connected streaming materialized views (MV).
-- Starting with Patch 203, Amazon Redshift begins enforcing the end of support for existing Python UDFs. Creation of new Python UDFs was deprecated in Patch 198, and all Python UDF support ends after June 30, 2026. Migrate your existing Python UDFs to Lambda UDFs to ensure continued functionality. For migration guidance, see [Amazon Redshift Python user-defined functions will reach end of support after June 30, 2026](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/"), and [Best practices for Amazon Redshift Lambda user-defined functions](https://aws.amazon.com/blogs/big-data/best-practices-for-amazon-redshift-lambda-user-defined-functions/ "https://aws.amazon.com/blogs/big-data/best-practices-for-amazon-redshift-lambda-user-defined-functions/") on the AWS Big Data Blog. For details on behavioral changes, see [Scalar Python UDFs will reach end of support after June 30, 2026](behavior-changes.md#python-udf-jun2026 "behavior-changes.md#python-udf-jun2026").
-- Tables loaded with COPY from Amazon Redshift Spectrum, with explicit column encodings, or into non-empty tables are now eligible for automatic DISTKEY assignment when the table has a primary key, improving query performance for joins on the primary key.
-- Updated the ALTER TABLE … ALTER DISTKEY error message on data sharing tables to display the customer-facing table name.
-- Reduced background activity from automatic vacuum on clusters with a very large number of tables, improving cluster stability for clusters that previously experienced excessive maintenance activity.
-- Optimized query performance by combining subqueries with mismatched filters, aggregation, and window functions in certain cases.
-- Improved timestamp accuracy for time-travel queries on zero-ETL tables with Amazon DynamoDB history mode following a table resynchronization.
-- Zero-ETL integrations no longer enter a resync loop when processing CDC checkpoints on tables with certain primary key configurations.
-- Improved zero-ETL integration error reporting for invalid channel filter expressions.
-- Original query text is no longer masked with Secure Logging (applies to queries against external AWS Lake Formation view or database with Federated Amazon Redshift Permissions).
-- Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped.
-- Improved the performance of ANALYZE for large tables by up to 30%.
-- Enhanced performance for queries using AWS Lambda User-Defined Functions with ROLLUP aggregations.
-- Enhanced query performance for ORDER BY with LIMIT clause by skipping unnecessary data scans on the outer table of Hash Join.
-- Reduced memory consumption during background tree-sweep operations eliminating node crash fleet wide. Bounded the memory footprint of compute-node tree-sweep by implementing survivor-counted batch drain, preventing unbounded memory growth under high metadata churn. Tree-sweep paths are now gated on background tree replay completion.
-- Improved fault recovery after Amazon S3 read failures, eliminating node crashes. The trickle tree iterator is now properly reset after an Amazon S3 read failure, ensuring subsequent reads retry correctly instead of silently returning stale or incomplete data.
-- Fixed an issue where tables that were modified with ALTER TABLE … ALTER DISTSTYLE AUTO after an Adaptive Cluster Resize could remain in Pending state in sys\_restore\_state indefinitely.
-- Fixed an issue where the SYS\_QUERY\_TEXT system view could display query text with missing whitespace or incorrectly split words at chunk boundaries.
-- Fixed a startup failure because of zero-ETL integrations for clusters created between August 2023 and March 2024, caused by Amazon Redshift Catalog metadata inconsistencies.
-- Fixed an issue where SHOW GRANTS incorrectly displayed permissions granted to a user group with identity\_type "role".
-- Fixed an issue where queries could hang indefinitely during session suspension handling.
-- Fixed an issue where non-superusers with SYSLOG ACCESS UNRESTRICTED could only see their own session data in sys\_session\_history instead of all users' sessions as expected.
-- Fixed an issue where database or user connection limits set to 1000 or higher were truncated, preventing the correct number of connections.
-- Fixed an issue where queries could hang indefinitely under memory pressure.
-- Fixed an issue where Amazon Redshift Serverless endpoints could experience brief unavailability during pause operations.
-- Fixed an issue where COPY commands with certain parameter combinations could fail unexpectedly during query compilation.
-- Fixed an issue where queries using APPROXIMATE PERCENTILE\_DISC with GROUP BY could fail with a compilation error.
-- Fixed a wrong-results issue where queries using COLLATE expressions could return incorrect column values.
-- Fixed an issue where LEAST and GREATEST functions with SUPER type values could cause queries to fail.
-- Fixed a wrong-results issue in REGEXP\_REPLACE where replacement strings with capture group references could produce truncated output.
-- Fixed potential data corruption during aborted re-replication reads. Resolved a double-free condition that could occur when a re-replication read was aborted mid-flight, preventing possible memory corruption or crashes.
+<a name="cluster-version-2026-07-06-features"></a>
++ A new column was added to stl\_alter\_dist\_sort to indicate whether ALTER DISTKEY and ALTER SORTKEY operations executed on the main cluster, a data sharing consumer, or a concurrency scaling cluster.
++ Added SHOW GRANTS FOR GROUP syntax to discover permissions granted to a specific user group.
++ Enhanced zero-ETL integration observability by adding granular success status for checkpoints, enabling finer-grained monitoring of replication progress in system tables.
++ Introduced graceful handling of unsupported UTF-8 characters in source table schemas and DDL metadata within zero-ETL integrations, preventing integration failures.
++ Amazon Redshift now supports concurrency scaling for refreshes of Amazon Kinesis Data Streams (KDS)-connected streaming materialized views (MV).
++ Starting with Patch 203, Amazon Redshift begins enforcing the end of support for existing Python UDFs. Creation of new Python UDFs was deprecated in Patch 198, and all Python UDF support ends after June 30, 2026. Migrate your existing Python UDFs to Lambda UDFs to ensure continued functionality. For migration guidance, see [Amazon Redshift Python user-defined functions will reach end of support after June 30, 2026](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/), and [Best practices for Amazon Redshift Lambda user-defined functions](https://aws.amazon.com/blogs/big-data/best-practices-for-amazon-redshift-lambda-user-defined-functions/) on the AWS Big Data Blog. For details on behavioral changes, see [Scalar Python UDFs will reach end of support after June 30, 2026](behavior-changes.md#python-udf-jun2026).
++ Tables loaded with COPY from Amazon Redshift Spectrum, with explicit column encodings, or into non-empty tables are now eligible for automatic DISTKEY assignment when the table has a primary key, improving query performance for joins on the primary key.
++ Updated the ALTER TABLE … ALTER DISTKEY error message on data sharing tables to display the customer-facing table name.
++ Reduced background activity from automatic vacuum on clusters with a very large number of tables, improving cluster stability for clusters that previously experienced excessive maintenance activity.
++ Optimized query performance by combining subqueries with mismatched filters, aggregation, and window functions in certain cases.
++ Improved timestamp accuracy for time-travel queries on zero-ETL tables with Amazon DynamoDB history mode following a table resynchronization.
++ Zero-ETL integrations no longer enter a resync loop when processing CDC checkpoints on tables with certain primary key configurations.
++ Improved zero-ETL integration error reporting for invalid channel filter expressions.
++ Original query text is no longer masked with Secure Logging (applies to queries against external AWS Lake Formation view or database with Federated Amazon Redshift Permissions).
++ Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped.
++ Improved the performance of ANALYZE for large tables by up to 30%.
++ Enhanced performance for queries using AWS Lambda User-Defined Functions with ROLLUP aggregations.
++ Enhanced query performance for ORDER BY with LIMIT clause by skipping unnecessary data scans on the outer table of Hash Join.
++ Reduced memory consumption during background tree-sweep operations eliminating node crash fleet wide. Bounded the memory footprint of compute-node tree-sweep by implementing survivor-counted batch drain, preventing unbounded memory growth under high metadata churn. Tree-sweep paths are now gated on background tree replay completion.
++ Improved fault recovery after Amazon S3 read failures, eliminating node crashes. The trickle tree iterator is now properly reset after an Amazon S3 read failure, ensuring subsequent reads retry correctly instead of silently returning stale or incomplete data.
++ Fixed an issue where tables that were modified with ALTER TABLE … ALTER DISTSTYLE AUTO after an Adaptive Cluster Resize could remain in Pending state in sys\_restore\_state indefinitely.
++ Fixed an issue where the SYS\_QUERY\_TEXT system view could display query text with missing whitespace or incorrectly split words at chunk boundaries.
++ Fixed a startup failure because of zero-ETL integrations for clusters created between August 2023 and March 2024, caused by Amazon Redshift Catalog metadata inconsistencies.
++ Fixed an issue where SHOW GRANTS incorrectly displayed permissions granted to a user group with identity\_type "role".
++ Fixed an issue where queries could hang indefinitely during session suspension handling.
++ Fixed an issue where non-superusers with SYSLOG ACCESS UNRESTRICTED could only see their own session data in sys\_session\_history instead of all users' sessions as expected.
++ Fixed an issue where database or user connection limits set to 1000 or higher were truncated, preventing the correct number of connections.
++ Fixed an issue where queries could hang indefinitely under memory pressure.
++ Fixed an issue where Amazon Redshift Serverless endpoints could experience brief unavailability during pause operations.
++ Fixed an issue where COPY commands with certain parameter combinations could fail unexpectedly during query compilation.
++ Fixed an issue where queries using APPROXIMATE PERCENTILE\_DISC with GROUP BY could fail with a compilation error.
++ Fixed a wrong-results issue where queries using COLLATE expressions could return incorrect column values.
++ Fixed an issue where LEAST and GREATEST functions with SUPER type values could cause queries to fail.
++ Fixed a wrong-results issue in REGEXP\_REPLACE where replacement strings with capture group references could produce truncated output.
++ Fixed potential data corruption during aborted re-replication reads. Resolved a double-free condition that could occur when a re-replication read was aborted mid-flight, preventing possible memory corruption or crashes.
 
 ## Amazon Redshift patch 202
+<a name="cluster-version-202"></a>
 
 Cluster versions in this patch:
-
-- 1.0.369760 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released July 29, 2026
-- 1.0.377292 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released July 25, 2026
-- 1.0.377292 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released July 25, 2026
-- 1.0.358853 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released July 21, 2026
-- 1.0.358853 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released July 14, 2026
-- 1.0.343555 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released June 29, 2026
-- 1.0.340728 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released June 22, 2026
-- 1.0.331549 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released June 16, 2026
-- 1.0.323213 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released June 3, 2026
-- 1.0.314775 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released May 28, 2026
++ 1.0.369760 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released July 29, 2026
++ 1.0.377292 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released July 25, 2026
++ 1.0.377292 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released July 25, 2026
++ 1.0.358853 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released July 21, 2026
++ 1.0.358853 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released July 14, 2026
++ 1.0.343555 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released June 29, 2026
++ 1.0.340728 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released June 22, 2026
++ 1.0.331549 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released June 16, 2026
++ 1.0.323213 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released June 3, 2026
++ 1.0.314775 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released May 28, 2026
 
 ### New features and improvements in this patch
-
-- Added support for RG node types (rg.large and rg.12xlarge multi-node). This is the minimum required cluster version to migrate to rg.large and rg.12xlarge.
-- Added support for superusers to drop IAM Identity Center identity providers that are in a disabled state of Lakehouse type
-- Surfaced internal maintenance queries labeled "JIT ANALYZE" in the STL\_QUERY and STL\_QUERYTEXT system tables. These queries are automatically executed by Amazon Redshift to collect external table statistics and keep query plans optimized. No customer action is required.
-- We have optimized Kinesis stream identity validation to reduce `DescribeStreamSummary` API calls. This will avoid hitting Kinesis API quotas for Redshift customers with many Kinesis stream MVs. See the Redshift Streaming documentation section for details.
-- Enhanced query execution performance by using Top K Aggregation for queries with GROUP BY, ORDER BY, and LIMIT clauses, reducing the amount of data processed during aggregations.
-- Enhanced performance for queries on partitioned AWS Glue Data Catalog tables by pushing compound filter predicates (OR, IN, NOT IN) to the Glue GetPartitions API, reducing the number of partitions retrieved.
-- Enhanced performance for queries using Lambda User-Defined Functions with Window functions.
-- Enhanced performance for particular queries using Lambda User-Defined functions in Join Filters of Hash Joins.
-- Enhanced stability for queries that use Lambda UDFs in Joins.
-- Allow using ARN as the name of AWS Lambda when creating Lambda User-Defined functions.
-- Improved query performance by optimizing memory usage for COALESCE and CASE WHEN expressions.
-- Applies advanced filtering to queries containing subplans that are evaluated once, with their results reused as constants throughout the remaining execution.
-- Improved performance of the first time run queries using ST\_Transform
-- Improved Apache Iceberg compatibility by accepting positional delete files that contain duplicate row indices, which can be produced by AWS Glue compaction.
-- Improved Apache Iceberg compatibility by accepting s3a:// paths in delete file references.
-- Improved handling of the Spectrum partition level fetching errors when processing not properly configured tables
-- Improved stability of stored procedure that invokes nested SQL UDFs across databases via USE
-- Improved error messages for unsupported operations on stored procedures, such as adding or removing them from datashares.
-- Fixed a bug that prevented detection of customer's VPC information when EVR is in use. This information is only necessary for training local Redshift ML models, and has no impact on any other Redshift functionality. This did not prevent the use of existing trained Redshift ML models.
-- Fixed an issue where duplicate query IDs could appear in system tables after a cluster pause and resume when the internal query ID counter was near its maximum value.
-- Fixed an issue where queries on STL system tables could return incomplete results after a Multi-AZ failover due to an internal caching inconsistency
-- Fixed an issue where the "isAutoIncremented" field in extended row descriptions could return incorrect values for IDENTITY columns
-- Fixed an issue where the ARRAY\_CONTAINS and ARRAY\_POSITION functions did not return NULL as expected when given NULL inputs.
-- Fixed a rare issue where queries with multiple combined filter predicates during vectorized scans could fail unexpectedly.
-- Fixed a rare issue where concurrent COPY operations could cause cluster instability in the data loading process
-- Fixed an issue where automatic maintenance operations such as vacuum and analyze could cause cluster instability during process shutdown
-- Fixed an issue where queries could fail after workload management (WLM) short query acceleration was dynamically toggled off and back on
-- Fixed an issue where time-travel queries on zero-ETL tables with history mode.
-- Fixed an issue where zero-ETL integrations could become unresponsive during concurrent client shutdown
-- Fixed an issue where zero-ETL tables sharing a source shard could trigger unnecessary resynchronization
-- Fixed an issue where zero-ETL integration table state updates could fail when the internal reason field exceeded the allowed length
-- Fixed an issue where zero-ETL integrations encountered errors during column changes on an Aurora PostgreSQL partitioned table
+<a name="cluster-version-2026-05-28-features"></a>
++  Added support for RG node types (rg.large and rg.12xlarge multi-node). This is the minimum required cluster version to migrate to rg.large and rg.12xlarge. 
++ Added support for superusers to drop IAM Identity Center identity providers that are in a disabled state of Lakehouse type
++ Surfaced internal maintenance queries labeled "JIT ANALYZE" in the STL\_QUERY and STL\_QUERYTEXT system tables. These queries are automatically executed by Amazon Redshift to collect external table statistics and keep query plans optimized. No customer action is required.
++ We have optimized Kinesis stream identity validation to reduce `DescribeStreamSummary` API calls. This will avoid hitting Kinesis API quotas for Redshift customers with many Kinesis stream MVs. See the Redshift Streaming documentation section for details.
++ Enhanced query execution performance by using Top K Aggregation for queries with GROUP BY, ORDER BY, and LIMIT clauses, reducing the amount of data processed during aggregations.
++ Enhanced performance for queries on partitioned AWS Glue Data Catalog tables by pushing compound filter predicates (OR, IN, NOT IN) to the Glue GetPartitions API, reducing the number of partitions retrieved.
++ Enhanced performance for queries using Lambda User-Defined Functions with Window functions.
++ Enhanced performance for particular queries using Lambda User-Defined functions in Join Filters of Hash Joins.
++ Enhanced stability for queries that use Lambda UDFs in Joins.
++ Allow using ARN as the name of AWS Lambda when creating Lambda User-Defined functions.
++ Improved query performance by optimizing memory usage for COALESCE and CASE WHEN expressions.
++ Applies advanced filtering to queries containing subplans that are evaluated once, with their results reused as constants throughout the remaining execution.
++ Improved performance of the first time run queries using ST\_Transform
++ Improved Apache Iceberg compatibility by accepting positional delete files that contain duplicate row indices, which can be produced by AWS Glue compaction.
++ Improved Apache Iceberg compatibility by accepting s3a:// paths in delete file references.
++ Improved handling of the Spectrum partition level fetching errors when processing not properly configured tables
++ Improved stability of stored procedure that invokes nested SQL UDFs across databases via USE
++ Improved error messages for unsupported operations on stored procedures, such as adding or removing them from datashares.
++ Fixed a bug that prevented detection of customer's VPC information when EVR is in use. This information is only necessary for training local Redshift ML models, and has no impact on any other Redshift functionality. This did not prevent the use of existing trained Redshift ML models.
++ Fixed an issue where duplicate query IDs could appear in system tables after a cluster pause and resume when the internal query ID counter was near its maximum value.
++ Fixed an issue where queries on STL system tables could return incomplete results after a Multi-AZ failover due to an internal caching inconsistency
++ Fixed an issue where the "isAutoIncremented" field in extended row descriptions could return incorrect values for IDENTITY columns
++ Fixed an issue where the ARRAY\_CONTAINS and ARRAY\_POSITION functions did not return NULL as expected when given NULL inputs.
++ Fixed a rare issue where queries with multiple combined filter predicates during vectorized scans could fail unexpectedly.
++ Fixed a rare issue where concurrent COPY operations could cause cluster instability in the data loading process
++ Fixed an issue where automatic maintenance operations such as vacuum and analyze could cause cluster instability during process shutdown
++ Fixed an issue where queries could fail after workload management (WLM) short query acceleration was dynamically toggled off and back on
++ Fixed an issue where time-travel queries on zero-ETL tables with history mode.
++ Fixed an issue where zero-ETL integrations could become unresponsive during concurrent client shutdown
++ Fixed an issue where zero-ETL tables sharing a source shard could trigger unnecessary resynchronization
++ Fixed an issue where zero-ETL integration table state updates could fail when the internal reason field exceeded the allowed length
++ Fixed an issue where zero-ETL integrations encountered errors during column changes on an Aurora PostgreSQL partitioned table
 
 ## Amazon Redshift patch 201
+<a name="cluster-version-201"></a>
 
 Cluster versions in this patch:
-
-- 1.0.331388 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released June 16, 2026
-- 1.0.331388 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released June 15, 2026
-- 1.0.326225 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released June 8, 2026
-- 1.0.319797 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released June 3, 2026
-- 1.0.313685 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released May 27, 2026
-- 1.0.300094 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released May 12, 2026
-- 1.0.298697 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released May 7, 2026
-- 1.0.292316 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released May 4, 2026
-- 1.0.280974 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released April 22, 2026
++ 1.0.331388 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released June 16, 2026
++ 1.0.331388 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released June 15, 2026
++ 1.0.326225 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released June 8, 2026
++ 1.0.319797 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released June 3, 2026
++ 1.0.313685 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released May 27, 2026
++ 1.0.300094 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released May 12, 2026
++ 1.0.298697 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released May 7, 2026
++ 1.0.292316 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released May 4, 2026
++ 1.0.280974 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released April 22, 2026
 
 ### New features and improvements in this patch
-
-- Added support for RG node types (rg.xlarge and rg.4xlarge multi-node). This is the minimum required cluster version to migrate to rg.xlarge and rg.4xlarge.
-- Added support for ALTERs on Iceberg tables.
-- Added support to write to Iceberg tables mounted under AwsDataCatalog.
-- Added support for the SHOW GRANTS command when connected to a database using the USE command.
-- Added support for SHOW GRANTS and SHOW COLUMN GRANTS commands for identities with federated permissions.
-- Added support for materialized view auto-refresh as a user workload with burst capacity on Amazon Redshift Serverless.
-- Allow AutoWLM to assign more cluster memory to queries writing to wide tables.
-- Amazon Redshift improved the query performance of the SVV\_ATTACHED\_MASKING\_POLICY system view, reducing execution time on instances with a large number of permissions and dynamic data masking policy attachments.
-- Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped.
-- Upgraded the librdkafka library to version 2.13.x from 2.8.x to provide the latest bug fixes and performance enhancements.
-- Enhanced performance for queries using Lambda User-Defined Functions in the HAVING clause of aggregates.
-- Enhanced performance for queries using Lambda User-Defined Functions with window functions.
-- Enhanced stability for Lambda User-Defined Functions with no arguments.
-- Enhanced datalake table query execution performance when using ORDER BY and LIMIT clauses by eliminating unnecessary data scans.
-- Improved error messages for zero-ETL integrations to provide clearer details for unsupported constraints, unsupported DDL statements, date precision loss, multibyte character length mismatches, and skipped source tables.
-- Improved zero-ETL integration resilience by gracefully handling credential acquisition failures during replication status checks.
-- Improved performance of zero-ETL integrations when running concurrent replication tasks.
-- Improved time-travel query results for zero-ETL tables with frequently updated rows to ensure each historical row version reflects its individual deletion timestamp.
-- Fixed some edge cases where the main cluster was not properly resized by AI-driven scaling.
-- Fixed an issue where Amazon CloudWatch metrics could report duplicate failed query counts when queries were evicted and retried by workload management (WLM).
-- Fixed an issue where COPY with Redshift Table Copy could produce a distribution style mismatch.
-- Fixed an issue with incorrect partition sort end row calculation that could affect range-restricted scan results.
-- Fixed an issue where automatic vacuum operations could fail when a table was dropped concurrently.
-- Fixed an issue where VACUUM could use a stale table version when acquiring the relation, potentially leading to errors.
-- Ensured vacuum transaction map is properly cleaned up on burst clusters.
-- Fixed an issue where queries on zero-ETL replicated tables could fail when accessed through data sharing.
-- Fixed an issue in zero-ETL integration data replication that could cause cluster restarts.
-- Fixed an issue where zero-ETL integrations with DynamoDB history mode could fail during update-merge operations.
-- Fixed an issue where zero-ETL integration tables could display incorrect row counts in the Amazon Redshift console.
-- Fixed an issue that prevented Amazon Redshift Serverless workgroups from pausing during zero-ETL integration operations.
-- Fixed an issue where empty Avro files caused COPY ingestion to fail. Empty Avro files are now skipped and ingestion continues without an error.
-- Fixed a stale block header checksum issue during epsilon tree replay when using position-independent superblock.
+<a name="cluster-version-2026-04-22-features"></a>
++  Added support for RG node types (rg.xlarge and rg.4xlarge multi-node). This is the minimum required cluster version to migrate to rg.xlarge and rg.4xlarge. 
++  Added support for ALTERs on Iceberg tables. 
++  Added support to write to Iceberg tables mounted under AwsDataCatalog. 
++  Added support for the SHOW GRANTS command when connected to a database using the USE command. 
++  Added support for SHOW GRANTS and SHOW COLUMN GRANTS commands for identities with federated permissions. 
++  Added support for materialized view auto-refresh as a user workload with burst capacity on Amazon Redshift Serverless. 
++  Allow AutoWLM to assign more cluster memory to queries writing to wide tables. 
++  Amazon Redshift improved the query performance of the SVV\_ATTACHED\_MASKING\_POLICY system view, reducing execution time on instances with a large number of permissions and dynamic data masking policy attachments. 
++  Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped. 
++  Upgraded the librdkafka library to version 2.13.x from 2.8.x to provide the latest bug fixes and performance enhancements. 
++  Enhanced performance for queries using Lambda User-Defined Functions in the HAVING clause of aggregates. 
++  Enhanced performance for queries using Lambda User-Defined Functions with window functions. 
++  Enhanced stability for Lambda User-Defined Functions with no arguments. 
++  Enhanced datalake table query execution performance when using ORDER BY and LIMIT clauses by eliminating unnecessary data scans. 
++  Improved error messages for zero-ETL integrations to provide clearer details for unsupported constraints, unsupported DDL statements, date precision loss, multibyte character length mismatches, and skipped source tables. 
++  Improved zero-ETL integration resilience by gracefully handling credential acquisition failures during replication status checks. 
++  Improved performance of zero-ETL integrations when running concurrent replication tasks. 
++  Improved time-travel query results for zero-ETL tables with frequently updated rows to ensure each historical row version reflects its individual deletion timestamp. 
++  Fixed some edge cases where the main cluster was not properly resized by AI-driven scaling. 
++  Fixed an issue where Amazon CloudWatch metrics could report duplicate failed query counts when queries were evicted and retried by workload management (WLM). 
++  Fixed an issue where COPY with Redshift Table Copy could produce a distribution style mismatch. 
++  Fixed an issue with incorrect partition sort end row calculation that could affect range-restricted scan results. 
++  Fixed an issue where automatic vacuum operations could fail when a table was dropped concurrently. 
++  Fixed an issue where VACUUM could use a stale table version when acquiring the relation, potentially leading to errors. 
++  Ensured vacuum transaction map is properly cleaned up on burst clusters. 
++  Fixed an issue where queries on zero-ETL replicated tables could fail when accessed through data sharing. 
++  Fixed an issue in zero-ETL integration data replication that could cause cluster restarts. 
++  Fixed an issue where zero-ETL integrations with DynamoDB history mode could fail during update-merge operations. 
++  Fixed an issue where zero-ETL integration tables could display incorrect row counts in the Amazon Redshift console. 
++  Fixed an issue that prevented Amazon Redshift Serverless workgroups from pausing during zero-ETL integration operations. 
++  Fixed an issue where empty Avro files caused COPY ingestion to fail. Empty Avro files are now skipped and ingestion continues without an error. 
++  Fixed a stale block header checksum issue during epsilon tree replay when using position-independent superblock. 
 
 ## Amazon Redshift patch 200
+<a name="cluster-version-200"></a>
 
 Cluster versions in this patch:
-
-- 1.0.314426 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on May 27, 2026
-- 1.0.293472 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on May 7, 2026
-- 1.0.293472 – **CURRENT Tracks** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on April 30, 2026
-- 1.0.266483 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on April 9, 2026
-- 1.0.257586 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 27, 2026
++ 1.0.314426 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on May 27, 2026
++ 1.0.293472 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on May 7, 2026
++ 1.0.293472 – **CURRENT Tracks** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on April 30, 2026
++ 1.0.266483 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on April 9, 2026
++ 1.0.257586 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 27, 2026
 
 ### New features and improvements in this patch
-
-- Fixed an issue where INSERT operations could fail on tables using multidimensional data layout sort keys.
-- Improved Amazon Redshift Advisor recommendations for multidimensional data layout (MDDL) sort keys for tables that would benefit from workload-based sorting.
-- Enhanced Redshift Serverless AI-driven scaling and optimizations with improved disk usage signals, enabling more accurate and responsive scaling decisions.
-- Enhanced Redshift Serverless AI-driven scaling and optimizations to intelligently determine an initial capacity when you migrate a provisioned cluster snapshot to a serverless namespace.
-- Fixed an issue where data sharing queries using IAM Identity Center identity propagation could fail when the cached identity token expired on the consumer.
-- Fixed an issue where IAM Identity Center group synchronization could cause subsequent background maintenance operations to fail.
-- Fixed an issue where updating an IAM Identity Center identity provider configuration with a different application ARN could cause a cluster restart.
-- Fixed an issue where data sharing queries with IAM Identity Center identity propagation could fail in certain AWS Regions.
-- Improved IAM Identity Center integration reliability by ensuring identity provider configuration changes are consistently propagated.
-- Optimized query plans for some correlated NOT EXISTS subqueries by decorrelating them into anti-joins.
-- Fixed an issue where DROP TABLE IF EXISTS on Apache Iceberg tables could incorrectly report a query failure instead of success when the target table did not exist.
-- Added proper error messaging when users attempt to run ANALYZE on catalog tables.
-- Spectrum COPY is now generally available, removing the dependency on temporary tables for Spectrum-based COPY operations.
-- Improved Auto COPY reliability by throttling S3 notification queue reads when durable persistence tasks cannot keep pace, reducing the need for S3 listing operations to reconcile COPY JOB state.
-- Concurrency Scaling is now generally available for read and write operations on zero-ETL tables.
-- Fixed a race condition in zero-ETL CDC replication that could cause cluster restarts when concurrent disk commits interfered with uncommitted table state tracking.
-- Improved zero-ETL CDC ingestion reliability by using the most recent ingestion position across both table and client state to filter already-applied data.
-- Fixed a data reliability issue in zero-ETL table resync where old, already-applied checkpoints could be re-ingested after table failures, by correctly tracking checkpoint lower bounds and resync state across the re-synchronization lifecycle.
-- Improved zero-ETL error messages with clearer failure reasons, including details for column length exceeded and invalid UTF-8 character errors.
-- Enhanced the SYS\_LUDF\_DETAIL system view to report duration in microseconds instead of milliseconds for improved observability.
-- Fixed an issue where Auto COPY job creation was incorrectly allowed in zero-ETL databases.
-- Improved query performance on row-level security (RLS) protected tables by classifying additional built-in functions as RLS-safe, enabling predicate pushdown for common query patterns that previously experienced performance degradation.
-- Added support for DELETE, UPDATE, and MERGE operations on Apache Iceberg tables.
-- Added support for position-independent superblock, enabling predictable cluster restart times regardless of data volume.
-- Enabled GUID-based disk cache, removing the dependency of disk cache on superblock position and enabling predictable cluster restart times regardless of data volume.
-- Improved automatic table distribution optimization: tables with a single primary key are now eligible for automatic conversion from ALL distribution to KEY distribution, improving query performance and reducing storage overhead.
-- Fixed an issue where VACUUM operations could fail or produce incorrect results due to a conflict when vacuum and concurrent DML operations accessed the same storage object.
-- Fixed an issue where VACUUM FULL could fail on certain tables due to an out-of-bounds memory access when processing special partition chains.
-- Fixed an issue where ALTER TABLE OWNER operations could incorrectly allow changing object ownership to the internal bootstrap user.
-- Fixed a race condition where concurrent VACUUM operations and staging table reuse could cause cluster instability.
-- Fixed an issue where VACUUM FULL or VACUUM SORT on large tables could fail with an internal error when the number of processed partitions exceeded an internal limit.
-- Fixed an issue where background partition statistics collection could fail when a table was dropped while statistics were being aggregated from remote clusters.
-- Improved performance of VACUUM SORT operations by avoiding unnecessary data refreshes, reducing the time and resources required for vacuum on sorted tables.
-- Fixed an issue where incorrect internal partition data access during vacuum operations could cause unexpected errors or cluster instability.
-- Fixed an issue where ALTER TABLE operations could incorrectly change table ownership to a non-privileged user. Owner changes during ALTER operations are now correctly restricted to authorized users only.
-- Fixed a rare issue where an internal limit check during vacuum operations could cause unnecessary query failures on tables with a large number of partitions.
-- Fixed an issue where background statistics collection could fail or produce errors when encountering tables that had been deleted, improving cluster stability.
-- Fixed an issue where vacuum operations could use stale table metadata, potentially causing incorrect behavior during vacuum on tables with concurrent schema changes.
-- Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/") that increases performance for new queries (first runs of queries) in Amazon Redshift patch P198 on the CURRENT Maintenance Track. Now, this feature is enabled on all releases starting with Amazon Redshift patch P200 on the TRAILING track as well.
+<a name="cluster-version-2026-03-26-features"></a>
++  Fixed an issue where INSERT operations could fail on tables using multidimensional data layout sort keys. 
++  Improved Amazon Redshift Advisor recommendations for multidimensional data layout (MDDL) sort keys for tables that would benefit from workload-based sorting. 
++  Enhanced Redshift Serverless AI-driven scaling and optimizations with improved disk usage signals, enabling more accurate and responsive scaling decisions. 
++  Enhanced Redshift Serverless AI-driven scaling and optimizations to intelligently determine an initial capacity when you migrate a provisioned cluster snapshot to a serverless namespace. 
++  Fixed an issue where data sharing queries using IAM Identity Center identity propagation could fail when the cached identity token expired on the consumer. 
++  Fixed an issue where IAM Identity Center group synchronization could cause subsequent background maintenance operations to fail. 
++  Fixed an issue where updating an IAM Identity Center identity provider configuration with a different application ARN could cause a cluster restart. 
++  Fixed an issue where data sharing queries with IAM Identity Center identity propagation could fail in certain AWS Regions. 
++  Improved IAM Identity Center integration reliability by ensuring identity provider configuration changes are consistently propagated. 
++  Optimized query plans for some correlated NOT EXISTS subqueries by decorrelating them into anti-joins. 
++  Fixed an issue where DROP TABLE IF EXISTS on Apache Iceberg tables could incorrectly report a query failure instead of success when the target table did not exist. 
++  Added proper error messaging when users attempt to run ANALYZE on catalog tables. 
++  Spectrum COPY is now generally available, removing the dependency on temporary tables for Spectrum-based COPY operations. 
++  Improved Auto COPY reliability by throttling S3 notification queue reads when durable persistence tasks cannot keep pace, reducing the need for S3 listing operations to reconcile COPY JOB state. 
++  Concurrency Scaling is now generally available for read and write operations on zero-ETL tables. 
++  Fixed a race condition in zero-ETL CDC replication that could cause cluster restarts when concurrent disk commits interfered with uncommitted table state tracking. 
++  Improved zero-ETL CDC ingestion reliability by using the most recent ingestion position across both table and client state to filter already-applied data. 
++  Fixed a data reliability issue in zero-ETL table resync where old, already-applied checkpoints could be re-ingested after table failures, by correctly tracking checkpoint lower bounds and resync state across the re-synchronization lifecycle. 
++  Improved zero-ETL error messages with clearer failure reasons, including details for column length exceeded and invalid UTF-8 character errors. 
++  Enhanced the SYS\_LUDF\_DETAIL system view to report duration in microseconds instead of milliseconds for improved observability. 
++  Fixed an issue where Auto COPY job creation was incorrectly allowed in zero-ETL databases. 
++  Improved query performance on row-level security (RLS) protected tables by classifying additional built-in functions as RLS-safe, enabling predicate pushdown for common query patterns that previously experienced performance degradation. 
++  Added support for DELETE, UPDATE, and MERGE operations on Apache Iceberg tables. 
++  Added support for position-independent superblock, enabling predictable cluster restart times regardless of data volume. 
++  Enabled GUID-based disk cache, removing the dependency of disk cache on superblock position and enabling predictable cluster restart times regardless of data volume. 
++  Improved automatic table distribution optimization: tables with a single primary key are now eligible for automatic conversion from ALL distribution to KEY distribution, improving query performance and reducing storage overhead. 
++  Fixed an issue where VACUUM operations could fail or produce incorrect results due to a conflict when vacuum and concurrent DML operations accessed the same storage object. 
++  Fixed an issue where VACUUM FULL could fail on certain tables due to an out-of-bounds memory access when processing special partition chains. 
++  Fixed an issue where ALTER TABLE OWNER operations could incorrectly allow changing object ownership to the internal bootstrap user. 
++  Fixed a race condition where concurrent VACUUM operations and staging table reuse could cause cluster instability. 
++  Fixed an issue where VACUUM FULL or VACUUM SORT on large tables could fail with an internal error when the number of processed partitions exceeded an internal limit. 
++  Fixed an issue where background partition statistics collection could fail when a table was dropped while statistics were being aggregated from remote clusters. 
++  Improved performance of VACUUM SORT operations by avoiding unnecessary data refreshes, reducing the time and resources required for vacuum on sorted tables. 
++  Fixed an issue where incorrect internal partition data access during vacuum operations could cause unexpected errors or cluster instability. 
++  Fixed an issue where ALTER TABLE operations could incorrectly change table ownership to a non-privileged user. Owner changes during ALTER operations are now correctly restricted to authorized users only. 
++  Fixed a rare issue where an internal limit check during vacuum operations could cause unnecessary query failures on tables with a large number of partitions. 
++  Fixed an issue where background statistics collection could fail or produce errors when encountering tables that had been deleted, improving cluster stability. 
++  Fixed an issue where vacuum operations could use stale table metadata, potentially causing incorrect behavior during vacuum on tables with concurrent schema changes. 
++  Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/) that increases performance for new queries (first runs of queries) in Amazon Redshift patch P198 on the CURRENT Maintenance Track. Now, this feature is enabled on all releases starting with Amazon Redshift patch P200 on the TRAILING track as well. 
 
 ## Amazon Redshift patch 199
+<a name="cluster-version-199"></a>
 
 Cluster versions in this patch:
-
-- 1.0.266409 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on April 20, 2026
-- 1.0.252420 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 25, 2026
-- 1.0.232773 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 5, 2026
++ 1.0.266409 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on April 20, 2026
++ 1.0.252420 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 25, 2026
++ 1.0.232773 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 5, 2026
 
 ### New features and improvements in this patch
-
-- Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/") that increases performance for new queries (first runs of queries) in the Redshift CURRENT Maintenance Track. The TRAILING track will follow in an upcoming patch release.
-- Enabled support for Column level grants from a consumer using Redshift federated permissions for a new grantee on producer.
-- Amazon Redshift federated permissions supports querying external tables through Late Binding Views (LBVs).
-- ALTER EXTERNAL SCHEMA can now be used with the KINESIS external schema type to change the IAM\_ROLE and REGION of an existing external schema.
-- Added restore support for NO-BACKUP tables on Redshift RA3 and Serverless data warehouses. Since these instance types do not support the NO-BACKUP feature, tables marked as NO-BACKUP are always included in snapshots and are now properly restored as permanent tables
-- Amazon Redshift now supports writing to external tables when connected using IAM roles or IAM users. Previously, only read operations on external tables were supported with IAM role-based authentication. With this update, Redshift correctly uses your IAM session credentials when writing data to Amazon S3 for external tables, enabling full read and write access.
-- For auto refreshing Kafka stream MVs, we now use a more efficient heuristic to determine if there are new records to ingest. This will reduce the amount of data transferred from the Kafka brokers for this check, and reduce the latency on starting the subsequent MV refresh.
-- Upgraded backup and restore operations to use FIPS-compliant SHA384 encryption, replacing legacy MD5 hashing
-- Enhanced performance for queries combining Lambda User-Defined Functions and UNNEST statements
-- Enhanced performance for queries using Lambda User-Defined Functions against system tables and views
-- Enhanced query execution performance when using ORDER BY and LIMIT clauses by eliminating unnecessary data scans
-- Enhanced Redshift Serverless AI-driven scaling and optimizations with an extended range of supported RPUs, now supporting a minimum of 8 RPUs
-- Auto REFRESH queries for Amazon Redshift materialized views (MVs) are now treated as user queries instead of background autonomics processes.
-  Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
-  The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release
-  P198 and newer. It is currently disabled on Serverless.
-- Improved scheduling for automatic tasks to better prioritize user-critical tasks such as streaming ingestion, auto-copy (COPY JOB), and materialized view auto refresh.
-- Fixed an issue where pg\_last\_query\_id() incorrectly returned the rewritten query ID instead of the user query ID for Multi-AZ clusters
-- Fixes an issue where SHOW GRANTS would fail to process one-part object references.
-- Fixed an issue where DROP TABLE conflicted with the catalog rebuild worker's timestamp auto worker due to simultaneous updates on pg\_class\_extended, by skipping deletion during DROP TABLE and allowing the timestamp worker to clean up on its next run.
-- Fixed zero-ETL channel filter parsing issue when database, schema, or table names contained include/exclude keywords
-- Fixed a race condition that could occur when vacuum operations ran concurrently with zero-ETL table operations
-- Fixed an issue where zero-ETL integrations incorrectly attempted resync operations instead of transitioning to an error state when KMS encryption context changed
-- Fixed a race condition in zero-ETL integrations that could occur during cluster restart while data replication was active
-- Fixed an issue where the SHOW TABLES command returned an error when the table's owner had been dropped
+<a name="cluster-version-2026-03-04-features"></a>
++  Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/) that increases performance for new queries (first runs of queries) in the Redshift CURRENT Maintenance Track. The TRAILING track will follow in an upcoming patch release. 
++  Enabled support for Column level grants from a consumer using Redshift federated permissions for a new grantee on producer. 
++  Amazon Redshift federated permissions supports querying external tables through Late Binding Views (LBVs). 
++  ALTER EXTERNAL SCHEMA can now be used with the KINESIS external schema type to change the IAM\_ROLE and REGION of an existing external schema. 
++  Added restore support for NO-BACKUP tables on Redshift RA3 and Serverless data warehouses. Since these instance types do not support the NO-BACKUP feature, tables marked as NO-BACKUP are always included in snapshots and are now properly restored as permanent tables 
++  Amazon Redshift now supports writing to external tables when connected using IAM roles or IAM users. Previously, only read operations on external tables were supported with IAM role-based authentication. With this update, Redshift correctly uses your IAM session credentials when writing data to Amazon S3 for external tables, enabling full read and write access. 
++  For auto refreshing Kafka stream MVs, we now use a more efficient heuristic to determine if there are new records to ingest. This will reduce the amount of data transferred from the Kafka brokers for this check, and reduce the latency on starting the subsequent MV refresh. 
++  Upgraded backup and restore operations to use FIPS-compliant SHA384 encryption, replacing legacy MD5 hashing 
++  Enhanced performance for queries combining Lambda User-Defined Functions and UNNEST statements 
++  Enhanced performance for queries using Lambda User-Defined Functions against system tables and views 
++  Enhanced query execution performance when using ORDER BY and LIMIT clauses by eliminating unnecessary data scans 
++  Enhanced Redshift Serverless AI-driven scaling and optimizations with an extended range of supported RPUs, now supporting a minimum of 8 RPUs 
++  Auto REFRESH queries for Amazon Redshift materialized views (MVs) are now treated as user queries instead of background autonomics processes. Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes. The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release P198 and newer. It is currently disabled on Serverless. 
++  Improved scheduling for automatic tasks to better prioritize user-critical tasks such as streaming ingestion, auto-copy (COPY JOB), and materialized view auto refresh. 
++  Fixed an issue where pg\_last\_query\_id() incorrectly returned the rewritten query ID instead of the user query ID for Multi-AZ clusters 
++  Fixes an issue where SHOW GRANTS would fail to process one-part object references. 
++  Fixed an issue where DROP TABLE conflicted with the catalog rebuild worker's timestamp auto worker due to simultaneous updates on pg\_class\_extended, by skipping deletion during DROP TABLE and allowing the timestamp worker to clean up on its next run. 
++  Fixed zero-ETL channel filter parsing issue when database, schema, or table names contained include/exclude keywords 
++  Fixed a race condition that could occur when vacuum operations ran concurrently with zero-ETL table operations 
++  Fixed an issue where zero-ETL integrations incorrectly attempted resync operations instead of transitioning to an error state when KMS encryption context changed 
++  Fixed a race condition in zero-ETL integrations that could occur during cluster restart while data replication was active 
++  Fixed an issue where the SHOW TABLES command returned an error when the table's owner had been dropped 
 
 ## Amazon Redshift patch 198
+<a name="cluster-version-198"></a>
 
 Cluster versions in this patch:
-
-- 1.0.239402 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 18, 2026
-- 1.0.227967 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on February 25, 2026
-- 1.0.224252 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on February 19, 2026
-- 1.0.219674 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on February 11, 2026
-- 1.0.212832 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on February 10, 2026
-- 1.0.204436 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on February 4, 2026
++ 1.0.239402 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 18, 2026
++ 1.0.227967 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 25, 2026
++ 1.0.224252 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 19, 2026
++ 1.0.219674 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 11, 2026
++ 1.0.212832 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 10, 2026
++ 1.0.204436 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 4, 2026
 
 ### New features and improvements in this patch
-
-- Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/") that increases performance for new queries (first runs of queries) in the Redshift CURRENT Maintenance Track. The TRAILING track will follow in an upcoming patch release.
-- Improves INTERSECT and EXCEPT queries by applying proper collation rules when comparing columns against constant values.
-- Enables auto refresh of manually created materialized views to run on concurrency scaling clusters.
-- Improves connection performance by enabling direct connections between main clusters and concurrency scaling clusters, reducing latency and eliminating connection throughput limitations.
-- Improves error classification for zero-ETL integrations, making it easier to identify root causes and debug issues.
-- Removes error messages from SYS\_QUERY\_HISTORY for successfully executed queries, providing cleaner query history records.
-- Improves compile time logging accuracy for bursted queries in SYS\_QUERY\_HISTORY, providing better performance insights.
-- Adds support for array functions: ARRAY\_CONTAINS, ARRAY\_POSITION, ARRAYS\_OVERLAP, ARRAY\_INTERSECTION, ARRAY\_SORT, ARRAY\_UNION, ARRAY\_DISTINCT, ARRAY\_EXCEPT, and ARRAY\_POSITIONS.
-- Adds support for the GET\_NUMBER\_ATTRIBUTES function that returns the number of attributes within a SUPER object.
-- Enables idle transaction timeout for failed transactions to improve resource management.
-- Adds support for the TEMPLATE object type that enables you to define reusable formatting parameters, eliminating the need to manually specify them for each operation.
-- Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) on Common Table Expressions (CTEs).
-- Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) in the THEN clause of CASE expressions.
-- Creation of new Python User-Defined Functions is deprecated. Existing Python UDFs will be supported until June 30, 2026. Migrate to Lambda User-Defined Functions (LUDFs) for continued support.
-- Improves observability for Lambda User-Defined Functions (LUDFs) with a new system table, SYS\_LUDF\_DETAIL. This table records information and metrics for LUDFs used in queries.
-- Auto REFRESH queries for Amazon Redshift materialized views (MVs) are now treated as user queries instead of background autonomics processes.
-  Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
-  The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release
-  P198 and newer. It is currently disabled on Serverless.
+<a name="cluster-version-2026-02-03-features"></a>
++  Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/) that increases performance for new queries (first runs of queries) in the Redshift CURRENT Maintenance Track. The TRAILING track will follow in an upcoming patch release. 
++  Improves INTERSECT and EXCEPT queries by applying proper collation rules when comparing columns against constant values. 
++  Enables auto refresh of manually created materialized views to run on concurrency scaling clusters. 
++  Improves connection performance by enabling direct connections between main clusters and concurrency scaling clusters, reducing latency and eliminating connection throughput limitations. 
++  Improves error classification for zero-ETL integrations, making it easier to identify root causes and debug issues. 
++  Removes error messages from SYS\_QUERY\_HISTORY for successfully executed queries, providing cleaner query history records. 
++  Improves compile time logging accuracy for bursted queries in SYS\_QUERY\_HISTORY, providing better performance insights. 
++  Adds support for array functions: ARRAY\_CONTAINS, ARRAY\_POSITION, ARRAYS\_OVERLAP, ARRAY\_INTERSECTION, ARRAY\_SORT, ARRAY\_UNION, ARRAY\_DISTINCT, ARRAY\_EXCEPT, and ARRAY\_POSITIONS. 
++  Adds support for the GET\_NUMBER\_ATTRIBUTES function that returns the number of attributes within a SUPER object. 
++  Enables idle transaction timeout for failed transactions to improve resource management. 
++  Adds support for the TEMPLATE object type that enables you to define reusable formatting parameters, eliminating the need to manually specify them for each operation. 
++  Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) on Common Table Expressions (CTEs). 
++  Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) in the THEN clause of CASE expressions. 
++  Creation of new Python User-Defined Functions is deprecated. Existing Python UDFs will be supported until June 30, 2026. Migrate to Lambda User-Defined Functions (LUDFs) for continued support. 
++  Improves observability for Lambda User-Defined Functions (LUDFs) with a new system table, SYS\_LUDF\_DETAIL. This table records information and metrics for LUDFs used in queries. 
++  Auto REFRESH queries for Amazon Redshift materialized views (MVs) are now treated as user queries instead of background autonomics processes. Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes. The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release P198 and newer. It is currently disabled on Serverless. 
 
 ## Amazon Redshift patch 197
+<a name="cluster-version-197"></a>
 
 Cluster versions in this patch:
-
-- 1.0.237947 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 10, 2026
-- 1.0.198462 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on January 28, 2026
-- 1.0.198462 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on January 21, 2026
-- 1.0.194394 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on January 14, 2026
-- 1.0.187928 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on January 9, 2026
-- 1.0.179517 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on December 16, 2025
-- 1.0.176066 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on December 9, 2025
-- 1.0.166219 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on November 21, 2025
++ 1.0.237947 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 10, 2026
++ 1.0.198462 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 28, 2026
++ 1.0.198462 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 21, 2026
++ 1.0.194394 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 14, 2026
++ 1.0.187928 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 9, 2026
++ 1.0.179517 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on December 16, 2025
++ 1.0.176066 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on December 9, 2025
++ 1.0.166219 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 21, 2025
 
 ### New features and improvements in this patch
-
-- Global autonomics for clusters in the mesh, Autonomics now consider the workload of the entire mesh to optimize Vacuum, Analyze and ATO.
-- Create and refresh Materialized Views from multiple Amazon Redshift data warehouses.
-- Added support to store strings literals up to 16,000,000 bytes within the SUPER data types
-- Added GET\_NUMBER\_ATTRIBUTES(super\_object) function that returns the total number of attributes contained within a SUPER object.
-- Release patch compatibility restrictions are enforced for table restore operations. When attempting to restore a table, the backup can only be used on clusters running the same patch version as when the backup was created, one patch version lower than the backup, or any patch version higher than the backup.
-- Enhanced the LIKE operator to properly handle trailing whitespaces in patterns when using CHAR datatype.
-- Introduced 4 new spatial H3 functions operating on cell hierarchies: H3\_Resolution, H3\_ToParent, H3\_ToChildren and H3\_IsValid.
-- Enables Amazon Redshift Federated Permissions that simplifies permissions management across multiple Redshift data warehouses by enabling you to define data permissions once and automatically enforce them across all warehouses in your AWS account.
-- Enables object-level grants, fine-grained column-level access control, scoped permissions grants and database-level grants on Amazon Redshift Federated Permissions Catalog objects.
-- Enables CREATE, ALTER, ATTACH, DETACH and DROP RLS policy operations on Amazon Redshift Federated Permissions Catalog.
-- Enables the ability to turn on or off row-level security for relations in Amazon Redshift Federated Permissions Catalog.
-- Enable CREATE, ALTER, ATTACH, DETACH and DROP masking policy operations on Amazon Redshift Federated Permissions Catalog objects.
-- Enables SHOW POLICIES to show RLS and Masking policies on a connected database and attachments on relations in Amazon Redshift Federated Permissions Catalog objects.
-- Enables database users to assume an IAM role to query on an Amazon Redshift Federated Permissions Catalog objects.
-- Enhanced SHOW GRANTS command to support cross-database grant visibility within the same Redshift cluster.
-- Added support for SHOW COLUMN GRANTS command to simplify discovery of column-level access controls.
-- Added support for SHOW PROCEDURES command to simplify discovery of stored procedure metadata discovery.
-- Added support for SHOW FUNCTIONS command to simplify discovery of user-defined function metadata.
-- Introduced SHOW PARAMETERS command to display parameter metadata for functions and stored procedures.
-- Introduced SHOW CONSTRAINTS command to display constraint metadata for functions and stored procedures.
-- Added support for CREATE/CREATE OR REPLACE/DROP VIEW operations on Amazon Redshift Federated Permissions Catalog and on cross-database within the same Redshift cluster.
-- Improved constant strings collation handling in some INTERSECT or EXCEPT queries.
-- Enhanced SHOW TABLES to display a warning message instead of failing when FAS credentials are missing for AWS Glue Data Catalog access.
-- Enhanced SHOW COLUMNS command with additional metadata columns for sort keys, distribution style, encoding, and collation information.
-- Added grantor\_name column to SHOW GRANTS output and standardized database\_name inclusion across all SHOW GRANTS result sets.
-- Enhanced SHOW TABLES command with additional columns: table\_owner, last\_altered\_time, last\_modified\_time, dist\_style, and table\_sub\_type.
-- **Identity Center Authentication Support:** Amazon Redshift now supports IAM Identity Center authentication through the new `GetIdentityCenterAuthToken` API operations. This feature enables federated access to Amazon Redshift clusters and serverless workgroups using existing Identity Center identities. Key benefits include single sign-on access using Identity Center credentials, enhanced security with encrypted authentication tokens, comprehensive audit logging for compliance, and seamless integration with existing Identity Center setup. The API operations generate authentication tokens scoped to specific cluster identifiers or workgroup names. Requirements include identity-enhanced credentials with embedded Identity Center identity information and appropriate IAM permissions for API access.
+<a name="cluster-version-2025-11-20-features"></a>
++  Global autonomics for clusters in the mesh, Autonomics now consider the workload of the entire mesh to optimize Vacuum, Analyze and ATO. 
++  Create and refresh Materialized Views from multiple Amazon Redshift data warehouses. 
++  Added support to store strings literals up to 16,000,000 bytes within the SUPER data types 
++  Added GET\_NUMBER\_ATTRIBUTES(super\_object) function that returns the total number of attributes contained within a SUPER object. 
++  Release patch compatibility restrictions are enforced for table restore operations. When attempting to restore a table, the backup can only be used on clusters running the same patch version as when the backup was created, one patch version lower than the backup, or any patch version higher than the backup. 
++  Enhanced the LIKE operator to properly handle trailing whitespaces in patterns when using CHAR datatype. 
++  Introduced 4 new spatial H3 functions operating on cell hierarchies: H3\_Resolution, H3\_ToParent, H3\_ToChildren and H3\_IsValid. 
++  Enables Amazon Redshift Federated Permissions that simplifies permissions management across multiple Redshift data warehouses by enabling you to define data permissions once and automatically enforce them across all warehouses in your AWS account. 
++  Enables object-level grants, fine-grained column-level access control, scoped permissions grants and database-level grants on Amazon Redshift Federated Permissions Catalog objects. 
++  Enables CREATE, ALTER, ATTACH, DETACH and DROP RLS policy operations on Amazon Redshift Federated Permissions Catalog. 
++  Enables the ability to turn on or off row-level security for relations in Amazon Redshift Federated Permissions Catalog. 
++  Enable CREATE, ALTER, ATTACH, DETACH and DROP masking policy operations on Amazon Redshift Federated Permissions Catalog objects. 
++  Enables SHOW POLICIES to show RLS and Masking policies on a connected database and attachments on relations in Amazon Redshift Federated Permissions Catalog objects. 
++  Enables database users to assume an IAM role to query on an Amazon Redshift Federated Permissions Catalog objects. 
++  Enhanced SHOW GRANTS command to support cross-database grant visibility within the same Redshift cluster. 
++  Added support for SHOW COLUMN GRANTS command to simplify discovery of column-level access controls. 
++  Added support for SHOW PROCEDURES command to simplify discovery of stored procedure metadata discovery. 
++  Added support for SHOW FUNCTIONS command to simplify discovery of user-defined function metadata. 
++  Introduced SHOW PARAMETERS command to display parameter metadata for functions and stored procedures. 
++  Introduced SHOW CONSTRAINTS command to display constraint metadata for functions and stored procedures. 
++  Added support for CREATE/CREATE OR REPLACE/DROP VIEW operations on Amazon Redshift Federated Permissions Catalog and on cross-database within the same Redshift cluster. 
++  Improved constant strings collation handling in some INTERSECT or EXCEPT queries. 
++  Enhanced SHOW TABLES to display a warning message instead of failing when FAS credentials are missing for AWS Glue Data Catalog access. 
++  Enhanced SHOW COLUMNS command with additional metadata columns for sort keys, distribution style, encoding, and collation information. 
++  Added grantor\_name column to SHOW GRANTS output and standardized database\_name inclusion across all SHOW GRANTS result sets. 
++  Enhanced SHOW TABLES command with additional columns: table\_owner, last\_altered\_time, last\_modified\_time, dist\_style, and table\_sub\_type. 
++  **Identity Center Authentication Support:** Amazon Redshift now supports IAM Identity Center authentication through the new `GetIdentityCenterAuthToken` API operations. This feature enables federated access to Amazon Redshift clusters and serverless workgroups using existing Identity Center identities. Key benefits include single sign-on access using Identity Center credentials, enhanced security with encrypted authentication tokens, comprehensive audit logging for compliance, and seamless integration with existing Identity Center setup. The API operations generate authentication tokens scoped to specific cluster identifiers or workgroup names. Requirements include identity-enhanced credentials with embedded Identity Center identity information and appropriate IAM permissions for API access. 
 
 ## Amazon Redshift patch 196
+<a name="cluster-version-196"></a>
 
 Cluster versions in this patch:
-
-- 1.0.179872 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on January 8, 2026
-- 1.0.163480 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on November 20, 2025
-- 1.0.160807 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on November 14, 2025
-- 1.0.155905 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on November 11, 2025
++ 1.0.179872 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 8, 2026
++ 1.0.163480 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 20, 2025
++ 1.0.160807 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 14, 2025
++ 1.0.155905 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 11, 2025
 
 ### New features and improvements in this patch
-
-- Optimized the plans for correlated IN and EXISTS subqueries by decorrelating them into semi joins.
-- Extended the SHOW TABLE command to include collation information for every column.
+<a name="cluster-version-2025-11-10-features"></a>
++  Optimized the plans for correlated IN and EXISTS subqueries by decorrelating them into semi joins. 
++  Extended the SHOW TABLE command to include collation information for every column. 
 
 ## Amazon Redshift patch 195
+<a name="cluster-version-195"></a>
 
 Cluster versions in this patch:
-
-- 1.0.172541 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on December 8, 2025
-- 1.0.162991 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on November 20, 2025
-- 1.0.151179 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on November 4, 2025
-- 1.0.148180 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on October 31, 2025
-- 1.0.142459 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on October 24, 2025
++ 1.0.172541 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on December 8, 2025
++ 1.0.162991 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 20, 2025
++ 1.0.151179 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 4, 2025
++ 1.0.148180 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on October 31, 2025
++ 1.0.142459 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on October 24, 2025
 
 ### New features and improvements in this patch
-
-- Adds support for writing to Iceberg tables using CREATE TABLE , CREATE TABLE AS SELECT, INSERT INTO, SQL commands.
-- Adds support for the SUPER data type in databases with case-insensitive collation.
-- Updates the IANA Time Zone Database database version to 2025b.
-- Adds support for the TZDB\_VERSION function. This
-  function displays the current IANA Time Zone Database version in use.
-- Amazon Redshift now enforces patch compatibility restrictions.
-  Backups created on patch versions that are more than one patch version
-  ahead of the current cluster are no longer permitted to perform
-  table restore operations.
-- Extends UNNEST functionality to support JOIN expressions.
-  Previously, UNNEST was limited to single-table references.
-- Adds support for the JIT (Just In Time) ANALYZE feature.
-  JIT ANALYZE automatically, intelligently, and efficiently collects the minimal set
-  of statistics that Amazon Redshift's query optimizer needs to generate efficient query
-  execution plans, allowing customers to achieve best price-performance
-  for Apache Iceberg out-of-box (OOB) queries and workloads.
+<a name="cluster-version-2025-10-24-features"></a>
++ Adds support for writing to Iceberg tables using CREATE TABLE , CREATE TABLE AS SELECT, INSERT INTO, SQL commands.
++  Adds support for the SUPER data type in databases with case-insensitive collation. 
++  Updates the IANA Time Zone Database database version to 2025b. 
++  Adds support for the TZDB\_VERSION function. This function displays the current IANA Time Zone Database version in use. 
++  Amazon Redshift now enforces patch compatibility restrictions. Backups created on patch versions that are more than one patch version ahead of the current cluster are no longer permitted to perform table restore operations. 
++  Extends UNNEST functionality to support JOIN expressions. Previously, UNNEST was limited to single-table references. 
++  Adds support for the JIT (Just In Time) ANALYZE feature. JIT ANALYZE automatically, intelligently, and efficiently collects the minimal set of statistics that Amazon Redshift's query optimizer needs to generate efficient query execution plans, allowing customers to achieve best price-performance for Apache Iceberg out-of-box (OOB) queries and workloads. 
 
 ## Amazon Redshift patch 194
+<a name="cluster-version-194"></a>
 
 Cluster versions in this patch:
-
-- 1.0.148169 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on November 5, 2025
-- 1.0.138443 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on October 18, 2025
-- 1.0.129791 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on October 8, 2025
++ 1.0.148169 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on November 5, 2025
++ 1.0.138443 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on October 18, 2025
++ 1.0.129791 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on October 8, 2025
 
 ### New features and improvements in this patch
-
-- Amazon Redshift will no longer fail a query that accesses an
-  AWS Lake Formation-governed relation where the `AuthorizedColumns`
-  field includes a backslash.
-- Added support for the NULL AS option in COPY command for SUPER columns,
-  letting you specify a custom string to represent NULL values.
-- Added support for the ISOWEEK and ISOYEAR date parts in EXTRACT
-  and DATE\_PART functions when used with dates and timestamps.
-- Fixed PartiQL navigation on grouped variables to ensure correct
-  parsing and evaluation of nested field access in
-  GROUP BY queries.
-- Added support to view primary key and foreign key
-  constraints using the SHOW CONSTRAINTS command.
-- Added support for local materialized views created from
-  data sharing materialized views.
-- Improves the performance of queries that retrieve data from different tables and invoke Lambda User Defined Functions in join conditions.
-- Add support for MVs on Datasharing MVs
-- The DROP DATABASE command now uses a background worker
-  to remove leader node catalog directories after commit.
-  Using a worker avoids rare bugs related to catalog
-  directory cleanup.
+<a name="cluster-version-2025-10-01-features"></a>
++  Amazon Redshift will no longer fail a query that accesses an AWS Lake Formation-governed relation where the `AuthorizedColumns` field includes a backslash.
++  Added support for the NULL AS option in COPY command for SUPER columns, letting you specify a custom string to represent NULL values.
++ Added support for the ISOWEEK and ISOYEAR date parts in EXTRACT and DATE\_PART functions when used with dates and timestamps.
++ Fixed PartiQL navigation on grouped variables to ensure correct parsing and evaluation of nested field access in GROUP BY queries.
++ Added support to view primary key and foreign key constraints using the SHOW CONSTRAINTS command.
++ Added support for local materialized views created from data sharing materialized views.
++ Improves the performance of queries that retrieve data from different tables and invoke Lambda User Defined Functions in join conditions.
++ Add support for MVs on Datasharing MVs
++ The DROP DATABASE command now uses a background worker to remove leader node catalog directories after commit. Using a worker avoids rare bugs related to catalog directory cleanup.
 
 ## Amazon Redshift patch 193
+<a name="cluster-version-193"></a>
 
 Cluster versions in this patch:
-
-- 1.0.136890 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on October 17, 2025
-- 1.0.127211 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on September 30, 2025
++ 1.0.136890 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on October 17, 2025
++ 1.0.127211 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on September 30, 2025
 
 ### New features and improvements in this patch
-
-- Added support for creating tables using CREATE TABLE LIKE to clone one parent
-  table from remote databases (both within the same cluster and between different
-  clusters).
-- Added ST\_GeomFromGeoJSON overload that creates a geometry from the SUPER
-  datatype in GeoJSON format, with support for geometries up to 1 MB.
-- Changed the default fallback option in case of misconfigurations in automatic
-  workload management (WLM). The default fallback option is now automatic WLM
-  instead of manual WLM.
-- Updated time zone calculation by adopting the latest IANA Time Zone Database
-  patches. This change alters how date and time conversions function for certain
-  time zones and time periods. For more information, see [Amazon Redshift uses up-to-date IANA Time Zone Database](behavior-changes.md#timezone-changes-aug2025 "behavior-changes.md#timezone-changes-aug2025").
-- Added support for multidimensional data layout (MDDL) sorting.
-  MDDL sort keys dynamically sort data based on actual query filters,
-  accelerating query performance. For more information, see
-  [Multidimensional data layout storing](../dg/t_Sorting_mutidimensional-sort-key.md "../dg/t_Sorting_mutidimensional-sort-key.md") in the _Amazon Redshift Database Developer Guide_.
+<a name="cluster-version-2025-08-26-features"></a>
++ Added support for creating tables using CREATE TABLE LIKE to clone one parent table from remote databases (both within the same cluster and between different clusters).
++ Added ST\_GeomFromGeoJSON overload that creates a geometry from the SUPER datatype in GeoJSON format, with support for geometries up to 1 MB.
++ Changed the default fallback option in case of misconfigurations in automatic workload management (WLM). The default fallback option is now automatic WLM instead of manual WLM.
++ Updated time zone calculation by adopting the latest IANA Time Zone Database patches. This change alters how date and time conversions function for certain time zones and time periods. For more information, see [Amazon Redshift uses up-to-date IANA Time Zone Database](https://docs.aws.amazon.com/redshift/latest/mgmt/behavior-changes.html#timezone-changes-aug2025).
++ Added support for multidimensional data layout (MDDL) sorting. MDDL sort keys dynamically sort data based on actual query filters, accelerating query performance. For more information, see [ Multidimensional data layout storing ](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_mutidimensional-sort-key.html) in the *Amazon Redshift Database Developer Guide*.
 
 ## Amazon Redshift patch 192
+<a name="cluster-version-192"></a>
 
 Cluster versions in this patch:
-
-- 1.0.124422 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on September 22, 2025
-- 1.0.122914 – Trailing Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on September 16, 2025
-- 1.0.121035 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on August 22, 2025
-- 1.0.119650 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on August 7, 2025
-- 1.0.118447 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on July 24, 2025
++ 1.0.124422 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on September 22, 2025
++ 1.0.122914 – Trailing Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on September 16, 2025
++ 1.0.121035 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on August 22, 2025
++ 1.0.119650 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on August 7, 2025
++ 1.0.118447 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on July 24, 2025
 
 ### New features and improvements in this patch
-
-- Fixes an issue when JOIN on a collated case-insensitive column and a constant
-  string column selects a mismatching hash function.
+<a name="cluster-version-2025-07-30-features"></a>
++ Fixes an issue when JOIN on a collated case-insensitive column and a constant string column selects a mismatching hash function.
 
 ## Amazon Redshift patch 191
+<a name="cluster-version-191"></a>
 
 Cluster versions in this patch:
-
-- 1.0.117891 – Trailing Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on July 29, 2025
-- 1.0.117891 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on July 22, 2025
-- 1.0.117458 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on July 15, 2025
-- 1.0.116415 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on June 26, 2025
-- 1.0.116263 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on June 25, 2025
-- 1.0.115865 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on June 18, 2025
++ 1.0.117891 – Trailing Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on July 29, 2025
++ 1.0.117891 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on July 22, 2025
++ 1.0.117458 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on July 15, 2025
++ 1.0.116415 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on June 26, 2025
++ 1.0.116263 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on June 25, 2025
++ 1.0.115865 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on June 18, 2025
 
 ### New features and improvements in this patch
-
-- Adds support for the UNNEST operation in the SELECT statement's FROM clause,
-  enabling customers to convert array elements into individual rows.
-- Improves error handling for PartiQL unnesting syntax when
-  using SUPER data type within Common Table Expressions (CTEs) and recursive CTEs,
-  particularly when resolving table aliases with identical names.
-- Improves performance for automatic analyze by
-  adding support for incremental automatic analyze for large tables.
-- Amazon Redshift now supports Cascading Refresh of nested Materialized
-  Views (MVs).
-- Amazon Redshift now supports Auto Refresh of Materialized Views (MVs)
-  defined on Apache Iceberg tables.
-- Adds support for Amazon RDS for Oracle zero-ETL integrations with Amazon Redshift.
-- Adds support for Amazon RDS for PostgreSQL zero-ETL integrations with Amazon Redshift.
+<a name="cluster-version-2025-06-24-features"></a>
++ Adds support for the UNNEST operation in the SELECT statement's FROM clause, enabling customers to convert array elements into individual rows.
++ Improves error handling for PartiQL unnesting syntax when using SUPER data type within Common Table Expressions (CTEs) and recursive CTEs, particularly when resolving table aliases with identical names.
++ Improves performance for automatic analyze by adding support for incremental automatic analyze for large tables. 
++ Amazon Redshift now supports Cascading Refresh of nested Materialized Views (MVs).
++ Amazon Redshift now supports Auto Refresh of Materialized Views (MVs) defined on Apache Iceberg tables.
++ Adds support for Amazon RDS for Oracle zero-ETL integrations with Amazon Redshift.
++ Adds support for Amazon RDS for PostgreSQL zero-ETL integrations with Amazon Redshift.
 
 ## Amazon Redshift patch 190
+<a name="cluster-version-190"></a>
 
 Cluster versions in this patch:
-
-- 1.0.115140 – Trailing Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on June 16, 2025
-- 1.0.115564 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on June 14, 2025
-- 1.0.113436 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on May 15, 2025
-- 1.0.112895 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on May 7, 2025
++ 1.0.115140 – Trailing Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on June 16, 2025
++ 1.0.115564 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on June 14, 2025
++ 1.0.113436 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on May 15, 2025
++ 1.0.112895 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on May 7, 2025
 
 ### New features and improvements in this patch
-
-- Adds improved models for Amazon Redshift Serverless AI-driven scaling and optimizations.
-- Adds support for auto-copy when using Amazon Redshift with enhanced VPC routing
-  enabled.
-- Adds support for multiple automatic table optimization operations to run
-  concurrently across different tables.
-- Fixes a rare condition in streaming ingestion where queued autorefresh queries
-  trigger UNDO queries that also queue, leading to lock contention.
-- Adds support for Oracle Database@AWS zero-ETL integrations with Amazon Redshift.
+<a name="cluster-version-2025-05-07-features"></a>
++ Adds improved models for Amazon Redshift Serverless AI-driven scaling and optimizations.
++ Adds support for auto-copy when using Amazon Redshift with enhanced VPC routing enabled.
++ Adds support for multiple automatic table optimization operations to run concurrently across different tables. 
++ Fixes a rare condition in streaming ingestion where queued autorefresh queries trigger UNDO queries that also queue, leading to lock contention.
++ Adds support for Oracle Database@AWS zero-ETL integrations with Amazon Redshift.
 
 ## Amazon Redshift patch 189
+<a name="cluster-version-189"></a>
 
 Cluster versions in this patch:
-
-- 1.0.112790 – Trailing Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on May 14, 2025
-- 1.0.112790 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on May 6, 2025
-- 1.0.112086 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on April 29, 2025
-- 1.0.111040 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on April 16, 2025
-- 1.0.109768 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 22, 2025
-- 1.0.109284 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 13, 2025
-- 1.0.108971 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 7, 2025
++ 1.0.112790 – Trailing Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on May 14, 2025
++ 1.0.112790 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on May 6, 2025
++ 1.0.112086 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on April 29, 2025
++ 1.0.111040 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on April 16, 2025
++ 1.0.109768 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 22, 2025
++ 1.0.109284 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 13, 2025
++ 1.0.108971 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 7, 2025
 
 ### New features and improvements in this patch
-
-- Adds support for concurrency scaling for write queries using the SUPER, GEOMETRY, and GEOGRAPHY data types.
-- Fixes an issue that allowed SUPER, GEOMETRY, or GEOGRAPHY columns to be set as
-  DISTKEY or SORTKEY columns during table creation with CREATE TABLE AS.
-- Adds support for the TRY\_CAST function.
-- Enables support for running multiple vacuum commands concurrently across
-  different tables.
+<a name="cluster-version-2025-03-07-features"></a>
++ Adds support for concurrency scaling for write queries using the SUPER, GEOMETRY, and GEOGRAPHY data types. 
++ Fixes an issue that allowed SUPER, GEOMETRY, or GEOGRAPHY columns to be set as DISTKEY or SORTKEY columns during table creation with CREATE TABLE AS. 
++ Adds support for the TRY\_CAST function. 
++ Enables support for running multiple vacuum commands concurrently across different tables. 
 
 ## Amazon Redshift patch 188
+<a name="cluster-version-188"></a>
 
 Cluster versions in this patch:
-
-- 1.0.109616 – Trailing Amazon Redshift Serverless
-  workgroup version – Released on March 27, 2025
-- 1.0.109616 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 24, 2025
-- 1.0.108470 – Trailing Amazon Redshift Serverless
-  workgroup version – Released on March 13, 2025
-- 1.0.108470 – Current Amazon Redshift Serverless
-  workgroup version – Released on March 11, 2025
-- 1.0.108950 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 10, 2025
-- 1.0.108790 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 9, 2025
-- 1.0.108470 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on March 4, 2025
-- 1.0.107910 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on February 20, 2025
-- 1.0.107360 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
-  workgroup version – Released on February 13, 2025
-- 1.0.106767 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 5, 2025
++ 1.0.109616 – Trailing Amazon Redshift Serverless workgroup version – Released on March 27, 2025
++ 1.0.109616 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 24, 2025
++ 1.0.108470 – Trailing Amazon Redshift Serverless workgroup version – Released on March 13, 2025
++ 1.0.108470 – Current Amazon Redshift Serverless workgroup version – Released on March 11, 2025
++ 1.0.108950 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 10, 2025
++ 1.0.108790 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 9, 2025
++ 1.0.108470 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on March 4, 2025
++ 1.0.107910 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 20, 2025
++ 1.0.107360 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 13, 2025
++ 1.0.106767 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 5, 2025
 
 ### New features and improvements in this patch
-
-- Adds support for automatic mounting of an Amazon S3 Tables catalog, making it easier for
-  you to run queries on Apache Iceberg tables managed in Amazon S3 Tables. See
-  [Prerequisites for managing Amazon Redshift namespaces in the AWS Glue Data Catalog](../../../lake-formation/latest/dg/redshift-ns-prereqs.md "../../../lake-formation/latest/dg/redshift-ns-prereqs.md") in the _AWS Lake Formation Developer Guide_ for required permissions.
-- You can now bypass the data masking check and add a table with a dynamic data
-  masking (DDM) attachment to a datashare.
-- Disallows the use of correlation references that skip a query block, also known as "skip-level correlation references".
-  For more information, see
-  [Correlated subquery patterns that are not supported](../dg/r_correlated_subqueries.md#r_correlated_subqueries-correlated-subquery-patterns-that-are-not-supported "../dg/r_correlated_subqueries.md#r_correlated_subqueries-correlated-subquery-patterns-that-are-not-supported") in the _Amazon Redshift Database Developer Guide_.
-- Adds support for correlated SUPER data type queries with data sharing and 3-part notation.
-- Adds support for the EXCLUDE SQL keyword.
-- Adds support for new GROUP BY ALL SQL keyword.
-- Improves performance for workload management (WLM) queues configured with roles, resulting in lower lock contention.
-- Adds support for automatically refreshed materialize views on zero-ETL tables with history mode turned on.
-- Adds support for null characters embedded in strings during zero-ETL replication.
-- Improves models for AI driven scaling and optimizations.
-- Adds the `username` column to the `sys_query_history` view.
+<a name="cluster-version-2025-02-05-features"></a>
++  Adds support for automatic mounting of an Amazon S3 Tables catalog, making it easier for you to run queries on Apache Iceberg tables managed in Amazon S3 Tables. See [ Prerequisites for managing Amazon Redshift namespaces in the AWS Glue Data Catalog](https://docs.aws.amazon.com/lake-formation/latest/dg/redshift-ns-prereqs.html) in the *AWS Lake Formation Developer Guide* for required permissions. 
++ You can now bypass the data masking check and add a table with a dynamic data masking (DDM) attachment to a datashare.
++ Disallows the use of correlation references that skip a query block, also known as "skip-level correlation references". For more information, see [Correlated subquery patterns that are not supported](https://docs.aws.amazon.com/redshift/latest/dg/r_correlated_subqueries.html#r_correlated_subqueries-correlated-subquery-patterns-that-are-not-supported) in the *Amazon Redshift Database Developer Guide*.
++ Adds support for correlated SUPER data type queries with data sharing and 3-part notation.
++ Adds support for the EXCLUDE SQL keyword.
++ Adds support for new GROUP BY ALL SQL keyword.
++ Improves performance for workload management (WLM) queues configured with roles, resulting in lower lock contention.
++ Adds support for automatically refreshed materialize views on zero-ETL tables with history mode turned on.
++ Adds support for null characters embedded in strings during zero-ETL replication.
++ Improves models for AI driven scaling and optimizations.
++ Adds the `username` column to the `sys_query_history` view.
 
 ## Amazon Redshift patch 187
+<a name="cluster-version-187"></a>
 
 Cluster versions in this patch:
-
-- 1.0.107351 – Amazon Redshift provisioned cluster trailing track version and Amazon Redshift Serverless workgroup version – Released on February 13, 2025
-- 1.0.106452 – Amazon Redshift provisioned cluster trailing track version – Released on February 5, 2025
-- 1.0.106980 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 3, 2025
-- 1.0.106452 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 24, 2025
-- 1.0.106073 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 21, 2025
-- 1.0.105722 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 10, 2025
-- 1.0.105373 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 8, 2025
-- 1.0.104930 – Amazon Redshift Serverless workgroup version – Released on December 20, 2024
++ 1.0.107351 – Amazon Redshift provisioned cluster trailing track version and Amazon Redshift Serverless workgroup version – Released on February 13, 2025
++ 1.0.106452 – Amazon Redshift provisioned cluster trailing track version – Released on February 5, 2025
++ 1.0.106980 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on February 3, 2025
++ 1.0.106452 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 24, 2025
++ 1.0.106073 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 21, 2025
++ 1.0.105722 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 10, 2025
++ 1.0.105373 – Current Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released on January 8, 2025
++ 1.0.104930 – Amazon Redshift Serverless workgroup version – Released on December 20, 2024
 
 ### New features and improvements in this patch
-
-- Introduces two new spatial H3 functions (H3\_center and H3\_boundary).
-- Enables dynamic disk cache on concurrency scaling clusters.
-- Fixes an inefficiency in memory usage during the ingestion of sorted tables that could impact performance.
-- Fixes an issue where certain queries with a subquery inside the SELECT clause, such as `SELECT ARRAY_FLATTEN((SELECT FROM ...))`,
-  would incorrectly trigger a `size >= min_partiql_size` XCHECK error in specific scenarios involving a single SUPER value.
-- Fixes an issue where non-nullable SUPER expressions (`json_serialize()`, `json_size()`, `json_typeof()`, `is_object()`, and several others)
-  would sometimes produce erroneous results when combined with argument expressions such as `CASE ... END` or `COALESCE()`.
-- Fixes an issue where SELECT from late binding views would raise an ERROR after enabling row-level security on the view.
-- Fixes an issue where CDC on a zero-ETL integration lead to a high leader node CPU consumption.
-- Adds the capability to zero-ETL integrations to query tables in all states, including during updates.
-- Adds the capability to zero-ETL integrations to truncate large texts/strings for mapping to the max varchar size on Amazon Redshift.
-- Adds the capability to zero-ETL integrations to replace invalid UTF-8 characters with a specified character of your choice.
-- Fixes an issue on 'refresh interval' for zero-ETL integration with Amazon RDS for MySQL.
-- Adds support for JSON/JSONB data type for zero-ETL integration with Aurora PostgreSQL.
-- Fixes an issue where queries containing expressions with `IS [NOT] {TRUE|FALSE|UNKNOWN}`
-  would encounter an assertion error.
-- Fixes an issue where the `json_extract_path_text()` and `json_extract_array_element_text()`
-  functions would produce an empty string `''` instead of `NULL` or vice versa in cases like accessing a
-  non-existent array element or attribute, the JSON `'null'` value, or an empty JSON string.
-- Improves performance of INSERT/COPY statements in concurrent transactions writing to the same table by allowing them
-  to share a lock and make progress until they need to write data to the table.
+<a name="cluster-version-2024-12-20-features"></a>
++ Introduces two new spatial H3 functions (H3\_center and H3\_boundary).
++ Enables dynamic disk cache on concurrency scaling clusters.
++ Fixes an inefficiency in memory usage during the ingestion of sorted tables that could impact performance.
++ Fixes an issue where certain queries with a subquery inside the SELECT clause, such as `SELECT ARRAY_FLATTEN((SELECT FROM ...))`, would incorrectly trigger a `size >= min_partiql_size` XCHECK error in specific scenarios involving a single SUPER value.
++ Fixes an issue where non-nullable SUPER expressions (`json_serialize()`, `json_size()`, `json_typeof()`, `is_object()`, and several others) would sometimes produce erroneous results when combined with argument expressions such as `CASE ... END` or `COALESCE()`.
++ Fixes an issue where SELECT from late binding views would raise an ERROR after enabling row-level security on the view.
++ Fixes an issue where CDC on a zero-ETL integration lead to a high leader node CPU consumption.
++ Adds the capability to zero-ETL integrations to query tables in all states, including during updates.
++ Adds the capability to zero-ETL integrations to truncate large texts/strings for mapping to the max varchar size on Amazon Redshift.
++ Adds the capability to zero-ETL integrations to replace invalid UTF-8 characters with a specified character of your choice.
++ Fixes an issue on 'refresh interval' for zero-ETL integration with Amazon RDS for MySQL.
++ Adds support for JSON/JSONB data type for zero-ETL integration with Aurora PostgreSQL.
++ Fixes an issue where queries containing expressions with `IS [NOT] {TRUE|FALSE|UNKNOWN}` would encounter an assertion error.
++ Fixes an issue where the `json_extract_path_text()` and `json_extract_array_element_text()` functions would produce an empty string `''` instead of `NULL` or vice versa in cases like accessing a non-existent array element or attribute, the JSON `'null'` value, or an empty JSON string.
++ Improves performance of INSERT/COPY statements in concurrent transactions writing to the same table by allowing them to share a lock and make progress until they need to write data to the table.
 
 ## Amazon Redshift patch 186
+<a name="cluster-version-186"></a>
 
 Cluster versions in this patch:
-
-- 1.0.82096 – Trailing track version – Released on January 10, 2025
-- 1.0.82000 – Amazon Redshift Serverless version – Released on January 10, 2025
-- 1.0.81981 – Current track version – Released on January 10, 2025
-- 1.0.81475 – Trailing track version – Released on January 6, 2025
-- 1.0.81473 – Amazon Redshift Serverless version – Released on January 6, 2025
-- 1.0.81462 – Current track version – Released on January 6, 2025
-- 1.0.80643 – Trailing track version – Released on December 17, 2024
-- 1.0.80583 – Amazon Redshift Serverless version – Released on December 17, 2024
-- 1.0.80560 – Current track version – Released on December 17, 2024
-- 1.0.80498 – Amazon Redshift Serverless version – Released on December 13, 2024
-- 1.0.80491 – Current track version – Released on December 13,
-  2024
-- 1.0.80036 – Amazon Redshift Serverless version – Released on December 6, 2024
-- 1.0.80009 – Current track version – Released on December 6,
-  2024
-- 1.0.79372 – Amazon Redshift Serverless version – Released on November 26, 2024
-- 1.0.79237 – Amazon Redshift Serverless version – Released on November 24, 2024
-- 1.0.79229 – Current track version – Released on November 24,
-  2024
-- 1.0.79003 – Amazon Redshift Serverless version – Released on November 19, 2024
-- 1.0.78987 – Current track version – Released on November 19,
-  2024
-- 1.0.78890 – Amazon Redshift Serverless version – Released on November 18, 2024
-- 1.0.78881 – Current track version – Released on November 18,
-  2024
-- 1.0.78646 – Amazon Redshift Serverless version – Released on November 14, 2024
-- 1.0.78641 – Current track version – Released on November 14,
-  2024
-- 1.0.78178 – Amazon Redshift Serverless version – Released on November 12, 2024
-- 1.0.78160 – Current track version – Released on November 12,
-  2024
-- 1.0.77809 – Amazon Redshift Serverless version – Released on October 31, 2024
-- 1.0.77777 – Current track version – Released on October 31,
-  2024
-- 1.0.77292 – Amazon Redshift Serverless version – Released on October 24, 2024
-- 1.0.77272 – Current track version – Released on October 24,
-  2024
-- 1.0.77040 – Amazon Redshift Serverless version – Released on October 22, 2024
-- 1.0.77028 – Current track version – Released on October 22,
-  2024
++ 1.0.82096 – Trailing track version – Released on January 10, 2025
++ 1.0.82000 – Amazon Redshift Serverless version – Released on January 10, 2025
++ 1.0.81981 – Current track version – Released on January 10, 2025
++ 1.0.81475 – Trailing track version – Released on January 6, 2025
++ 1.0.81473 – Amazon Redshift Serverless version – Released on January 6, 2025
++ 1.0.81462 – Current track version – Released on January 6, 2025
++ 1.0.80643 – Trailing track version – Released on December 17, 2024
++ 1.0.80583 – Amazon Redshift Serverless version – Released on December 17, 2024
++ 1.0.80560 – Current track version – Released on December 17, 2024
++ 1.0.80498 – Amazon Redshift Serverless version – Released on December 13, 2024
++ 1.0.80491 – Current track version – Released on December 13, 2024
++ 1.0.80036 – Amazon Redshift Serverless version – Released on December 6, 2024
++ 1.0.80009 – Current track version – Released on December 6, 2024
++ 1.0.79372 – Amazon Redshift Serverless version – Released on November 26, 2024
++ 1.0.79237 – Amazon Redshift Serverless version – Released on November 24, 2024
++ 1.0.79229 – Current track version – Released on November 24, 2024
++ 1.0.79003 – Amazon Redshift Serverless version – Released on November 19, 2024
++ 1.0.78987 – Current track version – Released on November 19, 2024
++ 1.0.78890 – Amazon Redshift Serverless version – Released on November 18, 2024
++ 1.0.78881 – Current track version – Released on November 18, 2024
++ 1.0.78646 – Amazon Redshift Serverless version – Released on November 14, 2024
++ 1.0.78641 – Current track version – Released on November 14, 2024
++ 1.0.78178 – Amazon Redshift Serverless version – Released on November 12, 2024
++ 1.0.78160 – Current track version – Released on November 12, 2024
++ 1.0.77809 – Amazon Redshift Serverless version – Released on October 31, 2024
++ 1.0.77777 – Current track version – Released on October 31, 2024
++ 1.0.77292 – Amazon Redshift Serverless version – Released on October 24, 2024
++ 1.0.77272 – Current track version – Released on October 24, 2024
++ 1.0.77040 – Amazon Redshift Serverless version – Released on October 22, 2024
++ 1.0.77028 – Current track version – Released on October 22, 2024
 
 ### New features and improvements in this patch
-
-- Adds support for automatic and incremental refresh of materialized views on tables from zero-ETL integrations with Amazon Aurora MySQL, Amazon Aurora PostgreSQL, Amazon RDS for MySQL, and Amazon DynamoDB.
-- Improves how Amazon Redshift rewrites queries with correlated single-row subqueries, such as `SELECT … WHERE key = (SELECT … correlated subquery)`.
-  Note that such queries are only valid if the subquery yields a single row.
-  Due to the improved rewrite, certain queries that violate this condition might now fail with
-  **`ERROR: single-row subquery returns more than one row`** in cases where they were previously permitted.
-  To avoid this, such subqueries might need to be corrected so that they are guaranteed to return a single row,
-  for example, by adding a MIN() or MAX() aggregate.
-- Adds a SQL Identifier 'KAFKA' in Amazon Redshift to support streaming from external Kafka sources into Amazon Redshift with direct streaming ingestion.
-  These sources include external Kafka sources such as Confluent Managed Cloud and Apache Kafka.
-- Adds support for multi-warehouse writes using data sharing so that you can
-  scale your write workloads and achieve better performance for extract,
-  transform, and load (ETL) workloads by using different warehouses of various
-  types and sizes, based on your workload needs.
-- You can now run `SELECT` queries on Apache Iceberg tables managed in Amazon S3 Tables using Amazon Redshift
-  For more information, see [Accessing Amazon S3 tables with Amazon Redshift](../../../AmazonS3/latest/userguide/s3-tables-integrating-redshift.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-redshift.md") in the _Amazon Simple Storage Service User Guide_.
-- Adds support for cross-database write queries in Amazon Redshift, so that you can
-  write across multiple databases in an Amazon Redshift cluster. For more information,
-  see [Cross-database queries](../dg/cross-database-overview.md "../dg/cross-database-overview.md").
+<a name="cluster-version-2024-10-22-features"></a>
++ Adds support for automatic and incremental refresh of materialized views on tables from zero-ETL integrations with Amazon Aurora MySQL, Amazon Aurora PostgreSQL, Amazon RDS for MySQL, and Amazon DynamoDB.
++ Improves how Amazon Redshift rewrites queries with correlated single-row subqueries, such as `SELECT … WHERE key = (SELECT … correlated subquery)`. Note that such queries are only valid if the subquery yields a single row. Due to the improved rewrite, certain queries that violate this condition might now fail with ERROR: single-row subquery returns more than one row in cases where they were previously permitted. To avoid this, such subqueries might need to be corrected so that they are guaranteed to return a single row, for example, by adding a MIN() or MAX() aggregate.
++ Adds a SQL Identifier 'KAFKA' in Amazon Redshift to support streaming from external Kafka sources into Amazon Redshift with direct streaming ingestion. These sources include external Kafka sources such as Confluent Managed Cloud and Apache Kafka.
++ Adds support for multi-warehouse writes using data sharing so that you can scale your write workloads and achieve better performance for extract, transform, and load (ETL) workloads by using different warehouses of various types and sizes, based on your workload needs.
++  You can now run `SELECT` queries on Apache Iceberg tables managed in Amazon S3 Tables using Amazon Redshift For more information, see [ Accessing Amazon S3 tables with Amazon Redshift ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-integrating-redshift.html) in the *Amazon Simple Storage Service User Guide*. 
++ Adds support for cross-database write queries in Amazon Redshift, so that you can write across multiple databases in an Amazon Redshift cluster. For more information, see [Cross-database queries](https://docs.aws.amazon.com/redshift/latest/dg/cross-database-overview.html).
 
 ## Amazon Redshift patch 185
+<a name="cluster-version-185"></a>
 
 Cluster versions in this patch:
-
-- 1.0.79878 – Trailing track version – Released on December 3,
-  2024
-- 1.0.79868 – Amazon Redshift Serverless version – Released on December 3, 2024
-- 1.0.79845 – Current track version – Released on December 3,
-  2024
-- 1.0.78946 – Trailing track version – Released on November 19,
-  2024
-- 1.0.78354 – Trailing track version – Released on November 12, 2024
-- 1.0.78130 – Amazon Redshift Serverless version – Released on November 12, 2024
-- 1.0.78125 – Current track version – Released on November 12, 2024
-- 1.0.78016 – Amazon Redshift Serverless version – Released on November 5, 2024
-- 1.0.78014 – Current track version – Released on November 5, 2024
-- 1.0.77707 – Amazon Redshift Serverless version – Released on November 4, 2024
-- 1.0.77687 – Current track version – Released on November 4, 2024
-- 1.0.77467 – Amazon Redshift Serverless version – Released on November 4, 2024
-- 1.0.77433 – Current track version – Released on November 4, 2024
-- 1.0.77467 – Amazon Redshift Serverless version – Released on October 29, 2024
-- 1.0.77433 – Current track version – Released on October 29, 2024
-- 1.0.76991 – Amazon Redshift Serverless version – Released on October 21, 2024
-- 1.0.76913 – Current track version – Released on October 21, 2024
-- 1.0.76645 – Amazon Redshift Serverless version – Released on October 14, 2024
-- 1.0.76642 – Current track version – Released on October 14, 2024
-- 1.0.76242 – Amazon Redshift Serverless version – Released on October 10, 2024
-- 1.0.76230 – Current track version – Released on October 10, 2024
++ 1.0.79878 – Trailing track version – Released on December 3, 2024
++ 1.0.79868 – Amazon Redshift Serverless version – Released on December 3, 2024
++ 1.0.79845 – Current track version – Released on December 3, 2024
++ 1.0.78946 – Trailing track version – Released on November 19, 2024
++ 1.0.78354 – Trailing track version – Released on November 12, 2024
++ 1.0.78130 – Amazon Redshift Serverless version – Released on November 12, 2024
++ 1.0.78125 – Current track version – Released on November 12, 2024
++ 1.0.78016 – Amazon Redshift Serverless version – Released on November 5, 2024
++ 1.0.78014 – Current track version – Released on November 5, 2024
++ 1.0.77707 – Amazon Redshift Serverless version – Released on November 4, 2024
++ 1.0.77687 – Current track version – Released on November 4, 2024
++ 1.0.77467 – Amazon Redshift Serverless version – Released on November 4, 2024
++ 1.0.77433 – Current track version – Released on November 4, 2024
++ 1.0.77467 – Amazon Redshift Serverless version – Released on October 29, 2024
++ 1.0.77433 – Current track version – Released on October 29, 2024
++ 1.0.76991 – Amazon Redshift Serverless version – Released on October 21, 2024
++ 1.0.76913 – Current track version – Released on October 21, 2024
++ 1.0.76645 – Amazon Redshift Serverless version – Released on October 14, 2024
++ 1.0.76642 – Current track version – Released on October 14, 2024
++ 1.0.76242 – Amazon Redshift Serverless version – Released on October 10, 2024
++ 1.0.76230 – Current track version – Released on October 10, 2024
 
 ### New features and improvements in this patch
-
-- Adds support for incremental refresh of materialized views (MVs) created on
-  data lake tables.
-- Introduces support to alter the distribution key and sort key for materialized
-  views.
-- Adds support for the integration of Amazon Redshift machine learning (ML) with Amazon
-  Bedrock to leverage large language models (LLMs) from simple SQL commands along
-  with the data in Amazon Redshift.
-- Fixes a bug that allowed the processing of empty shapefiles in Amazon Redshift spatial
-  data without throwing errors.
-- Fixes a bug that allowed varbit and varbinary datatypes to ingest an empty
-  string value as "", rather than NULL, in a zero-ETL integration.
-- Fixes a race condition with a result cache, which caused cross-database
-  queries to return stale results in a zero-ETL integration.
-- Optimizes the zero-ETL integration resync process, resulting in shorter resync
-  times.
-- Improves zero-ETL bootstrap time after recovery and system mainteanance
-  operations. Now the system can recover the CDC after the last query operation,
-  instead of being able to recover up until the latest available CDC point.
-- Improves observability for zero-ETL integration with a new system table,
-  `sys_integration_table_activity`. This table tracks zero-ETL
-  integration table inserts, updates, and deletes.
-- Improves the auto-creation of federated roles experience. Amazon Redshift administrators
-  now have more control over the auto-creation of federated roles during federated
-  user login. You can now to enable, disable, apply filters to, and configure
-  auto-creation settings for each identity provider.
-- IAM Identity Center users can run COPY, UNLOAD, and CREATE LIBRARY with IAM Identity Center credentials
-  using S3 access grants.
-- Auto-copy (COPY JOB) that enables continuous ingestion of files from Amazon S3, is now generally available.
+<a name="cluster-version-2024-10-09-features"></a>
++ Adds support for incremental refresh of materialized views (MVs) created on data lake tables.
++ Introduces support to alter the distribution key and sort key for materialized views.
++ Adds support for the integration of Amazon Redshift machine learning (ML) with Amazon Bedrock to leverage large language models (LLMs) from simple SQL commands along with the data in Amazon Redshift.
++ Fixes a bug that allowed the processing of empty shapefiles in Amazon Redshift spatial data without throwing errors.
++ Fixes a bug that allowed varbit and varbinary datatypes to ingest an empty string value as "", rather than NULL, in a zero-ETL integration.
++ Fixes a race condition with a result cache, which caused cross-database queries to return stale results in a zero-ETL integration.
++ Optimizes the zero-ETL integration resync process, resulting in shorter resync times.
++ Improves zero-ETL bootstrap time after recovery and system mainteanance operations. Now the system can recover the CDC after the last query operation, instead of being able to recover up until the latest available CDC point.
++ Improves observability for zero-ETL integration with a new system table, `sys_integration_table_activity`. This table tracks zero-ETL integration table inserts, updates, and deletes.
++ Improves the auto-creation of federated roles experience. Amazon Redshift administrators now have more control over the auto-creation of federated roles during federated user login. You can now to enable, disable, apply filters to, and configure auto-creation settings for each identity provider.
++ IAM Identity Center users can run COPY, UNLOAD, and CREATE LIBRARY with IAM Identity Center credentials using S3 access grants.
++ Auto-copy (COPY JOB) that enables continuous ingestion of files from Amazon S3, is now generally available.
 
 ## Amazon Redshift patch 184
+<a name="cluster-version-184"></a>
 
 Cluster versions in this patch:
-
-- 1.0.77706 – Trailing track version – Released on November 12, 2024
-- 1.0.76832 – Trailing track version – Released on October 17, 2024
-- 1.0.76169 – Amazon Redshift Serverless version – Released on October 10, 2024
-- 1.0.76142 – Current track version – Released on October 10, 2024
-- 1.0.75677 – Amazon Redshift Serverless version – Released on September 27, 2024
-- 1.0.75672 – Current track version – Released on September 27, 2024
-- 1.0.75504 – Amazon Redshift Serverless version – Released on September 23, 2024
-- 1.0.75449 – Current track version – Released on September 24, 2024
-- 1.0.74765 – Amazon Redshift Serverless version – Released on September 12, 2024
-- 1.0.74754 – Current track version – Released on September 12, 2024
++ 1.0.77706 – Trailing track version – Released on November 12, 2024
++ 1.0.76832 – Trailing track version – Released on October 17, 2024
++ 1.0.76169 – Amazon Redshift Serverless version – Released on October 10, 2024
++ 1.0.76142 – Current track version – Released on October 10, 2024
++ 1.0.75677 – Amazon Redshift Serverless version – Released on September 27, 2024
++ 1.0.75672 – Current track version – Released on September 27, 2024
++ 1.0.75504 – Amazon Redshift Serverless version – Released on September 23, 2024
++ 1.0.75449 – Current track version – Released on September 24, 2024
++ 1.0.74765 – Amazon Redshift Serverless version – Released on September 12, 2024
++ 1.0.74754 – Current track version – Released on September 12, 2024
 
 ### New features and improvements in this patch
-
-- Amazon Redshift streaming materialized views (MVs) for streaming data ingestion have increased VARBYTE column sizes up from 1,024,000 bytes.
-  Amazon Redshift can now ingest records from Amazon Kinesis Data Streams up to 1,048,576 bytes, or 1MiB. Redshift can ingest records from Amazon Managed Streaming for Apache Kafka up to
-  16,777,216 bytes, or 16 MiB.
-  If you're using the ATA SQL command `ALTER TABLE <target_tbl> APPEND FROM <streaming_mv>`,
-  please drop and recreate your <target\_tbl> to have the corresponding larger VARBYTE column sizes.
-- Amazon Redshift datashares now can include Amazon S3 data lake tables and views that reference AWS Glue Data Catalog including tables governed by Lake Formation.
-- Adds support for automatic and incremental refresh of materialized views on tables from zero-ETL integration with DynamoDB.
-- Adds support to configure the 'refresh interval' on zero-ETL integration tables to specify the replication refresh rate on Amazon Redshift.
-  You can set it at the time of creating a database for a new integration or alter the database of an existing integration.
-- Adds support for Mutual Transport Layer Security (mTLS) authentication in Amazon Redshift streaming ingestion for Amazon Managed Streaming for Apache Kafka.
-- Adds support for query hash, a unique identifier for a SQL query based on the textual representation of the query and the values of its parameters.
-  It can be used to identify, group, and analyze similar queries. Query hash can now be found in SYS\_QUERY\_HISTORY view,
-  with the addition of two new columns:
-
-  - `user_query_hash` – The hash as submitted by the user including the query literals.
-  - `generic_query_hash` - The hash as submitted by the user without any query literals.
-
-- Fixes system deadlock in a rare case where zero-ETL was running CDC replication and scan, performing table queries with result cache.
-- Addresses an issue in Workload Management (WLM) where a Python User Defined Function (UDF) queries would preempt other queries
-  when WLM resources for Python UDF queries were unavailable.
-- Addresses an issue where Workload Management (WLM) would fail to route queries to the queue mapped to a newly created user role.
-- Improves disk utilization on smaller data sharing consumers querying large producer tables.
-- Improves performance of INSERT statements for provisioned clusters elastically resized to a higher size.
+<a name="cluster-version-2024-09-12-features"></a>
++ Amazon Redshift streaming materialized views (MVs) for streaming data ingestion have increased VARBYTE column sizes up from 1,024,000 bytes. Amazon Redshift can now ingest records from Amazon Kinesis Data Streams up to 1,048,576 bytes, or 1MiB. Redshift can ingest records from Amazon Managed Streaming for Apache Kafka up to 16,777,216 bytes, or 16 MiB. If you're using the ATA SQL command `ALTER TABLE <target_tbl> APPEND FROM <streaming_mv>`, please drop and recreate your <target\_tbl> to have the corresponding larger VARBYTE column sizes.
++ Amazon Redshift datashares now can include Amazon S3 data lake tables and views that reference AWS Glue Data Catalog including tables governed by Lake Formation.
++ Adds support for automatic and incremental refresh of materialized views on tables from zero-ETL integration with DynamoDB.
++ Adds support to configure the 'refresh interval' on zero-ETL integration tables to specify the replication refresh rate on Amazon Redshift. You can set it at the time of creating a database for a new integration or alter the database of an existing integration.
++ Adds support for Mutual Transport Layer Security (mTLS) authentication in Amazon Redshift streaming ingestion for Amazon Managed Streaming for Apache Kafka.
++ Adds support for query hash, a unique identifier for a SQL query based on the textual representation of the query and the values of its parameters. It can be used to identify, group, and analyze similar queries. Query hash can now be found in SYS\_QUERY\_HISTORY view, with the addition of two new columns:
+  + `user_query_hash` – The hash as submitted by the user including the query literals.
+  + `generic_query_hash` - The hash as submitted by the user without any query literals.
++ Fixes system deadlock in a rare case where zero-ETL was running CDC replication and scan, performing table queries with result cache.
++ Addresses an issue in Workload Management (WLM) where a Python User Defined Function (UDF) queries would preempt other queries when WLM resources for Python UDF queries were unavailable.
++ Addresses an issue where Workload Management (WLM) would fail to route queries to the queue mapped to a newly created user role.
++ Improves disk utilization on smaller data sharing consumers querying large producer tables.
++ Improves performance of INSERT statements for provisioned clusters elastically resized to a higher size.
 
 ## Amazon Redshift patch 183
+<a name="cluster-version-183"></a>
 
 Cluster versions in this patch:
-
-- 1.0.75655 – Trailing track version – Released on September 30, 2024
-- 1.0.75388 – Amazon Redshift Serverless version – Released on September 25, 2024
-- 1.0.75379 – Current track version – Released on September 25, 2024
-- 1.0.74967 – Amazon Redshift Serverless version – Released on September 17, 2024
-- 1.0.74927 – Current track version – Released on September 17, 2024
-- 1.0.74518 – Amazon Redshift Serverless version – Released on September 11, 2024
-- 1.0.74503 – Current track version – Released on September 11, 2024
-- 1.0.74223 – Amazon Redshift Serverless version – Released on September 5, 2024
-- 1.0.74159 – Current track version – Released on September 5, 2024
-- 1.0.74126 – Amazon Redshift Serverless version – Released on August 30, 2024
-- 1.0.74097 – Current track version – Released on August 30, 2024
-- 1.0.73016 – Amazon Redshift Serverless version – Released on August 8, 2024
-- 1.0.72982 – Current track version – Released on August 8, 2024
++ 1.0.75655 – Trailing track version – Released on September 30, 2024
++ 1.0.75388 – Amazon Redshift Serverless version – Released on September 25, 2024
++ 1.0.75379 – Current track version – Released on September 25, 2024
++ 1.0.74967 – Amazon Redshift Serverless version – Released on September 17, 2024
++ 1.0.74927 – Current track version – Released on September 17, 2024
++ 1.0.74518 – Amazon Redshift Serverless version – Released on September 11, 2024
++ 1.0.74503 – Current track version – Released on September 11, 2024
++ 1.0.74223 – Amazon Redshift Serverless version – Released on September 5, 2024
++ 1.0.74159 – Current track version – Released on September 5, 2024
++ 1.0.74126 – Amazon Redshift Serverless version – Released on August 30, 2024
++ 1.0.74097 – Current track version – Released on August 30, 2024
++ 1.0.73016 – Amazon Redshift Serverless version – Released on August 8, 2024
++ 1.0.72982 – Current track version – Released on August 8, 2024
 
 ### New features and improvements in this patch
-
-- Adds support for discovery of Scoped Permissions via SVV\_DATABASE\_PRIVILEGES and SVV\_SCHEMA\_PRIVILEGES. Also introduces the column privilege\_scope to SVV\_DATABASE\_PRIVILEGES and SVV\_SCHEMA\_PRIVILEGES.
-- Improves performance of queries that execute distinct aggregation operations when grouping columns have a low number of distinct values (NDV).
-- Improves performance of INSERT/COPY statements for provisioned data warehouses
-  elastically resized by 2x or higher in size.
-- Supports session context variables inside a Dynamic Data Masking policy.
-- Adds support for subqueries and views as the source for the MERGE statement.
-- Supports stored procedures containing a MERGE statement on provisioned concurrency scaling and serverless autoscaling compute.
-- Improves query performance with better resource prediction in workload management for COPY commands and for warehouses which undergo resizes.
-- Improves resilience to out of memory errors in clusters with limited memory available
-- Adds support for non-ASCII characters as field delimiters to the COPY command.
-- Adds support for ingesting data encoded in the ISO-8859-1 character set using the COPY command.
-- Removes requirement to specify CLUSTER\_ARN in MSK external schema definition if specifying URI.
-- Supports applying range scan filters during scans on zero-ETL integration tables.
-- Supports adding sort keys to zero-ETL integration tables.
-- Supports database options like `serializable` and `collation` to be specified with CREATE DATABASE statement when creating a zero-ETL integration database.
-- Fixed the issue that was causing the cluster to restart when the data filter exceeded 2 KB in a zero-ETL integration.
+<a name="cluster-version-2024-08-08-features"></a>
++ Adds support for discovery of Scoped Permissions via SVV\_DATABASE\_PRIVILEGES and SVV\_SCHEMA\_PRIVILEGES. Also introduces the column privilege\_scope to SVV\_DATABASE\_PRIVILEGES and SVV\_SCHEMA\_PRIVILEGES.
++ Improves performance of queries that execute distinct aggregation operations when grouping columns have a low number of distinct values (NDV).
++ Improves performance of INSERT/COPY statements for provisioned data warehouses elastically resized by 2x or higher in size.
++ Supports session context variables inside a Dynamic Data Masking policy.
++ Adds support for subqueries and views as the source for the MERGE statement.
++ Supports stored procedures containing a MERGE statement on provisioned concurrency scaling and serverless autoscaling compute.
++ Improves query performance with better resource prediction in workload management for COPY commands and for warehouses which undergo resizes.
++ Improves resilience to out of memory errors in clusters with limited memory available
++ Adds support for non-ASCII characters as field delimiters to the COPY command.
++ Adds support for ingesting data encoded in the ISO-8859-1 character set using the COPY command.
++ Removes requirement to specify CLUSTER\_ARN in MSK external schema definition if specifying URI.
++ Supports applying range scan filters during scans on zero-ETL integration tables.
++ Supports adding sort keys to zero-ETL integration tables.
++ Supports database options like `serializable` and `collation` to be specified with CREATE DATABASE statement when creating a zero-ETL integration database.
++ Fixed the issue that was causing the cluster to restart when the data filter exceeded 2 KB in a zero-ETL integration.
 
 ## Amazon Redshift patch 182
+<a name="cluster-version-182"></a>
 
 Cluster versions in this patch:
-
-- 1.0.73589 – Trailing track version – Released on August 22, 2024
-- 1.0.73359 – Amazon Redshift Serverless version – Released on August 15, 2024
-- 1.0.73348 – Current track version – Released on August 15, 2024
-- 1.0.72917 – Amazon Redshift Serverless version – Released on August 12, 2024
-- 1.0.72899 – Current track version – Released on August 12, 2024
-- 1.0.72528 – Amazon Redshift Serverless version – Released on August 7, 2024
-- 1.0.72503 – Current track version – Released on August 8, 2024
-- 1.0.72239 – Amazon Redshift Serverless version – Released on August 1, 2024
-- 1.0.71714 – Amazon Redshift Serverless version – Released on July 24, 2024
-- 1.0.71629 – Current track version – Released on July 24, 2024
-- 1.0.70953 – Amazon Redshift Serverless version – Released on July 11, 2024
-- 1.0.70890 – Current track version – Released on July 11, 2024
-- 1.0.70716 – Amazon Redshift Serverless version – Released on July 8, 2024
-- 1.0.70695 – Current track version – Released on July 8, 2024
-- 1.0.69945 – Amazon Redshift Serverless version – Released on June 27, 2024
-- 1.0.69938 – Current track version – Released on June 27, 2024
++ 1.0.73589 – Trailing track version – Released on August 22, 2024
++ 1.0.73359 – Amazon Redshift Serverless version – Released on August 15, 2024
++ 1.0.73348 – Current track version – Released on August 15, 2024
++ 1.0.72917 – Amazon Redshift Serverless version – Released on August 12, 2024
++ 1.0.72899 – Current track version – Released on August 12, 2024
++ 1.0.72528 – Amazon Redshift Serverless version – Released on August 7, 2024
++ 1.0.72503 – Current track version – Released on August 8, 2024
++ 1.0.72239 – Amazon Redshift Serverless version – Released on August 1, 2024
++ 1.0.71714 – Amazon Redshift Serverless version – Released on July 24, 2024
++ 1.0.71629 – Current track version – Released on July 24, 2024
++ 1.0.70953 – Amazon Redshift Serverless version – Released on July 11, 2024
++ 1.0.70890 – Current track version – Released on July 11, 2024
++ 1.0.70716 – Amazon Redshift Serverless version – Released on July 8, 2024
++ 1.0.70695 – Current track version – Released on July 8, 2024
++ 1.0.69945 – Amazon Redshift Serverless version – Released on June 27, 2024
++ 1.0.69938 – Current track version – Released on June 27, 2024
 
 ### New features and improvements in this patch
-
-- Updates LISTAGG, MEDIAN, PERCENTILE\_CONT and PERCENTILE\_DISC to no longer require user-defined tables. Queries that reference catalog tables
-  or that don't reference any tables can also use these functions.
-- Reduces query-planning time for datasharing read queries by consolidating temp tables across multiple queries within
-  a single session, for high-concurrency workloads.
-- Provides general availability of Redshift machine learning (ML) integration with Amazon SageMaker AI Jumpstart, for bringing
-  your own large-language models.
-- Introduces support for the SUPER input and output data type in Redshift ML.
-- Enables support for an UPDATE statement with a JOIN clause when the target table is protected by a
-  dynamic data-masking policy and referenced in the JOIN clause.
-- Allows querying of a zero-ETL database on Redshift, even after the integration is deleted from source.
-- Fixes a replication error that could cause zero-ETL integration to fail. This
-  makes an integration more resilient.
-- Allows users other than the user who created a zero-ETL integration to query the data, after GRANT permissions.
-- Fixes an out-of-memory issue that could cause cluster restarts in an Amazon Redshift provisioned cluster with zero-ETL integration enabled.
-- Enables creation of an RDS for MySQL zero-ETL integration with Redshift, from a source RDS Multi-AZ DB cluster. A Multi-AZ DB cluster is a
-  semisynchronous, high-availability deployment mode of Amazon RDS with two readable replica DB instances.
-- Enables a user to connect to an Amazon MSK cluster from an Amazon Redshift streaming consumer client by
-  specifying the Amazon MSK cluster's broker URI in the external schema definition needed to associate an Amazon Redshift streaming materialized view with an Amazon MSK topic.
-  This feature removes the need to obtain the Amazon MSK bootstrap broker node name by calling the GetBootStrapBroker API
-  on the Amazon MSK cluster over an internet gateway.
-- Resolves the issue with resuming Amazon Redshift Serverless instances, enabling an existing database user to resume a Serverless instance
-  when connecting to databases in Amazon Redshift query editor v2, using the IAM Identity Center authentication method.
-- Optimizes CDC replication and reduced resource utilization on Redshift compute by moving to
-  table-based sharding.
-- Improves query performance using enhanced resource prediction in workload management (WLM).
-- Fixes queries failing on concurrency scaling clusters with the message: **`ran out of WLM queues for restart`**.
-- Fixes a workload management (WLM) issue where Amazon Redshift falls back to manual WLM when customers try to apply an invalid WLM configuration.
-- Allows data sharing consumers to run read queries even when the producer is down due to planned maintenance or an unplanned outage.
-- Fixes a rare cluster restart issue that occurs when the ANY\_VALUE function is used in queries that aggregate data, for example, the COUNT(DISTINCT) aggregation function.
+<a name="cluster-version-2024-06-26-features"></a>
++ Updates LISTAGG, MEDIAN, PERCENTILE\_CONT and PERCENTILE\_DISC to no longer require user-defined tables. Queries that reference catalog tables or that don't reference any tables can also use these functions.
++ Reduces query-planning time for datasharing read queries by consolidating temp tables across multiple queries within a single session, for high-concurrency workloads.
++ Provides general availability of Redshift machine learning (ML) integration with Amazon SageMaker AI Jumpstart, for bringing your own large-language models.
++ Introduces support for the SUPER input and output data type in Redshift ML.
++ Enables support for an UPDATE statement with a JOIN clause when the target table is protected by a dynamic data-masking policy and referenced in the JOIN clause.
++ Allows querying of a zero-ETL database on Redshift, even after the integration is deleted from source.
++ Fixes a replication error that could cause zero-ETL integration to fail. This makes an integration more resilient.
++ Allows users other than the user who created a zero-ETL integration to query the data, after GRANT permissions.
++ Fixes an out-of-memory issue that could cause cluster restarts in an Amazon Redshift provisioned cluster with zero-ETL integration enabled.
++ Enables creation of an RDS for MySQL zero-ETL integration with Redshift, from a source RDS Multi-AZ DB cluster. A Multi-AZ DB cluster is a semisynchronous, high-availability deployment mode of Amazon RDS with two readable replica DB instances.
++ Enables a user to connect to an Amazon MSK cluster from an Amazon Redshift streaming consumer client by specifying the Amazon MSK cluster's broker URI in the external schema definition needed to associate an Amazon Redshift streaming materialized view with an Amazon MSK topic. This feature removes the need to obtain the Amazon MSK bootstrap broker node name by calling the GetBootStrapBroker API on the Amazon MSK cluster over an internet gateway.
++ Resolves the issue with resuming Amazon Redshift Serverless instances, enabling an existing database user to resume a Serverless instance when connecting to databases in Amazon Redshift query editor v2, using the IAM Identity Center authentication method.
++ Optimizes CDC replication and reduced resource utilization on Redshift compute by moving to table-based sharding.
++ Improves query performance using enhanced resource prediction in workload management (WLM).
++ Fixes queries failing on concurrency scaling clusters with the message: ran out of WLM queues for restart.
++ Fixes a workload management (WLM) issue where Amazon Redshift falls back to manual WLM when customers try to apply an invalid WLM configuration.
++ Allows data sharing consumers to run read queries even when the producer is down due to planned maintenance or an unplanned outage.
++ Fixes a rare cluster restart issue that occurs when the ANY\_VALUE function is used in queries that aggregate data, for example, the COUNT(DISTINCT) aggregation function.
 
 ## Amazon Redshift patch 181
+<a name="cluster-version-181"></a>
 
 Cluster versions in this patch:
-
-- 1.0.72031 – Current track version – Released on August 1, 2024
-- 1.0.71912 – Trailing track version – Released on August 1, 2024
-- 1.0.70665 – Amazon Redshift Serverless version – Released on July 8, 2024
-- 1.0.70634 – Current track version – Released on July 8, 2024
-- 1.0.69954 – Amazon Redshift Serverless version – Released on June 26, 2024
-- 1.0.69952 – Current track version – Released on June 26, 2024
-- 1.0.69497 – Amazon Redshift Serverless version – Released on June 18, 2024
-- 1.0.69451 – Current track version – Released on June 18, 2024
-- 1.0.69076 – Amazon Redshift Serverless version – Released on June 14, 2024
-- 1.0.69065 – Current track version – Released on June 14, 2024
-- 1.0.68555 – Amazon Redshift Serverless version – Released on May 31, 2024
-- 1.0.68540 – Current track version – Released on May 31, 2024
-- 1.0.68328 – Amazon Redshift Serverless version – Released on May 23, 2024
-- 1.0.68205 – Current track version – Released on May 23, 2024
-- 1.0.67796 – Amazon Redshift Serverless version – Released on May 15, 2024
-- 1.0.67788 – Current track version – Released on May 15, 2024
-- 1.0.67308 – Amazon Redshift Serverless version – Released on May 1, 2024
-- 1.0.67305 – Current track version – Released on May 1, 2024
++ 1.0.72031 – Current track version – Released on August 1, 2024
++ 1.0.71912 – Trailing track version – Released on August 1, 2024
++ 1.0.70665 – Amazon Redshift Serverless version – Released on July 8, 2024
++ 1.0.70634 – Current track version – Released on July 8, 2024
++ 1.0.69954 – Amazon Redshift Serverless version – Released on June 26, 2024
++ 1.0.69952 – Current track version – Released on June 26, 2024
++ 1.0.69497 – Amazon Redshift Serverless version – Released on June 18, 2024
++ 1.0.69451 – Current track version – Released on June 18, 2024
++ 1.0.69076 – Amazon Redshift Serverless version – Released on June 14, 2024
++ 1.0.69065 – Current track version – Released on June 14, 2024
++ 1.0.68555 – Amazon Redshift Serverless version – Released on May 31, 2024
++ 1.0.68540 – Current track version – Released on May 31, 2024
++ 1.0.68328 – Amazon Redshift Serverless version – Released on May 23, 2024
++ 1.0.68205 – Current track version – Released on May 23, 2024
++ 1.0.67796 – Amazon Redshift Serverless version – Released on May 15, 2024
++ 1.0.67788 – Current track version – Released on May 15, 2024
++ 1.0.67308 – Amazon Redshift Serverless version – Released on May 1, 2024
++ 1.0.67305 – Current track version – Released on May 1, 2024
 
 ### New features and improvements in this patch
-
-- Introduces support for the 'lower\_attribute\_names()' and 'upper\_attribute\_names()' functions which modify the case of attribute names for SUPER object values.
-- Fixes an issue in CREATE TABLE LIKE when using an identity column. Previously, the new table would inherit the identifier from the source table.
-  This caused problems if the source table was later dropped, since the identifier would become invalid in the new table.
-- Fixes an issue preventing some external tables from showing in SVV\_ALL\_TABLES.
-- Improves cluster bootstrap time, and speeds up query initialization for high concurrent workloads.
-- Fixes an issue with federated query that caused errors when passing split\_part() functions to the federated source to RDS and Aurora MySQL
-- Supports user initiated changes to the distribution key through ALTER TABLE...ALTER DISTSTYLE KEY DISTKEY commands on provisioned concurrency scaling clusters and serverless autoscaling compute.
-- Supports manually refreshed materialized views that involve aggregation on provisioned concurrency scaling and serverless autoscaling compute.
-- Adds support for zero-ETL to handle records up to 16 MB in size and for supporting SUPER values up to 16 MB.
-- Enhances error messages during initial sync in zero-ETL from Aurora MySQL by providing additional details like schema and table name.
-- Introduces support for tagging with Amazon Redshift ML CREATE MODEL. With this improvement, you can now tag Amazon SageMaker AI resources used by Amazon Redshift ML.
-  Tagging helps you manage, identify, organize, search for, and filter resources.
-- Improves the performance of queries involving Lambda user-defined functions (UDFs) by optimizing the data processing with the AWS Lambda.
-- Reduces memory utilization during data ingestion in sorted tables of elastically resized and serverless clusters.
-- Adds support for newlines (\n) in column `query_text` in view SYS\_QUERY\_HISTORY and for column `text` in view SYS\_QUERY\_TEXT.
+<a name="cluster-version-2024-05-01-features"></a>
++ Introduces support for the 'lower\_attribute\_names()' and 'upper\_attribute\_names()' functions which modify the case of attribute names for SUPER object values.
++ Fixes an issue in CREATE TABLE LIKE when using an identity column. Previously, the new table would inherit the identifier from the source table. This caused problems if the source table was later dropped, since the identifier would become invalid in the new table.
++ Fixes an issue preventing some external tables from showing in SVV\_ALL\_TABLES.
++ Improves cluster bootstrap time, and speeds up query initialization for high concurrent workloads.
++ Fixes an issue with federated query that caused errors when passing split\_part() functions to the federated source to RDS and Aurora MySQL
++ Supports user initiated changes to the distribution key through ALTER TABLE...ALTER DISTSTYLE KEY DISTKEY commands on provisioned concurrency scaling clusters and serverless autoscaling compute.
++ Supports manually refreshed materialized views that involve aggregation on provisioned concurrency scaling and serverless autoscaling compute.
++ Adds support for zero-ETL to handle records up to 16 MB in size and for supporting SUPER values up to 16 MB.
++ Enhances error messages during initial sync in zero-ETL from Aurora MySQL by providing additional details like schema and table name.
++ Introduces support for tagging with Amazon Redshift ML CREATE MODEL. With this improvement, you can now tag Amazon SageMaker AI resources used by Amazon Redshift ML. Tagging helps you manage, identify, organize, search for, and filter resources.
++ Improves the performance of queries involving Lambda user-defined functions (UDFs) by optimizing the data processing with the AWS Lambda.
++ Reduces memory utilization during data ingestion in sorted tables of elastically resized and serverless clusters.
++ Adds support for newlines (\\n) in column `query_text` in view SYS\_QUERY\_HISTORY and for column `text` in view SYS\_QUERY\_TEXT.
 
 ## Amazon Redshift patch 180
+<a name="cluster-version-180"></a>
 
 Cluster versions in this patch:
-
-- 1.0.68520 – Trailing track version – Released on May 28, 2024
-- 1.0.67699 – Trailing track version – Released on May 15, 2024
-- 1.0.66960 – Trailing track version – Released on April 21, 2024
-- 1.0.66954 – Current track version – Released on April 21, 2024
-- 1.0.66276 – Current track version – Released on April 12, 2024
-- 1.0.66290 – Amazon Redshift Serverless version – Released on April 10, 2024
-- 1.0.63590 – Current track version – Released on February 19, 2024
-- 1.0.63567 – Amazon Redshift Serverless version – Released on February 16, 2024
-- 1.0.63282 – Amazon Redshift Serverless version – Released on February 13, 2024
-- 1.0.63269 – Current track version – Released on February 13, 2024
-- 1.0.63215 – Amazon Redshift Serverless version – Released on February 12, 2024
-- 1.0.63205 – Current track version – Released on February 12, 2024
-- 1.0.63030 – Amazon Redshift Serverless version – Released on February 7, 2024
-- 1.0.62913 – Current track version – Released on February 7, 2024
-- 1.0.62922 – Amazon Redshift Serverless version – Released on February 5, 2024
-- 1.0.62878 – Current track version – Released on February 5, 2024
-- 1.0.62698 – Amazon Redshift Serverless version – Released on January 31, 2024
-- 1.0.62614 – Current track version – Released on January 31, 2024
-- 1.0.61687 – Amazon Redshift Serverless version – Released on January 5, 2024
-- 1.0.61678 – Current track version – Released on January 5, 2024
-- 1.0.61567 – Amazon Redshift Serverless version – Released on December 31, 2023
-- 1.0.61559 – Current track version – Released on December 31, 2023
-- 1.0.61430 – Amazon Redshift Serverless version – Released on December 29, 2023
-- 1.0.61395 – Current track version – Released on December 29, 2023
++ 1.0.68520 – Trailing track version – Released on May 28, 2024
++ 1.0.67699 – Trailing track version – Released on May 15, 2024
++ 1.0.66960 – Trailing track version – Released on April 21, 2024
++ 1.0.66954 – Current track version – Released on April 21, 2024
++ 1.0.66276 – Current track version – Released on April 12, 2024
++ 1.0.66290 – Amazon Redshift Serverless version – Released on April 10, 2024
++ 1.0.63590 – Current track version – Released on February 19, 2024
++ 1.0.63567 – Amazon Redshift Serverless version – Released on February 16, 2024
++ 1.0.63282 – Amazon Redshift Serverless version – Released on February 13, 2024
++ 1.0.63269 – Current track version – Released on February 13, 2024
++ 1.0.63215 – Amazon Redshift Serverless version – Released on February 12, 2024
++ 1.0.63205 – Current track version – Released on February 12, 2024
++ 1.0.63030 – Amazon Redshift Serverless version – Released on February 7, 2024
++ 1.0.62913 – Current track version – Released on February 7, 2024
++ 1.0.62922 – Amazon Redshift Serverless version – Released on February 5, 2024
++ 1.0.62878 – Current track version – Released on February 5, 2024
++ 1.0.62698 – Amazon Redshift Serverless version – Released on January 31, 2024
++ 1.0.62614 – Current track version – Released on January 31, 2024
++ 1.0.61687 – Amazon Redshift Serverless version – Released on January 5, 2024
++ 1.0.61678 – Current track version – Released on January 5, 2024
++ 1.0.61567 – Amazon Redshift Serverless version – Released on December 31, 2023
++ 1.0.61559 – Current track version – Released on December 31, 2023
++ 1.0.61430 – Amazon Redshift Serverless version – Released on December 29, 2023
++ 1.0.61395 – Current track version – Released on December 29, 2023
 
 ### New features and improvements in this patch
-
-- Changes CURRENT\_USER to no longer truncate the returned username to 64 characters.
-- Adds the ability to apply data masking policies on standard views and late binding views.
-- Adds the ability to apply dynamic data masking (DDM) to scalar attributes in SUPER data type columns.
-- Adds OBJECT\_TRANSFORM SQL function.
-  For more information, see
-  [OBJECT\_TRANSFORM function](../dg/r_object_transform_function.md "../dg/r_object_transform_function.md")
-  in the _Amazon Redshift Database Developer Guide_.
-- Adds the ability to apply AWS Lake Formation fine-grained access control to your nested data, and query with Amazon Redshift data lake analytics.
-- Adds the INTERVAL data type.
-- Adds CONTINUE\_HANDLER, which is a type of exception handler that controls the flow of a stored procedure.
-  Using it, you can catch and handle exceptions without ending the existing statement block.
-- Adds the ability to define permissions on a scope (schema or database) in addition to individual objects.
-  This allows users and roles to be granted a permission on all current and future objects within the scope.
-- Adds the ability to create a database from a datashare with permissions that let consumer-side administrators
-  grant individual permissions on shared database objects to consumer-side users and roles.
-- Adds support for the SUPER return data type from remote BYOM models.
-  This expands the range of accepted SageMaker AI models to include those with more complex return formats.
-- Changes external functions to now implicitly cast numbers with or without fractional parts to the numeric data type of the column.
-  For int2, int4, and int8 columns, numbers with fractional digits are accepted by truncating unless the number is out of range.
-  For float4 and float8 columns, numbers are accepted without fractional digits.
-- Adds three spatial functions that work with the H3 hierarchical geospatial indexing grid system: H3\_FromLongLat, H3\_FromPoint, and H3\_Polyfill.
+<a name="cluster-version-2023-12-29-features"></a>
++ Changes CURRENT\_USER to no longer truncate the returned username to 64 characters.
++ Adds the ability to apply data masking policies on standard views and late binding views.
++ Adds the ability to apply dynamic data masking (DDM) to scalar attributes in SUPER data type columns.
++ Adds OBJECT\_TRANSFORM SQL function. For more information, see [OBJECT\_TRANSFORM function](https://docs.aws.amazon.com/redshift/latest/dg/r_object_transform_function.html) in the *Amazon Redshift Database Developer Guide*.
++ Adds the ability to apply AWS Lake Formation fine-grained access control to your nested data, and query with Amazon Redshift data lake analytics.
++ Adds the INTERVAL data type. 
++ Adds CONTINUE\_HANDLER, which is a type of exception handler that controls the flow of a stored procedure. Using it, you can catch and handle exceptions without ending the existing statement block.
++ Adds the ability to define permissions on a scope (schema or database) in addition to individual objects. This allows users and roles to be granted a permission on all current and future objects within the scope.
++ Adds the ability to create a database from a datashare with permissions that let consumer-side administrators grant individual permissions on shared database objects to consumer-side users and roles.
++ Adds support for the SUPER return data type from remote BYOM models. This expands the range of accepted SageMaker AI models to include those with more complex return formats.
++ Changes external functions to now implicitly cast numbers with or without fractional parts to the numeric data type of the column. For int2, int4, and int8 columns, numbers with fractional digits are accepted by truncating unless the number is out of range. For float4 and float8 columns, numbers are accepted without fractional digits.
++ Adds three spatial functions that work with the H3 hierarchical geospatial indexing grid system: H3\_FromLongLat, H3\_FromPoint, and H3\_Polyfill. 
 
 ## Amazon Redshift patch 179
+<a name="cluster-version-179"></a>
 
 Cluster versions in this patch:
-
-- 1.0.62317 – Amazon Redshift Serverless version – Released on January 29, 2024
-- 1.0.62312 – Trailing track version – Released on January 29, 2024
-- 1.0.61631 – Amazon Redshift Serverless version – Released on January 5, 2024
-- 1.0.61626 – Current track version – Released on January 5, 2024
-- 1.0.61191 – Current track version – Released on December 16, 2023
-- 1.0.61150 – Amazon Redshift Serverless version – Released on December 16, 2023
-- 1.0.60982 – Amazon Redshift Serverless version – Released on December 13, 2023
-- 1.0.60854 – Current track version – Released on December 10, 2023
-- 1.0.60354 – Amazon Redshift Serverless version – Released on November 22nd, 2023
-- 1.0.60353 – Current track version – Released on November 21st, 2023
-- 1.0.60293 – Amazon Redshift Serverless version – Released on November 21st, 2023
-- 1.0.60292 – Current track version – Released on November 22nd, 2023
-- 1.0.60161 – Amazon Redshift Serverless version – Released on November 18th, 2023
-- 1.0.60140 – Current track version – Released on November 18th, 2023
-- 1.0.60139 – Amazon Redshift Serverless version – Released on November 18th, 2023
-- 1.0.59947 – Amazon Redshift Serverless version – Released on November 16th, 2023
-- 1.0.59945 – Current track version – Released on November 16th, 2023
-- 1.0.59118 – Amazon Redshift Serverless version – Released on November 9th, 2023
-- 1.0.59117 – Current track version – Released on November 9th, 2023
++ 1.0.62317 – Amazon Redshift Serverless version – Released on January 29, 2024
++ 1.0.62312 – Trailing track version – Released on January 29, 2024
++ 1.0.61631 – Amazon Redshift Serverless version – Released on January 5, 2024
++ 1.0.61626 – Current track version – Released on January 5, 2024
++ 1.0.61191 – Current track version – Released on December 16, 2023
++ 1.0.61150 – Amazon Redshift Serverless version – Released on December 16, 2023
++ 1.0.60982 – Amazon Redshift Serverless version – Released on December 13, 2023
++ 1.0.60854 – Current track version – Released on December 10, 2023
++ 1.0.60354 – Amazon Redshift Serverless version – Released on November 22nd, 2023
++ 1.0.60353 – Current track version – Released on November 21st, 2023
++ 1.0.60293 – Amazon Redshift Serverless version – Released on November 21st, 2023
++ 1.0.60292 – Current track version – Released on November 22nd, 2023
++ 1.0.60161 – Amazon Redshift Serverless version – Released on November 18th, 2023
++ 1.0.60140 – Current track version – Released on November 18th, 2023
++ 1.0.60139 – Amazon Redshift Serverless version – Released on November 18th, 2023
++ 1.0.59947 – Amazon Redshift Serverless version – Released on November 16th, 2023
++ 1.0.59945 – Current track version – Released on November 16th, 2023
++ 1.0.59118 – Amazon Redshift Serverless version – Released on November 9th, 2023
++ 1.0.59117 – Current track version – Released on November 9th, 2023
 
 ### New features and improvements in this patch
-
-- Adds support so that federated users
-  with appropriate permissions can view row-level
-  security and dynamic data masking system views, including:
-
-  - SVV\_ATTACHED\_MASKING\_POLICY
-  - SVV\_MASKING\_POLICY
-  - SVV\_RLS\_ATTACHED\_POLICY
-  - SVV\_RLS\_POLICY
-  - SVV\_RLS\_RELATION
-
-- Adds functionality such that a query that contains only scalar
-  functions in the FROM clause now results in an error.
-- Adds CREATE TABLE AS (CTAS) statements with permanent
-  target tables functionality to concurrency scaling clusters.
-  Concurrency scaling clusters now support more queries.
-- Adds the following system tables to track table
-  redistribution status after running classic resize on
-  RA3 clusters:
-
-  - The SYS\_RESTORE\_STATE system table
-    shows table level redistribution progress.
-  - The SYS\_RESTORE\_LOG system table
-    shows historical throughput of data redistribution.
-
-- Improves slice skew minimizing on EVEN tables after running
-  classic resize on RA3 node types. This is also applicable
-  to patch 178 clusters that ran classic resize.
-- Adds support for UNLOAD with EXTENSION on
-  concurrency scaling clusters.
-- Improves performance for queries that
-  contain Λ UDFs in HashJoins and NestLoop joins.
-- Improves performance of Elastic Resize on RA3 node types.
-- Improves performance for data sharing queries.
-- Improves performance of manually initiated analyze
-  queries in elastic-resized provisioned clusters
-  and serverless workgroup.
-- Improves auto WLM query performance with better
-  resource prediction in workload management.
-- Removes the functionality of launching clusters
-  into dedicated tenancy VPCs. This change doesn't affect
-  tenancy of any EC2 instances in the VPC. You can modify
-  tenancy of your VPC to default with the
-  `modify-vpc-tenancy` AWS CLI command.
-- Materialized view manual refresh is now supported on
-  provisioned concurrency scaling clusters and
-  serverless autoscaling compute.
-- Adds support for INTERVAL literals to the EXTRACT function.
-  For example, `EXTRACT('hours' from Interval '50 hours')` returns `2` because 50 hours is interpreted as 2 days and 2 hours,
-  and the hour component of 2 is extracted.
+<a name="cluster-version-2023-11-09-features"></a>
++ Adds support so that federated users with appropriate permissions can view row-level security and dynamic data masking system views, including:
+  +  SVV\_ATTACHED\_MASKING\_POLICY 
+  +  SVV\_MASKING\_POLICY 
+  +  SVV\_RLS\_ATTACHED\_POLICY 
+  +  SVV\_RLS\_POLICY 
+  +  SVV\_RLS\_RELATION 
++ Adds functionality such that a query that contains only scalar functions in the FROM clause now results in an error.
++ Adds CREATE TABLE AS (CTAS) statements with permanent target tables functionality to concurrency scaling clusters. Concurrency scaling clusters now support more queries. 
++ Adds the following system tables to track table redistribution status after running classic resize on RA3 clusters:
+  + The SYS\_RESTORE\_STATE system table shows table level redistribution progress.
+  + The SYS\_RESTORE\_LOG system table shows historical throughput of data redistribution.
++ Improves slice skew minimizing on EVEN tables after running classic resize on RA3 node types. This is also applicable to patch 178 clusters that ran classic resize.
++ Adds support for UNLOAD with EXTENSION on concurrency scaling clusters.
++ Improves performance for queries that contain Λ UDFs in HashJoins and NestLoop joins.
++ Improves performance of Elastic Resize on RA3 node types.
++ Improves performance for data sharing queries.
++ Improves performance of manually initiated analyze queries in elastic-resized provisioned clusters and serverless workgroup.
++ Improves auto WLM query performance with better resource prediction in workload management.
++ Removes the functionality of launching clusters into dedicated tenancy VPCs. This change doesn't affect tenancy of any EC2 instances in the VPC. You can modify tenancy of your VPC to default with the `modify-vpc-tenancy` AWS CLI command.
++ Materialized view manual refresh is now supported on provisioned concurrency scaling clusters and serverless autoscaling compute. 
++ Adds support for INTERVAL literals to the EXTRACT function. For example, `EXTRACT('hours' from Interval '50 hours')` returns `2` because 50 hours is interpreted as 2 days and 2 hours, and the hour component of 2 is extracted.
 
 ## Amazon Redshift patch 178
+<a name="cluster-version-178"></a>
 
 Cluster versions in this patch:
-
-- 1.0.63327 - Current track version – Released on February 9, 2024
-- 1.0.63313 - Trailing track version – Released on February 9, 2024
-- 1.0.60977 - Trailing track version – Released on December 15, 2023
-- 1.0.59596 - Current track version – Released on November 9th, 2023
-- 1.0.58593 - Amazon Redshift Serverless version – Released on October 23rd, 2023
-- 1.0.58558 - Current track version – Released on October 23rd, 2023
-- 1.0.57864 - Current track version – Released on October 12th, 2023
-- 1.0.57850 - Amazon Redshift Serverless version – Released on October 12th, 2023
-- 1.0.56952 - Current track version – Released on September 25th, 2023
-- 1.0.56970 - Amazon Redshift Serverless version – Released on September 25th, 2023
++ 1.0.63327 - Current track version – Released on February 9, 2024
++ 1.0.63313 - Trailing track version – Released on February 9, 2024
++ 1.0.60977 - Trailing track version – Released on December 15, 2023
++ 1.0.59596 - Current track version – Released on November 9th, 2023
++ 1.0.58593 - Amazon Redshift Serverless version – Released on October 23rd, 2023
++ 1.0.58558 - Current track version – Released on October 23rd, 2023
++ 1.0.57864 - Current track version – Released on October 12th, 2023
++ 1.0.57850 - Amazon Redshift Serverless version – Released on October 12th, 2023
++ 1.0.56952 - Current track version – Released on September 25th, 2023
++ 1.0.56970 - Amazon Redshift Serverless version – Released on September 25th, 2023
 
 ### New features and improvements in this patch
+<a name="cluster-version-2023-09-25-features"></a>
++ Amazon Redshift now has improved data sharing query performance by speeding up metadata refresh on consumer instances while concurrent data changes are happening on the producer instance.
++ Adds support for automatic and incremental refresh of materialized views on Amazon Redshift data sharing consumer instances when the base tables of the materialized view refer to the shared data.
++ Adds support for storing large objects up to 16 MB in size in the SUPER data type. When ingesting from JSON, PARQUET, TEXT, and CSV source files, you can load semi-structured data or documents as values in the SUPER data type, up to 16 MB.
++ Adds support for elastic resize for scaling to and from a single-node Amazon Redshift RA3 cluster.
++ Single-node Amazon Redshift RA3 clusters now can now benefit from encryption enhancements, reducing the overall encryption time and improving the availability of the data warehouse during the encryption process.
++ Improves support for queries when unnesting and unpivoting data stored in the SUPER data type.
++ Improves performance of refreshing materialized views with SUPER data types. 
++ Adds support for aggregating INTERVAL literals with the ANY\_VALUE function.
++ Streaming ingestion now supports the following new SQL command to purge streaming data: `DELETE FROM streaming_materialized_views WHERE <where filter clause>`.
++ The DECODE function replaces a specific value with either another specific value or a default value, depending on the result of an equality condition. DECODE now requires the following three parameters:
+  +  expression 
+  +  search 
+  +  result 
++ Adds functionality to stored procedures to allow for catching data overflow data type conversion errors, and handling inside an exception-handling block.
++ You'll now receive an error when querying row-level security or dynamic data masking-protected relations if you change enable\_case\_sensitive\_identifier to be different from the session default setting. Additionally, the following configuration is blocked when row-level security or dynamic data masking policies are applied in your provisioned cluster or serverless namespace:
 
-- Amazon Redshift now has improved data sharing query performance by speeding up metadata
-  refresh on consumer instances while concurrent data changes are happening on the producer instance.
-- Adds support for automatic and incremental refresh of materialized
-  views on Amazon Redshift data sharing consumer instances when the base tables of the
-  materialized view refer to the shared data.
-- Adds support for storing large objects up to 16 MB in size in the SUPER data type.
-  When ingesting from JSON, PARQUET, TEXT, and CSV source files, you can load semi-structured data
-  or documents as values in the SUPER data type, up to 16 MB.
-- Adds support for elastic resize for scaling to and from a single-node Amazon Redshift RA3 cluster.
-- Single-node Amazon Redshift RA3 clusters now can now benefit from encryption enhancements,
-  reducing the overall encryption time and improving the availability of the data warehouse during the encryption process.
-- Improves support for queries when unnesting and unpivoting data stored in the SUPER data type.
-- Improves performance of refreshing materialized views with SUPER data types.
-- Adds support for aggregating INTERVAL literals with the ANY\_VALUE function.
-- Streaming ingestion now supports the following new SQL command to purge streaming data:
-  `DELETE FROM streaming_materialized_views WHERE <where filter clause>`.
-- The DECODE function replaces a specific value with either another specific value or a default value,
-  depending on the result of an equality condition. DECODE now requires the following three parameters:
-
-  - expression
-  - search
-  - result
-
-- Adds functionality to stored procedures to allow for catching data overflow
-  data type conversion errors, and handling inside an exception-handling block.
-- You'll now receive an error when querying row-level security or dynamic data
-  masking-protected relations if you change enable\_case\_sensitive\_identifier to be
-  different from the session default setting. Additionally, the following configuration is blocked when
-  row-level security or dynamic data masking policies are applied in your provisioned cluster or serverless
-  namespace:
-
-`ALTER USER <current_user> SET case-sensitive identifier`.
-
-- The MERGE command now supports a simplified syntax that only requires the target and
-  source table. For more information, see
-  [MERGE](../dg/r_MERGE.md "../dg/r_MERGE.md")
-  in the _Amazon Redshift Database Developer Guide_.
-- Adds support for attaching identical dynamic data masking policies
-  to multiple users or roles with the same priority, or without specifying the priority.
-- You can now specify a COLLATION when adding a new column through ALTER TABLE ADD COLUMN.
-- Fixes issue that delays the enforcement of QMR rules
-  on concurrency scaling clusters and Amazon Redshift Serverless.
-- Amazon Redshift Federated Query has expanded pushdown support for timezone with timestamp on Amazon RDS for PostgreSQL and Amazon Aurora PostgreSQL.
-- You can now use Amazon RDS for MySQL and Aurora MySQL database names starting with digits with federated queries.
-- Adds the SYS\_ANALYZE\_HISTORY view, which contains record details for ANALYZE operations.
-- Adds the SYS\_ANALYZE\_COMPRESSION\_HISTORY view, which contains record
-  details for compression analysis operations during COPY or ANALYZE COMPRESSION commands.
-- Adds the SYS\_SESSION\_HISTORY view, which contains record details related
-  to active, historical, and restarted sessions.
-- Adds the SYS\_TRANSACTION\_HISTORY view, which contains record details
-  related to transaction level analysis that provides the time spent on commit, datasha
-  number of blocks committed, and isolation level.
-- Adds the SVV\_REDSHIFT\_SCHEMA\_QUOTA view, which contains records related to
-  quotas and the current disk usage for each schema in a database.
-- Adds the SYS\_PROCEDURE\_CALL view, which contains records
-  related to stored procedure calls, including start time, end time,
-  status of the stored procedure call, and call hierarchy for
-  nested stored procedure calls.
-- Adds the SYS\_CROSS\_REGION\_DATASHARING\_USAGE view, which contains
-  records related to tracking cross-Region data sharing usage.
-- Adds the SYS\_PROCEDURE\_MESSAGES view, which contains records related to tracking
-  information about logged stored procedure messages.
-- Adds the SYS\_UDF\_LOG view, which contains records related to tracking system log messages
-  from user-defined function calls, errors, warnings, or traces when applicable.
-- Adds the new columns IS\_RECURSIVE, IS\_NESTED, S3LIST\_TIME, and GET\_PARTITION\_TIME to
-  SYS\_EXTERNAL\_QUERY\_DETAIL.
-- Adds MaxRPU, a new compute cost control setting for Redshift Serverless.
-  With MaxRPU, you can optionally specify an upper compute threshold to control data warehouse costs at different points in time by selecting
-  the maximum compute level that Redshift Serverless can scale per workgroup.
-- Corrects the output of the INTERVAL literal with numeric interval strings.
-  For example, an interval that specifies as `INTERVAL '1' YEAR` now returns `1 YEAR` instead of `"00:00:00`.
-  In addition, the output of the INTERVAL literal is truncated to the smallest INTERVAL component specified.
-  For example, `INTERVAL '1 day 1 hour 1 minute 1.123 seconds' HOUR TO MINUTE` is truncated to `1 day 01:01:00`.
+  `ALTER USER <current_user> SET case-sensitive identifier`.
++ The MERGE command now supports a simplified syntax that only requires the target and source table. For more information, see [MERGE](https://docs.aws.amazon.com/redshift/latest/dg/r_MERGE.html) in the *Amazon Redshift Database Developer Guide*.
++ Adds support for attaching identical dynamic data masking policies to multiple users or roles with the same priority, or without specifying the priority.
++ You can now specify a COLLATION when adding a new column through ALTER TABLE ADD COLUMN.
++ Fixes issue that delays the enforcement of QMR rules on concurrency scaling clusters and Amazon Redshift Serverless.
++ Amazon Redshift Federated Query has expanded pushdown support for timezone with timestamp on Amazon RDS for PostgreSQL and Amazon Aurora PostgreSQL. 
++  You can now use Amazon RDS for MySQL and Aurora MySQL database names starting with digits with federated queries.
++ Adds the SYS\_ANALYZE\_HISTORY view, which contains record details for ANALYZE operations.
++ Adds the SYS\_ANALYZE\_COMPRESSION\_HISTORY view, which contains record details for compression analysis operations during COPY or ANALYZE COMPRESSION commands.
++ Adds the SYS\_SESSION\_HISTORY view, which contains record details related to active, historical, and restarted sessions.
++ Adds the SYS\_TRANSACTION\_HISTORY view, which contains record details related to transaction level analysis that provides the time spent on commit, datasha number of blocks committed, and isolation level. 
++ Adds the SVV\_REDSHIFT\_SCHEMA\_QUOTA view, which contains records related to quotas and the current disk usage for each schema in a database.
++ Adds the SYS\_PROCEDURE\_CALL view, which contains records related to stored procedure calls, including start time, end time, status of the stored procedure call, and call hierarchy for nested stored procedure calls. 
++ Adds the SYS\_CROSS\_REGION\_DATASHARING\_USAGE view, which contains records related to tracking cross-Region data sharing usage. 
++ Adds the SYS\_PROCEDURE\_MESSAGES view, which contains records related to tracking information about logged stored procedure messages.
++ Adds the SYS\_UDF\_LOG view, which contains records related to tracking system log messages from user-defined function calls, errors, warnings, or traces when applicable. 
++ Adds the new columns IS\_RECURSIVE, IS\_NESTED, S3LIST\_TIME, and GET\_PARTITION\_TIME to SYS\_EXTERNAL\_QUERY\_DETAIL. 
++ Adds MaxRPU, a new compute cost control setting for Redshift Serverless. With MaxRPU, you can optionally specify an upper compute threshold to control data warehouse costs at different points in time by selecting the maximum compute level that Redshift Serverless can scale per workgroup. 
++ Corrects the output of the INTERVAL literal with numeric interval strings. For example, an interval that specifies as `INTERVAL '1' YEAR` now returns `1 YEAR` instead of `"00:00:00`. In addition, the output of the INTERVAL literal is truncated to the smallest INTERVAL component specified. For example, `INTERVAL '1 day 1 hour 1 minute 1.123 seconds' HOUR TO MINUTE` is truncated to `1 day 01:01:00`. 
 
 ## Amazon Redshift patch 177
+<a name="cluster-version-177"></a>
 
 Cluster versions in this patch:
-
-- 1.0.57922 - Trailing track version – Released on October 12th, 2023
-- 1.0.57799 - Amazon Redshift Serverless version – Released on October 10th, 2023
-- 1.0.57798 - Current track version – Released on October 10th, 2023
-- 1.0.57085 - Trailing track version – Released on September 26th, 2023
-- 1.0.56899 - Amazon Redshift Serverless version – Released on September 21st, 2023
-- 1.0.56754 - Current track version – Released on September 21st, 2023
-- 1.0.56242 - Current track version – Released on September 11th, 2023
-- 1.0.55539 - Amazon Redshift Serverless version – Released on August 28th, 2023
-- 1.0.55524 - Current track version – Released on August 28th, 2023
-- 1.0.54899 - Current track version – Released on August 15th, 2023
-- 1.0.54899 - Current track version – Released on August 14th, 2023
-- 1.0.54899 - Current track version – Released on August 15th, 2023
-- 1.0.54239 - Current track version – Released on August 3rd, 2023
-- 1.0.54321 - Amazon Redshift Serverless version – Released on August 3rd, 2023
++ 1.0.57922 - Trailing track version – Released on October 12th, 2023
++ 1.0.57799 - Amazon Redshift Serverless version – Released on October 10th, 2023
++ 1.0.57798 - Current track version – Released on October 10th, 2023
++ 1.0.57085 - Trailing track version – Released on September 26th, 2023
++ 1.0.56899 - Amazon Redshift Serverless version – Released on September 21st, 2023
++ 1.0.56754 - Current track version – Released on September 21st, 2023
++ 1.0.56242 - Current track version – Released on September 11th, 2023
++ 1.0.55539 - Amazon Redshift Serverless version – Released on August 28th, 2023
++ 1.0.55524 - Current track version – Released on August 28th, 2023
++ 1.0.54899 - Current track version – Released on August 15th, 2023
++ 1.0.54899 - Current track version – Released on August 14th, 2023
++ 1.0.54899 - Current track version – Released on August 15th, 2023
++ 1.0.54239 - Current track version – Released on August 3rd, 2023
++ 1.0.54321 - Amazon Redshift Serverless version – Released on August 3rd, 2023
 
 ### New features and improvements in this patch
-
-- Adds the SYS\_MV\_STATE view, which contains a row for every state transition of a materialized view.
-  SYS\_MV\_STATE can be used for MV refresh monitoring for Amazon Redshift Serverless and Amazon Redshift
-  provisioned instances.
-- Adds the SYS\_USERLOG view, which records details for the changes to a database user for Create user,
-  Drop user, Alter user (rename), Alter user (alter properties).
-- Adds the SYS\_COPY\_REPLACEMENTS view, which displays a log that records when invalid UTF-8 characters were
-  replaced by the COPY command with the ACCEPTINVCHARS option.
-- Adds the SYS\_SPATIAL\_SIMPLIFY view, which contains information about simplified
-  spatial geometry objects using the COPY command.
-- Adds the SYS\_VACUUM\_HISTORY view, which you can use to see the details and results of VACUUM operations.
-- Adds the SYS\_SCHEMA\_QUOTA\_VIOLATIONS view to record the occurrence, timestamp, XID, and other
-  useful information when a schema quota is exceeded.
-- Adds the SYS\_RESTORE\_STATE view, which you can use monitor the redistribution progress of each table in the
-  cluster during asynchronous classic resize.
-- Adds the SYS\_EXTERNAL\_QUERY\_ERROR view that return information about Redshift Spectrum scan errors.
-- Adds the tag parameter to the CREATE MODEL command, so you can now track training costs with
-  autopilot training jobs.
-- Adds custom domain names (CNAME) for Amazon Redshift clusters.
-- Adds preview support for Apache Iceberg, enabling customers to run analytics queries on Apache Iceberg tables within Amazon Redshift.
-- Adds support for using user roles with parameter groups in workload management (WLM).
-- Adds support for automatic mounting of AWS Glue Data Catalog, making it easier for
-  customers to run queries in their data lakes.
-- Adds functionality such that using grouping functions without a GROUP BY clause or using grouping operations in
-  a WHERE clause results in an error.
-- Adds functionality to stored procedures to allow for catching divide by zero errors and handling inside
-  a exception-handling block.
-- Fixes a bug that prevented queries from using concurrency scaling to write data to
-  tables when the source table is a data sharing table.
-- Fixes the case-sensitive identifier documented at enable\_case\_sensitive\_identifier to now work with MERGE statements.
-- Fixes the bug that a query on the function pg\_get\_late\_binding\_view\_cols() might get ignored occasionally.
-  You can now always cancel such queries.
-- Improves performance for data sharing queries running on consumers when running vacuum
-  jobs on the producer.
-- Improves performance for data sharing and concurrency scaling queries, especially
-  with concurrent data changes on the producer or when offloading to a concurrency scaling instance
-  attached to the consumer.
+<a name="cluster-version-2023-08-03-features"></a>
++ Adds the SYS\_MV\_STATE view, which contains a row for every state transition of a materialized view. SYS\_MV\_STATE can be used for MV refresh monitoring for Amazon Redshift Serverless and Amazon Redshift provisioned instances.
++ Adds the SYS\_USERLOG view, which records details for the changes to a database user for Create user, Drop user, Alter user (rename), Alter user (alter properties).
++ Adds the SYS\_COPY\_REPLACEMENTS view, which displays a log that records when invalid UTF-8 characters were replaced by the COPY command with the ACCEPTINVCHARS option. 
++ Adds the SYS\_SPATIAL\_SIMPLIFY view, which contains information about simplified spatial geometry objects using the COPY command.
++ Adds the SYS\_VACUUM\_HISTORY view, which you can use to see the details and results of VACUUM operations.
++ Adds the SYS\_SCHEMA\_QUOTA\_VIOLATIONS view to record the occurrence, timestamp, XID, and other useful information when a schema quota is exceeded.
++ Adds the SYS\_RESTORE\_STATE view, which you can use monitor the redistribution progress of each table in the cluster during asynchronous classic resize.
++ Adds the SYS\_EXTERNAL\_QUERY\_ERROR view that return information about Redshift Spectrum scan errors.
++ Adds the tag parameter to the CREATE MODEL command, so you can now track training costs with autopilot training jobs.
++ Adds custom domain names (CNAME) for Amazon Redshift clusters.
++ Adds preview support for Apache Iceberg, enabling customers to run analytics queries on Apache Iceberg tables within Amazon Redshift.
++ Adds support for using user roles with parameter groups in workload management (WLM).
++ Adds support for automatic mounting of AWS Glue Data Catalog, making it easier for customers to run queries in their data lakes.
++ Adds functionality such that using grouping functions without a GROUP BY clause or using grouping operations in a WHERE clause results in an error.
++ Adds functionality to stored procedures to allow for catching divide by zero errors and handling inside a exception-handling block.
++ Fixes a bug that prevented queries from using concurrency scaling to write data to tables when the source table is a data sharing table.
++ Fixes the case-sensitive identifier documented at enable\_case\_sensitive\_identifier to now work with MERGE statements.
++ Fixes the bug that a query on the function pg\_get\_late\_binding\_view\_cols() might get ignored occasionally. You can now always cancel such queries.
++ Improves performance for data sharing queries running on consumers when running vacuum jobs on the producer.
++ Improves performance for data sharing and concurrency scaling queries, especially with concurrent data changes on the producer or when offloading to a concurrency scaling instance attached to the consumer.
 
 ## Amazon Redshift patch 176
+<a name="cluster-version-176"></a>
 
 Cluster versions in this patch:
-
-- 1.0.56738 - Trailing track version – released on September 21st, 2023
-- 1.0.55837 - Trailing track version – released on September 11th, 2023
-- 1.0.54776 - Current track version – released on August 15th, 2023
-- 1.0.54052 - Current track version – Released on July 26th, 2023
-- 1.0.53642 - Amazon Redshift Serverless version – Released on July 20th, 2023
-- 1.0.53301 - Current track version – Released on July 20th, 2023
-- 1.0.52943 - Amazon Redshift Serverless version – Released on July 7, 2023
-- 1.0.52931 - Current track version – Released on July 7, 2023
-- 1.0.52194 - Amazon Redshift Serverless version – Released on June 21, 2023
-- 1.0.51986 - Current track version – Released on June 16, 2023
-- 1.0.51594 - Current track version – Released on June 9, 2023
++ 1.0.56738 - Trailing track version – released on September 21st, 2023
++ 1.0.55837 - Trailing track version – released on September 11th, 2023
++ 1.0.54776 - Current track version – released on August 15th, 2023
++ 1.0.54052 - Current track version – Released on July 26th, 2023
++ 1.0.53642 - Amazon Redshift Serverless version – Released on July 20th, 2023
++ 1.0.53301 - Current track version – Released on July 20th, 2023
++ 1.0.52943 - Amazon Redshift Serverless version – Released on July 7, 2023
++ 1.0.52931 - Current track version – Released on July 7, 2023
++ 1.0.52194 - Amazon Redshift Serverless version – Released on June 21, 2023
++ 1.0.51986 - Current track version – Released on June 16, 2023
++ 1.0.51594 - Current track version – Released on June 9, 2023
 
 ### New features and improvements in this patch
+<a name="cluster-version-2023-06-08-features"></a>
++ Improved error handling when writing GROUP BY () for an empty grouping set. This was ignored previously and now returns a parser error.
++ Performance enhancements for incrementally refreshing materialized views with SUPER columns.
++ ALTER TABLE <target\_tbl> APPEND FROM <streaming\_mv> – (ATA) SQL command now supports moving all records from a streaming materialized view (MV) as a source, in addition to tables as a source, to a target table. The support for ATA on streaming MVs allows users to rapidly purge all records in a streaming MV by moving them to another table to manage data growth.
++ TRUNCATE <streaming\_mv> – SQL command now supports truncating all records in a streaming materialized view (MV), in addition to tables. TRUNCATE deletes all records in the streaming MV, while leaving the streaming MV structure intact. Running TRUNCATE on streaming MVs allows customers to rapidly purge all records in a streaming MV to manage data growth.
++ Added functionality for the QUALIFY clause to the SELECT command.
++ Redshift machine-learning support for time series forecasting by integrating with Amazon Forecast.
++ AWS Glue Data Catalog auto mounting is supported to simplify querying a data lake without extra steps to create external schema references.
++ Altering an RLS policy is now supported. Refer to the documentation for more details at [ALTER RLS POLICY](https://docs.aws.amazon.com/redshift/latest/dg/r_ALTER_RLS_POLICY.html).
++ Lambda UDFs now support the STABLE function-volatility parameter in the CREATE FUNCTION statement. When the STABLE parameter is used in the CREATE FUNCTION statement and the Lambda UDF is called multiple times, with the same arguments, the expected number of Lambda UDF function invocations is decreased. The STABLE function volatility category is explained in more detail in the [CREATE FUNCTION parameters](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_FUNCTION.html#r_CREATE_FUNCTION-parameters). 
++ Multiple Lambda UDF performance improvements. Specifically, improved record batching support when querying a table protected by a row-level security (RLS) policy. 
++  Reduction in the overall encryption time for Amazon Redshift RA3 clusters and improvement in the availability of the data warehouse during encryption. For more information, see [Amazon Redshift database encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html).
++ A new system view SYS\_MV\_REFRESH\_HISTORY has been added to Redshift. The SYS\_MV\_REFRESH\_HISTORY view contains a row for the refresh activity of materialized views. Using SYS\_MV\_REFRESH\_HISTORY, you can check the refresh history of materialized views. SYS\_MV\_REFRESH\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data.
 
-- Improved error handling when writing GROUP BY () for an empty grouping set. This was ignored previously and now returns a parser error.
-- Performance enhancements for incrementally refreshing
-  materialized views with SUPER columns.
-- ALTER TABLE <target\_tbl> APPEND FROM <streaming\_mv> – (ATA) SQL command now supports moving all records from a
-  streaming materialized view (MV) as a source, in addition to tables as a source, to a target table. The support for ATA on streaming
-  MVs allows users to rapidly purge all records in a streaming MV by moving them to another table to manage data growth.
-- TRUNCATE <streaming\_mv> – SQL command now supports truncating all records in a streaming materialized
-  view (MV), in addition to tables. TRUNCATE deletes all records in the streaming MV, while leaving the streaming MV structure intact. Running
-  TRUNCATE on streaming MVs allows customers to rapidly purge all records in a streaming
-  MV to manage data growth.
-- Added functionality for the QUALIFY clause to the SELECT command.
-- Redshift machine-learning support for time series forecasting by integrating with Amazon Forecast.
-- AWS Glue Data Catalog auto mounting is supported to simplify querying a data lake without extra steps
-  to create external schema references.
-- Altering an RLS policy is now supported. Refer to the documentation for more
-  details at [ALTER RLS POLICY](../dg/r_ALTER_RLS_POLICY.md "../dg/r_ALTER_RLS_POLICY.md").
-- Lambda UDFs now support the STABLE function-volatility parameter in the CREATE FUNCTION statement. When the STABLE
-  parameter is used in the CREATE FUNCTION statement and the Lambda UDF is called multiple times, with the same arguments, the expected
-  number of Lambda UDF function invocations is decreased. The STABLE function volatility category is explained in
-  more detail in the [CREATE FUNCTION parameters](../dg/r_CREATE_FUNCTION.md#r_CREATE_FUNCTION-parameters "../dg/r_CREATE_FUNCTION.md#r_CREATE_FUNCTION-parameters").
-- Multiple Lambda UDF performance improvements. Specifically, improved record batching support when querying a
-  table protected by a row-level security (RLS) policy.
-- Reduction in the overall encryption time for Amazon Redshift RA3 clusters and improvement in the availability of the data warehouse during encryption. For more
-  information, see [Amazon Redshift database encryption](working-with-db-encryption.md "working-with-db-encryption.md").
-- A new system view SYS\_MV\_REFRESH\_HISTORY has been added to Redshift. The SYS\_MV\_REFRESH\_HISTORY view contains a
-  row for the refresh activity of materialized views. Using SYS\_MV\_REFRESH\_HISTORY, you can check the refresh history of materialized
-  views. SYS\_MV\_REFRESH\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data.
-
-A new column SPILLED\_BLOCK\_LOCAL\_DISK has been added to system view SYS\_QUERY\_DETAIL. The new column SPILLED\_BLOCK\_LOCAL\_DISK helps customers
-to determine blocks spilled to local disk. You can use SYS\_QUERY\_DETAIL to view details for queries at a step level. SYS\_QUERY\_DETAIL is
-visible to all users. Superusers can see all rows; regular users can see only metadata to which they have access.
-
-- A new system view, SYS\_QUERY\_TEXT, has been added to Amazon Redshift Serverless and Amazon Redshift provisioned. The SYS\_QUERY\_TEXT view is similar
-  to [SVL\_STATEMENTTEXT](../dg/r_SVL_STATEMENTTEXT.md "../dg/r_SVL_STATEMENTTEXT.md") for provisioned clusters. Use the `sequence`
-  column in the SYS\_QUERY\_TEXT view to get complete SQL statement text.
+  A new column SPILLED\_BLOCK\_LOCAL\_DISK has been added to system view SYS\_QUERY\_DETAIL. The new column SPILLED\_BLOCK\_LOCAL\_DISK helps customers to determine blocks spilled to local disk. You can use SYS\_QUERY\_DETAIL to view details for queries at a step level. SYS\_QUERY\_DETAIL is visible to all users. Superusers can see all rows; regular users can see only metadata to which they have access.
++ A new system view, SYS\_QUERY\_TEXT, has been added to Amazon Redshift Serverless and Amazon Redshift provisioned. The SYS\_QUERY\_TEXT view is similar to [SVL\_STATEMENTTEXT](https://docs.aws.amazon.com/redshift/latest/dg/r_SVL_STATEMENTTEXT.html) for provisioned clusters. Use the `sequence` column in the SYS\_QUERY\_TEXT view to get complete SQL statement text.
 
 ## Amazon Redshift patch 175
+<a name="cluster-version-175"></a>
 
 Cluster versions in this patch:
-
-- 1.0.53064 - Current track version – Released on July 7, 2023
-- 1.0.51973 - Current track version – Released on June 16, 2023
-- 1.0.51781 - Current track version – Released on June 10, 2023
-- 1.0.51314 - Amazon Redshift Serverless version – Released on June 3, 2023
-- 1.0.51304 - Current track version – Released on June 2, 2023
-- 1.0.50708 - Current Track version – Released on May 19, 2023
-- 1.0.50300 - Current track version – Released on May 8, 2023
-- 1.0.49710 - Amazon Redshift Serverless version – Released on April 28, 2023
-- 1.0.49676 - Current track version – Released on April 28, 2023
++ 1.0.53064 - Current track version – Released on July 7, 2023
++ 1.0.51973 - Current track version – Released on June 16, 2023
++ 1.0.51781 - Current track version – Released on June 10, 2023
++ 1.0.51314 - Amazon Redshift Serverless version – Released on June 3, 2023
++ 1.0.51304 - Current track version – Released on June 2, 2023
++ 1.0.50708 - Current Track version – Released on May 19, 2023
++ 1.0.50300 - Current track version – Released on May 8, 2023
++ 1.0.49710 - Amazon Redshift Serverless version – Released on April 28, 2023
++ 1.0.49676 - Current track version – Released on April 28, 2023
 
 ### New features and improvements in this patch
-
-- Minor bug fixes.
-- Amazon Redshift streaming ingestion now supports cross-region streaming ingestion where your
-  source Amazon Kinesis Data Streams (KDS) or Amazon Managed Streaming for Apache Kafka (MSK) topic can be located in an AWS region that is different from
-  the AWS region where your Amazon Redshift data warehouse is located. The documentation
-  at [Getting started with streaming
-  ingestion from Amazon Kinesis Data Streams](../dg/materialized-view-streaming-ingestion-getting-started.md "../dg/materialized-view-streaming-ingestion-getting-started.md") has been revised and explains how the REGION keyword is used.
-- Egypt daylight saving adjustment.
-- Improved overall times for encryption of RA3 clusters.
+<a name="cluster-version-2023-04-28-features"></a>
++ Minor bug fixes.
++ Amazon Redshift streaming ingestion now supports cross-region streaming ingestion where your source Amazon Kinesis Data Streams (KDS) or Amazon Managed Streaming for Apache Kafka (MSK) topic can be located in an AWS region that is different from the AWS region where your Amazon Redshift data warehouse is located. The documentation at [Getting started with streaming ingestion from Amazon Kinesis Data Streams](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-streaming-ingestion-getting-started.html) has been revised and explains how the REGION keyword is used.
++ Egypt daylight saving adjustment.
++ Improved overall times for encryption of RA3 clusters. 
 
 ## Amazon Redshift patch 174
+<a name="cluster-version-174"></a>
 
 ### 1.0.51296 – Released on June 2, 2023
+<a name="cluster-version-2023-03-11-features"></a>
 
 Release to trailing track. No release notes.
 
 ### 1.0.50468 – Released on May 12, 2023
+<a name="cluster-version-2023-03-11-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.49780, 1.0.49868, and 1.0.49997 – Released on April 28, 2023
+<a name="cluster-version-2023-03-11-features"></a>
 
 Release notes for this version:
-
-- Improved batching support for Lambda UDF.
-- Incremental batching for Lambda UDF.
-- New MERGE SQL command to apply source data changes to Amazon Redshift tables.
-- New dynamic data masking capability to simplify the process of protecting sensitive data in an Amazon Redshift data warehouse.
-- New centralized access control for data sharing with Lake Formation that allows managing permission grants, viewing access controls, and auditing permissions on the tables and views
-  in the Amazon Redshift datashares using Lake Formation APIs and the AWS Console.
-- Egypt daylight saving adjustment.
++ Improved batching support for Lambda UDF.
++ Incremental batching for Lambda UDF.
++ New MERGE SQL command to apply source data changes to Amazon Redshift tables.
++ New dynamic data masking capability to simplify the process of protecting sensitive data in an Amazon Redshift data warehouse.
++ New centralized access control for data sharing with Lake Formation that allows managing permission grants, viewing access controls, and auditing permissions on the tables and views in the Amazon Redshift datashares using Lake Formation APIs and the AWS Console.
++ Egypt daylight saving adjustment.
 
 ### 1.0.49087 – Released on April 12, 2023
+<a name="cluster-version-2023-03-11-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.48805 – Released on April 5, 2023
+<a name="cluster-version-2023-03-11-features"></a>
 
 Release notes for this version:
-
-- Amazon Redshift introduced additional performance enhancements to string-heavy queries using BYTEDICT,
-  a new compression encoding in Amazon Redshift that speeds up string-based data processing between 5x to
-  63x compared to alternative compression encodings such as LZO or ZSTD. For more information on this
-  feature, see [Compression encodings](../dg/c_Compression_encodings.md "../dg/c_Compression_encodings.md") in the _Amazon Redshift Database Developer Guide_.
++ Amazon Redshift introduced additional performance enhancements to string-heavy queries using BYTEDICT, a new compression encoding in Amazon Redshift that speeds up string-based data processing between 5x to 63x compared to alternative compression encodings such as LZO or ZSTD. For more information on this feature, see [ Compression encodings](https://docs.aws.amazon.com/redshift/latest/dg/c_Compression_encodings.html) in the *Amazon Redshift Database Developer Guide*. 
 
 ### 1.0.48004 – Released on March 17, 2023
+<a name="cluster-version-2023-03-11-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.47470 – Released on March 11, 2023
+<a name="cluster-version-2023-03-11-features"></a>
 
 Release notes for this version:
-
-- Improves query performance on `pg_catalog.svv_table_info`. Also
-  adds new column `create_time`. When creating a table, this column stores the date/time stamp in UTC.
-- Adds support for specifying session level timeout on federated query.
++ Improves query performance on `pg_catalog.svv_table_info`. Also adds new column `create_time`. When creating a table, this column stores the date/time stamp in UTC.
++ Adds support for specifying session level timeout on federated query.
 
 ## Amazon Redshift patch 173
+<a name="cluster-version-173"></a>
 
 ### 1.0.49788 – Released on April 28, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Release notes for this version:
-
-- Egypt daylight saving adjustment.
++ Egypt daylight saving adjustment.
 
 ### 1.0.49074 – Released on April 12, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Release notes for this version:
-
-- Timezone configuration updated to IANA library release 2022g.
++ Timezone configuration updated to IANA library release 2022g.
 
 ### 1.0.48766 – Released on April 5, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.48714 – Released on April 5, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.48022 – Released on March 17, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.47357 – Released on March 7, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.46987 – Released on February 24, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.46806 – Released on February 18, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Maintenance release. No release notes.
 
 ### 1.0.46607 – Released on February 13, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Release notes for this version:
-
-- We now automatically convert tables with manually set interleaved sort keys to compound sort keys if
-  their distribution style has been set to **DISTSTYLE KEY**, to improve
-  the performance of these tables. This is done at the time of restoring a snapshot
-  into Amazon Redshift Serverless.
++ We now automatically convert tables with manually set interleaved sort keys to compound sort keys if their distribution style has been set to **DISTSTYLE KEY**, to improve the performance of these tables. This is done at the time of restoring a snapshot into Amazon Redshift Serverless.
 
 ### 1.0.45698 – Released on January 20, 2023
+<a name="cluster-version-2023-01-20-features"></a>
 
 Release notes for this version:
-
-- Adds a file extension parameter to the UNLOAD command, so file extensions are automatically added to filenames.
-- Supports protecting RLS-protected objects by default when adding them to a datashare or if they're already part of a datashare.
-  Administrators can now turn off RLS for datashares to allow consumers access to the protected object.
-- Adds new system tables for monitoring: `SVV_ML_MODEL_INFO`, `SVV_MV_DEPENDENCY`, and `SYS_LOAD_DETAIL`. Also adds
-  the columns `data_skewness` and `time_skewness` to the system table `SYS_QUERY_DETAIL`.
++ Adds a file extension parameter to the UNLOAD command, so file extensions are automatically added to filenames.
++ Supports protecting RLS-protected objects by default when adding them to a datashare or if they're already part of a datashare. Administrators can now turn off RLS for datashares to allow consumers access to the protected object.
++ Adds new system tables for monitoring: `SVV_ML_MODEL_INFO`, `SVV_MV_DEPENDENCY`, and `SYS_LOAD_DETAIL`. Also adds the columns `data_skewness` and `time_skewness` to the system table `SYS_QUERY_DETAIL`.
 
 ## Amazon Redshift patch 172
+<a name="cluster-version-172"></a>
 
-Cluster versions in this patch:
-
-- 1.0.46534 – Released on February 18, 2023
-- 1.0.46523 – Released on February 13, 2023
-- 1.0.46206 – Released on February 1, 2023
-- 1.0.45603 – Released on January 20, 2023
-- 1.0.44924 – Released on December 19, 2022
-- 1.0.44903 – Released on December 18, 2022
-- 1.0.44540 – Released on December 13, 2022
-- 1.0.44126 – Released on November 23, 2022
-- 1.0.43980 – Released on November 17, 2022
+Cluster versions in this patch: 
++ 1.0.46534 – Released on February 18, 2023
++ 1.0.46523 – Released on February 13, 2023
++ 1.0.46206 – Released on February 1, 2023
++ 1.0.45603 – Released on January 20, 2023
++ 1.0.44924 – Released on December 19, 2022
++ 1.0.44903 – Released on December 18, 2022
++ 1.0.44540 – Released on December 13, 2022
++ 1.0.44126 – Released on November 23, 2022
++ 1.0.43980 – Released on November 17, 2022
 
 ### New features and improvements in this patch
-
-- Tables created by CTAS are AUTO by default.
-- Adds support for row-level security (RLS) on materialized views.
-- Increases the S3 timeout to improve cross-Region data sharing.
-- Adds new spatial function `ST_GeomFromGeohash`.
-- Improves automatic selection of distribution key from composite primary keys to improve out-of-the-box performance.
-- Adds automatic primary key to distribution key for tables with composite primary keys, improving out-of-the-box performance.
-- Improves concurrency scaling to allow more queries to scale even as data changes.
-- Improves data sharing query performance.
-- Adds Machine Learning probability metrics for classification models.
-- Adds new system tables for monitoring: `SVV_USER_INFO`, `SVV_MV_INFO`, `SYS_CONNECTION_LOG`,
-  `SYS_DATASHARE_USAGE_PRODUCER`, `SYS_DATASHARE_USAGE_CONSUMER`, and `SYS_DATASHARE_CHANGE_LOG`.
-- Adds support for querying VARBYTE columns in external tables for Parquet and ORC file types.
+<a name="cluster-version-2022-11-17-features"></a>
++ Tables created by CTAS are AUTO by default.
++ Adds support for row-level security (RLS) on materialized views.
++ Increases the S3 timeout to improve cross-Region data sharing.
++ Adds new spatial function `ST_GeomFromGeohash`.
++ Improves automatic selection of distribution key from composite primary keys to improve out-of-the-box performance.
++ Adds automatic primary key to distribution key for tables with composite primary keys, improving out-of-the-box performance.
++ Improves concurrency scaling to allow more queries to scale even as data changes.
++ Improves data sharing query performance.
++ Adds Machine Learning probability metrics for classification models.
++ Adds new system tables for monitoring: `SVV_USER_INFO`, `SVV_MV_INFO`, `SYS_CONNECTION_LOG`, `SYS_DATASHARE_USAGE_PRODUCER`, `SYS_DATASHARE_USAGE_CONSUMER`, and `SYS_DATASHARE_CHANGE_LOG`.
++ Adds support for querying VARBYTE columns in external tables for Parquet and ORC file types.
 
 ## Amazon Redshift patch 171
+<a name="cluster-version-171"></a>
 
-Cluster versions in this patch:
-
-- 1.0.43931 – Released on November 16, 2022
-- 1.0.43551 – Released on November 5, 2022
-- 1.0.43331 – Released on September 29, 2022
-- 1.0.43029 – Released on September 26, 2022
+Cluster versions in this patch: 
++ 1.0.43931 – Released on November 16, 2022
++ 1.0.43551 – Released on November 5, 2022
++ 1.0.43331 – Released on September 29, 2022
++ 1.0.43029 – Released on September 26, 2022
 
 ### New features and improvements in this patch
-
-- CONNECT BY support: Adds support for the CONNECT BY SQL construct,
-  letting you recursively query the hierarchical data in your data warehouse
-  based on parent-child relationship within that data set.
+<a name="cluster-version-2022-11-09-features"></a>
++ CONNECT BY support: Adds support for the CONNECT BY SQL construct, letting you recursively query the hierarchical data in your data warehouse based on parent-child relationship within that data set. 
 
 ## Amazon Redshift patch 170
+<a name="cluster-version-170"></a>
 
-Cluster versions in this patch:
-
-- 1.0.43922 – Released on November 21, 2022
-- 1.0.43573 – Released on November 7, 2022
-- 1.0.41881 – Released on September 20, 2022
-- 1.0.41465 – Released on September 7, 2022
-- 1.0.40325 – Released on July 27, 2022
+Cluster versions in this patch: 
++ 1.0.43922 – Released on November 21, 2022 
++ 1.0.43573 – Released on November 7, 2022 
++ 1.0.41881 – Released on September 20, 2022
++ 1.0.41465 – Released on September 7, 2022 
++ 1.0.40325 – Released on July 27, 2022 
 
 ### New features and improvements in this patch
-
-- ST\_GeomfromGeoJSON: Constructs an Amazon Redshift spatial geometry object from VARCHAR in GeoJSON representation.
+<a name="cluster-version-2022-07-20-features"></a>
++  ST\_GeomfromGeoJSON: Constructs an Amazon Redshift spatial geometry object from VARCHAR in GeoJSON representation.
 
 ## Amazon Redshift patch 169
+<a name="cluster-version-169"></a>
 
-Cluster versions in this patch:
-
-- 1.0.41050 – Released on September 7, 2022
-- 1.0.40083 – Released on July 16, 2022
-- 1.0.39734 – Released on July 7, 2022
-- 1.0.39380 – Released on June 23, 2022
-- 1.0.39251 – Released on June 15, 2022
-- 1.0.39009 – Released on June 8, 2022
+Cluster versions in this patch: 
++ 1.0.41050 – Released on September 7, 2022
++ 1.0.40083 – Released on July 16, 2022 
++ 1.0.39734 – Released on July 7, 2022 
++ 1.0.39380 – Released on June 23, 2022 
++ 1.0.39251 – Released on June 15, 2022 
++ 1.0.39009 – Released on June 8, 2022 
 
 ### New features and improvements in this patch
-
-- Adds role as a parameter for the Alter Default Privileges command to support Role-based Access Control.
-- Adds ACCEPTINVCHARS parameter to support replacing invalid UTF-8 characters when copying from Parquet and ORC files.
-- Adds OBJECT(k,v) function to construct SUPER objects from key and value pairs.
+<a name="cluster-version-2022-06-08-features"></a>
++  Adds role as a parameter for the Alter Default Privileges command to support Role-based Access Control.
++  Adds ACCEPTINVCHARS parameter to support replacing invalid UTF-8 characters when copying from Parquet and ORC files.
++  Adds OBJECT(k,v) function to construct SUPER objects from key and value pairs.
 
 ## Amazon Redshift patch 168
+<a name="cluster-version-168"></a>
 
-Cluster versions in this patch:
-
-- 1.0.38698 – Released on May 25, 2022
-- 1.0.38551 – Released on May 20, 2022
-- 1.0.38463 – Released on May 18, 2022
-- 1.0.38361 – Released on May 13, 2022
-- 1.0.38199 – Released on May 9, 2022
-- 1.0.38112 – Released on May 6, 2022
-- 1.0.37684 – Released on April 20, 2022
+Cluster versions in this patch: 
++ 1.0.38698 – Released on May 25, 2022 
++ 1.0.38551 – Released on May 20, 2022 
++ 1.0.38463 – Released on May 18, 2022 
++ 1.0.38361 – Released on May 13, 2022 
++ 1.0.38199 – Released on May 9, 2022 
++ 1.0.38112 – Released on May 6, 2022
++ 1.0.37684 – Released on April 20, 2022
 
 ### New features and improvements in this patch
-
-- Adds support for the Linear Learner model type in Amazon Redshift ML.
-- Adds SNAPSHOT option for SQL transaction isolation level.
-- Adds `farmhashFingerprint64` as new hashing algorithm for `VARBYTE` and `VARCHAR` data.
-- Supports the AVG function in incremental refresh of materialized views.
-- Supports correlated sub-queries on external tables in Redshift Spectrum.
-- To improve the out-of-the-box query performance, Amazon Redshift automatically chooses a single column primary key for specific tables as a distribution key.
+<a name="cluster-version-2022-04-19-features"></a>
++ Adds support for the Linear Learner model type in Amazon Redshift ML.
++ Adds SNAPSHOT option for SQL transaction isolation level.
++ Adds `farmhashFingerprint64` as new hashing algorithm for `VARBYTE` and `VARCHAR` data.
++ Supports the AVG function in incremental refresh of materialized views.
++ Supports correlated sub-queries on external tables in Redshift Spectrum.
++ To improve the out-of-the-box query performance, Amazon Redshift automatically chooses a single column primary key for specific tables as a distribution key.

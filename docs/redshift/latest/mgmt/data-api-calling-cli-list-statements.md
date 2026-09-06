@@ -1,21 +1,17 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # List metadata about SQL statements
+<a name="data-api-calling-cli-list-statements"></a>
 
-To list metadata about SQL statements, use the `aws redshift-data
- list-statements` AWS CLI command. Authorization to run this command is based
-on the caller's IAM permissions.
+To list metadata about SQL statements, use the `aws redshift-data list-statements` AWS CLI command. Authorization to run this command is based on the caller's IAM permissions.
 
 The following AWS CLI command lists SQL statements that ran.
 
 ```
-
-aws redshift-data list-statements
+aws redshift-data list-statements 
     --status ALL
-
 ```
 
 The following is an example of the response.

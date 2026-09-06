@@ -1,27 +1,22 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Getting started with provisioned data warehouse clusters
+<a name="example_redshift_GettingStarted_039_section"></a>
 
 The following code example shows how to:
++ Create a Redshift cluster
++ Create an IAM role for S3 access
++ Create tables and load data
++ Run example queries
++ Clean up resources
 
-- Create a Redshift cluster
-- Create an IAM role for S3 access
-- Create tables and load data
-- Run example queries
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/039-redshift-provisioned "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/039-redshift-provisioned")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/039-redshift-provisioned) repository. 
 
 ```
 #!/bin/bash
@@ -45,7 +40,7 @@ handle_error() {
     echo "Resources created so far:"
     if [ -n "${CLUSTER_ID:-}" ]; then echo "- Redshift Cluster: $CLUSTER_ID"; fi
     if [ -n "${ROLE_NAME:-}" ]; then echo "- IAM Role: $ROLE_NAME"; fi
-
+    
     echo "Attempting to clean up resources..."
     cleanup_resources
     exit 1
@@ -54,7 +49,7 @@ handle_error() {
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources..."
-
+    
     # Delete the cluster if it exists
     if [ -n "${CLUSTER_ID:-}" ]; then
         echo "Deleting Redshift cluster: $CLUSTER_ID"
@@ -63,19 +58,19 @@ cleanup_resources() {
         aws redshift wait cluster-deleted --cluster-identifier "$CLUSTER_ID" 2>/dev/null || true
         echo "Cluster deleted successfully."
     fi
-
+    
     # Delete the IAM role if it exists
     if [ -n "${ROLE_NAME:-}" ]; then
         echo "Removing IAM role policy..."
         aws iam delete-role-policy --role-name "$ROLE_NAME" --policy-name RedshiftS3Access 2>/dev/null || true
-
+        
         echo "Deleting IAM role: $ROLE_NAME"
         aws iam delete-role --role-name "$ROLE_NAME" 2>/dev/null || true
     fi
-
+    
     # Clean up temporary files
     rm -f redshift-trust-policy.json redshift-s3-policy.json
-
+    
     echo "Cleanup completed."
 }
 
@@ -88,12 +83,12 @@ wait_for_statement() {
     local max_attempts=30
     local attempt=1
     local status=""
-
+    
     echo "Waiting for statement $statement_id to complete..."
-
+    
     while [ $attempt -le $max_attempts ]; do
         status=$(aws redshift-data describe-statement --id "$statement_id" --query 'Status' --output text 2>/dev/null || echo "")
-
+        
         if [ "$status" == "FINISHED" ]; then
             echo "Statement completed successfully."
             return 0
@@ -105,12 +100,12 @@ wait_for_statement() {
             echo "Statement was aborted." >&2
             return 1
         fi
-
+        
         echo "Statement status: $status. Waiting... (Attempt $attempt/$max_attempts)"
         sleep 10
         ((attempt++))
     done
-
+    
     echo "Timed out waiting for statement to complete." >&2
     return 1
 }
@@ -120,25 +115,25 @@ check_role_attached() {
     local role_arn=$1
     local max_attempts=10
     local attempt=1
-
+    
     echo "Checking if IAM role is attached to the cluster..."
-
+    
     while [ $attempt -le $max_attempts ]; do
         local status=$(aws redshift describe-clusters \
             --cluster-identifier "$CLUSTER_ID" \
             --query "Clusters[0].IamRoles[?IamRoleArn=='$role_arn'].ApplyStatus" \
             --output text 2>/dev/null || echo "")
-
+        
         if [ "$status" == "in-sync" ]; then
             echo "IAM role is successfully attached to the cluster."
             return 0
         fi
-
+        
         echo "IAM role status: $status. Waiting... (Attempt $attempt/$max_attempts)"
         sleep 30
         ((attempt++))
     done
-
+    
     echo "Timed out waiting for IAM role to be attached." >&2
     return 1
 }
@@ -212,7 +207,7 @@ echo "=== Step 2: Creating IAM Role for S3 Access ==="
 echo "Creating trust policy for Redshift"
 cat > redshift-trust-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -247,7 +242,7 @@ aws iam tag-role --role-name "$ROLE_NAME" --tags Key=project,Value=doc-smith Key
 echo "Creating S3 access policy"
 cat > redshift-s3-policy.json << 'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -419,22 +414,19 @@ echo "All resources have been cleaned up."
 DB_PASSWORD=""
 
 echo "Script completed at $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateCluster](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/CreateCluster)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [DeleteCluster](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/DeleteCluster)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRolePolicy)
+  + [DescribeClusters](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/DescribeClusters)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [ModifyClusterIamRoles](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/ModifyClusterIamRoles)
+  + [PutRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/PutRolePolicy)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateCluster](../../../goto/aws-cli/redshift-2012-12-01/CreateCluster.md "../../../goto/aws-cli/redshift-2012-12-01/CreateCluster.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [DeleteCluster](../../../goto/aws-cli/redshift-2012-12-01/DeleteCluster.md "../../../goto/aws-cli/redshift-2012-12-01/DeleteCluster.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md")
-  - [DescribeClusters](../../../goto/aws-cli/redshift-2012-12-01/DescribeClusters.md "../../../goto/aws-cli/redshift-2012-12-01/DescribeClusters.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [ModifyClusterIamRoles](../../../goto/aws-cli/redshift-2012-12-01/ModifyClusterIamRoles.md "../../../goto/aws-cli/redshift-2012-12-01/ModifyClusterIamRoles.md")
-  - [PutRolePolicy](../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md")
-  - [Wait](../../../goto/aws-cli/redshift-2012-12-01/Wait.md "../../../goto/aws-cli/redshift-2012-12-01/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

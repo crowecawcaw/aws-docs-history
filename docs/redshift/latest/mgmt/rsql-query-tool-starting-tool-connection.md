@@ -1,83 +1,64 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Connect to a cluster with Amazon Redshift RSQL
+<a name="rsql-query-tool-starting-tool-connection"></a>
 
-With Amazon Redshift, you can connect to a cluster and interact with it using RSQL. This is a
-command-line tool that provides a secure way to query data, create database objects,
-and manage your Amazon Redshift cluster. The following sections guide you through the steps to
-establish a connection to your cluster using RSQL with and without a data source
-name (DSN).
+With Amazon Redshift, you can connect to a cluster and interact with it using RSQL. This is a command-line tool that provides a secure way to query data, create database objects, and manage your Amazon Redshift cluster. The following sections guide you through the steps to establish a connection to your cluster using RSQL with and without a data source name (DSN).
 
 ## Connecting without a DSN
+<a name="rsql-query-tool-starting-tool-connection-dsn-less-example"></a>
 
-1. On the Amazon Redshift console, choose the cluster you want to connect to and
-   note the endpoint, database, and port.
-2. At a command prompt, specify the connection information by using
-   command-line parameters.
+1. On the Amazon Redshift console, choose the cluster you want to connect to and note the endpoint, database, and port.
 
-```
-rsql -h `<endpoint>` -U `<username>` -d `<databasename>` -p `<port>`
-```
+1. At a command prompt, specify the connection information by using command-line parameters.
 
-Here, the following apply:
+   ```
+   rsql -h {{<endpoint>}} -U {{<username>}} -d {{<databasename>}} -p {{<port>}}
+   ```
 
-    * `<endpoint>` is the
-     **Endpoint** you recorded in the previous
-     step.
-    * `<username>` is the name of a
-     user with permissions to connect to the cluster.
-    * `<databasename>` is the
-     **Database Name** you recorded in the
-     previous step.
-    * `<port>` is the
-     **Port** you recorded in the previous step.
-     `<port>` is an optional
-     parameter.
+    Here, the following apply: 
+   +  {{<endpoint>}} is the **Endpoint** you recorded in the previous step.
+   +  {{<username>}} is the name of a user with permissions to connect to the cluster.
+   +  {{<databasename>}} is the **Database Name** you recorded in the previous step.
+   +  {{<port>}} is the **Port** you recorded in the previous step. {{<port>}} is an optional parameter.
 
-An example follows.
+   An example follows.
 
-```
-rsql -h testcluster.example.amazonaws.com -U user1 -d dev -p 5439
-```
+   ```
+   rsql -h testcluster.example.amazonaws.com -U user1 -d dev -p 5439
+   ```
 
-3. At the password prompt, enter the password for the
-   `<username>` user.
+1.  At the password prompt, enter the password for the {{<username>}} user.
 
-A successful connection response looks like the following.
+   A successful connection response looks like the following.
 
-```
-% rsql -h testcluster.example.com -d dev -U user1 -p 5349
-Password for user user1:
-DSN-less Connected
-DBMS Name: Amazon Redshift
-Driver Name: Amazon Redshift ODBC Driver
-Driver Version: 1.4.27.1000
-Rsql Version: 1.0.1
-Redshift Version: 1.0.29306
-Type "help" for help.
+   ```
+   % rsql -h testcluster.example.com -d dev -U user1 -p 5349
+   Password for user user1:
+   DSN-less Connected
+   DBMS Name: Amazon Redshift
+   Driver Name: Amazon Redshift ODBC Driver
+   Driver Version: 1.4.27.1000
+   Rsql Version: 1.0.1
+   Redshift Version: 1.0.29306
+   Type "help" for help.
+   
+   (testcluster) user1@dev=#
+   ```
 
-(testcluster) user1@dev=#
-```
-
-The command to connect has the same parameters on Linux, Mac OS, and
-Windows.
+The command to connect has the same parameters on Linux, Mac OS, and Windows.
 
 ## Connecting with a DSN
+<a name="rsql-query-tool-starting-tool-connection-dsn-example"></a>
 
-You can connect RSQL to Amazon Redshift by using a DSN to simplify the organization of
-connection properties.This topic includes instructions for ODBC-driver
-installation and descriptions for DSN properties.
+You can connect RSQL to Amazon Redshift by using a DSN to simplify the organization of connection properties.This topic includes instructions for ODBC-driver installation and descriptions for DSN properties.
 
 ### Using a DSN connection with a password
+<a name="rsql-query-tool-starting-tool-connection-dsn-example-password"></a>
 
-The following shows an example of a DSN-connection configuration that uses
-a password. The default `<path to driver>` for Mac OSX is
-`/opt/amazon/redshift/lib/libamazonredshiftodbc.dylib` and
-for Linux is
-`/opt/amazon/redshiftodbc/lib/64/libamazonredshiftodbc64.so`.
+The following shows an example of a DSN-connection configuration that uses a password. The default `<path to driver>` for Mac OSX is `/opt/amazon/redshift/lib/libamazonredshiftodbc.dylib` and for Linux is `/opt/amazon/redshiftodbc/lib/64/libamazonredshiftodbc64.so`.
 
 ```
 [testuser]
@@ -109,10 +90,9 @@ Type "help" for help.
 ```
 
 ### Using Single sign-on DSN
+<a name="rsql-query-tool-starting-tool-connection-dsn"></a>
 
-You can configure a DSN for single sign-on authentication. The following
-shows an example of a DSN-connection configuration that uses Okta single
-sign on.
+You can configure a DSN for single sign-on authentication. The following shows an example of a DSN-connection configuration that uses Okta single sign on.
 
 ```
 [testokta]
@@ -138,7 +118,7 @@ preferred_role=<role arn>
 Sample output from a successful connection.
 
 ```
-% rsql -D testokta
+% rsql -D testokta 
 DSN Connected
 DBMS Name: Amazon Redshift
 Driver Name: Amazon Redshift ODBC Driver
@@ -150,8 +130,7 @@ Type "help" for help.
 (testcluster) user1@dev=#
 ```
 
-The following example shows an example of a DSN-connection configuration
-that uses Azure single sign on.
+The following example shows an example of a DSN-connection configuration that uses Azure single sign on.
 
 ```
 [testazure]
@@ -175,13 +154,9 @@ client_secret=<Azure idp client secret>
 ```
 
 ### Using a DSN connection with an IAM profile
+<a name="rsql-query-tool-starting-tool-connection-dsn-iam"></a>
 
-You can connect to Amazon Redshift using your configured IAM profile. The IAM profile
-must have privileges to call `GetClusterCredentials`. The
-following example shows the DSN properties to use. The
-`ClusterID` and `Region` parameters are required
-only if the `Host` is not an Amazon provided endpoint like
-`examplecluster.abc123xyz789.us-west-2.redshift.amazonaws.com`.
+You can connect to Amazon Redshift using your configured IAM profile. The IAM profile must have privileges to call `GetClusterCredentials`. The following example shows the DSN properties to use. The `ClusterID` and `Region` parameters are required only if the `Host` is not an Amazon provided endpoint like `examplecluster.abc123xyz789.us-west-2.redshift.amazonaws.com`.
 
 ```
 [testiam]
@@ -195,14 +170,12 @@ IAM=1
 Profile=default
 ```
 
-The value for the `Profile` key is the named profile you choose
-from your AWS CLI credentials. This example shows the credentials for the
-profile named `default`.
+The value for the `Profile` key is the named profile you choose from your AWS CLI credentials. This example shows the credentials for the profile named `default`.
 
 ```
 $ cat .aws/credentials
 [default]
-aws_access_key_id = ASIAIOSFODNN7EXAMPLE
+aws_access_key_id = ASIAIOSFODNN7EXAMPLE 
 aws_secret_access_key = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```
 
@@ -222,13 +195,9 @@ Type "help" for help.
 ```
 
 ### Using a DSN connection with an Instance profile
+<a name="rsql-query-tool-starting-tool-connection-dsn-instance"></a>
 
-You can connect to Amazon Redshift using your Amazon EC2 instance profile. The instance
-profile must have privileges to call `GetClusterCredentials`. See
-example below for the DSN properties to use. The `ClusterID` and
-`Region` parameters are required only if the
-`Host` is not an Amazon provided endpoint like
-`examplecluster.abc123xyz789.us-west-2.redshift.amazonaws.com`.
+You can connect to Amazon Redshift using your Amazon EC2 instance profile. The instance profile must have privileges to call `GetClusterCredentials`. See example below for the DSN properties to use. The `ClusterID` and `Region` parameters are required only if the `Host` is not an Amazon provided endpoint like `examplecluster.abc123xyz789.us-west-2.redshift.amazonaws.com`.
 
 ```
 [testinstanceprofile]
@@ -258,14 +227,9 @@ Type "help" for help.
 ```
 
 ### Using a DSN connection with the default credential provider chain
+<a name="rsql-query-tool-starting-tool-connection-dsn-provider-chain"></a>
 
-To connect using the default credential provider chain, specify only the
-IAM property, and Amazon Redshift RSQL will attempt to acquire credentials in the order
-described in [Working with
-AWS Credentials](../../../sdk-for-java/v1/developer-guide/credentials.md "../../../sdk-for-java/v1/developer-guide/credentials.md") in the AWS SDK for Java. At least one of the
-providers in the chain must have `GetClusterCredentials`
-permission. This is useful for connecting from ECS containers, for
-example.
+To connect using the default credential provider chain, specify only the IAM property, and Amazon Redshift RSQL will attempt to acquire credentials in the order described in [Working with AWS Credentials](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html) in the AWS SDK for Java. At least one of the providers in the chain must have `GetClusterCredentials` permission. This is useful for connecting from ECS containers, for example.
 
 ```
 [iamcredentials]

@@ -1,29 +1,22 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Granting query monitoring permissions for a role
+<a name="serverless-monitor-access-role"></a>
 
-Users with a role that has `sys:monitor` permission can view all
-queries. In addition, users with a role that has `sys:operator`
-permission can cancel queries, analyze query history, and perform vacuum
-operations.
+Users with a role that has `sys:monitor` permission can view all queries. In addition, users with a role that has `sys:operator` permission can cancel queries, analyze query history, and perform vacuum operations.
 
-###### To grant query monitoring permission for a role
+**To grant query monitoring permission for a role**
 
-1. Enter the following command to provide system monitor access, where
-   _role-name_ is the name of the role for which you
-   want to provide access.
+1. Enter the following command to provide system monitor access, where *role-name* is the name of the role for which you want to provide access.
 
-```
-grant role sys:monitor to "IAMR:*role-name*";
-```
+   ```
+   grant role sys:monitor to "IAMR:role-name";
+   ```
 
-2. (Optional) Enter the following command to provide system operator access,
-   where _role-name_ is the name of the role for which you
-   want to provide access.
+1. (Optional) Enter the following command to provide system operator access, where *role-name* is the name of the role for which you want to provide access.
 
-```
-grant role sys:operator to "IAMR:*role-name*";
-```
+   ```
+   grant role sys:operator to "IAMR:role-name";
+   ```

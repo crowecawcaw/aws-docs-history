@@ -1,29 +1,24 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Get started with serverless data warehouses using the CLI
+<a name="example_redshift_GettingStarted_038_section"></a>
 
 The following code example shows how to:
++ Use secrets-manager CreateSecret
++ Use secrets-manager DeleteSecret
++ Use secrets-manager GetSecretValue
++ Use redshift CreateNamespace
++ Use redshift CreateWorkgroup
++ Use redshift DeleteNamespace
++ Use iam CreateRole
 
-- Use secrets-manager CreateSecret
-- Use secrets-manager DeleteSecret
-- Use secrets-manager GetSecretValue
-- Use redshift CreateNamespace
-- Use redshift CreateWorkgroup
-- Use redshift DeleteNamespace
-- Use iam CreateRole
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/038-redshift-serverless "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/038-redshift-serverless")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/038-redshift-serverless) repository. 
 
 ```
 #!/bin/bash
@@ -43,7 +38,7 @@ echo "All commands and outputs will be logged to $LOG_FILE"
 check_error() {
   local output=$1
   local cmd=$2
-
+  
   if echo "$output" | grep -i "error\|exception\|fail" > /dev/null; then
     echo "ERROR: Command failed: $cmd"
     echo "Output: $output"
@@ -57,29 +52,29 @@ generate_secure_password() {
   # Redshift password requirements:
   # - 8-64 characters
   # - At least one uppercase letter
-  # - At least one lowercase letter
+  # - At least one lowercase letter  
   # - At least one decimal digit
   # - Can contain printable ASCII characters except /, ", ', \, @, space
-
+  
   local password=""
   local valid=false
   local attempts=0
   local max_attempts=10
-
+  
   while [[ "$valid" == false && $attempts -lt $max_attempts ]]; do
     # Generate base password with safe characters
     local base=$(openssl rand -base64 12 | tr -d '/+=' | head -c 12)
-
+    
     # Ensure we have at least one of each required character type
     local upper=$(echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | fold -w1 | shuf -n1)
     local lower=$(echo "abcdefghijklmnopqrstuvwxyz" | fold -w1 | shuf -n1)
     local digit=$(echo "0123456789" | fold -w1 | shuf -n1)
     local special=$(echo "!#$%&*()_+-=[]{}|;:,.<>?" | fold -w1 | shuf -n1)
-
+    
     # Combine and shuffle
     password="${base}${upper}${lower}${digit}${special}"
     password=$(echo "$password" | fold -w1 | shuf | tr -d '\n')
-
+    
     # Validate password meets requirements
     if [[ ${#password} -ge 8 && ${#password} -le 64 ]] && \
        [[ "$password" =~ [A-Z] ]] && \
@@ -88,15 +83,15 @@ generate_secure_password() {
        [[ ! "$password" =~ [/\"\'\\@[:space:]] ]]; then
       valid=true
     fi
-
+    
     ((attempts++))
   done
-
+  
   if [[ "$valid" == false ]]; then
     echo "ERROR: Failed to generate valid password after $max_attempts attempts"
     exit 1
   fi
-
+  
   echo "$password"
 }
 
@@ -106,21 +101,21 @@ create_secret() {
   local username=$2
   local password=$3
   local description=$4
-
+  
   echo "Creating secret in AWS Secrets Manager: $secret_name"
-
+  
   # Create the secret using AWS CLI without jq
   local secret_output=$(aws secretsmanager create-secret \
     --name "$secret_name" \
     --description "$description" \
     --secret-string "{\"username\":\"$username\",\"password\":\"$password\"}" \
     --tags Key=project,Value=doc-smith Key=tutorial,Value=redshift-serverless 2>&1)
-
+  
   if echo "$secret_output" | grep -i "error\|exception\|fail" > /dev/null; then
     echo "ERROR: Failed to create secret: $secret_output"
     return 1
   fi
-
+  
   echo "Secret created successfully: $secret_name"
   return 0
 }
@@ -128,13 +123,13 @@ create_secret() {
 # Function to retrieve password from AWS Secrets Manager
 get_password_from_secret() {
   local secret_name=$1
-
+  
   # Get the secret value and extract password using sed/grep instead of jq
   local secret_value=$(aws secretsmanager get-secret-value \
     --secret-id "$secret_name" \
     --query 'SecretString' \
     --output text 2>/dev/null)
-
+  
   if [[ $? -eq 0 ]]; then
     # Extract password from JSON using sed
     echo "$secret_value" | sed -n 's/.*"password":"\([^"]*\)".*/\1/p'
@@ -150,22 +145,22 @@ wait_for_resource() {
   local max_attempts=$3
   local wait_seconds=$4
   local check_cmd=$5
-
+  
   echo "Waiting for $resource_type $resource_name to be available..."
-
+  
   for ((i=1; i<=$max_attempts; i++)); do
     local output=$($check_cmd 2>/dev/null)
     local status=$(echo "$output" | grep -o '"Status": "[^"]*' | cut -d'"' -f4 || echo "")
-
+    
     if [[ "$status" == "AVAILABLE" ]]; then
       echo "$resource_type $resource_name is now available"
       return 0
     fi
-
+    
     echo "Attempt $i/$max_attempts: $resource_type $resource_name status: $status. Waiting $wait_seconds seconds..."
     sleep $wait_seconds
   done
-
+  
   echo "ERROR: Timed out waiting for $resource_type $resource_name to be available"
   return 1
 }
@@ -177,21 +172,21 @@ wait_for_resource_deletion() {
   local max_attempts=$3
   local wait_seconds=$4
   local check_cmd=$5
-
+  
   echo "Waiting for $resource_type $resource_name to be deleted..."
-
+  
   for ((i=1; i<=$max_attempts; i++)); do
     local output=$($check_cmd 2>&1)
-
+    
     if echo "$output" | grep -i "not found\|does not exist" > /dev/null; then
       echo "$resource_type $resource_name has been deleted"
       return 0
     fi
-
+    
     echo "Attempt $i/$max_attempts: $resource_type $resource_name is still being deleted. Waiting $wait_seconds seconds..."
     sleep $wait_seconds
   done
-
+  
   echo "ERROR: Timed out waiting for $resource_type $resource_name to be deleted"
   return 1
 }
@@ -210,41 +205,41 @@ cleanup_resources() {
   echo ""
   echo "Do you want to clean up all created resources? (y/n): "
   read -r CLEANUP_CHOICE
-
+  
   if [[ "${CLEANUP_CHOICE,,}" == "y" ]]; then
     echo "Cleaning up resources..."
-
+    
     # Delete the workgroup
     echo "Deleting Redshift Serverless workgroup $WORKGROUP_NAME..."
     WORKGROUP_DELETE_OUTPUT=$(aws redshift-serverless delete-workgroup --workgroup-name "$WORKGROUP_NAME" 2>&1)
     echo "$WORKGROUP_DELETE_OUTPUT"
-
+    
     # Wait for workgroup to be deleted before deleting namespace
     wait_for_resource_deletion "workgroup" "$WORKGROUP_NAME" 20 30 "aws redshift-serverless get-workgroup --workgroup-name $WORKGROUP_NAME"
-
+    
     # Delete the namespace
     echo "Deleting Redshift Serverless namespace $NAMESPACE_NAME..."
     NAMESPACE_DELETE_OUTPUT=$(aws redshift-serverless delete-namespace --namespace-name "$NAMESPACE_NAME" 2>&1)
     echo "$NAMESPACE_DELETE_OUTPUT"
-
+    
     # Wait for namespace to be deleted
     wait_for_resource_deletion "namespace" "$NAMESPACE_NAME" 20 30 "aws redshift-serverless get-namespace --namespace-name $NAMESPACE_NAME"
-
+    
     # Delete the IAM role policy
     echo "Deleting IAM role policy..."
     POLICY_DELETE_OUTPUT=$(aws iam delete-role-policy --role-name "$ROLE_NAME" --policy-name S3Access 2>&1)
     echo "$POLICY_DELETE_OUTPUT"
-
+    
     # Delete the IAM role
     echo "Deleting IAM role $ROLE_NAME..."
     ROLE_DELETE_OUTPUT=$(aws iam delete-role --role-name "$ROLE_NAME" 2>&1)
     echo "$ROLE_DELETE_OUTPUT"
-
+    
     # Delete the secret
     echo "Deleting Secrets Manager secret $SECRET_NAME..."
     SECRET_DELETE_OUTPUT=$(aws secretsmanager delete-secret --secret-id "$SECRET_NAME" --force-delete-without-recovery 2>&1)
     echo "$SECRET_DELETE_OUTPUT"
-
+    
     echo "Cleanup completed."
   else
     echo "Cleanup skipped. Resources will remain in your AWS account."
@@ -295,7 +290,7 @@ echo "Creating IAM role for Redshift Serverless S3 access..."
 # Create trust policy document
 cat > redshift-trust-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -311,7 +306,7 @@ EOF
 # Create S3 access policy document
 cat > redshift-s3-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -485,11 +480,11 @@ echo "Loading data into users table..."
 USERS_LOAD_OUTPUT=$(aws redshift-data execute-statement \
   --database "$DB_NAME" \
   --workgroup-name "$WORKGROUP_NAME" \
-  --sql "COPY users
-    FROM 's3://redshift-downloads/tickit/allusers_pipe.txt'
-    DELIMITER '|'
+  --sql "COPY users 
+    FROM 's3://redshift-downloads/tickit/allusers_pipe.txt' 
+    DELIMITER '|' 
     TIMEFORMAT 'YYYY-MM-DD HH:MI:SS'
-    IGNOREHEADER 1
+    IGNOREHEADER 1 
     IAM_ROLE '$ROLE_ARN';" 2>&1)
 echo "$USERS_LOAD_OUTPUT"
 check_error "$USERS_LOAD_OUTPUT" "aws redshift-data execute-statement (load users)"
@@ -505,10 +500,10 @@ EVENT_LOAD_OUTPUT=$(aws redshift-data execute-statement \
   --database "$DB_NAME" \
   --workgroup-name "$WORKGROUP_NAME" \
   --sql "COPY event
-    FROM 's3://redshift-downloads/tickit/allevents_pipe.txt'
-    DELIMITER '|'
+    FROM 's3://redshift-downloads/tickit/allevents_pipe.txt' 
+    DELIMITER '|' 
     TIMEFORMAT 'YYYY-MM-DD HH:MI:SS'
-    IGNOREHEADER 1
+    IGNOREHEADER 1 
     IAM_ROLE '$ROLE_ARN';" 2>&1)
 echo "$EVENT_LOAD_OUTPUT"
 check_error "$EVENT_LOAD_OUTPUT" "aws redshift-data execute-statement (load event)"
@@ -524,10 +519,10 @@ SALES_LOAD_OUTPUT=$(aws redshift-data execute-statement \
   --database "$DB_NAME" \
   --workgroup-name "$WORKGROUP_NAME" \
   --sql "COPY sales
-    FROM 's3://redshift-downloads/tickit/sales_tab.txt'
-    DELIMITER '\t'
+    FROM 's3://redshift-downloads/tickit/sales_tab.txt' 
+    DELIMITER '\t' 
     TIMEFORMAT 'MM/DD/YYYY HH:MI:SS'
-    IGNOREHEADER 1
+    IGNOREHEADER 1 
     IAM_ROLE '$ROLE_ARN';" 2>&1)
 echo "$SALES_LOAD_OUTPUT"
 check_error "$SALES_LOAD_OUTPUT" "aws redshift-data execute-statement (load sales)"
@@ -545,7 +540,7 @@ echo "Running query: Find top 10 buyers by quantity..."
 QUERY1_OUTPUT=$(aws redshift-data execute-statement \
   --database "$DB_NAME" \
   --workgroup-name "$WORKGROUP_NAME" \
-  --sql "SELECT firstname, lastname, total_quantity
+  --sql "SELECT firstname, lastname, total_quantity 
     FROM (SELECT buyerid, sum(qtysold) total_quantity
           FROM sales
           GROUP BY buyerid
@@ -575,11 +570,11 @@ else
   echo "Query 1 is not yet complete. Status: $QUERY1_STATUS"
   echo "Waiting additional time for query to complete..."
   sleep 20
-
+  
   # Check again
   QUERY1_STATUS_OUTPUT=$(aws redshift-data describe-statement --id "$QUERY1_ID" 2>&1)
   QUERY1_STATUS=$(echo "$QUERY1_STATUS_OUTPUT" | grep -o '"Status": "[^"]*' | cut -d'"' -f4)
-
+  
   if [ "$QUERY1_STATUS" == "FINISHED" ]; then
     QUERY1_RESULTS=$(aws redshift-data get-statement-result --id "$QUERY1_ID" 2>&1)
     echo "Query 1 Results:"
@@ -594,8 +589,8 @@ echo "Running query: Find events in the 99.9 percentile in terms of all time tot
 QUERY2_OUTPUT=$(aws redshift-data execute-statement \
   --database "$DB_NAME" \
   --workgroup-name "$WORKGROUP_NAME" \
-  --sql "SELECT eventname, total_price
-    FROM (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) as percentile
+  --sql "SELECT eventname, total_price 
+    FROM (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) as percentile 
           FROM (SELECT eventid, sum(pricepaid) total_price
                 FROM sales
                 GROUP BY eventid)) Q, event E
@@ -625,11 +620,11 @@ else
   echo "Query 2 is not yet complete. Status: $QUERY2_STATUS"
   echo "Waiting additional time for query to complete..."
   sleep 20
-
+  
   # Check again
   QUERY2_STATUS_OUTPUT=$(aws redshift-data describe-statement --id "$QUERY2_ID" 2>&1)
   QUERY2_STATUS=$(echo "$QUERY2_STATUS_OUTPUT" | grep -o '"Status": "[^"]*' | cut -d'"' -f4)
-
+  
   if [ "$QUERY2_STATUS" == "FINISHED" ]; then
     QUERY2_RESULTS=$(aws redshift-data get-statement-result --id "$QUERY2_ID" 2>&1)
     echo "Query 2 Results:"
@@ -676,28 +671,24 @@ rm -f redshift-trust-policy.json redshift-s3-policy.json
 cleanup_resources
 
 echo "Tutorial completed at $(date)"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateNamespace](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/CreateNamespace)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/CreateSecret)
+  + [CreateWorkgroup](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/CreateWorkgroup)
+  + [DeleteNamespace](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/DeleteNamespace)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRolePolicy)
+  + [DeleteSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret)
+  + [DeleteWorkgroup](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/DeleteWorkgroup)
+  + [GetNamespace](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/GetNamespace)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [GetSecretValue](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue)
+  + [GetWorkgroup](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/GetWorkgroup)
+  + [PutRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/PutRolePolicy)
+  + [UpdateNamespace](https://docs.aws.amazon.com/goto/aws-cli/redshift-2012-12-01/UpdateNamespace)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateNamespace](../../../goto/aws-cli/redshift-2012-12-01/CreateNamespace.md "../../../goto/aws-cli/redshift-2012-12-01/CreateNamespace.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md")
-  - [CreateWorkgroup](../../../goto/aws-cli/redshift-2012-12-01/CreateWorkgroup.md "../../../goto/aws-cli/redshift-2012-12-01/CreateWorkgroup.md")
-  - [DeleteNamespace](../../../goto/aws-cli/redshift-2012-12-01/DeleteNamespace.md "../../../goto/aws-cli/redshift-2012-12-01/DeleteNamespace.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md")
-  - [DeleteSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret.md")
-  - [DeleteWorkgroup](../../../goto/aws-cli/redshift-2012-12-01/DeleteWorkgroup.md "../../../goto/aws-cli/redshift-2012-12-01/DeleteWorkgroup.md")
-  - [GetNamespace](../../../goto/aws-cli/redshift-2012-12-01/GetNamespace.md "../../../goto/aws-cli/redshift-2012-12-01/GetNamespace.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [GetSecretValue](../../../goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue.md "../../../goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue.md")
-  - [GetWorkgroup](../../../goto/aws-cli/redshift-2012-12-01/GetWorkgroup.md "../../../goto/aws-cli/redshift-2012-12-01/GetWorkgroup.md")
-  - [PutRolePolicy](../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md")
-  - [UpdateNamespace](../../../goto/aws-cli/redshift-2012-12-01/UpdateNamespace.md "../../../goto/aws-cli/redshift-2012-12-01/UpdateNamespace.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

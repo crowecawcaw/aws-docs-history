@@ -1,73 +1,69 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Automatically creating Amazon Redshift roles for AWS IAM Identity Center
+<a name="redshift-iam-access-control-sso-autocreate"></a>
 
-This feature is an integration with AWS IAM Identity Center that allows you to automatically create
-roles in Redshift based on group membership.
+This feature is an integration with AWS IAM Identity Center that allows you to automatically create roles in Redshift based on group membership.
 
-There are several benefits to auto-creating roles. When you auto-create a role,
-Redshift creates the role with group membership in your IdP, so you can avoid tedious
-manual role creation and maintenance. You also have the option to filter which groups are
-mapped to Redshift roles with include and exclude patterns.
+There are several benefits to auto-creating roles. When you auto-create a role, Redshift creates the role with group membership in your IdP, so you can avoid tedious manual role creation and maintenance. You also have the option to filter which groups are mapped to Redshift roles with include and exclude patterns.
 
 ## How it works
+<a name="autocreate-overview"></a>
 
-When you, as an IdP user, log into Redshift, the following sequence of events happen:
+When you, as an IdP user, log into Redshift, the following sequence of events happen: 
 
 1. Redshift retrieves your group memberships from the IdP.
-2. Redshift automatically creates roles mapping to those groups, with the role format
-   ``idp_namespace`:`rolename``.
-3. Redshift grants you permissions with the mapped roles.
 
-Upon each user login, each group that's not present in catalog but that the user is
-part of, is auto-created. You can optionally set include and exclude filters to control
-which IdP groups have Redshift roles created.
+1. Redshift automatically creates roles mapping to those groups, with the role format `{{idp_namespace}}:{{rolename}}`. 
+
+1. Redshift grants you permissions with the mapped roles. 
+
+Upon each user login, each group that's not present in catalog but that the user is part of, is auto-created. You can optionally set include and exclude filters to control which IdP groups have Redshift roles created.
 
 ## Configuring auto-create roles
+<a name="autocreate-configuring"></a>
 
-Use the `CREATE IDENTITY PROVIDER` and `ALTER IDENTITY PROVIDER`
-commands to enable and configure automatic role creation.
+Use the `CREATE IDENTITY PROVIDER` and `ALTER IDENTITY PROVIDER` commands to enable and configure automatic role creation.
 
 ```
 -- Create a new IdP with auto role creation enabled
-CREATE IDENTITY PROVIDER <`idp_name`> TYPE AWSIDC
-  NAMESPACE '<`namespace`>'
-  APPLICATION_ARN '`app_arn`'
-  IAM_ROLE '`role_arn`'
+CREATE IDENTITY PROVIDER <{{idp_name}}> TYPE AWSIDC
+  NAMESPACE '<{{namespace}}>' 
+  APPLICATION_ARN '{{app_arn}}'
+  IAM_ROLE '{{role_arn}}'
+  AUTO_CREATE_ROLES TRUE; 
+
+-- Enable on existing IdP 
+ALTER IDENTITY PROVIDER <{{idp_name}}>
   AUTO_CREATE_ROLES TRUE;
 
--- Enable on existing IdP
-ALTER IDENTITY PROVIDER <`idp_name`>
-  AUTO_CREATE_ROLES TRUE;
-
--- Disable
-ALTER IDENTITY PROVIDER <`idp_name`>
+-- Disable  
+ALTER IDENTITY PROVIDER <{{idp_name}}>
   AUTO_CREATE_ROLES FALSE;
 ```
 
 ## Filtering groups
+<a name="autocreate-filtering"></a>
 
-You can optionally filter which IdP groups are mapped to Redshift roles using
-`INCLUDE` and `EXCLUDE` patterns. When patterns conflict,
-`EXCLUDE` takes precedence over `INCLUDE`.
+You can optionally filter which IdP groups are mapped to Redshift roles using `INCLUDE` and `EXCLUDE` patterns. When patterns conflict, `EXCLUDE` takes precedence over `INCLUDE`.
 
 ```
--- Only create roles for groups with 'dev'
-CREATE IDENTITY PROVIDER <`idp_name`> TYPE AWSIDC
+-- Only create roles for groups with 'dev' 
+CREATE IDENTITY PROVIDER <{{idp_name}}> TYPE AWSIDC
   ...
   AUTO_CREATE_ROLES TRUE
   INCLUDE GROUPS LIKE '%dev%';
-
+    
 -- Exclude 'test' groups
-ALTER IDENTITY PROVIDER <`idp_name`>
+ALTER IDENTITY PROVIDER <{{idp_name}}>  
   AUTO_CREATE_ROLES TRUE
   EXCLUDE GROUPS LIKE '%test%';
 ```
 
 ## Examples
+<a name="autocreate-filtering"></a>
 
 The following example shows how to turn on auto-create roles with no filtering.
 
@@ -86,10 +82,9 @@ ALTER IDENTITY PROVIDER prod_idc
 ```
 
 ## Best practices
+<a name="autocreate-bp"></a>
 
 Consider the following best practives when you enable auto-create for roles:
-
-- Use `INCLUDE` and `EXCLUDE` filters to control which groups
-  get roles.
-- Periodically audit roles and clean up unused ones.
-- Leverage Redshift role hierarchies to simplify permission management.
++ Use `INCLUDE` and `EXCLUDE` filters to control which groups get roles.
++ Periodically audit roles and clean up unused ones.
++ Leverage Redshift role hierarchies to simplify permission management.

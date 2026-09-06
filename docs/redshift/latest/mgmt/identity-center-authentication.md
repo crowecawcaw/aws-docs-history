@@ -1,108 +1,77 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Connect to Redshift with Identity-enhanced IAM role sessions
+<a name="identity-center-authentication"></a>
 
-You can use IAM Identity Center to provide federated access to your Amazon Redshift clusters and
-serverless workgroups. This approach allows users to authenticate using their Identity Center
-credentials.
+You can use IAM Identity Center to provide federated access to your Amazon Redshift clusters and serverless workgroups. This approach allows users to authenticate using their Identity Center credentials.
 
-Amazon Redshift provides `GetIdentityCenterAuthToken` API operations to generate
-authorized token that contains user identity information. These APIs are available
-for both provisioned clusters and serverless workgroups. The tokens enable
-seamless single sign-on access to Amazon Redshift databases using your existing Identity Center setup.
+Amazon Redshift provides `GetIdentityCenterAuthToken` API operations to generate authorized token that contains user identity information. These APIs are available for both provisioned clusters and serverless workgroups. The tokens enable seamless single sign-on access to Amazon Redshift databases using your existing Identity Center setup.
 
 ## Prerequisites
+<a name="identity-center-auth-prerequisites"></a>
 
 Before using Identity Center authentication with Amazon Redshift, ensure you have the following:
-
-- **Identity Center setup:** Your account must have
-  IAM Identity Center configured with user identities and appropriate application assignments.
-  For setup instructions, see [Setting up IAM Identity Center](../../../singlesignon/latest/userguide/enable-identity-center.md "../../../singlesignon/latest/userguide/enable-identity-center.md").
-
-###### Important
-
++ **Identity Center setup:** Your account must have IAM Identity Center configured with user identities and appropriate application assignments. For setup instructions, see [Setting up IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-identity-center.html).
+**Important**  
 If you want to connect to Redshift, you must use redshift:connect scope.
-
-- **Identity-enhanced credentials:** Your application must
-  use identity-enhanced credentials that contain embedded user identity information.
-  For more information, see [Using identity-enhanced IAM role sessions](../../../singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.md").
-- **IAM permissions:** Your IAM role or user must have
-  permissions to call the `GetIdentityCenterAuthToken` API and access the
-  specified clusters or workgroups. Required permissions:
-
-  - For provisioned clusters: `redshift:GetIdentityCenterAuthToken` on cluster ARNs
-    (format: `arn:aws:redshift:region:account:cluster:cluster-name`)
-  - For serverless workgroups: `redshift-serverless:GetIdentityCenterAuthToken` on workgroup ARNs
-    (format: `arn:aws:redshift-serverless:region:account:workgroup/workgroup-name`)
-
-- **Compatible drivers:** Use Amazon Redshift JDBC or ODBC drivers
-  that support Identity Center authorized tokens:
-
-  - JDBC drivers: See [Installing and configuring the Amazon Redshift JDBC driver version 2.x](jdbc20-install.md "jdbc20-install.md")
-  - ODBC drivers: See [Installing and configuring the Amazon Redshift ODBC driver version 2.0](odbc20-install.md "odbc20-install.md")
-
-- **Network configuration for enhanced VPC routing:** If enhanced
-  VPC routing is turned on, your VPC must be able to reach the Identity Center
-  services. Interface VPC endpoints are the recommended way to provide this connectivity.
-  Set up this connectivity before users sign in. For more information about enhanced VPC routing requirements for Identity Center,
-  see [Using AWS IAM Identity Center authentication with enhanced VPC routing](redshift-iam-access-control-idp-connect-evr.md "redshift-iam-access-control-idp-connect-evr.md").
++ **Identity-enhanced credentials:** Your application must use identity-enhanced credentials that contain embedded user identity information. For more information, see [Using identity-enhanced IAM role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html).
++ **IAM permissions:** Your IAM role or user must have permissions to call the `GetIdentityCenterAuthToken` API and access the specified clusters or workgroups. Required permissions:
+  + For provisioned clusters: `redshift:GetIdentityCenterAuthToken` on cluster ARNs (format: `arn:aws:redshift:region:account:cluster:cluster-name`)
+  + For serverless workgroups: `redshift-serverless:GetIdentityCenterAuthToken` on workgroup ARNs (format: `arn:aws:redshift-serverless:region:account:workgroup/workgroup-name`)
++ **Compatible drivers:** Use Amazon Redshift JDBC or ODBC drivers that support Identity Center authorized tokens:
+  + JDBC drivers: See [Installing and configuring the Amazon Redshift JDBC driver version 2.x](https://docs.aws.amazon.com/redshift/latest/mgmt/jdbc20-install.html)
+  + ODBC drivers: See [Installing and configuring the Amazon Redshift ODBC driver version 2.0](https://docs.aws.amazon.com/redshift/latest/mgmt/odbc20-install.html)
++ **Network configuration for enhanced VPC routing:** If enhanced VPC routing is turned on, your VPC must be able to reach the Identity Center services. Interface VPC endpoints are the recommended way to provide this connectivity. Set up this connectivity before users sign in. For more information about enhanced VPC routing requirements for Identity Center, see [Using AWS IAM Identity Center authentication with enhanced VPC routing](redshift-iam-access-control-idp-connect-evr.md).
 
 ## How Identity Center authentication works
+<a name="identity-center-auth-overview"></a>
 
 Identity Center authentication for Amazon Redshift uses the following workflow:
 
-1. Your application calls the `GetIdentityCenterAuthToken` API
-   using identity-enhanced credentials that contain embedded user identity information.
-2. Amazon Redshift validates the Identity Center identity and generates an encrypted authorized token
-   scoped to specific clusters or workgroups. See example IAM policies.
-3. Your application uses this token to connect to the specified Amazon Redshift cluster or workgroup.
-4. The Amazon Redshift data plane validates the token and grants access based on the Identity Center
-   user's permissions within the Identity Center application.
+1. Your application calls the `GetIdentityCenterAuthToken` API using identity-enhanced credentials that contain embedded user identity information.
 
-###### Important
+1. Amazon Redshift validates the Identity Center identity and generates an encrypted authorized token scoped to specific clusters or workgroups. See example IAM policies.
 
-This API requires identity-enhanced credentials. For more information, see [Using identity-enhanced IAM role sessions](../../../singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.md").
+1. Your application uses this token to connect to the specified Amazon Redshift cluster or workgroup.
 
+1. The Amazon Redshift data plane validates the token and grants access based on the Identity Center user's permissions within the Identity Center application.
+
+**Important**  
+This API requires identity-enhanced credentials. For more information, see [Using identity-enhanced IAM role sessions](https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.html).  
 If you call the API without identity-enhanced credentials, you will receive an `UnsupportedOperationFault` error.
 
 ## GetIdentityCenterAuthToken API operations
+<a name="identity-center-auth-apis"></a>
 
-Amazon Redshift provides two separate `GetIdentityCenterAuthToken` API operations: one for
-provisioned clusters and one for serverless workgroups. Both operations have the same name but accept
-different parameters depending on the target resource type.
+Amazon Redshift provides two separate `GetIdentityCenterAuthToken` API operations: one for provisioned clusters and one for serverless workgroups. Both operations have the same name but accept different parameters depending on the target resource type.
 
 ### GetIdentityCenterAuthToken for provisioned clusters
+<a name="provisioned-identity-center-auth"></a>
 
-For provisioned Amazon Redshift clusters, use the `GetIdentityCenterAuthToken` API
-in the Amazon Redshift service to generate authorized token.
+For provisioned Amazon Redshift clusters, use the `GetIdentityCenterAuthToken` API in the Amazon Redshift service to generate authorized token.
 
 #### Request syntax
+<a name="provisioned-request-syntax"></a>
 
 ```
-
 {
    "ClusterIds": [ "string" ]
 }
-
 ```
 
 #### Request parameters
+<a name="provisioned-request-parameters"></a>
 
-ClusterIds
-
-A list of Amazon Redshift cluster identifiers that the token will be authorized to access.
-The token can only be used to authenticate with the clusters specified in this list.
-
-Type: Array of strings
-
-Length constraints: Minimum of 1 item. Maximum of 20 items.
-
+ClusterIds  
+A list of Amazon Redshift cluster identifiers that the token will be authorized to access. The token can only be used to authenticate with the clusters specified in this list.  
+Type: Array of strings  
+Length constraints: Minimum of 1 item. Maximum of 20 items.  
 Required: Yes
 
 #### CLI examples
+<a name="provisioned-cli-examples"></a>
 
 **Example: Get authorized token for a single cluster**
 
@@ -119,34 +88,30 @@ aws redshift get-identity-center-auth-token \
 ```
 
 ### GetIdentityCenterAuthToken for serverless workgroups
+<a name="serverless-identity-center-auth"></a>
 
-For Amazon Redshift Serverless workgroups, use the `GetIdentityCenterAuthToken` API
-in the Amazon Redshift Serverless service to generate authorized token.
+For Amazon Redshift Serverless workgroups, use the `GetIdentityCenterAuthToken` API in the Amazon Redshift Serverless service to generate authorized token.
 
 #### Request syntax
+<a name="serverless-request-syntax"></a>
 
 ```
-
 {
    "WorkgroupNames": [ "string" ]
 }
-
 ```
 
 #### Request parameters
+<a name="serverless-request-parameters"></a>
 
-WorkgroupNames
-
-A list of Amazon Redshift Serverless workgroup names that the token will be authorized to access.
-The token can only be used to authenticate with the workgroups specified in this list.
-
-Type: Array of strings
-
-Length constraints: Minimum of 1 item. Maximum of 20 items.
-
+WorkgroupNames  
+A list of Amazon Redshift Serverless workgroup names that the token will be authorized to access. The token can only be used to authenticate with the workgroups specified in this list.  
+Type: Array of strings  
+Length constraints: Minimum of 1 item. Maximum of 20 items.  
 Required: Yes
 
 #### CLI examples
+<a name="serverless-cli-examples"></a>
 
 **Example: Get authorized token for a single workgroup**
 
@@ -163,36 +128,30 @@ aws redshift-serverless get-identity-center-auth-token \
 ```
 
 ### Response syntax
+<a name="identity-center-auth-response"></a>
 
 Both APIs return the same response structure:
 
 ```
-
 {
    "AuthorizedToken": "string",
    "ExpirationTime": "timestamp"
 }
-
 ```
 
 #### Response parameters
+<a name="identity-center-response-parameters"></a>
 
-AuthorizedToken
-
-An encrypted authorized token that contains the user identity information
-and the list of authorized clusters or workgroups. This token should be
-treated as sensitive data.
-
+AuthorizedToken  
+An encrypted authorized token that contains the user identity information and the list of authorized clusters or workgroups. This token should be treated as sensitive data.  
 Type: String
 
-ExpirationTime
-
-The date and time when the token expires, in UTC. Tokens are valid for
-1 hour from the time of generation.
-
+ExpirationTime  
+The date and time when the token expires, in UTC. Tokens are valid for 1 hour from the time of generation.  
 Type: Timestamp
 
 #### Example response
+<a name="identity-center-response-example"></a>
 
 ```
 {
@@ -202,33 +161,31 @@ Type: Timestamp
 ```
 
 ## Driver integration
+<a name="identity-center-auth-driver-integration"></a>
 
 Amazon Redshift drivers support Identity Center authentication through direct token usage:
 
 ### Direct token usage
+<a name="direct-token-usage"></a>
 
-After calling the `GetIdentityCenterAuthToken` API to obtain a token,
-use the `IdpTokenAuthPlugin` with the `SUBJECT_TOKEN` token type.
+After calling the `GetIdentityCenterAuthToken` API to obtain a token, use the `IdpTokenAuthPlugin` with the `SUBJECT_TOKEN` token type.
 
 Connection Configuration:
 
 ```
-
 plugin_name = com.amazon.redshift.plugin.IdpTokenAuthPlugin
 token_type = SUBJECT_TOKEN
 token = {encrypted_token_from_api_response}
-
 ```
 
-For detailed information about Identity Center authentication plugins and driver configuration,
-see [Connecting to an Amazon Redshift cluster](connecting-to-cluster.md "connecting-to-cluster.md").
+For detailed information about Identity Center authentication plugins and driver configuration, see [Connecting to an Amazon Redshift cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-to-cluster.html).
 
 ### Java code example
+<a name="java-code-example"></a>
 
 Sample Java code to connect using Identity Center authentication:
 
 ```
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -252,33 +209,30 @@ try (Connection conn = DriverManager.getConnection(url, props)) {
 } catch (SQLException e) {
     e.printStackTrace();
 }
-
 ```
 
 ## IAM policy requirements
+<a name="identity-center-auth-iam-permissions"></a>
 
-To use Identity Center authentication with Amazon Redshift, specific IAM permissions are required
-beyond the standard permissions needed for connecting to Amazon Redshift clusters and workgroups.
+To use Identity Center authentication with Amazon Redshift, specific IAM permissions are required beyond the standard permissions needed for connecting to Amazon Redshift clusters and workgroups.
 
 ### API permissions
+<a name="identity-center-auth-iam-api-permissions"></a>
 
 For provisioned clusters, your enhanced IAM role session must have:
-
-- `redshift:GetIdentityCenterAuthToken` on cluster ARNs
-  (format: `arn:aws:redshift:region:account:cluster:cluster-name`)
++ `redshift:GetIdentityCenterAuthToken` on cluster ARNs (format: `arn:aws:redshift:region:account:cluster:cluster-name`)
 
 For serverless workgroups, your enhanced IAM role session must have:
-
-- `redshift-serverless:GetIdentityCenterAuthToken` on workgroup ARNs
-  (format: `arn:aws:redshift-serverless:region:account:workgroup/workgroup-name`)
++ `redshift-serverless:GetIdentityCenterAuthToken` on workgroup ARNs (format: `arn:aws:redshift-serverless:region:account:workgroup/workgroup-name`)
 
 ### Example IAM policies
+<a name="identity-center-auth-iam-policy-examples"></a>
 
 **Example policy for provisioned clusters:**
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -297,7 +251,7 @@ For serverless workgroups, your enhanced IAM role session must have:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -316,7 +270,7 @@ For serverless workgroups, your enhanced IAM role session must have:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -341,13 +295,12 @@ For serverless workgroups, your enhanced IAM role session must have:
 ```
 
 ## Regional availability
+<a name="identity-center-auth-regional-availability"></a>
 
 Identity Center authentication is available in the following AWS regions:
++ Commercial regions: All supported Amazon Redshift regions
++ AWS GovCloud: Available in us-gov-east-1 and us-gov-west-1
++ China regions: Available in cn-north-1 and cn-northwest-1
 
-- Commercial regions: All supported Amazon Redshift regions
-- AWS GovCloud: Available in us-gov-east-1 and us-gov-west-1
-- China regions: Available in cn-north-1 and cn-northwest-1
-
-###### Note
-
+**Note**  
 Feature availability may vary during initial rollout.

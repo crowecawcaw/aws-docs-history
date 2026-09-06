@@ -1,408 +1,218 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Using the Amazon Redshift Data API
+<a name="data-api"></a>
 
-The Amazon Redshift Data API simplifies access to your Amazon Redshift data warehouse by removing the need
-to manage database drivers, connections, network configurations, data buffering,
-credentials, and more. You can run SQL statements using the Data API operations with
-the AWS SDK. For more information about the Data API
-operations, see the [Amazon Redshift Data API Reference](../../../redshift-data/latest/APIReference.md "../../../redshift-data/latest/APIReference.md").
+The Amazon Redshift Data API simplifies access to your Amazon Redshift data warehouse by removing the need to manage database drivers, connections, network configurations, data buffering, credentials, and more. You can run SQL statements using the Data API operations with the AWS SDK. For more information about the Data API operations, see the [Amazon Redshift Data API Reference](https://docs.aws.amazon.com/redshift-data/latest/APIReference/).
 
-The Data API doesn't require a persistent connection to your database. Instead,
-it provides a secure HTTP endpoint and integration with AWS SDKs. You can use the endpoint
-to run SQL statements without managing connections. Calls to the Data API are
-asynchronous. The Data API can use either credentials stored in AWS Secrets Manager or temporary
-database credentials. You don't need to pass passwords in the API calls with either
-authorization method. For more information about AWS Secrets Manager, see [What Is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the
-_AWS Secrets Manager User Guide_. You can also use AWS IAM Identity Center for
-authorization.
+The Data API doesn't require a persistent connection to your database. Instead, it provides a secure HTTP endpoint and integration with AWS SDKs. You can use the endpoint to run SQL statements without managing connections. Calls to the Data API are asynchronous. The Data API can use either credentials stored in AWS Secrets Manager or temporary database credentials. You don't need to pass passwords in the API calls with either authorization method. For more information about AWS Secrets Manager, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*. You can also use AWS IAM Identity Center for authorization.
 
-With the Data API, you can programmatically access Amazon Redshift data with web
-services–based applications, including AWS Lambda, Amazon SageMaker AI notebooks, and AWS Cloud9.
-For more information on these applications, see [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"),
-[Amazon SageMaker AI](https://aws.amazon.com/sagemaker/ "https://aws.amazon.com/sagemaker/"), and [AWS Cloud9](https://aws.amazon.com/cloud9/ "https://aws.amazon.com/cloud9/").
+With the Data API, you can programmatically access Amazon Redshift data with web services–based applications, including AWS Lambda, Amazon SageMaker AI notebooks, and AWS Cloud9. For more information on these applications, see [AWS Lambda](https://aws.amazon.com/lambda/), [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/), and [AWS Cloud9](https://aws.amazon.com/cloud9/). 
 
-To learn more about the Data API, see [Get started with the
-Amazon Redshift Data API](https://aws.amazon.com/blogs/big-data/get-started-with-the-amazon-redshift-data-api/ "https://aws.amazon.com/blogs/big-data/get-started-with-the-amazon-redshift-data-api/") in the _AWS Big Data Blog_.
+To learn more about the Data API, see [Get started with the Amazon Redshift Data API](https://aws.amazon.com/blogs/big-data/get-started-with-the-amazon-redshift-data-api/) in the *AWS Big Data Blog*.
 
 ## Working with the Amazon Redshift Data API
+<a name="data-api-workflow"></a>
 
-Before you use the Amazon Redshift Data API, review the following steps:
+Before you use the Amazon Redshift Data API, review the following steps: 
 
-1. Determine if you, as the caller of the Data API, are authorized. For more
-   information about authorization, see [Authorizing access to the Amazon Redshift Data API](data-api-access.md "data-api-access.md").
-2. Determine if you plan to call the Data API with authentication
-   credentials from Secrets Manager, temporary credentials, or use AWS IAM Identity Center. For more
-   information, see [Choosing database authentication credentials when calling the Amazon Redshift Data API](#data-api-calling-considerations-authentication "#data-api-calling-considerations-authentication").
-3. Set up a secret if you use Secrets Manager for authentication credentials. For more
-   information, see [Storing database credentials in AWS Secrets Manager](data-api-secrets.md "data-api-secrets.md").
-4. Review the considerations and limitations when calling the Data API. For
-   more information, see [Considerations when calling the Amazon Redshift Data API](#data-api-calling-considerations "#data-api-calling-considerations").
-5. Call the Data API from the AWS Command Line Interface (AWS CLI), from your own code, or
-   using the query editor in the Amazon Redshift console. For examples of calling from the
-   AWS CLI, see [Calling the Data API](data-api-calling.md "data-api-calling.md").
+1. Determine if you, as the caller of the Data API, are authorized. For more information about authorization, see [Authorizing access to the Amazon Redshift Data API](data-api-access.md).
+
+1. Determine if you plan to call the Data API with authentication credentials from Secrets Manager, temporary credentials, or use AWS IAM Identity Center. For more information, see [Choosing database authentication credentials when calling the Amazon Redshift Data API](#data-api-calling-considerations-authentication).
+
+1. Set up a secret if you use Secrets Manager for authentication credentials. For more information, see [Storing database credentials in AWS Secrets Manager](data-api-secrets.md).
+
+1. Review the considerations and limitations when calling the Data API. For more information, see [Considerations when calling the Amazon Redshift Data API](#data-api-calling-considerations).
+
+1. Call the Data API from the AWS Command Line Interface (AWS CLI), from your own code, or using the query editor in the Amazon Redshift console. For examples of calling from the AWS CLI, see [Calling the Data API](data-api-calling.md).
 
 ## Considerations when calling the Amazon Redshift Data API
+<a name="data-api-calling-considerations"></a>
 
 Consider the following when calling the Data API:
++ The Amazon Redshift Data API can access databases in Amazon Redshift provisioned clusters and Redshift Serverless workgroups. For a list of AWS Regions where the Redshift Data API is available, see the endpoints listed for [Redshift Data API](https://docs.aws.amazon.com/general/latest/gr/redshift-service.html) in the *Amazon Web Services General Reference*. 
++ The maximum duration of a query is 24 hours. 
++ The maximum number of active queries (`STARTED` and `SUBMITTED` queries) per Amazon Redshift cluster is 500. 
++ The maximum query result size is 500 MB (after gzip compression). If a call returns more than 500 MB of response data, the call is ended. 
++ The maximum retention time for query results is 24 hours. 
++ The maximum query statement size is 200 KB. 
++ The Data API is available to query all Serverless workgroups, and Provisioned single-node and multiple-node clusters of the following node types:
+  + dc2.large
+  + dc2.8xlarge
+  + rg.large
+  + rg.xlarge
+  + rg.4xlarge
+  + rg.12xlarge
+  + ra3.large
+  + ra3.xlplus
+  + ra3.4xlarge
+  + ra3.16xlarge
++ The cluster must be in a virtual private cloud (VPC) based on the Amazon VPC service. 
++ By default, users with the same IAM role as the runner of an `ExecuteStatement` or `BatchExecuteStatement` API operation can act on the same statement with `CancelStatement`, `DescribeStatement`, `GetStatementResult`, `GetStatementResultV2`, and `ListStatements` API operations. To act on the same SQL statement from another user, the user must be able to assume the IAM role of the user who ran the SQL statement. For more information about how to assume a role, see [Authorizing access to the Amazon Redshift Data API](data-api-access.md). 
++ The SQL statements in the `Sqls` parameter of the `BatchExecuteStatement` API operation run serially in the order of the array. Subsequent SQL statements don't start until the previous statement completes. By default, all SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. Use the `ExecutionMode` parameter to control transaction behavior:
+  + `TRANSACTION` (default) — The service runs all SQL statements as a single transaction and commits or rolls back all of them together.
+  + `AUTO_COMMIT` — Each SQL statement is committed individually. A failure of one statement does not affect the others.
 
-- The Amazon Redshift Data API can access databases in Amazon Redshift provisioned clusters and Redshift Serverless
-  workgroups. For a list of AWS Regions where the Redshift Data API is available, see the
-  endpoints listed for [Redshift Data API](../../../general/latest/gr/redshift-service.md "../../../general/latest/gr/redshift-service.md") in
-  the _Amazon Web Services General Reference_.
-- The maximum duration of a query is 24 hours.
-- The maximum number of active queries (`STARTED` and
-  `SUBMITTED` queries) per Amazon Redshift cluster is 500.
-- The maximum query result size is 500 MB (after gzip compression). If a call
-  returns more than 500 MB of response data, the call is ended.
-- The maximum retention time for query results is 24 hours.
-- The maximum query statement size is 200 KB.
-- The Data API is available to query all Serverless workgroups, and Provisioned single-node and multiple-node clusters
-  of the following node types:
+  For an example, see [Run multiple SQL statements](pass-sql-statements.md#data-api-calling-cli-batch-execute-statement).
++ The maximum retention time for a client token used in `ExecuteStatement` or `BatchExecuteStatement` API operation is 8 hours.
++ The optional `WaitTimeSeconds` parameter has the Data API wait up to 30 seconds when the operation submits a new query or is against an in-progress query. This reduces the number of poll requests, resulting in fewer round trips and lower latency. For more information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md).
++ If the Amazon Redshift provisioned clusters and Redshift Serverless workgroup is encrypted using a customer managed key Redshift creates a grant that allows the Redshift Data API to use the key for its operations. For for more information, see [Using AWS KMS with the Amazon Redshift Data API](data-api-kms.md). 
++ Each API in the Redshift Data API has a transactions per second quota before throttling requests. For the quota, see [Quotas for Amazon Redshift Data API](amazon-redshift-limits.md#data-api-quotas-account). If the rate of request exceeds the quota, a `ThrottlingException` with HTTP Status Code: 400 is returned. To respond to throttling, use a retry strategy as described in [Retry behavior](https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html) in the *AWS SDKs and Tools Reference Guide*. This strategy is implemented automatically for throttling errors in some AWS SDKs.
+**Note**  
+By default in AWS Step Functions, retries are not enabled. If you need to call a Redshift Data API in a Step Functions state machine, then include the `ClientToken` idempotency parameter in your Redshift Data API call. The value of the `ClientToken` needs to persist among retries. In the following example snippet of a request to the `ExecuteStatement` API, the expression `States.ArrayGetItem(States.StringSplit($$.Execution.Id, ':'), 7)` uses an intrinsic function to extract the UUID part of the `$$.Execution.Id`, which is unique for each execution of the state machine. For more information, see [Intrinsic functions](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-intrinsic-functions.html) in the *AWS Step Functions Developer Guide*.  
 
-  - dc2.large
-  - dc2.8xlarge
-  - rg.large
-  - rg.xlarge
-  - rg.4xlarge
-  - rg.12xlarge
-  - ra3.large
-  - ra3.xlplus
-  - ra3.4xlarge
-  - ra3.16xlarge
-
-- The cluster must be in a virtual private cloud (VPC) based on the Amazon VPC
-  service.
-- By default, users with the same IAM role as the runner of an
-  `ExecuteStatement` or `BatchExecuteStatement` API
-  operation can act on the same statement with `CancelStatement`,
-  `DescribeStatement`, `GetStatementResult`,
-  `GetStatementResultV2`, and `ListStatements` API
-  operations. To act on the same SQL statement from another user, the user must be
-  able to assume the IAM role of the user who ran the SQL statement. For more
-  information about how to assume a role, see [Authorizing access to the Amazon Redshift Data API](data-api-access.md "data-api-access.md").
-- The SQL statements in the `Sqls` parameter of the
-  `BatchExecuteStatement` API operation run serially in the
-  order of the array. Subsequent SQL statements don't start until the
-  previous statement completes. By default, all SQL statements are run as a
-  single transaction. If any SQL statement fails, all work is rolled back.
-  Use the `ExecutionMode` parameter to control transaction
-  behavior:
-
-  - `TRANSACTION` (default) — The service runs all SQL statements
-    as a single transaction and commits or rolls back all of them
-    together.
-  - `AUTO_COMMIT` — Each SQL statement is committed
-    individually. A failure of one statement does not affect the
-    others.
-    For an example, see [Run multiple SQL statements](pass-sql-statements.md#data-api-calling-cli-batch-execute-statement "pass-sql-statements.md#data-api-calling-cli-batch-execute-statement").
-
-- The maximum retention time for a client token used in
-  `ExecuteStatement` or `BatchExecuteStatement` API
-  operation is 8 hours.
-- The optional `WaitTimeSeconds` parameter has the
-  Data API wait up to 30 seconds when the operation submits a new query or is against an in-progress query.
-  This reduces the number of poll requests, resulting in fewer round trips and lower latency. For more
-  information, see [Reduce API calls with long polling](data-api-calling-considerations-long-polling.md "data-api-calling-considerations-long-polling.md").
-- If the Amazon Redshift provisioned clusters and Redshift Serverless workgroup is encrypted using a customer managed key
-  Redshift creates a grant that allows the Redshift Data API to use the key for its operations. For
-  for more information, see [Using AWS KMS with the Amazon Redshift Data API](data-api-kms.md "data-api-kms.md").
-- Each API in the Redshift Data API has a transactions per second quota before throttling
-  requests. For the quota, see [Quotas for Amazon Redshift Data API](amazon-redshift-limits.md#data-api-quotas-account "amazon-redshift-limits.md#data-api-quotas-account"). If the rate of request exceeds
-  the quota, a `ThrottlingException` with HTTP Status Code: 400 is
-  returned. To respond to throttling, use a retry strategy as described in [Retry behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md") in the _AWS SDKs and Tools Reference Guide_.
-  This strategy is implemented automatically for throttling errors in some AWS
-  SDKs.
-
-###### Note
-
-By default in AWS Step Functions, retries are not enabled. If you need to call a
-Redshift Data API in a Step Functions state machine, then include the `ClientToken`
-idempotency parameter in your Redshift Data API call. The value of the
-`ClientToken` needs to persist among retries. In the
-following example snippet of a request to the `ExecuteStatement`
-API, the expression
-`States.ArrayGetItem(States.StringSplit($$.Execution.Id, ':'),
- 7)` uses an intrinsic function to extract the UUID part of the
-`$$.Execution.Id`, which is unique for each execution of the
-state machine. For more
-information, see [Intrinsic functions](../../../step-functions/latest/dg/amazon-states-language-intrinsic-functions.md "../../../step-functions/latest/dg/amazon-states-language-intrinsic-functions.md") in the
-_AWS Step Functions Developer Guide_.
-
-```
-{
-  "Database": "dev",
-  "Sql": "select 1;",
-  "ClusterIdentifier": "MyCluster",
-  "ClientToken.$": "States.ArrayGetItem(States.StringSplit($$.Execution.Id, ':'), 7)"
-}
-```
+  ```
+  {
+    "Database": "dev",
+    "Sql": "select 1;",
+    "ClusterIdentifier": "MyCluster",
+    "ClientToken.$": "States.ArrayGetItem(States.StringSplit($$.Execution.Id, ':'), 7)"
+  }
+  ```
 
 ## Choosing database authentication credentials when calling the Amazon Redshift Data API
+<a name="data-api-calling-considerations-authentication"></a>
 
-When you call the Data API, you use one of the following authentication
-methods for some API operations. Each method requires a different combination of
-parameters.
+When you call the Data API, you use one of the following authentication methods for some API operations. Each method requires a different combination of parameters. 
 
-**AWS IAM Identity Center**
+**AWS IAM Identity Center**  
+The Data API can be accessed with a single sign-on user registered in AWS IAM Identity Center. For information about the steps to set up IAM Identity Center, see [Using Data API with trusted identity propagation](data-api-trusted-identity-propagation.md).
 
-The Data API can be accessed with a single sign-on user registered in
-AWS IAM Identity Center. For information about the steps to set up IAM Identity Center, see [Using Data API with trusted identity propagation](data-api-trusted-identity-propagation.md "data-api-trusted-identity-propagation.md").
+**AWS Secrets Manager**  
+With this method, provide the `secret-arn` of a secret stored in AWS Secrets Manager which has `username` and `password`. The specified secret contains credentials to connect to the `database` you specify. When you are connecting to a cluster, you also supply the database name, If you provide a cluster identifier (`dbClusterIdentifier`), it must match the cluster identifier stored in the secret. When you are connecting to a serverless workgroup, you also supply the database name. For more information, see [Storing database credentials in AWS Secrets Manager](data-api-secrets.md).   
+With this method, you can also supply a `region` value that specifies the AWS Region where your data is located. 
 
-**AWS Secrets Manager**
-
-With this method, provide the `secret-arn` of a secret stored
-in AWS Secrets Manager which has `username` and `password`. The
-specified secret contains credentials to connect to the
-`database` you specify. When you are connecting to a cluster,
-you also supply the database name, If you provide a cluster identifier
-(`dbClusterIdentifier`), it must match the cluster identifier
-stored in the secret. When you are connecting to a serverless workgroup, you
-also supply the database name. For more information, see [Storing database credentials in AWS Secrets Manager](data-api-secrets.md "data-api-secrets.md").
-
-With this method, you can also supply a `region` value that
-specifies the AWS Region where your data is located.
-
-**Temporary credentials**
-
-With this method, choose one of the following options:
-
-- When connecting to a serverless workgroup, specify the workgroup
-  name and database name. The database user name is derived from the
-  IAM identity. For example,
-  `arn:iam::123456789012:user:foo` has the database
-  user name `IAM:foo`. Also, permission to call the
-  `redshift-serverless:GetCredentials` operation is
-  required.
-- When connecting to a cluster as an IAM identity, specify the
-  cluster identifier and the database name. The database user name is
-  derived from the IAM identity. For example,
-  `arn:iam::123456789012:user:foo` has the database
-  user name `IAM:foo`. Also, permission to call the
-  `redshift:GetClusterCredentialsWithIAM` operation is
-  required.
-- When connecting to a cluster as a database user, specify the
-  cluster identifier, the database name, and the database user name.
-  Also, permission to call the
-  `redshift:GetClusterCredentials` operation is
-  required. For information about how to join database groups when
-  connecting with this method, see [Joining database groups when connecting to a cluster](data-api-dbgroups.md "data-api-dbgroups.md").
-
-With this method, you can also supply a `region` value that
-specifies the AWS Region where your data is located.
+**Temporary credentials**  
+With this method, choose one of the following options:  
++ When connecting to a serverless workgroup, specify the workgroup name and database name. The database user name is derived from the IAM identity. For example, `arn:iam::123456789012:user:foo` has the database user name `IAM:foo`. Also, permission to call the `redshift-serverless:GetCredentials` operation is required.
++ When connecting to a cluster as an IAM identity, specify the cluster identifier and the database name. The database user name is derived from the IAM identity. For example, `arn:iam::123456789012:user:foo` has the database user name `IAM:foo`. Also, permission to call the `redshift:GetClusterCredentialsWithIAM` operation is required.
++ When connecting to a cluster as a database user, specify the cluster identifier, the database name, and the database user name. Also, permission to call the `redshift:GetClusterCredentials` operation is required. For information about how to join database groups when connecting with this method, see [Joining database groups when connecting to a cluster](data-api-dbgroups.md).
+With this method, you can also supply a `region` value that specifies the AWS Region where your data is located. 
 
 ## Mapping JDBC data types when calling the Amazon Redshift Data API
+<a name="data-api-calling-considerations-jdbc"></a>
 
-The following table maps Java Database Connectivity (JDBC) data types to the data
-types you specify in Data API calls.
+ The following table maps Java Database Connectivity (JDBC) data types to the data types you specify in Data API calls.
 
-| JDBC data type                                         | Data API data type |
-| ------------------------------------------------------ | ------------------ |
-| `INTEGER, SMALLINT, BIGINT`                            | `LONG`             |
-| `FLOAT, REAL, DOUBLE`                                  | `DOUBLE`           |
-| `DECIMAL`                                              | `STRING`           |
-| `BOOLEAN, BIT`                                         | `BOOLEAN`          |
-| `BLOB, BINARY,<br>LONGVARBINARY`                       | `BLOB`             |
-| `VARBINARY`                                            | `STRING`           |
-| `CLOB`                                                 | `STRING`           |
-| Other types (including types related to date and time) | `STRING`           |
 
-String values are passed to the Amazon Redshift database and implicitly converted into a database
-data type.
 
-###### Note
+|  JDBC data type  |  Data API data type  | 
+| --- | --- | 
+| `INTEGER, SMALLINT, BIGINT` | `LONG` | 
+| `FLOAT, REAL, DOUBLE` | `DOUBLE` | 
+| `DECIMAL` | `STRING` | 
+| `BOOLEAN, BIT` | `BOOLEAN` | 
+| `BLOB, BINARY, LONGVARBINARY` | `BLOB` | 
+| `VARBINARY` | `STRING` | 
+| `CLOB` | `STRING` | 
+| Other types (including types related to date and time) | `STRING` | 
 
-Currently, the Data API doesn't support arrays of universal unique
-identifiers (UUIDs).
+String values are passed to the Amazon Redshift database and implicitly converted into a database data type.
+
+**Note**  
+Currently, the Data API doesn't support arrays of universal unique identifiers (UUIDs).
 
 ## Running SQL statements with parameters when calling the Amazon Redshift Data API
+<a name="data-api-calling-considerations-parameters"></a>
 
-You can control the SQL text submitted to the database engine by calling the Data API
-operation using parameters for parts of the SQL statement. Named parameters provide a
-flexible way to pass in parameters without hardcoding them in the SQL text. They help
-you reuse SQL text and avoid SQL injection problems.
+You can control the SQL text submitted to the database engine by calling the Data API operation using parameters for parts of the SQL statement. Named parameters provide a flexible way to pass in parameters without hardcoding them in the SQL text. They help you reuse SQL text and avoid SQL injection problems.
 
-The following example shows the named parameters of a `parameters` field of
-an `execute-statement` or `batch-execute-statement` AWS CLI command.
+The following example shows the named parameters of a `parameters` field of an `execute-statement` or `batch-execute-statement` AWS CLI command.
 
 ```
 --parameters "[{\"name\": \"id\", \"value\": \"1\"},{\"name\": \"address\", \"value\": \"Seattle\"}]"
 ```
 
 Consider the following when using named parameters:
++ Named parameters can only be used to replace values in SQL statements.
+  + You can replace the values in an INSERT statement, such as `INSERT INTO mytable VALUES(:val1)`.
 
-- Named parameters can only be used to replace values in SQL statements.
+    The named parameters can be in any order and parameters can be used more than one time in the SQL text. The parameters option shown in a previous example, the values `1` and `Seattle` are inserted into the table columns `id` and `address`. In the SQL text, you specify the named parameters as follows:
 
-  - You can replace the values in an INSERT statement, such as
-    `INSERT INTO mytable VALUES(:val1)`.
+    ```
+    --sql "insert into mytable values (:id, :address)"
+    ```
+  + You can replace the values in a conditions clause, such as `WHERE attr >= :val1`, `WHERE attr BETWEEN :val1 AND :val2`, and `HAVING COUNT(attr) > :val`.
+  + You can't replace column names in an SQL statement, such as `SELECT column-name`, `ORDER BY column-name`, or `GROUP BY column-name`.
 
-  The named parameters can be in any order and parameters can be used
-  more than one time in the SQL text. The parameters option shown in a
-  previous example, the values `1` and `Seattle` are
-  inserted into the table columns `id` and
-  `address`. In the SQL text, you specify the named parameters
-  as follows:
+    For example, the following SELECT statement fails with invalid syntax.
 
-  ```
-  --sql "insert into mytable values (:id, :address)"
-  ```
-  - You can replace the values in a conditions clause, such as `WHERE
-   attr >= :val1`, `WHERE attr BETWEEN :val1 AND
-   :val2`, and `HAVING COUNT(attr) > :val`.
-  - You can't replace column names in an SQL statement, such as
-    `SELECT column-name`, `ORDER BY column-name`,
-    or `GROUP BY column-name`.
+    ```
+    --sql "SELECT :colname, FROM event" --parameters "[{\"name\": \"colname\", \"value\": \"eventname\"}]"
+    ```
 
-  For example, the following SELECT statement fails with invalid
-  syntax.
+    If you describe (`describe-statement` operation) the statement with the syntax error, the `QueryString` returned does not substitute the column name for the parameter (`"QueryString": "SELECT :colname, FROM event"`), and an error is reported (ERROR: syntax error at or near \\"FROM\\"\\n Position: 12).
+  + You can't replace column names in an aggregate function, such as `COUNT(column-name)`, `AVG(column-name)`, or `SUM(column-name)`.
+  + You can't replace column names in a JOIN clause.
++ When the SQL runs, data is implicitly cast to a data type. For more information about data type casting, see [Data types](https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html) in the *Amazon Redshift Database Developer Guide*. 
++ You can't set a value to NULL. The Data API interprets it as the literal string `NULL`. The following example replaces `id` with the literal string `null`. Not the SQL NULL value. 
 
   ```
-  --sql "SELECT :colname, FROM event" --parameters "[{\"name\": \"colname\", \"value\": \"eventname\"}]"
+  --parameters "[{\"name\": \"id\", \"value\": \"null\"}]"
   ```
++ You can't set a zero length value. The Data API SQL statement fails. The following example trys to set `id` with a zero length value and results in a failure of the SQL statement. 
 
-  If you describe (`describe-statement` operation) the
-  statement with the syntax error, the `QueryString` returned
-  does not substitute the column name for the parameter
-  (`"QueryString": "SELECT :colname, FROM event"`), and an
-  error is reported (**`ERROR: syntax error at or near \"FROM\"\n
-   Position: 12`**).
-  - You can't replace column names in an aggregate function, such as
-    `COUNT(column-name)`, `AVG(column-name)`, or
-    `SUM(column-name)`.
-  - You can't replace column names in a JOIN clause.
-
-- When the SQL runs, data is implicitly cast to a data type. For more
-  information about data type casting, see [Data types](../dg/c_Supported_data_types.md "../dg/c_Supported_data_types.md") in
-  the _Amazon Redshift Database Developer Guide_.
-- You can't set a value to NULL. The Data API interprets it as the literal
-  string `NULL`. The following example replaces `id` with
-  the literal string `null`. Not the SQL NULL value.
-
-```
---parameters "[{\"name\": \"id\", \"value\": \"null\"}]"
-```
-
-- You can't set a zero length value. The Data API SQL statement fails. The
-  following example trys to set `id` with a zero length value and
-  results in a failure of the SQL statement.
-
-```
---parameters "[{\"name\": \"id\", \"value\": \"\"}]"
-```
-
-- You can't set a table name in the SQL statement with a parameter. The
-  Data API follows the rule of the JDBC `PreparedStatement`.
-- The output of the `describe-statement` operation returns the query
-  parameters of a SQL statement.
-- Both the `execute-statement` and
-  `batch-execute-statement` operations support SQL statements with
-  parameters. When using `batch-execute-statement`, parameters are
-  shared across all SQL statements in the batch. Each SQL statement can reference a
-  subset of the provided parameters, but every parameter must be used by at least
-  one SQL statement.
+  ```
+  --parameters "[{\"name\": \"id\", \"value\": \"\"}]"
+  ```
++ You can't set a table name in the SQL statement with a parameter. The Data API follows the rule of the JDBC `PreparedStatement`. 
++ The output of the `describe-statement` operation returns the query parameters of a SQL statement.
++ Both the `execute-statement` and `batch-execute-statement` operations support SQL statements with parameters. When using `batch-execute-statement`, parameters are shared across all SQL statements in the batch. Each SQL statement can reference a subset of the provided parameters, but every parameter must be used by at least one SQL statement.
 
 ## Running SQL statements with an idempotency token when calling the Amazon Redshift Data API
+<a name="data-api-calling-considerations-idempotency"></a>
 
-When you make a mutating API request, the request typically returns a result before
-the operation's asynchronous workflows have completed. Operations might also time out or
-encounter other server issues before they complete, even though the request has already
-returned a result. This could make it difficult to determine whether the request
-succeeded or not, and could lead to multiple retries to ensure that the operation
-completes successfully. However, if the original request and the subsequent retries are
-successful, the operation is completed multiple times. This means that you might update
-more resources than you intended.
+When you make a mutating API request, the request typically returns a result before the operation's asynchronous workflows have completed. Operations might also time out or encounter other server issues before they complete, even though the request has already returned a result. This could make it difficult to determine whether the request succeeded or not, and could lead to multiple retries to ensure that the operation completes successfully. However, if the original request and the subsequent retries are successful, the operation is completed multiple times. This means that you might update more resources than you intended.
 
-_Idempotency_ ensures that an API request completes no more than
-one time. With an idempotent request, if the original request completes successfully,
-any subsequent retries complete successfully without performing any further actions. The
-Data API `ExecuteStatement` and `BatchExecuteStatement`
-operations have an optional `ClientToken` idempotent parameter. The
-`ClientToken` expires after 8 hours.
+*Idempotency* ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions. The Data API `ExecuteStatement` and `BatchExecuteStatement` operations have an optional `ClientToken` idempotent parameter. The `ClientToken` expires after 8 hours.
 
-###### Important
+**Important**  
+If you call `ExecuteStatement` and `BatchExecuteStatement` operations from an AWS SDK, it automatically generates a client token to use on retry. In this case, we don't recommend using the `client-token` parameter with `ExecuteStatement` and `BatchExecuteStatement` operations. View the CloudTrail log to see the `ClientToken`. For a CloudTrail log example, see [Amazon Redshift Data API examples](logging-with-cloudtrail.md#data-api-cloudtrail).
 
-If you call `ExecuteStatement` and `BatchExecuteStatement`
-operations from an AWS SDK, it automatically generates a client token to use on
-retry. In this case, we don't recommend using the `client-token`
-parameter with `ExecuteStatement` and `BatchExecuteStatement`
-operations. View the CloudTrail log to see the `ClientToken`. For a CloudTrail log
-example, see [Amazon Redshift Data API examples](logging-with-cloudtrail.md#data-api-cloudtrail "logging-with-cloudtrail.md#data-api-cloudtrail").
-
-The following `execute-statement` AWS CLI command illustrates the optional
-`client-token` parameter for idempotency.
+The following `execute-statement` AWS CLI command illustrates the optional `client-token` parameter for idempotency.
 
 ```
-
-aws redshift-data execute-statement
-    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn
-    --cluster-identifier mycluster-test
-    --sql "select * from stl_query limit 1"
-    --database dev
+aws redshift-data execute-statement 
+    --secret-arn arn:aws:secretsmanager:us-west-2:123456789012:secret:myuser-secret-hKgPWn 
+    --cluster-identifier mycluster-test 
+    --sql "select * from stl_query limit 1" 
+    --database dev 
     --client-token b855dced-259b-444c-bc7b-d3e8e33f94g1
-
 ```
 
-The following table shows some common responses that you might get for idempotent API
-requests, and provides retry recommendations.
+The following table shows some common responses that you might get for idempotent API requests, and provides retry recommendations.
 
-| Response                  | Recommendation | Comments                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 200 (OK)                  | Do not retry   | The original request completed successfully. Any subsequent<br>retries return successfully.                                                                                                                                                                                                                                                                                                                                    |
-| 400-series response codes | Do not retry   | There is a problem with the request, from among the following:<br>• It includes a parameter or parameter combination that is<br>not valid.<br>• It uses an action or resource for which you do not have<br>permissions.<br>• It uses a resource that is in the process of changing<br>states.<br>If the request involves a resource that is in the process of<br>changing states, retrying the request could possibly succeed. |
-| 500-series response codes | Retry          | The error is caused by an AWS server-side issue and is generally<br>transient. Repeat the request with an appropriate backoff<br>strategy.                                                                                                                                                                                                                                                                                     |
 
-For information about Amazon Redshift response codes, see [Common Errors](../APIReference/CommonErrors.md "../APIReference/CommonErrors.md") in the
-_Amazon Redshift API Reference_.
+| Response | Recommendation | Comments | 
+| --- | --- | --- | 
+| 200 (OK) | Do not retry | The original request completed successfully. Any subsequent retries return successfully. | 
+| 400-series response codes  | Do not retry | There is a problem with the request, from among the following: +  It includes a parameter or parameter combination that is not valid. <br />+  It uses an action or resource for which you do not have permissions. <br />+  It uses a resource that is in the process of changing states. <br />If the request involves a resource that is in the process of changing states, retrying the request could possibly succeed. | 
+| 500-series response codes  | Retry | The error is caused by an AWS server-side issue and is generally transient. Repeat the request with an appropriate backoff strategy. | 
+
+For information about Amazon Redshift response codes, see [Common Errors](https://docs.aws.amazon.com/redshift/latest/APIReference/CommonErrors.html) in the *Amazon Redshift API Reference*.
 
 ## Running SQL statements with session reuse when calling the Amazon Redshift Data API
+<a name="data-api-calling-considerations-session-reuse"></a>
 
-When you make an API request to run a SQL statement, the session where the SQL runs is
-usually terminated when the SQL is finished. To keep the session active for a specified
-number of seconds, the Data API `ExecuteStatement` and
-`BatchExecuteStatement` operations have an optional
-`SessionKeepAliveSeconds` parameter. A `SessionId` response
-field contains the identity of the session which can then be used in subsequent
-`ExecuteStatement` and `BatchExecuteStatement` operations. In
-subsequent calls you can specify another `SessionKeepAliveSeconds` to change
-the idle timeout time. If the `SessionKeepAliveSeconds` is not changed, the
-initial idle timeout setting remains. Consider the following when using session
-reuse:
+When you make an API request to run a SQL statement, the session where the SQL runs is usually terminated when the SQL is finished. To keep the session active for a specified number of seconds, the Data API `ExecuteStatement` and `BatchExecuteStatement` operations have an optional `SessionKeepAliveSeconds` parameter. A `SessionId` response field contains the identity of the session which can then be used in subsequent `ExecuteStatement` and `BatchExecuteStatement` operations. In subsequent calls you can specify another `SessionKeepAliveSeconds` to change the idle timeout time. If the `SessionKeepAliveSeconds` is not changed, the initial idle timeout setting remains. Consider the following when using session reuse:
++ The maximum value of `SessionKeepAliveSeconds` is 24 hours.
++ The session can last for at most 24 hours. After 24 hours the session is forcibly closed and in-progress queries are terminated.
++ The maximum number of sessions per Amazon Redshift cluster or Redshift Serverless workgroup is 500.
++ You can only run one query at a time in a session. You need to wait until the query is finished to run the next query in the same session. That is, you cannot run queries in parallel in a provided session.
++ The Data API can't queue queries for a given session.
 
-- The maximum value of `SessionKeepAliveSeconds` is 24 hours.
-- The session can last for at most 24 hours. After 24 hours the session is
-  forcibly closed and in-progress queries are terminated.
-- The maximum number of sessions per Amazon Redshift cluster or Redshift Serverless workgroup is
+To retrieve the `SessionId` that is used by calls to `ExecuteStatement` and `BatchExecuteStatement` operations, call `DescribeStatement` and `ListStatements` operations. To list sessions and their status, use the `ListSessions` operation. For more information, see [List sessions](data-api-calling-cli-list-sessions.md).
 
-500.
-
-- You can only run one query at a time in a session. You need to wait until the
-  query is finished to run the next query in the same session. That is, you cannot
-  run queries in parallel in a provided session.
-- The Data API can't queue queries for a given session.
-
-To retrieve the `SessionId` that is used by calls to
-`ExecuteStatement` and `BatchExecuteStatement` operations,
-call `DescribeStatement` and `ListStatements` operations.
-To list sessions and their status, use the
-`ListSessions` operation. For more information, see
-[List sessions](data-api-calling-cli-list-sessions.md "data-api-calling-cli-list-sessions.md").
-
-The following example demonstrates using the `SessionKeepAliveSeconds` and
-`SessionId` parameters to keep a session alive and reused. First, call
-the `execute-statement` AWS CLI command with the optional
-`session-keep-alive-seconds` parameter set to `2`.
+The following example demonstrates using the `SessionKeepAliveSeconds` and `SessionId` parameters to keep a session alive and reused. First, call the `execute-statement` AWS CLI command with the optional `session-keep-alive-seconds` parameter set to `2`.
 
 ```
-
-aws redshift-data execute-statement
-    --session-keep-alive-seconds 2
-    --sql "select 1"
-    --database dev
+aws redshift-data execute-statement 
+    --session-keep-alive-seconds 2 
+    --sql "select 1" 
+    --database dev 
     --workgroup-name mywg
-
 ```
 
 The response contains the session identifier.
@@ -418,37 +228,26 @@ The response contains the session identifier.
 }
 ```
 
-Then, call the `execute-statement` AWS CLI command with the
-`SessionId` returned from the first call. And optionally, specify the
-`session-keep-alive-seconds` parameter set to `10` to change
-the idle timeout value.
+Then, call the `execute-statement` AWS CLI command with the `SessionId` returned from the first call. And optionally, specify the `session-keep-alive-seconds` parameter set to `10` to change the idle timeout value.
 
 ```
-
-aws redshift-data execute-statement
-    --sql "select 1"
+aws redshift-data execute-statement 
+    --sql "select 1" 
     --session-id 5a254dc6-4fc2-4203-87a8-551155432ee4
     --session-keep-alive-seconds 10
-
 ```
 
 ## Fetching the results of SQL statements
+<a name="data-api-calling-considerations-result-format"></a>
 
-You use different Data API operations to fetch SQL results depending on the
-result format. When you call `ExecuteStatement` and
-`BatchExecuteStatement` operations, you can specify whether the results
-are formatted as JSON or CSV. If you don't specify, the default is JSON. To retrieve
-JSON results, use the `GetStatementResult` operation. To retrieve CSV
-results, use the `GetStatementResultV2` operation.
+You use different Data API operations to fetch SQL results depending on the result format. When you call `ExecuteStatement` and `BatchExecuteStatement` operations, you can specify whether the results are formatted as JSON or CSV. If you don't specify, the default is JSON. To retrieve JSON results, use the `GetStatementResult` operation. To retrieve CSV results, use the `GetStatementResultV2` operation.
 
-Results returned in JSON format are records that include metadata about each column.
-Each record is in JSON format. For example, the response from
-`GetStatementResult` looks similar to this:
+Results returned in JSON format are records that include metadata about each column. Each record is in JSON format. For example, the response from `GetStatementResult` looks similar to this:
 
 ```
 {
-   "ColumnMetadata": [
-      {
+   "ColumnMetadata": [ 
+      { 
          "isCaseSensitive": false,
          "isCurrency": false,
          "isSigned": true,
@@ -463,7 +262,7 @@ Each record is in JSON format. For example, the response from
          "length": 0
       }
    ],
-   "NextToken": "`<token>`",
+   "NextToken": "{{<token>}}",
    "Records": [
         [
             {
@@ -471,15 +270,11 @@ Each record is in JSON format. For example, the response from
             }
         ]
     ],
-   "TotalNumRows": `<number>`
+   "TotalNumRows": {{<number>}}
 }
 ```
 
-Results returned in CSV format are records that include metadata about each column.
-Results are returned in 1 MB chunks, where each chunk can store any number of rows in
-CSV format. Each request returns up to 15 MB of results. If results are greater than 15
-MB, then a next page token is returned to continue retrieving the results. For example,
-the response from `GetStatementResultV2` looks similar to this:
+Results returned in CSV format are records that include metadata about each column. Results are returned in 1 MB chunks, where each chunk can store any number of rows in CSV format. Each request returns up to 15 MB of results. If results are greater than 15 MB, then a next page token is returned to continue retrieving the results. For example, the response from `GetStatementResultV2` looks similar to this:
 
 ```
 {
@@ -527,7 +322,7 @@ the response from `GetStatementResultV2` looks similar to this:
             "length": 0
         }
     ],
-    "NextToken": "`<token>`",
+    "NextToken": "{{<token>}}",
     "Records": [
         [
             {
@@ -540,6 +335,6 @@ the response from `GetStatementResultV2` looks similar to this:
         ]
     ],
     "ResultFormat" : "CSV",
-    "TotalNumRows": `<number>`
+    "TotalNumRows": {{<number>}}
 }
 ```
