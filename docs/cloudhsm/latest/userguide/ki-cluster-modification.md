@@ -1,25 +1,23 @@
+
+
 # Known issues for AWS CloudHSM cluster modification
+<a name="ki-cluster-modification"></a>
 
 The following issues impact customers attempting to use the modify-cluster API to change the HSM type of a cluster.
 
-###### Topics
-
-- [Issue: Login latency increases due to increased PBKDF2 iterations](#ki-cluster-modification-1 "#ki-cluster-modification-1")
-- [Issue: Unable to modify HSM type due to token key creation](#ki-cluster-modification-2 "#ki-cluster-modification-2")
+**Topics**
++ [Issue: Login latency increases due to increased PBKDF2 iterations](#ki-cluster-modification-1)
++ [Issue: Unable to modify HSM type due to token key creation](#ki-cluster-modification-2)
 
 ## Issue: Login latency increases due to increased PBKDF2 iterations
-
-- **Impact:** Clusters with a large amount of users will experience an extended migration period. This is due to changes in the
-  backup restoration process performing PBKDF2 operations per user when restoring an hsm1.medium backup to hsm2m.medium for the first time.
-- **Resolution status:** If you created a new hsm2m.medium instance or migrated to hsm2m.medium from hsm1.medium before December 20th, 2025, you will need to reset your password to take advantage of performance improvements we have implemented for login operations. Refer to the [change-password](cloudhsm_cli-user-change-password.md "cloudhsm_cli-user-change-password.md") for instructions.
+<a name="ki-cluster-modification-1"></a>
++ **Impact: **Clusters with a large amount of users will experience an extended migration period. This is due to changes in the backup restoration process performing PBKDF2 operations per user when restoring an hsm1.medium backup to hsm2m.medium for the first time.
++ **Resolution status: **If you created a new hsm2m.medium instance or migrated to hsm2m.medium from hsm1.medium before December 20th, 2025, you will need to reset your password to take advantage of performance improvements we have implemented for login operations. Refer to the [change-password](cloudhsm_cli-user-change-password.md) for instructions.
 
 ## Issue: Unable to modify HSM type due to token key creation
-
-- **Impact:** Customers performing token key based workloads will be unable to start their migration. This is done because the HSM will be placed
-  into a limited-write mode to prevent dataloss scenarios during the HSM type modification.
-- **Workaround:** Stop creating and deleting token keys and then wait 7 days. Alternatively, please reach out to support if you
-
-  - Cannot handle blocking token key migrations and cannot do a blue/green deployment.
-  - Can handle blocking token key operations for the duration of the migration, but can’t wait the full 7 day period.
-
-- **Resolution status:** This issue has been resolved. Customers performing token key based workloads can now begin the migration. Token key creations and deletions will be blocked for the duration of the migration.
+<a name="ki-cluster-modification-2"></a>
++ **Impact: **Customers performing token key based workloads will be unable to start their migration. This is done because the HSM will be placed into a limited-write mode to prevent dataloss scenarios during the HSM type modification.
++ **Workaround: **Stop creating and deleting token keys and then wait 7 days. Alternatively, please reach out to support if you
+  + Cannot handle blocking token key migrations and cannot do a blue/green deployment.
+  + Can handle blocking token key operations for the duration of the migration, but can’t wait the full 7 day period.
++ **Resolution status: **This issue has been resolved. Customers performing token key based workloads can now begin the migration. Token key creations and deletions will be blocked for the duration of the migration.

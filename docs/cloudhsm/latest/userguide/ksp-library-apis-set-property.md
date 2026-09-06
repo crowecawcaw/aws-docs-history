@@ -1,69 +1,50 @@
-# NCryptSetProperty with Key storage provider (KSP)
 
-The `NCryptSetProperty` function sets property values for a key storage
-object.
+
+# NCryptSetProperty with Key storage provider (KSP)
+<a name="ksp-library-apis-set-property"></a>
+
+The `NCryptSetProperty` function sets property values for a key storage object.
 
 ## Parameters
+<a name="ksp-library-apis-create-set-property-parameters"></a>
 
-`hObject` [in]
+ `hObject` [in]   
+ The handle of the object whose property you want to set. You can use:  
++ A provider handle (`NCRYPT_PROV_HANDLE`)
++ A key handle (`NCRYPT_KEY_HANDLE`)
 
-The handle of the object whose property you want to set. You can use:
+ `pszProperty ` [in]   
+A pointer to a null-terminated Unicode string containing the property name to retrieve.   
+When using `NCRYPT_PROV_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the following KSP identifiers:      
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-set-property.html)
+When using `NCRYPT_KEY_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the following KSP identifiers:      
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/cloudhsm/latest/userguide/ksp-library-apis-set-property.html)
+Values are wide-character string literal, as indicated by L before the literal.
 
-- A provider handle (`NCRYPT_PROV_HANDLE`)
-- A key handle (`NCRYPT_KEY_HANDLE`)
+ `pbInput` [in]   
+ The address of a buffer that contains the new property value. `cbInput` contains the size of the buffer. 
 
-`pszProperty` [in]
+ `cbInput` [in]   
+ The size of the `pbInput` buffer in bytes. 
 
-A pointer to a null-terminated Unicode string containing the property name
-to retrieve.
-
-When using `NCRYPT_PROV_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the
-following KSP identifiers:
-
-| Identifier/Value                                 | Description                                                                        |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| NCRYPT\_USE\_CONTEXT\_PROPERTY<br>L"Use Context" | A pointer to a null-terminated Unicode string<br>describing the operation context. |
-
-When using `NCRYPT_KEY_HANDLE`, AWS CloudHSM Key Storage Provider (KSP) supports the
-following KSP identifiers:
-
-| Identifier/Value                                     | Description                                                                                                                                                                                                                                                                            |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NCRYPT\_KEY\_USAGE\_PROPERTY<br>L"Key Usage"         | A DWORD containing a set of flags that define key<br>usage details. This property only applies to<br>keys. This can contain zero or a combination of one or<br>more of the following values.<br>NCRYPT\_ALLOW\_DECRYPT\_FLAG (0x00000001)<br>NCRYPT\_ALLOW\_SIGNING\_FLAG (0x00000002) |
-| NCRYPT\_LENGTH\_PROPERTY<br>L"Length"                | A DWORD containing the key length in bits.                                                                                                                                                                                                                                             |
-| NCRYPT\_EXPORT\_POLICY\_PROPERTY<br>L"Export Policy" | A DWORD containing flags that specify the persisted<br>key's export policy. This can contain zero<br>or a combination of one or more of the following<br>values.<br>NCRYPT\_ALLOW\_EXPORT\_FLAG (0x00000001)                                                                           |
-
-###### Note
-
-Values are wide-character string literal, as indicated by L before the
-literal.
-
-`pbInput` [in]
-
-The address of a buffer that contains the new property value.
-`cbInput` contains the size of the buffer.
-
-`cbInput` [in]
-
-The size of the `pbInput` buffer in bytes.
-
-`dwFlags` [in]
-
-Flags that modify function's behavior. No flags are defined for
-this function.
+`dwFlags` [in]  
+Flags that modify function's behavior. No flags are defined for this function.
 
 ## Return Value
+<a name="ksp-library-apis-set-property-return-value"></a>
 
 The function returns a status code to indicate success or failure.
 
 Common return codes include:
 
-| Return code             | Description                                                            |
-| ----------------------- | ---------------------------------------------------------------------- |
-| ERROR\_SUCCESS          | The operation completed successfully.                                  |
-| NTE\_INVALID\_PARAMETER | One or more parameters are not valid.                                  |
-| NTE\_FAIL               | The operation couldn't complete.                                       |
-| NTE\_BAD\_FLAGS         | The `dwFlags` parameter contains an invalid<br>value.                  |
-| NTE\_NOT\_SUPPORTED     | The `pszProperty` parameter contains a value that is<br>not supported. |
-| NTE\_INVALID\_HANDLE    | The handle in `hObject` is not valid.                                  |
-| NTE\_BAD\_DATA          | The data pointed by `pbInput` and `cbInput`<br>is not valid.           |
+
+
+| Return code | Description | 
+| --- | --- | 
+| ERROR\_SUCCESS | The operation completed successfully. | 
+| NTE\_INVALID\_PARAMETER | One or more parameters are not valid. | 
+| NTE\_FAIL | The operation couldn't complete. | 
+| NTE\_BAD\_FLAGS | The `dwFlags` parameter contains an invalid value. | 
+| NTE\_NOT\_SUPPORTED | The `pszProperty` parameter contains a value that is not supported. | 
+| NTE\_INVALID\_HANDLE | The handle in `hObject` is not valid. | 
+| NTE\_BAD\_DATA | The data pointed by `pbInput` and `cbInput` is not valid. | 

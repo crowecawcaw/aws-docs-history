@@ -1,7 +1,8 @@
+
+
 # Key management basics in the JCE provider for AWS CloudHSM Client SDK 5
+<a name="java-library-key-basics_5"></a>
 
-The basics on key management in the JCE provider involve importing keys, exporting keys,
-loading keys by handle, or deleting keys. For more information on managing keys, see the
-[Manage keys](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java") code example.
+The basics on key management in the JCE provider involve importing keys, exporting keys, loading keys by handle, or deleting keys. For more information on managing keys, see the [Manage keys](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java) code example.
 
-You can also find more JCE provider code examples at [Code samples](java-samples.md "java-samples.md").
+You can also find more JCE provider code examples at [Code samples](java-samples.md).

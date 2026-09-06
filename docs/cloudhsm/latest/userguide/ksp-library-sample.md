@@ -1,20 +1,18 @@
+
+
 # Code sample for CNG provider for AWS CloudHSM
+<a name="ksp-library-sample"></a>
 
-\*\* Example code only – Not for production use \*\*
-
+****  
+\*\* Example code only – Not for production use \*\*  
 This sample code is for illustrative purposes only. Do not run this code in production.
 
-The following sample shows how to enumerate the registered cryptographic providers on your system to find the
-CNG provider installed with CloudHSM client for Windows. The sample also shows how to create an asymmetric key pair and how to use the key pair to
-sign data.
+The following sample shows how to enumerate the registered cryptographic providers on your system to find the CNG provider installed with CloudHSM client for Windows. The sample also shows how to create an asymmetric key pair and how to use the key pair to sign data. 
 
-###### Important
-
-Before you run this example, you must set up the HSM credentials as explained in the prerequisites. For details, see [Prerequisites for using the AWS CloudHSM Windows Client](ksp-library-prereq.md "ksp-library-prereq.md").
+**Important**  
+Before you run this example, you must set up the HSM credentials as explained in the prerequisites. For details, see [Prerequisites for using the AWS CloudHSM Windows Client](ksp-library-prereq.md). 
 
 ```
-
-
 // CloudHsmCngExampleConsole.cpp : Console application that demonstrates CNG capabilities.
 // This example contains the following functions.
 //
@@ -87,8 +85,8 @@ bool VerifyProvider()
   return foundCng == foundKeystore == true;
 }
 
-// Generate an asymmetric key pair. As used here, this example generates an RSA key pair
-// and returns a handle. The handle is used in subsequent operations that use the key pair.
+// Generate an asymmetric key pair. As used here, this example generates an RSA key pair 
+// and returns a handle. The handle is used in subsequent operations that use the key pair. 
 // The key material is not available.
 //
 // The key pair is used in the SignData function.
@@ -105,7 +103,7 @@ NTSTATUS GenerateKeyPair(BCRYPT_ALG_HANDLE hAlgorithm, BCRYPT_KEY_HANDLE *hKey)
     return status;
   }
 
-  // Finalize the key pair. The public/private key pair cannot be used until this
+  // Finalize the key pair. The public/private key pair cannot be used until this 
   // function is called.
   status = BCryptFinalizeKeyPair(*hKey, 0);
   if (!NT_SUCCESS(status))
@@ -233,6 +231,4 @@ int main()
 
   return 0;
 }
-
-
 ```

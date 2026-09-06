@@ -1,201 +1,200 @@
+
+
 # Migrate your JCE provider from AWS CloudHSM Client SDK 3 to Client SDK 5
+<a name="java-lib-migrate_to_sdk5"></a>
 
-Use this topic to migrate your [JCE provider](java-library.md "java-library.md") from AWS CloudHSM
-Client SDK 3 to Client SDK 5. For benefits on migrating, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md "client-sdk-5-benefits.md").
+Use this topic to migrate your [JCE provider](java-library.md) from AWS CloudHSM Client SDK 3 to Client SDK 5. For benefits on migrating, see [Benefits of AWS CloudHSM Client SDK 5](client-sdk-5-benefits.md).
 
-In AWS CloudHSM, customer applications perform cryptographic operations using the AWS CloudHSM Client Software Development Kit (SDK).
-Client SDK 5 is the primary SDK that continues to have new features and platform support added to it.
+In AWS CloudHSM, customer applications perform cryptographic operations using the AWS CloudHSM Client Software Development Kit (SDK). Client SDK 5 is the primary SDK that continues to have new features and platform support added to it.
 
-The Client SDK 3 JCE provider uses custom classes and APIs that are not part of the standard JCE specification.
-Client SDK 5 for the JCE provider is complaint with the JCE specification and is backwards incompatible with Client SDK 3 in certain areas.
-Customer applications may require changes as part of the migration to Client SDK 5. This section outlines the changes required for a successful migration.
+The Client SDK 3 JCE provider uses custom classes and APIs that are not part of the standard JCE specification. Client SDK 5 for the JCE provider is complaint with the JCE specification and is backwards incompatible with Client SDK 3 in certain areas. Customer applications may require changes as part of the migration to Client SDK 5. This section outlines the changes required for a successful migration.
 
-To review migration instructions for all providers, see [Migrating from AWS CloudHSM Client SDK 3 to Client SDK 5](client-sdk-migration.md "client-sdk-migration.md").
+To review migration instructions for all providers, see [Migrating from AWS CloudHSM Client SDK 3 to Client SDK 5](client-sdk-migration.md).
 
-###### Topics
-
-- [Prepare by addressing breaking changes](#jce-migration-preparation-sdk5 "#jce-migration-preparation-sdk5")
-- [Migrate to Client SDK 5](#w2aac25c19c21c15 "#w2aac25c19c21c15")
-- [Related topics](#java-lib-migrate_to_sdk5-seealso "#java-lib-migrate_to_sdk5-seealso")
+**Topics**
++ [Prepare by addressing breaking changes](#jce-migration-preparation-sdk5)
++ [Migrate to Client SDK 5](#w2aac25c19c21c15)
++ [Related topics](#java-lib-migrate_to_sdk5-seealso)
 
 ## Prepare by addressing breaking changes
+<a name="jce-migration-preparation-sdk5"></a>
 
 Review these breaking changes and update your application in your development environment accordingly.
 
 ### The Provider class and name have changed
+<a name="w2aac25c19c21c13b5"></a>
 
-| What has changed        | What it was in Client SDK 3                                                                           | What it is in Client SDK 5                                                                             | Example                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Provider class and name | The JCE provider class in Client SDK 3 is called `CaviumProvider` and has the Provider name `Cavium`. | In Client SDK 5, the Provider class is called `CloudHsmProvider` and has the Provider name `CloudHSM`. | An example of how to initialize the `CloudHsmProvider` object is available in the<br>[AWS CloudHSM GitHub sample repository](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/AESGCMEncryptDecryptRunner.java#L43-L50 "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/AESGCMEncryptDecryptRunner.java#L43-L50"). |
+
+
+| What has changed | What it was in Client SDK 3 | What it is in Client SDK 5 | Example | 
+| --- | --- | --- | --- | 
+| Provider class and name | The JCE provider class in Client SDK 3 is called `CaviumProvider` and has the Provider name `Cavium`. | In Client SDK 5, the Provider class is called `CloudHsmProvider` and has the Provider name `CloudHSM`. | An example of how to initialize the `CloudHsmProvider` object is available in the [AWS CloudHSM GitHub sample repository](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/AESGCMEncryptDecryptRunner.java#L43-L50). | 
 
 ### Explicit login has changed, implicit has not
+<a name="w2aac25c19c21c13b7"></a>
 
-| What has changed | What it was in Client SDK 3                                                                                                                                                                          | What it is in Client SDK 5                                                                                                                                                                                                                                                                                                                                                                                                                 | Example                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Explicit login   | Client SDK 3 uses the `LoginManager` class for explicit login [1](#explicit_login_sdk3_note "#explicit_login_sdk3_note").                                                                            | In Client SDK 5, the `CloudHSM` provider implements `AuthProvider` for explicit login. `AuthProvider` is a standard Java class and follows Java's idiomatic way to log in to a Provider.<br>With improved login state management in Client SDK 5, applications no longer need to monitor and perform login during reconnections[2](#explicit_login_sdk5_note "#explicit_login_sdk5_note").                                                 | For an example on how to use explicit login with Client SDK 5, see the LoginRunner sample in the<br>[AWS CloudHSM GitHub sample repository](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L109C5-L141 "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L109C5-L141"). |
-| Implicit login   | No changes are required for implicit login.<br>The same properties file and all environment variables will continue to work for the implicit login when migrating from Client SDK 3 to Client SDK 5. | For an example on how to use implicit login with Client SDK 5, see the<br>[LoginRunner sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L143-L202 "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L143-L202")<br>in the AWS CloudHSM GitHub sample repository. |
 
-- [1] Client SDK 3 code snippet:
 
-```
-LoginManager lm = LoginManager.getInstance();
+<table>
+<thead>
+  <tr><th>What has changed</th><th>What it was in Client SDK 3</th><th>What it is in Client SDK 5</th><th>Example</th></tr>
+</thead>
+<tbody>
+  <tr><td>Explicit login</td><td>Client SDK 3 uses the <code>LoginManager</code> class for explicit login <a href="#explicit_login_sdk3_note">1</a>.</td><td>In Client SDK 5, the <code>CloudHSM</code> provider implements <code>AuthProvider</code> for explicit login. <code>AuthProvider</code> is a standard Java class and follows Java's idiomatic way to log in to a Provider. With improved login state management in Client SDK 5, applications no longer need to monitor and perform login during reconnections<a href="#explicit_login_sdk5_note">2</a>.</td><td>For an example on how to use explicit login with Client SDK 5, see the LoginRunner sample in the <a href="https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L109C5-L141">AWS CloudHSM GitHub sample repository</a>.</td></tr>
+  <tr><td>Implicit login</td><td colspan="2">No changes are required for implicit login. The same properties file and all environment variables will continue to work for the implicit login when migrating from Client SDK 3 to Client SDK 5.</td><td>For an example on how to use implicit login with Client SDK 5, see the <a href="https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L143-L202">LoginRunner sample</a> in the AWS CloudHSM GitHub sample repository.</td></tr>
+</tbody>
+</table>
 
-lm.login(partition, user, pass);
-```
++ [1] Client SDK 3 code snippet:
 
-- [2] Client SDK 5 code snippet:
+  ```
+  LoginManager lm = LoginManager.getInstance();
+                         
+  lm.login(partition, user, pass);
+  ```
++ [2] Client SDK 5 code snippet:
 
-```
-// Construct or get the existing provider object
-AuthProvider provider = new CloudHsmProvider();
+  ```
+  // Construct or get the existing provider object 
+  AuthProvider provider = new CloudHsmProvider();
+                         
+  // Call login method on the CloudHsmProvider object
+  // Here loginHandler is a CallbackHandler
+  provider.login(null, loginHandler);
+  ```
 
-// Call login method on the CloudHsmProvider object
-// Here loginHandler is a CallbackHandler
-provider.login(null, loginHandler);
-```
-
-For an example on how to use explicit login with Client SDK 5, see the
-[LoginRunner sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L109C5-L141 "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L109C5-L141") in the AWS CloudHSM GitHub sample repository.
-
-[Show moreShow less](# "#")
+  For an example on how to use explicit login with Client SDK 5, see the [LoginRunner sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java#L109C5-L141) in the AWS CloudHSM GitHub sample repository.
 
 ### Key generation has changed
+<a name="w2aac25c19c21c13b9"></a>
 
-| What has changed    | What it was in Client SDK 3                                                                                                                                                                                            | What it is in Client SDK 5                                                                                                                                                             | Example                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Key generation      | In Client SDK 3, `Cavium[Key-type]AlgorithmParameterSpec` is used to specify key generation parameters.<br>For a code snippet, see footnote [1](#key_generation_sdk3_note "#key_generation_sdk3_note").                | In Client SDK 5, `KeyAttributesMap` is used to specify key generation attributes.<br>For a code snippet, see footnote [2](#key_generation_sdk5_note "#key_generation_sdk5_note").      | For an example on how to use `KeyAttributesMap` to generate a symmetric key, see the<br>[SymmetricKeys sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/SymmetricKeys.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/SymmetricKeys.java")<br>in the AWS CloudHSM GitHub sample repository.      |
-| Key pair generation | In Client SDK 3, `Cavium[Key-type]AlgorithmparameterSpec` is used to specify key pair generation parameters.<br>For a code snippet, see footnote [3](#key_pair_generation_sdk3_note "#key_pair_generation_sdk3_note"). | In Client SDK 5, `KeyPairAttributesMap` is used to specify these parameters.<br>For a code snippet, see footnote [4](#key_pair_generation_sdk5_note "#key_pair_generation_sdk5_note"). | For an example on how to use `KeyAttributesMap` to generate an asymmetric key, see the<br>[AsymmetricKeys sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/AsymmetricKeys.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/AsymmetricKeys.java")<br>in the AWS CloudHSM GitHub sample repository. |
 
-- [1] Client SDK 3 key generation code snippet:
 
-```
-KeyGenerator keyGen = KeyGenerator.getInstance("AES", "Cavium");
-CaviumAESKeyGenParameterSpec aesSpec = new CaviumAESKeyGenParameterSpec(
-keySizeInBits,
-keyLabel,
-isExtractable,
-isPersistent);
-keyGen.init(aesSpec);
-SecretKey aesKey = keyGen.generateKey();
-```
+| What has changed | What it was in Client SDK 3 | What it is in Client SDK 5 | Example | 
+| --- | --- | --- | --- | 
+| Key generation | In Client SDK 3, `Cavium[Key-type]AlgorithmParameterSpec` is used to specify key generation parameters. For a code snippet, see footnote [1](#key_generation_sdk3_note). | In Client SDK 5, `KeyAttributesMap` is used to specify key generation attributes. For a code snippet, see footnote [2](#key_generation_sdk5_note). | For an example on how to use `KeyAttributesMap` to generate a symmetric key, see the [SymmetricKeys sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/SymmetricKeys.java) in the AWS CloudHSM GitHub sample repository. | 
+| Key pair generation | In Client SDK 3, `Cavium[Key-type]AlgorithmparameterSpec` is used to specify key pair generation parameters. For a code snippet, see footnote [3](#key_pair_generation_sdk3_note). | In Client SDK 5, `KeyPairAttributesMap` is used to specify these parameters. For a code snippet, see footnote [4](#key_pair_generation_sdk5_note). | For an example on how to use `KeyAttributesMap` to generate an asymmetric key, see the [AsymmetricKeys sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/AsymmetricKeys.java) in the AWS CloudHSM GitHub sample repository. | 
++ [1] Client SDK 3 key generation code snippet:
 
-- [2] Client SDK 5 key generation code snippet:
+  ```
+  KeyGenerator keyGen = KeyGenerator.getInstance("AES", "Cavium");
+  CaviumAESKeyGenParameterSpec aesSpec = new CaviumAESKeyGenParameterSpec(
+  keySizeInBits,
+  keyLabel,
+  isExtractable,
+  isPersistent);
+  keyGen.init(aesSpec);
+  SecretKey aesKey = keyGen.generateKey();
+  ```
++ [2] Client SDK 5 key generation code snippet:
 
-```
-KeyGenerator keyGen = KeyGenerator.getInstance("AES",
-CloudHsmProvider.PROVIDER_NAME);
+  ```
+  KeyGenerator keyGen = KeyGenerator.getInstance("AES",
+  CloudHsmProvider.PROVIDER_NAME);
+                      
+  final KeyAttributesMap aesSpec = new KeyAttributesMap();
+  aesSpec.put(KeyAttribute.LABEL, keyLabel);
+  aesSpec.put(KeyAttribute.SIZE, keySizeInBits);
+  aesSpec.put(KeyAttribute.EXTRACTABLE, isExtractable);
+  aesSpec.put(KeyAttribute.TOKEN, isPersistent);
+                      
+  keyGen.init(aesSpec);
+  SecretKey aesKey = keyGen.generateKey();
+  ```
++ [3] Client SDK 3 key pair generation code snippet::
 
-final KeyAttributesMap aesSpec = new KeyAttributesMap();
-aesSpec.put(KeyAttribute.LABEL, keyLabel);
-aesSpec.put(KeyAttribute.SIZE, keySizeInBits);
-aesSpec.put(KeyAttribute.EXTRACTABLE, isExtractable);
-aesSpec.put(KeyAttribute.TOKEN, isPersistent);
+  ```
+  KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("rsa", "Cavium");
+  CaviumRSAKeyGenParameterSpec spec = new CaviumRSAKeyGenParameterSpec(
+  keySizeInBits,
+  new BigInteger("65537"),
+  label + ":public",
+  label + ":private",
+  isExtractable,
+  isPersistent);
+                      
+  keyPairGen.initialize(spec);
+                      
+  keyPairGen.generateKeyPair();
+  ```
++ [4] Client SDK 5 key pair generation code snippet:
 
-keyGen.init(aesSpec);
-SecretKey aesKey = keyGen.generateKey();
-```
-
-- [3] Client SDK 3 key pair generation code snippet::
-
-```
-KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("rsa", "Cavium");
-CaviumRSAKeyGenParameterSpec spec = new CaviumRSAKeyGenParameterSpec(
-keySizeInBits,
-new BigInteger("65537"),
-label + ":public",
-label + ":private",
-isExtractable,
-isPersistent);
-
-keyPairGen.initialize(spec);
-
-keyPairGen.generateKeyPair();
-```
-
-- [4] Client SDK 5 key pair generation code snippet:
-
-```
-KeyPairGenerator keyPairGen =
-KeyPairGenerator.getInstance("RSA", providerName);
-
-// Set attributes for RSA public key
-final KeyAttributesMap publicKeyAttrsMap = new KeyAttributesMap();
-publicKeyAttrsMap.putAll(additionalPublicKeyAttributes);
-publicKeyAttrsMap.put(KeyAttribute.LABEL, label + ":Public");
-publicKeyAttrsMap.put(KeyAttribute.MODULUS_BITS, keySizeInBits);
-publicKeyAttrsMap.put(KeyAttribute.PUBLIC_EXPONENT,
-new BigInteger("65537").toByteArray());
-
-// Set attributes for RSA private key
-final KeyAttributesMap privateKeyAttrsMap = new KeyAttributesMap();
-privateKeyAttrsMap.putAll(additionalPrivateKeyAttributes);
-privateKeyAttrsMap.put(KeyAttribute.LABEL, label + ":Private");
-
-// Create KeyPairAttributesMap and use that to initialize the
-// keyPair generator
-KeyPairAttributesMap keyPairSpec =
-new KeyPairAttributesMapBuilder()
-.withPublic(publicKeyAttrsMap)
-.withPrivate(privateKeyAttrsMap)
-.build();
-
-keyPairGen.initialize(keyPairSpec);
-keyPairGen.generateKeyPair();
-```
-
-[Show moreShow less](# "#")
+  ```
+  KeyPairGenerator keyPairGen =
+  KeyPairGenerator.getInstance("RSA", providerName);
+                      
+  // Set attributes for RSA public key
+  final KeyAttributesMap publicKeyAttrsMap = new KeyAttributesMap();
+  publicKeyAttrsMap.putAll(additionalPublicKeyAttributes);
+  publicKeyAttrsMap.put(KeyAttribute.LABEL, label + ":Public");
+  publicKeyAttrsMap.put(KeyAttribute.MODULUS_BITS, keySizeInBits);
+  publicKeyAttrsMap.put(KeyAttribute.PUBLIC_EXPONENT,
+  new BigInteger("65537").toByteArray());
+                      
+  // Set attributes for RSA private key
+  final KeyAttributesMap privateKeyAttrsMap = new KeyAttributesMap();
+  privateKeyAttrsMap.putAll(additionalPrivateKeyAttributes);
+  privateKeyAttrsMap.put(KeyAttribute.LABEL, label + ":Private");
+                      
+  // Create KeyPairAttributesMap and use that to initialize the 
+  // keyPair generator
+  KeyPairAttributesMap keyPairSpec =
+  new KeyPairAttributesMapBuilder()
+  .withPublic(publicKeyAttrsMap)
+  .withPrivate(privateKeyAttrsMap)
+  .build();
+                      
+  keyPairGen.initialize(keyPairSpec);
+  keyPairGen.generateKeyPair();
+  ```
 
 ### Finding, deleting, and referencing keys have changed
+<a name="w2aac25c19c21c13c11"></a>
 
-Finding an already generated key with AWS CloudHSM entails using the KeyStore. Client SDK 3 has two KeyStore types: `Cavium` and `CloudHSM`. Client SDK 5 only has one KeyStore type: `CloudHSM`.
+Finding an already generated key with AWS CloudHSM entails using the KeyStore. Client SDK 3 has two KeyStore types: `Cavium` and `CloudHSM`. Client SDK 5 only has one KeyStore type: `CloudHSM`. 
 
-Moving from the `Cavium` KeyStore to `CloudHSM` KeyStore requires a change of KeyStore type. Additionally, Client SDK 3 uses key handles to reference keys, while Client SDK 5 uses key labels.
-The resulting behavior changes are listed below.
+Moving from the `Cavium` KeyStore to `CloudHSM` KeyStore requires a change of KeyStore type. Additionally, Client SDK 3 uses key handles to reference keys, while Client SDK 5 uses key labels. The resulting behavior changes are listed below.
 
-| What has changed         | What it was in Client SDK 3                                                                                                                                                                                    | What it is in Client SDK 5                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Key references           | With Client SDK 3, applications use either key labels or key handles to reference keys in the HSM. They use labels with KeyStore to find a key, or they use handles and create `CaviumKey` objects.            | In Client SDK 5, applications can use the [AWS CloudHSM KeyStore Java class for Client SDK 5](alternative-keystore_5.md "alternative-keystore_5.md") to find keys by label. To find keys by handle, use the AWS CloudHSM `KeyStoreWithAttributes` with AWS CloudHSM `KeyReferenceSpec`.                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Finding multiple entries | When searching for a key using `getEntry`, `getKey`, or `getCertificate` in scenarios where multiple items with the same criteria exist in the `Cavium` KeyStore, only the first entry found will be returned. | With the AWS CloudHSM `KeyStore` and `KeyStoreWithAttributes`, this same scenario will result in an exception being thrown.<br>To fix this problem, it is recommended to set unique labels for keys using the [Set the attributes of keys with CloudHSM CLI](cloudhsm_cli-key-set-attribute.md "cloudhsm_cli-key-set-attribute.md") command in CloudHSM CLI. Or use `KeyStoreWithAttributes#getKeys` to return all keys that match the criteria.                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Find all keys            | It is possible in Client SDK 3 to find all keys in the HSM using `Util.findAllKeys()`.                                                                                                                         | Client SDK 5 makes finding keys simpler and more efficient by using the `KeyStoreWithAttributes` class.<br>When possible, cache your keys to minimize latency. For more information, see [Effectively manage keys in your application](bp-application-integration.md#bp-manage-application "bp-application-integration.md#bp-manage-application").<br>When you need to retrieve all keys from the HSM, use `KeyStoreWithAttributes#getKeys` with an empty `KeyAttributesMap`. | An example that uses the `KeyStoreWithAttributes` class to find a key is available<br>in the<br>[AWS CloudHSM GitHub sample repository](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java#L205-L223 "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java#L205-L223")<br>and a code snippet is shown in [1](#using_keystore_att_note "#using_keystore_att_note"). |
-| Key deletion             | Client SDK 3 uses `Util.deleteKey()` to delete a key.                                                                                                                                                          | The `Key` object in Client SDK 5 implements the `Destroyable` interface which allows for keys to be deleted using the `destroy()` method of this interface.                                                                                                                                                                                                                                                                                                                   | An example code showing the delete key functionality can be found on the<br>[CloudHSM GitHub sample repository](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java#L229-L234 "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java#L229-L234").<br>A sample snippet for each SDK is shown in [2](#delete_key_note "#delete_key_note").                             |
 
-- [1] a snippet is shown below:
+| What has changed | What it was in Client SDK 3 | What it is in Client SDK 5 | Example | 
+| --- | --- | --- | --- | 
+| Key references | With Client SDK 3, applications use either key labels or key handles to reference keys in the HSM. They use labels with KeyStore to find a key, or they use handles and create `CaviumKey` objects. | In Client SDK 5, applications can use the [AWS CloudHSM KeyStore Java class for Client SDK 5](alternative-keystore_5.md) to find keys by label. To find keys by handle, use the AWS CloudHSM `KeyStoreWithAttributes` with AWS CloudHSM `KeyReferenceSpec`. |  | 
+| Finding multiple entries | When searching for a key using `getEntry`, `getKey`, or `getCertificate` in scenarios where multiple items with the same criteria exist in the `Cavium` KeyStore, only the first entry found will be returned. | With the AWS CloudHSM `KeyStore` and `KeyStoreWithAttributes`, this same scenario will result in an exception being thrown. To fix this problem, it is recommended to set unique labels for keys using the [Set the attributes of keys with CloudHSM CLI](cloudhsm_cli-key-set-attribute.md) command in CloudHSM CLI. Or use `KeyStoreWithAttributes#getKeys` to return all keys that match the criteria. |  | 
+| Find all keys | It is possible in Client SDK 3 to find all keys in the HSM using `Util.findAllKeys()`. | Client SDK 5 makes finding keys simpler and more efficient by using the `KeyStoreWithAttributes` class. When possible, cache your keys to minimize latency. For more information, see [Effectively manage keys in your application](bp-application-integration.md#bp-manage-application). When you need to retrieve all keys from the HSM, use `KeyStoreWithAttributes#getKeys` with an empty `KeyAttributesMap`.  | An example that uses the `KeyStoreWithAttributes` class to find a key is available in the [AWS CloudHSM GitHub sample repository](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java#L205-L223) and a code snippet is shown in [1](#using_keystore_att_note). | 
+| Key deletion | Client SDK 3 uses `Util.deleteKey()` to delete a key.  | The `Key` object in Client SDK 5 implements the `Destroyable` interface which allows for keys to be deleted using the `destroy()` method of this interface. | An example code showing the delete key functionality can be found on the [CloudHSM GitHub sample repository](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java#L229-L234). A sample snippet for each SDK is shown in [2](#delete_key_note). | 
++ [1] a snippet is shown below:
 
-```
-KeyAttributesMap findSpec = new KeyAttributesMap();
-findSpec.put(KeyAttribute.LABEL, label);
-findSpec.put(KeyAttribute.KEY_TYPE, keyType);
-KeyStoreWithAttributes keyStore = KeyStoreWithAttributes.getInstance("CloudHSM");
+  ```
+  KeyAttributesMap findSpec = new KeyAttributesMap();
+  findSpec.put(KeyAttribute.LABEL, label);
+  findSpec.put(KeyAttribute.KEY_TYPE, keyType);
+  KeyStoreWithAttributes keyStore = KeyStoreWithAttributes.getInstance("CloudHSM");
+                      
+  keyStore.load(null, null);
+  keyStore.getKey(findSpec);
+  ```
++ [2] Deleting a key in Client SDK 3:
 
-keyStore.load(null, null);
-keyStore.getKey(findSpec);
-```
+  ```
+  Util.deleteKey(key);
+  ```
 
-- [2] Deleting a key in Client SDK 3:
+  Deleting a key in Client SDK 5:
 
-```
-Util.deleteKey(key);
-```
-
-Deleting a key in Client SDK 5:
-
-```
-((Destroyable) key).destroy();
-```
-
-[Show moreShow less](# "#")
+  ```
+  ((Destroyable) key).destroy();
+  ```
 
 ### Cipher unwrap operations have changed, other cipher operations have not
+<a name="w2aac25c19c21c13c13"></a>
 
-###### Note
-
+**Note**  
 No changes are required for Cipher encrypt/decrypt/wrap operations.
 
 Unwrap operations require the Client SDK 3 `CaviumUnwrapParameterSpec` class to be replaced with one of the following classes specific to the cryptographic operations listed.
-
-- `GCMUnwrapKeySpec` for `AES/GCM/NoPadding` unwrap
-- `IvUnwrapKeySpec` for `AESWrap unwrap` and `AES/CBC/NoPadding unwrap`
-- `OAEPUnwrapKeySpec` for `RSA OAEP unwrap`
++ `GCMUnwrapKeySpec` for `AES/GCM/NoPadding` unwrap
++ `IvUnwrapKeySpec` for `AESWrap unwrap` and `AES/CBC/NoPadding unwrap`
++ `OAEPUnwrapKeySpec` for `RSA OAEP unwrap`
 
 Example snippet for `OAEPUnwrapkeySpec`:
 
@@ -222,140 +221,165 @@ Cipher hsmCipher =
 hsmCipher.init(Cipher.UNWRAP_MODE, key, spec);
 ```
 
-[Show moreShow less](# "#")
-
 ### Signature operations have not changed
+<a name="w2aac25c19c21c13c15"></a>
 
-No changes are required for Signature operations.
+No changes are required for Signature operations. 
 
 ## Migrate to Client SDK 5
+<a name="w2aac25c19c21c15"></a>
 
 Follow the instructions in this section to migrate from Client SDK 3 to Client SDK 5.
 
-###### Note
-
-Amazon Linux, Ubuntu 16.04, Ubuntu 18.04 CentOS 6, CentOS 8, and RHEL 6 are not currently supported with Client SDK 5.
-If you are currently using one of these platforms with Client SDK 3, you will need to choose a different platform when migrating to Client SDK 5.
+**Note**  
+Amazon Linux, Ubuntu 16.04, Ubuntu 18.04 CentOS 6, CentOS 8, and RHEL 6 are not currently supported with Client SDK 5. If you are currently using one of these platforms with Client SDK 3, you will need to choose a different platform when migrating to Client SDK 5.
 
 1. Uninstall the JCE provider for Client SDK 3.
 
-Amazon Linux 2
+------
+#### [ Amazon Linux 2 ]
 
-```
-`$` `sudo yum remove cloudhsm-client-jce`
-```
+   ```
+   $ sudo yum remove cloudhsm-client-jce
+   ```
 
-CentOS 7
+------
+#### [ CentOS 7 ]
 
-```
-`$` `sudo yum remove cloudhsm-client-jce`
-```
+   ```
+   $ sudo yum remove cloudhsm-client-jce
+   ```
 
-RHEL 7
+------
+#### [ RHEL 7 ]
 
-```
-`$` `sudo yum remove cloudhsm-client-jce`
-```
+   ```
+   $ sudo yum remove cloudhsm-client-jce
+   ```
 
-RHEL 8
+------
+#### [ RHEL 8 ]
 
-```
-`$` `sudo yum remove cloudhsm-client-jce`
-```
+   ```
+   $ sudo yum remove cloudhsm-client-jce
+   ```
 
-Ubuntu 16.04 LTS
+------
+#### [ Ubuntu 16.04 LTS ]
 
-```
-`$` `sudo apt remove cloudhsm-client-jce`
-```
+   ```
+   $ sudo apt remove cloudhsm-client-jce
+   ```
 
-Ubuntu 18.04 LTS
+------
+#### [ Ubuntu 18.04 LTS ]
 
-```
-`$` `sudo apt remove cloudhsm-client-jce`
-```
+   ```
+   $ sudo apt remove cloudhsm-client-jce
+   ```
 
-2. Stop the Client Daemon for Client SDK 3.
+------
 
-Amazon Linux 2
+1. Stop the Client Daemon for Client SDK 3.
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+------
+#### [ Amazon Linux 2 ]
 
-CentOS 7
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+------
+#### [ CentOS 7 ]
 
-RHEL 7
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+------
+#### [ RHEL 7 ]
 
-RHEL 8
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+------
+#### [ RHEL 8 ]
 
-Ubuntu 16.04 LTS
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-```
-`$` `sudo systemctl stop cloudhsm-client`
-```
+------
+#### [ Ubuntu 16.04 LTS ]
 
-Ubuntu 18.04 LTS
+   ```
+   $ sudo systemctl stop cloudhsm-client
+   ```
 
-```
-`$` `sudo systemctl stop cloudhsm-client`
-```
+------
+#### [ Ubuntu 18.04 LTS ]
 
-3. Uninstall the Client Daemon for Client SDK 3.
+   ```
+   $ sudo systemctl stop cloudhsm-client
+   ```
 
-Amazon Linux 2
+------
 
-```
-`$` `sudo yum remove cloudhsm-client`
-```
+1. Uninstall the Client Daemon for Client SDK 3.
 
-CentOS 7
+------
+#### [ Amazon Linux 2 ]
 
-```
-`$` `sudo yum remove cloudhsm-client`
-```
+   ```
+   $ sudo yum remove cloudhsm-client
+   ```
 
-RHEL 7
+------
+#### [ CentOS 7 ]
 
-```
-`$` `sudo yum remove cloudhsm-client`
-```
+   ```
+   $ sudo yum remove cloudhsm-client
+   ```
 
-RHEL 8
+------
+#### [ RHEL 7 ]
 
-```
-`$` `sudo yum remove cloudhsm-client`
-```
+   ```
+   $ sudo yum remove cloudhsm-client
+   ```
 
-Ubuntu 16.04 LTS
+------
+#### [ RHEL 8 ]
 
-```
-`$` `sudo apt remove cloudhsm-client`
-```
+   ```
+   $ sudo yum remove cloudhsm-client
+   ```
 
-Ubuntu 18.04 LTS
+------
+#### [ Ubuntu 16.04 LTS ]
 
-```
-`$` `sudo apt remove cloudhsm-client`
-```
+   ```
+   $ sudo apt remove cloudhsm-client
+   ```
 
-###### Note
+------
+#### [ Ubuntu 18.04 LTS ]
 
-Custom configurations need to be enabled again. 4. Install the Client SDK JCE provider by following the steps in [Install the JCE provider for AWS CloudHSM Client SDK 5](java-library-install_5.md "java-library-install_5.md"). 5. Client SDK 5 introduces a new configuration file format and command-line bootstrapping tool. To bootstrap your Client SDK 5 JCE provider, follow the instructions listed in the user guide under
-[Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to"). 6. In your development environment, test your application. Make updates to your existing code to resolve your breaking changes before your final migration.
+   ```
+   $ sudo apt remove cloudhsm-client
+   ```
+
+------
+**Note**  
+Custom configurations need to be enabled again.
+
+1. Install the Client SDK JCE provider by following the steps in [Install the JCE provider for AWS CloudHSM Client SDK 5](java-library-install_5.md).
+
+1. Client SDK 5 introduces a new configuration file format and command-line bootstrapping tool. To bootstrap your Client SDK 5 JCE provider, follow the instructions listed in the user guide under [Bootstrap the Client SDK](cluster-connect.md#connect-how-to).
+
+1. In your development environment, test your application. Make updates to your existing code to resolve your breaking changes before your final migration. 
 
 ## Related topics
-
-- [Best practices for AWS CloudHSM](best-practices.md "best-practices.md")
+<a name="java-lib-migrate_to_sdk5-seealso"></a>
++ [Best practices for AWS CloudHSM](best-practices.md)

@@ -1,132 +1,139 @@
+
+
 # Use the CloudHSM CLI
+<a name="cloudhsm_cli-getting-started-use"></a>
 
 Use the following commands to start and use the CloudHSM CLI.
 
 1. Use the following command to start CloudHSM CLI.
 
-Linux
+------
+#### [ Linux ]
 
-```
-`$` `/opt/cloudhsm/bin/cloudhsm-cli interactive`
-```
+   ```
+   $ /opt/cloudhsm/bin/cloudhsm-cli interactive
+   ```
 
-Windows
+------
+#### [ Windows ]
 
-```
-`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\cloudhsm-cli.exe" interactive`
-```
+   ```
+   PS C:\> & "C:\Program Files\Amazon\CloudHSM\bin\cloudhsm-cli.exe" interactive
+   ```
 
-2. Use the **login** command to log in to the cluster. All users can use this command.
+------
 
-The command in the following example logs in _admin_,
-which is the default [admin](understanding-users.md "understanding-users.md") account. You set
-this user's password when you [activated the cluster](activate-cluster.md "activate-cluster.md").
+1. Use the **login** command to log in to the cluster. All users can use this command.
 
-```
-`aws-cloudhsm >` `login --username admin --role admin`
-```
+   The command in the following example logs in *admin*, which is the default [admin](understanding-users.md) account. You set this user's password when you [activated the cluster](activate-cluster.md).
 
-The system prompts you for your password. You enter the password, and the output shows that the command was successful.
+   ```
+   aws-cloudhsm > login --username admin --role admin
+   ```
 
-```
-`Enter password:
-{
- "error_code": 0,
- "data": {
- "username": "admin",
- "role": "admin"
- }
-}`
-```
+   The system prompts you for your password. You enter the password, and the output shows that the command was successful.
 
-3. Run the **user list** command to list all the users on the cluster.
+   ```
+   Enter password:
+   {
+     "error_code": 0,
+     "data": {
+       "username": "admin",
+       "role": "admin"
+     }
+   }
+   ```
 
-```
-`aws-cloudhsm >` `user list``{
- "error_code": 0,
- "data": {
- "users": [
- {
- "username": "admin",
- "role": "admin",
- "locked": "false",
- "mfa": [],
- "cluster-coverage": "full"
- },
- {
- "username": "app_user",
- "role": "internal(APPLIANCE_USER)",
- "locked": "false",
- "mfa": [],
- "cluster-coverage": "full"
- }
- ]
- }
-}`
-```
+1. Run the **user list** command to list all the users on the cluster.
 
-4. Use **user create** to create a CU user named
-   `example_user`.
+   ```
+   aws-cloudhsm > user list
+   {
+     "error_code": 0,
+     "data": {
+       "users": [
+         {
+           "username": "admin",
+           "role": "admin",
+           "locked": "false",
+           "mfa": [],
+           "cluster-coverage": "full"
+         },
+         {
+           "username": "app_user",
+           "role": "internal(APPLIANCE_USER)",
+           "locked": "false",
+           "mfa": [],
+           "cluster-coverage": "full"
+         }
+       ]
+     }
+   }
+   ```
 
-You can create CUs because in a previous step you logged in as an admin user.
-Only admin users can perform user management tasks, such as creating and deleting users and changing the passwords of other users.
+1.  Use **user create** to create a CU user named **example\_user**. 
 
-```
-`aws-cloudhsm >` `user create --username example_user --role crypto-user` `Enter password:
-Confirm password:
-{
- "error_code": 0,
- "data": {
- "username": "example_user",
- "role": "crypto-user"
- }
-}`
-```
+   You can create CUs because in a previous step you logged in as an admin user. Only admin users can perform user management tasks, such as creating and deleting users and changing the passwords of other users. 
 
-5. Use **user list** to list all the users on the cluster.
+   ```
+   aws-cloudhsm > user create --username example_user --role crypto-user     
+   Enter password:
+   Confirm password:
+   {
+    "error_code": 0,
+    "data": {
+      "username": "example_user",
+      "role": "crypto-user"
+    }
+   }
+   ```
 
-```
-`aws-cloudhsm >` `user list``{
- "error_code": 0,
- "data": {
- "users": [
- {
- "username": "admin",
- "role": "admin",
- "locked": "false",
- "mfa": [],
- "cluster-coverage": "full"
- },
- {
- "username": "example_user",
- "role": "crypto_user",
- "locked": "false",
- "mfa": [],
- "cluster-coverage": "full"
- },
- {
- "username": "app_user",
- "role": "internal(APPLIANCE_USER)",
- "locked": "false",
- "mfa": [],
- "cluster-coverage": "full"
- }
- ]
- }
-}`
-```
+1.  Use **user list** to list all the users on the cluster. 
 
-6. Use the **logout** command to log out of AWS CloudHSM cluster.
+   ```
+   aws-cloudhsm > user list
+   {
+     "error_code": 0,
+     "data": {
+       "users": [
+         {
+           "username": "admin",
+           "role": "admin",
+           "locked": "false",
+           "mfa": [],
+           "cluster-coverage": "full"
+         },
+         {
+           "username": "example_user",
+           "role": "crypto_user",
+           "locked": "false",
+           "mfa": [],
+           "cluster-coverage": "full"
+         },
+         {
+           "username": "app_user",
+           "role": "internal(APPLIANCE_USER)",
+           "locked": "false",
+           "mfa": [],
+           "cluster-coverage": "full"
+         }
+       ]
+     }
+   }
+   ```
 
-```
-`aws-cloudhsm >` `logout``{
- "error_code": 0,
- "data": "Logout successful"
-}`
-```
+1. Use the **logout** command to log out of AWS CloudHSM cluster.
 
-7. Use the **quit** command to stop the CLI.
+   ```
+   aws-cloudhsm > logout
+   {
+     "error_code": 0,
+     "data": "Logout successful"
+   }
+   ```
 
-```
-`aws-cloudhsm >` `quit`
-```
+1. Use the **quit** command to stop the CLI.
+
+   ```
+   aws-cloudhsm > quit
+   ```

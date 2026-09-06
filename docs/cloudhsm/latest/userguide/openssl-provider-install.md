@@ -1,120 +1,138 @@
+
+
 # Install the OpenSSL Provider for AWS CloudHSM Client SDK 5
+<a name="openssl-provider-install"></a>
 
 Use the following sections to install the OpenSSL Provider for AWS CloudHSM Client SDK 5.
 
-###### Note
-
-To run a single HSM cluster with Client SDK 5, you must first manage client key durability settings by setting `disable_key_availability_check` to `True`. For more information, see [Key Synchronization](working-client-sync.md#client-sync-sdk8 "working-client-sync.md#client-sync-sdk8") and [Client SDK 5 Configure Tool](configure-sdk-5.md "configure-sdk-5.md").
+**Note**  
+To run a single HSM cluster with Client SDK 5, you must first manage client key durability settings by setting `disable_key_availability_check` to `True`. For more information, see [Key Synchronization](working-client-sync.md#client-sync-sdk8) and [Client SDK 5 Configure Tool](configure-sdk-5.md).
 
 ## Requirements
+<a name="openssl-provider-cluster-requirements"></a>
 
 The OpenSSL Provider requires **hsm2m.medium** cluster types and minimum CloudHSM Client SDK version 5.17.0 or later.
 
 ## Install the OpenSSL Provider
+<a name="openssl-provider-install-steps"></a>
 
-###### To install the OpenSSL Provider
+**To install the OpenSSL Provider**
 
 1. Use the following commands to download and install the OpenSSL Provider.
 
-Amazon Linux 2023
-Install the OpenSSL Provider for Amazon Linux 2023 on x86\_64 architecture:
+------
+#### [ Amazon Linux 2023 ]
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-openssl-provider-latest.amzn2023.x86_64.rpm`
-```
+   Install the OpenSSL Provider for Amazon Linux 2023 on x86\_64 architecture:
 
-```
-`$` `sudo yum install ./cloudhsm-openssl-provider-latest.amzn2023.x86_64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-openssl-provider-latest.amzn2023.x86_64.rpm
+   ```
 
-Install the OpenSSL Provider for Amazon Linux 2023 on ARM64 architecture:
+   ```
+   $ sudo yum install ./cloudhsm-openssl-provider-latest.amzn2023.x86_64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-openssl-provider-latest.amzn2023.aarch64.rpm`
-```
+   Install the OpenSSL Provider for Amazon Linux 2023 on ARM64 architecture:
 
-```
-`$` `sudo yum install ./cloudhsm-openssl-provider-latest.amzn2023.aarch64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-openssl-provider-latest.amzn2023.aarch64.rpm
+   ```
 
-RHEL 9 (9.2+)
-Install the OpenSSL Provider for RHEL 9 on x86\_64 architecture:
+   ```
+   $ sudo yum install ./cloudhsm-openssl-provider-latest.amzn2023.aarch64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-openssl-provider-latest.el9.x86_64.rpm`
-```
+------
+#### [ RHEL 9 (9.2\+) ]
 
-```
-`$` `sudo yum install ./cloudhsm-openssl-provider-latest.el9.x86_64.rpm`
-```
+   Install the OpenSSL Provider for RHEL 9 on x86\_64 architecture:
 
-Install the OpenSSL Provider for RHEL 9 on ARM64 architecture:
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-openssl-provider-latest.el9.x86_64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-openssl-provider-latest.el9.aarch64.rpm`
-```
+   ```
+   $ sudo yum install ./cloudhsm-openssl-provider-latest.el9.x86_64.rpm
+   ```
 
-```
-`$` `sudo yum install ./cloudhsm-openssl-provider-latest.el9.aarch64.rpm`
-```
+   Install the OpenSSL Provider for RHEL 9 on ARM64 architecture:
 
-RHEL 10 (10.0+)
-Install the OpenSSL Provider for RHEL 10 on x86\_64 architecture:
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-openssl-provider-latest.el9.aarch64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-openssl-provider-latest.el10.x86_64.rpm`
-```
+   ```
+   $ sudo yum install ./cloudhsm-openssl-provider-latest.el9.aarch64.rpm
+   ```
 
-```
-`$` `sudo yum install ./cloudhsm-openssl-provider-latest.el10.x86_64.rpm`
-```
+------
+#### [ RHEL 10 (10.0\+) ]
 
-Install the OpenSSL Provider for RHEL 10 on ARM64 architecture:
+   Install the OpenSSL Provider for RHEL 10 on x86\_64 architecture:
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-openssl-provider-latest.el10.aarch64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-openssl-provider-latest.el10.x86_64.rpm
+   ```
 
-```
-`$` `sudo yum install ./cloudhsm-openssl-provider-latest.el10.aarch64.rpm`
-```
+   ```
+   $ sudo yum install ./cloudhsm-openssl-provider-latest.el10.x86_64.rpm
+   ```
 
-Ubuntu 26.04 LTS
-Install the OpenSSL Provider for Ubuntu 26.04 LTS on x86\_64 architecture:
+   Install the OpenSSL Provider for RHEL 10 on ARM64 architecture:
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-openssl-provider_latest_u26.04_amd64.deb`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-openssl-provider-latest.el10.aarch64.rpm
+   ```
 
-```
-`$` `sudo dpkg -i ./cloudhsm-openssl-provider_latest_u26.04_amd64.deb`
-```
+   ```
+   $ sudo yum install ./cloudhsm-openssl-provider-latest.el10.aarch64.rpm
+   ```
 
-Install the OpenSSL Provider for Ubuntu 26.04 LTS on ARM64 architecture:
+------
+#### [ Ubuntu 26.04 LTS ]
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-openssl-provider_latest_u26.04_arm64.deb`
-```
+   Install the OpenSSL Provider for Ubuntu 26.04 LTS on x86\_64 architecture:
 
-```
-`$` `sudo dpkg -i ./cloudhsm-openssl-provider_latest_u26.04_arm64.deb`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-openssl-provider_latest_u26.04_amd64.deb
+   ```
 
-You have installed the shared library for the OpenSSL Provider at
-`/opt/cloudhsm/lib/licloudhsm_openssl_provider.so`. 2. Bootstrap Client SDK 5. For more information about bootstrapping, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to"). 3. Set the `CLOUDHSM_PIN` environment variable with your crypto user (CU) credentials:
+   ```
+   $ sudo dpkg -i ./cloudhsm-openssl-provider_latest_u26.04_amd64.deb
+   ```
 
-```
-`$` `export CLOUDHSM_PIN=`<username>`:`<password>``
-```
+   Install the OpenSSL Provider for Ubuntu 26.04 LTS on ARM64 architecture:
 
-4. Connect your installation of OpenSSL Provider to the cluster. For more information, see [Connect to the Cluster](cluster-connect.md "cluster-connect.md").
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-openssl-provider_latest_u26.04_arm64.deb
+   ```
+
+   ```
+   $ sudo dpkg -i ./cloudhsm-openssl-provider_latest_u26.04_arm64.deb
+   ```
+
+------
+
+   You have installed the shared library for the OpenSSL Provider at `/opt/cloudhsm/lib/licloudhsm_openssl_provider.so`. 
+
+1. Bootstrap Client SDK 5. For more information about bootstrapping, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to).
+
+1. Set the `CLOUDHSM_PIN` environment variable with your crypto user (CU) credentials:
+
+   ```
+   $ export CLOUDHSM_PIN={{<username>}}:{{<password>}}
+   ```
+
+1. Connect your installation of OpenSSL Provider to the cluster. For more information, see [Connect to the Cluster](cluster-connect.md).
 
 ## Verify the installation
+<a name="openssl-provider-verify-installation"></a>
 
 Verify that the OpenSSL Provider is installed correctly:
 
 ```
-`$` `CLOUDHSM_PIN=`<username>`:`<password>` openssl list -providers -provider cloudhsm`
+$ CLOUDHSM_PIN={{<username>}}:{{<password>}} openssl list -providers -provider cloudhsm
 ```
 
 You should see output similar to:

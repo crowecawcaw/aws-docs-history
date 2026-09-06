@@ -1,47 +1,43 @@
+
+
 # Certificate storage audit logs
+<a name="pkcs11-certificate-storage-audit-logs"></a>
 
-AWS CloudHSM writes audit logs for certificate storage operations that modify data to a separate Amazon CloudWatch Events log stream
-within your cluster's CloudWatch log group. This log stream is named for the cluster, not for a specific
-HSM within the cluster.
+ AWS CloudHSM writes audit logs for certificate storage operations that modify data to a separate Amazon CloudWatch Events log stream within your cluster's CloudWatch log group. This log stream is named for the cluster, not for a specific HSM within the cluster. 
 
-For information about accessing audit logs in CloudWatch, see
-[Working with Amazon CloudWatch Logs and AWS CloudHSM Audit Logs](get-hsm-audit-logs-using-cloudwatch.md "get-hsm-audit-logs-using-cloudwatch.md").
+ For information about accessing audit logs in CloudWatch, see [Working with Amazon CloudWatch Logs and AWS CloudHSM Audit Logs](get-hsm-audit-logs-using-cloudwatch.md). 
 
 ## Log entry fields
+<a name="pkcs11-certificate-storage-audit-logs-fields"></a>
 
-`object_handle`
-
+`object_handle`  
 The unique identifier of the certificate object.
 
-`op_code`
+`op_code`  
+The operation performed or attempted. Possible values:  
++ `CreateObject`
++ `DestroyObject`
++ `SetAttributeValues`
 
-The operation performed or attempted. Possible values:
+`response`  
+`OK` if the operation succeeded, or one of the following error types:  
++ `DuplicateAttribute`
++ `InvalidAttributeValue`
++ `ObjectNotFound`
++ `MaxObjectsReached`
++ `InternalFailure`
 
-- `CreateObject`
-- `DestroyObject`
-- `SetAttributeValues`
-
-`response`
-
-`OK` if the operation succeeded, or one of the following error types:
-
-- `DuplicateAttribute`
-- `InvalidAttributeValue`
-- `ObjectNotFound`
-- `MaxObjectsReached`
-- `InternalFailure`
-
-`attributes`
-
+`attributes`  
 The attributes modified, if any.
 
-`timestamp`
-
+`timestamp`  
 The time when the operation occurred, in milliseconds since the Unix epoch.
 
 ## Audit log examples
+<a name="pkcs11-certificate-storage-audit-logs-examples"></a>
 
 ### CreateObject example
+<a name="pkcs11-certificate-storage-audit-logs-examples-create"></a>
 
 ```
 {
@@ -54,6 +50,7 @@ The time when the operation occurred, in milliseconds since the Unix epoch.
 ```
 
 ### DestroyObject example
+<a name="pkcs11-certificate-storage-audit-logs-examples-delete"></a>
 
 ```
 {
@@ -66,6 +63,7 @@ The time when the operation occurred, in milliseconds since the Unix epoch.
 ```
 
 ### SetAttributeValues example
+<a name="pkcs11-certificate-storage-audit-logs-examples-set"></a>
 
 ```
 {
@@ -80,6 +78,7 @@ The time when the operation occurred, in milliseconds since the Unix epoch.
 ```
 
 ### Unsuccessful CreateObject example
+<a name="pkcs11-certificate-storage-audit-logs-examples-error"></a>
 
 ```
 {

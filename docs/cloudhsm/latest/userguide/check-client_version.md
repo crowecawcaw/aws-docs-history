@@ -1,88 +1,116 @@
+
+
 # Check your AWS CloudHSM Client SDK version
+<a name="check-client_version"></a>
 
-Use the following commands to verify the version of Client SDK that you're using with
-AWS CloudHSM.
+Use the following commands to verify the version of Client SDK that you're using with AWS CloudHSM.
 
-Amazon Linux
+------
+#### [ Amazon Linux ]
+
 Use the following command:
 
 ```
-`rpm -qa | grep ^cloudhsm`
+rpm -qa | grep ^cloudhsm
 ```
 
-Amazon Linux 2
+------
+#### [ Amazon Linux 2 ]
+
 Use the following command:
 
 ```
-`rpm -qa | grep ^cloudhsm`
+rpm -qa | grep ^cloudhsm
 ```
 
-CentOS 6
+------
+#### [ CentOS 6 ]
+
 Use the following command:
 
 ```
-`rpm -qa | grep ^cloudhsm`
+rpm -qa | grep ^cloudhsm
 ```
 
-CentOS 7
+------
+#### [ CentOS 7 ]
+
 Use the following command:
 
 ```
-`rpm -qa | grep ^cloudhsm`
+rpm -qa | grep ^cloudhsm
 ```
 
-CentOS 8
+------
+#### [ CentOS 8 ]
+
 Use the following command:
 
 ```
-`rpm -qa | grep ^cloudhsm`
+rpm -qa | grep ^cloudhsm
 ```
 
-RHEL 6
+------
+#### [ RHEL 6 ]
+
 Use the following command:
 
 ```
-`rpm -qa | grep ^cloudhsm`
+rpm -qa | grep ^cloudhsm
 ```
 
-RHEL 7
+------
+#### [ RHEL 7 ]
+
 Use the following command:
 
 ```
-`rpm -qa | grep ^cloudhsm`
+rpm -qa | grep ^cloudhsm
 ```
 
-RHEL 8
+------
+#### [ RHEL 8 ]
+
 Use the following command:
 
 ```
-`rpm -qa | grep ^cloudhsm`
+rpm -qa | grep ^cloudhsm
 ```
 
-Ubuntu 16.04 LTS
+------
+#### [ Ubuntu 16.04 LTS ]
+
 Use the following command:
 
 ```
-`apt list --installed | grep ^cloudhsm`
+apt list --installed | grep ^cloudhsm
 ```
 
-Ubuntu 18.04 LTS
+------
+#### [ Ubuntu 18.04 LTS ]
+
 Use the following command:
 
 ```
-`apt list --installed | grep ^cloudhsm`
+apt list --installed | grep ^cloudhsm
 ```
 
-Ubuntu 20.04 LTS
+------
+#### [ Ubuntu 20.04 LTS ]
+
 Use the following command:
 
 ```
-`apt list --installed | grep ^cloudhsm`
+apt list --installed | grep ^cloudhsm
 ```
 
-Windows Server
+------
+#### [ Windows Server ]
+
 Use the following command:
 
 ```
-`wmic product get name,version`
+wmic product get name,version
 ```
+
+------

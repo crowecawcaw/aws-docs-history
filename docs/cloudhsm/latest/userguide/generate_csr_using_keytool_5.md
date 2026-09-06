@@ -1,34 +1,33 @@
+
+
 # Generate an AWS CloudHSM CSR using keytool
+<a name="generate_csr_using_keytool_5"></a>
 
-You receive the greatest flexibility in generating a certificate signing request
-(CSR) if you use the [OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl-library.md "openssl-library.md"). The following command uses keytool to generate a CSR for a key pair with the
-alias, `example-key-pair`.
+You receive the greatest flexibility in generating a certificate signing request (CSR) if you use the [OpenSSL Dynamic Engine for AWS CloudHSM Client SDK 5](openssl-library.md). The following command uses keytool to generate a CSR for a key pair with the alias, `example-key-pair`.
 
-Linux
+------
+#### [ Linux ]
 
 ```
-`$` keytool -certreq -alias `<key pair label>` \
+$ keytool -certreq -alias {{<key pair label>}} \
 	-file my_csr.csr \
 	-keystore example_keystore.store \
 	-storetype CLOUDHSM \
 	-J-classpath '-J/opt/cloudhsm/java/*'
-
 ```
 
-Windows
+------
+#### [ Windows ]
 
 ```
-`PS C:\>` keytool -certreq -alias `<key pair label>` `
+PS C:\> keytool -certreq -alias {{<key pair label>}} `
 	-file my_csr.csr `
 	-keystore example_keystore.store `
 	-storetype CLOUDHSM `
 	-J-classpath '-J"C:\Program Files\Amazon\CloudHSM\java\*"'
-
 ```
 
-###### Note
+------
 
-To use a key pair from keytool, that key pair must have an entry in the
-specified key store file. If you want to use a key pair that was generated
-outside of keytool, you must import the key and certificate metadata into the
-key store. For instructions on importing the keystore data see [Use keytool to import intermediate and root certificates into AWS CloudHSM key store](import_cert_using_keytool_5.md "import_cert_using_keytool_5.md").
+**Note**  
+To use a key pair from keytool, that key pair must have an entry in the specified key store file. If you want to use a key pair that was generated outside of keytool, you must import the key and certificate metadata into the key store. For instructions on importing the keystore data see [Use keytool to import intermediate and root certificates into AWS CloudHSM key store](import_cert_using_keytool_5.md).

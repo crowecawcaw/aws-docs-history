@@ -1,51 +1,56 @@
+
+
 # Delete HSM users using CloudHSM CLI
+<a name="delete-user-cloudhsm-cli"></a>
 
-Use **user delete** in the CloudHSM CLI to delete a hardware security module
-(HSM) user. You must log in as an admin to delete another user.
+Use **user delete** in the CloudHSM CLI to delete a hardware security module (HSM) user. You must log in as an admin to delete another user.
 
-###### Tip
+**Tip**  
+ You can't delete crypto users (CU) that own keys. 
 
-You can't delete crypto users (CU) that own keys.
-
-###### To delete a user
+**To delete a user**
 
 1. Use the following command to start CloudHSM CLI interactive mode.
 
-Linux
+------
+#### [ Linux ]
 
-```
-`$` `/opt/cloudhsm/bin/cloudhsm-cli interactive`
-```
+   ```
+   $ /opt/cloudhsm/bin/cloudhsm-cli interactive
+   ```
 
-Windows
+------
+#### [ Windows ]
 
-```
-`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\bin\cloudhsm-cli.exe" interactive`
-```
+   ```
+   PS C:\> & "C:\Program Files\Amazon\CloudHSM\bin\cloudhsm-cli.exe" interactive
+   ```
 
-2. Use the **login** command and log in to the cluster as the admin.
+------
 
-```
-`aws-cloudhsm >` `login --username `<username>` --role admin`
-```
+1. Use the **login** command and log in to the cluster as the admin.
 
-3. The system prompts you for your password. Enter the password, and the output shows that the command was successful.
+   ```
+   aws-cloudhsm > login --username {{<username>}} --role admin
+   ```
 
-```
-`Enter password:
-{
- "error_code": 0,
- "data": {
- "username": "`<username>`",
- "role": "admin"
- }
-}`
-```
+1. The system prompts you for your password. Enter the password, and the output shows that the command was successful.
 
-4. Use the **user delete** command to delete the user.
+   ```
+   Enter password:
+   {
+     "error_code": 0,
+     "data": {
+       "username": "{{<username>}}",
+       "role": "admin"
+     }
+   }
+   ```
 
-```
-`aws-cloudhsm >` `user delete --username `<username>` --role `<role>``
-```
+1. Use the **user delete** command to delete the user.
 
-For more information about **user delete**, see [deleteUser](cloudhsm_cli-user-delete.md "cloudhsm_cli-user-delete.md").
+   ```
+   aws-cloudhsm > user delete --username {{<username>}} --role {{<role>}}
+   ```
+
+For more information about **user delete**, see [deleteUser](cloudhsm_cli-user-delete.md).

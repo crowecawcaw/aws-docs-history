@@ -1,9 +1,12 @@
+
+
 # AWS CloudHSM Client SDK 5 configuration syntax
+<a name="configure-tool-syntax5"></a>
 
-The following table illustrates the syntax for AWS CloudHSM configuration files for Client SDK 5. For more
-information about the parameters, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md "configure-tool-params5.md").
+ The following table illustrates the syntax for AWS CloudHSM configuration files for Client SDK 5. For more information about the parameters, see [AWS CloudHSM Client SDK 5 configuration parameters](configure-tool-params5.md). 
 
-PKCS #11
+------
+#### [ PKCS \#11 ]
 
 ```
 Usage: configure-pkcs11[ .exe ] [OPTIONS]
@@ -49,7 +52,8 @@ Options:
           Print help
 ```
 
-OpenSSL
+------
+#### [ OpenSSL ]
 
 ```
 Usage: configure-dyn[ .exe ] [OPTIONS]
@@ -91,7 +95,8 @@ Options:
           Print help
 ```
 
-KSP
+------
+#### [ KSP ]
 
 ```
 Usage: configure-ksp.exe [OPTIONS]
@@ -141,7 +146,8 @@ Options:
           Print help
 ```
 
-JCE
+------
+#### [ JCE ]
 
 ```
 Usage: configure-jce[ .exe ] [OPTIONS]
@@ -183,7 +189,8 @@ Options:
           Print help
 ```
 
-CloudHSM CLI
+------
+#### [ CloudHSM CLI ]
 
 ```
 Usage: configure-cli[ .exe ] [OPTIONS]
@@ -225,7 +232,8 @@ Options:
           Print help
 ```
 
-OpenSSL Provider
+------
+#### [ OpenSSL Provider ]
 
 ```
 Usage: configure-openssl-provider[ .exe ] [OPTIONS]
@@ -266,3 +274,5 @@ Options:
   -h, --help
           Print help
 ```
+
+------

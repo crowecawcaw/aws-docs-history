@@ -1,29 +1,20 @@
+
+
 # Register pre-existing keys with AWS CloudHSM key store
+<a name="register-pre-existing-keys-with-keystore"></a>
 
-For maximum security and flexibility in attributes and labeling, we recommend you generate
-your AWS CloudHSM signing keys using [key\_mgmt\_util](generate-keys.md "generate-keys.md"). You
-can also use a Java application to generate the key in AWS CloudHSM.
+For maximum security and flexibility in attributes and labeling, we recommend you generate your AWS CloudHSM signing keys using [key\_mgmt\_util](generate-keys.md). You can also use a Java application to generate the key in AWS CloudHSM.
 
-The following section provides a code sample that demonstrates how to generate a new key
-pair on the HSM and register it using existing keys imported to the AWS CloudHSM key store.
-The imported keys are available for use with third-party tools such as keytool and
-Jarsigner.
+The following section provides a code sample that demonstrates how to generate a new key pair on the HSM and register it using existing keys imported to the AWS CloudHSM key store. The imported keys are available for use with third-party tools such as keytool and Jarsigner. 
 
-To use a pre-existing key, modify the code sample to look up a key by label instead of
-generating a new key. Sample code for looking up a key by label is available in the
-[KeyUtilitiesRunner.java sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/master/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/master/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java") on GitHub.
+To use a pre-existing key, modify the code sample to look up a key by label instead of generating a new key. Sample code for looking up a key by label is available in the [KeyUtilitiesRunner.java sample](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/master/src/main/java/com/amazonaws/cloudhsm/examples/KeyUtilitiesRunner.java) on GitHub. 
 
-###### Important
-
-Registering a key stored on AWS CloudHSM with a local key store does not export the key.
-When the key is registered, the key store registers the key's alias (or label) and
-correlates locally store certificate objects with a key pair on the AWS CloudHSM. As long
-as the key pair is created as non-exportable, the key bits won't leave the HSM.
+**Important**  
+Registering a key stored on AWS CloudHSM with a local key store does not export the key. When the key is registered, the key store registers the key's alias (or label) and correlates locally store certificate objects with a key pair on the AWS CloudHSM. As long as the key pair is created as non-exportable, the key bits won't leave the HSM. 
 
 ```
-
-
-
+                      	
+                      	
                       	//
  // Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  //
@@ -40,7 +31,7 @@ as the key pair is created as non-exportable, the key bits won't leave the HSM.
  // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  //
-
+ 
 package com.amazonaws.cloudhsm.examples;
 
 import com.cavium.key.CaviumKey;
@@ -323,7 +314,4 @@ public class KeyStoreExampleRunner {
     }
 
 }
-
-
-
 ```

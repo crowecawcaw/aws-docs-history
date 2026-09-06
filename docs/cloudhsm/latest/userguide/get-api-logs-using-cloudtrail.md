@@ -1,65 +1,38 @@
+
+
 # Working with AWS CloudTrail and AWS CloudHSM
+<a name="get-api-logs-using-cloudtrail"></a>
 
-AWS CloudHSM is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
-user, role, or an AWS service in AWS CloudHSM. CloudTrail captures all API calls for AWS CloudHSM as events. The
-calls captured include calls from the AWS CloudHSM console and code calls to the AWS CloudHSM API operations.
-If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket,
-including events for AWS CloudHSM. If you don't configure a trail, you can still view the most recent
-events in the CloudTrail console in **Event history**. Using the information
-collected by CloudTrail, you can determine the request that was made to AWS CloudHSM, the IP address from
-which the request was made, who made the request, when it was made, and additional details.
+AWS CloudHSM is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS CloudHSM. CloudTrail captures all API calls for AWS CloudHSM as events. The calls captured include calls from the AWS CloudHSM console and code calls to the AWS CloudHSM API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for AWS CloudHSM. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to AWS CloudHSM, the IP address from which the request was made, who made the request, when it was made, and additional details. 
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md"). For a
-full list of AWS CloudHSM API operations, see [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") in the _AWS CloudHSM API Reference_.
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/). For a full list of AWS CloudHSM API operations, see [Actions](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_Operations.html) in the *AWS CloudHSM API Reference*.
 
 ## AWS CloudHSM information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs in
-AWS CloudHSM, that activity is recorded in a CloudTrail event along with other AWS service events in
-**Event history**. You can view, search, and download recent events in your
-AWS account. For more information, see [Viewing Events with CloudTrail Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in AWS CloudHSM, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for AWS CloudHSM, create
-a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. By
-default, when you create a trail in the console, the trail applies to all AWS Regions. The
-trail logs events from all Regions in the AWS partition and delivers the log files to the
-Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further
-analyze and act upon the event data collected in CloudTrail logs. For more information, see the
-following:
+For an ongoing record of events in your AWS account, including events for AWS CloudHSM, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
++ [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for
-  Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS
-  Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail
-  Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+CloudTrail logs all AWS CloudHSM operations, including read-only operations, such as `DescribeClusters` and `ListTags`, and management operations, such as `InitializeCluster`, `CreatHsm`, and `DeleteBackup`.
 
-CloudTrail logs all AWS CloudHSM operations, including read-only operations, such as
-`DescribeClusters` and `ListTags`, and management operations, such as
-`InitializeCluster`, `CreatHsm`, and `DeleteBackup`.
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following: 
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding AWS CloudHSM log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-The following example shows a CloudTrail log entry that demonstrates the AWS CloudHSM
-`CreateHsm` action.
+The following example shows a CloudTrail log entry that demonstrates the AWS CloudHSM `CreateHsm` action.
 
 ```
 {
@@ -113,35 +86,25 @@ The following example shows a CloudTrail log entry that demonstrates the AWS Clo
 ```
 
 ## AWS CloudHSM management events in CloudTrail
+<a name="cloudtrail-management-events"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-AWS CloudHSM logs all control plane operations as management events. For a list of the AWS CloudHSM
-control plane operations that AWS CloudHSM logs to CloudTrail, see [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") in the _AWS CloudHSM API Reference_.
+AWS CloudHSM logs all control plane operations as management events. For a list of the AWS CloudHSM control plane operations that AWS CloudHSM logs to CloudTrail, see [Actions](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_Operations.html) in the *AWS CloudHSM API Reference*.
 
 ## AWS CloudHSM service events in CloudTrail
+<a name="cloudtrail-service-events"></a>
 
-AWS CloudHSM logs service events to CloudTrail when the service performs actions on your resources
-automatically. These events may not be triggered directly by a call to a public AWS CloudHSM API. For
-these events, the `eventType` field is `AwsServiceEvent`.
+AWS CloudHSM logs service events to CloudTrail when the service performs actions on your resources automatically. These events may not be triggered directly by a call to a public AWS CloudHSM API. For these events, the `eventType` field is `AwsServiceEvent`.
 
 The following are the service events that AWS CloudHSM logs to CloudTrail.
++ `DeleteBackup` – Logged when AWS CloudHSM automatically deletes a backup based on your backup retention policy.
++ `BackupDeletedPermanently` – Logged when a PENDING\_DELETION backup is permanently purged and can no longer be restored.
++ `MigrationStart` – Logged when an HSM type migration begins for a cluster.
++ `MigrationEnd` – Logged when an HSM type migration completes for a cluster.
++ `RollbackStart` – Logged when an HSM type migration rollback begins for a cluster.
++ `RollbackEnd` – Logged when an HSM type migration rollback completes for a cluster.
 
-- `DeleteBackup` – Logged when AWS CloudHSM automatically deletes a backup based on
-  your backup retention policy.
-- `BackupDeletedPermanently` – Logged when a PENDING\_DELETION backup is
-  permanently purged and can no longer be restored.
-- `MigrationStart` – Logged when an HSM type migration begins for a
-  cluster.
-- `MigrationEnd` – Logged when an HSM type migration completes for a
-  cluster.
-- `RollbackStart` – Logged when an HSM type migration rollback begins for a
-  cluster.
-- `RollbackEnd` – Logged when an HSM type migration rollback completes for a
-  cluster.
-
-You can identify AWS CloudHSM service events in CloudTrail logs by the following attribute
-values:
-
-- `eventSource`: `cloudhsm.amazonaws.com`
-- `eventType`: `AwsServiceEvent`
+You can identify AWS CloudHSM service events in CloudTrail logs by the following attribute values:
++ `eventSource`: `cloudhsm.amazonaws.com`
++ `eventType`: `AwsServiceEvent`

@@ -1,10 +1,9 @@
-# Lost connection to the AWS CloudHSM cluster
 
-When you [configured the AWS CloudHSM client](cmu-install-and-configure-client-linux.md#cmu-edit-client-configuration "cmu-install-and-configure-client-linux.md#cmu-edit-client-configuration"), you
-provided the IP address of the first HSM in your cluster. This IP address is saved in the
-configuration file for the AWS CloudHSM client. When the client starts, it tries to connect to this IP
-address. If it can't—for example, because the HSM failed or you deleted it—you
-might see errors like the following:
+
+# Lost connection to the AWS CloudHSM cluster
+<a name="troubleshooting-lost-connection"></a>
+
+When you [configured the AWS CloudHSM client](cmu-install-and-configure-client-linux.md#cmu-edit-client-configuration), you provided the IP address of the first HSM in your cluster. This IP address is saved in the configuration file for the AWS CloudHSM client. When the client starts, it tries to connect to this IP address. If it can't—for example, because the HSM failed or you deleted it—you might see errors like the following:
 
 ```
 LIQUIDSECURITY: Daemon socket connection error
@@ -14,152 +13,162 @@ LIQUIDSECURITY: Daemon socket connection error
 LIQUIDSECURITY: Invalid Operation
 ```
 
-To resolve these errors, update the configuration file with the IP address of an active,
-reachable HSM in the cluster.
+To resolve these errors, update the configuration file with the IP address of an active, reachable HSM in the cluster.
 
-###### To update the configuration file for the AWS CloudHSM client
+**To update the configuration file for the AWS CloudHSM client**
 
-1. Use one of the following ways to find the IP address of an active HSM in your
-   cluster.
+1. Use one of the following ways to find the IP address of an active HSM in your cluster.
+   + View the **HSMs** tab on the cluster details page in the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/home).
+   + Use the AWS Command Line Interface (AWS CLI) to issue the [**describe-clusters**](https://docs.aws.amazon.com/cli/latest/reference/cloudhsmv2/describe-clusters.html) command.
 
-   - View the **HSMs** tab on the cluster details page in the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home").
-   - Use the AWS Command Line Interface (AWS CLI) to issue the [**describe-clusters**](../../../cli/latest/reference/cloudhsmv2/describe-clusters.md "../../../cli/latest/reference/cloudhsmv2/describe-clusters.md") command.
-     You need this IP address in a subsequent step.
+   You need this IP address in a subsequent step.
 
-2. Use the following command to stop the client.
+1. Use the following command to stop the client.
 
-Amazon Linux
+------
+#### [ Amazon Linux ]
 
-```
-`$` `sudo stop cloudhsm-client`
-```
+   ```
+   $ sudo stop cloudhsm-client
+   ```
 
-Amazon Linux 2
+------
+#### [ Amazon Linux 2 ]
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-CentOS 7
+------
+#### [ CentOS 7 ]
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-CentOS 8
+------
+#### [ CentOS 8 ]
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-RHEL 7
+------
+#### [ RHEL 7 ]
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-RHEL 8
+------
+#### [ RHEL 8 ]
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-Ubuntu 16.04 LTS
+------
+#### [ Ubuntu 16.04 LTS ]
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-Ubuntu 18.04 LTS
+------
+#### [ Ubuntu 18.04 LTS ]
 
-```
-`$` `sudo service cloudhsm-client stop`
-```
+   ```
+   $ sudo service cloudhsm-client stop
+   ```
 
-Windows
+------
+#### [ Windows ]
+   + For Windows client 1.1.2\+:
 
-    * For Windows client 1.1.2+:
+     ```
+     C:\Program Files\Amazon\CloudHSM>net.exe stop AWSCloudHSMClient
+     ```
+   + For Windows clients 1.1.1 and older:
 
+     Use **Ctrl**\+**C** in the command window where you started the AWS CloudHSM client.
 
+------
 
-    ```
-    `C:\Program Files\Amazon\CloudHSM>``net.exe stop AWSCloudHSMClient`
-    ```
-    * For Windows clients 1.1.1 and older:
+1. Use the following command to update the client's configuration file, providing the IP address that you found in a previous step.
 
+   ```
+   $ sudo /opt/cloudhsm/bin/configure -a {{<IP address>}}
+   ```
 
-    Use **Ctrl**+**C** in the command window where you started the AWS CloudHSM client.
+1. Use the following command to start the client.
 
-3. Use the following command to update the client's configuration file, providing the IP
-address that you found in a previous step.
+------
+#### [ Amazon Linux ]
 
-```
-`$` `sudo /opt/cloudhsm/bin/configure -a `<IP address>``
-```
+   ```
+   $ sudo start cloudhsm-client
+   ```
 
-4. Use the following command to start the client.
+------
+#### [ Amazon Linux 2 ]
 
-Amazon Linux
+   ```
+   $ sudo service cloudhsm-client start
+   ```
 
-```
-`$` `sudo start cloudhsm-client`
-```
+------
+#### [ CentOS 7 ]
 
-Amazon Linux 2
+   ```
+   $ sudo service cloudhsm-client start
+   ```
 
-```
-`$` `sudo service cloudhsm-client start`
-```
+------
+#### [ CentOS 8 ]
 
-CentOS 7
+   ```
+   $ sudo service cloudhsm-client start
+   ```
 
-```
-`$` `sudo service cloudhsm-client start`
-```
+------
+#### [ RHEL 7 ]
 
-CentOS 8
+   ```
+   $ sudo service cloudhsm-client start
+   ```
 
-```
-`$` `sudo service cloudhsm-client start`
-```
+------
+#### [ RHEL 8 ]
 
-RHEL 7
+   ```
+   $ sudo service cloudhsm-client start
+   ```
 
-```
-`$` `sudo service cloudhsm-client start`
-```
+------
+#### [ Ubuntu 16.04 LTS ]
 
-RHEL 8
+   ```
+   $ sudo service cloudhsm-client start
+   ```
 
-```
-`$` `sudo service cloudhsm-client start`
-```
+------
+#### [ Ubuntu 18.04 LTS ]
 
-Ubuntu 16.04 LTS
+   ```
+   $ sudo service cloudhsm-client start
+   ```
 
-```
-`$` `sudo service cloudhsm-client start`
-```
+------
+#### [ Windows ]
+   + For Windows client 1.1.2\+:
 
-Ubuntu 18.04 LTS
+     ```
+     C:\Program Files\Amazon\CloudHSM>net.exe start AWSCloudHSMClient
+     ```
+   + For Windows clients 1.1.1 and older:
 
-```
-`$` `sudo service cloudhsm-client start`
-```
+     ```
+     C:\Program Files\Amazon\CloudHSM>start "cloudhsm_client" cloudhsm_client.exe C:\ProgramData\Amazon\CloudHSM\data\cloudhsm_client.cfg
+     ```
 
-Windows
-
-    * For Windows client 1.1.2+:
-
-
-
-    ```
-    `C:\Program Files\Amazon\CloudHSM>``net.exe start AWSCloudHSMClient`
-    ```
-    * For Windows clients 1.1.1 and older:
-
-
-
-    ```
-    `C:\Program Files\Amazon\CloudHSM>``start "cloudhsm_client" cloudhsm_client.exe C:\ProgramData\Amazon\CloudHSM\data\cloudhsm_client.cfg`
-    ```
+------

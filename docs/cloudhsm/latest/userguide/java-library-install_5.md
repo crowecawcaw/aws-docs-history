@@ -1,290 +1,304 @@
+
+
 # Install the JCE provider for AWS CloudHSM Client SDK 5
+<a name="java-library-install_5"></a>
 
-The JCE provider for AWS CloudHSM Client SDK 5 is compatible with OpenJDK 17, OpenJDK 21, and OpenJDK 25.
-You can download OpenJDK from the [OpenJDK
-website](https://openjdk.java.net/ "https://openjdk.java.net/").
+The JCE provider for AWS CloudHSM Client SDK 5 is compatible with OpenJDK 17, OpenJDK 21, and OpenJDK 25. You can download OpenJDK from the [OpenJDK website](https://openjdk.java.net/).
 
-###### Note
+**Note**  
+Client SDK 5.17.0 is the last release to support OpenJDK 8.
+Client SDK 5.17.1 is the last release to support OpenJDK 11.
 
-- Client SDK 5.17.0 is the last release to support OpenJDK 8.
-- Client SDK 5.17.1 is the last release to support OpenJDK 11.
-  Use the following sections to install and provide credentials to the provider.
+Use the following sections to install and provide credentials to the provider.
 
-###### Note
+**Note**  
+To run a single HSM cluster with Client SDK 5, you must first manage client key durability settings by setting `disable_key_availability_check` to `True`. For more information, see [Key Synchronization](manage-key-sync.md) and [Client SDK 5 Configure Tool](configure-sdk-5.md).
 
-To run a single HSM cluster with Client SDK 5, you must first manage
-client key durability settings by setting
-`disable_key_availability_check` to `True`.
-For more information, see [Key
-Synchronization](manage-key-sync.md "manage-key-sync.md") and [Client SDK 5 Configure Tool](configure-sdk-5.md "configure-sdk-5.md").
-
-###### Topics
-
-- [Step 1: Install the JCE provider](#install-java-library_5 "#install-java-library_5")
-- [Step 2: Provide credentials to the JCE provider](#java-library-credentials_5 "#java-library-credentials_5")
+**Topics**
++ [Step 1: Install the JCE provider](#install-java-library_5)
++ [Step 2: Provide credentials to the JCE provider](#java-library-credentials_5)
 
 ## Step 1: Install the JCE provider
+<a name="install-java-library_5"></a>
 
-1. Use the following commands to download and install the JCE provider.
+1. Use the following commands to download and install the JCE provider. 
 
-Amazon Linux 2023
-Install the JCE provider for Amazon Linux 2023 on x86\_64 architecture:
+------
+#### [ Amazon Linux 2023 ]
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-jce-latest.amzn2023.x86_64.rpm`
-```
+   Install the JCE provider for Amazon Linux 2023 on x86\_64 architecture:
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.amzn2023.x86_64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-jce-latest.amzn2023.x86_64.rpm
+   ```
 
-Install the JCE provider for Amazon Linux 2023 on ARM64 architecture:
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.amzn2023.x86_64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-jce-latest.amzn2023.aarch64.rpm`
-```
+   Install the JCE provider for Amazon Linux 2023 on ARM64 architecture:
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.amzn2023.aarch64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Amzn2023/cloudhsm-jce-latest.amzn2023.aarch64.rpm
+   ```
 
-Amazon Linux 2
-Install the JCE provider for Amazon Linux 2 on x86\_64 architecture:
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.amzn2023.aarch64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL7/cloudhsm-jce-latest.el7.x86_64.rpm`
-```
+------
+#### [ Amazon Linux 2 ]
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.el7.x86_64.rpm`
-```
+   Install the JCE provider for Amazon Linux 2 on x86\_64 architecture:
 
-Install the JCE provider for Amazon Linux 2 on ARM64 architecture:
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL7/cloudhsm-jce-latest.el7.x86_64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL7/cloudhsm-jce-latest.el7.aarch64.rpm`
-```
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.el7.x86_64.rpm
+   ```
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.el7.aarch64.rpm`
-```
+   Install the JCE provider for Amazon Linux 2 on ARM64 architecture:
 
-RHEL 10 (10.0+)
-Install the JCE provider for RHEL 10 on x86\_64 architecture:
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL7/cloudhsm-jce-latest.el7.aarch64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-jce-latest.el10.x86_64.rpm`
-```
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.el7.aarch64.rpm
+   ```
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.el10.x86_64.rpm`
-```
+------
+#### [ RHEL 10 (10.0\+) ]
 
-Install the JCE provider for RHEL 10 on ARM64 architecture:
+   Install the JCE provider for RHEL 10 on x86\_64 architecture:
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-jce-latest.el10.aarch64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-jce-latest.el10.x86_64.rpm
+   ```
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.el10.aarch64.rpm`
-```
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.el10.x86_64.rpm
+   ```
 
-RHEL 9 (9.2+)
-Install the JCE provider for RHEL 9 (9.2+) on x86\_64 architecture:
+   Install the JCE provider for RHEL 10 on ARM64 architecture:
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-jce-latest.el9.x86_64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL10/cloudhsm-jce-latest.el10.aarch64.rpm
+   ```
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.el9.x86_64.rpm`
-```
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.el10.aarch64.rpm
+   ```
 
-Install the JCE provider for RHEL 9 (9.2+) on ARM64 architecture:
+------
+#### [ RHEL 9 (9.2\+) ]
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-jce-latest.el9.aarch64.rpm`
-```
+   Install the JCE provider for RHEL 9 (9.2\+) on x86\_64 architecture:
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.el9.aarch64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-jce-latest.el9.x86_64.rpm
+   ```
 
-RHEL 8 (8.3+)
-Install the JCE provider for RHEL 8 on x86\_64 architecture:
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.el9.x86_64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-jce-latest.el8.x86_64.rpm`
-```
+   Install the JCE provider for RHEL 9 (9.2\+) on ARM64 architecture:
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.el8.x86_64.rpm`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL9/cloudhsm-jce-latest.el9.aarch64.rpm
+   ```
 
-Install the JCE provider for RHEL 8 on ARM64 architecture:
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.el9.aarch64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-jce-latest.el8.aarch64.rpm`
-```
+------
+#### [ RHEL 8 (8.3\+) ]
 
-```
-`$` `sudo yum install ./cloudhsm-jce-latest.el8.aarch64.rpm`
-```
+   Install the JCE provider for RHEL 8 on x86\_64 architecture:
 
-Ubuntu 26.04 LTS
-Install the JCE provider for Ubuntu 26.04 LTS on x86\_64 architecture:
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-jce-latest.el8.x86_64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-jce_latest_u26.04_amd64.deb`
-```
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.el8.x86_64.rpm
+   ```
 
-```
-`$` `sudo apt install ./cloudhsm-jce_latest_u26.04_amd64.deb`
-```
+   Install the JCE provider for RHEL 8 on ARM64 architecture:
 
-Install the JCE provider for Ubuntu 26.04 LTS on ARM64 architecture:
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-jce-latest.el8.aarch64.rpm
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-jce_latest_u26.04_arm64.deb`
-```
+   ```
+   $ sudo yum install ./cloudhsm-jce-latest.el8.aarch64.rpm
+   ```
 
-```
-`$` `sudo apt install ./cloudhsm-jce_latest_u26.04_arm64.deb`
-```
+------
+#### [ Ubuntu 26.04 LTS ]
 
-Ubuntu 24.04 LTS
-Install the JCE provider for Ubuntu 24.04 LTS on x86\_64 architecture:
+   Install the JCE provider for Ubuntu 26.04 LTS on x86\_64 architecture:
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-jce_latest_u24.04_amd64.deb`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-jce_latest_u26.04_amd64.deb
+   ```
 
-```
-`$` `sudo apt install ./cloudhsm-jce_latest_u24.04_amd64.deb`
-```
+   ```
+   $ sudo apt install ./cloudhsm-jce_latest_u26.04_amd64.deb
+   ```
 
-Install the JCE provider for Ubuntu 24.04 LTS on ARM64 architecture:
+   Install the JCE provider for Ubuntu 26.04 LTS on ARM64 architecture:
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-jce_latest_u24.04_arm64.deb`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Resolute/cloudhsm-jce_latest_u26.04_arm64.deb
+   ```
 
-```
-`$` `sudo apt install ./cloudhsm-jce_latest_u24.04_arm64.deb`
-```
+   ```
+   $ sudo apt install ./cloudhsm-jce_latest_u26.04_arm64.deb
+   ```
 
-Ubuntu 22.04 LTS
-Install the JCE provider for Ubuntu 22.04 LTS on x86\_64 architecture:
+------
+#### [ Ubuntu 24.04 LTS ]
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Jammy/cloudhsm-jce_latest_u22.04_amd64.deb`
-```
+   Install the JCE provider for Ubuntu 24.04 LTS on x86\_64 architecture:
 
-```
-`$` `sudo apt install ./cloudhsm-jce_latest_u22.04_amd64.deb`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-jce_latest_u24.04_amd64.deb
+   ```
 
-Install the JCE provider for Ubuntu 22.04 LTS on ARM64 architecture:
+   ```
+   $ sudo apt install ./cloudhsm-jce_latest_u24.04_amd64.deb
+   ```
 
-```
-`$` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Jammy/cloudhsm-jce_latest_u22.04_arm64.deb`
-```
+   Install the JCE provider for Ubuntu 24.04 LTS on ARM64 architecture:
 
-```
-`$` `sudo apt install ./cloudhsm-jce_latest_u22.04_arm64.deb`
-```
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Noble/cloudhsm-jce_latest_u24.04_arm64.deb
+   ```
 
-Windows Server
-Install the JCE provider for Windows Server on x86\_64 architecture, open PowerShell as an administrator and run the following command:
+   ```
+   $ sudo apt install ./cloudhsm-jce_latest_u24.04_arm64.deb
+   ```
 
-```
-`PS C:\>` `wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMJCE-latest.msi -Outfile C:\AWSCloudHSMJCE-latest.msi`
-```
+------
+#### [ Ubuntu 22.04 LTS ]
 
-```
-`PS C:\>` `Start-Process msiexec.exe -ArgumentList '/i C:\AWSCloudHSMJCE-latest.msi /quiet /norestart /log C:\client-install.txt' -Wait`
-```
+   Install the JCE provider for Ubuntu 22.04 LTS on x86\_64 architecture:
 
-2. Bootstrap Client SDK 5. For more information about bootstrapping, see
-   [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to").
-3. Locate the following JCE provider files:
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Jammy/cloudhsm-jce_latest_u22.04_amd64.deb
+   ```
 
-Linux
+   ```
+   $ sudo apt install ./cloudhsm-jce_latest_u22.04_amd64.deb
+   ```
 
-    * `/opt/cloudhsm/java/cloudhsm-`<version>`.jar`
-    * `/opt/cloudhsm/bin/configure-jce`
-    * `/opt/cloudhsm/bin/jce-info`
+   Install the JCE provider for Ubuntu 22.04 LTS on ARM64 architecture:
 
-Windows
+   ```
+   $ wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Jammy/cloudhsm-jce_latest_u22.04_arm64.deb
+   ```
 
-    * `C:\Program Files\Amazon\CloudHSM\java\cloudhsm-`<version>`.jar>`
-    * `C:\Program Files\Amazon\CloudHSM\bin\configure-jce.exe`
-    * `C:\Program Files\Amazon\CloudHSM\bin\jce_info.exe`
+   ```
+   $ sudo apt install ./cloudhsm-jce_latest_u22.04_arm64.deb
+   ```
+
+------
+#### [ Windows Server ]
+
+   Install the JCE provider for Windows Server on x86\_64 architecture, open PowerShell as an administrator and run the following command:
+
+   ```
+   PS C:\> wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/Windows/AWSCloudHSMJCE-latest.msi -Outfile C:\AWSCloudHSMJCE-latest.msi
+   ```
+
+   ```
+   PS C:\> Start-Process msiexec.exe -ArgumentList '/i C:\AWSCloudHSMJCE-latest.msi /quiet /norestart /log C:\client-install.txt' -Wait
+   ```
+
+------
+
+1. Bootstrap Client SDK 5. For more information about bootstrapping, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to).
+
+1. Locate the following JCE provider files:
+
+------
+#### [ Linux ]
+   + `/opt/cloudhsm/java/cloudhsm-{{<version>}}.jar`
+   + `/opt/cloudhsm/bin/configure-jce`
+   + `/opt/cloudhsm/bin/jce-info`
+
+------
+#### [ Windows ]
+   + `C:\Program Files\Amazon\CloudHSM\java\cloudhsm-{{<version>}}.jar>`
+   + `C:\Program Files\Amazon\CloudHSM\bin\configure-jce.exe`
+   + `C:\Program Files\Amazon\CloudHSM\bin\jce_info.exe`
+
+------
 
 ## Step 2: Provide credentials to the JCE provider
+<a name="java-library-credentials_5"></a>
 
-Before your Java application can use an HSM, the HSM needs to first authenticate the application.
-HSMs authenticate using either an explicit login or implicit login method.
+Before your Java application can use an HSM, the HSM needs to first authenticate the application. HSMs authenticate using either an explicit login or implicit login method.
 
-**Explicit login** – This method lets you provide
-AWS CloudHSM credentials directly in the application. It uses the method from the [`AuthProvider`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/AuthProvider.html "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/AuthProvider.html"), where you pass a CU username and password in
-the pin pattern. For more information, see [Login to an HSM](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java "https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java") code example.
+**Explicit login** – This method lets you provide AWS CloudHSM credentials directly in the application. It uses the method from the [`AuthProvider`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/AuthProvider.html), where you pass a CU username and password in the pin pattern. For more information, see [Login to an HSM](https://github.com/aws-samples/aws-cloudhsm-jce-examples/blob/sdk5/src/main/java/com/amazonaws/cloudhsm/examples/LoginRunner.java) code example.
 
-**Implicit login** – This method lets you set
-AWS CloudHSM credentials either in a new property file, system properties, or as environment
-variables.
+**Implicit login** – This method lets you set AWS CloudHSM credentials either in a new property file, system properties, or as environment variables.
++ **System properties** – Set credentials through system properties when running your application. The following examples show two different ways that you can do this:
 
-- **System properties** – Set credentials through
-  system properties when running your application. The following examples show two
-  different ways that you can do this:
+------
+#### [ Linux ]
 
-Linux
+  ```
+  $ java -DHSM_USER={{<HSM user name>}} -DHSM_PASSWORD={{<password>}}
+  ```
 
-```
-`$` `java -DHSM_USER=`<HSM user name>` -DHSM_PASSWORD=`<password>``
-```
+  ```
+  System.setProperty("HSM_USER","{{<HSM user name>}}");
+  System.setProperty("HSM_PASSWORD","{{<password>}}");
+  ```
 
-```
-System.setProperty("HSM_USER","`<HSM user name>`");
-System.setProperty("HSM_PASSWORD","`<password>`");
-```
+------
+#### [ Windows ]
 
-Windows
+  ```
+  PS C:\> java -DHSM_USER={{<HSM user name>}} -DHSM_PASSWORD={{<password>}}
+  ```
 
-```
-`PS C:\>` `java -DHSM_USER=`<HSM user name>` -DHSM_PASSWORD=`<password>``
-```
+  ```
+  System.setProperty("HSM_USER","{{<HSM user name>}}");
+  System.setProperty("HSM_PASSWORD","{{<password>}}");
+  ```
 
-```
-System.setProperty("HSM_USER","`<HSM user name>`");
-System.setProperty("HSM_PASSWORD","`<password>`");
-```
-
-- **Environment variables** – Set credentials as
-  environment variables.
-
-###### Note
-
+------
++ **Environment variables** – Set credentials as environment variables.
+**Note**  
 When setting environment variables, you must escape any special characters that may be interpreted by your shell.
 
-Linux
+------
+#### [ Linux ]
 
-```
-`$` `export HSM_USER=`<HSM user name>``
-`$` `export HSM_PASSWORD=`<password>``
-```
+  ```
+  $ export HSM_USER={{<HSM user name>}}
+  $ export HSM_PASSWORD={{<password>}}
+  ```
 
-Windows
+------
+#### [ Windows ]
 
-```
-`PS C:\>` `$Env:HSM_USER="`<HSM user name>`"`
-`PS C:\>` `$Env:HSM_PASSWORD="`<password>`"`
-```
+  ```
+  PS C:\> $Env:HSM_USER="{{<HSM user name>}}"
+  PS C:\> $Env:HSM_PASSWORD="{{<password>}}"
+  ```
 
-Credentials might not be available if the application does not provide them or if you
-attempt an operation before the HSM authenticates session. In those cases, the CloudHSM
-software library for Java searches for the credentials in the following order:
+------
+
+Credentials might not be available if the application does not provide them or if you attempt an operation before the HSM authenticates session. In those cases, the CloudHSM software library for Java searches for the credentials in the following order:
 
 1. System properties
-2. Environment variables
+
+1. Environment variables

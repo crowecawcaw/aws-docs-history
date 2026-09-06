@@ -1,290 +1,335 @@
-# PKCS #11 library attributes table for AWS CloudHSM Client SDK 3
 
-The PKCS #11 library table for AWS CloudHSM Client SDK 3 contains a list of attributes that differ by key types. It indicates
-whether a given attribute is supported for a particular key type when using a specific
-cryptographic function with AWS CloudHSM.
+
+# PKCS \#11 library attributes table for AWS CloudHSM Client SDK 3
+<a name="pkcs11-v3-attributes-interpreting"></a>
+
+The PKCS \#11 library table for AWS CloudHSM Client SDK 3 contains a list of attributes that differ by key types. It indicates whether a given attribute is supported for a particular key type when using a specific cryptographic function with AWS CloudHSM.
 
 **Legend:**
++ ✔ indicates that CloudHSM supports the attribute for the specific key type.
++ ✖ indicates that CloudHSM does not support the attribute for the specific key type.
++ R indicates that the attribute value is set to read-only for the specific key type.
++ S indicates that the attribute cannot be read by the `GetAttributeValue` as it is sensitive.
++ An empty cell in the Default Value column indicates that there is no specific default value assigned to the attribute.
 
-- ✔ indicates that CloudHSM supports the attribute for the specific key
-  type.
-- ✖ indicates that CloudHSM does not support the attribute for the specific key
-  type.
-- R indicates that the attribute value is set to read-only for the specific key type.
-- S indicates that the attribute cannot be read by the `GetAttributeValue`
-  as it is sensitive.
-- An empty cell in the Default Value column indicates that there is no specific
-  default value assigned to the attribute.
+## GenerateKeyPair
+<a name="pkcs11-v3-generatekeypair"></a>
 
-| Attribute               | Key Type                            | **Default Value**                   |
-| ----------------------- | ----------------------------------- | ----------------------------------- |
-|                         | **EC private**                      | **EC public**                       | **RSA private**                       | **RSA public**                        |       |
-| `CKA_CLASS`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     |       |
-| `CKA_KEY_TYPE`          | ✔                                   | ✔                                   | ✔                                     | ✔                                     |       |
-| `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     |       |
-| `CKA_ID`                | ✔                                   | ✔                                   | ✔                                     | ✔                                     |       |
-| `CKA_LOCAL`             | R                                   | R                                   | R                                     | R                                     | True  |
-| `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     | False |
-| `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | True  |
-| `CKA_ENCRYPT`           | ✖                                   | ✔                                   | ✖                                     | ✔                                     | False |
-| `CKA_DECRYPT`           | ✔                                   | ✖                                   | ✔                                     | ✖                                     | False |
-| `CKA_DERIVE`            | ✔                                   | ✔                                   | ✔                                     | ✔                                     | False |
-| `CKA_MODIFIABLE`        | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | True  |
-| `CKA_DESTROYABLE`       | ✔                                   | ✔                                   | ✔                                     | ✔                                     | True  |
-| `CKA_SIGN`              | ✔                                   | ✖                                   | ✔                                     | ✖                                     | False |
-| `CKA_SIGN_RECOVER`      | ✖                                   | ✖                                   | ✔[3](#pkcs11-v3-f10 "#pkcs11-v3-f10") | ✖                                     |       |
-| `CKA_VERIFY`            | ✖                                   | ✔                                   | ✖                                     | ✔                                     | False |
-| `CKA_VERIFY_RECOVER`    | ✖                                   | ✖                                   | ✖                                     | ✔[4](#pkcs11-v3-f11 "#pkcs11-v3-f11") |       |
-| `CKA_WRAP`              | ✖                                   | ✔                                   | ✖                                     | ✔                                     | False |
-| `CKA_WRAP_TEMPLATE`     | ✖                                   | ✔                                   | ✖                                     | ✔                                     |       |
-| `CKA_TRUSTED`           | ✖                                   | ✔                                   | ✖                                     | ✔                                     | False |
-| `CKA_WRAP_WITH_TRUSTED` | ✔                                   | ✖                                   | ✔                                     | ✖                                     | False |
-| `CKA_UNWRAP`            | ✔                                   | ✖                                   | ✔                                     | ✖                                     | False |
-| `CKA_UNWRAP_TEMPLATE`   | ✔                                   | ✖                                   | ✔                                     | ✖                                     |       |
-| `CKA_SENSITIVE`         | ✔                                   | ✖                                   | ✔                                     | ✖                                     | True  |
-| `CKA_ALWAYS_SENSITIVE`  | R                                   | ✖                                   | R                                     | ✖                                     |       |
-| `CKA_EXTRACTABLE`       | ✔                                   | ✖                                   | ✔                                     | ✖                                     | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                   | ✖                                   | R                                     | ✖                                     |       |
-| `CKA_MODULUS`           | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                     | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   |       |
-| `CKA_PRIME_1`           | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_PRIME_2`           | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_COEFFICIENT`       | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_EXPONENT_1`        | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_EXPONENT_2`        | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_PRIVATE_EXPONENT`  | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_PUBLIC_EXPONENT`   | ✖                                   | ✖                                   | ✖                                     | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   |       |
-| `CKA_EC_PARAMS`         | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                     | ✖                                     |       |
-| `CKA_EC_POINT`          | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_VALUE`             | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_VALUE_LEN`         | ✖                                   | ✖                                   | ✖                                     | ✖                                     |       |
-| `CKA_CHECK_VALUE`       | R                                   | R                                   | R                                     | R                                     |       |
 
-| Attribute               | Key Type                            | **Default Value**                   |
-| ----------------------- | ----------------------------------- | ----------------------------------- |
-|                         | **AES**                             | **DES3**                            | **Generic Secret**                  |       |
-| `CKA_CLASS`             | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_KEY_TYPE`          | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_ID`                | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LOCAL`             | R                                   | R                                   | R                                   | True  |
-| `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_ENCRYPT`           | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_DECRYPT`           | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_DERIVE`            | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_MODIFIABLE`        | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_DESTROYABLE`       | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_SIGN`              | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_SIGN_RECOVER`      | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VERIFY`            | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_VERIFY_RECOVER`    | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_WRAP`              | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_WRAP_TEMPLATE`     | ✔                                   | ✔                                   | ✖                                   |       |
-| `CKA_TRUSTED`           | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_WRAP_WITH_TRUSTED` | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_UNWRAP`            | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_UNWRAP_TEMPLATE`   | ✔                                   | ✔                                   | ✖                                   |       |
-| `CKA_SENSITIVE`         | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_ALWAYS_SENSITIVE`  | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXTRACTABLE`       | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                   | R                                   | R                                   |       |
-| `CKA_MODULUS`           | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIME_1`           | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIME_2`           | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_COEFFICIENT`       | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXPONENT_1`        | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXPONENT_2`        | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIVATE_EXPONENT`  | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PUBLIC_EXPONENT`   | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EC_PARAMS`         | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EC_POINT`          | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VALUE`             | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VALUE_LEN`         | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_CHECK_VALUE`       | R                                   | R                                   | R                                   |       |
+<table>
+<thead>
+  <tr><th>Attribute</th><th colspan="4">Key Type</th><th><b>Default Value</b></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td> </td><td><b>EC private</b></td><td><b>EC public</b></td><td><b>RSA private</b></td><td><b>RSA public</b></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CLASS</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_KEY_TYPE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_LABEL</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_ID</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_LOCAL</code></td><td>R</td><td>R</td><td>R</td><td>R</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_TOKEN</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_ENCRYPT</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DECRYPT</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DERIVE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_MODIFIABLE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_DESTROYABLE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_SIGN</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_SIGN_RECOVER</code></td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f10">3</a></td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VERIFY</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_VERIFY_RECOVER</code></td><td>✖</td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f11">4</a></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_WRAP</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_WRAP_TEMPLATE</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_TRUSTED</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_WRAP_WITH_TRUSTED</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP_TEMPLATE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_SENSITIVE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_ALWAYS_SENSITIVE</code></td><td>R</td><td>✖</td><td>R</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXTRACTABLE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_NEVER_EXTRACTABLE</code></td><td>R</td><td>✖</td><td>R</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS_BITS</code></td><td>✖</td><td>✖</td><td>✖</td><td> ✔<a href="#pkcs11-v3-f9">2</a></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_1</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_2</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_COEFFICIENT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_1</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_2</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE_EXPONENT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PUBLIC_EXPONENT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_PARAMS</code></td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_POINT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE_LEN</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CHECK_VALUE</code></td><td>R</td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+</tbody>
+</table>
 
-| Attribute               | Key Type                            | **Default Value**                   |
-| ----------------------- | ----------------------------------- | ----------------------------------- |
-|                         | **EC private**                      | **EC public**                       | **RSA private**                       | **RSA public**                        | **AES**                             | **DES3**                            | **Generic Secret**                  |       |
-| `CKA_CLASS`             | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_KEY_TYPE`          | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_ID`                | ✔                                   | ✔                                   | ✔                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LOCAL`             | R                                   | R                                   | R                                     | R                                     | R                                   | R                                   | R                                   | False |
-| `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_ENCRYPT`           | ✖                                   | ✖                                   | ✖                                     | ✔                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_DECRYPT`           | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_DERIVE`            | ✔                                   | ✔                                   | ✔                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_MODIFIABLE`        | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_DESTROYABLE`       | ✔                                   | ✔                                   | ✔                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_SIGN`              | ✔                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_SIGN_RECOVER`      | ✖                                   | ✖                                   | ✔[3](#pkcs11-v3-f10 "#pkcs11-v3-f10") | ✖                                     | ✖                                   | ✖                                   | ✖                                   | False |
-| `CKA_VERIFY`            | ✖                                   | ✔                                   | ✖                                     | ✔                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_VERIFY_RECOVER`    | ✖                                   | ✖                                   | ✖                                     | ✔[4](#pkcs11-v3-f11 "#pkcs11-v3-f11") | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_WRAP`              | ✖                                   | ✖                                   | ✖                                     | ✔                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_WRAP_TEMPLATE`     | ✖                                   | ✔                                   | ✖                                     | ✔                                     | ✔                                   | ✔                                   | ✖                                   |       |
-| `CKA_TRUSTED`           | ✖                                   | ✔                                   | ✖                                     | ✔                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_WRAP_WITH_TRUSTED` | ✔                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_UNWRAP`            | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_UNWRAP_TEMPLATE`   | ✔                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✖                                   |       |
-| `CKA_SENSITIVE`         | ✔                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_ALWAYS_SENSITIVE`  | R                                   | ✖                                   | R                                     | ✖                                     | R                                   | R                                   | R                                   |       |
-| `CKA_EXTRACTABLE`       | ✔                                   | ✖                                   | ✔                                     | ✖                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                   | ✖                                   | R                                     | ✖                                     | R                                   | R                                   | R                                   |       |
-| `CKA_MODULUS`           | ✖                                   | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIME_1`           | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIME_2`           | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_COEFFICIENT`       | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXPONENT_1`        | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXPONENT_2`        | ✖                                   | ✖                                   | ✔                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIVATE_EXPONENT`  | ✖                                   | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PUBLIC_EXPONENT`   | ✖                                   | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EC_PARAMS`         | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EC_POINT`          | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VALUE`             | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                   | ✖                                     | ✖                                     | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_VALUE_LEN`         | ✖                                   | ✖                                   | ✖                                     | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_CHECK_VALUE`       | R                                   | R                                   | R                                     | R                                     | R                                   | R                                   | R                                   |       |
 
-| Attribute               | Key Type                            | **Default Value**                     |
-| ----------------------- | ----------------------------------- | ------------------------------------- |
-|                         | **EC private**                      | **RSA private**                       | **AES**                             | **DES3**                            | **Generic Secret**                  |       |
-| `CKA_CLASS`             | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_KEY_TYPE`          | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9")   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_LABEL`             | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_ID`                | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LOCAL`             | R                                   | R                                     | R                                   | R                                   | R                                   | False |
-| `CKA_TOKEN`             | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_ENCRYPT`           | ✖                                   | ✖                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_DECRYPT`           | ✖                                   | ✔                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_DERIVE`            | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_MODIFIABLE`        | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8")   | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_DESTROYABLE`       | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_SIGN`              | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_SIGN_RECOVER`      | ✖                                   | ✔[3](#pkcs11-v3-f10 "#pkcs11-v3-f10") | ✖                                   | ✖                                   | ✖                                   | False |
-| `CKA_VERIFY`            | ✖                                   | ✖                                     | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_VERIFY_RECOVER`    | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_WRAP`              | ✖                                   | ✖                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_UNWRAP`            | ✖                                   | ✔                                     | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_SENSITIVE`         | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_EXTRACTABLE`       | ✔                                   | ✔                                     | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                   | R                                     | R                                   | R                                   | R                                   |       |
-| `CKA_ALWAYS_SENSITIVE`  | R                                   | R                                     | R                                   | R                                   | R                                   |       |
-| `CKA_MODULUS`           | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_MODULUS_BITS`      | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIME_1`           | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIME_2`           | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_COEFFICIENT`       | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXPONENT_1`        | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXPONENT_2`        | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIVATE_EXPONENT`  | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PUBLIC_EXPONENT`   | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EC_PARAMS`         | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EC_POINT`          | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VALUE`             | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VALUE_LEN`         | ✖                                   | ✖                                     | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_CHECK_VALUE`       | R                                   | R                                     | R                                   | R                                   | R                                   |       |
+## GenerateKey
+<a name="pkcs11-v3-generatekey"></a>
 
-| Attribute               | Key Type                            | **Default Value**                   |
-| ----------------------- | ----------------------------------- | ----------------------------------- |
-|                         | **AES**                             | **DES3**                            | **Generic Secret**                  |       |
-| `CKA_CLASS`             | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_KEY_TYPE`          | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_ID`                | ✔                                   | ✔                                   | ✔                                   |       |
-| `CKA_LOCAL`             | R                                   | R                                   | R                                   | True  |
-| `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_ENCRYPT`           | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_DECRYPT`           | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_DERIVE`            | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_MODIFIABLE`        | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_DESTROYABLE`       | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | True  |
-| `CKA_SIGN`              | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_SIGN_RECOVER`      | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VERIFY`            | ✔                                   | ✔                                   | ✔                                   | False |
-| `CKA_VERIFY_RECOVER`    | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_WRAP`              | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_UNWRAP`            | ✔                                   | ✔                                   | ✖                                   | False |
-| `CKA_SENSITIVE`         | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_EXTRACTABLE`       | ✔                                   | ✔                                   | ✔                                   | True  |
-| `CKA_NEVER_EXTRACTABLE` | R                                   | R                                   | R                                   |       |
-| `CKA_ALWAYS_SENSITIVE`  | R                                   | R                                   | R                                   |       |
-| `CKA_MODULUS`           | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIME_1`           | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIME_2`           | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_COEFFICIENT`       | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXPONENT_1`        | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EXPONENT_2`        | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PRIVATE_EXPONENT`  | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_PUBLIC_EXPONENT`   | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EC_PARAMS`         | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_EC_POINT`          | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VALUE`             | ✖                                   | ✖                                   | ✖                                   |       |
-| `CKA_VALUE_LEN`         | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |       |
-| `CKA_CHECK_VALUE`       | R                                   | R                                   | R                                   |       |
 
-| Attribute               | Key Type                            |
-| ----------------------- | ----------------------------------- |
-|                         | **EC private**                      | **EC public**                       | **RSA private**                     | **RSA public**                      | **AES**                             | **DES3**                            | **Generic Secret**                  |
-| `CKA_CLASS`             | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_KEY_TYPE`          | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_LABEL`             | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_ID`                | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_LOCAL`             | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_TOKEN`             | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_PRIVATE`           | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") | ✔[1](#pkcs11-v3-f8 "#pkcs11-v3-f8") |
-| `CKA_ENCRYPT`           | ✖                                   | ✖                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   | ✖                                   |
-| `CKA_DECRYPT`           | ✖                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✖                                   |
-| `CKA_DERIVE`            | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_MODIFIABLE`        | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_DESTROYABLE`       | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_SIGN`              | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_SIGN_RECOVER`      | ✖                                   | ✖                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_VERIFY`            | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_VERIFY_RECOVER`    | ✖                                   | ✖                                   | ✖                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_WRAP`              | ✖                                   | ✖                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   | ✖                                   |
-| `CKA_WRAP_TEMPLATE`     | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   | ✖                                   |
-| `CKA_TRUSTED`           | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_WRAP_WITH_TRUSTED` | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_UNWRAP`            | ✖                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✖                                   |
-| `CKA_UNWRAP_TEMPLATE`   | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✖                                   |
-| `CKA_SENSITIVE`         | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_EXTRACTABLE`       | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_NEVER_EXTRACTABLE` | ✔                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   | ✔                                   | ✔                                   |
-| `CKA_ALWAYS_SENSITIVE`  | R                                   | R;                                  | R                                   | R                                   | R                                   | R                                   | R                                   |
-| `CKA_MODULUS`           | ✖                                   | ✖                                   | ✔                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_MODULUS_BITS`      | ✖                                   | ✖                                   | ✖                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_PRIME_1`           | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_PRIME_2`           | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_COEFFICIENT`       | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_EXPONENT_1`        | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_EXPONENT_2`        | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_PRIVATE_EXPONENT`  | ✖                                   | ✖                                   | S                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_PUBLIC_EXPONENT`   | ✖                                   | ✖                                   | ✔                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_EC_PARAMS`         | ✔                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_EC_POINT`          | ✖                                   | ✔                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   | ✖                                   |
-| `CKA_VALUE`             | S                                   | ✖                                   | ✖                                   | ✖                                   | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") | ✔[2](#pkcs11-v3-f9 "#pkcs11-v3-f9") |
-| `CKA_VALUE_LEN`         | ✖                                   | ✖                                   | ✖                                   | ✖                                   | ✔                                   | ✖                                   | ✔                                   |
-| `CKA_CHECK_VALUE`       | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✔                                   | ✖                                   |
+<table>
+<thead>
+  <tr><th>Attribute</th><th colspan="3">Key Type</th><th><b>Default Value</b></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td> </td><td><b>AES</b></td><td><b>DES3</b></td><td><b>Generic Secret</b></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CLASS</code></td><td>✔ </td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_KEY_TYPE</code></td><td>✔ </td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_LABEL</code></td><td>✔ </td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_ID</code></td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_LOCAL</code></td><td>R </td><td>R</td><td>R</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_TOKEN</code></td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_ENCRYPT</code></td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DECRYPT</code></td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DERIVE</code></td><td>✔ </td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_MODIFIABLE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_DESTROYABLE</code></td><td>✔ </td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_SIGN</code></td><td>✔ </td><td>✔</td><td>✔</td><td>True </td><td></td></tr>
+  <tr><td><code>CKA_SIGN_RECOVER</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VERIFY</code></td><td>✔ </td><td>✔</td><td>✔</td><td>True </td><td></td></tr>
+  <tr><td><code>CKA_VERIFY_RECOVER</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_WRAP</code></td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_WRAP_TEMPLATE</code></td><td>✔ </td><td>✔</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_TRUSTED</code></td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_WRAP_WITH_TRUSTED</code></td><td>✔ </td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP</code></td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP_TEMPLATE</code></td><td>✔ </td><td>✔</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_SENSITIVE</code></td><td>✔ </td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_ALWAYS_SENSITIVE</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXTRACTABLE</code></td><td>✔ </td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_NEVER_EXTRACTABLE</code></td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS_BITS</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_1</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_2</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_COEFFICIENT</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_1</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_2</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE_EXPONENT</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PUBLIC_EXPONENT</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_PARAMS</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_POINT</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE_LEN</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CHECK_VALUE</code></td><td>R </td><td>R</td><td>R</td><td> </td><td></td></tr>
+</tbody>
+</table>
+
+
+## CreateObject
+<a name="pkcs11-v3-createobject"></a>
+
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th colspan="7">Key Type</th><th><b>Default Value</b></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td> </td><td><b>EC private</b></td><td><b>EC public</b></td><td><b>RSA private</b></td><td><b>RSA public</b></td><td><b>AES</b></td><td><b>DES3</b></td><td><b>Generic Secret</b></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CLASS</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td></td><td></td></tr>
+  <tr><td><code>CKA_KEY_TYPE</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td></td><td></td></tr>
+  <tr><td><code>CKA_LABEL</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔ </td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_ID</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔ </td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_LOCAL</code></td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_TOKEN</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔ </td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_ENCRYPT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✔</td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DECRYPT</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DERIVE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔ </td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_MODIFIABLE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_DESTROYABLE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔ </td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_SIGN</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔ </td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_SIGN_RECOVER</code></td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f10">3</a></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_VERIFY</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔ </td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_VERIFY_RECOVER</code></td><td>✖</td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f11">4</a></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_WRAP</code></td><td>✖</td><td>✖</td><td>✖</td><td>✔</td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_WRAP_TEMPLATE</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔ </td><td>✔</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_TRUSTED</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_WRAP_WITH_TRUSTED</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔ </td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✔ </td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP_TEMPLATE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔ </td><td>✔</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_SENSITIVE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔ </td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_ALWAYS_SENSITIVE</code></td><td>R</td><td>✖</td><td>R</td><td>✖</td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXTRACTABLE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔ </td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_NEVER_EXTRACTABLE</code></td><td>R</td><td>✖</td><td>R</td><td>✖</td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS</code></td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS_BITS</code></td><td>✖</td><td>✖</td><td>✖</td><td> ✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_1</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_2</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_COEFFICIENT</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_1</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_2</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE_EXPONENT</code></td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PUBLIC_EXPONENT</code></td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_PARAMS</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_POINT</code></td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE_LEN</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CHECK_VALUE</code></td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+</tbody>
+</table>
+
+
+## UnwrapKey
+<a name="pkcs11-v3-unwrapkey"></a>
+
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th colspan="5">Key Type</th><th><b>Default Value</b></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td> </td><td><b>EC private</b></td><td><b>RSA private</b></td><td><b>AES</b></td><td><b>DES3</b></td><td><b>Generic Secret</b></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CLASS</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td></td><td></td></tr>
+  <tr><td><code>CKA_KEY_TYPE</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td></td><td></td></tr>
+  <tr><td><code>CKA_LABEL</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_ID</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_LOCAL</code></td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_TOKEN</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_ENCRYPT</code></td><td>✖</td><td>✖</td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DECRYPT</code></td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DERIVE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_MODIFIABLE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_DESTROYABLE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_SIGN</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_SIGN_RECOVER</code></td><td>✖</td><td>✔<a href="#pkcs11-v3-f10">3</a></td><td>✖</td><td>✖</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_VERIFY</code></td><td>✖</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_VERIFY_RECOVER</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_WRAP</code></td><td>✖</td><td>✖</td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP</code></td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_SENSITIVE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_EXTRACTABLE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_NEVER_EXTRACTABLE</code></td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_ALWAYS_SENSITIVE</code></td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS_BITS</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_1</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_2</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_COEFFICIENT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_1</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_2</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE_EXPONENT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PUBLIC_EXPONENT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_PARAMS</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_POINT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE_LEN</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CHECK_VALUE</code></td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+</tbody>
+</table>
+
+
+## DeriveKey
+<a name="pkcs11-v3-derivekey"></a>
+
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th colspan="3">Key Type</th><th><b>Default Value</b></th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td> </td><td><b>AES</b></td><td><b>DES3</b></td><td><b>Generic Secret</b></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CLASS</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td></td><td></td></tr>
+  <tr><td><code>CKA_KEY_TYPE</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td></td><td></td></tr>
+  <tr><td><code>CKA_LABEL</code></td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_ID</code></td><td>✔</td><td>✔</td><td>✔</td><td></td><td></td></tr>
+  <tr><td><code>CKA_LOCAL</code></td><td>R</td><td>R</td><td>R</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_TOKEN</code></td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_ENCRYPT</code></td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DECRYPT</code></td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_DERIVE</code></td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_MODIFIABLE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_DESTROYABLE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_SIGN</code></td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_SIGN_RECOVER</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VERIFY</code></td><td>✔</td><td>✔</td><td>✔</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_VERIFY_RECOVER</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_WRAP</code></td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP</code></td><td>✔</td><td>✔</td><td>✖</td><td>False</td><td></td></tr>
+  <tr><td><code>CKA_SENSITIVE</code></td><td>✔</td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_EXTRACTABLE</code></td><td>✔</td><td>✔</td><td>✔</td><td>True</td><td></td></tr>
+  <tr><td><code>CKA_NEVER_EXTRACTABLE</code></td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_ALWAYS_SENSITIVE</code></td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_MODULUS_BITS</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_1</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIME_2</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_COEFFICIENT</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_1</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_2</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE_EXPONENT</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_PUBLIC_EXPONENT</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_PARAMS</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_EC_POINT</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE</code></td><td>✖</td><td>✖</td><td>✖</td><td> </td><td></td></tr>
+  <tr><td><code>CKA_VALUE_LEN</code></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td> </td><td></td></tr>
+  <tr><td><code>CKA_CHECK_VALUE</code></td><td>R</td><td>R</td><td>R</td><td> </td><td></td></tr>
+</tbody>
+</table>
+
+
+## GetAttributeValue
+<a name="pkcs11-v3-getattributevalue"></a>
+
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th colspan="7">Key Type</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td> </td><td><b>EC private</b></td><td><b>EC public</b></td><td><b>RSA private</b></td><td><b>RSA public</b></td><td><b>AES</b></td><td><b>DES3</b></td><td><b>Generic Secret</b></td><td></td></tr>
+  <tr><td><code>CKA_CLASS</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_KEY_TYPE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_LABEL</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_ID</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_LOCAL</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_TOKEN</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE</code></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td>✔<a href="#pkcs11-v3-f8">1</a></td><td></td></tr>
+  <tr><td><code>CKA_ENCRYPT</code></td><td>✖</td><td>✖</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_DECRYPT</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_DERIVE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_MODIFIABLE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_DESTROYABLE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_SIGN</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_SIGN_RECOVER</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_VERIFY</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_VERIFY_RECOVER</code></td><td>✖</td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_WRAP</code></td><td>✖</td><td>✖</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_WRAP_TEMPLATE</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_TRUSTED</code></td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_WRAP_WITH_TRUSTED</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP</code></td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_UNWRAP_TEMPLATE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_SENSITIVE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_EXTRACTABLE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_NEVER_EXTRACTABLE</code></td><td>✔</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td>✔</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_ALWAYS_SENSITIVE</code></td><td>R</td><td>R;</td><td>R</td><td>R</td><td>R</td><td>R</td><td>R</td><td></td></tr>
+  <tr><td><code>CKA_MODULUS</code></td><td>✖</td><td>✖</td><td>✔</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_MODULUS_BITS</code></td><td>✖</td><td>✖</td><td>✖</td><td> ✔</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_PRIME_1</code></td><td>✖</td><td>✖</td><td>S</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_PRIME_2</code></td><td>✖</td><td>✖</td><td>S</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_COEFFICIENT</code></td><td>✖</td><td>✖</td><td>S</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_1</code></td><td>✖</td><td>✖</td><td>S</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_EXPONENT_2</code></td><td>✖</td><td>✖</td><td>S</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_PRIVATE_EXPONENT</code></td><td>✖</td><td>✖</td><td>S</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_PUBLIC_EXPONENT</code></td><td>✖</td><td>✖</td><td>✔</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_EC_PARAMS</code></td><td>✔</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_EC_POINT</code></td><td>✖</td><td>✔</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td></td></tr>
+  <tr><td><code>CKA_VALUE</code></td><td>S</td><td>✖</td><td>✖</td><td>✖</td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td>✔<a href="#pkcs11-v3-f9">2</a></td><td></td></tr>
+  <tr><td><code>CKA_VALUE_LEN</code></td><td>✖</td><td>✖</td><td>✖</td><td>✖</td><td>✔</td><td>✖</td><td>✔</td><td></td></tr>
+  <tr><td><code>CKA_CHECK_VALUE</code></td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✔</td><td>✖</td><td></td></tr>
+</tbody>
+</table>
+
 
 **Attribute annotations**
-
-- [1] This attribute is partially supported by the firmware and must be explicitly set
-  only to the default value.
-- [2] Mandatory attribute.
-- [3] **Client SDK 3 only**. The `CKA_SIGN_RECOVER` attribute is
-  derived from the `CKA_SIGN` attribute. If being set, it can only be set to the
-  same value that is set for `CKA_SIGN`. If not set, it derives the default value
-  of `CKA_SIGN`. Since CloudHSM only supports RSA-based recoverable signature
-  mechanisms, this attribute is currently applicable to RSA public keys only.
-- [4] **Client SDK 3 only**. The `CKA_VERIFY_RECOVER` attribute is
-  derived from the `CKA_VERIFY` attribute. If being set, it can only be set to
-  the same value that is set for `CKA_VERIFY`. If not set, it derives the default
-  value of `CKA_VERIFY`. Since CloudHSM only supports RSA-based recoverable
-  signature mechanisms, this attribute is currently applicable to RSA public keys
-  only.
++ [1] This attribute is partially supported by the firmware and must be explicitly set only to the default value.
++ [2] Mandatory attribute.
++ [3] **Client SDK 3 only**. The `CKA_SIGN_RECOVER` attribute is derived from the `CKA_SIGN` attribute. If being set, it can only be set to the same value that is set for `CKA_SIGN`. If not set, it derives the default value of `CKA_SIGN`. Since CloudHSM only supports RSA-based recoverable signature mechanisms, this attribute is currently applicable to RSA public keys only.
++ [4] **Client SDK 3 only**. The `CKA_VERIFY_RECOVER` attribute is derived from the `CKA_VERIFY` attribute. If being set, it can only be set to the same value that is set for `CKA_VERIFY`. If not set, it derives the default value of `CKA_VERIFY`. Since CloudHSM only supports RSA-based recoverable signature mechanisms, this attribute is currently applicable to RSA public keys only.

@@ -1,56 +1,61 @@
+
+
 # Create an HSM in AWS CloudHSM
+<a name="create-hsm"></a>
 
-After you create a cluster in AWS CloudHSM, you can create a hardware security module (HSM).
-However, before you can create an HSM in your cluster, the cluster must be in the
-uninitialized state. To determine the cluster's state, view the [clusters page in the AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home"), use
-the AWS CLI to run the **[describe-clusters](../../../cli/latest/reference/cloudhsmv2/describe-clusters.md "../../../cli/latest/reference/cloudhsmv2/describe-clusters.md")** command, or send a [DescribeClusters](../APIReference/API_DescribeClusters.md "../APIReference/API_DescribeClusters.md") request in the
-AWS CloudHSM API. You can create an HSM from the [AWS CloudHSM
-console](https://console.aws.amazon.com/cloudhsm/ "https://console.aws.amazon.com/cloudhsm/"), the [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"), or the AWS CloudHSM
-API.
+ After you create a cluster in AWS CloudHSM, you can create a hardware security module (HSM). However, before you can create an HSM in your cluster, the cluster must be in the uninitialized state. To determine the cluster's state, view the [clusters page in the AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/home), use the AWS CLI to run the **[describe-clusters](https://docs.aws.amazon.com/cli/latest/reference/cloudhsmv2/describe-clusters.html)** command, or send a [DescribeClusters](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html) request in the AWS CloudHSM API. You can create an HSM from the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/), the [AWS CLI](https://aws.amazon.com/cli/), or the AWS CloudHSM API. 
 
-###### Important
+**Important**  
+ Only create one HSM while your cluster is in the uninitialized state. 
 
-Only create one HSM while your cluster is in the uninitialized state.
+------
+#### [ Console ]
 
-Console###### To create an HSM (console)
+**To create an HSM (console)**
 
-1. Open the AWS CloudHSM console at
-   [https://console.aws.amazon.com/cloudhsm/home](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home").
-2. Select the radio button next to the ID of the cluster you want to create an HSM for.
-3. Select **Actions**. From the drop down menu, choose **Initialize**.
-4. Choose an Availability Zone (AZ) for the HSM that you are creating.
-5. Select **Create**.
-   After you create a cluster and HSM, you can optionally [verify the identity of the HSM](verify-hsm-identity.md "verify-hsm-identity.md"), or proceed directly to [Initialize the cluster](initialize-cluster.md "initialize-cluster.md").
+1. Open the AWS CloudHSM console at [https://console.aws.amazon.com/cloudhsm/home](https://console.aws.amazon.com/cloudhsm/home).
 
-AWS CLI###### To create an HSM ([AWS CLI](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md"))
+1. Select the radio button next to the ID of the cluster you want to create an HSM for.
 
-- At a command prompt, run the **[create-hsm](../../../cli/latest/reference/cloudhsmv2/create-hsm.md "../../../cli/latest/reference/cloudhsmv2/create-hsm.md")**
-  command. Specify the cluster ID of the cluster that you created previously and an
-  Availability Zone for the HSM. Specify the Availability Zone in the form of
-  `us-west-2a`, `us-west-2b`, etc.
+1. Select **Actions**. From the drop down menu, choose **Initialize**.
 
-```
-`$` `aws cloudhsmv2 create-hsm --cluster-id `<cluster ID>` --availability-zone `<Availability Zone>``
-`{
- "Hsm": {
- "HsmId": "hsm-ted36yp5b2x",
- "EniIp": "10.0.1.12",
- "EniIpV6": "2600:113f:404:be09:310e:ed34:3412:f733",
- "AvailabilityZone": "us-west-2a",
- "ClusterId": "cluster-igklspoyj5v",
- "EniId": "eni-5d7ade72",
- "SubnetId": "subnet-fd54af9b",
- "State": "CREATE_IN_PROGRESS"
- }
-}`
+1. Choose an Availability Zone (AZ) for the HSM that you are creating.
 
-```
+1. Select **Create**.
 
-After you create a cluster and HSM, you can optionally [verify the identity of the HSM](verify-hsm-identity.md "verify-hsm-identity.md"), or proceed directly to [Initialize the cluster](initialize-cluster.md "initialize-cluster.md").
+After you create a cluster and HSM, you can optionally [verify the identity of the HSM](verify-hsm-identity.md), or proceed directly to [Initialize the cluster](initialize-cluster.md).
 
-AWS CloudHSM API ###### To create an HSM (AWS CloudHSM API)
+------
+#### [ AWS CLI ]
 
-- Send a [CreateHsm](../APIReference/API_CreateHsm.md "../APIReference/API_CreateHsm.md") request. Specify the cluster ID of the cluster
-  that you created previously and an Availability Zone for the HSM.
+**To create an HSM ([AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/))**
++ At a command prompt, run the **[create-hsm](https://docs.aws.amazon.com/cli/latest/reference/cloudhsmv2/create-hsm.html)** command. Specify the cluster ID of the cluster that you created previously and an Availability Zone for the HSM. Specify the Availability Zone in the form of `us-west-2a`, `us-west-2b`, etc.
 
-After you create a cluster and HSM, you can optionally [verify the identity of the HSM](verify-hsm-identity.md "verify-hsm-identity.md"), or proceed directly to [Initialize the cluster](initialize-cluster.md "initialize-cluster.md").
+  ```
+  $ aws cloudhsmv2 create-hsm --cluster-id {{<cluster ID>}} --availability-zone {{<Availability Zone>}}
+  
+  {
+      "Hsm": {
+          "HsmId": "hsm-ted36yp5b2x",
+          "EniIp": "10.0.1.12",
+          "EniIpV6": "2600:113f:404:be09:310e:ed34:3412:f733",
+          "AvailabilityZone": "us-west-2a",
+          "ClusterId": "cluster-igklspoyj5v",
+          "EniId": "eni-5d7ade72",
+          "SubnetId": "subnet-fd54af9b",
+          "State": "CREATE_IN_PROGRESS"
+      }
+  }
+  ```
+
+After you create a cluster and HSM, you can optionally [verify the identity of the HSM](verify-hsm-identity.md), or proceed directly to [Initialize the cluster](initialize-cluster.md).
+
+------
+#### [ AWS CloudHSM API ]
+
+**To create an HSM (AWS CloudHSM API)**
++ Send a [CreateHsm](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html) request. Specify the cluster ID of the cluster that you created previously and an Availability Zone for the HSM. 
+
+After you create a cluster and HSM, you can optionally [verify the identity of the HSM](verify-hsm-identity.md), or proceed directly to [Initialize the cluster](initialize-cluster.md).
+
+------

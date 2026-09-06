@@ -1,29 +1,24 @@
+
+
 # HSM user permissions table for AWS CloudHSM Management Utility
+<a name="user-permissions-table-cmu"></a>
 
-The following table lists hardware security module (HSM( operations sorted by the type of HSM user or session that
-can perform the operation in AWS CloudHSM.
+The following table lists hardware security module (HSM( operations sorted by the type of HSM user or session that can perform the operation in AWS CloudHSM.
 
-|                                 | Crypto officer (CO) | Crypto User (CU) | Appliance User (AU) | Unauthenticated Session |
-| ------------------------------- | ------------------- | ---------------- | ------------------- | ----------------------- |
-| Get basic cluster info¹         | Yes                 | Yes              | Yes                 | Yes                     |
-| Change own password             | Yes                 | Yes              | Yes                 | Not applicable          |
-| Change any user's password      | Yes                 | No               | No                  | No                      |
-| Add, remove users               | Yes                 | No               | No                  | No                      |
-| Get sync status²                | Yes                 | Yes              | Yes                 | No                      |
-| Extract, insert masked objects³ | Yes                 | Yes              | Yes                 | No                      |
-| Key management functions⁴       | No                  | Yes              | No                  | No                      |
-| Encrypt, decrypt                | No                  | Yes              | No                  | No                      |
-| Sign, verify                    | No                  | Yes              | No                  | No                      |
-| Generate digests and HMACs      | No                  | Yes              | No                  | No                      |
 
-- [1] Basic cluster information includes the number of HSMs in the cluster and each
-  HSM's IP address, model, serial number, device ID, firmware ID, etc.
-- [2] The user can get a set of digests (hashes) that correspond to the keys on the
-  HSM. An application can compare these sets of digests to understand the synchronization
-  status of HSMs in a cluster.
-- [3] Masked objects are keys that are encrypted before they leave the HSM. They cannot
-  be decrypted outside of the HSM. They are only decrypted after they are inserted into an
-  HSM that is in the same cluster as the HSM from which they were extracted. An application
-  can extract and insert masked objects to synchronize the HSMs in a cluster.
-- [4] Key management functions include creating, deleting, wrapping, unwrapping, and
-  modifying the attributes of keys.
+|  | Crypto officer (CO) | Crypto User (CU) | Appliance User (AU) | Unauthenticated Session | 
+| --- | --- | --- | --- | --- | 
+| Get basic cluster info¹ | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | 
+| Change own password | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | Not applicable | 
+| Change any user's password | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | 
+| Add, remove users | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | 
+| Get sync status² | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | 
+| Extract, insert masked objects³ | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | 
+| Key management functions⁴ | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | 
+| Encrypt, decrypt | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | 
+| Sign, verify | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | 
+| Generate digests and HMACs | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/icon-no.png) No | 
++  [1] Basic cluster information includes the number of HSMs in the cluster and each HSM's IP address, model, serial number, device ID, firmware ID, etc. 
++  [2] The user can get a set of digests (hashes) that correspond to the keys on the HSM. An application can compare these sets of digests to understand the synchronization status of HSMs in a cluster. 
++  [3] Masked objects are keys that are encrypted before they leave the HSM. They cannot be decrypted outside of the HSM. They are only decrypted after they are inserted into an HSM that is in the same cluster as the HSM from which they were extracted. An application can extract and insert masked objects to synchronize the HSMs in a cluster. 
++  [4] Key management functions include creating, deleting, wrapping, unwrapping, and modifying the attributes of keys. 

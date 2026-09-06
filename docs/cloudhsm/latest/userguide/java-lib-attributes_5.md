@@ -1,105 +1,92 @@
+
+
 # Supported Java key attributes for AWS CloudHSM Client SDK 5
+<a name="java-lib-attributes_5"></a>
 
-This topic provides information about supported Java key attributes for AWS CloudHSM Client SDK 5. This
-topic describes how to use a proprietary extension for the JCE provider to set key attributes. Use
-this extension to set supported key attributes and their values during these
-operations:
+This topic provides information about supported Java key attributes for AWS CloudHSM Client SDK 5. This topic describes how to use a proprietary extension for the JCE provider to set key attributes. Use this extension to set supported key attributes and their values during these operations:
++ Key generation
++ Key import
 
-- Key generation
-- Key import
-  For examples of how to use key attributes, see [Code samples for the AWS CloudHSM software library for Java for Client SDK 5](java-samples.md "java-samples.md").
+For examples of how to use key attributes, see [Code samples for the AWS CloudHSM software library for Java for Client SDK 5](java-samples.md).
 
-###### Topics
-
-- [Understanding attributes](#java-understanding-attributes_5 "#java-understanding-attributes_5")
-- [Supported attributes](#java-attributes_5 "#java-attributes_5")
-- [Setting attributes for a key](#java-setting-attributes_5 "#java-setting-attributes_5")
+**Topics**
++ [Understanding attributes](#java-understanding-attributes_5)
++ [Supported attributes](#java-attributes_5)
++ [Setting attributes for a key](#java-setting-attributes_5)
 
 ## Understanding attributes
+<a name="java-understanding-attributes_5"></a>
 
-Use key attributes to specify what actions are permitted on key objects, including public, private or secret keys.
-Key attributes and values are defined during key object creation operations.
+Use key attributes to specify what actions are permitted on key objects, including public, private or secret keys. Key attributes and values are defined during key object creation operations. 
 
-The Java Cryptography Extension (JCE) does not specify how you should set values on
-key attributes, so most actions were permitted by default. In contrast, the PKCS# 11
-standard defines a comprehensive set of attributes with more restrictive defaults.
-Starting with the JCE provider 3.1, AWS CloudHSM provides a proprietary extension
-that enables you to set more restrictive values for commonly used attributes.
+The Java Cryptography Extension (JCE) does not specify how you should set values on key attributes, so most actions were permitted by default. In contrast, the PKCS\# 11 standard defines a comprehensive set of attributes with more restrictive defaults. Starting with the JCE provider 3.1, AWS CloudHSM provides a proprietary extension that enables you to set more restrictive values for commonly used attributes. 
 
 ## Supported attributes
+<a name="java-attributes_5"></a>
 
-You can set values for the attributes listed in the following table. As a best practice,
-only set values for attributes you wish to make restrictive. If you don’t specify a
-value, AWS CloudHSM uses the default value specified in the table below. An empty cell in
-the Default Value columns indicates that there is no specific default value assigned to
-the attribute.
+You can set values for the attributes listed in the following table. As a best practice, only set values for attributes you wish to make restrictive. If you don’t specify a value, AWS CloudHSM uses the default value specified in the table below. An empty cell in the Default Value columns indicates that there is no specific default value assigned to the attribute.
 
-| Attribute           | Default Value | Notes                                                    |
-| ------------------- | ------------- | -------------------------------------------------------- |
-|                     | Symmetric Key | Public Key in Key Pair                                   | Private Key in Key Pair                                  |                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `DECRYPT`           | `TRUE`        |                                                          | `TRUE`[1](#java-attr-note-eddsa "#java-attr-note-eddsa") | True indicates you can use the key to<br>decrypt any buffer. You generally set this to FALSE for a key whose WRAP is<br>set to true.                                                                                                                                                                                                                                                                           |
-| `DERIVE`            |               |                                                          |                                                          | Allows a key to be used to derive other keys.                                                                                                                                                                                                                                                                                                                                                                  |
-| `ENCRYPT`           | `TRUE`        | `TRUE`[1](#java-attr-note-eddsa "#java-attr-note-eddsa") |                                                          | True indicates you can use the key to encrypt any<br>buffer.                                                                                                                                                                                                                                                                                                                                                   |
-| `EXTRACTABLE`       | `TRUE`        |                                                          | `TRUE`                                                   | True indicates you can export this key out<br>of the HSM.                                                                                                                                                                                                                                                                                                                                                      |
-| `ID`                |               |                                                          |                                                          | A user-defined value used to identify the key.                                                                                                                                                                                                                                                                                                                                                                 |
-| `KEY_TYPE`          |               |                                                          |                                                          | Used to identify the type of key (AES, DESede, generic secret, EC, RSA, or ML-DSA).                                                                                                                                                                                                                                                                                                                            |
-| `LABEL`             |               |                                                          |                                                          | A user-defined string allowing you to conveniently identify keys on your HSM.<br>To follow best practice, use a unique label for each key so it is easier to find later.                                                                                                                                                                                                                                       |
-| `LOCAL`             |               |                                                          |                                                          | Indicates a key generated by the HSM.                                                                                                                                                                                                                                                                                                                                                                          |
-| `MLDSA_ALGORITHM`   |               |                                                          |                                                          | Specifies the ML-DSA parameter set used for ML-DSA key pair generation. Valid values: ML-DSA-44, ML-DSA-65, and ML-DSA-87.                                                                                                                                                                                                                                                                                     |
-| `OBJECT_CLASS`      |               |                                                          |                                                          | Used to identify the Object Class of a key (SecretKey, PublicKey or PrivateKey).                                                                                                                                                                                                                                                                                                                               |
-| `PRIVATE`           | `TRUE`        | `TRUE`                                                   | `TRUE`                                                   | True indicates that a user may not access<br>the key until the user is authenticated. For clarity, users cannot access<br>any keys on AWS CloudHSM until they are authenticated, even if this attribute is<br>set to FALSE.                                                                                                                                                                                    |
-| `SIGN`              | `TRUE`        |                                                          | `TRUE`                                                   | True indicates you can use the key to sign a message<br>digest. This is generally set to FALSE for public keys and for private keys<br>that you have archived.                                                                                                                                                                                                                                                 |
-| `SIZE`              |               |                                                          |                                                          | An attribute that defines the size of a key. For more details about supported key sizes, refer to<br>[Supported mechanisms for Client SDK 5](java-lib-supported_5.md#java-keys_5 "java-lib-supported_5.md#java-keys_5").                                                                                                                                                                                       |
-| `TOKEN`             | `FALSE`       | `FALSE`                                                  | `FALSE`                                                  | A permanent key which is replicated across all HSMs in the cluster and<br>included in backups. TOKEN = FALSE implies an ephemeral key which is<br>automatically erased when the connection to the HSM is broken or logged<br>out.                                                                                                                                                                              |
-| `UNWRAP`            | `TRUE`        |                                                          | `TRUE`[1](#java-attr-note-eddsa "#java-attr-note-eddsa") | True indicates you can use the key to<br>unwrap (import) another key.                                                                                                                                                                                                                                                                                                                                          |
-| `VERIFY`            | `TRUE`        | `TRUE`                                                   |                                                          | True indicates you can use the key to verify a signature.<br>This is generally set to FALSE for private keys.                                                                                                                                                                                                                                                                                                  |
-| `WRAP`              | `TRUE`        | `TRUE`[1](#java-attr-note-eddsa "#java-attr-note-eddsa") |                                                          | True indicates you can use the key to wrap<br>another key. You will generally set this to FALSE for private keys.                                                                                                                                                                                                                                                                                              |
-| `WRAP_WITH_TRUSTED` | `FALSE`       |                                                          | `FALSE`                                                  | True indicates a key can only be wrapped and unwrapped with keys that have the<br>`TRUSTED` attribute set to true. Once a key has `WRAP_WITH_TRUSTED` set to true, that attribute is read-only and can’t be set to false.<br>To read about trust wrapping, see [Using trusted keys to control key unwraps](cloudhsm_using_trusted_keys_control_key_wrap.md "cloudhsm_using_trusted_keys_control_key_wrap.md"). |
+
+
+<table>
+<thead>
+  <tr><th>Attribute</th><th colspan="3">Default Value</th><th>Notes</th></tr>
+  <tr><th></th><th>Symmetric Key</th><th>Public Key in Key Pair</th><th>Private Key in Key Pair</th><th></th></tr>
+</thead>
+<tbody>
+  <tr><td><code>DECRYPT</code></td><td><code>TRUE</code></td><td></td><td><code>TRUE</code><a href="#java-attr-note-eddsa">1</a></td><td>True indicates you can use the key to decrypt any buffer. You generally set this to FALSE for a key whose WRAP is set to true. </td></tr>
+  <tr><td><code>DERIVE</code></td><td></td><td></td><td></td><td>Allows a key to be used to derive other keys.</td></tr>
+  <tr><td><code>ENCRYPT</code></td><td><code>TRUE</code></td><td><code>TRUE</code><a href="#java-attr-note-eddsa">1</a></td><td></td><td>True indicates you can use the key to encrypt any buffer.</td></tr>
+  <tr><td><code>EXTRACTABLE</code></td><td><code>TRUE</code></td><td></td><td><code>TRUE</code></td><td>True indicates you can export this key out of the HSM.</td></tr>
+  <tr><td><code>ID</code></td><td><code></code></td><td></td><td><code></code></td><td>A user-defined value used to identify the key.</td></tr>
+  <tr><td><code>KEY_TYPE</code></td><td></td><td></td><td></td><td>Used to identify the type of key (AES, DESede, generic secret, EC, RSA, or ML-DSA).</td></tr>
+  <tr><td><code>LABEL</code></td><td> </td><td></td><td></td><td>A user-defined string allowing you to conveniently identify keys on your HSM. To follow best practice, use a unique label for each key so it is easier to find later.</td></tr>
+  <tr><td><code>LOCAL</code></td><td></td><td></td><td></td><td>Indicates a key generated by the HSM.</td></tr>
+  <tr><td><code>MLDSA_ALGORITHM</code></td><td></td><td></td><td></td><td>Specifies the ML-DSA parameter set used for ML-DSA key pair generation. Valid values: ML-DSA-44, ML-DSA-65, and ML-DSA-87.</td></tr>
+  <tr><td><code>OBJECT_CLASS</code></td><td></td><td></td><td></td><td>Used to identify the Object Class of a key (SecretKey, PublicKey or PrivateKey).</td></tr>
+  <tr><td><code>PRIVATE</code></td><td><code>TRUE</code></td><td><code>TRUE</code></td><td><code>TRUE</code></td><td>True indicates that a user may not access the key until the user is authenticated. For clarity, users cannot access any keys on AWS CloudHSM until they are authenticated, even if this attribute is set to FALSE.</td></tr>
+  <tr><td><code>SIGN</code></td><td><code>TRUE</code></td><td></td><td><code>TRUE</code></td><td>True indicates you can use the key to sign a message digest. This is generally set to FALSE for public keys and for private keys that you have archived.</td></tr>
+  <tr><td><code>SIZE</code></td><td></td><td></td><td></td><td>An attribute that defines the size of a key. For more details about supported key sizes, refer to <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/java-lib-supported_5.html#java-keys_5">Supported mechanisms for Client SDK 5</a>.</td></tr>
+  <tr><td><code>TOKEN</code></td><td><code>FALSE</code></td><td><code>FALSE</code></td><td><code>FALSE</code></td><td>A permanent key which is replicated across all HSMs in the cluster and included in backups. TOKEN = FALSE implies an ephemeral key which is automatically erased when the connection to the HSM is broken or logged out.</td></tr>
+  <tr><td><code>UNWRAP</code></td><td><code>TRUE</code></td><td></td><td><code>TRUE</code><a href="#java-attr-note-eddsa">1</a></td><td>True indicates you can use the key to unwrap (import) another key.</td></tr>
+  <tr><td><code>VERIFY</code></td><td><code>TRUE</code></td><td><code>TRUE</code></td><td></td><td>True indicates you can use the key to verify a signature. This is generally set to FALSE for private keys.</td></tr>
+  <tr><td><code>WRAP</code></td><td><code>TRUE</code></td><td><code>TRUE</code><a href="#java-attr-note-eddsa">1</a></td><td></td><td>True indicates you can use the key to wrap another key. You will generally set this to FALSE for private keys.</td></tr>
+  <tr><td><code>WRAP_WITH_TRUSTED</code></td><td><code>FALSE</code></td><td></td><td><code>FALSE</code></td><td>True indicates a key can only be wrapped and unwrapped with keys that have the <code>TRUSTED</code> attribute set to true. Once a key has <code>WRAP_WITH_TRUSTED</code> set to true, that attribute is read-only and can’t be set to false. To read about trust wrapping, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/cloudhsm_using_trusted_keys_control_key_wrap.html">Using trusted keys to control key unwraps</a>.</td></tr>
+</tbody>
+</table>
+
 
 [1] For Ed25519 keys, ENCRYPT, WRAP, DECRYPT, and UNWRAP are not functional. Ed25519 keys are signing-only and do not support encryption or wrapping operations. When importing Ed25519 keys, these attributes are set to FALSE.
 
-###### Note
-
-You get broader support for attributes in the PKCS#11 library. For more information, see
-[Supported PKCS #11 Attributes](pkcs11-attributes.md "pkcs11-attributes.md").
+**Note**  
+You get broader support for attributes in the PKCS\#11 library. For more information, see [Supported PKCS \#11 Attributes](pkcs11-attributes.md).
 
 ## Setting attributes for a key
+<a name="java-setting-attributes_5"></a>
 
-`KeyAttributesMap` is a Java
-Map-like object, which you can use to set attribute values for key objects. The
-methods for `KeyAttributesMap` function similar to the methods used
-for Java map manipulation.
+`KeyAttributesMap` is a Java Map-like object, which you can use to set attribute values for key objects. The methods for `KeyAttributesMap` function similar to the methods used for Java map manipulation. 
 
 To set custom values on attributes, you have two options:
-
-- Use the methods listed in the following table
-- Use builder patterns demonstrated later in this document
++ Use the methods listed in the following table
++ Use builder patterns demonstrated later in this document
 
 Attribute map objects support the following methods to set attributes:
 
-| Operation                                            | Return Value                                                                                                   | `KeyAttributesMap` method    |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| Get the value of a key attribute for an existing key | Object (containing the value) or _null_                                                                        | **get**(keyAttribute)        |
-| Populate the value of one key attribute              | The previous value associated with key attribute, or *null<br>• if there was no mapping for a key attribute    | **put**(keyAttribute, value) |
-| Populate values for multiple key attributes          | N/A                                                                                                            | **putAll**(keyAttributesMap) |
-| Remove a key-value pair from the attribute map       | The previous value associated with key attribute, or *null<br>• if there was no mapping for a key<br>attribute | **remove**(keyAttribute)     |
 
-###### Note
 
-Any attributes you do not explicitly specify are set to the defaults listed in the preceding
-table in [Supported attributes](#java-attributes_5 "#java-attributes_5").
+| Operation | Return Value | `KeyAttributesMap` method | 
+| --- | --- | --- | 
+| Get the value of a key attribute for an existing key | Object (containing the value) or null | **get**(keyAttribute) | 
+| Populate the value of one key attribute  | The previous value associated with key attribute, or null if there was no mapping for a key attribute | **put**(keyAttribute, value) | 
+| Populate values for multiple key attributes | N/A | **putAll**(keyAttributesMap) | 
+| Remove a key-value pair from the attribute map | The previous value associated with key attribute, or *null* if there was no mapping for a key attribute | **remove**(keyAttribute) | 
+
+**Note**  
+Any attributes you do not explicitly specify are set to the defaults listed in the preceding table in [Supported attributes](#java-attributes_5). 
 
 ### Setting attributes for a key pair
+<a name="java-setting-attributes-key-pair"></a>
 
-Use the Java class `KeyPairAttributesMap` to handle key attributes for a
-key pair. `KeyPairAttributesMap` encapsulates two
-`KeyAttributesMap` objects; one for a public key and one for
-a private key.
+Use the Java class `KeyPairAttributesMap` to handle key attributes for a key pair. `KeyPairAttributesMap` encapsulates two `KeyAttributesMap` objects; one for a public key and one for a private key.
 
-To set individual attributes for the public key and private key separately, you can use the
-`put()` method on corresponding `KeyAttributes`
-map object for that key. Use the `getPublic()` method to retrieve the
-attribute map for the public key, and use `getPrivate()` to retrieve the
-attribute map for the private key. Populate the value of multiple key attributes
-together for both public and private key pairs using the `putAll()` with
-a key pair attributes map as its argument.
+To set individual attributes for the public key and private key separately, you can use the `put()` method on corresponding `KeyAttributes` map object for that key. Use the `getPublic()` method to retrieve the attribute map for the public key, and use `getPrivate()` to retrieve the attribute map for the private key. Populate the value of multiple key attributes together for both public and private key pairs using the `putAll()` with a key pair attributes map as its argument.

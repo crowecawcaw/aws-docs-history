@@ -1,6 +1,9 @@
-# Sign a JAR file using AWS CloudHSM and Jarsigner
 
-Use the following command to sign a JAR file using AWS CloudHSM and jarsigner:
+
+# Sign a JAR file using AWS CloudHSM and Jarsigner
+<a name="jarsigner_sign_jar_using_hsm_jarsigner"></a>
+
+Use the following command to sign a JAR file using AWS CloudHSM and jarsigner: 
 
 ```
 jarsigner -keystore example_keystore.store \
@@ -9,11 +12,10 @@ jarsigner -keystore example_keystore.store \
         -storetype CloudHSM \
         -J-classpath '-J/opt/cloudhsm/java/*:/usr/lib/jvm/java-1.8.0/lib/tools.jar' \
         -J-Djava.library.path=/opt/cloudhsm/lib \
-        signthisclass.jar `<key pair label>`
-
+        signthisclass.jar {{<key pair label>}}
 ```
 
-Use the following command to verify a signed JAR:
+Use the following command to verify a signed JAR: 
 
 ```
 jarsigner -verify \
@@ -22,6 +24,5 @@ jarsigner -verify \
         -storetype CloudHSM \
         -J-classpath '-J/opt/cloudhsm/java/*:/usr/lib/jvm/java-1.8.0/lib/tools.jar' \
         -J-Djava.library.path=/opt/cloudhsm/lib \
-        signthisclass_signed.jar `<key pair label>`
-
+        signthisclass_signed.jar {{<key pair label>}}
 ```

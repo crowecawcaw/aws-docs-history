@@ -1,92 +1,89 @@
+
+
 # Known issues for AWS CloudHSM hsm2m.medium instances
+<a name="ki-hsm2m-medium"></a>
 
-The following issues impact all AWS CloudHSM hsm2m.medium instances.
+The following issues impact all AWS CloudHSM hsm2m.medium instances. 
 
-###### Topics
-
-- [Issue: Increased login latency on hsm2m.medium](#ki-hsm2m-medium-1 "#ki-hsm2m-medium-1")
-- [Issue: Increased find key latency on hsm2m.medium](#ki-hsm2m-medium-2 "#ki-hsm2m-medium-2")
-- [Issue: A CO using trying to set the trusted attribute of a key will fail with Client SDK 5.12.0 and earlier](#ki-hsm2m-medium-3 "#ki-hsm2m-medium-3")
-- [Issue: ECDSA verify will fail with Client SDK 5.12.0 and earlier for clusters in FIPS mode](#ki-hsm2m-medium-4 "#ki-hsm2m-medium-4")
-- [Issue: Only the PEM-formatted certificates can be registered as mtls trust anchors with CloudHSM CLI](#ki-hsm2m-medium-5 "#ki-hsm2m-medium-5")
-- [Issue: Customer applications will stop processing all requests when using mTLS with a passphrase protected client private key.](#ki-hsm2m-medium-6 "#ki-hsm2m-medium-6")
-- [Issue: User replicate fails when using the CloudHSM CLI](#ki-hsm2m-medium-7 "#ki-hsm2m-medium-7")
-- [Issue: Operations can fail during backup creation](#ki-hsm2m-medium-8 "#ki-hsm2m-medium-8")
-- [Issue: Client SDK 5.8 and above do not perform automatic retries for HSM throttled operations in some scenarios on hsm2m.medium](#ki-hsm2m-medium-9 "#ki-hsm2m-medium-9")
-- [Issue: AES/CBC unwrap operations with all zero IV fails on hsm2m.medium](#ki-hsm2m-medium-10 "#ki-hsm2m-medium-10")
-- [Issue: Failure to initialize HSM connection during application cold starts on hsm2m.medium](#ki-hsm2m-medium-11 "#ki-hsm2m-medium-11")
+**Topics**
++ [Issue: Increased login latency on hsm2m.medium](#ki-hsm2m-medium-1)
++ [Issue: Increased find key latency on hsm2m.medium](#ki-hsm2m-medium-2)
++ [Issue: A CO using trying to set the trusted attribute of a key will fail with Client SDK 5.12.0 and earlier](#ki-hsm2m-medium-3)
++ [Issue: ECDSA verify will fail with Client SDK 5.12.0 and earlier for clusters in FIPS mode](#ki-hsm2m-medium-4)
++ [Issue: Only the PEM-formatted certificates can be registered as mtls trust anchors with CloudHSM CLI](#ki-hsm2m-medium-5)
++ [Issue: Customer applications will stop processing all requests when using mTLS with a passphrase protected [client private key](getting-started-setup-mtls.md#getting-start-setup-mtl-sdk).](#ki-hsm2m-medium-6)
++ [Issue: User replicate fails when using the CloudHSM CLI](#ki-hsm2m-medium-7)
++ [Issue: Operations can fail during backup creation](#ki-hsm2m-medium-8)
++ [Issue: Client SDK 5.8 and above do not perform automatic retries for HSM throttled operations in some scenarios on hsm2m.medium](#ki-hsm2m-medium-9)
++ [Issue: AES/CBC unwrap operations with all zero IV fails on hsm2m.medium](#ki-hsm2m-medium-10)
++ [Issue: Failure to initialize HSM connection during application cold starts on hsm2m.medium](#ki-hsm2m-medium-11)
 
 ## Issue: Increased login latency on hsm2m.medium
-
-- **Impact:** Logging into hsm2m.medium follows overly strict interpretation of compliance requirements, which results in increased latency.
-- **Resolution:** If you created a new hsm2m.medium instance or migrated to hsm2m.medium from hsm1.medium before December 20th, 2025, you will need to reset your password to take advantage of performance improvements we have implemented for login operations. Refer to the [change-password](cloudhsm_cli-user-change-password.md "cloudhsm_cli-user-change-password.md") for instructions.
+<a name="ki-hsm2m-medium-1"></a>
++ **Impact: **Logging into hsm2m.medium follows overly strict interpretation of compliance requirements, which results in increased latency.
++ **Resolution: **If you created a new hsm2m.medium instance or migrated to hsm2m.medium from hsm1.medium before December 20th, 2025, you will need to reset your password to take advantage of performance improvements we have implemented for login operations. Refer to the [change-password](cloudhsm_cli-user-change-password.md) for instructions.
 
 ## Issue: Increased find key latency on hsm2m.medium
-
-- **Impact:** The hsm2m.medium HSM instance has improved fair share architecture which results in more consistent predictable performance compared to hsm1.medium. With hsm1.medium, customers may observe higher find key performance due to irregular use of HSM resources. However, hsm1.medium find key performance will decrease when the HSM instance is patched or updated with new firmware. This issue affects operations such as `KeyStore.getKey()` in JCE.
-- **Resolution:** This issue has been resolved. As best practice, cache the results from find key operations. Caching will reduce the total number of find key operations as it is a resource intensive operation in HSM. In addition, implement client-side retries with exponential backoff and jitter to reduce HSM throttling failures.
+<a name="ki-hsm2m-medium-2"></a>
++ **Impact: **The hsm2m.medium HSM instance has improved fair share architecture which results in more consistent predictable performance compared to hsm1.medium. With hsm1.medium, customers may observe higher find key performance due to irregular use of HSM resources. However, hsm1.medium find key performance will decrease when the HSM instance is patched or updated with new firmware. This issue affects operations such as `KeyStore.getKey()` in JCE.
++ **Resolution: **This issue has been resolved. As best practice, cache the results from find key operations. Caching will reduce the total number of find key operations as it is a resource intensive operation in HSM. In addition, implement client-side retries with exponential backoff and jitter to reduce HSM throttling failures.
 
 ## Issue: A CO using trying to set the trusted attribute of a key will fail with Client SDK 5.12.0 and earlier
+<a name="ki-hsm2m-medium-3"></a>
 
-- **Impact:** Any CO user attempting to set the trusted attribute of a key will receive an error indicating that `User type should be CO or CU`.
-- **Resolution:** Future versions of the Client SDK will resolve this issue. Updates will be announced in our user guide's [Document history](document-history.md "document-history.md").
+ 
++ **Impact: **Any CO user attempting to set the trusted attribute of a key will receive an error indicating that `User type should be CO or CU`.
++ **Resolution: **Future versions of the Client SDK will resolve this issue. Updates will be announced in our user guide's [Document history](document-history.md).
 
 ## Issue: ECDSA verify will fail with Client SDK 5.12.0 and earlier for clusters in FIPS mode
+<a name="ki-hsm2m-medium-4"></a>
 
-- **Impact:** ECDSA verify operation performed for HSMs in FIPS mode will fail.
-- **Resolution status:** This issue has been resolved in the [client SDK 5.13.0 release](client-version-previous.md#client-version-5-13-0 "client-version-previous.md#client-version-5-13-0"). You must upgrade to this client version or later to benefit from the fix.
+ 
++ **Impact: **ECDSA verify operation performed for HSMs in FIPS mode will fail.
++ **Resolution status: **This issue has been resolved in the [client SDK 5.13.0 release](client-version-previous.md#client-version-5-13-0). You must upgrade to this client version or later to benefit from the fix.
 
 ## Issue: Only the PEM-formatted certificates can be registered as mtls trust anchors with CloudHSM CLI
+<a name="ki-hsm2m-medium-5"></a>
 
-- **Impact:** Certificates in DER format cannot be registered as mTLS trust anchors with CloudHSM CLI.
-- **Workaround:** You can convert a certificate in DER format to PEM format with openssl command: `openssl x509 -inform DER -outform PEM -in `certificate.der`-out`certificate.pem``
+ 
++ **Impact: **Certificates in DER format cannot be registered as mTLS trust anchors with CloudHSM CLI.
++ **Workaround: **You can convert a certificate in DER format to PEM format with openssl command: `openssl x509 -inform DER -outform PEM -in {{certificate.der}} -out {{certificate.pem}}`
 
-## Issue: Customer applications will stop processing all requests when using mTLS with a passphrase protected [client private key](getting-started-setup-mtls.md#getting-start-setup-mtl-sdk "getting-started-setup-mtls.md#getting-start-setup-mtl-sdk").
+## Issue: Customer applications will stop processing all requests when using mTLS with a passphrase protected [client private key](getting-started-setup-mtls.md#getting-start-setup-mtl-sdk).
+<a name="ki-hsm2m-medium-6"></a>
 
-- **Impact:** All operations performed by the application will be halted and the user will be prompted for the passphrase on standard input multiple times throughout the lifetime of application. Operations will timeout and fail if passphrase is not provided before the operation's timeout duration.
-- **Workaround:** Passphrase encrypted private keys are not supported for mTLS. Remove passphrase encryption from client private key
+ 
++ **Impact: **All operations performed by the application will be halted and the user will be prompted for the passphrase on standard input multiple times throughout the lifetime of application. Operations will timeout and fail if passphrase is not provided before the operation's timeout duration.
++ **Workaround: **Passphrase encrypted private keys are not supported for mTLS. Remove passphrase encryption from client private key
 
 ## Issue: User replicate fails when using the CloudHSM CLI
+<a name="ki-hsm2m-medium-7"></a>
 
-- **Impact:** User replication fails on hsm2m.medium instances when using the CloudHSM CLI.
-  The `user replicate` command works as expected on hsm1.medium instances.
-- **Resolution:** This issue has been resolved.
+ 
++ **Impact: **User replication fails on hsm2m.medium instances when using the CloudHSM CLI. The `user replicate` command works as expected on hsm1.medium instances.
++ **Resolution: **This issue has been resolved.
 
 ## Issue: Operations can fail during backup creation
+<a name="ki-hsm2m-medium-8"></a>
++ **Impact: **Operations like generating random numbers can fail on hsm2m.medium instances while AWS CloudHSM creates a backup.
++ **Resolution: **To minimize service interruptions, implement these best practices:
+  + Create a multi-HSM cluster
+  + Configure your applications to retry cluster operations
 
-- **Impact:** Operations like generating random numbers can fail
-  on hsm2m.medium instances while AWS CloudHSM creates a backup.
-- **Resolution:** To minimize service interruptions, implement these
-  best practices:
-
-  - Create a multi-HSM cluster
-  - Configure your applications to retry cluster operations
-    For more information about best practices, see [Best practices for AWS CloudHSM](best-practices.md "best-practices.md").
+  For more information about best practices, see [Best practices for AWS CloudHSM](best-practices.md).
 
 ## Issue: Client SDK 5.8 and above do not perform automatic retries for HSM throttled operations in some scenarios on hsm2m.medium
-
-- **Impact:** Client SDK 5.8 and above will not retry some HSM
-  throttled operations
-- **Workaround:** Follow best practices to architect your cluster
-  to handle load and implement application level retries. We are currently working on a fix.
-  Updates will be announced in our user guide's [Document history](document-history.md "document-history.md").
-- **Resolution status:** This issue has been resolved in the AWS CloudHSM Client SDK 5.16.2.
-  You must upgrade to this client version or later to benefit from the fix.
+<a name="ki-hsm2m-medium-9"></a>
++ **Impact: **Client SDK 5.8 and above will not retry some HSM throttled operations
++ **Workaround: **Follow best practices to architect your cluster to handle load and implement application level retries. We are currently working on a fix. Updates will be announced in our user guide's [Document history](document-history.md).
++ **Resolution status:** This issue has been resolved in the AWS CloudHSM Client SDK 5.16.2. You must upgrade to this client version or later to benefit from the fix. 
 
 ## Issue: AES/CBC unwrap operations with all zero IV fails on hsm2m.medium
-
-- **Impact:** When using AES/CBC mechanism for unwrapping keys using the AWS CloudHSM JCE provider, operations with a 16-byte zero-filled IV fails on hsm2m.medium instances, due to an added validation check that was not in hsm1.medium instances.
-- **Resolution Status:** We are working on a fix that will allow zero-byte IVs to be accepted during AES/CBC unwrap operations.
+<a name="ki-hsm2m-medium-10"></a>
++ **Impact: **When using AES/CBC mechanism for unwrapping keys using the AWS CloudHSM JCE provider, operations with a 16-byte zero-filled IV fails on hsm2m.medium instances, due to an added validation check that was not in hsm1.medium instances.
++ **Resolution Status: **We are working on a fix that will allow zero-byte IVs to be accepted during AES/CBC unwrap operations.
 
 ## Issue: Failure to initialize HSM connection during application cold starts on hsm2m.medium
-
-- **Impact:** This issue affects cold starts such as client application
-  deployments or restarts. The hsm2m.medium HSM instance has improved fair share architecture which
-  ensures more consistent performance, throughput, and latency for all customers. At present on hsm1.medium,
-  you may observe higher than intended performance for concurrent HSM connection initialization. However,
-  hsm1.medium connection initialization performance will vary based on underlying system updates.
-- **Resolution:** Follow [best practices](bp-application-integration.md#bp-stagger-deployment "bp-application-integration.md#bp-stagger-deployment")
-  and stagger client application deployments and restarts to limit the amount of client applications
-  initializing HSM connections concurrently. We also recommend that you implement application level retries
-  for client application initialization. In addition, bootstrap using configure tool with
-  `--cluster-id <cluster ID>` to add all HSM IP's to the client configuration file. This behavior has been improved in AWS CloudHSM Client SDK version 5.17.1 and later. We recommend upgrading to the latest SDK version to benefit from this improvement.
+<a name="ki-hsm2m-medium-11"></a>
++ **Impact: **This issue affects cold starts such as client application deployments or restarts. The hsm2m.medium HSM instance has improved fair share architecture which ensures more consistent performance, throughput, and latency for all customers. At present on hsm1.medium, you may observe higher than intended performance for concurrent HSM connection initialization. However, hsm1.medium connection initialization performance will vary based on underlying system updates.
++ **Resolution: **Follow [best practices](bp-application-integration.md#bp-stagger-deployment) and stagger client application deployments and restarts to limit the amount of client applications initializing HSM connections concurrently. We also recommend that you implement application level retries for client application initialization. In addition, bootstrap using configure tool with `--cluster-id <cluster ID>` to add all HSM IP's to the client configuration file. This behavior has been improved in AWS CloudHSM Client SDK version 5.17.1 and later. We recommend upgrading to the latest SDK version to benefit from this improvement.
