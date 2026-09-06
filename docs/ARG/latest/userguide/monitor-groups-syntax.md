@@ -1,16 +1,16 @@
+
+
 # Structure and syntax of Resource Groups lifecycle events
+<a name="monitor-groups-syntax"></a>
 
-###### Note
+**Note**  
+AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers. For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information, see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md).
 
-AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups is no longer open to new customers.
-For capabilities similar to Group Lifecycle Events (GLE), see the recommended EventBridge-based alternative. For more information,
-see [Group Lifecycle Events feature of AWS Resource Groups availability change](resource-groups-gle-availability-change.md "resource-groups-gle-availability-change.md").
+**Topics**
++ [Structure of the `detail` field](monitor-groups-syntax-detail.md)
++ [Example EventBridge custom event patterns for different use cases](monitor-groups-example-eventbridge-filters.md)
 
-###### Topics
-
-- [Structure of the detail field](monitor-groups-syntax-detail.md "monitor-groups-syntax-detail.md")
-- [Example EventBridge custom event patterns for different use cases](monitor-groups-example-eventbridge-filters.md "monitor-groups-example-eventbridge-filters.md")
-  The lifecycle events for AWS Resource Groups take the form of [JSON](https://json.org "https://json.org") object strings in the following general format.
+The lifecycle events for AWS Resource Groups take the form of [JSON](https://json.org) object strings in the following general format.
 
 ```
 {
@@ -30,13 +30,12 @@ see [Group Lifecycle Events feature of AWS Resource Groups availability change](
 }
 ```
 
-For details about the fields common to all Amazon EventBridge events, see [Amazon EventBridge events](../../../eventbridge/latest/userguide/aws-events.md "../../../eventbridge/latest/userguide/aws-events.md") in the
-_Amazon EventBridge User Guide_. Details that are specific to Resource Groups
-are explained in the following table.
+For details about the fields common to all Amazon EventBridge events, see [Amazon EventBridge events](https://docs.aws.amazon.com/eventbridge/latest/userguide/aws-events.html) in the *Amazon EventBridge User Guide*. Details that are specific to Resource Groups are explained in the following table.
 
-| Field name    | Type                                     | Description                                                                                                                                                                                                                                                                                                                                          |
-| ------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `detail-type` | String                                   | For Resource Groups, the `detail-type` field is always one of the<br>following values:<br>• `ResourceGroups Group State Change`<br>– Represents changes to the overall group state and its<br>properties.<br>• `ResourceGroups Group Membership Change`<br>– Represents changes to the group membership.                                             |
-| `source`      | String                                   | For Resource Groups, this value is **always**<br>`"aws.resource-groups"`.                                                                                                                                                                                                                                                                            |
-| `resources`   | An array of Amazon Resource Names (ARNs) | This field always includes the [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") of the group with the<br>change that triggered this event.<br>This field can also include the ARNs of any resources added to or<br>removed from the group, if applicable. |
-| `detail`      | JSON object string                       | This is the payload of the event. The contents of the `detail`<br>field vary based on the value of the `detail-type`. [See the next section for more<br>information.](monitor-groups-syntax-detail.md "monitor-groups-syntax-detail.md")                                                                                                             |
+
+| Field name | Type | Description | 
+| --- | --- | --- | 
+| detail-type | String | For Resource Groups, the `detail-type` field is always one of the following values:+  `ResourceGroups Group State Change` – Represents changes to the overall group state and its properties. <br />+  `ResourceGroups Group Membership Change` – Represents changes to the group membership.   | 
+| source | String | For Resource Groups, this value is always "aws.resource-groups". | 
+| resources | An array of Amazon Resource Names (ARNs) | This field always includes the [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the group with the change that triggered this event.<br />This field can also include the ARNs of any resources added to or removed from the group, if applicable. | 
+| `detail` | JSON object string | This is the payload of the event. The contents of the detail field vary based on the value of the detail-type. [See the next section for more information.](monitor-groups-syntax-detail.md) | 
