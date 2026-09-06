@@ -1,132 +1,122 @@
-# Module 3: Create Build Project
 
-|                      |                                                          |
-| -------------------- | -------------------------------------------------------- |
-| **Time to complete** | 5 minutes                                                |
-| **Services used**    | [AWS CodeBuild](https://codebuild/ "https://codebuild/") |
+
+# Module 3: Create Build Project
+<a name="module-three"></a>
+
+
+|  |  | 
+| --- |--- |
+| **Time to complete** | 5 minutes  | 
+| **Services used** | [AWS CodeBuild](https://codebuild/)  | 
 
 ## Overview
+<a name="overview"></a>
 
-In this module, you will use
-[AWS CodeBuild](https://aws.amazon.com/codebuild/ "https://aws.amazon.com/codebuild/") to
-build the source code previously stored in your GitHub repository.
-AWS CodeBuild is a fully managed continuous integration service
-that compiles source code, runs tests, and produces software
-packages that are ready to deploy.
+In this module, you will use [AWS CodeBuild](https://aws.amazon.com/codebuild/) to build the source code previously stored in your GitHub repository. AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. 
 
 ## What you will accomplish
+<a name="what-you-will-accomplish"></a>
 
-In this module, you will:
-
-- Create a build project with AWS CodeBuild
-- Set up GitHub as the source provider for a build project
-- Run a build on AWS CodeBuild
+In this module, you will: 
++ Create a build project with AWS CodeBuild 
++ Set up GitHub as the source provider for a build project 
++ Run a build on AWS CodeBuild 
 
 ## Key concepts
+<a name="key-concepts"></a>
 
-**Build process—**Process that
-converts source code files into an executable software artifact.
-It may include the following steps: compiling source code, running
-tests, and packaging software for deployment.
+**Build process—**Process that converts source code files into an executable software artifact. It may include the following steps: compiling source code, running tests, and packaging software for deployment. 
 
-**Continuous integration—**Software
-development practice of regularly pushing changes to a hosted
-repository, after which automated builds and tests are run.
+**Continuous integration—**Software development practice of regularly pushing changes to a hosted repository, after which automated builds and tests are run. 
 
-**Build environment—**Represents a
-combination of the operating system, programming language runtime,
-and tools that CodeBuild uses to run a build.
+**Build environment—**Represents a combination of the operating system, programming language runtime, and tools that CodeBuild uses to run a build. 
 
-**Buildspec—**Collection of build
-commands and related settings, in YAML format, that CodeBuild uses
-to run a build.
+**Buildspec—**Collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build. 
 
-**Build Project—**Includes
-information about how to run a build, including where to get the
-source code, which build environment to use, which build commands
-to run, and where to store the build output.
+**Build Project—**Includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output. 
 
-**OAuth—**[Open
-protocol](https://oauth.net/ "https://oauth.net/") for secure authorization. OAuth enables you to
-[connect
-your GitHub account to third-party applications](https://docs.github.com/en/github/authenticating-to-github/authorizing-oauth-apps "https://docs.github.com/en/github/authenticating-to-github/authorizing-oauth-apps"), including
-AWS CodeBuild.
+**OAuth—**[Open protocol](https://oauth.net/) for secure authorization. OAuth enables you to [connect your GitHub account to third-party applications](https://docs.github.com/en/github/authenticating-to-github/authorizing-oauth-apps), including AWS CodeBuild. 
 
 ## Implementation
+<a name="implementation"></a>
+
+### Step 1: Configure the AWS CodeBuild project
+<a name="configure-the-aws-codebuild-project"></a>
 
 1. Create a project
 
-In a new browser tab, open the [AWS CodeBuild console](https://console.aws.amazon.com/codesuite/codebuild/start "https://console.aws.amazon.com/codesuite/codebuild/start").
+   In a new browser tab, open the [AWS CodeBuild console](https://console.aws.amazon.com/codesuite/codebuild/start). 
 
-Choose the orange **Create project** button. 2. Configure the project
+   Choose the orange **Create project** button. 
 
-In the **Project name** field, enter**Build-DevOpsGettingStarted.**
+1. Configure the project
 
-Select**GitHub** from the **Source provider** dropdown menu.
+   In the **Project name** field, enter**Build-DevOpsGettingStarted.** 
 
-Confirm that the **Connect using OAuth** radio button
-is selected.
+   Select** GitHub** from the **Source provider** dropdown menu. 
 
-Choose the white **Connect to GitHub** button. A new
-browser tab will open asking you to give AWS CodeBuild access to your GitHub repo.
+   Confirm that the **Connect using OAuth** radio button is selected. 
 
-Choose the green **Authorize aws-codesuite** button.
+   Choose the white **Connect to GitHub** button. A new browser tab will open asking you to give AWS CodeBuild access to your GitHub repo. 
 
-Enter your GitHub password.
+   Choose the green **Authorize aws-codesuite** button. 
 
-Choose the orange **Confirm** button.
+   Enter your GitHub password. 
 
-Select **Repository in my GitHub account.**
+   Choose the orange **Confirm** button. 
 
-Enter **aws-elastic-beanstalk-express-js-sample** in
-the search field.
+   Select **Repository in my GitHub account.** 
 
-Select the repo you forked in Module 1. After selecting your repo, your screen
-should look like the screenshot.
+   Enter **aws-elastic-beanstalk-express-js-sample** in the search field. 
 
-![The AWS CodeBuild console showing the configuration of a source from a GitHub repository for a continuous delivery pipeline tutorial, including connection status and repository details.](images/codebuild-source-acblong-console.png) 3. Continue configuring the project
+   Select the repo you forked in Module 1. After selecting your repo, your screen should look like the screenshot.   
+![The AWS CodeBuild console showing the configuration of a source from a GitHub repository for a continuous delivery pipeline tutorial, including connection status and repository details.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/codebuild-source-acblong-console.png)
 
-Confirm that **Managed Image** is selected.
+1. Continue configuring the project
 
-Select **Amazon Linux 2**from the **Operating system** dropdown menu.
+   Confirm that **Managed Image** is selected. 
 
-Select **Standard** from the **Runtime(s)** dropdown menu.
+   Select **Amazon Linux 2 **from the **Operating system** dropdown menu. 
 
-Select **aws/codebuild/amazonlinux2-x86\_64-standard:3.0** from the **Image** dropdown menu.
+   Select **Standard** from the **Runtime(s)** dropdown menu. 
 
-Confirm that **Always use the latest image for this runtime
-version** is selected for **Image version.**
+   Select **aws/codebuild/amazonlinux2-x86\_64-standard:3.0** from the **Image** dropdown menu. 
 
-Confirm that **Linux** is selected for **Environment type.**
+   Confirm that **Always use the latest image for this runtime version** is selected for **Image version.** 
 
-Confirm that **New service role** is selected.
+   Confirm that **Linux** is selected for **Environment type.** 
+
+   Confirm that **New service role** is selected. 
+
+### Step 2: Create a Buildspec file for the project
+<a name="create-a-buildspec-file-for-the-project"></a>
 
 1. Open the build command editor
 
-Select **Insert build commands.**
+   Select **Insert build commands.** 
 
-Choose **Switch to editor.** 2. Update the Buildspec file
+   Choose **Switch to editor.** 
 
-**Replace** the Buildspec in the editor with the code
-below:
+1. Update the Buildspec file
 
-```
-version: 0.2
-phases:
-    build:
-        commands:
-            - npm i --save
-artifacts:
-    files:
-        - '**/*'
-```
+   **Replace** the Buildspec in the editor with the code below: 
+
+   ```
+   version: 0.2
+   phases:
+       build:
+           commands:
+               - npm i --save
+   artifacts:
+       files:
+           - '**/*'
+   ```
 
 #### Application architecture
+<a name="application-architecture"></a>
 
-Here's what our architecture looks like now.
+Here's what our architecture looks like now. 
 
-We have created a build project on AWS CodeBuild to run the build process of the Hello
-World! web app from our GitHub repository. We will be using this build project as the
-build step in our continuous delivery pipeline, which we will create in the next module.
+We have created a build project on AWS CodeBuild to run the build process of the Hello World\! web app from our GitHub repository. We will be using this build project as the build step in our continuous delivery pipeline, which we will create in the next module. 
 
-![Diagram showing a DevOps pipeline architecture where users commit code to a Git repository, triggering AWS CodeBuild within AWS Cloud, and deploying the application to AWS Elastic Beanstalk.](images/devops-codebuild-elastic-beanstalk-diagram.png)
+![Diagram showing a DevOps pipeline architecture where users commit code to a Git repository, triggering AWS CodeBuild within AWS Cloud, and deploying the application to AWS Elastic Beanstalk.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/devops-codebuild-elastic-beanstalk-diagram.png)
