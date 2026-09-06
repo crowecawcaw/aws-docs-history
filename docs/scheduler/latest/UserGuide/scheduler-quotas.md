@@ -48,5 +48,12 @@ limit, not an adjustable Service Quotas quota. For this reason, the limit does n
 information, see [Input](../APIReference/API_Target.md#scheduler-Type-Target-Input "../APIReference/API_Target.md#scheduler-Type-Target-Input")
 in the _Amazon EventBridge Scheduler API Reference_.
 
+###### Per-schedule operation rate limit
+
+In addition to the per-account request rate quotas in the preceding table, EventBridge Scheduler limits the
+rate at which a single schedule can be read or written. This per-schedule limit is 10 TPS. The limit
+can be lower depending on the size of the schedule's target `Input` parameter. This
+limit is not adjustable through the Service Quotas console.
+
 For more information about quotas and service endpoints for EventBridge Scheduler, see [Amazon EventBridge Scheduler endpoints and quotas](../../../general/latest/gr/eventbridgescheduler.md "../../../general/latest/gr/eventbridgescheduler.md")
 in the _AWS General Reference_ guide.

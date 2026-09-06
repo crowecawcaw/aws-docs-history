@@ -58,3 +58,32 @@ You could update the trust policy to the following:
     }
 }
 ```
+
+## ThrottlingException on a single schedule
+
+I am receiving `ThrottlingException` errors when calling `CreateSchedule`,
+`UpdateSchedule`, `GetSchedule`, or `DeleteSchedule` on a single schedule.
+My account is below the per-account request rate quota for that operation.
+
+### Common cause
+
+In addition to per-account request rate quotas, EventBridge Scheduler limits the rate at which a single schedule can be
+read or written. This per-schedule limit is 10 TPS. The limit can be lower depending on the size of the
+schedule's target `Input` parameter. This limit is not adjustable through the Service
+Quotas console.
+
+You are likely encountering this because your application repeatedly reads, creates, updates, or deletes
+the same schedule at a high rate.
+
+### Resolution
+
+Distribute requests across multiple schedules instead of concentrating mutations on a single
+schedule.
+
+### Prevention
+
+- Avoid concentrating rapid mutations on a single schedule. If you need to change an existing
+  schedule, call `UpdateSchedule` rather than deleting and recreating it.
+- To have EventBridge Scheduler delete a schedule automatically after its last invocation, set
+  `ActionAfterCompletion` to `DELETE`. For recurring schedules, this requires an
+  `EndDate`. For more information, see [Deleting a schedule in EventBridge Scheduler](managing-schedule-delete.md "managing-schedule-delete.md").
