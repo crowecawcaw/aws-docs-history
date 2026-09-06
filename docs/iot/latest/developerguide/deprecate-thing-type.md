@@ -1,18 +1,17 @@
+
+
 # Deprecate a thing type
+<a name="deprecate-thing-type"></a>
 
-Thing types are immutable. They can't be changed after they are defined. You can,
-however, deprecate a thing type to prevent users from associating any new things
-with it. All existing things associated with the thing type are unchanged.
+Thing types are immutable. They can't be changed after they are defined. You can, however, deprecate a thing type to prevent users from associating any new things with it. All existing things associated with the thing type are unchanged.
 
-To deprecate a thing type, use the **DeprecateThingType**
-command:
+To deprecate a thing type, use the **DeprecateThingType** command:
 
 ```
 $ aws iot deprecate-thing-type --thing-type-name "myThingType"
 ```
 
-You can use the **DescribeThingType** command to see the
-result:
+You can use the **DescribeThingType** command to see the result:
 
 ```
 $ aws iot describe-thing-type --thing-type-name "StopLight":
@@ -35,19 +34,15 @@ $ aws iot describe-thing-type --thing-type-name "StopLight":
         "deprecationDate": 1468446026349
     }
 }
-
 ```
 
-Deprecating a thing type is a reversible operation. You can undo a deprecation by
-using the `--undo-deprecate` flag with the
-**DeprecateThingType** CLI command:
+Deprecating a thing type is a reversible operation. You can undo a deprecation by using the `--undo-deprecate` flag with the **DeprecateThingType** CLI command:
 
 ```
 $ aws iot deprecate-thing-type --thing-type-name "myThingType" --undo-deprecate
 ```
 
-You can use the **DescribeThingType** CLI command to see the
-result:
+You can use the **DescribeThingType** CLI command to see the result:
 
 ```
 $ aws iot describe-thing-type --thing-type-name "StopLight":
@@ -71,5 +66,4 @@ $ aws iot describe-thing-type --thing-type-name "StopLight":
         "creationDate": 1468425854308,
     }
 }
-
 ```

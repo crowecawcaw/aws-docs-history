@@ -1,21 +1,18 @@
+
+
 # Use `UpdateThing` with an AWS SDK or CLI
+<a name="example_iot_UpdateThing_section"></a>
 
 The following code examples show how to use `UpdateThing`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iot_Scenario_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
 ```
     /// <summary>
@@ -53,23 +50,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
 ```
++  For API details, see [UpdateThing](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/UpdateThing) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [UpdateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateThing.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
 ```
 //! Update an AWS IoT thing with attributes.
@@ -102,47 +90,31 @@ bool AwsDoc::IoT::updateThing(const Aws::String &thingName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [UpdateThing](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/UpdateThing) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To associate a thing with a thing type**  
+The following `update-thing` example associates a thing in the AWS IoT registry with a thing type. When you make the association, you provide values for the attributes defined by the thing type.  
 
 ```
-
-- For API details, see
-  [UpdateThing](../../../goto/SdkForCpp/iot-2015-05-28/UpdateThing.md "../../../goto/SdkForCpp/iot-2015-05-28/UpdateThing.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To associate a thing with a thing type**
-
-The following `update-thing` example associates a thing in the AWS IoT registry with a thing type. When you make the association, you provide values for the attributes defined by the thing type.
-
+aws iot update-thing \
+    --thing-name {{"MyOtherLightBulb"}} \
+    --thing-type-name {{"LightBulb"}} \
+    --attribute-payload "{"attributes": {"wattage":"75", "model":"123"}}"
 ```
-`aws iot update-thing \
- --thing-name `"MyOtherLightBulb"` \
- --thing-type-name `"LightBulb"` \
- --attribute-payload "{"attributes": {"wattage":"75", "model":"123"}}"`
+This command does not produce output. Use the `describe-thing` command to see the result.  
+For more information, see [Thing Types](https://docs.aws.amazon.com/iot/latest/developerguide/thing-types.html) in the *AWS IoT Developers Guide*.  
++  For API details, see [UpdateThing](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-thing.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Kotlin ]
 
-This command does not produce output. Use the `describe-thing` command to see the result.
-
-For more information, see [Thing Types](thing-types.md "thing-types.md") in the _AWS IoT Developers Guide_.
-
-- For API details, see
-  [UpdateThing](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-thing.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-thing.html")
-  in _AWS CLI Command Reference_.
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 suspend fun updateThing(thingNameVal: String?) {
@@ -169,14 +141,9 @@ suspend fun updateThing(thingNameVal: String?) {
         println("$thingNameVal attributes updated successfully.")
     }
 }
-
-
 ```
++  For API details, see [UpdateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [UpdateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,50 +1,24 @@
+
+
 # Job Execution
+<a name="device-advisor-tests-job-execution"></a>
 
-**"Device can complete a job execution"**
-
-This test case helps you validate if your device is able to receive
-updates using AWS IoT Jobs, and publish the status of successful updates. For more information on AWS IoT Jobs, see [Jobs](iot-jobs.md "iot-jobs.md").
-
-To successfully run this test case, there are two reserved AWS
-topics that you need to grant your [Device Role](device-advisor-setting-up.md#da-iam-role "device-advisor-setting-up.md#da-iam-role") . To subscribe to job activity related
-messages, use the **notify** and
-**notify-next** topics. Your device role must grant
-PUBLISH action for the following topics:
-
-- $aws/things/**thingName**/jobs/**jobId**/get
-- $aws/things/**thingName**/jobs/**jobId**/update
-
-It is recommended to grant SUBSCRIBE and RECEIVE actions for the following topics:
-
-- $aws/things/**thingName**/jobs/get/accepted
-- $aws/things/**thingName**/jobs/**jobId**/get/rejected
-- $aws/things/**thingName**/jobs/**jobId**/update/accepted
-- $aws/things/**thingName**/jobs/**jobId**/update/rejected
-
-It is recommended to grant SUBSCRIBE action for the following topic:
-
-- $aws/things/**thingName**/jobs/notify-next
-
-For more information about these reserved topics, see reserved topics for
-[AWS IoT Jobs](reserved-topics.md#reserved-topics-job "reserved-topics.md#reserved-topics-job").
-
-**MQTT over WebSocket** is not supported at this time.
-
-_API test case definition:_
-
-###### Note
-
-`EXECUTION_TIMEOUT` has a default value of 5 minutes.
-We recommend a timeout value of 3 minutes.
-Depending on the AWS IoT Job document or source provided, adjust the timeout value (for example,
-if a job will take a long time to run, define a longer timeout value for the test case).
-To run the test, either a valid AWS IoT Job document or an already existing job ID is required.
-An AWS IoT Job document can be provided as a JSON document or an S3 link. If a job document is
-provided, providing a job ID is optional. If a job ID is provided, Device Advisor
-will use that ID while creating the AWS IoT Job on your behalf.
-If the job document is not provided, you can provide an existing ID
-that is in the same region as you are running the test case.
-In this case, Device Advisor will use that AWS IoT Job while running the test case.
+**"Device can complete a job execution"**  
+ This test case helps you validate if your device is able to receive updates using AWS IoT Jobs, and publish the status of successful updates. For more information on AWS IoT Jobs, see [ Jobs](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html).   
+ To successfully run this test case, there are two reserved AWS topics that you need to grant your [Device Role](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-setting-up.html#da-iam-role) . To subscribe to job activity related messages, use the **notify** and **notify-next** topics. Your device role must grant PUBLISH action for the following topics:   
++ $aws/things/**thingName**/jobs/**jobId**/get
++ $aws/things/**thingName**/jobs/**jobId**/update
+It is recommended to grant SUBSCRIBE and RECEIVE actions for the following topics:  
++ $aws/things/**thingName**/jobs/get/accepted
++ $aws/things/**thingName**/jobs/**jobId**/get/rejected
++ $aws/things/**thingName**/jobs/**jobId**/update/accepted
++ $aws/things/**thingName**/jobs/**jobId**/update/rejected
+It is recommended to grant SUBSCRIBE action for the following topic:  
++ $aws/things/**thingName**/jobs/notify-next
+For more information about these reserved topics, see reserved topics for [AWS IoT Jobs](https://docs.aws.amazon.com/iot/latest/developerguide/reserved-topics.html#reserved-topics-job).  
+**MQTT over WebSocket** is not supported at this time.  
+*API test case definition:*  
+`EXECUTION_TIMEOUT` has a default value of 5 minutes. We recommend a timeout value of 3 minutes. Depending on the AWS IoT Job document or source provided, adjust the timeout value (for example, if a job will take a long time to run, define a longer timeout value for the test case). To run the test, either a valid AWS IoT Job document or an already existing job ID is required. An AWS IoT Job document can be provided as a JSON document or an S3 link. If a job document is provided, providing a job ID is optional. If a job ID is provided, Device Advisor will use that ID while creating the AWS IoT Job on your behalf. If the job document is not provided, you can provide an existing ID that is in the same region as you are running the test case. In this case, Device Advisor will use that AWS IoT Job while running the test case.
 
 ```
 "tests": [
@@ -69,8 +43,8 @@ In this case, Device Advisor will use that AWS IoT Job while running the test ca
          // JOB_PRESIGN_ROLE_ARN is used for the presign Url, which will replace the placeholder in the JOB_DOCUMENT field
          "JOB_PRESIGN_ROLE_ARN": "String",
          // Presigned Url expiration time. It must be between 60 and 3600 seconds, with the default value being 3600.
-         "JOB_PRESIGN_EXPIRES_IN_SEC": "Long"
-         "EXECUTION_TIMEOUT": "300", // in seconds
+         "JOB_PRESIGN_EXPIRES_IN_SEC": "Long"   
+         "EXECUTION_TIMEOUT": "300", // in seconds         
       },
       "test": {
          "id": "Job_Execution",
@@ -79,5 +53,4 @@ In this case, Device Advisor will use that AWS IoT Job while running the test ca
    }
 ]
 ```
-
-For more information on creating and using job documents see [job document](iot-jobs.md "iot-jobs.md").
+For more information on creating and using job documents see [job document](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html). 

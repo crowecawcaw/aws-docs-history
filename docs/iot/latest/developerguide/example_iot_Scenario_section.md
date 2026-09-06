@@ -1,30 +1,27 @@
+
+
 # Learn the basics of AWS IoT with an AWS SDK
+<a name="example_iot_Scenario_section"></a>
 
 The following code examples show how to:
++ Create an AWS IoT Thing.
++ Generate a device certificate.
++ Update an AWS IoT Thing with Attributes.
++ Return a unique endpoint.
++ List your AWS IoT certificates.
++ Update an AWS IoT shadow.
++ Write out state information.
++ Creates a rule.
++ List your rules.
++ Search things using the Thing name.
++ Delete an AWS IoT Thing.
 
-- Create an AWS IoT Thing.
-- Generate a device certificate.
-- Update an AWS IoT Thing with Attributes.
-- Return a unique endpoint.
-- List your AWS IoT certificates.
-- Update an AWS IoT shadow.
-- Write out state information.
-- Creates a rule.
-- List your rules.
-- Search things using the Thing name.
-- Delete an AWS IoT Thing.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
-
-Run an interactive scenario demonstrating AWS IoT features.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
+Run an interactive scenario demonstrating AWS IoT features.  
 
 ```
 /// <summary>
@@ -859,11 +856,8 @@ public class IoTBasics
         return _stackName;
     }
 }
-
-
 ```
-
-A wrapper class for AWS IoT SDK methods.
+A wrapper class for AWS IoT SDK methods.  
 
 ```
 /// <summary>
@@ -1503,39 +1497,30 @@ public class IoTWrapper
     }
 
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [AttachThingPrincipal](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/AttachThingPrincipal)
+  + [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate)
+  + [CreateThing](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/CreateThing)
+  + [CreateTopicRule](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule)
+  + [DeleteCertificate](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate)
+  + [DeleteThing](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/DeleteThing)
+  + [DeleteTopicRule](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/DeleteTopicRule)
+  + [DescribeEndpoint](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint)
+  + [DescribeThing](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/DescribeThing)
+  + [DetachThingPrincipal](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/DetachThingPrincipal)
+  + [ListCertificates](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/ListCertificates)
+  + [ListThings](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/ListThings)
+  + [SearchIndex](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/SearchIndex)
+  + [UpdateIndexingConfiguration](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/UpdateIndexingConfiguration)
+  + [UpdateThing](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/UpdateThing)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-  - [AttachThingPrincipal](../../../goto/DotNetSDKV4/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/DotNetSDKV4/iot-2015-05-28/AttachThingPrincipal.md")
-  - [CreateKeysAndCertificate](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate.md")
-  - [CreateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md")
-  - [CreateTopicRule](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule.md")
-  - [DeleteCertificate](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate.md")
-  - [DeleteThing](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteThing.md")
-  - [DeleteTopicRule](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteTopicRule.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteTopicRule.md")
-  - [DescribeEndpoint](../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint.md")
-  - [DescribeThing](../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeThing.md")
-  - [DetachThingPrincipal](../../../goto/DotNetSDKV4/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DetachThingPrincipal.md")
-  - [ListCertificates](../../../goto/DotNetSDKV4/iot-2015-05-28/ListCertificates.md "../../../goto/DotNetSDKV4/iot-2015-05-28/ListCertificates.md")
-  - [ListThings](../../../goto/DotNetSDKV4/iot-2015-05-28/ListThings.md "../../../goto/DotNetSDKV4/iot-2015-05-28/ListThings.md")
-  - [SearchIndex](../../../goto/DotNetSDKV4/iot-2015-05-28/SearchIndex.md "../../../goto/DotNetSDKV4/iot-2015-05-28/SearchIndex.md")
-  - [UpdateIndexingConfiguration](../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateIndexingConfiguration.md")
-  - [UpdateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/UpdateThing.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot/things_and_shadows_workflow#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot/things_and_shadows_workflow#code-examples").
-
-Create an AWS IoT thing.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot/things_and_shadows_workflow#code-examples). 
+Create an AWS IoT thing.  
 
 ```
     Aws::String thingName = askQuestion("Enter a thing name: ");
@@ -1545,8 +1530,6 @@ Create an AWS IoT thing.
         cleanup("", "", "", "", "", false, clientConfiguration);
         return false;
     }
-
-
 ```
 
 ```
@@ -1574,11 +1557,8 @@ bool AwsDoc::IoT::createThing(const Aws::String &thingName,
 
     return outcome.IsSuccess();
 }
-
-
 ```
-
-Generate and attach a device certificate.
+Generate and attach a device certificate.  
 
 ```
     Aws::String certificateARN;
@@ -1614,8 +1594,6 @@ Generate and attach a device certificate.
             return false;
         }
     }
-
-
 ```
 
 ```
@@ -1718,11 +1696,8 @@ bool AwsDoc::IoT::attachThingPrincipal(const Aws::String &principal,
 
     return outcome.IsSuccess();
 }
-
-
 ```
-
-Perform various operations on the AWS IoT thing.
+Perform various operations on the AWS IoT thing.  
 
 ```
     if (!updateThing(thingName, { {"location", "Office"}, {"firmwareVersion", "v2.0"} }, clientConfiguration)) {
@@ -1887,8 +1862,6 @@ Perform various operations on the AWS IoT thing.
                 clientConfiguration);
         return false;
     }
-
-
 ```
 
 ```
@@ -2186,11 +2159,8 @@ bool AwsDoc::IoT::searchIndex(const Aws::String &query,
     }
     return true;
 }
-
-
 ```
-
-Clean up resources.
+Clean up resources.  
 
 ```
 bool
@@ -2230,8 +2200,6 @@ AwsDoc::IoT::cleanup(const Aws::String &thingName, const Aws::String &certificat
 
     return result;
 }
-
-
 ```
 
 ```
@@ -2341,39 +2309,30 @@ bool AwsDoc::IoT::deleteThing(const Aws::String &thingName,
 
     return outcome.IsSuccess();
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [AttachThingPrincipal](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/AttachThingPrincipal)
+  + [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate)
+  + [CreateThing](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/CreateThing)
+  + [CreateTopicRule](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/CreateTopicRule)
+  + [DeleteCertificate](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DeleteCertificate)
+  + [DeleteThing](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DeleteThing)
+  + [DeleteTopicRule](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DeleteTopicRule)
+  + [DescribeEndpoint](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DescribeEndpoint)
+  + [DescribeThing](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DescribeThing)
+  + [DetachThingPrincipal](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DetachThingPrincipal)
+  + [ListCertificates](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/ListCertificates)
+  + [ListThings](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/ListThings)
+  + [SearchIndex](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/SearchIndex)
+  + [UpdateIndexingConfiguration](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/UpdateIndexingConfiguration)
+  + [UpdateThing](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/UpdateThing)
 
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-  - [AttachThingPrincipal](../../../goto/SdkForCpp/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/SdkForCpp/iot-2015-05-28/AttachThingPrincipal.md")
-  - [CreateKeysAndCertificate](../../../goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate.md")
-  - [CreateThing](../../../goto/SdkForCpp/iot-2015-05-28/CreateThing.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateThing.md")
-  - [CreateTopicRule](../../../goto/SdkForCpp/iot-2015-05-28/CreateTopicRule.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateTopicRule.md")
-  - [DeleteCertificate](../../../goto/SdkForCpp/iot-2015-05-28/DeleteCertificate.md "../../../goto/SdkForCpp/iot-2015-05-28/DeleteCertificate.md")
-  - [DeleteThing](../../../goto/SdkForCpp/iot-2015-05-28/DeleteThing.md "../../../goto/SdkForCpp/iot-2015-05-28/DeleteThing.md")
-  - [DeleteTopicRule](../../../goto/SdkForCpp/iot-2015-05-28/DeleteTopicRule.md "../../../goto/SdkForCpp/iot-2015-05-28/DeleteTopicRule.md")
-  - [DescribeEndpoint](../../../goto/SdkForCpp/iot-2015-05-28/DescribeEndpoint.md "../../../goto/SdkForCpp/iot-2015-05-28/DescribeEndpoint.md")
-  - [DescribeThing](../../../goto/SdkForCpp/iot-2015-05-28/DescribeThing.md "../../../goto/SdkForCpp/iot-2015-05-28/DescribeThing.md")
-  - [DetachThingPrincipal](../../../goto/SdkForCpp/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/SdkForCpp/iot-2015-05-28/DetachThingPrincipal.md")
-  - [ListCertificates](../../../goto/SdkForCpp/iot-2015-05-28/ListCertificates.md "../../../goto/SdkForCpp/iot-2015-05-28/ListCertificates.md")
-  - [ListThings](../../../goto/SdkForCpp/iot-2015-05-28/ListThings.md "../../../goto/SdkForCpp/iot-2015-05-28/ListThings.md")
-  - [SearchIndex](../../../goto/SdkForCpp/iot-2015-05-28/SearchIndex.md "../../../goto/SdkForCpp/iot-2015-05-28/SearchIndex.md")
-  - [UpdateIndexingConfiguration](../../../goto/SdkForCpp/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/SdkForCpp/iot-2015-05-28/UpdateIndexingConfiguration.md")
-  - [UpdateThing](../../../goto/SdkForCpp/iot-2015-05-28/UpdateThing.md "../../../goto/SdkForCpp/iot-2015-05-28/UpdateThing.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
-
-Run an interactive scenario demonstrating AWS IoT features.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
+Run an interactive scenario demonstrating AWS IoT features.  
 
 ```
 import java.util.Scanner;
@@ -2430,20 +2389,20 @@ public class IotScenario {
         System.out.println(DASHES);
         System.out.println("Welcome to the AWS IoT basics scenario.");
         System.out.println("""
-            This example program demonstrates various interactions with the AWS Internet of Things (IoT) Core service. The program guides you through a series of steps,
-            including creating an IoT Thing, generating a device certificate, updating the Thing with attributes, and so on.
-            It utilizes the AWS SDK for Java V2 and incorporates functionality for creating and managing IoT Things, certificates, rules,
-            shadows, and performing searches. The program aims to showcase AWS IoT capabilities and provides a comprehensive example for
+            This example program demonstrates various interactions with the AWS Internet of Things (IoT) Core service. The program guides you through a series of steps, 
+            including creating an IoT Thing, generating a device certificate, updating the Thing with attributes, and so on. 
+            It utilizes the AWS SDK for Java V2 and incorporates functionality for creating and managing IoT Things, certificates, rules, 
+            shadows, and performing searches. The program aims to showcase AWS IoT capabilities and provides a comprehensive example for 
             developers working with AWS IoT in a Java environment.
-
+            
             Let's get started...
-
+       
             """);
         System.out.println(DASHES);
 
         System.out.println("1. Create an AWS IoT Thing.");
         System.out.println("""
-            An AWS IoT Thing represents a virtual entity in the AWS IoT service that can be associated with
+            An AWS IoT Thing represents a virtual entity in the AWS IoT service that can be associated with 
             a physical device.
             """);
         // Prompt the user for input.
@@ -2455,7 +2414,7 @@ public class IotScenario {
         System.out.println(DASHES);
         System.out.println("2. Generate a device certificate.");
         System.out.println("""
-            A device certificate performs a role in securing the communication between devices (Things)
+            A device certificate performs a role in securing the communication between devices (Things) 
             and the AWS IoT platform.
             """);
 
@@ -2474,8 +2433,8 @@ public class IotScenario {
         System.out.println(DASHES);
         System.out.println("3. Update an AWS IoT Thing with Attributes.");
         System.out.println("""
-             IoT Thing attributes, represented as key-value pairs, offer a pivotal advantage in facilitating efficient data
-             management and retrieval within the AWS IoT ecosystem.
+             IoT Thing attributes, represented as key-value pairs, offer a pivotal advantage in facilitating efficient data 
+             management and retrieval within the AWS IoT ecosystem. 
             """);
         waitForInputToContinue(scanner);
         iotActions.updateShadowThing(thingName);
@@ -2507,9 +2466,9 @@ public class IotScenario {
         System.out.println(DASHES);
         System.out.println("6. Create an IoT shadow that refers to a digital representation or virtual twin of a physical IoT device");
         System.out.println("""
-            A Thing Shadow refers to a feature that enables you to create a virtual representation, or "shadow,"
-            of a physical device or thing. The Thing Shadow allows you to synchronize and control the state of a device between
-            the cloud and the device itself. and the AWS IoT service. For example, you can write and retrieve JSON data from a Thing Shadow.
+            A Thing Shadow refers to a feature that enables you to create a virtual representation, or "shadow," 
+            of a physical device or thing. The Thing Shadow allows you to synchronize and control the state of a device between 
+            the cloud and the device itself. and the AWS IoT service. For example, you can write and retrieve JSON data from a Thing Shadow. 
            """);
         waitForInputToContinue(scanner);
         iotActions.updateShadowThing(thingName);
@@ -2526,7 +2485,7 @@ public class IotScenario {
         System.out.println(DASHES);
         System.out.println("8. Creates a rule");
         System.out.println("""
-        Creates a rule that is an administrator-level action.
+        Creates a rule that is an administrator-level action. 
         Any user who has permission to create rules will be able to access data processed by the rule.
         """);
         System.out.print("Enter Rule name: ");
@@ -2602,11 +2561,8 @@ public class IotScenario {
         }
     }
 }
-
-
 ```
-
-A wrapper class for AWS IoT SDK methods.
+A wrapper class for AWS IoT SDK methods.  
 
 ```
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
@@ -3255,37 +3211,29 @@ public class IotActions {
         return certificateIdPart.substring(certificateIdPart.lastIndexOf("/") + 1);
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [AttachThingPrincipal](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/AttachThingPrincipal)
+  + [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate)
+  + [CreateThing](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/CreateThing)
+  + [CreateTopicRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/CreateTopicRule)
+  + [DeleteCertificate](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DeleteCertificate)
+  + [DeleteThing](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DeleteThing)
+  + [DeleteTopicRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DeleteTopicRule)
+  + [DescribeEndpoint](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DescribeEndpoint)
+  + [DescribeThing](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DescribeThing)
+  + [DetachThingPrincipal](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DetachThingPrincipal)
+  + [ListCertificates](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/ListCertificates)
+  + [ListThings](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/ListThings)
+  + [SearchIndex](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/SearchIndex)
+  + [UpdateIndexingConfiguration](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/UpdateIndexingConfiguration)
+  + [UpdateThing](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/UpdateThing)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-  - [AttachThingPrincipal](../../../goto/SdkForJavaV2/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/SdkForJavaV2/iot-2015-05-28/AttachThingPrincipal.md")
-  - [CreateKeysAndCertificate](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate.md")
-  - [CreateThing](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateThing.md")
-  - [CreateTopicRule](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateTopicRule.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateTopicRule.md")
-  - [DeleteCertificate](../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteCertificate.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteCertificate.md")
-  - [DeleteThing](../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteThing.md")
-  - [DeleteTopicRule](../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteTopicRule.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteTopicRule.md")
-  - [DescribeEndpoint](../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeEndpoint.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeEndpoint.md")
-  - [DescribeThing](../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeThing.md")
-  - [DetachThingPrincipal](../../../goto/SdkForJavaV2/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DetachThingPrincipal.md")
-  - [ListCertificates](../../../goto/SdkForJavaV2/iot-2015-05-28/ListCertificates.md "../../../goto/SdkForJavaV2/iot-2015-05-28/ListCertificates.md")
-  - [ListThings](../../../goto/SdkForJavaV2/iot-2015-05-28/ListThings.md "../../../goto/SdkForJavaV2/iot-2015-05-28/ListThings.md")
-  - [SearchIndex](../../../goto/SdkForJavaV2/iot-2015-05-28/SearchIndex.md "../../../goto/SdkForJavaV2/iot-2015-05-28/SearchIndex.md")
-  - [UpdateIndexingConfiguration](../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateIndexingConfiguration.md")
-  - [UpdateThing](../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/UpdateThing.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 import aws.sdk.kotlin.services.iot.IotClient
@@ -3334,12 +3282,12 @@ suspend fun main(args: Array<String>) {
     val usage =
         """
         Usage:
-            <roleARN> <snsAction>
+            <roleARN> <snsAction> 
 
         Where:
             roleARN - The ARN of an IAM role that has permission to work with AWS IOT.
             snsAction  - An ARN of an SNS topic.
-
+        
         """.trimIndent()
 
     if (args.size != 2) {
@@ -3356,12 +3304,12 @@ suspend fun main(args: Array<String>) {
     println("Welcome to the AWS IoT example scenario.")
     println(
         """
-        This example program demonstrates various interactions with the AWS Internet of Things (IoT) Core service.
-        The program guides you through a series of steps, including creating an IoT thing, generating a device certificate,
-        updating the thing with attributes, and so on.
-
-        It utilizes the AWS SDK for Kotlin and incorporates functionality for creating and managing IoT things, certificates, rules,
-        shadows, and performing searches. The program aims to showcase AWS IoT capabilities and provides a comprehensive example for
+        This example program demonstrates various interactions with the AWS Internet of Things (IoT) Core service. 
+        The program guides you through a series of steps, including creating an IoT thing, generating a device certificate, 
+        updating the thing with attributes, and so on. 
+        
+        It utilizes the AWS SDK for Kotlin and incorporates functionality for creating and managing IoT things, certificates, rules, 
+        shadows, and performing searches. The program aims to showcase AWS IoT capabilities and provides a comprehensive example for 
         developers working with AWS IoT in a Kotlin environment.
         """.trimIndent(),
     )
@@ -3408,8 +3356,8 @@ suspend fun main(args: Array<String>) {
     println("3. Update an AWS IoT thing with Attributes.")
     println(
         """
-        IoT thing attributes, represented as key-value pairs, offer a pivotal advantage in facilitating efficient data
-        management and retrieval within the AWS IoT ecosystem.
+        IoT thing attributes, represented as key-value pairs, offer a pivotal advantage in facilitating efficient data 
+        management and retrieval within the AWS IoT ecosystem. 
         """.trimIndent(),
     )
     print("Press Enter to continue...")
@@ -3444,10 +3392,10 @@ suspend fun main(args: Array<String>) {
     println("6. Create an IoT shadow that refers to a digital representation or virtual twin of a physical IoT device")
     println(
         """
-        A thing shadow refers to a feature that enables you to create a virtual representation, or "shadow,"
-        of a physical device or thing. The thing shadow allows you to synchronize and control the state of a device between
-        the cloud and the device itself. and the AWS IoT service. For example, you can write and retrieve JSON data from a thing shadow.
-
+        A thing shadow refers to a feature that enables you to create a virtual representation, or "shadow," 
+        of a physical device or thing. The thing shadow allows you to synchronize and control the state of a device between 
+        the cloud and the device itself. and the AWS IoT service. For example, you can write and retrieve JSON data from a thing shadow. 
+        
         """.trimIndent(),
     )
     print("Press Enter to continue...")
@@ -3466,7 +3414,7 @@ suspend fun main(args: Array<String>) {
     println("8. Creates a rule")
     println(
         """
-        Creates a rule that is an administrator-level action.
+        Creates a rule that is an administrator-level action. 
         Any user who has permission to create rules will be able to access data processed by the rule.
         """.trimIndent(),
     )
@@ -3792,39 +3740,30 @@ suspend fun createIoTThing(thingNameVal: String) {
         println("Created $thingNameVal}")
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [AttachThingPrincipal](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateKeysAndCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateTopicRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteTopicRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeEndpoint](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DetachThingPrincipal](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListCertificates](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ListThings](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [SearchIndex](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [UpdateIndexingConfiguration](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [UpdateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [AttachThingPrincipal](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateKeysAndCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateTopicRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteTopicRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeEndpoint](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DetachThingPrincipal](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListCertificates](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ListThings](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [SearchIndex](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [UpdateIndexingConfiguration](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [UpdateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
-
-Create an IoT wrapper class to manage operations.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
+Create an IoT wrapper class to manage operations.  
 
 ```
 class IoTWrapper:
@@ -3843,7 +3782,7 @@ class IoTWrapper:
         iot_client = boto3.client("iot")
         iot_data_client = boto3.client("iot-data")
         return cls(iot_client, iot_data_client)
-
+    
 
     def create_thing(self, thing_name):
         """
@@ -3893,7 +3832,7 @@ class IoTWrapper:
                     err.response["Error"]["Message"],
                 )
             raise
-
+            
 
 
     def create_keys_and_certificate(self):
@@ -4095,7 +4034,7 @@ class IoTWrapper:
                     err.response["Error"]["Message"],
                 )
             raise
-
+            
 
 
     def search_index(self, query):
@@ -4228,12 +4167,8 @@ class IoTWrapper:
             raise
         else:
             return shadow
-
-
-
 ```
-
-Run an interactive scenario demonstrating IoT basics.
+Run an interactive scenario demonstrating IoT basics.  
 
 ```
 class IoTScenario:
@@ -4263,25 +4198,25 @@ class IoTScenario:
         """Deploy CloudFormation stack and return outputs."""
         with open(self.template_path, "r") as f:
             template_body = f.read()
-
+        
         try:
             self.cfn_client.create_stack(
                 StackName=self.stack_name,
                 TemplateBody=template_body,
                 Capabilities=["CAPABILITY_NAMED_IAM"]
             )
-
+            
             waiter = self.cfn_client.get_waiter("stack_create_complete")
             waiter.wait(StackName=self.stack_name)
-
+            
             response = self.cfn_client.describe_stacks(StackName=self.stack_name)
-            outputs = {output["OutputKey"]: output["OutputValue"]
+            outputs = {output["OutputKey"]: output["OutputValue"] 
                       for output in response["Stacks"][0]["Outputs"]}
             return outputs["SNSTopicArn"], outputs["RoleArn"]
         except ClientError as err:
             if err.response["Error"]["Code"] == "AlreadyExistsException":
                 response = self.cfn_client.describe_stacks(StackName=self.stack_name)
-                outputs = {output["OutputKey"]: output["OutputValue"]
+                outputs = {output["OutputKey"]: output["OutputValue"] 
                           for output in response["Stacks"][0]["Outputs"]}
                 return outputs["SNSTopicArn"], outputs["RoleArn"]
             raise
@@ -4489,30 +4424,24 @@ class IoTScenario:
         print("\n" + "-" * 88)
         print("Thanks for using AWS IoT!")
         print("-" * 88)
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AttachThingPrincipal](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/AttachThingPrincipal)
+  + [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/CreateKeysAndCertificate)
+  + [CreateThing](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/CreateThing)
+  + [CreateTopicRule](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/CreateTopicRule)
+  + [DeleteCertificate](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/DeleteCertificate)
+  + [DeleteThing](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/DeleteThing)
+  + [DeleteTopicRule](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/DeleteTopicRule)
+  + [DescribeEndpoint](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/DescribeEndpoint)
+  + [DescribeThing](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/DescribeThing)
+  + [DetachThingPrincipal](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/DetachThingPrincipal)
+  + [ListCertificates](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/ListCertificates)
+  + [ListThings](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/ListThings)
+  + [SearchIndex](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/SearchIndex)
+  + [UpdateIndexingConfiguration](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/UpdateIndexingConfiguration)
+  + [UpdateThing](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/UpdateThing)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [AttachThingPrincipal](../../../goto/boto3/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/boto3/iot-2015-05-28/AttachThingPrincipal.md")
-  - [CreateKeysAndCertificate](../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md")
-  - [CreateThing](../../../goto/boto3/iot-2015-05-28/CreateThing.md "../../../goto/boto3/iot-2015-05-28/CreateThing.md")
-  - [CreateTopicRule](../../../goto/boto3/iot-2015-05-28/CreateTopicRule.md "../../../goto/boto3/iot-2015-05-28/CreateTopicRule.md")
-  - [DeleteCertificate](../../../goto/boto3/iot-2015-05-28/DeleteCertificate.md "../../../goto/boto3/iot-2015-05-28/DeleteCertificate.md")
-  - [DeleteThing](../../../goto/boto3/iot-2015-05-28/DeleteThing.md "../../../goto/boto3/iot-2015-05-28/DeleteThing.md")
-  - [DeleteTopicRule](../../../goto/boto3/iot-2015-05-28/DeleteTopicRule.md "../../../goto/boto3/iot-2015-05-28/DeleteTopicRule.md")
-  - [DescribeEndpoint](../../../goto/boto3/iot-2015-05-28/DescribeEndpoint.md "../../../goto/boto3/iot-2015-05-28/DescribeEndpoint.md")
-  - [DescribeThing](../../../goto/boto3/iot-2015-05-28/DescribeThing.md "../../../goto/boto3/iot-2015-05-28/DescribeThing.md")
-  - [DetachThingPrincipal](../../../goto/boto3/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/boto3/iot-2015-05-28/DetachThingPrincipal.md")
-  - [ListCertificates](../../../goto/boto3/iot-2015-05-28/ListCertificates.md "../../../goto/boto3/iot-2015-05-28/ListCertificates.md")
-  - [ListThings](../../../goto/boto3/iot-2015-05-28/ListThings.md "../../../goto/boto3/iot-2015-05-28/ListThings.md")
-  - [SearchIndex](../../../goto/boto3/iot-2015-05-28/SearchIndex.md "../../../goto/boto3/iot-2015-05-28/SearchIndex.md")
-  - [UpdateIndexingConfiguration](../../../goto/boto3/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/boto3/iot-2015-05-28/UpdateIndexingConfiguration.md")
-  - [UpdateThing](../../../goto/boto3/iot-2015-05-28/UpdateThing.md "../../../goto/boto3/iot-2015-05-28/UpdateThing.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

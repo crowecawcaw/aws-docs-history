@@ -1,16 +1,17 @@
-# Create a thing type
 
-You can use the **CreateThingType** command to create a thing
-type:
+
+# Create a thing type
+<a name="create-thing-type"></a>
+
+You can use the **CreateThingType** command to create a thing type:
 
 ```
-$ aws iot create-thing-type
+$ aws iot create-thing-type 
 
                 --thing-type-name "LightBulb" --thing-type-properties "thingTypeDescription=light bulb type, searchableAttributes=wattage,model"
 ```
 
-The **CreateThingType** command returns a response that contains
-the thing type and its ARN:
+The **CreateThingType** command returns a response that contains the thing type and its ARN:
 
 ```
 {

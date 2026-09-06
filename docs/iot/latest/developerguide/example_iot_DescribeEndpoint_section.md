@@ -1,22 +1,19 @@
+
+
 # Use `DescribeEndpoint` with an AWS SDK or CLI
+<a name="example_iot_DescribeEndpoint_section"></a>
 
 The following code examples show how to use `DescribeEndpoint`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_iot_Scenario_section.md) 
++  [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
-- [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
 ```
     /// <summary>
@@ -47,23 +44,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return null;
         }
     }
-
-
 ```
++  For API details, see [DescribeEndpoint](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeEndpoint](../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DescribeEndpoint.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
 ```
 //! Describe the endpoint specific to the AWS account making the call.
@@ -94,70 +82,49 @@ bool AwsDoc::IoT::describeEndpoint(Aws::String &endpointResult,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DescribeEndpoint](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DescribeEndpoint) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To get your current AWS endpoint**  
+The following `describe-endpoint` example retrieves the default AWS endpoint to which all commands are applied.  
 
 ```
-
-- For API details, see
-  [DescribeEndpoint](../../../goto/SdkForCpp/iot-2015-05-28/DescribeEndpoint.md "../../../goto/SdkForCpp/iot-2015-05-28/DescribeEndpoint.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To get your current AWS endpoint**
-
-The following `describe-endpoint` example retrieves the default AWS endpoint to which all commands are applied.
-
+aws iot describe-endpoint
 ```
-`aws iot describe-endpoint`
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "endpointAddress": "abc123defghijk.iot.us-west-2.amazonaws.com"
 }
 ```
-
-For more information, see [DescribeEndpoint](iot-commands.md#api-iot-DescribeEndpoint "iot-commands.md#api-iot-DescribeEndpoint") in the _AWS IoT Developer Guide_.
-
-**Example 2: To get your ATS endpoint**
-
-The following `describe-endpoint` example retrieves the Amazon Trust Services (ATS) endpoint.
+For more information, see [DescribeEndpoint](https://docs.aws.amazon.com/iot/latest/developerguide/iot-commands.html#api-iot-DescribeEndpoint) in the *AWS IoT Developer Guide*.  
+**Example 2: To get your ATS endpoint**  
+The following `describe-endpoint` example retrieves the Amazon Trust Services (ATS) endpoint.  
 
 ```
-`aws iot describe-endpoint \
- --endpoint-type `iot:Data-ATS``
-
+aws iot describe-endpoint \
+    --endpoint-type {{iot:Data-ATS}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "endpointAddress": "abc123defghijk-ats.iot.us-west-2.amazonaws.com"
 }
 ```
+For more information, see [X.509 Certificates and AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/managing-device-certs.html) in the *AWS IoT Developer Guide*.  
++  For API details, see [DescribeEndpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html) in *AWS CLI Command Reference*. 
 
-For more information, see [X.509 Certificates and AWS IoT](managing-device-certs.md "managing-device-certs.md") in the _AWS IoT Developer Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeEndpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
 ```
     /**
@@ -194,23 +161,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         future.join();
         return result[0];
     }
-
-
 ```
++  For API details, see [DescribeEndpoint](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DescribeEndpoint) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeEndpoint](../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeEndpoint.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeEndpoint.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 suspend fun describeEndpoint(): String? {
@@ -224,23 +182,14 @@ suspend fun describeEndpoint(): String? {
         return fullEndpoint
     }
 }
-
-
 ```
++  For API details, see [DescribeEndpoint](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeEndpoint](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
 ```
 class IoTWrapper:
@@ -282,24 +231,14 @@ class IoTWrapper:
             raise
         else:
             return response["endpointAddress"]
-
-
-
 ```
++  For API details, see [DescribeEndpoint](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/DescribeEndpoint) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeEndpoint](../../../goto/boto3/iot-2015-05-28/DescribeEndpoint.md "../../../goto/boto3/iot-2015-05-28/DescribeEndpoint.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iot#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iot#code-examples). 
 
 ```
 async fn show_address(client: &Client, endpoint_type: &str) -> Result<(), Error> {
@@ -315,23 +254,14 @@ async fn show_address(client: &Client, endpoint_type: &str) -> Result<(), Error>
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DescribeEndpoint](https://docs.rs/aws-sdk-iot/latest/aws_sdk_iot/client/struct.Client.html#method.describe_endpoint) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeEndpoint](https://docs.rs/aws-sdk-iot/latest/aws_sdk_iot/client/struct.Client.html#method.describe_endpoint "https://docs.rs/aws-sdk-iot/latest/aws_sdk_iot/client/struct.Client.html#method.describe_endpoint")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
 ```
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
@@ -349,14 +279,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeEndpoint](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeEndpoint](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

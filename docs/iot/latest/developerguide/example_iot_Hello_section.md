@@ -1,16 +1,15 @@
+
+
 # Hello AWS IoT
+<a name="example_iot_Hello_section"></a>
 
 The following code examples show how to get started using AWS IoT.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
 ```
 /// <summary>
@@ -96,19 +95,14 @@ public class HelloIoT
         }
     }
 }
-
-
 ```
++  For API details, see [listThings](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/listThings) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [listThings](../../../goto/DotNetSDKV4/iot-2015-05-28/listThings.md "../../../goto/DotNetSDKV4/iot-2015-05-28/listThings.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -149,11 +143,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_iot.cpp source file.
+Code for the hello\_iot.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -216,29 +207,15 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return 0;
 }
-
-
 ```
++  For API details, see [listThings](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/listThings) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot/hello_iot#code-examples). 
 
-- For API details, see
-  [listThings](../../../goto/SdkForCpp/iot-2015-05-28/listThings.md "../../../goto/SdkForCpp/iot-2015-05-28/listThings.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot/hello_iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot/hello_iot#code-examples").
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -272,23 +249,14 @@ public class HelloIoT {
             });
     }
 }
-
-
 ```
++  For API details, see [listThings](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/listThings) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [listThings](../../../goto/SdkForJavaV2/iot-2015-05-28/listThings.md "../../../goto/SdkForJavaV2/iot-2015-05-28/listThings.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 import aws.sdk.kotlin.services.iot.IotClient
@@ -316,23 +284,14 @@ suspend fun listAllThings() {
         }
     }
 }
-
-
 ```
++  For API details, see [listThings](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [listThings](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
 ```
 def hello_iot():
@@ -346,7 +305,7 @@ def hello_iot():
         iot_client = boto3.client("iot")
         response = iot_client.list_things(maxResults=10)
         things = response.get("things", [])
-
+        
         print("Hello, AWS IoT! Here are your things:")
         if things:
             for i, thing in enumerate(things, 1):
@@ -362,16 +321,9 @@ def hello_iot():
         print("No AWS credentials found. Please configure your credentials.")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
-
-
-
-
 ```
++  For API details, see [listThings](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/listThings) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [listThings](../../../goto/boto3/iot-2015-05-28/listThings.md "../../../goto/boto3/iot-2015-05-28/listThings.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

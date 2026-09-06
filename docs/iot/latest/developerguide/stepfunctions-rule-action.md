@@ -1,43 +1,37 @@
-# Step Functions
 
-The Step Functions (`stepFunctions`) action starts an AWS Step Functions state
-machine.
+
+# Step Functions
+<a name="stepfunctions-rule-action"></a>
+
+The Step Functions (`stepFunctions`) action starts an AWS Step Functions state machine.
 
 ## Requirements
+<a name="stepfunctions-rule-action-requirements"></a>
 
 This rule action has the following requirements:
++ An IAM role that AWS IoT can assume to perform the `states:StartExecution` operation. For more information, see [Granting an AWS IoT rule the access it requires](iot-create-role.md).
 
-- An IAM role that AWS IoT can assume to perform the `states:StartExecution` operation.
-  For more information, see [Granting an AWS IoT rule the access it requires](iot-create-role.md "iot-create-role.md").
-
-In the AWS IoT console, you can choose or create a role to allow AWS IoT to perform this rule action.
+  In the AWS IoT console, you can choose or create a role to allow AWS IoT to perform this rule action.
 
 ## Parameters
+<a name="stepfunctions-rule-action-parameters"></a>
 
 When you create an AWS IoT rule with this action, you must specify the following information:
 
-`stateMachineName`
+`stateMachineName`  
+The name of the Step Functions state machine to start.  
+Supports [substitution templates](iot-substitution-templates.md): API and AWS CLI only
 
-The name of the Step Functions state machine to start.
+`executionNamePrefix`  
+(Optional) The name given to the state machine execution consists of this prefix followed by a UUID. Step Functions creates a unique name for each state machine execution if one is not provided.  
+Supports [substitution templates](iot-substitution-templates.md): Yes
 
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): API and AWS CLI only
-
-`executionNamePrefix`
-
-(Optional) The name given to the state machine execution consists
-of this prefix followed by a UUID. Step Functions creates a unique name for
-each state machine execution if one is not provided.
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): Yes
-
-`roleArn`
-
-The ARN of the role that grants AWS IoT permission to start the
-state machine. For more information, see [Requirements](#stepfunctions-rule-action-requirements "#stepfunctions-rule-action-requirements").
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
+`roleArn`  
+The ARN of the role that grants AWS IoT permission to start the state machine. For more information, see [Requirements](#stepfunctions-rule-action-requirements).  
+Supports [substitution templates](iot-substitution-templates.md): No
 
 ## Examples
+<a name="stepfunctions-rule-action-examples"></a>
 
 The following JSON example defines a Step Functions action in an AWS IoT rule.
 
@@ -61,6 +55,5 @@ The following JSON example defines a Step Functions action in an AWS IoT rule.
 ```
 
 ## See also
-
-- [What is AWS Step Functions?](../../../step-functions/latest/dg.md "../../../step-functions/latest/dg.md") in the
-  _AWS Step Functions Developer Guide_
+<a name="stepfunctions-rule-action-see-also"></a>
++ [What is AWS Step Functions?](https://docs.aws.amazon.com/step-functions/latest/dg/) in the *AWS Step Functions Developer Guide*

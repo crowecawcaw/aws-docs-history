@@ -1,25 +1,21 @@
+
+
 # Error handling (error action)
+<a name="rule-error-handling"></a>
 
-When AWS IoT receives a message from a device, the rules engine checks to see if the
-message matches a rule. If so, the rule's query statement is evaluated and the rule's
-actions are activated, passing the query statement's result.
+When AWS IoT receives a message from a device, the rules engine checks to see if the message matches a rule. If so, the rule's query statement is evaluated and the rule's actions are activated, passing the query statement's result. 
 
-If a problem occurs when activating an action, the rules engine activates an error
-action, if one is specified for the rule. This might happen when:
+If a problem occurs when activating an action, the rules engine activates an error action, if one is specified for the rule. This might happen when:
++ A rule doesn't have permission to access an Amazon S3 bucket.
++ A user error causes DynamoDB provisioned throughput to be exceeded.
 
-- A rule doesn't have permission to access an Amazon S3 bucket.
-- A user error causes DynamoDB provisioned throughput to be exceeded.
-
-###### Note
-
-The error handling covered in this topic is for [rule actions](iot-rule-actions.md "iot-rule-actions.md"). To debug SQL issues, including external functions, you can
-set up AWS IoT logging. For more information, see [Configure AWS IoT logging](configure-logging.md "configure-logging.md").
+**Note**  
+The error handling covered in this topic is for [rule actions](iot-rule-actions.md). To debug SQL issues, including external functions, you can set up AWS IoT logging. For more information, see [Configure AWS IoT logging](configure-logging.md). 
 
 ## Error action message format
+<a name="rule-error-message-format"></a>
 
-A single message is generated per rule and message. For example, if two rule
-actions in the same rule fail, the error action receives one message that contains
-both errors.
+A single message is generated per rule and message. For example, if two rule actions in the same rule fail, the error action receives one message that contains both errors.
 
 The error action message looks like the following example.
 
@@ -40,58 +36,44 @@ The error action message looks like the following example.
 }
 ```
 
-ruleName
-
+ruleName  
 The name of the rule that triggered the error action.
 
-topic
-
+topic  
 The topic in which the original message was received.
 
-cloudwatchTraceId
-
+cloudwatchTraceId  
 A unique identity referring to the error logs in CloudWatch.
 
-clientId
-
+clientId  
 The client ID of the message publisher.
 
-base64OriginalPayload
-
+base64OriginalPayload  
 The original message payload Base64-encoded.
 
-failures
-
-failedAction
-
-The name of the action that failed to complete (for
-example, "S3Action").
-
-failedResource
-
-The name of the resource (for example, the name of an S3
-bucket).
-
-errorMessage
-
+failures    
+failedAction  
+The name of the action that failed to complete (for example, "S3Action").  
+failedResource  
+The name of the resource (for example, the name of an S3 bucket).  
+errorMessage  
 The description and explanation of the error.
 
 ## Error action example
+<a name="rule-error-example"></a>
 
-Here is an example of a rule with an added error action. The following rule has an
-action that writes message data to a DynamoDB table and an error action that writes
-data to an Amazon S3 bucket:
+Here is an example of a rule with an added error action. The following rule has an action that writes message data to a DynamoDB table and an error action that writes data to an Amazon S3 bucket:
 
 ```
 {
     "sql" : "SELECT * FROM ..."
-    "actions" : [{
+    "actions" : [{ 
         "dynamoDB" : {
             "table" : "PoorlyConfiguredTable",
             "hashKeyField" : "AConstantString",
             "hashKeyValue" : "AHashKey"}}
     ],
-    "errorAction" : {
+    "errorAction" : { 
         "s3" : {
             "roleArn": "arn:aws:iam::123456789012:role/aws_iot_s3",
             "bucketName" : "message-processing-errors",
@@ -101,13 +83,8 @@ data to an Amazon S3 bucket:
 }
 ```
 
-You can use any [function](iot-sql-functions.md "iot-sql-functions.md") or [substitution
-template](iot-substitution-templates.md "iot-substitution-templates.md") in an error action's SQL statement including the external
-functions: [`aws_lambda()`](iot-sql-functions.md#iot-func-aws-lambda "iot-sql-functions.md#iot-func-aws-lambda"), [`get_dynamodb()`](iot-sql-functions.md#iot-sql-function-get-dynamodb "iot-sql-functions.md#iot-sql-function-get-dynamodb"), [`get_registry_data()`](iot-sql-functions.md#iot-sql-function-get-registry_data "iot-sql-functions.md#iot-sql-function-get-registry_data"), [`get_thing_shadow()`](iot-sql-functions.md#iot-sql-function-get-thing-shadow "iot-sql-functions.md#iot-sql-function-get-thing-shadow"), [`get_secret()`](iot-sql-functions.md#iot-sql-function-get-secret "iot-sql-functions.md#iot-sql-function-get-secret"), and [`decode()`](iot-sql-functions.md#iot-sql-decode-base64 "iot-sql-functions.md#iot-sql-decode-base64"). If an error action requires to call an
-external function, then invoking the error action can result in additional bill for
-the external function.
+You can use any [function](iot-sql-functions.md) or [substitution template](https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html) in an error action's SQL statement including the external functions: [`aws_lambda()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-func-aws-lambda), [`get_dynamodb()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-function-get-dynamodb), [`get_registry_data()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-function-get-registry_data), [`get_thing_shadow()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-function-get-thing-shadow), [`get_secret()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-function-get-secret), and [`decode()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-decode-base64). If an error action requires to call an external function, then invoking the error action can result in additional bill for the external function.
 
-For more information about rules and how to specify an error action, see [Creating an AWS IoT Rule](iot-create-rule.md "iot-create-rule.md").
+For more information about rules and how to specify an error action, see [Creating an AWS IoT Rule](https://docs.aws.amazon.com/iot/latest/developerguide/iot-create-rule.html).
 
-For more information about using CloudWatch to monitor the success or failure of rules,
-see [AWS IoT metrics and dimensions](metrics_dimensions.md "metrics_dimensions.md").
+For more information about using CloudWatch to monitor the success or failure of rules, see [AWS IoT metrics and dimensions](metrics_dimensions.md).

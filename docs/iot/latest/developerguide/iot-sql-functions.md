@@ -1,183 +1,166 @@
+
+
 # Functions
+<a name="iot-sql-functions"></a>
 
-You can use the following built-in functions in the SELECT or WHERE clauses of your
-SQL expressions.
+You can use the following built-in functions in the SELECT or WHERE clauses of your SQL expressions.
 
-The following external functions are billed equivalent to that of a rule action:
-[`aws_lambda`](iot-sql-functions.md#iot-func-aws-lambda "iot-sql-functions.md#iot-func-aws-lambda"), [`get_dynamodb()`](iot-sql-functions.md#iot-sql-function-get-dynamodb "iot-sql-functions.md#iot-sql-function-get-dynamodb"), [`get_registry_data()`](iot-sql-functions.md#iot-sql-function-get-registry_data "iot-sql-functions.md#iot-sql-function-get-registry_data"), and [`get_thing_shadow()`](iot-sql-functions.md#iot-sql-function-get-thing-shadow "iot-sql-functions.md#iot-sql-function-get-thing-shadow"). You also get billed for the [`decode()`](iot-sql-functions.md#iot-sql-decode-base64 "iot-sql-functions.md#iot-sql-decode-base64") function only when you are [decoding a Protobuf message to JSON](binary-payloads.md#binary-payloads-protobuf "binary-payloads.md#binary-payloads-protobuf"). For more details, refer to the
-[AWS IoT Core pricing
-page](https://aws.amazon.com/iot-core/pricing/ "https://aws.amazon.com/iot-core/pricing/").
+The following external functions are billed equivalent to that of a rule action: [`aws_lambda`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-func-aws-lambda), [`get_dynamodb()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-function-get-dynamodb), [`get_registry_data()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-function-get-registry_data), and [`get_thing_shadow()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-function-get-thing-shadow). You also get billed for the [`decode()`](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-sql-decode-base64) function only when you are [decoding a Protobuf message to JSON](https://docs.aws.amazon.com/iot/latest/developerguide/binary-payloads.html#binary-payloads-protobuf). For more details, refer to the [AWS IoT Core pricing page](https://aws.amazon.com/iot-core/pricing/).
 
 ## abs(Decimal)
+<a name="iot-func-abs"></a>
 
-Returns the absolute value of a number. Supported by SQL version 2015-10-08 and
-later.
+Returns the absolute value of a number. Supported by SQL version 2015-10-08 and later.
 
 Example: `abs(-5)` returns 5.
 
-| Argument type | Result                                                                                                                           |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Int`, the absolute value of the argument.                                                                                       |
-| `Decimal`     | `Decimal`, the absolute value of the argument.                                                                                   |
-| `Boolean`     | `Undefined`.                                                                                                                     |
-| `String`      | `Decimal`. The result is the absolute value of the<br>argument. If the string cannot be converted, the result is<br>`Undefined`. |
-| Array         | `Undefined`.                                                                                                                     |
-| Object        | `Undefined`.                                                                                                                     |
-| Null          | `Undefined`.                                                                                                                     |
-| Undefined     | `Undefined`.                                                                                                                     |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Int, the absolute value of the argument. | 
+| Decimal | Decimal, the absolute value of the argument. | 
+| Boolean | Undefined. | 
+| String | Decimal. The result is the absolute value of the argument. If the string cannot be converted, the result is Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## accountid()
+<a name="iot-sql-function-accountid"></a>
 
-Returns the ID of the account that owns this rule as a `String`.
-Supported by SQL version 2015-10-08 and later.
+Returns the ID of the account that owns this rule as a `String`. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
-`accountid()` = "123456789012"
+`accountid() ` = "123456789012"
 
 ## acos(Decimal)
+<a name="iot-func-acos"></a>
 
-Returns the inverse cosine of a number in radians. `Decimal` arguments
-are rounded to double precision before function application. Supported by SQL
-version 2015-10-08 and later.
+Returns the inverse cosine of a number in radians. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
-Example: `acos(0)` = 1.5707963267948966
+Example: `acos(0)` = 1.5707963267948966 
 
-| Argument type | Result                                                                                                                                                            |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the inverse cosine<br>of the argument. Imaginary results are returned as<br>`Undefined`.                                       |
-| `Decimal`     | `Decimal` (with double precision), the inverse cosine<br>of the argument. Imaginary results are returned as<br>`Undefined`.                                       |
-| `Boolean`     | `Undefined`.                                                                                                                                                      |
-| `String`      | `Decimal`, the inverse cosine of the argument. If the<br>string cannot be converted, the result is `Undefined`.<br>Imaginary results are returned as `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                      |
-| Object        | `Undefined`.                                                                                                                                                      |
-| Null          | `Undefined`.                                                                                                                                                      |
-| Undefined     | `Undefined`.                                                                                                                                                      |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the inverse cosine of the argument. Imaginary results are returned as Undefined. | 
+| Decimal | Decimal (with double precision), the inverse cosine of the argument. Imaginary results are returned as Undefined. | 
+| Boolean | Undefined. | 
+| String | Decimal, the inverse cosine of the argument. If the string cannot be converted, the result is Undefined. Imaginary results are returned as Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## asin(Decimal)
+<a name="iot-func-asin"></a>
 
-Returns the inverse sine of a number in radians. `Decimal` arguments
-are rounded to double precision before function application. Supported by SQL
-version 2015-10-08 and later.
+Returns the inverse sine of a number in radians. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
 Example: `asin(0)` = 0.0
 
-| Argument type | Result                                                                                                                                                                                     |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Int`         | `Decimal` (with double precision), the inverse sine of<br>the argument. Imaginary results are returned as<br>`Undefined`.                                                                  |
-| `Decimal`     | `Decimal` (with double precision), the inverse sine of<br>the argument. Imaginary results are returned as<br>`Undefined`.                                                                  |
-| `Boolean`     | `Undefined`.                                                                                                                                                                               |
-| `String`      | `Decimal` (with double precision), the inverse sine of<br>the argument. If the string cannot be converted, the result is<br>`Undefined`. Imaginary results are returned as<br>`Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                                               |
-| Object        | `Undefined`.                                                                                                                                                                               |
-| Null          | `Undefined`.                                                                                                                                                                               |
-| Undefined     | `Undefined`.                                                                                                                                                                               |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the inverse sine of the argument. Imaginary results are returned as Undefined. | 
+| Decimal | Decimal (with double precision), the inverse sine of the argument. Imaginary results are returned as Undefined. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the inverse sine of the argument. If the string cannot be converted, the result is Undefined. Imaginary results are returned as Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## atan(Decimal)
+<a name="iot-func-atan"></a>
 
-Returns the inverse tangent of a number in radians. `Decimal` arguments
-are rounded to double precision before function application. Supported by SQL
-version 2015-10-08 and later.
+Returns the inverse tangent of a number in radians. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
 Example: `atan(0)` = 0.0
 
-| Argument type | Result                                                                                                                                                             |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Int`         | `Decimal` (with double precision), the inverse tangent<br>of the argument. Imaginary results are returned as<br>`Undefined`.                                       |
-| `Decimal`     | `Decimal` (with double precision), the inverse tangent<br>of the argument. Imaginary results are returned as<br>`Undefined`.                                       |
-| `Boolean`     | `Undefined`.                                                                                                                                                       |
-| `String`      | `Decimal`, the inverse tangent of the argument. If the<br>string cannot be converted, the result is `Undefined`.<br>Imaginary results are returned as `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                       |
-| Object        | `Undefined`.                                                                                                                                                       |
-| Null          | `Undefined`.                                                                                                                                                       |
-| Undefined     | `Undefined`.                                                                                                                                                       |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the inverse tangent of the argument. Imaginary results are returned as Undefined. | 
+| Decimal | Decimal (with double precision), the inverse tangent of the argument. Imaginary results are returned as Undefined. | 
+| Boolean | Undefined. | 
+| String | Decimal, the inverse tangent of the argument. If the string cannot be converted, the result is Undefined. Imaginary results are returned as Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## atan2(Decimal, Decimal)
+<a name="iot-func-atan2"></a>
 
-Returns the angle, in radians, between the positive x-axis and the (x, y) point
-defined in the two arguments.  The angle is positive for counter-clockwise angles
-(upper half-plane, y > 0), and negative for clockwise angles (lower
-half-plane, y < 0). `Decimal` arguments are rounded to double
-precision before function application. Supported by SQL version 2015-10-08 and
-later.
+Returns the angle, in radians, between the positive x-axis and the (x, y) point defined in the two arguments.  The angle is positive for counter-clockwise angles (upper half-plane, y > 0), and negative for clockwise angles (lower half-plane, y < 0). `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later. 
 
 Example: `atan2(1, 0)` = 1.5707963267948966
 
-| Argument type            | Argument type            | Result                                                                                                                   |
-| ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Decimal` (with double precision), the angle between<br>the x-axis and the specified (x,y) point.                        |
-| `Int`/`Decimal`/`String` | `Int`/`Decimal`/`String` | `Decimal`, the inverse tangent of the point described.<br>If a string cannot be converted, the result is<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                             |
+
+
+| Argument type | Argument type | Result | 
+| --- | --- | --- | 
+| Int/Decimal | Int/Decimal | Decimal (with double precision), the angle between the x-axis and the specified (x,y) point. | 
+| Int/Decimal/String | Int/Decimal/String | Decimal, the inverse tangent of the point described. If a string cannot be converted, the result is Undefined. | 
+| Other value | Other value | Undefined. | 
 
 ## aws\_lambda(functionArn, inputJson)
+<a name="iot-func-aws-lambda"></a>
 
-Calls the specified Lambda function passing `inputJson` to the Lambda
-function and returns the JSON generated by the Lambda function.
+ Calls the specified Lambda function passing `inputJson` to the Lambda function and returns the JSON generated by the Lambda function.
 
-Arguments| Argument | Description |
-| --- | --- |
-| `functionArn` | The ARN of the Lambda function to call. The Lambda function must<br>return JSON data. |
-| `inputJson` | The JSON input passed to the Lambda function. To pass nested<br>object queries and literals, you must use SQL version<br>2016-03-23. |
 
-You must grant AWS IoT `lambda:InvokeFunction` permissions to invoke the
-specified Lambda function. The following example shows how to grant the
-`lambda:InvokeFunction` permission using the AWS CLI:
+**Arguments**  
+
+| Argument | Description | 
+| --- | --- | 
+| functionArn | The ARN of the Lambda function to call. The Lambda function must return JSON data. | 
+| inputJson | The JSON input passed to the Lambda function. To pass nested object queries and literals, you must use SQL version 2016-03-23. | 
+
+You must grant AWS IoT `lambda:InvokeFunction` permissions to invoke the specified Lambda function. The following example shows how to grant the `lambda:InvokeFunction` permission using the AWS CLI:
 
 ```
 aws lambda add-permission --function-name "function_name"
---region "`region`"
---principal iot.amazonaws.com
---source-arn arn:aws:iot:`us-east-1`:`account_id`:rule/`rule_name`
---source-account "`account_id`"
---statement-id "`unique_id`"
+--region "{{region}}"
+--principal iot.amazonaws.com 
+--source-arn arn:aws:iot:{{us-east-1}}:{{account_id}}:rule/{{rule_name}}
+--source-account "{{account_id}}"
+--statement-id "{{unique_id}}" 
 --action "lambda:InvokeFunction"
 ```
 
-The following are the arguments for the **add-permission**
-command:
+The following are the arguments for the **add-permission** command:
 
---function-name
+--function-name   
+Name of the Lambda function. You add a new permission to update the function's resource policy.
 
-Name of the Lambda function. You add a new permission to update the
-function's resource policy.
-
---region
-
+--region  
 The AWS Region of your account.
 
---principal
+--principal  
+The principal who is getting the permission. This should be `iot.amazonaws.com` to allow AWS IoT permission to call a Lambda function.
 
-The principal who is getting the permission. This should be
-`iot.amazonaws.com` to allow AWS IoT permission to call a
-Lambda function.
+--source-arn  
+The ARN of the rule. You can use the **get-topic-rule** AWS CLI command to get the ARN of a rule.
 
---source-arn
-
-The ARN of the rule. You can use the **get-topic-rule**
-AWS CLI command to get the ARN of a rule.
-
---source-account
-
+--source-account  
 The AWS account where the rule is defined.
 
---statement-id
-
+--statement-id  
 A unique statement identifier.
 
---action
+--action  
+The Lambda action that you want to allow in this statement. To allow AWS IoT to invoke a Lambda function, specify `lambda:InvokeFunction`.
 
-The Lambda action that you want to allow in this statement. To allow
-AWS IoT to invoke a Lambda function, specify
-`lambda:InvokeFunction`.
-
-###### Important
-
-If you add a permission for an AWS IoT principal without providing the
-`source-arn`
-or `source-account`, any AWS account
-that creates a rule with your Lambda action can trigger rules to invoke your
-Lambda function from AWS IoT. For more information, see [Lambda
-Permission Model](../../../lambda/latest/dg/intro-permission-model.md "../../../lambda/latest/dg/intro-permission-model.md").
+**Important**  
+If you add a permission for an AWS IoT principal without providing the `source-arn` or `source-account`, any AWS account that creates a rule with your Lambda action can trigger rules to invoke your Lambda function from AWS IoT. For more information, see [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html).
 
 Given a JSON message payload like:
 
@@ -188,175 +171,187 @@ Given a JSON message payload like:
 }
 ```
 
-The `aws_lambda` function can be used to call Lambda function as
-follows.
+The `aws_lambda` function can be used to call Lambda function as follows.
 
 ```
 SELECT
-aws_lambda("arn:aws:lambda:`us-east-1`:`account_id`:function:`lambda_function`", {"payload":attribute1}) as output FROM '`topic-filter`'
+aws_lambda("arn:aws:lambda:{{us-east-1}}:{{account_id}}:function:{{lambda_function}}", {"payload":attribute1}) as output FROM '{{topic-filter}}'
 ```
 
-If you want to pass the full MQTT message payload, you can specify the JSON
-payload using '\*', such as the following example.
+If you want to pass the full MQTT message payload, you can specify the JSON payload using '\*', such as the following example.
 
 ```
 SELECT
-aws_lambda("arn:aws:lambda:`us-east-1`:`account_id`:function:`lambda_function`", *) as output FROM '`topic-filter`'
+aws_lambda("arn:aws:lambda:{{us-east-1}}:{{account_id}}:function:{{lambda_function}}", *) as output FROM '{{topic-filter}}'
 ```
 
-`payload.inner.element` selects data from messages published on topic
-'topic/subtopic'.
+`payload.inner.element` selects data from messages published on topic 'topic/subtopic'.
 
-`some.value` selects data from the output that's generated by the Lambda
-function.
+`some.value` selects data from the output that's generated by the Lambda function.
 
-###### Note
-
-The rules engine limits the execution duration of Lambda functions. Lambda
-function calls from rules should be completed within 2000 milliseconds.
+**Note**  
+ The rules engine limits the execution duration of Lambda functions. Lambda function calls from rules should be completed within 2000 milliseconds. 
 
 ## bitand(Int, Int)
+<a name="iot-func-bitand"></a>
 
-Performs a bitwise AND on the bit representations of the two
-`Int`(-converted) arguments. Supported by SQL version 2015-10-08 and
-later.
+Performs a bitwise AND on the bit representations of the two `Int`(-converted) arguments. Supported by SQL version 2015-10-08 and later.
 
 Example: `bitand(13, 5)` = 5
 
-| Argument type            | Argument type            | Result                                                                                                                                                                                               |
-| ------------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`                    | `Int`                    | `Int`, a bitwise AND of the two arguments.                                                                                                                                                           |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Int`, a bitwise AND of the two arguments. All<br>non-`Int` numbers are rounded down to the nearest<br>`Int`. If any of the arguments cannot be converted to<br>an `Int`, the result is `Undefined`. |
-| `Int`/`Decimal`/`String` | `Int`/`Decimal`/`String` | `Int`, a bitwise AND of the two arguments. All strings<br>are converted to decimals and are rounded down to the nearest<br>`Int`. If the conversion fails, the result is<br>`Undefined`.             |
-| Other value              | Other value              | `Undefined`.                                                                                                                                                                                         |
+
+
+| Argument type | Argument type | Result | 
+| --- | --- | --- | 
+| Int | Int | Int, a bitwise AND of the two arguments. | 
+| Int/Decimal | Int/Decimal | Int, a bitwise AND of the two arguments. All non-Int numbers are rounded down to the nearest Int. If any of the arguments cannot be converted to an Int, the result is Undefined. | 
+| Int/Decimal/String | Int/Decimal/String | Int, a bitwise AND of the two arguments. All strings are converted to decimals and are rounded down to the nearest Int. If the conversion fails, the result is Undefined. | 
+| Other value | Other value | Undefined. | 
 
 ## bitor(Int, Int)
+<a name="iot-func-bitor"></a>
 
-Performs a bitwise OR of the bit representations of the two arguments. Supported
-by SQL version 2015-10-08 and later.
+Performs a bitwise OR of the bit representations of the two arguments. Supported by SQL version 2015-10-08 and later.
 
 Example: `bitor(8, 5)` = 13
 
-| Argument type            | Argument type            | Result                                                                                                                                                                                |
-| ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`                    | `Int`                    | `Int`, the bitwise OR of the two arguments.                                                                                                                                           |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Int`, the bitwise OR of the two arguments. All<br>non-`Int` numbers are rounded down to the nearest<br>`Int`. If the conversion fails, the result is<br>`Undefined`.                 |
-| `Int`/`Decimal`/`String` | `Int`/`Decimal`/`String` | `Int`, the bitwise OR on the two arguments. All<br>strings are converted to decimals and rounded down to the nearest<br>`Int`. If the conversion fails, the result is<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                                                                                          |
+
+
+| Argument type | Argument type | Result | 
+| --- | --- | --- | 
+| Int | Int | Int, the bitwise OR of the two arguments. | 
+| Int/Decimal | Int/Decimal | Int, the bitwise OR of the two arguments. All non-Int numbers are rounded down to the nearest Int. If the conversion fails, the result is Undefined. | 
+| Int/Decimal/String | Int/Decimal/String | Int, the bitwise OR on the two arguments. All strings are converted to decimals and rounded down to the nearest Int. If the conversion fails, the result is Undefined. | 
+| Other value | Other value | Undefined. | 
 
 ## bitxor(Int, Int)
+<a name="iot-func-xbitor"></a>
 
-Performs a bitwise XOR on the bit representations of the two
-`Int`(-converted) arguments. Supported by SQL version 2015-10-08 and
-later.
+Performs a bitwise XOR on the bit representations of the two `Int`(-converted) arguments. Supported by SQL version 2015-10-08 and later.
 
 Example:`bitor(13, 5)` = 8
 
-| Argument type            | Argument type            | Result                                                                                                                                                                           |
-| ------------------------ | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`                    | `Int`                    | `Int`, a bitwise XOR on the two arguments.                                                                                                                                       |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Int`, a bitwise XOR on the two arguments.<br>Non-`Int` numbers are rounded down to the nearest<br>`Int`.                                                                        |
-| `Int`/`Decimal`/`String` | `Int`/`Decimal`/`String` | `Int`, a bitwise XOR on the two arguments. strings are<br>converted to decimals and rounded down to the nearest<br>`Int`. If any conversion fails, the result is<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                                                                                     |
+
+
+| Argument type | Argument type | Result | 
+| --- | --- | --- | 
+| Int | Int | Int, a bitwise XOR on the two arguments. | 
+| Int/Decimal | Int/Decimal | Int, a bitwise XOR on the two arguments. Non-Int numbers are rounded down to the nearest Int. | 
+| Int/Decimal/String | Int/Decimal/String | Int, a bitwise XOR on the two arguments. strings are converted to decimals and rounded down to the nearest Int. If any conversion fails, the result is Undefined. | 
+| Other value | Other value | Undefined. | 
 
 ## bitnot(Int)
+<a name="iot-func-bitnot"></a>
 
-Performs a bitwise NOT on the bit representations of the
-`Int`(-converted) argument. Supported by SQL version 2015-10-08 and
-later.
+Performs a bitwise NOT on the bit representations of the `Int`(-converted) argument. Supported by SQL version 2015-10-08 and later. 
 
 Example: `bitnot(13)` = 2
 
-| Argument type | Result                                                                                                                                                                      |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Int`, a bitwise NOT of the argument.                                                                                                                                       |
-| `Decimal`     | `Int`, a bitwise NOT of the argument. The<br>`Decimal` value is rounded down to the nearest<br>`Int`.                                                                       |
-| `String`      | `Int`, a bitwise NOT of the argument. Strings are<br>converted to decimals and rounded down to the nearest<br>`Int`. If any conversion fails, the result is<br>`Undefined`. |
-| Other value   | Other value.                                                                                                                                                                |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Int, a bitwise NOT of the argument. | 
+| Decimal | Int, a bitwise NOT of the argument. The Decimal value is rounded down to the nearest Int. | 
+| String | Int, a bitwise NOT of the argument. Strings are converted to decimals and rounded down to the nearest Int. If any conversion fails, the result is Undefined. | 
+| Other value | Other value. | 
 
 ## cast()
+<a name="iot-sql-function-cast"></a>
 
-Converts a value from one data type to another. Cast behaves mostly like the
-standard conversions, with the addition of the ability to cast numbers to or from
-Booleans. If AWS IoT cannot determine how to cast one type to another, the result is
-`Undefined`. Supported by SQL version 2015-10-08 and later. Format:
-cast(`value` as
-`type`).
+Converts a value from one data type to another. Cast behaves mostly like the standard conversions, with the addition of the ability to cast numbers to or from Booleans. If AWS IoT cannot determine how to cast one type to another, the result is `Undefined`. Supported by SQL version 2015-10-08 and later. Format: cast({{value}} as {{type}}).
 
 Example:
 
-`cast(true as Int)` = 1
+`cast(true as Int) ` = 1
 
-The following keywords might appear after "as" when calling
-`cast`:
+The following keywords might appear after "as" when calling `cast`:
 
-For SQL version 2015-10-08 and 2016-03-23| Keyword | Result |
-| --- | --- |
-| `String` | Casts value to `String`. |
-| Nvarchar | Casts value to `String`. |
-| Text | Casts value to `String`. |
-| Ntext | Casts value to `String`. |
-| varchar | Casts value to `String`. |
-| `Int` | Casts value to `Int`. |
-| Integer | Casts value to `Int`. |
-| Double | Casts value to `Decimal` (with double<br>precision). |
 
-Additionally, for SQL version 2016-03-23| Keyword | Result |
-| --- | --- |
-| `Decimal` | Casts value to `Decimal`. |
-| Bool | Casts value to `Boolean`. |
-| `Boolean` | Casts value to `Boolean`. |
+**For SQL version 2015-10-08 and 2016-03-23**  
+
+| Keyword | Result | 
+| --- | --- | 
+| String | Casts value to String. | 
+| Nvarchar | Casts value to String. | 
+| Text | Casts value to String. | 
+| Ntext | Casts value to String. | 
+| varchar | Casts value to String. | 
+| Int | Casts value to Int. | 
+| Integer | Casts value to Int. | 
+| Double | Casts value to Decimal (with double precision). | 
+
+
+**Additionally, for SQL version 2016-03-23**  
+
+| Keyword | Result | 
+| --- | --- | 
+| Decimal | Casts value to Decimal. | 
+| Bool | Casts value to Boolean. | 
+| Boolean | Casts value to Boolean. | 
 
 Casting rules:
 
-Cast to decimal| Argument type | Result |
-| --- | --- |
-| `Int` | A `Decimal` with no decimal point. |
-| `Decimal` | The source value.<br>NoteWith SQL V2 (2016-03-23), numeric values that are whole<br>numbers, such as `10.0`, return an<br>`Int` value (`10`) instead of the<br>expected `Decimal` value (`10.0`). To<br>reliably cast whole number numeric values as<br>`Decimal` values, use SQL V1 (2015-10-08) for<br>the rule query statement. |
-| `Boolean` | true = 1.0, false = 0.0. |
-| `String` | Tries to parse the string as a `Decimal`. AWS IoT<br>attempts to parse strings matching the regex:<br>^-?\d+(\.\d+)?((?i)E-?\d+)?$. "0", "-1.2", "5E-12" are all examples<br>of strings that are converted automatically to decimals. |
-| Array | `Undefined`. |
-| Object | `Undefined`. |
-| Null | `Undefined`. |
-| Undefined | `Undefined`. |
 
-Cast to int| Argument type | Result |
-| --- | --- |
-| `Int` | The source value. |
-| `Decimal` | The source value, rounded down to the nearest<br>`Int`. |
-| `Boolean` | true = 1.0, false = 0.0. |
-| `String` | Tries to parse the string as a `Decimal`. AWS IoT<br>attempts to parse strings matching the regex:<br>^-?\d+(\.\d+)?((?i)E-?\d+)?$. "0", "-1.2", "5E-12" are all examples<br>of strings that are converted automatically to decimals. AWS IoT<br>attempts to convert the string to a `Decimal` and round<br>down to the nearest `Int`. |
-| Array | `Undefined`. |
-| Object | `Undefined`. |
-| Null | `Undefined`. |
-| Undefined | `Undefined`. |
+**Cast to decimal**  
 
-Cast to `Boolean`| Argument type | Result |
-| --- | --- |
-| `Int` | 0 = False, any\_nonzero\_value = True. |
-| `Decimal` | 0 = False, any\_nonzero\_value = True. |
-| `Boolean` | The source value. |
-| `String` | "true" = True and "false" = False (case insensitive). Other<br>string values = `Undefined`. |
-| Array | `Undefined`. |
-| Object | `Undefined`. |
-| Null | `Undefined`. |
-| Undefined | `Undefined`. |
+| Argument type | Result | 
+| --- | --- | 
+| Int | A Decimal with no decimal point. | 
+| Decimal | The source value. With SQL V2 (2016-03-23), numeric values that are whole numbers, such as `10.0`, return an `Int` value (`10`) instead of the expected `Decimal` value (`10.0`). To reliably cast whole number numeric values as `Decimal` values, use SQL V1 (2015-10-08) for the rule query statement.  | 
+| Boolean | true = 1.0, false = 0.0. | 
+| String | Tries to parse the string as a Decimal. AWS IoT attempts to parse strings matching the regex: ^-?\\d\+(\\.\\d\+)?((?i)E-?\\d\+)?$. "0", "-1.2", "5E-12" are all examples of strings that are converted automatically to decimals. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
-Cast to string| Argument type | Result |
-| --- | --- |
-| `Int` | A string representation of the `Int`, in standard<br>notation. |
-| `Decimal` | A string representing the `Decimal` value, possibly in<br>scientific notation. |
-| `Boolean` | "true" or "false", all lowercase. |
-| `String` | The source value. |
-| Array | The array serialized to JSON. The result string is a<br>comma-separated list enclosed in square brackets.<br>`String` is quoted. `Decimal`,<br>`Int`, and `Boolean` are not. |
-| Object | The object serialized to JSON. The JSON string is a<br>comma-separated list of key-value pairs and begins and ends with<br>curly braces. `String` is quoted. `Decimal`,<br>`Int`, `Boolean`, and `Null`<br>are not. |
-| Null | `Undefined`. |
-| Undefined | `Undefined`. |
+
+**Cast to int**  
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | The source value. | 
+| Decimal | The source value, rounded down to the nearest Int. | 
+| Boolean | true = 1.0, false = 0.0. | 
+| String | Tries to parse the string as a Decimal. AWS IoT attempts to parse strings matching the regex: ^-?\\d\+(\\.\\d\+)?((?i)E-?\\d\+)?$. "0", "-1.2", "5E-12" are all examples of strings that are converted automatically to decimals. AWS IoT attempts to convert the string to a Decimal and round down to the nearest Int. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
+
+
+**Cast to `Boolean`**  
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | 0 = False, any\_nonzero\_value = True. | 
+| Decimal | 0 = False, any\_nonzero\_value = True. | 
+| Boolean | The source value. | 
+| String | "true" = True and "false" = False (case insensitive). Other string values = Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
+
+
+**Cast to string**  
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | A string representation of the Int, in standard notation. | 
+| Decimal | A string representing the Decimal value, possibly in scientific notation. | 
+| Boolean | "true" or "false", all lowercase. | 
+| String | The source value. | 
+| Array | The array serialized to JSON. The result string is a comma-separated list enclosed in square brackets. String is quoted. Decimal, Int, and Boolean are not. | 
+| Object | The object serialized to JSON. The JSON string is a comma-separated list of key-value pairs and begins and ends with curly braces. String is quoted. Decimal, Int, Boolean, and Null are not. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## ceil(Decimal)
+<a name="iot-func-ceil"></a>
 
-Rounds the given `Decimal` up to the nearest `Int`.
-Supported by SQL version 2015-10-08 and later.
+Rounds the given `Decimal` up to the nearest `Int`. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
@@ -364,137 +359,136 @@ Examples:
 
 `ceil(-1.2)` = -1
 
-| Argument type | Result                                                                                                                                                                 |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Int`, the argument value.                                                                                                                                             |
-| `Decimal`     | `Int`, the `Decimal` value rounded up to<br>the nearest `Int`.                                                                                                         |
-| `String`      | `Int`. The string is converted to `Decimal`<br>and rounded up to the nearest `Int`. If the string cannot<br>be converted to a `Decimal`, the result is<br>`Undefined`. |
-| Other value   | `Undefined`.                                                                                                                                                           |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Int, the argument value. | 
+| Decimal | Int, the Decimal value rounded up to the nearest Int. | 
+| String | Int. The string is converted to Decimal and rounded up to the nearest Int. If the string cannot be converted to a Decimal, the result is Undefined. | 
+| Other value | Undefined. | 
 
 ## chr(String)
+<a name="iot-func-chr"></a>
 
-Returns the ASCII character that corresponds to the given `Int`
-argument. Supported by SQL version 2015-10-08 and later.
+Returns the ASCII character that corresponds to the given `Int` argument. Supported by SQL version 2015-10-08 and later.
 
-Examples:
+Examples: 
 
 `chr(65)` = "A".
 
 `chr(49)` = "1".
 
-| Argument type | Result                                                                                                                                                                                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Int`         | The character corresponding to the specified ASCII value. If the<br>argument is not a valid ASCII value, the result is<br>`Undefined`.                                                                 |
-| `Decimal`     | The character corresponding to the specified ASCII value. The<br>`Decimal` argument is rounded down to the nearest<br>`Int`. If the argument is not a valid ASCII value,<br>the result is `Undefined`. |
-| `Boolean`     | `Undefined`.                                                                                                                                                                                           |
-| `String`      | If the `String` can be converted to a<br>`Decimal`, it is rounded down to the nearest<br>`Int`. If the argument is not a valid ASCII value,<br>the result is `Undefined`.                              |
-| Array         | `Undefined`.                                                                                                                                                                                           |
-| Object        | `Undefined`.                                                                                                                                                                                           |
-| Null          | `Undefined`.                                                                                                                                                                                           |
-| Other value   | `Undefined`.                                                                                                                                                                                           |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | The character corresponding to the specified ASCII value. If the argument is not a valid ASCII value, the result is Undefined. | 
+| Decimal | The character corresponding to the specified ASCII value. The Decimal argument is rounded down to the nearest Int. If the argument is not a valid ASCII value, the result is Undefined. | 
+| Boolean | Undefined. | 
+| String | If the String can be converted to a Decimal, it is rounded down to the nearest Int. If the argument is not a valid ASCII value, the result is Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Other value | Undefined. | 
 
 ## clientid()
+<a name="iot-sql-function-clientid"></a>
 
-Returns the ID of the MQTT client sending the message, or `n/a` if the
-message wasn't sent over MQTT. Supported by SQL version 2015-10-08 and later.
+Returns the ID of the MQTT client sending the message, or `n/a` if the message wasn't sent over MQTT. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
-`clientid()` = "123456789012"
+`clientid() ` = "123456789012"
 
 ## concat()
+<a name="iot-func-concat"></a>
 
-Concatenates arrays or strings. This function accepts any number of arguments and
-returns a `String` or an `Array`. Supported by SQL version
-2015-10-08 and later.
+Concatenates arrays or strings. This function accepts any number of arguments and returns a `String` or an `Array`. Supported by SQL version 2015-10-08 and later.
 
-Examples:
+Examples: 
 
-`concat()` = `Undefined`.
+`concat() ` = `Undefined`.
 
-`concat(1)` = "1".
+`concat(1) ` = "1".
 
 `concat([1, 2, 3], 4)` = [1, 2, 3, 4].
 
 `concat([1, 2, 3], "hello")` = [1, 2, 3, "hello"]
 
-`concat("con", "cat")` = "concat"
+`concat("con", "cat")` = "concat" 
 
 `concat(1, "hello")` = "1hello"
 
 `concat("he","is","man")` = "heisman"
 
-`concat([1, 2, 3], "hello", [4, 5, 6])` = [1, 2, 3, "hello", 4, 5,
-6]
+`concat([1, 2, 3], "hello", [4, 5, 6])` = [1, 2, 3, "hello", 4, 5, 6]
 
-| Number of arguments | Result                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0                   | `Undefined`.                                                                                                                                                                                                                                                                                                                                                |
-| 1                   | The argument is returned unmodified.                                                                                                                                                                                                                                                                                                                        |
-| 2+                  | If any argument is an `Array`, the result is a<br>single array containing all of the arguments. If no arguments<br>are arrays, and at least one argument is a `String`,<br>the result is the concatenation of the `String`<br>representations of all the arguments. Arguments are converted to<br>strings using the standard conversions previously listed. |
+
+
+| Number of arguments | Result | 
+| --- | --- | 
+| 0 | Undefined. | 
+| 1 | The argument is returned unmodified. | 
+| 2\+ | If any argument is an `Array`, the result is a single array containing all of the arguments. If no arguments are arrays, and at least one argument is a `String`, the result is the concatenation of the `String` representations of all the arguments. Arguments are converted to strings using the standard conversions previously listed. | 
 
 ## cos(Decimal)
+<a name="iot-func-cos"></a>
 
-Returns the cosine of a number in radians. `Decimal` arguments are
-rounded to double precision before function application. Supported by SQL version
-2015-10-08 and later.
+Returns the cosine of a number in radians. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
-Example:
+Example: 
 
 `cos(0)` = 1.
 
-| Argument type | Result                                                                                                                                                                                              |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the cosine of the<br>argument. Imaginary results are returned as<br>`Undefined`.                                                                                 |
-| `Decimal`     | `Decimal` (with double precision), the cosine of the<br>argument. Imaginary results are returned as<br>`Undefined`.                                                                                 |
-| `Boolean`     | `Undefined`.                                                                                                                                                                                        |
-| `String`      | `Decimal` (with double precision), the cosine of the<br>argument. If the string cannot be converted to a<br>`Decimal`, the result is `Undefined`.<br>Imaginary results are returned as `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                                                        |
-| Object        | `Undefined`.                                                                                                                                                                                        |
-| Null          | `Undefined`.                                                                                                                                                                                        |
-| Undefined     | `Undefined`.                                                                                                                                                                                        |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the cosine of the argument. Imaginary results are returned as Undefined. | 
+| Decimal | Decimal (with double precision), the cosine of the argument. Imaginary results are returned as Undefined. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the cosine of the argument. If the string cannot be converted to a Decimal, the result is Undefined. Imaginary results are returned as Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## cosh(Decimal)
+<a name="iot-func-cosh"></a>
 
-Returns the hyperbolic cosine of a number in radians. `Decimal`
-arguments are rounded to double precision before function application. Supported by
-SQL version 2015-10-08 and later.
+Returns the hyperbolic cosine of a number in radians. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
-Example: `cosh(2.3)` = 5.037220649268761.
+Example: `cosh(2.3)` = 5.037220649268761. 
 
-| Argument type | Result                                                                                                                                                                                                         |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the hyperbolic<br>cosine of the argument. Imaginary results are returned as<br>`Undefined`.                                                                                 |
-| `Decimal`     | `Decimal` (with double precision), the hyperbolic<br>cosine of the argument. Imaginary results are returned as<br>`Undefined`.                                                                                 |
-| `Boolean`     | `Undefined`.                                                                                                                                                                                                   |
-| `String`      | `Decimal` (with double precision), the hyperbolic<br>cosine of the argument. If the string cannot be converted to a<br>`Decimal`, the result is `Undefined`.<br>Imaginary results are returned as `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                                                                   |
-| Object        | `Undefined`.                                                                                                                                                                                                   |
-| Null          | `Undefined`.                                                                                                                                                                                                   |
-| Undefined     | `Undefined`.                                                                                                                                                                                                   |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the hyperbolic cosine of the argument. Imaginary results are returned as Undefined. | 
+| Decimal | Decimal (with double precision), the hyperbolic cosine of the argument. Imaginary results are returned as Undefined. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the hyperbolic cosine of the argument. If the string cannot be converted to a Decimal, the result is Undefined. Imaginary results are returned as Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## decode(value, decodingScheme)
+<a name="iot-sql-decode-base64"></a>
 
-Use the `decode` function to decode an encoded value. If the decoded
-string is a JSON document, an addressable object is returned. Otherwise, the decoded
-string is returned as a string. The function returns NULL if the string cannot be
-decoded. This function supports decoding base64-encoded strings and Protocol Buffer
-(protobuf) message format.
+Use the `decode` function to decode an encoded value. If the decoded string is a JSON document, an addressable object is returned. Otherwise, the decoded string is returned as a string. The function returns NULL if the string cannot be decoded. This function supports decoding base64-encoded strings and Protocol Buffer (protobuf) message format.
 
 Supported by SQL version 2016-03-23 and later.
 
-value
+value  
+A string value or any of the valid expressions, as defined in [AWS IoT SQL reference](iot-sql-reference.md), that return a string.
 
-A string value or any of the valid expressions, as defined in [AWS IoT SQL reference](iot-sql-reference.md "iot-sql-reference.md"),
-that return a string.
-
-decodingScheme
-
-A literal string representing the scheme used to decode the value.
-Currently, only `'base64'` and `'proto'` are
-supported.
+decodingScheme  
+A literal string representing the scheme used to decode the value. Currently, only `'base64'` and `'proto'` are supported.
 
 ### Decoding base64-encoded strings
+<a name="iot-sql-decode-example"></a>
 
 In this example, the message payload includes an encoded value.
 
@@ -504,15 +498,13 @@ In this example, the message payload includes an encoded value.
 }
 ```
 
-The `decode` function in this SQL statement decodes the value in the
-message payload.
+The `decode` function in this SQL statement decodes the value in the message payload.
 
 ```
 SELECT decode(encoded_temp,"base64").temperature AS temp from 'topic/subtopic'
 ```
 
-Decoding the `encoded_temp` value results in the following valid JSON
-document, which allows the SELECT statement to read the temperature value.
+Decoding the `encoded_temp` value results in the following valid JSON document, which allows the SELECT statement to read the temperature value.
 
 ```
 { "temperature": 33 }
@@ -524,153 +516,113 @@ The result of the SELECT statement in this example is shown here.
 { "temp": 33 }
 ```
 
-If the decoded value was not a valid JSON document, the decoded value would be
-returned as a string.
+If the decoded value was not a valid JSON document, the decoded value would be returned as a string.
 
 ### Decoding protobuf message payload
+<a name="iot-sql-decode-protobuf"></a>
 
-You can use the decode SQL function to configure a Rule that can decode your
-protobuf message payload. For more information, see [Decoding protobuf message
-payloads](binary-payloads.md#binary-payloads-protobuf "binary-payloads.md#binary-payloads-protobuf").
+You can use the decode SQL function to configure a Rule that can decode your protobuf message payload. For more information, see [Decoding protobuf message payloads](binary-payloads.md#binary-payloads-protobuf).
 
-###### Important
-
-If you omit the `source‐arn` or `source‐account` when setting permissions for an AWS IoT principal, any AWS account can invoke your Decode function through other AWS IoT rules. To secure your function, see [Bucket policies](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md") in the _Amazon Simple Storage Service User Guide_.
+**Important**  
+If you omit the `source‐arn` or `source‐account` when setting permissions for an AWS IoT principal, any AWS account can invoke your Decode function through other AWS IoT rules. To secure your function, see [Bucket policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html) in the *Amazon Simple Storage Service User Guide*.
 
 The function signature looks like the following:
 
 ```
-decode(<ENCODED DATA>, 'proto', '<S3 BUCKET NAME>', '<S3 OBJECT KEY>', '<PROTO NAME>', '<MESSAGE TYPE>')
+decode(<ENCODED DATA>, 'proto', '<S3 BUCKET NAME>', '<S3 OBJECT KEY>', '<PROTO NAME>', '<MESSAGE TYPE>')            
 ```
 
-`ENCODED DATA`
-
-Specifies the protobuf-encoded data to be decoded. If the entire
-message sent to the Rule is protobuf-encoded data, you can reference
-the raw binary incoming payload using `*`. Otherwise,
-this field must be a base-64 encoded JSON string and a reference to
-the string can be passed in directly.
-
-1. To decode a raw binary protobuf incoming payload:
+`ENCODED DATA`  
+Specifies the protobuf-encoded data to be decoded. If the entire message sent to the Rule is protobuf-encoded data, you can reference the raw binary incoming payload using `*`. Otherwise, this field must be a base-64 encoded JSON string and a reference to the string can be passed in directly.  
+1) To decode a raw binary protobuf incoming payload:  
 
 ```
 decode(*, 'proto', ...)
 ```
-
-2. To decode a protobuf-encoded message represented by a
-   base64-encoded string 'a.b':
+2) To decode a protobuf-encoded message represented by a base64-encoded string 'a.b':   
 
 ```
 decode(a.b, 'proto', ...)
 ```
 
-`proto`
+`proto`  
+Specifies the data to be decoded in a protobuf message format. If you specify `base64` instead of `proto`, this function will decode base64-encoded strings as JSON.
 
-Specifies the data to be decoded in a protobuf message format. If
-you specify `base64` instead of `proto`, this
-function will decode base64-encoded strings as JSON.
+`S3 BUCKET NAME`  
+The name of the Amazon S3 bucket where you’ve uploaded your `FileDescriptorSet` file.
 
-`S3 BUCKET NAME`
+`S3 OBJECT KEY`  
+The object key that specifies the `FileDescriptorSet` file within the Amazon S3 bucket.
 
-The name of the Amazon S3 bucket where you’ve uploaded your
-`FileDescriptorSet` file.
+`PROTO NAME`  
+The name of the `.proto` file (excluding the extension) from which the `FileDescriptorSet` file was generated.
 
-`S3 OBJECT KEY`
+`MESSAGE TYPE`  
+The name of the protobuf message structure within the `FileDescriptorSet` file, to which the data to be decoded should conform.
 
-The object key that specifies the `FileDescriptorSet`
-file within the Amazon S3 bucket.
-
-`PROTO NAME`
-
-The name of the `.proto` file (excluding the extension)
-from which the `FileDescriptorSet` file was
-generated.
-
-`MESSAGE TYPE`
-
-The name of the protobuf message structure within the
-`FileDescriptorSet` file, to which the data to be
-decoded should conform.
-
-An example SQL expression using the decode SQL function can look like the
-following:
+An example SQL expression using the decode SQL function can look like the following:
 
 ```
 SELECT VALUE decode(*, 'proto', 's3-bucket', 'messageformat.desc', 'myproto', 'messagetype') FROM 'some/topic'
 ```
++ `*`
 
-- `*`
+  Represents a binary incoming payload, which conforms to the protobuf message type called `mymessagetype`.
++ `messageformat.desc`
 
-Represents a binary incoming payload, which conforms to the protobuf
-message type called `mymessagetype`.
+  The `FileDescriptorSet` file stored in an Amazon S3 bucket named `s3-bucket`. 
++ `myproto`
 
-- `messageformat.desc`
+  The original `.proto` file used to generate the `FileDescriptorSet` file named `myproto.proto`.
++ `messagetype`
 
-The `FileDescriptorSet` file stored in an Amazon S3 bucket named
-`s3-bucket`.
-
-- `myproto`
-
-The original `.proto` file used to generate the
-`FileDescriptorSet` file named
-`myproto.proto`.
-
-- `messagetype`
-
-The message type called `messagetype` (along with any
-imported dependencies) as defined in `myproto.proto`.
+  The message type called `messagetype` (along with any imported dependencies) as defined in `myproto.proto`.
 
 ## encode(value, encodingScheme)
+<a name="iot-sql-encode-payload"></a>
 
-Use the `encode` function to encode the payload, which potentially
-might be non-JSON data, into its string representation based on the encoding scheme.
-Supported by SQL version 2016-03-23 and later.
+Use the `encode` function to encode the payload, which potentially might be non-JSON data, into its string representation based on the encoding scheme. Supported by SQL version 2016-03-23 and later.
 
-value
+value  
+Any of the valid expressions, as defined in [AWS IoT SQL reference](iot-sql-reference.md). You can specify \* to encode the entire payload, regardless of whether it's in JSON format. If you supply an expression, the result of the evaluation is converted to a string before it is encoded.
 
-Any of the valid expressions, as defined in [AWS IoT SQL reference](iot-sql-reference.md "iot-sql-reference.md"). You
-can specify \* to encode the entire payload, regardless of whether it's
-in JSON format. If you supply an expression, the result of the
-evaluation is converted to a string before it is encoded.
-
-encodingScheme
-
-A literal string representing the encoding scheme you want to use.
-Currently, only `'base64'` is supported.
+encodingScheme  
+A literal string representing the encoding scheme you want to use. Currently, only `'base64'` is supported.
 
 ## endswith(String, String)
+<a name="iot-func-endswith"></a>
 
-Returns a `Boolean` indicating whether the first `String`
-argument ends with the second `String` argument. If either argument is
-`Null` or `Undefined`, the result is
-`Undefined`. Supported by SQL version 2015-10-08 and later.
+Returns a `Boolean` indicating whether the first `String` argument ends with the second `String` argument. If either argument is `Null` or `Undefined`, the result is `Undefined`. Supported by SQL version 2015-10-08 and later.
 
 Example: `endswith("cat","at")` = true.
 
-| Argument type 1 | Argument type 2 | Result                                                                                                                                                                                                                                     |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `String`        | `String`        | True if the first argument ends in the second argument.<br>Otherwise, false.                                                                                                                                                               |
-| Other value     | Other value     | Both arguments are converted to strings using the standard<br>conversion rules. True if the first argument ends in the second<br>argument. Otherwise, false. If either argument is `Null`<br>or `Undefined`, the result is<br>`Undefined`. |
+
+
+| Argument type 1 | Argument type 2 | Result | 
+| --- | --- | --- | 
+| String | String | True if the first argument ends in the second argument. Otherwise, false. | 
+| Other value | Other value | Both arguments are converted to strings using the standard conversion rules. True if the first argument ends in the second argument. Otherwise, false. If either argument is Null or Undefined, the result is Undefined. | 
 
 ## exp(Decimal)
+<a name="iot-func-exp"></a>
 
-Returns e raised to the `Decimal` argument. `Decimal`
-arguments are rounded to double precision before function application. Supported by
-SQL version 2015-10-08 and later.
+Returns e raised to the `Decimal` argument. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
-Example: `exp(1)` = e.
+Example: `exp(1)` = e. 
 
-| Argument type | Result                                                                                                                                |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), e ^<br>argument.                                                                                   |
-| `Decimal`     | `Decimal` (with double precision), e ^<br>argument.                                                                                   |
-| `String`      | `Decimal` (with double precision), e ^ argument. If<br>the `String` cannot be converted to a<br>`Decimal`, the result is `Undefined`. |
-| Other value   | `Undefined`.                                                                                                                          |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), e ^ argument. | 
+| Decimal | Decimal (with double precision), e ^ argument. | 
+| String | Decimal (with double precision), e ^ argument. If the String cannot be converted to a Decimal, the result is Undefined.  | 
+| Other value | Undefined. | 
 
 ## floor(Decimal)
+<a name="iot-func-floor"></a>
 
-Rounds the given `Decimal` down to the nearest `Int`.
-Supported by SQL version 2015-10-08 and later.
+Rounds the given `Decimal` down to the nearest `Int`. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
@@ -678,155 +630,114 @@ Examples:
 
 `floor(-1.2)` = -2
 
-| Argument type | Result                                                                                                                                                                   |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Int`         | `Int`, the argument value.                                                                                                                                               |
-| `Decimal`     | `Int`, the `Decimal` value rounded down to<br>the nearest `Int`.                                                                                                         |
-| `String`      | `Int`. The string is converted to `Decimal`<br>and rounded down to the nearest `Int`. If the string<br>cannot be converted to a `Decimal`, the result is<br>`Undefined`. |
-| Other value   | `Undefined`.                                                                                                                                                             |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Int, the argument value. | 
+| Decimal | Int, the Decimal value rounded down to the nearest Int. | 
+| String | Int. The string is converted to Decimal and rounded down to the nearest Int. If the string cannot be converted to a Decimal, the result is Undefined. | 
+| Other value | Undefined. | 
 
 ## get
+<a name="iot-sql-function-get"></a>
 
-Extracts a value from a collection-like type (Array, String, Object). No
-conversion is applied to the first argument. Conversion applies as documented in the
-table to the second argument. Supported by SQL version 2015-10-08 and later.
+Extracts a value from a collection-like type (Array, String, Object). No conversion is applied to the first argument. Conversion applies as documented in the table to the second argument. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
-`get(["a", "b", "c"], 1)` = "b"
+`get(["a", "b", "c"], 1) ` = "b"
 
 `get({"a":"b"}, "a")` = "b"
 
 `get("abc", 0)` = "a"
 
-| Argument type 1 | Argument type 2                     | Result                                                                                                                                                                                                                                                                                       |
-| --------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Array           | Any Type (converted to `Int`)       | The item at the 0-based index of the `Array` provided<br>by the second argument (converted to `Int`). If the<br>conversion is unsuccessful, the result is `Undefined`. If<br>the index is outside the bounds of the `Array` (negative<br>or >= array.length), the result is<br>`Undefined`.  |
-| String          | Any Type (converted to `Int`)       | The character at the 0-based index of the string provided by the<br>second argument (converted to `Int`). If the conversion<br>is unsuccessful, the result is `Undefined`. If the index<br>is outside the bounds of the string (negative or >=<br>string.length), the result is `Undefined`. |
-| Object          | `String` (no conversion is applied) | The value stored in the first argument object corresponding to<br>the string key provided as the second argument.                                                                                                                                                                            |
-| Other value     | Any value                           | `Undefined`.                                                                                                                                                                                                                                                                                 |
+
+
+| Argument type 1 | Argument type 2 | Result | 
+| --- | --- | --- | 
+| Array | Any Type (converted to Int) | The item at the 0-based index of the Array provided by the second argument (converted to Int). If the conversion is unsuccessful, the result is Undefined. If the index is outside the bounds of the Array (negative or >= array.length), the result is Undefined. | 
+| String | Any Type (converted to Int) | The character at the 0-based index of the string provided by the second argument (converted to Int). If the conversion is unsuccessful, the result is Undefined. If the index is outside the bounds of the string (negative or >= string.length), the result is Undefined. | 
+| Object | String (no conversion is applied) | The value stored in the first argument object corresponding to the string key provided as the second argument. | 
+| Other value | Any value | Undefined. | 
 
 ## get\_dynamodb(tableName, partitionKeyName, partitionKeyValue, sortKeyName, sortKeyValue, roleArn)
+<a name="iot-sql-function-get-dynamodb"></a>
 
-Retrieves data from a DynamoDB table. `get_dynamodb()` allows you to query
-a DynamoDB table while a rule is evaluated. You can filter or augment message payloads
-using data retrieved from DynamoDB. Supported by SQL version 2016-03-23 and
-later.
+Retrieves data from a DynamoDB table. `get_dynamodb()` allows you to query a DynamoDB table while a rule is evaluated. You can filter or augment message payloads using data retrieved from DynamoDB. Supported by SQL version 2016-03-23 and later.
 
 `get_dynamodb()` takes the following parameters:
 
-tableName
-
+tableName  
 The name of the DynamoDB table to query.
 
-partitionKeyName
+partitionKeyName  
+The name of the partition key. For more information, see [ DynamoDB Keys](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey).
 
-The name of the partition key. For more information, see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
+partitionKeyValue  
+The value of the partition key used to identify a record. For more information, see [ DynamoDB Keys](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey).
 
-partitionKeyValue
+sortKeyName  
+(Optional) The name of the sort key. This parameter is required only if the DynamoDB table queried uses a composite key. For more information, see [ DynamoDB Keys](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey).
 
-The value of the partition key used to identify a record. For more
-information, see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
+sortKeyValue  
+(Optional) The value of the sort key. This parameter is required only if the DynamoDB table queried uses a composite key. For more information, see [ DynamoDB Keys](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey).
 
-sortKeyName
-
-(Optional) The name of the sort key. This parameter is required only
-if the DynamoDB table queried uses a composite key. For more information,
-see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
-
-sortKeyValue
-
-(Optional) The value of the sort key. This parameter is required only
-if the DynamoDB table queried uses a composite key. For more information,
-see [DynamoDB Keys](../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey "../../../amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.md#HowItWorks.CoreComponents.PrimaryKey").
-
-roleArn
-
-The ARN of an IAM role that grants access to the DynamoDB table. The
-rules engine assumes this role to access the DynamoDB table on your behalf.
-Avoid using an overly permissive role. Grant the role only those
-permissions required by the rule. The following is an example policy
-that grants access to one DynamoDB table.
+roleArn  
+The ARN of an IAM role that grants access to the DynamoDB table. The rules engine assumes this role to access the DynamoDB table on your behalf. Avoid using an overly permissive role. Grant the role only those permissions required by the rule. The following is an example policy that grants access to one DynamoDB table.    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "dynamodb:GetItem",
- "Resource": "arn:aws:dynamodb:`us-east-1`:`123456789012`:table/`table-name`"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "dynamodb:GetItem",
+            "Resource": "arn:aws:dynamodb:{{us-east-1}}:{{123456789012}}:table/{{table-name}}"
+        }
+    ]
+}
 ```
 
-As an example of how to use `get_dynamodb()`, say you have a DynamoDB
-table that contains device ID and location information for all of your devices
-connected to AWS IoT. The following SELECT statement uses the
-`get_dynamodb()` function to retrieve the location for the specified
-device ID:
+As an example of how to use `get_dynamodb()`, say you have a DynamoDB table that contains device ID and location information for all of your devices connected to AWS IoT. The following SELECT statement uses the `get_dynamodb()` function to retrieve the location for the specified device ID:
 
-`SELECT *, get_dynamodb("InServiceDevices", "deviceId", id,
- "arn:aws:iam::12345678910:role/getdynamo").location AS location FROM
- 'some/topic'`
+`SELECT *, get_dynamodb("InServiceDevices", "deviceId", id, "arn:aws:iam::12345678910:role/getdynamo").location AS location FROM 'some/topic' `
 
-###### Note
-
-- You can call `get_dynamodb()` a maximum of one time per SQL
-  statement. Calling `get_dynamodb()` multiple times in a
-  single SQL statement causes the rule to terminate without invoking any
-  actions.
+**Note**  
+You can call `get_dynamodb()` a maximum of one time per SQL statement. Calling `get_dynamodb()` multiple times in a single SQL statement causes the rule to terminate without invoking any actions.
 
 ## get\_mqtt\_property(name)
+<a name="iot-sql-function-get-mqtt-property"></a>
 
-References any of the following MQTT5 headers: `contentType`,
-`payLoadFormatIndicator`, `responseTopic`, and
-`correlationData`. This function takes any of the following literal
-strings as an argument: `content_type`, `format_indicator`,
-`response_topic`, and `correlation_data`. For more
-information, see the following **Function arguments**
-table.
+References any of the following MQTT5 headers: `contentType`, `payLoadFormatIndicator`, `responseTopic`, and `correlationData`. This function takes any of the following literal strings as an argument: `content_type`, `format_indicator`, `response_topic`, and `correlation_data`. For more information, see the following **Function arguments** table.
 
-contentType
+contentType  
+String: A UTF-8 encoded string that describes the content of the publishing message.
 
-String: A UTF-8 encoded string that describes the content of the
-publishing message.
+payLoadFormatIndicator  
+String: An Enum string value that indicates whether the payload is formatted as UTF-8. Valid values are `UNSPECIFIED_BYTES` and `UTF8_DATA`.
 
-payLoadFormatIndicator
+responseTopic  
+String: A UTF-8 encoded string that's used as the topic name for a response message. The response topic is used to describe the topic that the receiver should publish to as part of the request-response flow. The topic must not contain wildcard characters.
 
-String: An Enum string value that indicates whether the payload is
-formatted as UTF-8. Valid values are `UNSPECIFIED_BYTES` and
-`UTF8_DATA`.
+correlationData  
+String: The base64-encoded binary data used by the sender of the Request Message to identify which request the Response Message is for when it's received.
 
-responseTopic
+The following table shows the acceptable function arguments and their associated return types for the `get_mqtt_property` function:
 
-String: A UTF-8 encoded string that's used as the topic name for a
-response message. The response topic is used to describe the topic that
-the receiver should publish to as part of the request-response flow. The
-topic must not contain wildcard characters.
 
-correlationData
+**Function arguments**  
 
-String: The base64-encoded binary data used by the sender of the
-Request Message to identify which request the Response Message is for
-when it's received.
+| SQL | Returned data type (if present) | Returned data type (if not present) | 
+| --- | --- | --- | 
+| get\_mqtt\_property("format\_indicator") | String (UNSPECIFIED\_BYTES or UTF8\_DATA) | String (UNSPECIFIED\_BYTES) | 
+| get\_mqtt\_property("content\_type") | String | Undefined | 
+| get\_mqtt\_property("response\_topic") | String | Undefined | 
+| get\_mqtt\_property("correlation\_data") | base64 encoded String | Undefined | 
+| get\_mqtt\_property("some\_invalid\_name") | Undefined | Undefined | 
 
-The following table shows the acceptable function arguments and their associated
-return types for the `get_mqtt_property` function:
-
-Function arguments| SQL | Returned data type (if present) | Returned data type (if not present) |
-| --- | --- | --- |
-| `get_mqtt_property("format_indicator")` | String (UNSPECIFIED\_BYTES or UTF8\_DATA) | String (UNSPECIFIED\_BYTES) |
-| `get_mqtt_property("content_type")` | String | Undefined |
-| `get_mqtt_property("response_topic")` | String | Undefined |
-| `get_mqtt_property("correlation_data")` | base64 encoded String | Undefined |
-| `get_mqtt_property("some_invalid_name")` | Undefined | Undefined |
-
-The following example Rules SQL references any of the following MQTT5 headers:
-`contentType`, `payLoadFormatIndicator`,
-`responseTopic`, and `correlationData`.
+The following example Rules SQL references any of the following MQTT5 headers: `contentType`, `payLoadFormatIndicator`, `responseTopic`, and `correlationData`.
 
 ```
 SELECT *, get_mqtt_property('content_type') as contentType,
@@ -837,50 +748,30 @@ FROM 'some/topic'
 ```
 
 ## get\_or\_default(expression, defaultValue)
+<a name="iot-sql-function-get-or-default"></a>
 
-Returns the default value in the second parameter if specified or else returns undefined, when the expression in the first parameter returns null, undefined, or fails. Supported by SQL version
-2016-03-23 and later.
+Returns the default value in the second parameter if specified or else returns undefined, when the expression in the first parameter returns null, undefined, or fails. Supported by SQL version 2016-03-23 and later.
 
-###### Important
-
+**Important**  
 `get_or_default` does not support non-JSON payloads directly as is. If you are using a non-JSON payload, use the `encode` or `decode` functions.
 
 `get_or_default()` takes the following parameters:
 
-expression
+expression  
+Any valid expression containing [Data types](iot-sql-data-types.md), [Functions](#iot-sql-functions), [Literals](iot-sql-literals.md), [Variables](iot-sql-set.md#iot-sql-set-usage), [Nested object queries](iot-sql-nested-queries.md), or [JSON extensions](iot-sql-json.md). 
 
-Any valid expression containing
-[Data types](iot-sql-data-types.md "iot-sql-data-types.md"),
-[Functions](iot-sql-functions.md "iot-sql-functions.md"),
-[Literals](iot-sql-literals.md "iot-sql-literals.md"),
-[Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"),
-[Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), or
-[JSON extensions](iot-sql-json.md "iot-sql-json.md").
-
-defaultValue
-
-(Optional) Any valid expression containing
-[Data types](iot-sql-data-types.md "iot-sql-data-types.md"),
-[Functions](iot-sql-functions.md "iot-sql-functions.md"),
-[Literals](iot-sql-literals.md "iot-sql-literals.md"),
-[Variables](iot-sql-set.md#iot-sql-set-usage "iot-sql-set.md#iot-sql-set-usage"),
-[Nested object queries](iot-sql-nested-queries.md "iot-sql-nested-queries.md"), or
-[JSON extensions](iot-sql-json.md "iot-sql-json.md").
-This is the value to be returned whenever the first argument returns
-null, undefined, or fails.
-
-###### Note
-
+defaultValue  
+(Optional) Any valid expression containing [Data types](iot-sql-data-types.md), [Functions](#iot-sql-functions), [Literals](iot-sql-literals.md), [Variables](iot-sql-set.md#iot-sql-set-usage), [Nested object queries](iot-sql-nested-queries.md), or [JSON extensions](iot-sql-json.md). This is the value to be returned whenever the first argument returns null, undefined, or fails.   
 Functions that fetch data from customer-owned resources, such as get\_secret, get\_dynamodb, aws\_lambda, get\_thing\_shadow, and decode-protobuf, are not allowed for the defaultValue parameter.
 
-The following table shows acceptable function arguments for each argument and
-their associated outputs:
+The following table shows acceptable function arguments for each argument and their associated outputs:
 
-| First argument              | Second argument                       | Output                     |
-| --------------------------- | ------------------------------------- | -------------------------- |
-| Successful evaluation       | Any value or not specified            | The first argument value.  |
-| Undefined, Null, or failure | Any value including Undefined or Null | The second argument value. |
-| Undefined, Null, or failure | not specified                         | `Undefined`                |
+
+| First argument | Second argument | Output | 
+| --- | --- | --- | 
+| Successful evaluation | Any value or not specified | The first argument value. | 
+| Undefined, Null, or failure | Any value including Undefined or Null | The second argument value. | 
+| Undefined, Null, or failure | not specified | Undefined | 
 
 **Examples:**
 
@@ -889,14 +780,13 @@ Example 1:
 The following example provides a defaultValue value if a DynamoDB table or query fails:
 
 ```
-SELECT
+SELECT 
     device_id,
     get_or_default(
-        get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::`123456789012`:role/`ROLE_NAME`"),
+        get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::{{123456789012}}:role/{{ROLE_NAME}}"),
         {"mode": "standard", "timeout": 30, "enabled": true }
     ) as config
 FROM 'device/telemetry'
-
 ```
 
 Example 2:
@@ -904,7 +794,7 @@ Example 2:
 The following example provides a safe default value "UNKNOWN" if status is undefined:
 
 ```
-SELECT
+SELECT 
   get_or_default( CASE status
     WHEN 'active' THEN 'GOOD'
     WHEN 'inactive' THEN 'BAD'/
@@ -918,190 +808,128 @@ Example 3:
 The following example shows how you can also use get\_or\_default with a single parameter. This is useful in scenarios where you may not have a clear default value, but you do not want your rule execution to fail.
 
 ```
-SELECT
-  get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::`123456789012`:role/`ROLE_NAME`") as config
+SELECT 
+  get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::{{123456789012}}:role/{{ROLE_NAME}}") as config
 FROM 'device/telemetry'
 ```
 
 If the DynamoDB lookup fails, the rule execution will fail, and no actions will be executed. If the following SQL is used instead:
 
 ```
-SELECT
-  get_or_default(get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::`123456789012`:role/`ROLE_NAME`")) as config
+SELECT 
+  get_or_default(get_dynamodb("DeviceConfig", "deviceId", nonExistentId, "arn:aws:iam::{{123456789012}}:role/{{ROLE_NAME}}")) as config
 FROM 'device/telemetry'
 ```
 
 The get\_or\_default statement will evaluate to `Undefined`,so in this example the SELECT statement overall will evaluate to `{}` and any rule actions will be attempted.
 
-###### Important
-
-We recommend following these best practices to maintain security when using this function:
-
-- Avoid using hardcoded secrets in rule definitions including default values
-- Use AWS Secrets Manager for managing sensitive information
+**Important**  
+We recommend following these best practices to maintain security when using this function:  
+Avoid using hardcoded secrets in rule definitions including default values
+Use AWS Secrets Manager for managing sensitive information
 
 ## get\_registry\_data(registryAPI, thingName, roleArn)
+<a name="iot-sql-function-get-registry-data"></a>
 
-Retrieves AWS IoT thing registry data in an AWS IoT rule. You can read registry data
-(such as attributes, thing type, and thing groups a device belongs to) and use this
-information to filter, enrich, or dynamically route messages. Supported by SQL
-version 2016-03-23 and later.
+Retrieves AWS IoT thing registry data in an AWS IoT rule. You can read registry data (such as attributes, thing type, and thing groups a device belongs to) and use this information to filter, enrich, or dynamically route messages. Supported by SQL version 2016-03-23 and later.
 
 `get_registry_data()` takes the following parameters:
 
-registryAPI
+registryAPI  
+The registry API being called. Valid values are `DescribeThing` and `ListThingGroupsForThing`. These values must be constant strings.
 
-The registry API being called. Valid values are
-`DescribeThing` and `ListThingGroupsForThing`.
-These values must be constant strings.
+thingName  
+String: The name of the thing whose registry data you want to retrieve.
 
-thingName
+roleArn  
+String: A role ARN with `iot:DescribeThing` permission and/or `iot:ListThingGroupsForThing` permission based on the API being called.
 
-String: The name of the thing whose registry data you want to
-retrieve.
-
-roleArn
-
-String: A role ARN with `iot:DescribeThing` permission
-and/or `iot:ListThingGroupsForThing` permission based on the
-API being called.
-
-The response format of the `get_registry_data` function is the same as
-the registry API called. For more information, see the [DescribeThing](../apireference/API_DescribeThing.md "../apireference/API_DescribeThing.md")
-and [ListThingGroupsForThing](../apireference/API_ListThingGroupsForThing.md "../apireference/API_ListThingGroupsForThing.md") APIs.
+The response format of the `get_registry_data` function is the same as the registry API called. For more information, see the [DescribeThing](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeThing.html) and [ListThingGroupsForThing](https://docs.aws.amazon.com/iot/latest/apireference/API_ListThingGroupsForThing.html) APIs.
 
 Example:
 
-You can retrieve thing type information to allow filtering the AWS IoT Core lifecycle
-event messages for things (with the thing name matching the MQTT client id) where
-thing type is `testenv`.
+You can retrieve thing type information to allow filtering the AWS IoT Core lifecycle event messages for things (with the thing name matching the MQTT client id) where thing type is `testenv`.
 
 ```
-SELECT *
-FROM '$aws/events/lifecycle/+'
-WHERE
+SELECT * 
+FROM '$aws/events/lifecycle/+' 
+WHERE 
     get_registry_data("DescribeThing",clientId,[roleArn]).thingTypeName='testenv'
 ```
 
 Example:
 
-You can retrieve thing attributes for a device with thing name
-`sensor1` for all messages sent by its gateway device
-`gateway1`.
+You can retrieve thing attributes for a device with thing name `sensor1` for all messages sent by its gateway device `gateway1`.
 
 ```
-SELECT *, get_registry_data("DescribeThing","sensor1",[roleArn]).attributes.temperature_threhold AS device1_tempthreshold
+SELECT *, get_registry_data("DescribeThing","sensor1",[roleArn]).attributes.temperature_threhold AS device1_tempthreshold 
 FROM home1/gateway1/sensor1/#
 ```
 
-###### Note
-
-- You can call `get_registry_data()` a maximum of one time
-  per SQL statement and substitution templates for actions and error
-  actions.
+**Note**  
+You can call `get_registry_data()` a maximum of one time per SQL statement and substitution templates for actions and error actions.
 
 ## get\_secret(secretId, secretType, key, roleArn)
+<a name="iot-sql-function-get-secret"></a>
 
-Retrieves the value of the encrypted `SecretString` or
-`SecretBinary` field of the current version of a secret in [AWS Secrets Manager](../../../secretsmanager/latest/userguide.md "../../../secretsmanager/latest/userguide.md"). For more information about creating and
-maintaining secrets, see [CreateSecret](../../../secretsmanager/latest/apireference/API_CreateSecret.md "../../../secretsmanager/latest/apireference/API_CreateSecret.md"), [UpdateSecret](../../../secretsmanager/latest/apireference/API_UpdateSecret.md "../../../secretsmanager/latest/apireference/API_UpdateSecret.md"), and [PutSecretValue](../../../secretsmanager/latest/apireference/API_PutSecretValue.md "../../../secretsmanager/latest/apireference/API_PutSecretValue.md").
+Retrieves the value of the encrypted `SecretString` or `SecretBinary` field of the current version of a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/). For more information about creating and maintaining secrets, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html), [UpdateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UpdateSecret.html), and [PutSecretValue](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_PutSecretValue.html).
 
 `get_secret()` takes the following parameters:
 
-secretId
+secretId  
+String: The Amazon Resource Name (ARN) or the friendly name of the secret to retrieve. 
 
-String: The Amazon Resource Name (ARN) or the friendly name of the secret to retrieve.
+secretType  
+String: The secret type. Valid values: `SecretString` \| `SecretBinary`.    
+SecretString  
++ For secrets that you create as JSON objects by using the APIs, the AWS CLI, or the AWS Secrets Manager console:
+  + If you specify a value for the `key` parameter, this function returns the value of the specified key.
+  + If you don't specify a value for the `key` parameter, this function returns the entire JSON object.
++ For secrets that you create as non-JSON objects by using the APIs or the AWS CLI:
+  + If you specify a value for the `key` parameter, this function fails with an exception.
+  + If you don't specify a value for the `key` parameter, this function returns the contents of the secret.  
+SecretBinary  
++ If you specify a value for the `key` parameter, this function fails with an exception.
++ If you don't specify a value for the `key` parameter, this function returns the secret value as a base64-encoded UTF-8 string.
 
-secretType
+key  
+(Optional) String: The key name inside a JSON object stored in the `SecretString` field of a secret. Use this value when you want to retrieve only the value of a key stored in a secret instead of the entire JSON object.  
+If you specify a value for this parameter and the secret doesn't contain a JSON object inside its `SecretString` field, this function fails with an exception.
 
-String: The secret type. Valid values: `SecretString` | `SecretBinary`.
-
-SecretString
-
-- For secrets that you create as JSON objects by using the APIs, the AWS CLI, or the AWS Secrets Manager console:
-
-  - If you specify a value for the `key` parameter, this function
-    returns the value of the specified key.
-  - If you don't specify a value for the `key` parameter, this function
-    returns the entire JSON object.
-
-- For secrets that you create as non-JSON objects by using the APIs or the AWS CLI:
-
-  - If you specify a value for the `key` parameter, this function
-    fails with an exception.
-  - If you don't specify a value for the `key` parameter, this function
-    returns the contents of the secret.
-
-SecretBinary
-
-- If you specify a value for the `key` parameter, this function
-  fails with an exception.
-- If you don't specify a value for the `key` parameter, this function
-  returns the secret value as a base64-encoded UTF-8 string.
-
-key
-(Optional) String: The key name inside a JSON object stored in the `SecretString`
-field of a secret. Use this value when you want to retrieve only the
-value of a key stored in a secret instead of the entire JSON
-object.
-
-If you specify a value for this parameter and
-the secret doesn't contain a JSON object inside its `SecretString` field, this function fails with an exception.
-
-roleArn
+roleArn  
 String: A role ARN with `secretsmanager:GetSecretValue` and `secretsmanager:DescribeSecret` permissions.
 
-###### Note
-
-This function always returns the current version of the secret (the version with the
-`AWSCURRENT` tag). The AWS IoT rules engine caches each secret for
-up to 15 minutes. As a result, the rules engine can take up to 15 minutes to
-update a secret. This means that if you retrieve a secret up to 15 minutes after
-an update with AWS Secrets Manager, this function might return the previous
-version.
-
-This function is not metered, but AWS Secrets Manager charges apply. Because of the
-secret caching mechanism, the rules engine occasionally calls AWS Secrets Manager. Because
-the rules engine is a fully distributed service, you might see multiple
-Secrets Manager API calls from the rules engine during the 15-minute caching
-window.
+**Note**  
+This function always returns the current version of the secret (the version with the `AWSCURRENT` tag). The AWS IoT rules engine caches each secret for up to 15 minutes. As a result, the rules engine can take up to 15 minutes to update a secret. This means that if you retrieve a secret up to 15 minutes after an update with AWS Secrets Manager, this function might return the previous version.  
+This function is not metered, but AWS Secrets Manager charges apply. Because of the secret caching mechanism, the rules engine occasionally calls AWS Secrets Manager. Because the rules engine is a fully distributed service, you might see multiple Secrets Manager API calls from the rules engine during the 15-minute caching window.
 
 Examples:
 
 You can use the `get_secret` function in an authentication header in an HTTPS rule action, as in the following API key authentication example.
 
 ```
-
-"API_KEY": "${get_secret('`API_KEY`', '`SecretString`', '`API_KEY_VALUE`', 'arn:aws:iam::12345678910:role/getsecret')}"
-
+"API_KEY": "${get_secret('{{API_KEY}}', '{{SecretString}}', '{{API_KEY_VALUE}}', 'arn:aws:iam::12345678910:role/getsecret')}"
 ```
 
-For more information about the HTTPS rule action, see [HTTP](https-rule-action.md "https-rule-action.md").
+For more information about the HTTPS rule action, see [HTTP](https-rule-action.md).
 
 ## get\_thing\_shadow(thingName, shadowName, roleArn)
+<a name="iot-sql-function-get-thing-shadow"></a>
 
-Returns the specified shadow of the specified thing. Supported by SQL version
-2016-03-23 and later.
+Returns the specified shadow of the specified thing. Supported by SQL version 2016-03-23 and later.
 
-thingName
+thingName  
+String: The name of the thing whose shadow you want to retrieve.
 
-String: The name of the thing whose shadow you want to
-retrieve.
+shadowName  
+(Optional) String: The name of the shadow. This parameter is required only when referencing named shadows.
 
-shadowName
-
-(Optional) String: The name of the shadow. This parameter is required
-only when referencing named shadows.
-
-roleArn
-
-String: A role ARN with `iot:GetThingShadow`
-permission.
+roleArn  
+String: A role ARN with `iot:GetThingShadow` permission.
 
 Examples:
 
-When used with a named shadow, provide the `shadowName`
-parameter.
+When used with a named shadow, provide the `shadowName` parameter.
 
 ```
 SELECT * from 'topic/subtopic'
@@ -1110,8 +938,7 @@ WHERE
     .state.reported.alarm = 'ON'
 ```
 
-When used with an unnamed shadow, omit the `shadowName`
-parameter.
+When used with an unnamed shadow, omit the `shadowName` parameter.
 
 ```
 SELECT * from 'topic/subtopic'
@@ -1121,37 +948,35 @@ WHERE
 ```
 
 ## get\_user\_properties(userPropertyKey)
+<a name="iot-sql-function-get-user-properties"></a>
 
-References User Properties, which is one type of property headers supported in
-MQTT5.
+References User Properties, which is one type of property headers supported in MQTT5.
 
-userProperty
-
-String: A user property is a key-value pair. This function takes the
-key as an argument and returns an array of all values that match the
-associated key.
+userProperty  
+String: A user property is a key-value pair. This function takes the key as an argument and returns an array of all values that match the associated key.
 
 **Function arguments**
 
 For the following User Properties in the message headers:
 
-| Key             | Value                    |
-| --------------- | ------------------------ |
-| some key        | some value               |
-| a different key | a different value        |
-| some key        | value with duplicate key |
+
+| Key | Value | 
+| --- | --- | 
+| some key | some value | 
+| a different key | a different value | 
+| some key | value with duplicate key | 
 
 The following table shows the expected SQL behavior:
 
-| SQL                                       | Returned data type              | Returned data value                                                                                                  |
-| ----------------------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| get\_user\_properties('some key')         | Array of String                 | `['some value', 'value with duplicate key']`                                                                         |
-| get\_user\_properties('other key')        | Array of String                 | `['a different value']`                                                                                              |
-| get\_user\_properties( )                  | Array of key-value pair Objects | `[{'"some key": "some value"'}, {"other key": "a different<br>value"}, {"some key": "value with duplicate<br>key"}]` |
-| get\_user\_properties('non-existent key') | Undefined                       |                                                                                                                      |
 
-The following example Rules SQL references User Properties (a type of MQTT5
-property header) into the payload:
+| SQL | Returned data type | Returned data value | 
+| --- | --- | --- | 
+| get\_user\_properties('some key') | Array of String | ['some value', 'value with duplicate key'] | 
+| get\_user\_properties('other key') | Array of String | ['a different value'] | 
+| get\_user\_properties( ) | Array of key-value pair Objects | [{'"some key": "some value"'}, {"other key": "a different value"}, {"some key": "value with duplicate key"}] | 
+| get\_user\_properties('non-existent key') | Undefined |  | 
+
+The following example Rules SQL references User Properties (a type of MQTT5 property header) into the payload:
 
 ```
 SELECT *, get_user_properties('user defined property key') as userProperty
@@ -1159,20 +984,18 @@ FROM 'some/topic'
 ```
 
 ## Hashing functions
+<a name="iot-sql-function-hash"></a>
 
-AWS IoT provides the following hashing functions:
+ AWS IoT provides the following hashing functions:
++ md2
++ md5
++ sha1
++ sha224
++ sha256
++ sha384
++ sha512
 
-- md2
-- md5
-- sha1
-- sha224
-- sha256
-- sha384
-- sha512
-
-All hash functions expect one string argument. The result is the hashed value of
-that string. Standard string conversions apply to non-string arguments. All hash
-functions are supported by SQL version 2015-10-08 and later.
+All hash functions expect one string argument. The result is the hashed value of that string. Standard string conversions apply to non-string arguments. All hash functions are supported by SQL version 2015-10-08 and later.
 
 Examples:
 
@@ -1181,66 +1004,66 @@ Examples:
 `md5("hello")` = "5d41402abc4b2a76b9719d911017c592"
 
 ## indexof(String, String)
+<a name="iot-sql-function-indexof"></a>
 
-Returns the first index (0-based) of the second argument as a substring in the
-first argument. Both arguments are expected as strings. Arguments that are not
-strings are subjected to standard string conversion rules. This function does not
-apply to arrays, only to strings. Supported by SQL version 2016-03-23 and
-later.
+Returns the first index (0-based) of the second argument as a substring in the first argument. Both arguments are expected as strings. Arguments that are not strings are subjected to standard string conversion rules. This function does not apply to arrays, only to strings. Supported by SQL version 2016-03-23 and later.
 
 Examples:
 
-`indexof("abcd", "bc")` = 1
+`indexof("abcd", "bc") ` = 1
 
 ## isNull()
+<a name="iot-sql-function-isNull"></a>
 
-Returns true if the argument is the `Null` value. Supported by SQL
-version 2016-03-23 and later.
+Returns true if the argument is the `Null` value. Supported by SQL version 2016-03-23 and later.
 
 Examples:
 
-`isNull(5)` = false.
+`isNull(5) ` = false.
 
-`isNull(Null)` = true.
+`isNull(Null) ` = true.
 
-| Argument type | Result |
-| ------------- | ------ |
-| `Int`         | false  |
-| `Decimal`     | false  |
-| `Boolean`     | false  |
-| `String`      | false  |
-| `Array`       | false  |
-| `Object`      | false  |
-| `Null`        | true   |
-| `Undefined`   | false  |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | false | 
+| Decimal | false | 
+| Boolean | false | 
+| String | false | 
+| Array | false | 
+| Object | false | 
+| Null | true | 
+| Undefined | false | 
 
 ## isUndefined()
+<a name="iot-sql-function-isUndefined"></a>
 
-Returns true if the argument is `Undefined`. Supported by SQL version
-2016-03-23 and later.
+Returns true if the argument is `Undefined`. Supported by SQL version 2016-03-23 and later.
 
 Examples:
 
-`isUndefined(5)` = false.
+`isUndefined(5) ` = false.
 
-`isUndefined(floor([1,2,3])))` = true.
+`isUndefined(floor([1,2,3]))) ` = true.
 
-| Argument type | Result |
-| ------------- | ------ |
-| `Int`         | false  |
-| `Decimal`     | false  |
-| `Boolean`     | false  |
-| `String`      | false  |
-| `Array`       | false  |
-| `Object`      | false  |
-| `Null`        | false  |
-| `Undefined`   | true   |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | false | 
+| Decimal | false | 
+| Boolean | false | 
+| String | false | 
+| Array | false | 
+| Object | false | 
+| Null | false | 
+| Undefined | true | 
 
 ## length(String)
+<a name="iot-sql-function-length"></a>
 
-Returns the number of characters in the provided string. Standard conversion rules
-apply to non-`String` arguments. Supported by SQL version 2016-03-23 and
-later.
+Returns the number of characters in the provided string. Standard conversion rules apply to non-`String` arguments. Supported by SQL version 2016-03-23 and later.
 
 Examples:
 
@@ -1249,175 +1072,169 @@ Examples:
 `length(false)` = 5
 
 ## ln(Decimal)
+<a name="iot-func-nln"></a>
 
-Returns the natural logarithm of the argument. `Decimal` arguments are
-rounded to double precision before function application. Supported by SQL version
-2015-10-08 and later.
+Returns the natural logarithm of the argument. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
-Example: `ln(e)` = 1.
+Example: `ln(e)` = 1. 
 
-| Argument type | Result                                                                                                                                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Int`         | `Decimal` (with double precision), the natural log of<br>the argument.                                                                                 |
-| `Decimal`     | `Decimal` (with double precision), the natural log of<br>the argument.                                                                                 |
-| `Boolean`     | `Undefined`.                                                                                                                                           |
-| `String`      | `Decimal` (with double precision), the natural log of<br>the argument. If the string cannot be converted to a<br>`Decimal`, the result is `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                           |
-| Object        | `Undefined`.                                                                                                                                           |
-| Null          | `Undefined`.                                                                                                                                           |
-| Undefined     | `Undefined`.                                                                                                                                           |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the natural log of the argument. | 
+| Decimal | Decimal (with double precision), the natural log of the argument. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the natural log of the argument. If the string cannot be converted to a Decimal, the result is Undefined.  | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## log(Decimal)
+<a name="iot-func-log"></a>
 
-Returns the base 10 logarithm of the argument. `Decimal` arguments are
-rounded to double precision before function application. Supported by SQL version
-2015-10-08 and later.
+Returns the base 10 logarithm of the argument. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
-Example: `log(100)` = 2.0.
+Example: `log(100)` = 2.0. 
 
-| Argument type | Result                                                                                                                                                   |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the base 10 log of<br>the argument.                                                                                   |
-| `Decimal`     | `Decimal` (with double precision), the base 10 log of<br>the argument.                                                                                   |
-| `Boolean`     | `Undefined`.                                                                                                                                             |
-| `String`      | `Decimal` (with double precision), the base 10 log of<br>the argument. If the `String` cannot be converted to a<br>`Decimal`, the result is `Undefined`. |
-| Array         | `Undefined`.                                                                                                                                             |
-| Object        | `Undefined`.                                                                                                                                             |
-| Null          | `Undefined`.                                                                                                                                             |
-| Undefined     | `Undefined`.                                                                                                                                             |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the base 10 log of the argument. | 
+| Decimal | Decimal (with double precision), the base 10 log of the argument. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the base 10 log of the argument. If the String cannot be converted to a Decimal, the result is Undefined.  | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## lower(String)
+<a name="iot-func-lower"></a>
 
-Returns the lowercase version of the given `String`. Non-string
-arguments are converted to strings using the standard conversion rules. Supported by
-SQL version 2015-10-08 and later.
+Returns the lowercase version of the given `String`. Non-string arguments are converted to strings using the standard conversion rules. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
 `lower("HELLO")` = "hello".
 
-`lower(["HELLO"])` = "[\"hello\"]".
+`lower(["HELLO"])` = "[\\"hello\\"]".
 
 ## lpad(String, Int)
+<a name="iot-func-lpad"></a>
 
-Returns the `String` argument, padded on the left side with the number
-of spaces specified by the second argument. The `Int` argument must be
-between 0 and 1000. If the provided value is outside of this valid range, the
-argument is set to the nearest valid value (0 or 1000). Supported by SQL version
-2015-10-08 and later.
+Returns the `String` argument, padded on the left side with the number of spaces specified by the second argument. The `Int` argument must be between 0 and 1000. If the provided value is outside of this valid range, the argument is set to the nearest valid value (0 or 1000). Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
-`lpad("hello", 2)` = "`hello`".
+`lpad("hello", 2)` = "`  hello`".
 
-`lpad(1, 3)` = "`1`"
+`lpad(1, 3)` = "`   1`"
 
-| Argument type 1 | Argument type 2          | Result                                                                                                                                                                                                                                                               |
-| --------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `String`        | `Int`                    | `String`, the provided `String` padded on<br>the left side with a number of spaces equal to the provided<br>`Int`.                                                                                                                                                   |
-| `String`        | `Decimal`                | The `Decimal` argument is rounded down to the nearest<br>`Int` and the `String` is padded on the<br>left with the specified number of spaces.                                                                                                                        |
-| `String`        | `String`                 | The second argument is converted to a `Decimal`, which<br>is rounded down to the nearest `Int`, and the<br>`String` is padded with the specified number spaces<br>on the left. If the second argument cannot be converted to an<br>`Int`, the result is `Undefined`. |
-| Other value     | `Int`/`Decimal`/`String` | The first value is converted to a `String` using the<br>standard conversions, and then the LPAD function is applied on that<br>`String`. If it cannot be converted, the result is<br>`Undefined`.                                                                    |
-| Any value       | Other value              | `Undefined`.                                                                                                                                                                                                                                                         |
+
+
+| Argument type 1 | Argument type 2 | Result | 
+| --- | --- | --- | 
+| String | Int | String, the provided String padded on the left side with a number of spaces equal to the provided Int. | 
+| String | Decimal | The Decimal argument is rounded down to the nearest Int and the String is padded on the left with the specified number of spaces.  | 
+| String | String | The second argument is converted to a Decimal, which is rounded down to the nearest Int, and the String is padded with the specified number spaces on the left. If the second argument cannot be converted to an Int, the result is Undefined.  | 
+| Other value | Int/Decimal/String | The first value is converted to a String using the standard conversions, and then the LPAD function is applied on that String. If it cannot be converted, the result is Undefined. | 
+| Any value | Other value | Undefined. | 
 
 ## ltrim(String)
+<a name="iot-func-ltrim"></a>
 
-Removes all leading white space (tabs and spaces) from the provided
-`String`. Supported by SQL version 2015-10-08 and later.
+Removes all leading white space (tabs and spaces) from the provided `String`. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
 `Ltrim(" h i ")` = "hi ".
 
-| Argument type | Result                                                                                                                   |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `Int`         | The `String` representation of the `Int`<br>with all leading white space removed.                                        |
-| `Decimal`     | The `String` representation of the<br>`Decimal` with all leading white space<br>removed.                                 |
-| `Boolean`     | The `String` representation of the Boolean ("true" or<br>"false") with all leading white space removed.                  |
-| `String`      | The argument with all leading white space removed.                                                                       |
-| Array         | The `String` representation of the `Array`<br>(using standard conversion rules) with all leading white space<br>removed. |
-| Object        | The `String` representation of the Object (using<br>standard conversion rules) with all leading white space<br>removed.  |
-| Null          | `Undefined`.                                                                                                             |
-| Undefined     | `Undefined`.                                                                                                             |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | The String representation of the Int with all leading white space removed. | 
+| Decimal | The String representation of the Decimal with all leading white space removed. | 
+| Boolean | The String representation of the Boolean ("true" or "false") with all leading white space removed. | 
+| String | The argument with all leading white space removed. | 
+| Array | The String representation of the Array (using standard conversion rules) with all leading white space removed. | 
+| Object | The String representation of the Object (using standard conversion rules) with all leading white space removed. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## mod(Decimal, Decimal)
+<a name="iot-func-mod"></a>
 
-Returns the remainder of the division of the first argument by the second
-argument. Equivalent to [remainder(Decimal, Decimal)](#iot-func-remainder "#iot-func-remainder"). You can also use "%" as an infix operator
-for the same modulo functionality. Supported by SQL version 2015-10-08 and
-later.
+Returns the remainder of the division of the first argument by the second argument. Equivalent to [remainder(Decimal, Decimal)](#iot-func-remainder). You can also use "%" as an infix operator for the same modulo functionality. Supported by SQL version 2015-10-08 and later.
 
 Example: `mod(8, 3)` = 2.
 
-| Left operand             | Right operand            | Output                                                                                                                         |
-| ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| `Int`                    | `Int`                    | `Int`, the first argument modulo the second<br>argument.                                                                       |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Decimal`, the first argument modulo the second<br>operand.                                                                    |
-| `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings convert to decimals, the result is the first<br>argument modulo the second argument. Otherwise,<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                                   |
+
+
+| Left operand | Right operand | Output | 
+| --- | --- | --- | 
+| Int | Int | Int, the first argument modulo the second argument. | 
+| Int/Decimal | Int/Decimal | Decimal, the first argument modulo the second operand. | 
+| String/Int/Decimal | String/Int/Decimal | If all strings convert to decimals, the result is the first argument modulo the second argument. Otherwise, Undefined. | 
+| Other value | Other value | Undefined. | 
 
 ## nanvl(AnyValue, AnyValue)
+<a name="iot-func-nanvl"></a>
 
-Returns the first argument if it is a valid `Decimal`. Otherwise, the
-second argument is returned. Supported by SQL version 2015-10-08 and later.
+Returns the first argument if it is a valid `Decimal`. Otherwise, the second argument is returned. Supported by SQL version 2015-10-08 and later. 
 
 Example: `Nanvl(8, 3)` = 8.
 
-| Argument type 1     | Argument type 2 | Output               |
-| ------------------- | --------------- | -------------------- |
-| Undefined           | Any value       | The second argument. |
-| Null                | Any value       | The second argument. |
-| `Decimal` (NaN)     | Any value       | The second argument. |
-| `Decimal` (not NaN) | Any value       | The first argument.  |
-| Other value         | Any value       | The first argument.  |
+
+
+| Argument type 1 | Argument type 2 | Output | 
+| --- | --- | --- | 
+| Undefined | Any value | The second argument. | 
+| Null | Any value | The second argument. | 
+| Decimal (NaN) | Any value | The second argument. | 
+| Decimal (not NaN) | Any value | The first argument. | 
+| Other value | Any value | The first argument. | 
 
 ## newuuid()
+<a name="iot-sql-function-newuuid"></a>
 
-Returns a random 16-byte UUID. Supported by SQL version 2015-10-08 and
-later.
+Returns a random 16-byte UUID. Supported by SQL version 2015-10-08 and later.
 
-Example: `newuuid()` =
-`123a4567-b89c-12d3-e456-789012345000`
+Example: `newuuid()` = `123a4567-b89c-12d3-e456-789012345000`
 
 ## numbytes(String)
+<a name="iot-sql-function-numbytes"></a>
 
-Returns the number of bytes in the UTF-8 encoding of the provided string. Standard
-conversion rules apply to non-`String` arguments. Supported by SQL
-version 2016-03-23 and later.
+Returns the number of bytes in the UTF-8 encoding of the provided string. Standard conversion rules apply to non-`String` arguments. Supported by SQL version 2016-03-23 and later.
 
 Examples:
 
 `numbytes("hi")` = 2
 
-`numbytes("€")` = 3
+`numbytes("€") ` = 3
 
 ## parse\_time(String, Long[, String])
+<a name="iot-sql-function-parse-time"></a>
 
-Use the `parse_time` function to format a timestamp into a
-human-readable date/time format. Supported by SQL version 2016-03-23 and later. To
-convert a timestamp string into milliseconds, see [time\_to\_epoch(String, String)](#iot-sql-function-time-to-epoch "#iot-sql-function-time-to-epoch").
+Use the `parse_time` function to format a timestamp into a human-readable date/time format. Supported by SQL version 2016-03-23 and later. To convert a timestamp string into milliseconds, see [time\_to\_epoch(String, String)](#iot-sql-function-time-to-epoch).
 
 The `parse_time` function expects the following arguments:
 
-pattern
+pattern  
+(String) A date/time pattern that follows [Joda-Time formats](http://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). 
 
-(String) A date/time pattern that follows [Joda-Time formats](http://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html "http://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html").
+timestamp  
+(Long) The time to be formatted in milliseconds since Unix epoch. See function [timestamp()](#iot-function-timestamp).
 
-timestamp
-
-(Long) The time to be formatted in milliseconds since Unix epoch. See
-function [timestamp()](#iot-function-timestamp "#iot-function-timestamp").
-
-timezone
-
-(String) The time zone of the formatted date/time. The default is
-"UTC". The function supports [Joda-Time time
-zones](http://joda-time.sourceforge.net/timezones.html "http://joda-time.sourceforge.net/timezones.html"). This argument is optional.
+timezone  
+(String) The time zone of the formatted date/time. The default is "UTC". The function supports [Joda-Time time zones](http://joda-time.sourceforge.net/timezones.html). This argument is optional.
 
 Examples:
 
-When this message is published to the topic 'A/B', the payload `{"ts":
- "1970.01.01 AD at 21:46:40 CST"}` is sent to the S3 bucket:
+When this message is published to the topic 'A/B', the payload `{"ts": "1970.01.01 AD at 21:46:40 CST"}` is sent to the S3 bucket:
 
 ```
 {
@@ -1441,9 +1258,7 @@ When this message is published to the topic 'A/B', the payload `{"ts":
 }
 ```
 
-When this message is published to the topic 'A/B', a payload similar to
-`{"ts": "2017.06.09 AD at 17:19:46 UTC"}` (but with the current
-date/time) is sent to the S3 bucket:
+When this message is published to the topic 'A/B', a payload similar to `{"ts": "2017.06.09 AD at 17:19:46 UTC"}` (but with the current date/time) is sent to the S3 bucket:
 
 ```
 {
@@ -1466,9 +1281,7 @@ date/time) is sent to the S3 bucket:
 }
 ```
 
-`parse_time()` can also be used as a substitution template. For
-example, when this message is published to the topic 'A/B', the payload is sent to
-the S3 bucket with key = "2017":
+`parse_time()` can also be used as a substitution template. For example, when this message is published to the topic 'A/B', the payload is sent to the S3 bucket with key = "2017":
 
 ```
 {
@@ -1490,93 +1303,88 @@ the S3 bucket with key = "2017":
 ```
 
 ## power(Decimal, Decimal)
+<a name="iot-func-power"></a>
 
-Returns the first argument raised to the second argument. `Decimal`
-arguments are rounded to double precision before function application. Supported by
-SQL version 2015-10-08 and later. Supported by SQL version 2015-10-08 and
-later.
+Returns the first argument raised to the second argument. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later. Supported by SQL version 2015-10-08 and later.
 
 Example: `power(2, 5)` = 32.0.
 
-| Argument type 1          | Argument type 2          | Output                                                                                                                                                                                                                           |
-| ------------------------ | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | A `Decimal` (with double precision), the first<br>argument raised to the second argument's power.                                                                                                                                |
-| `Int`/`Decimal`/`String` | `Int`/`Decimal`/`String` | A `Decimal` (with double precision), the first<br>argument raised to the second argument's power. Any strings are<br>converted to decimals. If any `String` fails to be<br>converted to `Decimal`, the result is<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                                                                                                                                     |
+
+
+| Argument type 1 | Argument type 2 | Output | 
+| --- | --- | --- | 
+| Int/Decimal | Int/Decimal | A Decimal (with double precision), the first argument raised to the second argument's power. | 
+| Int/Decimal/String | Int/Decimal/String | A Decimal (with double precision), the first argument raised to the second argument's power. Any strings are converted to decimals. If any String fails to be converted to Decimal, the result is Undefined. | 
+| Other value | Other value | Undefined. | 
 
 ## principal()
+<a name="iot-sql-function-principal"></a>
 
-Returns the principal that the device uses for authentication, based on how the
-triggering message was published. The following table describes the principal
-returned for each publishing method and protocol.
+Returns the principal that the device uses for authentication, based on how the triggering message was published. The following table describes the principal returned for each publishing method and protocol.
 
-| How the message is published | Protocol            | Credential type          | Principal                    |
-| ---------------------------- | ------------------- | ------------------------ | ---------------------------- |
-| MQTT client                  | MQTT                | X.509 device certificate | X.509 certificate thumbprint |
-| AWS IoT console MQTT client  | MQTT                | IAM user or role         | `iam-role-id`:`session-name` |
-| AWS CLI                      | HTTP                | IAM user or role         | `userid`                     |
-| AWS IoT Device SDK           | MQTT                | X.509 device certificate | X.509 certificate thumbprint |
-| AWS IoT Device SDK           | MQTT over WebSocket | IAM user or role         | `userid`                     |
 
-The following examples show the different types of values that
-`principal()` can return:
 
-- X.509 certificate thumbprint:
-  `ba67293af50bf2506f5f93469686da660c7c844e7b3950bfb16813e0d31e9373`
-- IAM role ID and session name:
-  `ABCD1EFG3HIJK2LMNOP5:my-session-name`
-- Returns a user ID: `ABCD1EFG3HIJK2LMNOP5`
+| How the message is published | Protocol | Credential type | Principal | 
+| --- | --- | --- | --- | 
+| MQTT client | MQTT | X.509 device certificate | X.509 certificate thumbprint | 
+| AWS IoT console MQTT client | MQTT | IAM user or role | {{iam-role-id}}:{{session-name}} | 
+| AWS CLI | HTTP | IAM user or role | {{userid}} | 
+| AWS IoT Device SDK | MQTT | X.509 device certificate | X.509 certificate thumbprint | 
+| AWS IoT Device SDK | MQTT over WebSocket | IAM user or role | {{userid}} | 
+
+The following examples show the different types of values that `principal()` can return:
++ X.509 certificate thumbprint: `ba67293af50bf2506f5f93469686da660c7c844e7b3950bfb16813e0d31e9373`
++ IAM role ID and session name: `ABCD1EFG3HIJK2LMNOP5:my-session-name`
++ Returns a user ID: `ABCD1EFG3HIJK2LMNOP5`
 
 ## rand()
+<a name="iot-sql-function-rand"></a>
 
-Returns a pseudorandom, uniformly distributed double between 0.0 and 1.0.
-Supported by SQL version 2015-10-08 and later.
+Returns a pseudorandom, uniformly distributed double between 0.0 and 1.0. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
 `rand()` = 0.8231909191640703
 
 ## regexp\_matches(String, String)
+<a name="iot-func-regex-matches"></a>
 
-Returns true if the string (first argument) contains a match for the regular
-expression (second argument). If you use `|` in the regular expression,
-use it with `()`.
+Returns true if the string (first argument) contains a match for the regular expression (second argument). If you use `|` in the regular expression, use it with `()`.
 
 Examples:
 
-`regexp_matches("aaaa", "a{2,}")` = true.
+`regexp_matches("aaaa", "a{2,}") ` = true.
 
 `regexp_matches("aaaa", "b")` = false.
 
-`regexp_matches("aaa", "(aaa|bbb)")` = true.
+`regexp_matches("aaa", "(aaa|bbb)") ` = true.
 
-`regexp_matches("bbb", "(aaa|bbb)")` = true.
+`regexp_matches("bbb", "(aaa|bbb)") ` = true.
 
-`regexp_matches("ccc", "(aaa|bbb)")` = false.
+`regexp_matches("ccc", "(aaa|bbb)") ` = false.
 
-First argument:| Argument type | Result |
-| --- | --- |
-| `Int` | The `String` representation of the<br>`Int`. |
-| `Decimal` | The `String` representation of the<br>`Decimal`. |
-| `Boolean` | The `String` representation of the Boolean ("true" or<br>"false"). |
-| `String` | The `String`. |
-| Array | The `String` representation of the `Array`<br>(using standard conversion rules). |
-| Object | The `String` representation of the Object (using<br>standard conversion rules). |
-| Null | `Undefined`. |
-| Undefined | `Undefined`. |
 
-_Second argument:_
+**First argument:**  
 
-Must be a valid regex expression. Non-string types are converted to
-`String` using the standard conversion rules. Depending on the type,
-the resultant string might not be a valid regular expression. If the (converted)
-argument is not valid regex, the result is `Undefined`.
+| Argument type | Result | 
+| --- | --- | 
+| Int | The String representation of the Int. | 
+| Decimal | The String representation of the Decimal. | 
+| Boolean | The String representation of the Boolean ("true" or "false"). | 
+| String | The String. | 
+| Array | The String representation of the Array (using standard conversion rules). | 
+| Object | The String representation of the Object (using standard conversion rules). | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
+
+*Second argument:*
+
+Must be a valid regex expression. Non-string types are converted to `String` using the standard conversion rules. Depending on the type, the resultant string might not be a valid regular expression. If the (converted) argument is not valid regex, the result is `Undefined`. 
 
 ## regexp\_replace(String, String, String)
+<a name="iot-func-regex-replace"></a>
 
-Replaces all occurrences of the second argument (regular expression) in the first
-argument with the third argument. Reference capture groups with "$". Supported by
-SQL version 2015-10-08 and later.
+Replaces all occurrences of the second argument (regular expression) in the first argument with the third argument. Reference capture groups with "$". Supported by SQL version 2015-10-08 and later.
 
 Example:
 
@@ -1584,36 +1392,32 @@ Example:
 
 `regexp_replace("abcd", "b(.*)d", "$1")` = "ac".
 
-First argument:| Argument type | Result |
-| --- | --- |
-| `Int` | The `String` representation of the<br>`Int`. |
-| `Decimal` | The `String` representation of the<br>`Decimal`. |
-| `Boolean` | The `String` representation of the Boolean ("true" or<br>"false"). |
-| `String` | The source value. |
-| Array | The `String` representation of the `Array`<br>(using standard conversion rules). |
-| Object | The `String` representation of the Object (using<br>standard conversion rules). |
-| Null | `Undefined`. |
-| Undefined | `Undefined`. |
 
-_Second argument:_
+**First argument:**  
 
-Must be a valid regex expression. Non-string types are converted to
-`String` using the standard conversion rules. Depending on the type,
-the resultant string might not be a valid regular expression. If the (converted)
-argument is not a valid regex expression, the result is `Undefined`.
+| Argument type | Result | 
+| --- | --- | 
+| Int | The String representation of the Int. | 
+| Decimal | The String representation of the Decimal. | 
+| Boolean | The String representation of the Boolean ("true" or "false"). | 
+| String | The source value. | 
+| Array | The String representation of the Array (using standard conversion rules). | 
+| Object | The String representation of the Object (using standard conversion rules). | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
-_Third argument:_
+*Second argument:*
 
-Must be a valid regex replacement string. (Can reference capture groups.)
-Non-string types are converted to `String` using the standard conversion
-rules. If the (converted) argument is not a valid regex replacement string, the
-result is `Undefined`.
+Must be a valid regex expression. Non-string types are converted to `String` using the standard conversion rules. Depending on the type, the resultant string might not be a valid regular expression. If the (converted) argument is not a valid regex expression, the result is `Undefined`. 
+
+*Third argument:*
+
+Must be a valid regex replacement string. (Can reference capture groups.) Non-string types are converted to `String` using the standard conversion rules. If the (converted) argument is not a valid regex replacement string, the result is `Undefined`. 
 
 ## regexp\_substr(String, String)
+<a name="iot-func-regex-substr"></a>
 
-Finds the first match of the second parameter (regex) in the first parameter.
-Reference capture groups with "$". Supported by SQL version 2015-10-08 and
-later.
+Finds the first match of the second parameter (regex) in the first parameter. Reference capture groups with "$". Supported by SQL version 2015-10-08 and later.
 
 Example:
 
@@ -1621,44 +1425,44 @@ Example:
 
 `regexp_substr("hihihello", "(hi)*")` = "hihi"
 
-First argument:| Argument type | Result |
-| --- | --- |
-| `Int` | The `String` representation of the<br>`Int`. |
-| `Decimal` | The `String` representation of the<br>`Decimal`. |
-| `Boolean` | The `String` representation of the Boolean ("true" or<br>"false"). |
-| `String` | The `String` argument. |
-| Array | The `String` representation of the `Array`<br>(using standard conversion rules). |
-| Object | The `String` representation of the Object (using<br>standard conversion rules). |
-| Null | `Undefined`. |
-| Undefined | `Undefined`. |
 
-_Second argument:_
+**First argument:**  
 
-Must be a valid regex expression. Non-string types are converted to
-`String` using the standard conversion rules. Depending on the type,
-the resultant string might not be a valid regular expression. If the (converted)
-argument is not a valid regex expression, the result is `Undefined`.
+| Argument type | Result | 
+| --- | --- | 
+| Int | The String representation of the Int. | 
+| Decimal | The String representation of the Decimal. | 
+| Boolean | The String representation of the Boolean ("true" or "false"). | 
+| String | The String argument. | 
+| Array | The String representation of the Array (using standard conversion rules). | 
+| Object | The String representation of the Object (using standard conversion rules). | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
+
+*Second argument:*
+
+Must be a valid regex expression. Non-string types are converted to `String` using the standard conversion rules. Depending on the type, the resultant string might not be a valid regular expression. If the (converted) argument is not a valid regex expression, the result is `Undefined`. 
 
 ## remainder(Decimal, Decimal)
+<a name="iot-func-remainder"></a>
 
-Returns the remainder of the division of the first argument by the second
-argument. Equivalent to [mod(Decimal, Decimal)](#iot-func-mod "#iot-func-mod").
-You can also use "%" as an infix operator for the same modulo functionality.
-Supported by SQL version 2015-10-08 and later.
+Returns the remainder of the division of the first argument by the second argument. Equivalent to [mod(Decimal, Decimal)](#iot-func-mod). You can also use "%" as an infix operator for the same modulo functionality. Supported by SQL version 2015-10-08 and later.
 
 Example: `remainder(8, 3)` = 2.
 
-| Left operand             | Right operand            | Output                                                                                                                         |
-| ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| `Int`                    | `Int`                    | `Int`, the first argument modulo the second<br>argument.                                                                       |
-| `Int`/`Decimal`          | `Int`/`Decimal`          | `Decimal`, the first argument modulo the second<br>operand.                                                                    |
-| `String`/`Int`/`Decimal` | `String`/`Int`/`Decimal` | If all strings convert to decimals, the result is the first<br>argument modulo the second argument. Otherwise,<br>`Undefined`. |
-| Other value              | Other value              | `Undefined`.                                                                                                                   |
+
+
+| Left operand | Right operand | Output | 
+| --- | --- | --- | 
+| Int | Int | Int, the first argument modulo the second argument. | 
+| Int/Decimal | Int/Decimal | Decimal, the first argument modulo the second operand. | 
+| String/Int/Decimal | String/Int/Decimal | If all strings convert to decimals, the result is the first argument modulo the second argument. Otherwise, Undefined. | 
+| Other value | Other value | Undefined. | 
 
 ## replace(String, String, String)
+<a name="iot-func-replace"></a>
 
-Replaces all occurrences of the second argument in the first argument with the
-third argument. Supported by SQL version 2015-10-08 and later.
+Replaces all occurrences of the second argument in the first argument with the third argument. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
@@ -1666,45 +1470,45 @@ Example:
 
 `replace("abcdabcd", "b", "x")` = `"axcdaxcd"`.
 
-All arguments| Argument type | Result |
-| --- | --- |
-| `Int` | The `String` representation of the<br>`Int`. |
-| `Decimal` | The `String` representation of the<br>`Decimal`. |
-| `Boolean` | The `String` representation of the Boolean ("true" or<br>"false"). |
-| `String` | The source value. |
-| Array | The `String` representation of the `Array`<br>(using standard conversion rules). |
-| Object | The `String` representation of the Object (using<br>standard conversion rules). |
-| Null | `Undefined`. |
-| Undefined | `Undefined`. |
+
+**All arguments**  
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | The String representation of the Int. | 
+| Decimal | The String representation of the Decimal. | 
+| Boolean | The String representation of the Boolean ("true" or "false"). | 
+| String | The source value. | 
+| Array | The String representation of the Array (using standard conversion rules). | 
+| Object | The String representation of the Object (using standard conversion rules). | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## rpad(String, Int)
+<a name="iot-func-rpad"></a>
 
-Returns the string argument, padded on the right side with the number of spaces
-specified in the second argument. The `Int` argument must be between 0
-and 1000. If the provided value is outside of this valid range, the argument is set
-to the nearest valid value (0 or 1000). Supported by SQL version 2015-10-08 and
-later.
+Returns the string argument, padded on the right side with the number of spaces specified in the second argument. The `Int` argument must be between 0 and 1000. If the provided value is outside of this valid range, the argument is set to the nearest valid value (0 or 1000). Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
-`rpad("hello", 2)` = "`hello`".
+`rpad("hello", 2)` = "`hello  `".
 
-`rpad(1, 3)` = "`1`".
+`rpad(1, 3)` = "`1   `".
 
-| Argument type 1 | Argument type 2          | Result                                                                                                                                                                                           |
-| --------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `String`        | `Int`                    | The `String` is padded on the right side with a number<br>of spaces equal to the provided `Int`.                                                                                                 |
-| `String`        | `Decimal`                | The `Decimal` argument is rounded down to the nearest<br>`Int` and the string is padded on the right side with<br>a number of spaces equal to the provided `Int`.                                |
-| `String`        | `String`                 | The second argument is converted to a `Decimal`, which<br>is rounded down to the nearest `Int`. The<br>`String` is padded on the right side with a number of<br>spaces equal to the `Int` value. |
-| Other value     | `Int`/`Decimal`/`String` | The first value is converted to a `String` using the<br>standard conversions, and the rpad function is applied on that<br>`String`. If it cannot be converted, the result is<br>`Undefined`.     |
-| Any value       | Other value              | `Undefined`.                                                                                                                                                                                     |
+
+
+| Argument type 1 | Argument type 2 | Result | 
+| --- | --- | --- | 
+| String | Int | The String is padded on the right side with a number of spaces equal to the provided Int. | 
+| String | Decimal | The Decimal argument is rounded down to the nearest Int and the string is padded on the right side with a number of spaces equal to the provided Int. | 
+| String | String | The second argument is converted to a Decimal, which is rounded down to the nearest Int. The String is padded on the right side with a number of spaces equal to the Int value. | 
+| Other value | Int/Decimal/String | The first value is converted to a String using the standard conversions, and the rpad function is applied on that String. If it cannot be converted, the result is Undefined. | 
+| Any value | Other value | Undefined. | 
 
 ## round(Decimal)
+<a name="iot-func-round"></a>
 
-Rounds the given `Decimal` to the nearest `Int`. If the
-`Decimal` is equidistant from two `Int` values (for
-example, 0.5), the `Decimal` is rounded up. Supported by SQL version
-2015-10-08 and later.
+Rounds the given `Decimal` to the nearest `Int`. If the `Decimal` is equidistant from two `Int` values (for example, 0.5), the `Decimal` is rounded up. Supported by SQL version 2015-10-08 and later.
 
 Example: `Round(1.2)` = 1.
 
@@ -1716,37 +1520,40 @@ Example: `Round(1.2)` = 1.
 
 `Round(-1.5)` = -2.
 
-| Argument type | Result                                                                                                                                |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | The argument.                                                                                                                         |
-| `Decimal`     | `Decimal` is rounded down to the nearest<br>`Int`.                                                                                    |
-| `String`      | `Decimal` is rounded down to the nearest<br>`Int`. If the string cannot be converted to a<br>`Decimal`, the result is<br>`Undefined`. |
-| Other value   | `Undefined`.                                                                                                                          |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | The argument. | 
+| Decimal | Decimal is rounded down to the nearest Int. | 
+| String | Decimal is rounded down to the nearest Int. If the string cannot be converted to a Decimal, the result is Undefined. | 
+| Other value | Undefined. | 
 
 ## rtrim(String)
+<a name="iot-func-rtrim"></a>
 
-Removes all trailing white space (tabs and spaces) from the provided
-`String`. Supported by SQL version 2015-10-08 and later.
+Removes all trailing white space (tabs and spaces) from the provided `String`. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
 `rtrim(" h i ")` = " h i"
 
-| Argument type | Result                                                                           |
-| ------------- | -------------------------------------------------------------------------------- |
-| `Int`         | The `String` representation of the<br>`Int`.                                     |
-| `Decimal`     | The `String` representation of the<br>`Decimal`.                                 |
-| `Boolean`     | The `String` representation of the Boolean ("true" or<br>"false").               |
-| Array         | The `String` representation of the `Array`<br>(using standard conversion rules). |
-| Object        | The `String` representation of the Object (using<br>standard conversion rules).  |
-| Null          | `Undefined`.                                                                     |
-| Undefined     | `Undefined`                                                                      |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | The String representation of the Int. | 
+| Decimal | The String representation of the Decimal. | 
+| Boolean | The String representation of the Boolean ("true" or "false"). | 
+| Array | The String representation of the Array (using standard conversion rules). | 
+| Object | The String representation of the Object (using standard conversion rules). | 
+| Null | Undefined. | 
+| Undefined | Undefined | 
 
 ## sign(Decimal)
+<a name="iot-func-sign"></a>
 
-Returns the sign of the given number. When the sign of the argument is positive, 1
-is returned. When the sign of the argument is negative, -1 is returned. If the
-argument is 0, 0 is returned. Supported by SQL version 2015-10-08 and later.
+Returns the sign of the given number. When the sign of the argument is positive, 1 is returned. When the sign of the argument is negative, -1 is returned. If the argument is 0, 0 is returned. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
@@ -1756,67 +1563,64 @@ Examples:
 
 `sign(13)` = 1.
 
-| Argument type | Result                                                                                                                                                                                                                                                                              |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Int`, the sign of the `Int` value.                                                                                                                                                                                                                                                 |
-| `Decimal`     | `Int`, the sign of the `Decimal`<br>value.                                                                                                                                                                                                                                          |
-| `String`      | `Int`, the sign of the `Decimal` value. The<br>string is converted to a `Decimal` value, and the sign of<br>the `Decimal` value is returned. If the<br>`String` cannot be converted to a<br>`Decimal`, the result is `Undefined`.<br>Supported by SQL version 2015-10-08 and later. |
-| Other value   | `Undefined`.                                                                                                                                                                                                                                                                        |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Int, the sign of the Int value. | 
+| Decimal | Int, the sign of the Decimal value. | 
+| String | Int, the sign of the Decimal value. The string is converted to a Decimal value, and the sign of the Decimal value is returned. If the String cannot be converted to a Decimal, the result is Undefined. Supported by SQL version 2015-10-08 and later. | 
+| Other value | Undefined. | 
 
 ## sin(Decimal)
+<a name="iot-func-sin"></a>
 
-Returns the sine of a number in radians. `Decimal` arguments are
-rounded to double precision before function application. Supported by SQL version
-2015-10-08 and later.
+Returns the sine of a number in radians. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
 Example: `sin(0)` = 0.0
 
-| Argument type | Result                                                                                                                                             |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the sine of the<br>argument.                                                                                    |
-| `Decimal`     | `Decimal` (with double precision), the sine of the<br>argument.                                                                                    |
-| `Boolean`     | `Undefined`.                                                                                                                                       |
-| `String`      | `Decimal` (with double precision), the sine of the<br>argument. If the string cannot be converted to a<br>`Decimal`, the result is<br>`Undefined`. |
-| Array         | `Undefined`.                                                                                                                                       |
-| Object        | `Undefined`.                                                                                                                                       |
-| Null          | `Undefined`.                                                                                                                                       |
-| `Undefined`   | `Undefined`.                                                                                                                                       |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the sine of the argument. | 
+| Decimal | Decimal (with double precision), the sine of the argument. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the sine of the argument. If the string cannot be converted to a Decimal, the result is Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## sinh(Decimal)
+<a name="iot-func-sinh"></a>
 
-Returns the hyperbolic sine of a number. `Decimal` values are rounded
-to double precision before function application. The result is a
-`Decimal` value of double precision. Supported by SQL version
-2015-10-08 and later.
+Returns the hyperbolic sine of a number. `Decimal` values are rounded to double precision before function application. The result is a `Decimal` value of double precision. Supported by SQL version 2015-10-08 and later.
 
 Example: `sinh(2.3)` = 4.936961805545957
 
-| Argument type | Result                                                                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the hyperbolic sine<br>of the argument.                                                                                    |
-| `Decimal`     | `Decimal` (with double precision), the hyperbolic sine<br>of the argument.                                                                                    |
-| `Boolean`     | `Undefined`.                                                                                                                                                  |
-| `String`      | `Decimal` (with double precision), the hyperbolic sine<br>of the argument. If the string cannot be converted to a<br>`Decimal`, the result is<br>`Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                  |
-| Object        | `Undefined`.                                                                                                                                                  |
-| Null          | `Undefined`.                                                                                                                                                  |
-| Undefined     | `Undefined`.                                                                                                                                                  |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the hyperbolic sine of the argument. | 
+| Decimal | Decimal (with double precision), the hyperbolic sine of the argument. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the hyperbolic sine of the argument. If the string cannot be converted to a Decimal, the result is Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## sourceip()
+<a name="iot-function-sourceip"></a>
 
-Retrieves the IP address of a device or the router that connects to it. If your
-device is connected to the internet directly, the function will return the source IP
-address of the device. If your device is connected to a router that connects to the
-internet, the function will return the source IP address of the router. Supported by
-SQL version 2016-03-23. `sourceip()` doesn't take any parameters.
+Retrieves the IP address of a device or the router that connects to it. If your device is connected to the internet directly, the function will return the source IP address of the device. If your device is connected to a router that connects to the internet, the function will return the source IP address of the router. Supported by SQL version 2016-03-23. `sourceip()` doesn't take any parameters.
 
-###### Important
+**Important**  
+A device's public source IP address is often the IP address of the last Network Address Translation (NAT) Gateway such as your internet service provider's router or cable modem.
 
-A device's public source IP address is often the IP address of the last
-Network Address Translation (NAT) Gateway such as your internet service
-provider's router or cable modem.
-
-Examples:
+Examples: 
 
 `sourceip()="192.158.1.38"`
 
@@ -1832,9 +1636,7 @@ Examples of how to use the sourceip() function in AWS IoT Core rule actions:
 
 **Example 1**
 
-The following example shows how to call the () function as a [substitution
-template](iot-substitution-templates.md "iot-substitution-templates.md") in a [DynamoDB
-action](dynamodb-rule-action.md "dynamodb-rule-action.md").
+The following example shows how to call the () function as a [substitution template](https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html) in a [DynamoDB action](https://docs.aws.amazon.com/iot/latest/developerguide/dynamodb-rule-action.html).
 
 ```
 {
@@ -1860,9 +1662,7 @@ action](dynamodb-rule-action.md "dynamodb-rule-action.md").
 
 **Example 2**
 
-The following example shows how to add the sourceip() function as an MQTT user
-property using [substitution
-templates](iot-substitution-templates.md "iot-substitution-templates.md").
+The following example shows how to add the sourceip() function as an MQTT user property using [substitution templates](https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html).
 
 ```
 {
@@ -1897,39 +1697,21 @@ templates](iot-substitution-templates.md "iot-substitution-templates.md").
 }
 ```
 
-You can retrieve the source IP address from messages passing to AWS IoT Core rules
-from both Message Broker and [Basic Ingest](iot-basic-ingest.md "iot-basic-ingest.md")
-pathways. You can also retrieve the source IP for both IPv4 and IPv6 messages. The
-source IP will be displayed like the following:
+You can retrieve the source IP address from messages passing to AWS IoT Core rules from both Message Broker and [Basic Ingest](https://docs.aws.amazon.com/iot/latest/developerguide/iot-basic-ingest.html) pathways. You can also retrieve the source IP for both IPv4 and IPv6 messages. The source IP will be displayed like the following:
 
 IPv6: `yyyy:yyyy:yyyy::yyyy:yyyy`
 
 IPv4: `xxx.xxx.xxx.xxx`
 
-###### Note
-
-The original source IP won't be passed though [Republish action](republish-rule-action.md "republish-rule-action.md").
+**Note**  
+The original source IP won't be passed though [Republish action](republish-rule-action.md).
 
 ## substring(String, Int[, Int])
+<a name="iot-func-substring"></a>
 
-Expects a `String` followed by one or two `Int` values. For
-a `String` and a single `Int` argument, this function returns
-the substring of the provided `String` from the provided `Int`
-index (0-based, inclusive) to the end of the `String`. For a
-`String` and two `Int` arguments, this function returns
-the substring of the provided `String` from the first `Int`
-index argument (0-based, inclusive) to the second `Int` index argument
-(0-based, exclusive). Indices that are less than zero are set to zero. Indices that
-are greater than the `String` length are set to the `String`
-length. For the three argument version, if the first index is greater than (or equal
-to) the second index, the result is the empty `String`.
+Expects a `String` followed by one or two `Int` values. For a `String` and a single `Int` argument, this function returns the substring of the provided `String` from the provided `Int` index (0-based, inclusive) to the end of the `String`. For a `String` and two `Int` arguments, this function returns the substring of the provided `String` from the first `Int` index argument (0-based, inclusive) to the second `Int` index argument (0-based, exclusive). Indices that are less than zero are set to zero. Indices that are greater than the `String` length are set to the `String` length. For the three argument version, if the first index is greater than (or equal to) the second index, the result is the empty `String`.
 
- If the arguments provided are not (`String`,
-`Int`), or (`String`,
-`Int`, `Int`), the standard
-conversions are applied to the arguments to attempt to convert them into the correct
-types. If the types cannot be converted, the result of the function is
-`Undefined`. Supported by SQL version 2015-10-08 and later.
+ If the arguments provided are not ({{String}}, {{Int}}), or ({{String}}, {{Int}}, {{Int}}), the standard conversions are applied to the arguments to attempt to convert them into the correct types. If the types cannot be converted, the result of the function is `Undefined`. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
@@ -1954,132 +1736,122 @@ Examples:
 `substring("012345", 3, 1)` = "".
 
 ## sql\_version()
+<a name="iot-sql-function-sql-version"></a>
 
-Returns the SQL version specified in this rule. Supported by SQL version
-2015-10-08 and later.
+Returns the SQL version specified in this rule. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
 `sql_version()` = "2016-03-23"
 
 ## sqrt(Decimal)
+<a name="iot-func-sqrt"></a>
 
-Returns the square root of a number. `Decimal` arguments are rounded to
-double precision before function application. Supported by SQL version 2015-10-08
-and later.
+Returns the square root of a number. `Decimal` arguments are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
 Example: `sqrt(9)` = 3.0.
 
-| Argument type | Result                                                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | The square root of the argument.                                                                                    |
-| `Decimal`     | The square root of the argument.                                                                                    |
-| `Boolean`     | `Undefined`.                                                                                                        |
-| `String`      | The square root of the argument. If the string cannot be<br>converted to a `Decimal`, the result is<br>`Undefined`. |
-| Array         | `Undefined`.                                                                                                        |
-| Object        | `Undefined`.                                                                                                        |
-| Null          | `Undefined`.                                                                                                        |
-| Undefined     | `Undefined`.                                                                                                        |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | The square root of the argument. | 
+| Decimal | The square root of the argument. | 
+| Boolean | Undefined. | 
+| String | The square root of the argument. If the string cannot be converted to a Decimal, the result is Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## startswith(String, String)
+<a name="iot-func-startswith"></a>
 
-Returns `Boolean`, whether the first string argument starts with the
-second string argument. If either argument is `Null` or
-`Undefined`, the result is `Undefined`. Supported by SQL
-version 2015-10-08 and later.
+Returns `Boolean`, whether the first string argument starts with the second string argument. If either argument is `Null` or `Undefined`, the result is `Undefined`. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
 `startswith("ranger","ran")` = true
 
-| Argument type 1 | Argument type 2 | Result                                                                                                                                                                                                                           |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `String`        | `String`        | Whether the first string starts with the second string.                                                                                                                                                                          |
-| Other value     | Other value     | Both arguments are converted to strings using the standard<br>conversion rules. Returns true if the first string starts with the<br>second string. If either argument is `Null` or<br>`Undefined`, the result is<br>`Undefined`. |
+
+
+| Argument type 1 | Argument type 2 | Result | 
+| --- | --- | --- | 
+| String | String | Whether the first string starts with the second string. | 
+| Other value | Other value | Both arguments are converted to strings using the standard conversion rules. Returns true if the first string starts with the second string. If either argument is Null or Undefined, the result is Undefined. | 
 
 ## tan(Decimal)
+<a name="iot-func-tan"></a>
 
-Returns the tangent of a number in radians. `Decimal` values are
-rounded to double precision before function application. Supported by SQL version
-2015-10-08 and later.
+Returns the tangent of a number in radians. `Decimal` values are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
 Example: `tan(3)` = -0.1425465430742778
 
-| Argument type | Result                                                                                                                                                |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the tangent of the<br>argument.                                                                                    |
-| `Decimal`     | `Decimal` (with double precision), the tangent of the<br>argument.                                                                                    |
-| `Boolean`     | `Undefined`.                                                                                                                                          |
-| `String`      | `Decimal` (with double precision), the tangent of the<br>argument. If the string cannot be converted to a<br>`Decimal`, the result is<br>`Undefined`. |
-| Array         | `Undefined`.                                                                                                                                          |
-| Object        | `Undefined`.                                                                                                                                          |
-| Null          | `Undefined`.                                                                                                                                          |
-| Undefined     | `Undefined`.                                                                                                                                          |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the tangent of the argument. | 
+| Decimal | Decimal (with double precision), the tangent of the argument. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the tangent of the argument. If the string cannot be converted to a Decimal, the result is Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## tanh(Decimal)
+<a name="iot-func-tanh"></a>
 
-Returns the hyperbolic tangent of a number in radians. `Decimal` values
-are rounded to double precision before function application. Supported by SQL
-version 2015-10-08 and later.
+Returns the hyperbolic tangent of a number in radians. `Decimal` values are rounded to double precision before function application. Supported by SQL version 2015-10-08 and later.
 
 Example: `tanh(2.3)` = 0.9800963962661914
 
-| Argument type | Result                                                                                                                                                           |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | `Decimal` (with double precision), the hyperbolic<br>tangent of the argument.                                                                                    |
-| `Decimal`     | `Decimal` (with double precision), the hyperbolic<br>tangent of the argument.                                                                                    |
-| `Boolean`     | `Undefined`.                                                                                                                                                     |
-| `String`      | `Decimal` (with double precision), the hyperbolic<br>tangent of the argument. If the string cannot be converted to a<br>`Decimal`, the result is<br>`Undefined`. |
-| Array         | `Undefined`.                                                                                                                                                     |
-| Object        | `Undefined`.                                                                                                                                                     |
-| Null          | `Undefined`.                                                                                                                                                     |
-| Undefined     | `Undefined`.                                                                                                                                                     |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | Decimal (with double precision), the hyperbolic tangent of the argument. | 
+| Decimal | Decimal (with double precision), the hyperbolic tangent of the argument. | 
+| Boolean | Undefined. | 
+| String | Decimal (with double precision), the hyperbolic tangent of the argument. If the string cannot be converted to a Decimal, the result is Undefined. | 
+| Array | Undefined. | 
+| Object | Undefined. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## time\_to\_epoch(String, String)
+<a name="iot-sql-function-time-to-epoch"></a>
 
-Use the `time_to_epoch` function to convert a timestamp string into a
-number of milliseconds in Unix epoch time. Supported by SQL version 2016-03-23 and
-later. To convert milliseconds to a formatted timestamp string, see [parse\_time(String, Long[, String])](#iot-sql-function-parse-time "#iot-sql-function-parse-time").
+Use the `time_to_epoch` function to convert a timestamp string into a number of milliseconds in Unix epoch time. Supported by SQL version 2016-03-23 and later. To convert milliseconds to a formatted timestamp string, see [parse\_time(String, Long[, String])](#iot-sql-function-parse-time).
 
 The `time_to_epoch` function expects the following arguments:
 
-timestamp
+timestamp  
+(String) The timestamp string to be converted to milliseconds since Unix epoch. If the timestamp string doesn't specify a timezone, the function uses the UTC timezone.
 
-(String) The timestamp string to be converted to milliseconds since
-Unix epoch. If the timestamp string doesn't specify a timezone, the
-function uses the UTC timezone.
-
-pattern
-
-(String) A date/time pattern that follows [JDK11 Time Formats](http://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html "http://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html").
+pattern  
+(String) A date/time pattern that follows [JDK11 Time Formats](http://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html).
 
 Examples:
 
-`time_to_epoch("2020-04-03 09:45:18 UTC+01:00", "yyyy-MM-dd HH:mm:ss
- VV")` = 1585903518000
+`time_to_epoch("2020-04-03 09:45:18 UTC+01:00", "yyyy-MM-dd HH:mm:ss VV")` = 1585903518000
 
-`time_to_epoch("18 December 2015", "dd MMMM yyyy")` =
-1450396800000
+`time_to_epoch("18 December 2015", "dd MMMM yyyy")` = 1450396800000
 
-`time_to_epoch("2007-12-03 10:15:30.592 America/Los_Angeles", "yyyy-MM-dd
- HH:mm:ss.SSS z")` = 1196705730592
+`time_to_epoch("2007-12-03 10:15:30.592 America/Los_Angeles", "yyyy-MM-dd HH:mm:ss.SSS z")` = 1196705730592
 
 ## timestamp()
+<a name="iot-function-timestamp"></a>
 
-Returns the current timestamp in milliseconds from 00:00:00 Coordinated Universal
-Time (UTC), Thursday, 1 January 1970, as observed by the AWS IoT rules engine.
-Supported by SQL version 2015-10-08 and later.
+Returns the current timestamp in milliseconds from 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970, as observed by the AWS IoT rules engine. Supported by SQL version 2015-10-08 and later.
 
 Example: `timestamp()` = `1481825251155`
 
 ## topic(Decimal)
+<a name="iot-function-topic"></a>
 
-Returns the topic to which the message that triggered the rule was sent. If no
-parameter is specified, the entire topic is returned. The `Decimal`
-parameter is used to specify a specific topic segment, with 1 designating the first
-segment. For the topic `foo/bar/baz`, topic(1) returns `foo`,
-topic(2) returns `bar`, and so on. Supported by SQL version 2015-10-08
-and later.
+Returns the topic to which the message that triggered the rule was sent. If no parameter is specified, the entire topic is returned. The `Decimal` parameter is used to specify a specific topic segment, with 1 designating the first segment. For the topic `foo/bar/baz`, topic(1) returns `foo`, topic(2) returns `bar`, and so on. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
@@ -2087,9 +1859,7 @@ Examples:
 
 `topic(1)` = "things"
 
-When [Basic Ingest](iot-basic-ingest.md "iot-basic-ingest.md") is used, the initial
-prefix of the topic (`$aws/rules/`rule-name``)
-is not available to the topic() function. For example, given the topic:
+When [Basic Ingest](iot-basic-ingest.md) is used, the initial prefix of the topic (`$aws/rules/{{rule-name}}`) is not available to the topic() function. For example, given the topic:
 
 `$aws/rules/BuildingManager/Buildings/Building5/Floor2/Room201/Lights`
 
@@ -2098,56 +1868,44 @@ is not available to the topic() function. For example, given the topic:
 `topic(3)` = "Floor2"
 
 ## traceid()
+<a name="iot-sql-function-traceid"></a>
 
-Returns the trace ID (UUID) of the MQTT message, or `Undefined` if the
-message wasn't sent over MQTT. Supported by SQL version 2015-10-08 and later.
+Returns the trace ID (UUID) of the MQTT message, or `Undefined` if the message wasn't sent over MQTT. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
-`traceid()` = "12345678-1234-1234-1234-123456789012"
+`traceid() ` = "12345678-1234-1234-1234-123456789012"
 
 ## transform(String, Object, Array)
+<a name="iot-func-transform"></a>
 
-Returns an array of objects that contains the result of the specified
-transformation of the `Object` parameter on the
-`Array` parameter.
+Returns an array of objects that contains the result of the specified transformation of the `Object` parameter on the `Array` parameter.
 
 Supported by SQL version 2016-03-23 and later.
 
-String
-The transformation mode to use. Refer to the following table for the supported transformation
-modes and how they create the `Result` from the
-`Object` and `Array`
-parameters.
+String  
+The transformation mode to use. Refer to the following table for the supported transformation modes and how they create the `Result` from the `Object` and `Array` parameters.
 
-Object
-An object that contains the attributes to apply to each element of the
-`Array`.
+Object  
+An object that contains the attributes to apply to each element of the `Array`.
 
-Array
+Array  
+An array of objects into which the attributes of `Object` are applied.  
+Each object in this Array corresponds to an object in the function's response. Each object in the function's response contains the attributes present in the original object and the attributes provided by `Object` as determined by the transformation mode specified in `String`.
 
-An array of objects into which the attributes of
-`Object` are applied.
 
-Each object in this Array corresponds to an object in the function's
-response. Each object in the function's response contains the attributes
-present in the original object and the attributes provided by
-`Object` as determined by the transformation
-mode specified in `String`.
+| `String` parameter | `Object` parameter | `Array` parameter | Result | 
+| --- | --- | --- | --- | 
+| `enrichArray` | Object | Array of objects | An Array of objects in which each object contains the attributes of an element from the `Array` parameter and the attributes of the `Object` parameter. | 
+| Any other value | Any value | Any value | Undefined | 
 
-| `String` parameter | `Object` parameter | `Array` parameter | Result                                                                                                                                                     |
-| ------------------ | ------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enrichArray`      | Object             | Array of objects  | An Array of objects in which each object contains the attributes of an element from the `Array` parameter and the<br>attributes of the `Object` parameter. |
-| Any other value    | Any value          | Any value         | Undefined                                                                                                                                                  |
-
-###### Note
-
+**Note**  
 The array returned by this function is limited to 128 KiB.
 
 ### Transform function example 1
+<a name="iot-func-transform-example1"></a>
 
-This example shows how the **transform()** function produces
-a single array of objects from a data object and an array.
+This example shows how the **transform()** function produces a single array of objects from a data object and an array.
 
 In this example, the following message is published to the MQTT topic `A/B`.
 
@@ -2171,11 +1929,7 @@ In this example, the following message is published to the MQTT topic `A/B`.
 }
 ```
 
-This SQL statement for a topic rule action uses the **transform()** function
-with a `String` value of `enrichArray`.
-In this example, `Object` is the `attributes` property from
-the message payload and `Array` is the `values` array, which
-contains three objects.
+This SQL statement for a topic rule action uses the **transform()** function with a `String` value of `enrichArray`. In this example, `Object` is the `attributes` property from the message payload and `Array` is the `values` array, which contains three objects.
 
 ```
 select value transform("enrichArray", attributes, values) from 'A/B'
@@ -2204,12 +1958,11 @@ Upon receiving the message payload, the SQL statement evaluates to the following
 ```
 
 ### Transform function example 2
+<a name="iot-func-transform-example2"></a>
 
-This example shows how the **transform()** function can use
-literal values to include and rename individual attributes from the message payload.
+This example shows how the **transform()** function can use literal values to include and rename individual attributes from the message payload.
 
-In this example, the following message is published to the MQTT topic `A/B`.
-This is the same message that was used in [Transform function example 1](#iot-func-transform-example1 "#iot-func-transform-example1").
+In this example, the following message is published to the MQTT topic `A/B`. This is the same message that was used in [Transform function example 1](#iot-func-transform-example1).
 
 ```
 {
@@ -2231,20 +1984,13 @@ This is the same message that was used in [Transform function example 1](#iot-fu
 }
 ```
 
-This SQL statement for a topic rule action uses the **transform()** function
-with a `String` value of `enrichArray`. The
-`Object` in the **transform()** function
-has a single attribute named `key` with the value of
-`attributes.data1` in the message payload and
-`Array` is the `values` array, which
-contains the same three objects used in the previous example.
+This SQL statement for a topic rule action uses the **transform()** function with a `String` value of `enrichArray`. The `Object` in the **transform()** function has a single attribute named `key` with the value of `attributes.data1` in the message payload and `Array` is the `values` array, which contains the same three objects used in the previous example.
 
 ```
 select value transform("enrichArray", {"key": attributes.data1}, values) from 'A/B'
 ```
 
-Upon receiving the message payload, this SQL statement evaluates to the following response.
-Notice how the `data1` property is named `key` in the response.
+Upon receiving the message payload, this SQL statement evaluates to the following response. Notice how the `data1` property is named `key` in the response.
 
 ```
 [
@@ -2264,10 +2010,9 @@ Notice how the `data1` property is named `key` in the response.
 ```
 
 ### Transform function example 3
+<a name="iot-func-transform-example3"></a>
 
-This example shows how the **transform()** function can be used
-in nested SELECT clauses to select multiple attributes and create new objects
-for subsequent processing.
+This example shows how the **transform()** function can be used in nested SELECT clauses to select multiple attributes and create new objects for subsequent processing.
 
 In this example, the following message is published to the MQTT topic `A/B`.
 
@@ -2297,19 +2042,13 @@ In this example, the following message is published to the MQTT topic `A/B`.
 }
 ```
 
-The `Object` for this transform function is the object
-returned by the SELECT statement, which contains the `a` and
-`b` elements of the message's `data2`
-object. The `Array` parameter consists of the two objects
-from the `data2.c` array in the original message.
+The `Object` for this transform function is the object returned by the SELECT statement, which contains the `a` and `b` elements of the message's `data2` object. The `Array` parameter consists of the two objects from the `data2.c` array in the original message.
 
 ```
 select value transform('enrichArray', (select a, b from data2), (select value c from data2)) from 'A/B'
-
 ```
 
-With the preceding message, the SQL statement evaluates to the following
-response.
+With the preceding message, the SQL statement evaluates to the following response.
 
 ```
 [
@@ -2334,38 +2073,36 @@ response.
 ]
 ```
 
-The array returned in this response could be used with topic rule actions that
-support `batchMode`.
+ The array returned in this response could be used with topic rule actions that support `batchMode`. 
 
 ## trim(String)
+<a name="iot-func-trim"></a>
 
-Removes all leading and trailing white space from the provided
-`String`. Supported by SQL version 2015-10-08 and later.
+Removes all leading and trailing white space from the provided `String`. Supported by SQL version 2015-10-08 and later.
 
 Example:
 
-`Trim(" hi ")` = "hi"
+`Trim(" hi ") ` = "hi"
 
-| Argument type | Result                                                                                                                    |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `Int`         | The `String` representation of the `Int`<br>with all leading and trailing white space removed.                            |
-| `Decimal`     | The `String` representation of the<br>`Decimal` with all leading and trailing white space<br>removed.                     |
-| `Boolean`     | The `String` representation of the<br>`Boolean` ("true" or "false") with all leading and<br>trailing white space removed. |
-| `String`      | The `String` with all leading and trailing white space<br>removed.                                                        |
-| Array         | The `String` representation of the `Array`<br>using standard conversion rules.                                            |
-| Object        | The `String` representation of the Object using<br>standard conversion rules.                                             |
-| Null          | `Undefined`.                                                                                                              |
-| Undefined     | `Undefined`.                                                                                                              |
+
+
+| Argument type | Result | 
+| --- | --- | 
+| Int | The String representation of the Int with all leading and trailing white space removed. | 
+| Decimal | The String representation of the Decimal with all leading and trailing white space removed. | 
+| Boolean | The String representation of the Boolean ("true" or "false") with all leading and trailing white space removed. | 
+| String | The String with all leading and trailing white space removed. | 
+| Array | The String representation of the Array using standard conversion rules. | 
+| Object | The String representation of the Object using standard conversion rules. | 
+| Null | Undefined. | 
+| Undefined | Undefined. | 
 
 ## trunc(Decimal, Int)
+<a name="iot-func-trunc"></a>
 
-Truncates the first argument to the number of `Decimal` places
-specified by the second argument. If the second argument is less than zero, it is
-set to zero. If the second argument is greater than 34, it is set to 34. Trailing
-zeroes are stripped from the result. Supported by SQL version 2015-10-08 and
-later.
+Truncates the first argument to the number of `Decimal` places specified by the second argument. If the second argument is less than zero, it is set to zero. If the second argument is greater than 34, it is set to 34. Trailing zeroes are stripped from the result. Supported by SQL version 2015-10-08 and later.
 
-Examples:
+Examples: 
 
 `trunc(2.3, 0)` = 2.
 
@@ -2375,21 +2112,22 @@ Examples:
 
 `trunc(2.00, 5)` = 2.
 
-| Argument type 1          | Argument type 2 | Result                                                                                                                                                                                                                                                                           |
-| ------------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Int`                    | `Int`           | The source value.                                                                                                                                                                                                                                                                |
-| `Int`/`Decimal`          | `Int`/`Decimal` | The first argument is truncated to the length described by the<br>second argument. The second argument, if not an `Int`, is<br>rounded down to the nearest `Int`.                                                                                                                |
-| `Int`/`Decimal`/`String` | `Int`/`Decimal` | The first argument is truncated to the length described by the<br>second argument. The second argument, if not an `Int`, is<br>rounded down to the nearest `Int`. A `String`<br>is converted to a `Decimal` value. If the string<br>conversion fails, the result is `Undefined`. |
-| Other value              |                 | `Undefined`.                                                                                                                                                                                                                                                                     |
+
+
+| Argument type 1 | Argument type 2 | Result | 
+| --- | --- | --- | 
+| Int | Int | The source value. | 
+| Int/Decimal | Int/Decimal | The first argument is truncated to the length described by the second argument. The second argument, if not an Int, is rounded down to the nearest Int. | 
+| Int/Decimal/String | Int/Decimal | The first argument is truncated to the length described by the second argument. The second argument, if not an Int, is rounded down to the nearest Int. A String is converted to a Decimal value. If the string conversion fails, the result is Undefined. | 
+| Other value |  | Undefined. | 
 
 ## upper(String)
+<a name="iot-sql-function-upper"></a>
 
-Returns the uppercase version of the given `String`.
-Non-`String` arguments are converted to `String` using the
-standard conversion rules. Supported by SQL version 2015-10-08 and later.
+Returns the uppercase version of the given `String`. Non-`String` arguments are converted to `String` using the standard conversion rules. Supported by SQL version 2015-10-08 and later.
 
 Examples:
 
 `upper("hello")` = "HELLO"
 
-`upper(["hello"])` = "[\"HELLO\"]"
+`upper(["hello"])` = "[\\"HELLO\\"]"

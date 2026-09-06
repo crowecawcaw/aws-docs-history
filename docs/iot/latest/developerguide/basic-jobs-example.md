@@ -1,73 +1,72 @@
+
+
 # Basic job policy example
+<a name="basic-jobs-example"></a>
 
-This sample shows the policy statments required for a job target that's a
-single device to receive a job request and communicate job execution status with
-AWS IoT.
+This sample shows the policy statments required for a job target that's a single device to receive a job request and communicate job execution status with AWS IoT.
 
-Replace `us-west-2:57EXAMPLE833` with your
-AWS Region, a colon character (:), and your 12-digit AWS account number, and
-then replace `uniqueThingName` with the name of the
-thing resource that represents the device in AWS IoT.
+Replace {{us-west-2:57EXAMPLE833}} with your AWS Region, a colon character (:), and your 12-digit AWS account number, and then replace {{uniqueThingName}} with the name of the thing resource that represents the device in AWS IoT.
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "iot:Connect"
- ],
- "Resource": [
- "arn:aws:iot:`us-west-2:123456789012`:client/`uniqueThingName`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iot:Publish"
- ],
- "Resource": [
- "arn:aws:iot:`us-west-2:123456789012`:topic/test/dc/pubtopic",
- "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/events/job/*",
- "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/events/jobExecution/*",
- "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/things/`uniqueThingName`/jobs/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iot:Subscribe"
- ],
- "Resource": [
- "arn:aws:iot:`us-west-2:123456789012`:topicfilter/test/dc/subtopic",
- "arn:aws:iot:`us-west-2:123456789012`:topicfilter/$aws/events/jobExecution/*",
- "arn:aws:iot:`us-west-2:123456789012`:topicfilter/$aws/things/`uniqueThingName`/jobs/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iot:Receive"
- ],
- "Resource": [
- "arn:aws:iot:`us-west-2:123456789012`:topic/test/dc/subtopic",
- "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/things/`uniqueThingName`/jobs/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iotjobsdata:DescribeJobExecution",
- "iotjobsdata:GetPendingJobExecutions",
- "iotjobsdata:StartNextPendingJobExecution",
- "iotjobsdata:UpdateJobExecution"
- ],
- "Resource": [
- "arn:aws:iot:`us-west-2:123456789012`:topic/$aws/things/`uniqueThingName`"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iot:Connect"
+            ],
+            "Resource": [
+                "arn:aws:iot:{{us-west-2:123456789012}}:client/{{uniqueThingName}}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iot:Publish"
+            ],
+            "Resource": [
+                "arn:aws:iot:{{us-west-2:123456789012}}:topic/test/dc/pubtopic",
+                "arn:aws:iot:{{us-west-2:123456789012}}:topic/$aws/events/job/*",
+                "arn:aws:iot:{{us-west-2:123456789012}}:topic/$aws/events/jobExecution/*",
+                "arn:aws:iot:{{us-west-2:123456789012}}:topic/$aws/things/{{uniqueThingName}}/jobs/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iot:Subscribe"
+            ],
+            "Resource": [
+                "arn:aws:iot:{{us-west-2:123456789012}}:topicfilter/test/dc/subtopic",
+                "arn:aws:iot:{{us-west-2:123456789012}}:topicfilter/$aws/events/jobExecution/*",
+                "arn:aws:iot:{{us-west-2:123456789012}}:topicfilter/$aws/things/{{uniqueThingName}}/jobs/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iot:Receive"
+            ],
+            "Resource": [
+                "arn:aws:iot:{{us-west-2:123456789012}}:topic/test/dc/subtopic",
+                "arn:aws:iot:{{us-west-2:123456789012}}:topic/$aws/things/{{uniqueThingName}}/jobs/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iotjobsdata:DescribeJobExecution",
+                "iotjobsdata:GetPendingJobExecutions",
+                "iotjobsdata:StartNextPendingJobExecution",
+                "iotjobsdata:UpdateJobExecution"
+            ],
+            "Resource": [
+                "arn:aws:iot:{{us-west-2:123456789012}}:topic/$aws/things/{{uniqueThingName}}"
+            ]
+        }
+    ]
+}
 ```

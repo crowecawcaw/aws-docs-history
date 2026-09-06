@@ -1,14 +1,15 @@
-# List thing types
 
-You can use the **ListThingTypes** command to list thing
-types:
+
+# List thing types
+<a name="list-thing-types"></a>
+
+You can use the **ListThingTypes** command to list thing types:
 
 ```
 $ aws iot list-thing-types
 ```
 
-The **ListThingTypes** command returns a list of the thing types
-defined in your AWS account:
+The **ListThingTypes** command returns a list of the thing types defined in your AWS account:
 
 ```
 {

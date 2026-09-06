@@ -1,21 +1,18 @@
+
+
 # Use `CreateTopicRule` with an AWS SDK or CLI
+<a name="example_iot_CreateTopicRule_section"></a>
 
 The following code examples show how to use `CreateTopicRule`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iot_Scenario_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
 ```
     /// <summary>
@@ -66,23 +63,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
 ```
++  For API details, see [CreateTopicRule](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateTopicRule](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateTopicRule.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
 ```
 //! Create an AWS IoT rule with an SNS topic as the target.
@@ -126,30 +114,22 @@ AwsDoc::IoT::createTopicRule(const Aws::String &ruleName,
     }
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CreateTopicRule](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/CreateTopicRule) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create a rule that sends an Amazon SNS alert**  
+The following `create-topic-rule` example creates a rule that sends an Amazon SNS message when soil moisture level readings, as found in a device shadow, are low.  
 
 ```
-
-- For API details, see
-  [CreateTopicRule](../../../goto/SdkForCpp/iot-2015-05-28/CreateTopicRule.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateTopicRule.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a rule that sends an Amazon SNS alert**
-
-The following `create-topic-rule` example creates a rule that sends an Amazon SNS message when soil moisture level readings, as found in a device shadow, are low.
-
+aws iot create-topic-rule \
+    --rule-name {{"LowMoistureRule"}} \
+    --topic-rule-payload {{file://plant-rule.json}}
 ```
-`aws iot create-topic-rule \
- --rule-name `"LowMoistureRule"` \
- --topic-rule-payload `file://plant-rule.json``
-
-```
-
-The example requires the following JSON code to be saved to a file named `plant-rule.json`:
+The example requires the following JSON code to be saved to a file named `plant-rule.json`:  
 
 ```
 {
@@ -166,24 +146,15 @@ The example requires the following JSON code to be saved to a file named `plant-
     }]
 }
 ```
+This command produces no output.  
+For more information, see [Creating an AWS IoT Rule](https://docs.aws.amazon.com/iot/latest/developerguide/iot-create-rule.html) in the *AWS IoT Developers Guide*.  
++  For API details, see [CreateTopicRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-topic-rule.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Java ]
 
-For more information, see [Creating an AWS IoT Rule](iot-create-rule.md "iot-create-rule.md") in the _AWS IoT Developers Guide_.
-
-- For API details, see
-  [CreateTopicRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-topic-rule.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-topic-rule.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
 ```
     /**
@@ -239,23 +210,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         future.join();
     }
-
-
 ```
++  For API details, see [CreateTopicRule](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/CreateTopicRule) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateTopicRule](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateTopicRule.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateTopicRule.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 suspend fun createIoTRule(
@@ -292,23 +254,14 @@ suspend fun createIoTRule(
         println("IoT rule created successfully.")
     }
 }
-
-
 ```
++  For API details, see [CreateTopicRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateTopicRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
 ```
 class IoTWrapper:
@@ -358,24 +311,14 @@ class IoTWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [CreateTopicRule](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/CreateTopicRule) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateTopicRule](../../../goto/boto3/iot-2015-05-28/CreateTopicRule.md "../../../goto/boto3/iot-2015-05-28/CreateTopicRule.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
 ```
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
@@ -414,14 +357,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateTopicRule](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateTopicRule](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

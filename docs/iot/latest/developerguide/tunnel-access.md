@@ -1,70 +1,67 @@
-# Controlling access to tunnels
 
-Secure tunneling provides service-specific actions, resources, and condition context
-keys for use in IAM permissions policies.
+
+# Controlling access to tunnels
+<a name="tunnel-access"></a>
+
+Secure tunneling provides service-specific actions, resources, and condition context keys for use in IAM permissions policies.
 
 ## Tunnel access prerequisites
-
-- Learn how to secure AWS resources by using [IAM policies](../../../IAM/latest/UserGuide/access_controlling.md "../../../IAM/latest/UserGuide/access_controlling.md").
-- Learn how to create and evaluate [IAM conditions](../../../IAM/latest/UserGuide/reference_policies_multi-value-conditions.md "../../../IAM/latest/UserGuide/reference_policies_multi-value-conditions.md").
-- Learn how to secure AWS resources using [resource tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md").
+<a name="tunnel-access-prereq"></a>
++ Learn how to secure AWS resources by using [IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html).
++ Learn how to create and evaluate [IAM conditions](      https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html).
++ Learn how to secure AWS resources using [resource tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html).
 
 ## Tunnel access policies
+<a name="tunnel-access-policies"></a>
 
-You must use the following policies for authorizing permissions to use the secure
-tunneling API. For more information about AWS IoT security see [Identity and access management for AWS IoT](security-iam.md "security-iam.md").
+You must use the following policies for authorizing permissions to use the secure tunneling API. For more information about AWS IoT security see [Identity and access management for AWS IoT](security-iam.md).
 
-The `iot:OpenTunnel` policy action grants a principal
-permission to call [OpenTunnel](../apireference/API_iot-secure-tunneling_OpenTunnel.md "../apireference/API_iot-secure-tunneling_OpenTunnel.md").
+### iot:OpenTunnel
+<a name="open-tunnel-action"></a>
+
+The `iot:OpenTunnel` policy action grants a principal permission to call [OpenTunnel](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_OpenTunnel.html).
 
 In the `Resource` element of the IAM policy statement:
++ Specify the wildcard tunnel ARN:
 
-- Specify the wildcard tunnel ARN:
+  `arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*`
++ Specify a thing ARN to manage the `OpenTunnel` permission for specific IoT things:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*`
+  `arn:aws:iot:{{aws-region}}:{{aws-account-id}}:thing/{{thing-name}}`
 
-- Specify a thing ARN to manage the `OpenTunnel`
-  permission for specific IoT things:
-
-`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``
-For example, the following policy statement allows you to open a tunnel to
-the IoT thing named `TestDevice`.
+For example, the following policy statement allows you to open a tunnel to the IoT thing named `TestDevice`.
 
 ```
 {
     "Effect": "Allow",
     "Action": "iot:OpenTunnel",
     "Resource": [
-        "arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*",
-        "arn:aws:iot:`aws-region`:`aws-account-id`:thing/TestDevice"
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*",
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:thing/TestDevice"
     ]
 }
 ```
 
-The `iot:OpenTunnel` policy action supports the following
-condition keys:
+The `iot:OpenTunnel` policy action supports the following condition keys:
++ `iot:ThingGroupArn`
++ `iot:TunnelDestinationService`
++ `aws:RequestTag`/{{tag-key}}
++ `aws:SecureTransport`
++ `aws:TagKeys`
 
-- `iot:ThingGroupArn`
-- `iot:TunnelDestinationService`
-- `aws:RequestTag`/`tag-key`
-- `aws:SecureTransport`
-- `aws:TagKeys`
-  The following policy statement allows you to open a tunnel to the thing if
-  the thing belongs to a thing group with a name that starts with
-  `TestGroup` and the configured destination service on the
-  tunnel is SSH.
+The following policy statement allows you to open a tunnel to the thing if the thing belongs to a thing group with a name that starts with `TestGroup` and the configured destination service on the tunnel is SSH.
 
 ```
 {
     "Effect": "Allow",
     "Action": "iot:OpenTunnel",
     "Resource": [
-        "arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*"
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*"
     ],
     "Condition": {
         "ForAnyValue:StringLike": {
             "iot:ThingGroupArn": [
-                "arn:aws:iot:`aws-region`:`aws-account-id`:thinggroup/`TestGroup`*"
+                "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:thinggroup/{{TestGroup}}*"
             ]
         },
         "ForAllValues:StringEquals": {
@@ -76,18 +73,14 @@ condition keys:
 }
 ```
 
-You can also use resource tags to control permission to open tunnels. For
-example, the following policy statement allows a tunnel to be opened if the
-tag key `Owner` is present with a value of `Admin` and
-no other tags are specified. For general information about using tags, see
-[Tagging your AWS IoT resources](tagging-iot.md "tagging-iot.md").
+You can also use resource tags to control permission to open tunnels. For example, the following policy statement allows a tunnel to be opened if the tag key `Owner` is present with a value of `Admin` and no other tags are specified. For general information about using tags, see [Tagging your AWS IoT resources](tagging-iot.md).
 
 ```
 {
     "Effect": "Allow",
     "Action": "iot:OpenTunnel",
     "Resource": [
-        "arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*"
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*"
     ],
     "Condition": {
         "StringEquals": {
@@ -100,64 +93,55 @@ no other tags are specified. For general information about using tags, see
 }
 ```
 
-The `iot:RotateTunnelAccessToken` policy action grants a
-principal permission to call [RotateTunnelAccessToken](../apireference/API_iot-secure-tunneling_RorateTunnelAccessToken.md "../apireference/API_iot-secure-tunneling_RorateTunnelAccessToken.md").
+### iot:RotateTunnelAccessToken
+<a name="rotate-tunnel-action"></a>
+
+The `iot:RotateTunnelAccessToken` policy action grants a principal permission to call [RotateTunnelAccessToken](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_RorateTunnelAccessToken.html).
 
 In the `Resource` element of the IAM policy statement:
++ Specify a fully qualified tunnel ARN:
 
-- Specify a fully qualified tunnel ARN:
+  `arn:aws:iot:{{aws-region}}: {{aws-account-id}}:tunnel/{{tunnel-id}}`
 
-`arn:aws:iot:`aws-region`:
- `aws-account-id`:tunnel/`tunnel-id``
+  You can also use the wildcard tunnel ARN:
 
-You can also use the wildcard tunnel ARN:
+  `arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*`
++ Specify a thing ARN to manage the `RotateTunnelAccessToken` permission for specific IoT things:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*`
+  `arn:aws:iot:{{aws-region}}:{{aws-account-id}}:thing/{{thing-name}}`
 
-- Specify a thing ARN to manage the
-  `RotateTunnelAccessToken` permission for specific IoT
-  things:
-
-`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``
-For example, the following policy statement allows you to rotate either a
-tunnel's source access token or a client's destination access token for the
-IoT thing named `TestDevice`.
+For example, the following policy statement allows you to rotate either a tunnel's source access token or a client's destination access token for the IoT thing named `TestDevice`.
 
 ```
 {
     "Effect": "Allow",
     "Action": "iot:RotateTunnelAccessToken",
     "Resource": [
-        "arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*",
-        "arn:aws:iot:`aws-region`:`aws-account-id`:thing/TestDevice"
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*",
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:thing/TestDevice"
     ]
 }
 ```
 
-The `iot:RotateTunnelAccessToken` policy action supports the
-following condition keys:
+The `iot:RotateTunnelAccessToken` policy action supports the following condition keys:
++ `iot:ThingGroupArn`
++ `iot:TunnelDestinationService`
++ `iot:ClientMode`
++ `aws:SecureTransport`
 
-- `iot:ThingGroupArn`
-- `iot:TunnelDestinationService`
-- `iot:ClientMode`
-- `aws:SecureTransport`
-  The following policy statement allows you to rotate the destination access
-  token to the thing if the thing belongs to a thing group with a name that
-  starts with `TestGroup`, the configured destination service on
-  the tunnel is SSH, and the client is in `DESTINATION`
-  mode.
+The following policy statement allows you to rotate the destination access token to the thing if the thing belongs to a thing group with a name that starts with `TestGroup`, the configured destination service on the tunnel is SSH, and the client is in `DESTINATION` mode.
 
 ```
 {
     "Effect": "Allow",
     "Action": "iot:RotateTunnelAccessToken",
     "Resource": [
-        "arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*"
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*"
     ],
     "Condition": {
         "ForAnyValue:StringLike": {
             "iot:ThingGroupArn": [
-                "arn:aws:iot:`aws-region`:`aws-account-id`:thinggroup/`TestGroup`*"
+                "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:thinggroup/{{TestGroup}}*"
             ]
         },
         "ForAllValues:StringEquals": {
@@ -170,34 +154,31 @@ following condition keys:
 }
 ```
 
-The `iot:DescribeTunnel` policy action grants a principal
-permission to call [DescribeTunnel](../apireference/API_iot-secure-tunneling_DescribeTunnel.md "../apireference/API_iot-secure-tunneling_DescribeTunnel.md").
+### iot:DescribeTunnel
+<a name="describe-tunnel-action"></a>
 
-In the `Resource` element of the IAM policy statement,
-specify a fully qualified tunnel ARN:
+The `iot:DescribeTunnel` policy action grants a principal permission to call [DescribeTunnel](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_DescribeTunnel.html).
 
-`arn:aws:iot:`aws-region`:
- `aws-account-id`:tunnel/`tunnel-id``
+In the `Resource` element of the IAM policy statement, specify a fully qualified tunnel ARN:
+
+`arn:aws:iot:{{aws-region}}: {{aws-account-id}}:tunnel/{{tunnel-id}}`
 
 You can also use the wildcard ARN:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*`
+`arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*`
 
-The `iot:DescribeTunnel` policy action supports the following
-condition keys:
+The `iot:DescribeTunnel` policy action supports the following condition keys:
++ `aws:ResourceTag/{{tag-key}}`
++ `aws:SecureTransport`
 
-- `aws:ResourceTag/`tag-key``
-- `aws:SecureTransport`
-  The following policy statement allows you to call
-  `DescribeTunnel` if the requested tunnel is tagged with the
-  key `Owner` with a value of `Admin`.
+The following policy statement allows you to call `DescribeTunnel` if the requested tunnel is tagged with the key `Owner` with a value of `Admin`.
 
 ```
 {
     "Effect": "Allow",
     "Action": "iot:DescribeTunnel",
     "Resource": [
-        "arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*"
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*"
     ],
     "Condition": {
         "StringEquals": {
@@ -207,82 +188,75 @@ condition keys:
 }
 ```
 
-The `iot:ListTunnels` policy action grants a principal
-permission to call [ListTunnels](../apireference/API_iot-secure-tunneling_ListTunnels.md "../apireference/API_iot-secure-tunneling_ListTunnels.md").
+### iot:ListTunnels
+<a name="list-tunnels-action"></a>
+
+The `iot:ListTunnels` policy action grants a principal permission to call [ListTunnels](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_ListTunnels.html).
 
 In the `Resource` element of the IAM policy statement:
++ Specify the wildcard tunnel ARN:
 
-- Specify the wildcard tunnel ARN:
+  `arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*`
++ Specify a thing ARN to manage the `ListTunnels` permission on selected IoT things:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*`
+  `arn:aws:iot:{{aws-region}}:{{aws-account-id}}:thing/{{thing-name}}`
 
-- Specify a thing ARN to manage the `ListTunnels`
-  permission on selected IoT things:
+The `iot:ListTunnels` policy action supports the condition key `aws:SecureTransport`.
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:thing/`thing-name``
-The `iot:ListTunnels` policy action supports the condition key
-`aws:SecureTransport`.
-
-The following policy statement allows you to list tunnels for the thing
-named `TestDevice`.
+The following policy statement allows you to list tunnels for the thing named `TestDevice`.
 
 ```
 {
     "Effect": "Allow",
     "Action": "iot:ListTunnels",
     "Resource": [
-        "arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*",
-        "arn:aws:iot:`aws-region`:`aws-account-id`:thing/TestDevice"
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*",
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:thing/TestDevice"
     ]
 }
 ```
 
-The `iot:ListTagsForResource` policy action grants a principal
-permission to call `ListTagsForResource`.
+### iot:ListTagsForResource
+<a name="list-tags-for-resource-action"></a>
 
-In the `Resource` element of the IAM policy statement,
-specify a fully qualified tunnel ARN:
+The `iot:ListTagsForResource` policy action grants a principal permission to call `ListTagsForResource`.
 
-`arn:aws:iot:`aws-region`:
- `aws-account-id`:tunnel/`tunnel-id``
+In the `Resource` element of the IAM policy statement, specify a fully qualified tunnel ARN:
 
-You can also use the wildcard tunnel ARN:
-
-`arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*`
-
-The `iot:ListTagsForResource` policy action supports the
-condition key `aws:SecureTransport`.
-
-The `iot:CloseTunnel` policy action grants a principal
-permission to call [CloseTunnel](../apireference/API_iot-secure-tunneling_CloseTunnel.md "../apireference/API_iot-secure-tunneling_CloseTunnel.md").
-
-In the `Resource` element of the IAM policy statement,
-specify a fully qualified tunnel ARN:
-
-`arn:aws:iot:`aws-region`:
- `aws-account-id`:tunnel/`tunnel-id``
+`arn:aws:iot:{{aws-region}}: {{aws-account-id}}:tunnel/{{tunnel-id}}`
 
 You can also use the wildcard tunnel ARN:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*`
+`arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*`
 
-The `iot:CloseTunnel` policy action supports the following
-condition keys:
+The `iot:ListTagsForResource` policy action supports the condition key `aws:SecureTransport`.
 
-- `iot:Delete`
-- `aws:ResourceTag/`tag-key``
-- `aws:SecureTransport`
-  The following policy statement allows you to call `CloseTunnel`
-  if the request's `Delete` parameter is `false` and the
-  requested is tagged with the key `Owner` with a value of
-  `QATeam`.
+### iot:CloseTunnel
+<a name="close-tunnel-action"></a>
+
+The `iot:CloseTunnel` policy action grants a principal permission to call [CloseTunnel](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-secure-tunneling_CloseTunnel.html).
+
+In the `Resource` element of the IAM policy statement, specify a fully qualified tunnel ARN:
+
+`arn:aws:iot:{{aws-region}}: {{aws-account-id}}:tunnel/{{tunnel-id}}`
+
+You can also use the wildcard tunnel ARN:
+
+`arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*`
+
+The `iot:CloseTunnel` policy action supports the following condition keys:
++ `iot:Delete`
++ `aws:ResourceTag/{{tag-key}}`
++ `aws:SecureTransport`
+
+The following policy statement allows you to call `CloseTunnel` if the request's `Delete` parameter is `false` and the requested is tagged with the key `Owner` with a value of `QATeam`.
 
 ```
 {
     "Effect": "Allow",
     "Action": "iot:CloseTunnel",
     "Resource": [
-        "arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*"
+        "arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*"
     ],
     "Condition": {
         "Bool": {
@@ -295,34 +269,32 @@ condition keys:
 }
 ```
 
-The `iot:TagResource` policy action grants a principal
-permission to call `TagResource`.
+### iot:TagResource
+<a name="tag-resource-action"></a>
 
-In the `Resource` element of the IAM policy statement,
-specify a fully qualified tunnel ARN:
+The `iot:TagResource` policy action grants a principal permission to call `TagResource`.
 
-`arn:aws:iot:`aws-region`:
- `aws-account-id`:tunnel/`tunnel-id``
+In the `Resource` element of the IAM policy statement, specify a fully qualified tunnel ARN:
 
-You can also use the wildcard tunnel ARN:
-
-`arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*`
-
-The `iot:TagResource` policy action supports the condition key
-`aws:SecureTransport`.
-
-The `iot:UntagResource` policy action grants a principal
-permission to call `UntagResource`.
-
-In the `Resource` element of the IAM policy statement,
-specify a fully qualified tunnel ARN:
-
-`arn:aws:iot:`aws-region`:
- `aws-account-id`:tunnel/`tunnel-id``
+`arn:aws:iot:{{aws-region}}: {{aws-account-id}}:tunnel/{{tunnel-id}}`
 
 You can also use the wildcard tunnel ARN:
 
-`arn:aws:iot:`aws-region`:`aws-account-id`:tunnel/*`
+`arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*`
 
-The `iot:UntagResource` policy action supports the condition
-key `aws:SecureTransport`.
+The `iot:TagResource` policy action supports the condition key `aws:SecureTransport`.
+
+### iot:UntagResource
+<a name="untag-resource-action"></a>
+
+The `iot:UntagResource` policy action grants a principal permission to call `UntagResource`.
+
+In the `Resource` element of the IAM policy statement, specify a fully qualified tunnel ARN:
+
+`arn:aws:iot:{{aws-region}}: {{aws-account-id}}:tunnel/{{tunnel-id}}`
+
+You can also use the wildcard tunnel ARN:
+
+`arn:aws:iot:{{aws-region}}:{{aws-account-id}}:tunnel/*`
+
+The `iot:UntagResource` policy action supports the condition key `aws:SecureTransport`.

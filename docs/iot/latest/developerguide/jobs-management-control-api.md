@@ -1,13 +1,13 @@
+
+
 # Jobs management and control API and data types
+<a name="jobs-management-control-api"></a>
 
-###### The following commands are available for Job management and control
+**Topics**
++ [Job management and control data types](#jobs-control-plane-data-types)
++ [Job management and control API operations](#jobs-http-api)
 
-in the CLI and over the HTTPS protocol.
-
-- [Job management and control data types](#jobs-control-plane-data-types "#jobs-control-plane-data-types")
-- [Job management and control API operations](#jobs-http-api "#jobs-http-api")
-  To determine the `endpoint-url` parameter for your CLI
-  commands, run this command.
+To determine the {{endpoint-url}} parameter for your CLI commands, run this command.
 
 ```
 aws iot describe-endpoint --endpoint-type=iot:Jobs
@@ -16,71 +16,67 @@ aws iot describe-endpoint --endpoint-type=iot:Jobs
 This command returns the following output.
 
 ```
-
 {
-"endpointAddress": "`account-specific-prefix`.jobs.iot.`aws-region`.amazonaws.com"
+"endpointAddress": "{{account-specific-prefix}}.jobs.iot.{{aws-region}}.amazonaws.com"
 }
-
 ```
 
-###### Note
-
-The Jobs endpoint doesn't support ALPN `x-amzn-http-ca`.
-
-If you're using dual-stack endpoints (IPv6 and IPv6), use the
-`iot:Data-ATS` endpoint. The `iot:Jobs` endpoint supports
-only IPv4.
+**Note**  
+The Jobs endpoint doesn't support ALPN `x-amzn-http-ca`.  
+If you're using dual-stack endpoints (IPv6 and IPv6), use the `iot:Data-ATS` endpoint. The `iot:Jobs` endpoint supports only IPv4.
 
 ## Job management and control data types
+<a name="jobs-control-plane-data-types"></a>
 
-The following data types are used by management and control applications to
-communicate with AWS IoT Jobs.
+The following data types are used by management and control applications to communicate with AWS IoT Jobs.
 
-The `Job` object contains details about a job. The following
-example shows the syntax:
+### Job
+<a name="jobs-job"></a>
+
+The `Job` object contains details about a job. The following example shows the syntax:
 
 ```
 {
-    "jobArn": "string",
-    "jobId": "string",
-    "status": "IN_PROGRESS|CANCELED|SUCCEEDED",
+    "jobArn": "string", 
+    "jobId": "string", 
+    "status": "IN_PROGRESS|CANCELED|SUCCEEDED", 
     "forceCanceled": boolean,
     "targetSelection": "CONTINUOUS|SNAPSHOT",
     "comment": "string",
-    "targets": ["string"],
+    "targets": ["string"], 
     "description": "string",
     "createdAt": timestamp,
     "lastUpdatedAt": timestamp,
     "completedAt": timestamp,
     "jobProcessDetails": {
         "processingTargets": ["string"],
-        "numberOfCanceledThings": long,
-        "numberOfSucceededThings": long,
+        "numberOfCanceledThings": long, 
+        "numberOfSucceededThings": long, 
         "numberOfFailedThings": long,
-        "numberOfRejectedThings": long,
-        "numberOfQueuedThings": long,
-        "numberOfInProgressThings": long,
-        "numberOfRemovedThings": long,
+        "numberOfRejectedThings": long, 
+        "numberOfQueuedThings": long, 
+        "numberOfInProgressThings": long, 
+        "numberOfRemovedThings": long, 
         "numberOfTimedOutThings": long
-    },
+    }, 
     "presignedUrlConfig": {
-        "expiresInSec": number,
+        "expiresInSec": number, 
         "roleArn": "string"
-    },
-    "jobExecutionsRolloutConfig": {
-        "exponentialRate": {
+    }, 
+    "jobExecutionsRolloutConfig": { 
+        "exponentialRate": { 
            "baseRatePerMinute": integer,
            "incrementFactor": integer,
-           "rateIncreaseCriteria": {
+           "rateIncreaseCriteria": { 
               "numberOfNotifiedThings": integer, // Set one or the other
               "numberOfSucceededThings": integer // of these two values.
            },
            "maximumPerMinute": integer
       }
-    },
-    "abortConfig": {
-       "criteriaList": [
-          {
+    },    
+    "abortConfig": { 
+       "criteriaList": [ 
+          { 
              "action": "string",
              "failureType": "string",
              "minNumberOfExecutedThings": integer,
@@ -88,7 +84,7 @@ example shows the syntax:
           }
        ]
     },
-    "SchedulingConfig": {
+    "SchedulingConfig": { 
       "startTime": string
       "endTime": string
       "timeZone": string
@@ -103,34 +99,35 @@ example shows the syntax:
 }
 ```
 
-For more information, see [`Job`](../apireference/API_Job.md "../apireference/API_Job.md") or [`job`](../../../cli/latest/reference/iot/job.md "../../../cli/latest/reference/iot/job.md").
+For more information, see [`Job`](https://docs.aws.amazon.com/iot/latest/apireference/API_Job.html) or [`job`](https://docs.aws.amazon.com/cli/latest/reference/iot/job.html). 
 
-The `JobSummary` object contains a job summary. The following
-example shows the syntax:
+### JobSummary
+<a name="jobs-job-summary"></a>
+
+The `JobSummary` object contains a job summary. The following example shows the syntax:
 
 ```
 {
-    "jobArn": "string",
+    "jobArn": "string", 
     "jobId": "string",
-    "status": "IN_PROGRESS|CANCELED|SUCCEEDED|SCHEDULED",
+    "status": "IN_PROGRESS|CANCELED|SUCCEEDED|SCHEDULED", 
     "targetSelection": "CONTINUOUS|SNAPSHOT",
     "thingGroupId": "string",
-    "createdAt": timestamp,
-    "lastUpdatedAt": timestamp,
+    "createdAt": timestamp, 
+    "lastUpdatedAt": timestamp, 
     "completedAt": timestamp
 }
 ```
 
-For more information, see [`JobSummary`](../apireference/API_JobSummary.md "../apireference/API_JobSummary.md") or [`job-summary`](../../../cli/latest/reference/iot/job-summary.md "../../../cli/latest/reference/iot/job-summary.md").
+For more information, see [`JobSummary`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobSummary.html) or [`job-summary`](https://docs.aws.amazon.com/cli/latest/reference/iot/job-summary.html).
 
-The `JobExecution` object represents the execution of a job on
-a device. The following example shows the syntax:
+### JobExecution
+<a name="jobs-job-execution"></a>
 
-###### Note
+The `JobExecution` object represents the execution of a job on a device. The following example shows the syntax:
 
-When you use the control plane API operations, the `JobExecution`
-data type doesn't contain a `JobDocument` field. To obtain this
-information, you can use the [`GetJobDocument`](../apireference/API_GetJobDocument.md "../apireference/API_GetJobDocument.md") API operation or the [`get-job-document`](../../../cli/latest/reference/get-job-document.md "../../../cli/latest/reference/get-job-document.md") CLI command.
+**Note**  
+When you use the control plane API operations, the `JobExecution` data type doesn't contain a `JobDocument` field. To obtain this information, you can use the [`GetJobDocument`](https://docs.aws.amazon.com/iot/latest/apireference/API_GetJobDocument.html) API operation or the [`get-job-document`](https://docs.aws.amazon.com/cli/latest/reference/get-job-document.html) CLI command.
 
 ```
 {
@@ -138,26 +135,28 @@ information, you can use the [`GetJobDocument`](../apireference/API_GetJobDocume
     "executionNumber": 1234567890,
     "forceCanceled": true|false,
     "jobId": "string",
-    "lastUpdatedAt": timestamp,
+    "lastUpdatedAt": timestamp, 
     "queuedAt": timestamp,
     "startedAt": timestamp,
     "status": "QUEUED|IN_PROGRESS|FAILED|SUCCEEDED|CANCELED|TIMED_OUT|REJECTED|REMOVED",
     "forceCanceled": boolean,
     "statusDetails": {
-        "detailsMap": {
+        "detailsMap": { 
             "string": "string" ...
         },
         "status": "string"
-    },
-    "thingArn": "string",
+    }, 
+    "thingArn": "string", 
     "versionNumber": 123
 }
 ```
 
-For more information, see [`JobExecution`](../apireference/API_JobExecution.md "../apireference/API_JobExecution.md") or [`job-execution`](../../../cli/latest/reference/iot/job-execution.md "../../../cli/latest/reference/iot/job-execution.md").
+For more information, see [`JobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecution.html) or [`job-execution`](https://docs.aws.amazon.com/cli/latest/reference/iot/job-execution.html).
 
-The `JobExecutionSummary` object contains job execution summary
-information. The following example shows the syntax:
+### JobExecutionSummary
+<a name="jobs-job-execution-summary"></a>
+
+The `JobExecutionSummary` object contains job execution summary information. The following example shows the syntax:
 
 ```
 {
@@ -169,46 +168,47 @@ information. The following example shows the syntax:
 }
 ```
 
-For more information, see [`JobExecutionSummary`](../apireference/API_JobExecutionSummary.md "../apireference/API_JobExecutionSummary.md") or [`job-execution-summary`](../../../cli/latest/reference/iot/job-execution-summary.md "../../../cli/latest/reference/iot/job-execution-summary.md").
+For more information, see [`JobExecutionSummary`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecutionSummary.html) or [`job-execution-summary`](https://docs.aws.amazon.com/cli/latest/reference/iot/job-execution-summary.html).
 
-The `JobExecutionSummaryForJob` object contains a summary of
-information about job executions for a specific job. The following example
-shows the syntax:
+### JobExecutionSummaryForJob
+<a name="jobs-job-execution-summary-for-job"></a>
+
+The `JobExecutionSummaryForJob` object contains a summary of information about job executions for a specific job. The following example shows the syntax:
 
 ```
 {
     "executionSummaries": [
         {
-            "thingArn": "arn:aws:iot:us-west-2:123456789012:thing/MyThing",
+            "thingArn": "arn:aws:iot:us-west-2:123456789012:thing/MyThing", 
             "jobExecutionSummary": {
-                "status": "IN_PROGRESS",
-                "lastUpdatedAt": 1549395301.389,
-                "queuedAt": 1541526002.609,
+                "status": "IN_PROGRESS", 
+                "lastUpdatedAt": 1549395301.389, 
+                "queuedAt": 1541526002.609, 
                 "executionNumber": 1
             }
-        },
+        }, 
         ...
     ]
 }
-
 ```
 
-For more information, see [`JobExecutionSummaryForJob`](../apireference/API_JobExecutionSummaryForJob.md "../apireference/API_JobExecutionSummaryForJob.md") or [`job-execution-summary-for-job`](../../../cli/latest/reference/iot/job-execution-summary-for-job.md "../../../cli/latest/reference/iot/job-execution-summary-for-job.md").
+For more information, see [`JobExecutionSummaryForJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecutionSummaryForJob.html) or [`job-execution-summary-for-job`](https://docs.aws.amazon.com/cli/latest/reference/iot/job-execution-summary-for-job.html).
 
-The `JobExecutionSummaryForThing` object contains a summary of
-information about a job execution on a specific thing. FThe following
-example shows the syntax:
+### JobExecutionSummaryForThing
+<a name="jobs-job-execution-summary-for-thing"></a>
+
+The `JobExecutionSummaryForThing` object contains a summary of information about a job execution on a specific thing. FThe following example shows the syntax:
 
 ```
 {
     "executionSummaries": [
         {
             "jobExecutionSummary": {
-                "status": "IN_PROGRESS",
-                "lastUpdatedAt": 1549395301.389,
-                "queuedAt": 1541526002.609,
+                "status": "IN_PROGRESS", 
+                "lastUpdatedAt": 1549395301.389, 
+                "queuedAt": 1541526002.609, 
                 "executionNumber": 1
-            },
+            }, 
             "jobId": "MyThingJob"
         },
         ...
@@ -216,35 +216,37 @@ example shows the syntax:
 }
 ```
 
-For more information, see [`JobExecutionSummaryForThing`](../apireference/API_JobExecutionSummaryForThing.md "../apireference/API_JobExecutionSummaryForThing.md") or [`job-execution-summary-for-thing`](../../../cli/latest/reference/iot/job-execution-summary-for-thing.md "../../../cli/latest/reference/iot/job-execution-summary-for-thing.md").
+For more information, see [`JobExecutionSummaryForThing`](https://docs.aws.amazon.com/iot/latest/apireference/API_JobExecutionSummaryForThing.html) or [`job-execution-summary-for-thing`](https://docs.aws.amazon.com/cli/latest/reference/iot/job-execution-summary-for-thing.html).
 
 ## Job management and control API operations
+<a name="jobs-http-api"></a>
 
 Use the following API operations or CLI commands:
 
-Associates a group with a continuous job. The following criteria
-must be met:
+### AssociateTargetsWithJob
+<a name="jobs-AssociateTargetsWithJob"></a>
 
-- The job must have been created with the `targetSelection`
-  field set to `CONTINUOUS`.
-- The job status must currently be `IN_PROGRESS`.
-- The total number of targets associated with a job must
-  not exceed 100.
+Associates a group with a continuous job. The following criteria must be met:
++ The job must have been created with the `targetSelection` field set to `CONTINUOUS`.
++ The job status must currently be `IN_PROGRESS`.
++ The total number of targets associated with a job must not exceed 100.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-POST /jobs/`jobId`/targets
-
-{
+POST /jobs/{{jobId}}/targets
+ 
+{ 
 "targets": [ "string" ],
 "comment": "string"
 }
 ```
 
-For more information, see [`AssociateTargetsWithJob`](../apireference/API_AssociateTargetsWithJob.md "../apireference/API_AssociateTargetsWithJob.md").
+For more information, see [`AssociateTargetsWithJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_AssociateTargetsWithJob.html). 
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot  associate-targets-with-job \
@@ -255,7 +257,7 @@ aws iot  associate-targets-with-job \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -267,25 +269,32 @@ aws iot  associate-targets-with-job \
 }
 ```
 
-For more information, see [`associate-targets-with-job`](../../../cli/latest/reference/iot/associate-targets-with-job.md "../../../cli/latest/reference/iot/associate-targets-with-job.md").
+For more information, see [`associate-targets-with-job`](https://docs.aws.amazon.com/cli/latest/reference/iot/associate-targets-with-job.html).
+
+------
+
+### CancelJob
+<a name="jobs-CancelJob"></a>
 
 Cancels a job.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-PUT /jobs/`jobId`/cancel
-
-{
+PUT /jobs/{{jobId}}/cancel
+ 
+{ 
 "force": boolean,
 "comment": "string",
 "reasonCode": "string"
 }
 ```
 
-For more information, see [`CancelJob`](../apireference/API_CancelJob.md "../apireference/API_CancelJob.md").
+For more information, see [`CancelJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_CancelJob.html). 
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot cancel-job \
@@ -297,7 +306,7 @@ aws iot cancel-job \
     [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -307,16 +316,22 @@ aws iot cancel-job \
 }
 ```
 
-For more information, see [`cancel-job`](../../../cli/latest/reference/iot/cancel-job.md "../../../cli/latest/reference/iot/cancel-job.md").
+For more information, see [`cancel-job`](https://docs.aws.amazon.com/cli/latest/reference/iot/cancel-job.html). 
+
+------
+
+### CancelJobExecution
+<a name="jobs-CancelJobExecution"></a>
 
 Cancels a job execution on a device.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-PUT /things/`thingName`/jobs/`jobId`/cancel
-
-{
+PUT /things/{{thingName}}/jobs/{{jobId}}/cancel
+ 
+{ 
 "force": boolean,
 "expectedVersion": "string",
 "statusDetails": {
@@ -326,9 +341,10 @@ PUT /things/`thingName`/jobs/`jobId`/cancel
 }
 ```
 
-For more information, see [`CancelJobExecution`](../apireference/API_CancelJobExecution.md "../apireference/API_CancelJobExecution.md").
+For more information, see [`CancelJobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_CancelJobExecution.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot cancel-job-execution \
@@ -341,7 +357,7 @@ aws iot cancel-job-execution \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -355,44 +371,32 @@ aws iot cancel-job-execution \
 }
 ```
 
-For more information, see [`cancel-job-execution`](../../../cli/latest/reference/iot/cancel-job-execution.md "../../../cli/latest/reference/iot/cancel-job-execution.md").
+For more information, see [`cancel-job-execution`](https://docs.aws.amazon.com/cli/latest/reference/iot/cancel-job-execution.html).
 
-Creates a job. You can provide the job document as a link to a file in an
-Amazon S3 bucket (`documentSource` parameter), or in the body of the
-request (`document` parameter).
+------
 
-A job can be made _continuous_ by setting the optional
-`targetSelection` parameter to `CONTINUOUS` (the
-default is `SNAPSHOT`). A continuous job can be used to onboard
-or upgrade devices as they are added to a group because it continues to run
-and is launched on newly added things. This can occur even after the things
-in the group at the time the job was created have completed the job.
+### CreateJob
+<a name="jobs-CreateJob"></a>
 
-A job can have an optional [TimeoutConfig](../apireference/API_TimeoutConfig.md "../apireference/API_TimeoutConfig.md"), which sets the value of the
-in-progress timer. The in-progress timer can't be updated and
-applies to all executions of the job.
+Creates a job. You can provide the job document as a link to a file in an Amazon S3 bucket (`documentSource` parameter), or in the body of the request (`document` parameter).
 
-The following validations are performed on arguments to the
-`CreateJob` API:
+A job can be made *continuous* by setting the optional `targetSelection` parameter to `CONTINUOUS` (the default is `SNAPSHOT`). A continuous job can be used to onboard or upgrade devices as they are added to a group because it continues to run and is launched on newly added things. This can occur even after the things in the group at the time the job was created have completed the job.
 
-- The `targets` argument must be a list of
-  valid thing or thing group ARNs. All things and thing
-  groups must be in your AWS account.
-- The `documentSource` argument must be a valid Amazon S3 URL to
-  a job document. Amazon S3 URLs are in the form:
-  `https://s3.amazonaws.com/`bucketName`/`objectName``.
-- The document stored in the URL specified by the
-  `documentSource` argument must be a UTF-8
-  encoded JSON document.
-- The size of a job document is limited to 32 KB due to the limit on
-  the size of an MQTT message (128 KB) and encryption.
-- The `jobId` must be unique in your AWS account.
+A job can have an optional [TimeoutConfig](https://docs.aws.amazon.com/iot/latest/apireference/API_TimeoutConfig.html), which sets the value of the in-progress timer. The in-progress timer can't be updated and applies to all executions of the job.
 
-HTTPS request
+The following validations are performed on arguments to the `CreateJob` API:
++ The `targets` argument must be a list of valid thing or thing group ARNs. All things and thing groups must be in your AWS account.
++ The `documentSource` argument must be a valid Amazon S3 URL to a job document. Amazon S3 URLs are in the form: `https://s3.amazonaws.com/{{bucketName}}/{{objectName}}`.
++ The document stored in the URL specified by the `documentSource` argument must be a UTF-8 encoded JSON document.
++ The size of a job document is limited to 32 KB due to the limit on the size of an MQTT message (128 KB) and encryption.
++ The `jobId` must be unique in your AWS account.
+
+------
+#### [ HTTPS request ]
 
 ```
-PUT /jobs/`jobId`
-
+PUT /jobs/{{jobId}}
+ 
 {
 "targets": [ "string" ],
 "document": "string",
@@ -400,24 +404,24 @@ PUT /jobs/`jobId`
 "description": "string",
 "jobTemplateArn": "string",
 "presignedUrlConfigData": {
-    "roleArn": "string",
-    "expiresInSec": "integer"
+    "roleArn": "string", 
+    "expiresInSec": "integer" 
 },
 "targetSelection": "CONTINUOUS|SNAPSHOT",
-"jobExecutionsRolloutConfig": {
-    "exponentialRate": {
+"jobExecutionsRolloutConfig": { 
+    "exponentialRate": { 
        "baseRatePerMinute": integer,
        "incrementFactor": integer,
-       "rateIncreaseCriteria": {
+       "rateIncreaseCriteria": { 
           "numberOfNotifiedThings": integer, // Set one or the other
           "numberOfSucceededThings": integer // of these two values.
        },
        "maximumPerMinute": integer
   }
 },
-"abortConfig": {
-   "criteriaList": [
-      {
+"abortConfig": { 
+   "criteriaList": [ 
+      { 
          "action": "string",
          "failureType": "string",
          "minNumberOfExecutedThings": integer,
@@ -425,7 +429,7 @@ PUT /jobs/`jobId`
       }
    ]
 },
-"SchedulingConfig": {
+"SchedulingConfig": { 
     "startTime": string
     "endTime": string
     "timeZone": string
@@ -434,16 +438,16 @@ PUT /jobs/`jobId`
     "endTimeBehavior": string
 
    }
-"timeoutConfig": {
+"timeoutConfig": { 
   "inProgressTimeoutInMinutes": long
 }
 }
-
 ```
 
-For more information, see [`CreateJob`](../apireference/API_CreateJob.md "../apireference/API_CreateJob.md").
+For more information, see [`CreateJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateJob.html). 
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot create-job \
@@ -463,7 +467,7 @@ aws iot create-job \
     [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -478,20 +482,20 @@ aws iot create-job \
         "expiresInSec": long
      },
     "targetSelection": "string",
-    "jobExecutionsRolloutConfig": {
-          "exponentialRate": {
+    "jobExecutionsRolloutConfig": { 
+          "exponentialRate": { 
               "baseRatePerMinute": integer,
               "incrementFactor": integer,
-              "rateIncreaseCriteria": {
+              "rateIncreaseCriteria": { 
                  "numberOfNotifiedThings": integer, // Set one or the other
                  "numberOfSucceededThings": integer // of these two values.
               },
       "maximumPerMinute": integer
       }
-    },
-    "abortConfig": {
-    "criteriaList": [
-        {
+    }, 
+    "abortConfig": { 
+    "criteriaList": [ 
+        { 
            "action": "string",
            "failureType": "string",
            "minNumberOfExecutedThings": integer,
@@ -499,7 +503,7 @@ aws iot create-job \
          }
       ]
     },
-    "timeoutConfig": {
+    "timeoutConfig": { 
           "inProgressTimeoutInMinutes": long
     },
     "documentParameters": {
@@ -508,26 +512,28 @@ aws iot create-job \
 }
 ```
 
-For more information, see [`create-job`](../../../cli/latest/reference/iot/create-job.md "../../../cli/latest/reference/iot/create-job.md").
+For more information, see [`create-job`](https://docs.aws.amazon.com/cli/latest/reference/iot/create-job.html). 
+
+------
+
+### DeleteJob
+<a name="jobs-DeleteJob"></a>
 
 Deletes a job and its related job executions.
 
-Deleting a job can take time, depending on the number of job
-executions created for the job and various other factors. While
-the job is being deleted, the status of the job is shown as
-"DELETION\_IN\_PROGRESS". Attempting to delete or cancel a job
-whose status is already "DELETION\_IN\_PROGRESS" results in an
-error.
+Deleting a job can take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job is shown as "DELETION\_IN\_PROGRESS". Attempting to delete or cancel a job whose status is already "DELETION\_IN\_PROGRESS" results in an error.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-DELETE /jobs/`jobId`?force=`force`
+DELETE /jobs/{{jobId}}?force={{force}} 
 ```
 
-For more information, see [`DeleteJob`](../apireference/API_DeleteJob.md "../apireference/API_DeleteJob.md").
+For more information, see [`DeleteJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteJob.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot  delete-job \
@@ -537,7 +543,7 @@ aws iot  delete-job \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -546,19 +552,26 @@ aws iot  delete-job \
 }
 ```
 
-For more information, see [`delete-job`](../../../cli/latest/reference/iot/delete-job.md "../../../cli/latest/reference/iot/delete-job.md").
+For more information, see [`delete-job`](https://docs.aws.amazon.com/cli/latest/reference/iot/delete-job.html).
+
+------
+
+### DeleteJobExecution
+<a name="jobs-DeleteJobExecution"></a>
 
 Deletes a job execution.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-DELETE /things/`thingName`/jobs/`jobId`/executionNumber/`executionNumber`?force=`force`
+DELETE /things/{{thingName}}/jobs/{{jobId}}/executionNumber/{{executionNumber}}?force={{force}}
 ```
 
-For more information, see [`DeleteJobExecution`](../apireference/API_DeleteJobExecution.md "../apireference/API_DeleteJobExecution.md").
+For more information, see [`DeleteJobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteJobExecution.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot  delete-job-execution \
@@ -570,7 +583,7 @@ aws iot  delete-job-execution \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -581,19 +594,26 @@ aws iot  delete-job-execution \
 }
 ```
 
-For more information, see [`delete-job-execution`](../../../cli/latest/reference/iot/delete-job-execution.md "../../../cli/latest/reference/iot/delete-job-execution.md").
+For more information, see [`delete-job-execution`](https://docs.aws.amazon.com/cli/latest/reference/iot/delete-job-execution.html).
+
+------
+
+### DescribeJob
+<a name="jobs-DescribeJob"></a>
 
 Gets the details of the job execution.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-GET /jobs/`jobId`
+GET /jobs/{{jobId}}
 ```
 
-For more information, see [`DescribeJob`](../apireference/API_DescribeJob.md "../apireference/API_DescribeJob.md").
+For more information, see [`DescribeJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeJob.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot describe-job \
@@ -602,7 +622,7 @@ aws iot describe-job \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -610,20 +630,26 @@ aws iot describe-job \
 }
 ```
 
-For more information, see [`describe-job`](../../../cli/latest/reference/iot/describe-job.md "../../../cli/latest/reference/iot/describe-job.md").
+For more information, see [`describe-job`](https://docs.aws.amazon.com/cli/latest/reference/iot/describe-job.html).
 
-Gets details of a job execution. The job's execution status
-must be `SUCCEEDED` or `FAILED`.
+------
 
-HTTPS request
+### DescribeJobExecution
+<a name="jobs-DescribeJobExecution"></a>
+
+Gets details of a job execution. The job's execution status must be `SUCCEEDED` or `FAILED`.
+
+------
+#### [ HTTPS request ]
 
 ```
-GET /things/`thingName`/jobs/`jobId`?executionNumber=`executionNumber`
+GET /things/{{thingName}}/jobs/{{jobId}}?executionNumber={{executionNumber}}
 ```
 
-For more information, see [`DescribeJobExecution`](../apireference/API_DescribeJobExecution.md "../apireference/API_DescribeJobExecution.md").
+For more information, see [`DescribeJobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeJobExecution.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot  describe-job-execution \
@@ -634,7 +660,7 @@ aws iot  describe-job-execution \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -644,26 +670,29 @@ aws iot  describe-job-execution \
 }
 ```
 
-For more information, see [`describe-job-execution`](../../../cli/latest/reference/iot/describe-job-execution.md "../../../cli/latest/reference/iot/describe-job-execution.md").
+For more information, see [`describe-job-execution`](https://docs.aws.amazon.com/cli/latest/reference/iot/describe-job-execution.html).
+
+------
+
+### GetJobDocument
+<a name="jobs-GetJobDocument"></a>
 
 Gets the job document for a job.
 
-###### Note
+**Note**  
+Placeholder URLs are not replaced with presigned Amazon S3 URLs in the document returned. Presigned URLs are generated only when the AWS IoT Jobs service receives a request over MQTT.
 
-Placeholder URLs are not replaced with presigned Amazon S3 URLs
-in the document returned. Presigned URLs are generated only
-when the AWS IoT Jobs service receives a request over
-MQTT.
-
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-GET /jobs/`jobId`/job-document
+GET /jobs/{{jobId}}/job-document
 ```
 
-For more information, see [`GetJobDocument`](../apireference/API_GetJobDocument.md "../apireference/API_GetJobDocument.md").
+For more information, see [`GetJobDocument`](https://docs.aws.amazon.com/iot/latest/apireference/API_GetJobDocument.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot get-job-document \
@@ -672,7 +701,7 @@ aws iot get-job-document \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -680,19 +709,26 @@ aws iot get-job-document \
 }
 ```
 
-For more information, see [`get-job-document`](../../../cli/latest/reference/iot/get-job-document.md "../../../cli/latest/reference/iot/get-job-document.md").
+For more information, see [`get-job-document`](https://docs.aws.amazon.com/cli/latest/reference/iot/get-job-document.html).
+
+------
+
+### ListJobExecutionsForJob
+<a name="jobs-listJobExecutionsForJob"></a>
 
 Gets a list of job executions for a job.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-GET /jobs/`jobId`/things?status=`status`&maxResults=`maxResults`&nextToken=`nextToken`
+GET /jobs/{{jobId}}/things?status={{status}}&maxResults={{maxResults}}&nextToken={{nextToken}}
 ```
 
-For more information, see [`ListJobExecutionsForJob`](../apireference/API_ListJobExecutionsForJob.md "../apireference/API_ListJobExecutionsForJob.md").
+For more information, see [`ListJobExecutionsForJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_ListJobExecutionsForJob.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot  list-job-executions-for-job \
@@ -704,7 +740,7 @@ aws iot  list-job-executions-for-job \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -715,19 +751,26 @@ aws iot  list-job-executions-for-job \
 }
 ```
 
-For more information, see [`list-job-executions-for-job`](../../../cli/latest/reference/iot/list-job-executions-for-job.md "../../../cli/latest/reference/iot/list-job-executions-for-job.md").
+For more information, see [`list-job-executions-for-job`](https://docs.aws.amazon.com/cli/latest/reference/iot/list-job-executions-for-job.html).
+
+------
+
+### ListJobExecutionsForThing
+<a name="jobs-ListJobExecutionsForThing"></a>
 
 Gets a list of job executions for a thing.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-GET /things/`thingName`/jobs?status=`status`&maxResults=`maxResults`&nextToken=`nextToken`
+GET /things/{{thingName}}/jobs?status={{status}}&maxResults={{maxResults}}&nextToken={{nextToken}}
 ```
 
-For more information, see [`ListJobExecutionsForThing`](../apireference/API_ListJobExecutionsForThing.md "../apireference/API_ListJobExecutionsForThing.md").
+For more information, see [`ListJobExecutionsForThing`](https://docs.aws.amazon.com/iot/latest/apireference/API_ListJobExecutionsForThing.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot list-job-executions-for-thing \
@@ -739,7 +782,7 @@ aws iot list-job-executions-for-thing \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -750,19 +793,26 @@ aws iot list-job-executions-for-thing \
 }
 ```
 
-For more information, see [`list-job-executions-for-thing`](../../../cli/latest/reference/iot/list-job-executions-for-thing.md "../../../cli/latest/reference/iot/list-job-executions-for-thing.md").
+For more information, see [`list-job-executions-for-thing`](https://docs.aws.amazon.com/cli/latest/reference/iot/list-job-executions-for-thing.html).
+
+------
+
+### ListJobs
+<a name="jobs-listJobs"></a>
 
 Gets a list of jobs in your AWS account.
 
-HTTPS request
+------
+#### [ HTTPS request ]
 
 ```
-GET /jobs?status=`status`&targetSelection=`targetSelection`&thingGroupName=`thingGroupName`&thingGroupId=`thingGroupId`&maxResults=`maxResults`&nextToken=`nextToken`
+GET /jobs?status={{status}}&targetSelection={{targetSelection}}&thingGroupName={{thingGroupName}}&thingGroupId={{thingGroupId}}&maxResults={{maxResults}}&nextToken={{nextToken}}
 ```
 
-For more information, see [`ListJobs`](../apireference/API_ListJobs.md "../apireference/API_ListJobs.md").
+For more information, see [`ListJobs`](https://docs.aws.amazon.com/iot/latest/apireference/API_ListJobs.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot list-jobs \
@@ -776,7 +826,7 @@ aws iot list-jobs \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -789,36 +839,39 @@ aws iot list-jobs \
 }
 ```
 
-For more information, see [`list-jobs`](../../../cli/latest/reference/iot/list-jobs.md "../../../cli/latest/reference/iot/list-jobs.md").
+For more information, see [`list-jobs`](https://docs.aws.amazon.com/cli/latest/reference/iot/list-jobs.html).
 
-Updates supported fields of the specified job. Updated values for
-`timeoutConfig` take effect for only newly in-progress
-launches. Currently, in-progress launches continue to launch with the
-previous timeout configuration.
+------
 
-HTTPS request
+### UpdateJob
+<a name="jobs-UpdateJob"></a>
+
+Updates supported fields of the specified job. Updated values for `timeoutConfig` take effect for only newly in-progress launches. Currently, in-progress launches continue to launch with the previous timeout configuration.
+
+------
+#### [ HTTPS request ]
 
 ```
-PATCH /jobs/`jobId`
+PATCH /jobs/{{jobId}}
 {
 "description": "string",
-"presignedUrlConfig": {
+"presignedUrlConfig": { 
   "expiresInSec": number,
   "roleArn": "string"
 },
-"jobExecutionsRolloutConfig": {
-  "exponentialRate": {
+"jobExecutionsRolloutConfig": { 
+  "exponentialRate": { 
      "baseRatePerMinute": number,
      "incrementFactor": number,
-     "rateIncreaseCriteria": {
+     "rateIncreaseCriteria": { 
         "numberOfNotifiedThings": number,
         "numberOfSucceededThings": number
-     },
+     }, 
   "maximumPerMinute": number
   },
-"abortConfig": {
-  "criteriaList": [
-     {
+"abortConfig": { 
+  "criteriaList": [ 
+     { 
         "action": "string",
         "failureType": "string",
         "minNumberOfExecutedThings": number,
@@ -826,16 +879,16 @@ PATCH /jobs/`jobId`
      }
   ]
 },
-"timeoutConfig": {
+"timeoutConfig": { 
   "inProgressTimeoutInMinutes": number
 }
 }
-
 ```
 
-For more information, see [`UpdateJob`](../apireference/API_UpdateJob.md "../apireference/API_UpdateJob.md").
+For more information, see [`UpdateJob`](https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateJob.html).
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot  update-job \
@@ -849,29 +902,29 @@ aws iot  update-job \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
 "description": "string",
-"presignedUrlConfig": {
+"presignedUrlConfig": { 
   "expiresInSec": number,
   "roleArn": "string"
 },
-"jobExecutionsRolloutConfig": {
-  "exponentialRate": {
+"jobExecutionsRolloutConfig": { 
+  "exponentialRate": { 
      "baseRatePerMinute": number,
      "incrementFactor": number,
-     "rateIncreaseCriteria": {
+     "rateIncreaseCriteria": { 
         "numberOfNotifiedThings": number,
         "numberOfSucceededThings": number
      }
   },
   "maximumPerMinute": number
 },
-"abortConfig": {
-  "criteriaList": [
-     {
+"abortConfig": { 
+  "criteriaList": [ 
+     { 
         "action": "string",
         "failureType": "string",
         "minNumberOfExecutedThings": number,
@@ -879,10 +932,12 @@ aws iot  update-job \
      }
   ]
 },
-"timeoutConfig": {
+"timeoutConfig": { 
   "inProgressTimeoutInMinutes": number
 }
 }
 ```
 
-For more information, see [`update-job`](../../../cli/latest/reference/iot/update-job.md "../../../cli/latest/reference/iot/update-job.md").
+For more information, see [`update-job`](https://docs.aws.amazon.com/cli/latest/reference/iot/update-job.html).
+
+------

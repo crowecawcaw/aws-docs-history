@@ -1,46 +1,36 @@
+
+
 # Configuring a remote device and using IoT agent
+<a name="configure-remote-device"></a>
 
-The IoT agent is used to receive the MQTT message that includes the client access
-token and start a local proxy on the remote device. You must install and run the IoT
-agent on the remote device if you want secure tunneling to deliver the client access
-token using MQTT. The IoT agent must subscribe to the following reserved IoT MQTT
-topic:
+The IoT agent is used to receive the MQTT message that includes the client access token and start a local proxy on the remote device. You must install and run the IoT agent on the remote device if you want secure tunneling to deliver the client access token using MQTT. The IoT agent must subscribe to the following reserved IoT MQTT topic:
 
-###### Note
-
-If you want to deliver the destination client access token to the remote device
-through methods other than subscribing to the reserved MQTT topic, you might need a
-destination client access token (CAT) listener and a local proxy. The CAT listener
-must work with your chosen client access token delivery mechanism and be able to
-start a local proxy in destination mode.
+**Note**  
+If you want to deliver the destination client access token to the remote device through methods other than subscribing to the reserved MQTT topic, you might need a destination client access token (CAT) listener and a local proxy. The CAT listener must work with your chosen client access token delivery mechanism and be able to start a local proxy in destination mode.
 
 ## IoT agent snippet
+<a name="agent-snippet"></a>
 
-The IoT agent must subscribe to the following reserved IoT MQTT topic so that it
-can receive the MQTT message and start the local proxy:
+The IoT agent must subscribe to the following reserved IoT MQTT topic so that it can receive the MQTT message and start the local proxy:
 
-`$aws/things/`thing-name`/tunnels/notify`
+`$aws/things/{{thing-name}}/tunnels/notify`
 
-Where `thing-name` is the name of AWS IoT thing associated with the
-remote device.
+Where `thing-name` is the name of AWS IoT thing associated with the remote device.
 
 The following is an example MQTT message payload:
 
 ```
 {
-    "clientAccessToken": "`destination-client-access-token`",
+    "clientAccessToken": "{{destination-client-access-token}}",
     "clientMode": "destination",
-    "region": "`aws-region`",
-    "services": ["`destination-service`"]
+    "region": "{{aws-region}}",
+    "services": ["{{destination-service}}"]
 }
 ```
 
-After it receives an MQTT message, the IoT agent must start a local proxy on the
-remote device with the appropriate parameters.
+After it receives an MQTT message, the IoT agent must start a local proxy on the remote device with the appropriate parameters.
 
-The following Java code demonstrates how to use the [AWS IoT Device SDK](https://github.com/aws/aws-iot-device-sdk-java "https://github.com/aws/aws-iot-device-sdk-java")
-and [ProcessBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html "https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html") from the Java library to build a simple IoT agent to
-work with secure tunneling.
+The following Java code demonstrates how to use the [AWS IoT Device SDK](https://github.com/aws/aws-iot-device-sdk-java) and [ProcessBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html) from the Java library to build a simple IoT agent to work with secure tunneling.
 
 ```
 // Find the IoT device endpoint for your AWS account
@@ -71,10 +61,10 @@ private static class TunnelNotificationListener extends AWSIotTopic {
         try {
             // Deserialize the MQTT message
             final JSONObject json = new JSONObject(message.getStringPayload());
-
+ 
             final String accessToken = json.getString("clientAccessToken");
             final String region = json.getString("region");
-
+            
             final String clientMode = json.getString("clientMode");
             if (!clientMode.equals("destination")) {
                 throw new RuntimeException("Client mode " + clientMode + " in the MQTT message is not expected");

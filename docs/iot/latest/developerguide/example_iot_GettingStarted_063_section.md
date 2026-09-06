@@ -1,21 +1,19 @@
+
+
 # Getting started with internet of things messaging
+<a name="example_iot_GettingStarted_063_section"></a>
 
 The following code example shows how to:
++ Create IoT resources
++ Configure your device
++ Run the sample application
++ Clean up resources
 
-- Create IoT resources
-- Configure your device
-- Run the sample application
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/063-aws-iot-core-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/063-aws-iot-core-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/063-aws-iot-core-gs) repository. 
 
 ```
 #!/bin/bash
@@ -120,7 +118,7 @@ echo "Step 1: Creating AWS IoT Resources..." | tee -a $LOG_FILE
 echo "Creating IoT policy document..." | tee -a $LOG_FILE
 cat > iot-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -253,7 +251,7 @@ echo "Creating shared subscription policy (optional)..." | tee -a $LOG_FILE
 
 cat > shared-sub-policy.json << EOF
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -337,33 +335,33 @@ read -r CLEANUP_CHOICE
 
 if [[ $CLEANUP_CHOICE =~ ^[Yy]$ ]]; then
     echo "Cleaning up resources..." | tee -a $LOG_FILE
-
+    
     # Detach policies from certificate
     echo "Detaching policies from certificate..." | tee -a $LOG_FILE
     log_cmd "aws iot detach-policy --policy-name $POLICY_NAME --target $CERTIFICATE_ARN"
     log_cmd "aws iot detach-policy --policy-name $SHARED_POLICY_NAME --target $CERTIFICATE_ARN"
-
+    
     # Detach certificate from thing
     echo "Detaching certificate from thing..." | tee -a $LOG_FILE
     log_cmd "aws iot detach-thing-principal --thing-name $THING_NAME --principal $CERTIFICATE_ARN"
-
+    
     # Update certificate status to INACTIVE
     echo "Setting certificate to inactive..." | tee -a $LOG_FILE
     log_cmd "aws iot update-certificate --certificate-id $CERTIFICATE_ID --new-status INACTIVE"
-
+    
     # Delete certificate
     echo "Deleting certificate..." | tee -a $LOG_FILE
     log_cmd "aws iot delete-certificate --certificate-id $CERTIFICATE_ID"
-
+    
     # Delete thing
     echo "Deleting thing..." | tee -a $LOG_FILE
     log_cmd "aws iot delete-thing --thing-name $THING_NAME"
-
+    
     # Delete policies
     echo "Deleting policies..." | tee -a $LOG_FILE
     log_cmd "aws iot delete-policy --policy-name $POLICY_NAME"
     log_cmd "aws iot delete-policy --policy-name $SHARED_POLICY_NAME"
-
+    
     echo "Cleanup complete!" | tee -a $LOG_FILE
 else
     echo "Resources were not cleaned up. You can manually clean them up later." | tee -a $LOG_FILE
@@ -380,26 +378,22 @@ fi
 
 echo "" | tee -a $LOG_FILE
 echo "Script execution completed. See $LOG_FILE for details." | tee -a $LOG_FILE
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachPolicy](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/AttachPolicy)
+  + [AttachThingPrincipal](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/AttachThingPrincipal)
+  + [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/CreateKeysAndCertificate)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/CreatePolicy)
+  + [CreateThing](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/CreateThing)
+  + [DeleteCertificate](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DeleteCertificate)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DeletePolicy)
+  + [DeleteThing](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DeleteThing)
+  + [DescribeEndpoint](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DescribeEndpoint)
+  + [DetachPolicy](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DetachPolicy)
+  + [DetachThingPrincipal](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DetachThingPrincipal)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [UpdateCertificate](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/UpdateCertificate)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachPolicy](../../../goto/aws-cli/iot-2015-05-28/AttachPolicy.md "../../../goto/aws-cli/iot-2015-05-28/AttachPolicy.md")
-  - [AttachThingPrincipal](../../../goto/aws-cli/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/aws-cli/iot-2015-05-28/AttachThingPrincipal.md")
-  - [CreateKeysAndCertificate](../../../goto/aws-cli/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/aws-cli/iot-2015-05-28/CreateKeysAndCertificate.md")
-  - [CreatePolicy](../../../goto/aws-cli/iot-2015-05-28/CreatePolicy.md "../../../goto/aws-cli/iot-2015-05-28/CreatePolicy.md")
-  - [CreateThing](../../../goto/aws-cli/iot-2015-05-28/CreateThing.md "../../../goto/aws-cli/iot-2015-05-28/CreateThing.md")
-  - [DeleteCertificate](../../../goto/aws-cli/iot-2015-05-28/DeleteCertificate.md "../../../goto/aws-cli/iot-2015-05-28/DeleteCertificate.md")
-  - [DeletePolicy](../../../goto/aws-cli/iot-2015-05-28/DeletePolicy.md "../../../goto/aws-cli/iot-2015-05-28/DeletePolicy.md")
-  - [DeleteThing](../../../goto/aws-cli/iot-2015-05-28/DeleteThing.md "../../../goto/aws-cli/iot-2015-05-28/DeleteThing.md")
-  - [DescribeEndpoint](../../../goto/aws-cli/iot-2015-05-28/DescribeEndpoint.md "../../../goto/aws-cli/iot-2015-05-28/DescribeEndpoint.md")
-  - [DetachPolicy](../../../goto/aws-cli/iot-2015-05-28/DetachPolicy.md "../../../goto/aws-cli/iot-2015-05-28/DetachPolicy.md")
-  - [DetachThingPrincipal](../../../goto/aws-cli/iot-2015-05-28/DetachThingPrincipal.md "../../../goto/aws-cli/iot-2015-05-28/DetachThingPrincipal.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [UpdateCertificate](../../../goto/aws-cli/iot-2015-05-28/UpdateCertificate.md "../../../goto/aws-cli/iot-2015-05-28/UpdateCertificate.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

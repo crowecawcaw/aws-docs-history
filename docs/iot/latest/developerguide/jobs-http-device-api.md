@@ -1,35 +1,37 @@
+
+
 # Jobs device HTTP API
+<a name="jobs-http-device-api"></a>
 
-Devices can communicate with AWS IoT Jobs using HTTP Signature Version 4 on
-port 443. This is the method used by the AWS SDKs and CLI. For more
-information about those tools, see [AWS CLI
-Command Reference:iot-jobs-data](../../../cli/latest/reference/iot-jobs-data/index.md "../../../cli/latest/reference/iot-jobs-data/index.md") or [AWS
-SDKs and Tools](http://aws.amazon.com/tools/#sdk "http://aws.amazon.com/tools/#sdk").
+Devices can communicate with AWS IoT Jobs using HTTP Signature Version 4 on port 443. This is the method used by the AWS SDKs and CLI. For more information about those tools, see [AWS CLI Command Reference:iot-jobs-data](https://docs.aws.amazon.com/cli/latest/reference/iot-jobs-data/index.html) or [AWS SDKs and Tools](http://aws.amazon.com/tools/#sdk).
 
-The following commands are available for devices executing the jobs. For
-information about using API operations with the MQTT protocol, see [Jobs device MQTT API operations](jobs-mqtt-api.md "jobs-mqtt-api.md").
+The following commands are available for devices executing the jobs. For information about using API operations with the MQTT protocol, see [Jobs device MQTT API operations](jobs-mqtt-api.md).
 
-Gets the list of all jobs that aren't in a terminal state, for a
-specified thing.
+## GetPendingJobExecutions
+<a name="http-getpendingjobexecutions"></a>
 
-HTTPS request
+Gets the list of all jobs that aren't in a terminal state, for a specified thing.
+
+------
+#### [ HTTPS request ]
 
 ```
-GET /things/`thingName`/jobs
+GET /things/{{thingName}}/jobs
 ```
 
 Response:
 
 ```
 {
-"inProgressJobs" : [ JobExecutionSummary ... ],
+"inProgressJobs" : [ JobExecutionSummary ... ], 
 "queuedJobs" : [ JobExecutionSummary ... ]
 }
 ```
 
-For more information, see [`GetPendingJobExecutions`](../apireference/API_iot-jobs-data_GetPendingJobExecutions.md "../apireference/API_iot-jobs-data_GetPendingJobExecutions.md").
+For more information, see [`GetPendingJobExecutions`](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_GetPendingJobExecutions.html). 
 
-CLI syntax
+------
+#### [ CLI syntax ]
 
 ```
 aws iot-jobs-data get-pending-job-executions \
@@ -38,7 +40,7 @@ aws iot-jobs-data get-pending-job-executions \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -46,45 +48,43 @@ aws iot-jobs-data get-pending-job-executions \
 }
 ```
 
-For more information, see [`get-pending-job-executions`](../../../cli/latest/reference/iot-jobs-data/get-pending-job-executions.md "../../../cli/latest/reference/iot-jobs-data/get-pending-job-executions.md").
+For more information, see [`get-pending-job-executions`](https://docs.aws.amazon.com/cli/latest/reference/iot-jobs-data/get-pending-job-executions.html).
 
-Gets and starts the next pending job execution for a thing (with a status
-of `IN_PROGRESS` or `QUEUED`).
+------
 
-- Any job executions with status `IN_PROGRESS` are
-  returned first.
-- Job executions are returned in the order in which they were
-  created.
-- If the next pending job execution is `QUEUED`, its
-  status changes to `IN_PROGRESS` and the job execution's
-  status details are set as specified.
-- If the next pending job execution is already
-  `IN_PROGRESS`, its status details don't
-  change.
-- If no job executions are pending, the response doesn't include
-  the `execution` field.
-- Optionally, you can create a step timer by setting a value for
-  the `stepTimeoutInMinutes` property. If you don't update
-  the value of this property by running
-  `UpdateJobExecution`, the job execution times out
-  when the step timer expires.
+## StartNextPendingJobExecution
+<a name="http-startnextpendingjobexecution"></a>
 
-HTTPS requestThe following example shows the request syntax:
+Gets and starts the next pending job execution for a thing (with a status of `IN_PROGRESS` or `QUEUED`). 
++ Any job executions with status `IN_PROGRESS` are returned first.
++ Job executions are returned in the order in which they were created.
++ If the next pending job execution is `QUEUED`, its status changes to `IN_PROGRESS` and the job execution's status details are set as specified.
++ If the next pending job execution is already `IN_PROGRESS`, its status details don't change.
++ If no job executions are pending, the response doesn't include the `execution` field.
++ Optionally, you can create a step timer by setting a value for the `stepTimeoutInMinutes` property. If you don't update the value of this property by running `UpdateJobExecution`, the job execution times out when the step timer expires.
+
+------
+#### [ HTTPS request ]
+
+The following example shows the request syntax:
 
 ```
-PUT /things/`thingName`/jobs/$next
+PUT /things/{{thingName}}/jobs/$next
 {
-"statusDetails": {
-    "string": "string"
-    ...
+"statusDetails": { 
+    "string": "string" 
+    ... 
 },
 "stepTimeoutInMinutes": long
 }
 ```
 
-For more information, see [`StartNextPendingJobExecution`](../apireference/API_iot-jobs-data_StartNextPendingJobExecution.md "../apireference/API_iot-jobs-data_StartNextPendingJobExecution.md").
+For more information, see [`StartNextPendingJobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_StartNextPendingJobExecution.html).
 
-CLI syntax**Synopsis:**
+------
+#### [ CLI syntax ]
+
+**Synopsis:**
 
 ```
 aws iot-jobs-data  start-next-pending-job-execution \
@@ -95,7 +95,7 @@ aws iot-jobs-data  start-next-pending-job-execution \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -107,18 +107,24 @@ aws iot-jobs-data  start-next-pending-job-execution \
 }
 ```
 
-For more information, see [`start-next-pending-job-execution`](../../../cli/latest/reference/iot-jobs-data/start-next-pending-job-execution.md "../../../cli/latest/reference/iot-jobs-data/start-next-pending-job-execution.md").
+For more information, see [`start-next-pending-job-execution`](https://docs.aws.amazon.com/cli/latest/reference/iot-jobs-data/start-next-pending-job-execution.html).
+
+------
+
+## DescribeJobExecution
+<a name="http-describejobexecution"></a>
 
 Gets detailed information about a job execution.
 
-You can set the `jobId` to `$next` to return the next
-pending job execution for a thing. The job's execution status must be
-`QUEUED` or `IN_PROGRESS`.
+You can set the `jobId` to `$next` to return the next pending job execution for a thing. The job's execution status must be `QUEUED` or `IN_PROGRESS`.
 
-HTTPS requestRequest:
+------
+#### [ HTTPS request ]
+
+Request:
 
 ```
-GET /things/`thingName`/jobs/`jobId`?executionNumber=`executionNumber`&includeJobDocument=`includeJobDocument`
+GET /things/{{thingName}}/jobs/{{jobId}}?executionNumber={{executionNumber}}&includeJobDocument={{includeJobDocument}}
 ```
 
 Response:
@@ -129,9 +135,12 @@ Response:
 }
 ```
 
-For more information, see [`DescribeJobExecution`](../apireference/API_iot-jobs-data_DescribeJobExecution.md "../apireference/API_iot-jobs-data_DescribeJobExecution.md").
+For more information, see [`DescribeJobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_DescribeJobExecution.html).
 
-CLI syntax**Synopsis:**
+------
+#### [ CLI syntax ]
+
+**Synopsis:**
 
 ```
 aws iot-jobs-data  describe-job-execution \
@@ -143,7 +152,7 @@ aws iot-jobs-data  describe-job-execution \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -154,21 +163,25 @@ aws iot-jobs-data  describe-job-execution \
 }
 ```
 
-For more information, see [`describe-job-execution`](../../../cli/latest/reference/iot-data/describe-job-execution.md "../../../cli/latest/reference/iot-data/describe-job-execution.md").
+For more information, see [`describe-job-execution`](https://docs.aws.amazon.com/cli/latest/reference/iot-data/describe-job-execution.html).
 
-Updates the status of a job execution. Optionally, you can create a step
-timer by setting a value for the `stepTimeoutInMinutes` property.
-If you don't update the value of this property by running
-`UpdateJobExecution` again, the job execution times out when
-the step timer expires.
+------
 
-HTTPS requestRequest:
+## UpdateJobExecution
+<a name="http-updatejobexecution"></a>
+
+Updates the status of a job execution. Optionally, you can create a step timer by setting a value for the `stepTimeoutInMinutes` property. If you don't update the value of this property by running `UpdateJobExecution` again, the job execution times out when the step timer expires.
+
+------
+#### [ HTTPS request ]
+
+Request:
 
 ```
-POST /things/`thingName`/jobs/`jobId`
+POST /things/{{thingName}}/jobs/{{jobId}}
 {
-"status": "`job-execution-state`",
-"statusDetails": {
+"status": "{{job-execution-state}}",
+"statusDetails": { 
     "string": "string"
     ...
 },
@@ -176,13 +189,16 @@ POST /things/`thingName`/jobs/`jobId`
 "includeJobExecutionState": boolean,
 "includeJobDocument": boolean,
 "stepTimeoutInMinutes": long,
-"executionNumber": long
+"executionNumber": long 
 }
 ```
 
-For more information, see [`UpdateJobExecution`](../apireference/API_iot-jobs-data_UpdateJobExecution.md "../apireference/API_iot-jobs-data_UpdateJobExecution.md").
+For more information, see [`UpdateJobExecution`](https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_UpdateJobExecution.html).
 
-CLI syntax **Synopsis:**
+------
+#### [ CLI syntax ]
+
+**Synopsis:**
 
 ```
 aws iot-jobs-data  update-job-execution \
@@ -199,7 +215,7 @@ aws iot-jobs-data  update-job-execution \
 [--generate-cli-skeleton]
 ```
 
-`cli-input-json` format:
+ `cli-input-json` format:
 
 ```
 {
@@ -217,4 +233,6 @@ aws iot-jobs-data  update-job-execution \
 }
 ```
 
-For more information, see [`update-job-execution`](../../../cli/latest/reference/iot-data/update-job-execution.md "../../../cli/latest/reference/iot-data/update-job-execution.md").
+For more information, see [`update-job-execution`](https://docs.aws.amazon.com/cli/latest/reference/iot-data/update-job-execution.html).
+
+------

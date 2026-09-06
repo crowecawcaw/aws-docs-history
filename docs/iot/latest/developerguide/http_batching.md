@@ -1,84 +1,65 @@
+
+
 # Batching HTTP action messages
+<a name="http_batching"></a>
 
 You can use batching to send multiple HTTP action messages in a single request.
 
 ## Overview
+<a name="batching_overview"></a>
 
-Batching enables you to send messages from AWS IoT Core Rules Engine to your HTTP endpoints in batches.
-This functionality can help reduce your costs by lowering the number of HTTP action executions as well as
-improve efficiency by reducing the overhead associated with establishing new connections.
+Batching enables you to send messages from AWS IoT Core Rules Engine to your HTTP endpoints in batches. This functionality can help reduce your costs by lowering the number of HTTP action executions as well as improve efficiency by reducing the overhead associated with establishing new connections.
 
-###### Note
-
-The batched HTTP action is metered as a single action. You are metered in increments of 5 kiB, based on the size of outbound batched payload emitted by the AWS IoT Core Rules Engine to the downstream service. For more information, see the [AWS IoT Core pricing page](https://aws.amazon.com/iot-core/pricing/ "https://aws.amazon.com/iot-core/pricing/").
+**Note**  
+The batched HTTP action is metered as a single action. You are metered in increments of 5 kiB, based on the size of outbound batched payload emitted by the AWS IoT Core Rules Engine to the downstream service. For more information, see the [AWS IoT Core pricing page](https://aws.amazon.com/iot-core/pricing/).
 
 When you enable batching in the definition of your IoT Rule Action, the following parameters will be available for configuration:
 
-`maxBatchOpenMs`
+`maxBatchOpenMs`  
+The maximum amount of time (in milliseconds) an outgoing message waits for other messages to create the batch. The higher the setting, the longer the latency of the batched HTTP action.  
+Minimum Value: 5 ms. Maximum Value: 200 ms.  
+Default Value: 20 ms  
+Supports [substitution templates](iot-substitution-templates.md): No
 
-The maximum amount of time (in milliseconds) an outgoing message waits for other messages to create the batch.
-The higher the setting, the longer the latency of the batched HTTP action.
+`maxBatchSize`  
+The maximum number of messages that are batched together in a single IoT rule action execution.  
+Minimum Value: 2 messages. Maximum Value: 10 messages  
+Default Value: 10 messages  
+Supports [substitution templates](iot-substitution-templates.md): No
 
-Minimum Value: 5 ms. Maximum Value: 200 ms.
+`maxBatchSizeBytes`  
+Maximum size of a message batch, in bytes.  
+Minimum Value: 100 bytes. Maximum Value: 131,072 bytes  
+Default Value: 5120 bytes  
+Supports [substitution templates](iot-substitution-templates.md): No
 
-Default Value: 20 ms
+`batchAcrossTopics`  
+Whether to allow batching messages from different MQTT topics into a single HTTP request. By default, only messages from the same topic are batched together. Enable this parameter for routing use cases where messages from multiple device topics are destined for the same HTTP endpoint.  
+Default Value: false  
+Supports [substitution templates](iot-substitution-templates.md): No
 
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
-
-`maxBatchSize`
-
-The maximum number of messages that are batched together in a single IoT rule action execution.
-
-Minimum Value: 2 messages. Maximum Value: 10 messages
-
-Default Value: 10 messages
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
-
-`maxBatchSizeBytes`
-
-Maximum size of a message batch, in bytes.
-
-Minimum Value: 100 bytes. Maximum Value: 131,072 bytes
-
-Default Value: 5120 bytes
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
-
-`batchAcrossTopics`
-
-Whether to allow batching messages from different MQTT topics into a single HTTP request.
-By default, only messages from the same topic are batched together. Enable this parameter for routing use cases where messages from multiple device topics are destined for the same HTTP endpoint.
-
-Default Value: false
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
-
-###### Important
-
+**Important**  
 When you specify multiple batch parameters, batching completes when the first limit is reached. For example, if you specify 100 ms as the Maximum Batch Open Time and 5 kiB as the Maximum Batch Size, and Rules Engine batches only 2 kiB within 100 ms, then a 2 kiB batch will be created and sent.
 
-###### Note
-
+**Note**  
 Messages are always batched within the scope of the same account, rule name, target HTTP endpoint URL, and billing group. Messages that differ in any of these attributes are never combined into the same batch, regardless of the `batchAcrossTopics` setting.
 
 ## Using HTTP headers in a batch
+<a name="batching_http_headers"></a>
 
 When you use headers in your HTTP action, the batched request uses the header value from the last message that was added to the batch (not necessarily the last message you published). We recommend using header values that are either:
-
-- Identical across all messages in the batch
-- Applicable to all messages (for example, authentication credentials)
++ Identical across all messages in the batch
++ Applicable to all messages (for example, authentication credentials)
 
 The headers are sent with the HTTP request and are not part of the message body.
 
-###### Note
-
-When batching is enabled:
-
-- The batched request automatically includes the `Content-Type: application/json` header, as the batch is sent as a JSON array.
-- We can't guarantee that the last message in the batch is the last message that you published. It is the last message that made it into the batch.
+**Note**  
+When batching is enabled:  
+The batched request automatically includes the `Content-Type: application/json` header, as the batch is sent as a JSON array.
+We can't guarantee that the last message in the batch is the last message that you published. It is the last message that made it into the batch.
 
 ## Payload Example
+<a name="batching_payload"></a>
 
 The following example shows the structure of a batched message payload sent to your HTTP endpoint:
 
@@ -101,22 +82,21 @@ The following example shows the structure of a batched message payload sent to y
 ```
 
 ## Limitations
+<a name="batching_limitations"></a>
 
 The following are limitations on batching:
-
-- AWS IoT Core does not guarantee overall message ordering. Batching is performed locally on each host, which may result in messages within a batch being processed in a different order than they were received.
-- AWS IoT Core does not provide message processing support on the receiver side. You are responsible for ensuring that your downstream service is configured to accept and process data in batches.
-- Cross-account batching is not supported, even if messages are destined for the same resource identifier (HTTP URL or resource ARN).
-- AWS IoT Core does not guarantee that the batch size will meet the configuration you specified. Batches may be smaller than your configured limits based on timing and message flow.
-- When batching is enabled, binary payloads (non-UTF-8 data) are not supported. Only UTF-8 text payloads (such as JSON) are accepted. To send binary data, base64 encode it before sending it to the HTTP action, and then decode it at your receiving endpoint. For example, you can use the [encode function](iot-sql-functions.md#iot-function-encode "iot-sql-functions.md#iot-function-encode") in IoT rules to encode the binary payload. Alternatively, you can encode the binary payload in your IoT device and publish it to AWS IoT Core.
++ AWS IoT Core does not guarantee overall message ordering. Batching is performed locally on each host, which may result in messages within a batch being processed in a different order than they were received.
++ AWS IoT Core does not provide message processing support on the receiver side. You are responsible for ensuring that your downstream service is configured to accept and process data in batches.
++ Cross-account batching is not supported, even if messages are destined for the same resource identifier (HTTP URL or resource ARN).
++ AWS IoT Core does not guarantee that the batch size will meet the configuration you specified. Batches may be smaller than your configured limits based on timing and message flow.
++ When batching is enabled, binary payloads (non-UTF-8 data) are not supported. Only UTF-8 text payloads (such as JSON) are accepted. To send binary data, base64 encode it before sending it to the HTTP action, and then decode it at your receiving endpoint. For example, you can use the [encode function](iot-sql-functions.html#iot-function-encode) in IoT rules to encode the binary payload. Alternatively, you can encode the binary payload in your IoT device and publish it to AWS IoT Core.
 
 ## Error Actions for Batching
+<a name="batching_errors"></a>
 
-You will not be able to define a separate batching logic in your Error Action definition.
-However, your Error Action will support batching if you have defined batching logic in your primary Action.
+You will not be able to define a separate batching logic in your Error Action definition. However, your Error Action will support batching if you have defined batching logic in your primary Action.
 
-When a batch request fails, AWS IoT Core Rules engine will follow the [HTTP action retry logic](https-rule-action.md#https-rule-action-retry-logic "https-rule-action.md#https-rule-action-retry-logic"). After the final retry attempt,
-an error action will be invoked for the entire failed batch.
+When a batch request fails, AWS IoT Core Rules engine will follow the [HTTP action retry logic](https-rule-action.md#https-rule-action-retry-logic). After the final retry attempt, an error action will be invoked for the entire failed batch.
 
 The following is an example of an error action message with batching enabled:
 
@@ -212,64 +192,61 @@ When `batchAcrossTopics` is enabled, the error action payload format changes. Th
 }
 ```
 
-###### Note
-
-Batched action failures also generate larger error action payloads which can increase the probability of error action failures due to size. You can monitor error action failures using the `ErrorActionFailure` metric. See [Rule action metrics](metrics_dimensions.md#rule-action-metrics "metrics_dimensions.md#rule-action-metrics") for more information.
+**Note**  
+Batched action failures also generate larger error action payloads which can increase the probability of error action failures due to size. You can monitor error action failures using the `ErrorActionFailure` metric. See [Rule action metrics](metrics_dimensions.md#rule-action-metrics) for more information.
 
 ## Batching HTTP action messages with the AWS CLI
+<a name="batching_procedure"></a>
 
 ### Creating or updating a rule action with batching
+<a name="batching_create_update_rule"></a>
 
 1. Use the appropriate AWS CLI command to create or update a rule:
+   + To create a new rule, use the [create-topic-rule](https://docs.aws.amazon.com/cli/latest/reference/iot/create-topic-rule.html) command:
 
-   - To create a new rule, use the [create-topic-rule](../../../cli/latest/reference/iot/create-topic-rule.md "../../../cli/latest/reference/iot/create-topic-rule.md") command:
+     ```
+     aws iot create-topic-rule --rule-name {{myrule}} --topic-rule-payload file://{{myrule}}.json
+     ```
+   + To update an existing rule, use the [replace-topic-rule](https://docs.aws.amazon.com/cli/latest/reference/iot/replace-topic-rule.html) command:
+
+     ```
+     aws iot replace-topic-rule --rule-name {{myrule}} --topic-rule-payload file://{{myrule}}.json
+     ```
+
+1. Enable batching capabilities by setting the enableBatching parameter to true in your topic rule payload:
 
    ```
-   `aws iot create-topic-rule --rule-name `myrule` --topic-rule-payload file://`myrule`.json`
+   {
+           "topicRulePayload": {
+           "sql": "SELECT * FROM 'some/topic'", 
+           "ruleDisabled": false,
+           "awsIotSqlVersion": "2016-03-23", 
+           "actions": [
+               { 
+                   "http": { 
+                       "url": "https://www.example.com/subpath",
+                       "confirmationUrl": "https://www.example.com", 
+                       "headers": [
+                           { 
+                               "key": "static_header_key", 
+                               "value": "static_header_value" 
+                           },
+                           { 
+                               "key": "substitutable_header_key", 
+                               "value": "${value_from_payload}" 
+                            }
+                       ],
+                       "enableBatching": true,
+                       "batchConfig": {
+                          "maxBatchOpenMs": {{100}},
+                          "maxBatchSize": {{5}},
+                          "maxBatchSizeBytes": {{1024}},
+                          "batchAcrossTopics": {{true}}
+                       }
+                   }
+               }
+         ]
+   }
    ```
-   - To update an existing rule, use the [replace-topic-rule](../../../cli/latest/reference/iot/replace-topic-rule.md "../../../cli/latest/reference/iot/replace-topic-rule.md") command:
 
-   ```
-   `aws iot replace-topic-rule --rule-name `myrule` --topic-rule-payload file://`myrule`.json`
-   ```
-
-2. Enable batching capabilities by setting the enableBatching parameter to true in your topic rule payload:
-
-```
-{
-        "topicRulePayload": {
-        "sql": "SELECT * FROM 'some/topic'",
-        "ruleDisabled": false,
-        "awsIotSqlVersion": "2016-03-23",
-        "actions": [
-            {
-                "http": {
-                    "url": "https://www.example.com/subpath",
-                    "confirmationUrl": "https://www.example.com",
-                    "headers": [
-                        {
-                            "key": "static_header_key",
-                            "value": "static_header_value"
-                        },
-                        {
-                            "key": "substitutable_header_key",
-                            "value": "${value_from_payload}"
-                         }
-                    ],
-                    "enableBatching": true,
-                    "batchConfig": {
-                       "maxBatchOpenMs": `100`,
-                       "maxBatchSize": `5`,
-                       "maxBatchSizeBytes": `1024`,
-                       "batchAcrossTopics": `true`
-                    }
-                }
-            }
-      ]
-}
-```
-
-3. Configure the batching parameters. You do not need to specify all batch parameters.
-   You can choose to specify 1, 2, 3, or all 4 batch parameters. If you do not specify a batch
-   parameter, Rules Engine will update that parameter with the default values. For more
-   information on batching parameters and their default values, see [HTTP parameters](https-rule-action.md#https-rule-action-parameters "https-rule-action.md#https-rule-action-parameters").
+1. Configure the batching parameters. You do not need to specify all batch parameters. You can choose to specify 1, 2, 3, or all 4 batch parameters. If you do not specify a batch parameter, Rules Engine will update that parameter with the default values. For more information on batching parameters and their default values, see [HTTP parameters](https-rule-action.md#https-rule-action-parameters).

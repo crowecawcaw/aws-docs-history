@@ -1,95 +1,63 @@
-# Create custom job templates by using the AWS CLI
 
-This topic explains how to create, delete, and retrieve details about job
-templates by using the AWS CLI.
+
+# Create custom job templates by using the AWS CLI
+<a name="job-templates-cli"></a>
+
+This topic explains how to create, delete, and retrieve details about job templates by using the AWS CLI.
 
 ## Create a job template from scratch
+<a name="job-templates-cli-create-scratch"></a>
 
-The following AWS CLI command shows how to create a job using a job document
-(`job-document.json`) stored in an S3 bucket and a
-role with permission to download files from Amazon S3
-(`S3DownloadRole`).
+The following AWS CLI command shows how to create a job using a job document ({{job-document.json}}) stored in an S3 bucket and a role with permission to download files from Amazon S3 ({{S3DownloadRole}}).
 
 ```
-
 aws iot create-job-template  \
       --job-template-id 010  \
       --description "My custom job template for updating the device firmware"
       --document-source https://s3.amazonaws.com/amzn-s3-demo-bucket/job-document.json  \
       --timeout-config inProgressTimeoutInMinutes=100 \
       --job-executions-rollout-config "{ \"exponentialRate\": { \"baseRatePerMinute\": 50, \"incrementFactor\": 2, \"rateIncreaseCriteria\": { \"numberOfNotifiedThings\": 1000, \"numberOfSucceededThings\": 1000}}, \"maximumPerMinute\": 1000}" \
-      --abort-config "{ \"criteriaList\": [ { \"action\": \"CANCEL\", \"failureType\": \"FAILED\", \"minNumberOfExecutedThings\": 100, \"thresholdPercentage\": 20}, { \"action\": \"CANCEL\", \"failureType\": \"TIMED_OUT\", \"minNumberOfExecutedThings\": 200, \"thresholdPercentage\": 50}]}" \
+      --abort-config "{ \"criteriaList\": [ { \"action\": \"CANCEL\", \"failureType\": \"FAILED\", \"minNumberOfExecutedThings\": 100, \"thresholdPercentage\": 20}, { \"action\": \"CANCEL\", \"failureType\": \"TIMED_OUT\", \"minNumberOfExecutedThings\": 200, \"thresholdPercentage\": 50}]}" \          
       --presigned-url-config "{\"roleArn\":\"arn:aws:iam::123456789012:role/S3DownloadRole\", \"expiresInSec\":3600}"
-
 ```
 
-The optional `timeout-config` parameter specifies the amount of
-time each device has to finish running the job. The timer starts when the job
-execution
-status is set to `IN_PROGRESS`. If the job
-execution status isn't set to another terminal state
-before the time expires, it's set
-to `TIMED_OUT`.
+The optional `timeout-config` parameter specifies the amount of time each device has to finish running the job. The timer starts when the job execution status is set to `IN_PROGRESS`. If the job execution status isn't set to another terminal state before the time expires, it's set to `TIMED_OUT`.
 
-The in-progress timer can't be updated and applies to all job
-launches
-for the job. Whenever a job
-launch
-remains in the `IN_PROGRESS` state for longer than this interval, the
-job
-launch
-fails and switches to the terminal `TIMED_OUT` status. AWS IoT also
-publishes an MQTT notification.
+The in-progress timer can't be updated and applies to all job launches for the job. Whenever a job launch remains in the `IN_PROGRESS` state for longer than this interval, the job launch fails and switches to the terminal `TIMED_OUT` status. AWS IoT also publishes an MQTT notification.
 
-For more information about creating configurations about job rollouts and
-aborts,
-see
-[Job rollout and abort
-configuration](job-rollout-abort-scheduling.md "job-rollout-abort-scheduling.md").
+For more information about creating configurations about job rollouts and aborts, see [Job rollout and abort configuration](job-rollout-abort-scheduling.html).
 
-###### Note
-
-Job documents that are specified as Amazon S3 files are retrieved at the time
-you create the job. If you change the contents of the Amazon S3 file you used as
-the source of your job document after you create the job, what is sent to
-the targets of the job doesn't change.
+**Note**  
+Job documents that are specified as Amazon S3 files are retrieved at the time you create the job. If you change the contents of the Amazon S3 file you used as the source of your job document after you create the job, what is sent to the targets of the job doesn't change.
 
 ## Create a job template from an existing job
+<a name="job-templates-cli-create-from-job"></a>
 
-The following AWS CLI command creates a job template by specifying the Amazon
-Resource Name (ARN) of an existing job. The new job template uses all of the
-configurations specified in the job. Optionally, you can change any of the
-configurations in the existing job by using any of the optional
-parameters.
+The following AWS CLI command creates a job template by specifying the Amazon Resource Name (ARN) of an existing job. The new job template uses all of the configurations specified in the job. Optionally, you can change any of the configurations in the existing job by using any of the optional parameters.
 
 ```
-
 aws iot create-job-template  \
-      --job-arn arn:aws:iot:`region`:123456789012:job/`job-name`  \
+      --job-arn arn:aws:iot:{{region}}:123456789012:job/{{job-name}}  \      
       --timeout-config inProgressTimeoutInMinutes=100
-
 ```
 
 ## Get details about a job template
+<a name="job-templates-cli-describe"></a>
 
-The following AWS CLI command gets details about a specified job
-template.
+The following AWS CLI command gets details about a specified job template.
 
 ```
-
 aws iot describe-job-template \
-      --job-template-id `template-id`
-
+      --job-template-id {{template-id}}
 ```
 
 The command displays the following output.
 
 ```
-
 {
-   "abortConfig": {
-      "criteriaList": [
-         {
+   "abortConfig": { 
+      "criteriaList": [ 
+         { 
             "action": "string",
             "failureType": "string",
             "minNumberOfExecutedThings": number,
@@ -101,11 +69,11 @@ The command displays the following output.
    "description": "string",
    "document": "string",
    "documentSource": "string",
-   "jobExecutionsRolloutConfig": {
-      "exponentialRate": {
+   "jobExecutionsRolloutConfig": { 
+      "exponentialRate": { 
          "baseRatePerMinute": number,
          "incrementFactor": number,
-         "rateIncreaseCriteria": {
+         "rateIncreaseCriteria": { 
             "numberOfNotifiedThings": number,
             "numberOfSucceededThings": number
          }
@@ -114,35 +82,31 @@ The command displays the following output.
    },
    "jobTemplateArn": "string",
    "jobTemplateId": "string",
-   "presignedUrlConfig": {
+   "presignedUrlConfig": { 
       "expiresInSec": number,
       "roleArn": "string"
    },
-   "timeoutConfig": {
+   "timeoutConfig": { 
       "inProgressTimeoutInMinutes": number
    }
 }
-
 ```
 
 ## List job templates
+<a name="job-templates-cli-list"></a>
 
-The following AWS CLI command lists all of the job templates in your
-AWS account.
+The following AWS CLI command lists all of the job templates in your AWS account.
 
 ```
-
  aws iot list-job-templates
-
 ```
 
 The command displays the following output.
 
 ```
-
 {
-   "jobTemplates": [
-      {
+   "jobTemplates": [ 
+      { 
          "createdAt": number,
          "description": "string",
          "jobTemplateArn": "string",
@@ -151,43 +115,32 @@ The command displays the following output.
    ],
    "nextToken": "string"
 }
-
 ```
 
-To retrieve additional pages of results, use the value of the
-`nextToken` field.
+To retrieve additional pages of results, use the value of the `nextToken` field.
 
 ## Delete a job template
+<a name="job-templates-cli-delete"></a>
 
 The following AWS CLI command deletes a specified job template.
 
 ```
-
 aws iot delete-job-template \
-      --job-template-id `template-id`
-
+      --job-template-id {{template-id}}
 ```
 
 The command displays no output.
 
 ## Create a job from a custom job template
+<a name="job-templates-cli-create-job"></a>
 
-The following AWS CLI command creates a job from a custom job template. It
-targets a device named `thingOne` and specifies the Amazon Resource
-Name (ARN) of the job template to use as the basis for the job. You can override
-advanced configurations, such as timeout and cancel configurations, by passing
-the associated parameters of the `create-job` command.
+The following AWS CLI command creates a job from a custom job template. It targets a device named `thingOne` and specifies the Amazon Resource Name (ARN) of the job template to use as the basis for the job. You can override advanced configurations, such as timeout and cancel configurations, by passing the associated parameters of the `create-job` command.
 
-###### Warning
-
-The `document-parameters` object must be used with the
-`create-job` command only when creating jobs from AWS
-managed templates. This object must not be used with custom job templates.
-For an example that shows how to create jobs using this parameter, see [Create a job by using managed templates](job-template-manage-cli-create.md#job-template-manage-cli-create-job "job-template-manage-cli-create.md#job-template-manage-cli-create-job").
+**Warning**  
+The `document-parameters` object must be used with the `create-job` command only when creating jobs from AWS managed templates. This object must not be used with custom job templates. For an example that shows how to create jobs using this parameter, see [Create a job by using managed templates](job-template-manage-cli-create.md#job-template-manage-cli-create-job).
 
 ```
-aws iot create-job \
-      --targets arn:aws:iot:`region`:123456789012:thing/`thingOne`  \
-      --job-template-arn arn:aws:iot:`region`:123456789012:jobtemplate/`template-id`
-
+aws iot create-job \ 
+      --targets arn:aws:iot:{{region}}:123456789012:thing/{{thingOne}}  \
+      --job-template-arn arn:aws:iot:{{region}}:123456789012:jobtemplate/{{template-id}}
 ```

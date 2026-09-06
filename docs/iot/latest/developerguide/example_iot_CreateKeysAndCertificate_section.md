@@ -1,22 +1,19 @@
+
+
 # Use `CreateKeysAndCertificate` with an AWS SDK or CLI
+<a name="example_iot_CreateKeysAndCertificate_section"></a>
 
 The following code examples show how to use `CreateKeysAndCertificate`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_iot_Scenario_section.md) 
++  [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
-- [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
 ```
     /// <summary>
@@ -47,23 +44,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return null;
         }
     }
-
-
 ```
++  For API details, see [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateKeysAndCertificate](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
 ```
 //! Create keys and certificate for an Aws IoT device.
@@ -138,31 +126,23 @@ bool AwsDoc::IoT::createKeysAndCertificate(const Aws::String &outputFolder,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create an RSA key pair and issue an X.509 certificate**  
+The following `create-keys-and-certificate` creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key. Because this is the only time that AWS IoT provides the private key for this certificate, be sure to keep it in a secure location.  
 
 ```
-
-- For API details, see
-  [CreateKeysAndCertificate](../../../goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create an RSA key pair and issue an X.509 certificate**
-
-The following `create-keys-and-certificate` creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key. Because this is the only time that AWS IoT provides the private key for this certificate, be sure to keep it in a secure location.
-
+aws iot create-keys-and-certificate \
+    --certificate-pem-outfile {{"myTest.cert.pem"}} \
+    --public-key-outfile {{"myTest.public.key"}} \
+    --private-key-outfile {{"myTest.private.key"}}
 ```
-`aws iot create-keys-and-certificate \
- --certificate-pem-outfile `"myTest.cert.pem"` \
- --public-key-outfile `"myTest.public.key"` \
- --private-key-outfile `"myTest.private.key"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -191,22 +171,14 @@ NYiytVbZPQUQ5Yaxu2jXnimvw3rrszlaEXAMPLE=
     }
 }
 ```
+For more information, see [Create and Register an AWS IoT Device Certificate](https://docs.aws.amazon.com/iot/latest/developerguide/device-certs-create.html) in the **AWS IoT Developer Guide**.  
++  For API details, see [CreateKeysAndCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Create and Register an AWS IoT Device Certificate](device-certs-create.md "device-certs-create.md") in the **AWS IoT Developer Guide**.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateKeysAndCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
 ```
     /**
@@ -245,23 +217,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         future.join();
         return certificateArn[0];
     }
-
-
 ```
++  For API details, see [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateKeysAndCertificate](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 suspend fun createCertificate(): String? {
@@ -278,23 +241,14 @@ suspend fun createCertificate(): String? {
         return certificateArn
     }
 }
-
-
 ```
++  For API details, see [CreateKeysAndCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateKeysAndCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
 ```
 class IoTWrapper:
@@ -335,24 +289,14 @@ class IoTWrapper:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [CreateKeysAndCertificate](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/CreateKeysAndCertificate) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateKeysAndCertificate](../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
 ```
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
@@ -365,14 +309,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateKeysAndCertificate](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateKeysAndCertificate](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,21 +1,18 @@
+
+
 # Use `UpdateIndexingConfiguration` with an AWS SDK or CLI
+<a name="example_iot_UpdateIndexingConfiguration_section"></a>
 
 The following code examples show how to use `UpdateIndexingConfiguration`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iot_Scenario_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
 ```
 //! Update the indexing configuration.
@@ -54,45 +51,29 @@ bool AwsDoc::IoT::updateIndexingConfiguration(
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [UpdateIndexingConfiguration](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/UpdateIndexingConfiguration) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To enable thing indexing**  
+The following `update-indexing-configuration` example enables thing indexing to support searching registry data, shadow data, and thing connectivity status using the AWS\_Things index.  
 
 ```
-
-- For API details, see
-  [UpdateIndexingConfiguration](../../../goto/SdkForCpp/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/SdkForCpp/iot-2015-05-28/UpdateIndexingConfiguration.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To enable thing indexing**
-
-The following `update-indexing-configuration` example enables thing indexing to support searching registry data, shadow data, and thing connectivity status using the AWS\_Things index.
-
+aws iot update-indexing-configuration
+    --thing-indexing-configuration {{thingIndexingMode=REGISTRY_AND_SHADOW,thingConnectivityIndexingMode=STATUS}}
 ```
-`aws iot update-indexing-configuration
- --thing-indexing-configuration `thingIndexingMode=REGISTRY_AND_SHADOW,thingConnectivityIndexingMode=STATUS``
+This command produces no output.  
+For more information, see [Managing Thing Indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html) in the *AWS IoT Developers Guide*.  
++  For API details, see [UpdateIndexingConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-indexing-configuration.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Python ]
 
-This command produces no output.
-
-For more information, see [Managing Thing Indexing](managing-index.md "managing-index.md") in the _AWS IoT Developers Guide_.
-
-- For API details, see
-  [UpdateIndexingConfiguration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-indexing-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-indexing-configuration.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
 ```
 class IoTWrapper:
@@ -128,24 +109,14 @@ class IoTWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [UpdateIndexingConfiguration](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/UpdateIndexingConfiguration) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateIndexingConfiguration](../../../goto/boto3/iot-2015-05-28/UpdateIndexingConfiguration.md "../../../goto/boto3/iot-2015-05-28/UpdateIndexingConfiguration.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
 ```
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
@@ -163,14 +134,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateIndexingConfiguration](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UpdateIndexingConfiguration](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

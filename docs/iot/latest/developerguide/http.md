@@ -1,45 +1,37 @@
+
+
 # HTTPS publish
+<a name="http"></a>
 
-Clients can publish messages by making requests to the REST API using the HTTP
-1.0 or 1.1 protocols. For the authentication and port mappings used by HTTP
-requests, see [Protocols, port mappings, and authentication](protocols.md#protocol-mapping "protocols.md#protocol-mapping").
+Clients can publish messages by making requests to the REST API using the HTTP 1.0 or 1.1 protocols. For the authentication and port mappings used by HTTP requests, see [Protocols, port mappings, and authentication](protocols.md#protocol-mapping).
 
-###### Note
-
-HTTPS doesn't support a `clientId` value like MQTT does.
-`clientId` is available when using MQTT, but it's not
-available when using HTTPS.
+**Note**  
+HTTPS doesn't support a `clientId` value like MQTT does. `clientId` is available when using MQTT, but it's not available when using HTTPS.
 
 ## HTTPS message URL
+<a name="httpurl"></a>
 
-Devices and clients publish their messages by making POST requests to a
-client-specific endpoint and a topic-specific URL:
-
-```
-https://`IoT_data_endpoint`/topics/`url_encoded_topic_name`?qos=1
-```
-
-- `IoT_data_endpoint` is the [AWS IoT device data
-  endpoint](iot-connect-devices.md#iot-connect-device-endpoints "iot-connect-devices.md#iot-connect-device-endpoints"). You can find the endpoint in the AWS IoT console
-  on the thing's details page or on the client by using the AWS CLI
-  command:
+Devices and clients publish their messages by making POST requests to a client-specific endpoint and a topic-specific URL:
 
 ```
-aws iot describe-endpoint --endpoint-type iot:Data-ATS
+https://{{IoT_data_endpoint}}/topics/{{url_encoded_topic_name}}?qos=1
 ```
++  {{IoT\_data\_endpoint}} is the [AWS IoT device data endpoint](iot-connect-devices.md#iot-connect-device-endpoints). You can find the endpoint in the AWS IoT console on the thing's details page or on the client by using the AWS CLI command: 
 
-The endpoint should look something like this:
-`a3qjEXAMPLEffp-ats.iot.us-west-2.amazonaws.com`
+  ```
+  aws iot describe-endpoint --endpoint-type iot:Data-ATS
+  ```
 
-- `url_encoded_topic_name` is the full
-  [topic name](topics.md#topicnames "topics.md#topicnames") of the message
-  being sent.
+   The endpoint should look something like this: `a3qjEXAMPLEffp-ats.iot.us-west-2.amazonaws.com` 
++ {{url\_encoded\_topic\_name}} is the full [topic name](topics.md#topicnames) of the message being sent.
 
 ## HTTPS message code examples
+<a name="codeexample"></a>
 
 These are some examples of how to send an HTTPS message to AWS IoT.
 
-Python (port 8443)
+------
+#### [ Python (port 8443) ]
 
 ```
 import requests
@@ -74,7 +66,8 @@ if publish.status_code == 200:
         print("Response body:", publish.text)
 ```
 
-Python (port 443)
+------
+#### [ Python (port 443) ]
 
 ```
 import requests
@@ -103,111 +96,64 @@ response = connection.getresponse()
 print(response.read().decode())
 ```
 
-CURL
-You can use [curl](https://curl.haxx.se "https://curl.haxx.se")
-from a client or device to send a message to AWS IoT.
+------
+#### [ CURL ]
 
-###### To use curl to send a message from an AWS IoT client device
+You can use [curl](https://curl.haxx.se) from a client or device to send a message to AWS IoT.
+
+**To use curl to send a message from an AWS IoT client device**
 
 1. Check the **curl** version.
 
-   1. On your client, run this command at a command
-      prompt.
+   1. On your client, run this command at a command prompt.
 
-   **curl --help**
+      **curl --help**
 
-   In the help text, look for the TLS options.
-   You should see the `--tlsv1.2`
-   option. 2. If you see the `--tlsv1.2` option,
-   continue. 3. If you don't see the `--tlsv1.2`
-   option or you get a `command not found`
-   error, you might need to update or install curl on
-   your client or install `openssl` before
-   you continue.
+      In the help text, look for the TLS options. You should see the `--tlsv1.2` option.
 
-2. Install the certificates on your client.
+   1. If you see the `--tlsv1.2` option, continue.
 
-Copy the certificate files that you created when you
-registered your client (thing) in the AWS IoT console.
-Make sure you have these three certificate files on your
-client before you continue.
+   1. If you don't see the `--tlsv1.2` option or you get a `command not found` error, you might need to update or install curl on your client or install `openssl` before you continue.
 
-    * The CA certificate file
-     (`Amazon-root-CA-1.pem`
-     in this example).
-    * The client's certificate file
-     (`device.pem.crt` in this
-     example).
-    * The client's private key file
-     (`private.pem.key` in
-     this example).
+1. Install the certificates on your client.
 
-3. Create the **curl** command line,
-replacing the replaceable values for those of your
-account and system.
+   Copy the certificate files that you created when you registered your client (thing) in the AWS IoT console. Make sure you have these three certificate files on your client before you continue.
+   + The CA certificate file ({{Amazon-root-CA-1.pem}} in this example).
+   + The client's certificate file ({{device.pem.crt}} in this example).
+   + The client's private key file ({{private.pem.key}} in this example).
 
-```
-curl --tlsv1.2 \
-    --cacert `Amazon-root-CA-1.pem` \
-    --cert `device.pem.crt` \
-    --key `private.pem.key` \
-    --request POST \
-    --data "`{ \"message\": \"Hello, world\" }`" \
-    "https://`IoT_data_endpoint`:8443/topics/`topic`?qos=1"
-```
+1. Create the **curl** command line, replacing the replaceable values for those of your account and system.
 
---tlsv1.2
+   ```
+   curl --tlsv1.2 \
+       --cacert {{Amazon-root-CA-1.pem}} \
+       --cert {{device.pem.crt}} \
+       --key {{private.pem.key}} \
+       --request POST \
+       --data "{{{ \"message\": \"Hello, world\" }}}" \
+       "https://{{IoT_data_endpoint}}:8443/topics/{{topic}}?qos=1"
+   ```  
+--tlsv1.2  
+Use TLS 1.2 (SSL).  
+--cacert {{Amazon-root-CA-1.pem}}  
+The file name and path, if necessary, of the CA certificate to verify the peer.  
+--cert {{device.pem.crt}}  
+The client's certificate file name and path, if necessary.  
+--key {{private.pem.key}}  
+The client's private key file name and path, if necessary.  
+--request POST  
+The type of HTTP request (in this case, POST).  
+--data "{{{ \\"message\\": \\"Hello, world\\" }}}"  
+The HTTP POST data you want to publish. In this case, it's a JSON string, with the internal quotation marks escaped with the backslash character (\\).  
+"https://{{IoT\_data\_endpoint}}:8443/topics/{{topic}}?qos=1"  
+The URL of your client's AWS IoT device data endpoint, followed by the HTTPS port, `:8443`, which is then followed by the keyword, `/topics/` and the topic name, `topic`, in this case. Specify the Quality of Service as the query parameter, `?qos=1`.
 
-Use TLS 1.2 (SSL).
+1. Open the MQTT test client in the AWS IoT console.
 
---cacert
-`Amazon-root-CA-1.pem`
+   Follow the instructions in [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md) and configure the console to subscribe to messages with the topic name of {{topic}} used in your **curl** command, or use the wildcard topic filter of `#`.
 
-The file name and path, if necessary, of the
-CA certificate to verify the peer.
+1. Test the command.
 
---cert
-`device.pem.crt`
+   While monitoring the topic in the test client of the AWS IoT console, go to your client and issue the curl command line that you created in step 3. You should see your client's messages in the console.
 
-The client's certificate file name and path,
-if necessary.
-
---key
-`private.pem.key`
-
-The client's private key file name and path,
-if necessary.
-
---request POST
-
-The type of HTTP request (in this case,
-POST).
-
---data "`{ \"message\": \"Hello,
- world\" }`"
-
-The HTTP POST data you want to publish. In
-this case, it's a JSON string, with the internal
-quotation marks escaped with the backslash
-character (\).
-
-"https://`IoT_data_endpoint`:8443/topics/`topic`?qos=1"
-
-The URL of your client's AWS IoT device data
-endpoint, followed by the HTTPS port,
-`:8443`, which is then followed by the
-keyword, `/topics/` and the topic name,
-`topic`, in this case. Specify the
-Quality of Service as the query parameter,
-`?qos=1`. 4. Open the MQTT test client in the AWS IoT console.
-
-Follow the instructions in [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md") and configure
-the console to subscribe to messages with the topic name
-of `topic` used in your
-**curl** command, or use the wildcard
-topic filter of `#`. 5. Test the command.
-
-While monitoring the topic in the test client of the
-AWS IoT console, go to your client and issue the curl
-command line that you created in step 3. You should see
-your client's messages in the console.
+------

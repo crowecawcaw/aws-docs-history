@@ -1,65 +1,46 @@
+
+
 # Device provisioning MQTT API
+<a name="fleet-provision-api"></a><a name="provision-mqtt-api"></a>
 
 The Fleet Provisioning service supports the following MQTT API operations:
++ `CreateCertificateFromCsr`
++ `CreateKeysAndCertificate`
++ `RegisterThing`
 
-- `CreateCertificateFromCsr`
-- `CreateKeysAndCertificate`
-- `RegisterThing`
-  This API supports response buffers in Concise Binary Object Representation (CBOR)
-  format and JavaScript Object Notation (JSON), depending on the
-  `payload-format` of the topic. For clarity, the response
-  and request examples in this section are shown in JSON format.
+This API supports response buffers in Concise Binary Object Representation (CBOR) format and JavaScript Object Notation (JSON), depending on the {{payload-format}} of the topic. For clarity, the response and request examples in this section are shown in JSON format.
 
-| `payload-format` | Response format data type                   |
-| ---------------- | ------------------------------------------- |
-| cbor             | Concise Binary Object Representation (CBOR) |
-| json             | JavaScript Object Notation (JSON)           |
 
-###### Important
+| {{payload-format}} | Response format data type | 
+| --- | --- | 
+| cbor | Concise Binary Object Representation (CBOR) | 
+| json | JavaScript Object Notation (JSON) | 
 
-Before publishing a request message topic, subscribe to the response topics to
-receive the response. The messages used by this API use MQTT's publish/subscribe
-protocol to provide a request and response interaction.
-
-If you don't subscribe to the response topics _before_ you
-publish a request, you might not receive the results of that request.
-
+**Important**  
+Before publishing a request message topic, subscribe to the response topics to receive the response. The messages used by this API use MQTT's publish/subscribe protocol to provide a request and response interaction.   
+If you don't subscribe to the response topics *before* you publish a request, you might not receive the results of that request.  
 IoT Core Fleet Provisioning returns the device provisioning MQTT API results through the same MQTT connection used to publish the API request.
 
 ## CreateCertificateFromCsr
+<a name="create-cert-csr"></a>
 
-Creates a certificate from a certificate signing request (CSR). AWS IoT provides
-client certificates that are signed by the Amazon Root certificate authority (CA).
-The new certificate has a `PENDING_ACTIVATION` status. When you call
-`RegisterThing` to provision a thing with this certificate, the
-certificate status changes to `ACTIVE` or `INACTIVE` as
-described in the template.
+Creates a certificate from a certificate signing request (CSR). AWS IoT provides client certificates that are signed by the Amazon Root certificate authority (CA). The new certificate has a `PENDING_ACTIVATION` status. When you call `RegisterThing` to provision a thing with this certificate, the certificate status changes to `ACTIVE` or `INACTIVE` as described in the template.
 
-For more information on creating a client certificate using your Certificate
-Authority certificate and a certificate signing request, refer to [Create a client certificate using your CA certificate](create-device-cert.md "create-device-cert.md").
+For more information on creating a client certificate using your Certificate Authority certificate and a certificate signing request, refer to [Create a client certificate using your CA certificate](create-device-cert.md).
 
-###### Note
-
-For security, the `certificateOwnershipToken` returned by
-`CreateCertificateFromCsr` expires after one hour. `RegisterThing` must be called
-before the `certificateOwnershipToken` expires. If the certificate
-created by `CreateCertificateFromCsr` hasn't been activated and attached
-to a policy or a thing by the time the token expires, the certificate is
-deleted. If the token expires, the device can call `CreateCertificateFromCsr` to
-generate a new certificate.
+**Note**  
+For security, the `certificateOwnershipToken` returned by `CreateCertificateFromCsr` expires after one hour. `RegisterThing` must be called before the `certificateOwnershipToken` expires. If the certificate created by `CreateCertificateFromCsr` hasn't been activated and attached to a policy or a thing by the time the token expires, the certificate is deleted. If the token expires, the device can call `CreateCertificateFromCsr` to generate a new certificate.
 
 ### CreateCertificateFromCsr request
+<a name="create-cert-csr-request"></a>
 
-Publish a message with the
-`$aws/certificates/create-from-csr/`payload-format``
-topic.
+Publish a message with the `$aws/certificates/create-from-csr/{{payload-format}}` topic.
 
-`payload-format`
-
-The message payload format as `cbor` or
-`json`.
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
 #### CreateCertificateFromCsr request payload
+<a name="create-cert-csr-request-payload"></a>
 
 ```
 {
@@ -67,21 +48,19 @@ The message payload format as `cbor` or
 }
 ```
 
-`certificateSigningRequest`
-
+`certificateSigningRequest`  
 The CSR, in PEM format.
 
 ### CreateCertificateFromCsr response
+<a name="create-cert-csr-response"></a>
 
-Subscribe to
-`$aws/certificates/create-from-csr/`payload-format`/accepted`.
+Subscribe to `$aws/certificates/create-from-csr/{{payload-format}}/accepted`.
 
-`payload-format`
-
-The message payload format as `cbor` or
-`json`.
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
 #### CreateCertificateFromCsr response payload
+<a name="create-cert-csr-response-payload"></a>
 
 ```
 {
@@ -91,31 +70,25 @@ The message payload format as `cbor` or
 }
 ```
 
-`certificateOwnershipToken`
+`certificateOwnershipToken`  
+The token to prove ownership of the certificate during provisioning. 
 
-The token to prove ownership of the certificate during
-provisioning.
+`certificateId`  
+The ID of the certificate. Certificate management operations only take a certificateId. 
 
-`certificateId`
-
-The ID of the certificate. Certificate management operations
-only take a certificateId.
-
-`certificatePem`
-
+`certificatePem`  
 The certificate data, in PEM format.
 
 ### CreateCertificateFromCsr error
+<a name="create-cert-csr-error"></a>
 
-To receive error responses, subscribe to
-`$aws/certificates/create-from-csr/`payload-format`/rejected`.
+To receive error responses, subscribe to `$aws/certificates/create-from-csr/{{payload-format}}/rejected`.
 
-`payload-format`
-
-The message payload format as `cbor` or
-`json`.
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
 #### CreateCertificateFromCsr error payload
+<a name="create-cert-csr-error-payload"></a>
 
 ```
 {
@@ -125,59 +98,41 @@ The message payload format as `cbor` or
 }
 ```
 
-`statusCode`
-
+`statusCode`  
 The status code.
 
-`errorCode`
-
+`errorCode`  
 The error code.
 
-`errorMessage`
-
+`errorMessage`  
 The error message.
 
 ## CreateKeysAndCertificate
+<a name="create-keys-cert"></a>
 
-Creates new keys and a certificate. AWS IoT provides client certificates that are
-signed by the Amazon Root certificate authority (CA). The new certificate has a
-`PENDING_ACTIVATION` status. When you call `RegisterThing`
-to provision a thing with this certificate, the certificate status changes to
-`ACTIVE` or `INACTIVE` as described in the
-template.
+Creates new keys and a certificate. AWS IoT provides client certificates that are signed by the Amazon Root certificate authority (CA). The new certificate has a `PENDING_ACTIVATION` status. When you call `RegisterThing` to provision a thing with this certificate, the certificate status changes to `ACTIVE` or `INACTIVE` as described in the template.
 
-###### Note
-
-For security, the `certificateOwnershipToken` returned by
-`CreateKeysAndCertificate` expires after one hour. `RegisterThing` must be called
-before the `certificateOwnershipToken` expires. If the certificate
-created by `CreateKeysAndCertificate` hasn't been activated and
-attached to a policy or a thing by the time the token expires, the certificate
-is deleted. If the token expires, the device can call `CreateKeysAndCertificate` to
-generate a new certificate.
+**Note**  
+For security, the `certificateOwnershipToken` returned by `CreateKeysAndCertificate` expires after one hour. `RegisterThing` must be called before the `certificateOwnershipToken` expires. If the certificate created by `CreateKeysAndCertificate` hasn't been activated and attached to a policy or a thing by the time the token expires, the certificate is deleted. If the token expires, the device can call `CreateKeysAndCertificate` to generate a new certificate.
 
 ### CreateKeysAndCertificate request
+<a name="create-keys-cert-request"></a>
 
-Publish a message on
-`$aws/certificates/create/`payload-format``
-with an empty message payload.
+Publish a message on `$aws/certificates/create/{{payload-format}}` with an empty message payload.
 
-`payload-format`
-
-The message payload format as `cbor` or
-`json`.
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
 ### CreateKeysAndCertificate response
+<a name="create-keys-cert-response"></a>
 
-Subscribe to
-`$aws/certificates/create/`payload-format`/accepted`.
+Subscribe to `$aws/certificates/create/{{payload-format}}/accepted`.
 
-`payload-format`
-
-The message payload format as `cbor` or
-`json`.
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
 #### CreateKeysAndCertificate response
+<a name="create-keys-cert-response-payload"></a>
 
 ```
 {
@@ -188,34 +143,28 @@ The message payload format as `cbor` or
 }
 ```
 
-`certificateId`
-
+`certificateId`  
 The certificate ID.
 
-`certificatePem`
-
+`certificatePem`  
 The certificate data, in PEM format.
 
-`privateKey`
-
+`privateKey`  
 The private key.
 
-`certificateOwnershipToken`
-
-The token to prove ownership of the certificate during
-provisioning.
+`certificateOwnershipToken`  
+The token to prove ownership of the certificate during provisioning.
 
 ### CreateKeysAndCertificate error
+<a name="create-keys-cert-error"></a>
 
-To receive error responses, subscribe to
-`$aws/certificates/create/`payload-format`/rejected`.
+To receive error responses, subscribe to `$aws/certificates/create/{{payload-format}}/rejected`.
 
-`payload-format`
-
-The message payload format as `cbor` or
-`json`.
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
 #### CreateKeysAndCertificate error payload
+<a name="create-keys-cert-error-payload"></a>
 
 ```
 {
@@ -225,37 +174,33 @@ The message payload format as `cbor` or
 }
 ```
 
-`statusCode`
-
+`statusCode`  
 The status code.
 
-`errorCode`
-
+`errorCode`  
 The error code.
 
-`errorMessage`
-
+`errorMessage`  
 The error message.
 
 ## RegisterThing
+<a name="register-thing"></a>
 
 Provisions a thing using a pre-defined template.
 
 ### RegisterThing request
+<a name="register-thing-request"></a>
 
-Publish a message on
-`$aws/provisioning-templates/`templateName`/provision/`payload-format``.
+Publish a message on `$aws/provisioning-templates/{{templateName}}/provision/{{payload-format}}`.
 
-`payload-format`
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
-The message payload format as `cbor` or
-`json`.
-
-`templateName`
-
+`templateName`  
 The provisioning template name.
 
 #### RegisterThing request payload
+<a name="register-thing-request-payload"></a>
 
 ```
 {
@@ -267,33 +212,25 @@ The provisioning template name.
 }
 ```
 
-`certificateOwnershipToken`
+`certificateOwnershipToken`  
+The token to prove ownership of the certificate. AWS IoT generates the token when you create a certificate over MQTT.
 
-The token to prove ownership of the certificate. AWS IoT
-generates the token when you create a certificate over
-MQTT.
-
-`parameters`
-
-Optional. Key-value pairs from the device that are used by the
-[pre-provisioning
-hooks](pre-provisioning-hook.md "pre-provisioning-hook.md") to evaluate the registration request.
+`parameters`  
+Optional. Key-value pairs from the device that are used by the [pre-provisioning hooks](pre-provisioning-hook.md) to evaluate the registration request.
 
 ### RegisterThing response
+<a name="register-thing-response"></a>
 
-Subscribe to
-`$aws/provisioning-templates/`templateName`/provision/`payload-format`/accepted`.
+Subscribe to `$aws/provisioning-templates/{{templateName}}/provision/{{payload-format}}/accepted`.
 
-`payload-format`
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
-The message payload format as `cbor` or
-`json`.
-
-`templateName`
-
+`templateName`  
 The provisioning template name.
 
 #### RegisterThing response payload
+<a name="register-thing-response-payload"></a>
 
 ```
 {
@@ -305,29 +242,25 @@ The provisioning template name.
 }
 ```
 
-`deviceConfiguration`
-
+`deviceConfiguration`  
 The device configuration defined in the template.
 
-`thingName`
-
+`thingName`  
 The name of the IoT thing created during provisioning.
 
 ### RegisterThing error response
+<a name="register-thing-error"></a>
 
-To receive error responses, subscribe to
-`$aws/provisioning-templates/`templateName`/provision/`payload-format`/rejected`.
+To receive error responses, subscribe to `$aws/provisioning-templates/{{templateName}}/provision/{{payload-format}}/rejected`.
 
-`payload-format`
+`payload-format`  
+The message payload format as `cbor` or `json`.
 
-The message payload format as `cbor` or
-`json`.
-
-`templateName`
-
+`templateName`  
 The provisioning template name.
 
 #### RegisterThing error response payload
+<a name="register-thing-error-payload"></a>
 
 ```
 {
@@ -337,14 +270,11 @@ The provisioning template name.
 }
 ```
 
-`statusCode`
-
+`statusCode`  
 The status code.
 
-`errorCode`
-
+`errorCode`  
 The error code.
 
-`errorMessage`
-
+`errorMessage`  
 The error message.

@@ -1,22 +1,19 @@
+
+
 # Use `CreateThing` with an AWS SDK or CLI
+<a name="example_iot_CreateThing_section"></a>
 
 The following code examples show how to use `CreateThing`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_iot_Scenario_section.md) 
++  [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
-- [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
 ```
     /// <summary>
@@ -48,23 +45,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return null;
         }
     }
-
-
 ```
++  For API details, see [CreateThing](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/CreateThing) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
 ```
 //! Create an AWS IoT thing.
@@ -91,29 +79,21 @@ bool AwsDoc::IoT::createThing(const Aws::String &thingName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [CreateThing](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/CreateThing) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create a thing record in the registry**  
+The following `create-thing` example creates an entry for a device in the AWS IoT thing registry.  
 
 ```
-
-- For API details, see
-  [CreateThing](../../../goto/SdkForCpp/iot-2015-05-28/CreateThing.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateThing.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a thing record in the registry**
-
-The following `create-thing` example creates an entry for a device in the AWS IoT thing registry.
-
+aws iot create-thing \
+    --thing-name {{SampleIoTThing}}
 ```
-`aws iot create-thing \
- --thing-name `SampleIoTThing``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -122,20 +102,16 @@ Output:
     "thingId": " EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE "
 }
 ```
-
-**Example 2: To define a thing that is associated with a thing type**
-
-The following `create-thing` example create a thing that has the specified thing type and its attributes.
+**Example 2: To define a thing that is associated with a thing type**  
+The following `create-thing` example create a thing that has the specified thing type and its attributes.  
 
 ```
-`aws iot create-thing \
- --thing-name `"MyLightBulb"` \
- --thing-type-name `"LightBulb"` \
- --attribute-payload "{"attributes": {"wattage":"75", "model":"123"}}"`
-
+aws iot create-thing \
+    --thing-name {{"MyLightBulb"}} \
+    --thing-type-name {{"LightBulb"}} \
+    --attribute-payload "{"attributes": {"wattage":"75", "model":"123"}}"
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -144,22 +120,14 @@ Output:
     "thingId": "40da2e73-c6af-406e-b415-15acae538797"
 }
 ```
+For more information, see [How to Manage Things with the Registry](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html) and [Thing Types](https://docs.aws.amazon.com/iot/latest/developerguide/thing-types.html) in the *AWS IoT Developers Guide*.  
++  For API details, see [CreateThing](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-thing.html) in *AWS CLI Command Reference*. 
 
-For more information, see [How to Manage Things with the Registry](thing-registry.md "thing-registry.md") and [Thing Types](thing-types.md "thing-types.md") in the _AWS IoT Developers Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [CreateThing](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-thing.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-thing.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
 ```
     /**
@@ -192,23 +160,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         future.join();
     }
-
-
 ```
++  For API details, see [CreateThing](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/CreateThing) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateThing](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateThing.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 suspend fun createIoTThing(thingNameVal: String) {
@@ -222,23 +181,14 @@ suspend fun createIoTThing(thingNameVal: String) {
         println("Created $thingNameVal}")
     }
 }
-
-
 ```
++  For API details, see [CreateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
 ```
 class IoTWrapper:
@@ -281,24 +231,14 @@ class IoTWrapper:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [CreateThing](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/CreateThing) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateThing](../../../goto/boto3/iot-2015-05-28/CreateThing.md "../../../goto/boto3/iot-2015-05-28/CreateThing.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
 ```
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
@@ -314,14 +254,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateThing](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateThing](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

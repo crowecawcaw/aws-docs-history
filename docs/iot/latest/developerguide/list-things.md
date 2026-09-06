@@ -1,7 +1,9 @@
-# List things
 
-You can use the **ListThings** command to list all things in your
-account:
+
+# List things
+<a name="list-things"></a>
+
+You can use the **ListThings** command to list all things in your account:
 
 ```
 $ aws iot list-things
@@ -29,8 +31,7 @@ $ aws iot list-things
 }
 ```
 
-You can use the **ListThings** command to search for all things of
-a specific thing type:
+You can use the **ListThings** command to search for all things of a specific thing type:
 
 ```
 $  aws iot list-things --thing-type-name "LightBulb"
@@ -61,16 +62,13 @@ $  aws iot list-things --thing-type-name "LightBulb"
 }
 ```
 
-You can use the **ListThings** command to search for all things
-that have an attribute with a specific value. This command searches up to three
-attributes.
+You can use the **ListThings** command to search for all things that have an attribute with a specific value. This command searches up to three attributes. 
 
 ```
 $  aws iot list-things --attribute-name "wattage" --attribute-value "75"
 ```
 
 ```
-
 {
     "things": [
         {
@@ -104,5 +102,4 @@ $  aws iot list-things --attribute-name "wattage" --attribute-value "75"
 }
 ```
 
-For more information, see [list-things](../../../cli/latest/reference/iot/list-things.md "../../../cli/latest/reference/iot/list-things.md") from the
-AWS CLI Command Reference.
+For more information, see [list-things](https://docs.aws.amazon.com/cli/latest/reference/iot/list-things.html) from the AWS CLI Command Reference.

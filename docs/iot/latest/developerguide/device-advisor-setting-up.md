@@ -1,269 +1,221 @@
+
+
 # Setting up
+<a name="device-advisor-setting-up"></a>
 
 Before you use Device Advisor for the first time, complete the following tasks:
 
 ## Create an IoT thing
+<a name="da-create-thing-certificate"></a>
 
-First, create an IoT thing and attach a certificate to that thing. For a tutorial
-on how to create things, see [Create a thing object](create-iot-resources.md#create-aws-thing "create-iot-resources.md#create-aws-thing").
+First, create an IoT thing and attach a certificate to that thing. For a tutorial on how to create things, see [Create a thing object](https://docs.aws.amazon.com/iot/latest/developerguide/create-iot-resources.html#create-aws-thing).
 
 ## Create an IAM role to use as your device role
+<a name="da-iam-role"></a>
 
-###### Note
+**Note**  
+You can quickly create the device role with the Device Advisor console. To learn how to set up your device role with the Device Advisor console, see [ Getting started with the Device Advisor in the console](https://docs.aws.amazon.com/iot/latest/developerguide/da-console-guide.html).
 
-You can quickly create the device role with the Device Advisor console. To learn how
-to set up your device role with the Device Advisor console, see [Getting started with the Device Advisor in the console](da-console-guide.md "da-console-guide.md").
+1. Go to the [AWS Identity and Access Management console](https://console.aws.amazon.com/iam/home?region=us-west-2#/home) and log in to the AWS account you use for Device Advisor testing.
 
-1. Go to the [AWS Identity and Access Management console](https://console.aws.amazon.com/iam/home?region=us-west-2#/home "https://console.aws.amazon.com/iam/home?region=us-west-2#/home") and log in to the AWS account you use for
-   Device Advisor testing.
-2. In the left navigation pane, chose **Policies**.
-3. Choose **Create policy**.
-4. Under **Create policy**, do the following:
+1. In the left navigation pane, chose **Policies**.
 
-   1. For **Service**, choose
-      **IoT**.
-   2. Under **Actions**, do one of the
-      following:
+1. Choose **Create policy**.
 
-      - (Recommended) Select actions based on the policy attached
-        to the IoT thing or certificate you created in the previous
-        section.
-      - Search for the following actions in the **Filter
-        action** box and select them:
+1. Under **Create policy**, do the following:
 
-        - `Connect`
-        - `Publish`
-        - `Subscribe`
-        - `Receive`
-        - `RetainPublish`
+   1. For **Service**, choose **IoT**.
 
-   3. Under **Resources**, restrict the client, topic,
-      and topic resources. Restricting these resources is a security best
-      practice. To restrict resources, do the following:
+   1. Under **Actions**, do one of the following:
+      + (Recommended) Select actions based on the policy attached to the IoT thing or certificate you created in the previous section.
+      + Search for the following actions in the **Filter action** box and select them:
+        + `Connect`
+        + `Publish`
+        + `Subscribe`
+        + `Receive`
+        + `RetainPublish`
 
-      1. Choose **Specify client resource ARN for the
-         Connect action**.
-      2. Choose **Add ARN**, then do either of the
-         following:
+   1. Under **Resources**, restrict the client, topic, and topic resources. Restricting these resources is a security best practice. To restrict resources, do the following:
 
-      ###### Note
+      1. Choose **Specify client resource ARN for the Connect action**.
 
-      The _clientId_ is the MQTT client
-      ID that your device uses to interact with
-      Device Advisor.
+      1. Choose **Add ARN**, then do either of the following:
+**Note**  
+The *clientId* is the MQTT client ID that your device uses to interact with Device Advisor.
+         + Specify the **Region**, **accountID**, and **clientID** in the visual ARN editor.
+         + Manually enter the Amazon Resource Names (ARNs) of the IoT topics you want to run your test cases with.
 
-           * Specify the **Region**,
-            **accountID**, and
-            **clientID** in the visual ARN
-            editor.
-           * Manually enter the Amazon Resource Names (ARNs) of
-            the IoT topics you want to run your test cases
-            with.
+      1. Choose **Add**.
 
-      3. Choose **Add**. 4. Choose **Specify topic resource ARN for the
-      Receive and one more action**. 5. Choose **Add ARN**, then do either of the
-      following:
+      1. Choose **Specify topic resource ARN for the Receive and one more action**.
 
-      ###### Note
+      1. Choose **Add ARN**, then do either of the following:
+**Note**  
+The *topic name* is the MQTT topic that your device publishes messages to.
+         + Specify the **Region**, **accountID**, and **Topic name** in the visual ARN editor.
+         + Manually enter the ARNs of the IoT topics you want to run your test cases with.
 
-      The _topic name_ is the MQTT topic
-      that your device publishes messages to.
+      1. Choose **Add**.
 
-           * Specify the **Region**,
-            **accountID**, and
-            **Topic name** in the visual ARN
-            editor.
-           * Manually enter the ARNs of the IoT topics you want
-            to run your test cases with.
+      1. Choose **Specify topicFilter resource ARN for the Subscribe action**.
 
-      6. Choose **Add**. 7. Choose **Specify topicFilter resource ARN for the
-      Subscribe action**. 8. Choose **Add ARN**, then do either of the
-      following:
+      1. Choose **Add ARN**, then do either of the following:
+**Note**  
+The *topic name* is the MQTT topic that your device subscribes to.
+         + Specify the **Region**, **accountID**, and **Topic name** in the visual ARN editor.
+         + Manually enter the ARNs of the IoT topics you want to run your test cases with.
 
-      ###### Note
+      1. Choose **Add**.
 
-      The _topic name_ is the MQTT topic
-      that your device subscribes to.
+1. Choose **Next: Tags**.
 
-           * Specify the **Region**,
-            **accountID**, and
-            **Topic name** in the visual ARN
-            editor.
-           * Manually enter the ARNs of the IoT topics you want
-            to run your test cases with.
+1. Choose **Next: Review**.
 
-      9. Choose **Add**.
+1. Under **Review policy**, enter a **Name** for your policy.
 
-5. Choose **Next: Tags**.
-6. Choose **Next: Review**.
-7. Under **Review policy**, enter a
-   **Name** for your policy.
-8. Choose **Create policy**.
-9. On the left navigation pane, Choose **Roles**.
-10. Choose **Create Role**.
-11. Under **Select trusted entity**, choose **Custom
-    trust policy**.
-12. Enter the following trust policy into the **Custom
-    trust policy** box. To protect against the confused deputy problem,
-    add the global condition context keys
-    `aws:SourceArn`
-    and `aws:SourceAccount`
-    to the policy.
+1. Choose **Create policy**.
 
-###### Important
+1. On the left navigation pane, Choose **Roles**.
 
-Your `aws:SourceArn` must comply with the
-`format: arn:aws:iotdeviceadvisor:`region:account-id`:*.`
-Make sure that `region` matches your AWS IoT
-Region and `account-id` matches your customer account ID.
-For more information, see [Cross-service confused deputy prevention](security-best-practices.md#cross-service-confused-deputy-prevention-DA "security-best-practices.md#cross-service-confused-deputy-prevention-DA").
+1. Choose **Create Role**.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "AllowAwsIoTCoreDeviceAdvisor",
- "Effect": "Allow",
- "Principal": {
- "Service": "iotdeviceadvisor.amazonaws.com"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringEquals": {
- "aws:SourceAccount": "123456789012"
- },
- "ArnLike": {
- "aws:SourceArn": "arn:aws:iotdeviceadvisor:*:123456789012:suitedefinition/*"
- }
- }
- }
- ]
-}`
+1. Under **Select trusted entity**, choose **Custom trust policy**.
 
-```
+1. Enter the following trust policy into the **Custom trust policy** box. To protect against the confused deputy problem, add the global condition context keys `[aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn)` and `[aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount)` to the policy.
+**Important**  
+Your `aws:SourceArn` must comply with the `format: arn:aws:iotdeviceadvisor:{{region:account-id}}:*.` Make sure that `{{region}}` matches your AWS IoT Region and `{{account-id}}` matches your customer account ID. For more information, see [Cross-service confused deputy prevention](https://docs.aws.amazon.com/iot/latest/developerguide/security-best-practices.html#cross-service-confused-deputy-prevention-DA).  
+****  
 
-13. Choose **Next**.
-14. Choose the policy you created in Step 4.
-15. (Optional) Under **Set permissions boundary**, choose
-    **Use a permissions boundary to control the maximum role
-    permissions**, and then select the policy you created.
-16. Choose **Next**.
-17. Enter a **Role name** and a **Role
-    description**.
-18. Choose **Create role**.
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "AllowAwsIoTCoreDeviceAdvisor",
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": "iotdeviceadvisor.amazonaws.com"
+           },
+               "Action": "sts:AssumeRole",
+               "Condition": {
+                   "StringEquals": {
+                       "aws:SourceAccount": "123456789012"
+               },
+                   "ArnLike": {
+                       "aws:SourceArn": "arn:aws:iotdeviceadvisor:*:123456789012:suitedefinition/*"
+               }
+           }
+           }
+       ]
+   }
+   ```
+
+1. Choose **Next**.
+
+1. Choose the policy you created in Step 4.
+
+1. (Optional) Under **Set permissions boundary**, choose **Use a permissions boundary to control the maximum role permissions**, and then select the policy you created.
+
+1. Choose **Next**.
+
+1. Enter a **Role name** and a **Role description**.
+
+1. Choose **Create role**.
 
 ## Create a custom-managed policy for an IAM user to use Device Advisor
+<a name="da-managed-policy"></a>
 
-1. Navigate to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). If prompted, enter your AWS
-   credentials to sign in.
-2. In the left navigation pane, choose **Policies**.
-3. Choose **Create Policy**, then choose the
-   **JSON** tab.
-4. Add the necessary permissions to use Device Advisor. The policy document can be
-   found in the topic [Security best practices](security-best-practices.md#device-advisor-perms "security-best-practices.md#device-advisor-perms").
-5. Choose **Review Policy**.
-6. Enter a **Name** and
-   **Description**.
-7. Choose **Create Policy**.
+1. Navigate to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/). If prompted, enter your AWS credentials to sign in.
+
+1. In the left navigation pane, choose **Policies**.
+
+1. Choose **Create Policy**, then choose the **JSON** tab. 
+
+1. Add the necessary permissions to use Device Advisor. The policy document can be found in the topic [Security best practices](https://docs.aws.amazon.com/iot/latest/developerguide/security-best-practices.html#device-advisor-perms). 
+
+1. Choose **Review Policy**.
+
+1. Enter a **Name** and **Description**.
+
+1. Choose **Create Policy**.
 
 ## Create an IAM user to use Device Advisor
+<a name="da-iam-user"></a>
 
-###### Note
+**Note**  
+We recommend that you create an IAM user to use when you run Device Advisor tests. Running Device Advisor tests from an admin user can pose security risks and isn't recommended.
 
-We recommend that you create an IAM user to use when you run Device Advisor tests.
-Running Device Advisor tests from an admin user can pose security risks and isn't
-recommended.
+1. Navigate to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/) If prompted, enter your AWS credentials to sign in.
 
-1. Navigate to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") If prompted, enter your AWS
-   credentials to sign in.
-2. In the left navigation pane, Choose **Users**.
-3. Choose **Add User**.
-4. Enter a **User name**.
-5. Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
+1. In the left navigation pane, Choose **Users**.
 
-To grant users programmatic access, choose one of the following options.
+1. Choose **Add User**.
 
-| Which user needs programmatic access?                        | To                                                                                                                                  | By                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IAM                                                          | (Recommended) Use console credentials as temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or AWS APIs. | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Login for AWS local development](../../../cli/latest/userguide/cli-configure-sign-in.md "../../../cli/latest/userguide/cli-configure-sign-in.md") in<br>the _AWS Command Line Interface User Guide_.<br>• For AWS SDKs, see [Login for AWS local development](../../../sdkref/latest/guide/access-login.md "../../../sdkref/latest/guide/access-login.md") in the<br>_AWS SDKs and Tools Reference Guide_.                                                                                                                                                                                                                                                             |
-| Workforce identity<br>(Users managed in IAM Identity Center) | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                                   | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Configuring the AWS CLI to use AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the<br>_AWS Command Line Interface User Guide_.<br>• For AWS SDKs, tools, and AWS APIs, see [IAM Identity Center<br>authentication](../../../sdkref/latest/guide/access-sso.md "../../../sdkref/latest/guide/access-sso.md") in the _AWS SDKs and Tools Reference Guide_.                                                                                                                                                                                                                          |
-| IAM                                                          | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                                   | Following the instructions in [Using temporary<br>credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| IAM                                                          | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs.                  | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the _AWS Command Line Interface User Guide_.<br>• For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>_AWS SDKs and Tools Reference Guide_.<br>• For AWS APIs, see [Managing access keys for<br>IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_. |
+1. Enter a **User name**.
 
-6. Choose **Next: Permissions**.
-7. To provide access, add permissions to your users, groups, or roles:
+1. Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 
-   - Users and groups in AWS IAM Identity Center:
+   To grant users programmatic access, choose one of the following options.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-setting-up.html)
 
-   Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the _AWS IAM Identity Center User Guide_.
-   - Users managed in IAM through an identity provider:
+1. Choose **Next: Permissions**.
 
-   Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
-   in the _IAM User Guide_.
-   - IAM users:
+1. To provide access, add permissions to your users, groups, or roles:
+   + Users and groups in AWS IAM Identity Center:
 
-     - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
-     - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
+     Create a permission set. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center User Guide*.
+   + Users managed in IAM through an identity provider:
 
-8. Enter the name of the custom-managed policy that you created in the search
-   box. Then, select the check box for **Policy name**.
-9. Choose **Next: Tags**.
-10. Choose **Next: Review**.
-11. Choose **Create user**.
-12. Choose **Close**.
+     Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*.
+   + IAM users:
+     + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*.
+     + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
 
-Device Advisor requires access to your AWS resources (things, certificates, and
-endpoints) on your behalf. Your IAM user must have the necessary permissions.
-Device Advisor will also publish logs to Amazon CloudWatch if you attach the necessary permissions
-policy to your IAM user.
+1. Enter the name of the custom-managed policy that you created in the search box. Then, select the check box for **Policy name**.
+
+1. Choose **Next: Tags**.
+
+1. Choose **Next: Review**.
+
+1. Choose **Create user**.
+
+1. Choose **Close**.
+
+Device Advisor requires access to your AWS resources (things, certificates, and endpoints) on your behalf. Your IAM user must have the necessary permissions. Device Advisor will also publish logs to Amazon CloudWatch if you attach the necessary permissions policy to your IAM user.
 
 ## Configure your device
+<a name="da-configure-device"></a>
 
-Device Advisor uses the server name indication (SNI) TLS extension to apply TLS
-configurations. Devices must use this extension when they connect and pass a server
-name that is identical to the Device Advisor test endpoint.
+Device Advisor uses the server name indication (SNI) TLS extension to apply TLS configurations. Devices must use this extension when they connect and pass a server name that is identical to the Device Advisor test endpoint.
 
-Device Advisor allows the TLS connection when a test is in the `Running`
-state. It denies the TLS connection before and after each test run. For this reason,
-we recommend that you use the device connect retry mechanism for a fully automated
-testing experience with Device Advisor. You can run test suites that include more than one
-test case, such as TLS connect, MQTT connect, and MQTT publish. If you run multiple
-test cases, we recommend that your device try to connect to our test endpoint every
-five seconds. You can then automate running multiple test cases in sequence.
+Device Advisor allows the TLS connection when a test is in the `Running` state. It denies the TLS connection before and after each test run. For this reason, we recommend that you use the device connect retry mechanism for a fully automated testing experience with Device Advisor. You can run test suites that include more than one test case, such as TLS connect, MQTT connect, and MQTT publish. If you run multiple test cases, we recommend that your device try to connect to our test endpoint every five seconds. You can then automate running multiple test cases in sequence.
 
-###### Note
+**Note**  
+To ready your device software for testing, we recommend that you use an SDK that can connect to AWS IoT Core. You should then update the SDK with the Device Advisor test endpoint provided for your AWS account.
 
-To ready your device software for testing, we recommend that you use an SDK
-that can connect to AWS IoT Core. You should then update the SDK with the Device Advisor
-test endpoint provided for your AWS account.
-
-Device Advisor supports two types of endpoints: Account-level and Device-level endpoints.
-Choose the endpoint that best fits your use case. To simultaneously run multiple
-test suites for different devices, use a Device-level endpoint.
+Device Advisor supports two types of endpoints: Account-level and Device-level endpoints. Choose the endpoint that best fits your use case. To simultaneously run multiple test suites for different devices, use a Device-level endpoint. 
 
 Run the following command to get the Device-level endpoint:
 
 For MQTT customers using X.509 client certificates:
 
 ```
-aws iotdeviceadvisor get-endpoint --thing-arn `your-thing-arn`
+aws iotdeviceadvisor get-endpoint --thing-arn {{your-thing-arn}}
 ```
 
 or
 
 ```
-aws iotdeviceadvisor get-endpoint --certificate-arn `your-certificate-arn`
+aws iotdeviceadvisor get-endpoint --certificate-arn {{your-certificate-arn}}
 ```
 
 For MQTT over WebSocket customers using Signature Version 4:
 
 ```
-aws iotdeviceadvisor get-endpoint --device-role-arn `your-device-role-arn` --authentication-method **SignatureVersion4**
+aws iotdeviceadvisor get-endpoint --device-role-arn {{your-device-role-arn}} --authentication-method SignatureVersion4
 ```
 
-To run one test suite at a time, choose an Account-level endpoint. Run the
-following command to get the Account-level endpoint:
+To run one test suite at a time, choose an Account-level endpoint. Run the following command to get the Account-level endpoint:
 
 ```
 aws iotdeviceadvisor get-endpoint

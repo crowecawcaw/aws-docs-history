@@ -1,21 +1,18 @@
+
+
 # Use `DescribeThing` with an AWS SDK or CLI
+<a name="example_iot_DescribeThing_section"></a>
 
 The following code examples show how to use `DescribeThing`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iot_Scenario_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
 ```
 //! Describe an AWS IoT thing.
@@ -51,25 +48,17 @@ bool AwsDoc::IoT::describeThing(const Aws::String &thingName,
 
     return outcome.IsSuccess();
 }
-
-
 ```
++  For API details, see [DescribeThing](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DescribeThing) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [DescribeThing](../../../goto/SdkForCpp/iot-2015-05-28/DescribeThing.md "../../../goto/SdkForCpp/iot-2015-05-28/DescribeThing.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To display detailed information about a thing**
-
-The following `describe-thing` example display information about a thing (device) that is defined in the AWS IoT registry for your AWS account.
-
-aws iot describe-thing --thing-name "MyLightBulb"
-
-Output:
+**AWS CLI**  
+**To display detailed information about a thing**  
+The following `describe-thing` example display information about a thing (device) that is defined in the AWS IoT registry for your AWS account.  
+aws iot describe-thing --thing-name "MyLightBulb"  
+Output:  
 
 ```
 {
@@ -85,22 +74,14 @@ Output:
     "version": 1
 }
 ```
+For more information, see [How to Manage Things with the Registry](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html) in the *AWS IoT Developers Guide*.  
++  For API details, see [DescribeThing](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-thing.html) in *AWS CLI Command Reference*. 
 
-For more information, see [How to Manage Things with the Registry](thing-registry.md "thing-registry.md") in the _AWS IoT Developers Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeThing](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-thing.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-thing.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
 ```
     /**
@@ -137,23 +118,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         future.join();
     }
-
-
 ```
++  For API details, see [DescribeThing](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DescribeThing) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeThing](../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DescribeThing.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 suspend fun describeThing(thingNameVal: String) {
@@ -170,14 +142,9 @@ suspend fun describeThing(thingNameVal: String) {
         println("Thing ARN:  ${describeResponse.thingArn}")
     }
 }
-
-
 ```
++  For API details, see [DescribeThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

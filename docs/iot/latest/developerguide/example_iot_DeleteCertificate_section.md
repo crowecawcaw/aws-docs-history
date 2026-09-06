@@ -1,22 +1,19 @@
+
+
 # Use `DeleteCertificate` with an AWS SDK or CLI
+<a name="example_iot_DeleteCertificate_section"></a>
 
 The following code examples show how to use `DeleteCertificate`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_iot_Scenario_section.md) 
++  [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
-- [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
 ```
     /// <summary>
@@ -57,23 +54,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
 ```
++  For API details, see [DeleteCertificate](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteCertificate](../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate.md "../../../goto/DotNetSDKV4/iot-2015-05-28/DeleteCertificate.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/iot#code-examples). 
 
 ```
 //! Delete a certificate.
@@ -102,45 +90,29 @@ bool AwsDoc::IoT::deleteCertificate(const Aws::String &certificateID,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeleteCertificate](https://docs.aws.amazon.com/goto/SdkForCpp/iot-2015-05-28/DeleteCertificate) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete a device certificate**  
+The following `delete-certificate` example deletes the device certificate with the specified ID.  
 
 ```
-
-- For API details, see
-  [DeleteCertificate](../../../goto/SdkForCpp/iot-2015-05-28/DeleteCertificate.md "../../../goto/SdkForCpp/iot-2015-05-28/DeleteCertificate.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a device certificate**
-
-The following `delete-certificate` example deletes the device certificate with the specified ID.
-
+aws iot delete-certificate \
+    --certificate-id {{c0c57bbc8baaf4631a9a0345c957657f5e710473e3ddbee1428d216d54d53ac9}}
 ```
-`aws iot delete-certificate \
- --certificate-id `c0c57bbc8baaf4631a9a0345c957657f5e710473e3ddbee1428d216d54d53ac9``
+This command produces no output.  
+For more information, see [DeleteCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteCertificate.html) in the *AWS IoT API Reference*.  
++  For API details, see [DeleteCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/delete-certificate.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-For more information, see [DeleteCertificate](../apireference/API_DeleteCertificate.md "../apireference/API_DeleteCertificate.md") in the _AWS IoT API Reference_.
-
-- For API details, see
-  [DeleteCertificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/delete-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/delete-certificate.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/iot#code-examples). 
 
 ```
     /**
@@ -173,23 +145,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         future.join();
     }
-
-
 ```
++  For API details, see [DeleteCertificate](https://docs.aws.amazon.com/goto/SdkForJavaV2/iot-2015-05-28/DeleteCertificate) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteCertificate](../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteCertificate.md "../../../goto/SdkForJavaV2/iot-2015-05-28/DeleteCertificate.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/iot#code-examples). 
 
 ```
 suspend fun deleteCertificate(certificateArn: String) {
@@ -202,23 +165,14 @@ suspend fun deleteCertificate(certificateArn: String) {
         println("$certificateArn was successfully deleted.")
     }
 }
-
-
 ```
++  For API details, see [DeleteCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
 ```
 class IoTWrapper:
@@ -260,24 +214,14 @@ class IoTWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DeleteCertificate](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/DeleteCertificate) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteCertificate](../../../goto/boto3/iot-2015-05-28/DeleteCertificate.md "../../../goto/boto3/iot-2015-05-28/DeleteCertificate.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
 ```
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
@@ -297,14 +241,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_svc_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_svc_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteCertificate](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteCertificate](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

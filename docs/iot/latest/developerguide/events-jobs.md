@@ -1,50 +1,31 @@
+
+
 # Jobs events
+<a name="events-jobs"></a>
 
-The AWS IoT Jobs service publishes to reserved topics on the MQTT protocol when jobs are
-pending, completed, or canceled, and when a device reports success or failure when
-running a job. Devices or management and monitoring applications can track the status of
-jobs by subscribing to these topics.
+The AWS IoT Jobs service publishes to reserved topics on the MQTT protocol when jobs are pending, completed, or canceled, and when a device reports success or failure when running a job. Devices or management and monitoring applications can track the status of jobs by subscribing to these topics.
 
-###### How to enable jobs events
+**How to enable jobs events**  
+Response messages from the AWS IoT Jobs service don't pass through the message broker and they can't be subscribed to by other clients or rules. To subscribe to job activity-related messages, use the `notify` and `notify-next` topics. For information about jobs topics, see [Job topics](reserved-topics.md#reserved-topics-job).
 
-Response messages from the AWS IoT Jobs service don't pass through the message
-broker and they can't be subscribed to by other clients or rules. To subscribe to
-job activity-related messages, use the `notify` and
-`notify-next` topics. For information about jobs topics, see [Job topics](reserved-topics.md#reserved-topics-job "reserved-topics.md#reserved-topics-job").
+To be notified of jobs updates, enable these jobs events by using the AWS Management Console, or by using the API or CLI. For more information, see [Enable events for AWS IoT](iot-events.md#iot-events-enable).
 
-To be notified of jobs updates, enable these jobs events by using the AWS Management Console, or by
-using the API or CLI. For more information, see [Enable events for AWS IoT](iot-events.md#iot-events-enable "iot-events.md#iot-events-enable").
+**How jobs events work**  
+Because it can take some time to cancel or delete a job, two messages are sent to indicate the start and end of a request. For example, when a cancellation request starts, a message is sent to the `$aws/events/job/jobID/cancellation_in_progress` topic. When the cancellation request is complete, a message is sent to the `$aws/events/job/jobID/canceled` topic.
 
-###### How jobs events work
+A similar process occurs for a job deletion request. Management and monitoring applications can subscribe to these topics to keep track of the status of jobs. For more information about publishing and subscribing to MQTT topics, see [Device communication protocols](protocols.md).
 
-Because it can take some time to cancel or delete a job, two messages are sent to indicate
-the start and end of a request. For example, when a cancellation request starts, a message
-is sent to the `$aws/events/job/jobID/cancellation_in_progress` topic. When the
-cancellation request is complete, a message is sent to the `$aws/events/job/jobID/canceled`
-topic.
-
-A similar process occurs for a job deletion request. Management and monitoring
-applications can subscribe to these topics to keep track of the status of jobs. For more
-information about publishing and subscribing to MQTT topics, see [Device communication protocols](protocols.md "protocols.md").
-
-###### Job event types
-
+**Job event types**  
 The following examples show the different types of jobs events:
 
-**Job Completed/Canceled/Deleted**
-
-The AWS IoT Jobs service publishes a message on an MQTT topic when a job is
-completed, canceled, deleted, or when cancellation or deletion are in
-progress:
-
-- `$aws/events/job/`jobID`/completed`
-- `$aws/events/job/`jobID`/canceled`
-- `$aws/events/job/`jobID`/deleted`
-- `$aws/events/job/`jobID`/cancellation_in_progress`
-- `$aws/events/job/`jobID`/deletion_in_progress`
-
-The `completed` message contains the following example
-payload:
+**Job Completed/Canceled/Deleted**  
+The AWS IoT Jobs service publishes a message on an MQTT topic when a job is completed, canceled, deleted, or when cancellation or deletion are in progress:  
++ `$aws/events/job/{{jobID}}/completed`
++ `$aws/events/job/{{jobID}}/canceled`
++ `$aws/events/job/{{jobID}}/deleted`
++ `$aws/events/job/{{jobID}}/cancellation_in_progress`
++ `$aws/events/job/{{jobID}}/deletion_in_progress`
+The `completed` message contains the following example payload:  
 
 ```
 {
@@ -72,9 +53,7 @@ payload:
   }
 }
 ```
-
-The `canceled` message contains the following example
-payload.
+The `canceled` message contains the following example payload.  
 
 ```
 {
@@ -94,9 +73,7 @@ payload.
   "lastUpdatedAt": 1234567890123
 }
 ```
-
-The `deleted` message contains the following example
-payload.
+The `deleted` message contains the following example payload.  
 
 ```
 {
@@ -117,9 +94,7 @@ payload.
       "comment": "Comment for this operation"
     }
 ```
-
-The `cancellation_in_progress` message contains the
-following example payload:
+The `cancellation_in_progress` message contains the following example payload:  
 
 ```
 {
@@ -140,9 +115,7 @@ following example payload:
       "comment": "Comment for this operation"
     }
 ```
-
-The `deletion_in_progress` message contains the following
-example payload:
+The `deletion_in_progress` message contains the following example payload:  
 
 ```
 {
@@ -164,20 +137,16 @@ example payload:
     }
 ```
 
-**Job Execution Terminal Status**
-
-The AWS IoT Jobs service publishes a message when a device updates a job
-execution to terminal status:
-
-- `$aws/events/jobExecution/`jobID`/succeeded`
-- `$aws/events/jobExecution/`jobID`/failed`
-- `$aws/events/jobExecution/`jobID`/rejected`
-- `$aws/events/jobExecution/`jobID`/canceled`
-- `$aws/events/jobExecution/`jobID`/timed_out`
-- `$aws/events/jobExecution/`jobID`/removed`
-- `$aws/events/jobExecution/`jobID`/deleted`
-
-The message contains the following example payload:
+**Job Execution Terminal Status**  
+The AWS IoT Jobs service publishes a message when a device updates a job execution to terminal status:  
++ `$aws/events/jobExecution/{{jobID}}/succeeded`
++ `$aws/events/jobExecution/{{jobID}}/failed`
++ `$aws/events/jobExecution/{{jobID}}/rejected`
++ `$aws/events/jobExecution/{{jobID}}/canceled`
++ `$aws/events/jobExecution/{{jobID}}/timed_out`
++ `$aws/events/jobExecution/{{jobID}}/removed`
++ `$aws/events/jobExecution/{{jobID}}/deleted`
+The message contains the following example payload:  
 
 ```
 {

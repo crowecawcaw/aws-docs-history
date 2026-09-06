@@ -1,21 +1,18 @@
+
+
 # Use `ListThings` with an AWS SDK or CLI
+<a name="example_iot_ListThings_section"></a>
 
 The following code examples show how to use `ListThings`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_iot_Scenario_section.md) 
 
-- [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/IoT#code-examples). 
 
 ```
     /// <summary>
@@ -65,28 +62,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return new List<ThingAttribute>();
         }
     }
+```
++  For API details, see [ListThings](https://docs.aws.amazon.com/goto/DotNetSDKV4/iot-2015-05-28/ListThings) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To list all things in the registry**  
+The following `list-things` example lists the things (devices) that are defined in the AWS IoT registry for your AWS account.  
 
 ```
-
-- For API details, see
-  [ListThings](../../../goto/DotNetSDKV4/iot-2015-05-28/ListThings.md "../../../goto/DotNetSDKV4/iot-2015-05-28/ListThings.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To list all things in the registry**
-
-The following `list-things` example lists the things (devices) that are defined in the AWS IoT registry for your AWS account.
-
+aws iot list-things
 ```
-`aws iot list-things`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -130,18 +119,14 @@ Output:
     ]
 }
 ```
-
-**Example 2: To list the defined things that have a specific attribute**
-
-The following `list-things` example displays a list of things that have an attribute named `wattage`.
+**Example 2: To list the defined things that have a specific attribute**  
+The following `list-things` example displays a list of things that have an attribute named `wattage`.  
 
 ```
-`aws iot list-things \
- --attribute-name `wattage``
-
+aws iot list-things \
+    --attribute-name {{wattage}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -169,22 +154,14 @@ Output:
     ]
 }
 ```
+For more information, see [How to Manage Things with the Registry](https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html) in the *AWS IoT Developers Guide*.  
++  For API details, see [ListThings](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-things.html) in *AWS CLI Command Reference*. 
 
-For more information, see [How to Manage Things with the Registry](thing-registry.md "thing-registry.md") in the _AWS IoT Developers Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [ListThings](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-things.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-things.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/iot#code-examples). 
 
 ```
 class IoTWrapper:
@@ -227,25 +204,14 @@ class IoTWrapper:
                     err.response["Error"]["Message"],
                 )
             raise
-
-
-
-
 ```
++  For API details, see [ListThings](https://docs.aws.amazon.com/goto/boto3/iot-2015-05-28/ListThings) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListThings](../../../goto/boto3/iot-2015-05-28/ListThings.md "../../../goto/boto3/iot-2015-05-28/ListThings.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iot#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/iot#code-examples). 
 
 ```
 async fn show_things(client: &Client) -> Result<(), Error> {
@@ -273,23 +239,14 @@ async fn show_things(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [ListThings](https://docs.rs/aws-sdk-iot/latest/aws_sdk_iot/client/struct.Client.html#method.list_things) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [ListThings](https://docs.rs/aws-sdk-iot/latest/aws_sdk_iot/client/struct.Client.html#method.list_things "https://docs.rs/aws-sdk-iot/latest/aws_sdk_iot/client/struct.Client.html#method.list_things")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples). 
 
 ```
     CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
@@ -317,14 +274,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_ex->get_text( ) TYPE 'I'.
         RAISE EXCEPTION lo_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [ListThings](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [ListThings](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using AWS IoT with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

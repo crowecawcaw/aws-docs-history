@@ -1,74 +1,75 @@
+
+
 # Setting up your Raspberry Pi and moisture sensor
+<a name="iot-moisture-raspi-setup"></a>
 
-Insert your microSD card into the Raspberry Pi, connect your monitor, keyboard, mouse,
-and, if you're not using Wi-Fi, Ethernet cable. Do not connect the power cable
-yet.
 
-Connect the JST jumper cable to the moisture sensor. The other side of the jumper has
-four wires:
 
-- Green: I2C SCL
-- White: I2C SDA
-- Red: power (3.5 V)
-- Black: ground
-  Hold the Raspberry Pi with the Ethernet jack on the right. In this orientation, there
-  are two rows of GPIO pins at the top. Connect the wires from the moisture sensor to the
-  bottom row of pins in the following order. Starting at the left-most pin, connect red
-  (power), white (SDA), and green (SCL). Skip one pin, and then connect the black (ground)
-  wire. For more information, see [Python Computer Wiring](https://learn.adafruit.com/adafruit-stemma-soil-sensor-i2c-capacitive-moisture-sensor/python-circuitpython-test "https://learn.adafruit.com/adafruit-stemma-soil-sensor-i2c-capacitive-moisture-sensor/python-circuitpython-test").
+Insert your microSD card into the Raspberry Pi, connect your monitor, keyboard, mouse, and, if you're not using Wi-Fi, Ethernet cable. Do not connect the power cable yet.
 
-Attach the power cable to the Raspberry Pi and plug the other end into a wall socket
-to turn it on.
+Connect the JST jumper cable to the moisture sensor. The other side of the jumper has four wires:
++ Green: I2C SCL
++ White: I2C SDA
++ Red: power (3.5 V)
++ Black: ground
 
-###### Configure your Raspberry Pi
+Hold the Raspberry Pi with the Ethernet jack on the right. In this orientation, there are two rows of GPIO pins at the top. Connect the wires from the moisture sensor to the bottom row of pins in the following order. Starting at the left-most pin, connect red (power), white (SDA), and green (SCL). Skip one pin, and then connect the black (ground) wire. For more information, see [Python Computer Wiring](https://learn.adafruit.com/adafruit-stemma-soil-sensor-i2c-capacitive-moisture-sensor/python-circuitpython-test).
 
-1. On **Welcome to Raspberry Pi**, choose
-   **Next**.
-2. Choose your country, language, timezone, and keyboard layout. Choose
-   **Next**.
-3. Enter a password for your Raspberry Pi, and then choose
-   **Next**.
-4. Choose your Wi-Fi network, and then choose **Next**. If you
-   aren't using a Wi-Fi network, choose **Skip**.
-5. Choose **Next** to check for software updates. When the
-   updates are complete, choose **Restart** to restart your
-   Raspberry Pi.
-   After your Raspberry Pi starts up, enable the I2C interface.
+Attach the power cable to the Raspberry Pi and plug the other end into a wall socket to turn it on.
 
-6. In the upper left corner of the Raspbian desktop, click the Raspberry icon,
-   choose **Preferences**, and then choose **Raspberry Pi
-   Configuration**.
-7. On the **Interfaces** tab, for **I2C**,
-   choose **Enable**.
-8. Choose **OK**.
-   The libraries for the Adafruit STEMMA moisture sensor are written for CircuitPython.
-   To run them on a Raspberry Pi, you need to install the latest version of Python
-9.
+**Configure your Raspberry Pi**
 
-10. Run the following commands from a command prompt to update your Raspberry Pi
-    software:
+1. On **Welcome to Raspberry Pi**, choose **Next**.
 
-`sudo apt-get update`
+1. Choose your country, language, timezone, and keyboard layout. Choose **Next**.
 
-`sudo apt-get upgrade` 2. Run the following command to update your Python 3 installation:
+1. Enter a password for your Raspberry Pi, and then choose **Next**.
 
-`sudo pip3 install --upgrade setuptools` 3. Run the following command to install the Raspberry Pi GPIO libraries:
+1. Choose your Wi-Fi network, and then choose **Next**. If you aren't using a Wi-Fi network, choose **Skip**.
 
-`pip3 install RPI.GPIO` 4. Run the following command to install the Adafruit Blinka libraries:
+1. Choose **Next** to check for software updates. When the updates are complete, choose **Restart** to restart your Raspberry Pi.
 
-`pip3 install adafruit-blinka`
+After your Raspberry Pi starts up, enable the I2C interface.
 
-For more information, see [Installing CircuitPython Libraries on Raspberry Pi](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi "https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi"). 5. Run the following command to install the Adafruit Seesaw libraries:
+1. In the upper left corner of the Raspbian desktop, click the Raspberry icon, choose **Preferences**, and then choose **Raspberry Pi Configuration**.
 
-`sudo pip3 install adafruit-circuitpython-seesaw` 6. Run the following command to install the AWS IoT Device SDK for Python:
+1. On the **Interfaces** tab, for **I2C**, choose **Enable**.
 
-`pip3 install AWSIoTPythonSDK`
-Your Raspberry Pi now has all of the required libraries. Create a file called
-`moistureSensor.py` and copy the following Python code into the
-file:
+1. Choose **OK**.
+
+The libraries for the Adafruit STEMMA moisture sensor are written for CircuitPython. To run them on a Raspberry Pi, you need to install the latest version of Python 3.
+
+1. Run the following commands from a command prompt to update your Raspberry Pi software:
+
+   `sudo apt-get update`
+
+   `sudo apt-get upgrade`
+
+1. Run the following command to update your Python 3 installation:
+
+   `sudo pip3 install --upgrade setuptools`
+
+1. Run the following command to install the Raspberry Pi GPIO libraries:
+
+   `pip3 install RPI.GPIO`
+
+1. Run the following command to install the Adafruit Blinka libraries:
+
+   `pip3 install adafruit-blinka`
+
+   For more information, see [Installing CircuitPython Libraries on Raspberry Pi](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi).
+
+1. Run the following command to install the Adafruit Seesaw libraries:
+
+   `sudo pip3 install adafruit-circuitpython-seesaw`
+
+1. Run the following command to install the AWS IoT Device SDK for Python:
+
+   `pip3 install AWSIoTPythonSDK`
+
+Your Raspberry Pi now has all of the required libraries. Create a file called **moistureSensor.py** and copy the following Python code into the file:
 
 ```
-
 from adafruit_seesaw.seesaw import Seesaw
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTShadowClient
 from board import SCL, SDA
@@ -85,7 +86,7 @@ import busio
 #   "state": {
 #       "desired":{
 #           "moisture":<INT VALUE>,
-#           "temp":<INT VALUE>
+#           "temp":<INT VALUE>            
 #       }
 #   }
 # }
@@ -160,7 +161,7 @@ if not args.certificatePath or not args.privateKeyPath:
     exit(2)
 
 # If no --port argument is passed, default to 8883
-if not args.port:
+if not args.port: 
     args.port = 8883
 
 
@@ -202,7 +203,7 @@ while True:
     # Display moisture and temp readings
     print("Moisture Level: {}".format(moistureLevel))
     print("Temperature: {}".format(temp))
-
+    
     # Create message payload
     payload = {"state":{"reported":{"moisture":str(moistureLevel),"temp":str(temp)}}}
 
@@ -211,48 +212,30 @@ while True:
     time.sleep(1)
 ```
 
-Save the file to a place you can find it. Run `moistureSensor.py` from the
-command line with the following parameters:
+Save the file to a place you can find it. Run `moistureSensor.py` from the command line with the following parameters:
 
-endpoint
+endpoint  
+Your custom AWS IoT endpoint. For more information, see [Device Shadow REST API](device-shadow-rest-api.md).
 
-Your custom AWS IoT endpoint. For more information, see [Device Shadow REST API](device-shadow-rest-api.md "device-shadow-rest-api.md").
-
-rootCA
-
+rootCA  
 The full path to your AWS IoT root CA certificate.
 
-cert
-
+cert  
 The full path to your AWS IoT device certificate.
 
-key
-
+key  
 The full path to your AWS IoT device certificate private key.
 
-thingName
-
+thingName  
 Your thing name (in this case, `RaspberryPi`).
 
-clientId
-
+clientId  
 The MQTT client ID. Use `RaspberryPi`.
 
 The command line should look like this:
 
-`python3 moistureSensor.py --endpoint `your-endpoint`
- --rootCA ~/certs/AmazonRootCA1.pem --cert ~/certs/raspberrypi-certificate.pem.crt
- --key ~/certs/raspberrypi-private.pem.key --thingName RaspberryPi --clientId
- RaspberryPi`
+`python3 moistureSensor.py --endpoint {{your-endpoint}} --rootCA ~/certs/AmazonRootCA1.pem --cert ~/certs/raspberrypi-certificate.pem.crt --key ~/certs/raspberrypi-private.pem.key --thingName RaspberryPi --clientId RaspberryPi`
 
-Try touching the sensor, putting it in a planter, or putting it in a glass of water to
-see how the sensor responds to various levels of moisture. If needed, you can change the
-threshold value in the `MoistureSensorRule`. When the moisture sensor reading
-goes below the value specified in your rule's SQL query statement, AWS IoT publishes a
-message to the Amazon SNS topic. You should receive an email message that contains the
-moisture and temperature data.
+Try touching the sensor, putting it in a planter, or putting it in a glass of water to see how the sensor responds to various levels of moisture. If needed, you can change the threshold value in the `MoistureSensorRule`. When the moisture sensor reading goes below the value specified in your rule's SQL query statement, AWS IoT publishes a message to the Amazon SNS topic. You should receive an email message that contains the moisture and temperature data.
 
-After you have verified receipt of email messages from Amazon SNS, press
-**CTRL+C** to stop the Python program. It is unlikely that the
-Python program will send enough messages to incur charges, but it is a best practice to
-stop the program when you are done.
+After you have verified receipt of email messages from Amazon SNS, press **CTRL\+C** to stop the Python program. It is unlikely that the Python program will send enough messages to incur charges, but it is a best practice to stop the program when you are done.

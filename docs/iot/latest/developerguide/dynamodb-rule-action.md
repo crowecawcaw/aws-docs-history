@@ -1,118 +1,80 @@
+
+
 # DynamoDB
+<a name="dynamodb-rule-action"></a>
 
-The DynamoDB (`dynamoDB`) action writes all or part of an MQTT message to
-an Amazon DynamoDB table.
+The DynamoDB (`dynamoDB`) action writes all or part of an MQTT message to an Amazon DynamoDB table. 
 
-You can follow a tutorial that shows you how to create and test a rule with a
-DynamoDB action. For more information, see [Tutorial: Storing device data in a DynamoDB table](iot-ddb-rule.md "iot-ddb-rule.md").
+You can follow a tutorial that shows you how to create and test a rule with a DynamoDB action. For more information, see [Tutorial: Storing device data in a DynamoDB table](iot-ddb-rule.md).
 
-###### Note
-
-This rule writes non-JSON data to DynamoDB as binary data. The DynamoDB console
-displays the data as base64-encoded text.
+**Note**  
+This rule writes non-JSON data to DynamoDB as binary data. The DynamoDB console displays the data as base64-encoded text.
 
 ## Requirements
+<a name="dynamodb-rule-action-requirements"></a>
 
 This rule action has the following requirements:
++ An IAM role that AWS IoT can assume to perform the `dynamodb:PutItem` operation. For more information, see [Granting an AWS IoT rule the access it requires](iot-create-role.md).
 
-- An IAM role that AWS IoT can assume to perform the `dynamodb:PutItem` operation.
-  For more information, see [Granting an AWS IoT rule the access it requires](iot-create-role.md "iot-create-role.md").
-
-In the AWS IoT console, you can choose or create a role to allow AWS IoT to perform this rule action.
-
-- If you use a customer managed AWS KMS key (KMS key) to encrypt
-  data at rest in DynamoDB, the service must have permission to use the
-  KMS key on the caller's behalf. For more information, see [Customer Managed KMS key](../../../amazondynamodb/latest/developerguide/encryption.howitworks.md#managed-cmk-customer-managed "../../../amazondynamodb/latest/developerguide/encryption.howitworks.md#managed-cmk-customer-managed") in the _Amazon DynamoDB
-  Getting Started Guide_.
+  In the AWS IoT console, you can choose or create a role to allow AWS IoT to perform this rule action.
++  If you use a customer managed AWS KMS key (KMS key) to encrypt data at rest in DynamoDB, the service must have permission to use the KMS key on the caller's behalf. For more information, see [Customer Managed KMS key](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/encryption.howitworks.html#managed-cmk-customer-managed) in the *Amazon DynamoDB Getting Started Guide*.
 
 ## Parameters
+<a name="dynamodb-rule-action-parameters"></a>
 
 When you create an AWS IoT rule with this action, you must specify the following information:
 
-`tableName`
+`tableName`  
+The name of the DynamoDB table.  
+Supports [substitution templates](iot-substitution-templates.md): API and AWS CLI only
 
-The name of the DynamoDB table.
+`hashKeyField`  
+The name of the hash key (also called the partition key).  
+Supports [substitution templates](iot-substitution-templates.md): API and AWS CLI only
 
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): API and AWS CLI only
+`hashKeyType`  
+(Optional) The data type of the hash key (also called the partition key). Valid values: `STRING`, `NUMBER`.  
+Supports [substitution templates](iot-substitution-templates.md): API and AWS CLI only
 
-`hashKeyField`
+`hashKeyValue`  
+The value of the hash key. Consider using a substitution template such as `${topic()}` or `${timestamp()}`.  
+Supports [substitution templates](iot-substitution-templates.md): Yes
 
-The name of the hash key (also called the partition key).
+`rangeKeyField`  
+(Optional) The name of the range key (also called the sort key).  
+Supports [substitution templates](iot-substitution-templates.md): API and AWS CLI only
 
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): API and AWS CLI only
+`rangeKeyType`  
+(Optional) The data type of the range key (also called the sort key). Valid values: `STRING`, `NUMBER`.  
+Supports [substitution templates](iot-substitution-templates.md): API and AWS CLI only
 
-`hashKeyType`
+`rangeKeyValue`  
+(Optional) The value of the range key. Consider using a substitution template such as `${topic()}` or `${timestamp()}`.  
+Supports [substitution templates](iot-substitution-templates.md): Yes
 
-(Optional) The data type of the hash key (also called the
-partition key). Valid values: `STRING`,
-`NUMBER`.
+`payloadField`  
+(Optional) The name of the column where the payload is written. If you omit this value, the payload is written to the column named `payload`.  
+Supports [substitution templates](iot-substitution-templates.md): Yes
 
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): API and AWS CLI only
+`operation`  
+(Optional) The type of operation to be performed. Valid values: `INSERT`, `UPDATE`, `DELETE`.  
+Supports [substitution templates](iot-substitution-templates.md): Yes
 
-`hashKeyValue`
+`roleARN`  
+The IAM role that allows access to the DynamoDB table. For more information, see [Requirements](#dynamodb-rule-action-requirements).  
+Supports [substitution templates](iot-substitution-templates.md): No
 
-The value of the hash key. Consider using a substitution template
-such as `${topic()}` or
-`${timestamp()}`.
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): Yes
-
-`rangeKeyField`
-
-(Optional) The name of the range key (also called the sort
-key).
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): API and AWS CLI only
-
-`rangeKeyType`
-
-(Optional) The data type of the range key (also called the sort
-key). Valid values: `STRING`, `NUMBER`.
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): API and AWS CLI only
-
-`rangeKeyValue`
-
-(Optional) The value of the range key. Consider using a
-substitution template such as `${topic()}` or
-`${timestamp()}`.
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): Yes
-
-`payloadField`
-
-(Optional) The name of the column where the payload is written. If
-you omit this value, the payload is written to the column named
-`payload`.
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): Yes
-
-`operation`
-
-(Optional) The type of operation to be performed. Valid values:
-`INSERT`, `UPDATE`,
-`DELETE`.
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): Yes
-
-`roleARN`
-
-The IAM role that allows access to the DynamoDB table. For more
-information, see [Requirements](#dynamodb-rule-action-requirements "#dynamodb-rule-action-requirements").
-
-Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): No
-
-The data written to the DynamoDB table is the result from the SQL statement of
-the rule.
+The data written to the DynamoDB table is the result from the SQL statement of the rule.
 
 ## Examples
+<a name="dynamodb-rule-action-examples"></a>
 
 The following JSON example defines a DynamoDB action in an AWS IoT rule.
 
 ```
 {
     "topicRulePayload": {
-        "sql": "SELECT * AS message FROM 'some/topic'",
+        "sql": "SELECT * AS message FROM 'some/topic'", 
         "ruleDisabled": false,
         "awsIotSqlVersion": "2016-03-23",
         "actions": [
@@ -132,10 +94,7 @@ The following JSON example defines a DynamoDB action in an AWS IoT rule.
 ```
 
 ## See also
-
-- [What is Amazon DynamoDB?](../../../amazondynamodb/latest/developerguide.md "../../../amazondynamodb/latest/developerguide.md") in the
-  _Amazon DynamoDB Developer Guide_
-- [Getting started
-  with DynamoDB](../../../amazondynamodb/latest/developerguide/GettingStartedDynamoDB.md "../../../amazondynamodb/latest/developerguide/GettingStartedDynamoDB.md") in the
-  _Amazon DynamoDB Developer Guide_
-- [Tutorial: Storing device data in a DynamoDB table](iot-ddb-rule.md "iot-ddb-rule.md")
+<a name="dynamodb-rule-action-see-also"></a>
++ [What is Amazon DynamoDB?](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/) in the *Amazon DynamoDB Developer Guide*
++ [Getting started with DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html) in the *Amazon DynamoDB Developer Guide*
++ [Tutorial: Storing device data in a DynamoDB table](iot-ddb-rule.md)

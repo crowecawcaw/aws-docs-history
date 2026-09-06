@@ -1,18 +1,17 @@
-# Create a thing
 
-The following command shows how to use the AWS IoT **CreateThing**
-command from the CLI to create a thing. You can't change a thing's name after you
-create it. To change a thing's name, create a new thing, give it the new name, and
-then delete the old thing.
+
+# Create a thing
+<a name="create-thing"></a>
+
+The following command shows how to use the AWS IoT **CreateThing** command from the CLI to create a thing. You can't change a thing's name after you create it. To change a thing's name, create a new thing, give it the new name, and then delete the old thing. 
 
 ```
 $ aws iot create-thing \
-    --thing-type-name "MyLightBulb" \
+    --thing-type-name "MyLightBulb" \ 
     --attribute-payload "{\"attributes\": {\"wattage\":\"75\", \"model\":\"123\"}}"
 ```
 
-The **CreateThing** command displays the name and Amazon Resource
-Name (ARN) of your new thing:
+The **CreateThing** command displays the name and Amazon Resource Name (ARN) of your new thing:
 
 ```
 {
@@ -22,10 +21,7 @@ Name (ARN) of your new thing:
 }
 ```
 
-###### Note
+**Note**  
+We don't recommend using personally identifiable information in your thing names.
 
-We don't recommend using personally identifiable information in your thing
-names.
-
-For more information, see [create-thing](../../../cli/latest/reference/iot/create-thing.md "../../../cli/latest/reference/iot/create-thing.md") from the
-AWS CLI Command Reference.
+For more information, see [create-thing](https://docs.aws.amazon.com/cli/latest/reference/iot/create-thing.html) from the AWS CLI Command Reference.

@@ -1,41 +1,40 @@
+
+
 # Deprecate a command resource
+<a name="iot-remote-command-deprecate"></a>
 
 Deprecate commands to indicate they are outdated and should not be used. For example, deprecate commands no longer actively maintained or when creating newer commands with the same ID but different payloads.
 
 ## Key considerations
+<a name="iot-remote-command-deprecate-considerations"></a>
 
 Important considerations when deprecating commands:
-
-- Deprecating a command does not delete it. You can retrieve the command using its ID and restore it for reuse.
-- Attempting to start new executions on deprecated commands generates an error, preventing use of outdated commands.
-- To execute a deprecated command, first restore it. After restoration, the command becomes available for regular use and execution on target devices.
-- If you deprecate a command while executions are in progress, they continue running until completion. You can still retrieve execution status.
++ Deprecating a command does not delete it. You can retrieve the command using its ID and restore it for reuse.
++ Attempting to start new executions on deprecated commands generates an error, preventing use of outdated commands.
++ To execute a deprecated command, first restore it. After restoration, the command becomes available for regular use and execution on target devices.
++ If you deprecate a command while executions are in progress, they continue running until completion. You can still retrieve execution status.
 
 ## Deprecate a command resource (console)
+<a name="iot-remote-command-deprecate-console"></a>
 
-To deprecate a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of the AWS IoT console and perform
-the following steps.
+To deprecate a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub) of the AWS IoT console and perform the following steps.
 
-1. Choose the command that you want to deprecate, and then under
-   **Actions**, choose
-   **Deprecate**.
-2. Confirm that you want to deprecate the command and then choose
-   **Deprecate**.
+1. Choose the command that you want to deprecate, and then under **Actions**, choose **Deprecate**.
+
+1. Confirm that you want to deprecate the command and then choose **Deprecate**.
 
 ## Deprecate a command resource (CLI)
+<a name="iot-remote-command-deprecate-cli"></a>
 
 Mark commands as deprecated using the `update-command` CLI. You must deprecate a command before deletion. To use a deprecated command, restore it first.
 
 ```
-aws iot update-command \
-    --command-id `<command-id>` \
+aws iot update-command \ 
+    --command-id {{<command-id>}} \ 
     --deprecated
 ```
 
-For example, if you deprecated the
-`ACSwitch` command that you updated in the
-example above, the following code shows a sample output of running the
-command.
+For example, if you deprecated the `{{ACSwitch}}` command that you updated in the example above, the following code shows a sample output of running the command.
 
 ```
 {
@@ -46,14 +45,15 @@ command.
 ```
 
 ## Check deprecation time and status
+<a name="iot-remote-command-deprecate-check"></a>
 
 Use the `GetCommand` API to determine if a command is deprecated and when it was last deprecated.
 
 ```
-aws iot get-command --command-id `<turnOffAC>`
+aws iot get-command --command-id {{<turnOffAC>}}
 ```
 
-This command generates a response containing command information, including creation and deprecation timestamps from the last updated field. This helps determine command lifetime and whether to delete or reuse it. The following shows a sample response for the `turnOffAc` command:
+This command generates a response containing command information, including creation and deprecation timestamps from the last updated field. This helps determine command lifetime and whether to delete or reuse it. The following shows a sample response for the `{{turnOffAc}}` command:
 
 ```
 {
@@ -71,20 +71,17 @@ This command generates a response containing command information, including crea
 ```
 
 ## Restore a command resource
+<a name="iot-remote-command-undeprecate"></a>
 
 To use or send the `ACSwitch` command to your device, restore it first.
 
-To restore a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of the AWS IoT console, choose the
-command that you want to restore, and then under **Actions**,
-choose **Restore**.
+To restore a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub) of the AWS IoT console, choose the command that you want to restore, and then under **Actions**, choose **Restore**.
 
-To restore a command using the AWS IoT Core API or the AWS CLI, use the
-`UpdateCommand` API operation or the `update-command` CLI.
-The following code shows a sample request and response.
+To restore a command using the AWS IoT Core API or the AWS CLI, use the `UpdateCommand` API operation or the `update-command` CLI. The following code shows a sample request and response.
 
 ```
-aws iot update-command \
-    --command-id `<command-id>`
+aws iot update-command \ 
+    --command-id {{<command-id>}} 
     --no-deprecated
 ```
 
