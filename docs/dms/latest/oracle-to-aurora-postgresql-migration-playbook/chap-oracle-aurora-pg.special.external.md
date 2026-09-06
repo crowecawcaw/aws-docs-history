@@ -1,12 +1,17 @@
+
+
 # Oracle external tables and PostgreSQL integration with Amazon S3
+<a name="chap-oracle-aurora-pg.special.external"></a>
 
 With AWS DMS, you can migrate data from on-premises databases to Amazon S3 by creating Oracle external tables or integrating PostgreSQL with Amazon S3. Oracle external tables provide access to data stored in Amazon S3, treating objects as records in a table. PostgreSQL integration with Amazon S3 lets you query data directly from Amazon S3 using the SQL/PostgreSQL interface.
 
-| Feature compatibility    | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                            | Key differences                             |
-| ------------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| No feature compatibility | No automation                      | [Creating Tables](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.tables "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.tables") | PostgreSQL doesn’t support external tables. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [Creating Tables](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.tables)  | PostgreSQL doesn’t support external tables. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.special.external.ora"></a>
 
 The Oracle external tables feature allows you to create a table in your database that reads data from a source located outside your database (externally).
 
@@ -23,17 +28,16 @@ RECORDS DELIMITED BY NEWLINE
 FIELDS TERMINATED BY '|') LOCATION ('test.csv') REJECT LIMIT UNLIMITED) tst_external;
 ```
 
-**Examples**
+ **Examples** 
 
-`CREATE TABLE` with `ORGANIZATION EXTERNAL` to identify it as an external table. Specify the TYPE to let the database choose the right driver for the data source, the options are:
-
-- `ORACLE_LOADER` — The data must be sourced from text data files. (default)
-- `ORACLE_DATAPUMP` —The data must be sourced from binary dump files. You can write dump files only as part of creating an external table with the `CREATE TABLE AS SELECT` statement. Once the dump file is created, it can be read any number of times, but it can’t be modified (that is, no DML operations can be performed).
-- `ORACLE_HDFS` — Extracts data stored in a Hadoop Distributed File System (HDFS).
-- `ORACLE_HIVE` — Extracts data stored in Apache HIVE.
-- `DEFAULT DIRECTORY` — In database definition for the directory path.
-- `ACCESS PARAMETER` — Defines the DELIMITER character and the query fields.
-- `LOCATION` — The file name in the first two data source types or URI in the Hadoop data source (not in use with hive data source).
+ `CREATE TABLE` with `ORGANIZATION EXTERNAL` to identify it as an external table. Specify the TYPE to let the database choose the right driver for the data source, the options are:
++  `ORACLE_LOADER` — The data must be sourced from text data files. (default)
++  `ORACLE_DATAPUMP` —The data must be sourced from binary dump files. You can write dump files only as part of creating an external table with the `CREATE TABLE AS SELECT` statement. Once the dump file is created, it can be read any number of times, but it can’t be modified (that is, no DML operations can be performed).
++  `ORACLE_HDFS` — Extracts data stored in a Hadoop Distributed File System (HDFS).
++  `ORACLE_HIVE` — Extracts data stored in Apache HIVE.
++  `DEFAULT DIRECTORY` — In database definition for the directory path.
++  `ACCESS PARAMETER` — Defines the DELIMITER character and the query fields.
++  `LOCATION` — The file name in the first two data source types or URI in the Hadoop data source (not in use with hive data source).
 
 ```
 CREATE TABLE emp_load
@@ -46,22 +50,23 @@ date_format DATE mask "mm/dd/yyyy"))
 LOCATION ('info.dat'));
 ```
 
-For more information, see [External Tables Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/18/sutil/oracle-external-tables-concepts.html#GUID-44323E01-7D72-45EC-915A-99E596769D9E "https://docs.oracle.com/en/database/oracle/oracle-database/18/sutil/oracle-external-tables-concepts.html#GUID-44323E01-7D72-45EC-915A-99E596769D9E") in the _Oracle documentation_.
+For more information, see [External Tables Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/18/sutil/oracle-external-tables-concepts.html#GUID-44323E01-7D72-45EC-915A-99E596769D9E) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.special.external.pg"></a>
 
-Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. This means customers of all sizes and industries can use it to store and protect any amount of data.
+ Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. This means customers of all sizes and industries can use it to store and protect any amount of data.
 
 The following diagram illustrates the solution architecture.
 
-![Oracle external tables solution architecture](images/pb-oracle-external-tables.png)
+![Oracle external tables solution architecture](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-external-tables.png)
+
 
 This is the most relevant capability for the Oracle’s External Tables in Aurora for PostgreSQL, but requires a significant amount of syntax modifications. The main difference is that there is no open link to files and the data must be transferred from and to PostgreSQL (if all data is needed).
 
 There are two important operations for Aurora for PostgreSQL and Amazon S3 integration:
-
-- Saving data to an Amazon S3 file.
-- Loading data from an Amazon S3 file.
++ Saving data to an Amazon S3 file.
++ Loading data from an Amazon S3 file.
 
 RDS Aurora for PostgreSQL must have permissions to the Amazon S3 bucket. For more information, see the links at the end of this section.
 
@@ -70,11 +75,11 @@ In Oracle 18c, the inline external table feature was introduced. this, can’t b
 For ETLs for example, consider using AWS Glue.
 
 ### Saving data to Amazon S3
+<a name="chap-oracle-aurora-pg.special.external.pg.save"></a>
 
 You can use the `aws_s3.query_export_to_s3` function to query data from an Amazon Aurora PostgreSQL and save it directly into text files stored in an Amazon S3 bucket. Use this functionality to avoid transferring data to the client first, and then copying the data from the client to Amazon S3.
 
-###### Note
-
+**Note**  
 The default file size threshold is six gigabytes (GB). If the data selected by the statement is less than the file size threshold, a single file is created. Otherwise, multiple files are created.
 
 If the run fails, files already uploaded to Amazon S3 remain in the specified Amazon S3 bucket. You can use another statement to upload the remaining data instead of starting over again.
@@ -83,7 +88,7 @@ If the amount of data to be selected is more than 25 GB, it is recommended to us
 
 Meta-data, such as table schema or file meta-data, is not uploaded by Aurora PostgreSQL to Amazon S3.
 
-**Examples**
+ **Examples** 
 
 Add Amazon S3 extension.
 
@@ -114,21 +119,24 @@ aws_commons.create_s3_uri(
 ```
 
 ### Query export to Amazon S3 summary
+<a name="chap-oracle-aurora-pg.special.external.pg.summary"></a>
 
-| Field      | Description                                                                                                                                                                                                                                                                                                                                           |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| query      | A required text string containing an SQL query that the PostgreSQL engine runs. The results of this query are copied to an Amazon S3 bucket identified in the s3\_info parameter.                                                                                                                                                                     |
-| bucket     | A required text string containing the name of the Amazon S3 bucket that contains the file.                                                                                                                                                                                                                                                            |
-| file\_path | A required text string containing the Amazon S3 file name including the path of the file.                                                                                                                                                                                                                                                             |
-| region     | An optional text string containing the AWS Region that the bucket is in options An optional text string containing arguments for the PostgreSQL `COPY` command.<br>For more information, see [COPY](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html") in the _PostgreSQL documentation_. |
 
-For more information, see [Export and import data from Amazon S3 to Amazon Aurora PostgreSQL](https://aws.amazon.com/blogs/database/export-and-import-data-from-amazon-s3-to-amazon-aurora-postgresql/ "https://aws.amazon.com/blogs/database/export-and-import-data-from-amazon-s3-to-amazon-aurora-postgresql/").
+| Field | Description | 
+| --- | --- | 
+| query | A required text string containing an SQL query that the PostgreSQL engine runs. The results of this query are copied to an Amazon S3 bucket identified in the s3\_info parameter. | 
+| bucket | A required text string containing the name of the Amazon S3 bucket that contains the file. | 
+| file\_path | A required text string containing the Amazon S3 file name including the path of the file. | 
+| region | An optional text string containing the AWS Region that the bucket is in options An optional text string containing arguments for the PostgreSQL `COPY` command.<br />For more information, see [COPY](https://www.postgresql.org/docs/current/sql-copy.html) in the *PostgreSQL documentation*. | 
+
+For more information, see [Export and import data from Amazon S3 to Amazon Aurora PostgreSQL](https://aws.amazon.com/blogs/database/export-and-import-data-from-amazon-s3-to-amazon-aurora-postgresql/).
 
 ### Loading Data from Amazon S3
+<a name="chap-oracle-aurora-pg.special.external.pg.load"></a>
 
 You can use the `table_import_from_s3` function to load data from files stored in an Amazon S3 bucket.
 
-**Examples**
+ **Examples** 
 
 The following example runs the `table_import_from_s3` function to import gzipped csv from Amazon S3 into the `test_gzip` table.
 
@@ -140,13 +148,15 @@ SELECT aws_s3.table_import_from_s3('test_gzip', '',
 ```
 
 ### Table import from Amazon S3 summary
+<a name="chap-oracle-aurora-pg.special.external.pg.loadsummary"></a>
 
-| Field        | Description                                                                                                                                                                                                                                                                                                                                                              |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| table\_name  | A required text string containing the name of the PostgreSQL database table to import the data into.                                                                                                                                                                                                                                                                     |
-| column\_list | A required text string containing an optional list of the PostgreSQL database table columns in which to copy the data. If the string is empty, all columns of the table are used.                                                                                                                                                                                        |
-| options      | A required text string containing arguments for the PostgreSQL `COPY` command.<br>For more information, see [COPY](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html") in the _PostgreSQL documentation_.                                                                                                     |
-| s3\_info     | An `aws_commons._s3_uri_1` composite type containing the following information about the Amazon S3 object:<br>• `bucket` — The name of the Amazon S3 bucket containing the file.<br>• `file_path` — The Amazon S3 file name including the path of the file.<br>• `region` — The AWS Region that the file is in. For a listing of AWS Region names and associated values. |
-| credentials  | The credentials parameter specifies the credentials to access Amazon S3. When you use this parameter, you don’t use an IAM role.                                                                                                                                                                                                                                         |
 
-For more information, see [Importing data into PostgreSQL on Amazon RDS](../../../AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.md "../../../AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.md") in the _Amazon RDS user guide_.
+| Field | Description | 
+| --- | --- | 
+| table\_name | A required text string containing the name of the PostgreSQL database table to import the data into. | 
+| column\_list | A required text string containing an optional list of the PostgreSQL database table columns in which to copy the data. If the string is empty, all columns of the table are used. | 
+| options | A required text string containing arguments for the PostgreSQL `COPY` command.<br />For more information, see [COPY](https://www.postgresql.org/docs/current/sql-copy.html) in the *PostgreSQL documentation*. | 
+| s3\_info | An `aws_commons._s3_uri_1` composite type containing the following information about the Amazon S3 object:+   `bucket` — The name of the Amazon S3 bucket containing the file. <br />+   `file_path` — The Amazon S3 file name including the path of the file. <br />+   `region` — The AWS Region that the file is in. For a listing of AWS Region names and associated values.  | 
+| credentials | The credentials parameter specifies the credentials to access Amazon S3. When you use this parameter, you don’t use an IAM role. | 
+
+For more information, see [Importing data into PostgreSQL on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html) in the *Amazon RDS user guide*.

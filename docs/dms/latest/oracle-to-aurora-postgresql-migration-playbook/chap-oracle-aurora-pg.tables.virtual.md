@@ -1,12 +1,17 @@
+
+
 # Oracle virtual columns and PostgreSQL views and functions
+<a name="chap-oracle-aurora-pg.tables.virtual"></a>
 
 With AWS DMS, you can replicate data from an Oracle database to a PostgreSQL database while creating PostgreSQL views and functions that mimic Oracle’s virtual columns. Oracle virtual columns let you create columns that derive values from other columns or expressions. PostgreSQL lacks a direct equivalent, but you can use views and functions to achieve similar functionality.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Four star feature compatibility | Five star automation level         | N/A                       | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-5.png)  | N/A | N/A | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.tables.virtual.ora"></a>
 
 Oracle virtual columns appear as normal columns, but their values are calculated instead of being stored in the database. Virtual columns can’t be created based on other virtual columns and can only reference columns from the same table. When creating a virtual column, you can either explicitly specify the data type or let the database select the data type based on the expression.
 
@@ -34,7 +39,7 @@ The keyword `AS` after the column name indicates the column is created as a virt
 
 A virtual column doesn’t need to be specified in an `INSERT` statement.
 
-**Examples**
+ **Examples** 
 
 Create a table that includes two virtual columns.
 
@@ -74,20 +79,20 @@ EMAIL           FINAL_SALARY
 jsmith@aws.com  10250
 ```
 
-For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6") in the _Oracle documentation_.
+For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.tables.virtual.pg"></a>
 
 PostgreSQL doesn’t provide a feature that is directly equivalent to a Virtual Column in Oracle before version 12. However, there are workarounds to emulate similar functionality.
 
 Starting with PostgreSQL 12, support for generated columns have been added. Generated columns can be either calculated from other columns values on the fly or calculated and stored. Generated columns are similar to Oracle virtual columns.
 
 Alternatives for virtual columns for PostgreSQL before version 12:app-name:
++  **Views** — Create a view using the function for the virtual column as part of the view syntax.
++  **Function as a column** — Create a function that receives column values from table records (as parameters) and returns a modified value according to a specific expression. The function serves as a Virtual Column equivalent. You can create a PostgreSQL Expression Index (equivalent to Oracle function-based index) that is based on the function.
 
-- **Views** — Create a view using the function for the virtual column as part of the view syntax.
-- **Function as a column** — Create a function that receives column values from table records (as parameters) and returns a modified value according to a specific expression. The function serves as a Virtual Column equivalent. You can create a PostgreSQL Expression Index (equivalent to Oracle function-based index) that is based on the function.
-
-**Examples**
+ **Examples** 
 
 The email address for a user is calculated based on the USER\_NAME column that is a physical property of the table.
 
@@ -167,13 +172,13 @@ Index Cond: ((lower((user_name)::text) || '@aws.com'::text) = 'jsmith@aws.com'::
 ```
 
 ### DML support
+<a name="chap-oracle-aurora-pg.tables.virtual.pg.dml"></a>
 
 Using triggers, you can populate column values automatically as virtual columns. For this approach, create two PostgreSQL objects:
++ Create a function containing the data modification logic based on table column data.
++ Create a trigger to use the function and run it as part of the DML.
 
-- Create a function containing the data modification logic based on table column data.
-- Create a trigger to use the function and run it as part of the DML.
-
-**Examples**
+ **Examples** 
 
 The following code examples show how to automatically populate the `FULL_NAME` column with the values using data from the `FIRST_NAME` and `LAST_NAME` columns.
 
@@ -240,4 +245,4 @@ Index Scan using idx_user_full_name on employees (cost=0.13..8.14 rows=1 width=2
 Index Cond: ((full_name)::text = 'John Smith'::text)
 ```
 
-For more information, see [CREATE TRIGGER](https://www.postgresql.org/docs/13/sql-createtrigger.html "https://www.postgresql.org/docs/13/sql-createtrigger.html") in the _PostgreSQL documentation_.
+For more information, see [CREATE TRIGGER](https://www.postgresql.org/docs/13/sql-createtrigger.html) in the *PostgreSQL documentation*.

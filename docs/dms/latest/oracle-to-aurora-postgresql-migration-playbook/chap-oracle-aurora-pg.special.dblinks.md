@@ -1,18 +1,23 @@
+
+
 # Oracle database links and PostgreSQL dblink and fdwrapper
+<a name="chap-oracle-aurora-pg.special.dblinks"></a>
 
 With AWS DMS, you can integrate heterogeneous database systems by creating database links between different database management systems. Oracle database links and PostgreSQL dblink/fdwrapper facilitate access to data in remote databases from a local database, enabling queries and data manipulation across distributed environments.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                         | Key differences               |
-| -------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| Three star feature compatibility | No automation                      | [Database Links](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.databaselinks "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.databaselinks") | Different paradigm and syntax |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [Database Links](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.databaselinks)  | Different paradigm and syntax | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.special.dblinks.ora"></a>
 
 Database links are schema objects used to interact with remote database objects such as tables. Common use cases for database links include selecting data from tables that reside in a remote database.
 
 To use database links, Oracle net services must be installed on both the local and remote database servers to facilitate communications.
 
-**Examples**
+ **Examples** 
 
 Create a database link named remote\_db. When creating a database link, you have the option to specify the remote database destination using a TNS Entry or to specify the full TNS Connection string.
 
@@ -23,8 +28,7 @@ CREATE DATABASE LINK remotenoTNS CONNECT TO username IDENTIFIED BY password
   (PORT =1521)))(CONNECT_DATA =(SERVICE_NAME = orcl)))';
 ```
 
-After the database link is created, you can use the database link directly as part of a SQL query using the database
-link name (@remote\_db) as a suffix to the table name.
+After the database link is created, you can use the database link directly as part of a SQL query using the database link name (@remote\_db) as a suffix to the table name.
 
 ```
 SELECT * FROM employees@remote_db;
@@ -42,18 +46,20 @@ UPDATE jobs@remote_db SET min_salary = 3000 WHERE job_id = 'SH_CLERK';
 DELETE FROM employees@remote_db WHERE employee_id = 999;
 ```
 
-For more information, see [Managing Database Links](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-a-distributed-database.html#GUID-7B0C4627-4473-4313-88D5-FD03CA42D9EA "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-a-distributed-database.html#GUID-7B0C4627-4473-4313-88D5-FD03CA42D9EA") in the _Oracle documentation_.
+For more information, see [Managing Database Links](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-a-distributed-database.html#GUID-7B0C4627-4473-4313-88D5-FD03CA42D9EA) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.special.dblinks.pg"></a>
 
 Querying data in remote databases in PostgreSQL is available through two primary options:
 
-1. `dblink` database link function.
-2. `postgresql_fdw` (Foreign Data Wrapper, FDW) extension.
+1.  `dblink` database link function.
+
+1.  `postgresql_fdw` (Foreign Data Wrapper, FDW) extension.
 
 The PostgreSQL foreign data wrapper extension is new to PostgreSQL and offers functionality that is similar to dblink. However, the PostgreSQL foreign data wrapper aligns closer with the SQL standard and can provide improved performance.
 
-**Example of using dblink**
+ **Example of using dblink** 
 
 Load the `dblink` extension into PostgreSQL.
 
@@ -130,9 +136,9 @@ SELECT * FROM dblink('myconn',$$CREATE table new_remote_tbl
 (a int, b text)$$) AS t(a text);
 ```
 
-For more information, see [dblink](https://www.postgresql.org/docs/13/dblink.html "https://www.postgresql.org/docs/13/dblink.html") in the _PostgreSQL documentation_.
+For more information, see [dblink](https://www.postgresql.org/docs/13/dblink.html) in the *PostgreSQL documentation*.
 
-**Example of using the PostgreSQL Foreign Data Wrapper**
+ **Example of using the PostgreSQL Foreign Data Wrapper** 
 
 Load the fdw extension into PostgreSQL.
 
@@ -181,32 +187,35 @@ FROM SERVER remote_db INTO local_hr;
 ```
 
 Both dblink and FDW store the remote database username and password as plain-text, in two locations:
-
-- The pg\_user\_mapping view, accessible only to “super users” in the database.
-- When using the dblink function, passwords can be stored in your code or procedures inside the database.
++ The pg\_user\_mapping view, accessible only to “super users” in the database.
++ When using the dblink function, passwords can be stored in your code or procedures inside the database.
 
 Any changes to PostgreSQL user passwords require changing the FDW/dblink specifications as well.
 
 When using FDW, if columns in the remote tables have been dropped or renamed, the queries will fail. The FDW tables must be re-created.
 
 ### PostgreSQL dblink compared to PostgreSQL foreign data wrapper
+<a name="chap-oracle-aurora-pg.special.dblinks.pg.compare"></a>
 
-| Description                                                          | PostgreSQL dblink                                                                                                                                                 | PostgreSQL Foreign Data Wrapper                                                                                                                                                                                                             |
-| -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create a permanent reference to a remote table using a database link | Not supported                                                                                                                                                     | After creating: define DFW server, create user mapping, and run.<br>`<br>CREATE FOREIGN TABLE foreign_emp_tbl<br>(id int, name text, address text )<br>SERVER foreign_server<br>OPTIONS (schema_name 'hr',<br>table_name 'employees');<br>` |
-| Query remote data                                                    | `<br>SELECT<br>• FROM dblink('myconn',<br>'SELECT<br>• FROM employees')<br>AS p(id int,fullname text,<br>address text);<br>`                                      | `<br>SELECT<br>• FROM foreign_emp_tbl;<br>`                                                                                                                                                                                                 |
-| DML on remote data                                                   | `<br>SELECT<br>• FROM dblink('myconn',<br>$$INSERT into employees<br>VALUES (45,'Dan','South side 7432,<br>NY')$$) AS t(id int, name text,<br>address text);<br>` | `<br>INSERT into foreign_emp_tb<br>VALUES (45,'Dan','South side 7432,<br>NY'); (Regular DML)<br>`                                                                                                                                           |
-| Run DDL on remote objects                                            | `<br>SELECT<br>• FROM dblink ('myconn',$$CREATE table<br>my_remote_tbl (a int, b text)$$) AS t(a text);<br>`                                                      | Not supported                                                                                                                                                                                                                               |
+
+| Description | PostgreSQL dblink | PostgreSQL Foreign Data Wrapper | 
+| --- | --- | --- | 
+| Create a permanent reference to a remote table using a database link | Not supported | After creating: define DFW server, create user mapping, and run.<pre>CREATE FOREIGN TABLE foreign_emp_tbl<br />(id int, name text, address text )<br />SERVER foreign_server<br />OPTIONS (schema_name 'hr',<br />table_name 'employees');</pre> | 
+| Query remote data |  <pre>SELECT * FROM dblink('myconn',<br />  'SELECT * FROM employees')<br />  AS p(id int,fullname text,<br />  address text);</pre>  |  <pre>SELECT * FROM foreign_emp_tbl;</pre>  | 
+| DML on remote data |  <pre>SELECT * FROM dblink('myconn',<br />$$INSERT into employees<br />VALUES (45,'Dan','South side 7432,<br />NY')$$) AS t(id int, name text,<br />address text);</pre>  |  <pre>INSERT into foreign_emp_tb<br />VALUES (45,'Dan','South side 7432,<br />NY'); (Regular DML)</pre>  | 
+| Run DDL on remote objects |  <pre>SELECT * FROM dblink ('myconn',$$CREATE table<br />my_remote_tbl (a int, b text)$$) AS t(a text);</pre>  | Not supported | 
 
 ## Summary
+<a name="chap-oracle-aurora-pg.special.dblinks.summary"></a>
 
-| Description                                                                         | Oracle                                                                                                                                                                                                                                        | PostgreSQL dblink                                                                                                                                                                                                                             |
-| ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create a permanent named database link                                              | `<br>CREATE DATABASE LINK remote<br>CONNECT TO username IDENTIFIED<br>BY password USING 'remote';<br>`                                                                                                                                        | Not Supported. You have to manually open the connection to the remote database in your sessions / queries:<br>`<br>SELECT dblink_connect('myconn',<br>'dbname=postgres port=5432<br>hostt=hostname user=username<br>password=password');<br>` |
-| Query using a database link                                                         | `<br>SELECT<br>• FROM employees@remote;<br>`                                                                                                                                                                                                  | `<br>SELECT<br>• FROM dblink<br>('myconn','SELECT<br>• FROM employees')<br>AS p(id int,fullname text, address text);<br>`                                                                                                                     |
-| DML using database link                                                             | `<br>INSERT INTO employees@remote<br>(employee_id, last_name, email,<br>hire_date, job_id) VALUES (999,<br>'Claus','sclaus@example.com',<br>SYSDATE,'SH_CLERK');<br>`                                                                         | `<br>SELECT<br>• FROM dblink<br>('myconn',$$INSERT into employees<br>VALUES (45,'Dan','South side 7432, NY'<br>)$$) AS t(id int, name text, address text);<br>`                                                                               |
-| Heterogeneous database link connections, such as Oracle to PostgreSQL or vice-versa | Supported.                                                                                                                                                                                                                                    | Create extension oracle\_fdw not supported by Amazon RDS.                                                                                                                                                                                     |
-| Run DDL using a database link                                                       | Not supported directly, but you can run a procedure or create a job on the remote database and runs the desired DDL commands.<br>`<br>dbms_job@remote.submit(<br>l_job, 'execute immediate<br>''create table t ( x int)'''<br>); commit;<br>` | `<br>SELECT<br>• FROM dblink (<br>'myconn',$$CREATE table my_remote_tbl<br>(a int, b text)$$) AS t(a text);<br>`                                                                                                                              |
-| Delete a database link                                                              | `<br>drop database link remote;<br>`                                                                                                                                                                                                          | Not supported. Close the DBLink connection instead.<br>`<br>SELECT dblink_disconnect ('myconn');<br>`                                                                                                                                         |
 
-For more information, see [postgres\_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html "https://www.postgresql.org/docs/13/postgres-fdw.html") in the _PostgreSQL documentation_.
+| Description | Oracle | PostgreSQL dblink | 
+| --- | --- | --- | 
+| Create a permanent named database link |  <pre>CREATE DATABASE LINK remote<br />CONNECT TO username IDENTIFIED<br />BY password USING 'remote';</pre>  | Not Supported. You have to manually open the connection to the remote database in your sessions / queries:<pre>SELECT dblink_connect('myconn',<br />'dbname=postgres port=5432<br />hostt=hostname user=username<br />password=password');</pre> | 
+| Query using a database link |  <pre>SELECT * FROM employees@remote;</pre>  |  <pre>SELECT * FROM dblink<br />('myconn','SELECT * FROM employees')<br /> AS p(id int,fullname text, address text);</pre>  | 
+| DML using database link |  <pre>INSERT INTO employees@remote<br />(employee_id, last_name, email,<br />hire_date, job_id) VALUES (999,<br />'Claus','sclaus@example.com',<br />SYSDATE,'SH_CLERK');</pre>  |  <pre>SELECT * FROM dblink<br />('myconn',$$INSERT into employees<br />VALUES (45,'Dan','South side 7432, NY'<br />)$$) AS t(id int, name text, address text);</pre>  | 
+| Heterogeneous database link connections, such as Oracle to PostgreSQL or vice-versa | Supported. | Create extension oracle\_fdw not supported by Amazon RDS. | 
+| Run DDL using a database link | Not supported directly, but you can run a procedure or create a job on the remote database and runs the desired DDL commands.<pre>dbms_job@remote.submit(<br />  l_job, 'execute immediate<br />  ''create table t ( x int)'''<br />  ); commit;</pre> |  <pre>SELECT * FROM dblink (<br />  'myconn',$$CREATE table my_remote_tbl<br />  (a int, b text)$$) AS t(a text);</pre>  | 
+| Delete a database link |  <pre>drop database link remote;</pre>  | Not supported. Close the DBLink connection instead.<pre>SELECT dblink_disconnect ('myconn');</pre> | 
+
+For more information, see [postgres\_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html) in the *PostgreSQL documentation*.

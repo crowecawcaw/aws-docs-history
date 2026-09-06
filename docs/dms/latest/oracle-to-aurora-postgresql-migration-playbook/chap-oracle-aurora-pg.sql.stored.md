@@ -1,22 +1,28 @@
+
+
 # Oracle procedures and functions and PostgreSQL stored procedures
+<a name="chap-oracle-aurora-pg.sql.stored"></a>
 
 With AWS DMS, you can migrate Oracle procedures and functions, as well as PostgreSQL stored procedures, to various target databases supported by the service. Oracle procedures and functions are reusable code blocks written in PL/SQL that perform specific tasks within an Oracle database. PostgreSQL stored procedures are similar reusable code blocks for PostgreSQL databases.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                      | Key differences               |
-| -------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| Three star feature compatibility | Four star automation level         | [Stored Procedures](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures") | Syntax and option differences |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [Stored Procedures](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures)  | Syntax and option differences | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.sql.stored.ora"></a>
 
 PL/SQL is Oracle built-in database programming language providing several methods to store and run reusable business logic from within the database. Procedures and functions are reusable snippets of code created using the `CREATE PROCEDURE` and the `CREATE FUNCTION` statements.
 
 Stored procedures and stored functions are PL/SQL units of code consisting of SQL and PL/SQL statements that solve specific problems or perform a set of related tasks.
 
-**Procedure** is used to perform database actions with PL/SQL.
+ **Procedure** is used to perform database actions with PL/SQL.
 
-**Function** is used to perform a calculation and return a result.
+ **Function** is used to perform a calculation and return a result.
 
 ### Privileges for creating procedures and functions
+<a name="chap-oracle-aurora-pg.sql.stored.ora.privileges"></a>
 
 To create procedures and functions in their own schema, Oracle database users need the `CREATE PROCEDURE` system privilege.
 
@@ -25,12 +31,13 @@ To create procedures or functions in other schemas, database users need the `CRE
 To run a procedure or function, database users need the `EXECUTE` privilege.
 
 ### Package and package body
+<a name="chap-oracle-aurora-pg.sql.stored.ora.package"></a>
 
 In addition to stored procedures and functions, Oracle also provides packages to encapsulate related procedures, functions, and other program objects.
 
-**Package** declares and describes all the related PL/SQL elements.
+ **Package** declares and describes all the related PL/SQL elements.
 
-**Package Body** contains the executable code.
+ **Package Body** contains the executable code.
 
 To run a stored procedure or function created inside a package, specify the package name and the stored procedure or function name.
 
@@ -38,7 +45,7 @@ To run a stored procedure or function created inside a package, specify the pack
 EXEC PKG_EMP.CALCULTE_SAL('100');
 ```
 
-**Examples**
+ **Examples** 
 
 Create an Oracle stored procedure using the `CREATE OR REPLACE PROCEDURE` statement. The optional `OR REPLACE` clause overwrites an existing stored procedure with the same name if it exists.
 
@@ -148,31 +155,31 @@ EXEC PCK_CHINOOK_REPORTS.CUST_INVOICE_BY_YEAR_ANALYZE;
 
 The preceding examples demonstrate basic Oracle PL/SQL procedure and function capabilities. Oracle PL/SQL provides a large number of features and capabilities that aren’t within the scope of this document.
 
-For more information, see [CREATE FUNCTION](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306") and [CREATE PROCEDURE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-PROCEDURE.html#GUID-771879D8-BBFD-4D87-8A6C-290102142DA3 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-PROCEDURE.html#GUID-771879D8-BBFD-4D87-8A6C-290102142DA3") in the _Oracle documentation_.
+For more information, see [CREATE FUNCTION](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306) and [CREATE PROCEDURE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-PROCEDURE.html#GUID-771879D8-BBFD-4D87-8A6C-290102142DA3) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.stored.pg"></a>
 
 PostgreSQL provides support for both stored procedures and stored functions using the `CREATE FUNCTION` statement. To emphasize, the procedural statements used by PostgreSQL support the `CREATE FUNCTION` statement only. The `CREATE PROCEDURE` statement isn’t compatible with this PostgreSQL version.
 
 PL/pgSQL is the main database programming language used for migrating from Oracle PL/SQL code. PostgreSQL support additional programming languages, also available in Amazon Aurora PostgreSQL:
-
-- PL/pgSQL
-- PL/Tcl
-- PL/Perl.
++ PL/pgSQL
++ PL/Tcl
++ PL/Perl.
 
 Use the `show.rds.extensions` command to view all available extensions for Amazon Aurora.
 
-**Interchangeability between Oracle PL/SQL and PostgreSQL PL/pgSQL**
+ **Interchangeability between Oracle PL/SQL and PostgreSQL PL/pgSQL** 
 
 PostgreSQL PL/pgSQL language is often considered the ideal candidate to migrate from Oracle PL/SQL code because many of the Oracle PL/SQL syntax elements are supported by PostgreSQL PL/pgSQL code.
 
 For example, Oracle `CREATE OR REPLACE PROCEDURE` statement is supported by PostgreSQL PL/pgSQL. Many other PL/SQL syntax elements are also supported making PostgreSQL and PL/pgSQL natural alternatives when migrating from Oracle.
 
-**PostgreSQL create function privileges**
+ **PostgreSQL create function privileges** 
 
 To create a function, a user must have `USAGE` privilege on the language. When creating a function, a language parameter can be specified as shown in the examples.
 
-**Examples**
+ **Examples** 
 
 Converting Oracle Stored Procedures and Functions to PostgreSQL PL/pgSQL.
 
@@ -189,13 +196,12 @@ LANGUAGE PLPGSQL;
 ```
 
 Using a `CREATE OR REPLACE` statement creates a new function, or replaces an existing function, with these limitations:
-
-- You can’t change the function name or argument types.
-- The statement doesn’t allow changing the existing function return type.
-- The user must own the function to replace it.
-- `INPUT` parameter (`P_NUM`) is implemented similarly to Oracle PL/SQL `INPUT` parameter.
-- Two dollar signs are used to prevent the need to use single-quoted string escape elements. With the two dollar signs, there is no need to use escape characters in the code when using single quotation marks ( ' ). The two dollar signs appear after the keyword `AS` and after the function keyword `END`.
-- Use the `LANGUAGE PLPGSQL` parameter to specify the language for the created function.
++ You can’t change the function name or argument types.
++ The statement doesn’t allow changing the existing function return type.
++ The user must own the function to replace it.
++  `INPUT` parameter (`P_NUM`) is implemented similarly to Oracle PL/SQL `INPUT` parameter.
++ Two dollar signs are used to prevent the need to use single-quoted string escape elements. With the two dollar signs, there is no need to use escape characters in the code when using single quotation marks ( ' ). The two dollar signs appear after the keyword `AS` and after the function keyword `END`.
++ Use the `LANGUAGE PLPGSQL` parameter to specify the language for the created function.
 
 Convert the Oracle `EMP_SAL_RAISE` PL/SQL function to PostgreSQL PL/pgSQL.
 
@@ -252,6 +258,7 @@ FROM EMPLOYEES;
 ```
 
 ### Oracle Packages and Package Bodies
+<a name="chap-oracle-aurora-pg.sql.stored.pg.bodies"></a>
 
 PostgreSQL doesn’t support Oracle packages and package bodies. All PL/SQL objects must be converted to PostgreSQL functions. The following examples describe how the Amazon Schema Conversion Tool (SCT) handles Oracle packages and package body names.
 
@@ -267,7 +274,7 @@ The PostgreSQL code converted with AWS SCT uses the `$` sign to separate the pac
 SELECT PCK_CHINOOK_REPORTS$GET_ARTIST_BY_ALBUM('');
 ```
 
-**Examples**
+ **Examples** 
 
 Convert an Oracle package and package body to PostgreSQL PL/pgSQL.
 
@@ -338,7 +345,7 @@ SELECT chinook.pck_chinook_reports$cust_invoice_by_year_analyze();
 
 New behavior in PostgreSQL version 10 for a set-returning function, used by the `LATERAL FROM` clause.
 
-**Previous**
+ **Previous** 
 
 ```
 CREATE TABLE emps (id int, manager int);
@@ -363,7 +370,7 @@ id |g
 21 |5
 ```
 
-**New**
+ **New** 
 
 ```
 SELECT id, g FROM emps, LATERAL generate_series(1,5) AS g;
@@ -388,4 +395,4 @@ id |g
 
 Here the planner could choose to put the set-return function on the outside of the nestloop join, since it has no actual lateral dependency on emps table.
 
-For more information, see [CREATE FUNCTION](https://www.postgresql.org/docs/13/sql-createfunction.html "https://www.postgresql.org/docs/13/sql-createfunction.html"), [PL/pgSQL — SQL Procedural Language](https://www.postgresql.org/docs/13/plpgsql.html "https://www.postgresql.org/docs/13/plpgsql.html"), [https://www.postgresql.org/docs/13/xplang.html](https://www.postgresql.org/docs/13/xplang.html "https://www.postgresql.org/docs/13/xplang.html"), and [Query Language (SQL) Functions](https://www.postgresql.org/docs/13/xfunc-sql.html "https://www.postgresql.org/docs/13/xfunc-sql.html") in the _PostgreSQL documentation_.
+For more information, see [CREATE FUNCTION](https://www.postgresql.org/docs/13/sql-createfunction.html), [PL/pgSQL — SQL Procedural Language](https://www.postgresql.org/docs/13/plpgsql.html), [https://www.postgresql.org/docs/13/xplang.html](https://www.postgresql.org/docs/13/xplang.html), and [Query Language (SQL) Functions](https://www.postgresql.org/docs/13/xfunc-sql.html) in the *PostgreSQL documentation*.

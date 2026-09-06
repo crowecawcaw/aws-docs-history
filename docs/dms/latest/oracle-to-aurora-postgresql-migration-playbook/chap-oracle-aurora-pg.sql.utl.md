@@ -1,28 +1,30 @@
+
+
 # Oracle UTL\_FILE package
+<a name="chap-oracle-aurora-pg.sql.utl"></a>
 
 With AWS DMS, you can access data and read/write files on the server’s file system using the Oracle `UTL_FILE` package. The `UTL_FILE` package provides APIs to operate on server files, allowing applications to read and write operating system files.
 
-| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                    |
-| --------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------- |
-| No compatibility      | No automation                      | N/A                       | PostgreSQL doesn’t have the `UTL_FILE` equivalent. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![No compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A | PostgreSQL doesn’t have the `UTL_FILE` equivalent. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.sql.utl.ora"></a>
 
 Oracle `UTL_FILE` PL/SQL package enables you to access files stored outside of the database such as files stored on the operating system, the database server, or a connected storage volume. `UTL_FILE.FOPEN`, `UTL_FILE.GET_LINE`, and `UTL_FILE.PUT_LINE` are procedures within the `UTL_FILE` package used to open, read, and write files.
 
-**Examples**
+ **Examples** 
 
 Run an anonymous PL/SQL block that reads a single line from file1 and writes it to file2.
-
-- Use `UTL_FILE.FILE_TYPE` to create a handle for the file.
-- Use `UTL_FILE.FOPEN` to open streamable access to the file and specify:
-
-  - The logical Oracle directory object pointing to the O/S folder where the file resides.
-  - The file name.
-  - The file access mode: 'A'=append mode, 'W'=write mode
-
-- Use `UTL_FILE.GET_LINE` to read a line from the input file into a variable.
-- Use `UTL_FILE.PUT_LINE` to write a single line to the output file.
++ Use `UTL_FILE.FILE_TYPE` to create a handle for the file.
++ Use `UTL_FILE.FOPEN` to open streamable access to the file and specify:
+  + The logical Oracle directory object pointing to the O/S folder where the file resides.
+  + The file name.
+  + The file access mode: 'A'=append mode, 'W'=write mode
++ Use `UTL_FILE.GET_LINE` to read a line from the input file into a variable.
++ Use `UTL_FILE.PUT_LINE` to write a single line to the output file.
 
 ```
 DECLARE
@@ -39,8 +41,9 @@ END;
 /
 ```
 
-For more information, see [UTL\_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
+For more information, see [UTL\_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.utl.pg"></a>
 
-Amazon Aurora PostgreSQL doesn’t currently provides a directly comparable alternative for Oracle `UTL_FILE` package.
+ Amazon Aurora PostgreSQL doesn’t currently provides a directly comparable alternative for Oracle `UTL_FILE` package.

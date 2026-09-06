@@ -1,12 +1,17 @@
+
+
 # Oracle XML DB and PostgreSQL XML type and functions
+<a name="chap-oracle-aurora-pg.special.xmldb"></a>
 
 With AWS DMS, you can migrate data from Oracle XML DB and PostgreSQL XML type and functions to other database engines supported by AWS. Oracle XML DB provides the ability to store and manage XML data in an Oracle database, while PostgreSQL XML type and functions offer similar capabilities for working with XML data in a PostgreSQL database.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                            |
-| -------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------- |
-| Three star feature compatibility | Three star automation level        | N/A                       | Different paradigm and syntax will require application or drivers rewrite. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  | N/A | Different paradigm and syntax will require application or drivers rewrite. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.special.xmldb.ora"></a>
 
 Oracle XML DB is a set of Oracle Database technologies providing XML capabilities for database administrators and developers. It provides native XML support and other features including the native XMLType and XMLIndex.
 
@@ -17,20 +22,19 @@ XMLIndex supports all forms of XML data from highly structured to completely uns
 XML data can be schema-based or non-schema-based. Schema-based XML adheres to an XSD Schema Definition and must be validated. Non-schema-based XML data doesn’t require validation.
 
 According to the Oracle documentation, the aspects you should consider when using XML are:
-
-- The ways that you intend to store your XML data.
-- The structure of your XML data.
-- The languages used to implement your application.
-- The ways you intend to process your XML data.
++ The ways that you intend to store your XML data.
++ The structure of your XML data.
++ The languages used to implement your application.
++ The ways you intend to process your XML data.
 
 The most common features are:
-
-- Storage Model: Binary XML.
-- Indexing: XML search index, XMLIndex with structured component.
-- Database language: SQL, with SQL/XML functions.
-- XML languages: XQuery and XSLT.
++ Storage Model: Binary XML.
++ Indexing: XML search index, XMLIndex with structured component.
++ Database language: SQL, with SQL/XML functions.
++ XML languages: XQuery and XSLT.
 
 ### Storage model — binary XML
+<a name="chap-oracle-aurora-pg.special.xmldb.ora.binary"></a>
 
 Also called post-parse persistence, it is the default storage model for Oracle XML DB. It is a post-parse, binary format designed specifically for XML data. Binary XML is XML schema-aware and the storage is very flexible.
 
@@ -38,9 +42,10 @@ You can use it for XML schema-based documents or for documents that are not base
 
 This storage model also provides efficient partial updating and streaming query evaluation.
 
-The other storage option is Object-relational storage and is more efficient when using XML as structured data with a minimum amount of changes and different queries. For more information, see [Oracle XML DB Developer’s Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/adxdb/xml-db-developers-guide.pdf "https://docs.oracle.com/en/database/oracle/oracle-database/19/adxdb/xml-db-developers-guide.pdf").
+The other storage option is Object-relational storage and is more efficient when using XML as structured data with a minimum amount of changes and different queries. For more information, see [Oracle XML DB Developer’s Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/adxdb/xml-db-developers-guide.pdf).
 
 ### Indexing — XML search index, XMLIndex with structured component
+<a name="chap-oracle-aurora-pg.special.xmldb.ora.indexing"></a>
 
 XML Search Index provides full-text search over XML data. Oracle recommends storing XMLType data as Binary XML and to use XQuery Full Text (XQFT).
 
@@ -48,7 +53,7 @@ If you are not using binary storage and your data is structured XML, you can use
 
 If you want to use predicates such as `XMLExists` in your `WHERE` clause, you must create an XML search index.
 
-**Examples**
+ **Examples** 
 
 The following example creates a SQL directory object, which is a logical name in the database for a physical directory on the host computer. This directory contains XML files. The example inserts XML content from the `purOrder.xml` file into the orders table.
 
@@ -92,8 +97,10 @@ VALUES(100, '<?xml version="1.0"?>
 Create an XML search index and query it with XQuery:
 
 1. After the user gets all the privileges needed and set the right parameter in the Oracle text schema.
-2. Create Oracle text section and preference.
-3. Create the XML search index (regular index associated with the objects).
+
+1. Create Oracle text section and preference.
+
+1. Create the XML search index (regular index associated with the objects).
 
 ```
 BEGIN
@@ -133,9 +140,12 @@ You must define the parts of XML data that you search in queries (applies to bot
 Create an XMLIndex with structured component:
 
 1. Create the base XMLIndex on `po_binxml` table. `OBJECT_VALUE` is the XML data stored in the table. All definitions of XML types and Objects are from the XDB schema in the database.
-2. Use `DBMS_XMLINDEX.register` parameter to add another structure to the index.
-3. Create tables (`po_idx_tab` and `po_index_lineitem`) to store index data as structured data. Next to each table name there is the root of the PATH in the XML data (/PurchaseOrder and /LineItem). After that, each column is another PATH in this root. Note that in the `po_idx_tab` table the last column is XMLType. It takes everything under this PATH and saves it in XML datatype.
-4. Add the group of structure to the index.
+
+1. Use `DBMS_XMLINDEX.register` parameter to add another structure to the index.
+
+1. Create tables (`po_idx_tab` and `po_index_lineitem`) to store index data as structured data. Next to each table name there is the root of the PATH in the XML data (/PurchaseOrder and /LineItem). After that, each column is another PATH in this root. Note that in the `po_idx_tab` table the last column is XMLType. It takes everything under this PATH and saves it in XML datatype.
+
+1. Add the group of structure to the index.
 
 ```
 CREATE INDEX po_xmlindex_ix ON po_binxml (OBJECT_VALUE)
@@ -161,24 +171,25 @@ END;
 ALTER INDEX po_xmlindex_ix PARAMETERS('PARAM myparam');
 ```
 
-For more information, see [Indexes for XMLType Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB") in the _Oracle documentation_.
+For more information, see [Indexes for XMLType Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB) in the *Oracle documentation*.
 
 ### SQL/XML functions
+<a name="chap-oracle-aurora-pg.special.xmldb.ora.functions"></a>
 
 Oracle Database provides two main SQL/XML groups:
-
-- SQL/XML publishing functions.
-- SQL/XML query and update functions.
++ SQL/XML publishing functions.
++ SQL/XML query and update functions.
 
 #### SQL/XML publishing functions
+<a name="chap-oracle-aurora-pg.special.xmldb.ora.functions.publish"></a>
 
 SQL/XML publishing functions are SQL results generated from XML data (also called SQL/XML generation functions).
 
-**XMLQuery** is used in `SELECT` clauses to return the result as XMLType data (See the previous example for creating an XML search index).
+ **XMLQuery** is used in `SELECT` clauses to return the result as XMLType data (See the previous example for creating an XML search index).
 
-**XMLTable** is used in `FROM` clauses to get results using XQuery, and insert the results into a virtual table (can insert into existing database table).
+ **XMLTable** is used in `FROM` clauses to get results using XQuery, and insert the results into a virtual table (can insert into existing database table).
 
-**Example**
+ **Example** 
 
 Use XMLTable to generate virtual table from the xml value (`OBJECT_VALUE`). Generate columns under the root (`/PurchaseOrder`).
 
@@ -200,7 +211,7 @@ quantity NUMBER(12, 2) PATH 'Part/@Quantity',
 unitprice NUMBER(8, 4) PATH 'Part/@UnitPrice') li;
 ```
 
-**XMLExists** is used in `WHERE` clauses to check if an XQuery expression returns a non-empty query sequence. If it does, it returns `TRUE`. Otherwise, it returns `FALSE`. In the following example, the query searches the `purchaseorder` table for `PurchaseOrders` that where the `SpecialInstructions` tag is set to `Expedite`.
+ **XMLExists** is used in `WHERE` clauses to check if an XQuery expression returns a non-empty query sequence. If it does, it returns `TRUE`. Otherwise, it returns `FALSE`. In the following example, the query searches the `purchaseorder` table for `PurchaseOrders` that where the `SpecialInstructions` tag is set to `Expedite`.
 
 ```
 SELECT OBJECT_VALUE FROM purchaseorder
@@ -208,7 +219,7 @@ SELECT OBJECT_VALUE FROM purchaseorder
   PASSING OBJECT_VALUE);
 ```
 
-**XMLCast** is used in `SELECT` clauses to convert scalar values returned from XQuery to `NUMBER`, `VARCHAR2`, `CHAR`, `CLOB`, `BLOB`, `REF`, or `XMLType`. For example, after finding the objects that have `SpecialInstructions` set to `Expedite`, XMLCast returns the Reference in each item as `VARCHAR2(100)`.
+ **XMLCast** is used in `SELECT` clauses to convert scalar values returned from XQuery to `NUMBER`, `VARCHAR2`, `CHAR`, `CLOB`, `BLOB`, `REF`, or `XMLType`. For example, after finding the objects that have `SpecialInstructions` set to `Expedite`, XMLCast returns the Reference in each item as `VARCHAR2(100)`.
 
 ```
 SELECT XMLCast(XMLQuery('/PurchaseOrder/Reference'
@@ -219,9 +230,10 @@ SELECT XMLCast(XMLQuery('/PurchaseOrder/Reference'
   PASSING OBJECT_VALUE);
 ```
 
-For more information, see [XMLELEMENT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLELEMENT.html#GUID-DEA75423-00EA-4034-A246-4A774ADC988E "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLELEMENT.html#GUID-DEA75423-00EA-4034-A246-4A774ADC988E") in the _Oracle documentation_.
+For more information, see [XMLELEMENT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLELEMENT.html#GUID-DEA75423-00EA-4034-A246-4A774ADC988E) in the *Oracle documentation*.
 
 #### SQL/XML query and update functions
+<a name="chap-oracle-aurora-pg.special.xmldb.ora.functions.query"></a>
 
 SQL/XML query and update functions are used to query and update XML content as part of regular SQL operations.
 
@@ -237,13 +249,15 @@ WHERE XMLExists('$p/PurchaseOrder[Reference="DAUSTIN-20021009123335811PDT"]'
   PASSING po.OBJECT_VALUE AS "p");
 ```
 
-For more information, see [XMLQUERY](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB") in the _Oracle documentation_.
+For more information, see [XMLQUERY](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB) in the *Oracle documentation*.
 
 ### SQL and PL/SQL
+<a name="chap-oracle-aurora-pg.special.xmldb.ora.sql"></a>
 
-Conversion of SQL and PL/SQL is covered in the [SQL and PL/SQL](chap-oracle-aurora-pg.sql.md "chap-oracle-aurora-pg.sql.md") topic.
+Conversion of SQL and PL/SQL is covered in the [SQL and PL/SQL](chap-oracle-aurora-pg.sql.md) topic.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.special.xmldb.pg"></a>
 
 The data type xml in PostgreSQL can be used when creating tables, the main advantage to keep the xml data in xml type column and not in regular text column is the xml type check the input to alert if we try to insert wrong data format, in additional, there are support functions to perform type-safe operations on it. XML can store well-formed “documents” as defined by XML standard or “content” fragments that are defined by the production XMLDecl, this means that content fragments can have more than one top-level element or character node.
 
@@ -251,7 +265,7 @@ You can use `IS DOCUMENT` to evaluate whether a particular xml value is a full d
 
 The `xmltable()` and `xpath()` functions that may not work with non-ASCII data when the server encoding is not UTF-8.
 
-**Examples**
+ **Examples** 
 
 Create XML data and insert it to the table.
 
@@ -313,16 +327,18 @@ id  ordinality  EMP_NAME  EMP_ID  salary_usd  manager_name
 ```
 
 ## Summary
+<a name="chap-oracle-aurora-pg.special.xmldb.summary"></a>
 
-| Description                                                                                | PostgreSQL                                                                                                                                                                                                                                                                          | Oracle                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Create table with XML                                                                      | `<br>CREATE TABLE test (a xml);<br>`                                                                                                                                                                                                                                                | `<br>CREATE TABLE test OF XMLType;<br>or<br>CREATE TABLE test (doc XMLType);<br>`                                                                                                                                                                                                                                                                                  |
-| Insert data into xml column                                                                | `<br>INSERT INTO test<br>VALUES (XMLPARSE (DOCUMENT<br>'<?xml version="1.0"?><br><PO pono="1"><br><PNAME>Po_1</PNAME><br><CUSTNAME>John</CUSTNAME><br><SHIPADDR><br><STREET>1033, Main Street</STREET><br><CITY>Sunnyvale</CITY><br><STATE>CA</STATE><br></SHIPADDR> </PO>'));<br>` | `<br>INSERT INTO test<br>VALUES ('<?xml version="1.0"?><br><PO pono="1"> <PNAME>Po_1</PNAME><br><CUSTNAME>John</CUSTNAME><br><SHIPADDR><br><STREET>1033, Main Street</STREET><br><CITY>Sunnyvale</CITY><br><STATE>CA</STATE><br></SHIPADDR> </PO>')<br>`                                                                                                           |
-| Create Index                                                                               | We index a specific path so the queries must be the same<br>`<br>CREATE INDEX test_isbn ON test<br>(((((xpath('/path/tag/text()', a))[1])::text)));<br>`                                                                                                                            | `<br>CREATE INDEX test_idx ON test (OBJECT_VALUE)<br>INDEXTYPE IS XDB.XMLIndex<br>PARAMETERS ('PATH TABLE path_tab');<br>BEGIN<br>DBMS_XMLINDEX.registerParameter(<br>'myparam', 'ADD_GROUP GROUP a_item<br>XMLTable test_idx_tab ''/Path'' COLUMNS tag<br>VARCHAR2(30) PATH ''tag''');<br>END;<br>/<br>ALTER INDEX test_idx PARAMETERS<br>('PARAM myparam');<br>` |
-| Create Fulltext Index                                                                      | We index a specific path so the queries must be the same<br>`<br>CREATE INDEX my_funcidx ON<br>test USING GIN ( CAST(xpath('/PNAME/-<br>text()', a) AS TEXT[]) );<br>`                                                                                                              | After preference and section created in Oracle Text<br>`<br>CREATE INDEX test_idx ON test (OBJECT_<br>VALUE) INDEXTYPE IS CTXSYS.CONTEXT<br>PARAMETERS('storage pref section group secgroup');<br>`                                                                                                                                                                |
-| Query using XQuery                                                                         | Not Supported                                                                                                                                                                                                                                                                       | `<br>SELECT XMLQuery('for $i in<br>/PurchaseOrder/LineItems/LineItem/Description<br>where $i[. contains text "Big"]<br>return <Title>{$i}</Title>'<br>PASSING OBJECT_VALUE RETURNING CONTENT)<br>FROM xml_tbl;<br>`                                                                                                                                                |
-| Query using XPath                                                                          | `<br>SELECT xpath('//student/firstname/text()', a) FROM test<br>`                                                                                                                                                                                                                   | `<br>select sys.XMLType.extract<br>(doc,'/student/firstname/text()') firstname from test;<br>`                                                                                                                                                                                                                                                                     |
-| Function to check if tag exists and function to cast and return another data type (string) | `<br>SELECT XMLCast(XMLQuery<br>('/PurchaseOrder/Reference'<br>PASSING OBJECT_VALUE<br>RETURNING CONTENT) AS VARCHAR2(100))<br>"REFERENCE"<br>FROM purchaseorder<br>WHERE XMLExists('/PurchaseOrder[SpecialInstructions="Expedite"]'<br>PASSING OBJECT_VALUE);<br>`                 | `<br>select cast (xpath('//book/title/text()', a) as text[])<br>as BookTitle from test where xmlexists('//book/title' PASSING by ref a);<br>`                                                                                                                                                                                                                      |
-| Validate schema using XSD                                                                  | Not out-of-the-box but can create trigger before insert or delete and find tag with XPATH and try to cast the type of the value to know if it’s OK, then if something is wrong stop the insert or delete command                                                                    | Supported                                                                                                                                                                                                                                                                                                                                                          |
 
-For more information, see [XML Type](https://www.postgresql.org/docs/13/datatype-xml.html "https://www.postgresql.org/docs/13/datatype-xml.html") and [XML Functions](https://www.postgresql.org/docs/13/functions-xml.html "https://www.postgresql.org/docs/13/functions-xml.html") in the _PostgreSQL documentation_.
+| Description | PostgreSQL | Oracle | 
+| --- | --- | --- | 
+| Create table with XML |  <pre>CREATE TABLE test (a xml);</pre>  |  <pre>CREATE TABLE test OF XMLType;<br />or<br />CREATE TABLE test (doc XMLType);</pre>  | 
+| Insert data into xml column |  <pre>INSERT INTO test<br />VALUES (XMLPARSE (DOCUMENT<br />'<?xml version="1.0"?><br /><PO pono="1"><br /><PNAME>Po_1</PNAME><br /><CUSTNAME>John</CUSTNAME><br /><SHIPADDR><br />  <STREET>1033, Main Street</STREET><br />  <CITY>Sunnyvale</CITY><br />  <STATE>CA</STATE><br /></SHIPADDR> </PO>'));</pre>  |  <pre>INSERT INTO test<br />VALUES ('<?xml version="1.0"?><br /><PO pono="1"> <PNAME>Po_1</PNAME><br /><CUSTNAME>John</CUSTNAME><br /><SHIPADDR><br />  <STREET>1033, Main Street</STREET><br />  <CITY>Sunnyvale</CITY><br />  <STATE>CA</STATE><br /></SHIPADDR> </PO>')</pre>  | 
+| Create Index | We index a specific path so the queries must be the same<pre>CREATE INDEX test_isbn ON test<br />(((((xpath('/path/tag/text()', a))[1])::text)));</pre> |  <pre>CREATE INDEX test_idx ON test (OBJECT_VALUE)<br />INDEXTYPE IS XDB.XMLIndex<br />PARAMETERS ('PATH TABLE path_tab');<br /><br />BEGIN<br />DBMS_XMLINDEX.registerParameter(<br />'myparam', 'ADD_GROUP GROUP a_item<br />XMLTable test_idx_tab ''/Path'' COLUMNS tag<br />VARCHAR2(30) PATH ''tag''');<br />END;<br />/<br /><br />ALTER INDEX test_idx PARAMETERS<br />('PARAM myparam');</pre>  | 
+| Create Fulltext Index | We index a specific path so the queries must be the same<pre>CREATE INDEX my_funcidx ON<br />test USING GIN ( CAST(xpath('/PNAME/-<br />text()', a) AS TEXT[]) );</pre> | After preference and section created in Oracle Text<pre>CREATE INDEX test_idx ON test (OBJECT_<br />VALUE) INDEXTYPE IS CTXSYS.CONTEXT<br />PARAMETERS('storage pref section group secgroup');</pre> | 
+| Query using XQuery | Not Supported |  <pre>SELECT XMLQuery('for $i in<br />/PurchaseOrder/LineItems/LineItem/Description<br />where $i[. contains text "Big"]<br />return <Title>{$i}</Title>'<br />PASSING OBJECT_VALUE RETURNING CONTENT)<br />FROM xml_tbl;</pre>  | 
+| Query using XPath |  <pre>SELECT xpath('//student/firstname/text()', a) FROM test</pre>  |  <pre>select sys.XMLType.extract<br />(doc,'/student/firstname/text()') firstname from test;</pre>  | 
+| Function to check if tag exists and function to cast and return another data type (string) |  <pre>SELECT XMLCast(XMLQuery<br />('/PurchaseOrder/Reference'<br />  PASSING OBJECT_VALUE<br />  RETURNING CONTENT) AS VARCHAR2(100))<br />"REFERENCE"<br />  FROM purchaseorder<br />  WHERE XMLExists('/PurchaseOrder[SpecialInstructions="Expedite"]'<br />  PASSING OBJECT_VALUE);</pre>  |  <pre>select cast (xpath('//book/title/text()', a) as text[])<br />as BookTitle from test where xmlexists('//book/title' PASSING by ref a);</pre>  | 
+| Validate schema using XSD | Not out-of-the-box but can create trigger before insert or delete and find tag with XPATH and try to cast the type of the value to know if it’s OK, then if something is wrong stop the insert or delete command | Supported | 
+
+For more information, see [XML Type](https://www.postgresql.org/docs/13/datatype-xml.html) and [XML Functions](https://www.postgresql.org/docs/13/functions-xml.html) in the *PostgreSQL documentation*.

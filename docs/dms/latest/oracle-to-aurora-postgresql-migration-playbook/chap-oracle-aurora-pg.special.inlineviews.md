@@ -1,16 +1,21 @@
+
+
 # Inline views
+<a name="chap-oracle-aurora-pg.special.inlineviews"></a>
 
 With AWS DMS, you can create and use inline views to streamline data transformations during migration tasks. An inline view is a subquery that acts as a virtual table, allowing you to combine and manipulate data from multiple sources without creating a persistent database object.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Five star feature compatibility | Five star automation level         | N/A                       | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-5.png)  |  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-5.png)  | N/A | N/A | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.special.inlineviews.ora"></a>
 
 Inline views refer to a `SELECT` statement located in the `FROM` clause of secondary `SELECT` statement. Inline views can help make complex queries simpler by removing compound calculations or eliminating join operations while condensing several separate queries into a single simplified query.
 
-**Examples**
+ **Examples** 
 
 The SQL statement marked in red represents the inline view code. The query returns each employee matched to their salary and department id. In addition, the query returns the average salary for each department using the inline view column `SAL_AVG`.
 
@@ -23,12 +28,13 @@ WHERE A.DEPARTMENT_ID = B.DEPARTMENT_ID;
 ```
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.special.inlineviews.pg"></a>
 
 PostgreSQL semantics may refer to inline views as Subselect or as Subquery. In either case, the functionality is the same. Running the Oracle inline view example above, as is, will result in an error: **ERROR: subquery in FROM must have an alias**. This is because Oracle supports omitting aliases for the inner statement while in PostgreSQL the use of aliases is mandatory. The following example uses `B` as an alias.
 
 Mandatory aliases are the only major difference when migrating Oracle inline views to PostgreSQL.
 
-**Examples**
+ **Examples** 
 
 The following example uses `B` as an alias.
 

@@ -1,27 +1,31 @@
+
+
 # Oracle DBMS\_RANDOM and PostgreSQL RANDOM function
+<a name="chap-oracle-aurora-pg.sql.random"></a>
 
 With AWS DMS, you can generate random numbers or randomly select data for various purposes, such as testing, sampling, or introducing randomness in your applications. Oracle `DBMS_RANDOM` and PostgreSQL `RANDOM` function provide methods to generate random numbers or randomly select data from a specified dataset.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                            |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------ |
-| Three star feature compatibility | No automation                      | N/A                       | Different syntax may require code rewrite. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A | Different syntax may require code rewrite. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.sql.random.ora"></a>
 
 Oracle `DBMS_RANDOM` package provides functionality for generating random numbers or strings as part of an SQL statement or PL/SQL procedure.
 
 The `DBMS_RANDOM` Package stored procedures include:
++  **NORMAL** — Returns random numbers in a standard normal distribution.
++  **SEED** — Resets the seed that generates random numbers or strings.
++  **STRING** — Returns a random string.
++  **VALUE** — Returns a number greater than or equal to 0 and less than 1 with 38 digits to the right of the decimal. Alternatively, you could generate a random number greater than or equal to a low parameter and less than a high parameter.
 
-- **NORMAL** — Returns random numbers in a standard normal distribution.
-- **SEED** — Resets the seed that generates random numbers or strings.
-- **STRING** — Returns a random string.
-- **VALUE** — Returns a number greater than or equal to 0 and less than 1 with 38 digits to the right of the decimal. Alternatively, you could generate a random number greater than or equal to a low parameter and less than a high parameter.
+ `DBMS_RANDOM.RANDOM` produces integers in the range [-2^^31, 2^^31].
 
-`DBMS_RANDOM.RANDOM` produces integers in the range [-2^^31, 2^^31].
+ `DBMS_RANDOM.VALUE` produces numbers in the range [0,1] with 38 digits of precision.
 
-`DBMS_RANDOM.VALUE` produces numbers in the range [0,1] with 38 digits of precision.
-
-**Examples**
+ **Examples** 
 
 Generate a random number.
 
@@ -51,13 +55,14 @@ DBMS_RANDOM.STRING('P',10)
 t?!Gf2M60q
 ```
 
-For more information, see [DBMS\_RANDOM](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F") in the _Oracle documentation_.
+For more information, see [DBMS\_RANDOM](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.random.pg"></a>
 
 PostgreSQL doesn’t provide a dedicated package equivalent to Oracle `DBMS_RANDOM`, a 1:1 migration isn’t possible. However, you can use other PostgreSQL functions as workarounds under certain conditions. For example, generating random numbers can be performed using the `random()` function. For generating random strings, you can use the value returned from the `random()` function coupled with an `md5()` function.
 
-**Examples**
+ **Examples** 
 
 Generate a random number.
 
@@ -129,12 +134,14 @@ tMAxfql0iM
 ```
 
 ## Summary
+<a name="chap-oracle-aurora-pg.sql.random.summary"></a>
 
-| Description                               | Oracle                                         | PostgreSQL                           |
-| ----------------------------------------- | ---------------------------------------------- | ------------------------------------ |
-| Generate a random number                  | `select dbms_random.value() from dual;`        | `select random();`                   |
-| Generate a random number between 1 to 100 | `select dbms_random.value(1,100) from dual;`   | `select random()*100;`               |
-| Generate a random string                  | `select dbms_random.string('p',10) from dual;` | `select md5(random()::text);`        |
-| Generate a random string in upper case    | `select dbms_random.string('U',10) from dual;` | `select upper(md5(random()::text));` |
 
-For more information, see [Mathematical Functions and Operators](https://www.postgresql.org/docs/13/functions-math.html "https://www.postgresql.org/docs/13/functions-math.html") and [String Functions and Operators](https://www.postgresql.org/docs/10/functions-string.html "https://www.postgresql.org/docs/10/functions-string.html") in the _PostgreSQL documentation_.
+| Description | Oracle | PostgreSQL | 
+| --- | --- | --- | 
+| Generate a random number |  `select dbms_random.value() from dual;`  |  `select random();`  | 
+| Generate a random number between 1 to 100 |  `select dbms_random.value(1,100) from dual;`  |  `select random()*100;`  | 
+| Generate a random string |  `select dbms_random.string('p',10) from dual;`  |  `select md5(random()::text);`  | 
+| Generate a random string in upper case |  `select dbms_random.string('U',10) from dual;`  |  `select upper(md5(random()::text));`  | 
+
+For more information, see [Mathematical Functions and Operators](https://www.postgresql.org/docs/13/functions-math.html) and [String Functions and Operators](https://www.postgresql.org/docs/10/functions-string.html) in the *PostgreSQL documentation*.

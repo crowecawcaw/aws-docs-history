@@ -1,16 +1,21 @@
+
+
 # Oracle UTL\_MAIL or UTL\_SMTP and PostgreSQL Scheduled Lambda with Amazon SES
+<a name="chap-oracle-aurora-pg.sql.mail"></a>
 
 With AWS DMS, you can configure email notifications for migration tasks using Oracle `UTL_MAIL` or `UTL_SMTP` and PostgreSQL scheduled Lambda with Amazon Simple Email Service (Amazon SES). `UTL_MAIL` and `UTL_SMTP` are Oracle database packages that provide an interface to send emails, while scheduled Lambda with Amazon SES allows sending emails from a PostgreSQL database using AWS Lambda and Amazon SES.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences         |
-| -------------------------------- | ---------------------------------- | ------------------------- | ----------------------- |
-| Three star feature compatibility | No automation                      | N/A                       | Use Lambda integration. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A | Use Lambda integration. | 
 
 ## Oracle UTL\_MAIL usage
+<a name="chap-oracle-aurora-pg.sql.mail.ora"></a>
 
 The Oracle `UTL_MAIL` package provides functionality for sending email messages. Unlike `UTL_SMTP`, which is more complex and provided in earlier versions of Oracle, `UTL_MAIL` supports attachments. For most cases, `UTL_MAIL` is a better choice.
 
-**Examples**
+ **Examples** 
 
 Install the required mail packages.
 
@@ -31,13 +36,14 @@ Send an email message.
 exec utl_mail.send('Sender@mailserver.com', 'recipient@mailserver.com', NULL, NULL, 'This is the subject', 'This is the message body', NULL, 3, NULL);
 ```
 
-For more information, see [UTL\_MAIL](https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384 "https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384") in the _Oracle documentation_.
+For more information, see [UTL\_MAIL](https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384) in the *Oracle documentation*.
 
 ## Oracle UTL\_SMTP usage
+<a name="chap-oracle-aurora-pg.sql.mail.orasmtp"></a>
 
 The Oracle `UTL_SMTP` package provides functionality for sending email messages and is useful for sending alerts about database events. Unlike `UTL_MAIL`, UTL `SMTP` is more complex and doesn’t support attachments. For most cases, `UTL_MAIL` is a better choice.
 
-**Examples**
+ **Examples** 
 
 The following example demonstrates using `UTL_SMTP` procedures to send email messages.
 
@@ -53,13 +59,12 @@ In oracle 11g:
 ```
 
 Create and send an email message.
-
-- `UTL_SMTP.OPEN_CONNECTION` opens a connection to the smtp server.
-- `UTL_SMTP.HELO` initiates a handshake with the smtp server.
-- `UTL_SMTP.MAIL` Initiates a mail transaction that obtains the senders details.
-- `UTL_SMTP.RCPT` adds a recipient to the mail transaction.
-- `UTL_SMTP.DATA` adds the message content.
-- `UTL_SMTP.QUIT` terminates the SMTP transaction.
++  `UTL_SMTP.OPEN_CONNECTION` opens a connection to the smtp server.
++  `UTL_SMTP.HELO` initiates a handshake with the smtp server.
++  `UTL_SMTP.MAIL` Initiates a mail transaction that obtains the senders details.
++  `UTL_SMTP.RCPT` adds a recipient to the mail transaction.
++  `UTL_SMTP.DATA` adds the message content.
++  `UTL_SMTP.QUIT` terminates the SMTP transaction.
 
 ```
 DECLARE
@@ -75,19 +80,20 @@ END;
 /
 ```
 
-For more information, see [Managing Resources with Oracle Database Resource Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF") in the _Oracle documentation_.
+For more information, see [Managing Resources with Oracle Database Resource Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-resources-with-oracle-database-resource-manager.html#GUID-2BEF5482-CF97-4A85-BD90-9195E41E74EF) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.mail.pg"></a>
 
-Amazon Aurora PostgreSQL doesn’t provide native support for sending email message from the database. For alerting purposes, use the Event Notification Subscription feature to send email notifications to operators.
+ Amazon Aurora PostgreSQL doesn’t provide native support for sending email message from the database. For alerting purposes, use the Event Notification Subscription feature to send email notifications to operators.
 
-The only way to send Email from the database is to use the AWS Lambda integration. For more information, see [AWS Lambda](https://aws.amazon.com/lambda "https://aws.amazon.com/lambda").
+The only way to send Email from the database is to use the AWS Lambda integration. For more information, see [AWS Lambda](https://aws.amazon.com/lambda).
 
-**Examples**
+ **Examples** 
 
 Sending an Email from Aurora PostgreSQL using Lambda integration.
 
-First, configure [Amazon Simple Email Service (Amazon SES)](../../../ses/latest/dg/Welcome.md "../../../ses/latest/dg/Welcome.md").
+First, configure [Amazon Simple Email Service (Amazon SES)](https://docs.aws.amazon.com/ses/latest/dg/Welcome.html).
 
 In the AWS console, choose **SES**, **SMTP Settings**, and choose **Create My SMTP Credentials**. Note the SMTP server name; you will use it in the Lambda function.
 
@@ -95,8 +101,7 @@ Enter a name for IAM User Name (SMTP user) and choose **Create**.
 
 Note the credentials; you will use them to authenticate with the SMTP server.
 
-###### Note
-
+**Note**  
 After you leave this page, you can’t retrieve the credentials.
 
 On the SES page, choose **Email addresses** on the left, and choose **Verify a new email address**. Before sending email, they must be verified.
@@ -109,11 +114,11 @@ After you verified the email, create a table to store messages to be sent by the
 CREATE TABLE emails (title varchar(600), body varchar(600), recipients varchar(600));
 ```
 
-To create the Lambda function, navigate to the [Lambda page](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home") in the AWS Console, and choose **Create function**.
+To create the Lambda function, navigate to the [Lambda page](https://console.aws.amazon.com/lambda/home) in the AWS Console, and choose **Create function**.
 
 Choose **Author from scratch**, enter a name for your project, and select Python 2.7 as the runtime. Make sure that you use a role with the correct permissions. Choose **Create function**.
 
-Download this [GitHub project](https://github.com/alexcasalboni/awslambda-psycopg2 "https://github.com/alexcasalboni/awslambda-psycopg2").
+Download this [GitHub project](https://github.com/alexcasalboni/awslambda-psycopg2).
 
 In your local environment, create two files: main.py and db\_util.py. Cut and paste the following content into `main.py` and `db_util.py` respectively. Replace the placeholders in the code with values for your environment.
 
@@ -263,8 +268,7 @@ def sendEmail(recp, sub, message):
     return result
 ```
 
-###### Note
-
+**Note**  
 In the body of db\_util.py, Lambda deletes the content of the mails table.
 
 Place the `main.py` and `db_util.py` files inside the Github extracted folder and create a new zipfile that includes your two new files.
@@ -273,14 +277,12 @@ Return to your Lambda project and change the **Code entry type** to **Upload a .
 
 To test the Lambda function, choose **Test** and enter the **Event name**.
 
-###### Note
-
+**Note**  
 The Lambda function can be triggered by multiple options. This walkthrough demonstrates how to schedule it to run every minute. Remember, you are paying for each Lambda execution.
 
 To create a scheduled trigger, use Amazon CloudWatch, enter all details, and choose **Add**.
 
-###### Note
-
-This example runs every minute, but you can use a different interval. For more information, see [Schedule expressions using rate or cron](../../../lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.md "../../../lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.md").
+**Note**  
+This example runs every minute, but you can use a different interval. For more information, see [Schedule expressions using rate or cron](https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html).
 
 Choose **Save**.

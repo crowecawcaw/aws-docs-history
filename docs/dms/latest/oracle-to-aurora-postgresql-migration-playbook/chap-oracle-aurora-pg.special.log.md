@@ -1,16 +1,21 @@
+
+
 # Oracle Log Miner and PostgreSQL logging options
+<a name="chap-oracle-aurora-pg.special.log"></a>
 
 With AWS DMS, you can migrate data from Oracle and PostgreSQL databases while maintaining transaction integrity by utilizing Oracle Log Miner and PostgreSQL logical replication capabilities. Oracle Log Miner provides access to redo log files, allowing you to capture data manipulation language (DML) and data definition language (DDL) changes made to Oracle databases. PostgreSQL logical replication streams write-ahead log (WAL) records, enabling data synchronization between primary and standby servers.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                               |
-| -------------------------------- | ---------------------------------- | ------------------------- | ------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | PostgreSQL doesn’t support LogMiner, workaround is available. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | PostgreSQL doesn’t support LogMiner, workaround is available. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.special.log.ora"></a>
 
 Oracle Log Miner is a tool for querying the database Redo Logs and the Archived Redo Logs using an SQL interface. Using Log Miner, you can analyze the content of database “transaction logs” (online and archived redo logs) and gain historical insights on past database activity such as data modification by individual DML statements.
 
-**Examples**
+ **Examples** 
 
 The following examples demonstrate how to use Log Miner to view DML statements that run on the employees table.
 
@@ -74,28 +79,31 @@ update "HR"."EMPLOYEES" set                      update "HR"."EMPLOYEES" set
 and ROWID = 'AAAViUAAEAAABVvAAQ';                and ROWID = 'AAAViUAAEAAABVvAAQ';
 ```
 
-For more information, see [Using LogMiner to Analyze Redo Log Files](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5") in the _Oracle documentation_.
+For more information, see [Using LogMiner to Analyze Redo Log Files](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-logminer-utility.html#GUID-3417B738-374C-4EE3-B15C-3A66E01AE2B5) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.special.log.pg"></a>
 
 PostgreSQL doesn’t provide a feature that is directly equivalent to Oracle Log Miner. However, several alternatives exist which allow viewing historical database activity in PostgreSQL.
 
-**Using PG\_STAT\_STATEMENTS**
+ **Using PG\_STAT\_STATEMENTS** 
 
 Extension module for tracking query run details with statistical information. The `PG_STAT_STATEMENTS` view presents a single row for each database operation that was logged, including information about the user, query, number of rows retrieved by the query, and more.
 
-**Examples**
+ **Examples** 
 
 1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Parameter groups** and choose the parameter to edit.
-3. On the **Parameter group actions**, choose **Edit**.
-4. Set the following parameters:
 
-   - shared\_preload\_libraries = 'pg\_stat\_statements'
-   - pg\_stat\_statements.max = 10000
-   - pg\_stat\_statements.track = all
+1. Choose **Parameter groups** and choose the parameter to edit.
 
-5. Choose **Save changes**.
+1. On the **Parameter group actions**, choose **Edit**.
+
+1. Set the following parameters:
+   + shared\_preload\_libraries = 'pg\_stat\_statements'
+   + pg\_stat\_statements.max = 10000
+   + pg\_stat\_statements.track = all
+
+1. Choose **Save changes**.
 
 A database reboot may be required for the updated values to take effect.
 
@@ -142,50 +150,62 @@ blk_read_time        0
 blk_write_time       0
 ```
 
-###### Note
-
+**Note**  
 PostgreSQL `PG_STAT_STATEMENTS` doesn’t provide a feature that is equivalent to LogMiner `SQL_UNDO` column.
 
-**DML / DDL Database Activity Logging**
+ **DML / DDL Database Activity Logging** 
 
 DML and DML operations can be tracked inside the PostgreSQL log file (postgres.log) and viewed using AWS console.
 
-**Examples**
+ **Examples** 
 
 1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Parameter groups** and choose the parameter to edit.
-3. On the **Parameter group actions**, choose **Edit**.
-4. Set the following parameters:
 
-   - log\_statement = 'ALL'
-   - log\_min\_duration\_statement = 1
+1. Choose **Parameter groups** and choose the parameter to edit.
 
-5. Choose **Save changes**.
+1. On the **Parameter group actions**, choose **Edit**.
+
+1. Set the following parameters:
+   + log\_statement = 'ALL'
+   + log\_min\_duration\_statement = 1
+
+1. Choose **Save changes**.
 
 A database reboot may be required for the updated values to take effect.
 
 Test DDL/DML logging.
 
 1. Sign in to your AWS console and choose **RDS**.
-2. Choose **Databases**, then choose your database, and choose **Logs**.
-3. Sort the log by the `Last Written` column to show recent logs.
-4. For the log you want to review, choose **View**. For example, the following image shows the PostgreSQL log file with a logged `UPDATE` command.
 
-![A screenshot of a PostgreSQL log file](images/pb-pg-log.png)
+1. Choose **Databases**, then choose your database, and choose **Logs**.
 
-**Amazon Aurora Performance Insights**
+1. Sort the log by the `Last Written` column to show recent logs.
+
+1. For the log you want to review, choose **View**. For example, the following image shows the PostgreSQL log file with a logged `UPDATE` command.
+
+![A screenshot of a PostgreSQL log file](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-pg-log.png)
+
+
+ ** Amazon Aurora Performance Insights** 
 
 The Amazon Aurora performance insights dashboard provides information about current and historical SQL statements, runs and workloads. Note, enhanced monitoring should be enabled during Amazon Aurora instance configuration.
 
-**Examples**
+ **Examples** 
 
 1. Sign in to the AWS Management Console and choose **RDS**.
-2. Choose **Databases**, then choose your database.
-3. On the **Actions**, choose **Modify**.
-4. Make sure that the Enable Enhanced Monitoring option is set to Yes.
-5. Choose **Apply immediately** and then choose **Continue**.
-6. On the AWS console, choose **RDS**, and then choose **Performance insights**.
-7. Choose the instance to monitor.
-8. Specify the timeframe and the monitoring scope (Waits, SQL, Hosts and Users).
 
-For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/13/runtime-config-logging.html "https://www.postgresql.org/docs/13/runtime-config-logging.html") and [pg\_stat\_statements](https://www.postgresql.org/docs/13/pgstatstatements.html "https://www.postgresql.org/docs/13/pgstatstatements.html") in the _PostgreSQL documentation_ and [PostgreSQL database log files](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.md") in the _Amazon RDS user guide_.
+1. Choose **Databases**, then choose your database.
+
+1. On the **Actions**, choose **Modify**.
+
+1. Make sure that the Enable Enhanced Monitoring option is set to Yes.
+
+1. Choose **Apply immediately** and then choose **Continue**.
+
+1. On the AWS console, choose **RDS**, and then choose **Performance insights**.
+
+1. Choose the instance to monitor.
+
+1. Specify the timeframe and the monitoring scope (Waits, SQL, Hosts and Users).
+
+For more information, see [Error Reporting and Logging](https://www.postgresql.org/docs/13/runtime-config-logging.html) and [pg\_stat\_statements](https://www.postgresql.org/docs/13/pgstatstatements.html) in the *PostgreSQL documentation* and [PostgreSQL database log files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.PostgreSQL.html) in the *Amazon RDS user guide*.

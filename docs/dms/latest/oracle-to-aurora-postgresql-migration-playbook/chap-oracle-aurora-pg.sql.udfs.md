@@ -1,22 +1,26 @@
+
+
 # Oracle and PostgreSQL user-defined functions
+<a name="chap-oracle-aurora-pg.sql.udfs"></a>
 
 With AWS DMS, you can migrate user-defined functions (UDFs) from Oracle and PostgreSQL databases to compatible target databases. UDFs are custom functions written in programming languages like PL/SQL or SQL that extend the functionality of the database management system.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                      | Key differences                |
-| -------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| Three star feature compatibility | Four star automation level         | [Stored Procedures](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures") | Syntax and option differences. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [Stored Procedures](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures)  | Syntax and option differences. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.sql.udfs.ora"></a>
 
 You can create an Oracle user-defined function (UDF) using PL/SQL, Java, or C. UDFs are useful for providing functionality not available in SQL or SQL built-in functions. They can appear in SQL statements wherever built-in SQL functions can appear.
 
 You can use UDFs in the following cases:
++ To return a single value from a `SELECT` statement (scalar function).
++ While performing DML operations.
++ In `WHERE`, `GROUP BY`, `ORDER BY`, `HAVING`, `CONNECT BY`, and `START WITH` clauses.
 
-- To return a single value from a `SELECT` statement (scalar function).
-- While performing DML operations.
-- In `WHERE`, `GROUP BY`, `ORDER BY`, `HAVING`, `CONNECT BY`, and `START WITH` clauses.
-
-**Examples**
+ **Examples** 
 
 Create a simple Oracle UDF with arguments for employee `HIRE_DATE` and `SALARY` as `INPUT` parameters and calculate the overall salary over the employee’s years of service for the company.
 
@@ -49,15 +53,16 @@ EMPLOYEE_ID FIRST_NAME TOTAL_SALARY
 …
 ```
 
-For more information, see [CREATE FUNCTION](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306") in the _Oracle documentation_.
+For more information, see [CREATE FUNCTION](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-FUNCTION.html#GUID-156AEDAC-ADD0-4E46-AA56-6D1F7CA63306) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.udfs.pg"></a>
 
 PostgreSQL supports the creation of user-defined functions using the `CREATE FUNCTION` statement. The PostgreSQL extended SQL language, PL/pgSQL, is the primary language to use while migrating from Oracle PL/SQL user-defined functions.
 
 To create a function, a user needs the `USAGE` privilege on the language.
 
-**Examples**
+ **Examples** 
 
 Convert the Oracle user-defined function from the previous Oracle section to a PostgreSQL PL/pgSQL function.
 
@@ -93,4 +98,4 @@ employee_id  first_name  total_salary
 …
 ```
 
-For more information, see [User-Defined Functions](https://www.postgresql.org/docs/13/xfunc.html "https://www.postgresql.org/docs/13/xfunc.html") and [CREATE FUNCTION](https://www.postgresql.org/docs/13/sql-createfunction.html "https://www.postgresql.org/docs/13/sql-createfunction.html") in the _PostgreSQL documentation_, and [What is the AWS Schema Conversion Tool?](../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md "../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md") in the _user guide_.
+For more information, see [User-Defined Functions](https://www.postgresql.org/docs/13/xfunc.html) and [CREATE FUNCTION](https://www.postgresql.org/docs/13/sql-createfunction.html) in the *PostgreSQL documentation*, and [What is the AWS Schema Conversion Tool?](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html) in the *user guide*.

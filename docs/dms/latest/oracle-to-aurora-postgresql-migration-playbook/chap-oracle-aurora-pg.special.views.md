@@ -1,37 +1,42 @@
+
+
 # Oracle and PostgreSQL views
+<a name="chap-oracle-aurora-pg.special.views"></a>
 
 With AWS DMS, you can create database views on source and target databases to simplify data access and transformation during migration. Views are virtual tables that derive their data from one or more underlying base tables or views. They provide a logical representation of data without duplicating or moving the base data.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                | Key differences |
-| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| Four star feature compatibility | Four star automation level         | [Views](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.views "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.views") | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [Views](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.views)  | N/A | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.special.views.ora"></a>
 
 Database Views store a named SQL query in the Oracle Data Dictionary with a predefined structure. A view doesn’t store actual data and may be considered a virtual table or a logical table based on the data from one or more physical database tables.
 
-**Privileges**
+ **Privileges** 
 
 A user needs the `CREATE VIEW` privilege to create a view in their own schema. A user needs the `CREATE ANY VIEW` privilege to create a view in any schema.
 
 The owner of a needs all the necessary privileges on the source tables or views on which the view is based (`SELECT` or `DML` privileges).
 
-**CREATE (OR REPLACE) VIEW statements**
+ **CREATE (OR REPLACE) VIEW statements** 
++  `CREATE VIEW` creates a new view.
++  `CREATE OR REPLACE` overwrites an existing view and modifies the view definition without having to manually drop and recreate the original view, and without deleting the previously granted privileges.
 
-- `CREATE VIEW` creates a new view.
-- `CREATE OR REPLACE` overwrites an existing view and modifies the view definition without having to manually drop and recreate the original view, and without deleting the previously granted privileges.
+ **Oracle common view parameters** 
 
-**Oracle common view parameters**
 
-| Oracle view parameter    | Description                                                                                                  |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `CREATE OR REPLACE`      | Recreate an existing view (if one exists) or create a new view.                                              |
-| `FORCE`                  | Create the view regardless of the existence of the source tables or views and regardless of view privileges. |
-| `VISIBLE` or `INVISIBLE` | Specify if a column based on the view is visible or invisible.                                               |
-| `WITH READ ONLY`         | Disable DML commands.                                                                                        |
-| `WITH CHECK OPTION`      | Specifies the level of enforcement when performing DML commands on the view.                                 |
+| Oracle view parameter | Description | 
+| --- | --- | 
+|  `CREATE OR REPLACE`  | Recreate an existing view (if one exists) or create a new view. | 
+|  `FORCE`  | Create the view regardless of the existence of the source tables or views and regardless of view privileges. | 
+|  `VISIBLE` or `INVISIBLE`  | Specify if a column based on the view is visible or invisible. | 
+|  `WITH READ ONLY`  | Disable DML commands. | 
+|  `WITH CHECK OPTION`  | Specifies the level of enforcement when performing DML commands on the view. | 
 
-**Examples**
+ **Examples** 
 
 Views are classified as either simple or complex.
 
@@ -65,9 +70,10 @@ WHERE DEPARTMENT_NAME=90;
 ORA-01732: data manipulation operation not legal on this view
 ```
 
-For more information, see [CREATE VIEW](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30") in the _Oracle documentation_.
+For more information, see [CREATE VIEW](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.special.views.pg"></a>
 
 PostgreSQL views share functionality with Oracle views. Creating a view defines a stored query based on one or more physical database tables which runs every time the view is accessed.
 
@@ -87,7 +93,7 @@ ALTER VIEW [ IF EXISTS ] name RENAME [ COLUMN ] column_name TO new_column_name
 
 Prior to PostgreSQL 13 the capability was there but in order to change the view’s column name the DBA had to use the `ALTER TABLE` command.
 
-**PostgreSQL View Synopsis**
+ **PostgreSQL View Synopsis** 
 
 ```
 CREATE [ OR REPLACE ] [ TEMP | TEMPORARY ] [ RECURSIVE ] VIEW name [ (
@@ -97,32 +103,30 @@ AS query
 [ WITH [ CASCADED | LOCAL ] CHECK OPTION ]
 ```
 
-**PostgreSQL view privileges**
+ **PostgreSQL view privileges** 
 
 A Role or user must be granted `SELECT` and `DML` privileges on the base tables or views in order to create a view.
 
-For more information, see [GRANT](https://www.postgresql.org/docs/10/sql-grant.html "https://www.postgresql.org/docs/10/sql-grant.html") in the _PostgreSQL documentation_.
+For more information, see [GRANT](https://www.postgresql.org/docs/10/sql-grant.html) in the *PostgreSQL documentation*.
 
-**PostgreSQL view parameters**
+ **PostgreSQL view parameters** 
++  `CREATE [OR REPLACE] VIEW` — Similar to the Oracle syntax. When you re-create an existing view, the new view must have the same column structure as generated by the original view (column names, column order and data types). As such, it is sometimes preferable to drop the view and use the `CREATE VIEW` statement instead.
 
-- `CREATE [OR REPLACE] VIEW` — Similar to the Oracle syntax. When you re-create an existing view, the new view must have the same column structure as generated by the original view (column names, column order and data types). As such, it is sometimes preferable to drop the view and use the `CREATE VIEW` statement instead.
+  ```
+  CREATE [OR REPLACE] VIEW VW_NAME AS SELECT COLUMNS FROM TABLE(s) [WHERE CONDITIONS];
+  DROP VIEW [IF EXISTS] VW_NAME;
+  ```
 
-```
-CREATE [OR REPLACE] VIEW VW_NAME AS SELECT COLUMNS FROM TABLE(s) [WHERE CONDITIONS];
-DROP VIEW [IF EXISTS] VW_NAME;
-```
+  The `IF EXISTS` parameter is optional.
++  `WITH [ CASCADED | LOCAL ] CHECK OPTION` — DML `INSERT` and `UPDATE` operations are verified against the view-based tables to ensure that new rows satisfy the original structure conditions or the view-defining condition. If a conflict is detected, the DML operation fails.
 
-The `IF EXISTS` parameter is optional.
+   `CHECK OPTION` can be `LOCAL` or `CASCADED`. `LOCAL` verifies against the view without a hierarchical check. `CASCADED` verifies all underlying base views using a hierarchical check.
 
-- `WITH [ CASCADED | LOCAL ] CHECK OPTION` — DML `INSERT` and `UPDATE` operations are verified against the view-based tables to ensure that new rows satisfy the original structure conditions or the view-defining condition. If a conflict is detected, the DML operation fails.
-
-`CHECK OPTION` can be `LOCAL` or `CASCADED`. `LOCAL` verifies against the view without a hierarchical check. `CASCADED` verifies all underlying base views using a hierarchical check.
-
-**Executing DML commands on views**
+ **Executing DML commands on views** 
 
 PostgreSQL simple views are automatically updatable. Unlike Oracle views, no restrictions exist when performing DML operations against views. An updatable view may contain a combination of updatable and non-updatable columns. A column is updatable if it references an updatable column of the underlying base table. If not, the column is read-only and an error is raised if an `INSERT` or `UPDATE` statement is attempted on the column.
 
-**Examples**
+ **Examples** 
 
 Creating and updating a view without the `CHECK OPTION` parameter.
 
@@ -154,4 +158,4 @@ UPDATE VW_DEP SET LOCATION_ID=1600;
 SQL Error: ERROR: new row violates check option for view "vw_dep"
 ```
 
-For more information, see [Views](https://www.postgresql.org/docs/13/tutorial-views.html "https://www.postgresql.org/docs/13/tutorial-views.html") and [CREATE VIEW](https://www.postgresql.org/docs/13/sql-createview.html "https://www.postgresql.org/docs/13/sql-createview.html") in the _PostgreSQL documentation_.
+For more information, see [Views](https://www.postgresql.org/docs/13/tutorial-views.html) and [CREATE VIEW](https://www.postgresql.org/docs/13/sql-createview.html) in the *PostgreSQL documentation*.

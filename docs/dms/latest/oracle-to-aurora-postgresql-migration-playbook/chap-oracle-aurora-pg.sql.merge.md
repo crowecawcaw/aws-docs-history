@@ -1,18 +1,23 @@
+
+
 # MERGE statement
+<a name="chap-oracle-aurora-pg.sql.merge"></a>
 
 With AWS DMS, you can perform Oracle `MERGE` statements and the PostgreSQL equivalent to conditionally insert, update, or delete rows in a target table based on the results of a join with a source table.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                | Key differences                                            |
-| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| Three star feature compatibility | No automation                      | [Merge](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.merge "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.merge") | MERGE isn’t supported by PostgreSQL, workaround available. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [Merge](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.merge)  | MERGE isn’t supported by PostgreSQL, workaround available. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.sql.merge.ora"></a>
 
 The `MERGE` statement provides a means to specify single SQL statements that conditionally perform `INSERT`, `UPDATE`, or `DELETE` operations on a target table—a task that would otherwise require multiple logical statements.
 
 The `MERGE` statement selects record(s) from the source table and then, by specifying a logical structure, automatically performs multiple DML operations on the target table. Its main advantage is to help avoid the use of multiple inserts, updates or deletes. It is important to note that `MERGE` is a deterministic statement. That is, once a row has been processed by the MERGE statement, it can’t be processed again using the same `MERGE` statement. `MERGE` is also sometimes known as `UPSERT`.
 
-**Examples**
+ **Examples** 
 
 Use `MERGE` to insert or update employees who are entitled to a bonus (by year).
 
@@ -47,13 +52,14 @@ EMPLOYEE_ID BONUS_YEAR SALARY BONUS
 115         2017       3100   1550
 ```
 
-For more information, see [MERGE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F") in the _Oracle documentation_.
+For more information, see [MERGE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/MERGE.html#GUID-5692CCB7-24D9-4C0E-81A7-A22436DC968F) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.merge.pg"></a>
 
 PostgreSQL doesn’t support the use of the `MERGE` SQL command. As an alternative, consider using the `INSERT… ON CONFLICT` clause, which can handle cases where insert clauses might cause a conflict, and then redirect the operation as an update.
 
-**Examples**
+ **Examples** 
 
 Using the `ON CONFLICT` clause to handle a similar scenario as shown for the Oracle `MERGE` command.
 
@@ -93,4 +99,4 @@ employee_id  bonus_year  salary   bonus
 
 Running the same operation multiple times using the `ON CONFLICT` clause doesn’t generate an error because the existing records are redirected to the update clause.
 
-For more information, see [INSERT](https://www.postgresql.org/docs/13/sql-insert.html "https://www.postgresql.org/docs/13/sql-insert.html") and [Unsupported Features](https://www.postgresql.org/docs/13/unsupported-features-sql-standard.htm "https://www.postgresql.org/docs/13/unsupported-features-sql-standard.htm") in the _PostgreSQL documentation_.
+For more information, see [INSERT](https://www.postgresql.org/docs/13/sql-insert.html) and [Unsupported Features](https://www.postgresql.org/docs/13/unsupported-features-sql-standard.htm) in the *PostgreSQL documentation*.

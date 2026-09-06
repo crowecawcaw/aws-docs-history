@@ -1,22 +1,26 @@
+
+
 # Oracle anonymous block and PostgreSQL DO
+<a name="chap-oracle-aurora-pg.sql.block"></a>
 
 With AWS DMS, you can run PL/SQL anonymous blocks and PostgreSQL `DO` commands to perform custom database code operations during a database migration. An Oracle anonymous block is an unattached, unnamed PL/SQL code block that can contain SQL queries and PL/SQL statements. A PostgreSQL `DO` command runs an anonymous code block containing procedural language statements.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                      | Key differences                            |
-| ------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| Four star feature compatibility | Three star automation level        | [Stored Procedures](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures") | Different syntax may require code rewrite. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Stored Procedures](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures)  | Different syntax may require code rewrite. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.sql.block.ora"></a>
 
 Oracle PL/SQL is a procedural extension of SQL. The PL/SQL program structure divides the code into blocks distinguished by the following keywords: `DECLARE`, `BEGIN`, `EXCEPTION`, and `END`.
 
 An unnamed PL/SQL code block (code not stored in the database as a procedure, function, or package) is known as an anonymous block. An anonymous block serves as the basic unit of Oracle PL/SQL and contains the following code sections:
++  **The declarative section** (optional) — Contains variables (names, data types, and initial values).
++  **The executable section** (mandatory) — Contains executable statements (each block structure must contain at least one executable PL/SQL statement).
++  **The exception-handling section** (optional) — Contains elements for handling exceptions or errors in the code.
 
-- **The declarative section** (optional) — Contains variables (names, data types, and initial values).
-- **The executable section** (mandatory) — Contains executable statements (each block structure must contain at least one executable PL/SQL statement).
-- **The exception-handling section** (optional) — Contains elements for handling exceptions or errors in the code.
-
-**Examples**
+ **Examples** 
 
 Simple structure of an Oracle anonymous block.
 
@@ -56,19 +60,19 @@ END;
 
 The preceding example calculates the number of years each employee has worked based on the `HIRE_DATE` column of the `EMPLOYEES` table. If the employee has worked for ten or more years and has a salary of $6000 or less, the system prints the message “Consider a Bonus for: <employee name>”.
 
-For more information, see [Overview of PL/SQL](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/overview.html#GUID-2FBCFBBE-6B42-4DB8-83F3-55B63B75B1EB "https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/overview.html#GUID-2FBCFBBE-6B42-4DB8-83F3-55B63B75B1EB") in the _Oracle documentation_.
+For more information, see [Overview of PL/SQL](https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/overview.html#GUID-2FBCFBBE-6B42-4DB8-83F3-55B63B75B1EB) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.block.pg"></a>
 
 PostgreSQL supports capabilities similar to Oracle anonymous blocks. In PostgreSQL, you can run PL/pgSQL code that isn’t stored in the database as an independent code segment using a PL/pgSQL `DO` statement.
 
 PL/pgSQL is a PostgreSQL extension to the ANSI SQL and has many similar elements to Oracle PL/SQL. PostgreSQL `DO` uses a similar code structure to an Oracle anonymous block
++  **The declarative section** (optional).
++  **The executable section** (mandatory).
++  **The exception-handling section** (optional).
 
-- **The declarative section** (optional).
-- **The executable section** (mandatory).
-- **The exception-handling section** (optional).
-
-**Examples**
+ **Examples** 
 
 PostgreSQL DO simple structure.
 
@@ -111,4 +115,4 @@ EXCEPTION
   END $$;
 ```
 
-For more information, see [DO](https://www.postgresql.org/docs/13/sql-do.html "https://www.postgresql.org/docs/13/sql-do.html") in the _PostgreSQL documentation_.
+For more information, see [DO](https://www.postgresql.org/docs/13/sql-do.html) in the *PostgreSQL documentation*.

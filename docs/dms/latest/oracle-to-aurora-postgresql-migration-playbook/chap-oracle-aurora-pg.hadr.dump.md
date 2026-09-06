@@ -1,12 +1,17 @@
+
+
 # Oracle SQL\*Loader and PostgreSQL pg\_dump and pg\_restore
+<a name="chap-oracle-aurora-pg.hadr.dump"></a>
 
 With AWS DMS, you can efficiently migrate data from flat files into AWS databases using Oracle SQL\*Loader and PostgreSQL `pg_dump` and `pg_restore` commands. These utilities facilitate bulk data loading from external files into database tables.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                  |
-| ------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------------------------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | Not all functions are supported by PostgreSQL and may require to create manually |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  | N/A | Not all functions are supported by PostgreSQL and may require to create manually | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.hadr.dump.ora"></a>
 
 SQL\*Loader is powerful utility that imports data from external files into database tables. It has strong parsing engine with few limitations on data formats.
 
@@ -14,7 +19,7 @@ You can use SQL\*Loader with or without a control file. A control file enables h
 
 The outputs of SQL\*Loader include the imported database data, a log file, a bad file (rejected records), and a discard file (if enabled).
 
-**Examples**
+ **Examples** 
 
 Oracle SQL\*Loader is well suited for large databases with a limited number of objects. The process of exporting from a source database and loading to a target database is very specific to the schema. The following example creates sample schema objects, exports from a source, and loads into a target database.
 
@@ -67,16 +72,16 @@ Import the data using SQL\*Loader. Use the appropriate username and password for
 sqlldr cust_dba@targetdb control=sqlldr_1.ctl BINDSIZE=10485760 READSIZE=10485760 ROWSS=1000
 ```
 
-For more information, see [SQL\*Loader](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader.html#GUID-8D037494-07FA-4226-B507-E1B2ED10C144 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader.html#GUID-8D037494-07FA-4226-B507-E1B2ED10C144") in the _Oracle documentation_.
+For more information, see [SQL\*Loader](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-sql-loader.html#GUID-8D037494-07FA-4226-B507-E1B2ED10C144) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.hadr.dump.pg"></a>
 
 You can use the two following options as a replacement for the Oracle SQL\*Loader utility:
++  **PostgreSQL Import** using an export file similar to a control file.
++  **Load from Amazon S3 File** using a table-formatted file on Amazon S3 and loading it into a PostgreSQL database.
 
-- **PostgreSQL Import** using an export file similar to a control file.
-- **Load from Amazon S3 File** using a table-formatted file on Amazon S3 and loading it into a PostgreSQL database.
-
-`pg_restore` is a good option when it’s required to use a tool from another server or a client. The `LOAD DATA` command can be combined with meta-data tables and `EVENT` objects to schedule loads.
+ `pg_restore` is a good option when it’s required to use a tool from another server or a client. The `LOAD DATA` command can be combined with meta-data tables and `EVENT` objects to schedule loads.
 
 Another option to export and import data from PostgreSQL database is to use `COPY TO` and `COPY FROM` commands. Starting with PostgreSQL 12, the `COPY FROM` command, that you can use to load data into DB, has support for filtering incoming rows with the `WHERE` condition.
 
@@ -86,4 +91,4 @@ CREATE TABLE tst_copy(v TEXT);
 COPY tst_copy FROM '/home/postgres/file.csv' WITH (FORMAT CSV) WHERE v LIKE '%apple%';
 ```
 
-For more information, see [PostgreSQL pg\_dump and pg\_restore](chap-oracle-aurora-pg.hadr.datapump.md#chap-oracle-aurora-pg.hadr.datapump.pg "chap-oracle-aurora-pg.hadr.datapump.md#chap-oracle-aurora-pg.hadr.datapump.pg").
+For more information, see [PostgreSQL pg\_dump and pg\_restore](chap-oracle-aurora-pg.hadr.datapump.md#chap-oracle-aurora-pg.hadr.datapump.pg).

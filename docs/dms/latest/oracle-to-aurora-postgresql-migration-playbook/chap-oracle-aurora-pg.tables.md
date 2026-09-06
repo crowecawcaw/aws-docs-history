@@ -1,25 +1,27 @@
+
+
 # Oracle and PostgreSQL tables and indexes
+<a name="chap-oracle-aurora-pg.tables"></a>
 
 This section provides reference pages for Oracle and PostgreSQL tables and indexes.
 
-###### Topics
-
-- [Case sensitivity differences for Oracle and PostgreSQL](chap-oracle-aurora-pg.tables.case.md "chap-oracle-aurora-pg.tables.case.md")
-- [Common Oracle and PostgreSQL data types](chap-oracle-aurora-pg.tables.common.md "chap-oracle-aurora-pg.tables.common.md")
-- [Oracle read-only tables and partitions and PostgreSQL Aurora replicas](chap-oracle-aurora-pg.tables.readonly.md "chap-oracle-aurora-pg.tables.readonly.md")
-- [Oracle and PostgreSQL table constraints](chap-oracle-aurora-pg.tables.constraints.md "chap-oracle-aurora-pg.tables.constraints.md")
-- [Oracle and PostgreSQL temporary tables](chap-oracle-aurora-pg.tables.temporary.md "chap-oracle-aurora-pg.tables.temporary.md")
-- [Oracle triggers and PostgreSQL trigger procedure](chap-oracle-aurora-pg.tables.triggers.md "chap-oracle-aurora-pg.tables.triggers.md")
-- [Oracle and PostgreSQL tablespaces and data files](chap-oracle-aurora-pg.tables.tablespaces.md "chap-oracle-aurora-pg.tables.tablespaces.md")
-- [Oracle and PostgreSQL user-defined types](chap-oracle-aurora-pg.tables.udt.md "chap-oracle-aurora-pg.tables.udt.md")
-- [Oracle unused columns and PostgreSQL ALTER TABLE statement](chap-oracle-aurora-pg.tables.alter.md "chap-oracle-aurora-pg.tables.alter.md")
-- [Oracle virtual columns and PostgreSQL views and functions](chap-oracle-aurora-pg.tables.virtual.md "chap-oracle-aurora-pg.tables.virtual.md")
-- [Overall Oracle and PostgreSQL indexes summary](chap-oracle-aurora-pg.tables.indexes.md "chap-oracle-aurora-pg.tables.indexes.md")
-- [Oracle bitmap indexes and PostgreSQL bitmap](chap-oracle-aurora-pg.tables.bitmap.md "chap-oracle-aurora-pg.tables.bitmap.md")
-- [Oracle and PostgreSQL B-tree indexes](chap-oracle-aurora-pg.tables.btree.md "chap-oracle-aurora-pg.tables.btree.md")
-- [Oracle composite indexes and PostgreSQL multi-column indexes](chap-oracle-aurora-pg.tables.composite.md "chap-oracle-aurora-pg.tables.composite.md")
-- [Oracle function-based indexes and PostgreSQL expression indexes](chap-oracle-aurora-pg.tables.expression.md "chap-oracle-aurora-pg.tables.expression.md")
-- [Oracle and PostgreSQL invisible indexes](chap-oracle-aurora-pg.tables.invisible.md "chap-oracle-aurora-pg.tables.invisible.md")
-- [Oracle index-organized table and PostgreSQL cluster table](chap-oracle-aurora-pg.tables.iot.md "chap-oracle-aurora-pg.tables.iot.md")
-- [Oracle local and global partitioned indexes and PostgreSQL partitioned indexes](chap-oracle-aurora-pg.tables.partitioned.md "chap-oracle-aurora-pg.tables.partitioned.md")
-- [Oracle automatic indexing and self-managed PostgreSQL](chap-oracle-aurora-pg.tables.autoindex.md "chap-oracle-aurora-pg.tables.autoindex.md")
+**Topics**
++ [Case sensitivity differences for Oracle and PostgreSQL](chap-oracle-aurora-pg.tables.case.md)
++ [Common Oracle and PostgreSQL data types](chap-oracle-aurora-pg.tables.common.md)
++ [Oracle read-only tables and partitions and PostgreSQL Aurora replicas](chap-oracle-aurora-pg.tables.readonly.md)
++ [Oracle and PostgreSQL table constraints](chap-oracle-aurora-pg.tables.constraints.md)
++ [Oracle and PostgreSQL temporary tables](chap-oracle-aurora-pg.tables.temporary.md)
++ [Oracle triggers and PostgreSQL trigger procedure](chap-oracle-aurora-pg.tables.triggers.md)
++ [Oracle and PostgreSQL tablespaces and data files](chap-oracle-aurora-pg.tables.tablespaces.md)
++ [Oracle and PostgreSQL user-defined types](chap-oracle-aurora-pg.tables.udt.md)
++ [Oracle unused columns and PostgreSQL ALTER TABLE statement](chap-oracle-aurora-pg.tables.alter.md)
++ [Oracle virtual columns and PostgreSQL views and functions](chap-oracle-aurora-pg.tables.virtual.md)
++ [Overall Oracle and PostgreSQL indexes summary](chap-oracle-aurora-pg.tables.indexes.md)
++ [Oracle bitmap indexes and PostgreSQL bitmap](chap-oracle-aurora-pg.tables.bitmap.md)
++ [Oracle and PostgreSQL B-tree indexes](chap-oracle-aurora-pg.tables.btree.md)
++ [Oracle composite indexes and PostgreSQL multi-column indexes](chap-oracle-aurora-pg.tables.composite.md)
++ [Oracle function-based indexes and PostgreSQL expression indexes](chap-oracle-aurora-pg.tables.expression.md)
++ [Oracle and PostgreSQL invisible indexes](chap-oracle-aurora-pg.tables.invisible.md)
++ [Oracle index-organized table and PostgreSQL cluster table](chap-oracle-aurora-pg.tables.iot.md)
++ [Oracle local and global partitioned indexes and PostgreSQL partitioned indexes](chap-oracle-aurora-pg.tables.partitioned.md)
++ [Oracle automatic indexing and self-managed PostgreSQL](chap-oracle-aurora-pg.tables.autoindex.md)

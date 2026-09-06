@@ -1,18 +1,23 @@
+
+
 # Oracle function-based indexes and PostgreSQL expression indexes
+<a name="chap-oracle-aurora-pg.tables.expression"></a>
 
 With AWS DMS, you can create function-based indexes in Oracle databases and expression indexes in PostgreSQL databases to improve query performance. Function-based indexes in Oracle allow indexing on expressions or function results, while expression indexes in PostgreSQL index expressions based on one or more columns.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                      | Key differences                                                          |
-| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Four star feature compatibility | Four star automation level         | [Indexes](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.indexes "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.indexes") | PostgreSQL doesn’t support functional indexes that aren’t single-column. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [Indexes](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.indexes)  | PostgreSQL doesn’t support functional indexes that aren’t single-column. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.tables.expression.ora"></a>
 
 Function-based indexes allow functions to be used in the `WHERE` clause of queries on indexed columns. Function-based indexes store the output of a function applied on the values of a table column. The Oracle query optimizer only uses a function-based index when the function is used as part of a query.
 
 Oracle updates the index for each DML to ensure that the value that returns from the function is correct.
 
-**Examples**
+ **Examples** 
 
 Create a function-based index.
 
@@ -27,13 +32,14 @@ CREATE INDEX EVNT_BY_DAY ON SYSTEM_EVENTS(
   EXTRACT(DAY FROM EVENT_TIME));
 ```
 
-For more information, see [Indexes and Index-Organized Tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1 "https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1") and [CREATE INDEX](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html#GUID-1F89BBC0-825F-4215-AF71-7588E31D8BFE "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html#GUID-1F89BBC0-825F-4215-AF71-7588E31D8BFE") in the _Oracle documentation_.
+For more information, see [Indexes and Index-Organized Tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt/indexes-and-index-organized-tables.html#GUID-797E49E6-2DCE-4FD4-8E4A-6E761F1383D1) and [CREATE INDEX](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-INDEX.html#GUID-1F89BBC0-825F-4215-AF71-7588E31D8BFE) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.tables.expression.pg"></a>
 
 PostgreSQL supports expression indexes which are similar to function-based indexes in Oracle.
 
-**Examples**
+ **Examples** 
 
 Create an expression index in PostgreSQL.
 
@@ -73,10 +79,11 @@ Index Cond: (date_part('day'::text, event_time) = '22'::double precision)
 ```
 
 ### Partial indexes
+<a name="chap-oracle-aurora-pg.tables.expression.pg.partial"></a>
 
 PostgreSQL also offers partial indexes, which are indexes that use a `WHERE` clause when created. The biggest benefit of using partial indexes is reduction of the overall subset of indexed data allowing users to index relevant table data only. You can use partial indexes to increase efficiency and reduce the size of the index.
 
-**Example**
+ **Example** 
 
 Create a PostgreSQL partial index.
 
@@ -91,4 +98,4 @@ CREATE INDEX IDX_TIME_CODE ON SYSTEM_EVENTS(EVENT_TIME)
   WHERE EVENT_CODE like '01-A%';
 ```
 
-For more information, see [Building Indexes Concurrently](https://www.postgresql.org/docs/13/sql-createindex.html#SQL-CREATEINDEX-CONCURRENTLY "https://www.postgresql.org/docs/13/sql-createindex.html#SQL-CREATEINDEX-CONCURRENTLY") in the _PostgreSQL documentation_.
+For more information, see [Building Indexes Concurrently](https://www.postgresql.org/docs/13/sql-createindex.html#SQL-CREATEINDEX-CONCURRENTLY) in the *PostgreSQL documentation*.

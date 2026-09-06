@@ -1,27 +1,31 @@
+
+
 # Oracle table partitioning and PostgreSQL partitions and table inheritance
+<a name="chap-oracle-aurora-pg.storage.partition"></a>
 
 With AWS DMS, you can migrate partitioned Oracle tables and implement partitioning strategies in PostgreSQL, leveraging its table inheritance capabilities. Partitioning is a data management technique that divides large tables into smaller, more manageable segments called partitions. PostgreSQL supports partitioning through table inheritance, where child tables inherit the structure and constraints of a parent table.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                                                 |
-| -------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | Three star automation level        | N/A                       | Foreign keys referencing to/from partitioned tables are supported on the individual tables in PostgreSQL. Some partition types are not supported by PostgreSQL. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  | N/A | Foreign keys referencing to/from partitioned tables are supported on the individual tables in PostgreSQL. Some partition types are not supported by PostgreSQL. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.storage.partition.ora"></a>
 
 The purpose of database partitioning is to provide support for very large tables and indexes by splitting them into smaller pieces. Each partition has its own name and definitions. They can be managed separately or collectively as one object. From an application perspective, partitions are transparent. Partitioned tables behave the same as non-partitioned tables allowing your applications access using unmodified SQL statements. Table partitioning provides several benefits:
-
-- **Performance improvements** — Table partitions help improve query performance by accessing a subset of a partition instead of scanning a larger set of data. Additional performance improvements can be achieved when using partitions and parallel query execution for DML and DDL operations.
-- **Data management** — Table partitions facilitate easier data management operations (such as data migration), index management (creation, dropping, or rebuilding indexes), and backup/recovery. These operations are also referred to as Information Lifecycle Management (ILM) activities.
-- **Maintenance operations** — Table partitions can significantly reduce downtime caused by table maintenance operations.
++  **Performance improvements** — Table partitions help improve query performance by accessing a subset of a partition instead of scanning a larger set of data. Additional performance improvements can be achieved when using partitions and parallel query execution for DML and DDL operations.
++  **Data management** — Table partitions facilitate easier data management operations (such as data migration), index management (creation, dropping, or rebuilding indexes), and backup/recovery. These operations are also referred to as Information Lifecycle Management (ILM) activities.
++  **Maintenance operations** — Table partitions can significantly reduce downtime caused by table maintenance operations.
 
 Oracle 18c introduces the following enhancements to partitioning.
-
-- Online Merging of Partitions and Subpartitions: now it is possible to merge table partitions concurrently with Updates/Deletes and Inserts on a partitioned table.
-- Oracle 18c also allows to modify partitioning strategy for the partitioned table: e.g. hash partitioning to range. This can be done both offline and online.
++ Online Merging of Partitions and Subpartitions: now it is possible to merge table partitions concurrently with Updates/Deletes and Inserts on a partitioned table.
++ Oracle 18c also allows to modify partitioning strategy for the partitioned table: e.g. hash partitioning to range. This can be done both offline and online.
 
 Oracle 19 introduces hybrid partitioned tables: partitions can now be both internal Oracle tables and external tables and sources. It is also possible to integrate both internal and external partitions together in a single partitioned table.
 
 ### Hash table partitioning
+<a name="chap-oracle-aurora-pg.storage.partition.ora.hash"></a>
 
 When a partition key is specified (for example, a table column with a `NUMBER` data type), Oracle applies a hashing algorithm to evenly distribute the data (records) among all defined partitions. The partitions have approximately the same size.
 
@@ -39,6 +43,7 @@ CREATE TABLE SYSTEM_LOGS
 ```
 
 ### List table partitioning
+<a name="chap-oracle-aurora-pg.storage.partition.ora.list"></a>
 
 You can specify a list of discrete values for the table partitioning key in the description of each partition. This type of table partitioning enables control over partition organization using explicit values. For example, partition events by error code values.
 
@@ -56,6 +61,7 @@ CREATE TABLE SYSTEM_LOGS
 ```
 
 ### Range table partitioning
+<a name="chap-oracle-aurora-pg.storage.partition.ora.range"></a>
 
 Partition a table based on a range of values. The Oracle database assigns rows to table partitions based on column values falling within a given range. Range table partitioning is one of the most frequently used type of partitioning, primarily with date values. Range table partitioning can also be implemented with numeric ranges (1-10000, 10001- 20000…).
 
@@ -79,28 +85,26 @@ CREATE TABLE SYSTEM_LOGS
 ```
 
 ### Composite table partitioning
+<a name="chap-oracle-aurora-pg.storage.partition.ora.composite"></a>
 
 With composite partitioning, a table can be partitioned by one data distribution method, and then each partition can be further subdivided into sub-partitions using the same, or different, data distribution method(s). For example:
-
-- Composite list-range partitioning.
-- Composite list-list partitioning.
-- Composite range-hash partitioning.
++ Composite list-range partitioning.
++ Composite list-list partitioning.
++ Composite range-hash partitioning.
 
 ### Partitioning extensions
+<a name="chap-oracle-aurora-pg.storage.partition.ora.extensions"></a>
 
 Oracle provides additional partitioning strategies that enhance the capabilities of basic partitioning. These partitioning strategies include:
-
-- Manageability extensions.
-
-  - Interval partitioning.
-  - Partition advisor.
-
-- Partitioning key extensions.
-
-  - Reference partitioning.
-  - Virtual column-based partitioning.
++ Manageability extensions.
+  + Interval partitioning.
+  + Partition advisor.
++ Partitioning key extensions.
+  + Reference partitioning.
+  + Virtual column-based partitioning.
 
 ### Split partitions
+<a name="chap-oracle-aurora-pg.storage.partition.ora.split"></a>
 
 The `SPLIT PARTITION` statement can be used to redistribute the contents of one partition, or sub-partition, into multiple partitions or sub-partitions.
 
@@ -110,6 +114,7 @@ ALTER TABLE SPLIT PARTITION p0 INTO
 ```
 
 ### Exchange partitions
+<a name="chap-oracle-aurora-pg.storage.partition.ora.exchange"></a>
 
 The `EXCHANGE PARTITION` statement is useful to exchange table partitions in or out of a partitioned table.
 
@@ -119,6 +124,7 @@ ALTER TABLE orders EXCHANGE
 ```
 
 ### Subpartitioning tables
+<a name="chap-oracle-aurora-pg.storage.partition.ora.subpartitioning"></a>
 
 You can create Subpartitions within partitions to further split the parent partition.
 
@@ -135,9 +141,10 @@ PARTITION BY RANGE(department_id)
   PARTITION p3 VALUES LESS THAN (MAXVALUE)
 ```
 
-For more information, see [Partitioning Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/partition-concepts.html#GUID-EA7EF5CB-DD49-43AF-889A-F83AAC0D7D51 "https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/partition-concepts.html#GUID-EA7EF5CB-DD49-43AF-889A-F83AAC0D7D51") in the _Oracle documentation_.
+For more information, see [Partitioning Concepts](https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/partition-concepts.html#GUID-EA7EF5CB-DD49-43AF-889A-F83AAC0D7D51) in the *Oracle documentation*.
 
 ### Automatic list partitioning
+<a name="chap-oracle-aurora-pg.storage.partition.ora.automatic"></a>
 
 Oracle 12c introduces automatic list partitioning. This enhancement enables automatic creation of new partitions for new values inserted into a list-partitioned table. An automatic list-partitioned table is created with only one partition. The database creates the additional table partitions automatically.
 
@@ -153,9 +160,10 @@ CREATE TABLE SYSTEM_LOGS
   (PARTITION warning VALUES ('err1', 'err2', 'err3'))
 ```
 
-For more information, see [Oracle Partitioning](https://www.oracle.com/technetwork/database/options/partitioning/partitioning-wp-12c-1896137.pdf "https://www.oracle.com/technetwork/database/options/partitioning/partitioning-wp-12c-1896137.pdf") in the _Oracle documentation_.
+For more information, see [Oracle Partitioning](https://www.oracle.com/technetwork/database/options/partitioning/partitioning-wp-12c-1896137.pdf) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.storage.partition.pg"></a>
 
 Starting from PostgreSQL 10, there is an equivalent option to Oracle Partitions when using `RANGE` or `LIST` partitions, as declarative partitions are being supported in PostgreSQL.
 
@@ -166,20 +174,21 @@ In PostgreSQL 10, you still need to create the partition tables manually, but yo
 Some of the Partitioning management operations are performed directly on the sub-partitions (sub-tables). Querying can be performed directly on the partitioned table itself.
 
 Starting with PostgreSQL 11 and 12 following features were added.
++ For partitioned tables, a default partition can now be created that will store data which can’t be redirected to any other explicit partitions.
++ In addition to partitioning by ranges and lists, tables can now be partitioned by a hashed key.
++ When `UPDATE` changes values in a column that’s used as partition key in partitioned table, data is moved to proper partitions.
++ An index can now be created on a partitioned table. Corresponding indexes will be automatically created on individual partitions.
++ Foreign keys can now be created on a partitioned table. Corresponding foreign key constraints will be propagated to individual partitions.
++ Triggers `FOR EACH ROW` can now be created on a partitioned table. Corresponding triggers will be automatically created on individual partitions as well.
++ When attaching or detaching new partition to a partitioned table with the foreign key, foreign key enforcement triggers are correctly propagated to a new partition.
 
-- For partitioned tables, a default partition can now be created that will store data which can’t be redirected to any other explicit partitions.
-- In addition to partitioning by ranges and lists, tables can now be partitioned by a hashed key.
-- When `UPDATE` changes values in a column that’s used as partition key in partitioned table, data is moved to proper partitions.
-- An index can now be created on a partitioned table. Corresponding indexes will be automatically created on individual partitions.
-- Foreign keys can now be created on a partitioned table. Corresponding foreign key constraints will be propagated to individual partitions.
-- Triggers `FOR EACH ROW` can now be created on a partitioned table. Corresponding triggers will be automatically created on individual partitions as well.
-- When attaching or detaching new partition to a partitioned table with the foreign key, foreign key enforcement triggers are correctly propagated to a new partition.
-
-For more information, see [Table Partitioning](https://www.postgresql.org/docs/12/ddl-partitioning.html "https://www.postgresql.org/docs/12/ddl-partitioning.html") in the _PostgreSQL documentation_.
+For more information, see [Table Partitioning](https://www.postgresql.org/docs/12/ddl-partitioning.html) in the *PostgreSQL documentation*.
 
 ## Using the partition mechanism
+<a name="chap-oracle-aurora-pg.storage.partition.using"></a>
 
 ### List partition
+<a name="chap-oracle-aurora-pg.storage.partition.using.list"></a>
 
 ```
 CREATE TABLE emps (
@@ -220,6 +229,7 @@ To prevent the preceding error, make sure that all partitions exist for all poss
 Use the `MAXVALUE` and `MINVALUE` in your `FROM/TO` clause. This can help you get all values with `RANGE` partitions without the risk of creating new partitions.
 
 ### Range partition
+<a name="chap-oracle-aurora-pg.storage.partition.using.range"></a>
 
 ```
 CREATE TABLE sales (
@@ -261,6 +271,7 @@ When you create a table with the `PARTITION OF` clause, you can use the `PARTITI
 A sub-partition can be the same type as the parent partition table or it can be another partition type.
 
 ### List combined with range partition
+<a name="chap-oracle-aurora-pg.storage.partition.using.listrange"></a>
 
 The following example creates a `LIST` partition and sub-partitions by `RANGE`.
 
@@ -314,6 +325,7 @@ CREATE TABLE sales_def_2018q3
 ```
 
 ### Implementing list table partitioning with inheritance tables
+<a name="chap-oracle-aurora-pg.storage.partition.using.inheritance"></a>
 
 Create a parent table from which all child tables (partitions) will inherit.
 
@@ -332,7 +344,7 @@ constraint_exclusion
 partition
 ```
 
-For more information, see [constraint\_exclusion](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION "https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION") in the _PostgreSQL documentation_.
+For more information, see [constraint\_exclusion](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION) in the *PostgreSQL documentation*.
 
 PostgreSQL 9.6 doesn’t support declarative partitioning as well as several of the table partitioning features available in Oracle. Alternatives for replacing Oracle interval table partitioning include using application-centric methods using PL/pgSQL or other programming languages.
 
@@ -340,7 +352,7 @@ PostgreSQL 9.6 table partitioning doesn’t support the creation of foreign keys
 
 PostgreSQL doesn’t support `SPLIT` and `EXCHANGE` of table partitions. For these actions, you will need to plan your data migrations manually (between tables) to re-place the data into the right partition.
 
-**Examples**
+ **Examples** 
 
 The following examples demonstrate how to create a PostgreSQL list-partitioned table.
 
@@ -525,7 +537,7 @@ event_no  event_date  event_str
 1         2015-05-15  a...
 ```
 
-**Examples of New Partitioning Features of PostgreSQL11**
+ **Examples of New Partitioning Features of PostgreSQL11** 
 
 Default partitions.
 
@@ -582,7 +594,7 @@ i
 (8 rows)
 ```
 
-`UPDATE` on partition key.
+ `UPDATE` on partition key.
 
 ```
 CREATE TABLE tst_part(i INT) PARTITION BY RANGE(i);
@@ -754,18 +766,20 @@ Access method: heap
 ```
 
 ## Summary
+<a name="chap-oracle-aurora-pg.storage.partition.summary"></a>
 
-| Oracle table partition type               | Built-in PostgreSQL support |
-| ----------------------------------------- | --------------------------- |
-| List                                      | Yes                         |
-| Range                                     | Yes                         |
-| Hash                                      | Yes                         |
-| Composite partitioning (sub partitioning) | No                          |
-| Interval partitioning                     | No                          |
-| Partition advisor                         | No                          |
-| Reference partitioning                    | No                          |
-| Virtual column-based partitioning         | No                          |
-| Automatic list partitioning               | No                          |
-| Split / exchange partitions               | No                          |
 
-For more information, see [Table Partitioning](https://www.postgresql.org/docs/13/ddl-partitioning.html "https://www.postgresql.org/docs/13/ddl-partitioning.html") in the _PostgreSQL documentation_.
+| Oracle table partition type | Built-in PostgreSQL support | 
+| --- | --- | 
+| List | Yes | 
+| Range | Yes | 
+| Hash | Yes | 
+| Composite partitioning (sub partitioning) | No | 
+| Interval partitioning | No | 
+| Partition advisor | No | 
+| Reference partitioning | No | 
+| Virtual column-based partitioning | No | 
+| Automatic list partitioning | No | 
+| Split / exchange partitions | No | 
+
+For more information, see [Table Partitioning](https://www.postgresql.org/docs/13/ddl-partitioning.html) in the *PostgreSQL documentation*.

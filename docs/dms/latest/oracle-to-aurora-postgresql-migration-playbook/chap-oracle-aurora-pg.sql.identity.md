@@ -1,16 +1,21 @@
+
+
 # Oracle identity columns and PostgreSQL SERIAL type
+<a name="chap-oracle-aurora-pg.sql.identity"></a>
 
 With AWS DMS, you can migrate databases that utilize identity columns or auto-incrementing primary keys across different database engines. Oracle databases use identity columns to automatically generate unique sequential values for primary keys, while PostgreSQL databases employ the `SERIAL` pseudo-type for the same purpose.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                            | Key differences                                                       |
-| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Four star feature compatibility | Three star automation level        | [Sequences](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.sequences "chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.sequences") | Since PostgreSQL 10, there are no differences besides the data types. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Sequences](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.sequences)  | Since PostgreSQL 10, there are no differences besides the data types. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.sql.identity.ora"></a>
 
 Oracle 12c introduced support for automatic generation of values to populate columns in database tables. The `IDENTITY` type generates a sequence and associates it with a table column without the need to manually create a separate sequence object. The `IDENTITY` type relies (internally) on sequences, which can also be manually configured.
 
-**Examples**
+ **Examples** 
 
 Create a table with an Oracle 12c identity column.
 
@@ -33,9 +38,10 @@ COL1   COL2
 110    B
 ```
 
-For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6") in the _Oracle documentation_.
+For more information, see [CREATE TABLE](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.identity.pg"></a>
 
 PostgreSQL enables you to create a sequence that is similar to the `IDENTITY` property supported by Oracle 12c identity column feature. When creating a new table using the `SERIAL` pseudo-type, a sequence is created.
 
@@ -45,7 +51,7 @@ By assigning a `SERIAL` type to a column as part of table creation, PostgreSQL c
 
 Since PostgreSQL 10, there is a new option called identity columns which is similar to `SERIAL` data type but more SQL standard compliant. The identity columns are highly compatibility compare to Oracle identity columns.
 
-**Examples**
+ **Examples** 
 
 Using the PostgreSQL SERIAL pseudo-type (with a Sequence that is created implicitly).
 
@@ -69,10 +75,7 @@ INSERT INTO emps (emp_name) VALUES ('Robert');
 INSERT INTO emps (emp_id, emp_name) VALUES (DEFAULT, 'Brian');
 ```
 
-###### Note
+**Note**  
+It is important to know that in PostgreSQL (both SERIAL and IDENTITY), you can insert any value that you want that won’t violate the primary key constraint. If you do that and after that, you will use the identity column sequence value again, the following error might raise. SQL Error [23505]: ERROR: duplicate key value violates unique constraint "emps\_iden\_pkey" Detail: Key (emp\_id)=(2) already exists.
 
-It is important to know that in PostgreSQL (both SERIAL and IDENTITY), you can insert any value that you want that won’t violate the primary key constraint. If you do that and after that, you will use the identity column sequence value again, the following error might raise.
-SQL Error [23505]: ERROR: duplicate key value violates unique constraint "emps\_iden\_pkey"
-Detail: Key (emp\_id)=(2) already exists.
-
-For more information, see [CREATE SEQUENCE](https://www.postgresql.org/docs/13/sql-createsequence.html "https://www.postgresql.org/docs/13/sql-createsequence.html"), [Sequence Manipulation Functions](https://www.postgresql.org/docs/13/functions-sequence.html "https://www.postgresql.org/docs/13/functions-sequence.html"), [Numeric Types](https://www.postgresql.org/docs/13/datatype-numeric.html "https://www.postgresql.org/docs/13/datatype-numeric.html"), and [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html "https://www.postgresql.org/docs/13/sql-createtable.html") in the _PostgreSQL documentation_.
+For more information, see [CREATE SEQUENCE](https://www.postgresql.org/docs/13/sql-createsequence.html), [Sequence Manipulation Functions](https://www.postgresql.org/docs/13/functions-sequence.html), [Numeric Types](https://www.postgresql.org/docs/13/datatype-numeric.html), and [CREATE TABLE](https://www.postgresql.org/docs/13/sql-createtable.html) in the *PostgreSQL documentation*.

@@ -1,4 +1,7 @@
+
+
 # Case sensitivity differences for Oracle and PostgreSQL
+<a name="chap-oracle-aurora-pg.tables.case"></a>
 
 Object name case sensitivity is different for Oracle and PostgreSQL. Oracle names aren’t case sensitive. PostgreSQL names are case sensitive.
 

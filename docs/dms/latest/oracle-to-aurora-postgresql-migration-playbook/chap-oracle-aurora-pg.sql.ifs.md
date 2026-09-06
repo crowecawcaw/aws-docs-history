@@ -1,16 +1,21 @@
+
+
 # INSERT FROM SELECT statement
+<a name="chap-oracle-aurora-pg.sql.ifs"></a>
 
 The following sections provide details on running the `INSERT FROM SELECT` statement, including syntax examples and best practices for efficient data transfer.
 
-| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------- | ---------------------------------- | ------------------------- | --------------- |
-| Four star feature compatibility | Four star automation level         | N/A                       | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  | N/A | N/A | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.sql.ifs.ora"></a>
 
 You can insert multiple records into a table from another table using the `INSERT FROM SELECT` statement, which is a derivative of the basic `INSERT` statement. The column ordering and data types must match between the target and the source tables.
 
-**Examples**
+ **Examples** 
 
 Simple `INSERT FROM SELECT` (explicit).
 
@@ -53,13 +58,14 @@ LOG ERRORS INTO errlog ('Cannot Perform Insert') REJECT LIMIT 100;
 
 When inserting an existing `EMPLOYEE ID` into the `EMPS` table, the insert doesn’t fail because the invalid records are redirected to the `ERRLOG` table.
 
-For more information, see [INSERT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423 "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423") in the _Oracle documentation_.
+For more information, see [INSERT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.sql.ifs.pg"></a>
 
 PostgreSQL `INSERT FROM SELECT` syntax is mostly compatible with the Oracle syntax, except for a few Oracle-only features such as the conditional\_insert\_clause (`ALL|FIRST|ELSE`). Also, PostgreSQL doesn’t support the Oracle error\_logging\_clause. As an alternative, PostgreSQL provides the ON CONFLICT clause to capture errors, perform corrective measures, or log errors.
 
-**Syntax**
+ **Syntax** 
 
 ```
 [ WITH [ RECURSIVE ] with_query [, ...] ]
@@ -81,11 +87,10 @@ DO UPDATE SET { column_name = { expression | DEFAULT } |
 [ WHERE condition ]
 ```
 
-###### Note
+**Note**  
+ `OVERRIDING` is a new option since PostgreSQL 10 and relevant for identity columns. `SYSTEM VALUE` is only for identity column where `GENERATE ALWAYS` exists; if it’s not there and it was specified, then PostgreSQL just ignores it.
 
-`OVERRIDING` is a new option since PostgreSQL 10 and relevant for identity columns. `SYSTEM VALUE` is only for identity column where `GENERATE ALWAYS` exists; if it’s not there and it was specified, then PostgreSQL just ignores it.
-
-**Examples**
+ **Examples** 
 
 Simple `INSERT FROM SELECT` (explicit).
 
@@ -125,4 +130,4 @@ ON CONFLICT on constraint PK_EMP_ID DO NOTHING;
 INSERT 0
 ```
 
-For more information, see [INSERT](https://www.postgresql.org/docs/13/sql-insert.html "https://www.postgresql.org/docs/13/sql-insert.html") in the _PostgreSQL documentation_.
+For more information, see [INSERT](https://www.postgresql.org/docs/13/sql-insert.html) in the *PostgreSQL documentation*.

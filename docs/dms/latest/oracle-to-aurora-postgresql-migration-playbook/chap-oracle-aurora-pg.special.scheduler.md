@@ -1,12 +1,17 @@
+
+
 # Oracle DBMS\_SCHEDULER and PostgreSQL scheduled Lambda
+<a name="chap-oracle-aurora-pg.special.scheduler"></a>
 
 With AWS DMS, you can schedule and automate database tasks using Oracle DBMS\_SCHEDULER and PostgreSQL scheduled Lambda. Oracle DBMS\_SCHEDULER is a job scheduler that allows defining and executing recurring or one-time jobs. PostgreSQL scheduled Lambda lets you invoke AWS Lambda functions on a schedule.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences |
-| ------------------------------ | ---------------------------------- | ------------------------- | --------------- |
-| One star feature compatibility | No automation                      | N/A                       | N/A             |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A | N/A | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.special.scheduler.ora"></a>
 
 The DBMS\_SCHEDULER package contains a collection of scheduling functions the can be executed or called from PL/DSQL, Create a job and attributes.
 
@@ -18,13 +23,15 @@ Scheduler can run database program unit (for example, a procedure) or external e
 
 There are three running methods of jobs: Time Base Scheduling, Event-Based jobs, and Dependency Jobs (Chained).
 
-**Time base scheduling**
+ **Time base scheduling** 
 
 Examples of the commands that will create a job with program and schedule:
 
 1. Create a program that will call the procedure `UPDATE_HR_SCHEMA_STATS` in `HR` schema.
-2. Create a schedule that will set the interval of running the jobs that using it. This schedule will run the job every 1 hour.
-3. Create the job itself.
+
+1. Create a schedule that will set the interval of running the jobs that using it. This schedule will run the job every 1 hour.
+
+1. Create the job itself.
 
 ```
 BEGIN
@@ -56,10 +63,13 @@ END;
 
 Create a job without program or schedule:
 
-1. `job_type` — `EXECUTABLE` define that our job will run an external script.
-2. `job_action` — Define the location of the external script.
-3. `start_date` — Define since when the job will be enabled.
-4. `repeat_interval` — Define when the job will run, in this example every day at huor 23 (11:00PM).
+1.  `job_type` — `EXECUTABLE` define that our job will run an external script.
+
+1.  `job_action` — Define the location of the external script.
+
+1.  `start_date` — Define since when the job will be enabled.
+
+1.  `repeat_interval` — Define when the job will run, in this example every day at huor 23 (11:00PM).
 
 ```
 BEGIN
@@ -86,7 +96,7 @@ END;
 /
 ```
 
-**Event-based jobs**
+ **Event-based jobs** 
 
 Example of creating a schedule that can be used to start a job whenever the scheduler receives an event indicating that a file arrived on the system before 9AM and then create a job that will use this schedule
 
@@ -115,13 +125,17 @@ END;
 /
 ```
 
-**Dependency jobs (Chained)**
+ **Dependency jobs (Chained)** 
 
 1. Use `DBMS_SCHEDULER.CREATE_CHAIN` to create a chain.
-2. Use` DBMS\_SCHEDULER.DEFINE\_CHAIN\_STEP` to define three steps for this chain. Referenced programs must be enabled.
-3. Use `DBMS_SCHEDULER.DEFINE_CHAIN_RULE` to define corresponding rules for the chain.
-4. Use `DBMS_SCHEDULER.ENABLE` to enable the chain.
-5. Use `DBMS_SCHEDULER.CREATE_JOB` to create a chain job to start the chain daily at 1:00 p.m.
+
+1. Use` DBMS\_SCHEDULER.DEFINE\_CHAIN\_STEP` to define three steps for this chain. Referenced programs must be enabled.
+
+1. Use `DBMS_SCHEDULER.DEFINE_CHAIN_RULE` to define corresponding rules for the chain.
+
+1. Use `DBMS_SCHEDULER.ENABLE` to enable the chain.
+
+1. Use `DBMS_SCHEDULER.CREATE_JOB` to create a chain job to start the chain daily at 1:00 p.m.
 
 ```
 BEGIN
@@ -167,11 +181,13 @@ END;
 
 There are two additional subjects to maintain your jobs.
 
-1. `JOB CLASS` — when you have a number of jobs that has the same behavior and attributes, maybe you will want to group them together into bigger logical group called “Job Class” and you can give priority between job classes by allocating a high percentage of available resources.
-2. `WINDOW` — when you want to prioritize your jobs based on schedule, you can create a window of time that the jobs can run during this window, for example, during non-peak time or at the end of the month.
+1.  `JOB CLASS` — when you have a number of jobs that has the same behavior and attributes, maybe you will want to group them together into bigger logical group called “Job Class” and you can give priority between job classes by allocating a high percentage of available resources.
 
-For more information, see [Scheduling Jobs with Oracle Scheduler](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/scheduling-jobs-with-oracle-scheduler.html#GUID-D41660D0-D88F-4D9F-8CC8-63D040EDC4E6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/scheduling-jobs-with-oracle-scheduler.html#GUID-D41660D0-D88F-4D9F-8CC8-63D040EDC4E6") in the _Oracle documentation_.
+1.  `WINDOW` — when you want to prioritize your jobs based on schedule, you can create a window of time that the jobs can run during this window, for example, during non-peak time or at the end of the month.
+
+For more information, see [Scheduling Jobs with Oracle Scheduler](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/scheduling-jobs-with-oracle-scheduler.html#GUID-D41660D0-D88F-4D9F-8CC8-63D040EDC4E6) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.special.scheduler.pg"></a>
 
-Aurora PostgreSQL can be combined with Amazon CloudWatch and Lambda to get similar functionality, see [Sending an Email from Aurora PostgreSQL using Lambda Integration](chap-oracle-aurora-pg.sql.mail.md#chap-oracle-aurora-pg.sql.mail.pg "chap-oracle-aurora-pg.sql.mail.md#chap-oracle-aurora-pg.sql.mail.pg").
+Aurora PostgreSQL can be combined with Amazon CloudWatch and Lambda to get similar functionality, see [Sending an Email from Aurora PostgreSQL using Lambda Integration](chap-oracle-aurora-pg.sql.mail.md#chap-oracle-aurora-pg.sql.mail.pg).

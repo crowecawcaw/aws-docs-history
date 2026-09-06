@@ -1,22 +1,26 @@
+
+
 # Oracle database hints and PostgreSQL DB query planning
+<a name="chap-oracle-aurora-pg.tuning.hints"></a>
 
 With AWS DMS, you can optimize query performance by using Oracle database hints and PostgreSQL query planning techniques. Oracle database hints provide instructions to the optimizer on how to execute a SQL statement, while PostgreSQL query planning involves analyzing the execution plan to identify and address performance bottlenecks.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                           |
-| ------------------------------ | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Two star feature compatibility | N/A                                | N/A                       | Very limited set of hints in PostgreSQL. Index hints and optimizer hints as comments. Syntax differences. |
+
+| Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
+| --- | --- | --- | --- | 
+|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Very limited set of hints in PostgreSQL. Index hints and optimizer hints as comments. Syntax differences. | 
 
 ## Oracle usage
+<a name="chap-oracle-aurora-pg.tuning.hints.ora"></a>
 
 Oracle provides users with the ability to influence how the query optimizer behaves and the decisions made to generate query run plans. Controlling the behavior of the database optimizer is performed using database hints. They can be defined as a directive operation to the optimizer and alter the decisions of how run plans are generated.
 
 Oracle supports over 60 different database hints, and each database hint can have 0 or more arguments. Database hints are divided into different categories such as optimizer hints, join order hints, and parallel execution hints.
 
-###### Note
-
+**Note**  
 Database hints are embedded directly into the SQL queries immediately following the `SELECT` keyword using the format `/* <DB_HINT> */`.
 
-**Examples**
+ **Examples** 
 
 Force the Query Optimizer to use a specific index for data access.
 
@@ -36,13 +40,14 @@ Predicate Information (identified by operation id):
 2 - access("HIRE_DATE">=TO_DATE(' 2010-01-01 00:00:00', 'yyyy-mm-dd hh24:mi:ss'))
 ```
 
-For more information, see [Comments](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Comments.html#GUID-D316D545-89E2-4D54-977F-FC97815CD62El "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Comments.html#GUID-D316D545-89E2-4D54-977F-FC97815CD62El") and [Influencing the Optimizer](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/influencing-the-optimizer.html#GUID-8758EF88-1CC6-41BD-8581-246702414D1D "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/influencing-the-optimizer.html#GUID-8758EF88-1CC6-41BD-8581-246702414D1D") in the _Oracle documentation_.
+For more information, see [Comments](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Comments.html#GUID-D316D545-89E2-4D54-977F-FC97815CD62El) and [Influencing the Optimizer](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/influencing-the-optimizer.html#GUID-8758EF88-1CC6-41BD-8581-246702414D1D) in the *Oracle documentation*.
 
 ## PostgreSQL usage
+<a name="chap-oracle-aurora-pg.tuning.hints.pg"></a>
 
 PostgreSQL doesn’t support database hints to influence the behavior of the query planner and we can’t influence how execution plans are generated from within SQL queries. Although database hints are not directly supported, session parameters (also known as Query Planning Parameters) can influence the behavior of the query optimizer at a session level.
 
-**Examples**
+ **Examples** 
 
 Set the query planner to use indexes instead of full table scans (disable `SEQSCAN`).
 
@@ -63,4 +68,4 @@ Turn on or turn off the query planner’s use of nested-loops when performing jo
 SET ENABLE_NESTLOOP to FALSE;
 ```
 
-For more information, see [Query Planning](https://www.postgresql.org/docs/13/runtime-config-query.html "https://www.postgresql.org/docs/13/runtime-config-query.html") in the _PostgreSQL documentation_.
+For more information, see [Query Planning](https://www.postgresql.org/docs/13/runtime-config-query.html) in the *PostgreSQL documentation*.
