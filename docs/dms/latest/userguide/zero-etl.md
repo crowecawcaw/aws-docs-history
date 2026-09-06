@@ -165,7 +165,7 @@ The following example shows a key policy for zero-ETL integrations:
             "Sid": "Enable IAM User Permissions",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::`account-id`:root"
+                "AWS": "arn:aws:iam::`111122223333`:root"
             },
             "Action": "kms:*",
             "Resource": "*"
@@ -401,6 +401,7 @@ aws redshift put-resource-policy \
           "Service": ["redshift.amazonaws.com"]
         },
         "Action": ["redshift:AuthorizeInboundIntegration"],
+        "Resource": "arn:aws:redshift:`region`:`account-id`:namespace:`namespace-id`",
         "Condition": {
           "StringEquals": {
             "aws:SourceArn": "arn:aws:dms:`region`:`account-id`:endpoint:`endpoint-id`"
@@ -415,7 +416,8 @@ aws redshift put-resource-policy \
         "Action": [
           "redshift:CreateInboundIntegration",
           "redshift:ModifyInboundIntegration"
-        ]
+        ],
+        "Resource": "arn:aws:redshift:`region`:`account-id`:namespace:`namespace-id`"
       }
     ]
   }' \

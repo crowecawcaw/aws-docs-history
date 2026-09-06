@@ -1349,11 +1349,16 @@ In either case, DMS skips any ROWID columns in the materialized view.
   specific tables affected by the connection interruption.
 - If you are using Oracle LogMiner connected to an Oracle Active Data Guard standby and the
   primary database is Oracle RAC, all RAC nodes on the primary must be open (available). If any
-  RAC node is stopped, CDC does not progress and the task displays the message REDO events
-  corresponding SCN are not still archived without raising an error. This happens because AWS DMS
+  RAC node is stopped, CDC does not progress, and the task displays the message `REDO events
+ corresponding SCN are not still archived`, but does not raise an error. This happens because AWS DMS
   cannot detect closed redo threads when reading from a standby database. To resolve this, ensure
   all primary RAC nodes are running, or switch to Binary Reader which reads directly from the
   primary.
+- AWS DMS does not support Oracle Autonomous Database, including Autonomous
+  Database on Dedicated Exadata Infrastructure, as a source endpoint for full
+  load or change data capture (CDC) tasks. This limitation does not apply to
+  other supported Oracle database deployments on Oracle Cloud Infrastructure
+  (OCI).
 
 ## SSL support for an Oracle endpoint
 

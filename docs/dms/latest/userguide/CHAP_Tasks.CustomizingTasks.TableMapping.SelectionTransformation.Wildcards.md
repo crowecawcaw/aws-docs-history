@@ -2,13 +2,17 @@
 
 This section describes wildcards you can use when specifying the schema and table names for table mapping.
 
-| Wildcard | Matches                                                                        |
-| -------- | ------------------------------------------------------------------------------ |
-| %        | Zero or more characters                                                        |
-| \_       | A single character                                                             |
-| [\_]     | A literal underscore character                                                 |
-| [ab]     | A set of characters. For example, [ab] matches either 'a' or 'b'.              |
-| [a-d]    | A range of characters. For example,[a-d] matches either 'a', 'b', 'c', or 'd'. |
+| Wildcard | Matches                 |
+| -------- | ----------------------- |
+| %        | Zero or more characters |
+| \_       | A single character      |
+
+###### Wildcard pattern limitations
+
+Use `%` or `_` in selection rules. Bracket-based
+patterns such as `[_]`, `[ab]`, and `[a-d]`
+may not work with all endpoint types - test them before relying on them, or
+create a separate selection rule for each explicit table name.
 
 For Oracle source and target endpoints, you can use the `escapeCharacter` extra connection
 attribute to specify an escape character. An escape character allows you to use a specified wildcard
