@@ -1,24 +1,22 @@
+
+
 # Process and culture
+<a name="process-and-culture"></a>
 
-| SCSUS09: Do you align your supply chain<br>sustainability metrics with company-wise mid/long-term<br>sustainability goals? |
-| -------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                            |
 
-Aligning supply chain sustainability metrics with company-wide
-goals is critical because it facilitates coordinated efforts,
-maximizes impact, and provides clear accountability for
-environmental performance across the entire organization.
+| SCSUS09: Do you align your supply chain sustainability metrics with company-wise mid/long-term sustainability goals? | 
+| --- | 
+|   | 
 
-| SCSUS10: Are you using document<br>digitization to reduce paper waste and align with your ESG and<br>sustainability goals? |
-| -------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                            |
+ Aligning supply chain sustainability metrics with company-wide goals is critical because it facilitates coordinated efforts, maximizes impact, and provides clear accountability for environmental performance across the entire organization. 
 
-Using document digitization is important for sustainability
-because it significantly reduces paper consumption, alleviates
-physical storage requirements, and enables more efficient data
-sharing while supporting broader ESG objectives.
 
-###### Best practices
+| SCSUS10: Are you using document digitization to reduce paper waste and align with your ESG and sustainability goals? | 
+| --- | 
+|   | 
 
-- [SCSUS09-BP01 Align your supply chain sustainability goals and metrics with the broader set of company-wise sustainability goals](scsus09-bp01.md "scsus09-bp01.md")
-- [SCSUS10-BP01 Use document digitization as an ESG goal](scsus10-bp01.md "scsus10-bp01.md")
+ Using document digitization is important for sustainability because it significantly reduces paper consumption, alleviates physical storage requirements, and enables more efficient data sharing while supporting broader ESG objectives. 
+
+**Topics**
++ [SCSUS09-BP01 Align your supply chain sustainability goals and metrics with the broader set of company-wise sustainability goals](scsus09-bp01.md)
++ [SCSUS10-BP01 Use document digitization as an ESG goal](scsus10-bp01.md)

@@ -1,18 +1,16 @@
+
+
 # Database and storage selection
+<a name="database-storage-selection"></a>
 
-| SCPERF03: How do you select the database<br>and storage for supply chain workloads? |
-| ----------------------------------------------------------------------------------- |
-|                                                                                     |
 
-When you select a database or storage solution, verify that it
-aligns with your access patterns to achieve the desired
-performance. AWS has predefined set of purpose-built databases
-engines (Relational or Non-relational) which suits for different
-data that the source system produces, and such systems can scale
-for performance.
+| SCPERF03: How do you select the database and storage for supply chain workloads? | 
+| --- | 
+|   | 
 
-###### Best practices
+ When you select a database or storage solution, verify that it aligns with your access patterns to achieve the desired performance. AWS has predefined set of purpose-built databases engines (Relational or Non-relational) which suits for different data that the source system produces, and such systems can scale for performance. 
 
-- [SCPERF03-BP01 Select your database architecture based on workload](scperf03-bp01.md "scperf03-bp01.md")
-- [SCPERF03-BP02 Select your storage architecture based on workload](scperf03-bp02.md "scperf03-bp02.md")
-- [SCPERF03-BP03 Use cache memory to help improve the performance](scperf03-bp03.md "scperf03-bp03.md")
+**Topics**
++ [SCPERF03-BP01 Select your database architecture based on workload](scperf03-bp01.md)
++ [SCPERF03-BP02 Select your storage architecture based on workload](scperf03-bp02.md)
++ [SCPERF03-BP03 Use cache memory to help improve the performance](scperf03-bp03.md)

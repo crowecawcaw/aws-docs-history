@@ -1,49 +1,34 @@
+
+
 # SCPERF05-BP03 Integrate performance testing into the release cycle of the supply chain application
+<a name="scperf05-bp03"></a>
 
-Load testing results help you measure how the system behaves while
-in high-traffic or heavy loads. Note these measurements to help
-you adjust the underlying resources without wasting cost by
-over-provisioning.
+ Load testing results help you measure how the system behaves while in high-traffic or heavy loads. Note these measurements to help you adjust the underlying resources without wasting cost by over-provisioning. 
 
-**Desired outcome:** Properly sized
-supply chain applications.
+ **Desired outcome:** Properly sized supply chain applications. 
 
-**Benefits of establishing this best
-practice:** Cost optimization, resilience, durability,
-and improved user experience.
+ **Benefits of establishing this best practice:** Cost optimization, resilience, durability, and improved user experience. 
 
-**Level of risk exposed if this best
-practice is not established:** High
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
+<a name="implementation-guidance-45"></a>
 
-Verify consistency and failure recovery during load tests.
-Verify data consistency and recovery during periods of high
-load. Making sure that your workload's RTO and RPO is still
-valid under the highest load can uncover gaps in your
-architecture and operational resilience.
+ Verify consistency and failure recovery during load tests. Verify data consistency and recovery during periods of high load. Making sure that your workload's RTO and RPO is still valid under the highest load can uncover gaps in your architecture and operational resilience. 
 
-Understand performance of the system under peak load and in
-failure scenarios: Include testing of common failure scenarios
-in your performance testing suites to understand your workload
-behavior in these situations and determine areas for
-improvement.
+ Understand performance of the system under peak load and in failure scenarios: Include testing of common failure scenarios in your performance testing suites to understand your workload behavior in these situations and determine areas for improvement. 
 
 ### Implementation steps
+<a name="implementation-steps-46"></a>
 
-1. Develop comprehensive performance testing strategies that
-   simulate realistic supply chain load patterns and peak
-   usage scenarios.
-2. Integrate automated performance testing into CI/CD
-   pipelines to validate performance with every major
-   release.
-3. Implement chaos engineering practices to test system
-   resilience and recovery capabilities under various failure
-   conditions.
-4. Create performance test scenarios that include third-party
-   system integrations and supplier network dependencies.
-5. Establish performance regression testing to make sure new
-   releases don't degrade existing system performance.
-6. Document and analyze performance test results to
-   continuously improve system architecture and resource
-   allocation strategies.
+1.  Develop comprehensive performance testing strategies that simulate realistic supply chain load patterns and peak usage scenarios. 
+
+1.  Integrate automated performance testing into CI/CD pipelines to validate performance with every major release. 
+
+1.  Implement chaos engineering practices to test system resilience and recovery capabilities under various failure conditions. 
+
+1.  Create performance test scenarios that include third-party system integrations and supplier network dependencies. 
+
+1.  Establish performance regression testing to make sure new releases don't degrade existing system performance. 
+
+1.  Document and analyze performance test results to continuously improve system architecture and resource allocation strategies. 

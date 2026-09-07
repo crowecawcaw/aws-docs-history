@@ -1,14 +1,14 @@
+
+
 # Alignment to demand
+<a name="alignment-to-demand"></a>
 
-| SCSUS03: Can you align your planning, execution, and enablement operations to the actual demand to optimize the emissions? |
-| -------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                            |
 
-Aligning supply chain operations to actual demand is essential for
-sustainability because it minimizes waste, reduces unnecessary
-resource consumption, and optimizes emissions by making sure
-resources are used only when and where needed.
+| SCSUS03: Can you align your planning, execution, and enablement operations to the actual demand to optimize the emissions? | 
+| --- | 
+|   | 
 
-###### Best practices
+ Aligning supply chain operations to actual demand is essential for sustainability because it minimizes waste, reduces unnecessary resource consumption, and optimizes emissions by making sure resources are used only when and where needed. 
 
-- [SCSUS03-BP01 Use the supply chain operations reference (SCOR) to map your supply chain](scsus03-bp01.md "scsus03-bp01.md")
+**Topics**
++ [SCSUS03-BP01 Use the supply chain operations reference (SCOR) to map your supply chain](scsus03-bp01.md)
