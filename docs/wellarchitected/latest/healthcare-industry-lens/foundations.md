@@ -1,48 +1,21 @@
+
+
 # Foundations
+<a name="foundations"></a>
 
-| HCL\_REL1. How does your system adapt<br>to changes in demand? |
-| -------------------------------------------------------------- |
-|                                                                |
 
-**Architect systems for
-elasticity**
+| HCL\_REL1. How does your system adapt to changes in demand? | 
+| --- | 
+|   | 
 
-Healthcare applications often have time-based peaks in demand.
-For example, clinical systems may need to respond to periods
-of high demand using either time-based or usage-based metrics
-to define automatic scaling rules.  An example of periods of
-high demand could be daytime business hours or a known event
-such as open-enrollment for an insurance provider.
+ **Architect systems for elasticity** 
 
-Where possible, implement architectures that automatically
-adapt to changes in demand. Embracing elasticity enables
-healthcare organizations to _right-size_
-performance during all hours of the day while minimizing
-excess cost. General distributed systems recommendations
-apply. Where possible, leverage AWS services that allow you to
-scale with demand.
+ Healthcare applications often have time-based peaks in demand. For example, clinical systems may need to respond to periods of high demand using either time-based or usage-based metrics to define automatic scaling rules.  An example of periods of high demand could be daytime business hours or a known event such as open-enrollment for an insurance provider. 
 
-AWS Auto Scaling simplifies how you adapt to demand. In all
-cases, you should be collecting metrics to inform your scaling
-actions and detect events that could impact reliability. You
-may either use default CloudWatch metrics or define custom
-metrics that track specific aspects of utilization. For
-example, software as a service (SaaS) applications may monitor
-demand with custom CloudWatch metrics that capture the number
-of concurrent active users, or open sessions supported by the
-application.
+ Where possible, implement architectures that automatically adapt to changes in demand. Embracing elasticity enables healthcare organizations to *right-size* performance during all hours of the day while minimizing excess cost. General distributed systems recommendations apply. Where possible, leverage AWS services that allow you to scale with demand. 
 
-Healthcare solutions implemented as distributed systems may
-use multiple services that can scale elastically. In these
-cases, implement automatic scaling for all relevant compute
-and database services, using Amazon EC2 Auto Scaling and Application Auto Scaling for
-[supported
-AWS services](../../../autoscaling/application/userguide/integrated-services-list.md "../../../autoscaling/application/userguide/integrated-services-list.md"). You can leverage scaling plans to
-simplify configuration of scaling rules, and follow auto
-scaling
-[best
-practices](../../../autoscaling/plans/userguide/best-practices.md "../../../autoscaling/plans/userguide/best-practices.md") to maximize reliability.
+ AWS Auto Scaling simplifies how you adapt to demand. In all cases, you should be collecting metrics to inform your scaling actions and detect events that could impact reliability. You may either use default CloudWatch metrics or define custom metrics that track specific aspects of utilization. For example, software as a service (SaaS) applications may monitor demand with custom CloudWatch metrics that capture the number of concurrent active users, or open sessions supported by the application. 
 
-Other managed services, such as Amazon Data Firehose,
-allow you to operate at scale without worrying about capacity
-or managing infrastructure.
+ Healthcare solutions implemented as distributed systems may use multiple services that can scale elastically. In these cases, implement automatic scaling for all relevant compute and database services, using Amazon EC2 Auto Scaling and Application Auto Scaling for [supported AWS services](https://docs.aws.amazon.com/autoscaling/application/userguide/integrated-services-list.html). You can leverage scaling plans to simplify configuration of scaling rules, and follow auto scaling [best practices](https://docs.aws.amazon.com/autoscaling/plans/userguide/best-practices.html) to maximize reliability. 
+
+ Other managed services, such as Amazon Data Firehose, allow you to operate at scale without worrying about capacity or managing infrastructure. 

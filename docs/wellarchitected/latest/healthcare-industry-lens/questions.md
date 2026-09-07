@@ -1,59 +1,30 @@
+
+
 # Questions
+<a name="questions"></a>
 
-| HCL\_REL3. How does your organization<br>define and design for availability and reliability<br>requirements? |
-| ------------------------------------------------------------------------------------------------------------ |
-|                                                                                                              |
 
-Cloud based transactional systems of record should have
-well-defined availability (how often the system can be
-unavailable) and reliability (how quickly the system can respond
-to an issue) requirements based on business objectives. These
-requirements should be created with input from the IT
-organization, as well as the clinical support organization, in
-order to create requirements that satisfy all stakeholders.
+| HCL\_REL3. How does your organization define and design for availability and reliability requirements? | 
+| --- | 
+|   | 
 
-Once the business has established the requirements, use cloud
-native features such as architecting across multiple Availability
-Zones to make sure your system meets the requirements. The AWS
-global footprint of Regions and Availability Zones provides a
-significant number of geographic options when architecting for
-availability, reliability, and disaster recovery.
+ Cloud based transactional systems of record should have well-defined availability (how often the system can be unavailable) and reliability (how quickly the system can respond to an issue) requirements based on business objectives. These requirements should be created with input from the IT organization, as well as the clinical support organization, in order to create requirements that satisfy all stakeholders. 
 
-AWS products and services contain features that help customers
-meet these availability and reliability requirements. These can
-include the Amazon RDS Multi-AZ feature that automatically creates
-a replicated copy of your RDS instance in a second Availability
-Zone, as well as AWS Backup, which retains backups of your data
-across multiple Availability Zones to reduce the risk of data
-loss.
+ Once the business has established the requirements, use cloud native features such as architecting across multiple Availability Zones to make sure your system meets the requirements. The AWS global footprint of Regions and Availability Zones provides a significant number of geographic options when architecting for availability, reliability, and disaster recovery. 
 
-Electronic health records may have hybrid requirements that
-include on-premises data center infrastructure. AWS Direct Connect
-provisions redundant connectivity between private networks in the
-cloud and on-premises environments.
+ AWS products and services contain features that help customers meet these availability and reliability requirements. These can include the Amazon RDS Multi-AZ feature that automatically creates a replicated copy of your RDS instance in a second Availability Zone, as well as AWS Backup, which retains backups of your data across multiple Availability Zones to reduce the risk of data loss. 
 
-For more information on designing systems that meet the business availability and
-reliability requirements, see the [Reliability Pillar
-whitepaper](../reliability-pillar/welcome.md "../reliability-pillar/welcome.md").
+ Electronic health records may have hybrid requirements that include on-premises data center infrastructure. AWS Direct Connect provisions redundant connectivity between private networks in the cloud and on-premises environments. 
 
-| HCL\_PERF3. Does your organization meet IOPS and other<br>performance requirements? |
-| ----------------------------------------------------------------------------------- |
-|                                                                                     |
+ For more information on designing systems that meet the business availability and reliability requirements, see the [Reliability Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html). 
 
-Cloud based transactional systems of record are considered
-commercial off the shelf (COTS) software. COTS vendors should
-provide the minimum and recommended compute, memory, storage, and
-other performance requirements. These requirements can be mapped
-to the associated cloud virtual compute and storage options, which
-provides a well-defined starting point.
 
-After installing COTS software, performance metrics should be
-monitored during all aspects of the lifecycle, from testing
-through staging and production. Use
-[Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") to track your systems over time,
-including the configuration of alarms for high usage. Once
-performance metrics are collected, through each lifecycle stage,
-the compute and storage requirements can be adjusted to optimize
-performance.
+| HCL\_PERF3. Does your organization meet IOPS and other performance requirements? | 
+| --- | 
+|   | 
 
-For more detail on monitoring, reviewing, and optimizing your workload, see the [Performance Efficiency Pillar whitepaper](../performance-efficiency-pillar/welcome.md "../performance-efficiency-pillar/welcome.md").
+ Cloud based transactional systems of record are considered commercial off the shelf (COTS) software. COTS vendors should provide the minimum and recommended compute, memory, storage, and other performance requirements. These requirements can be mapped to the associated cloud virtual compute and storage options, which provides a well-defined starting point. 
+
+ After installing COTS software, performance metrics should be monitored during all aspects of the lifecycle, from testing through staging and production. Use [Amazon CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html) to track your systems over time, including the configuration of alarms for high usage. Once performance metrics are collected, through each lifecycle stage, the compute and storage requirements can be adjusted to optimize performance. 
+
+ For more detail on monitoring, reviewing, and optimizing your workload, see the [Performance Efficiency Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html). 
