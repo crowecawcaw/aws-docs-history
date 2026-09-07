@@ -1,4 +1,6 @@
-# Resources
 
-- General guidance on implementation can be found in the Well-Architected [Sustainability Pillar whitepaper](../sustainability-pillar/sustainability-pillar.md "../sustainability-pillar/sustainability-pillar.md").
-- [AWS Customer Carbon Footprint Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/")
+
+# Resources
+<a name="resources-5"></a>
++  General guidance on implementation can be found in the Well-Architected [Sustainability Pillar whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html). 
++  [AWS Customer Carbon Footprint Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/) 
