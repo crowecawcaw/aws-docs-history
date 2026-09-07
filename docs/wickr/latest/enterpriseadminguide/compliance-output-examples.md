@@ -1,11 +1,14 @@
-This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr
-Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
+
+
+This guide provides documentation for Wickr Enterprise. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Appendix B: Compliance output examples
+<a name="compliance-output-examples"></a>
 
 The following are compliance output examples for different types of messages.
 
 ## Text message
+<a name="text-message"></a>
 
 The following is a text message in a one-to-one (DM) conversation.
 
@@ -23,17 +26,12 @@ The following is a text message in a one-to-one (DM) conversation.
   "ttl": "9/3/23 7:10 PM",
   "vgroupid": "7ad65d17b945d7672190ecab6902fdd06eff162b91adfcda23df3b2ff95875e8"
 }
-
-
 ```
 
 The following shows a text message for a secure room conversation.
 
-###### Note
-
-The **vgroupid** for a secure room conversation starts with the
-**S** letter and begins with the **G** letter for group
-conversations.
+**Note**  
+The **vgroupid** for a secure room conversation starts with the **S** letter and begins with the **G** letter for group conversations.
 
 ```
 {
@@ -49,16 +47,12 @@ conversations.
   "ttl": "9/3/23 7:19 PM",
   "vgroupid": "S19a8782d9a0441d5e13f15b6789f00bc2f9b8231aa364a2eb3a8269dce2ac21"
 }
-
-
-
 ```
 
 ## Text messages with links
+<a name="text-message-links"></a>
 
-If you send a text message that contains links, and the security group settings have the
-"Send Link Preview" option enabled, the text message will contain a list of the URLs for those
-links:
+If you send a text message that contains links, and the security group settings have the "Send Link Preview" option enabled, the text message will contain a list of the URLs for those links:
 
 ```
 {
@@ -78,28 +72,24 @@ links:
   "ttl": "9/3/23 7:13 PM",
   "vgroupid": "7ad65d17b945d7672190ecab6902fdd06eff162b91adfcda23df3b2ff95875e8"
 }
-
-
-
 ```
 
 ## File transfer messages
+<a name="file-transfer-messages"></a>
 
-The **file** JSON object contains the details of the file being
-transferred, described in the following table:
+The **file** JSON object contains the details of the file being transferred, described in the following table:
 
-| Field             | Description                                                       |
-| ----------------- | ----------------------------------------------------------------- |
-| filename          | The display name of the file being transferred.                   |
-| guid              | A unique identifier for the transferred file.                     |
-| isscreenshot      | Boolean field that identifies if the file is a screen shot image. |
-| localfilename     | The full path name of the file on the Wickr IO Gateway system.    |
-| uploadedbyuser    | The display name of the user, if known.                           |
-| uploadedtimestamp | The time when the file was uploaded by the user.                  |
 
-The following shows the format of a file transfer message. The msgtype for file transfer
-messages is 6000. Files received by the Wickr IO client will be decrypted and remain on the
-Wickr IO client until removed by your software.
+| Field | Description | 
+| --- | --- | 
+| filename | The display name of the file being transferred. | 
+| guid | A unique identifier for the transferred file. | 
+| isscreenshot | Boolean field that identifies if the file is a screen shot image. | 
+| localfilename | The full path name of the file on the Wickr IO Gateway system. | 
+| uploadedbyuser | The display name of the user, if known. | 
+| uploadedtimestamp | The time when the file was uploaded by the user. | 
+
+The following shows the format of a file transfer message. The msgtype for file transfer messages is 6000. Files received by the Wickr IO client will be decrypted and remain on the Wickr IO client until removed by your software.
 
 ```
 {
@@ -123,13 +113,12 @@ Wickr IO client until removed by your software.
   "ttl": "9/3/23 7:15 PM",
   "vgroupid": "7ad65d17b945d7672190ecab6902fdd06eff162b91adfcda23df3b2ff95875e8"
 }
-
 ```
 
 ## Verification messages
+<a name="verification-messages"></a>
 
-Verification messages are displayed when a client verifies another client whose account may
-have become unverified.
+Verification messages are displayed when a client verifies another client whose account may have become unverified.
 
 ```
 {
@@ -148,47 +137,42 @@ have become unverified.
   "ttl": "9/3/23 7:23 PM",
   "vgroupid": "31767dd6dc31cd5d87579e2694b041116d31ae1750cbcec8e957d237c7fe0591"
 }
-
-
 ```
 
 Verification messages have an additional nested msgtype:
 
-| Verification Message Type         | msgtype value |
-| --------------------------------- | ------------- |
-| Verification request              | 1             |
-| Verification response and request | 2             |
-| Verification acceptance           | 3             |
-| Verification rejection            | 4             |
-| "Not Now" response                | 5             |
+
+| Verification Message Type | msgtype value | 
+| --- | --- | 
+| Verification request | 1 | 
+| Verification response and request | 2 | 
+| Verification acceptance | 3 | 
+| Verification rejection | 4 | 
+| "Not Now" response | 5 | 
 
 ## Control messages
+<a name="control-messages"></a>
 
-Control messages are used to set up and configure secure rooms and group conversations. The
-messages are also required to reconstruct the list of users involved in specific secure rooms
-and group conversations.
+Control messages are used to set up and configure secure rooms and group conversations. The messages are also required to reconstruct the list of users involved in specific secure rooms and group conversations.
 
-Like Verification, these messages contain additional meta data to describe their actions.
-The control object may include:
+Like Verification, these messages contain additional meta data to describe their actions. The control object may include:
++ A **bor** field. This is the Burn on Read time in seconds.
++ A **ttl** field. This is the Expiration time in seconds.
++ Description field. The conversation’s description.
++ Title field. The title of the conversation.
++ A **changemask** field is a number value created from adding the following flag values: 
 
-- A **bor** field. This is the Burn on Read time in seconds.
-- A **ttl** field. This is the Expiration time in seconds.
-- Description field. The conversation’s description.
-- Title field. The title of the conversation.
-- A **changemask** field is a number value created from adding the
-  following flag values:
 
-| Message Type               | msgtype value |
-| -------------------------- | ------------- |
-| Masters field (Moderators) | 1             |
-| TTL (Expiration)           | 2             |
-| Title field (Room name)    | 4             |
-| Description                | 8             |
-| Meeting ID Key             | 16            |
-| Burn on Read               | 32            |
+| Message Type | msgtype value | 
+| --- | --- | 
+| Masters field (Moderators) | 1 | 
+| TTL (Expiration) | 2 | 
+| Title field (Room name) | 4 | 
+| Description | 8 | 
+| Meeting ID Key | 16 | 
+| Burn on Read | 32 | 
 
-In the example below you’ll see a **changemask** value of 47. This is
-equal to the sum of Masters (1), TTL (2), Title (4), Description (8), and Burn on Read (32).
+In the example below you’ll see a **changemask** value of 47. This is equal to the sum of Masters (1), TTL (2), Title (4), Description (8), and Burn on Read (32). 
 
 ```
 {
@@ -196,28 +180,25 @@ equal to the sum of Masters (1), TTL (2), Title (4), Description (8), and Burn o
     "bor":0,
     "changemask":47,
     "description":"",
-    "masters":["user001", "user002"],
+    "masters":["user001", "user002"], 
     "members":["user001", "user002", "user003"],
     "msgtype":4001,
     "title":"Creating a room",
-    "ttl":2592000
+    "ttl":2592000 
   },
   "id":"be452b00f89711e883588d1e7a946847",
   "msg_ts":"1544019125.75323",
   "msgtype":4001,
   "sender":"user002",
   "time": "5/10/20 6:17 PM",
-  "vgroupid":"S58a15186365d2125a9b417e71b99bcb29e3770078e157e953cfbe28443eb750"
+  "vgroupid":"S58a15186365d2125a9b417e71b99bcb29e3770078e157e953cfbe28443eb750" 
 }
-
-
-
 ```
 
 ## Modify room members message
+<a name="modify-room-members-message"></a>
 
-The **addeduser** and **deletedusers** array will show
-who was added and removed.
+The **addeduser** and **deletedusers** array will show who was added and removed.
 
 ```
 {
@@ -225,20 +206,18 @@ who was added and removed.
     "addedusers":[],
     "deletedusers":["testuser"],
     "msgtype":4002
-  },
-  "id":"d34058a0f89711e88760d7c8037ea946",
+  }, 
+  "id":"d34058a0f89711e88760d7c8037ea946", 
   "msg_ts":"1544019160.275884",
   "msgtype":4002,
-  "sender":"user002",
+  "sender":"user002", 
   "time": "5/09/20 3:22 PM",
-  "vgroupid":"S58a15186365d2125a9b417e71b99bcb29e3770078e157e953cfbe28443eb750"
+  "vgroupid":"S58a15186365d2125a9b417e71b99bcb29e3770078e157e953cfbe28443eb750" 
 }
-
-
-
 ```
 
 ## Modify room parameters message
+<a name="modify-room-parameters-message"></a>
 
 ```
 {
@@ -249,22 +228,20 @@ who was added and removed.
     "masters":["user001"],
     "members":["user001","user002"],
     "msgtype":4004,
-    "title":"Creating a room",
-    "ttl":2592000
+    "title":"Creating a room", 
+    "ttl":2592000 
   },
   "id":"db805750f89711e8a01ab328ac0b2f04",
   "msg_ts":"1544019174.117057",
   "msgtype":4004,
   "sender":"user002",
   "time":"5/11/20 4:53 PM",
-  "vgroupid":"S58a15186365d2125a9b417e71b99bcb29e3770078e157e953cfbe28443eb750"
+  "vgroupid":"S58a15186365d2125a9b417e71b99bcb29e3770078e157e953cfbe28443eb750" 
 }
-
-
-
 ```
 
 ## Modify saved item in room
+<a name="modify-saved-items-room"></a>
 
 ```
 {
@@ -275,7 +252,7 @@ who was added and removed.
     "filevaultinfo":{
       "filehash":"4eab763c5f3211ca93966a...d3e461c27f5432c1",
       "guid":"D094F147-0490-4A14-9A65-6F23C896A8B4",
-      "key":"00f8058d88e6b7520849bbfd8e6b5cc12d35a70c856dde44d64e2e331fc50ce700"
+      "key":"00f8058d88e6b7520849bbfd8e6b5cc12d35a70c856dde44d64e2e331fc50ce700" 
     },
     "masters":["user002","user001"],
     "members":["user002","user001"],
@@ -288,13 +265,12 @@ who was added and removed.
   "msgtype":4004,
   "sender":"user001",
   "time":"5/4/20 5:07 AM",
-  "vgroupid":"S243f2ec645d3961bdd531f51f3244205d292b8d0fbd41802827746271d31d41"
+  "vgroupid":"S243f2ec645d3961bdd531f51f3244205d292b8d0fbd41802827746271d31d41" 
 }
-
-
 ```
 
 ## Delete room message
+<a name="delete-room-message"></a>
 
 ```
 {
@@ -305,39 +281,33 @@ who was added and removed.
   "time":"5/7/20 4:33 PM",
   "vgroupid":"S7879eb406958d83b991a5f2acb29e5ad8565a4faa41e1c5cbd7004c5586ddd5"
 }
-
-
-
 ```
 
 ## Delete or recall message
+<a name="delete-recall-message"></a>
 
-The **isrecall** field will show if the message was deleted or
-recalled.
+The **isrecall** field will show if the message was deleted or recalled.
 
 ```
 {
   "control":{
     "isrecall":false,
     "msgid":"4ab537d0f85d11e88c2225680208f9ff",
-    "msgtype":4011
+    "msgtype":4011 
   },
   "id":"bea7ad10f89811e8822887c76561d99d",
   "msg_ts":"1544019555.217633",
   "msgtype":4011,
   "sender":"user002",
   "time":"5/10/20 5:11 PM",
-  "vgroupid":"3f13df0d8f267812d7e743a518fcfb6dacf6fd0824e16a83a4d2a06d32cf8d9c"
+  "vgroupid":"3f13df0d8f267812d7e743a518fcfb6dacf6fd0824e16a83a4d2a06d32cf8d9c" 
 }
-
-
-
 ```
 
 ## Message attribute change
+<a name="message-attribute-change"></a>
 
-These control messages show when a message **isstarred** or
-**unstarred**.
+These control messages show when a message **isstarred** or **unstarred**.
 
 ```
 {
@@ -353,20 +323,17 @@ These control messages show when a message **isstarred** or
   "message_id":"b0d284d08be311eaaf7f51713016a94c",
   "msg_ts":"1588362062.864376",
   "msgtype":4012,
-  "receiver":"user123",
+  "receiver":"user123", 
   "sender":"user100",
   "time":"5/1/20 12:41 PM",
   "vgroupid":"4ebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4"
 }
-
-
 ```
 
 ## Modify private property
+<a name="modify-private-property"></a>
 
-This message identifies when a conversation is pinned or un-pinned. The
-**pinned** value will be true when the conversation is pinned, and
-**false** when it is being un-pinned.
+This message identifies when a conversation is pinned or un-pinned. The **pinned** value will be true when the conversation is pinned, and **false** when it is being un-pinned.
 
 ```
 {
@@ -385,29 +352,29 @@ This message identifies when a conversation is pinned or un-pinned. The
     "ttl": "7/10/24 6:07 PM",
     "vgroupid":"Sb0e9297f2208dc86b63b288df8c226882e1052b65022edb9edb9ecf6e77db08"
 }
-
-
-
 ```
 
 ## Calling messages
+<a name="calling-messages"></a>
 
 Calls can have four status values:
 
-| Call Status    | Status Value |
-| -------------- | ------------ |
-| Call Starting  | 0            |
-| Call Completed | 1            |
-| Call Missed    | 2            |
-| Call Cancelled | 3            |
+
+| Call Status | Status Value | 
+| --- | --- | 
+| Call Starting | 0 | 
+| Call Completed | 1 | 
+| Call Missed | 2 | 
+| Call Cancelled | 3 | 
 
 ## Call start
+<a name="call-start"></a>
 
 The following is a call start example.
 
 ```
 {
-  "call":{
+  "call":{  
     "calluri":"3.86.149.242:16398", "calluriipv6":"[2600:1f18:2741:9e01:e0cb:6847:bb1d:415d]:16398", "meetingid":0,
     "participants":[
       "8995950dad747c24fd7c9e2da68edeb6c2c0ac6cb96d405c0c4c58e09ff46969",
@@ -423,34 +390,26 @@ The following is a call start example.
   "receiver":"user5",
   "sender":"user100",
   "time":"5/1/20 1:14 PM",
-  "vgroupid":"4ebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4"
+  "vgroupid":"4ebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4" 
 }
-
-
-
 ```
 
-###### Note
-
-The **participants** array will have the
-**username\_hash** of the users that were on the call. You can get the
-plaintext usernames from the mysql database with the following query.
+**Note**  
+The **participants** array will have the **username\_hash** of the users that were on the call. You can get the plaintext usernames from the mysql database with the following query.
 
 ```
-select username from user_enterprise where username_hash =
+select username from user_enterprise where username_hash = 
  'b64e2aa1c3c9edb74f31079c579b5feb22300e6966ac6c1721fd9e4dcfca4dd8'\G;
-
-
 ```
 
 ## Invite to call
+<a name="invite-call"></a>
 
-When a user is invited to an active call it will appear as a new call started. You can use
-the **invitemsgid** field to match invites to the original call.
+When a user is invited to an active call it will appear as a new call started. You can use the **invitemsgid** field to match invites to the original call. 
 
 ```
 {
-  "call":{
+  "call":{  
     "calluri":"18.234.76.29:16504", "calluriipv6":"[2600:1f18:2741:9e00:3fba:154:6431:df8e]:16504", "invitemsgid":"87b5e4a095ef11ea99b03bd5dd4eaa9d", "meetingid":0,
     "participants":[
       "ae182b20ce36a94c613af5a2964bbd616de662d3f8487dc39fa9400e739a3049"
@@ -458,28 +417,26 @@ the **invitemsgid** field to match invites to the original call.
     "startmsgid":"87b5e4a095ef11ea99b03bd5dd4eaa9d",
     "status":0,
     "version":2,
-    "versioncheck":true
+    "versioncheck":true 
   },
   "message_id":"ce22f14095ef11eaa1cbdf2a74e88e51", "msg_ts":"1589466777.633896",
   "msgtype":7000,
   "receiver":"comptst100",
   "sender":"comptst101",
   "time":"5/14/20 2:32 PM",
-  "vgroupid":"7f1a06a35243584436f6df7170e0fc8a784022a66b5e5d168b419b14cecdcdad"
+  "vgroupid":"7f1a06a35243584436f6df7170e0fc8a784022a66b5e5d168b419b14cecdcdad" 
 }
-
-
-
 ```
 
 ## Call end
+<a name="call-end"></a>
 
 ```
 {
   "call":{
     "duration":38,
     "meetingid":1,
-    "startmsgid":"72c9a3b08bea11eab9078f7ca8a1b909",
+    "startmsgid":"72c9a3b08bea11eab9078f7ca8a1b909", 
     "status":1,
     "version":2,
     "versioncheck":true
@@ -492,21 +449,19 @@ the **invitemsgid** field to match invites to the original call.
   "time":"5/1/20 1:30 PM",
   "vgroupid":"4ebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4"
 }
-
-
-
 ```
 
 ## Location messages
+<a name="location-messages"></a>
 
-There are two types of location messages. The first example is for a static share.
+There are two types of location messages. The first example is for a static share. 
 
 **Static Location Share**
 
 ```
 {
   "location":{
-    "latitude":40.75017899435506,
+    "latitude":40.75017899435506, 
     "longitude":-74.99449803034105
   },
   "message_id":"1f88fdc08bec11ea81b689d23fa72c7b",
@@ -517,14 +472,11 @@ There are two types of location messages. The first example is for a static shar
   "time":"5/1/20 8:41 PM",
   "vgroupid":"4ebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4"
 }
-
-
 ```
 
-**Share Location Continuously**
+**Share Location Continuously **
 
-The second example is when a user shares their location for a period of time. The edit
-section will show what changed.
+The second example is when a user shares their location for a period of time. The edit section will show what changed.
 
 ```
 {
@@ -542,16 +494,16 @@ section will show what changed.
   "time":"5/1/20 8:41 PM",
   "vgroupid":"4ebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4"
 }
-
 ```
 
 ## Link previews
+<a name="link-previews"></a>
 
 When a user shares a link and has "Link Previews" enabled, it will show that here:
 
 ```
 {
-  "edit":{
+  "edit":{  
     "originalmessageid":"11457fa08da211ea881baffab0b42745",
     "text":"https://howdoyoudo.com",
     "type":"text"
@@ -563,7 +515,4 @@ When a user shares a link and has "Link Previews" enabled, it will show that her
   "time":"5/3/20 5:56 PM",
   "vgroupid":"S243f2ec645d3961bdd531f51f3244205d292b8d0fbd41802827746271d31d41"
 }
-
-
-
 ```
