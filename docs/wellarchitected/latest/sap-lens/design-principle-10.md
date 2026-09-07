@@ -1,29 +1,21 @@
+
+
 # 10 – Design to withstand failure
+<a name="design-principle-10"></a>
 
-**How do you design your SAP workload to withstand failure?**
-Work backwards from your business requirements to define an approach for meeting the
-availability goals of your SAP infrastructure and data. For each failure scenario, the
-resiliency requirements, acceptable data loss, and mean time to recover (MTTR) need to be
-proportionate to the criticality of the component and the business applications it supports.
-Select from one of the AWS architecture patterns provided for SAP availability, and evaluate
-it based on the criteria you define. These criteria should include the risk and impact for
-each failure as well as taking into consideration cost and performance. In all cases, use
-initial and periodic testing to validate your decisions.
+ **How do you design your SAP workload to withstand failure?** Work backwards from your business requirements to define an approach for meeting the availability goals of your SAP infrastructure and data. For each failure scenario, the resiliency requirements, acceptable data loss, and mean time to recover (MTTR) need to be proportionate to the criticality of the component and the business applications it supports. Select from one of the AWS architecture patterns provided for SAP availability, and evaluate it based on the criteria you define. These criteria should include the risk and impact for each failure as well as taking into consideration cost and performance. In all cases, use initial and periodic testing to validate your decisions. 
 
-| ID        | Priority           | Best Practice                                                                                |
-| --------- | ------------------ | -------------------------------------------------------------------------------------------- |
-| ☐ BP 10.1 | Required           | Agree on SAP workload availability goals that align with<br>your business requirements       |
-| ☐ BP 10.2 | Highly Recommended | Select an SAP deployment pattern suitable for your<br>availability and capacity requirements |
-| ☐ BP 10.3 | Highly Recommended | Define an approach to help ensure availability of critical<br>SAP data                       |
-| ☐ BP 10.4 | Recommended        | Validate the design against a set of criteria based on the<br>business requirements          |
 
-For more details, see the following information:
+| ID | Priority | Best Practice | 
+| --- | --- | --- | 
+| ☐ BP 10.1 | Required | Agree on SAP workload availability goals that align with your business requirements | 
+| ☐ BP 10.2 | Highly Recommended | Select an SAP deployment pattern suitable for your availability and capacity requirements | 
+| ☐ BP 10.3 | Highly Recommended | Define an approach to help ensure availability of critical SAP data | 
+| ☐ BP 10.4 | Recommended | Validate the design against a set of criteria based on the business requirements | 
 
-- AWS Documentation: [Architecture Guidance
-  for Availability and Reliability of SAP on AWS including Failure Scenarios and
-  Architecture Patterns](../../../sap/latest/general/architecture-guidance-of-sap-on-aws.md "../../../sap/latest/general/architecture-guidance-of-sap-on-aws.md")
-- AWS Documentation: [The Amazon Builders' Library: Static stability using Availability Zones](https://aws.amazon.com/builders-library/static-stability-using-availability-zones/ "https://aws.amazon.com/builders-library/static-stability-using-availability-zones/")
-- AWS Documentation: [Direct Connect
-  Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/ "https://aws.amazon.com/directconnect/resiliency-recommendation/")
-- AWS Documentation: [Disaster Recovery of Workloads on AWS: Recovery in the Cloud](../../../whitepapers/latest/disaster-recovery-workloads-on-aws/introduction.md "../../../whitepapers/latest/disaster-recovery-workloads-on-aws/introduction.md")
-- SAP Documentation: [SAP HANA System Architecture Overview](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/1b4477a539ab4b77a3bfe2a6835b5e0e.html "https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/1b4477a539ab4b77a3bfe2a6835b5e0e.html")
+ For more details, see the following information: 
++  AWS Documentation: [Architecture Guidance for Availability and Reliability of SAP on AWS including Failure Scenarios and Architecture Patterns ](https://docs.aws.amazon.com/sap/latest/general/architecture-guidance-of-sap-on-aws.html)
++  AWS Documentation: [The Amazon Builders' Library: Static stability using Availability Zones](https://aws.amazon.com/builders-library/static-stability-using-availability-zones/) 
++  AWS Documentation: [Direct Connect Resiliency Recommendations](https://aws.amazon.com/directconnect/resiliency-recommendation/)
++ AWS Documentation: [Disaster Recovery of Workloads on AWS: Recovery in the Cloud](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/introduction.html)
++  SAP Documentation: [SAP HANA System Architecture Overview](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/LATEST/en-US/1b4477a539ab4b77a3bfe2a6835b5e0e.html) 

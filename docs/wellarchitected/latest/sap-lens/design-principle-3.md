@@ -1,25 +1,24 @@
+
+
 # 3 – Understand how you will operate the workload
+<a name="design-principle-3"></a>
 
-**How do you know that you are ready to support and operate a
-workload?** Evaluate the operational readiness of your [workload](../userguide/workloads.md "../userguide/workloads.md"), processes and procedures, and personnel to understand the operational
-risks related to your [workload](../userguide/workloads.md "../userguide/workloads.md"). Create runbooks for common operations, playbooks for issues and
-automate as many operations as possible to improve resilience and reduce errors.
+ **How do you know that you are ready to support and operate a workload?** Evaluate the operational readiness of your [workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads.html), processes and procedures, and personnel to understand the operational risks related to your [workload](https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads.html). Create runbooks for common operations, playbooks for issues and automate as many operations as possible to improve resilience and reduce errors. 
 
-| ID       | Priority           | Best Practice                                                             |
-| -------- | ------------------ | ------------------------------------------------------------------------- |
-| ☐ BP 3.1 | Required           | Ensure personnel capability                                               |
-| ☐ BP 3.2 | Required           | Ensure your cloud operating model matches your operational<br>aims        |
-| ☐ BP 3.3 | Required           | Share design standards and educate new support personnel in<br>procedures |
-| ☐ BP 3.4 | Required           | Use runbooks to perform SAP landscape operations                          |
-| ☐ BP 3.5 | Required           | Use playbooks to investigate issues                                       |
-| ☐ BP 3.6 | Highly Recommended | Use automation to perform SAP landscape operations                        |
 
-For more details, see the following links and information:
+| ID | Priority | Best Practice | 
+| --- | --- | --- | 
+| ☐ BP 3.1 | Required | Ensure personnel capability | 
+| ☐ BP 3.2 | Required | Ensure your cloud operating model matches your operational aims | 
+| ☐ BP 3.3 | Required | Share design standards and educate new support personnel in procedures | 
+| ☐ BP 3.4 | Required | Use runbooks to perform SAP landscape operations | 
+| ☐ BP 3.5 | Required | Use playbooks to investigate issues | 
+| ☐ BP 3.6 | Highly Recommended | Use automation to perform SAP landscape operations | 
 
-- AWS Whitepaper: [AWS Cloud Operating Model](../../../whitepapers/latest/building-cloud-operating-model/building-cloud-operating-model.md "../../../whitepapers/latest/building-cloud-operating-model/building-cloud-operating-model.md")
-- AWS Service: [AWS Cloud Adoption Framework (AWS CAF)](https://aws.amazon.com/professional-services/CAF/ "https://aws.amazon.com/professional-services/CAF/")
-- AWS Service: [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
-- AWS Service: [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/")
-- AWS Documentation: [AWS
-  Systems Manager Features](https://aws.amazon.com/systems-manager/features/ "https://aws.amazon.com/systems-manager/features/")
-- SAP on AWS Blog: [DevOps for SAP – Driving Innovation and Lowering Costs](https://aws.amazon.com/blogs/awsforsap/devops-for-sap-driving-innovation-and-lowering-costs/ "https://aws.amazon.com/blogs/awsforsap/devops-for-sap-driving-innovation-and-lowering-costs/")
+ For more details, see the following links and information: 
++  AWS Whitepaper: [AWS Cloud Operating Model](https://docs.aws.amazon.com/whitepapers/latest/building-cloud-operating-model/building-cloud-operating-model.html) 
++  AWS Service: [AWS Cloud Adoption Framework (AWS CAF)](https://aws.amazon.com/professional-services/CAF/) 
++  AWS Service: [AWS Config](https://aws.amazon.com/config/) 
++  AWS Service: [AWS Systems Manager](https://aws.amazon.com/systems-manager/) 
++  AWS Documentation: [AWS Systems Manager Features](https://aws.amazon.com/systems-manager/features/) 
++  SAP on AWS Blog: [DevOps for SAP – Driving Innovation and Lowering Costs](https://aws.amazon.com/blogs/awsforsap/devops-for-sap-driving-innovation-and-lowering-costs/) 
