@@ -1,17 +1,15 @@
+
+
 # Generative AI pricing model
+<a name="gencost02"></a>
 
-| GENCOST02: How do you select a cost-effective pricing model (for example, provisioned, on-demand, hosted, or batch)? |
-| -------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                      |
 
-Foundation model hosting and inference can be conducted in a
-variety of ways. Some workloads demand immediate responses, while
-some can be done in batch. Some are hosted on unmanaged
-infrastructure, and some are hosted using serverless technologies.
-The inference and hosting paradigm selected influences total cost
-and should be done with cost in mind.
+| GENCOST02: How do you select a cost-effective pricing model (for example, provisioned, on-demand, hosted, or batch)? | 
+| --- | 
+|   | 
 
-###### Best practices
+ Foundation model hosting and inference can be conducted in a variety of ways. Some workloads demand immediate responses, while some can be done in batch. Some are hosted on unmanaged infrastructure, and some are hosted using serverless technologies. The inference and hosting paradigm selected influences total cost and should be done with cost in mind. 
 
-- [GENCOST02-BP01 Balance cost and performance when selecting inference paradigms](gencost02-bp01.md "gencost02-bp01.md")
-- [GENCOST02-BP02 Optimize resource consumption to minimize hosting costs](gencost02-bp02.md "gencost02-bp02.md")
+**Topics**
++ [GENCOST02-BP01 Balance cost and performance when selecting inference paradigms](gencost02-bp01.md)
++ [GENCOST02-BP02 Optimize resource consumption to minimize hosting costs](gencost02-bp02.md)

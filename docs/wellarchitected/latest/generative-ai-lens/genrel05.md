@@ -1,19 +1,16 @@
+
+
 # Distributed availability
+<a name="genrel05"></a>
 
-| GENREL05: How do you distribute inference workloads over multiple regions of availability? |
-| ------------------------------------------------------------------------------------------ |
-|                                                                                            |
 
-Generative AI applications can be as simple as prompt-response
-workflows against a single foundation model or as advanced as
-multi-agent orchestration. The various components associated with
-a generative AI workload are required to service a region of
-availability. Availability could be over a well-defined zone or it
-could be expansive covering large geographic areas. Architecting
-for this variability is a complex problem.
+| GENREL05: How do you distribute inference workloads over multiple regions of availability? | 
+| --- | 
+|   | 
 
-###### Best practices
+ Generative AI applications can be as simple as prompt-response workflows against a single foundation model or as advanced as multi-agent orchestration. The various components associated with a generative AI workload are required to service a region of availability. Availability could be over a well-defined zone or it could be expansive covering large geographic areas. Architecting for this variability is a complex problem. 
 
-- [GENREL05-BP01 Load-balance inference requests across all regions of availability](genrel05-bp01.md "genrel05-bp01.md")
-- [GENREL05-BP02 Replicate embedding data across all regions of availability](genrel05-bp02.md "genrel05-bp02.md")
-- [GENREL05-BP03 Verify that agent capabilities are available across all regions of availability](genrel05-bp03.md "genrel05-bp03.md")
+**Topics**
++ [GENREL05-BP01 Load-balance inference requests across all regions of availability](genrel05-bp01.md)
++ [GENREL05-BP02 Replicate embedding data across all regions of availability](genrel05-bp02.md)
++ [GENREL05-BP03 Verify that agent capabilities are available across all regions of availability](genrel05-bp03.md)

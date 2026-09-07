@@ -1,17 +1,14 @@
+
+
 # Consume sustainable data processing and storage services
+<a name="gensus02"></a>
 
-| GENSUS02: How can you optimize data processing and storage to minimize energy consumption and maximize efficiency? |
-| ------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                                    |
 
-To optimize computational resources for data processing pipelines,
-storage systems, and infrastructure in generative AI workloads,
-consider adopting serverless architectures and auto scaling
-mechanisms. Employ columnar formats and compression to minimize
-transfer and processing requirements. Implement serverless query
-and ETL services to reduce the need for persistent infrastructure,
-which promotes efficient resource utilization and sustainability.
+| GENSUS02: How can you optimize data processing and storage to minimize energy consumption and maximize efficiency? | 
+| --- | 
+|   | 
 
-###### Best practices
+ To optimize computational resources for data processing pipelines, storage systems, and infrastructure in generative AI workloads, consider adopting serverless architectures and auto scaling mechanisms. Employ columnar formats and compression to minimize transfer and processing requirements. Implement serverless query and ETL services to reduce the need for persistent infrastructure, which promotes efficient resource utilization and sustainability. 
 
-- [GENSUS02-BP01 Optimize data processing and storage to minimize energy consumption](gensus02-bp01.md "gensus02-bp01.md")
+**Topics**
++ [GENSUS02-BP01 Optimize data processing and storage to minimize energy consumption](gensus02-bp01.md)

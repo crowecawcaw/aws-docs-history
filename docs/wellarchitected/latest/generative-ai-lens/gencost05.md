@@ -1,13 +1,14 @@
+
+
 # Cost-informed agents
+<a name="gencost05"></a>
 
-| GENCOST05: How do you optimize agent workflows for cost? |
-| -------------------------------------------------------- |
-|                                                          |
 
-Agentic architectures promise significant automation potential
-across domains. However, they can incur necessary additional
-cost if misconfigured.
+| GENCOST05: How do you optimize agent workflows for cost? | 
+| --- | 
+|   | 
 
-###### Best practices
+ Agentic architectures promise significant automation potential across domains. However, they can incur necessary additional cost if misconfigured. 
 
-- [GENCOST05-BP01 Create stopping conditions to control long-running workflows](gencost05-bp01.md "gencost05-bp01.md")
+**Topics**
++ [GENCOST05-BP01 Create stopping conditions to control long-running workflows](gencost05-bp01.md)
