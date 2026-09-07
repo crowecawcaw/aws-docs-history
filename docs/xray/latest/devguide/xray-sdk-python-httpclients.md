@@ -1,22 +1,18 @@
+
+
 # Tracing calls to downstream HTTP web services using the X-Ray SDK for Python
+<a name="xray-sdk-python-httpclients"></a>
 
-###### Note
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+When your application makes calls to microservices or public HTTP APIs, you can use the X-Ray SDK for Python to instrument those calls and add the API to the service graph as a downstream service.
 
-When your application makes calls to microservices or public HTTP APIs, you can use the X-Ray SDK for Python to
-instrument those calls and add the API to the service graph as a downstream service.
+To instrument HTTP clients, [patch the library](xray-sdk-python-patching.md) that you use to make outgoing calls. If you use `requests` or Python's built in HTTP client, that's all you need to do. For `aiohttp`, also configure the recorder with an [async context](xray-sdk-python-patching.md#xray-sdk-python-patching-async).
 
-To instrument HTTP clients, [patch the library](xray-sdk-python-patching.md "xray-sdk-python-patching.md") that you use to
-make outgoing calls. If you use `requests` or Python's built in HTTP client, that's all you need to do.
-For `aiohttp`, also configure the recorder with an [async
-context](xray-sdk-python-patching.md#xray-sdk-python-patching-async "xray-sdk-python-patching.md#xray-sdk-python-patching-async").
+If you use `aiohttp` 3's client API, you also need to configure the `ClientSession`'s with an instance of the tracing configuration provided by the SDK.
 
-If you use `aiohttp` 3's client API, you also need to configure the `ClientSession`'s with
-an instance of the tracing configuration provided by the SDK.
-
-###### Example [`aiohttp` 3 client API](https://github.com/aws/aws-xray-sdk-python#trace-aiohttp-client-requests "https://github.com/aws/aws-xray-sdk-python#trace-aiohttp-client-requests")
+**Example [`aiohttp` 3 client API](https://github.com/aws/aws-xray-sdk-python#trace-aiohttp-client-requests)**  
 
 ```
 from aws_xray_sdk.ext.aiohttp.client import aws_xray_trace_config
@@ -28,11 +24,9 @@ async def foo():
             await resp.read()
 ```
 
-When you instrument a call to a downstream web API, the X-Ray SDK for Python records a subsegment that contains
-information about the HTTP request and response. X-Ray uses the subsegment to generate an inferred segment for the
-remote API.
+When you instrument a call to a downstream web API, the X-Ray SDK for Python records a subsegment that contains information about the HTTP request and response. X-Ray uses the subsegment to generate an inferred segment for the remote API.
 
-###### Example Subsegment for a downstream HTTP call
+**Example Subsegment for a downstream HTTP call**  
 
 ```
 {
@@ -54,7 +48,7 @@ remote API.
 }
 ```
 
-###### Example Inferred segment for a downstream HTTP call
+**Example Inferred segment for a downstream HTTP call**  
 
 ```
 {

@@ -1,39 +1,38 @@
+
+
 # Getting data from AWS X-Ray
+<a name="xray-api-gettingdata"></a>
 
-AWS X-Ray processes the trace data that you send to it to generate full traces, trace summaries, and service
-graphs in JSON. You can retrieve the generated data directly from the API with the AWS CLI.
+AWS X-Ray processes the trace data that you send to it to generate full traces, trace summaries, and service graphs in JSON. You can retrieve the generated data directly from the API with the AWS CLI.
 
-###### Sections
-
-- [Retrieving the service graph](#xray-api-servicegraph "#xray-api-servicegraph")
-- [Retrieving the service graph by group](#xray-api-servicegraphgroup "#xray-api-servicegraphgroup")
-- [Retrieving traces](#xray-api-traces "#xray-api-traces")
-- [Retrieving and refining root cause analytics](#xray-api-analytics "#xray-api-analytics")
+**Topics**
++ [Retrieving the service graph](#xray-api-servicegraph)
++ [Retrieving the service graph by group](#xray-api-servicegraphgroup)
++ [Retrieving traces](#xray-api-traces)
++ [Retrieving and refining root cause analytics](#xray-api-analytics)
 
 ## Retrieving the service graph
+<a name="xray-api-servicegraph"></a>
 
-You can use the [`GetServiceGraph`](../api/API_GetServiceGraph.md "../api/API_GetServiceGraph.md") API to retrieve the JSON service graph. The API requires a start time
-and end time, which you can calculate from a Linux terminal with the `date` command.
+You can use the [`GetServiceGraph`](https://docs.aws.amazon.com/xray/latest/api/API_GetServiceGraph.html) API to retrieve the JSON service graph. The API requires a start time and end time, which you can calculate from a Linux terminal with the `date` command.
 
 ```
-$ `date +%s`
+$ date +%s
 1499394617
 ```
 
-`date +%s` prints a date in seconds. Use this number as an end time and subtract time from it to
-get a start time.
+`date +%s` prints a date in seconds. Use this number as an end time and subtract time from it to get a start time.
 
-###### Example Script to retrieve a service graph for the last 10 minutes
+**Example Script to retrieve a service graph for the last 10 minutes**  
 
 ```
 EPOCH=$(date +%s)
 aws xray get-service-graph --start-time $(($EPOCH-600)) --end-time $EPOCH
 ```
 
-The following example shows a service graph with 4 nodes, including a client node, an EC2 instance, a DynamoDB
-table, and an Amazon SNS topic.
+The following example shows a service graph with 4 nodes, including a client node, an EC2 instance, a DynamoDB table, and an Amazon SNS topic.
 
-###### Example GetServiceGraph output
+**Example GetServiceGraph output**  
 
 ```
 {
@@ -310,45 +309,35 @@ table, and an Amazon SNS topic.
 ```
 
 ## Retrieving the service graph by group
+<a name="xray-api-servicegraphgroup"></a>
 
-To call for a service graph based on the contents of a group, include a `groupName` or
-`groupARN`. The following example shows a service graph call to a group named Example1.
+To call for a service graph based on the contents of a group, include a `groupName` or `groupARN`. The following example shows a service graph call to a group named Example1.
 
-###### Example Script to retrieve a service graph by name for group Example1
+**Example Script to retrieve a service graph by name for group Example1**  
 
 ```
 aws xray get-service-graph --group-name "Example1"
 ```
 
 ## Retrieving traces
+<a name="xray-api-traces"></a>
 
-You can use the [`GetTraceSummaries`](../api/API_GetTraceSummaries.md "../api/API_GetTraceSummaries.md") API to get a list of trace summaries. Trace summaries include
-information that you can use to identify traces that you want to download in full, including annotations, request
-and response information, and IDs.
+You can use the [`GetTraceSummaries`](https://docs.aws.amazon.com/xray/latest/api/API_GetTraceSummaries.html) API to get a list of trace summaries. Trace summaries include information that you can use to identify traces that you want to download in full, including annotations, request and response information, and IDs.
 
-There are two `TimeRangeType` flags available when calling `aws xray
- get-trace-summaries`:
+There are two `TimeRangeType` flags available when calling `aws xray get-trace-summaries`:
++ **TraceId** – The default `GetTraceSummaries` search uses TraceID time and returns traces started within the computed `[start_time, end_time)` range. This range of timestamps is calculated based on the encoding of the timestamp within the TraceId, or can be defined manually.
++ **Event time **– To search for events as they happen over the time, AWS X-Ray allows searching for traces using event timestamps. Event time returns traces active during the `[start_time, end_time)` range, regardless of when the trace began.
 
-- **TraceId** – The default `GetTraceSummaries` search uses
-  TraceID time and returns traces started within the computed `[start_time, end_time)` range. This
-  range of timestamps is calculated based on the encoding of the timestamp within the TraceId, or can be defined
-  manually.
-- **Event time** – To search for events as they happen over the time,
-  AWS X-Ray allows searching for traces using event timestamps. Event time returns traces active during the
-  `[start_time, end_time)` range, regardless of when the trace began.
+Use the `aws xray get-trace-summaries` command to get a list of trace summaries. The following commands get a list of trace summaries from between 1 and 2 minutes in the past using the default TraceId time.
 
-Use the `aws xray get-trace-summaries` command to get a list of trace summaries. The following
-commands get a list of trace summaries from between 1 and 2 minutes in the past using the default TraceId
-time.
-
-###### Example Script to get trace summaries
+**Example Script to get trace summaries**  
 
 ```
 EPOCH=$(date +%s)
 aws xray get-trace-summaries --start-time $(($EPOCH-120)) --end-time $(($EPOCH-60))
 ```
 
-###### Example GetTraceSummaries output
+**Example GetTraceSummaries output**  
 
 ```
 {
@@ -412,15 +401,15 @@ aws xray get-trace-summaries --start-time $(($EPOCH-120)) --end-time $(($EPOCH-6
 }
 ```
 
-Use the trace ID from the output to retrieve a full trace with the [`BatchGetTraces`](../api/API_BatchGetTraces.md "../api/API_BatchGetTraces.md") API.
+Use the trace ID from the output to retrieve a full trace with the [`BatchGetTraces`](https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html) API.
 
-###### Example BatchGetTraces command
+**Example BatchGetTraces command**  
 
 ```
-$ `aws xray batch-get-traces --trace-ids 1-`596025b4-7170afe49f7aa708b1dd4a6b``
+$ aws xray batch-get-traces --trace-ids 1-{{596025b4-7170afe49f7aa708b1dd4a6b}}
 ```
 
-###### Example BatchGetTraces output
+**Example BatchGetTraces output**  
 
 ```
 {
@@ -456,22 +445,13 @@ $ `aws xray batch-get-traces --trace-ids 1-`596025b4-7170afe49f7aa708b1dd4a6b``
 }
 ```
 
-The full trace includes a document for each segment, compiled from all of the segment documents received with
-the same trace ID. These documents don't represent the data as it was sent to X-Ray by your application. Instead,
-they represent the processed documents generated by the X-Ray service. X-Ray creates the full trace document by
-compiling segment documents sent by your application, and removing data that doesn't comply with the [segment document schema](xray-api-segmentdocuments.md "xray-api-segmentdocuments.md").
+The full trace includes a document for each segment, compiled from all of the segment documents received with the same trace ID. These documents don't represent the data as it was sent to X-Ray by your application. Instead, they represent the processed documents generated by the X-Ray service. X-Ray creates the full trace document by compiling segment documents sent by your application, and removing data that doesn't comply with the [segment document schema](xray-api-segmentdocuments.md).
 
-X-Ray also creates _inferred segments_ for downstream calls to services that don't send
-segments themselves. For example, when you call DynamoDB with an instrumented client, the X-Ray SDK records a
-subsegment with details about the call from its point of view. However, DynamoDB doesn't send a corresponding
-segment. X-Ray uses the information in the subsegment to create an inferred segment to represent the DynamoDB
-resource in the trace map, and adds it to the trace document.
+X-Ray also creates *inferred segments* for downstream calls to services that don't send segments themselves. For example, when you call DynamoDB with an instrumented client, the X-Ray SDK records a subsegment with details about the call from its point of view. However, DynamoDB doesn't send a corresponding segment. X-Ray uses the information in the subsegment to create an inferred segment to represent the DynamoDB resource in the trace map, and adds it to the trace document.
 
-To get multiple traces from the API, you need a list of trace IDs, which you can extract from the output of
-`get-trace-summaries` with an [AWS CLI query](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter"). Redirect the list to
-the input of `batch-get-traces` to get full traces for a specific time period.
+To get multiple traces from the API, you need a list of trace IDs, which you can extract from the output of `get-trace-summaries` with an [AWS CLI query](https://docs.aws.amazon.com/cli/latest/userguide/controlling-output.html#controlling-output-filter). Redirect the list to the input of `batch-get-traces` to get full traces for a specific time period.
 
-###### Example Script to get full traces for a one minute period
+**Example Script to get full traces for a one minute period**  
 
 ```
 EPOCH=$(date +%s)
@@ -480,11 +460,11 @@ aws xray batch-get-traces --trace-ids $TRACEIDS --query 'Traces[*]'
 ```
 
 ## Retrieving and refining root cause analytics
+<a name="xray-api-analytics"></a>
 
-Upon generating a trace summary with the [GetTraceSummaries API](../api/API_GetTraceSummaries.md "../api/API_GetTraceSummaries.md") , partial trace summaries can be reused in their JSON format to create a refined
-filter expression based upon root causes. See the examples below for a walkthrough of the refinement steps.
+Upon generating a trace summary with the [GetTraceSummaries API](https://docs.aws.amazon.com/xray/latest/api/API_GetTraceSummaries.html) , partial trace summaries can be reused in their JSON format to create a refined filter expression based upon root causes. See the examples below for a walkthrough of the refinement steps. 
 
-###### Example GetTraceSummaries output - response time root cause section
+**Example GetTraceSummaries output - response time root cause section**  
 
 ```
 {
@@ -522,16 +502,13 @@ filter expression based upon root causes. See the examples below for a walkthrou
         }
       ]
     }
-  ]
+  ] 
 }
 ```
 
-By editing and making omissions to the above output, this JSON can become a filter for matched root cause
-entities. For every field present in the JSON, any candidate match must be exact, or the trace will not be
-returned. Removed fields become wildcard values, a format which is compatible with the filter expression query
-structure.
+By editing and making omissions to the above output, this JSON can become a filter for matched root cause entities. For every field present in the JSON, any candidate match must be exact, or the trace will not be returned. Removed fields become wildcard values, a format which is compatible with the filter expression query structure. 
 
-###### Example Reformatted response time root cause
+**Example Reformatted response time root cause**  
 
 ```
 {
@@ -559,12 +536,10 @@ structure.
 }
 ```
 
-This JSON is then used as part of a filter expression through a call to `rootcause.json = #[{}]`.
-Refer to the [Filter Expressions](xray-console-filters.md "xray-console-filters.md") chapter for more details about
-querying with filter expressions.
+This JSON is then used as part of a filter expression through a call to `rootcause.json = #[{}]`. Refer to the [Filter Expressions](xray-console-filters.md) chapter for more details about querying with filter expressions.
 
-###### Example JSON filter
+**Example JSON filter**  
 
 ```
-rootcause.json = #[`{ "Services": [ { "Name": "GetWeatherData", "EntityPath": [{ "Name": "GetWeatherData" }, { "Name": "get_temperature" } ] }, { "Name": "GetTemperature", "EntityPath": [ { "Name": "GetTemperature" } ] } ] }`]
+rootcause.json = #[{{{ "Services": [ { "Name": "GetWeatherData", "EntityPath": [{ "Name": "GetWeatherData" }, { "Name": "get_temperature" } ] }, { "Name": "GetTemperature", "EntityPath": [ { "Name": "GetTemperature" } ] } ] }}}]
 ```

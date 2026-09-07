@@ -1,49 +1,46 @@
+
+
 # Running the X-Ray daemon on Amazon ECS
+<a name="xray-daemon-ecs"></a>
 
-###### Note
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
-
-In Amazon ECS, create a Docker image that runs the X-Ray daemon, upload it to a Docker image repository, and then
-deploy it to your Amazon ECS cluster. You can use port mappings and network mode settings in your task definition file to
-allow your application to communicate with the daemon container.
+In Amazon ECS, create a Docker image that runs the X-Ray daemon, upload it to a Docker image repository, and then deploy it to your Amazon ECS cluster. You can use port mappings and network mode settings in your task definition file to allow your application to communicate with the daemon container.
 
 ## Using the official Docker image
+<a name="xray-daemon-ecs-image"></a>
 
-X-Ray provides a Docker [container image](https://gallery.ecr.aws/xray/aws-xray-daemon "https://gallery.ecr.aws/xray/aws-xray-daemon")
-on Amazon ECR that you can deploy alongside your application. See
-[downloading the daemon](xray-daemon.md#xray-daemon-downloading "xray-daemon.md#xray-daemon-downloading") for more information.
+X-Ray provides a Docker [container image](https://gallery.ecr.aws/xray/aws-xray-daemon) on Amazon ECR that you can deploy alongside your application. See [downloading the daemon](xray-daemon.md#xray-daemon-downloading) for more information.
 
-###### Example Task definition
+**Example Task definition**  
 
 ```
-
     {
       "name": "xray-daemon",
       "image": "amazon/aws-xray-daemon",
       "cpu": 32,
       "memoryReservation": 256,
       "portMappings" : [
-          `{
- "hostPort": 0,
- "containerPort": 2000,
- "protocol": "udp"
- }`
+          {
+              "hostPort": 0,
+              "containerPort": 2000,
+              "protocol": "udp"
+          }
        ]
     }
 ```
 
 ## Create and build a Docker image
+<a name="xray-daemon-ecs-build"></a>
 
 For custom configuration, you may need to define your own Docker image.
 
-Add managed policies to your task role to grant the daemon permission to upload trace data to X-Ray. For more
-information, see [Giving the daemon permission to send data to X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
+Add managed policies to your task role to grant the daemon permission to upload trace data to X-Ray. For more information, see [Giving the daemon permission to send data to X-Ray](xray-daemon.md#xray-daemon-permissions).
 
 Use one of the following Dockerfiles to create an image that runs the daemon.
 
-###### Example Dockerfile – Amazon Linux
+**Example Dockerfile – Amazon Linux**  
 
 ```
 FROM amazonlinux
@@ -55,15 +52,11 @@ EXPOSE 2000/udp
 EXPOSE 2000/tcp
 ```
 
-###### Note
+**Note**  
+Flags `-t` and `-b` are required to specify a binding address to listen to the loopback of a multi-container environment.
 
-Flags `-t` and `-b` are required to specify a binding address to listen to the
-loopback of a multi-container environment.
-
-###### Example Dockerfile – Ubuntu
-
-For Debian derivatives, you also need to install certificate authority (CA) certificates to
-avoid issues when downloading the installer.
+**Example Dockerfile – Ubuntu**  
+For Debian derivatives, you also need to install certificate authority (CA) certificates to avoid issues when downloading the installer.  
 
 ```
 FROM ubuntu:16.04
@@ -75,25 +68,22 @@ EXPOSE 2000/udp
 EXPOSE 2000/tcp
 ```
 
-In your task definition, the configuration depends on the networking mode that you use. Bridge networking is
-the default and can be used in your default VPC. In a bridge network, set the `AWS_XRAY_DAEMON_ADDRESS` environment
-variable to tell the X-Ray SDK which container-port to reference and set the host port. For example, you could publish UDP port 2000, and create a link from your application container to the daemon container.
+In your task definition, the configuration depends on the networking mode that you use. Bridge networking is the default and can be used in your default VPC. In a bridge network, set the `AWS_XRAY_DAEMON_ADDRESS` environment variable to tell the X-Ray SDK which container-port to reference and set the host port. For example, you could publish UDP port 2000, and create a link from your application container to the daemon container. 
 
-###### Example Task definition
+**Example Task definition**  
 
 ```
-
     {
       "name": "xray-daemon",
       "image": "123456789012.dkr.ecr.us-east-2.amazonaws.com/xray-daemon",
       "cpu": 32,
       "memoryReservation": 256,
       "portMappings" : [
-          `{
- "hostPort": 0,
- "containerPort": 2000,
- "protocol": "udp"
- }`
+          {
+              "hostPort": 0,
+              "containerPort": 2000,
+              "protocol": "udp"
+          }
        ]
     },
     {
@@ -104,7 +94,7 @@ variable to tell the X-Ray SDK which container-port to reference and set the hos
       "environment": [
           { "name" : "AWS_REGION", "value" : "us-east-2" },
           { "name" : "NOTIFICATION_TOPIC", "value" : "arn:aws:sns:us-east-2:123456789012:scorekeep-notifications" },
-          `{ "name" : "AWS_XRAY_DAEMON_ADDRESS", "value" : "xray-daemon:2000" }`
+          { "name" : "AWS_XRAY_DAEMON_ADDRESS", "value" : "xray-daemon:2000" }
       ],
       "portMappings" : [
           {
@@ -112,22 +102,20 @@ variable to tell the X-Ray SDK which container-port to reference and set the hos
               "containerPort": 5000
           }
       ],
-      `"links": [
- "xray-daemon"
- ]
- }`
+      "links": [
+        "xray-daemon"
+      ]
+    }
 ```
 
-If you run your cluster in the private subnet of a VPC, you can use the [`awsvpc` network mode](../../../AmazonECS/latest/developerguide/task-networking.md "../../../AmazonECS/latest/developerguide/task-networking.md") to attach an elastic network
-interface (ENI) to your containers. This enables you to avoid using links. Omit the host port in the port
-mappings, the link, and the `AWS_XRAY_DAEMON_ADDRESS` environment variable.
+If you run your cluster in the private subnet of a VPC, you can use the [`awsvpc` network mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) to attach an elastic network interface (ENI) to your containers. This enables you to avoid using links. Omit the host port in the port mappings, the link, and the `AWS_XRAY_DAEMON_ADDRESS` environment variable.
 
-###### Example VPC task definition
+**Example VPC task definition**  
 
 ```
 {
     "family": "scorekeep",
-    `"networkMode":"awsvpc",`
+    "networkMode":"awsvpc",
     "containerDefinitions": [
         {
           "name": "xray-daemon",
@@ -161,37 +149,36 @@ mappings, the link, and the `AWS_XRAY_DAEMON_ADDRESS` environment variable.
 ```
 
 ## Configure command line options in the Amazon ECS console
+<a name="xray-daemon-ecs-cmdline"></a>
 
-Command line options override any conflicting values in your image's config file. Command line options are
-typically used for local testing, but can also be used for convenience while setting environment variables, or to
-control the startup process.
+Command line options override any conflicting values in your image's config file. Command line options are typically used for local testing, but can also be used for convenience while setting environment variables, or to control the startup process. 
 
-By adding command line options, you are updating the Docker `CMD` that is passed to the container.
-For more information, see [the Docker run
-reference](https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults "https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults").
+By adding command line options, you are updating the Docker `CMD` that is passed to the container. For more information, see [the Docker run reference](https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults).
 
-###### To set a command line option
+**To set a command line option**
 
-1. Open the Amazon ECS classic console at
-   [https://console.aws.amazon.com/ecs/](https://console.aws.amazon.com/ecs/ "https://console.aws.amazon.com/ecs/").
-2. From the navigation bar, choose the region that contains your task definition.
-3. In the navigation pane, choose **Task Definitions**.
-4. On the **Task Definitions** page, select the box to the left of the task definition to
-   revise and choose **Create new revision**.
-5. On the **Create new revision of Task Definition** page, select the container.
-6. In the **ENVIRONMENT** section, add your comma-separated list of command line options to
-   the **Command** field.
-7. Choose **Update**.
-8. Verify the information and choose **Create**.
+1. Open the Amazon ECS classic console at [https://console.aws.amazon.com/ecs/](https://console.aws.amazon.com/ecs/).
 
-The following example shows how to write a comma-separated command line option for the `RoleARN`
-option. The `RoleARN` option assumes the specified IAM role to upload segments to a different
-account.
+1. From the navigation bar, choose the region that contains your task definition.
 
-###### Example
+1. In the navigation pane, choose **Task Definitions**.
+
+1. On the **Task Definitions** page, select the box to the left of the task definition to revise and choose **Create new revision**.
+
+1. On the **Create new revision of Task Definition** page, select the container.
+
+1. In the **ENVIRONMENT** section, add your comma-separated list of command line options to the **Command** field.
+
+1. Choose **Update**.
+
+1. Verify the information and choose **Create**.
+
+The following example shows how to write a comma-separated command line option for the `RoleARN` option. The `RoleARN` option assumes the specified IAM role to upload segments to a different account.
+
+**Example**  
 
 ```
---role-arn, arn:aws:iam::`123456789012`:role/`xray-cross-account`
+--role-arn, arn:aws:iam::{{123456789012}}:role/{{xray-cross-account}}
 ```
 
-To learn more about the available command line options in X-Ray, see [Configuring the AWS X-Ray Daemon](xray-daemon-configuration.md "xray-daemon-configuration.md").
+To learn more about the available command line options in X-Ray, see [Configuring the AWS X-Ray Daemon](xray-daemon-configuration.md).

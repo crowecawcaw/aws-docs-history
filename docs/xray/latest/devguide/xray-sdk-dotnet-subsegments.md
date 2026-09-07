@@ -1,25 +1,19 @@
+
+
 # Creating additional subsegments
+<a name="xray-sdk-dotnet-subsegments"></a>
 
-###### Note
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+Subsegments extend a trace's [segment](xray-concepts.md#xray-concepts-segments) with details about work done in order to serve a request. Each time you make a call with an instrumented client, the X-Ray SDK records the information generated in a subsegment. You can create additional subsegments to group other subsegments, to measure the performance of a section of code, or to record annotations and metadata.
 
-Subsegments extend a trace's
-[segment](xray-concepts.md#xray-concepts-segments "xray-concepts.md#xray-concepts-segments") with details about work done in order to serve
-a request. Each time you make a call with an instrumented client, the X-Ray SDK records the information
-generated in a subsegment. You can create additional subsegments to group other subsegments, to measure
-the performance of a section of code, or to record annotations and metadata.
+To manage subsegments, use the `BeginSubsegment` and `EndSubsegment` methods. Perform any work in the subsegment in a `try` block and use `AddException` to trace exceptions. Call `EndSubsegment` in a `finally` block to ensure that the subsegment is closed.
 
-To manage subsegments, use the `BeginSubsegment` and `EndSubsegment`
-methods. Perform any work in the subsegment in a `try` block and use
-`AddException` to trace exceptions. Call `EndSubsegment` in a
-`finally` block to ensure that the subsegment is closed.
-
-###### Example Controller.cs – Custom subsegment
+**Example Controller.cs – Custom subsegment**  
 
 ```
-AWSXRayRecorder.Instance.BeginSubsegment("`custom method`");
+AWSXRayRecorder.Instance.BeginSubsegment("{{custom method}}");
 try
 {
   DoWork();
@@ -34,10 +28,9 @@ finally
 }
 ```
 
-When you create a subsegment within a segment or another subsegment, the X-Ray SDK for .NET
-generates an ID for it and records the start time and end time.
+When you create a subsegment within a segment or another subsegment, the X-Ray SDK for .NET generates an ID for it and records the start time and end time.
 
-###### Example Subsegment with metadata
+**Example Subsegment with metadata**  
 
 ```
 "subsegments": [{

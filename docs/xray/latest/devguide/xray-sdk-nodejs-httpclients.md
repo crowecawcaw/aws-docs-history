@@ -1,44 +1,38 @@
+
+
 # Tracing calls to downstream HTTP web services using the X-Ray SDK for Node.js
+<a name="xray-sdk-nodejs-httpclients"></a>
 
-###### Note
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+When your application makes calls to microservices or public HTTP APIs, you can use the X-Ray SDK for Node.js client to instrument those calls and add the API to the service graph as a downstream service.
 
-When your application makes calls to microservices or public HTTP APIs, you can use the
-X-Ray SDK for Node.js client to instrument those calls and add the API to the service graph as a
-downstream service.
+Pass your `http` or `https` client to the X-Ray SDK for Node.js `captureHTTPs` method to trace outgoing calls.
 
-Pass your `http` or `https` client to the X-Ray SDK for Node.js
-`captureHTTPs` method to trace outgoing calls.
+**Note**  
+Calls using third-party HTTP request libraries, such as Axios or Superagent, are supported through the [`captureHTTPsGlobal()` API](https://docs.aws.amazon.com/xray-sdk-for-nodejs/latest/reference/module-http_p.html) and will still be traced when they use the native `http` module.
 
-###### Note
-
-Calls using third-party HTTP request libraries, such as Axios or Superagent, are supported through the [`captureHTTPsGlobal()` API](../../../xray-sdk-for-nodejs/latest/reference/module-http_p.md "../../../xray-sdk-for-nodejs/latest/reference/module-http_p.md") and will still be traced when they use the native `http` module.
-
-###### Example app.js - HTTP client
+**Example app.js - HTTP client**  
 
 ```
 var AWSXRay = require('aws-xray-sdk');
-`var http = AWSXRay.captureHTTPs(require('http'));`
+var http = AWSXRay.captureHTTPs(require('http'));
 ```
 
-To enable tracing on all HTTP clients, call `captureHTTPsGlobal` before you load
-`http`.
+To enable tracing on all HTTP clients, call `captureHTTPsGlobal` before you load `http`.
 
-###### Example app.js - HTTP client (global)
+**Example app.js - HTTP client (global)**  
 
 ```
 var AWSXRay = require('aws-xray-sdk');
-`AWSXRay.captureHTTPsGlobal(require('http'));`
+AWSXRay.captureHTTPsGlobal(require('http'));
 var http = require('http');
 ```
 
-When you instrument a call to a downstream web API, the X-Ray SDK for Node.js records a
-subsegment that contains information about the HTTP request and response. X-Ray uses the
-subsegment to generate an inferred segment for the remote API.
+When you instrument a call to a downstream web API, the X-Ray SDK for Node.js records a subsegment that contains information about the HTTP request and response. X-Ray uses the subsegment to generate an inferred segment for the remote API.
 
-###### Example Subsegment for a downstream HTTP call
+**Example Subsegment for a downstream HTTP call**  
 
 ```
 {
@@ -60,7 +54,7 @@ subsegment to generate an inferred segment for the remote API.
 }
 ```
 
-###### Example Inferred segment for a downstream HTTP call
+**Example Inferred segment for a downstream HTTP call**  
 
 ```
 {

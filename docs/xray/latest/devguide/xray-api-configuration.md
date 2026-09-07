@@ -1,25 +1,25 @@
+
+
 # Configuring sampling, groups, and encryption settings with the AWS X-Ray API
+<a name="xray-api-configuration"></a>
 
-AWS X-Ray provides APIs for configuring [sampling rules](xray-console-sampling.md "xray-console-sampling.md"), group
-rules, and [encryption settings](xray-console-encryption.md "xray-console-encryption.md").
+AWS X-Ray provides APIs for configuring [sampling rules](xray-console-sampling.md), group rules, and [encryption settings](xray-console-encryption.md).
 
-###### Sections
-
-- [Encryption settings](#xray-api-configuration-encryption "#xray-api-configuration-encryption")
-- [Sampling rules](#xray-api-configuration-sampling "#xray-api-configuration-sampling")
-- [Groups](#xray-api-configuration-groups "#xray-api-configuration-groups")
+**Topics**
++ [Encryption settings](#xray-api-configuration-encryption)
++ [Sampling rules](#xray-api-configuration-sampling)
++ [Groups](#xray-api-configuration-groups)
 
 ## Encryption settings
+<a name="xray-api-configuration-encryption"></a>
 
-Use [`PutEncryptionConfig`](../api/API_PutEncryptionConfig.md "../api/API_PutEncryptionConfig.md") to specify an AWS Key Management Service (AWS KMS) key to use for encryption.
+Use [`PutEncryptionConfig`](https://docs.aws.amazon.com/xray/latest/api/API_PutEncryptionConfig.html) to specify an AWS Key Management Service (AWS KMS) key to use for encryption. 
 
-###### Note
-
-X-Ray does not support asymmetric
-KMS keys.
+**Note**  
+X-Ray does not support asymmetric KMS keys.
 
 ```
-$ `aws xray put-encryption-config --type KMS --key-id alias/aws/xray`
+$ aws xray put-encryption-config --type KMS --key-id alias/aws/xray
 {
     "EncryptionConfig": {
         "KeyId": "arn:aws:kms:us-east-2:123456789012:key/c234g4e8-39e9-4gb0-84e2-b0ea215cbba5",
@@ -29,14 +29,12 @@ $ `aws xray put-encryption-config --type KMS --key-id alias/aws/xray`
 }
 ```
 
-For the key ID, you can use an alias (as shown in the example), a key ID, or an Amazon Resource Name
-(ARN).
+For the key ID, you can use an alias (as shown in the example), a key ID, or an Amazon Resource Name (ARN).
 
-Use [`GetEncryptionConfig`](../api/API_GetEncryptionConfig.md "../api/API_GetEncryptionConfig.md") to get the current configuration. When X-Ray finishes applying your
-settings, the status changes from `UPDATING` to `ACTIVE`.
+Use [`GetEncryptionConfig`](https://docs.aws.amazon.com/xray/latest/api/API_GetEncryptionConfig.html) to get the current configuration. When X-Ray finishes applying your settings, the status changes from `UPDATING` to `ACTIVE`.
 
 ```
-$ `aws xray get-encryption-config`
+$ aws xray get-encryption-config
 {
     "EncryptionConfig": {
         "KeyId": "arn:aws:kms:us-east-2:123456789012:key/c234g4e8-39e9-4gb0-84e2-b0ea215cbba5",
@@ -49,7 +47,7 @@ $ `aws xray get-encryption-config`
 To stop using a KMS key and use default encryption, set the encryption type to `NONE`.
 
 ```
-$ `aws xray put-encryption-config --type NONE`
+$ aws xray put-encryption-config --type NONE
 {
     "EncryptionConfig": {
         "Status": "UPDATING",
@@ -59,14 +57,14 @@ $ `aws xray put-encryption-config --type NONE`
 ```
 
 ## Sampling rules
+<a name="xray-api-configuration-sampling"></a>
 
-You can manage the [sampling rules](xray-console-sampling.md "xray-console-sampling.md") in your account with the
-X-Ray API. For more information about adding and managing tags, see [Tagging X-Ray sampling rules and groups](xray-tagging.md "xray-tagging.md").
+You can manage the [sampling rules](xray-console-sampling.md) in your account with the X-Ray API. For more information about adding and managing tags, see [Tagging X-Ray sampling rules and groups](xray-tagging.md).
 
-Get all sampling rules with [`GetSamplingRules`](../api/API_GetSamplingRules.md "../api/API_GetSamplingRules.md").
+Get all sampling rules with [`GetSamplingRules`](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html).
 
 ```
-$ `aws xray get-sampling-rules`
+$ aws xray get-sampling-rules
 {
     "SamplingRuleRecords": [
         {
@@ -92,11 +90,9 @@ $ `aws xray get-sampling-rules`
 }
 ```
 
-The default rule applies to all requests that don't match another rule. It is the lowest priority rule and
-cannot be deleted. You can, however, change the rate and reservoir size with
-[`UpdateSamplingRule`](../api/API_UpdateSamplingRule.md "../api/API_UpdateSamplingRule.md").
+The default rule applies to all requests that don't match another rule. It is the lowest priority rule and cannot be deleted. You can, however, change the rate and reservoir size with [`UpdateSamplingRule`](https://docs.aws.amazon.com/xray/latest/api/API_UpdateSamplingRule.html).
 
-###### Example API input for [`UpdateSamplingRule`](../api/API_UpdateSamplingRule.md "../api/API_UpdateSamplingRule.md") – 10000-default.json
+**Example API input for [`UpdateSamplingRule`](https://docs.aws.amazon.com/xray/latest/api/API_UpdateSamplingRule.html) – 10000-default.json**  
 
 ```
 {
@@ -108,12 +104,10 @@ cannot be deleted. You can, however, change the rate and reservoir size with
 }
 ```
 
-The following example uses the previous file as input to change the default rule to one percent with no
-reservoir. Tags are optional. If you choose to add tags, a tag key is required, and tag values are optional.
-To remove existing tags from a sampling rule, use [UntagResource](../api/API_UntagResource.md "../api/API_UntagResource.md")
+The following example uses the previous file as input to change the default rule to one percent with no reservoir. Tags are optional. If you choose to add tags, a tag key is required, and tag values are optional. To remove existing tags from a sampling rule, use [UntagResource](https://docs.aws.amazon.com/xray/latest/api/API_UntagResource.html)
 
 ```
-$ `aws xray update-sampling-rule --cli-input-json file://1000-default.json --tags [{"Key": "`key_name`","Value": "`value`"},{"Key": "`key_name`","Value": "`value`"}]`
+$ aws xray update-sampling-rule --cli-input-json file://1000-default.json --tags [{"Key": "{{key_name}}","Value": "{{value}}"},{"Key": "{{key_name}}","Value": "{{value}}"}]
 {
     "SamplingRuleRecords": [
         {
@@ -135,15 +129,11 @@ $ `aws xray update-sampling-rule --cli-input-json file://1000-default.json --tag
             "CreatedAt": 0.0,
             "ModifiedAt": 1529959993.0
         },
-
 ```
 
-Create additional sampling rules with [`CreateSamplingRule`](../api/API_CreateSamplingRule.md "../api/API_CreateSamplingRule.md"). When you create a rule, most of the rule
-fields are required. The following example creates two rules. This first rule sets a base rate for the
-Scorekeep sample application. It matches all requests served by the API that don't match a higher priority
-rule.
+Create additional sampling rules with [`CreateSamplingRule`](https://docs.aws.amazon.com/xray/latest/api/API_CreateSamplingRule.html). When you create a rule, most of the rule fields are required. The following example creates two rules. This first rule sets a base rate for the Scorekeep sample application. It matches all requests served by the API that don't match a higher priority rule.
 
-###### Example API input for [`UpdateSamplingRule`](../api/API_UpdateSamplingRule.md "../api/API_UpdateSamplingRule.md") – 9000-base-scorekeep.json
+**Example API input for [`UpdateSamplingRule`](https://docs.aws.amazon.com/xray/latest/api/API_UpdateSamplingRule.html) – 9000-base-scorekeep.json**  
 
 ```
 {
@@ -163,11 +153,9 @@ rule.
 }
 ```
 
-The second rule also applies to Scorekeep, but it has a higher priority and is more specific. This rule
-sets a very low sampling rate for polling requests. These are GET requests made by the client every few
-seconds to check for changes to the game state.
+The second rule also applies to Scorekeep, but it has a higher priority and is more specific. This rule sets a very low sampling rate for polling requests. These are GET requests made by the client every few seconds to check for changes to the game state.
 
-###### Example API input for [`UpdateSamplingRule`](../api/API_UpdateSamplingRule.md "../api/API_UpdateSamplingRule.md") – 5000-polling-scorekeep.json
+**Example API input for [`UpdateSamplingRule`](https://docs.aws.amazon.com/xray/latest/api/API_UpdateSamplingRule.html) – 5000-polling-scorekeep.json**  
 
 ```
 {
@@ -190,7 +178,7 @@ seconds to check for changes to the game state.
 Tags are optional. If you choose to add tags, a tag key is required, and tag values are optional.
 
 ```
-$ `aws xray create-sampling-rule --cli-input-json file://5000-polling-scorekeep.json --tags [{"Key": "`key_name`","Value": "`value`"},{"Key": "`key_name`","Value": "`value`"}]`
+$ aws xray create-sampling-rule --cli-input-json file://5000-polling-scorekeep.json --tags [{"Key": "{{key_name}}","Value": "{{value}}"},{"Key": "{{key_name}}","Value": "{{value}}"}]
 {
     "SamplingRuleRecord": {
         "SamplingRule": {
@@ -212,7 +200,7 @@ $ `aws xray create-sampling-rule --cli-input-json file://5000-polling-scorekeep.
         "ModifiedAt": 1530574399.0
     }
 }
-$ `aws xray create-sampling-rule --cli-input-json file://9000-base-scorekeep.json`
+$ aws xray create-sampling-rule --cli-input-json file://9000-base-scorekeep.json
 {
     "SamplingRuleRecord": {
         "SamplingRule": {
@@ -236,10 +224,10 @@ $ `aws xray create-sampling-rule --cli-input-json file://9000-base-scorekeep.jso
 }
 ```
 
-To delete a sampling rule, use [`DeleteSamplingRule`](../api/API_DeleteSamplingRule.md "../api/API_DeleteSamplingRule.md").
+To delete a sampling rule, use [`DeleteSamplingRule`](https://docs.aws.amazon.com/xray/latest/api/API_DeleteSamplingRule.html).
 
 ```
-$ `aws xray delete-sampling-rule --rule-name polling-scorekeep`
+$ aws xray delete-sampling-rule --rule-name polling-scorekeep
 {
     "SamplingRuleRecord": {
         "SamplingRule": {
@@ -264,31 +252,25 @@ $ `aws xray delete-sampling-rule --rule-name polling-scorekeep`
 ```
 
 ## Groups
+<a name="xray-api-configuration-groups"></a>
 
-You can use the X-Ray API to manage groups in your account. Groups are a collection of traces that are
-defined by a filter expression. You can use groups to generate additional service graphs and supply Amazon CloudWatch
-metrics. See [Getting data from AWS X-Ray](xray-api-gettingdata.md "xray-api-gettingdata.md") for more details
-about working with service graphs and metrics through the X-Ray API. For more information about groups, see
-[Configuring groups](xray-console-groups.md "xray-console-groups.md"). For more information about
-adding and managing tags, see [Tagging X-Ray sampling rules and groups](xray-tagging.md "xray-tagging.md").
+You can use the X-Ray API to manage groups in your account. Groups are a collection of traces that are defined by a filter expression. You can use groups to generate additional service graphs and supply Amazon CloudWatch metrics. See [Getting data from AWS X-Ray](xray-api-gettingdata.md) for more details about working with service graphs and metrics through the X-Ray API. For more information about groups, see [Configuring groups](xray-console-groups.md). For more information about adding and managing tags, see [Tagging X-Ray sampling rules and groups](xray-tagging.md).
 
-Create a group with `CreateGroup`. Tags are optional. If you choose to add tags, a tag key is
-required, and tag values are optional.
+Create a group with `CreateGroup`. Tags are optional. If you choose to add tags, a tag key is required, and tag values are optional.
 
 ```
-$ `aws xray create-group --group-name "TestGroup" --filter-expression "service(\"example.com\") {fault}" --tags [{"Key": "`key_name`","Value": "`value`"},{"Key": "`key_name`","Value": "`value`"}]`
+$ aws xray create-group --group-name "TestGroup" --filter-expression "service(\"example.com\") {fault}" --tags [{"Key": "{{key_name}}","Value": "{{value}}"},{"Key": "{{key_name}}","Value": "{{value}}"}]
 {
     "GroupName": "TestGroup",
     "GroupARN": "arn:aws:xray:us-east-2:123456789012:group/TestGroup/UniqueID",
     "FilterExpression": "service(\"example.com\") {fault OR error}"
 }
-
 ```
 
 Get all existing groups with `GetGroups`.
 
 ```
-$ `aws xray get-groups`
+$ aws xray get-groups
 {
     "Groups": [
         {
@@ -306,24 +288,21 @@ $ `aws xray get-groups`
 }
 ```
 
-Update a group with `UpdateGroup`. Tags are optional. If you choose to add tags, a tag key is
-required, and tag values are optional. To remove existing tags from a group, use [UntagResource](../api/API_UntagResource.md "../api/API_UntagResource.md").
+Update a group with `UpdateGroup`. Tags are optional. If you choose to add tags, a tag key is required, and tag values are optional. To remove existing tags from a group, use [UntagResource](https://docs.aws.amazon.com/xray/latest/api/API_UntagResource.html).
 
 ```
-$ `aws xray update-group --group-name "TestGroup" --group-arn "arn:aws:xray:us-east-2:123456789012:group/TestGroup/UniqueID" --filter-expression "service(\"example.com\") {fault OR error}" --tags [{"Key": "Stage","Value": "Prod"},{"Key": "Department","Value": "QA"}]`
+$ aws xray update-group --group-name "TestGroup" --group-arn "arn:aws:xray:us-east-2:123456789012:group/TestGroup/UniqueID" --filter-expression "service(\"example.com\") {fault OR error}" --tags [{"Key": "Stage","Value": "Prod"},{"Key": "Department","Value": "QA"}]
 {
     "GroupName": "TestGroup",
     "GroupARN": "arn:aws:xray:us-east-2:123456789012:group/TestGroup/UniqueID",
     "FilterExpression": "service(\"example.com\") {fault OR error}"
 }
-
 ```
 
 Delete a group with `DeleteGroup`.
 
 ```
-$ `aws xray delete-group --group-name "TestGroup" --group-arn "arn:aws:xray:us-east-2:123456789012:group/TestGroup/UniqueID"`
+$ aws xray delete-group --group-name "TestGroup" --group-arn "arn:aws:xray:us-east-2:123456789012:group/TestGroup/UniqueID" 
     {
     }
-
 ```

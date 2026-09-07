@@ -1,30 +1,31 @@
+
+
 # Amazon EventBridge and AWS X-Ray
+<a name="xray-services-eventbridge"></a>
 
-AWS X-Ray integrates with Amazon EventBridge to trace events that are passed through EventBridge. If a service that is
-instrumented with the X-Ray SDK sends events to EventBridge, the trace context is propagated to downstream event targets
-within the [tracing header](xray-concepts.md#xray-concepts-tracingheader "xray-concepts.md#xray-concepts-tracingheader"). The X-Ray SDK automatically picks up
-the tracing header and applies it to any subsequent instrumentation. This continuity enables users to trace,
-analyze, and debug throughout downstream services and provides a more complete view of their system.
+AWS X-Ray integrates with Amazon EventBridge to trace events that are passed through EventBridge. If a service that is instrumented with the X-Ray SDK sends events to EventBridge, the trace context is propagated to downstream event targets within the [tracing header](xray-concepts.md#xray-concepts-tracingheader). The X-Ray SDK automatically picks up the tracing header and applies it to any subsequent instrumentation. This continuity enables users to trace, analyze, and debug throughout downstream services and provides a more complete view of their system. 
 
-For more information, see [EventBridge X-Ray Integration](../../../eventbridge/latest/userguide/eb-xray-integ.md "../../../eventbridge/latest/userguide/eb-xray-integ.md") in the _EventBridge User Guide_.
+For more information, see [EventBridge X-Ray Integration](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-xray-integ.html) in the *EventBridge User Guide*.
 
 ## Viewing source and targets on the X-Ray service map
+<a name="xray-services-eventbridge-service-map"></a>
 
-The X-Ray [trace map](xray-console-servicemap.md "xray-console-servicemap.md") displays an EventBridge event node that connects source and target services, as in the following example:
+The X-Ray [trace map](xray-console-servicemap.md) displays an EventBridge event node that connects source and target services, as in the following example:
 
-![X-Ray displays an EventBridge event node that connects source and target services](images/service-map-eventbridge.png)
+![X-Ray displays an EventBridge event node that connects source and target services](http://docs.aws.amazon.com/xray/latest/devguide/images/service-map-eventbridge.png)
+
 
 ## Propagate the trace context to event targets
+<a name="xray-services-eventbridge-auto-inject"></a>
 
-The X-Ray SDK enables the EventBridge event source to propagate trace context to downstream event targets. The following
-language-specific examples demonstrate calling EventBridge from a Lambda function on which [active tracing is enabled](../../../lambda/latest/dg/services-xray.md#services-xray-api "../../../lambda/latest/dg/services-xray.md#services-xray-api"):
+The X-Ray SDK enables the EventBridge event source to propagate trace context to downstream event targets. The following language-specific examples demonstrate calling EventBridge from a Lambda function on which [active tracing is enabled](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html#services-xray-api):
 
-Java
+------
+#### [ Java ]
 
 Add the necessary dependencies for X-Ray:
-
-- [AWS X-Ray SDK for Java](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-xray/ "https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-xray/")
-- [AWS X-Ray Recorder SDK for Java](https://mvnrepository.com/artifact/com.amazonaws/aws-xray-recorder-sdk-aws-sdk/ "https://mvnrepository.com/artifact/com.amazonaws/aws-xray-recorder-sdk-aws-sdk/")
++ [AWS X-Ray SDK for Java](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-xray/)
++ [AWS X-Ray Recorder SDK for Java](https://mvnrepository.com/artifact/com.amazonaws/aws-xray-recorder-sdk-aws-sdk/)
 
 ```
 package example;
@@ -64,7 +65,7 @@ public class Handler implements RequestHandler<SQSEvent, String>{
   private static final AmazonEventBridge eventsClient = AmazonEventBridgeClientBuilder
           .standard()
           // instrument the EventBridge client with the XRay Tracing Handler.
-          // the AWSXRay globalRecorder will retrieve the tracing-context
+          // the AWSXRay globalRecorder will retrieve the tracing-context 
           // from the lambda function and inject it into the HTTP header.
           // be sure to enable 'active tracing' on the lambda function.
           .withRequestHandlers(new TracingHandler(AWSXRay.getGlobalRecorder()))
@@ -92,12 +93,13 @@ public class Handler implements RequestHandler<SQSEvent, String>{
 }
 ```
 
-Python
+------
+#### [ Python ]
 
-Add the following dependency to your requirements.txt file:
+ Add the following dependency to your requirements.txt file: 
 
 ```
-aws-xray-sdk==2.4.3
+aws-xray-sdk==2.4.3        
 ```
 
 ```
@@ -123,7 +125,8 @@ def lambda_handler(event, context):
     return response
 ```
 
-Go
+------
+#### [ Go ]
 
 ```
 package main
@@ -183,7 +186,8 @@ func callEventBridge(ctx context.Context) (string, error) {
 }
 ```
 
-Node.js
+------
+#### [ Node.js ]
 
 ```
 const AWSXRay = require('aws-xray-sdk')
@@ -195,7 +199,7 @@ exports.handler = async (event) => {
 
   let myDetail = { "name": "Alice" }
 
-  const myEvent = {
+  const myEvent = { 
     Entries: [{
       Detail: JSON.stringify({ myDetail }),
       DetailType: 'myDetailType',
@@ -213,9 +217,10 @@ exports.handler = async (event) => {
 }
 ```
 
-C#
+------
+#### [ C\# ]
 
-Add the following X-Ray packages to your C# dependencies:
+ Add the following X-Ray packages to your C\# dependencies: 
 
 ```
 <PackageReference Include="AWSXRayRecorder.Core" Version="2.6.2" />
@@ -289,3 +294,5 @@ namespace blankCsharp
   }
 }
 ```
+
+------

@@ -1,40 +1,39 @@
+
+
 # Amazon EC2 and AWS App Mesh
+<a name="xray-services-appmesh"></a>
 
-AWS X-Ray integrates with [AWS App Mesh](../../../app-mesh/latest/userguide/what-is-app-mesh.md "../../../app-mesh/latest/userguide/what-is-app-mesh.md") to manage Envoy
-proxies for microservices. App Mesh provides a version of Envoy that you can configure to send trace data to the
-X-Ray daemon running in a container of the same task or pod. X-Ray supports tracing with the following App Mesh
-compatible services:
+AWS X-Ray integrates with [AWS App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html) to manage Envoy proxies for microservices. App Mesh provides a version of Envoy that you can configure to send trace data to the X-Ray daemon running in a container of the same task or pod. X-Ray supports tracing with the following App Mesh compatible services: 
++ Amazon Elastic Container Service (Amazon ECS)
++ Amazon Elastic Kubernetes Service (Amazon EKS)
++ Amazon Elastic Compute Cloud (Amazon EC2)
 
-- Amazon Elastic Container Service (Amazon ECS)
-- Amazon Elastic Kubernetes Service (Amazon EKS)
-- Amazon Elastic Compute Cloud (Amazon EC2)
-  Use the following instructions to learn how to enable X-Ray tracing through App Mesh.
+Use the following instructions to learn how to enable X-Ray tracing through App Mesh.
 
-![A trace map that shows traces between clients and App Mesh services.](images/appmesh-traceContents.png)
-To configure the Envoy proxy to send data to X-Ray, set the `ENABLE_ENVOY_XRAY_TRACING`
-[environment variable](../../../app-mesh/latest/userguide/envoy.md#envoy-config "../../../app-mesh/latest/userguide/envoy.md#envoy-config") in its container definition.
+![A trace map that shows traces between clients and App Mesh services.](http://docs.aws.amazon.com/xray/latest/devguide/images/appmesh-traceContents.png)
 
-###### Note
 
-The App Mesh version of Envoy does not currently send traces based on configured [sampling rules](xray-console-sampling.md "xray-console-sampling.md"). Instead, it uses a fixed sampling rate of
-5% for Envoy version 1.16.3 or newer, or a 50% sampling rate for Envoy versions prior to 1.16.3.
+To configure the Envoy proxy to send data to X-Ray, set the `ENABLE_ENVOY_XRAY_TRACING` [environment variable](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html#envoy-config) in its container definition.
 
-###### Example Envoy container definition for Amazon ECS
+**Note**  
+The App Mesh version of Envoy does not currently send traces based on configured [sampling rules](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html). Instead, it uses a fixed sampling rate of 5% for Envoy version 1.16.3 or newer, or a 50% sampling rate for Envoy versions prior to 1.16.3. 
+
+**Example Envoy container definition for Amazon ECS**  
 
 ```
 {
       "name": "envoy",
-      "image": "public.ecr.aws/appmesh/aws-appmesh-envoy:`envoy-version`",
+      "image": "public.ecr.aws/appmesh/aws-appmesh-envoy:{{envoy-version}}",
       "essential": true,
       "environment": [
         {
           "name": "APPMESH_VIRTUAL_NODE_NAME",
           "value": "mesh/myMesh/virtualNode/myNode"
         },
-        `{
- "name": "ENABLE_ENVOY_XRAY_TRACING",
- "value": "1"
- }`
+        {
+          "name": "ENABLE_ENVOY_XRAY_TRACING",
+          "value": "1"
+        }
       ],
       "healthCheck": {
         "command": [
@@ -48,18 +47,11 @@ The App Mesh version of Envoy does not currently send traces based on configured
       }
 ```
 
-###### Note
+**Note**  
+To learn more about available Envoy region addresses, see [Envoy image](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html) in the AWS App Mesh User Guide.
 
-To learn more about available Envoy region addresses, see [Envoy image](../../../app-mesh/latest/userguide/envoy.md "../../../app-mesh/latest/userguide/envoy.md") in the
-AWS App Mesh User Guide.
+For details on running the X-Ray daemon in a container, see [Running the X-Ray daemon on Amazon ECS](xray-daemon-ecs.md). For a sample application that includes a service mesh, microservice, Envoy proxy, and X-Ray daemon, deploy the `colorapp` sample in the [App Mesh Examples GitHub repository](https://github.com/aws/aws-app-mesh-examples/tree/master/examples).
 
-For details on running the X-Ray daemon in a container, see [Running the X-Ray daemon on Amazon ECS](xray-daemon-ecs.md "xray-daemon-ecs.md"). For a sample application that includes a service mesh, microservice, Envoy
-proxy, and X-Ray daemon, deploy the `colorapp` sample in the [App Mesh Examples GitHub
-repository](https://github.com/aws/aws-app-mesh-examples/tree/master/examples "https://github.com/aws/aws-app-mesh-examples/tree/master/examples").
-
-###### Learn More
-
-- [Getting Started with
-  AWS App Mesh](../../../app-mesh/latest/userguide/getting_started.md "../../../app-mesh/latest/userguide/getting_started.md")
-- [Getting
-  Started with AWS App Mesh and Amazon ECS](../../../app-mesh/latest/userguide/mesh-getting-started-ecs.md "../../../app-mesh/latest/userguide/mesh-getting-started-ecs.md")
+**Learn More**
++ [Getting Started with AWS App Mesh](https://docs.aws.amazon.com/app-mesh/latest/userguide/getting_started.html)
++ [Getting Started with AWS App Mesh and Amazon ECS](https://docs.aws.amazon.com/app-mesh/latest/userguide/mesh-getting-started-ecs.html)

@@ -1,13 +1,16 @@
+
+
 # Using sampling rules with the X-Ray API
+<a name="xray-api-sampling"></a>
 
-The AWS X-Ray SDK uses the X-Ray API to get sampling rules, report sampling results, and get quotas. You can
-use these APIs to get a better understanding of how sampling rules work, or to implement sampling in a language
-that the X-Ray SDK doesn't support.
 
-Start by getting all sampling rules with [`GetSamplingRules`](../api/API_GetSamplingRules.md "../api/API_GetSamplingRules.md").
+
+The AWS X-Ray SDK uses the X-Ray API to get sampling rules, report sampling results, and get quotas. You can use these APIs to get a better understanding of how sampling rules work, or to implement sampling in a language that the X-Ray SDK doesn't support.
+
+Start by getting all sampling rules with [`GetSamplingRules`](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html).
 
 ```
-$ `aws xray get-sampling-rules`
+$ aws xray get-sampling-rules
 {
     "SamplingRuleRecords": [
         {
@@ -69,44 +72,35 @@ $ `aws xray get-sampling-rules`
         }
     ]
 }
-
-
 ```
 
-The output includes the default rule and custom rules. See [Sampling rules](xray-api-configuration.md#xray-api-configuration-sampling "xray-api-configuration.md#xray-api-configuration-sampling") if you haven't yet created sampling rules.
+The output includes the default rule and custom rules. See [Sampling rules](xray-api-configuration.md#xray-api-configuration-sampling) if you haven't yet created sampling rules.
 
-Evaluate rules against incoming requests in ascending order of priority. When a rule matches, use the fixed rate
-and reservoir size to make a sampling decision. Record sampled requests and ignore (for tracing purposes)
-unsampled requests. Stop evaluating rules when a sampling decision is made.
+Evaluate rules against incoming requests in ascending order of priority. When a rule matches, use the fixed rate and reservoir size to make a sampling decision. Record sampled requests and ignore (for tracing purposes) unsampled requests. Stop evaluating rules when a sampling decision is made.
 
-A rules reservoir size is the target number of traces to record per second before applying the fixed rate. The
-reservoir applies across all services cumulatively, so you can't use it directly. However, if it is non-zero,
-you can borrow one trace per second from the reservoir until X-Ray assigns a quota. Before receiving a quota,
-record the first request each second, and apply the fixed rate to additional requests. The fixed rate is a
-decimal between 0 and 1.00 (100%).
+A rules reservoir size is the target number of traces to record per second before applying the fixed rate. The reservoir applies across all services cumulatively, so you can't use it directly. However, if it is non-zero, you can borrow one trace per second from the reservoir until X-Ray assigns a quota. Before receiving a quota, record the first request each second, and apply the fixed rate to additional requests. The fixed rate is a decimal between 0 and 1.00 (100%).
 
-The following example shows a call to [`GetSamplingTargets`](../api/API_GetSamplingTargets.md "../api/API_GetSamplingTargets.md") with details about sampling decisions made over
-the last 10 seconds.
+The following example shows a call to [`GetSamplingTargets`](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html) with details about sampling decisions made over the last 10 seconds.
 
 ```
-$ `aws xray get-sampling-targets --sampling-statistics-documents '[
- {
- "RuleName": "base-scorekeep",
- "ClientID": "ABCDEF1234567890ABCDEF10",
- "Timestamp": "2018-07-07T00:20:06",
- "RequestCount": 110,
- "SampledCount": 20,
- "BorrowCount": 10
- },
- {
- "RuleName": "polling-scorekeep",
- "ClientID": "ABCDEF1234567890ABCDEF10",
- "Timestamp": "2018-07-07T00:20:06",
- "RequestCount": 10500,
- "SampledCount": 31,
- "BorrowCount": 0
- }
-]'`
+$ aws xray get-sampling-targets --sampling-statistics-documents '[
+    {
+        "RuleName": "base-scorekeep",
+        "ClientID": "ABCDEF1234567890ABCDEF10",
+        "Timestamp": "2018-07-07T00:20:06",
+        "RequestCount": 110,
+        "SampledCount": 20,
+        "BorrowCount": 10
+    },
+    {
+        "RuleName": "polling-scorekeep",
+        "ClientID": "ABCDEF1234567890ABCDEF10",
+        "Timestamp": "2018-07-07T00:20:06",
+        "RequestCount": 10500,
+        "SampledCount": 31,
+        "BorrowCount": 0
+    }
+]'
 {
     "SamplingTargetDocuments": [
         {
@@ -127,21 +121,11 @@ $ `aws xray get-sampling-targets --sampling-statistics-documents '[
     "LastRuleModification": 1530920505.0,
     "UnprocessedStatistics": []
 }
-
 ```
 
-The response from X-Ray includes a quota to use instead of borrowing from the reservoir. In this example, the
-service borrowed 10 traces from the reservoir over 10 seconds, and applied the fixed rate of 10 percent to the
-other 100 requests, resulting in a total of 20 sampled requests. The quota is good for five minutes (indicated
-by the time to live) or until a new quota is assigned. X-Ray may also assign a longer reporting interval than
-the default, although it didn't here.
+The response from X-Ray includes a quota to use instead of borrowing from the reservoir. In this example, the service borrowed 10 traces from the reservoir over 10 seconds, and applied the fixed rate of 10 percent to the other 100 requests, resulting in a total of 20 sampled requests. The quota is good for five minutes (indicated by the time to live) or until a new quota is assigned. X-Ray may also assign a longer reporting interval than the default, although it didn't here.
 
-###### Note
+**Note**  
+The response from X-Ray might not include a quota the first time you call it. Continue borrowing from the reservoir until you are assigned a quota.
 
-The response from X-Ray might not include a quota the first time you call it. Continue borrowing from the
-reservoir until you are assigned a quota.
-
-The other two fields in the response might indicate issues with the input. Check
-`LastRuleModification` against the last time you called [`GetSamplingRules`](../api/API_GetSamplingRules.md "../api/API_GetSamplingRules.md"). If it's newer,
-get a new copy of the rules. `UnprocessedStatistics` can include errors that indicate that a rule has
-been deleted, that the statistics document in the input was too old, or permissions errors.
+The other two fields in the response might indicate issues with the input. Check `LastRuleModification` against the last time you called [`GetSamplingRules`](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html). If it's newer, get a new copy of the rules. `UnprocessedStatistics` can include errors that indicate that a rule has been deleted, that the statistics document in the input was too old, or permissions errors.

@@ -1,26 +1,24 @@
+
+
 # Tracing calls to downstream HTTP web services with the X-Ray SDK for .NET
+<a name="xray-sdk-dotnet-httpclients"></a>
 
-###### Note
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+When your application makes calls to microservices or public HTTP APIs, you can use the X-Ray SDK for .NET's `GetResponseTraced` extension method for `System.Net.HttpWebRequest` to instrument those calls and add the API to the service graph as a downstream service.
 
-When your application makes calls to microservices or public HTTP APIs, you can use the
-X-Ray SDK for .NET's `GetResponseTraced` extension method for
-`System.Net.HttpWebRequest` to instrument those calls and add the API to the
-service graph as a downstream service.
-
-###### Example HttpWebRequest
+**Example HttpWebRequest**  
 
 ```
 using System.Net;
-using Amazon.XRay.Recorder.Core;
-using Amazon.XRay.Recorder.Handlers.System.Net;
+using [Amazon.XRay.Recorder.Core](https://docs.aws.amazon.com/xray-sdk-for-dotnet/latest/reference/html/N_Amazon_XRay_Recorder_Core.htm);
+using [Amazon.XRay.Recorder.Handlers.System.Net](https://docs.aws.amazon.com/xray-sdk-for-dotnet/latest/reference/html/N_Amazon_XRay_Recorder_Handlers_System_Net.htm);
 
 private void MakeHttpRequest()
 {
   HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://names.example.com/api");
-  `request.GetResponseTraced();`
+  request.GetResponseTraced();
 }
 ```
 
@@ -30,27 +28,25 @@ For asynchronous calls, use `GetAsyncResponseTraced`.
 request.GetAsyncResponseTraced();
 ```
 
-If you use [`system.net.http.httpclient`](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient.aspx "https://msdn.microsoft.com/en-us/library/system.net.http.httpclient.aspx"), use the `HttpClientXRayTracingHandler` delegating handler to record calls.
+If you use [`system.net.http.httpclient`](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient.aspx), use the `HttpClientXRayTracingHandler` delegating handler to record calls.
 
-###### Example HttpClient
+**Example HttpClient**  
 
 ```
 using System.Net.Http;
-using Amazon.XRay.Recorder.Core;
-using Amazon.XRay.Recorder.Handlers.System.Net;
+using [Amazon.XRay.Recorder.Core](https://docs.aws.amazon.com/xray-sdk-for-dotnet/latest/reference/html/N_Amazon_XRay_Recorder_Core.htm);
+using [Amazon.XRay.Recorder.Handlers.System.Net](https://docs.aws.amazon.com/xray-sdk-for-dotnet/latest/reference/html/N_Amazon_XRay_Recorder_Handlers_System_Net.htm);
 
 private void MakeHttpRequest()
 {
-  var httpClient = new HttpClient(`new HttpClientXRayTracingHandler(new HttpClientHandler())`);
+  var httpClient = new HttpClient(new HttpClientXRayTracingHandler(new HttpClientHandler()));
   httpClient.GetAsync(URL);
 }
 ```
 
-When you instrument a call to a downstream web API, the X-Ray SDK for .NET records a
-subsegment with information about the HTTP request and response. X-Ray uses the subsegment to
-generate an inferred segment for the API.
+When you instrument a call to a downstream web API, the X-Ray SDK for .NET records a subsegment with information about the HTTP request and response. X-Ray uses the subsegment to generate an inferred segment for the API.
 
-###### Example Subsegment for a downstream HTTP call
+**Example Subsegment for a downstream HTTP call**  
 
 ```
 {
@@ -72,7 +68,7 @@ generate an inferred segment for the API.
 }
 ```
 
-###### Example Inferred segment for a downstream HTTP call
+**Example Inferred segment for a downstream HTTP call**  
 
 ```
 {

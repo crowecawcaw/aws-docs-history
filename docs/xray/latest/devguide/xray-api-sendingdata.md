@@ -1,16 +1,13 @@
+
+
 # Sending trace data to AWS X-Ray
+<a name="xray-api-sendingdata"></a>
 
-You can send trace data to X-Ray in the form of segment documents. A segment document is a
-JSON formatted string that contains information about the work that your application does in
-service of a request. Your application can record data about the work that it does itself in
-segments, or work that uses downstream services and resources in subsegments.
+You can send trace data to X-Ray in the form of segment documents. A segment document is a JSON formatted string that contains information about the work that your application does in service of a request. Your application can record data about the work that it does itself in segments, or work that uses downstream services and resources in subsegments.
 
-Segments record information about the work that your application does. A segment, at a
-minimum, records the time spent on a task, a name, and two IDs. The trace ID tracks the request
-as it travels between services. The segment ID tracks the work done for the request by a single
-service.
+Segments record information about the work that your application does. A segment, at a minimum, records the time spent on a task, a name, and two IDs. The trace ID tracks the request as it travels between services. The segment ID tracks the work done for the request by a single service.
 
-###### Example Minimal complete segment
+**Example Minimal complete segment**  
 
 ```
 {
@@ -22,10 +19,9 @@ service.
 }
 ```
 
-When a request is received, you can send an in-progress segment as a placeholder until the
-request is completed.
+When a request is received, you can send an in-progress segment as a placeholder until the request is completed.
 
-###### Example In-progress segment
+**Example In-progress segment**  
 
 ```
 {
@@ -37,22 +33,14 @@ request is completed.
 }
 ```
 
-You can send segments to X-Ray directly, with [PutTraceSegments](#xray-api-segments "#xray-api-segments"), or [through the X-Ray
-daemon](#xray-api-daemon "#xray-api-daemon").
+You can send segments to X-Ray directly, with [`PutTraceSegments`](#xray-api-segments), or [through the X-Ray daemon](#xray-api-daemon).
 
-Most applications call other services or access resources with the AWS SDK. Record
-information about downstream calls in _subsegments_. X-Ray uses subsegments
-to identify downstream services that don't send segments and create entries for them on the
-service graph.
+Most applications call other services or access resources with the AWS SDK. Record information about downstream calls in *subsegments*. X-Ray uses subsegments to identify downstream services that don't send segments and create entries for them on the service graph.
 
-A subsegment can be embedded in a full segment document, or sent separately. Send
-subsegments separately to asynchronously trace downstream calls for long-running requests, or to
-avoid exceeding the maximum segment document size (64 kB).
+A subsegment can be embedded in a full segment document, or sent separately. Send subsegments separately to asynchronously trace downstream calls for long-running requests, or to avoid exceeding the maximum segment document size (64 kB).
 
-###### Example Subsegment
-
-A subsegment has a `type` of `subsegment` and a
-`parent_id` that identifies the parent segment.
+**Example Subsegment**  
+A subsegment has a `type` of `subsegment` and a `parent_id` that identifies the parent segment.  
 
 ```
 {
@@ -61,47 +49,34 @@ A subsegment has a `type` of `subsegment` and a
   "start_time" : 1.478293361271E9,
   "trace_id" : "1-581cf771-a006649127e371903a2de979"
   “end_time” : 1.478293361449E9,
-  `“type” : “subsegment”,
- “parent_id” : “70de5b6f19ff9a0b”`
+  “type” : “subsegment”,
+  “parent_id” : “70de5b6f19ff9a0b”
 }
 ```
 
-For more information on the fields and values that you can include in segments and
-subsegments, see [AWS X-Ray segment documents](xray-api-segmentdocuments.md "xray-api-segmentdocuments.md").
+For more information on the fields and values that you can include in segments and subsegments, see [AWS X-Ray segment documents](xray-api-segmentdocuments.md).
 
-###### Sections
-
-- [Generating trace IDs](#xray-api-traceids "#xray-api-traceids")
-- [Using PutTraceSegments](#xray-api-segments "#xray-api-segments")
-- [Sending segment documents to the X-Ray daemon](#xray-api-daemon "#xray-api-daemon")
+**Topics**
++ [Generating trace IDs](#xray-api-traceids)
++ [Using PutTraceSegments](#xray-api-segments)
++ [Sending segment documents to the X-Ray daemon](#xray-api-daemon)
 
 ## Generating trace IDs
+<a name="xray-api-traceids"></a>
 
 To send data to X-Ray, you must generate a unique trace ID for each request.
 
-###### X-Ray trace ID format
+**X-Ray trace ID format**
 
-An X-Ray `trace_id` consists of three numbers separated by hyphens. For example,
-`1-58406520-a006649127e371903a2de979`. This includes:
+An X-Ray `trace_id` consists of three numbers separated by hyphens. For example, `1-58406520-a006649127e371903a2de979`. This includes:
++ The version number, which is `1`.
++ The time of the original request in Unix epoch time using **8 hexadecimal digits**.
 
-- The version number, which is `1`.
-- The time of the original request in Unix epoch time using **8 hexadecimal
-  digits**.
+  For example, 10:00AM December 1st, 2016 PST in epoch time is `1480615200` seconds or `58406520` in hexadecimal digits.
++ A globally unique 96-bit identifier for the trace in **24 hexadecimal digits**.
 
-For example, 10:00AM December 1st, 2016 PST in epoch time is `1480615200` seconds or
-`58406520` in hexadecimal digits.
-
-- A globally unique 96-bit identifier for the trace in **24 hexadecimal
-  digits**.
-
-###### Note
-
-X-Ray now supports trace IDs that are created using OpenTelemetry and any other framework that conforms with the
-[W3C Trace Context specification](https://www.w3.org/TR/trace-context/ "https://www.w3.org/TR/trace-context/"). A W3C trace ID must be
-formatted in X-Ray trace ID format when sending to X-Ray. For example, W3C trace ID
-`4efaaf4d1e8720b39541901950019ee5` should be formatted as
-`1-4efaaf4d-1e8720b39541901950019ee5` when sending to X-Ray. X-Ray trace IDs include the original
-request time stamp in Unix epoch time, but this isn't required when sending W3C trace IDs in X-Ray format.
+**Note**  
+X-Ray now supports trace IDs that are created using OpenTelemetry and any other framework that conforms with the [W3C Trace Context specification](https://www.w3.org/TR/trace-context/). A W3C trace ID must be formatted in X-Ray trace ID format when sending to X-Ray. For example, W3C trace ID `4efaaf4d1e8720b39541901950019ee5` should be formatted as `1-4efaaf4d-1e8720b39541901950019ee5` when sending to X-Ray. X-Ray trace IDs include the original request time stamp in Unix epoch time, but this isn't required when sending W3C trace IDs in X-Ray format. 
 
 You can write a script to generate X-Ray trace IDs for testing. Here are two examples.
 
@@ -126,37 +101,29 @@ GUID=$(dd if=/dev/random bs=12 count=1 2>/dev/null | od -An -tx1 | tr -d ' \t\n'
 TRACE_ID="1-$HEX_TIME-$GUID"
 ```
 
-See the Scorekeep sample application for scripts that create trace IDs and send segments
-to the X-Ray daemon.
-
-- Python – [`xray_start.py`](https://github.com/awslabs/eb-java-scorekeep/blob/xray/bin/xray_start.py "https://github.com/awslabs/eb-java-scorekeep/blob/xray/bin/xray_start.py")
-- Bash – [`xray_start.sh`](https://github.com/awslabs/eb-java-scorekeep/blob/xray/bin/xray_start.sh "https://github.com/awslabs/eb-java-scorekeep/blob/xray/bin/xray_start.sh")
+See the Scorekeep sample application for scripts that create trace IDs and send segments to the X-Ray daemon.
++ Python – [`xray_start.py`](https://github.com/awslabs/eb-java-scorekeep/blob/xray/bin/xray_start.py)
++ Bash – [`xray_start.sh`](https://github.com/awslabs/eb-java-scorekeep/blob/xray/bin/xray_start.sh)
 
 ## Using PutTraceSegments
+<a name="xray-api-segments"></a>
 
-You can upload segment documents with the [`PutTraceSegments`](../api/API_PutTraceSegments.md "../api/API_PutTraceSegments.md") API. The API has a single
-parameter, `TraceSegmentDocuments`, that takes a list of JSON segment
-documents.
+You can upload segment documents with the [`PutTraceSegments`](https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html) API. The API has a single parameter, `TraceSegmentDocuments`, that takes a list of JSON segment documents.
 
-With the AWS CLI, use the `aws xray put-trace-segments` command to send segment
-documents directly to X-Ray.
+With the AWS CLI, use the `aws xray put-trace-segments` command to send segment documents directly to X-Ray.
 
 ```
-$ `DOC='{"trace_id": "1-5960082b-ab52431b496add878434aa25", "id": "6226467e3f845502", "start_time": 1498082657.37518, "end_time": 1498082695.4042, "name": "test.elasticbeanstalk.com"}'`
-$ `aws xray put-trace-segments --trace-segment-documents "$DOC"`
+$ DOC='{"trace_id": "1-5960082b-ab52431b496add878434aa25", "id": "6226467e3f845502", "start_time": 1498082657.37518, "end_time": 1498082695.4042, "name": "test.elasticbeanstalk.com"}'
+$ aws xray put-trace-segments --trace-segment-documents "$DOC"
 {
     "UnprocessedTraceSegments": []
 }
 ```
 
-###### Note
+**Note**  
+Windows Command Processor and Windows PowerShell have different requirements for quoting and escaping quotes in JSON strings. See [Quoting Strings](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#quoting-strings) in the AWS CLI User Guide for details.
 
-Windows Command Processor and Windows PowerShell have different requirements for quoting
-and escaping quotes in JSON strings. See [Quoting Strings](../../../cli/latest/userguide/cli-using-param.md#quoting-strings "../../../cli/latest/userguide/cli-using-param.md#quoting-strings") in the
-AWS CLI User Guide for details.
-
-The output lists any segments that failed processing. For example, if the date in the
-trace ID is too far in the past, you see an error like the following.
+The output lists any segments that failed processing. For example, if the date in the trace ID is too far in the past, you see an error like the following.
 
 ```
 {
@@ -173,45 +140,37 @@ trace ID is too far in the past, you see an error like the following.
 You can pass multiple segment documents at the same time, separated by spaces.
 
 ```
-$ `aws xray put-trace-segments --trace-segment-documents "$DOC1" "$DOC2"`
+$ aws xray put-trace-segments --trace-segment-documents "$DOC1" "$DOC2"
 ```
 
 ## Sending segment documents to the X-Ray daemon
+<a name="xray-api-daemon"></a>
 
-Instead of sending segment documents to the X-Ray API, you can send segments and
-subsegments to the X-Ray daemon, which will buffer them and upload to the X-Ray API in
-batches. The X-Ray SDK sends segment documents to the daemon to avoid making calls to AWS
-directly.
+Instead of sending segment documents to the X-Ray API, you can send segments and subsegments to the X-Ray daemon, which will buffer them and upload to the X-Ray API in batches. The X-Ray SDK sends segment documents to the daemon to avoid making calls to AWS directly.
 
-###### Note
+**Note**  
+See [Running the X-Ray daemon locally](xray-daemon-local.md) for instructions on running the daemon.
 
-See [Running the X-Ray daemon locally](xray-daemon-local.md "xray-daemon-local.md") for
-instructions on running the daemon.
-
-Send the segment in JSON over UDP port 2000, prepended by the daemon header,
-`{"format": "json", "version": 1}\n`
+Send the segment in JSON over UDP port 2000, prepended by the daemon header, `{"format": "json", "version": 1}\n`
 
 ```
 {"format": "json", "version": 1}\n{"trace_id": "1-5759e988-bd862e3fe1be46a994272793", "id": "defdfd9912dc5a56", "start_time": 1461096053.37518, "end_time": 1461096053.4042, "name": "test.elasticbeanstalk.com"}
 ```
 
-On Linux, you can send segment documents to the daemon from a Bash terminal. Save the
-header and segment document to a text file and pipe it to `/dev/udp` with
-`cat`.
+On Linux, you can send segment documents to the daemon from a Bash terminal. Save the header and segment document to a text file and pipe it to `/dev/udp` with `cat`.
 
 ```
-$ `cat segment.txt > /dev/udp/127.0.0.1/2000`
+$ cat segment.txt > /dev/udp/127.0.0.1/2000
 ```
 
-###### Example segment.txt
+**Example segment.txt**  
 
 ```
 {"format": "json", "version": 1}
 {"trace_id": "1-594aed87-ad72e26896b3f9d3a27054bb", "id": "6226467e3f845502", "start_time": 1498082657.37518, "end_time": 1498082695.4042, "name": "test.elasticbeanstalk.com"}
 ```
 
-Check the [daemon log](xray-daemon.md#xray-daemon-logging "xray-daemon.md#xray-daemon-logging") to verify that it sent the
-segment to X-Ray.
+Check the [daemon log](xray-daemon.md#xray-daemon-logging) to verify that it sent the segment to X-Ray.
 
 ```
 2017-07-07T01:57:24Z [Debug] processor: sending partial batch

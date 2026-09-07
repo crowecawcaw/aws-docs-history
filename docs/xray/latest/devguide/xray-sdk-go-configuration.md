@@ -1,34 +1,32 @@
+
+
 # Configuring the X-Ray SDK for Go
+<a name="xray-sdk-go-configuration"></a>
 
-###### Note
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+You can specify the configuration for X-Ray SDK for Go through environment variables, by calling `Configure` with a `Config` object, or by assuming default values. Environment variables take precedence over `Config` values, which take precedence over any default value.
 
-You can specify the configuration for X-Ray SDK for Go through environment variables, by calling
-`Configure` with a `Config` object, or by assuming default values. Environment variables
-take precedence over `Config` values, which take precedence over any default value.
-
-###### Sections
-
-- [Service plugins](#xray-sdk-go-configuration-plugins "#xray-sdk-go-configuration-plugins")
-- [Sampling rules](#xray-sdk-go-configuration-sampling "#xray-sdk-go-configuration-sampling")
-- [Logging](#xray-sdk-go-configuration-logging "#xray-sdk-go-configuration-logging")
-- [Environment variables](#xray-sdk-go-configuration-envvars "#xray-sdk-go-configuration-envvars")
-- [Using configure](#xray-sdk-go-configuration-configure "#xray-sdk-go-configuration-configure")
+**Topics**
++ [Service plugins](#xray-sdk-go-configuration-plugins)
++ [Sampling rules](#xray-sdk-go-configuration-sampling)
++ [Logging](#xray-sdk-go-configuration-logging)
++ [Environment variables](#xray-sdk-go-configuration-envvars)
++ [Using configure](#xray-sdk-go-configuration-configure)
 
 ## Service plugins
+<a name="xray-sdk-go-configuration-plugins"></a>
 
-Use `plugins` to record information about the service hosting
-your application.
+Use `plugins` to record information about the service hosting your application.
 
-###### Plugins
+**Plugins**
++ Amazon EC2 – `EC2Plugin` adds the instance ID, Availability Zone, and the CloudWatch Logs Group.
++ Elastic Beanstalk – `ElasticBeanstalkPlugin` adds the environment name, version label, and deployment ID.
++ Amazon ECS – `ECSPlugin` adds the container ID.
 
-- Amazon EC2 – `EC2Plugin` adds the instance ID, Availability Zone, and the CloudWatch Logs Group.
-- Elastic Beanstalk – `ElasticBeanstalkPlugin` adds the environment name, version label, and deployment ID.
-- Amazon ECS – `ECSPlugin` adds the container ID.
+![Segment resource data with Amazon EC2 and Elastic Beanstalk plugins.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-segment-resources-go.png)
 
-![Segment resource data with Amazon EC2 and Elastic Beanstalk plugins.](images/scorekeep-PUTrules-segment-resources-go.png)
 
 To use a plugin, import one of the following packages.
 
@@ -40,7 +38,7 @@ To use a plugin, import one of the following packages.
 
 Each plugin has an explicit `Init()` function call that loads the plugin.
 
-###### Example ec2.Init()
+**Example ec2.Init()**  
 
 ```
 import (
@@ -62,33 +60,21 @@ func init() {
 }
 ```
 
-The SDK also uses plugin settings to set the `origin`
-field on the segment. This indicates the type of AWS resource that runs your application.
-When you use multiple plugins, the SDK uses the following resolution order to determine the origin: ElasticBeanstalk > EKS > ECS > EC2.
+The SDK also uses plugin settings to set the `origin` field on the segment. This indicates the type of AWS resource that runs your application. When you use multiple plugins, the SDK uses the following resolution order to determine the origin: ElasticBeanstalk > EKS > ECS > EC2.
 
 ## Sampling rules
+<a name="xray-sdk-go-configuration-sampling"></a>
 
-The SDK uses the sampling rules you define in the X-Ray console to
-determine which requests to record. The default rule traces the first request each second, and five percent of any additional
-requests across all services
-sending traces to X-Ray. [Create additional rules in the X-Ray
-console](xray-console-sampling.md "xray-console-sampling.md") to customize the amount of data recorded for each of your applications.
+The SDK uses the sampling rules you define in the X-Ray console to determine which requests to record. The default rule traces the first request each second, and five percent of any additional requests across all services sending traces to X-Ray. [Create additional rules in the X-Ray console](xray-console-sampling.md) to customize the amount of data recorded for each of your applications.
 
-The SDK applies custom rules in the order in which they are defined. If a request matches
-multiple custom rules, the SDK applies only the first rule.
+The SDK applies custom rules in the order in which they are defined. If a request matches multiple custom rules, the SDK applies only the first rule.
 
-###### Note
+**Note**  
+If the SDK can't reach X-Ray to get sampling rules, it reverts to a default local rule of the first request each second, and five percent of any additional requests per host. This can occur if the host doesn't have permission to call sampling APIs, or can't connect to the X-Ray daemon, which acts as a TCP proxy for API calls made by the SDK.
 
-If the SDK can't reach X-Ray to get sampling rules, it reverts to a default local rule of
-the first request each second, and five percent of any additional
-requests per host. This can occur if the host doesn't have permission to call
-sampling APIs, or can't connect to the X-Ray daemon, which acts as a TCP proxy for API calls
-made by the SDK.
+You can also configure the SDK to load sampling rules from a JSON document. The SDK can use local rules as a backup for cases where X-Ray sampling is unavailable, or use local rules exclusively.
 
-You can also configure the SDK to load sampling rules from a JSON document. The SDK can use local
-rules as a backup for cases where X-Ray sampling is unavailable, or use local rules exclusively.
-
-###### Example sampling-rules.json
+**Example sampling-rules.json**  
 
 ```
 {
@@ -110,32 +96,24 @@ rules as a backup for cases where X-Ray sampling is unavailable, or use local ru
 }
 ```
 
-This example defines one custom rule and a default rule. The custom rule applies a five-percent
-sampling rate with no minimum number of requests to trace for paths under `/api/move/`.
-The default rule traces the first request each second and 10 percent of additional requests.
+This example defines one custom rule and a default rule. The custom rule applies a five-percent sampling rate with no minimum number of requests to trace for paths under `/api/move/`. The default rule traces the first request each second and 10 percent of additional requests.
 
-The disadvantage of defining rules locally is that the fixed target is applied by each instance
-of the recorder independently, instead of being managed by the X-Ray service. As you deploy more
-hosts, the fixed rate is multiplied, making it harder to control the amount of data recorded.
+The disadvantage of defining rules locally is that the fixed target is applied by each instance of the recorder independently, instead of being managed by the X-Ray service. As you deploy more hosts, the fixed rate is multiplied, making it harder to control the amount of data recorded.
 
-On AWS Lambda, you cannot modify the sampling rate. If your function is called
-by an instrumented service, calls that generated requests that were sampled by that service will be recorded
-by Lambda. If active tracing is enabled and no tracing header is present, Lambda makes the sampling decision.
+On AWS Lambda, you cannot modify the sampling rate. If your function is called by an instrumented service, calls that generated requests that were sampled by that service will be recorded by Lambda. If active tracing is enabled and no tracing header is present, Lambda makes the sampling decision.
 
-To provide backup rules, point to the local
-sampling JSON file by using `NewCentralizedStrategyWithFilePath`.
+To provide backup rules, point to the local sampling JSON file by using `NewCentralizedStrategyWithFilePath`.
 
-###### Example main.go – Local sampling rule
+**Example main.go – Local sampling rule**  
 
 ```
 s, _ := sampling.NewCentralizedStrategyWithFilePath("sampling.json") // path to local sampling json
 xray.Configure(xray.Config{SamplingStrategy: s})
 ```
 
-To use only local rules, point to the local sampling JSON file by using
-`NewLocalizedStrategyFromFilePath`.
+To use only local rules, point to the local sampling JSON file by using `NewLocalizedStrategyFromFilePath`.
 
-###### Example main.go – Disable sampling
+**Example main.go – Disable sampling**  
 
 ```
 s, _ := sampling.NewLocalizedStrategyFromFilePath("sampling.json") // path to local sampling json
@@ -143,14 +121,12 @@ xray.Configure(xray.Config{SamplingStrategy: s})
 ```
 
 ## Logging
+<a name="xray-sdk-go-configuration-logging"></a>
 
-###### Note
+**Note**  
+The `xray.Config{}` fields `LogLevel` and `LogFormat` are deprecated starting with version 1.0.0-rc.10.
 
-The `xray.Config{}` fields `LogLevel` and `LogFormat` are deprecated
-starting with version 1.0.0-rc.10.
-
-X-Ray uses the following interface for logging. The default logger writes to `stdout` at
-`LogLevelInfo` and above.
+X-Ray uses the following interface for logging. The default logger writes to `stdout` at `LogLevelInfo` and above.
 
 ```
 type Logger interface {
@@ -165,70 +141,45 @@ const (
 )
 ```
 
-###### Example write to `io.Writer`
+**Example write to `io.Writer`**  
 
 ```
-xray.SetLogger(xraylog.NewDefaultLogger(`os.Stderr`, `xraylog.LogLevelError`))
+xray.SetLogger(xraylog.NewDefaultLogger(os.Stderr, xraylog.LogLevelError))
 ```
 
 ## Environment variables
+<a name="xray-sdk-go-configuration-envvars"></a>
 
-You can use environment variables to configure the X-Ray SDK for Go. The SDK supports the following
-variables.
+You can use environment variables to configure the X-Ray SDK for Go. The SDK supports the following variables.
++ `AWS_XRAY_CONTEXT_MISSING` – Set to `RUNTIME_ERROR` to throw exceptions when your instrumented code attempts to record data when no segment is open.
 
-- `AWS_XRAY_CONTEXT_MISSING` –
-  Set to `RUNTIME_ERROR` to throw exceptions when your instrumented code attempts
-  to record data when no segment is open.
+**Valid Values**
+  + `RUNTIME_ERROR` – Throw a runtime exception.
+  + `LOG_ERROR` – Log an error and continue (default).
+  + `IGNORE_ERROR` – Ignore error and continue.
 
-###### Valid Values
-
-    + `RUNTIME_ERROR` – Throw a runtime exception.
-    + `LOG_ERROR` – Log an error and continue (default).
-    + `IGNORE_ERROR` – Ignore error and continue.
-
-Errors related to missing segments or subsegments can occur when you attempt to use an
-instrumented client in startup code that runs when no request is open, or in code that
-spawns a new thread.
-
-- `AWS_XRAY_TRACING_NAME` – Set the service name that the SDK uses for segments.
-- `AWS_XRAY_DAEMON_ADDRESS` – Set the
-  host and port of the X-Ray daemon listener. By default, the SDK sends trace data to
-  `127.0.0.1:2000`. Use this variable if you have configured the daemon to
-  [listen on a different port](xray-daemon-configuration.md "xray-daemon-configuration.md") or if it is running on
-  a different host.
+  Errors related to missing segments or subsegments can occur when you attempt to use an instrumented client in startup code that runs when no request is open, or in code that spawns a new thread.
++ `AWS_XRAY_TRACING_NAME` – Set the service name that the SDK uses for segments.
++ `AWS_XRAY_DAEMON_ADDRESS` – Set the host and port of the X-Ray daemon listener. By default, the SDK sends trace data to `127.0.0.1:2000`. Use this variable if you have configured the daemon to [listen on a different port](xray-daemon-configuration.md) or if it is running on a different host.
 
 Environment variables override equivalent values set in code.
 
 ## Using configure
+<a name="xray-sdk-go-configuration-configure"></a>
 
-You can also configure the X-Ray SDK for Go using the `Configure` method. `Configure` takes
-one argument, a `Config` object, with the following, optional fields.
+You can also configure the X-Ray SDK for Go using the `Configure` method. `Configure` takes one argument, a `Config` object, with the following, optional fields.
 
-DaemonAddr
+DaemonAddr  
+This string specifies the host and port of the X-Ray daemon listener. If not specified, X-Ray uses the value of the `AWS_XRAY_DAEMON_ADDRESS` environment variable. If that value is not set, it uses "127.0.0.1:2000".
 
-This string specifies the host and port of the X-Ray daemon listener. If not specified, X-Ray uses the
-value of the `AWS_XRAY_DAEMON_ADDRESS` environment variable. If that value is not set, it uses
-"127.0.0.1:2000".
+ServiceVersion  
+This string specifies the version of the service. If not specified, X-Ray uses the empty string ("").
 
-ServiceVersion
+SamplingStrategy  
+This `SamplingStrategy` object specifies which of your application calls are traced. If not specified, X-Ray uses a `LocalizedSamplingStrategy`, which takes the strategy as defined in `xray/resources/DefaultSamplingRules.json`.
 
-This string specifies the version of the service. If not specified, X-Ray uses the empty string
-("").
+StreamingStrategy  
+This `StreamingStrategy` object specifies whether to stream a segment when **RequiresStreaming** returns **true**. If not specified, X-Ray uses a `DefaultStreamingStrategy` that streams a sampled segment if the number of subsegments is greater than 20.
 
-SamplingStrategy
-
-This `SamplingStrategy` object specifies which of your application calls are traced. If not
-specified, X-Ray uses a `LocalizedSamplingStrategy`, which takes the strategy as defined in
-`xray/resources/DefaultSamplingRules.json`.
-
-StreamingStrategy
-
-This `StreamingStrategy` object specifies whether to stream a segment when **RequiresStreaming** returns **true**. If not specified,
-X-Ray uses a `DefaultStreamingStrategy` that streams a sampled segment if the number of
-subsegments is greater than 20.
-
-ExceptionFormattingStrategy
-
-This `ExceptionFormattingStrategy` object specifies how you want to handle various
-exceptions. If not specified, X-Ray uses a `DefaultExceptionFormattingStrategy` with an
-`XrayError` of type `error`, the error message, and stack trace.
+ExceptionFormattingStrategy  
+This `ExceptionFormattingStrategy` object specifies how you want to handle various exceptions. If not specified, X-Ray uses a `DefaultExceptionFormattingStrategy` with an `XrayError` of type `error`, the error message, and stack trace.

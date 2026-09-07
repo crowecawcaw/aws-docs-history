@@ -1,50 +1,44 @@
+
+
 # Running the X-Ray daemon locally
+<a name="xray-daemon-local"></a>
 
-###### Note
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+You can run the AWS X-Ray daemon locally on Linux, MacOS, Windows, or in a Docker container. Run the daemon to relay trace data to X-Ray when you are developing and testing your instrumented application. Download and extract the daemon by using the instructions [here](xray-daemon.md#xray-daemon-downloading).
 
-You can run the AWS X-Ray daemon locally on Linux, MacOS, Windows, or in a Docker container. Run the daemon to
-relay trace data to X-Ray when you are developing and testing your instrumented application. Download and extract
-the daemon by using the instructions [here](xray-daemon.md#xray-daemon-downloading "xray-daemon.md#xray-daemon-downloading").
+When running locally, the daemon can read credentials from an AWS SDK credentials file (`.aws/credentials` in your user directory) or from environment variables. For more information, see [Giving the daemon permission to send data to X-Ray](xray-daemon.md#xray-daemon-permissions).
 
-When running locally, the daemon can read credentials from an AWS SDK credentials file
-(`.aws/credentials` in your user directory) or from environment variables. For more
-information, see [Giving the daemon permission to send data to X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
-
-The daemon listens for UDP data on port 2000. You can change the port and other options by using a configuration
-file and command line options. For more information, see [Configuring the AWS X-Ray daemon](xray-daemon-configuration.md "xray-daemon-configuration.md").
+The daemon listens for UDP data on port 2000. You can change the port and other options by using a configuration file and command line options. For more information, see [Configuring the AWS X-Ray daemon](xray-daemon-configuration.md).
 
 ## Running the X-Ray daemon on Linux
+<a name="xray-daemon-local-linux"></a>
 
-You can run the daemon executable from the command line. Use the `-o` option to run in local mode,
-and `-n` to set the region.
+You can run the daemon executable from the command line. Use the `-o` option to run in local mode, and `-n` to set the region.
 
 ```
-~/xray-daemon$ `./xray -o -n us-east-2`
+~/xray-daemon$ ./xray -o -n us-east-2
 ```
 
 To run the daemon in the background, use `&`.
 
 ```
-~/xray-daemon$ `./xray -o -n us-east-2 &`
+~/xray-daemon$ ./xray -o -n us-east-2 &
 ```
 
 Terminate a daemon process running in the background with `pkill`.
 
 ```
-~$ `pkill xray`
+~$ pkill xray
 ```
 
 ## Running the X-Ray daemon in a Docker container
+<a name="xray-daemon-local-docker"></a>
 
-To run the daemon locally in a Docker container, save the following text to a file named
-`Dockerfile`. Download the complete
-[example image](https://gallery.ecr.aws/xray/aws-xray-daemon "https://gallery.ecr.aws/xray/aws-xray-daemon") on Amazon ECR. See
-[downloading the daemon](xray-daemon.md#xray-daemon-downloading "xray-daemon.md#xray-daemon-downloading") for more information.
+To run the daemon locally in a Docker container, save the following text to a file named `Dockerfile`. Download the complete [example image](https://gallery.ecr.aws/xray/aws-xray-daemon) on Amazon ECR. See [downloading the daemon](xray-daemon.md#xray-daemon-downloading) for more information.
 
-###### Example Dockerfile – Amazon Linux
+**Example Dockerfile – Amazon Linux**  
 
 ```
 FROM amazonlinux
@@ -59,62 +53,50 @@ EXPOSE 2000/tcp
 Build the container image with `docker build`.
 
 ```
-~/xray-daemon$ `docker build -t xray-daemon .`
+~/xray-daemon$ docker build -t xray-daemon .
 ```
 
 Run the image in a container with `docker run`.
 
 ```
-~/xray-daemon$ `docker run \
- --attach STDOUT \
- -v ~/.aws/:/root/.aws/:ro \
- --net=host \
- -e AWS_REGION=us-east-2 \
- --name xray-daemon \
- -p 2000:2000/udp \
- xray-daemon -o`
+~/xray-daemon$ docker run \
+      --attach STDOUT \
+      -v ~/.aws/:/root/.aws/:ro \
+      --net=host \
+      -e AWS_REGION=us-east-2 \
+      --name xray-daemon \
+      -p 2000:2000/udp \
+      xray-daemon -o
 ```
 
 This command uses the following options:
++ `--attach STDOUT` – View output from the daemon in the terminal.
++ `-v ~/.aws/:/root/.aws/:ro` – Give the container read-only access to the `.aws` directory to let it read your AWS SDK credentials.
++ `AWS_REGION={{us-east-2}}` – Set the `AWS_REGION` environment variable to tell the daemon which region to use.
++ `--net=host` – Attach the container to the `host` network. Containers on the host network can communicate with each other without publishing ports.
++ `-p 2000:2000/udp` – Map UDP port 2000 on your machine to the same port on the container. This is not required for containers on the same network to communicate, but it does let you send segments to the daemon [from the command line](xray-api-sendingdata.md#xray-api-daemon) or from an application not running in Docker.
++ `--name xray-daemon` – Name the container `xray-daemon` instead of generating a random name.
++ `-o` (after the image name) – Append the `-o` option to the entry point that runs the daemon within the container. This option tells the daemon to run in local mode to prevent it from trying to read Amazon EC2 instance metadata.
 
-- `--attach STDOUT` – View output from the daemon in the terminal.
-- `-v ~/.aws/:/root/.aws/:ro` – Give the container read-only access to the
-  `.aws` directory to let it read your AWS SDK credentials.
-- `AWS_REGION=`us-east-2`` – Set the `AWS_REGION`
-  environment variable to tell the daemon which region to use.
-- `--net=host` – Attach the container to the `host` network. Containers on the
-  host network can communicate with each other without publishing ports.
-- `-p 2000:2000/udp` – Map UDP port 2000 on your machine to the same port on the
-  container. This is not required for containers on the same network to communicate, but it does let you send
-  segments to the daemon [from the command line](xray-api-sendingdata.md#xray-api-daemon "xray-api-sendingdata.md#xray-api-daemon") or from an application not
-  running in Docker.
-- `--name xray-daemon` – Name the container `xray-daemon` instead of generating
-  a random name.
-- `-o` (after the image name) – Append the `-o` option to the entry point that
-  runs the daemon within the container. This option tells the daemon to run in local mode to prevent it from
-  trying to read Amazon EC2 instance metadata.
-
-To stop the daemon, use `docker stop`. If you make changes to the `Dockerfile`
-and build a new image, you need to delete the existing container before you can create another one with the same
-name. Use `docker rm` to delete the container.
+To stop the daemon, use `docker stop`. If you make changes to the `Dockerfile` and build a new image, you need to delete the existing container before you can create another one with the same name. Use `docker rm` to delete the container.
 
 ```
-$ `docker stop xray-daemon`
-$ `docker rm xray-daemon`
+$ docker stop xray-daemon
+$ docker rm xray-daemon
 ```
 
 ## Running the X-Ray daemon on Windows
+<a name="xray-daemon-local-windows"></a>
 
-You can run the daemon executable from the command line. Use the `-o` option to run in local mode,
-and `-n` to set the region.
+You can run the daemon executable from the command line. Use the `-o` option to run in local mode, and `-n` to set the region.
 
 ```
-> `.\xray_windows.exe -o -n us-east-2`
+> .\xray_windows.exe -o -n us-east-2
 ```
 
 Use a PowerShell script to create and run a service for the daemon.
 
-###### Example PowerShell script - Windows
+**Example PowerShell script - Windows**  
 
 ```
 if ( Get-Service "AWSXRayDaemon" -ErrorAction SilentlyContinue ){
@@ -142,22 +124,22 @@ sc.exe start AWSXRayDaemon
 ```
 
 ## Running the X-Ray daemon on OS X
+<a name="xray-daemon-local-osx"></a>
 
-You can run the daemon executable from the command line. Use the `-o` option to run in local mode,
-and `-n` to set the region.
+You can run the daemon executable from the command line. Use the `-o` option to run in local mode, and `-n` to set the region.
 
 ```
-~/xray-daemon$ `./xray_mac -o -n us-east-2`
+~/xray-daemon$ ./xray_mac -o -n us-east-2
 ```
 
 To run the daemon in the background, use `&`.
 
 ```
-~/xray-daemon$ `./xray_mac -o -n us-east-2 &`
+~/xray-daemon$ ./xray_mac -o -n us-east-2 &
 ```
 
 Use `nohup` to prevent the daemon from terminating when the terminal is closed.
 
 ```
-~/xray-daemon$ `nohup ./xray_mac &`
+~/xray-daemon$ nohup ./xray_mac &
 ```

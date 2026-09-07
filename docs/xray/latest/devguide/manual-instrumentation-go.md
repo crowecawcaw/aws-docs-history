@@ -1,36 +1,41 @@
+
+
 # Migrate to OpenTelemetry Go
+<a name="manual-instrumentation-go"></a>
 
 Use the following code examples to manually instrument your Go applications with the OpenTelemetry SDK when migrating from X-Ray.
 
 ## Manual instrumentation with the SDK
+<a name="tracing-setup"></a>
 
-Tracing setup with X-Ray SDK
+------
+#### [ Tracing setup with X-Ray SDK ]
+
 When using the X-Ray SDK for Go, service plugins or local sampling rules were required to be configured before instrumenting your code.
 
 ```
-
 func init() {
     if os.Getenv("ENVIRONMENT") == "production" {
         ec2.Init()
     }
 
     xray.Configure(xray.Config{
-        DaemonAddr:       "127.0.0.1:2000",
+        DaemonAddr:       "127.0.0.1:2000", 
         ServiceVersion:   "1.2.3",
     })
 }
-
 ```
 
-Set up tracing with OpenTelemetry SDK Configure the OpenTelemetry SDK by instantiating a TracerProvider and registering it as the global tracer provider. We recommend configuring the following components:
+------
+#### [ Set up tracing with OpenTelemetry SDK ]
 
-- OTLP Trace Exporter – Required for exporting traces to the CloudWatch Agent or OpenTelemetry Collector
-- X-Ray Propagator – Required for propagating the trace context to AWS services integrated with X-Ray
-- X-Ray Remote Sampler – Required for sampling requests using X-Ray sampling rules
-- Resource detectors – To detect metadata of the host running your application
+Configure the OpenTelemetry SDK by instantiating a TracerProvider and registering it as the global tracer provider. We recommend configuring the following components:
++ OTLP Trace Exporter – Required for exporting traces to the CloudWatch Agent or OpenTelemetry Collector
++ X-Ray Propagator – Required for propagating the trace context to AWS services integrated with X-Ray
++ X-Ray Remote Sampler – Required for sampling requests using X-Ray sampling rules
++ Resource detectors – To detect metadata of the host running your application
 
 ```
-
 import (
     "go.opentelemetry.io/contrib/detectors/aws/ec2"
     "go.opentelemetry.io/contrib/propagators/aws/xray"
@@ -76,33 +81,37 @@ func setupTracing() error {
 
     return nil
 }
-
 ```
 
-## Tracing incoming requests (HTTP handler instrumentation)
+------
 
-With X-Ray SDK
+## Tracing incoming requests (HTTP handler instrumentation)
+<a name="http-handler-instrumentation"></a>
+
+------
+#### [ With X-Ray SDK ]
+
 To instrument an HTTP handler with X-Ray, the X-Ray handler method was used to generate segments using NewFixedSegmentNamer.
 
 ```
-
 func main() {
     http.Handle("/", xray.Handler(xray.NewFixedSegmentNamer("myApp"), http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
         w.Write([]byte("Hello!"))
     })))
     http.ListenAndServe(":8000", nil)
 }
-
 ```
 
-With OpenTelemetry SDKTo instrument an HTTP handler with OpenTelemetry, use the OpenTelemetry's newHandler method to wrap your original handler code.
+------
+#### [ With OpenTelemetry SDK ]
+
+To instrument an HTTP handler with OpenTelemetry, use the OpenTelemetry's newHandler method to wrap your original handler code.
 
 ```
-
 import (
     "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 )
-
+    
 helloHandler := func(w http.ResponseWriter, req *http.Request) {
     ctx := req.Context()
     span := trace.SpanFromContext(ctx)
@@ -118,16 +127,19 @@ err = http.ListenAndServe(":8080", nil)
 if err != nil {
     log.Fatal(err)
 }
-
 ```
 
-## AWS SDK for Go v2 instrumentation
+------
 
-With X-Ray SDK
+## AWS SDK for Go v2 instrumentation
+<a name="aws-sdk-instrumentation"></a>
+
+------
+#### [ With X-Ray SDK ]
+
 To instrument outgoing AWS requests from AWS SDK, your clients were instrumented as follows:
 
 ```
-
 // Create a segment
 ctx, root := xray.BeginSegment(context.TODO(), "AWSSDKV2_Dynamodb")
 defer root.Close(nil)
@@ -147,10 +159,12 @@ _, err = svc.ListTables(ctx, &dynamodb.ListTablesInput{
 if err != nil {
     log.Fatalf("failed to list tables, %v", err)
 }
-
 ```
 
-With OpenTelemetry SDK Tracing support for downstream AWS SDK calls is provided by OpenTelemetry's AWS SDK for Go v2 Instrumentation. Here's an example of tracing an S3 client call:
+------
+#### [ With OpenTelemetry SDK ]
+
+Tracing support for downstream AWS SDK calls is provided by OpenTelemetry's AWS SDK for Go v2 Instrumentation. Here's an example of tracing an S3 client call:
 
 ```
 import (
@@ -167,17 +181,17 @@ import (
 
 ...
 
-
+    
     // init aws config
     cfg, err := awsConfig.LoadDefaultConfig(ctx)
     if err != nil {
         panic("configuration error, " + err.Error())
     }
-
+    
     // instrument all aws clients
     otelaws.AppendMiddlewares(&.APIOptions)
-
-
+    
+    
     // Call to S3
     s3Client := s3.NewFromConfig(cfg)
     input := &s3.ListBucketsInput{}
@@ -188,20 +202,26 @@ import (
     }
 ```
 
-## Instrumenting outgoing HTTP calls
+------
 
-With X-Ray SDK
+## Instrumenting outgoing HTTP calls
+<a name="http-client-instrumentation"></a>
+
+------
+#### [ With X-Ray SDK ]
+
 To instrument outgoing HTTP calls with X-Ray, the xray.Client was used to create a copy of a provided HTTP client.
 
 ```
-
 myClient := xray.Client(http-client)
 
 resp, err := ctxhttp.Get(ctx, xray.Client(nil), url)
-
 ```
 
-With OpenTelemetry SDK To instrument HTTP clients with OpenTelemetry, use OpenTelemetry's otelhttp.NewTransport method to wrap the http.DefaultTransport.
+------
+#### [ With OpenTelemetry SDK ]
+
+To instrument HTTP clients with OpenTelemetry, use OpenTelemetry's otelhttp.NewTransport method to wrap the http.DefaultTransport.
 
 ```
 import (
@@ -232,19 +252,24 @@ defer func(Body io.ReadCloser) {
 }(res.Body)
 ```
 
+------
+
 ## Instrumentation support for other libraries
+<a name="other-libraries-go"></a>
 
-You can find the full list of supported library instrumentations for OpenTelemetry Go under [Instrumentation packages](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/instrumentation#instrumentation-packages "https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/instrumentation#instrumentation-packages") .
+You can find the full list of supported library instrumentations for OpenTelemetry Go under [Instrumentation packages ](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/instrumentation#instrumentation-packages).
 
-Alternatively, you can search the OpenTelemetry registry to find out if OpenTelemetry supports instrumentation for your library under [Registry](https://opentelemetry.io/ecosystem/registry/ "https://opentelemetry.io/ecosystem/registry/").
+Alternatively, you can search the OpenTelemetry registry to find out if OpenTelemetry supports instrumentation for your library under [Registry](https://opentelemetry.io/ecosystem/registry/).
 
 ## Manually creating trace data
+<a name="manual-trace-creation"></a>
 
-With X-Ray SDK
+------
+#### [ With X-Ray SDK ]
+
 With the X-Ray SDK, the BeginSegment and BeginSubsegment methods was required to manually create X-Ray segments and sub-segments.
 
 ```
-
 // Start a segment
 ctx, seg := xray.BeginSegment(context.Background(), "service-name")
 // Start a subsegment
@@ -257,13 +282,14 @@ xray.AddMetadata(subCtx, "metadataKey", "metadataValue")
 subSeg.Close(nil)
 // Close the segment
 seg.Close(nil)
-
 ```
 
-With OpenTelemetry SDKUse custom spans to monitor the performance of internal activities that are not captured by instrumentation libraries. Note that only spans of kind Server are converted into X-Ray segments, all other spans are converted into X-Ray sub-segments.
+------
+#### [ With OpenTelemetry SDK ]
 
-First, you will need to create a Tracer to generate spans, which you can obtain through the `otel.Tracer` method. This will provide a Tracer instance from
-the TracerProvider that was registered globally in the Tracing Setup example. You can create as many Tracer instances as needed, but it is common to have one Tracer for an entire application.
+Use custom spans to monitor the performance of internal activities that are not captured by instrumentation libraries. Note that only spans of kind Server are converted into X-Ray segments, all other spans are converted into X-Ray sub-segments.
+
+First, you will need to create a Tracer to generate spans, which you can obtain through the `otel.Tracer` method. This will provide a Tracer instance from the TracerProvider that was registered globally in the Tracing Setup example. You can create as many Tracer instances as needed, but it is common to have one Tracer for an entire application.
 
 ```
     tracer := otel.Tracer("application-tracer")
@@ -283,33 +309,38 @@ import (
         attribute.KeyValue{Key: "annotationKey", Value: attribute.StringValue("annotationValue")},
         attribute.KeyValue{Key: "aws.xray.annotations", Value: attribute.StringSliceValue([]string{"annotationKey"})},
     }
-
+    
     ctx := context.Background()
-
+    
     parentSpanContext, parentSpan := tracer.Start(ctx, "ParentSpan", oteltrace.WithSpanKind(oteltrace.SpanKindServer), oteltrace.WithAttributes(attributes...))
     _, childSpan := tracer.Start(parentSpanContext, "ChildSpan", oteltrace.WithSpanKind(oteltrace.SpanKindInternal))
-
+    
     // ...
-
+    
     childSpan.End()
     parentSpan.End()
 ```
 
 **Adding annotations and metadata to traces with OpenTelemetry SDK**
 
-In the above example, the `WithAttributes` method is used to add attributes to each span. Note that by default, all the span attributes are converted into metadata in X-Ray raw data. To ensure that an attribute is converted into an annotation and not metadata, add the attribute's key to the list of the
-`aws.xray.annotations` attribute. For more information, see [Enable The Customized X-Ray Annotations](https://aws-otel.github.io/docs/getting-started/x-ray#enable-the-customized-x-ray-annotations "https://aws-otel.github.io/docs/getting-started/x-ray#enable-the-customized-x-ray-annotations") .
+In the above example, the `WithAttributes` method is used to add attributes to each span. Note that by default, all the span attributes are converted into metadata in X-Ray raw data. To ensure that an attribute is converted into an annotation and not metadata, add the attribute's key to the list of the `aws.xray.annotations` attribute. For more information, see [Enable The Customized X-Ray Annotations ](https://aws-otel.github.io/docs/getting-started/x-ray#enable-the-customized-x-ray-annotations).
+
+------
 
 ## Lambda manual instrumentation
+<a name="lambda-instrumentation"></a>
 
-With X-Ray SDK
-With the X-Ray SDK, after your Lambda has _Active Tracing_ was enabled, there were no additional configurations required to use the X-Ray SDK. Lambda created a segment representing the Lambda handler invocation, and
-you created sub-segments using the X-Ray SDK without any additional configuration.
+------
+#### [ With X-Ray SDK ]
 
-With OpenTelemetry SDK The following Lambda function code (without instrumentation) makes an Amazon S3 ListBuckets call and outgoing HTTP request.
+With the X-Ray SDK, after your Lambda has *Active Tracing* was enabled, there were no additional configurations required to use the X-Ray SDK. Lambda created a segment representing the Lambda handler invocation, and you created sub-segments using the X-Ray SDK without any additional configuration.
+
+------
+#### [ With OpenTelemetry SDK ]
+
+The following Lambda function code (without instrumentation) makes an Amazon S3 ListBuckets call and outgoing HTTP request.
 
 ```
-
 package main
 
 import (
@@ -383,19 +414,21 @@ func lambdaHandler(ctx context.Context) (interface{}, error) {
 func main() {
     lambda.Start(lambdaHandler)
 }
-
 ```
 
 To manually instrument your Lambda handler and the Amazon S3 client, do the following:
 
-1. In _main()_, instantiate a TracerProvider (tp) and register it as the global tracer provider. The TracerProvider is recommended to be configured with:
+1. In *main()*, instantiate a TracerProvider (tp) and register it as the global tracer provider. The TracerProvider is recommended to be configured with:
 
    1. Simple Span Processor with an X-Ray UDP span exporter to send Traces to Lambda's UDP X-Ray endpoint
-   2. Resource with _service.name_ set to the Lambda function name
 
-2. Change the usage of `lambda.Start(lambdaHandler)` to `lambda.Start(otellambda.InstrumentHandler(lambdaHandler, xrayconfig.WithRecommendedOptions(tp)...))`.
-3. Instrument the Amazon S3 client with the OpenTemetry AWS SDK instrumentation by appending OpenTelemetry middleware for `aws-sdk-go-v2` into the Amazon S3 client configuration.
-4. Instrument the http client by using OpenTelemetry's `otelhttp.NewTransport` method to wrap the `http.DefaultTransport`.
+   1. Resource with *service.name* set to the Lambda function name
+
+1. Change the usage of `lambda.Start(lambdaHandler)` to `lambda.Start(otellambda.InstrumentHandler(lambdaHandler, xrayconfig.WithRecommendedOptions(tp)...))`.
+
+1. Instrument the Amazon S3 client with the OpenTemetry AWS SDK instrumentation by appending OpenTelemetry middleware for `aws-sdk-go-v2` into the Amazon S3 client configuration.
+
+1. Instrument the http client by using OpenTelemetry's `otelhttp.NewTransport` method to wrap the `http.DefaultTransport`.
 
 The following code is an example of how the Lambda Function will look like after the changes. You may manually create additional custom spans in addition to the spans provided automatically.
 
@@ -523,6 +556,8 @@ func main() {
 }
 ```
 
+------
+
 When invoking Lambda, you will see the following trace in the `Trace Map` in the CloudWatch console:
 
-![Trace map in CloudWatch console for Golang.](images/deprecation_golang.png)
+![Trace map in CloudWatch console for Golang.](http://docs.aws.amazon.com/xray/latest/devguide/images/deprecation_golang.png)

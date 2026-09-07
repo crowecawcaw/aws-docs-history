@@ -1,112 +1,76 @@
+
+
 # Logging X-Ray API calls with AWS CloudTrail
+<a name="xray-api-cloudtrail"></a>
 
-AWS X-Ray is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service
-that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all
-API calls for X-Ray as events. The calls captured include calls from the X-Ray console
-and code calls to the X-Ray API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to X-Ray, the IP address from which the request was
-made, when it was made, and additional details.
+AWS X-Ray is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for X-Ray as events. The calls captured include calls from the X-Ray console and code calls to the X-Ray API operations. Using the information collected by CloudTrail, you can determine the request that was made to X-Ray, the IP address from which the request was made, when it was made, and additional details.
 
-Every event or log entry contains information about who generated the request. The identity
-information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root user or user credentials.
++ Whether the request was made on behalf of an IAM Identity Center user.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root user or user credentials.
-- Whether the request was made on behalf of an IAM Identity Center user.
-- Whether the request was made with temporary security credentials for a role or federated
-  user.
-- Whether the request was made by another AWS service.
-  CloudTrail is active in your AWS account when you create the account and you automatically have
-  access to the CloudTrail **Event history**. The CloudTrail **Event
-  history** provides a viewable, searchable, downloadable, and immutable record of the
-  past 90 days of recorded management events in an AWS Region. For more information, see [Working
-  with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_. There are no CloudTrail
-  charges for viewing the **Event history**.
+CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
-For an ongoing record of events in your AWS account past 90 days, create a trail or a
-[CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
-**CloudTrail trails**
+**CloudTrail trails**  
+A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) and [Creating a trail for an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*.  
+You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [Creating a trail for an organization](../../../awscloudtrail/latest/userguide/creating-trail-organization.md "../../../awscloudtrail/latest/userguide/creating-trail-organization.md") in the _AWS CloudTrail User Guide_.
+**CloudTrail Lake event data stores**  
+*CloudTrail Lake* lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [ Apache ORC](https://orc.apache.org/) format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into *event data stores*, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-concepts.html#adv-event-selectors). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) in the *AWS CloudTrail User Guide*.  
+CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html#cloudtrail-lake-manage-costs-pricing-option) you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
-
-**CloudTrail Lake event data stores**
-
-_CloudTrail Lake_ lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [Apache ORC](https://orc.apache.org/ "https://orc.apache.org/") format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into _event data stores_, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors "../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors"). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") in the _AWS CloudTrail User Guide_.
-
-CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
-
-###### Topics
-
-- [X-Ray management events in CloudTrail](#xray-api-cloudtrail-mgmt "#xray-api-cloudtrail-mgmt")
-- [X-Ray data events in CloudTrail](#cloudtrail-data-events "#cloudtrail-data-events")
-- [X-Ray event examples](#xray-cloudtrail-examples "#xray-cloudtrail-examples")
+**Topics**
++ [X-Ray management events in CloudTrail](#xray-api-cloudtrail-mgmt)
++ [X-Ray data events in CloudTrail](#cloudtrail-data-events)
++ [X-Ray event examples](#xray-cloudtrail-examples)
 
 ## X-Ray management events in CloudTrail
+<a name="xray-api-cloudtrail-mgmt"></a>
 
-AWS X-Ray integrates with AWS CloudTrail to record API actions made by a user, a role, or an
-AWS service in X-Ray. You can use CloudTrail to monitor X-Ray API requests in real time and
-store logs in Amazon S3, Amazon CloudWatch Logs, and Amazon CloudWatch Events. X-Ray supports logging the following actions as
-events in CloudTrail log files:
+AWS X-Ray integrates with AWS CloudTrail to record API actions made by a user, a role, or an AWS service in X-Ray. You can use CloudTrail to monitor X-Ray API requests in real time and store logs in Amazon S3, Amazon CloudWatch Logs, and Amazon CloudWatch Events. X-Ray supports logging the following actions as events in CloudTrail log files:
 
-###### Supported API Actions
-
-- [PutEncryptionConfig](../api/API_PutEncryptionConfig.md "../api/API_PutEncryptionConfig.md")
-- [GetEncryptionConfig](../api/API_GetEncryptionConfig.md "../api/API_GetEncryptionConfig.md")
-- [CreateGroup](../api/API_CreateGroup.md "../api/API_CreateGroup.md")
-- [UpdateGroup](../api/API_UpdateGroup.md "../api/API_UpdateGroup.md")
-- [DeleteGroup](../api/API_DeleteGroup.md "../api/API_DeleteGroup.md")
-- [GetGroup](../api/API_GetGroup.md "../api/API_GetGroup.md")
-- [GetGroups](../api/API_GetGroups.md "../api/API_GetGroups.md")
-- [GetInsight](../api/API_GetInsight.md "../api/API_GetInsight.md")
-- [GetInsightEvents](../api/API_GetInsightEvents.md "../api/API_GetInsightEvents.md")
-- [GetInsightImpactGraph](../api/API_GetInsightImpactGraph.md "../api/API_GetInsightImpactGraph.md")
-- [GetInsightSummaries](../api/API_GetInsightSummaries.md "../api/API_GetInsightSummaries.md")
-- [GetSamplingStatisticSummaries](../api/API_GetSamplingStatisticSummaries.md "../api/API_GetSamplingStatisticSummaries.md")
+**Supported API Actions**
++ [PutEncryptionConfig](https://docs.aws.amazon.com/xray/latest/api/API_PutEncryptionConfig.html)
++ [GetEncryptionConfig](https://docs.aws.amazon.com/xray/latest/api/API_GetEncryptionConfig.html)
++ [CreateGroup](https://docs.aws.amazon.com/xray/latest/api/API_CreateGroup.html)
++ [UpdateGroup](https://docs.aws.amazon.com/xray/latest/api/API_UpdateGroup.html)
++ [DeleteGroup](https://docs.aws.amazon.com/xray/latest/api/API_DeleteGroup.html)
++ [GetGroup](https://docs.aws.amazon.com/xray/latest/api/API_GetGroup.html)
++ [GetGroups](https://docs.aws.amazon.com/xray/latest/api/API_GetGroups.html)
++ [GetInsight](https://docs.aws.amazon.com/xray/latest/api/API_GetInsight.html)
++ [GetInsightEvents](https://docs.aws.amazon.com/xray/latest/api/API_GetInsightEvents.html)
++ [GetInsightImpactGraph](https://docs.aws.amazon.com/xray/latest/api/API_GetInsightImpactGraph.html)
++ [GetInsightSummaries](https://docs.aws.amazon.com/xray/latest/api/API_GetInsightSummaries.html)
++ [GetSamplingStatisticSummaries](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingStatisticSummaries.html)
 
 ## X-Ray data events in CloudTrail
+<a name="cloudtrail-data-events"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource (for example, [PutTraceSegments](../api/API_PutTraceSegments.md "../api/API_PutTraceSegments.md"),
-which uploads segment documents to X-Ray).
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource (for example, [PutTraceSegments](https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html), which uploads segment documents to X-Ray).
 
-These are also known as data plane operations. Data events are often high-volume
-activities. By default, CloudTrail doesn’t log data events. The CloudTrail **Event
-history** doesn't record data events.
+These are also known as data plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log data events. The CloudTrail **Event history** doesn't record data events.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can log data events for the X-Ray resource types by using the CloudTrail console, AWS CLI,
-or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
-_AWS CloudTrail User Guide_.
+You can log data events for the X-Ray resource types by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-The following table lists the X-Ray resource types for which you can log data events.
-The **Data event type (console)** column shows the value to
-choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type`
-value, which you would specify when configuring advanced event selectors using the AWS CLI or
-CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
-calls logged to CloudTrail for the resource type.
+The following table lists the X-Ray resource types for which you can log data events. The **Data event type (console)** column shows the value to choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type` value, which you would specify when configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail for the resource type. 
 
-| Data event type (console) | resources.type value | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **X-Ray trace**           | `AWS::XRay::Trace`   | • [PutTraceSegments](../api/API_PutTraceSegments.md "../api/API_PutTraceSegments.md")<br>• [GetTraceSummaries](../api/API_GetTraceSummaries.md "../api/API_GetTraceSummaries.md")<br>• [GetTraceGraph](../api/API_GetTraceGraph.md "../api/API_GetTraceGraph.md")<br>• [GetServiceGraph](../api/API_GetServiceGraphs.md "../api/API_GetServiceGraphs.md")<br>• [BatchGetTraces](../api/API_BatchGetTraces.md "../api/API_BatchGetTraces.md")<br>• [GetTimeSeriesServiceStatistics](../api/API_GetTimeSeriesServiceStatistics.md "../api/API_GetTimeSeriesServiceStatistics.md")<br>• [PutTelemetryRecords](../api/API_PutTelemetryRecords.md "../api/API_PutTelemetryRecords.md")<br>• [GetSamplingTargets](../api/API_GetSamplingTargets.md "../api/API_GetSamplingTargets.md") |
 
-You can configure advanced event selectors to filter on the `eventName` and
-`readOnly` fields to log only those events that are important to you. However,
-you cannot select events by adding the `resources.ARN` field selector, because
-X-Ray traces do not have ARNs. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_.
-The following is an example of how to run the [`put-event-selectors`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html") AWS CLI command to log data
-events on a CloudTrail trail. You must run the command in or specify the Region in which the trail
-was created; otherwise, the operation returns an `InvalidHomeRegionException`
-exception.
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail | 
+| --- | --- | --- | 
+| X-Ray trace |  AWS::XRay::Trace  |  +  [PutTraceSegments](https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html) <br />+  [GetTraceSummaries](https://docs.aws.amazon.com/xray/latest/api/API_GetTraceSummaries.html) <br />+  [GetTraceGraph](https://docs.aws.amazon.com/xray/latest/api/API_GetTraceGraph.html) <br />+  [GetServiceGraph](https://docs.aws.amazon.com/xray/latest/api/API_GetServiceGraphs.html) <br />+  [BatchGetTraces](https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html) <br />+  [GetTimeSeriesServiceStatistics](https://docs.aws.amazon.com/xray/latest/api/API_GetTimeSeriesServiceStatistics.html) <br />+  [PutTelemetryRecords](https://docs.aws.amazon.com/xray/latest/api/API_PutTelemetryRecords.html) <br />+  [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html)   | 
+
+You can configure advanced event selectors to filter on the `eventName` and `readOnly` fields to log only those events that are important to you. However, you cannot select events by adding the `resources.ARN` field selector, because X-Ray traces do not have ARNs. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*. The following is an example of how to run the [`put-event-selectors`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html) AWS CLI command to log data events on a CloudTrail trail. You must run the command in or specify the Region in which the trail was created; otherwise, the operation returns an `InvalidHomeRegionException` exception.
 
 ```
 aws cloudtrail put-event-selectors --trail-name myTrail --advanced-event-selectors \
 '{
-   "AdvancedEventSelectors": [
+   "AdvancedEventSelectors": [ 
       {
          "FieldSelectors": [
             { "Field": "eventCategory", "Equals": ["Data"] },
@@ -120,12 +84,14 @@ aws cloudtrail put-event-selectors --trail-name myTrail --advanced-event-selecto
 ```
 
 ## X-Ray event examples
+<a name="xray-cloudtrail-examples"></a>
 
 ### Management event example, `GetEncryptionConfig`
+<a name="xray-example-management"></a>
 
 The following is an example of the X-Ray GetEncryptionConfig log entry in CloudTrail.
 
-###### Example
+**Example**  
 
 ```
 {
@@ -166,11 +132,11 @@ The following is an example of the X-Ray GetEncryptionConfig log entry in CloudT
 ```
 
 ### Data event example, `PutTraceSegments`
+<a name="xray-example-data"></a>
 
-The following is an example of the X-Ray PutTraceSegments data event log
-entry in CloudTrail.
+The following is an example of the X-Ray PutTraceSegments data event log entry in CloudTrail.
 
-###### Example
+**Example**  
 
 ```
 {

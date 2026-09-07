@@ -1,29 +1,22 @@
+
+
 # Tracing calls to downstream HTTP web services with the X-Ray SDK for Java
+<a name="xray-sdk-java-httpclients"></a>
 
-###### Note
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+When your application makes calls to microservices or public HTTP APIs, you can use the X-Ray SDK for Java's version of `HttpClient` to instrument those calls and add the API to the service graph as a downstream service.
 
-When your application makes calls to microservices or public HTTP APIs, you can use the
-X-Ray SDK for Java's version of `HttpClient` to instrument those calls and add the API to
-the service graph as a downstream service.
+The X-Ray SDK for Java includes `DefaultHttpClient` and `HttpClientBuilder` classes that can be used in place of the Apache HttpComponents equivalents to instrument outgoing HTTP calls.
++ `com.amazonaws.xray.proxies.apache.http.DefaultHttpClient` - `org.apache.http.impl.client.DefaultHttpClient`
++ `com.amazonaws.xray.proxies.apache.http.HttpClientBuilder` - `org.apache.http.impl.client.HttpClientBuilder`
 
-The X-Ray SDK for Java includes `DefaultHttpClient` and
-`HttpClientBuilder` classes that can be used in place of the Apache HttpComponents
-equivalents to instrument outgoing HTTP calls.
+These libraries are in the [`aws-xray-recorder-sdk-apache-http`](xray-sdk-java.md) submodule.
 
-- `com.amazonaws.xray.proxies.apache.http.DefaultHttpClient` -
-  `org.apache.http.impl.client.DefaultHttpClient`
-- `com.amazonaws.xray.proxies.apache.http.HttpClientBuilder` -
-  `org.apache.http.impl.client.HttpClientBuilder`
-  These libraries are in the [aws-xray-recorder-sdk-apache-http](xray-sdk-java.md "xray-sdk-java.md") submodule.
+You can replace your existing import statements with the X-Ray equivalent to instrument all clients, or use the fully qualified name when you initialize a client to instrument specific clients.
 
-You can replace your existing import statements with the X-Ray equivalent to instrument all
-clients, or use the fully qualified name when you initialize a client to instrument specific
-clients.
-
-###### Example HttpClientBuilder
+**Example HttpClientBuilder**  
 
 ```
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,10 +25,10 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
-import com.amazonaws.xray.proxies.apache.http.HttpClientBuilder;
+import [com.amazonaws.xray.proxies.apache.http.HttpClientBuilder](https://docs.aws.amazon.com/xray-sdk-for-java/latest/javadoc/com/amazonaws/xray/proxies/apache/http/HttpClientBuilder.html);
 ...
   public String randomName() throws IOException {
-    `CloseableHttpClient httpclient = HttpClientBuilder.create().build();`
+    CloseableHttpClient httpclient = HttpClientBuilder.create().build();
     HttpGet httpGet = new HttpGet("http://names.example.com/api/");
     CloseableHttpResponse response = httpclient.execute(httpGet);
     try {
@@ -52,11 +45,9 @@ import com.amazonaws.xray.proxies.apache.http.HttpClientBuilder;
   }
 ```
 
-When you instrument a call to a downstream web api, the X-Ray SDK for Java records a subsegment
-with information about the HTTP request and response. X-Ray uses the subsegment to generate an
-inferred segment for the remote API.
+When you instrument a call to a downstream web api, the X-Ray SDK for Java records a subsegment with information about the HTTP request and response. X-Ray uses the subsegment to generate an inferred segment for the remote API.
 
-###### Example Subsegment for a downstream HTTP call
+**Example Subsegment for a downstream HTTP call**  
 
 ```
 {
@@ -78,7 +69,7 @@ inferred segment for the remote API.
 }
 ```
 
-###### Example Inferred segment for a downstream HTTP call
+**Example Inferred segment for a downstream HTTP call**  
 
 ```
 {

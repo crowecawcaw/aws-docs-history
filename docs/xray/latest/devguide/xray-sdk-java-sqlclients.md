@@ -1,43 +1,36 @@
+
+
 # Tracing SQL queries with the X-Ray SDK for Java
+<a name="xray-sdk-java-sqlclients"></a>
 
-###### Note
-
-X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see
-[X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md "xray-sdk-daemon-timeline.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+**Note**  
+X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SDKs/Daemon will enter maintenance mode, where AWS will limit X-Ray SDK and Daemon releases to address security issues only. For more information on the support timeline, see [X-Ray SDK and Daemon Support timeline](xray-sdk-daemon-timeline.md). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation ](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-migration.html).
 
 ## SQL Interceptors
+<a name="xray-sdk-java-sqlclients-interceptors"></a>
 
-Instrument SQL database queries by adding the X-Ray SDK for Java JDBC interceptor to your data
-source configuration.
+Instrument SQL database queries by adding the X-Ray SDK for Java JDBC interceptor to your data source configuration.
++  **PostgreSQL** – `com.amazonaws.xray.sql.postgres.TracingInterceptor` 
++  **MySQL** – `com.amazonaws.xray.sql.mysql.TracingInterceptor` 
 
-- **PostgreSQL** –
-  `com.amazonaws.xray.sql.postgres.TracingInterceptor`
-- **MySQL** –
-  `com.amazonaws.xray.sql.mysql.TracingInterceptor`
+These interceptors are in the [`aws-xray-recorder-sql-postgres` and `aws-xray-recorder-sql-mysql` submodules](xray-sdk-java.md), respectively. They implement `org.apache.tomcat.jdbc.pool.JdbcInterceptor` and are compatible with Tomcat connection pools.
 
-These interceptors are in the [aws-xray-recorder-sql-postgres and aws-xray-recorder-sql-mysql
-submodules](xray-sdk-java.md "xray-sdk-java.md"), respectively. They implement
-`org.apache.tomcat.jdbc.pool.JdbcInterceptor` and are compatible with Tomcat
-connection pools.
-
-###### Note
-
+**Note**  
 SQL interceptors do not record the SQL query itself within subsegments for security purposes.
 
-For Spring, add the interceptor in a properties file and build the data source with Spring
-Boot's `DataSourceBuilder`.
+For Spring, add the interceptor in a properties file and build the data source with Spring Boot's `DataSourceBuilder`.
 
-###### Example `src/main/java/resources/application.properties` - PostgreSQL JDBC interceptor
+**Example `src/main/java/resources/application.properties` - PostgreSQL JDBC interceptor**  
 
 ```
 spring.datasource.continue-on-error=true
 spring.jpa.show-sql=false
 spring.jpa.hibernate.ddl-auto=create-drop
-`spring.datasource.jdbc-interceptors=com.amazonaws.xray.sql.postgres.TracingInterceptor`
+spring.datasource.jdbc-interceptors=com.amazonaws.xray.sql.postgres.TracingInterceptor
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQL94Dialect
 ```
 
-###### Example `src/main/java/myapp/WebConfig.java` - Data source
+**Example `src/main/java/myapp/WebConfig.java` - Data source**  
 
 ```
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -69,29 +62,26 @@ public class RdsWebConfig {
   }
 ...
 }
-
 ```
 
-For Tomcat, call `setJdbcInterceptors` on the JDBC data source with a reference
-to the X-Ray SDK for Java class.
+For Tomcat, call `setJdbcInterceptors` on the JDBC data source with a reference to the X-Ray SDK for Java class.
 
-###### Example `src/main/myapp/model.java` - Data source
+**Example `src/main/myapp/model.java` - Data source**  
 
 ```
-`import org.apache.tomcat.jdbc.pool.DataSource;`
+import org.apache.tomcat.jdbc.pool.DataSource;
 ...
 DataSource source = new DataSource();
 source.setUrl(url);
 source.setUsername(user);
 source.setPassword(password);
 source.setDriverClassName("com.mysql.jdbc.Driver");
-`source.setJdbcInterceptors("com.amazonaws.xray.sql.mysql.TracingInterceptor;")`;
+source.setJdbcInterceptors("com.amazonaws.xray.sql.mysql.TracingInterceptor;");
 ```
 
-The Tomcat JDBC Data Source library is included in the X-Ray SDK for Java, but you can declare
-it as a provided dependency to document that you use it.
+The Tomcat JDBC Data Source library is included in the X-Ray SDK for Java, but you can declare it as a provided dependency to document that you use it.
 
-###### Example `pom.xml` - JDBC data source
+**Example `pom.xml` - JDBC data source**  
 
 ```
 <dependency>
@@ -103,14 +93,14 @@ it as a provided dependency to document that you use it.
 ```
 
 ## Native SQL Tracing Decorator
+<a name="xray-sdk-java-sqlclients-nativeSQL"></a>
++ Add [`aws-xray-recorder-sdk-sql`](https://github.com/aws/aws-xray-sdk-java/tree/master/aws-xray-recorder-sdk-sql) to your dependencies. 
++ Decorate your database datasource, connection, or statement. 
 
-- Add [`aws-xray-recorder-sdk-sql`](https://github.com/aws/aws-xray-sdk-java/tree/master/aws-xray-recorder-sdk-sql "https://github.com/aws/aws-xray-sdk-java/tree/master/aws-xray-recorder-sdk-sql") to your dependencies.
-- Decorate your database datasource, connection, or statement.
-
-```
-dataSource = TracingDataSource.decorate(dataSource)
-connection = TracingConnection.decorate(connection)
-statement = TracingStatement.decorateStatement(statement)
-preparedStatement = TracingStatement.decoratePreparedStatement(preparedStatement, sql)
-callableStatement = TracingStatement.decorateCallableStatement(callableStatement, sql)
-```
+  ```
+  dataSource = TracingDataSource.decorate(dataSource)
+  connection = TracingConnection.decorate(connection)
+  statement = TracingStatement.decorateStatement(statement)
+  preparedStatement = TracingStatement.decoratePreparedStatement(preparedStatement, sql)
+  callableStatement = TracingStatement.decorateCallableStatement(callableStatement, sql)
+  ```
