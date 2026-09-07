@@ -1,33 +1,30 @@
-This guide documents the classic version of the AWS Wickr administration console, released before March
-13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
+
+
+This guide documents the classic version of the AWS Wickr administration console, released before March 13, 2025. For documentation on the new AWS Wickr administration console, see [ Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Understanding Wickr log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateAdminSession` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateAdminSession` action.
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "`<principal-id>`",
-        "arn": "`<arn>`",
-        "accountId": "`<account-id>`",
-        "accessKeyId": "`<access-key-id>`",
+        "principalId": "{{<principal-id>}}",
+        "arn": "{{<arn>}}",
+        "accountId": "{{<account-id>}}",
+        "accessKeyId": "{{<access-key-id>}}",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`<principal-id>`",
-                "arn": "`<arn>`",
-                "accountId": "`<account-id>`",
-                "userName": "`<user-name>`"
+                "principalId": "{{<principal-id>}}",
+                "arn": "{{<arn>}}",
+                "accountId": "{{<account-id>}}",
+                "userName": "{{<user-name>}}"
             },
             "webIdFederationData": {},
             "attributes": {
@@ -40,7 +37,7 @@ The following example shows a CloudTrail log entry that demonstrates the
     "eventSource": "wickr.amazonaws.com",
     "eventName": "CreateAdminSession",
     "awsRegion": "us-east-1",
-    "sourceIPAddress": "`<ip-address>`",
+    "sourceIPAddress": "{{<ip-address>}}",
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
     "requestParameters": {
         "networkId": 56019692
@@ -54,30 +51,29 @@ The following example shows a CloudTrail log entry that demonstrates the
     "readOnly": false,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "`<account-id>`",
+    "recipientAccountId": "{{<account-id>}}",
     "eventCategory": "Management"
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateNetwork` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateNetwork` action.
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "`<principal-id>`",
-        "arn": "`<arn>`",
-        "accountId": "`<account-id>`",
-        "accessKeyId": "`<access-key-id>`",
+        "principalId": "{{<principal-id>}}",
+        "arn": "{{<arn>}}",
+        "accountId": "{{<account-id>}}",
+        "accessKeyId": "{{<access-key-id>}}",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`<principal-id>`",
-                "arn": "`<arn>`",
-                "accountId": "`<account-id>`",
-                "userName": "`<user-name>`"
+                "principalId": "{{<principal-id>}}",
+                "arn": "{{<arn>}}",
+                "accountId": "{{<account-id>}}",
+                "userName": "{{<user-name>}}"
             },
             "webIdFederationData": {},
             "attributes": {
@@ -90,7 +86,7 @@ The following example shows a CloudTrail log entry that demonstrates the
     "eventSource": "wickr.amazonaws.com",
     "eventName": "CreateNetwork",
     "awsRegion": "us-east-1",
-    "sourceIPAddress": "`<ip-address>`",
+    "sourceIPAddress": "{{<ip-address>}}",
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
     "requestParameters": {
         "networkName": "BOT_Network",
@@ -102,30 +98,29 @@ The following example shows a CloudTrail log entry that demonstrates the
     "readOnly": false,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "`<account-id>`",
+    "recipientAccountId": "{{<account-id>}}",
     "eventCategory": "Management"
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`ListNetworks` action.
+The following example shows a CloudTrail log entry that demonstrates the `ListNetworks` action.
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "`<principal-id>`",
-        "arn": "`<arn>`",
-        "accountId": "`<account-id>`",
-        "accessKeyId": "`<access-key-id>`",
+        "principalId": "{{<principal-id>}}",
+        "arn": "{{<arn>}}",
+        "accountId": "{{<account-id>}}",
+        "accessKeyId": "{{<access-key-id>}}",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`<principal-id>`",
-                "arn": "`<arn>`",
-                "accountId": "`<account-id>`",
-                "userName": "`<user-name>`"
+                "principalId": "{{<principal-id>}}",
+                "arn": "{{<arn>}}",
+                "accountId": "{{<account-id>}}",
+                "userName": "{{<user-name>}}"
             },
             "webIdFederationData": {},
             "attributes": {
@@ -138,7 +133,7 @@ The following example shows a CloudTrail log entry that demonstrates the
     "eventSource": "wickr.amazonaws.com",
     "eventName": "ListNetworks",
     "awsRegion": "us-east-1",
-    "sourceIPAddress": "`<ip-address>`",
+    "sourceIPAddress": "{{<ip-address>}}",
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
     "requestParameters": null,
     "responseElements": null,
@@ -147,30 +142,29 @@ The following example shows a CloudTrail log entry that demonstrates the
     "readOnly": true,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "`<account-id>`",
+    "recipientAccountId": "{{<account-id>}}",
     "eventCategory": "Management"
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`UpdateNetworkdetails` action.
+The following example shows a CloudTrail log entry that demonstrates the `UpdateNetworkdetails` action.
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "`<principal-id>`",
-        "arn": "`<arn>`",
-        "accountId": "`<account-id>`",
-        "accessKeyId": "`<access-key-id>`",
+        "principalId": "{{<principal-id>}}",
+        "arn": "{{<arn>}}",
+        "accountId": "{{<account-id>}}",
+        "accessKeyId": "{{<access-key-id>}}",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`<principal-id>`",
-                "arn": "`<arn>`",
-                "accountId": "`<account-id>`",
-                "userName": "`<user-name>`"
+                "principalId": "{{<principal-id>}}",
+                "arn": "{{<arn>}}",
+                "accountId": "{{<account-id>}}",
+                "userName": "{{<user-name>}}"
             },
             "webIdFederationData": {},
             "attributes": {
@@ -183,11 +177,11 @@ The following example shows a CloudTrail log entry that demonstrates the
     "eventSource": "wickr.amazonaws.com",
     "eventName": "UpdateNetworkDetails",
     "awsRegion": "us-east-1",
-    "sourceIPAddress": "`<ip-address>`",
+    "sourceIPAddress": "{{<ip-address>}}",
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
     "requestParameters": {
         "networkName": "CloudTrailTest1",
-        "networkId": `<network-id>`
+        "networkId": {{<network-id>}}
     },
     "responseElements": null,
     "requestID": "abced980-23c7-4de1-b3e3-56aaf0e1fdbb",
@@ -195,30 +189,29 @@ The following example shows a CloudTrail log entry that demonstrates the
     "readOnly": false,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "`<account-id>`",
+    "recipientAccountId": "{{<account-id>}}",
     "eventCategory": "Management"
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`TagResource` action.
+The following example shows a CloudTrail log entry that demonstrates the `TagResource` action.
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "`<principal-id>`",
-        "arn": "`<arn>`",
-        "accountId": "`<account-id>`",
-        "accessKeyId": "`<access-key-id>`",
+        "principalId": "{{<principal-id>}}",
+        "arn": "{{<arn>}}",
+        "accountId": "{{<account-id>}}",
+        "accessKeyId": "{{<access-key-id>}}",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`<principal-id>`",
-                "arn": "`<arn>`",
-                "accountId": "`<account-id>`",
-                "userName": "`<user-name>`"
+                "principalId": "{{<principal-id>}}",
+                "arn": "{{<arn>}}",
+                "accountId": "{{<account-id>}}",
+                "userName": "{{<user-name>}}"
             },
             "webIdFederationData": {},
             "attributes": {
@@ -231,10 +224,10 @@ The following example shows a CloudTrail log entry that demonstrates the
     "eventSource": "wickr.amazonaws.com",
     "eventName": "TagResource",
     "awsRegion": "us-east-1",
-    "sourceIPAddress": "`<ip-address>`",
+    "sourceIPAddress": "{{<ip-address>}}",
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
     "requestParameters": {
-        "resource-arn": "`<arn>`",
+        "resource-arn": "{{<arn>}}",
         "tags": {
             "some-existing-key-3": "value 1"
         }
@@ -245,30 +238,29 @@ The following example shows a CloudTrail log entry that demonstrates the
     "readOnly": false,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "`<account-id>`",
+    "recipientAccountId": "{{<account-id>}}",
     "eventCategory": "Management"
 }
 ```
 
-The following example shows a CloudTrail log entry that demonstrates the
-`ListTagsForResource` action.
+The following example shows a CloudTrail log entry that demonstrates the `ListTagsForResource` action.
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
         "type": "AssumedRole",
-        "principalId": "`<principal-id>`",
-        "arn": "`<arn>`",
-        "accountId": "`<account-id>`",
-        "accessKeyId": "`<access-key-id>`",
+        "principalId": "{{<principal-id>}}",
+        "arn": "{{<arn>}}",
+        "accountId": "{{<account-id>}}",
+        "accessKeyId": "{{<access-key-id>}}",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`<access-key-id>`",
-                "arn": "`<arn>`",
-                "accountId": "`<account-id>`",
-                "userName": "`<user-name>`"
+                "principalId": "{{<access-key-id>}}",
+                "arn": "{{<arn>}}",
+                "accountId": "{{<account-id>}}",
+                "userName": "{{<user-name>}}"
             },
             "webIdFederationData": {},
             "attributes": {
@@ -281,21 +273,21 @@ The following example shows a CloudTrail log entry that demonstrates the
     "eventSource": "wickr.amazonaws.com",
     "eventName": "ListTagsForResource",
     "awsRegion": "us-east-1",
-    "sourceIPAddress": "`<ip-address>`",
+    "sourceIPAddress": "{{<ip-address>}}",
     "userAgent": "axios/0.27.2",
     "errorCode": "AccessDenied",
     "requestParameters": {
-        "resource-arn": "`<arn>`"
+        "resource-arn": "{{<arn>}}"
     },
     "responseElements": {
-        "message": "User: `<arn>` is not authorized to perform: wickr:ListTagsForResource on resource: `<arn>` with an explicit deny"
+        "message": "User: {{<arn>}} is not authorized to perform: wickr:ListTagsForResource on resource: {{<arn>}} with an explicit deny"
     },
     "requestID": "c7488490-a987-4ca2-a686-b29d06db89ed",
     "eventID": "5699d5de-3c69-4fe8-b353-8ae62f249187",
     "readOnly": false,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "`<account-id>`",
+    "recipientAccountId": "{{<account-id>}}",
     "eventCategory": "Management"
 }
 ```
