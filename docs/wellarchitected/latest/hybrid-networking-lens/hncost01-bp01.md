@@ -1,36 +1,27 @@
+
+
 # HNCOST01-BP01 Implement a comprehensive tagging strategy for hybrid networking resources
+<a name="hncost01-bp01"></a>
 
-Apply consistent tags to all hybrid networking components to enable
-cost allocation and usage analysis. Teams gain visibility into
-resource usage patterns, improve cost attribution, and enhance
-operational governance.
+ Apply consistent tags to all hybrid networking components to enable cost allocation and usage analysis. Teams gain visibility into resource usage patterns, improve cost attribution, and enhance operational governance. 
 
-**Desired outcome:** Accurate
-attribution of hybrid networking expenses to specific workloads,
-teams, or business units.
+ **Desired outcome:** Accurate attribution of hybrid networking expenses to specific workloads, teams, or business units. 
 
-**Level of risk exposed if this best practice
-is not established:** Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
-**Benefits of establishing this best
-practice:**
-
-- Transparent cost accountability for cross-functional teams
-- Identification of underutilized resources for optimization
-- Improved forecasting through historical cost trends
-- Simplified chargeback and showback processes
+ **Benefits of establishing this best practice:** 
++  Transparent cost accountability for cross-functional teams 
++  Identification of underutilized resources for optimization 
++  Improved forecasting through historical cost trends 
++  Simplified chargeback and showback processes 
 
 ## Implementation guidance
-
-- Define standardized tags (for example, Environment, Workload,
-  and CostCenter) for hybrid networking resources.
-- Enforce tagging compliance. For example, you can achieve this
-  using AWS Service Control Policies (SCPs) or AWS Config rules.
-- Organize resources by tags. For example, you can achieve this
-  using AWS Resource Groups.
+<a name="implementation-guidance-47"></a>
++  Define standardized tags (for example, Environment, Workload, and CostCenter) for hybrid networking resources. 
++  Enforce tagging compliance. For example, you can achieve this using AWS Service Control Policies (SCPs) or AWS Config rules. 
++  Organize resources by tags. For example, you can achieve this using AWS Resource Groups. 
 
 ## Resources
-
-- [Best
-  Practices for Tagging AWS Resources](../../../whitepapers/latest/tagging-best-practices.md "../../../whitepapers/latest/tagging-best-practices.md")
-- [AWS Data Exports](../../../cur/latest/userguide/cost-alloc-tags.md "../../../cur/latest/userguide/cost-alloc-tags.md")
+<a name="resources-38"></a>
++  [Best Practices for Tagging AWS Resources](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/) 
++  [AWS Data Exports](https://docs.aws.amazon.com/cur/latest/userguide/cost-alloc-tags.html) 
