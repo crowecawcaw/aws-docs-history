@@ -1,6 +1,9 @@
-# Cloud operations and platform enablement (COPE)
 
-This cloud operations and platform enablement (COPE) model seeks to establish a _you build it, you run it_ methodology by supporting application teams to perform the engineering and operations activities for their workloads, adopting a DevOps culture.
+
+# Cloud operations and platform enablement (COPE)
+<a name="cloud-operations-and-platform-enablement"></a>
+
+This cloud operations and platform enablement (COPE) model seeks to establish a *you build it, you run it* methodology by supporting application teams to perform the engineering and operations activities for their workloads, adopting a DevOps culture.
 
 Your application teams may be tasked with migrating, adopting the cloud, or modernizing your workloads, but might not have the existing skills to adequately support cloud architecture and operations. This lack of application team capabilities and familiarity is likely to slow down your organization’s agility and impact business outcomes.
 
@@ -8,8 +11,8 @@ To address this concern, use your existing operational expertise from within you
 
 The COPE model focuses on the workload level. If this approach is needed across multiple teams at once, if you are performing a complex, large-scale, multi-year migration project, or if you are building a platform to support these initiatives, consider using a Cloud Center of Excellence (CCoE). This is a mechanism that many have found successful when seeking to accelerate their migrations to the cloud and broadly transform their organization.
 
-![Cloud Operations and Platform Enablement (COPE) diagram](images/cope.en.png)
-_Cloud Operations and Platform Enablement (COPE)_
+![Cloud Operations and Platform Enablement (COPE) diagram](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/cope.en.png)
+
 
 Your platform engineering team builds a thin layer of core shared platform capabilities, which are based on predefined standards for application teams to adopt and are provided by the COPE team. The platform engineering team codifies the enterprise reference architectures and patterns that are provided to the application teams through a self-service mechanism. Using a service such as AWS Service Catalog, the application teams can deploy approved reference architectures, patterns, services, and configurations, compliant by default with the centralized governance and security standards.
 

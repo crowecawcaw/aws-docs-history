@@ -1,13 +1,16 @@
-# DevOps with cloud-managed service provider
 
-The DevOps with cloud-managed service provider model follows a _you build it, you run it_ methodology for application teams. However, your organization may not have the existing skills or team members to support a dedicated platform engineering and operations team, or you may not be in a position to make the time and effort investments to do so.
+
+# DevOps with cloud-managed service provider
+<a name="devops-with-cloud-managed-service-provider"></a>
+
+The DevOps with cloud-managed service provider model follows a *you build it, you run it* methodology for application teams. However, your organization may not have the existing skills or team members to support a dedicated platform engineering and operations team, or you may not be in a position to make the time and effort investments to do so.
 
 Alternatively, you may wish to have a platform team that is focused on creating capabilities that differentiate your business, but you want to outsource the undifferentiated day-to-day operations.
 
-Managed services providers such as [AWS Managed Services](http://aws.amazon.com/managed-services/ "http://aws.amazon.com/managed-services/") or providers in the [AWS Partner Network](http://aws.amazon.com/partners/find/results/?keyword=Managed+Service+Provider "http://aws.amazon.com/partners/find/results/?keyword=Managed+Service+Provider") provide expertise implementing cloud environments, and support your security and compliance requirements and business goals.
+Managed services providers such as [AWS Managed Services](http://aws.amazon.com/managed-services/) or providers in the [AWS Partner Network](http://aws.amazon.com/partners/find/results/?keyword=Managed+Service+Provider) provide expertise implementing cloud environments, and support your security and compliance requirements and business goals.
 
-![DevOps with cloud managed service provider](images/devops-msp.en.png)
-_DevOps with cloud managed service provider_
+![DevOps with cloud managed service provider](http://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/images/devops-msp.en.png)
+
 
 For this variation, we treat governance as centralized and managed by the platform team, with account creation and policies managed with AWS Organizations and AWS Control Tower.
 
