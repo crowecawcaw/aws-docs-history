@@ -1,7 +1,9 @@
+
+
 # Best practices
+<a name="best-practices"></a>
 
-###### Topics
-
-- [Prepare](oe-prepare.md "oe-prepare.md")
-- [Operate](operate.md "operate.md")
-- [Evolve](oe-evolve.md "oe-evolve.md")
+**Topics**
++ [Prepare](oe-prepare.md)
++ [Operate](operate.md)
++ [Evolve](oe-evolve.md)

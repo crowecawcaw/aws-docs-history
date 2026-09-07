@@ -1,42 +1,28 @@
+
+
 # Hardware patterns
+<a name="hardware-patterns"></a>
 
-| SaaS SUS 2: How do you maximize the value from the resources that the SaaS<br>environment consumes? |
-| --------------------------------------------------------------------------------------------------- |
-|                                                                                                     |
 
-SaaS, by its nature, tries to promote the sharing of infrastructure across tenants to maximize
-efficiency and economies of scale. SaaS providers should continually evaluate their opportunities
-to maximize infrastructure sharing to promote reduced energy consumption. SaaS providers should
-have an iterative improvement process that allows them to identify opportunities to limit
-excess resource consumption.
+| SaaS SUS 2: How do you maximize the value from the resources that the SaaS environment consumes? | 
+| --- | 
+|   | 
 
-- **Best Practice–01:** Use managed services to shift the
-  responsibility for maintaining optimal utilization of the deployed hardware to AWS.
-- **Best Practice–02:** Right-size compute resources based on
-  your architecture and iteratively optimize by tracking utilization, and use auto-scaling
-  to handle peak system load.
-- **Best Practice–03:** Use serverless computing and other
-  managed services to automatically scale resources as needed, eliminates tasks for
-  infrastructure provisioning and management, and resources utilization is optimized.
-  **AWS services recommendation:**
+SaaS, by its nature, tries to promote the sharing of infrastructure across tenants to maximize efficiency and economies of scale. SaaS providers should continually evaluate their opportunities to maximize infrastructure sharing to promote reduced energy consumption. SaaS providers should have an iterative improvement process that allows them to identify opportunities to limit excess resource consumption.
++  **Best Practice–01:** Use managed services to shift the responsibility for maintaining optimal utilization of the deployed hardware to AWS. 
++  **Best Practice–02:** Right-size compute resources based on your architecture and iteratively optimize by tracking utilization, and use auto-scaling to handle peak system load. 
++  **Best Practice–03:** Use serverless computing and other managed services to automatically scale resources as needed, eliminates tasks for infrastructure provisioning and management, and resources utilization is optimized.  
 
-- [AWS Compute Optimizer](../../../compute-optimizer/index.md "../../../compute-optimizer/index.md") analyzes
-  the configuration and utilization metrics of your AWS resources. It reports whether
-  your resources are optimal, and generates optimization recommendations.
-- [Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") provide data about the performance of your system, for
-  example, CPU utilization.
-- [Auto Scaling](../../../autoscaling/index.md "../../../autoscaling/index.md")—AWS
-  provides multiple services that you can use to scale your application.
-- Examples of AWS managed services:
-
-  - [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/")
-  - [AWS Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/")
-  - [Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/")
-  - [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](https://aws.amazon.com/msk/ "https://aws.amazon.com/msk/")
-  - [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/")
-  - [Amazon Elastic Kubernetes Service (Amazon EKS)](https://aws.amazon.com/eks/ "https://aws.amazon.com/eks/")
-
-- [Lab—Rightsizing Recommendations](https://wellarchitectedlabs.com/cost/100_labs/100_aws_resource_optimization/ "https://wellarchitectedlabs.com/cost/100_labs/100_aws_resource_optimization/")
-- [Serverless on AWS](https://aws.amazon.com/serverless/ "https://aws.amazon.com/serverless/") helps you build
-  and run applications without thinking about servers, capacity sizing and provisioning,
-  and maintenance.
+** AWS services recommendation:**
++  [AWS Compute Optimizer](https://docs.aws.amazon.com/compute-optimizer/index.html) analyzes the configuration and utilization metrics of your AWS resources. It reports whether your resources are optimal, and generates optimization recommendations. 
++  [Amazon CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html) provide data about the performance of your system, for example, CPU utilization. 
++  [Auto Scaling](https://docs.aws.amazon.com/autoscaling/index.html)—AWS provides multiple services that you can use to scale your application. 
++  Examples of AWS managed services: 
+  +  [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/) 
+  +  [AWS Fargate](https://aws.amazon.com/fargate/) 
+  +  [Amazon Redshift](https://aws.amazon.com/redshift/) 
+  +  [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](https://aws.amazon.com/msk/) 
+  +  [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) 
+  +  [Amazon Elastic Kubernetes Service (Amazon EKS)](https://aws.amazon.com/eks/) 
++  [Lab—Rightsizing Recommendations](https://wellarchitectedlabs.com/cost/100_labs/100_aws_resource_optimization/) 
++  [Serverless on AWS](https://aws.amazon.com/serverless/) helps you build and run applications without thinking about servers, capacity sizing and provisioning, and maintenance. 
