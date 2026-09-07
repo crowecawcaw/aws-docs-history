@@ -1,39 +1,29 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](../adminguide/workmail-end-of-support.md "../adminguide/workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Setting up macOS apps for Amazon WorkMail
+<a name="connect_mac_mail"></a>
 
-###### Note
-
+**Note**  
 Make sure AutoDiscover is configured before you setup the macOS apps.
 
-Amazon WorkMail uses AutoDiscover to configure the macOS apps. For information, see [Enabling
-AutoDiscover](../adminguide/autodiscover.md "../adminguide/autodiscover.md") in the _Amazon WorkMail Administrator Guide_.
+Amazon WorkMail uses AutoDiscover to configure the macOS apps. For information, see [Enabling AutoDiscover](https://docs.aws.amazon.com/workmail/latest/adminguide/autodiscover.html) in the *Amazon WorkMail Administrator Guide*. 
 
-If you use macOS, you can add your Amazon WorkMail account to use with macOS apps such as
-Mail, Calendar, Contacts, Reminders, and Notes.
+If you use macOS, you can add your Amazon WorkMail account to use with macOS apps such as Mail, Calendar, Contacts, Reminders, and Notes.
 
-###### To connect your Amazon WorkMail account to your macOS app
+**To connect your Amazon WorkMail account to your macOS app**
 
 1. Open **System Preferences**.
-2. Choose **Internet Accounts**.
-3. Choose **Microsoft Exchange**.
-4. Do one of the following:
 
-   - **If using macOS Mojave or later**
-     – Enter your full name and email address, choose **Sign
-     In**, and then choose **Configure
-     Manually** or **Sign In**. Enter your
-     password and choose **Sign In**.
-   - **If using macOS High Sierra or earlier**
-     – Enter your full name, email address, and password, and then
-     choose **Continue**.
+1. Choose **Internet Accounts**.
 
-###### Note
+1. Choose **Microsoft Exchange**.
 
-If you need to provide an endpoint, see [Amazon WorkMail endpoints and quotas](../../../general/latest/gr/workmail.md "../../../general/latest/gr/workmail.md")
-for a current list.
-The information you provide in step 4 is used to set up your email account
-automatically. After that, you can select which macOS apps to use with Amazon WorkMail.
+1. Do one of the following:
+   + **If using macOS Mojave or later** – Enter your full name and email address, choose **Sign In**, and then choose **Configure Manually** or **Sign In**. Enter your password and choose **Sign In**.
+   + **If using macOS High Sierra or earlier** – Enter your full name, email address, and password, and then choose **Continue**.
+**Note**  
+If you need to provide an endpoint, see [Amazon WorkMail endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/workmail.html) for a current list.
+
+The information you provide in step 4 is used to set up your email account automatically. After that, you can select which macOS apps to use with Amazon WorkMail.

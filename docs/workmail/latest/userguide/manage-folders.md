@@ -1,118 +1,106 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](../adminguide/workmail-end-of-support.md "../adminguide/workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Managing folders
+<a name="manage-folders"></a>
 
-You can organize and manage your folders by creating new folders or copying, moving,
-renaming, or deleting existing ones. You can also mark all the items in a folder as read or
-unread, empty your Deleted Items folder, and view the size of a folder to see how much
-storage space it takes up.
+You can organize and manage your folders by creating new folders or copying, moving, renaming, or deleting existing ones. You can also mark all the items in a folder as read or unread, empty your Deleted Items folder, and view the size of a folder to see how much storage space it takes up.
 
-###### Topics
-
-- [Creating folders](#create_folder "#create_folder")
-- [Copying, moving, or renaming folders](#copy_move_rename_folder "#copy_move_rename_folder")
-- [Deleting folders](#delete_folder "#delete_folder")
-- [Emptying the Deleted Items folder](#empty_deleted_items "#empty_deleted_items")
-- [Marking items as read or unread](#mark_items_read_unread "#mark_items_read_unread")
-- [Viewing folder size](#view_folder_size "#view_folder_size")
+**Topics**
++ [Creating folders](#create_folder)
++ [Copying, moving, or renaming folders](#copy_move_rename_folder)
++ [Deleting folders](#delete_folder)
++ [Emptying the Deleted Items folder](#empty_deleted_items)
++ [Marking items as read or unread](#mark_items_read_unread)
++ [Viewing folder size](#view_folder_size)
 
 ## Creating folders
+<a name="create_folder"></a>
 
 Create folders to organize your email, contacts, and calendar items.
 
-###### To create a folder
+**To create a folder**
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail
-   icon.
-2. On the task bar, choose **+ New item**, **New
-   folder**.
-3. In the **Create New Folder** dialog box, for
-   **Name**, enter the name of the new folder.
-4. For **Folder contains**, select the type of contents for the
-   folder to contain.
-5. For **Select where to place the folder**, select the target
-   location and choose **OK**.
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail icon.
+
+1. On the task bar, choose **\+ New item**, **New folder**.
+
+1. In the **Create New Folder** dialog box, for **Name**, enter the name of the new folder.
+
+1. For **Folder contains**, select the type of contents for the folder to contain.
+
+1. For **Select where to place the folder**, select the target location and choose **OK**.
 
 ## Copying, moving, or renaming folders
+<a name="copy_move_rename_folder"></a>
 
 You can copy, move, and rename folders.
 
-###### To copy or move a folder
+**To copy or move a folder**
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail
-   icon.
-2. In the navigation pane, right-click the folder, choose
-   **Copy/move**, select the target folder, and then choose
-   **Copy** or **Move**.
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail icon.
 
-###### To rename a folder
+1. In the navigation pane, right-click the folder, choose **Copy/move**, select the target folder, and then choose **Copy** or **Move**.
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail
-   icon.
-2. In the navigation pane, open the context (right-click) menu for the folder,
-   and choose **Rename**.
-3. Enter a new name for the folder.
+**To rename a folder**
+
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail icon.
+
+1. In the navigation pane, open the context (right-click) menu for the folder, and choose **Rename**.
+
+1. Enter a new name for the folder.
 
 ## Deleting folders
+<a name="delete_folder"></a>
 
-You can delete a folder that you no longer need. Deleting a folder also deletes any
-items in the folder.
+You can delete a folder that you no longer need. Deleting a folder also deletes any items in the folder.
 
-###### To delete a folder
+**To delete a folder**
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail
-   icon.
-2. In the navigation pane, open the context (right-click) menu for the folder,
-   and choose **Delete**.
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail icon.
+
+1. In the navigation pane, open the context (right-click) menu for the folder, and choose **Delete**.
 
 ## Emptying the Deleted Items folder
+<a name="empty_deleted_items"></a>
 
-If your inbox is full and you're out of space, you can empty the Deleted Items folder
-to free up space. When you empty the Deleted Items folder, you cannot recover or
-undelete those items.
+If your inbox is full and you're out of space, you can empty the Deleted Items folder to free up space. When you empty the Deleted Items folder, you cannot recover or undelete those items.
 
-###### To empty the Deleted Items folder
+**To empty the Deleted Items folder**
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail
-   icon.
-2. In the navigation pane, open the context (right-click) menu for the
-   **Deleted Items** folder, and choose **Empty
-   folder**.
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail icon.
+
+1. In the navigation pane, open the context (right-click) menu for the **Deleted Items** folder, and choose **Empty folder**.
 
 ## Marking items as read or unread
+<a name="mark_items_read_unread"></a>
 
 You can mark all items in a folder as read or unread.
 
-###### To mark all items in a folder as read
+**To mark all items in a folder as read**
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail
-   icon.
-2. In the navigation pane, open the context (right-click) menu for the folder,
-   and choose **Mark all read**.
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail icon.
 
-###### To mark all items in a folder as unread
+1. In the navigation pane, open the context (right-click) menu for the folder, and choose **Mark all read**.
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail
-   icon.
-2. In the navigation pane, select the folder.
-3. In the contents pane, select all items in the folder, open the context
-   (right-click), and then choose **Mark Unread**.
+**To mark all items in a folder as unread**
+
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail icon.
+
+1. In the navigation pane, select the folder.
+
+1. In the contents pane, select all items in the folder, open the context (right-click), and then choose **Mark Unread**.
 
 ## Viewing folder size
+<a name="view_folder_size"></a>
 
 You can view a folder's size to see how much storage space it takes up.
 
-###### To view the size of a folder
+**To view the size of a folder**
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail
-   icon.
-2. In the navigation pane, open the context (right-click) menu for a mail folder,
-   and choose **Properties**.
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the mail icon.
 
-###### Tip
-
-To see more details about the storage size, including the storage sizes of
-any subfolders, choose **Details**.
+1. In the navigation pane, open the context (right-click) menu for a mail folder, and choose **Properties**.
+**Tip**  
+To see more details about the storage size, including the storage sizes of any subfolders, choose **Details**.

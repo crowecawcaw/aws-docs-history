@@ -1,73 +1,68 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](../adminguide/workmail-end-of-support.md "../adminguide/workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Sharing calendars
+<a name="share-calendars"></a>
 
-You can share your calendar with other users, and view calendars that have been shared
-with you.
+You can share your calendar with other users, and view calendars that have been shared with you.
 
-###### Note
-
+**Note**  
 If you share a calendar with a user that has **Read** permissions, that user can view everything in the calendar, potentially including items marked **Private**.
 
-###### Topics
-
-- [Sharing calendars with other users](#share_your_calendar "#share_your_calendar")
-- [Opening shared calendars](#share_calendar "#share_calendar")
+**Topics**
++ [Sharing calendars with other users](#share_your_calendar)
++ [Opening shared calendars](#share_calendar)
 
 ## Sharing calendars with other users
+<a name="share_your_calendar"></a>
 
 You can give another user permission to view your calendar within the WorkMail organization. You cannot share calendars externally.
 
-###### Note
+**Note**  
+You will need to grant *full details* read permissions to open a shared calendar. *Free or busy* read permissions will only show the availability.
 
-You will need to grant _full details_ read permissions to open a shared calendar. _Free or busy_ read permissions will only show the availability.
-
-###### To share your calendar with another user
+**To share your calendar with another user**
 
 1. Sign in to the Amazon WorkMail web application.
-2. In the navigation pane, choose the calendar icon.
-3. Under **My calendars**, open the context (right-click) menu for a calendar.
-4. Choose **Properties**.
-5. Choose **Permissions**.
-6. For **People with permissions**, choose **Add**.
-7. Search for and select the users to share your calendar with.
-8. Choose **Ok**, and then choose **Ok**
-   again.
+
+1. In the navigation pane, choose the calendar icon.
+
+1. Under **My calendars**, open the context (right-click) menu for a calendar.
+
+1. Choose **Properties**.
+
+1. Choose **Permissions**.
+
+1. For **People with permissions**, choose **Add**.
+
+1. Search for and select the users to share your calendar with.
+
+1. Choose **Ok**, and then choose **Ok** again.
 
 ## Opening shared calendars
+<a name="share_calendar"></a>
 
 You can set permissions on your calendar and share it with other users.
 
-###### To open a shared calendar
+**To open a shared calendar**
 
-1. In the Amazon WorkMail web application, on the shortcut bar, choose the calendar
-   icon.
-2. At the bottom of the navigation pane, choose **Open other
-   calendars**.
-3. In the **Open other folders** dialog box, choose
-   **Name**.
-4. In the address book, select the owner of the calendar to open and choose
-   **OK**.
-5. For **Folder type**, choose
-   **Calendar**.
-6. To show the subfolders of the shared calendar, choose **Show
-   subfolders**.
-7. Choose **OK**.
+1. In the Amazon WorkMail web application, on the shortcut bar, choose the calendar icon.
 
-The shared calendar is now visible in the folder navigation pane.
+1. At the bottom of the navigation pane, choose **Open other calendars**.
 
-###### Note
+1. In the **Open other folders** dialog box, choose **Name**.
 
-Your opened folders are stored in your Amazon WorkMail web application profile.
-The next time you log in to the Amazon WorkMail web application, the opened folders
-are still displayed.
+1. In the address book, select the owner of the calendar to open and choose **OK**.
 
-If you receive a message saying `You have insufficient privileges to
- open this folder`, contact the owner of the folder and ask them to grant you access.
+1. For **Folder type**, choose **Calendar**.
 
-To change folder permissions, in the navigation pane, open the context
-(right-click) menu for the folder and choose
-**Properties**, **Permissions**.
+1. To show the subfolders of the shared calendar, choose **Show subfolders**.
+
+1. Choose **OK**.
+
+   The shared calendar is now visible in the folder navigation pane.
+**Note**  
+Your opened folders are stored in your Amazon WorkMail web application profile. The next time you log in to the Amazon WorkMail web application, the opened folders are still displayed.  
+If you receive a message saying `You have insufficient privileges to open this folder`, contact the owner of the folder and ask them to grant you access.  
+To change folder permissions, in the navigation pane, open the context (right-click) menu for the folder and choose **Properties**, **Permissions**.
