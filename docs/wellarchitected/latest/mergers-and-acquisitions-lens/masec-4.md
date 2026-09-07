@@ -1,23 +1,26 @@
-# MASEC 4: How can a company (buyer) gain confidence in compliance and regulatory needs?
 
-Data governance establishes the processes and responsibilities
-that ensure the quality, consistency, and security of the data
-used across organizations. In case of compliance requirements due
-to personal identifiable information (PII) data, the buyer needs
-to verify that the integrated workloads meet these requirements.
+
+# MASEC 4: How can a company (buyer) gain confidence in compliance and regulatory needs?
+<a name="masec-4"></a>
+
+ Data governance establishes the processes and responsibilities that ensure the quality, consistency, and security of the data used across organizations. In case of compliance requirements due to personal identifiable information (PII) data, the buyer needs to verify that the integrated workloads meet these requirements. 
 
 ## MASEC04-BP01 The seller is using AWS services (marketplace) for data governance
+<a name="masec04-bp01"></a>
 
-Data governance is a framework to build data quality checks, identify lineage (relation) between target and source datasets, and build a data catalog over existing data in data lakes and enterprise data warehouses.
+ Data governance is a framework to build data quality checks, identify lineage (relation) between target and source datasets, and build a data catalog over existing data in data lakes and enterprise data warehouses. 
 
 ## MASEC04-BP02 Document consistent mechanisms for data classification
+<a name="masec04-bp02"></a>
 
-Ensure organizations are using AWS-supported partner solutions.
+ Ensure organizations are using AWS-supported partner solutions. 
 
 ## MASEC04-BP03 Document processes to maintain data integrity within AWS services
+<a name="masec04-bp03"></a>
 
-Regulatory requirements to maintain the integrity of data are typically implemented as part of a validated application. However, by implementing controls at the AWS service-level, you can facilitate data integrity even for actions performed outside the validated application.
+ Regulatory requirements to maintain the integrity of data are typically implemented as part of a validated application. However, by implementing controls at the AWS service-level, you can facilitate data integrity even for actions performed outside the validated application. 
 
 ## MASEC04-BP04 Understand both the buyer's and seller's compliance needs
+<a name="masec04-bp04"></a>
 
-AWS supports inheritance of many security standards and compliance certifications, including PCI-DSS, HIPAA/HITECH, FedRAMP, GDPR, FIPS 140-2, and NIST 800-171, which helps you satisfy necessary compliance requirements.
+ AWS supports inheritance of many security standards and compliance certifications, including PCI-DSS, HIPAA/HITECH, FedRAMP, GDPR, FIPS 140-2, and NIST 800-171, which helps you satisfy necessary compliance requirements. 

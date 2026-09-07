@@ -1,33 +1,36 @@
-# MACOST 1: How is cost optimization progressing with AWS hosting for both companies?
 
-Carelessness or lack of oversight can cut into company
-profitability and growth. Reducing costs can likely be
-achieved and savings can be reinvested to improve the growth
-of a company. Establish policies and procedures to monitor and
-appropriately allocate your costs. This allows you to measure
-and improve the cost efficiency of workloads. Perform pricing
-model analysis for combined entity feature in AWS Cost Explorer.
+
+# MACOST 1: How is cost optimization progressing with AWS hosting for both companies?
+<a name="macost-1"></a>
+
+ Carelessness or lack of oversight can cut into company profitability and growth. Reducing costs can likely be achieved and savings can be reinvested to improve the growth of a company. Establish policies and procedures to monitor and appropriately allocate your costs. This allows you to measure and improve the cost efficiency of workloads. Perform pricing model analysis for combined entity feature in AWS Cost Explorer. 
 
 ## MACOST01-BP01 Perform pricing model analysis for the combined entities
+<a name="macost01-bp01"></a>
 
-Analyze each component of the workload. Determine if the component and resources should be running for extended periods (for commitment discounts) or dynamic and short-running (for Spot or On-Demand Instances). Perform an analysis on the workload using the recommendations feature in AWS Cost Explorer.
+ Analyze each component of the workload. Determine if the component and resources should be running for extended periods (for commitment discounts) or dynamic and short-running (for Spot or On-Demand Instances). Perform an analysis on the workload using the recommendations feature in AWS Cost Explorer. 
 
 ## MACOST01-BP02 Optimize accounts through various means, such as EC2 instance types, Savings Plans, and Amazon S3 lifecycle
+<a name="macost01-bp02"></a>
 
-Use AWS Trusted Advisor to examine current cost savings and possible additional savings.
+ Use AWS Trusted Advisor to examine current cost savings and possible additional savings. 
 
 ## MACOST01-BP03 Discover and realize additional cost savings
+<a name="macost01-bp03"></a>
 
-Explore means for additional cost savings, and use AWS Cost Explorer to evaluate costs. Choose an optimized savings plan for the combined entity, and work with AWS teams to use Reserve Instances or Savings Plans across companies if possible.
+ Explore means for additional cost savings, and use AWS Cost Explorer to evaluate costs. Choose an optimized savings plan for the combined entity, and work with AWS teams to use Reserve Instances or Savings Plans across companies if possible. 
 
 ## MACOST01-BP04 Migrate to Regions based on cost
+<a name="macost01-bp04"></a>
 
-Resource pricing can be different in each Region. Factoring in Region cost verifies that you are paying the lowest overall price for a workload.
+ Resource pricing can be different in each Region. Factoring in Region cost verifies that you are paying the lowest overall price for a workload. 
 
 ## MACOST01-BP05 Use managed services for lower TCO
+<a name="macost01-bp05"></a>
 
-Understand how proper use of managed services can lower TCO.
+ Understand how proper use of managed services can lower TCO. 
 
 ## MACOST01-BP06 Select third-party agreements with cost efficient terms
+<a name="macost01-bp06"></a>
 
-Cost-efficient agreements and terms scale the cost of these services with the benefits they provide. Select agreements and pricing that scale when they provide additional benefits to your organization.
+ Cost-efficient agreements and terms scale the cost of these services with the benefits they provide. Select agreements and pricing that scale when they provide additional benefits to your organization. 
