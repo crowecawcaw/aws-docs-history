@@ -1,56 +1,32 @@
+
+
 # LSPERF04-BP01 Performance consistency through clinical trial lifetime
+<a name="lsperf04-bp01"></a>
 
-Design architectures with long-term performance stability as a
-foundational principle, improving the consistency of system behavior
-across the multi-year or multi-decade lifespan of clinical trials.
-Implement forward-compatible data models, establish performance
-baselines with comprehensive monitoring, and create governance
-processes for managing technology transitions without disrupting
-ongoing studies or compromising data integrity.
+ Design architectures with long-term performance stability as a foundational principle, improving the consistency of system behavior across the multi-year or multi-decade lifespan of clinical trials. Implement forward-compatible data models, establish performance baselines with comprehensive monitoring, and create governance processes for managing technology transitions without disrupting ongoing studies or compromising data integrity. 
 
-**Desired outcome:** Establish an
-enduring architectural framework that maintains consistent
-performance and data integrity across multi-year or multi-decade
-clinical trial lifecycles.
+ **Desired outcome:** Establish an enduring architectural framework that maintains consistent performance and data integrity across multi-year or multi-decade clinical trial lifecycles. 
 
-**Level of risk exposed if this best practice
-is not established:** High
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-For long-term clinical trials, design your architectures with a
-focus on maintaining consistent performance throughout extended
-timeframes. Begin by implementing comprehensive data lifecycle
-policies that strategically balance storage costs with query
-performance requirements. As data ages, consider transitioning it
-through storage tiers—from high-performance storage for active
-analysis to more cost-effective archival solutions for data that
-requires less frequent access but must remain retrievable for
-auditing purposes.
+ For long-term clinical trials, design your architectures with a focus on maintaining consistent performance throughout extended timeframes. Begin by implementing comprehensive data lifecycle policies that strategically balance storage costs with query performance requirements. As data ages, consider transitioning it through storage tiers—from high-performance storage for active analysis to more cost-effective archival solutions for data that requires less frequent access but must remain retrievable for auditing purposes. 
 
-Deploy infrastructure components using versioned infrastructure as
-code (IaC) templates. This approach keeps your environments
-reproducible even years later when regulatory audits may require
-you to demonstrate the exact computational conditions under which
-analyses were performed. Document dependencies thoroughly,
-including specific library versions, container images, and
-configuration parameters. Consider creating immutable snapshots of
-complete environments at critical milestones.
+ Deploy infrastructure components using versioned infrastructure as code (IaC) templates. This approach keeps your environments reproducible even years later when regulatory audits may require you to demonstrate the exact computational conditions under which analyses were performed. Document dependencies thoroughly, including specific library versions, container images, and configuration parameters. Consider creating immutable snapshots of complete environments at critical milestones. 
 
-Implement automated testing frameworks that can validate the
-consistency of results across environment recreations. This
-verifies that your infrastructure remains capable of reproducing
-the same analytical outcomes over time, which is essential for
-scientific validity and regulatory adherence. Additionally,
-establish clear governance processes for managing changes to the
-environment, which assists you in properly tracking, approving,
-and validating modifications against baseline performance metrics.
+ Implement automated testing frameworks that can validate the consistency of results across environment recreations. This verifies that your infrastructure remains capable of reproducing the same analytical outcomes over time, which is essential for scientific validity and regulatory adherence. Additionally, establish clear governance processes for managing changes to the environment, which assists you in properly tracking, approving, and validating modifications against baseline performance metrics. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. Deploy AWS CloudFormation templates for reproducible trials.
-2. Store clinical data in Amazon S3 with intelligent tiering.
-3. Monitor performance with Amazon CloudWatch custom
-   dashboards.
-4. Implement AWS Config rules for governance audits.
-5. Document system changes in AWS Systems Manager.
+1.  Deploy AWS CloudFormation templates for reproducible trials. 
+
+1.  Store clinical data in Amazon S3 with intelligent tiering. 
+
+1.  Monitor performance with Amazon CloudWatch custom dashboards. 
+
+1.  Implement AWS Config rules for governance audits. 
+
+1.  Document system changes in AWS Systems Manager. 

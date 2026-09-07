@@ -1,36 +1,31 @@
+
+
 # LSOPS12-BP01 Create a controlled semantic layer
+<a name="lsops12-bp01"></a>
 
-A semantic layer translates complex life sciences data into
-understandable business terms, acting as a bridge between raw data
-and the scientists who need to use it.
+ A semantic layer translates complex life sciences data into understandable business terms, acting as a bridge between raw data and the scientists who need to use it. 
 
-**Desired outcome:** Have a
-consistent, well managed semantic layer to allow the data to be
-consumed by analysts
+ **Desired outcome:** Have a consistent, well managed semantic layer to allow the data to be consumed by analysts 
 
-**Benefits of establishing this best
-practice:** Provides consistency of result definition.
-Allows for more straightforward communication with auditors.
+ **Benefits of establishing this best practice:** Provides consistency of result definition. Allows for more straightforward communication with auditors. 
 
-**Level of risk exposed if this best practice
-is not established:** High
+ **Level of risk exposed if this best practice is not established:** High 
 
 ## Implementation guidance
+<a name="implementation-guidance"></a>
 
-Use a tool to centralize and implement semantic layer management.
+ Use a tool to centralize and implement semantic layer management. 
 
 ### Implementation steps
+<a name="implementation-steps"></a>
 
-1. Create an Amazon DataZone or Amazon Sagemaker Unified Studio
-   domain.
-2. Use tools to build and manage the semantic layer. Maintain
-   controlled terminology, business glossaries, and metadata
-   while verifying that you adhere to regulatory requirements.
+1.  Create an Amazon DataZone or Amazon Sagemaker Unified Studio domain. 
+
+1.  Use tools to build and manage the semantic layer. Maintain controlled terminology, business glossaries, and metadata while verifying that you adhere to regulatory requirements. 
 
 ## Resources
+<a name="resources"></a>
 
-**Related tools:**
-
-- [Amazon
-  DataZone](https://aws.amazon.com/datazone/ "https://aws.amazon.com/datazone/")
-- [Amazon SageMaker AI Unified Studio](https://aws.amazon.com/sagemaker/unified-studio/ "https://aws.amazon.com/sagemaker/unified-studio/")
+ **Related tools:** 
++  [Amazon DataZone](https://aws.amazon.com/datazone/) 
++  [Amazon SageMaker AI Unified Studio](https://aws.amazon.com/sagemaker/unified-studio/) 
