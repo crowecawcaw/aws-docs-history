@@ -1,82 +1,75 @@
+
+
 # Mobilize
+<a name="mobilize-perf"></a>
 
-During the mobilize phase of your migration, you need to evaluate
-the different components that make up the building blocks of your
-migrated workloads and make trade-offs to select the performance
-that fits your business requirements. To do this, you need to set
-up the right metrics for performance monitoring, evaluate the
-different options to build your architecture, and benchmark the
-migrated workload against the on-premises workload to measure the
-different components' performance and adjust if needed.
+ During the mobilize phase of your migration, you need to evaluate the different components that make up the building blocks of your migrated workloads and make trade-offs to select the performance that fits your business requirements. To do this, you need to set up the right metrics for performance monitoring, evaluate the different options to build your architecture, and benchmark the migrated workload against the on-premises workload to measure the different components' performance and adjust if needed. 
 
-| MIG-PERF-07: How do you verify that the shared services used for migration during the mobilize phase are performing efficiently? |
-| -------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                  |
 
-The mobilize phase lays the foundation for tools, process, and
-culture that accelerate your migration at scale. The account
-planning, Architecture selection, monitoring, and observability
-setup in the mobilize phase are building blocks for any future
-migrations done. Some of the shared services we set up and
-validate in the mobilize phase are landing zones, AWS Transit Gateway, and Amazon VPC Lattice.
+| MIG-PERF-07: How do you verify that the shared services used for migration during the mobilize phase are performing efficiently? | 
+| --- | 
+|   | 
+
+ The mobilize phase lays the foundation for tools, process, and culture that accelerate your migration at scale. The account planning, Architecture selection, monitoring, and observability setup in the mobilize phase are building blocks for any future migrations done. Some of the shared services we set up and validate in the mobilize phase are landing zones, AWS Transit Gateway, and Amazon VPC Lattice. 
 
 ## MIG-PERF-BP-7.1: Identify the right CloudWatch metrics to capture or detect anomaly and identify performance blockers for shared services
+<a name="mig-perf-bp-7.1-identify-the-right-cloudwatch-metrics-to-capture-or-detect-anomaly-and-identify-performance-blockers-for-shared-services"></a>
 
-This BP applies to the following best practice areas:
-Architecture selection
+ This BP applies to the following best practice areas: Architecture selection 
 
 ### Implementation guidance
+<a name="implementation-guidance-65"></a>
 
 **Suggestion 7.1.1:** Identify the right metrics and detect anomalies.
 
-During cloud migration, it's essential to monitor AWS resource performance effectively. [CloudWatch Metrics Insights](../../../AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.md "../../../AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.md") helps by providing a SQL query engine to analyze performance metrics in real-time, aiding in the detection of trends and patterns during the migration process. For more focused monitoring, [CloudWatch anomaly detection](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md") can be enabled for critical metrics, using machine learning to forecast normal behavior and alert on anomalies. Additionally, [metrics explorer](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Metrics-Explorer.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Metrics-Explorer.md") is a tag-based tool that allows for the organization and visualization of metrics by tags and resource properties, which is particularly useful for maintaining oversight during and after resource migration.
+During cloud migration, it's essential to monitor AWS resource performance effectively. [CloudWatch Metrics Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/query_with_cloudwatch-metrics-insights.html) helps by providing a SQL query engine to analyze performance metrics in real-time, aiding in the detection of trends and patterns during the migration process. For more focused monitoring, [CloudWatch anomaly detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html) can be enabled for critical metrics, using machine learning to forecast normal behavior and alert on anomalies. Additionally, [metrics explorer](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metrics-Explorer.html) is a tag-based tool that allows for the organization and visualization of metrics by tags and resource properties, which is particularly useful for maintaining oversight during and after resource migration.
 
 ## MIG-PERF-BP-7.2: Select the best performing cloud infrastructure that can scale for additional workloads in future without any performance impact
+<a name="mig-perf-bp-7.2-select-the-best-performing-cloud-infrastructure"></a>
 
-This BP applies to the following best practice areas:
-Architecture selection
+ This BP applies to the following best practice areas: Architecture selection 
 
 ### Implementation guidance
+<a name="implementation-guidance-66"></a>
 
 **Suggestion 7.2.1:** Select the best performing architecture from storage, database, compute, and network perspective.
 
 During the mobilize phase, you are essentially laying the groundwork for your first wave of migration and any future migrations. In this phase, you define and implement an AWS landing zone, and other AWS security and network services that can scale as you migrate additional applications. There are multiple approaches and considerations when selecting the best performing architecture, like factoring cost requirements into decisions, or selecting the best compute, or storage, or database, or network architecture. The best performing architecture in your case would be what best fit your requirements.
 
-For more detail, see the following:
-
-- [Architecture
-  selection - Performance Efficiency Pillar](../performance-efficiency-pillar/architecture-selection.md "../performance-efficiency-pillar/architecture-selection.md")
-- [Compute
-  and hardware - Performance Efficiency Pillar](../performance-efficiency-pillar/compute-and-hardware.md "../performance-efficiency-pillar/compute-and-hardware.md")
-- [Data
-  management - Performance Efficiency Pillar](../performance-efficiency-pillar/data-management.md "../performance-efficiency-pillar/data-management.md")
-- [Networking and content delivery - Performance Efficiency Pillar](../performance-efficiency-pillar/networking-and-content-delivery.md "../performance-efficiency-pillar/networking-and-content-delivery.md")
+ For more detail, see the following: 
++  [Architecture selection - Performance Efficiency Pillar](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/architecture-selection.html) 
++  [Compute and hardware - Performance Efficiency Pillar](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/compute-and-hardware.html) 
++  [Data management - Performance Efficiency Pillar](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/data-management.html) 
++  [Networking and content delivery - Performance Efficiency Pillar](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/networking-and-content-delivery.html) 
 
 **Suggestion 7.2.2:** Use existing reference patterns for your architecture to achieve a cost-effective solution.
 
-AWS Solutions Architects, [AWS Reference Architectures](https://aws.amazon.com/architecture/ "https://aws.amazon.com/architecture/"), and [AWS Partner Network (APN)](https://aws.amazon.com/partners/ "https://aws.amazon.com/partners/") partners can help you select an architecture based on industry knowledge. You can maximize performance and efficiency by evaluating existing reference architectures and using your analysis to select services and configurations for your workload.
+AWS Solutions Architects, [AWS Reference Architectures](https://aws.amazon.com/architecture/), and [AWS Partner Network (APN)](https://aws.amazon.com/partners/) partners can help you select an architecture based on industry knowledge. You can maximize performance and efficiency by evaluating existing reference architectures and using your analysis to select services and configurations for your workload.
 
 ## MIG-PERF-BP-7.3: Reduce the blast radius for performance impact into a single account
+<a name="mig-perf-bp-7.3-reduce-the-blast-radius-for-performance-impact-into-a-single-account"></a>
 
-This BP applies to the following best practice areas:
-Architecture selection
+ This BP applies to the following best practice areas: Architecture selection 
 
 ### Implementation guidance
+<a name="implementation-guidance-67"></a>
 
 **Suggestion 7.3.1:** Organize your AWS accounts to isolate performance impact.
 
-As you are laying the foundation during the mobilize phase of the migration, [account structuring](../../../whitepapers/latest/organizing-your-aws-environment/patterns-for-organizing-your-aws-accounts.md "../../../whitepapers/latest/organizing-your-aws-environment/patterns-for-organizing-your-aws-accounts.md") is essential to safeguard performance. Account structuring or organizing can isolate performance impact to a single account, reducing the blast radius. Customers can use [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/"), an AWS service to centrally manage and govern multiple accounts. We looked at account structuring during the security pillar, but this specific best practice applies to multiple pillars of the Well-Architected Framework. There are several strategies for [multi-account landing zone accounts](../../../managedservices/latest/onboardingguide/malz-net-arch-accounts.md "../../../managedservices/latest/onboardingguide/malz-net-arch-accounts.md").
+As you are laying the foundation during the mobilize phase of the migration, [account structuring](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/patterns-for-organizing-your-aws-accounts.html) is essential to safeguard performance. Account structuring or organizing can isolate performance impact to a single account, reducing the blast radius. Customers can use [AWS Organizations](https://aws.amazon.com/organizations/), an AWS service to centrally manage and govern multiple accounts. We looked at account structuring during the security pillar, but this specific best practice applies to multiple pillars of the Well-Architected Framework. There are several strategies for [multi-account landing zone accounts](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/malz-net-arch-accounts.html).
 
 ## MIG-PERF-BP-7.4: Benchmark existing workloads for performance
+<a name="mig-perf-bp-7.4-benchmark-existing-workloads-for-performance"></a>
 
 ### Implementation guidance
+<a name="implementation-guidance-68"></a>
 
 **Suggestion 7.4.1:** Benchmark the performance of an existing workload to understand how it performs on the cloud.
 
-Use the data collected from benchmarks to drive architectural decisions. Benchmarking is generally quicker to set up than load testing and is used to evaluate the technology for a particular component. Benchmarking is often used at the start of a new project, when you lack a full solution to load test.
+Use the data collected from benchmarks to drive architectural decisions. Benchmarking is generally quicker to set up than load testing and is used to evaluate the technology for a particular component. Benchmarking is often used at the start of a new project, when you lack a full solution to load test. 
 
-You can either build your own custom benchmark tests, or you can use an industry standard test, such as [TPC-DS](https://www.tpc.org/default5.asp "https://www.tpc.org/default5.asp"), to benchmark your data warehousing workloads. Industry benchmarks are helpful when comparing environments. Custom benchmarks are useful for targeting specific types of operations that you expect to make in your architecture.
+You can either build your own custom benchmark tests, or you can use an industry standard test, such as [TPC-DS](https://www.tpc.org/default5.asp), to benchmark your data warehousing workloads. Industry benchmarks are helpful when comparing environments. Custom benchmarks are useful for targeting specific types of operations that you expect to make in your architecture. 
 
-When benchmarking, it is important to pre-warm your test environment to ensure valid results. Run the same benchmark multiple times to capture any variance over time.
+When benchmarking, it is important to pre-warm your test environment to ensure valid results. Run the same benchmark multiple times to capture any variance over time. 
 
 Because benchmarks are generally faster to run than load tests, they can be used earlier in the deployment pipeline and provide faster feedback on performance deviations. When you evaluate a significant change in a component or service, a benchmark can be a quick way to see if you can justify the effort to make the change. Using benchmarking in conjunction with load testing is important because load testing informs you about how your workload will perform in production.
