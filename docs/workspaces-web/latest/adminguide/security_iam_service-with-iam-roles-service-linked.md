@@ -1,15 +1,10 @@
+
+
 # Service-linked roles for WorkSpaces Secure Browser
+<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
-**Supports service-linked roles:**
+**Supports service-linked roles:** Yes
 
-Yes
+ A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf. Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view, but not edit the permissions for service-linked roles. 
 
-A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
-Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
-but not edit the permissions for service-linked roles.
-
-For details about creating or managing service-linked roles, see [AWS services
-that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md"). Find a service in the table that includes a
-`Yes` in the **Service-linked role** column. Choose the
-**Yes** link to view the service-linked role documentation for that
-service.
+For details about creating or managing service-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html). Find a service in the table that includes a `Yes` in the **Service-linked role** column. Choose the **Yes** link to view the service-linked role documentation for that service.

@@ -1,11 +1,13 @@
-# Allowing users to view their own permissions for Amazon WorkSpaces Secure Browser
 
-This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
-identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
+
+# Allowing users to view their own permissions for Amazon WorkSpaces Secure Browser
+<a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
+
+This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "ViewOwnUserInfo",

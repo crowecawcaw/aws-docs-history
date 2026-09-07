@@ -1,36 +1,39 @@
+
+
 # AWS managed policy: AmazonWorkSpacesWebReadOnly
+<a name="security-iam-awsmanpol-AmazonWorkSpacesWebReadOnly"></a>
 
-You can attach the `AmazonWorkSpacesWebReadOnly` policy to your IAM
-identities.
 
-This policy grants read-only permissions that allow access to WorkSpaces Secure Browser and its
-dependencies through the AWS Management Console, SDK, and CLI. This policy does not
-include the permissions necessary to interact with portals using
-`IAM_Identity_Center` as the authentication type. To get these permissions,
-combine this policy with `AWSSSOReadOnly`.
 
-###### Note
 
-If you are currently using this policy, switch to the new
-`AmazonWorkSpacesSecureBrowserReadOnly` policy.
+
+You can attach the `AmazonWorkSpacesWebReadOnly` policy to your IAM identities.
+
+
+
+This policy grants read-only permissions that allow access to WorkSpaces Secure Browser and its dependencies through the AWS Management Console, SDK, and CLI. This policy does not include the permissions necessary to interact with portals using `IAM_Identity_Center` as the authentication type. To get these permissions, combine this policy with `AWSSSOReadOnly`.
+
+**Note**  
+If you are currently using this policy, switch to the new `AmazonWorkSpacesSecureBrowserReadOnly` policy.
+
+
 
 **Permissions details**
 
 This policy includes the following permissions.
 
-- `workspaces-web` – Provides read-only access to WorkSpaces Secure Browser
-  and its dependencies through the AWS Management Console, SDK, and CLI.
-- `ec2` – Allows principals to describe VPCs, subnets, and
-  security groups. This is used in the AWS Management Console in WorkSpaces Secure Browser to
-  show you your VPCs, subnets, and security groups that are available foruse with the
-  service.
-- `Kinesis` - Allows principals to list Kinesis data streams. This is
-  used in the AWS Management Console in WorkSpaces Secure Browser to show you Kinesis data
-  streams that are available for use with the service.
+
+
+
++ `workspaces-web` – Provides read-only access to WorkSpaces Secure Browser and its dependencies through the AWS Management Console, SDK, and CLI.
++ `ec2` – Allows principals to describe VPCs, subnets, and security groups. This is used in the AWS Management Console in WorkSpaces Secure Browser to show you your VPCs, subnets, and security groups that are available foruse with the service.
++ `Kinesis` - Allows principals to list Kinesis data streams. This is used in the AWS Management Console in WorkSpaces Secure Browser to show you Kinesis data streams that are available for use with the service.
+
+
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",

@@ -1,30 +1,41 @@
+
+
 # AWS managed policy: AmazonWorkSpacesWebServiceRolePolicy
+<a name="security-iam-awsmanpol-AmazonWorkSpacesWebServiceRolePolicy"></a>
 
-You can't attach the `AmazonWorkSpacesWebServiceRolePolicy` policy to your
-IAM entities. This policy is attached to a service-linked role that allows WorkSpaces Secure Browser
-to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon WorkSpaces Secure Browser](using-service-linked-roles.md "using-service-linked-roles.md").
 
-This policy grants administrative permissions that allow access to AWS services and
-resources used or managed by WorkSpaces Secure Browser.
+
+
+
+
+
+
+
+You can't attach the `AmazonWorkSpacesWebServiceRolePolicy` policy to your IAM entities. This policy is attached to a service-linked role that allows WorkSpaces Secure Browser to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon WorkSpaces Secure Browser](using-service-linked-roles.md).
+
+
+
+This policy grants administrative permissions that allow access to AWS services and resources used or managed by WorkSpaces Secure Browser.
+
+
 
 **Permissions details**
 
 This policy includes the following permissions:
 
-- `workspaces-web` – Allows access to AWS services and resources
-  used or managed by WorkSpaces Secure Browser.
-- `ec2` – Allows principals to describe VPCs, subnets, and
-  availability zones; create, tag, describe, and delete network interfaces; associate
-  or disassociate an address; and describe route tables, security groups, and VPC
-  endpoints.
-- `CloudWatch` – Allows principals to put metric data.
-- `Kinesis` - Allows principals to describe a summary of Kinesis data
-  streams and put records into Kinesis data streams for user access logging. For more
-  information, see [Setting up user activity logging in Amazon WorkSpaces Secure Browser](user-logging.md "user-logging.md").
+
+
+
++ `workspaces-web` – Allows access to AWS services and resources used or managed by WorkSpaces Secure Browser.
++ `ec2` – Allows principals to describe VPCs, subnets, and availability zones; create, tag, describe, and delete network interfaces; associate or disassociate an address; and describe route tables, security groups, and VPC endpoints.
++ `CloudWatch` – Allows principals to put metric data.
++ `Kinesis` - Allows principals to describe a summary of Kinesis data streams and put records into Kinesis data streams for user access logging. For more information, see [Setting up user activity logging in Amazon WorkSpaces Secure Browser](user-logging.md).
+
+
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -118,5 +129,4 @@ This policy includes the following permissions:
         }
     ]
 }
-
 ```
