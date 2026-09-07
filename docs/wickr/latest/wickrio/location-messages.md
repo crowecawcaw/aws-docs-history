@@ -1,19 +1,18 @@
-This guide provides documentation for Wickr IO Integrations. If you're
-using AWS Wickr, see [AWS Wickr
-Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
+
+
+This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Location messages
+<a name="location-messages"></a>
 
-The **msgtype** for all location type messages is 8000. This message is
-sent when a user sends their location in a conversation. The location will contain the user's
-latitude and longitude.
+The **msgtype** for all location type messages is 8000. This message is sent when a user sends their location in a conversation. The location will contain the user's latitude and longitude.
 
 ## One-to-one messages
+<a name="location-messages-one-to-one-messages"></a>
 
 The following shows the format of a location type message in 1:1 conversations:
 
 ```
-
      {
      "location":{
      "latitude":45.75017899435506,
@@ -30,16 +29,14 @@ The following shows the format of a location type message in 1:1 conversations:
      "ttl": "7/10/24 5:33 PM",
      "vgroupid":"4ebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4"
      }
-
 ```
 
 ## Group and Room conversation messages
+<a name="location-messages-group-room-conversation"></a>
 
-The following shows the format of location type message in group or room conversation
-conversations:
+The following shows the format of location type message in group or room conversation conversations:
 
 ```
-
      {
      "location":{
      "latitude":45.75017899435506,
@@ -55,5 +52,4 @@ conversations:
      "ttl": "7/10/24 5:33 PM",
      "vgroupid":"Sebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4"
      }
-
 ```

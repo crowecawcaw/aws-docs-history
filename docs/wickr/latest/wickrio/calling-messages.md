@@ -1,32 +1,33 @@
-This guide provides documentation for Wickr IO Integrations. If you're
-using AWS Wickr, see [AWS Wickr
-Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
+
+
+This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Calling messages
+<a name="calling-messages"></a>
 
-The `msgtype` for all location type messages is 7000 Calling messages will have
-a **call** object with a subset of the following values:
+The `msgtype` for all location type messages is 7000 Calling messages will have a **call** object with a subset of the following values:
 
-| Name         | Description                                                                                                                                                                                                                                                             |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| calluri      | The URI associated with the call.                                                                                                                                                                                                                                       |
-| calluriipv6  | The IPv6 URI associated with the call                                                                                                                                                                                                                                   |
-| duration     | The call duration in seconds. Sent in the end of call message. The duration of a call<br>in a room starts immediately regardless if any users answer the call. The duration of a<br>call in a one-on-one conversation will begin when the called user answers the call. |
-| invitemsgid  | The message ID associated with the original call start message. This is sent when<br>another user is added to a call.                                                                                                                                                   |
-| meetingid    | The unique meeting ID associated with the call.                                                                                                                                                                                                                         |
-| messagetype  | The type of call message this is, see table below.                                                                                                                                                                                                                      |
-| participants | List of username hash values for all of the potential participants of the call.                                                                                                                                                                                         |
-| startmsgid   | The message ID associated with the call start message.                                                                                                                                                                                                                  |
-| status       | The current state of the call (i.e. starting, completed)                                                                                                                                                                                                                |
-| version      | The call protocol version                                                                                                                                                                                                                                               |
-| versioncheck | Boolean value to check call protool version                                                                                                                                                                                                                             |
+
+| Name | Description | 
+| --- | --- | 
+| calluri | The URI associated with the call. | 
+| calluriipv6 | The IPv6 URI associated with the call | 
+| duration | The call duration in seconds. Sent in the end of call message. The duration of a call in a room starts immediately regardless if any users answer the call. The duration of a call in a one-on-one conversation will begin when the called user answers the call. | 
+| invitemsgid | The message ID associated with the original call start message. This is sent when another user is added to a call. | 
+| meetingid | The unique meeting ID associated with the call. | 
+| messagetype | The type of call message this is, see table below. | 
+| participants | List of username hash values for all of the potential participants of the call. | 
+| startmsgid | The message ID associated with the call start message. | 
+| status | The current state of the call (i.e. starting, completed) | 
+| version | The call protocol version | 
+| versioncheck | Boolean value to check call protool version | 
 
 ## Call in a room
+<a name="calls-in-room"></a>
 
 The following is an example of a message format when a call is started in a room:
 
 ```
-
      {
      call: {
      calluri: '44.211.195.26:16504',
@@ -55,40 +56,35 @@ The following is an example of a message format when a call is started in a room
      ttl: '5/20/26 5:00 AM',
      vgroupid: 'Sa6783e427e164d37f2e8177874ee192523e6cc9520416bf96850ca01730bf00'
      }
-
 ```
 
-###### Note
+**Note**  
+The following different type of states of the call messages are only seen by the compliance bot installations (Wickr Enterprise) or by Data Retention bot (AWS Wickr).
 
-The following different type of states of the call messages are only seen by the
-compliance bot installations (Wickr Enterprise) or by Data Retention bot
-(AWS Wickr).
+The **status** fields identifies the current state of the call, the following table identifies what the **status** values are:
 
-The **status** fields identifies the current state of the call, the
-following table identifies what the **status** values are:
 
-| Call Status    | Status Value |
-| -------------- | ------------ |
-| Call starting  | 0            |
-| Call completed | 1            |
-| Call missed    | 2            |
-| Call cancelled | 3            |
+| Call Status | Status Value | 
+| --- | --- | 
+| Call starting | 0 | 
+| Call completed | 1 | 
+| Call missed | 2 | 
+| Call cancelled | 3 | 
 
-The **messagetype** identifies the message type of the call message, the
-following table identifies the **messagetype** values:
+The **messagetype** identifies the message type of the call message, the following table identifies the **messagetype** values:
 
-| Call Message Type | Value | Description                                                                                        |
-| ----------------- | ----- | -------------------------------------------------------------------------------------------------- |
-| Start call        | 0     | Starting a call                                                                                    |
-| End call          | 1     | Ending a call                                                                                      |
-| Missed call       | 2     | Missed a call request                                                                              |
-| Declined call     | 3     | Declined a call request                                                                            |
-| Silent ring       | 4     | Sent from a device when it answers a call. The other devices for that client will<br>stop ringing. |
+
+| Call Message Type | Value | Description | 
+| --- | --- | --- | 
+| Start call | 0 | Starting a call | 
+| End call | 1 | Ending a call | 
+| Missed call | 2 | Missed a call request | 
+| Declined call | 3 | Declined a call request | 
+| Silent ring | 4 | Sent from a device when it answers a call. The other devices for that client will stop ringing. | 
 
 When a user answers a call you will see the following messages:
 
 ```
-
      {
      "call":{
      "status":0
@@ -100,13 +96,11 @@ When a user answers a call you will see the following messages:
      "time":"9/2/20 3:01 PM",
      "vgroupid":"S49bf359b1229270fdbbc9fbca6289ce1f2171bf9f278c7b37cd3a76ab12e2e1"
      }
-
 ```
 
 When the call is done you will see the following message to end the call:
 
 ```
-
      {
      "call":{
      "status":1
@@ -118,24 +112,16 @@ When the call is done you will see the following message to end the call:
      "time":"9/2/20 3:02 PM",
      "vgroupid":"S49bf359b1229270fdbbc9fbca6289ce1f2171bf9f278c7b37cd3a76ab12e2e1"
      }
-
 ```
 
 ## Adding user to a call
+<a name="adding-user-to-call"></a>
 
-During a call it may be necessary to add a user to a call. The following sequence will
-show a normal call started with two users, and then a third user is added to the call. Please
-note, the call is started on a specific conversation identified by the "vgroupid" value (in
-this case the vgroup ID is "S4666b353873113884feb66d1409875a81b40aa5c0ddbab040ec11f1b38e752c").
-When the additional user is added you will see the "vgroupid" associated with the one-on-one
-conversation to that new user (in this case the vgroup ID is
-"4c84cfa0a7b780f76fdb8d86cb5569f61e66a7a43ef8ab1cc5b537b427e1989b").
+During a call it may be necessary to add a user to a call. The following sequence will show a normal call started with two users, and then a third user is added to the call. Please note, the call is started on a specific conversation identified by the "vgroupid" value (in this case the vgroup ID is "S4666b353873113884feb66d1409875a81b40aa5c0ddbab040ec11f1b38e752c"). When the additional user is added you will see the "vgroupid" associated with the one-on-one conversation to that new user (in this case the vgroup ID is "4c84cfa0a7b780f76fdb8d86cb5569f61e66a7a43ef8ab1cc5b537b427e1989b").
 
-The following is the start call message, it only includes the original two
-participants:
+The following is the start call message, it only includes the original two participants:
 
 ```
-
      {
      "call":{
      "meetingid":"177539f4-7d60-4c52-8f1c-d98f421e847f",
@@ -148,13 +134,11 @@ participants:
      "time":"9/2/20 4:13 PM",
      "vgroupid":"S4666b353873113884feb66d1409875a81b40aa5c0ddbab040ec11f1b38e752c"
      }
-
 ```
 
 The following message is the called user accepting the call:
 
 ```
-
      {
      "call":{
      "status":0
@@ -166,15 +150,11 @@ The following message is the called user accepting the call:
      "time":"9/2/20 4:13 PM",
      "vgroupid":"S4666b353873113884feb66d1409875a81b40aa5c0ddbab040ec11f1b38e752c"
      }
-
 ```
 
-This message is sent when a new participant is added to the call. Notice the different
-"vgroupid" value in the message. The "meetingid" is the same as the running call's
-"meetingid":
+This message is sent when a new participant is added to the call. Notice the different "vgroupid" value in the message. The "meetingid" is the same as the running call's "meetingid":
 
 ```
-
      {
      "call":{
      "meetingid":"177539f4-7d60-4c52-8f1c-d98f421e847f",
@@ -188,13 +168,11 @@ This message is sent when a new participant is added to the call. Notice the dif
      "time":"9/2/20 4:14 PM",
      "vgroupid":"4c84cfa0a7b780f76fdb8d86cb5569f61e66a7a43ef8ab1cc5b537b427e1989b"
      }
-
 ```
 
 The following message is sent from the new participant when accepting the call:
 
 ```
-
      {
      "call":{
      "status":0
@@ -207,13 +185,11 @@ The following message is sent from the new participant when accepting the call:
      "time":"9/2/20 4:14 PM",
      "vgroupid":"4c84cfa0a7b780f76fdb8d86cb5569f61e66a7a43ef8ab1cc5b537b427e1989b"
      }
-
 ```
 
 This message is sent to the original "vgroupid" when the call is ended:
 
 ```
-
      {
      "call":{
      "status":1
@@ -225,14 +201,11 @@ This message is sent to the original "vgroupid" when the call is ended:
      "time":"9/2/20 4:14 PM",
      "vgroupid":"S4666b353873113884feb66d1409875a81b40aa5c0ddbab040ec11f1b38e752c"
      }
-
 ```
 
-This message is also sent to the one-on-one **vgroupid** for the invited
-user when the call is ended:
+This message is also sent to the one-on-one **vgroupid** for the invited user when the call is ended:
 
 ```
-
      {
      "call":{
      "status":1
@@ -245,18 +218,14 @@ user when the call is ended:
      "time":"9/2/20 4:14 PM",
      "vgroupid":"4c84cfa0a7b780f76fdb8d86cb5569f61e66a7a43ef8ab1cc5b537b427e1989b"
      }
-
 ```
 
 ## Missed call
+<a name="missed-call"></a>
 
-If a call is attempted on a one-to-one conversation and the target participant does not
-answer the call you will see a message with a missed call **messagetype**
-value of 2. This message is sent from the user originating the call to the called user. There
-is no duration associated with this call and should not be considered a completed call.
+If a call is attempted on a one-to-one conversation and the target participant does not answer the call you will see a message with a missed call **messagetype** value of 2. This message is sent from the user originating the call to the called user. There is no duration associated with this call and should not be considered a completed call.
 
 ```
-
      {
      "call":{
      "status":2
@@ -269,16 +238,14 @@ is no duration associated with this call and should not be considered a complete
      "time":"9/2/20 5:08 PM",
      "vgroupid":"ec6cfd71ccb4034c9d77263da8c28d01d19a6f91746d3b9b61b868d0663008a4"
      }
-
 ```
 
 ## Declined calls
+<a name="declined-calls"></a>
 
-If a user on a one-on-one call selects to ignore the call, a declined call message will be
-seen. You should not see this type of message on room conversations.
+If a user on a one-on-one call selects to ignore the call, a declined call message will be seen. You should not see this type of message on room conversations.
 
 ```
-
      {
      "call":{
      "status":3
@@ -291,5 +258,4 @@ seen. You should not see this type of message on room conversations.
      "time":"9/2/20 5:16 PM",
      "vgroupid":"4c84cfa0a7b780f76fdb8d86cb5569f61e66a7a43ef8ab1cc5b537b427e1989b"
      }
-
 ```

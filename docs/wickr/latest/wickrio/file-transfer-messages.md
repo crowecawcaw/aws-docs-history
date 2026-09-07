@@ -1,30 +1,27 @@
-This guide provides documentation for Wickr IO Integrations. If you're
-using AWS Wickr, see [AWS Wickr
-Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
+
+
+This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # File transfer messages
+<a name="file-transfer-messages"></a>
 
-The msgtype for file transfer messages is 6000. This message type contains information
-about a file transfer message. The "file" JSON object contains the details of the file being
-transferred, described in this table:
+The msgtype for file transfer messages is 6000. This message type contains information about a file transfer message. The "file" JSON object contains the details of the file being transferred, described in this table:
 
-| Field             | Description                                                    |
-| ----------------- | -------------------------------------------------------------- |
-| filename          | The display name of the file being transferred.                |
-| guid              | A unique identifier for the transferred file.                  |
-| uploadedbyuser    | The user who uploaded the file                                 |
-| uploadedtimestamp | Upload time                                                    |
-| localfilename     | The full path name of the file on the Wickr IO Gateway system. |
 
-Files received by the Wickr IO client will be decrypted and remain on the Wickr IO
-client until removed by your software.
+| Field | Description | 
+| --- | --- | 
+| filename | The display name of the file being transferred. | 
+| guid | A unique identifier for the transferred file. | 
+| uploadedbyuser | The user who uploaded the file | 
+| uploadedtimestamp | Upload time | 
+| localfilename | The full path name of the file on the Wickr IO Gateway system. | 
 
-The files sent for screen shots will be identified by a **isscreenshot**
-key value pair, in the "file" object. This is a Boolean value, where true identifies the file as
-a screenshot. If the **isscreenshot** key is not found then the file is not a
-screen shot.
+Files received by the Wickr IO client will be decrypted and remain on the Wickr IO client until removed by your software.
+
+The files sent for screen shots will be identified by a **isscreenshot** key value pair, in the "file" object. This is a Boolean value, where true identifies the file as a screenshot. If the **isscreenshot** key is not found then the file is not a screen shot.
 
 ## One-to-one messages
+<a name="file-transfer-one-to-one-messages"></a>
 
 The following shows the format of a file transfer message in 1:1 conversations:
 
@@ -50,9 +47,9 @@ The following shows the format of a file transfer message in 1:1 conversations:
 ```
 
 ## Group and Room conversation messages
+<a name="file-transfer-group-room-conversation"></a>
 
-The following shows the format of a file transfer message in group or room conversation
-conversations:
+The following shows the format of a file transfer message in group or room conversation conversations:
 
 ```
  {

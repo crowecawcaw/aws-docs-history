@@ -1,20 +1,16 @@
-This guide provides documentation for Wickr IO Integrations. If you're
-using AWS Wickr, see [AWS Wickr
-Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
+
+
+This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Edit messages
+<a name="edit-messages"></a>
 
-###### Note
+**Note**  
+The edit messages are only seen by the compliance bot installations (Wickr Enterprise) or by data retention bot (AWS Wickr).
 
-The edit messages are only seen by the compliance bot installations (Wickr Enterprise)
-or by data retention bot (AWS Wickr).
-
-There are currently two types of edit messages supported, the location and the text types.
-The location type of edit message is sent when a user is sharing their location with someone
-else.
+There are currently two types of edit messages supported, the location and the text types. The location type of edit message is sent when a user is sharing their location with someone else.
 
 ```
-
     {
     "edit":{
     "type":"location",
@@ -33,15 +29,11 @@ else.
     "ttl": "7/10/24 5:30 PM",
     "vgroupid":"4ebf561eb2214c4e6f924d09e37bf80b6f9b85cb96b72badb03753d9ed26f7f4"
     }
-
 ```
 
-The text type of edit message is sent when the user sends a message that includes links in
-it. For example the user sends a message with the link https://howdoyoudo.com in it, the
-following is what the edit message would look like:
+The text type of edit message is sent when the user sends a message that includes links in it. For example the user sends a message with the link https://howdoyoudo.com in it, the following is what the edit message would look like:
 
 ```
-
     {
     "edit":{
     "originalmessageid":"11457fa08da211ea881baffab0b42745",
@@ -58,15 +50,11 @@ following is what the edit message would look like:
     "ttl": "7/10/24 5:30 PM",
     "vgroupid":"S243f2ec645d3961bdd531f51f3244205d292b8d0fbd41802827746271d31d41"
     }
-
 ```
 
-If you send a text message with a link and the security group has the "Send Link Preview"
-option enabled, the edit message may contain an array of links information and link image meta
-information. The following shows these additional fields:
+If you send a text message with a link and the security group has the "Send Link Preview" option enabled, the edit message may contain an array of links information and link image meta information. The following shows these additional fields:
 
 ```
-
     {
     "edit":{
     "linkimagemeta":{
@@ -99,23 +87,16 @@ information. The following shows these additional fields:
     "ttl": "7/10/24 5:35 PM",
     "vgroupid":"2c0ae523d2b1af3e43af80b5fafec05548fd2e33fee4c021c66033c6416bb6bb"
     }
-
 ```
 
 ## Edit content messages
+<a name="edit-content-messages"></a>
 
-Edit content messages are sent when a user edits the contents of a previously sent
-message. The Edit Content message will contain the message ID associated with the original
-message and the text of the updated message. The original message text will not be included.
-This message type was introduced in the 5.92 version of the WickrIO software. The Edit Content
-messages are used to identify when the text of a message is edited as well as when the links
-contained in a message are edited.
+Edit content messages are sent when a user edits the contents of a previously sent message. The Edit Content message will contain the message ID associated with the original message and the text of the updated message. The original message text will not be included. This message type was introduced in the 5.92 version of the WickrIO software. The Edit Content messages are used to identify when the text of a message is edited as well as when the links contained in a message are edited.
 
-The following is a basic example of an Edit Content message where the text is
-edited:
+The following is a basic example of an Edit Content message where the text is edited:
 
 ```
-
       {
       "content_edited": true,
       "edit":{
@@ -134,22 +115,13 @@ edited:
       "ttl": "7/10/24 5:35 PM",
       "vgroupid":"56e3b0570daad62b2e2d14db8d33632f6175514022183a042660c7b8901dec79"
       }
-
 ```
 
-The **type** value, within the **edit** group,
-identifies this as an Edit Content message. The **originalmessageid**
-identifies the message ID of the original message. The **text** field is the
-new value of the message.
+The **type** value, within the **edit** group, identifies this as an Edit Content message. The **originalmessageid** identifies the message ID of the original message. The **text** field is the new value of the message.
 
-If the original message contains links, and the "Send Link Previews" option is set for the
-security group, there will be two Edit Content messages sent. One of these messages is
-associated with the text message changes and another that will contain the link image meta
-information. The Edit Content message that contains the "content\_edited" with a true value is
-associated with the message text, as seen below:
+If the original message contains links, and the "Send Link Previews" option is set for the security group, there will be two Edit Content messages sent. One of these messages is associated with the text message changes and another that will contain the link image meta information. The Edit Content message that contains the "content\_edited" with a true value is associated with the message text, as seen below:
 
 ```
-
       {
       "content_edited":true,
       "edit":{
@@ -171,14 +143,11 @@ associated with the message text, as seen below:
       "ttl": "7/10/24 5:35 PM",
       "vgroupid":"56e3b0570daad62b2e2d14db8d33632f6175514022183a042660c7b8901dec79"
       }
-
 ```
 
-The following edit content message is associated with the links that are in the
-message:
+The following edit content message is associated with the links that are in the message:
 
 ```
-
       {
       "edit":{
       "type":"edit_content",
@@ -212,5 +181,4 @@ message:
       "ttl": "7/10/24 5:35 PM",
       "vgroupid":"56e3b0570daad62b2e2d14db8d33632f6175514022183a042660c7b8901dec79"
       }
-
 ```

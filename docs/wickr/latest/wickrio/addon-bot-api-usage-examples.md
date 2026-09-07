@@ -1,18 +1,16 @@
-This guide provides documentation for Wickr IO Integrations. If you're
-using AWS Wickr, see [AWS Wickr
-Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
+
+
+This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Addon and Bot API Usage Examples
+<a name="addon-bot-api-usage-examples"></a>
 
-This section contains several examples of the use of the Wickr IO addon and the Wickr IO
-Bot API.
+This section contains several examples of the use of the Wickr IO addon and the Wickr IO Bot API.
 
 ## API Initialization
+<a name="api-initialization"></a>
 
-Before the Wickr IO Node.js addon API can be used you will need to initialize it in your
-JavaScript code. This initialization is done by calling the "start()" API (from the Wickr IO
-Bot APIs) and passing the client name associated with the Wickr IO client. For
-example:
+Before the Wickr IO Node.js addon API can be used you will need to initialize it in your JavaScript code. This initialization is done by calling the "start()" API (from the Wickr IO Bot APIs) and passing the client name associated with the Wickr IO client. For example:
 
 ```
 const WickrIOAPI = require('wickrio_addon'); //WickrIO node.js addon which allows talking directly to our api
@@ -38,15 +36,12 @@ async function main() {
 }
 ```
 
-After the call to the "start()" API the client interface will be fully initialized. At
-this point you can start using the other APIs to communicate with the Wickr IO
-client.
+After the call to the "start()" API the client interface will be fully initialized. At this point you can start using the other APIs to communicate with the Wickr IO client.
 
 ## Sending message to a room
+<a name="sending-message-to-a-room"></a>
 
-The following code fragment shows the use of the `cmdSendRoomMessage()` API to
-send a message to a specific secure room. Before making the call you will need to get a valid
-vGroupID.
+The following code fragment shows the use of the `cmdSendRoomMessage()` API to send a message to a specific secure room. Before making the call you will need to get a valid vGroupID.
 
 ```
 var msg = "Sorry, I'm not allowed to delete all the files in the directory.";
@@ -60,9 +55,9 @@ try {
 ```
 
 ## Creating a room and sending an attachment
+<a name="creating-a-room-and-sending-an-attachment"></a>
 
-The following code shows the creation of a secure room and then sending a file to that
-room:
+The following code shows the creation of a secure room and then sending a file to that room:
 
 ```
 var members = [{ "name" : "username001" }, { "name" : "username002" }];
@@ -89,17 +84,13 @@ try {
 ```
 
 ## Receive Asynchronous Messages
+<a name="receive-asynchronous-messages"></a>
 
 There are two types of messaging APIs supported by the Wickr IO Node.js addon:
++ synchronous API calls: where a request is made to the Wickr IO client and a response is received
++ asynchronous messaging: where you specify a callback function which the Wickr IO addon will call when a message is received. All synchronous APIs will wait for the response to return before proceeding.
 
-- synchronous API calls: where a request is made to the Wickr IO client and a response
-  is received
-- asynchronous messaging: where you specify a callback function which the Wickr IO
-  addon will call when a message is received. All synchronous APIs will wait for the
-  response to return before proceeding.
-
-The following code shows you how to initiate the asynchronous messaging and shows a
-callback function that will process the incoming messages.
+The following code shows you how to initiate the asynchronous messaging and shows a callback function that will process the incoming messages.
 
 ```
 await bot.startListening(listen); //Passes a callback function that will receive incoming messages into the bot client
@@ -150,23 +141,17 @@ async function listen(message) {
 }
 ```
 
-The asynchronous messaging APIs will turn on or off the asynchronous reception of messages
-received by the Wickr IO client. After calling the "cmdStartAsyncRecvMessages(callback)"
-API, messages received will be sent to the callback function identified in that API. To turn
-off the asynchronous reception of messages use the "cmdStopAsyncRecvMessages()" API.
+The asynchronous messaging APIs will turn on or off the asynchronous reception of messages received by the Wickr IO client. After calling the "cmdStartAsyncRecvMessages(callback)" API, messages received will be sent to the callback function identified in that API. To turn off the asynchronous reception of messages use the "cmdStopAsyncRecvMessages()" API.
 
-###### Note
-
+**Note**  
 Always add try/catch blocks for errors when calling addon APIs
 
-Using the asynchronous messaging does require your program handles the background events
-associated with the reception of these messages. This can be tricky based on the single
-threaded nature of JavaScript.
+Using the asynchronous messaging does require your program handles the background events associated with the reception of these messages. This can be tricky based on the single threaded nature of JavaScript.
 
 ## API Shutdown
+<a name="api-shutdown"></a>
 
-When you are done using the API you will need to shut it down. This is done by calling the
-"close()" Bot API. This will also stop the asynchronous message receiving for the bot.
+When you are done using the API you will need to shut it down. This is done by calling the "close()" Bot API. This will also stop the asynchronous message receiving for the bot.
 
 ```
 process.stdin.resume(); //so the program will not close instantly

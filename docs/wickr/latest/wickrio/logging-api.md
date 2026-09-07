@@ -1,12 +1,14 @@
-This guide provides documentation for Wickr IO Integrations. If you're
-using AWS Wickr, see [AWS Wickr
-Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
+
+
+This guide provides documentation for Wickr IO Integrations. If you're using AWS Wickr, see [AWS Wickr Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html).
 
 # Logging API
+<a name="logging-api"></a>
 
 This section describes the logging module that can be imported from the WickrIOAPI. This logging module allows for different log levels and log file rotations in the bot integrations. Winston logger is used as the logging library and the default log levels are those predefined by NPM and in order of importance are: error, warn, info, verbose, debug, and silly.
 
 ## Getting Started with the Logger
+<a name="logging-api-setup"></a>
 
 To get started with the logger first import WickrLogger from the wickrio-bot-api library. Then you can access a new logger like so:
 
@@ -31,6 +33,7 @@ console.error = function () {
 ```
 
 ## Logger Configuration
+<a name="logging-api-configuration"></a>
 
 The logger will look to the processes.json for the log level, max log file size, and max number of log files. These values can be changed by updating the values of LOG\_LEVEL, LOG\_FILE\_SIZE, and LOG\_MAX\_FILES in the env section of processes.json.
 
