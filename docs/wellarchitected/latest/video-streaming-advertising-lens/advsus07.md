@@ -1,16 +1,14 @@
+
+
 # Process and culture
+<a name="advsus07"></a>
 
-| ADVSUS07: Do you have an iterative approach for sustainability updates, including in your development, testing, and deployment processes? |
-| ----------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                           |
 
-It is important to revisit your approach to sustainability as
-requirements changes and options continue to evolve. Include
-sustainability at each stage of the software development lifecycle
-and in both non-production and production environments. Continue
-to evaluate how you are meeting sustainability objectives and
-ensure your process evolves over time.
+| ADVSUS07: Do you have an iterative approach for sustainability updates, including in your development, testing, and deployment processes?  | 
+| --- | 
+|   | 
 
-###### Best practices
+ It is important to revisit your approach to sustainability as requirements changes and options continue to evolve. Include sustainability at each stage of the software development lifecycle and in both non-production and production environments. Continue to evaluate how you are meeting sustainability objectives and ensure your process evolves over time. 
 
-- [ADVSUS07-BP01 Incorporate an improvement process to reduce low utilization and idle resources or maximize the output from resources](advsus07-bp01.md "advsus07-bp01.md")
+**Topics**
++ [ADVSUS07-BP01 Incorporate an improvement process to reduce low utilization and idle resources or maximize the output from resources](advsus07-bp01.md)

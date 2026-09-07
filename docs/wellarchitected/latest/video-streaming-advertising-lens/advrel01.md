@@ -1,19 +1,17 @@
+
+
 # Design for reliability
+<a name="advrel01"></a>
 
-| ADVREL01: How do you design your<br>advertising workload service architecture around<br>reliability? |
-| ---------------------------------------------------------------------------------------------------- |
-|                                                                                                      |
 
-Evaluate architectural approaches for building resilient systems
-through loosely coupled designs, including SOA, microservices, and
-event-driven patterns. Define recovery objectives, implement
-scalable solutions for handling demand fluctuations, and apply
-chaos engineering to validate system reliability and failure
-recovery capabilities.
+| ADVREL01: How do you design your advertising workload service architecture around reliability? | 
+| --- | 
+|   | 
 
-###### Best practices
+ Evaluate architectural approaches for building resilient systems through loosely coupled designs, including SOA, microservices, and event-driven patterns. Define recovery objectives, implement scalable solutions for handling demand fluctuations, and apply chaos engineering to validate system reliability and failure recovery capabilities. 
 
-- [ADVREL01-BP01 Use loosely-coupled architectures to enable graceful recovery from failures](advrel01-bp01.md "advrel01-bp01.md")
-- [ADVREL01-BP02 Architect your system with appropriate recovery objectives](advrel01-bp02.md "advrel01-bp02.md")
-- [ADVREL01-BP03 Architect for variable demand](advrel01-bp03.md "advrel01-bp03.md")
-- [ADVREL01-BP04 Implement chaos engineering practices](advrel01-bp04.md "advrel01-bp04.md")
+**Topics**
++ [ADVREL01-BP01 Use loosely-coupled architectures to enable graceful recovery from failures](advrel01-bp01.md)
++ [ADVREL01-BP02 Architect your system with appropriate recovery objectives](advrel01-bp02.md)
++ [ADVREL01-BP03 Architect for variable demand](advrel01-bp03.md)
++ [ADVREL01-BP04 Implement chaos engineering practices](advrel01-bp04.md)

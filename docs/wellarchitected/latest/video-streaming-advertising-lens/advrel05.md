@@ -1,24 +1,19 @@
+
+
 # Failure management
+<a name="advrel05"></a>
 
-Failures are unavoidable, and every system eventually fails over
-time, especially in high volume advertising systems. Anticipate
-and manage failures before they happen through detection, testing,
-and quick recovery.
+ Failures are unavoidable, and every system eventually fails over time, especially in high volume advertising systems. Anticipate and manage failures before they happen through detection, testing, and quick recovery. 
 
-| ADVREL05: How do you continuously evaluate<br>the resilience of your advertising workload to meet availability<br>and recovery requirements? |
-| -------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                              |
 
-Continuous resilience evaluation of advertising workloads can be
-achieved through two main approaches.
+| ADVREL05: How do you continuously evaluate the resilience of your advertising workload to meet availability and recovery requirements? | 
+| --- | 
+|   | 
 
-Perform regular fault tolerance testing and assessment using tools
-like AWS Gamedays, Well-Architected Framework Reviews, and
-Support Countdowns. Additionally, create and test disaster
-recovery procedures through documented runbooks and restoration
-processes, which helps you quickly recover during incidents.
+ Continuous resilience evaluation of advertising workloads can be achieved through two main approaches. 
 
-###### Best practices
+ Perform regular fault tolerance testing and assessment using tools like AWS Gamedays, Well-Architected Framework Reviews, and Support Countdowns. Additionally, create and test disaster recovery procedures through documented runbooks and restoration processes, which helps you quickly recover during incidents. 
 
-- [ADVREL05-BP01 Perform routine evaluation of your workload's fault tolerance capabilities](advrel05-bp01.md "advrel05-bp01.md")
-- [ADVREL05-BP02 Create disaster recovery (DR) runbooks, and regularly test documented backup and restoration processes](advrel05-bp02.md "advrel05-bp02.md")
+**Topics**
++ [ADVREL05-BP01 Perform routine evaluation of your workload's fault tolerance capabilities](advrel05-bp01.md)
++ [ADVREL05-BP02 Create disaster recovery (DR) runbooks, and regularly test documented backup and restoration processes](advrel05-bp02.md)

@@ -1,14 +1,15 @@
+
+
 # Software and architecture
+<a name="advsus04"></a>
 
-| ADVSUS04: How are you implementing<br>architectures that minimize the average resources required per<br>unit of work? |
-| --------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                       |
 
-Design and implement architectures that minimize the average
-resources (such as compute, storage, and network) required per
-unit of work for your advertising workloads.
+| ADVSUS04: How are you implementing architectures that minimize the average resources required per unit of work? | 
+| --- | 
+|   | 
 
-###### Best practices
+ Design and implement architectures that minimize the average resources (such as compute, storage, and network) required per unit of work for your advertising workloads. 
 
-- [ADVSUS04-BP01 Use batch processing for data cleansing and enrichment to create customer profiles](advsus04-bp01.md "advsus04-bp01.md")
-- [ADVSUS04-BP02 Use serverless transaction processing](advsus04-bp02.md "advsus04-bp02.md")
+**Topics**
++ [ADVSUS04-BP01 Use batch processing for data cleansing and enrichment to create customer profiles](advsus04-bp01.md)
++ [ADVSUS04-BP02 Use serverless transaction processing](advsus04-bp02.md)
