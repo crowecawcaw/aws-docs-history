@@ -1,5 +1,7 @@
+
+
 # Deployment
+<a name="ops-deployment"></a>
 
-###### Best practices
-
-- [MLOPS05-BP01 Establish deployment environment metrics](mlops05-bp01.md "mlops05-bp01.md")
+**Topics**
++ [MLOPS05-BP01 Establish deployment environment metrics](mlops05-bp01.md)
