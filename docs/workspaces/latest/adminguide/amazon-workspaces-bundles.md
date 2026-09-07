@@ -1,62 +1,46 @@
+
+
 # Bundles and images for WorkSpaces Personal
+<a name="amazon-workspaces-bundles"></a>
 
-A _WorkSpace bundle_ is a combination of an operating system, and
-storage, compute, and software resources. When you launch a WorkSpace, you select the bundle
-that meets your needs. The default bundles available for WorkSpaces are called _public bundles_. For more information about the various public
-bundles available for WorkSpaces, see [Amazon WorkSpaces
-Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles "https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles").
+A *WorkSpace bundle* is a combination of an operating system, and storage, compute, and software resources. When you launch a WorkSpace, you select the bundle that meets your needs. The default bundles available for WorkSpaces are called *public bundles*. For more information about the various public bundles available for WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles).
 
-If you've launched a Windows or Linux WorkSpace and have customized it, you can create a
-custom image from that WorkSpace.
+If you've launched a Windows or Linux WorkSpace and have customized it, you can create a custom image from that WorkSpace. 
 
-A _custom image_ contains only the OS, software, and settings for the
-WorkSpace. A _custom bundle_ is a combination of both that
-custom image and the hardware from which a WorkSpace can be launched.
+A *custom image* contains only the OS, software, and settings for the WorkSpace. A *custom bundle* is a combination of both that custom image and the hardware from which a WorkSpace can be launched.
 
-After you create a custom image, you can build a custom bundle that combines the custom
-WorkSpace image and the underlying compute and storage configuration that you select. You
-can then specify this custom bundle when you launch new WorkSpaces to ensure that the new
-WorkSpaces have the same consistent configuration (hardware and software).
+After you create a custom image, you can build a custom bundle that combines the custom WorkSpace image and the underlying compute and storage configuration that you select. You can then specify this custom bundle when you launch new WorkSpaces to ensure that the new WorkSpaces have the same consistent configuration (hardware and software). 
 
-If you need to perform software updates or to install additional software on your
-WorkSpaces, you can update your custom bundle and use it to rebuild your WorkSpaces.
+If you need to perform software updates or to install additional software on your WorkSpaces, you can update your custom bundle and use it to rebuild your WorkSpaces.
 
-WorkSpaces supports several different operating systems (OS), streaming protocols, and bundles. The following table
-provides information about the licensing, streaming protocols, and bundles that are supported by each OS.
+WorkSpaces supports several different operating systems (OS), streaming protocols, and bundles. The following table provides information about the licensing, streaming protocols, and bundles that are supported by each OS.
 
-| Operating System            | Licenses                      | Streaming protocols | Supported bundles                                                                  | Lifecycle policy / retirement date                                                                                                                                                            |
-| --------------------------- | ----------------------------- | ------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows Server 2016         | Included                      | DCV, PCoIP          | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn          | [January 12, 2027](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016")                       |
-| Windows Server 2019         | Included                      | DCV, PCoIP          | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn          | [January 9, 2029](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019")                        |
-| Windows Server 2022         | Included                      | DCV, PCoIP          | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6 | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022")                       |
-| Windows Server 2025         | Included                      | DCV                 | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6 | [November 14, 2034](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025 "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025")                      |
-| Windows 10                  | Bring Your Own License (BYOL) | DCV, PCoIP          | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn          | [In support](https://learn.microsoft.com/en-us/windows/release-health/release-information "https://learn.microsoft.com/en-us/windows/release-health/release-information")                     |
-| Windows 11                  | Bring Your Own License (BYOL) | DCV                 | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6 | [In support](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information "https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information") |
-| Amazon Linux 2 (deprecated) | Included                      | DCV, PCoIP          | Value, Standard, Performance, Power, PowerPro                                      | [June 30, 2026 (end-of-life)](manage_linux_workspace.md "manage_linux_workspace.md")                                                                                                          |
-| Ubuntu 22.04 LTS            | Included                      | DCV                 | Value, Standard, Performance, Power, PowerPro, Graphics G4dn                       | [June, 2032](https://ubuntu.com/about/release-cycle "https://ubuntu.com/about/release-cycle")                                                                                                 |
-| Ubuntu 24.04 LTS            | Included                      | DCV                 | Standard, Performance, Power, PowerPro                                             | [June, 2034](https://ubuntu.com/about/release-cycle "https://ubuntu.com/about/release-cycle")                                                                                                 |
-| Rocky Linux 8               | Included                      | DCV                 | Value, Standard, Performance, Power, PowerPro                                      | [May 31, 2029](https://ciq.com/services/long-term-support/ "https://ciq.com/services/long-term-support/")                                                                                     |
-| Rocky Linux 9               | Included                      | DCV                 | Standard, Performance, Power, PowerPro                                             | [May 31, 2032](https://ciq.com/services/long-term-support/ "https://ciq.com/services/long-term-support/")                                                                                     |
-| Red Hat Enterprise Linux 8  | Included                      | DCV                 | Value, Standard, Performance, Power, PowerPro                                      | [May 31, 2029](https://access.redhat.com/support/policy/updates/errata "https://access.redhat.com/support/policy/updates/errata")                                                             |
-| Red Hat Enterprise Linux 9  | Included                      | DCV                 | Standard, Performance, Power, PowerPro                                             | [May 31, 2032](https://access.redhat.com/support/policy/updates/errata "https://access.redhat.com/support/policy/updates/errata")                                                             |
 
-###### Note
+| Operating System | Licenses | Streaming protocols | Supported bundles | Lifecycle policy / retirement date | 
+| --- | --- | --- | --- | --- | 
+| Windows Server 2016 | Included | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [January 12, 2027](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016) | 
+| Windows Server 2019 | Included | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [January 9, 2029](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019) | 
+| Windows Server 2022 | Included | DCV, PCoIP | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6 | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022) | 
+| Windows Server 2025 | Included | DCV | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6 | [November 14, 2034](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025) | 
+| Windows 10 | Bring Your Own License (BYOL) | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [In support](https://learn.microsoft.com/en-us/windows/release-health/release-information) | 
+| Windows 11 | Bring Your Own License (BYOL) | DCV | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6 | [In support](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information) | 
+| Amazon Linux 2 (deprecated) | Included | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro | [June 30, 2026 (end-of-life)](https://docs.aws.amazon.com/workspaces/latest/adminguide/manage_linux_workspace.html) | 
+| Ubuntu 22.04 LTS | Included | DCV | Value, Standard, Performance, Power, PowerPro, Graphics G4dn | [June, 2032](https://ubuntu.com/about/release-cycle) | 
+| Ubuntu 24.04 LTS | Included | DCV | Standard, Performance, Power, PowerPro | [June, 2034](https://ubuntu.com/about/release-cycle) | 
+| Rocky Linux 8 | Included | DCV | Value, Standard, Performance, Power, PowerPro | [May 31, 2029](https://ciq.com/services/long-term-support/) | 
+| Rocky Linux 9 | Included | DCV | Standard, Performance, Power, PowerPro | [May 31, 2032](https://ciq.com/services/long-term-support/) | 
+| Red Hat Enterprise Linux 8 | Included | DCV | Value, Standard, Performance, Power, PowerPro | [May 31, 2029](https://access.redhat.com/support/policy/updates/errata) | 
+| Red Hat Enterprise Linux 9 | Included | DCV | Standard, Performance, Power, PowerPro | [May 31, 2032](https://access.redhat.com/support/policy/updates/errata) | 
 
-- Operating system versions that are no longer supported by the vender are not guaranteed to work and are not supported by AWS support.
-- For WorkSpaces running on Windows operating system, Graphics bundles only supports PCoIP streaming protocol.
-- Nested virtualization is not supported on Windows Server 2016-based
-  WorkSpaces. If you require nested virtualization for running Docker Desktop, WSL2, or
-  other hypervisor-dependent tools, migrate your WorkSpace to a newer operating system
-  version (Windows Server 2019 or later). For more information about migration, see
-  [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md"). For more
-  information about nested virtualization, see [Nested
-  virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
+**Note**  
+Operating system versions that are no longer supported by the vender are not guaranteed to work and are not supported by AWS support.
+For WorkSpaces running on Windows operating system, Graphics bundles only supports PCoIP streaming protocol.
+Nested virtualization is not supported on Windows Server 2016-based WorkSpaces. If you require nested virtualization for running Docker Desktop, WSL2, or other hypervisor-dependent tools, migrate your WorkSpace to a newer operating system version (Windows Server 2019 or later). For more information about migration, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md). For more information about nested virtualization, see [Nested virtualization for WorkSpaces Personal](https://docs.aws.amazon.com/workspaces/latest/adminguide/nested-virtualization.html).
 
-###### Contents
-
-- [Bundle options for WorkSpaces Personal](bundle-options.md "bundle-options.md")
-- [Create a custom WorkSpaces image and bundle for WorkSpaces Personal](create-custom-bundle.md "create-custom-bundle.md")
-- [Update a custom bundle for WorkSpaces Personal](update-custom-bundle.md "update-custom-bundle.md")
-- [Copy a custom image in WorkSpaces Personal](copy-custom-image.md "copy-custom-image.md")
-- [Share or unshare a custom image in WorkSpaces Personal](share-custom-image.md "share-custom-image.md")
-- [Delete a custom bundle or image in WorkSpaces Personal](delete_bundle.md "delete_bundle.md")
+**Topics**
++ [Bundle options for WorkSpaces Personal](bundle-options.md)
++ [Create a custom WorkSpaces image and bundle for WorkSpaces Personal](create-custom-bundle.md)
++ [Update a custom bundle for WorkSpaces Personal](update-custom-bundle.md)
++ [Copy a custom image in WorkSpaces Personal](copy-custom-image.md)
++ [Share or unshare a custom image in WorkSpaces Personal](share-custom-image.md)
++ [Delete a custom bundle or image in WorkSpaces Personal](delete_bundle.md)

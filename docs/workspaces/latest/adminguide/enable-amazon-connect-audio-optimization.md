@@ -1,89 +1,90 @@
-# Enable Connect Customer audio optimization for your users in WorkSpaces Personal
 
-In the WorkSpaces management console, you can enable Connect Customer Contact Control Panel (CCP)
-audio optimization for your WorkSpaces fleets to enhance security and to enable
-native-quality audio. After enabling CCP audio optimization, the CCP audio will be
-processed by the client endpoints, while WorkSpaces users can interact with the CCP from
-within their WorkSpaces.
+
+# Enable Connect Customer audio optimization for your users in WorkSpaces Personal
+<a name="enable-amazon-connect-audio-optimization"></a>
+
+In the WorkSpaces management console, you can enable Connect Customer Contact Control Panel (CCP) audio optimization for your WorkSpaces fleets to enhance security and to enable native-quality audio. After enabling CCP audio optimization, the CCP audio will be processed by the client endpoints, while WorkSpaces users can interact with the CCP from within their WorkSpaces.
 
 Connect Customer Contact Control Panel (CCP) audio optimization works with:
-
-- The WorkSpaces Windows client.
-- Amazon Linux and Windows WorkSpaces.
-- WorkSpaces using PCoIP or DCV.
++ The WorkSpaces Windows client.
++ Amazon Linux and Windows WorkSpaces.
++ WorkSpaces using PCoIP or DCV.
 
 ## Requirements
-
-- You must be set up with Connect Customer.
-- You must build a custom CCP with the Connect Customer Stream API by creating a CCP
-  with no media for call signaling. This way, the media is handled on the
-  local desktop using standard CCP, and the signaling and call controls are
-  handled on the remote connection with the CCP with no media. For more
-  information about the Connect Customer streams API, see the GitHub repository at [https://github.com/aws/amazon-connect-streams](https://github.com/aws/amazon-connect-streams "https://github.com/aws/amazon-connect-streams"). The custom CCP
-  that you build is the CCP your Amazon Connect agents will use within their
-  WorkSpaces.
-- You must have a web browser installed onto WorkSpaces client endpoints that's
-  supported by Connect Customer. For the list of supported browsers, see [Browsers supported by Amazon Connect](../../../connect/latest/adminguide/browsers.md "../../../connect/latest/adminguide/browsers.md").
-
-###### Note
-
-If your users use browsers that are not supported, they will be asked
-to download a supported browser when they attempt to log in to the
-CCP.
+<a name="amazon-connect-audio-optimization-requirements"></a>
++ You must be set up with Connect Customer.
++ You must build a custom CCP with the Connect Customer Stream API by creating a CCP with no media for call signaling. This way, the media is handled on the local desktop using standard CCP, and the signaling and call controls are handled on the remote connection with the CCP with no media. For more information about the Connect Customer streams API, see the GitHub repository at [https://github.com/aws/amazon-connect-streams](https://github.com/aws/amazon-connect-streams). The custom CCP that you build is the CCP your Amazon Connect agents will use within their WorkSpaces.
++ You must have a web browser installed onto WorkSpaces client endpoints that's supported by Connect Customer. For the list of supported browsers, see [ Browsers supported by Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/browsers.html).
+**Note**  
+If your users use browsers that are not supported, they will be asked to download a supported browser when they attempt to log in to the CCP.
 
 ## Enable Connect Customer audio optimization
+<a name="enable-audio-optimization"></a>
 
 To enable Amazon Connect audio optimization for your users:
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose **Directories**.
-3. Select your directory, and choose **Actions**,
-   **Update Details**.
-4. Expand **Connect Customer Audio Optimization**.
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-###### Note
+1. In the navigation pane, choose **Directories**.
 
-Before configuring with Connect Customer, choose **Update**
-to save any unsaved changes made previously in the management console. 5. Choose **Configure Connect Customer**. 6. Enter an Connect Customer Contact Control Panel (CCP) name.
+1. Select your directory, and choose **Actions**, **Update Details**.
 
-###### Note
+1. Expand **Connect Customer Audio Optimization**.
+**Note**  
+Before configuring with Connect Customer, choose **Update** to save any unsaved changes made previously in the management console.
 
-The name that you give your CCP will be used in the user add-in menu.
-Choose a name that will be meaningful to your users. 7. Enter the Connect Customer Contact Control Panel URL that's generated by Connect Customer. See
-[Provide access to the Contact Control Panel](../../../connect/latest/adminguide/amazon-connect-contact-control-panel.md "../../../connect/latest/adminguide/amazon-connect-contact-control-panel.md") for more
-information on getting the URL. 8. Choose **Create Amazon Connect**.
+1. Choose **Configure Connect Customer**.
+
+1. Enter an Connect Customer Contact Control Panel (CCP) name.
+**Note**  
+The name that you give your CCP will be used in the user add-in menu. Choose a name that will be meaningful to your users.
+
+1. Enter the Connect Customer Contact Control Panel URL that's generated by Connect Customer. See [ Provide access to the Contact Control Panel](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-contact-control-panel.html) for more information on getting the URL.
+
+1. Choose **Create Amazon Connect**.
 
 ## Update directory's Connect Customer audio optimization details
+<a name="update-audio-optimization"></a>
 
-To update a directory's Connect Customer audio optimization
-details:
+To update a directory's Connect Customer audio optimization details:
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose **Directories**.
-3. Select your directory, and choose **Actions**,
-   **Update Details**.
-4. Expand **Connect Customer Audio Optimization**.
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-###### Note
+1. In the navigation pane, choose **Directories**.
 
-Before configuring with Connect Customer, choose **Update**
-to save any unsaved changes made previously in the management console. 5. Choose **Configure Connect Customer**. 6. Choose **Edit**. 7. Select your directory, and choose **Actions**,
-**Update Details**. 8. Update the Connect Customer Contact Control Panel name and URL. 9. Choose **Save**.
+1. Select your directory, and choose **Actions**, **Update Details**.
+
+1. Expand **Connect Customer Audio Optimization**.
+**Note**  
+Before configuring with Connect Customer, choose **Update** to save any unsaved changes made previously in the management console.
+
+1. Choose **Configure Connect Customer**. 
+
+1. Choose **Edit**.
+
+1. Select your directory, and choose **Actions**, **Update Details**.
+
+1. Update the Connect Customer Contact Control Panel name and URL.
+
+1. Choose **Save**.
 
 ## Delete directory's Connect Customer audio optimization
+<a name="delete-audio-optimization"></a>
 
-To delete a directory’s Connect Customer audio
-optimization:
+To delete a directory’s Connect Customer audio optimization:
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose **Directories**.
-3. Select your directory, and choose **Actions**,
-   **Update Details**.
-4. Expand **Connect Customer Audio Optimization**.
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-###### Note
+1. In the navigation pane, choose **Directories**.
 
-Before configuring with Connect Customer, choose **Update** to save any unsaved changes
-made previously in the management console. 5. Choose **Configure Connect Customer**. 6. Choose **Delete Connect Customer**.
+1. Select your directory, and choose **Actions**, **Update Details**.
 
-See the [Agent training guide](../../../connect/latest/adminguide/agent-user-guide.md "../../../connect/latest/adminguide/agent-user-guide.md") for more information.
+1. Expand **Connect Customer Audio Optimization**.
+**Note**  
+Before configuring with Connect Customer, choose **Update** to save any unsaved changes made previously in the management console.
+
+1. Choose **Configure Connect Customer**. 
+
+1. Choose **Delete Connect Customer**.
+
+See the [ Agent training guide](https://docs.aws.amazon.com/connect/latest/adminguide/agent-user-guide.html) for more information. 

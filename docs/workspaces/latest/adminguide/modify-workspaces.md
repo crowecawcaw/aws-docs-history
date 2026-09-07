@@ -1,335 +1,235 @@
+
+
 # Modify a WorkSpace in WorkSpaces Personal
+<a name="modify-workspaces"></a>
 
-After you launch a WorkSpace, you can modify its configuration in three ways:
+After you launch a WorkSpace, you can modify its configuration in three ways: 
++ You can change the size of its root volume (for Windows, drive C; for Linux, /) and its user volume (for Windows, drive D; for Linux /home).
++ You can change its compute type to select a new bundle.
++ You can modify the streaming protocol using the AWS Management Console, AWS CLI or Amazon WorkSpaces API if your WorkSpace was created with PCoIP bundles.
 
-- You can change the size of its root volume (for Windows, drive C; for Linux, /)
-  and its user volume (for Windows, drive D; for Linux /home).
-- You can change its compute type to select a new bundle.
-- You can modify the streaming protocol using the AWS Management Console, AWS CLI or Amazon WorkSpaces
-  API if your WorkSpace was created with PCoIP bundles.
-  To see the current modification state of a WorkSpace, select the arrow to show more
-  details about that WorkSpace. The possible values for **State** are
-  **Modifying Compute**, **Modifying Storage,** and
-  **None**.
+To see the current modification state of a WorkSpace, select the arrow to show more details about that WorkSpace. The possible values for **State** are **Modifying Compute**, **Modifying Storage,** and **None**.
 
-If you want to modify a WorkSpace, it must have a status of `AVAILABLE` or
-`STOPPED`. You can't change the volume size and the compute type at the same
-time.
+If you want to modify a WorkSpace, it must have a status of `AVAILABLE` or `STOPPED`. You can't change the volume size and the compute type at the same time.
 
-Changing the volume size or compute type of a WorkSpace will change the billing rate for
-the WorkSpace.
+Changing the volume size or compute type of a WorkSpace will change the billing rate for the WorkSpace.
 
-To allow your users to modify their volumes and compute types themselves, see [Enable self-service WorkSpaces management capabilities for your users in WorkSpaces Personal](enable-user-self-service-workspace-management.md "enable-user-self-service-workspace-management.md").
+To allow your users to modify their volumes and compute types themselves, see [Enable self-service WorkSpaces management capabilities for your users in WorkSpaces Personal](enable-user-self-service-workspace-management.md).
 
 ## Modify volume sizes
+<a name="modify_volume_sizes"></a>
 
-You can increase the size of the root and user volumes for a WorkSpace, up to 2000 GB
-each. WorkSpace root and user volumes come in set groups that can't be changed. The
-available groups are:
+You can increase the size of the root and user volumes for a WorkSpace, up to 2000 GB each. WorkSpace root and user volumes come in set groups that can't be changed. The available groups are:
 
-| [Root (GB), User (GB)]     |
-| -------------------------- |
-| [80, 10]                   |
-| [80, 50]                   |
-| [80, 100]                  |
-| [175 to 2000, 100 to 2000] |
 
-You can expand the root and user volumes whether they are encrypted or unencrypted,
-and you can expand both volumes once in a 6-hour period. However, you can't increase the
-size of the root and user volumes at the same time. For more information, see [Limitations for Increasing
-Volumes](#limitations_increasing_volumes "#limitations_increasing_volumes").
+| [Root (GB), User (GB)] | 
+| --- | 
+| [80, 10] | 
+| [80, 50] | 
+| [80, 100] | 
+| [175 to 2000, 100 to 2000] | 
 
-###### Note
+You can expand the root and user volumes whether they are encrypted or unencrypted, and you can expand both volumes once in a 6-hour period. However, you can't increase the size of the root and user volumes at the same time. For more information, see [Limitations for Increasing Volumes](#limitations_increasing_volumes).
 
-When you expand a volume for a WorkSpace, WorkSpaces automatically extends the volume's
-partition within Windows or Linux. When the process is finished, you must reboot the
-WorkSpace for the changes to take effect.
+**Note**  
+When you expand a volume for a WorkSpace, WorkSpaces automatically extends the volume's partition within Windows or Linux. When the process is finished, you must reboot the WorkSpace for the changes to take effect. 
 
-To ensure that your data is preserved, you cannot decrease the
-size of the root or user volumes after you launch a WorkSpace.
-Instead, make sure that you specify the minimum sizes for these
-volumes when launching a WorkSpace.
+To ensure that your data is preserved, you cannot decrease the size of the root or user volumes after you launch a WorkSpace. Instead, make sure that you specify the minimum sizes for these volumes when launching a WorkSpace.
++ You can launch a Value, Standard, Performance, Power, or PowerPro WorkSpace with a minimum of 80 GB for the root volume and 10 GB for the user volume.
++ You can launch a GeneralPurpose.4xlarge or GeneralPurpose.8xlarge WorkSpace with a minimum of 175GB for the root volume and 100 GB for the user volume.
++ You can launch a Graphics.g6, Graphics.g4dn, GraphicsPro.g4dn, or GraphicsPro WorkSpace with a minimum of 100 GB for the root volume and 100 GB for the user volume. Volume sizing requirements vary based on larger graphics instance types.
 
-- You can launch a Value, Standard, Performance, Power,
-  or PowerPro WorkSpace with a minimum of 80 GB for the root
-  volume and 10 GB for the user volume.
-- You can launch a GeneralPurpose.4xlarge or GeneralPurpose.8xlarge
-  WorkSpace with a minimum of 175GB for the root volume and 100 GB
-  for the user volume.
-- You can launch a Graphics.g6, Graphics.g4dn, GraphicsPro.g4dn,
-  or GraphicsPro WorkSpace with a minimum of 100 GB for
-  the root volume and 100 GB for the user volume. Volume sizing requirements vary based on larger graphics instance types.
+While a WorkSpace disk size increase is in progress, users can perform most tasks on their WorkSpace. However, they can't change their WorkSpace compute type, switch the WorkSpace running mode, rebuild their WorkSpace, or reboot (restart) their WorkSpace.
 
-While a WorkSpace disk size increase is in progress, users can perform most tasks on
-their WorkSpace. However, they can't change their WorkSpace compute type, switch the
-WorkSpace running mode, rebuild their WorkSpace, or reboot (restart) their
-WorkSpace.
+**Note**  
+If you want your users to be able to use their WorkSpaces while the disk size increase is in progress, make sure the WorkSpaces have a status of `AVAILABLE` instead of `STOPPED` before you resize the volumes of the WorkSpaces. If the WorkSpaces are `STOPPED`, they can't be started while the disk size increase is in progress.
 
-###### Note
+In most cases, the disk size increase process might take up to two hours. However, if you're modifying the volume sizes for a large number of WorkSpaces, the process can take significantly longer. If you have a large number of WorkSpaces to modify, we recommend contacting AWS Support for assistance.
 
-If you want your users to be able to use their WorkSpaces while the disk size increase
-is in progress, make sure the WorkSpaces have a status of `AVAILABLE` instead
-of `STOPPED` before you resize the volumes of the WorkSpaces. If the WorkSpaces are
-`STOPPED`, they can't be started while the disk size increase is in
-progress.
+**Limitations for increasing volumes**
++ You can resize only SSD volumes.
++ When you launch a WorkSpace, you must wait 6 hours before you can modify the sizes of its volumes.
++ You cannot increase the size of the root and user volumes at the same time. To increase the root volume, you must first change the user volume to 100 GB. After that change is made, you can then update the root volume to any value between 175 and 2000 GB. After the root volume has been changed to any value between 175 and 2000 GB, you can then update the user volume further, to any value between 100 and 2000 GB.
+**Note**  
+If you want to increase both volumes, you must wait 20-30 minutes for the first operation to finish before you can start the second operation.
++ Non-GPU-enabled WorkSpaces' root volume cannot be less than 175 GB when the user volume is 100 GB. Storage requirements for GPU-enabled WorkSpaces scale proportionally with instance sizing. As you select larger GPU-enabled WorkSpaces configurations, you must allocate correspondingly larger storage volumes to maintain optimal performance and accommodate increased workload demands. For the smallest instance size, begin with the following storage allocation: Root: 100 GB, User: 100 GB. GPU-enabled WorkSpaces support a minimum of 100 GB for the root volume and 100 GB for the user volume.
++ If the user volume is 50 GB, you cannot update the root volume to anything other than 80 GB. If the root volume is 80 GB, the user volume can only be 10, 50, or 100 GB.
 
-In most cases, the disk size increase process might take up to two hours. However, if
-you're modifying the volume sizes for a large number of WorkSpaces, the process can take
-significantly longer. If you have a large number of WorkSpaces to modify, we recommend
-contacting AWS Support for assistance.
+**To modify the root volume of a WorkSpace**
 
-###### Limitations for increasing volumes
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-- You can resize only SSD volumes.
-- When you launch a WorkSpace, you must wait 6 hours before you can modify the
-  sizes of its volumes.
-- You cannot increase the size of the root and user volumes at the same time. To
-  increase the root volume, you must first change the user volume to 100 GB. After
-  that change is made, you can then update the root volume to any value between 175
-  and 2000 GB. After the root volume has been changed to any value between 175 and
-  2000 GB, you can then update the user volume further, to any value between 100 and
-  2000 GB.
+1. In the navigation pane, choose **WorkSpaces**.
 
-###### Note
+1. Select the WorkSpace and choose **Actions**, **Modify root volume.**.
 
-If you want to increase both volumes, you must wait 20-30 minutes for the
-first operation to finish before you can start the second operation.
+1. Under **Root volume sizes**, choose a volume size or choose **Custom** to enter a custom volume size.
 
-- Non-GPU-enabled WorkSpaces' root volume cannot be less than 175 GB when the user volume is 100 GB. Storage requirements for GPU-enabled WorkSpaces scale proportionally with instance sizing. As you select larger GPU-enabled WorkSpaces configurations,
-  you must allocate correspondingly larger storage volumes to maintain optimal performance and accommodate increased workload demands.
-  For the smallest instance size, begin with the following storage allocation: Root: 100 GB, User: 100 GB. GPU-enabled WorkSpaces support a minimum of 100 GB for the root volume and 100 GB for the user volume.
-- If the user volume is 50 GB, you cannot update the root volume to anything
-  other than 80 GB. If the root volume is 80 GB, the user volume can only be 10, 50,
-  or 100 GB.
+1. Choose **Save changes**.
 
-###### To modify the root volume of a WorkSpace
+1. When the disk size increase is finished, you must [ reboot the WorkSpace](reboot-workspaces.md) for the changes to take effect. To avoid data loss, make sure the user saves any open files before you reboot the WorkSpace.
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose **WorkSpaces**.
-3. Select the WorkSpace and choose **Actions**, **Modify
-   root volume.**.
-4. Under **Root volume sizes**, choose a volume size or choose
-   **Custom** to enter a custom volume size.
-5. Choose **Save changes**.
-6. When the disk size increase is finished, you must [reboot the WorkSpace](reboot-workspaces.md "reboot-workspaces.md") for the changes to
-   take effect. To avoid data loss, make sure the user saves any open files before
-   you reboot the WorkSpace.
+**To modify the user volume of a WorkSpace**
 
-###### To modify the user volume of a WorkSpace
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose **WorkSpaces**.
-3. Select the WorkSpace and choose **Actions**, **Modify
-   user volume.**.
-4. Under **User volume sizes**, choose a volume size or choose
-   **Custom** to enter a custom volume size.
-5. Choose **Save changes**.
-6. When the disk size increase is finished, you must [reboot the WorkSpace](reboot-workspaces.md "reboot-workspaces.md") for the changes to
-   take effect. To avoid data loss, make sure the user saves any open files before
-   you reboot the WorkSpace.
+1. In the navigation pane, choose **WorkSpaces**.
 
-###### To change the volume sizes of a WorkSpace
+1. Select the WorkSpace and choose **Actions**, **Modify user volume.**.
 
-Use the [modify-workspace-properties](../../../cli/latest/reference/workspaces/modify-workspace-properties.md "../../../cli/latest/reference/workspaces/modify-workspace-properties.md") command with the
-`RootVolumeSizeGib` or `UserVolumeSizeGib` property.
+1. Under **User volume sizes**, choose a volume size or choose **Custom** to enter a custom volume size.
+
+1. Choose **Save changes**.
+
+1. When the disk size increase is finished, you must [ reboot the WorkSpace](reboot-workspaces.md) for the changes to take effect. To avoid data loss, make sure the user saves any open files before you reboot the WorkSpace.
+
+**To change the volume sizes of a WorkSpace**  
+Use the [modify-workspace-properties](https://docs.aws.amazon.com/cli/latest/reference/workspaces/modify-workspace-properties.html) command with the `RootVolumeSizeGib` or `UserVolumeSizeGib` property.
 
 ## Modify compute type
+<a name="modify_compute"></a>
 
-You can switch a WorkSpace between the Standard, Power, Performance, PowerPro
-GeneralPurpose.4xlarge, and GeneralPurpose.8xlarge compute types. For more information
-about these compute types, see [Amazon WorkSpaces
-Bundles](https://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles "https://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles").
+You can switch a WorkSpace between the Standard, Power, Performance, PowerPro GeneralPurpose.4xlarge, and GeneralPurpose.8xlarge compute types. For more information about these compute types, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/features/#Amazon_WorkSpaces_Bundles).
 
-###### Note
+**Note**  
+If your source operating system is anything other than Windows Server 2022 or Windows 11, you cannot change your compute type from PowerPro to GeneralPurpose.
+If you are modifying the compute type from a non-GPU-enabled bundles to GeneralPurpose.4xlarge or GeneralPurpose.8xlarge, your WorkSpaces must meet the minimum root volume size of 175 GB and user volume size of 100 GB. To increase the volume size of your WorkSpaces, see [Modify volume sizes](#modify_volume_sizes).
+GPU-enabled WorkSpaces support compute type modifications within the same instance family but do not support cross-family modifications. For example, you can modify the compute type between G4dn instances or between G6 instances, but you cannot change from a G4dn instance to a G6 instance family. To move between GPU-enabled WorkSpace bundles powered by different instance families, use Migrate a WorkSpace feature. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md)
+GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend migrating your GraphicsPro WorkSpaces to supported bundles before October 31, 2025. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md).
+You cannot change the compute type of Graphics and GraphicsPro to any other value.
+If you modify the compute type from a non-GPU-enabled bundle to a GPU-enabled bundle, nested virtualization is automatically disabled on the WorkSpace. GPU WorkSpaces do not support nested virtualization. For more information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md).
 
-- If your source operating system is anything other than Windows Server 2022
-  or Windows 11, you cannot change your compute type from PowerPro to
-  GeneralPurpose.
-- If you are modifying the compute type from a non-GPU-enabled bundles to
-  GeneralPurpose.4xlarge or GeneralPurpose.8xlarge, your WorkSpaces must meet
-  the minimum root volume size of 175 GB and user volume size of 100 GB. To
-  increase the volume size of your WorkSpaces, see [Modify volume sizes](#modify_volume_sizes "#modify_volume_sizes").
-- GPU-enabled WorkSpaces support compute type modifications within the same instance family but do not support cross-family modifications.
-  For example, you can modify the compute type between G4dn instances or between G6 instances, but you cannot change from a G4dn instance to a G6 instance family.
-  To move between GPU-enabled WorkSpace bundles powered by different instance families, use Migrate a WorkSpace feature. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md")
-- GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend
-  migrating your GraphicsPro WorkSpaces to supported bundles before October 31, 2025.
-  For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md").
-- You cannot change the compute type of Graphics and GraphicsPro to any other
-  value.
-- If you modify the compute type from a non-GPU-enabled bundle to a
-  GPU-enabled bundle, nested virtualization is automatically disabled on the
-  WorkSpace. GPU WorkSpaces do not support nested virtualization. For more
-  information, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
+When you request a compute change, WorkSpaces reboots the WorkSpace using the new compute type. WorkSpaces preserves the operating system, applications, data, and storage settings for the WorkSpace.
 
-When you request a compute change, WorkSpaces reboots the WorkSpace using the new compute type.
+You can request a larger compute type once in a 6-hour period or a smaller compute type once every 30 days. For a newly launched WorkSpace, you must wait 6 hours before requesting a larger compute type.
 
-WorkSpaces preserves the operating system, applications, data, and storage settings for the
-WorkSpace.
+When a WorkSpace compute type change is in progress, users are disconnected from their WorkSpace, and they can't use or change the WorkSpace. The WorkSpace is automatically rebooted during the compute type change process.
 
-You can request a larger compute type once in a 6-hour period or a smaller compute type once
-every 30 days. For a newly launched WorkSpace, you must wait 6 hours before requesting a
-larger compute type.
+**Important**  
+To avoid data loss, make sure users save any open documents and other application files before you change the WorkSpace compute type.
 
-When a WorkSpace compute type change is in progress, users are disconnected from
-their WorkSpace, and they can't use or change the WorkSpace. The WorkSpace is
-automatically rebooted during the compute type change process.
+The compute type change process might take up to an hour. This time does not include any delay between when you submit the request and when the system begins the modification. When you modify a large number of WorkSpaces simultaneously, this delay might be longer. For bulk operations, consider staggering modifications in smaller batches.
 
-###### Important
+**To change the compute type of a WorkSpace**
 
-To avoid data loss, make sure users save any open documents and other application
-files before you change the WorkSpace compute type.
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-The compute type change process might take up to an hour. This time does not
-include any delay between when you submit the request and when the system begins the
-modification. When you modify a large number of WorkSpaces simultaneously, this delay
-might be longer. For bulk operations, consider staggering modifications in smaller
-batches.
+1. In the navigation pane, choose **WorkSpaces**.
 
-###### To change the compute type of a WorkSpace
+1. Select the WorkSpace and choose **Actions**, **Modify compute type**.
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose **WorkSpaces**.
-3. Select the WorkSpace and choose **Actions**, **Modify
-   compute type**.
-4. Under **Compute type**, choose a compute type.
-5. Choose **Save changes**.
+1. Under **Compute type**, choose a compute type.
 
-###### To change the compute type of a WorkSpace
+1. Choose **Save changes**.
 
-Use the [modify-workspace-properties](../../../cli/latest/reference/workspaces/modify-workspace-properties.md "../../../cli/latest/reference/workspaces/modify-workspace-properties.md") command with the `ComputeTypeName`
-property.
+**To change the compute type of a WorkSpace**  
+Use the [modify-workspace-properties](https://docs.aws.amazon.com/cli/latest/reference/workspaces/modify-workspace-properties.html) command with the `ComputeTypeName` property.
 
 ## Modify protocols
+<a name="modify_protocols"></a>
 
-If your WorkSpace is created with PCoIP bundles, you can modify their streaming
-protocol using the AWS Management Console, AWS CLI, or Amazon WorkSpaces API. This allows you to migrate the protocol
-using your existing WorkSpace without using the WorkSpace migration feature. This also allows you
-to use DCV and maintain your root volume without
-re-creating existing PCoIP WorkSpaces during the migration process.
+ If your WorkSpace is created with PCoIP bundles, you can modify their streaming protocol using the AWS Management Console, AWS CLI, or Amazon WorkSpaces API. This allows you to migrate the protocol using your existing WorkSpace without using the WorkSpace migration feature. This also allows you to use DCV and maintain your root volume without re-creating existing PCoIP WorkSpaces during the migration process. 
++ You can only modify the protocol for Windows WorkSpaces that were created with PCoIP bundles.
++ Before you modify the protocol to DCV, make sure that your WorkSpace meets the following requirements for a DCV WorkSpace.
+  + Your WorkSpaces client supports DCV.
+  + The necessary network requirements for DCV are configured. For more information, see [IP address and port requirements for WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-port-requirements.html).
+  + Your current bundle is available with DCV.
 
-- You can only modify the protocol for Windows WorkSpaces that were created with PCoIP bundles.
-- Before you modify the protocol to DCV, make sure that your WorkSpace meets the
-  following requirements for a DCV WorkSpace.
+**Note**  
+We highly recommend testing with your non-production WorkSpaces before you start changing the protocol.
+If you modify the protocol from PCoIP to DCV, and then modify the protocol back to PCoIP, you won't be able to connect to WorkSpaces through Web Access.
 
-  - Your WorkSpaces client supports DCV.
-  - The necessary network requirements for DCV are configured. For more information,
-    see [IP address and port requirements for WorkSpaces](workspaces-port-requirements.md "workspaces-port-requirements.md").
-  - Your current bundle is available with DCV.
-
-###### Note
-
-- We highly recommend testing with your non-production WorkSpaces before you start changing the protocol.
-- If you modify the protocol from PCoIP to DCV, and then modify the protocol back to PCoIP,
-  you won't be able to connect to WorkSpaces through Web Access.
-
-###### To change the protocol of a WorkSpace using the console
+**To change the protocol of a WorkSpace using the console**
 
 The console provides a guided experience to change the protocol of a WorkSpace from PCoIP to DCV.
 
-1. Open the [WorkSpaces console](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. Select the WorkSpace (ensure that it's in the `AVAILABLE` or `STOPPED` state and its current Protocol is `PCOIP`).
-3. Choose Actions and then Modify Protocol.
-4. Confirm to proceed with the modification.
-5. It can take up to 40 minutes for the modification to complete. During the modification, the WorkSpace Status will show as _Modifying Protocol._
-6. To confirm completion, verify that the WorkSpace is not in the `UNHEALTHY` state and that the `Protocols` property shows the correct protocol.
+1. Open the [WorkSpaces console](https://console.aws.amazon.com/workspaces/v2/home).
 
-###### Note
+1. Select the WorkSpace (ensure that it's in the `AVAILABLE` or `STOPPED` state and its current Protocol is `PCOIP`).
 
-- During protocol modification, session provisioning is blocked. End users who attempt to connect will receive an error message indicating the WorkSpace is being modified.
-- If protocol modification fails, the WorkSpace status shows as _Modify Protocol Failed_. To view WorkSpaces that failed, choose _View failed WorkSpaces_ in the console banner. You can also filter the list by `PROTOCOL` and `UPDATE_FAILED`.
-- Before protocol modification begins, Amazon WorkSpaces automatically takes a checkpoint snapshot of the WorkSpace. If the modification fails, the WorkSpace is automatically restored to its pre-modification checkpoint snapshot to ensure no data is lost.
-- After the WorkSpace is automatically restored, try the Modify Protocol action again. If the failure persists, contact AWS Support.
-- After successful protocol modification, another WorkSpace snapshot is taken ensuring that the Restore WorkSpace action restores to the updated protocol.
+1. Choose Actions and then Modify Protocol.
 
-###### To change the protocol of a WorkSpace using the CLI
+1. Confirm to proceed with the modification.
+
+1. It can take up to 40 minutes for the modification to complete. During the modification, the WorkSpace Status will show as *Modifying Protocol.*
+
+1. To confirm completion, verify that the WorkSpace is not in the `UNHEALTHY` state and that the `Protocols` property shows the correct protocol.
+
+**Note**  
+During protocol modification, session provisioning is blocked. End users who attempt to connect will receive an error message indicating the WorkSpace is being modified.
+If protocol modification fails, the WorkSpace status shows as *Modify Protocol Failed*. To view WorkSpaces that failed, choose *View failed WorkSpaces* in the console banner. You can also filter the list by `PROTOCOL` and `UPDATE_FAILED`.
+Before protocol modification begins, Amazon WorkSpaces automatically takes a checkpoint snapshot of the WorkSpace. If the modification fails, the WorkSpace is automatically restored to its pre-modification checkpoint snapshot to ensure no data is lost.
+After the WorkSpace is automatically restored, try the Modify Protocol action again. If the failure persists, contact AWS Support.
+After successful protocol modification, another WorkSpace snapshot is taken ensuring that the Restore WorkSpace action restores to the updated protocol.
+
+**To change the protocol of a WorkSpace using the CLI**
 
 1. (Optional) Reboot your WorkSpace before modifying the protocol.
-2. (Optional) Use the `describe-workspaces` command to list the WorkSpace properties. Verify that its current `Protocols` property is accurate. The WorkSpace can be in either the `AVAILABLE` or `STOPPED` state.
-3. Use the `modify-workspace-properties` command and modify the
-   `Protocols` property from `PCOIP` to `DCV`, or the other way around.
 
-```
-aws workspaces modify-workspace-properties
---workspace-id <value>
---workspace-properties "Protocols=[WSP]"
-```
+1. (Optional) Use the `describe-workspaces` command to list the WorkSpace properties. Verify that its current `Protocols` property is accurate. The WorkSpace can be in either the `AVAILABLE` or `STOPPED` state.
 
-###### Important
+1. Use the `modify-workspace-properties` command and modify the `Protocols` property from `PCOIP` to `DCV`, or the other way around.
 
-The `Protocols` property is case-sensitive. Ensure that you use `PCOIP`
-or `WSP`. The input parameter for DCV (WSP) is `WSP`. 4. After you run the command, it can take up to 40 minutes for the WorkSpace to
-complete the protocol modification workflow. 5. Use the `describe-workspaces` command again. Verify that the
-WorkSpace is not in the `UNHEALTHY` state and that the
-`Protocols` property shows the correct protocol.
+   ```
+   aws workspaces modify-workspace-properties
+   --workspace-id <value>
+   --workspace-properties "Protocols=[WSP]"
+   ```
+**Important**  
+The `Protocols` property is case-sensitive. Ensure that you use `PCOIP` or `WSP`. The input parameter for DCV (WSP) is `WSP`.
 
-###### Note
+1. After you run the command, it can take up to 40 minutes for the WorkSpace to complete the protocol modification workflow.
 
-    * Modifying the WorkSpace's protocol will not update the bundle description in the console.
-     The **Launch Bundle** description will not change.
-    * During protocol modification, session provisioning is blocked. End users who attempt to connect will receive an error message indicating the WorkSpace is being modified.
-    * Protocol modification has failed if the WorkSpace is in an `UNHEALTHY` State with `RESOURCE: PROTOCOL` and `STATE: UPDATE_FAILED`.
-    * Before protocol modification begins, Amazon WorkSpaces automatically takes a checkpoint snapshot of the WorkSpace. If the modification fails, the WorkSpace is automatically restored to its pre-modification checkpoint snapshot to ensure no data is lost.
-    * After the WorkSpace is automatically restored, try the `modify-workspace-properties` command again. If the failure persists, contact AWS Support.
-    * After successful protocol modification, another WorkSpace snapshot is taken ensuring that the Restore WorkSpace action restores to the updated protocol.
+1. Use the `describe-workspaces` command again. Verify that the WorkSpace is not in the `UNHEALTHY` state and that the `Protocols` property shows the correct protocol.
+**Note**  
+Modifying the WorkSpace's protocol will not update the bundle description in the console. The **Launch Bundle** description will not change.
+During protocol modification, session provisioning is blocked. End users who attempt to connect will receive an error message indicating the WorkSpace is being modified.
+Protocol modification has failed if the WorkSpace is in an `UNHEALTHY` State with `RESOURCE: PROTOCOL` and `STATE: UPDATE_FAILED`.
+Before protocol modification begins, Amazon WorkSpaces automatically takes a checkpoint snapshot of the WorkSpace. If the modification fails, the WorkSpace is automatically restored to its pre-modification checkpoint snapshot to ensure no data is lost.
+After the WorkSpace is automatically restored, try the `modify-workspace-properties` command again. If the failure persists, contact AWS Support.
+After successful protocol modification, another WorkSpace snapshot is taken ensuring that the Restore WorkSpace action restores to the updated protocol.
 
 ## Modify nested virtualization
+<a name="modify_nested_virtualization"></a>
 
-You can enable or disable nested virtualization on your WorkSpaces to allow running
-hypervisors such as Hyper-V and KVM inside your WorkSpace. Nested virtualization is
-useful for running development tools like Docker Desktop, Windows Subsystem for Linux 2
-(WSL2), Android Studio emulators, or QEMU within your WorkSpace.
+You can enable or disable nested virtualization on your WorkSpaces to allow running hypervisors such as Hyper-V and KVM inside your WorkSpace. Nested virtualization is useful for running development tools like Docker Desktop, Windows Subsystem for Linux 2 (WSL2), Android Studio emulators, or QEMU within your WorkSpace.
 
-You can modify the nested virtualization setting using the AWS Management Console, AWS CLI, or
-Amazon WorkSpaces API.
+You can modify the nested virtualization setting using the AWS Management Console, AWS CLI, or Amazon WorkSpaces API.
 
-For more information about prerequisites, considerations, and detailed instructions
-including AWS CLI and AWS Tools for PowerShell examples, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md "nested-virtualization.md").
+For more information about prerequisites, considerations, and detailed instructions including AWS CLI and AWS Tools for PowerShell examples, see [Nested virtualization for WorkSpaces Personal](nested-virtualization.md).
 
-###### Note
+**Note**  
+Nested virtualization is not supported on GPU WorkSpaces.
+Nested virtualization is not supported on Standby WorkSpaces. For more information, see [Multi-Region Resilience for WorkSpaces Personal](multi-region-resilience.md).
+When nested virtualization is enabled on a Windows WorkSpace, Virtual Secure Mode (VSM) is automatically disabled.
+There is no additional cost for using nested virtualization. For more information, see [Amazon WorkSpaces pricing](https://aws.amazon.com/workspaces/pricing/).
 
-- Nested virtualization is not supported on GPU WorkSpaces.
-- Nested virtualization is not supported on Standby WorkSpaces. For more
-  information, see [Multi-Region Resilience for WorkSpaces Personal](multi-region-resilience.md "multi-region-resilience.md").
-- When nested virtualization is enabled on a Windows WorkSpace, Virtual Secure
-  Mode (VSM) is automatically disabled.
-- There is no additional cost for using nested virtualization. For more
-  information, see [Amazon
-  WorkSpaces pricing](https://aws.amazon.com/workspaces/pricing/ "https://aws.amazon.com/workspaces/pricing/").
+**To enable or disable nested virtualization using the console**  
 
-###### To enable or disable nested virtualization using the console
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose **WorkSpaces**.
-3. Select the WorkSpace.
-4. Choose **Actions**, and then choose **Enable Nested
-   Virtualization** or **Disable Nested
-   Virtualization**.
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-###### Note
+1. In the navigation pane, choose **WorkSpaces**.
 
-The modification may take several minutes to complete. During the modification,
-the WorkSpace status shows as _Modifying_. After the modification
-completes, start the WorkSpace to use nested virtualization.
+1. Select the WorkSpace.
 
-###### Tip
+1. Choose **Actions**, and then choose **Enable Nested Virtualization** or **Disable Nested Virtualization**.
 
-To verify the current nested virtualization state, select the WorkSpace in the
-console. In the detail view, the **Summary** section displays a
-**Nested Virtualization** field showing either
-`Enabled` or `Disabled`.
+**Note**  
+The modification may take several minutes to complete. During the modification, the WorkSpace status shows as *Modifying*. After the modification completes, start the WorkSpace to use nested virtualization.
 
-###### To enable or disable nested virtualization using the AWS CLI
+**Tip**  
+To verify the current nested virtualization state, select the WorkSpace in the console. In the detail view, the **Summary** section displays a **Nested Virtualization** field showing either `Enabled` or `Disabled`.
 
-Use the [modify-workspace-properties](../../../cli/latest/reference/workspaces/modify-workspace-properties.md "../../../cli/latest/reference/workspaces/modify-workspace-properties.md") command with the
-`NestedVirtualizationEnabled` property.
+**To enable or disable nested virtualization using the AWS CLI**  
+Use the [modify-workspace-properties](https://docs.aws.amazon.com/cli/latest/reference/workspaces/modify-workspace-properties.html) command with the `NestedVirtualizationEnabled` property.
 
 To enable:
 
 ```
 aws workspaces modify-workspace-properties \
-    --workspace-id `ws-example123456` \
-    --region `us-west-2` \
+    --workspace-id {{ws-example123456}} \
+    --region {{us-west-2}} \
     --workspace-properties NestedVirtualizationEnabled=true
 ```
 
@@ -337,7 +237,7 @@ To disable:
 
 ```
 aws workspaces modify-workspace-properties \
-    --workspace-id `ws-example123456` \
-    --region `us-west-2` \
+    --workspace-id {{ws-example123456}} \
+    --region {{us-west-2}} \
     --workspace-properties NestedVirtualizationEnabled=false
 ```

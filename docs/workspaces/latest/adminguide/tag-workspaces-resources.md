@@ -1,85 +1,58 @@
+
+
 # Tag resources in WorkSpaces Personal
+<a name="tag-workspaces-resources"></a>
 
-You can organize and manage the resources for your WorkSpaces by assigning your own metadata
-to each resource in the form of _tags_. You specify a
-_key_ and a _value_ for each tag. A key can be a
-general category, such as "project," "owner," or "environment," with specific associated
-values. Using tags is a simple yet powerful way to manage AWS resources and to organize
-data, including billing data.
+You can organize and manage the resources for your WorkSpaces by assigning your own metadata to each resource in the form of *tags*. You specify a *key* and a *value* for each tag. A key can be a general category, such as "project," "owner," or "environment," with specific associated values. Using tags is a simple yet powerful way to manage AWS resources and to organize data, including billing data.
 
-When you add tags to an existing resource, those tags don't appear in your cost
-allocation report until the first day of the following month. For example, if you add tags
-to an existing WorkSpace on July 15, the tags won't appear in your cost allocation report
-until August 1. For more information, see [Using Cost Allocation Tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the _AWS Billing User Guide_.
+When you add tags to an existing resource, those tags don't appear in your cost allocation report until the first day of the following month. For example, if you add tags to an existing WorkSpace on July 15, the tags won't appear in your cost allocation report until August 1. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing User Guide*.
 
-###### Note
+**Note**  
+To view your WorkSpaces resource tags in the Cost Explorer, you must activate the tags that you have applied to your WorkSpaces resources by following the instructions in [Activating User-Defined Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html) in the *AWS Billing User Guide*.  
+Although tags appear 24 hours after activation, it can take 4 to 5 days for values associated with those tags to appear in the Cost Explorer. Additionally, to appear and provide cost data in Cost Explorer, WorkSpaces resources that have been tagged must incur charges during that time. Cost Explorer only shows cost data from the time when the tags were activated and onward. No historical data is available at this time.
 
-To view your WorkSpaces resource tags in the Cost Explorer, you must activate the tags
-that you have applied to your WorkSpaces resources by following the instructions in [Activating User-Defined Cost Allocation
-Tags](../../../awsaccountbilling/latest/aboutv2/activating-tags.md "../../../awsaccountbilling/latest/aboutv2/activating-tags.md") in the _AWS Billing User Guide_.
+**Resources that you can tag**
++ You can add tags to the following resources when you create them—WorkSpaces, imported images, and IP access control groups.
++ You can add tags to existing resources of the following types—WorkSpaces, registered directories, custom bundles, images, and IP access control groups.
 
-Although tags appear 24 hours after activation, it can take 4 to 5 days for values
-associated with those tags to appear in the Cost Explorer. Additionally, to appear and
-provide cost data in Cost Explorer, WorkSpaces resources that have been tagged must incur
-charges during that time. Cost Explorer only shows cost data from the time when the tags
-were activated and onward. No historical data is available at this time.
+**Tag restrictions**
++ Maximum number of tags per resource—50
++ Maximum key length—127 Unicode characters
++ Maximum value length—255 Unicode characters
++ Tag keys and values are case-sensitive. Allowed characters are letters, spaces, and numbers representable in UTF-8, plus the following special characters: \+ - = . \_ : / @. Do not use leading or trailing spaces.
++ Do not use the `aws:` or `aws:workspaces:` prefixes in your tag names or values because they are reserved for AWS use. You can't edit or delete tag names or values with these prefixes.
 
-###### Resources that you can tag
+**To update the tags for an existing resource using the console (directories, WorkSpaces, or IP access control groups)**
 
-- You can add tags to the following resources when you create them—WorkSpaces,
-  imported images, and IP access control groups.
-- You can add tags to existing resources of the following types—WorkSpaces,
-  registered directories, custom bundles, images, and IP access control groups.
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-###### Tag restrictions
+1. In the navigation pane, choose one of the following resource types: **Directories**, **WorkSpaces**, or **IP Access Controls**.
 
-- Maximum number of tags per resource—50
-- Maximum key length—127 Unicode characters
-- Maximum value length—255 Unicode characters
-- Tag keys and values are case-sensitive. Allowed characters are letters, spaces,
-  and numbers representable in UTF-8, plus the following special characters: + - = . \_
-  : / @. Do not use leading or trailing spaces.
-- Do not use the `aws:` or `aws:workspaces:` prefixes in your
-  tag names or values because they are reserved for AWS use. You can't edit or delete
-  tag names or values with these prefixes.
+1. Select the resource to open its details page.
 
-###### To update the tags for an existing resource using the console (directories, WorkSpaces, or IP access control groups)
+1. Do one or more of the following:
+   + To update a tag, edit the values of **Key** and **Value**.
+   + To add a tag, choose **Add Tag** and then edit the values of **Key** and **Value**.
+   + To delete a tag, choose the delete icon (X) next to the tag.
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose one of the following resource types:
-   **Directories**, **WorkSpaces**, or **IP
-   Access Controls**.
-3. Select the resource to open its details page.
-4. Do one or more of the following:
+1. When you are finished updating tags, choose **Save**.
 
-   - To update a tag, edit the values of **Key** and
-     **Value**.
-   - To add a tag, choose **Add Tag** and then edit the values
-     of **Key** and **Value**.
-   - To delete a tag, choose the delete icon (X) next to the tag.
+**To update the tags for an existing resource using the console (images or bundles)**
 
-5. When you are finished updating tags, choose **Save**.
+1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
-###### To update the tags for an existing resource using the console (images or bundles)
+1. In the navigation pane, choose one of the following resource types: **Bundles** or **Images**.
 
-1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
-2. In the navigation pane, choose one of the following resource types:
-   **Bundles** or **Images**.
-3. Choose the resource to open its details page.
-4. Under **Tags**, choose **Manage tags**.
-5. Do one or more of the following:
+1. Choose the resource to open its details page.
 
-   - To update a tag, edit the values of **Key** and
-     **Value**.
-   - To add a tag, choose **Add new tag** and then edit the
-     values of **Key** and **Value**.
-   - To delete a tag, choose **Remove** next to the tag.
+1. Under **Tags**, choose **Manage tags**.
 
-6. When you are finished updating tags, choose **Save
-   changes**.
+1. Do one or more of the following:
+   + To update a tag, edit the values of **Key** and **Value**.
+   + To add a tag, choose **Add new tag** and then edit the values of **Key** and **Value**.
+   + To delete a tag, choose **Remove** next to the tag.
 
-###### To update the tags for an existing resource using the AWS CLI
+1. When you are finished updating tags, choose **Save changes**.
 
-Use the [create-tags](../../../cli/latest/reference/workspaces/create-tags.md "../../../cli/latest/reference/workspaces/create-tags.md") and
-[delete-tags](../../../cli/latest/reference/workspaces/delete-tags.md "../../../cli/latest/reference/workspaces/delete-tags.md")
-commands.
+**To update the tags for an existing resource using the AWS CLI**  
+Use the [create-tags](https://docs.aws.amazon.com/cli/latest/reference/workspaces/create-tags.html) and [delete-tags](https://docs.aws.amazon.com/cli/latest/reference/workspaces/delete-tags.html) commands.

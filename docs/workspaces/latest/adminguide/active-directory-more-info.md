@@ -1,5 +1,7 @@
+
+
 # More Info
+<a name="active-directory-more-info"></a>
 
 For more information related to this topic, see the following resources:
-
-- [Microsoft Active Directory](../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md "../../../directoryservice/latest/admin-guide/directory_microsoft_ad.md")—Information about using Directory Service.
++ [Microsoft Active Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html)—Information about using Directory Service.

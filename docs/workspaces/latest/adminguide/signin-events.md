@@ -1,51 +1,51 @@
+
+
 # Understanding AWS sign-in events for WorkSpaces Personal users
+<a name="signin-events"></a>
 
 AWS CloudTrail logs successful and unsuccessful sign-in events for WorkSpaces Personal users. These events are generated for all authentication methods supported by the WorkSpaces Personal user login flow, including password-based authentication and smart cards. Each event captures when a user is prompted to solve a specific credential challenge or factor, as well as the status of that particular credential verification request. A user is signed in only after completing all required credential challenges, which results in a `UserAuthentication` event being logged.
 
-###### Note
-
+**Note**  
 Prior to the rollout of the new user login flow in late 2025 / early 2026, these CloudTrail events were only generated for smart card users. With the introduction of the new user login flow, these events are now recorded for all supported authentication types. The `CredentialType` field in each event identifies the authentication method used (for example, `PASSWORD` or `SMARTCARD`).
 
-These CloudTrail events are specific to the WorkSpaces Personal directory-based sign-in flow. Other authentication methods, such as SAML federation and TOTP-based MFA, are handled by IAM Sign-In and do not generate these WorkSpaces-specific events. For information about CloudTrail events from IAM Sign-In, see [Logging IAM and AWS STS API calls with AWS CloudTrail](../../../IAM/latest/UserGuide/cloudtrail-integration.md "../../../IAM/latest/UserGuide/cloudtrail-integration.md") in the _IAM User Guide_.
+These CloudTrail events are specific to the WorkSpaces Personal directory-based sign-in flow. Other authentication methods, such as SAML federation and TOTP-based MFA, are handled by IAM Sign-In and do not generate these WorkSpaces-specific events. For information about CloudTrail events from IAM Sign-In, see [Logging IAM and AWS STS API calls with AWS CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html) in the *IAM User Guide*.
 
-The following table captures each of the sign-in CloudTrail event names and their
-purposes.
+The following table captures each of the sign-in CloudTrail event names and their purposes.
 
-| Event name               | Event purpose                                                                                                                                                                                                                                                                                    |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CredentialChallenge`    | Notifies that AWS sign-in has requested that the user solve a<br>specific credential challenge and specifies the<br>`CredentialType` that is required (for example,<br>`PASSWORD` or `SMARTCARD`).                                                                                               |
-| `CredentialVerification` | Notifies that the user has attempted to solve a specific<br>`CredentialChallenge` request, and specifies whether<br>that credential has succeeded or failed.                                                                                                                                     |
-| `UserAuthentication`     | Notifies that all authentication requirements that the user was<br>challenged with have been successfully completed and that the user<br>was successfully signed in. When users fail to successfully complete<br>the required credential challenges, no<br>`UserAuthentication` event is logged. |
 
-The following table captures additional useful event data fields contained within
-specific sign-in CloudTrail events.
+| Event name | Event purpose | 
+| --- | --- | 
+| `CredentialChallenge` | Notifies that AWS sign-in has requested that the user solve a specific credential challenge and specifies the `CredentialType` that is required (for example, `PASSWORD` or `SMARTCARD`). | 
+| `CredentialVerification` | Notifies that the user has attempted to solve a specific `CredentialChallenge` request, and specifies whether that credential has succeeded or failed. | 
+| `UserAuthentication` | Notifies that all authentication requirements that the user was challenged with have been successfully completed and that the user was successfully signed in. When users fail to successfully complete the required credential challenges, no `UserAuthentication` event is logged. | 
 
-| Event name       | Event purpose                                                                                                                                                                                                                                                                                    | Sign-in event applicability                                                 | Example values                                                                                       |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `AuthWorkflowID` | Correlates all events emitted across an entire sign-in sequence.<br>For each user sign-in, multiple events can be emitted by AWS<br>sign-in.                                                                                                                                                     | `CredentialChallenge`,<br>`CredentialVerification`,<br>`UserAuthentication` | "AuthWorkflowID": "9de74b32-8362-4a01-a524-de21df59fd83"                                             |
-| `CredentialType` | Specifies the type of credential used for the authentication attempt.                                                                                                                                                                                                                            | `CredentialChallenge`,<br>`CredentialVerification`,<br>`UserAuthentication` | "CredentialType": "PASSWORD" or "CredentialType": "SMARTCARD" (possible values: PASSWORD, SMARTCARD) |
-| `LoginTo`        | Notifies that all authentication requirements that the user was<br>challenged with have been successfully completed and that the user<br>was successfully signed in. When users fail to successfully complete<br>the required credential challenges, no<br>`UserAuthentication` event is logged. | `UserAuthentication`                                                        | "LoginTo": "https://clients.amazonaws.com/workspaces“                                                |
+The following table captures additional useful event data fields contained within specific sign-in CloudTrail events.
+
+
+| Event name | Event purpose | Sign-in event applicability | Example values | 
+| --- | --- | --- | --- | 
+| `AuthWorkflowID` | Correlates all events emitted across an entire sign-in sequence. For each user sign-in, multiple events can be emitted by AWS sign-in. | `CredentialChallenge`, `CredentialVerification`, `UserAuthentication` | "AuthWorkflowID": "9de74b32-8362-4a01-a524-de21df59fd83" | 
+| `CredentialType` | Specifies the type of credential used for the authentication attempt. | `CredentialChallenge`, `CredentialVerification`, `UserAuthentication` | "CredentialType": "PASSWORD" or "CredentialType": "SMARTCARD" (possible values: PASSWORD, SMARTCARD) | 
+| `LoginTo` | Notifies that all authentication requirements that the user was challenged with have been successfully completed and that the user was successfully signed in. When users fail to successfully complete the required credential challenges, no `UserAuthentication` event is logged. | `UserAuthentication` | "LoginTo": "https://clients.amazonaws.com/workspaces“ | 
 
 ## Example events for AWS sign-in scenarios
+<a name="example-event-signin"></a>
 
-The following examples show the expected sequence of CloudTrail events for different
-sign-in scenarios.
+The following examples show the expected sequence of CloudTrail events for different sign-in scenarios.
 
-###### Contents
-
-- [Successful sign-in when authenticating with password](#successful-password-signin "#successful-password-signin")
-- [Successful sign-in when authenticating with smart card](#successful-signin "#successful-signin")
-- [Failed sign-in when authenticating with only a smart card](#failed-signin "#failed-signin")
+**Topics**
++ [Successful sign-in when authenticating with password](#successful-password-signin)
++ [Successful sign-in when authenticating with smart card](#successful-signin)
++ [Failed sign-in when authenticating with only a smart card](#failed-signin)
 
 ### Successful sign-in when authenticating with password
+<a name="successful-password-signin"></a>
 
-The following sequence of events captures an example of a successful
-password-based sign-in through the WorkSpaces Personal user login flow.
+The following sequence of events captures an example of a successful password-based sign-in through the WorkSpaces Personal user login flow.
 
-**CredentialChallenge**
+**CredentialChallenge**  
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -79,13 +79,11 @@ password-based sign-in through the WorkSpaces Personal user login flow.
         "CredentialChallenge": "Success"
     }
 }
-
 ```
 
-**Successful CredentialVerification**
+**Successful CredentialVerification**  
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -119,13 +117,11 @@ password-based sign-in through the WorkSpaces Personal user login flow.
         "CredentialVerification": "Success"
     }
 }
-
 ```
 
-**Successful UserAuthentication**
+**Successful UserAuthentication**  
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -160,18 +156,16 @@ password-based sign-in through the WorkSpaces Personal user login flow.
         "UserAuthentication": "Success"
     }
 }
-
 ```
 
 ### Successful sign-in when authenticating with smart card
+<a name="successful-signin"></a>
 
-The following sequence of events captures an example of a successful smart
-card sign-in.
+The following sequence of events captures an example of a successful smart card sign-in.
 
-**CredentialChallenge**
+**CredentialChallenge**  
 
 ```
-
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -183,9 +177,9 @@ card sign-in.
     },
     "eventTime": "2021-07-30T17:23:29Z",
     "eventSource": "signin.amazonaws.com",
-    "eventName": "CredentialChallenge",
-    "awsRegion": "us-east-1",
-    "sourceIPAddress": "AWS Internal",
+    "eventName": "CredentialChallenge", 
+    "awsRegion": "us-east-1", 
+    "sourceIPAddress": "AWS Internal", 
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36",
     "requestParameters": null,
     "responseElements": null,
@@ -198,19 +192,17 @@ card sign-in.
     "readOnly": false,
     "eventType": "AwsServiceEvent",
     "managementEvent": true,
-    "eventCategory": "Management",
-    "recipientAccountId": "509318101470",
+    "eventCategory": "Management", 
+    "recipientAccountId": "509318101470", 
     "serviceEventDetails": {
         CredentialChallenge": "Success"
     }
 }
-
 ```
 
-**Successful CredentialVerification**
+**Successful CredentialVerification**  
 
 ```
-
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -243,13 +235,11 @@ card sign-in.
         CredentialVerification": "Success"
     }
 }
-
 ```
 
-**Successful UserAuthentication**
+**Successful UserAuthentication**  
 
 ```
-
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -261,40 +251,38 @@ card sign-in.
     },
     "eventTime": "2021-07-30T17:23:39Z",
     "eventSource": "signin.amazonaws.com",
-    "eventName": "UserAuthentication",
-    "awsRegion": "us-east-1",
-    "sourceIPAddress": "AWS Internal",
+    "eventName": "UserAuthentication", 
+    "awsRegion": "us-east-1", 
+    "sourceIPAddress": "AWS Internal", 
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36",
     "requestParameters": null,
     "responseElements": null,
     "additionalEventData": {
-        "AuthWorkflowID": "6602f256-3b76-4977-96dc-306a7283269e",
-        "LoginTo": "https://clients.amazonaws.com/workspaces",
+        "AuthWorkflowID": "6602f256-3b76-4977-96dc-306a7283269e", 
+        "LoginTo": "https://clients.amazonaws.com/workspaces", 
         "CredentialType": "SMARTCARD"
     },
-    "requestID": "81869203-1404-4bf2-a1a4-3d30aa08d8d5",
-    "eventID": "acc0dba8-8e8b-414b-a52d-6b7cd51d38f6",
+    "requestID": "81869203-1404-4bf2-a1a4-3d30aa08d8d5", 
+    "eventID": "acc0dba8-8e8b-414b-a52d-6b7cd51d38f6", 
     "readOnly": false,
-    "eventType": "AwsServiceEvent",
+    "eventType": "AwsServiceEvent", 
     "managementEvent": true,
-    "eventCategory": "Management",
-    "recipientAccountId": "509318101470",
+    "eventCategory": "Management", 
+    "recipientAccountId": "509318101470", 
     "serviceEventDetails": {
         UserAuthentication": "Success"
     }
 }
-
 ```
 
 ### Failed sign-in when authenticating with only a smart card
+<a name="failed-signin"></a>
 
-The following sequence of events captures an example of failed smart card
-sign-in.
+The following sequence of events captures an example of failed smart card sign-in.
 
-**CredentialChallenge**
+**CredentialChallenge**  
 
 ```
-
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -306,9 +294,9 @@ sign-in.
     },
     "eventTime": "2021-07-30T17:23:06Z",
     "eventSource": "signin.amazonaws.com",
-    "eventName": "CredentialChallenge",
-    "awaRegion": "us-east-1",
-    "sourceIPAddress": "AWS Internal",
+    "eventName": "CredentialChallenge", 
+    "awaRegion": "us-east-1", 
+    "sourceIPAddress": "AWS Internal", 
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36",
     "requestParameters": null,
     "responseElements": null,
@@ -321,19 +309,17 @@ sign-in.
     "readOnly": false,
     "eventType": "AwsServiceEvent",
     "managementEvent": true,
-    "eventCategory": "Management",
-    "recipientAccountId": "509318101470",
+    "eventCategory": "Management", 
+    "recipientAccountId": "509318101470", 
     "serviceEventDetails": {
         CredentialChallenge": "Success"
     }
 }
-
 ```
 
-**Failed CredentialVerification**
+**Failed CredentialVerification**  
 
 ```
-
 {
     "eventVersion": "1.08",
     "userIdentity": {
@@ -360,11 +346,10 @@ sign-in.
     "readOnly": false,
     "eventType": "AwsServiceEvent",
     "managementEvent": true,
-    "eventCategory": "Management",
-    "recipientAccountId": "509318101470",
+    "eventCategory": "Management", 
+    "recipientAccountId": "509318101470", 
     "serviceEventDetails": {
         CredentialVerification": "Failure"
     }
 }
-
 ```
