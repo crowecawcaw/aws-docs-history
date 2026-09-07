@@ -1,88 +1,69 @@
+
+
 # MIDASUS04-BP01 Design backup strategies that focus on critical data
+<a name="midasus04-bp01."></a>
 
-Manufacturing data varies in criticality from essential production recipes and regulatory
-compliance records to temporary operational logs. Design backup strategies that prioritize
-truly valuable data while minimizing resource consumption.
+ Manufacturing data varies in criticality from essential production recipes and regulatory compliance records to temporary operational logs. Design backup strategies that prioritize truly valuable data while minimizing resource consumption. 
 
-**Desired outcome:** A data backup system that balances business continuity needs with sustainability goals,
-reducing storage requirements, energy consumption, and carbon footprint while maintaining
-manufacturing operational resilience.
+ **Desired outcome:** A data backup system that balances business continuity needs with sustainability goals, reducing storage requirements, energy consumption, and carbon footprint while maintaining manufacturing operational resilience. 
 
-**Benefits of establishing this best practice:**
+ **Benefits of establishing this best practice:** 
 
-1. Reduced storage costs and energy consumption
-2. Lower carbon footprint from decreased data center resources
-3. Optimized network bandwidth usage
-4. Improved recovery time for truly critical manufacturing data
+1.  Reduced storage costs and energy consumption 
 
-**Level of risk exposed if this best practice is not
-established:** Medium
+1.  Lower carbon footprint from decreased data center resources 
+
+1.  Optimized network bandwidth usage 
+
+1.  Improved recovery time for truly critical manufacturing data 
+
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
-
-- Categorize data by importance (critical production recipes, compliance records,
-  operational logs) to determine appropriate backup strategies for each category.
-- Establish tiered backup strategies based on data importance, with more frequent and
-  comprehensive backups for critical data while implementing less resource intensive
-  approaches for lower priority data.
-- Implement data compression, deduplication, and efficient formats to minimize
-  storage footprint and processing requirements for backups across the data categories.
-- Store manufacturing data in AWS Regions closest to production facilities to reduce
-  energy used for data transfer and improve access speeds for operational systems.
+<a name="implementation-guidance-70"></a>
++  Categorize data by importance (critical production recipes, compliance records, operational logs) to determine appropriate backup strategies for each category. 
++  Establish tiered backup strategies based on data importance, with more frequent and comprehensive backups for critical data while implementing less resource intensive approaches for lower priority data. 
++  Implement data compression, deduplication, and efficient formats to minimize storage footprint and processing requirements for backups across the data categories. 
++  Store manufacturing data in AWS Regions closest to production facilities to reduce energy used for data transfer and improve access speeds for operational systems. 
 
 ### Implementation steps
+<a name="implementation-steps-50"></a>
 
-1. **Data classification and assessment:**
+1.  **Data classification and assessment:** 
+   +  Conduct comprehensive data audits across Amazon EBS volumes, Amazon EFS file systems, and on-premises data connected through AWS Storage Gateway 
+   +  Document recovery time objectives (RTOs) and recovery point objectives (RPOs) for each data category in AWS Backup 
 
-   - Conduct comprehensive data audits across Amazon EBS volumes, Amazon EFS file
-     systems, and on-premises data connected through AWS Storage Gateway
-   - Document recovery time objectives (RTOs) and recovery point objectives (RPOs)
-     for each data category in AWS Backup
+1.  **Tiered backup strategy design:** 
+   +  Configure AWS Backup plans with different frequencies for critical EBS volumes, EFS file systems, and Storage Gateway volumes 
+   +  Implement lifecycle policies in Amazon S3 to automatically transition infrequently accessed backups to cold storage classes 
 
-2. **Tiered backup strategy design:**
+1.  **Storage optimization configuration:** 
+   +  Enable compression and deduplication features in AWS Backup for EBS snapshots and EFS backups 
+   +  Configure Amazon EFS Infrequent Access storage class for rarely accessed file data 
+   +  Implement AWS Storage Gateway with deduplication enabled to reduce backup data footprint 
 
-   - Configure AWS Backup plans with different frequencies for critical EBS
-     volumes, EFS file systems, and Storage Gateway volumes
-   - Implement lifecycle policies in Amazon S3 to automatically transition
-     infrequently accessed backups to cold storage classes
+1.  **Geographic distribution setup:** 
+   +  Deploy EBS and EFS backups to AWS Regions closest to primary usage locations 
+   +  Configure AWS Storage Gateway to cache frequently accessed data locally while storing backups in energy-efficient regions 
 
-3. **Storage optimization configuration:**
-
-   - Enable compression and deduplication features in AWS Backup for EBS snapshots
-     and EFS backups
-   - Configure Amazon EFS Infrequent Access storage class for rarely accessed file
-     data
-   - Implement AWS Storage Gateway with deduplication enabled to reduce backup
-     data footprint
-
-4. **Geographic distribution setup:**
-
-   - Deploy EBS and EFS backups to AWS Regions closest to primary usage locations
-   - Configure AWS Storage Gateway to cache frequently accessed data locally while
-     storing backups in energy-efficient regions
-
-5. **Performance monitoring:**
-
-   - Create CloudWatch dashboards to track backup storage utilization across EBS,
-     EFS, and Storage Gateway
-   - Establish quarterly review processes using AWS Trusted Advisor storage
-     recommendations
+1.  **Performance monitoring:** 
+   +  Create CloudWatch dashboards to track backup storage utilization across EBS, EFS, and Storage Gateway 
+   +  Establish quarterly review processes using AWS Trusted Advisor storage recommendations 
 
 ## Key AWS services
-
-- AWS Backup
-- Amazon S3
-- Amazon Glacier
-- Amazon EBS
-- Amazon EFS
-- AWS Storage Gateway
-- Amazon CloudWatch
-- AWS Trusted Advisor
+<a name="key-aws-services-32"></a>
++  AWS Backup 
++  Amazon S3 
++  Amazon Glacier 
++  Amazon EBS 
++  Amazon EFS 
++  AWS Storage Gateway 
++  Amazon CloudWatch 
++  AWS Trusted Advisor 
 
 ## Resources
-
-- [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md")
-- [Amazon Simple Storage Service: Managing the lifecycle of objects](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md")
-- [Cloud Storage on AWS](https://aws.amazon.com/storage/ "https://aws.amazon.com/storage/")
-- [Optimize
-  Siemens Teamcenter with Amazon FSx for NetApp ONTAP](https://d1.awsstatic.com/fsx/FSxONTAP-whitepaper-PLM.pdf "https://d1.awsstatic.com/fsx/FSxONTAP-whitepaper-PLM.pdf")
+<a name="resources-71"></a>
++  [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html) 
++  [Amazon Simple Storage Service: Managing the lifecycle of objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) 
++  [Cloud Storage on AWS](https://aws.amazon.com/storage/) 
++  [Optimize Siemens Teamcenter with Amazon FSx for NetApp ONTAP](https://d1.awsstatic.com/fsx/FSxONTAP-whitepaper-PLM.pdf) 
