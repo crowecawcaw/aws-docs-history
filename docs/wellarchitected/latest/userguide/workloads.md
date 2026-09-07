@@ -1,86 +1,54 @@
+
+
 # Workloads
+<a name="workloads"></a>
 
-A workload is a collection of resources and code that delivers business value, such as a
-customer-facing application or a backend process.
+A workload is a collection of resources and code that delivers business value, such as a customer-facing application or a backend process.
 
-A workload might consist of a subset of resources in a single AWS account or be a collection
-of multiple resources spanning multiple AWS accounts. A small business might have only a few
-workloads while a large enterprise might have thousands.
+A workload might consist of a subset of resources in a single AWS account or be a collection of multiple resources spanning multiple AWS accounts. A small business might have only a few workloads while a large enterprise might have thousands.
 
-The **Workloads** page, available from the left navigation, provides
-information about your workloads and any workloads that have been shared with you.
+The **Workloads** page, available from the left navigation, provides information about your workloads and any workloads that have been shared with you.
 
 The following information is displayed for each workload:
 
-**Name**
-
+**Name**  
 The name of the workload.
 
-**Owner**
-
+**Owner**  
 The AWS account ID that owns the workload.
 
-**Questions answered**
-
+**Questions answered**  
 The number of questions answered.
 
-**High risks**
-
+**High risks**  
 The number of high risk issues (HRIs) identified.
 
-**Medium risks**
-
+**Medium risks**  
 The number of medium risk issues (MRIs) identified.
 
-**Improvement status**
+**Improvement status**  
+The improvement status that you have set for the workload:  
++ None
++ Not Started
++ In Progress
++ Complete
++ Risk Acknowledged
 
-The improvement status that you have set for the workload:
-
-- None
-- Not Started
-- In Progress
-- Complete
-- Risk Acknowledged
-
-**Last updated**
-
+**Last updated**  
 Date and time that the workload was last updated.
 
 After you choose a workload from the list:
-
-- To review the details of the workload, choose **View details**.
-- To change the properties of the workload, choose **Edit**.
-- To manage sharing of the workload with other AWS accounts, users, AWS Organizations, or organization units (OUs), choose
-  **View details** and then **Shares**.
-- To delete the workload and all of its milestones, choose
-  **Delete**. Only the owner of the workload can delete
-  it.
-
-###### Warning
-
-Deleting a workload cannot be undone. All data associated with the workload is
-deleted.
++ To review the details of the workload, choose **View details**. 
++ To change the properties of the workload, choose **Edit**.
++ To manage sharing of the workload with other AWS accounts, users, AWS Organizations, or organization units (OUs), choose **View details** and then **Shares**.
++ To delete the workload and all of its milestones, choose **Delete**. Only the owner of the workload can delete it.
+**Warning**  
+Deleting a workload cannot be undone. All data associated with the workload is deleted.
 
 ## High Risk Issues (HRIs) and Medium Risk Issues (MRIs)
+<a name="wat-hri-mri"></a>
 
-**High risk issues (HRIs)** identified in the AWS Well-Architected Tool are architectural and operational
-choices that AWS has found might result in significant negative impact to a business.
-These HRIs might affect organizational operations, assets, and individuals. **Medium risk
-issues (MRIs)** also might negatively impact business, but to a lesser extent. These
-issues are based on your responses in the AWS Well-Architected Tool. The corresponding best practices
-are widely applied by AWS and AWS customers. These best practices are the guidance
-defined by the AWS Well-Architected Framework and lenses.
+**High risk issues (HRIs)** identified in the AWS Well-Architected Tool are architectural and operational choices that AWS has found might result in significant negative impact to a business. These HRIs might affect organizational operations, assets, and individuals. **Medium risk issues (MRIs)** also might negatively impact business, but to a lesser extent. These issues are based on your responses in the AWS Well-Architected Tool. The corresponding best practices are widely applied by AWS and AWS customers. These best practices are the guidance defined by the AWS Well-Architected Framework and lenses.
 
-###### Note
-
-These are guidelines only and customers should evaluate and measure what impact
-not implementing the best practice would have on their business. If there are
-specific technical or business reasons that prevent applying a best practice to the
-workload, then the risk might be lower than indicated. AWS suggests that customers
-document these reasons, and how they affect the best practice, in the workload
-notes. For all identified HRIs and MRIs, AWS suggests customers implement the best
-practice as defined in the AWS Well-Architected Tool. If the best practice is implemented, indicate
-that the issue has been resolved by marking the best practice as met in the
-AWS Well-Architected Tool. If customers choose not to implement the best practice, AWS suggests that
-they document the applicable business level approval and reasons for not
-implementing it.
+**Note**  
+These are guidelines only and customers should evaluate and measure what impact not implementing the best practice would have on their business. If there are specific technical or business reasons that prevent applying a best practice to the workload, then the risk might be lower than indicated. AWS suggests that customers document these reasons, and how they affect the best practice, in the workload notes. For all identified HRIs and MRIs, AWS suggests customers implement the best practice as defined in the AWS Well-Architected Tool. If the best practice is implemented, indicate that the issue has been resolved by marking the best practice as met in the AWS Well-Architected Tool. If customers choose not to implement the best practice, AWS suggests that they document the applicable business level approval and reasons for not implementing it. 

@@ -1,45 +1,40 @@
+
+
 # EventBridge
+<a name="eventbridge"></a>
 
-AWS Well-Architected Tool sends events to Amazon EventBridge when actions are taken on Well-Architected resources. You can use EventBridge and
-these events to write rules that take actions, such as notifying you, when a resource change occurs.
-For more information, see
-[What is Amazon EventBridge?](../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md "../../../eventbridge/latest/userguide/what-is-amazon-eventbridge.md")
+AWS Well-Architected Tool sends events to Amazon EventBridge when actions are taken on Well-Architected resources. You can use EventBridge and these events to write rules that take actions, such as notifying you, when a resource change occurs. For more information, see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html) 
 
-###### Note
-
+**Note**  
 Events are delivered on a best-effort basis.
 
 The following actions result in EventBridge events:
-
-- Workload-related
-
-  - Creating or deleting a workload
-  - Creating a milestone
-  - Updating the properties of a workload
-  - Sharing or unsharing a workload
-  - Updating the status of a share invitation
-  - Adding or removing tags
-  - Updating an answer
-  - Updating review notes
-  - Adding or removing a lens from a workload
-
-- Lens-related
-
-  - Importing or exporting a custom lens
-  - Publishing a custom lens
-  - Deleting a custom lens
-  - Sharing or unsharing a custom lens
-  - Updating the status of a share invitation
-  - Adding or removing a lens from a workload
++ Workload-related
+  + Creating or deleting a workload
+  + Creating a milestone
+  + Updating the properties of a workload
+  + Sharing or unsharing a workload
+  + Updating the status of a share invitation
+  + Adding or removing tags
+  + Updating an answer
+  + Updating review notes
+  + Adding or removing a lens from a workload
++ Lens-related
+  + Importing or exporting a custom lens
+  + Publishing a custom lens
+  + Deleting a custom lens
+  + Sharing or unsharing a custom lens
+  + Updating the status of a share invitation
+  + Adding or removing a lens from a workload
 
 ## Sample events from AWS WA Tool
+<a name="sample-eventbridge-events"></a>
 
 This section includes example events from AWS Well-Architected Tool.
 
 **Updating an answer in a workload**
 
 ```
-
  {
    "version":"0",
    "id":"00de336a-83cc-b80b-f0e6-f44c88a96050",
@@ -103,13 +98,11 @@ This section includes example events from AWS Well-Architected Tool.
       "eventCategory":"Management"
    }
 }
-
 ```
 
 **Publishing a custom lens**
 
 ```
-
 {
    "version":"0",
    "id":"4054a34b-60a9-53c1-3146-c1a384dba41b",
@@ -167,5 +160,4 @@ This section includes example events from AWS Well-Architected Tool.
       "eventCategory":"Management"
    }
 }
-
 ```
