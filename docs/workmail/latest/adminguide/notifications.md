@@ -1,25 +1,17 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](workmail-end-of-support.md "workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Working with notifications
+<a name="notifications"></a>
 
-With the Amazon WorkMail Push Notifications API, you can receive push notifications about
-changes in your mailbox, including new email and calendar updates. You must register the
-URLs (or push notification responders) to receive notifications. With this feature,
-developers can create responsive applications for Amazon WorkMail users, as applications are
-quickly notified about changes from a user's mailbox.
+With the Amazon WorkMail Push Notifications API, you can receive push notifications about changes in your mailbox, including new email and calendar updates. You must register the URLs (or push notification responders) to receive notifications. With this feature, developers can create responsive applications for Amazon WorkMail users, as applications are quickly notified about changes from a user's mailbox.
 
-For more information, see [Notification subscriptions, mailbox events, and EWS in Exchange](<https://msdn.microsoft.com/en-us/library/office/dn458791(v=exchg.150).aspx> "https://msdn.microsoft.com/en-us/library/office/dn458791(v=exchg.150).aspx").
+For more information, see [Notification subscriptions, mailbox events, and EWS in Exchange](https://msdn.microsoft.com/en-us/library/office/dn458791(v=exchg.150).aspx).
 
-You can subscribe to specific folders, such as Inbox or Calendar, or to all
-folders for mailbox change events (including New Mail, Created, and Modified).
+You can subscribe to specific folders, such as Inbox or Calendar, or to all folders for mailbox change events (including New Mail, Created, and Modified).
 
-You can use client libraries such as the [EWS Java API](https://github.com/OfficeDev/ews-java-api "https://github.com/OfficeDev/ews-java-api") or the [Managed EWS C# API](<https://msdn.microsoft.com/en-us/library/office/dn567668(v=exchg.150).aspx> "https://msdn.microsoft.com/en-us/library/office/dn567668(v=exchg.150).aspx") to access this feature. A complete sample application of
-a push responder, developed using AWS Lambda and API Gateway (using the AWS Serverless
-framework), is available [on
-the AWS GitHub page](https://github.com/aws-samples/amazon-workmail-demo-ews-push-notifications "https://github.com/aws-samples/amazon-workmail-demo-ews-push-notifications"). It uses the EWS Java API.
+You can use client libraries such as the [EWS Java API](https://github.com/OfficeDev/ews-java-api) or the [Managed EWS C\# API](https://msdn.microsoft.com/en-us/library/office/dn567668(v=exchg.150).aspx) to access this feature. A complete sample application of a push responder, developed using AWS Lambda and API Gateway (using the AWS Serverless framework), is available [on the AWS GitHub page](https://github.com/aws-samples/amazon-workmail-demo-ews-push-notifications). It uses the EWS Java API.
 
 The following is a sample push subscription request:
 
@@ -70,8 +62,7 @@ The following is a successful subscription request result:
 </soap:Envelope>
 ```
 
-Afterwards, notifications are sent to the URL specified in the subscription
-request. The following is a sample notification:
+Afterwards, notifications are sent to the URL specified in the subscription request. The following is a sample notification:
 
 ```
 <soap:Envelope
@@ -107,8 +98,7 @@ request. The following is a sample notification:
 </soap:Envelope>
 ```
 
-To acknowledge that the push notification responder has received the notification,
-it must reply with the following:
+To acknowledge that the push notification responder has received the notification, it must reply with the following:
 
 ```
 <?xml version="1.0"?>
@@ -121,8 +111,7 @@ it must reply with the following:
   </s:Envelope>
 ```
 
-To unsubscribe from receiving push notifications, clients must send an unsubscribe
-response in the `SubscriptionStatus` field, similar to the following:
+To unsubscribe from receiving push notifications, clients must send an unsubscribe response in the `SubscriptionStatus` field, similar to the following:
 
 ```
 <?xml version="1.0"?>
@@ -135,13 +124,7 @@ response in the `SubscriptionStatus` field, similar to the following:
   </s:Envelope>
 ```
 
-To verify the health of your push notification responder, Amazon WorkMail sends a “heartbeat”
-(also called a `StatusEvent`). The frequency with which they are sent is
-determined by the `StatusFrequency` parameter provided in the initial
-subscription request. For example, if `StatusFrequency` equals
-`1`, a `StatusEvent` is sent every 1 minute. This
-value can range between 1 and 1440 minutes. This `StatusEvent` looks like the
-following:
+To verify the health of your push notification responder, Amazon WorkMail sends a “heartbeat” (also called a `StatusEvent`). The frequency with which they are sent is determined by the `StatusFrequency` parameter provided in the initial subscription request. For example, if `StatusFrequency` equals **1**, a `StatusEvent` is sent every 1 minute. This value can range between 1 and 1440 minutes. This `StatusEvent` looks like the following:
 
 ```
 <?xml version="1.0 (http://www.w3.org/TR/REC-xml/)" encoding="utf-8"?>
@@ -169,12 +152,4 @@ following:
 </soap:Envelope>
 ```
 
-If a client push notification responder fails to respond with the same
-`OK` status as before, the notification is retried for a maximum of
-`StatusFrequency` minutes. For example, if `StatusFrequency`
-equals 5, and the first notification fails, it is retried for a maximum of 5 minutes
-with an exponential backoff between each retry. If the notification is not delivered
-after the retry time has expired, the subscription is invalidated and no new
-notifications are delivered. You must create a new subscription to continue to receive
-notifications about mailbox events. Currently, you can subscribe for a maximum of three
-subscriptions per mailbox.
+If a client push notification responder fails to respond with the same `OK` status as before, the notification is retried for a maximum of `StatusFrequency` minutes. For example, if `StatusFrequency` equals 5, and the first notification fails, it is retried for a maximum of 5 minutes with an exponential backoff between each retry. If the notification is not delivered after the retry time has expired, the subscription is invalidated and no new notifications are delivered. You must create a new subscription to continue to receive notifications about mailbox events. Currently, you can subscribe for a maximum of three subscriptions per mailbox.

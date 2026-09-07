@@ -1,31 +1,46 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](workmail-end-of-support.md "workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Managing user aliases
+<a name="managing_users"></a>
 
 You can add or remove email aliases to users.
 
-###### To add an email alias to a user
+**To add an email alias to a user**
 
-1. Open the Amazon WorkMail console at
-   [https://console.aws.amazon.com/workmail/](https://console.aws.amazon.com/workmail/ "https://console.aws.amazon.com/workmail/").
+1. Open the Amazon WorkMail console at [https://console.aws.amazon.com/workmail/](https://console.aws.amazon.com/workmail/).
 
-If necessary, change the AWS Region. In the bar at the top of the console
-window, open the **Select a Region** list and choose a Region. For more information, see [Regions and
-endpoints](../../../general/latest/gr/index.md "../../../general/latest/gr/index.md") in the _Amazon Web Services General Reference_. 2. In the navigation pane, choose **Organizations**, and then choose the name of the organization for which you want to add users. 3. In the navigation pane, choose **Users**, and then
-select the name of the user to which you want to add an alias. 4. In the **User details** section, choose the
-**Aliases** tab. 5. Under the **Aliases** tab, choose **Add
-alias**. 6. In the **Alias** box, enter an alias. 7. Select a domain for an alias. 8. Choose **Add**.
+   If necessary, change the AWS Region. In the bar at the top of the console window, open the **Select a Region** list and choose a Region. For more information, see [Regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html) in the *Amazon Web Services General Reference*.
 
-###### To remove an email alias from a user
+1. In the navigation pane, choose **Organizations**, and then choose the name of the organization for which you want to add users. 
 
-1. Open the Amazon WorkMail console at
-   [https://console.aws.amazon.com/workmail/](https://console.aws.amazon.com/workmail/ "https://console.aws.amazon.com/workmail/").
+1. In the navigation pane, choose **Users**, and then select the name of the user to which you want to add an alias.
 
-If necessary, change the AWS Region. In the bar at the top of the console
-window, open the **Select a Region** list and choose a Region. For more information, see [Regions and
-endpoints](../../../general/latest/gr/index.md "../../../general/latest/gr/index.md") in the _Amazon Web Services General Reference_. 2. In the navigation pane, choose **Organizations**, and then choose the name of the organization from which you want to remove users. 3. In the navigation pane, choose **Users**, and then
-select the name of the user from which you want to remove aliases. 4. In the **User details** section, choose the
-**Aliases** tab. 5. Under the **Aliases** tab, select the check box against the aliases you want to remove. 6. Verify the aliases that will be removed. 7. On the **Remove aliases** window, choose **Remove**.
+1. In the **User details** section, choose the **Aliases** tab.
+
+1. Under the **Aliases** tab, choose **Add alias**.
+
+1. In the **Alias** box, enter an alias.
+
+1. Select a domain for an alias.
+
+1. Choose **Add**.
+
+**To remove an email alias from a user**
+
+1. Open the Amazon WorkMail console at [https://console.aws.amazon.com/workmail/](https://console.aws.amazon.com/workmail/).
+
+   If necessary, change the AWS Region. In the bar at the top of the console window, open the **Select a Region** list and choose a Region. For more information, see [Regions and endpoints](http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html) in the *Amazon Web Services General Reference*.
+
+1. In the navigation pane, choose **Organizations**, and then choose the name of the organization from which you want to remove users. 
+
+1. In the navigation pane, choose **Users**, and then select the name of the user from which you want to remove aliases.
+
+1. In the **User details** section, choose the **Aliases** tab.
+
+1. Under the **Aliases** tab, select the check box against the aliases you want to remove.
+
+1. Verify the aliases that will be removed.
+
+1. On the **Remove aliases** window, choose **Remove**.

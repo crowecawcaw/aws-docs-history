@@ -1,31 +1,21 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](workmail-end-of-support.md "workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Enabling signed or encrypted email
+<a name="enable_encryption"></a>
 
-You can use S/MIME to enable users to send signed or encrypted email both inside and
-outside of the organization.
+You can use S/MIME to enable users to send signed or encrypted email both inside and outside of the organization.
 
-###### Note
+**Note**  
+User certificates in the Global Address List (GAL) are supported only in a connected Active Directory setup.
 
-User certificates in the Global Address List (GAL) are supported only in a
-connected Active Directory setup.
+**To enable users to send signed or encrypted emails**
 
-###### To enable users to send signed or encrypted emails
+1. Set up an Active Directory (AD) Connector. Setting up an AD Connector with your on-premises directory allows users to continue to use their existing corporate credentials.
 
-1. Set
-   up an Active Directory (AD) Connector. Setting up an AD
-   Connector with your on-premises directory allows users to continue to use their
-   existing corporate credentials.
-2. Configure Certificate
-   Autoenrollment
-   to issue and store user certificates automatically in the Active Directory. Amazon WorkMail
-   receives user certificates from the Active Directory and publishes them to the
-   GAL. For more information, see [Configure Certificate Autoenrollment](<https://technet.microsoft.com/en-us/library/cc731522(v=ws.11).aspx> "https://technet.microsoft.com/en-us/library/cc731522(v=ws.11).aspx").
-3. Distribute
-   the generated certificates to users by exporting the certificates from the
-   server running Microsoft Exchange and mailing them.
-4. Each user installs the certificate to their email program (such as Windows
-   Outlook) and mobile devices.
+1. Configure Certificate Autoenrollment to issue and store user certificates automatically in the Active Directory. Amazon WorkMail receives user certificates from the Active Directory and publishes them to the GAL. For more information, see [Configure Certificate Autoenrollment](https://technet.microsoft.com/en-us/library/cc731522(v=ws.11).aspx).
+
+1. Distribute the generated certificates to users by exporting the certificates from the server running Microsoft Exchange and mailing them.
+
+1. Each user installs the certificate to their email program (such as Windows Outlook) and mobile devices.

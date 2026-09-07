@@ -1,52 +1,41 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](workmail-end-of-support.md "workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Troubleshooting Amazon WorkMail identity and access
+<a name="security_iam_troubleshoot"></a>
 
-Use the following information to help you diagnose and fix common issues that you might
-encounter when working with Amazon WorkMail and IAM.
+Use the following information to help you diagnose and fix common issues that you might encounter when working with Amazon WorkMail and IAM.
 
-###### Topics
-
-- [I am not authorized to perform an action in Amazon WorkMail](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people outside of my AWS account to access my Amazon WorkMail resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+**Topics**
++ [I am not authorized to perform an action in Amazon WorkMail](#security_iam_troubleshoot-no-permissions)
++ [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole)
++ [I want to allow people outside of my AWS account to access my Amazon WorkMail resources](#security_iam_troubleshoot-cross-account-access)
 
 ## I am not authorized to perform an action in Amazon WorkMail
+<a name="security_iam_troubleshoot-no-permissions"></a>
 
-If the AWS Management Console tells you that you're not authorized to perform an action, then you
-must contact your administrator for assistance. Your administrator is the person that
-provided you with your user name and password.
+If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your administrator for assistance. Your administrator is the person that provided you with your user name and password.
 
-The following example error occurs when the `mateojackson` IAM user
-tries to use the console to view details about a group but
-does not have `workmail:DescribeGroup`
-permissions.
+The following example error occurs when the `mateojackson` IAM user tries to use the console to view details about a group but does not have `workmail:DescribeGroup` permissions.
 
 ```
-User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: workmail:DescribeGroup on resource: `group`
+User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: workmail:DescribeGroup on resource: {{group}}
 ```
 
-In this case, Mateo asks his administrator to update his policies to allow him to
-access the `group` resource using the
-`workmail:DescribeGroup`
-action.
+In this case, Mateo asks his administrator to update his policies to allow him to access the `group` resource using the `workmail:DescribeGroup` action.
 
 ## I am not authorized to perform iam:PassRole
+<a name="security_iam_troubleshoot-passrole"></a>
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon WorkMail.
 
-Some AWS services allow you to pass an existing role to that service instead of creating a new service role or service-linked role. To do
-this, you must have permissions to pass the role to the service.
+Some AWS services allow you to pass an existing role to that service instead of creating a new service role or service-linked role. To do this, you must have permissions to pass the role to the service.
 
-The following example error occurs when an IAM user named `marymajor` tries to use the console to perform an action in
-Amazon WorkMail. However, the action requires the service to have permissions that are granted by a service role. Mary does not have permissions to pass the
-role to the service.
+The following example error occurs when an IAM user named `marymajor` tries to use the console to perform an action in Amazon WorkMail. However, the action requires the service to have permissions that are granted by a service role. Mary does not have permissions to pass the role to the service.
 
 ```
-User: arn:aws:iam::123456789012:user/`marymajor` is not authorized to perform: iam:PassRole
+User: arn:aws:iam::123456789012:user/marymajor is not authorized to perform: iam:PassRole
 ```
 
 In this case, Mary's policies must be updated to allow her to perform the `iam:PassRole` action.
@@ -54,18 +43,13 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
 ## I want to allow people outside of my AWS account to access my Amazon WorkMail resources
+<a name="security_iam_troubleshoot-cross-account-access"></a>
 
-You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
-is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
-people access to your resources.
+You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant people access to your resources.
 
 To learn more, consult the following:
-
-- To learn whether Amazon WorkMail supports these features, see [How Amazon WorkMail works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
-- To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
-  own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
-- To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the
-  _IAM User Guide_.
-- To learn how to provide access through identity federation, see [Providing access to externally authenticated users (identity federation)](../../../IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.md") in the _IAM User Guide_.
-- To learn the difference between using roles and resource-based policies for cross-account access, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
-  _IAM User Guide_.
++ To learn whether Amazon WorkMail supports these features, see [How Amazon WorkMail works with IAM](security_iam_service-with-iam.md).
++ To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you own](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) in the *IAM User Guide*.
++ To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) in the *IAM User Guide*.
++ To learn how to provide access through identity federation, see [Providing access to externally authenticated users (identity federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.html) in the *IAM User Guide*.
++ To learn the difference between using roles and resource-based policies for cross-account access, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.

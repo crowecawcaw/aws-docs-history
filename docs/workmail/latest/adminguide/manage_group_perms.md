@@ -1,27 +1,33 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](workmail-end-of-support.md "workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Managing mailbox permissions for groups
+<a name="manage_group_perms"></a>
 
 You can add or remove group permissions for Amazon WorkMail.
 
-###### Note
-
+**Note**  
 You can't apply **Full Access** permissions to a group, because groups don't have a mailbox to access.
 
-###### To manage group permissions
+**To manage group permissions**
 
-1. Open the Amazon WorkMail console at
-   [https://console.aws.amazon.com/workmail/](https://console.aws.amazon.com/workmail/ "https://console.aws.amazon.com/workmail/").
+1. Open the Amazon WorkMail console at [https://console.aws.amazon.com/workmail/](https://console.aws.amazon.com/workmail/).
 
-If necessary, change the AWS Region In the bar at the top of the console window, open the **Select a Region** list and choose a Region. For more information, see [Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in the
-_Amazon Web Services General Reference_. 2. In the navigation pane, choose **Organizations**, then choose the name of the organization for which you want to manage permissions. 3. In the navigation pane, choose **Groups**, and then select
-the name of the group for which you want to set permissions. 4. Choose the **Permissions** tab, then choose **Add
-permissions**.
+   If necessary, change the AWS Region In the bar at the top of the console window, open the **Select a Region** list and choose a Region. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the *Amazon Web Services General Reference*.
 
-The **Add permissions** dialog box appears. 5. Open the **Add new permissions** list and select the user or
-group to grant permissions for the mailbox. 6. Under **Mailbox permissions** and **Send
-permissions**, choose the desired options. 7. Choose **Add**.
+1. In the navigation pane, choose **Organizations**, then choose the name of the organization for which you want to manage permissions.
+
+1. In the navigation pane, choose **Groups**, and then select the name of the group for which you want to set permissions.
+
+1. Choose the **Permissions** tab, then choose **Add permissions**.
+
+   The **Add permissions** dialog box appears.
+
+1. Open the **Add new permissions** list and select the user or group to grant permissions for the mailbox.
+
+1. Under **Mailbox permissions** and **Send permissions**, choose the desired options.
+
+1. Choose **Add**.
+
 Changes to permissions can take up to five minutes to propagate to users.

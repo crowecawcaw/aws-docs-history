@@ -1,30 +1,21 @@
-End of support notice: On March 31, 2027, AWS
-will end support for Amazon WorkMail. After March 31, 2027, you will
-no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources.
-For more information, see [Amazon WorkMail end of support](workmail-end-of-support.md "workmail-end-of-support.md").
+
+
+End of support notice: On March 31, 2027, AWS will end support for Amazon WorkMail. After March 31, 2027, you will no longer be able to access the Amazon WorkMail console or Amazon WorkMail resources. For more information, see [Amazon WorkMail end of support](https://docs.aws.amazon.com/workmail/latest/adminguide/workmail-end-of-support.html). 
 
 # Programmatic access to mailboxes
+<a name="mail_perms_programmatic"></a>
 
-To programmatically access Amazon WorkMail mailboxes, use the Exchange Web Services (EWS) protocol.
-With EWS, you can access all item types in a mailbox. Here are some EWS libraries that you
-can use with Amazon WorkMail:
+To programmatically access Amazon WorkMail mailboxes, use the Exchange Web Services (EWS) protocol. With EWS, you can access all item types in a mailbox. Here are some EWS libraries that you can use with Amazon WorkMail: 
++ **Java** – [EWS Java API](https://github.com/OfficeDev/ews-java-api)
++ **.Net** – [EWS Managed API](https://github.com/OfficeDev/ews-managed-api)
++ **Python** – [Exchangelib](https://pypi.org/project/exchangelib/)
 
-- Java – [EWS Java API](https://github.com/OfficeDev/ews-java-api "https://github.com/OfficeDev/ews-java-api")
-- .Net – [EWS Managed
-  API](https://github.com/OfficeDev/ews-managed-api "https://github.com/OfficeDev/ews-managed-api")
-- Python – [Exchangelib](https://pypi.org/project/exchangelib/ "https://pypi.org/project/exchangelib/")
-  Amazon WorkMail also supports IMAP and SMTP protocols, which you can use to send and receive emails.
-  You can see the URLs supported for Amazon WorkMail protocols under [Amazon WorkMail
-  endpoints and quotas](../../../general/latest/gr/workmail.md "../../../general/latest/gr/workmail.md").
+Amazon WorkMail also supports IMAP and SMTP protocols, which you can use to send and receive emails. You can see the URLs supported for Amazon WorkMail protocols under [Amazon WorkMail endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/workmail.html).
 
 When using the EWS protocol, Amazon WorkMail supports the following authentication methods:
++ **Basic Authentication** – With basic authentication, you enter an email address and password. 
++ **Impersonation roles** – With impersonation roles, you access users' mailboxes without entering the user's credentials.
 
-- Basic Authentication – With basic authentication, you
-  enter an email address and password.
-- Impersonation roles – With impersonation roles, you
-  access users' mailboxes without entering the user's credentials.
-
-###### Topics
-
-- [Managing impersonation roles](managing-impersonation-roles.md "managing-impersonation-roles.md")
-- [Using impersonation roles](using-impersonation-roles.md "using-impersonation-roles.md")
+**Topics**
++ [Managing impersonation roles](managing-impersonation-roles.md)
++ [Using impersonation roles](using-impersonation-roles.md)
