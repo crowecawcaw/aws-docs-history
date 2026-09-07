@@ -1,13 +1,16 @@
+
+
 # Definitions
+<a name="definitions-ops"></a>
 
-There are four focus areas for operational excellence:
+ There are four focus areas for operational excellence: 
 
-1. [Organization](organization.md "organization.md")
-2. [Prepare](prepare.md "prepare.md")
-3. [Operate](operate.md "operate.md")
-4. [Evolve](evolve.md "evolve.md")
+1. [ Organization ](organization.md)
 
-In addition to what is covered by the Well-Architected Framework
-concerning process, runbooks, and game days, there are specific
-areas you should review to drive operational excellence within IoT
-applications.
+1. [ Prepare ](prepare.md)
+
+1. [ Operate ](operate.md)
+
+1. [ Evolve ](evolve.md)
+
+ In addition to what is covered by the Well-Architected Framework concerning process, runbooks, and game days, there are specific areas you should review to drive operational excellence within IoT applications. 
