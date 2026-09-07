@@ -1,57 +1,41 @@
+
+
 # Region selection
+<a name="region-selection"></a>
 
-| HPCSUS01: Have you chosen an AWS Region that takes<br>into consideration your sustainability KPI? |
-| ------------------------------------------------------------------------------------------------- |
-|                                                                                                   |
 
-In
-[SUS01-BP01](../sustainability-pillar/sus_sus_region_a2.md "../sustainability-pillar/sus_sus_region_a2.md"),
-you choose a Region based on both business requirements and
-sustainability goals. For HPC workloads, you need to consider
-additional operational requirements, such as instance availability
-and performance needs.
+| HPCSUS01: Have you chosen an AWS Region that takes into consideration your sustainability KPI? | 
+| --- | 
+|   | 
+
+ In [SUS01-BP01](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_region_a2.html), you choose a Region based on both business requirements and sustainability goals. For HPC workloads, you need to consider additional operational requirements, such as instance availability and performance needs. 
 
 ## HPCSUS01-BP01 Select target AWS Regions that balance performance and resource availability with your sustainability goals
+<a name="hpcsus01-bp01"></a>
 
-The AWS Cloud is a constantly expanding network of Regions and points of presence
-(PoP), with a global network infrastructure linking them together. The choice of Region for
-your workload significantly affects its KPIs, including end user latency, cost, and carbon
-footprint. To effectively improve these KPIs, you should choose Regions for your workload
-based on both your business requirements and sustainability goals.
+ The AWS Cloud is a constantly expanding network of Regions and points of presence (PoP), with a global network infrastructure linking them together. The choice of Region for your workload significantly affects its KPIs, including end user latency, cost, and carbon footprint. To effectively improve these KPIs, you should choose Regions for your workload based on both your business requirements and sustainability goals. 
 
-Following performance efficiency best practices, you have identified the right Amazon EC2
-instances for your HPC workloads. Amazon EC2 provides the ability to deploy instances in multiple
-locations, so you need to find which Regions have your preferred instance type. Then, select
-the best Region following the other practices in this pillar.
+ Following performance efficiency best practices, you have identified the right Amazon EC2 instances for your HPC workloads. Amazon EC2 provides the ability to deploy instances in multiple locations, so you need to find which Regions have your preferred instance type. Then, select the best Region following the other practices in this pillar. 
 
 ### Implementation guidance
+<a name="implementation-guidance-22"></a>
 
-To achieve your sustainability goals, choose Regions that are near Amazon renewable
-energy projects and where the grid has a published carbon intensity that is lower than
-other locations (or Regions). For more detail on choosing a Region based on your
-sustainability guidelines, see [How to select a Region for your workload based on sustainability goals](https://aws.amazon.com/blogs/architecture/how-to-select-a-region-for-your-workload-based-on-sustainability-goals/ "https://aws.amazon.com/blogs/architecture/how-to-select-a-region-for-your-workload-based-on-sustainability-goals/").
+ To achieve your sustainability goals, choose Regions that are near Amazon renewable energy projects and where the grid has a published carbon intensity that is lower than other locations (or Regions). For more detail on choosing a Region based on your sustainability guidelines, see [How to select a Region for your workload based on sustainability goals](https://aws.amazon.com/blogs/architecture/how-to-select-a-region-for-your-workload-based-on-sustainability-goals/). 
 
 ## HPCSUS01-BP02 Select Regions based on where your users are located
+<a name="hpcsus01-bp02"></a>
 
-Placing a workload closer to its users provides the lowest
-latency while decreasing data movement across the network and
-reducing environmental impact.
+ Placing a workload closer to its users provides the lowest latency while decreasing data movement across the network and reducing environmental impact. 
 
 ### Implementation guidance
+<a name="implementation-guidance-23"></a>
 
-It may happen that the two best practices described above
-cannot be implemented simultaneously (for example, if the
-preferred instances are not available in the Region closest to
-the end-users). In this case, the HPC cluster administrators
-must find the right tradeoff between the business objectives
-and the sustainability objectives.
+ It may happen that the two best practices described above cannot be implemented simultaneously (for example, if the preferred instances are not available in the Region closest to the end-users). In this case, the HPC cluster administrators must find the right tradeoff between the business objectives and the sustainability objectives. 
 
 ## Key AWS services
-
-- [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/")
+<a name="key-aws-services-9"></a>
++  [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/) 
 
 ## Resources
-
-- [How
-  to select a Region for your workload based on sustainability
-  goals](https://aws.amazon.com/blogs/architecture/how-to-select-a-region-for-your-workload-based-on-sustainability-goals/ "https://aws.amazon.com/blogs/architecture/how-to-select-a-region-for-your-workload-based-on-sustainability-goals/").
+<a name="resources-9"></a>
++  [How to select a Region for your workload based on sustainability goals](https://aws.amazon.com/blogs/architecture/how-to-select-a-region-for-your-workload-based-on-sustainability-goals/). 
